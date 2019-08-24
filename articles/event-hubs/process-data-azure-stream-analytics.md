@@ -8,18 +8,15 @@ ms.author: spelluru
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: 003e68b36ff71fb2991cf087ef33f72aba73a8be
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233967"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991938"
 ---
-# <a name="process-data-from-your-event-hub-using-azure-stream-analytics-preview"></a>Elaborare i dati dall'hub eventi usando analisi di flusso di Azure (anteprima)
+# <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Elaborare i dati dall'hub eventi usando analisi di flusso di Azure 
 Il servizio analisi di flusso di Azure semplifica l'inserimento, l'elaborazione e l'analisi dei dati di streaming dagli hub eventi di Azure, consentendo di ottenere informazioni avanzate per l'esecuzione di azioni in tempo reale. Questa integrazione consente di creare rapidamente una pipeline di analisi del percorso critico. È possibile usare la portale di Azure per visualizzare i dati in ingresso e scrivere una query di analisi di flusso. Quando la query è pronta, è possibile spostarla in produzione solo con pochi clic. 
-
-> [!NOTE]
-> Questa funzionalità è attualmente in anteprima. 
 
 ## <a name="key-benefits"></a>Vantaggi principali
 Ecco i vantaggi principali di hub eventi di Azure e l'integrazione di analisi di flusso di Azure: 

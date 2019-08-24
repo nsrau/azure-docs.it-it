@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 4722cda0506493671ff872d75e7376f3de74b1b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886650"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981246"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e data warehouse
 
@@ -33,6 +33,7 @@ Quando si crea una nuova SQL Server [di Azure da portale di Azure](sql-database-
 
 - Regole del firewall della rete virtuale: usare questa funzionalità per consentire il traffico da una rete virtuale specifica entro il limite di Azure
 
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
 
 ## <a name="allow-azure-services"></a>Consenti i servizi di Azure 
 Durante la creazione di una nuova SQL Server di Azure [da portale di Azure](sql-database-single-database-get-started.md), questa impostazione rimane deselezionata.

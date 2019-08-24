@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: efc721f7852d50e431be38f52e27d72ad7f3ae76
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 93f111eb4439b89ac367ad7e7b951e26cecb86e4
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877577"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981083"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
 
@@ -53,7 +53,7 @@ Esempio di errore non elaborato:
 
 **Causa:** All'utente che ha eseguito l'accesso non è stato assegnato il ruolo TenantCreator nel Azure Active Directory.
 
-**Difficoltà** Seguire le istruzioni riportate in [assegnare il ruolo applicazione TenantCreator a un utente nel tenant del Azure Active Directory](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). Dopo aver seguito le istruzioni, si avrà un utente assegnato al ruolo TenantCreator.
+**Difficoltà** Seguire le istruzioni riportate in [assegnare il ruolo applicazione TenantCreator a un utente nel tenant del Azure Active Directory](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). Dopo aver seguito le istruzioni, si avrà un utente assegnato al ruolo TenantCreator.
 
 ![Screenshot del ruolo TenantCreator assegnato.](media/TenantCreatorRoleAssigned.png)
 
@@ -314,9 +314,9 @@ Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName “RDS Contributor” -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Errore: L'utente richiede Azure multi-factor authentication
+### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Errore: L'utente richiede Azure Multi-Factor Authentication (autenticazione a più fattori)
 
-![Screenshot della distribuzione non riuscita a causa della mancanza di multi-factor authentication](media/MFARequiredError.png)
+![Screenshot della distribuzione non riuscita a causa della mancanza di Multi-Factor Authentication (autenticazione a più fattori)](media/MFARequiredError.png)
 
 Esempio di errore non elaborato:
 
@@ -324,7 +324,7 @@ Esempio di errore non elaborato:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Causa:** L'amministratore del tenant del desktop virtuale Windows specificato richiede l'accesso a multi-factor authentication di Azure.
+**Causa:** L'amministratore del tenant desktop virtuale Windows specificato richiede l'accesso a Azure Multi-Factor Authentication (multi-factor authentication).
 
 **Difficoltà** Creare un'entità servizio e assegnarle un ruolo per il tenant di desktop virtuale Windows seguendo la procedura descritta [nell'esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). Dopo aver verificato che sia possibile accedere a desktop virtuale Windows con l'entità servizio, eseguire di nuovo l'offerta di Azure Marketplace o il modello di Azure Resource Manager di GitHub, a seconda del metodo in uso. Seguire le istruzioni riportate di seguito per immettere i parametri corretti per il metodo.
 

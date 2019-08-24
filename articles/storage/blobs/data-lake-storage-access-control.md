@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: aa2cfbee6feeacf46003fdc244f0aeea5df0f41a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 51a51e63f1d45d67cda63d4491a3bac572434dc0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847353"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991905"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ Per informazioni su come assegnare i ruoli alle entità di sicurezza nell'ambito
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>L'effetto delle assegnazioni di ruolo negli elenchi di controllo di accesso a livello di file e directory
 
-Quando si utilizzano assegnazioni di ruolo RBAC è un meccanismo potente per controllare le autorizzazioni di accesso, si tratta di un meccanismo con granularità grossolana rispetto agli ACL. La granularità più fine per il controllo degli accessi in base al ruolo è a livello di file system e ciò verrà valutato con una priorità più elevata degli elenchi di controllo di accesso. Se pertanto si assegna un ruolo a un'entità di sicurezza nell'ambito di un file system, tale entità di sicurezza dispone del livello di autorizzazione associato a tale ruolo per tutte le directory e i file in tale file system, indipendentemente dalle assegnazioni ACL.
+Quando si utilizzano assegnazioni di ruolo RBAC è un meccanismo potente per controllare le autorizzazioni di accesso, si tratta di un meccanismo con granularità grossolana rispetto agli ACL. La granularità minima per il controllo degli accessi in base al ruolo è a livello di contenitore e verrà valutata con una priorità più alta rispetto agli ACL. Se pertanto si assegna un ruolo a un'entità di sicurezza nell'ambito di un contenitore, l'entità di sicurezza dispone del livello di autorizzazione associato a tale ruolo per tutte le directory e i file in tale contenitore, indipendentemente dalle assegnazioni ACL.
 
 Quando a un'entità di sicurezza vengono concesse le autorizzazioni per i dati RBAC tramite un [ruolo predefinito](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)o tramite un ruolo personalizzato, queste autorizzazioni vengono valutate per prime all'autorizzazione di una richiesta. Se l'operazione richiesta è autorizzata dalle assegnazioni RBAC dell'entità di sicurezza, l'autorizzazione viene immediatamente risolta e non vengono eseguiti controlli ACL aggiuntivi. In alternativa, se l'entità di sicurezza non dispone di un'assegnazione RBAC o se l'operazione della richiesta non corrisponde all'autorizzazione assegnata, vengono eseguiti i controlli ACL per determinare se l'entità di sicurezza è autorizzata a eseguire l'operazione richiesta.
 
@@ -81,7 +81,7 @@ Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
 
 ### <a name="levels-of-permission"></a>Livelli di autorizzazione
 
-Le autorizzazioni per un oggetto del file system sono **Lettura**, **Scrittura** ed **Esecuzione** e possono essere usate per file e directory come illustrato nella tabella seguente:
+Le autorizzazioni per un oggetto contenitore sono di **lettura**, **scrittura**ed **esecuzione**e possono essere usate nei file e nelle directory, come illustrato nella tabella seguente:
 
 |            |    File     |   Directory |
 |------------|-------------|----------|
@@ -90,7 +90,7 @@ Le autorizzazioni per un oggetto del file system sono **Lettura**, **Scrittura**
 | **Esecuzione (X)** | Nessun valore nel contesto di Data Lake Storage Gen2 | È necessaria per attraversare gli elementi figlio di una directory |
 
 > [!NOTE]
-> Se si concedono le autorizzazioni usando solo ACL (nessun controllo degli accessi in base al ruolo), per concedere a un'entità servizio l'accesso in lettura o scrittura a un file, è necessario concedere all'entità servizio le autorizzazioni di **esecuzione** per la file System e per ogni cartella nella gerarchia di cartelle che condurre al file.
+> Se si concedono le autorizzazioni usando solo ACL (nessun controllo degli accessi in base al ruolo), per concedere a un'entità servizio l'accesso in lettura o scrittura a un file, è necessario concedere all'entità servizio le autorizzazioni di **esecuzione** per il contenitore e a ogni cartella nella gerarchia di cartelle che condurre al file.
 
 #### <a name="short-forms-for-permissions"></a>Forme brevi per le autorizzazioni
 
@@ -154,7 +154,7 @@ Negli ACL POSIX ogni utente è associato a un *gruppo primario*. È ad esempio p
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Assegnazione del gruppo proprietario per un nuovo file o directory
 
-* **Caso 1**: directory radice "/". Questa directory viene creata quando viene creato un file system di Data Lake Storage Gen2. In questo caso il gruppo proprietario viene impostato sull'utente che ha creato il file system se l'operazione è stata eseguita usando OAuth. Se il file system viene creato usando la chiave condivisa, una firma di accesso condiviso dell'account o una firma di accesso condiviso del servizio, il proprietario e il gruppo proprietario vengono impostati su **$superuser**.
+* **Caso 1**: directory radice "/". Questa directory viene creata quando viene creato un contenitore Data Lake Storage Gen2. In questo caso, il gruppo proprietario viene impostato sull'utente che ha creato il contenitore se è stato eseguito tramite OAuth. Se il contenitore viene creato usando una chiave condivisa, una firma di accesso condiviso dell'account o una firma di accesso condiviso del servizio, il proprietario e il gruppo proprietario sono impostati su **$superuser**.
 * **Caso 2** (qualsiasi altro caso): quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla directory padre.
 
 ##### <a name="changing-the-owning-group"></a>Modifica del gruppo proprietario
@@ -216,13 +216,13 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 Come illustrato nell'algoritmo di controllo dell'accesso, la maschera limita l'accesso agli utenti non anonimi, al gruppo proprietario e ai gruppi non anonimi.  
 
 > [!NOTE]
-> Per un nuovo file system di Data Lake Storage Gen2, la maschera per l'ACL di accesso della directory radice ("/") è impostata sul valore predefinito 750 per le directory e 640 per i file. File non ricevono il bit X perché è irrilevante per i file in un sistema solo di archiviazione.
+> Per un nuovo contenitore di Data Lake Storage Gen2, la maschera per l'ACL di accesso della directory radice ("/") viene impostata per impostazione predefinita su 750 per le directory e 640 per i file. File non ricevono il bit X perché è irrilevante per i file in un sistema solo di archiviazione.
 >
 > La maschera può essere specificata in base alle singole chiamate. In questo modo sistemi diversi con un elevato utilizzo di risorse, ad esempio i cluster, possono avere maschere effettive diverse per le operazioni su file. Se una maschera viene specificata per una determinata richiesta, esegue l'override completo della maschera predefinita.
 
 #### <a name="the-sticky-bit"></a>Sticky bit
 
-Lo sticky bit è una funzionalità più avanzata di un file system POSIX. Nel contesto di Data Lake Storage Gen2, è improbabile che lo sticky bit sia necessario. In breve, se lo sticky bit è abilitato in una directory, un elemento figlio può essere solo eliminato o rinominato dall'utente proprietario dell'elemento figlio.
+Il bit appiccicoso è una funzionalità più avanzata di un contenitore POSIX. Nel contesto di Data Lake Storage Gen2, è improbabile che lo sticky bit sia necessario. In breve, se lo sticky bit è abilitato in una directory, un elemento figlio può essere solo eliminato o rinominato dall'utente proprietario dell'elemento figlio.
 
 Il bit appiccicoso non viene visualizzato nella portale di Azure.
 
@@ -291,7 +291,7 @@ Oppure
 
 ### <a name="who-is-the-owner-of-a-file-or-directory"></a>Chi è il proprietario di un file o una directory?
 
-Il creatore di un file o una directory ne diventa il proprietario. Nel caso della directory radice, è l'identità dell'utente che ha creato il file system.
+Il creatore di un file o una directory ne diventa il proprietario. Nel caso della directory radice, si tratta dell'identità dell'utente che ha creato il contenitore.
 
 ### <a name="which-group-is-set-as-the-owning-group-of-a-file-or-directory-at-creation"></a>Quale gruppo viene impostato come gruppo proprietario di un file o una directory al momento della creazione?
 
@@ -320,7 +320,7 @@ Quando si dispone dell'OID corretto per l'entità servizio, passare alla pagina 
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 supporta l'ereditarietà degli elenchi di controllo di accesso?
 
-Le assegnazioni con controllo degli accessi in base al ruolo di Azure ereditano. Le assegnazioni passano dalle risorse sottoscrizione, gruppo di risorse e account di archiviazione alla risorsa file system.
+Le assegnazioni con controllo degli accessi in base al ruolo di Azure ereditano. Le assegnazioni scorrono dalle risorse di sottoscrizione, gruppo di risorse e account di archiviazione fino alla risorsa contenitore.
 
 Gli elenchi di controllo di accesso non ereditano. Gli ACL predefiniti tuttavia possono essere usati per impostare gli ACL per le sottodirectory e i file creati nella directory padre. 
 

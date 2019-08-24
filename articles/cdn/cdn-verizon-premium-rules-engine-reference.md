@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 5fc611af75a7f733576f9343a4375fb56cacc030
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: aab93204c850223756f28a56ea550f912e28e0d2
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67593157"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996764"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Riferimento al motore delle regole della rete CDN di Azure di Verizon Premium
 
@@ -70,6 +70,8 @@ Carattere speciale | Descrizione
 \* | Un asterisco consente al carattere precedente di essere messo in corrispondenza zero o più volte.
 Spazio | Un carattere di spazio in genere è considerato come un carattere letterale.
 "value" | Le virgolette singole vengono trattate come caratteri letterali. Un set di virgolette singole non ha un significato speciale.
+
+Le condizioni di corrispondenza e le funzionalità che supportano le espressioni regolari accettano modelli definiti dalle espressioni regolari compatibili con Perl (PCRE).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

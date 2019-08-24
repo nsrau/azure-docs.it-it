@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 7c018ad15ee653bcdc903492028ec5ed058dbd14
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016385"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992226"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Aggiornare le soluzioni di analisi dei Big Data da Azure Data Lake Storage Gen1 ad Azure Data Lake Storage Gen2
 
@@ -235,7 +235,7 @@ Tenere presente che alcune terze parti possono gestire l'aggiornamento da Data L
 
 * Se si usa uno strumento che non copia gli elenchi di controllo di accesso o non si vuole copiare gli elenchi di controllo di accesso, sarà necessario impostare manualmente gli elenchi di controllo di accesso sulla destinazione al livello superiore appropriato. È possibile farlo usando Storage Explorer. Assicurarsi che tali elenchi di controllo di accesso siano quelli predefiniti in modo che i file e le cartelle copiati li ereditino.
 
-* In Data Lake Storage Gen1 il livello più elevato su cui è possibile impostare gli elenchi di controllo di accesso è la radice dell'account. In Data Lake Storage Gen2, tuttavia, il livello più alto che è possibile impostare negli ACL è la cartella radice in una file system, non l'intero account. Se quindi si vuole impostare gli elenchi di controllo di accesso predefiniti a livello di account, sarà necessario duplicarli in tutti i file system dell'account Data Lake Storage Gen2.
+* In Data Lake Storage Gen1 il livello più elevato su cui è possibile impostare gli elenchi di controllo di accesso è la radice dell'account. In Data Lake Storage Gen2, tuttavia, il livello più alto che è possibile impostare negli ACL è la cartella radice in un contenitore, non l'intero account. Se quindi si vuole impostare gli elenchi di controllo di accesso predefiniti a livello di account, sarà necessario duplicarli in tutti i file system dell'account Data Lake Storage Gen2.
 
 * Le restrizioni di denominazione dei file sono diverse per i due sistemi di archiviazione. Queste differenze riguardano soprattutto la copia da Data Lake Storage Gen2 a Data Lake Storage Gen1, perché il secondo presenta restrizioni più vincolanti.
 

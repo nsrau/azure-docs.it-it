@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2019
+ms.date: 08/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a8033448c2db2ca30ece54b3367ecb60ecf12c3d
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706243"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990696"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni intendano usare il Centro sicurezza di Azure.
@@ -87,21 +87,21 @@ Con gli utenti tipo descritti nel diagramma precedente sarebbe necessario il con
 
 **Jeff (proprietario del carico di lavoro)**
 
-* Proprietario/collaboratore per il gruppo di risorse
+* Proprietario/collaboratore del gruppo di risorse
 
 **David (sicurezza IT)**
 
-* Proprietario/collaboratore della sottoscrizione o amministratore della sicurezza
+* Proprietario della sottoscrizione/collaboratore o amministratore della sicurezza
 
 **Judy (attività di sicurezza)**
 
 * Ruolo con autorizzazioni di lettura per la sottoscrizione o per la sicurezza per visualizzare gli avvisi
-* Proprietario/collaboratore della sottoscrizione o amministratore della sicurezza per ignorare gli avvisi
+* Proprietario della sottoscrizione/collaboratore o amministratore della sicurezza necessario per ignorare gli avvisi
 
 **Sam (analista della sicurezza)**
 
 * Ruolo con autorizzazioni di lettura per la sottoscrizione per visualizzare gli avvisi
-* Proprietario/collaboratore della sottoscrizione per ignorare gli avvisi
+* Proprietario/collaboratore della sottoscrizione necessario per ignorare gli avvisi
 * Potrebbe essere richiesto l'accesso all'area di lavoro
 
 Altre informazioni importanti da considerare:
@@ -134,7 +134,7 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
 Prima di configurare i criteri di sicurezza, è consigliabile esaminare tutte le [raccomandazioni sulla sicurezza](https://docs.microsoft.com/azure/security-center/security-center-recommendations)e determinare se sono appropriate per le varie sottoscrizioni e i vari gruppi di risorse usati. È importante sapere anche quali azioni devono essere eseguite in relazione alle raccomandazioni sulla sicurezza e quali utenti dell'organizzazione sono responsabili del monitoraggio per le nuove raccomandazioni e dell'adozione delle misure necessarie.
 
 ## <a name="data-collection-and-storage"></a>Raccolta dati e archiviazione
-Centro sicurezza Usa Microsoft Monitoring Agent, lo stesso agente usato dal servizio monitoraggio di Azure, per raccogliere dati sulla sicurezza dalle macchine virtuali. I [dati raccolti](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) dall'agente verranno archiviati nelle aree di lavoro di Log Analytics.
+Il Centro sicurezza di Azure usa il Microsoft Monitoring Agent, ovvero lo stesso agente usato dal servizio monitoraggio di Azure, per raccogliere i dati di sicurezza dalle macchine virtuali. I [dati raccolti](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) dall'agente verranno archiviati nelle aree di lavoro di Log Analytics.
 
 ### <a name="agent"></a>Agente
 
@@ -246,7 +246,7 @@ Dopo avere identificato il sistema danneggiato, è possibile eseguire i [playboo
 Nel video [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Come sfruttare il Centro sicurezza di Azure e Microsoft Operations Management Suite per la risposta a un evento imprevisto) è possibile vedere alcune demo che consentono di comprendere come usare il Centro sicurezza per ognuna di queste fasi.
 
 > [!NOTE]
-> Vedere [Uso del Centro sicurezza di Azure per rispondere agli eventi imprevisti](security-center-incident-response.md) per altre informazioni sull'uso delle funzionalità del Centro sicurezza di Azure per rispondere agli eventi imprevisti.
+> Vedere [gestione e risposta agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) per altre informazioni su come usare le funzionalità del Centro sicurezza per assistenza durante il processo di risposta agli eventi imprevisti.
 >
 >
 

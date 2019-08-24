@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 3f40c69900b0d7f1c3bf446c1153e21dd7fd4d1b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014931"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997685"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procedura dettagliata: offuscare i volti con Analisi Servizi multimediali di Azure
 
@@ -40,7 +40,7 @@ Il modo più semplice iniziare a usare Azure Media Redactor è usare lo strument
 
 ### <a name="download-and-setup"></a>Download e installazione
 
-1. Scaricare lo strumento AMSE da [qui](https://github.com/Azure/Azure-Media-Services-Explorer).
+1. Scaricare lo strumento AMSE per AMS V2 da [qui](https://aka.ms/amseforv2).
 1. Accedere al proprio account di Servizi multimediali usando la chiave del servizio.
 
     Per ottenere il nome dell'account e la chiave, accedere al [portale di Azure](https://portal.azure.com/) e selezionare l'account AMS. Dopodiché, selezionare Impostazioni > Chiavi. Nella finestra Gestisci chiavi sono visualizzati il nome dell'account e le chiavi primaria e secondaria. Copiare i valori del nome dell'account e della chiave primaria.

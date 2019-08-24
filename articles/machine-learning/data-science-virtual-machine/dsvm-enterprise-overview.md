@@ -16,34 +16,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: vijetaj
-ms.openlocfilehash: 40b8f101d968514ac599b43a79b7e62b7fd837a4
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 5f34498fbdacf7fc6e62788913c795ab70ceef23
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779471"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991622"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Ambiente di intelligenza artificiale e analisi di collaborazione in team basato su Data Science Virtual Machine 
-[Data Science Virtual Machine](overview.md) (DSVM) fornisce un ambiente avanzato nella piattaforma Azure con software precompilato per l'intelligenza artificiale e l'analisi dei dati. 
+Il [Data Science Virtual Machine](overview.md) (DSVM) fornisce un ambiente completo sulla piattaforma Azure, con software predefinito per intelligenza artificiale e analisi dei dati.
 
-DSVM è sempre stata usata come desktop di analisi individuale. I data scientist incrementano la produttività con queste nozioni condivise dell'ambiente di analisi precompilato. Quando team di analisi di grandi dimensioni pianificano i propri ambienti di analisi per i data scientist e gli sviluppatori di intelligenza artificiale, uno dei temi ricorrenti riguarda un'infrastruttura di analisi condivisa per sviluppo e sperimentazione. Questa infrastruttura viene gestita in linea con i criteri IT aziendali che agevolano anche la collaborazione e la coerenza nell'intero team di analisi/data science. 
+DSVM è sempre stata usata come desktop di analisi individuale. I singoli data scientist ottengono la produttività con questo ambiente analitico condiviso e precompilato. Poiché i team di analisi di grandi dimensioni pianificano gli ambienti per i propri data scientist e sviluppatori di intelligenza artificiale, uno dei temi ricorrenti è un'infrastruttura di analisi condivisa per lo sviluppo e la sperimentazione. Questa infrastruttura viene gestita in linea con i criteri IT aziendali che facilitano la collaborazione e la coerenza tra i team di data science e di analisi.
 
-Un'infrastruttura condivisa consente anche all'IT di usare meglio l'ambiente di analisi. Alcune organizzazioni chiamano l'infrastruttura di analisi e data science basata sulla collaborazione in team "sandbox di analisi". Consente ai data scientist di accedere a varie risorse dati per comprendere rapidamente i dati, eseguire esperimenti, convalidare ipotesi e creare modelli predittivi senza influire sull'ambiente di produzione. 
+Un'infrastruttura condivisa consente un migliore utilizzo IT dell'ambiente di analisi. Alcune organizzazioni chiamano l'infrastruttura data science/Analytics basata sul team di una *sandbox di analisi*. Consente ai data scientist di accedere a vari asset di dati per comprendere rapidamente i dati. Questo ambiente sandbox consente inoltre ai data scientist di eseguire esperimenti, convalidare le ipotesi e creare modelli predittivi senza influire sull'ambiente di produzione.
 
-Dato che DSVM opera a livello di infrastruttura di Azure, gli amministratori IT possono facilmente configurarla per operare in conformità ai criteri IT dell'azienda. DSVM offre la massima flessibilità nell'implementazione di diverse architetture di condivisione con accesso ai dati aziendali in modo controllato. 
+Dato che DSVM opera a livello di infrastruttura di Azure, gli amministratori IT possono facilmente configurarla per operare in conformità ai criteri IT dell'azienda. Il DSVM offre la massima flessibilità nell'implementazione di diverse architetture di condivisione, offrendo al tempo stesso l'accesso agli asset di dati aziendali in modo controllato.
 
-Questa sezione illustra alcuni modelli e linee guida che è possibile usare per distribuire DSVM come infrastruttura di data science basata sulla collaborazione in team. Gli elementi costitutivi di questi modelli provengono dall'infrastruttura come servizio (IaaS) di Azure e si applicano quindi a tutte le macchine virtuali di Azure. L'obiettivo di questa serie di articoli è l'applicazione di queste funzionalità standard dell'infrastruttura di Azure a Data Science VM. 
+Questa sezione illustra alcuni modelli e linee guida che è possibile usare per distribuire DSVM come infrastruttura di data science basata sulla collaborazione in team. Poiché i blocchi predefiniti per questi modelli provengono dall'infrastruttura distribuita come servizio (IaaS) di Azure, si applicano a qualsiasi VM di Azure. Questa serie di articoli è incentrata sull'applicazione di queste funzionalità di infrastruttura di Azure standard a DSVM.
 
-Alcuni degli elementi chiave di un ambiente di analisi di un team aziendale sono:
+I blocchi predefiniti di un ambiente Enterprise team Analytics includono:
 
-* [Pool con scalabilità automatica di Data Science Virtual Machine](dsvm-pools.md)
+* [Un pool di Dsvm con scalabilità automatica](dsvm-pools.md)
 * [Identità comune e accesso a un'area di lavoro da qualsiasi DSVM nel pool](dsvm-common-identity.md)
 * [Accesso sicuro alle origini dati](dsvm-secure-access-keys.md)
 
 
-Questa serie di articoli fornisce linee guida e indicazioni per ognuno degli elementi precedenti. Non illustra tutte le esigenze e le considerazioni relative alla distribuzione di DSVM nelle configurazioni aziendali di grandi dimensioni. Ecco altri esempi di documentazione su Azure che è possibile usare durante l'implementazione di istanze di DSVM nell'azienda: 
+Questa serie fornisce linee guida e puntatori per ciascuno degli argomenti precedenti. Non copre tutte le considerazioni e i requisiti per la distribuzione di Dsvm in configurazioni aziendali di grandi dimensioni. Di seguito sono riportate altre risorse di Azure che è possibile usare durante l'implementazione di istanze DSVM nell'azienda:
 
-* [Sicurezza di rete] (https://docs.microsoft.com/azure/security/fundamentals/network-security
+* [Sicurezza di rete](https://docs.microsoft.com/azure/security/fundamentals/network-security)
 * [Monitoraggio](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) e [gestione](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
 * [Registrazione e controllo](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
 * [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview)
@@ -52,4 +52,4 @@ Questa serie di articoli fornisce linee guida e indicazioni per ognuno degli ele
 * [Crittografia](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Governance e individuazione dei dati](https://docs.microsoft.com/azure/data-catalog/)
 
-[Centro architetture di Azure](https://docs.microsoft.com/azure/architecture/) fornisce un'architettura end-to-end dettagliata e modelli per la compilazione e la gestione dell'infrastruttura di analisi basata sul cloud. 
+Infine, il [centro architetture di Azure](https://docs.microsoft.com/azure/architecture/) fornisce un'architettura end-to-end dettagliata e modelli per la creazione e la gestione dell'infrastruttura di analisi basata sul cloud.

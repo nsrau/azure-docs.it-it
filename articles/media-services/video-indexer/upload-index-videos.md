@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 8fffc74075abf6dcc4b5c293819f739a9725646b
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305630"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998166"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -60,7 +60,7 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Modifica stato indicizzazione: 
     - Proprietà:    
     
-        |Name|Descrizione|
+        |Name|DESCRIZIONE|
         |---|---|
         |id|ID video|
         |stato|Lo stato del video|  
@@ -68,7 +68,7 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Persona identificata nel video:
   - Properties
     
-      |NOME|DESCRIZIONE|
+      |Name|Descrizione|
       |---|---|
       |id| ID video|
       |faceId|L'ID viso che appare nell'indice video|
@@ -159,9 +159,9 @@ public async Task Sample()
     // as an alternative to specifying video URL, you can upload a file.
     // remove the videoUrl parameter from the query params below and add the following lines:
     //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-    //byte[] buffer =newbyte[video.Length];
+    //byte[] buffer =new byte[video.Length];
     //video.Read(buffer, 0, buffer.Length);
-    //content.Add(newByteArrayContent(buffer));
+    //content.Add(new ByteArrayContent(buffer));
 
     queryParams = CreateQueryString(
         new Dictionary<string, string>()

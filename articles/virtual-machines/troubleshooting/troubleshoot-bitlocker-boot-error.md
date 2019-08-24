@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/25/2019
+ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: 27a675982711f8d8f0b36ea0cc2600de45e97a6e
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c96c8ef5e5bd9758cf270946da1e90bb12e8bca0
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348468"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997995"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Problemi di avvio di BitLocker in una macchina virtuale di Azure
 
@@ -127,26 +127,27 @@ Se questo metodo non risolve il problema, seguire questa procedura per ripristin
     ```
     In questo esempio, il disco del sistema operativo collegato è l'unità F. Verificare di usare la lettera di unità corretta. 
 
-    - Se il disco è stato sbloccato correttamente usando la chiave BEK, è possibile considerare la risoluzione del problema di BitLocker. 
+8. Dopo che il disco è stato sbloccato correttamente usando la chiave di il sistema di modifica, scollegare il disco dalla macchina virtuale di ripristino e quindi ricreare la macchina virtuale usando il nuovo disco del sistema operativo.
 
-    - Se l'uso della chiave BEK non ha sbloccato il disco, è possibile sospendere la protezione per disattivare temporaneamente BitLocker con il comando seguente:
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - Se si vuole ricreare la macchina virtuale usando il disco di sistema, è necessario decrittografare completamente l'unità. A tale scopo, usare il comando seguente:
+    > [!NOTE]
+    > Lo scambio del disco del sistema operativo non è supportato per le macchine virtuali che usano la crittografia del disco.
 
-        ```powershell
-        manage-bde -off F:
-        ```
-8.  Scollegare il disco dalla macchina virtuale di ripristino e quindi ricollegarlo alla macchina virtuale in questione come disco di sistema. Per altre informazioni, vedere [Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino](troubleshoot-recovery-disks-windows.md).
+9. Se la nuova macchina virtuale non è ancora in grado di eseguire l'avvio normalmente, provare a eseguire una delle operazioni seguenti dopo aver sbloccato l'unità:
+
+    - Sospendere la protezione per disattivare temporaneamente BitLocker eseguendo quanto segue:
+
+                    manage-bde -protectors -disable F: -rc 0
+           
+    - Decrittografare completamente l'unità. A tale scopo, usare il comando seguente:
+
+                    manage-bde -off F:
 
 ### <a name="key-encryption-key-scenario"></a>Scenario con chiave di crittografia della chiave
 
 In uno scenario con chiave di crittografia della chiave, seguire questa procedura:
 
 1. Verificare che l'account utente connesso richieda l'autorizzazione senza wrapping nei criteri di accesso dell'insieme di credenziali delle chiavi in **UTENTE|Autorizzazioni chiave| Operazioni crittografiche|Annulla il wrapping della chiave**.
-2. Salvare gli script seguenti in un file con estensione PS1:
+2. Salvare lo script seguente in un. File PS1:
 
     ```powershell
     #Set the Parameters for the script
@@ -184,6 +185,7 @@ In uno scenario con chiave di crittografia della chiave, seguire questa procedur
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
     $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI, $clientId, $redirectUri, $platformParameters).result
     # Generate auth header 
     $authHeader = $authResult.CreateAuthorizationHeader()
@@ -231,7 +233,7 @@ In uno scenario con chiave di crittografia della chiave, seguire questa procedur
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. Impostare i parametri. Lo script elabora il segreto della chiave KEK per creare la chiave BEK e quindi lo salva in una cartella locale nella macchina virtuale di ripristino.
+3. Impostare i parametri. Lo script elabora il segreto della chiave KEK per creare la chiave BEK e quindi lo salva in una cartella locale nella macchina virtuale di ripristino. Se vengono visualizzati errori durante l'esecuzione dello script, vedere la sezione relativa alla [risoluzione dei problemi degli script](#script-troubleshooting) .
 
 4. All'avvio dello script viene visualizzato l'output seguente:
 
@@ -254,17 +256,38 @@ In uno scenario con chiave di crittografia della chiave, seguire questa procedur
     ```
     In questo esempio, il disco del sistema operativo collegato è l'unità F. Verificare di usare la lettera di unità corretta. 
 
-    - Se il disco è stato sbloccato correttamente usando la chiave BEK, è possibile considerare la risoluzione del problema di BitLocker. 
+6. Dopo che il disco è stato sbloccato correttamente usando la chiave di il sistema di modifica, scollegare il disco dalla macchina virtuale di ripristino e quindi ricreare la macchina virtuale usando il nuovo disco del sistema operativo. 
 
-    - Se l'uso della chiave BEK non ha sbloccato il disco, è possibile sospendere la protezione per disattivare temporaneamente BitLocker con il comando seguente:
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - Se si vuole ricreare la macchina virtuale usando il disco di sistema, è necessario decrittografare completamente l'unità. A tale scopo, usare il comando seguente:
+    > [!NOTE]
+    > Lo scambio del disco del sistema operativo non è supportato per le macchine virtuali che usano la crittografia del disco.
 
-        ```powershell
-        manage-bde -off F:
-        ```
+7. Se la nuova macchina virtuale non è ancora in grado di eseguire l'avvio normalmente, provare a eseguire una delle operazioni seguenti dopo aver sbloccato l'unità:
 
-6. Scollegare il disco dalla macchina virtuale di ripristino e quindi ricollegarlo alla macchina virtuale in questione come disco di sistema. Per altre informazioni, vedere [Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino](troubleshoot-recovery-disks-windows.md).
+    - Sospendere la protezione per disattivare temporaneamente BitLocker eseguendo il comando seguente:
+
+             manage-bde -protectors -disable F: -rc 0
+           
+    - Decrittografare completamente l'unità. A tale scopo, usare il comando seguente:
+
+                    manage-bde -off F:
+## <a name="script-troubleshooting"></a>Risoluzione dei problemi relativi agli script
+
+**Errore: Non è stato possibile caricare il file o l'assembly**
+
+Questo errore si verifica perché i percorsi degli assembly ADAL sono errati. Se il modulo AZ è installato solo per l'utente corrente, gli assembly ADAL verranno posizionati in `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+
+È anche possibile cercare `Az.Accounts` la cartella per trovare il percorso corretto.
+
+**Errore: Get-AzKeyVaultSecret o Get-AzKeyVaultSecret non è riconosciuto come nome di un cmdlet**
+
+Se si usa il vecchio modulo AZ PowerShell, è necessario modificare i due comandi in `Get-AzureKeyVaultSecret` e. `Get-AzureKeyVaultSecret`
+
+**Esempi di parametri**
+
+| Parametri  | Esempio di valore  |Commenti   |
+|---|---|---|
+|  $keyVaultName | myKeyVault2112852926  | Nome dell'insieme di credenziali delle chiavi in cui è archiviata la chiave |
+|$kekName   |MyKey   | Nome della chiave usata per crittografare la macchina virtuale|
+|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | Nome del segreto della chiave della macchina virtuale|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D. BEK |Percorso per la scrittura del file di codice.|
+|$adTenant  |contoso.onmicrosoft.com   | FQDN o GUID del Azure Active Directory che ospita l'insieme di credenziali delle chiavi |

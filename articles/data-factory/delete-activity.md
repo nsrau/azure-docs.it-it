@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
-ms.openlocfilehash: e749138cd28f7bd8faf10ca1087a73f323533a25
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.date: 08/20/2019
+ms.openlocfilehash: d9a1c76e8ac386b954c68f16e2189df4e6c0e1b7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335660"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996313"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Attività Delete in Azure Data Factory
 
@@ -44,6 +44,7 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 -   [Archivio BLOB di Azure](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+-   [Archiviazione file di Azure](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>Archivi dati del file system
 
@@ -51,6 +52,7 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Google Cloud Storage](connector-google-cloud-storage.md)
 
 ## <a name="syntax"></a>Sintassi
 
@@ -81,7 +83,7 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| dataset | Fornisce il riferimento al set di dati per determinare quali file o cartelle eliminare | Yes |
+| dataset | Fornisce il riferimento al set di dati per determinare quali file o cartelle eliminare | Sì |
 | recursive | Indica se i file devono essere eliminati in modo ricorsivo dalle sottocartelle o solo dalla cartella specificata.  | No. Il valore predefinito è `false`. |
 | maxConcurrentConnections | Numero di connessioni cui connettere l'archivio simultaneamente per eliminare la cartella o i file.   |  No. Il valore predefinito è `1`. |
 | enablelogging | Indica se è necessario registrare i nomi di cartella o di file che sono stati eliminati. Se è true, è necessario fornire un account di archiviazione per salvare il file di log, in modo da poter monitorare i comportamenti dell'attività Delete leggendo il file di log. | No |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963455"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980488"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -87,7 +87,9 @@ Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che t
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>L'accesso condizionale funziona con Exchange ActiveSync?
 
-Sì, è possibile usare Exchange ActiveSync in un criterio di accesso condizionale con alcune [limitazioni](block-legacy-authentication.md). 
+Sì, è possibile usare Exchange ActiveSync in un criterio di accesso condizionale.
+
+Alcune app cloud come SharePoint Online ed Exchange Online supportano anche i protocolli di autenticazione legacy. Quando un'app client può usare un protocollo di autenticazione legacy per accedere a un'app cloud, Azure AD non è in grado di applicare criteri di accesso condizionale a questo tentativo di accesso. Per impedire a un'app client di ignorare l'applicazione di criteri, è necessario controllare se è possibile abilitare solo l'autenticazione moderna nelle app cloud interessate.
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Come configurare l'accesso condizionale con le app di Office 365?
 

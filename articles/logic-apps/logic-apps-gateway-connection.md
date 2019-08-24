@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 029dc8daaf456c155d46eefa699772882bdabee5
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546265"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982877"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -63,9 +63,9 @@ Dopo aver installato il gateway in un computer locale, è possibile creare una r
 
 3. Nella pagina **Crea gateway di connessione** specificare le seguenti informazioni per creare la risorsa per il gateway:
 
-   | Proprietà | DESCRIZIONE | 
+   | Proprietà | Descrizione | 
    |----------|-------------|
-   | **Nome** | Nome per la risorsa del gateway. | 
+   | **Nome risorsa** | Nome della risorsa del gateway, che può contenere solo lettere, numeri, trattini`-`(), caratteri di sottolineatura (`_`),`(`parentesi `)`(,) e punti`.`(). | 
    | **Sottoscrizione** | Nome della sottoscrizione di Azure, che deve essere la stessa sottoscrizione dell'app per la logica. La sottoscrizione predefinita è basata sull'account di Azure usato per l'accesso. | 
    | **Gruppo di risorse** | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) per l'organizzazione delle risorse correlate. | 
    | **Location** | Azure limita questa posizione alla stessa area selezionata per il servizio cloud del gateway durante l'[installazione del gateway](../logic-apps/logic-apps-gateway-install.md). <p>**Nota**: assicurarsi che la posizione della risorsa per il gateway corrisponda a quella del servizio cloud del gateway. In caso contrario, l'installazione del gateway potrebbe non essere visualizzata nell'elenco dei gateway installati da selezionare nel passaggio successivo. È possibile usare aree diverse per la risorsa del gateway e per le app per la logica. | 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 13d6eb64b2089cf93f08c294cc9b6a2034b64fa0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640868"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990551"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso delle raccomandazioni del Centro sicurezza di Azure per migliorare la sicurezza
 Configurando i criteri di sicurezza e implementando le raccomandazioni offerte dal Centro sicurezza di Azure, è possibile ridurre le probabilità di un importante evento di sicurezza. Questo articolo illustra come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza. 
@@ -75,6 +75,6 @@ Il monitoraggio delle raccomandazioni nel Centro sicurezza contribuisce a elimin
 ## <a name="next-steps"></a>Passaggi successivi
 Assicurarsi che sia implementato un processo di monitoraggio in cui controllare regolarmente le raccomandazioni nel Centro sicurezza, per assicurarsi di mantenere le risorse protette nel tempo.
 
-Questo scenario ha illustrato come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza. Vedere lo [scenario di risposta agli eventi imprevisti](security-center-incident-response.md) per informazioni su come implementare un piano di risposta agli eventi imprevisti prima di un attacco.
+Questo scenario ha illustrato come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza.
 
-Informazioni su come rispondere alle minacce con la [risposta agli eventi imprevisti](security-center-incident-response.md).
+Informazioni su come rispondere alle minacce con la [gestione e la risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md).

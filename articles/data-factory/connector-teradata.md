@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 134302bffdadc27cf202a43e7dc4cc94704bb5b3
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: ddce94cab0067c34ad056a40251d79c5470ba460
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69557876"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996576"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Copiare dati da Teradata usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -189,7 +189,7 @@ Questa sezione presenta un elenco delle proprietà supportate dall'origine Terad
 ### <a name="teradata-as-source"></a>Teradata come origine
 
 >[!TIP]
->Per caricare i dati da Teradata in modo efficiente usando il partizionamento dei dati, vedere la sezione [copia parallela da Teradata](#parallel-copy-from-teradata) .
+>Per caricare i dati da Teradata in modo efficiente usando il partizionamento dei dati, vedere la sezione relativa alla [copia parallela da Teradata](#parallel-copy-from-teradata) .
 
 Per copiare dati da Teradata, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
@@ -245,9 +245,9 @@ Il connettore Data Factory Teradata fornisce il partizionamento dei dati predefi
 
 ![Screenshot delle opzioni di partizione](./media/connector-teradata/connector-teradata-partition-options.png)
 
-Quando si Abilita la copia partizionata, Data Factory esegue query parallele sull'origine Teradata per caricare i dati in base alle partizioni. Il grado parallelo è controllato dall' [`parallelCopies`](copy-activity-performance.md#parallel-copy) impostazione dell'attività di copia. Se, ad esempio, si `parallelCopies` imposta su quattro, data factory genera ed esegue contemporaneamente quattro query in base all'opzione di partizione e alle impostazioni specificate. Ogni query recupera una porzione di dati dal database Teradata.
+Quando si Abilita la copia partizionata, Data Factory esegue query parallele sull'origine Teradata per caricare i dati in base alle partizioni. Il grado parallelo è controllato dall' [`parallelCopies`](copy-activity-performance.md#parallel-copy) impostazione dell'attività di copia. Se, ad esempio, si `parallelCopies` imposta su quattro, data factory genera ed esegue contemporaneamente quattro query in base all'opzione di partizione specificata e alle impostazioni e ogni query recupera una porzione di dati dal database Teradata.
 
-È consigliabile abilitare la copia parallela con il partizionamento dei dati, specialmente quando si caricano grandi quantità di dati dal database Teradata. Di seguito sono elencate le configurazioni consigliate per diversi scenari:
+È consigliabile abilitare la copia parallela con il partizionamento dei dati, specialmente quando si caricano grandi quantità di dati dal database Teradata. Di seguito sono elencate le configurazioni consigliate per diversi scenari. Quando si copiano dati in un archivio dati basato su file, viene riordinata la scrittura in una cartella come più file (specifica solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
 
 | Scenario                                                     | Impostazioni consigliate                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

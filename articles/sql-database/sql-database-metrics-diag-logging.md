@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: a1475188d2e1ab0db3dfd9775fc37d3fc0a17158
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567270"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998230"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
@@ -344,9 +344,12 @@ Il modo più semplice per configurare la posizione in cui i database registrano 
 
 Se si usano pool elastici o istanze gestite, è necessario anche configurare le impostazioni di diagnostica in queste risorse per abilitare il flusso di dati di telemetria della diagnostica da trasmettere nell'area di lavoro.
 
-### <a name="use-the-sql-analytics-solution"></a>Usare la soluzione Analisi SQL
+### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>Usare la soluzione analisi SQL per il monitoraggio e l'invio di avvisi
 
-È possibile utilizzare SQL Analytics come un dashboard gerarchico per visualizzare le risorse del database SQL. Per informazioni su come usare la soluzione Analisi SQL, vedere [Monitorare un database SQL usando la soluzione Analisi SQL](../log-analytics/log-analytics-azure-sql.md).
+È possibile utilizzare SQL Analytics come un dashboard gerarchico per visualizzare le risorse del database SQL.
+
+- Per informazioni su come usare la soluzione Analisi SQL, vedere [Monitorare un database SQL usando la soluzione Analisi SQL](../log-analytics/log-analytics-azure-sql.md).
+- Per informazioni su come configurare gli avvisi per il database SQL e l'istanza gestita basata su SQL Analytics, vedere [creazione di avvisi per il database SQL e l'istanza gestita](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
 ## <a name="stream-into-event-hubs"></a>Trasmettere un flusso a Hub eventi
 
@@ -715,3 +718,7 @@ Per informazioni su Hub eventi, leggere:
 
 - [Che cos'è l'hub di eventi di Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+
+Per informazioni su come configurare gli avvisi in base ai dati di telemetria da log Analytics, vedere:
+
+- [Creazione di avvisi per database SQL e istanza gestita](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)

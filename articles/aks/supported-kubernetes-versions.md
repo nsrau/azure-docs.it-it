@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0f2d3079de43767e61dfc1c8d77244da19f13a40
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
-ms.translationtype: HT
+ms.openlocfilehash: 0e26b9b5aee61f399a39c032cdbd2084884538c9
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898870"
+ms.locfileid: "69982704"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -30,7 +30,6 @@ Kubernetes usa lo schema di controllo delle versioni [semantico standard](https:
 Example:
   1.12.14
   1.12.15
-  1.13.7
 ```
 
 Ogni numero nella versione indica la compatibilità generale con la versione precedente:
@@ -39,7 +38,7 @@ Ogni numero nella versione indica la compatibilità generale con la versione pre
 * Le versioni secondarie cambiano quando vengono apportate modifiche alle funzionalità che sono compatibili con le altre versioni secondarie.
 * Le versioni delle patch cambiano quando vengono apportate correzioni di bug compatibili con le versioni precedenti.
 
-In generale, gli utenti devono eseguire l'ultima versione patch della versione secondaria in esecuzione, ad esempio se il cluster di produzione si trova in *1.13.6* e *1.13.7* è la versione patch disponibile più recente disponibile per la serie *1,13* . è consigliabile eseguire l'aggiornamento a *1.13.7* non appena si è in grado di verificare che il cluster sia completamente aggiornato e supportato.
+In generale, gli utenti devono eseguire l'ultima versione patch della versione secondaria in esecuzione, ad esempio se il cluster di produzione si trova in *1.12.14* e *1.12.15* è la versione patch disponibile più recente disponibile per la serie *1,12* , è consigliabile eseguire l'aggiornamento a *1.12.15* non appena si è in grado di garantire che il cluster sia completamente aggiornato e supportato.
 
 ## <a name="kubernetes-version-support-policy"></a>Criteri di supporto della versione di Kubernetes
 

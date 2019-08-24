@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 142c99b2471a9010a00bf9b5d50549c5e84548f1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9c27b81717c32ccf4c78143a3d3d31de7181c5fe
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966455"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996617"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -198,7 +198,7 @@ Questa sezione presenta un elenco delle proprietà supportate dall'origine e dal
 ### <a name="oracle-as-source"></a>Oracle come origine
 
 >[!TIP]
->Per caricare i dati da Oracle in modo efficiente usando il partizionamento dei dati, vedere [copia parallela da Oracle](#parallel-copy-from-oracle).
+>Per caricare in modo efficiente i dati da Oracle usando il partizionamento dei dati, vedere la [copia parallela da Oracle](#parallel-copy-from-oracle).
 
 Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia `OracleSource`su. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
 
@@ -293,9 +293,9 @@ Il Data Factory connettore Oracle fornisce il partizionamento dei dati predefini
 
 ![Screenshot delle opzioni di partizione](./media/connector-oracle/connector-oracle-partition-options.png)
 
-Quando si Abilita la copia partizionata, Data Factory esegue query parallele sull'origine Oracle per caricare i dati in base alle partizioni. Il grado parallelo è controllato dall' [`parallelCopies`](copy-activity-performance.md#parallel-copy) impostazione dell'attività di copia. Se, ad esempio, si `parallelCopies` imposta su quattro, data factory genera ed esegue contemporaneamente quattro query in base all'opzione di partizione e alle impostazioni specificate. Ogni query recupera una porzione di dati dal database Oracle.
+Quando si Abilita la copia partizionata, Data Factory esegue query parallele sull'origine Oracle per caricare i dati in base alle partizioni. Il grado parallelo è controllato dall' [`parallelCopies`](copy-activity-performance.md#parallel-copy) impostazione dell'attività di copia. Se, ad esempio, si `parallelCopies` imposta su quattro, data factory genera ed esegue contemporaneamente quattro query in base all'opzione di partizione specificata e alle impostazioni e ogni query recupera una porzione di dati dal database Oracle.
 
-È consigliabile abilitare la copia parallela con il partizionamento dei dati, specialmente quando si caricano grandi quantità di dati dal database Oracle. Di seguito sono elencate le configurazioni consigliate per diversi scenari:
+È consigliabile abilitare la copia parallela con il partizionamento dei dati, specialmente quando si caricano grandi quantità di dati dal database Oracle. Di seguito sono elencate le configurazioni consigliate per diversi scenari. Quando si copiano dati in un archivio dati basato su file, viene riordinata la scrittura in una cartella come più file (specifica solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
 
 | Scenario                                                     | Impostazioni consigliate                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

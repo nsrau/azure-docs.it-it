@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 255d1be1c8cfaec366aee6964e41537f6b6c50d8
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: da1a5f54e5e989f661770d518a6753b831b59bd4
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576615"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990522"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Accesso condizionale: Richiede dispositivi conformi
 
@@ -55,4 +55,4 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
 
 [Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 
-[I criteri di conformità del dispositivo funzionano con Azure AD](/intune/device-compliance-get-started.md#device-compliance-policies-work-with-azure-ad)
+[I criteri di conformità del dispositivo funzionano con Azure AD](https://docs.microsoft.com/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)

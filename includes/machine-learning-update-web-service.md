@@ -4,18 +4,26 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: fef6225812980900ad55944644310433a6105de2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f1eee95cf35b831fc2a213044d700fd5afbdfc96
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68556843"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997936"
 ---
-Quando si crea un nuovo modello, è necessario aggiornare manualmente ogni servizio per il quale si desidera utilizzare il nuovo modello. Per aggiornare il servizio Web, usare il metodo `update`. Il codice seguente illustra come usare l'SDK per aggiornare il modello per un servizio Web:
+Per aggiornare il servizio Web, usare il metodo `update`. È possibile aggiornare il servizio Web per utilizzare un nuovo modello, uno script di immissione o dipendenze che possono essere specificati utilizzando una configurazione di inferenza. Per ulteriori informazioni, vedere il riferimento per [WebService. Update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
+
+> [!IMPORTANT]
+> Quando si crea una nuova versione di un modello, è necessario aggiornare manualmente ogni servizio che si desidera utilizzare.
+
+**Uso dell'SDK**
+
+Il codice seguente illustra come usare l'SDK per aggiornare il modello, l'ambiente e lo script di immissione per un servizio Web:
 
 ```python
+from azureml.core import Environment
 from azureml.core.webservice import Webservice
-from azureml.core.model import Model
+from azureml.core.model import Model, InferenceConfig
 
 # register new model
 new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
@@ -24,15 +32,24 @@ new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
                            description="test",
                            workspace=ws)
 
+# Use version 3 of the environment
+deploy_env = Environment.get(workspace=ws,name="myenv",version="3")
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=deploy_env)
+
 service_name = 'myservice'
 # Retrieve existing service
 service = Webservice(name=service_name, workspace=ws)
 
+
+
 # Update to new model(s)
-service.update(models=[new_model])
+service.update(models=[new_model], inference_config=inference_config)
 print(service.state)
 print(service.get_logs())
 ```
+
+**Uso dell'interfaccia della riga di comando**
 
 È anche possibile aggiornare un servizio Web usando l'interfaccia della riga di comando di ML. Nell'esempio seguente viene illustrata la registrazione di un nuovo modello e l'aggiornamento del servizio Web per l'utilizzo del nuovo modello:
 
@@ -43,3 +60,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 
 > [!TIP]
 > In questo esempio viene usato un documento JSON per passare le informazioni sul modello dal comando di registrazione nel comando Update.
+>
+> Per aggiornare il servizio per l'utilizzo di un nuovo script di immissione o di un ambiente, creare un [file](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) di configurazione `ic` dell'inferenza e specificarlo con il parametro.
+
+Per ulteriori informazioni, vedere la Guida di riferimento all' [aggiornamento del servizio AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) .

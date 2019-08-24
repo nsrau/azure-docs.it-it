@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 0e9bdb22baed74ef948f369f9259784900486860
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: daa9937294cb3ffa594d83fbd56777bc8af8900a
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569092"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981468"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -58,51 +58,51 @@ Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di con
 
 La tabella seguente elenca gli indirizzi IP dei gateway per area. Per connettersi a un database SQL di Azure, è necessario consentire al traffico di rete di & da **tutti** i gateway per l'area.
 
-In futuro verranno aggiunti altri gateway in ogni area e i gateway verranno ritirati nella colonna indirizzo IP del gateway rimosso della tabella seguente. Altre informazioni sul processo di rimozione delle autorizzazioni sono fornite nell'articolo seguente: [Migrazione del traffico del database SQL di Azure ai gateway più recenti](sql-database-gateway-migration.md)
+Nell'articolo seguente sono riportati i dettagli del modo in cui verrà eseguita la migrazione del traffico ai nuovi gateway in aree specifiche: [Migrazione del traffico del database SQL di Azure ai gateway più recenti](sql-database-gateway-migration.md)
 
 
-| Nome area          | Indirizzo IP del gateway | Gateway rimosso </br> Indirizzo IP| Note sulla rimozione delle autorizzazioni | 
-| --- | --- | --- | --- |
-| Australia centrale    | 20.36.105.0 | | |
-| Central2 Australia   | 20.36.113.0 | | |
-| Australia orientale       | 13.75.149.87, 40.79.161.1 | | |
-| Australia sud-orientale | 191.239.192.109, 13.73.109.251 | | |
-| Brasile meridionale         | 104.41.11.5        |                 | |
-| Canada centrale       | 40.85.224.249      |                 | |
-| Canada orientale          | 40.86.226.166      |                 | |
-| Stati Uniti centrali           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Cina orientale           | 139.219.130.35     |                 | |
-| Cina orientale 2         | 40.73.82.1         |                 | |
-| Cina settentrionale          | 139.219.15.17      |                 | |
-| Cina settentrionale 2        | 40.73.50.0         |                 | |
-| Asia orientale            | 191.234.2.139, 52.175.33.150 |       | |
-| East US              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Stati Uniti orientali 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Francia centrale       | 40.79.137.0, 40.79.129.1 |           | |
-| Germania centrale      | 51.4.144.100       |                 | |
-| Germania nord-orientale   | 51.5.144.179       |                 | |
-| India centrale        | 104.211.96.159     |                 | |
-| India meridionale          | 104.211.224.146    |                 | |
-| India occidentale           | 104.211.160.80     |                 | |
-| Giappone orientale           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Giappone occidentale           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Corea del Sud centrale        | 52.231.32.42       |                 | |
-| Corea del Sud meridionale          | 52.231.200.86      |                 | |
-| Stati Uniti centro-settentrionali     | 23.96.178.199      | 23.98.55.75     | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Europa settentrionale         | 40.113.93.91       | 191.235.193.75  | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Sudafrica settentrionale   | 102.133.152.0      |                 | |
-| Sudafrica occidentale    | 102.133.24.0       |                 | |
-| Stati Uniti centro-meridionali     | 13.66.62.124       | 23.98.162.75    | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Asia sudorientale      | 104.43.15.0        | 23.100.117.95   | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Emirati Arabi Uniti centrali          | 20.37.72.64        |                 | |
-| Emirati Arabi Uniti settentrionali            | 65.52.248.0        |                 | |
-| Regno Unito meridionale             | 51.140.184.11      |                 | |
-| Regno Unito occidentale              | 51.141.8.11        |                 | |
-| Stati Uniti centro-occidentali      | 13.78.145.25       |                 | |
-| Europa occidentale          | 40.68.37.158       | 191.237.232.75  | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Stati Uniti occidentali              | 104.42.238.205     | 23.99.34.75     | Nessuna connessione dopo il 1 ° settembre 2019 |
-| Stati Uniti occidentali 2            | 13.66.226.202      |                 | |
-|                      |                    |                 | |
+| Nome area          | Indirizzi IP del gateway |
+| --- | --- |
+| Australia centrale    | 20.36.105.0 |
+| Central2 Australia   | 20.36.113.0 |
+| Australia orientale       | 13.75.149.87, 40.79.161.1 |
+| Australia sud-orientale | 191.239.192.109, 13.73.109.251 |
+| Brasile meridionale         | 104.41.11.5,191.233.200.14 |
+| Canada centrale       | 40.85.224.249      |
+| Canada orientale          | 40.86.226.166      |
+| Stati Uniti centrali           | 13.67.215.62, 52.182.137.15 , 23.99.160.139, 104.208.16.96 | 
+| Cina orientale           | 139.219.130.35     |
+| Cina orientale 2         | 40.73.82.1         |
+| Cina settentrionale          | 139.219.15.17      |
+| Cina settentrionale 2        | 40.73.50.0         |
+| Asia orientale            | 191.234.2.139, 52.175.33.150,13.75.32.4 |
+| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Stati Uniti orientali 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
+| Francia centrale       | 40.79.137.0, 40.79.129.1 |
+| Germania centrale      | 51.4.144.100       |
+| Germania nord-orientale   | 51.5.144.179       |
+| India centrale        | 104.211.96.159     |
+| India meridionale          | 104.211.224.146    |
+| India occidentale           | 104.211.160.80     |
+| Giappone orientale           | 13.78.61.196, 40.79.184.8, 13.78.106.224 , 191.237.240.43, 40.79.192.5 | 
+| Giappone occidentale           | 104.214.148.156, 40.74.100.192 | 191.238.68.11,40.74.97.10 | 
+| Corea del Sud centrale        | 52.231.32.42       |
+| Corea del Sud meridionale          | 52.231.200.86      |
+| Stati Uniti centro-settentrionali     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
+| Europa settentrionale         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| Sudafrica settentrionale   | 102.133.152.0      |
+| Sudafrica occidentale    | 102.133.24.0       |
+| Stati Uniti centro-meridionali     | 13.66.62.124 , 23.98.162.75, 104.214.16.32   | 
+| Asia sudorientale      | 104.43.15.0 , 23.100.117.95, 40.78.232.3   | 
+| Emirati Arabi Uniti centrali          | 20.37.72.64        |
+| Emirati Arabi Uniti settentrionali            | 65.52.248.0        |
+| Regno Unito meridionale             | 51.140.184.11      |
+| Regno Unito occidentale              | 51.141.8.11        |
+| Stati Uniti centro-occidentali      | 13.78.145.25       |
+| Europa occidentale          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Stati Uniti occidentali              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| Stati Uniti occidentali 2            | 13.66.226.202      |
+|                      |                    |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modificare il criterio di connessione del database SQL di Azure
 

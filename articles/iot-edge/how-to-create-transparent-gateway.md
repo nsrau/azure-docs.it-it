@@ -4,17 +4,17 @@ description: Usare un dispositivo Azure IoT Edge per creare un gateway trasparen
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 08/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91860e9ec8d503a01d079925466093d19bbbccf
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e61ddd6cb51795fad564b6246fb24ea4ce48f028
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698614"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982938"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurare un dispositivo IoT Edge come gateway trasparente
 
@@ -52,8 +52,6 @@ I passaggi seguenti illustrano il processo di creazione dei certificati e di ins
 Un dispositivo Azure IoT Edge da configurare come gateway. Usare la procedura di installazione di IoT Edge per uno dei sistemi operativi seguenti:
   * [Windows](how-to-install-iot-edge-windows.md)
   * [Linux](how-to-install-iot-edge-linux.md)
-
-Questo articolo si riferisce al *nome host del gateway* in diversi punti. Il nome host del gateway viene dichiarato nel parametro **hostname** del file config. YAML sul dispositivo gateway IOT Edge. Viene usato per creare i certificati in questo articolo ed è indicato nella stringa di connessione dei dispositivi downstream. Il nome host del gateway deve essere risolvibile in un indirizzo IP, usando DNS o una voce del file host.
 
 ## <a name="generate-certificates-with-windows"></a>Generare certificati con Windows
 
@@ -142,15 +140,18 @@ In questa sezione verranno creati tre certificati, che verranno quindi connessi 
    Questo comando script crea diversi file di certificato e di chiave, ma ne verrà fatto riferimento a uno in particolare più avanti in questo articolo:
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2. Creare il certificato della CA del dispositivo IoT Edge e la chiave privata con il comando seguente. Fornire il nome host del gateway, disponibile nel file iotedge\config.YAML sul dispositivo gateway. Il nome host del gateway viene usato per denominare i file e durante la generazione del certificato. 
+2. Creare il certificato della CA del dispositivo IoT Edge e la chiave privata con il comando seguente. Specificare un nome per il certificato della CA, ad esempio **MyEdgeDeviceCA**. Il nome viene usato per assegnare un nome ai file e durante la generazione del certificato. 
 
    ```powershell
-   New-CACertsEdgeDevice "<gateway hostname>"
+   New-CACertsEdgeDeviceCA "MyEdgeDeviceCA"
    ```
 
    Questo comando script crea diversi file di certificato e chiave, inclusi i due che verranno riferiti più avanti in questo articolo:
-   * `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
+   * `<WRKDIR>\certs\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * `<WRKDIR>\private\iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
+
+   >[!TIP]
+   >Se si specifica un nome diverso da **MyEdgeDeviceCA**, i certificati e le chiavi creati da questo comando rifletteranno tale nome. 
 
 Ora che sono disponibili i certificati, passare a [installare i certificati sul gateway](#install-certificates-on-the-gateway)
 
@@ -193,6 +194,8 @@ In questa sezione verranno creati tre certificati, che verranno quindi connessi 
 
 1. Creare il certificato CA radice e un certificato intermedio. Questi certificati vengono inseriti in *\<WRKDIR*.
 
+   Se sono già stati creati certificati radice e intermedi in questa directory di lavoro, non eseguire di nuovo lo script. Se si esegue nuovamente lo script, i certificati esistenti vengono sovrascritti. Al contrario, procedere al passaggio successivo. 
+
    ```bash
    ./certGen.sh create_root_and_intermediate
    ```
@@ -200,15 +203,18 @@ In questa sezione verranno creati tre certificati, che verranno quindi connessi 
    Lo script crea diversi certificati e chiavi. Prendere nota di un, a cui verrà fatto riferimento nella sezione successiva:
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`
 
-2. Creare il certificato della CA del dispositivo IoT Edge e la chiave privata con il comando seguente. Fornire il nome host del gateway, disponibile nel file iotedge/config. YAML sul dispositivo gateway. Il nome host del gateway viene usato per denominare i file e durante la generazione del certificato. 
+2. Creare il certificato della CA del dispositivo IoT Edge e la chiave privata con il comando seguente. Specificare un nome per il certificato della CA, ad esempio **MyEdgeDeviceCA**. Il nome viene usato per assegnare un nome ai file e durante la generazione del certificato. 
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<gateway hostname>"
+   ./certGen.sh create_edge_device_ca_certificate "MyEdgeDeviceCA"
    ```
 
    Lo script crea diversi certificati e chiavi. Prendere nota di due, a cui si farà riferimento nella sezione successiva: 
-   * `<WRKDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * `<WRKDIR>/private/iot-edge-device-<gateway hostname>.key.pem`
+   * `<WRKDIR>/certs/iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * `<WRKDIR>/private/iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
+
+   >[!TIP]
+   >Se si specifica un nome diverso da **MyEdgeDeviceCA**, i certificati e le chiavi creati da questo comando rifletteranno tale nome. 
 
 ## <a name="install-certificates-on-the-gateway"></a>Installare i certificati nel gateway
 
@@ -216,8 +222,8 @@ Dopo aver creato una catena di certificati, è necessario installarla nel dispos
 
 1. Copiare i file seguenti da *\<WRKDIR>* . Salvarli in una posizione qualsiasi nel dispositivo IoT Edge. La directory di destinazione nel dispositivo IoT Edge è denominata *\<CERTDIR>* . 
 
-   * Certificato della CA del dispositivo: `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * Chiave privata della CA del dispositivo: `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
+   * Certificato della CA del dispositivo: `<WRKDIR>\certs\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * Chiave privata della CA del dispositivo: `<WRKDIR>\private\iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
    * CA radice-`<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
    È possibile usare un servizio come [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una funzione come [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) per spostare i file del certificato.  Se i certificati sono stati generati nel dispositivo IoT Edge stesso, è possibile ignorare questo passaggio e usare il percorso della directory di lavoro.
@@ -233,16 +239,16 @@ Dopo aver creato una catena di certificati, è necessario installarla nel dispos
 
       ```yaml
       certificates:
-        device_ca_cert: "<CERTDIR>\\certs\\iot-edge-device-<gateway hostname>-full-chain.cert.pem"
-        device_ca_pk: "<CERTDIR>\\private\\iot-edge-device-<gateway hostname>.key.pem"
+        device_ca_cert: "<CERTDIR>\\certs\\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>\\private\\iot-edge-device-ca-MyEdgeDeviceCA.key.pem"
         trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
       ```
    
    * Linux: 
       ```yaml
       certificates:
-        device_ca_cert: "<CERTDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem"
-        device_ca_pk: "<CERTDIR>/private/iot-edge-device-<gateway hostname>.key.pem"
+        device_ca_cert: "<CERTDIR>/certs/iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>/private/iot-edge-device-ca-MyEdgeDeviceCA.key.pem"
         trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
       ```
 

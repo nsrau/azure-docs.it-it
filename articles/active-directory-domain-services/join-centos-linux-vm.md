@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f28933623100ed18320df37741c7c1e82ccffa9f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 183f1190e4ccbd730600290305a5847f83853c39
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612856"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990738"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale CentOS Linux a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale CentOS Linux a un dominio gestito di Azure AD Domain Services.
@@ -84,7 +84,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 1. Individuare il dominio gestito di Servizi di dominio AAD. Nel terminale SSH digitare il comando seguente:
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -100,7 +100,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     > * Specificare il nome di dominio in lettere maiuscole; in caso contrario kinit avrà esito negativo.
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. Aggiungere il computer al dominio. Nel terminale SSH digitare il comando seguente:
@@ -111,7 +111,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     > Se la macchina virtuale non è in grado di accedere al dominio, verificare che il gruppo di sicurezza di rete della macchina virtuale consenta il traffico Kerberos in uscita sulla porta TCP + UDP 464 alla subnet della rete virtuale per il dominio gestito di Azure AD DS.
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM'
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM'
     ```
 
 Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe essere visualizzato un messaggio che indica che il computer è stato registrato correttamente nell'area di autenticazione.
@@ -120,10 +120,10 @@ Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe ess
 ## <a name="verify-domain-join"></a>Verificare l'aggiunta a un dominio
 Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Connettersi alla macchina virtuale CentOS aggiunta al dominio tramite una connessione SSH diversa. Usare un account utente di dominio e quindi verificare se l'account utente viene risolto correttamente.
 
-1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale CentOS aggiunta al dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@contoso.COM.
+1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale CentOS aggiunta al dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@CONTOSO.COM.
     
     ```console
-    ssh -l bob@contoso.COM contoso-centos.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-centos.contoso.com
     ```
 
 2. Nel terminale SSH digitare il comando seguente per verificare se la home directory dell'utente è stata inizializzata correttamente.

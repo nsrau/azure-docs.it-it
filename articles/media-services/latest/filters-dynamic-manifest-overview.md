@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: bbbb570cc042d5faa16b66c42aef9792b24fdb12
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: dc9f59894da071e956283591cf7206bc371650b7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854060"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991442"
 ---
 # <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>Pre-filtro di manifesti tramite Dynamic Packager
 
@@ -107,7 +107,7 @@ Di seguito è riportato l'asset filtrato:
 
 ## <a name="adjusting-the-presentation-window-dvr"></a>Regolazione della finestra di presentazione (DVR)
 
-Attualmente, servizi multimediali di Azure offre un archivio circolare in cui la durata può essere configurata tra 5 minuti e 25 ore. Usando i filtri del file manifesto, è possibile creare una finestra DVR in sequenza all'inizio dell'archivio, senza dover eliminare alcun contenuto. Sono molti i casi in cui per un emittente può essere utile creare una finestra DVR limitata, in grado di spostarsi con il margine live, e al tempo stesso mantenere una finestra di archiviazione più grande. Un emittente, ad esempio, può decidere di usare i dati esterni alla finestra DVR per evidenziare clip oppure fornire finestre DVR diverse per dispositivi diversi. Ad esempio, la maggior parte dei dispositivi mobili non gestisce finestre DVR di grandi dimensioni (è possibile disporre di una finestra DVR di due minuti per i dispositivi mobili e di 1 ora per i client desktop).
+Attualmente, servizi multimediali di Azure offre un archivio circolare in cui la durata può essere configurata da 1 minuto a 25 ore. Usando i filtri del file manifesto, è possibile creare una finestra DVR in sequenza all'inizio dell'archivio, senza dover eliminare alcun contenuto. Sono molti i casi in cui per un emittente può essere utile creare una finestra DVR limitata, in grado di spostarsi con il margine live, e al tempo stesso mantenere una finestra di archiviazione più grande. Un emittente, ad esempio, può decidere di usare i dati esterni alla finestra DVR per evidenziare clip oppure fornire finestre DVR diverse per dispositivi diversi. La maggior parte dei dispositivi mobili, ad esempio, non è in grado di gestire finestre DVR di grandi dimensioni (è possibile usufruire di una finestra DVR di 2 minuti per i dispositivi mobili e di un'ora per i client desktop).
 
 ![Finestra DVR][dvr_filter]
 

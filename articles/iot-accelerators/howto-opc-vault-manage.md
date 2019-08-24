@@ -1,5 +1,5 @@
 ---
-title: Come gestire il servizio di gestione certificati dell'insieme di credenziali OPC-Azure | Microsoft Docs
+title: Come gestire il servizio certificati dell'insieme di credenziali OPC-Azure | Microsoft Docs
 description: Gestire i certificati della CA radice dell'insieme di credenziali OPC e le autorizzazioni utente.
 author: mregen
 ms.author: mregen
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6e53914b16bc126cdab7300d918dbb7b6b868728
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 4420e5b0d895f8ea30dbd39fc50dd7480d57d086
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973805"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996004"
 ---
-# <a name="how-to-manage-the-opc-ua-certificate-service"></a>Come gestire il servizio certificati OPC UA
+# <a name="how-to-manage-the-opc-vault-certificate-service"></a>Come gestire il servizio certificati dell'insieme di credenziali OPC
 
-Questo articolo illustra le attività amministrative per il servizio di gestione dei certificati OPC UA in Azure, come rinnovare i certificati della CA emittente, come rinnovare l'elenco di revoche di certificati (CRL) e come concedere e revocare l'accesso utente.
+Questo articolo illustra le attività amministrative per il servizio di gestione certificati dell'insieme di credenziali OPC in Azure, come rinnovare i certificati della CA emittente, come rinnovare l'elenco di revoche di certificati (CRL) e come concedere e revocare l'accesso utente.
 
 ## <a name="create-or-renew-the-root-ca-certificate"></a>Creare o rinnovare il certificato CA radice
 

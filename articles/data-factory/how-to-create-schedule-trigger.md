@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b38e85994fc99272a649b9e529380cb953d1bca
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65151080"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996368"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
 Questo articolo fornisce informazioni sui trigger di pianificazione e sulla procedura per creare, avviare e monitorare un trigger di pianificazione. Per altri tipi di trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
@@ -111,31 +111,31 @@ Questa sezione illustra come usare Azure PowerShell per creare, avviare e monito
     - Il trigger è associato alla pipeline **Adfv2QuickStartPipeline**. Per associare più pipeline a un trigger, aggiungere più sezioni **pipelineReference**.
     - La pipeline dell'Avvio rapido accetta due valori **parameters**: **inputPath** e **outputPath**. È pertanto possibile passare i valori per questi parametri dal trigger.
 
-2. Creare un trigger usando il **Set-AzDataFactoryV2Trigger** cmdlet:
+2. Creare un trigger usando il cmdlet **set-AzDataFactoryV2Trigger** :
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confermare che lo stato del trigger viene **Stopped** tramite il **Get-AzDataFactoryV2Trigger** cmdlet:
+3. Verificare che lo stato del trigger venga **interrotto** con il cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Avviare il trigger usando il **Start-AzDataFactoryV2Trigger** cmdlet:
+4. Avviare il trigger usando il cmdlet **Start-AzDataFactoryV2Trigger** :
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confermare che lo stato del trigger viene **avviato** tramite il **Get-AzDataFactoryV2Trigger** cmdlet:
+5. Verificare che lo stato del trigger venga **avviato** con il cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Ottenere il trigger viene eseguito in Azure PowerShell usando il **Get-AzDataFactoryV2TriggerRun** cmdlet. Per ottenere informazioni sulle esecuzioni di trigger, eseguire periodicamente il comando seguente. Aggiornare i valori di **TriggerRunStartedAfter** e **TriggerRunStartedBefore** in modo che corrispondano a quelli nella definizione del trigger:
+6.  Ottenere il trigger viene eseguito in Azure PowerShell usando il cmdlet **Get-AzDataFactoryV2TriggerRun** . Per ottenere informazioni sulle esecuzioni di trigger, eseguire periodicamente il comando seguente. Aggiornare i valori di **TriggerRunStartedAfter** e **TriggerRunStartedBefore** in modo che corrispondano a quelli nella definizione del trigger:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -254,9 +254,7 @@ Azure Data Factory versione 1 supporta la lettura o la scrittura di dati partizi
 "parameters": {
     "scheduledRunTime": "@trigger().scheduledTime"
 }
-```    
-
-Per altre informazioni, vedere le istruzioni in [Come leggere o scrivere dati partizionati](how-to-read-write-partitioned-data.md).
+```
 
 ## <a name="json-schema"></a>Schema JSON
 La definizione JSON seguente illustra come creare un trigger di pianificazione con pianificazione e ricorrenza:
@@ -325,9 +323,9 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 ### <a name="schema-defaults-limits-and-examples"></a>Impostazioni predefinite dello schema, limiti ed esempi
 
-| Proprietà JSON | Type | Obbligatorio | Valore predefinito | Valori validi | Esempio |
+| Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | String | Yes | Nessuna | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | String | Sì | Nessuna | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Object | Yes | Nessuna | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | No | 1 | Da 1 a 1.000 | `"interval":10` |
 | **endTime** | String | Yes | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |

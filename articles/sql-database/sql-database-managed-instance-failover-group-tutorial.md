@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 059a614dff7fc0eab5419e3e2ffdeaeecb79ad99
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624976"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981377"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Esercitazione: Aggiungere un'istanza gestita di database SQL a un gruppo di failover
 
@@ -47,7 +47,7 @@ In questo passaggio si creeranno il gruppo di risorse e l'istanza gestita primar
 1. Selezionare **Crea** per avviare la pagina di creazione dell' **istanza gestita di SQL** . 
 1. Nella pagina **crea istanza gestita di database SQL di Azure** , nella scheda nozioni di **base**
     1. In **Dettagli progetto**selezionare la **sottoscrizione** dall'elenco a discesa, quindi scegliere di creare un **nuovo** gruppo di risorse. Digitare un nome per il gruppo di risorse, ad esempio `myResourceGroup`. 
-    1. In **istanza gestita dettagli**specificare il nome dell'istanza gestita e l'area in cui si desidera distribuire l'istanza gestita. Assicurarsi di selezionare un'area con un' [area abbinata](/azure/best-practices-availability-paired-regions). Lasciare i valori predefiniti per il calcolo e l' **archiviazione** . 
+    1. In **istanza gestita dettagli**specificare il nome dell'istanza gestita e l'area in cui si desidera distribuire l'istanza gestita. Lasciare i valori predefiniti per il calcolo e l' **archiviazione** . 
     1. In **account amministratore**specificare un account di accesso amministratore, ad `azureuser`esempio, e una password amministratore complessa. 
 
     ![Crea la MI primaria](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
@@ -79,7 +79,7 @@ Per creare una rete virtuale, seguire questa procedura:
     | **Nome** |  Nome della rete virtuale che deve essere utilizzato dall'istanza gestita secondaria, ad esempio `vnet-sql-mi-secondary`. |
     | **Spazio degli indirizzi** | Spazio degli indirizzi per la rete virtuale, ad esempio `10.128.0.0/16`. | 
     | **Sottoscrizione** | Sottoscrizione in cui risiedono l'istanza gestita primaria e il gruppo di risorse. |
-    | **Region** | Il percorso in cui si distribuirà l'istanza gestita secondaria; deve trovarsi in un' [area abbinata](/azure/best-practices-availability-paired-regions) all'istanza gestita primaria.  |
+    | **Region** | Il percorso in cui si distribuirà l'istanza gestita secondaria. |
     | **Subnet** | Nome della subnet. `default`viene fornito per impostazione predefinita. |
     | **Intervallo di indirizzi**| Intervallo di indirizzi per la subnet. Questo deve essere diverso dall'intervallo di indirizzi della subnet usato dalla rete virtuale dell'istanza gestita primaria, ad esempio `10.128.0.0/24`.  |
     | &nbsp; | &nbsp; |
@@ -92,7 +92,6 @@ In questo passaggio verrà creata un'istanza gestita secondaria nel portale di A
 
 La seconda istanza gestita deve:
 - Essere vuoto. 
-- Trovarsi all'interno di un' [area abbinata](/azure/best-practices-availability-paired-regions) con la corrispondente istanza gestita primaria. 
 - Avere una subnet e un intervallo IP diversi rispetto all'istanza gestita primaria. 
 
 Per creare un'istanza gestita secondaria, attenersi alla procedura seguente: 
@@ -103,12 +102,12 @@ Per creare un'istanza gestita secondaria, attenersi alla procedura seguente:
 
    Nella tabella seguente sono illustrati i valori necessari per l'istanza gestita secondaria:
  
-    | **Campo** | Valore |
+    | **Campo** | Value |
     | --- | --- |
     | **Sottoscrizione** |  Sottoscrizione in cui si trova l'istanza gestita primaria. |
     | **Gruppo di risorse**| Il gruppo di risorse in cui si trova l'istanza gestita primaria. |
     | **Nome istanza gestita** | Nome della nuova istanza gestita secondaria, ad esempio`sql-mi-secondary`  | 
-    | **Region**| Percorso dell' [area abbinata](/azure/best-practices-availability-paired-regions) per l'istanza gestita secondaria.  |
+    | **Region**| Percorso dell'istanza gestita secondaria.  |
     | **Account di accesso amministratore istanza gestita** | Account di accesso che si desidera utilizzare per la nuova istanza gestita secondaria, ad `azureuser`esempio. |
     | **Password** | Password complessa che verrà utilizzata dall'account di accesso amministratore per la nuova istanza gestita secondaria.  |
     | &nbsp; | &nbsp; |
@@ -168,7 +167,7 @@ Ripetere i passaggi nella sezione precedente per creare la subnet della rete vir
 
    La tabella seguente mostra i valori necessari per il gateway per l'istanza gestita secondaria:
 
-   | **Campo** | Value |
+   | **Campo** | Valore |
    | --- | --- |
    | **Sottoscrizione** |  Sottoscrizione in cui si trova l'istanza gestita secondaria. |
    | **Nome** | Nome del gateway di rete virtuale, ad esempio `secondary-mi-gateway`. | 

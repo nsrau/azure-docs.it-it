@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 5991aec681b00583a9c66328aed601593c864c63
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: ce663dec47f99b6ba4751e23e7ac7f13de866a5d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517206"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982973"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -67,7 +67,7 @@ Quando si usa ISE con una rete virtuale esistente, un problema di installazione 
 
 Se sono state create una nuova rete virtuale e le subnet senza vincoli, non è necessario configurare i [gruppi di sicurezza di rete (gruppi)](../virtual-network/security-overview.md) nella rete virtuale in modo da poter controllare il traffico tra le subnet. Per una rete virtuale esistente, è possibile impostare facoltativamente gruppi filtrando il [traffico di rete tra le subnet](../virtual-network/tutorial-filter-network-traffic.md). Se si sceglie questa route, assicurarsi che ISE apra porte specifiche, come descritto nella tabella seguente, nella rete virtuale con gruppi. Quindi, per gruppi o firewall esistenti nella rete virtuale, assicurarsi che aprano queste porte. In questo modo, ISE rimane accessibile e può funzionare correttamente in modo da non perdere l'accesso a ISE. In caso contrario, se non sono disponibili porte obbligatorie, ISE smette di funzionare.
 
-Questa tabella descrive le porte della rete virtuale utilizzate da ISE e le porte in cui vengono usate. I [tag del servizio Gestione risorse](../virtual-network/security-overview.md#service-tags) rappresentano un gruppo di prefissi di indirizzi IP che consentono di ridurre al minimo la complessità durante la creazione delle regole di sicurezza.
+Questa tabella descrive le porte nella rete virtuale utilizzate da ISE e in cui vengono utilizzate tali porte. I [tag del servizio Gestione risorse](../virtual-network/security-overview.md#service-tags) rappresentano un gruppo di prefissi di indirizzi IP che consentono di ridurre al minimo la complessità durante la creazione delle regole di sicurezza.
 
 > [!IMPORTANT]
 > Per la comunicazione interna all'interno delle subnet, ISE richiede di aprire tutte le porte all'interno di tali subnet.
@@ -115,15 +115,15 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    | Proprietà | Obbligatorio | Value | DESCRIZIONE |
    |----------|----------|-------|-------------|
-   | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
+   | **Sottoscrizione** | Yes | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
    | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui si desidera creare l'ambiente |
-   | **Nome dell'ambiente del servizio di integrazione** | Yes | <*Nome ambiente*> | Il nome da assegnare all'ambiente |
+   | **Nome dell'ambiente del servizio di integrazione** | Yes | <*Nome ambiente*> | Il nome ISE, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`) e punti`.`(). |
    | **Location** | Yes | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
    | **SKU** | Sì | **Premium** o **Developer (nessun contratto di contratto)** | SKU ISE da creare e usare. Per le differenze tra questi SKU, vedere [SKU di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: Questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
    | **Capacità aggiuntiva** | Premium: <br>Yes <p><p>Developer: <br>Non applicabile | Premium: <br>da 0 a 10 <p><p>Developer: <br>Non applicabile | Il numero di unità di elaborazione aggiuntive da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [aggiungere la capacità di ISE](#add-capacity). |
    | **Endpoint di accesso** | Sì | **Interno** o **esterno** | Il tipo di endpoint di accesso da usare per ISE, che determina se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. Il tipo di endpoint influiscono anche sull'accesso a input e output nella cronologia delle esecuzioni dell'app per la logica. Per ulteriori informazioni, vedere [endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: Questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
    | **Rete virtuale** | Sì | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si ha una rete, [creare prima di tutto una rete virtuale di Azure](../virtual-network/quick-create-portal.md). <p>**Importante**: È possibile seguire questo collegamento *solo* quando si crea l'ISE. |
-   | **Subnet** | Yes | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione e la distribuzione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet).  |
+   | **Subnet** | Sì | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione e la distribuzione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet).  |
    |||||
 
    <a name="create-subnet"></a>
@@ -136,7 +136,7 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    * Usa il [formato CIDR (Inter-Domain Routing) con classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e uno spazio di indirizzi della classe B.
 
-   * USA almeno un `/27` nello spazio degli indirizzi, perché ogni subnet *deve avere almeno* 32 indirizzi come *minimo*. Ad esempio:
+   * USA almeno un `/27` nello spazio degli indirizzi, perché ogni subnet deve avere almeno 32 indirizzi come *minimo*. Esempio:
 
      * `10.0.0.0/27`ha 32 indirizzi perché 2<sup>(32-27)</sup> è 2<sup>5</sup> o 32.
 

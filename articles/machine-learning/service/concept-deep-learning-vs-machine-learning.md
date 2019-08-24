@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Deep Learning e Machine Learning
+title: Apprendimento avanzato e Machine Learning
 titleSuffix: Azure Machine Learning service
 description: Informazioni sulla relazione tra Deep Learning e machine learning e sul modo in cui rientrano nella categoria di intelligenza artificiale. Questo articolo descrive il modo in cui l'apprendimento avanzato risolve scenari quali il rilevamento delle frodi, il riconoscimento vocale e facciale, l'analisi dei sentimenti e la previsione delle serie temporali.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5301be493ef22fc2d74cc337d88b04caf391fdaa
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934282"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982801"
 ---
-# <a name="introduction-to-deep-learning-vs-machine-learning"></a>Introduzione a Deep Learning e Machine Learning
+# <a name="deep-learning-vs-machine-learning"></a>Apprendimento avanzato e Machine Learning
 
 Questo articolo consente di comprendere la relazione tra Deep Learning e machine learning. Verranno illustrate le differenze tra i due concetti e il modo in cui rientrano nella categoria più ampia di intelligenza artificiale. Infine, l'articolo descrive il modo in cui l'apprendimento avanzato può essere applicato a scenari reali, ad esempio il rilevamento delle frodi, il riconoscimento vocale e facciale, l'analisi dei sentimenti e la previsione delle serie temporali.
 

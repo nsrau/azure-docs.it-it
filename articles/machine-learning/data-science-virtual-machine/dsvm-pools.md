@@ -1,6 +1,6 @@
 ---
 title: Pool di Data Science Virtual Machine in Azure | Microsoft Docs
-description: Distribuzione di pool di Data Science VM come risorsa condivisa per un team
+description: Distribuzione di pool di Dsvm come risorsa condivisa per un team
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale, processo di data science del team
 services: machine-learning
 documentationcenter: ''
@@ -16,30 +16,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: vijetaj
-ms.openlocfilehash: 44983de87ce2e774356bf506e3a868da922a3ba3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 76a715838fa5eb4f806fccc98675ea5acdbe1822
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558047"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992024"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Creare un pool condiviso di Data Science Virtual Machine
 
-Questo articolo illustra come è possibile creare un pool condiviso di Data Science Virtual Machine (DSVM) per l'uso da parte di un team. I vantaggi di usare un pool condiviso sono un migliore utilizzo delle risorse, facilità di condivisione e collaborazione e gestione più efficace delle risorse DSVM. 
+Questo articolo illustra come creare un pool condiviso di macchine virtuali di Data Science (Dsvm) per un team. I vantaggi derivanti dall'utilizzo di un pool condiviso includono un migliore utilizzo delle risorse, una condivisione e una collaborazione più semplici e una gestione più efficace delle risorse DSVM.
 
-È possibile usare numerosi metodi e tecnologie per creare un pool di DSVM. Questo articolo illustra i pool per le VM interattive. Un'infrastruttura di calcolo gestita alternativa è Ambiente di calcolo di Azure Machine Learning. Visualizzare [Configurare le destinazioni di calcolo](../service/how-to-set-up-training-targets.md#amlcompute) per altre informazioni.
+È possibile usare numerosi metodi e tecnologie per creare un pool di DSVM. Questo articolo è incentrato sui pool di macchine virtuali interattive (VM). Un'infrastruttura di calcolo gestita alternativa è Ambiente di calcolo di Azure Machine Learning. Per altre informazioni, vedere [configurare le destinazioni di calcolo](../service/how-to-set-up-training-targets.md#amlcompute).
 
 ## <a name="interactive-vm-pool"></a>Pool di VM interattive
 
-Un pool di VM interattive che sono condivise dall'intero team di intelligenza artificiale/data science consente agli utenti di accedere a un'istanza disponibile della DSVM anziché avere un'istanza dedicata per ogni set di utenti. Questa configurazione garantisce una migliore disponibilità e un uso più efficace delle risorse. 
+Un pool di VM interattive che sono condivise dall'intero team di intelligenza artificiale/data science consente agli utenti di accedere a un'istanza disponibile della DSVM anziché avere un'istanza dedicata per ogni set di utenti. Questa configurazione consente una maggiore disponibilità e un uso più efficiente delle risorse.
 
-La tecnologia usata per creare un pool di VM interattive si basa sui [set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). È possibile usare i set di scalabilità per creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica. 
+Usare la tecnologia di set di scalabilità di [macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) per creare un pool di macchine virtuali interattivo. È possibile usare i set di scalabilità per creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica.
 
-L'utente accede all'indirizzo IP o DNS del pool principale. Il set di scalabilità esegue automaticamente il routing della sessione su una DSVM disponibile nel set di scalabilità. Poiché gli utenti vogliono un ambiente simile, indipendentemente dalla VM a cui eseguono l'accesso, tutte le istanze della VM nel set di scalabilità montano un'unità di rete condivisa, ad esempio una condivisione di File di Azure o una condivisione NFS. L'area di lavoro condivisa dell'utente in genere viene mantenuta nell'archivio di file condiviso montato in ognuna delle istanze. 
+L'utente accede all'indirizzo IP o DNS del pool principale. Il set di scalabilità esegue automaticamente il routing della sessione su una DSVM disponibile nel set di scalabilità. Poiché gli utenti vogliono un ambiente coerente e familiare indipendentemente dalla macchina virtuale a cui accedono, tutte le istanze della macchina virtuale nel set di scalabilità montano un'unità di rete condivisa, ad esempio una condivisione File di Azure o una condivisione NFS (Network File System). L'area di lavoro condivisa dell'utente in genere viene mantenuta nell'archivio di file condiviso montato in ognuna delle istanze.
 
-È possibile trovare un esempio di modello di Azure Resource Manager che crea un set di scalabilità con istanze di DSVM Ubuntu in [GitHub](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). Nello stesso percorso si trova anche un esempio del [file dei parametri](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) per il modello di Azure Resource Manager. 
+È possibile trovare un esempio di modello di Azure Resource Manager che crea un set di scalabilità con istanze di DSVM Ubuntu in [GitHub](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). È possibile trovare un esempio del [file di parametri](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) per il modello di Azure Resource Manager nello stesso percorso.
 
-È possibile creare il set di scalabilità dal modello di Azure Resource Manager specificando i valori per il file dei parametri nell'interfaccia della riga di comando di Azure. 
+È possibile creare il set di scalabilità dal modello di Azure Resource Manager specificando i valori per il file dei parametri nell'interfaccia della riga di comando di Azure:
 
 ```
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]
@@ -49,15 +49,15 @@ I comandi precedenti presuppongono che si abbia:
 * Una copia del file dei parametri con i valori specificati per l'istanza del set di scalabilità.
 * Il numero di istanze di VM.
 * Puntatori alla condivisione di File di Azure.
-* Credenziali per l'account di archiviazione che verrà montato in ogni VM. 
+* Credenziali per l'account di archiviazione che verrà montato in ogni VM.
 
 Nei comandi si fa riferimento in locale al file dei parametri. È anche possibile passare parametri inline o richiedere i parametri nello script.  
 
-Il modello precedente abilita la porta JupyterHub e SSH dal set di scalabilità front-end al pool back-end delle DSVM Ubuntu. Come utente, si esegue l'accesso semplicemente alla VM in JupyterHub o in SSH in modo normale. Poiché è possibile aumentare o ridurre in modo dinamico le prestazioni delle istanze di VM, ogni stato deve essere salvato nella condivisione di File di Azure montata. È possibile usare lo stesso approccio per creare un pool di DSVM Windows. 
+Il modello precedente abilita la porta JupyterHub e SSH dal set di scalabilità front-end al pool back-end delle DSVM Ubuntu. L'utente accede alla macchina virtuale in un Secure Shell (SSH) o in JupyterHub in modo normale. Poiché le istanze di macchina virtuale possono essere aumentate o ridotte in modo dinamico, qualsiasi stato deve essere salvato nella condivisione File di Azure montata. È possibile usare lo stesso approccio per creare un pool di DSVM Windows.
 
-Anche lo [script che monta la condivisione di File di Azure](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) è disponibile nel repository Azure DataScienceVM in GitHub. Lo script monta la condivisione di File di Azure nel punto di montaggio specificato nel file dei parametri. Lo script crea anche collegamenti simbolici all'unità montata nella home directory dell'utente iniziale. Una directory notebook specifica dell'utente nella condivisione di File di Azure viene collegata in modo simbolico alla directory `$HOME/notebooks/remote` in modo che l'utente possa accedere, eseguire e salvare i notebook di Jupyter. È possibile usare la stessa convenzione quando si creano altri utenti nella VM per puntare all'area di lavoro Jupyter di ogni utente nella condivisione di File di Azure. 
+Anche lo [script che monta la condivisione di File di Azure](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) è disponibile nel repository Azure DataScienceVM in GitHub. Lo script monta la condivisione di File di Azure nel punto di montaggio specificato nel file dei parametri. Lo script crea anche collegamenti simbolici all'unità montata nella home directory dell'utente iniziale. Una directory del notebook specifica dell'utente nella condivisione file di Azure è collegata temporaneamente alla `$HOME/notebooks/remote` directory in modo che gli utenti possano accedere, eseguire e salvare i notebook di Jupyter. È possibile usare la stessa convenzione quando si creano altri utenti nella VM per puntare all'area di lavoro Jupyter di ogni utente nella condivisione di File di Azure.
 
-I set di scalabilità di macchine virtuali supportano la scalabilità automatica. È possibile impostare regole che determinano quando creare altre istanze e quando ridurre il numero delle istanze. È ad esempio possibile ridurre il numero di istanze a zero per risparmiare sui costi di utilizzo dell'hardware cloud quando le VM non vengono usate. Le pagine di documentazione sui set di scalabilità di macchine virtuali riportano i passaggi dettagliati per la [scalabilità automatica](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+I set di scalabilità di macchine virtuali supportano la scalabilità automatica. È possibile impostare regole su quando creare istanze aggiuntive e quando ridimensionare le istanze. È ad esempio possibile ridurre il numero di istanze a zero per risparmiare sui costi di utilizzo dell'hardware cloud quando le VM non vengono usate. Le pagine di documentazione sui set di scalabilità di macchine virtuali riportano i passaggi dettagliati per la [scalabilità automatica](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

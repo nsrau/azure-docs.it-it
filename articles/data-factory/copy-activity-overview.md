@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 59ac4b36a4bc2b3ff454b3a2ae98ce60f6bfcb5f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614259"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996615"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -263,9 +263,6 @@ In questo esempio, durante l'esecuzione della copia, ADF rileva che il database 
 
 ## <a name="incremental-copy"></a>Copia incrementale
 Data Factory supporta scenari per la copia incrementale dei dati Delta da un archivio dati di origine a un archivio dati sink. Vedere [Esercitazione: Copiare dati in modo incrementale](tutorial-incremental-copy-overview.md).
-
-## <a name="read-and-write-partitioned-data"></a>Leggere e scrivere dati partizionati
-Nella versione 1, Azure Data Factory supportava la lettura o la scrittura di dati partizionati usando le variabili di sistema SliceStart/SliceEnd/WindowStart/WindowEnd. Nella versione corrente è possibile ottenere questo comportamento usando un parametro della pipeline e l'ora di inizio/ora prevista per il trigger come valore per il parametro. Per altre informazioni, vedere [Come leggere o scrivere dati partizionati](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le guide rapide, le esercitazioni e gli esempi seguenti:

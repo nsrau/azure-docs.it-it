@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be3dbc386b0ac89a85bc1719081df944523c28ce
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167113"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997829"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Proteggere i messaggi B2B con certificati
 
@@ -50,7 +50,7 @@ Per usare un *certificato pubblico* nelle app per la logica con funzionalità B2
    | Proprietà | Valore | DESCRIZIONE | 
    |----------|-------|-------------|
    | **Nome** | <*certificate-name*> | Nome del certificato, ovvero "publicCert" in questo esempio | 
-   | **Tipo di certificato** | Pubblico | Tipo del certificato |
+   | **Tipo di certificato** | Public | Tipo del certificato |
    | **Certificate** | <*certificate-file-name*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. |
    ||||
 
@@ -90,7 +90,7 @@ Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integrati
    |----------|-------|-------------|
    | **Nome** | <*certificate-name*> | Nome del certificato, ovvero "privateCert" in questo esempio | 
    | **Tipo di certificato** | Privato | Tipo del certificato |
-   | **Certificate** | <*certificate-file-name*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. | 
+   | **Certificate** | <*certificate-file-name*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. Quando si usa un insieme di credenziali delle chiavi per la chiave privata, il file caricato sarà il certificato pubblico. | 
    | **Gruppo di risorse** | <*integration-account-resource-group*> | Gruppo di risorse dell'account di integrazione, ovvero "MyResourceGroup" in questo esempio | 
    | **Insieme di credenziali di chiave** | <*key-vault-name*> | Nome dell'insieme di credenziali delle chiavi di Azure |
    | **Nome chiave** | <*key-name*> | Nome della chiave |

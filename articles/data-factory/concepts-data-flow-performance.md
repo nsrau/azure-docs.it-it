@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 090c229c5e97ede8eb7a397ce8f4d13d8735a346
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404617"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992343"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione del flusso di dati
 
@@ -117,6 +117,10 @@ Se si fa clic su tale icona, viene visualizzato il piano di esecuzione e il prof
 * È possibile controllare il numero di partizioni che vengono utilizzate da ADF. In ogni origine & trasformazione sink, oltre a ogni singola trasformazione, è possibile impostare uno schema di partizionamento. Per i file di dimensioni ridotte, è possibile che la selezione di "partizione singola" funzioni a volte migliore e più rapida rispetto alla richiesta a Spark di partizionare i file piccoli.
 * Se non si dispone di informazioni sufficienti sui dati di origine, è possibile scegliere il partizionamento "Round Robin" e impostare il numero di partizioni.
 * Se si esplorano i dati e si individuano colonne che possono essere chiavi hash valide, usare l'opzione di partizionamento hash.
+* Quando si esegue il debug nell'anteprima dei dati e nel debug della pipeline, si noti che le dimensioni del limite e del campionamento per i set di dati di origine basati su file sono valide solo per il numero di righe restituite e non per il numero di righe Questo è importante da notare perché può influire sulle prestazioni delle esecuzioni di debug e potrebbe causare l'esito negativo del flusso.
+* Tenere presente che i cluster di debug sono piccoli cluster a nodo singolo per impostazione predefinita, quindi utilizzare file temporanei di piccole dimensioni per il debug. Passare a impostazioni di debug e puntare a un piccolo subset di dati usando un file temporaneo.
+
+![Impostazioni di debug](media/data-flow/debugsettings3.png "Impostazioni di debug")
 
 ### <a name="file-naming-options"></a>Opzioni di denominazione dei file
 

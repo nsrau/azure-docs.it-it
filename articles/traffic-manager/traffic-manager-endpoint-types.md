@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: allensu
-ms.openlocfilehash: 1b72fc510543ff57f5fac1b03e76df7ffed3fbfe
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 9de5b161c6bb1897058898dddd620ad093f148be
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333832"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981062"
 ---
 # <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
 
@@ -101,7 +101,7 @@ Se tutti gli endpoint di un profilo sono disabilitati o se il profilo stesso è 
 
 * [È possibile usare gestione traffico con più di un'app Web nella stessa area?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [Ricerca per categorie spostare gli endpoint di Azure del profilo di gestione traffico in un gruppo di risorse diverso?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
+* [Ricerca per categorie spostare gli endpoint di Azure del profilo di gestione traffico in un gruppo di risorse diverso?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

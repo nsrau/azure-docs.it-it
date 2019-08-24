@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
-ms.openlocfilehash: b7d9ff760bac06602d8d770a358c8a2e22a72c81
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849205"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997698"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Soluzione Azure Key Vault Analytics in monitoraggio di Azure
 
@@ -103,28 +103,28 @@ Dopo aver fatto clic sul riquadro **analisi insieme di credenziali delle chiavi*
 ## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
 La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con tipo **KeyVaults**, raccolti dai [log AuditEvent](../../key-vault/key-vault-logging.md) in Diagnostica di Azure.  Le proprietà per questi record sono disponibili nella tabella seguente:  
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--- |:--- |
-| Type |*AzureDiagnostics* |
-| SourceSystem |*Azure* |
-| CallerIpAddress |Indirizzo IP del client che ha eseguito la richiesta |
-| Categoria | *AuditEvent* |
-| CorrelationId |GUID facoltativo che il client può passare per correlare i log sul lato client con quelli sul lato servizio (insieme di credenziali delle chiavi). |
-| DurationMs |Tempo impiegato per soddisfare la richiesta API REST, in millisecondi. Il tempo non include la latenza di rete, quindi il tempo misurato sul lato client potrebbe non corrispondere a questo valore. |
-| httpStatusCode_d |Codice di stato HTTP restituito dalla richiesta (ad esempio *200*) |
-| id_s |ID univoco della richiesta |
-| identity_claim_appid_g | GUID per l'ID applicazione |
-| OperationName |Nome dell'operazione, come illustrato in [Registrazione dell'Insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-logging.md) |
-| OperationVersion |Versione dell'API REST richiesta dal client (ad esempio *2015-06-01*) |
-| requestUri_s |URI della richiesta |
-| Risorsa |Nome dell'insieme di credenziali delle chiavi |
-| ResourceGroup |Gruppo di risorse dell'insieme di credenziali delle chiavi |
-| ResourceId |ID della risorsa Gestione risorse di Azure. Per i log di Key Vault, questo è l'ID della risorsa Key Vault. |
-| ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResourceType | *VAULTS* |
-| ResultSignature |Stato HTTP (ad esempio *OK*) |
-| ResultType |Risultato della richiesta dell'API REST (ad esempio *Operazione completata*) |
-| SubscriptionId |ID sottoscrizione di Azure della sottoscrizione che include l'insieme di credenziali delle chiavi |
+| `Type` |*AzureDiagnostics* |
+| `SourceSystem` |*Azure* |
+| `CallerIpAddress` |Indirizzo IP del client che ha eseguito la richiesta |
+| `Category` | *AuditEvent* |
+| `CorrelationId` |GUID facoltativo che il client può passare per correlare i log sul lato client con quelli sul lato servizio (insieme di credenziali delle chiavi). |
+| `DurationMs` |Tempo impiegato per soddisfare la richiesta API REST, in millisecondi. Il tempo non include la latenza di rete, quindi il tempo misurato sul lato client potrebbe non corrispondere a questo valore. |
+| `httpStatusCode_d` |Codice di stato HTTP restituito dalla richiesta (ad esempio *200*) |
+| `id_s` |ID univoco della richiesta |
+| `identity_claim_appid_g` | GUID per l'ID applicazione |
+| `OperationName` |Nome dell'operazione, come illustrato in [Registrazione dell'Insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-logging.md) |
+| `OperationVersion` |Versione dell'API REST richiesta dal client (ad esempio *2015-06-01*) |
+| `requestUri_s` |URI della richiesta |
+| `Resource` |Nome dell'insieme di credenziali delle chiavi |
+| `ResourceGroup` |Gruppo di risorse dell'insieme di credenziali delle chiavi |
+| `ResourceId` |ID della risorsa Gestione risorse di Azure. Per i log di Key Vault, questo è l'ID della risorsa Key Vault. |
+| `ResourceProvider` |*MICROSOFT.KEYVAULT* |
+| `ResourceType` | *VAULTS* |
+| `ResultSignature` |Stato HTTP (ad esempio *OK*) |
+| `ResultType` |Risultato della richiesta dell'API REST (ad esempio *Operazione completata*) |
+| `SubscriptionId` |ID sottoscrizione di Azure della sottoscrizione che include l'insieme di credenziali delle chiavi |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migrazione dalla soluzione Key Vault precedente
 Nel gennaio 2017, il metodo supportato per l'invio dei log da Key Vault a Log Analytics è cambiato. In questo modo si otterranno i vantaggi seguenti:

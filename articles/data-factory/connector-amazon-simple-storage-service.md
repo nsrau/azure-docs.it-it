@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b47aadc28a5e2ea6dbf2a7a8a23cdb713a0b981
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ecdd560997391a4dfed8b01f30825eb9b3845792
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839894"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996712"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiare dati da Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -24,6 +24,8 @@ ms.locfileid: "68839894"
 > * [Versione corrente](connector-amazon-simple-storage-service.md)
 
 Questo articolo illustra come copiare dati da Amazon Simple Storage Service (Amazon S3). Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
+
+Per lo scenario di migrazione dei dati da Amazon S3 ad archiviazione di Azure, vedere l'articolo relativo [all'uso di Azure Data Factory per la migrazione dei dati da Amazon S3 ad archiviazione di Azure](data-migration-guidance-s3-azure-storage.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 

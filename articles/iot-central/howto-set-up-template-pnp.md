@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 982ebf28a0f99a6eace2448676c934855cd99d1f
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fd7cd8f73f602953573b7e6edab32bf2a6aecc05
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879734"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998129"
 ---
 # <a name="set-up-and-manage-a-device-template-preview-features"></a>Configurare e gestire un modello di dispositivo (funzionalità di anteprima)
 
@@ -36,7 +36,7 @@ Da questo modello di dispositivo, un operatore può creare e connettere disposit
 > [!NOTE]
 > Solo i generatori e gli amministratori possono creare, modificare ed eliminare i modelli di dispositivo. Qualsiasi utente può creare dispositivi nella pagina **dispositivi** da modelli di dispositivo esistenti.
 
-Internet delle cose [plug and Play](https://aka.ms/iot-pnp-docs) consente ai IOT Central di integrare i dispositivi senza scrivere codice dispositivo incorporato. Il nucleo del Plug and Play Internet è uno schema del modello di funzionalità del dispositivo che descrive le funzionalità del dispositivo. In un'applicazione IoT Central anteprima, i modelli di dispositivo usano questi Plug and Play i modelli di funzionalità del dispositivo.
+Internet delle cose [plug and Play](../iot-pnp/overview-iot-plug-and-play.md) consente ai IOT Central di integrare i dispositivi senza scrivere codice dispositivo incorporato. Il nucleo del Plug and Play Internet è uno schema del modello di funzionalità del dispositivo che descrive le funzionalità del dispositivo. In un'applicazione IoT Central anteprima, i modelli di dispositivo usano questi Plug and Play i modelli di funzionalità del dispositivo.
 
 In qualità di generatore sono disponibili diverse opzioni per la creazione di modelli di dispositivo:
 
@@ -116,7 +116,7 @@ La telemetria è un flusso di valori inviati dal dispositivo, in genere da un se
 
 La tabella seguente illustra le impostazioni di configurazione per una funzionalità di telemetria:
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore di telemetria usato nei dashboard e nei moduli. |
 | Name | Nome del campo nel messaggio di telemetria. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere il proprio valore, se necessario. |
@@ -139,7 +139,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore della proprietà usato nei dashboard e nei form. |
-| NOME | Nome della proprietà. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere il proprio valore, se necessario. |
+| Name | Nome della proprietà. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere il proprio valore, se necessario. |
 | Tipo di funzionalità | Proprietà. |
 | Tipo semantico | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali dei campi seguenti sono disponibili. |
 | Schema | Tipo di dati della proprietà, ad esempio Double, String o Vector. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi di semantica di stato e di evento. |

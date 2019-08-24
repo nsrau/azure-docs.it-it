@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 32c903e5d469a9a3e7b98bd406b5512d752bb210
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
-ms.translationtype: MT
+ms.openlocfilehash: 0ebf18fe2dc6906bc2c06d94388d126fb55c6024
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017801"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981408"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le analogie e le differenze tra i due tipi di code offerti attualmente da Microsoft Azure: Code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.
@@ -68,7 +68,7 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
 | Garanzia di ordinamento |**No** <br/><br>Per altre informazioni, vedere la prima nota della sezione "Informazioni aggiuntive".</br> |**Sì - First-In-First-Out (FIFO)**<br/><br>(tramite l'uso di sessioni di messaggistica) |
-| Garanzia di recapito |**At-Least-Once** |**At-Least-Once**<br/><br/>**At-Most-Once** |
+| Garanzia di recapito |**At-Least-Once** |**At-least-once** (usando la modalità di ricezione PeekLock-impostazione predefinita) <br/><br/>**At-most-once** (utilizzo della modalità di ricezione ReceiveAndDelete) <br/> <br/> Altre informazioni sulle diverse [modalità di ricezione](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Supporto per l'operazione atomica |**No** |**Sì**<br/><br/> |
 | Comportamento di ricezione |**Non-blocking**<br/><br/>(viene completata immediatamente se non vengono trovati altri messaggi) |**Blocking with/without timeout**<br/><br/>(offre disponibilità di polling prolungato o la ["Tecnica Comet"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(solo tramite l'uso di interfaccia API gestita di .NET) |
 | API di tipo push |**No** |**Sì**<br/><br/>Interfaccia API di .NET per sessioni [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e **OnMessage**. |

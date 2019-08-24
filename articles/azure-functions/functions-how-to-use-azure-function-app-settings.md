@@ -1,24 +1,22 @@
 ---
 title: Configurare le impostazioni dell'app per le funzioni di Azure | Microsoft Docs
 description: Informazioni su come configurare le impostazioni dell'app per le funzioni di Azure.
-services: ''
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27e56c3bcaa08fee25c362cdfed64c61b92873cb
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957401"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982649"
 ---
-# <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Come gestire un'app per le funzioni nel portale di Azure 
+# <a name="how-to-manage-a-function-app"></a>Come gestire un'app per le funzioni
 
 In Funzioni di Azure un'app per le funzioni fornisce il contesto di esecuzione per le singole funzioni. I comportamenti dell'app per le funzioni si applicano a tutte le funzioni ospitate da un'app per le funzioni specifica. In questo argomento viene descritto come configurare e gestire le app per le funzioni nel portale di Azure.
 
@@ -26,21 +24,21 @@ Innanzitutto passare al [portale di Azure](https://portal.azure.com) e accedere 
 
 ![Panoramica dell'app per le funzioni nel portale di Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-È possibile passare a tutto il necessario per gestire le app per le funzioni dalla pagina di panoramica, in particolare il **[impostazioni applicazione](#settings)** e **[funzionalitàdellapiattaforma](#platform-features)** .
+È possibile passare a tutti gli elementi necessari per gestire l'app per le funzioni dalla pagina Panoramica, in particolare le **[impostazioni dell'applicazione](#settings)** e le **[funzionalità della piattaforma](#platform-features)** .
 
 ## <a name="settings"></a>Impostazioni dell'applicazione
 
-Il **le impostazioni dell'applicazione** scheda mantiene le impostazioni usate dall'app per le funzioni.
+La scheda **Impostazioni applicazione** mantiene le impostazioni usate dall'app per le funzioni.
 
-![Impostazioni dell'app funzioni nel portale di Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+![Impostazioni dell'app per le funzioni nella portale di Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-Queste impostazioni vengono archiviate crittografate, ed è necessario selezionare **Mostra i valori** per visualizzare i valori nel portale.
+Queste impostazioni vengono archiviate crittografate ed è necessario selezionare **Mostra valori** per visualizzare i valori nel portale.
 
-Per aggiungere un'impostazione, selezionare **nuova impostazione dell'applicazione** e aggiungere la nuova coppia chiave-valore.
+Per aggiungere un'impostazione, selezionare **nuova impostazione applicazione** e aggiungere la nuova coppia chiave-valore.
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-Quando si sviluppa un'app per le funzioni in locale, questi valori vengono mantenuti nel file di progetto Local.
+Quando si sviluppa un'app per le funzioni in locale, questi valori vengono mantenuti nel file di progetto local. Settings. JSON.
 
 ## <a name="platform-features"></a>Funzionalità della piattaforma
 
@@ -58,7 +56,7 @@ La restante parte di questo argomento illustra le seguenti funzionalità di serv
 + [Strumenti avanzati (Kudu)](#kudu)
 + [Opzioni di distribuzione](#deployment)
 + [CORS](#cors)
-+ [autenticazione](#auth)
++ [Autenticazione](#auth)
 + [Definizione dell'API](#swagger)
 
 Per altre informazioni su come usare le impostazioni del servizio app, vedere [Configurare le impostazioni di del servizio app di Azure](../app-service/configure-common.md).

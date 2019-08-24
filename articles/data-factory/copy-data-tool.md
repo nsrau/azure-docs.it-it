@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 144a991eb911fa6a337b6711515bd5760456fc10
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787694"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996393"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Strumento Copia dati di Azure Data Factory
 Lo strumento Copia dati di Azure Data Factory semplifica e ottimizza l'inserimento di dati in un data lake, che è in genere il primo passaggio in uno scenario di integrazione dei dati end-to-end.  In questo modo è possibile risparmiare tempo, soprattutto quando si usa Azure Data Factory per inserire per la prima volta i dati da un'origine. Questi sono alcuni dei vantaggi offerti dallo strumento:
@@ -95,7 +95,7 @@ Sostituire quindi **2016** con **{year}** , **03** con **{month}** , **01** con 
 
 ![Filtrare un file o una cartella](./media/copy-data-tool/filter-file-or-folder.png)
 
-Lo strumento Copia dati genera parametri con espressioni, funzioni e variabili di sistema che possono essere usate per rappresentare {year}, {month}, {day}, {hour} e {minute} durante la creazione della pipeline. Per altre informazioni, vedere l'articolo [Come leggere o scrivere dati partizionati](how-to-read-write-partitioned-data.md).
+Lo strumento Copia dati genera parametri con espressioni, funzioni e variabili di sistema che possono essere usate per rappresentare {year}, {month}, {day}, {hour} e {minute} durante la creazione della pipeline.
 
 ## <a name="scheduling-options"></a>Opzioni di pianificazione
 È possibile eseguire l'operazione di copia una sola volta oppure in base a una pianificazione, con cadenza oraria, giornaliera e così via. Queste opzioni possono essere usate per i connettori tra diversi ambienti, inclusi l'ambiente locale, il cloud e il computer desktop. 

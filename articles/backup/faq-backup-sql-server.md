@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: a600c50e97f0d069443112a59d529c0d6f6fecad
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6e3ce21419e131ceef65939202eb70a98f10b040
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737070"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982442"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sui database SQL Server in esecuzione in un backup di macchine virtuali di Azure
 
@@ -37,9 +37,10 @@ In alcune circostanze, il servizio backup di Azure attiva i backup corretti. La 
 Per impostazione predefinita, la funzionalità di correzione automatica è abilitata per tutti gli utenti. Tuttavia, nel caso in cui si scelga di rifiutare esplicitamente, eseguire le operazioni seguenti:
 
   * Nell'istanza di SQL Server, nella cartella *C:\Program Files\Azure workload Backup\bin* creare o modificare il file **ExtensionSettingsOverrides. JSON** .
-  * In **ExtensionSettingsOverrides. JSON**impostare *{"EnableAutoHealer": false}* .
+  * In **ExtensionSettingsOverrides. JSON**impostare *{"EnableAutoHealer": false}* .
   * Salvare le modifiche e chiudere il file.
-  * Nell'istanza SQL Server aprire **attività Gestisci** e riavviare il servizio **AzureWLBackupCoordinatorSvc** .  
+  * Nell'istanza SQL Server aprire **attività Gestisci** e riavviare il servizio **AzureWLBackupCoordinatorSvc** .
+   
 
 ## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>È possibile controllare il numero di backup simultanei eseguiti in SQL Server?
 
@@ -71,12 +72,12 @@ No. I processi di backup con esito positivo non generano avvisi. Gli avvisi veng
 Il menu **processo di backup** mostrerà solo i processi di backup ad hoc. Per il processo pianificato, usare [monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>I database futuri vengono aggiunti automaticamente per il backup?
-Sì, è possibile ottenere questa funzionalità con la [protezione automatica](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
+Sì, è possibile ottenere questa funzionalità con la [protezione automatica](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se si elimina un database da un'istanza protetta in modo automatico, cosa accade ai backup?
 Se un database viene eliminato da un'istanza protetta in modo automatico, i backup del database vengono comunque tentati. Ciò implica che il database eliminato inizia a essere visualizzato come non integro in **elementi di backup** ed è ancora protetto.
 
-Il modo corretto per arrestare la protezione di questo database consiste nell' **arrestare il backup** con **Elimina dati** in questo database.  
+Il modo corretto per arrestare la protezione di questo database consiste nell' **arrestare il backup** con **Elimina dati** in questo database.  
 
 ## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Se si interrompe l'operazione di backup di un database autoprotetto, quale sarà il comportamento?
 Se si **interrompe il backup con Mantieni dati**, non verrà eseguita alcuna copia di backup futura e i punti di ripristino esistenti rimarranno intatti. Il database verrà comunque considerato protetto e visualizzato sotto gli **elementi di backup**.

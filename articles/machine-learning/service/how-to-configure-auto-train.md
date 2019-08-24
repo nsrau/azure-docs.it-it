@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013652"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997924"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 
@@ -207,6 +207,8 @@ I tre valori `task` di parametro diversi determinano l'elenco di algoritmi da ap
 ### <a name="primary-metric"></a>Metrica primaria
 Metrica primaria; come illustrato negli esempi precedenti, determina la metrica da usare durante il training del modello per l'ottimizzazione. La metrica primaria che è possibile selezionare è determinata dal tipo di attività scelto. Di seguito è riportato un elenco delle metriche disponibili.
 
+Informazioni sulle definizioni specifiche di questi dati sono disponibili in informazioni sui [risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
+
 |classificazione | Regressione | Previsione delle serie temporali
 |-- |-- |--
 |precisione| spearman_correlation | spearman_correlation
@@ -222,7 +224,7 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono [ridimensi
 Per abilitare questo conteggi, specificare `"preprocess": True` per la [ `AutoMLConfig` classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 > [!NOTE]
-> I passaggi di pre-elaborazione automatizzati di Machine Learning, ovvero la normalizzazione delle funzionalità, la gestione dei dati mancanti, la conversione di testo in numeri e così via, diventano parte del modello sottostante. Quando si usa il modello per le stime, le stesse fasi di pre-elaborazione applicate durante il training vengono applicate automaticamente ai dati di input.
+> I passaggi di pre-elaborazione di Machine Learning automatizzati (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione di valori di testo nel formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di pre-elaborazione applicati durante il training vengono automaticamente applicati ai dati di input.
 
 ### <a name="time-series-forecasting"></a>Previsione delle serie temporali
 Per il tipo di attività di previsione delle serie temporali sono disponibili parametri aggiuntivi da definire.

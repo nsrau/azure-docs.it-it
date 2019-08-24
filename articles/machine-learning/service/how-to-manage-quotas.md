@@ -11,20 +11,20 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8754eedc8284aab01006ea71bfd870064b91ea17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 110040592474ec432912e7f545abad19ca3ae1ff
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851130"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991986"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gestire e richiedere quote per risorse di Azure
 
-Come per altri servizi di Azure, sono previsti limiti per determinate risorse associate al servizio Azure Machine Learning. Queste vanno limiti da un limite al numero di aree di lavoro è possibile creare per i limiti per le risorse di calcolo sottostanti effettivo che viene usata per training del modello o la valutazione di inferenza /. 
+Come per altri servizi di Azure, sono previsti limiti per determinate risorse associate al servizio Azure Machine Learning. Questi limiti variano da un limite al numero di aree di lavoro che è possibile creare per limitare l'effettivo calcolo sottostante che viene usato per il training del modello o l'inferenza/assegnazione dei punteggi. 
 
 Questo articolo offre maggiori dettagli sui limiti preconfigurati per diverse risorse di Azure per la sottoscrizione e contiene anche alcuni collegamenti utili per richiedere miglioramenti relativi alle quote per ogni tipo di risorsa. Questi limiti vengono applicati per evitare lo sforamento del budget a causa di illeciti e per rispettare i vincoli di capacità di Azure.
 
-Tenere presenti queste quote quando si progettano e si aumentano le risorse del servizio Azure Machine Learning per i carichi di lavoro di produzione. Ad esempio, se il cluster non raggiunga il numero di nodi specificato, quindi si potrebbe essere stato raggiunto un limite di core di calcolo di Azure Machine Learning per la sottoscrizione. Per aumentare il limite o la quota oltre il valore del limite predefinito, è possibile aprire una richiesta di assistenza clienti online senza alcun addebito. Non è possibile aumentare i limiti oltre il valore massimo indicato nelle tabelle seguenti a causa dei vincoli di capacità di Azure. Se non è presente una colonna Limite massimo, la risorsa specificata non è associata a limiti modificabili.
+Tenere presenti queste quote quando si progettano e si aumentano le risorse del servizio Azure Machine Learning per i carichi di lavoro di produzione. Se, ad esempio, il cluster non raggiunge il numero di nodi specificato, è possibile che sia stato raggiunto un limite di core di calcolo Azure Machine Learning per la sottoscrizione. Per aumentare il limite o la quota oltre il valore del limite predefinito, è possibile aprire una richiesta di assistenza clienti online senza alcun addebito. Non è possibile aumentare i limiti oltre il valore massimo indicato nelle tabelle seguenti a causa dei vincoli di capacità di Azure. Se non è presente una colonna Limite massimo, la risorsa specificata non è associata a limiti modificabili.
 
 ## <a name="special-considerations"></a>Considerazioni speciali
 
@@ -54,9 +54,9 @@ Per un elenco più dettagliato e aggiornato dei limiti di quota, vedere l'artico
 Nell'ambiente di calcolo di Azure Machine Learning è previsto un limite di quota predefinito per il numero di core e per il numero di risorse di calcolo consentite per ogni area in una sottoscrizione. Questa quota è separata da quella dei core delle macchine virtuali e i limiti relativi ai core non sono attualmente condivisi tra i due tipi di risorse.
 
 Risorse disponibili:
-+ Core dedicati per ogni area hanno un limite predefinito di 24-300 a seconda del tipo di offerta di sottoscrizione.  Il numero di core dedicati per ogni sottoscrizione può essere aumentato. Contattare il supporto di Azure per ottenere informazioni sulle opzioni di aumento.
++ I core dedicati per area hanno un limite predefinito di 24-300 a seconda del tipo di offerta di sottoscrizione.  Il numero di core dedicati per ogni sottoscrizione può essere aumentato. Contattare il supporto di Azure per ottenere informazioni sulle opzioni di aumento.
 
-+ Core a bassa priorità per ogni area hanno un limite predefinito di 24-300 a seconda del tipo di offerta di sottoscrizione.  Il numero di core a bassa priorità per ogni sottoscrizione può essere aumentato. Contattare il supporto di Azure per ottenere informazioni sulle opzioni di aumento.
++ I core a bassa priorità per area hanno un limite predefinito di 24-300 a seconda del tipo di offerta di sottoscrizione.  Il numero di core a bassa priorità per ogni sottoscrizione può essere aumentato. Contattare il supporto di Azure per ottenere informazioni sulle opzioni di aumento.
 
 + I cluster per ogni area hanno un limite predefinito di 100 e un limite massimo di 200. Contattare il supporto di Azure se si vuole richiedere un aumento oltre questo limite.
 
@@ -69,11 +69,19 @@ Risorse disponibili:
 | Processi MPI GPU massimi per nodo | 1-4 |
 | Numero massimo di ruoli di lavoro GPU per nodo | 1-4 |
 | Durata massima del processo | 90 giorni<sup>1</sup> |
-| Durata massima di processi in un nodo con priorità bassa | 1 giorno<sup>2</sup> |
+| Durata massima del processo in un nodo con priorità bassa | 1 giorno<sup>2</sup> |
 | Parametri massimi dei server per nodo | 1 |
 
 <sup>1</sup> La durata massima equivale al tempo che trascorre tra l'inizio e il termine dell'esecuzione di un processo. Le esecuzioni completate persistono per un tempo illimitato. I dati relativi alle esecuzioni non completate entro la durata massima non sono accessibili.
-<sup>2</sup> processi in un nodo con priorità bassa può essere annullati qualsiasi momento è presente un vincolo di capacità. È consigliabile implementare checkpoint nel processo.
+<sup>2</sup> i processi in un nodo con priorità bassa possono essere pre-annullata ogni volta che è presente un vincolo di capacità. È consigliabile implementare il checkpoint nel processo.
+
+### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning Pipelines
+Per Azure Machine Learning pipeline, esiste un limite di quota per il numero di passaggi in una pipeline e per il numero di esecuzioni basate su pianificazione di pipeline pubblicate per area in una sottoscrizione.
+- Il numero massimo di passaggi consentiti in una pipeline è 30.000
+- Il numero massimo di esecuzioni basate su pianificazione di pipeline pubblicate per ogni sottoscrizione al mese è 100.000
+
+> [!NOTE]
+> Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 ### <a name="container-instances"></a>Istanze di Container
 
@@ -97,7 +105,7 @@ La visualizzazione delle quote per le diverse risorse, come Macchine virtuali, A
 
    **Tenere conto dell'avvertenza** che riguarda la visualizzazione della quota dell'ambiente di calcolo di Azure Machine Learning. Come indicato in precedenza, questa quota è separata dalla quota di calcolo nella sottoscrizione.
 
-1. Nel riquadro sinistro, selezionare **servizio di Machine Learning** e quindi selezionare qualsiasi area di lavoro nell'elenco visualizzato
+1. Nel riquadro sinistro selezionare **Machine Learning servizio** e quindi selezionare un'area di lavoro dall'elenco visualizzato.
 
 1. Nel pannello successivo, nella sezione **Supporto e risoluzione dei problemi**, selezionare **Utilizzo e quote** per visualizzare i limiti di quota correnti e l'utilizzo.
 

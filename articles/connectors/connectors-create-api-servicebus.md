@@ -11,12 +11,12 @@ ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 944bac44c1fc6504dfe1a93df5760ccf4ee46fa0
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105581"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982199"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Scambiare messaggi nel cloud con il bus di servizio di Azure e App per la logica di Azure
 
@@ -29,11 +29,11 @@ Con App per la logica di Azure e il connettore del bus di servizio di Azure, è 
 * Rinnovare i blocchi su messaggi e sessioni nelle code e nelle sottoscrizioni di argomento.
 * Chiudere le sessioni nelle code e negli argomenti.
 
-È possibile usare i trigger per ottenere risposte dal bus di servizio e rendere l'output disponibile per altre azioni nelle app per la logica. È anche possibile fare in modo che altre azioni usino l'output delle azioni del service bus. Se non si ha familiarità con il bus di servizio e App per la logica, consultare [Cos'è il bus di servizio di Azure?](../service-bus-messaging/service-bus-messaging-overview.md) e [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+È possibile usare i trigger per ottenere risposte dal bus di servizio e rendere l'output disponibile per altre azioni nelle app per la logica. È anche possibile fare in modo che altre azioni usino l'output delle azioni del service bus. Se non si ha familiarità con il bus di servizio e App per la logica, consultare [Cos'è il bus di servizio di Azure?](../service-bus-messaging/service-bus-messaging-overview.md) [cosa sono le app per la logica di Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * Uno spazio dei nomi del bus di servizio e un'entità di messaggistica, ad esempio una coda. Se non si dispone di questi elementi, vedere l'articolo su come [creare uno spazio dei nomi del bus di servizio e una coda](../service-bus-messaging/service-bus-create-namespace-portal.md). 
 
@@ -74,7 +74,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 1. Per aggiungere un *trigger* a un'app per la logica vuota, nella casella di ricerca immettere "Bus di servizio di Azure" come filtro. Nell'elenco dei trigger selezionare il trigger desiderato. 
 
-   Ad esempio, per attivare app per la logica quando viene inviato un nuovo elemento a una coda del Bus di servizio, selezionare questo trigger: **Quando viene ricevuto un messaggio in una coda (completamento automatico)**
+   Ad esempio, per attivare l'app per la logica quando viene inviato un nuovo elemento a una coda del bus di servizio, selezionare questo trigger: **Quando un messaggio viene ricevuto in una coda (completamento automatico)**
 
    ![Selezionare un trigger del bus di servizio](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -118,7 +118,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 1. Specificare i dettagli necessari per il trigger o l'azione. Per questo esempio, eseguire i passaggi pertinenti per il trigger o l'azione: 
 
-   * **Per il trigger di esempio**: Impostare l'intervallo di polling e frequenza per la verifica della coda.
+   * **Per il trigger di esempio**: Impostare l'intervallo di polling e la frequenza per il controllo della coda.
 
      ![Impostare l'intervallo di polling](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
@@ -135,12 +135,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/servicebus/) del connettore.
-
-## <a name="get-support"></a>Supporto
-
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
+Il connettore del bus di servizio può salvare fino a 1.500 sessioni univoche alla volta da un bus di servizio alla cache del connettore. Se il numero di sessioni supera questo limite, le sessioni precedenti vengono rimosse dalla cache. Per altri dettagli tecnici su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento](/connectors/servicebus/)del connettore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

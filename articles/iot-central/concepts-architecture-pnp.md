@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: abc09ac1a13537c31fe96fae14edefd0d06b6aef
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fab65828228bdea8f0367f8928b83934bf0a7a4f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880254"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995882"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Architettura del IoT Central di Azure (funzionalità di anteprima)
 
@@ -73,7 +73,7 @@ I modelli di dispositivo in un'applicazione Azure IoT Central definiscono il com
 
 In un modello IoT Central anteprima dispositivo applicazione:
 
-- I **modelli di funzionalità del dispositivo** specificano le funzionalità di un dispositivo, ad esempio i dati di telemetria inviati, le proprietà che definiscono lo stato del dispositivo e i comandi a cui risponde il dispositivo. Le funzionalità del dispositivo sono organizzate in una o più interfacce. Per ulteriori informazioni sui modelli di funzionalità del dispositivo, vedere la documentazione relativa ai [plug and Play](https://aka.ms/iot-pnp-docs) .
+- I **modelli di funzionalità del dispositivo** specificano le funzionalità di un dispositivo, ad esempio i dati di telemetria inviati, le proprietà che definiscono lo stato del dispositivo e i comandi a cui risponde il dispositivo. Le funzionalità del dispositivo sono organizzate in una o più interfacce. Per ulteriori informazioni sui modelli di funzionalità del dispositivo, vedere la documentazione relativa ai [plug and Play](../iot-pnp/overview-iot-plug-and-play.md) .
 - Le **proprietà del cloud** specificano le proprietà IOT Central archivi per un dispositivo. Queste proprietà vengono archiviate solo in IoT Central e non vengono mai inviate a un dispositivo.
 - Le **visualizzazioni** specificano i dashboard e i moduli creati dal generatore per consentire all'operatore di monitorare e gestire i dispositivi.
 - Le personalizzazioni consentono al generatore di eseguire l'override di alcune definizioni nel modello di funzionalità del dispositivo per renderle più rilevanti per l'applicazione IoT Central.

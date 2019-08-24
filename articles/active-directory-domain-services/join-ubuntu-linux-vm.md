@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c782629d422eb8846b209fed7ab6b5a5c015de25
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80dbb4f3d0c8b993beab5f6344d6034d6c2b6895
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612288"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990587"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu a un dominio gestito in Azure
 Questo articolo illustra come aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito di Azure AD Domain Services.
@@ -88,7 +88,7 @@ Installare quindi i pacchetti necessari per l'aggiunta a un dominio nella macchi
 3. Durante l'installazione di Kerberos, si visualizza una schermata rosa. L'installazione del pacchetto "krb5-user" richiede il nome dell'area di autenticazione (TUTTE LETTERE MAIUSCOLE). L'installazione scrive le sezioni [area di autenticazione] e [dominio_area di autenticazione] in /etc/krb5.conf.
 
     > [!TIP]
-    > Se il nome del dominio gestito è contoso.com, immettere contoso.COM come area di autenticazione. Tenere presente che il nome dell'area di autenticazione deve essere specificato in MAIUSCOLO.
+    > Se il nome del dominio gestito è contoso.com, immettere CONTOSO.COM come area di autenticazione. Tenere presente che il nome dell'area di autenticazione deve essere specificato in MAIUSCOLO.
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Configurare le impostazioni NTP (Network Time Protocol) nella macchina virtuale Linux
@@ -121,7 +121,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 1. Individuare il dominio gestito di Servizi di dominio AAD. Nel terminale SSH digitare il comando seguente:
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -138,7 +138,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     >
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. Aggiungere il computer al dominio. Nel terminale SSH digitare il comando seguente:
@@ -149,7 +149,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     > Se la macchina virtuale non è in grado di accedere al dominio, verificare che il gruppo di sicurezza di rete della macchina virtuale consenta il traffico Kerberos in uscita sulla porta TCP + UDP 464 alla subnet della rete virtuale per il dominio gestito di Azure AD DS.
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM' --install=/
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM' --install=/
     ```
 
 Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe essere visualizzato un messaggio che indica che il computer è stato registrato correttamente nell'area di autenticazione.
@@ -192,10 +192,10 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## <a name="verify-domain-join"></a>Verificare l'aggiunta a un dominio
 Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Connettersi alla macchina virtuale Ubuntu aggiunta al dominio tramite una connessione SSH diversa. Usare un account utente di dominio e quindi verificare se l'account utente viene risolto correttamente.
 
-1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale Ubuntu aggiunta al dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@contoso.COM.
+1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale Ubuntu aggiunta al dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@CONTOSO.COM.
     
     ```console
-    ssh -l bob@contoso.COM contoso-ubuntu.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-ubuntu.contoso.com
     ```
 
 2. Nel terminale SSH digitare il comando seguente per verificare se la home directory dell'utente è stata inizializzata correttamente.

@@ -6,23 +6,23 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.openlocfilehash: a77310d0e45f095260d77ead0cfe14a3ce0ebd8e
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 08/22/2019
+ms.openlocfilehash: 03bea7b9df929914e25ca97b382dc5c120b5a769
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623834"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983025"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
-Sono state introdotte alcune modifiche importanti per supportare l'accesso in base al ruolo con granularità fine per ottenere informazioni riservate. Come parte di queste modifiche, **potrebbe essere necessaria un'azione** se si utilizza una delle [entità/scenari interessati](#am-i-affected-by-these-changes).
+Sono state introdotte alcune modifiche importanti per supportare l'accesso in base al ruolo con granularità fine per ottenere informazioni riservate. Come parte di queste modifiche, è possibile che venga richiesta un'azione **entro il 3 settembre 2019** se si utilizza una delle [entità/scenari interessati](#am-i-affected-by-these-changes).
 
 ## <a name="what-is-changing"></a>Cosa cambierà
 
 In precedenza, i segreti potevano essere ottenuti tramite l'API HDInsight dagli utenti del cluster che possedevano i [ruoli](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)di proprietario, collaboratore o controllo degli accessi in `*/read` base al ruolo di lettore, perché erano disponibili per chiunque disponga dell'autorizzazione. I segreti sono definiti come valori che possono essere usati per ottenere un accesso più elevato rispetto a quello consentito da un utente. Sono inclusi valori come le credenziali HTTP del gateway cluster, le chiavi dell'account di archiviazione e le credenziali del database.
 
-In futuro, l'accesso a questi segreti richiederà `Microsoft.HDInsight/clusters/configurations/action` l'autorizzazione, ovvero non sarà più possibile accedervi dagli utenti con il ruolo lettore. I ruoli che dispongono di questa autorizzazione sono collaboratore, proprietario e nuovo ruolo Operatore cluster HDInsight (altre informazioni sono disponibili di seguito).
+A partire dal 3 settembre 2019, per accedere a questi segreti sarà necessaria `Microsoft.HDInsight/clusters/configurations/action` l'autorizzazione, ovvero non sarà più possibile accedervi dagli utenti con il ruolo lettore. I ruoli che dispongono di questa autorizzazione sono collaboratore, proprietario e nuovo ruolo Operatore cluster HDInsight (altre informazioni sono disponibili di seguito).
 
 Viene inoltre introdotto un nuovo ruolo [operatore cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) che sarà in grado di recuperare i segreti senza concedere le autorizzazioni amministrative di collaboratore o proprietario. Per riepilogare:
 
@@ -59,13 +59,13 @@ Le seguenti API verranno modificate o deprecate:
 
 - [**Ottenere/Configurations/{ConfigurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (informazioni riservate rimosse)
     - Usato in precedenza per ottenere i singoli tipi di configurazione (inclusi i segreti).
-    - Questa chiamata API restituirà ora i singoli tipi di configurazione con segreti omessi. Per ottenere tutte le configurazioni, inclusi i segreti, usare la nuova chiamata POST/Configurations. Per ottenere solo le impostazioni del gateway, usare la nuova chiamata POST/getGatewaySettings.
+    - A partire dal 3 settembre 2019, questa chiamata API restituirà i singoli tipi di configurazione con segreti omessi. Per ottenere tutte le configurazioni, inclusi i segreti, usare la nuova chiamata POST/Configurations. Per ottenere solo le impostazioni del gateway, usare la nuova chiamata POST/getGatewaySettings.
 - [**Ottenere/Configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) deprecato
     - Usato in precedenza per ottenere tutte le configurazioni (inclusi i segreti)
-    - Questa chiamata API non sarà più supportata. Per ottenere tutte le configurazioni in futuro, usare la nuova chiamata POST/Configurations. Per ottenere le configurazioni con parametri sensibili omessi, usare la chiamata GET/configurations/{configurationName}.
+    - A partire dal 3 settembre 2019, questa chiamata API verrà deprecata e non sarà più supportata. Per ottenere tutte le configurazioni in futuro, usare la nuova chiamata POST/Configurations. Per ottenere le configurazioni con parametri sensibili omessi, usare la chiamata GET/configurations/{configurationName}.
 - [**Post/Configurations/{ConfigurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) deprecato
     - Usato in precedenza per aggiornare le credenziali del gateway.
-    - Questa chiamata API verrà deprecata e non sarà più supportata. Usare invece il nuovo POST/updateGatewaySettings.
+    - A partire dal 3 settembre 2019, questa chiamata API verrà deprecata e non sarà più supportata. Usare invece il nuovo POST/updateGatewaySettings.
 
 Sono state aggiunte le API sostitutive seguenti:</span>
 
@@ -201,7 +201,7 @@ Se il problema persiste, contattare l'amministratore di AAD per acquisire le aut
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>Che cosa succede se non viene eseguita alcuna azione?
 
-Le `GET /configurations` chiamate `POST /configurations/gateway` e non restituiranno più informazioni e la `GET /configurations/{configurationName}` chiamata non restituirà più parametri sensibili, ad esempio le chiavi dell'account di archiviazione o la password del cluster. Lo stesso vale per i metodi SDK e i cmdlet di PowerShell corrispondenti.
+A partire dal 3 settembre 2019, `GET /configurations` `POST /configurations/gateway` le chiamate non restituiranno più informazioni e la `GET /configurations/{configurationName}` chiamata non restituirà più parametri sensibili, ad esempio le chiavi dell'account di archiviazione o la password del cluster. Lo stesso vale per i metodi SDK e i cmdlet di PowerShell corrispondenti.
 
 Se si usa una versione precedente di uno degli strumenti per Visual Studio, VSCode, IntelliJ o Eclipse menzionati in precedenza, non funzioneranno più fino a quando non si esegue l'aggiornamento.
 

@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: a9451b5dcd572eee27809cf66df889f06da960ed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e2a94f82e4830bd1e9c96039f5ef8fe6546b0d0b
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571497"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982667"
 ---
 # <a name="role-based-access-control-rbac-and-privileged-identity-management-pim"></a>Controllo degli accessi in base al ruolo (RBAC) e Privileged Identity Management (PIM)
 
@@ -27,7 +27,7 @@ A un livello elevato, l'implementazione di RBAC richiede tre componenti:
 
 ![RBAC-Panoramica](media/rbac-overview.png)
 
-* **Entità di sicurezza**: Un'entità di sicurezza può essere una delle seguenti: un utente, un gruppo, [entità servizio o un' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Alle entità di sicurezza devono essere assegnati privilegi utilizzando gruppi Azure Active Directory.
+* **Entità di sicurezza**: Un'entità di sicurezza può essere una delle seguenti: un utente, un gruppo, [entità servizio](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)o un' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Alle entità di sicurezza devono essere assegnati privilegi utilizzando gruppi Azure Active Directory.
 
 * **Definizioni di ruolo**: Una definizione di ruolo, detta anche ruolo, è una raccolta di autorizzazioni. Queste autorizzazioni definiscono le operazioni che possono essere eseguite dalle entità di sicurezza assegnate alla definizione di ruolo. Questa funzionalità viene fornita dai ruoli delle risorse di Azure e dai ruoli di amministratore Azure Active Directory. Azure viene fornita con un set di ruoli predefiniti (collegamento) che possono essere ampliati con ruoli personalizzati.
 
@@ -134,7 +134,7 @@ Microsoft ha implementato JIT (just-in-Time) e accesso just-enough (JEA) tramite
 
 L'uso di PIM impedisce i problemi comuni di assegnazione dei privilegi che possono verificarsi in ambienti che non utilizzano l'accesso JIT o non eseguono controlli di routine dell'assegnazione dei privilegi. Un problema comune è l'assegnazione di privilegi elevati dimenticati e rimanenti sul posto a lungo dopo che l'attività che richiede privilegi elevati è stata completata. Un altro problema è la proliferazione di privilegi elevati all'interno di un ambiente attraverso la clonazione dell'accesso assegnato a un'entità di sicurezza durante la configurazione di altre entità di sicurezza simili.
 
-## <a name="key-design-considerations"></a>Considerazioni di progettazione principali
+## <a name="key-design-considerations"></a>Principali considerazioni sulla progettazione
 
 Quando si progetta una strategia di controllo degli accessi in base al ruolo con l'intenzione di applicare la sicurezza con privilegi minimi, è necessario considerare i requisiti di sicurezza seguenti:
 

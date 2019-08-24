@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 14bbbb6581d3e6d00db532e343f8362fc44d0044
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c7251b24ccd15971a704b6b47288f49168b27039
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876347"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980888"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installare e configurare Terraform per eseguire il provisioning di macchine virtuali e altra infrastruttura in Azure
  
@@ -47,10 +47,10 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Per consentire a Terraform di eseguire il provisioning di risorse in Azure, creare un'[entità servizio di Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli). L'entità servizio concede agli script Terraform la possibilità di effettuare il provisioning di risorse nella sottoscrizione di Azure.
 
-Se hai più sottoscrizioni di Azure, eseguire una query con l'account tramite [az account show](/cli/azure/account#az-account-show) per ottenere un elenco di valori di ID sottoscrizione e ID tenant:
+Se si hanno più sottoscrizioni di Azure, eseguire prima una query sull'account con [AZ account list](/cli/azure/account#az-account-list) per ottenere un elenco di valori ID sottoscrizione e ID tenant:
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 Per usare una sottoscrizione selezionata, impostare la sottoscrizione per questa sessione con [az account set](/cli/azure/account#az-account-set). Impostare la`SUBSCRIPTION_ID` variabile di ambiente che conterrà il valore del campo restituito`id` dalla sottoscrizione che si intende usare:

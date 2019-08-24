@@ -1,24 +1,86 @@
 ---
 title: Eliminare un gruppo di risorse e le risorse - Azure Resource Manager
-description: Descrive l'ordine di eliminazione delle risorse in Azure Resource Manager quando viene eliminato un gruppo di risorse. Descrive i codici di risposta e il modo in cui Resource Manager li gestisce in modo da determinare se l'eliminazione è stata completata.
+description: Viene descritto come eliminare i gruppi di risorse e le risorse. Descrive il modo in cui Azure Resource Manager Ordina l'eliminazione delle risorse quando si elimina un gruppo di risorse. Descrive i codici di risposta e il modo in cui Resource Manager li gestisce in modo da determinare se l'eliminazione è stata completata.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 08/22/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 18990b51b5ff2184197db48fd139d63750626663
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 75cdeb88a68dece59d6b037592f7212fa895e821
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204211"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991666"
 ---
-# <a name="azure-resource-manager-resource-group-deletion"></a>Eliminazione di un gruppo di risorse in Azure Resource Manager
+# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager l'eliminazione di risorse e gruppi di risorse
 
-Questo articolo descrive l'ordine di eliminazione delle risorse in Azure Resource Manager quando viene eliminato un gruppo di risorse.
+Questo articolo illustra come eliminare i gruppi di risorse e le risorse. Descrive il modo in cui Azure Resource Manager Ordina l'eliminazione delle risorse quando si elimina un gruppo di risorse.
 
-## <a name="determine-order-of-deletion"></a>Determinare l'ordine di eliminazione
+## <a name="delete-resource-group"></a>Elimina gruppo di risorse
+
+Usare uno dei metodi seguenti per eliminare il gruppo di risorse.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name <resource-group-name>
+```
+
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az group delete --name <resource-group-name>
+```
+
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+
+1. Nel [portale](https://portal.azure.com)selezionare il gruppo di risorse che si vuole eliminare.
+
+1. Selezionare **Elimina gruppo di risorse**.
+
+   ![Elimina gruppo di risorse](./media/resource-group-delete/delete-group.png)
+
+1. Per confermare l'eliminazione, digitare il nome del gruppo di risorse
+
+---
+
+## <a name="delete-resource"></a>Elimina risorsa
+
+Usare uno dei metodi seguenti per eliminare una risorsa.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResource `
+  -ResourceGroupName ExampleResourceGroup `
+  -ResourceName ExampleVM `
+  -ResourceType Microsoft.Compute/virtualMachines
+```
+
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az resource delete \
+  --resource-group ExampleResourceGroup \
+  --name ExampleVM \
+  --resource-type "Microsoft.Compute/virtualMachines"
+```
+
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+
+1. Nel [portale](https://portal.azure.com)selezionare la risorsa che si vuole eliminare.
+
+1. Selezionare **Elimina**. Lo screenshot seguente mostra le opzioni di gestione per una macchina virtuale.
+
+   ![Elimina risorsa](./media/resource-group-delete/delete-resource.png)
+
+1. Quando richiesto, confermare l'eliminazione.
+
+---
+
+## <a name="how-order-of-deletion-is-determined"></a>Come viene determinato l'ordine di eliminazione
 
 Quando si elimina un gruppo di risorse, Resource Manager determina l'ordine di eliminazione delle risorse. L'ordine è il seguente:
 
@@ -27,8 +89,6 @@ Quando si elimina un gruppo di risorse, Resource Manager determina l'ordine di e
 2. Successivamente vengono eliminate le risorse che gestiscono altre risorse. Per una risorsa può essere impostata la proprietà `managedBy` per indicare che è gestita da una risorsa diversa. Quando questa proprietà è impostata, la risorsa che gestisce l'altra risorsa viene eliminata prima delle altre risorse.
 
 3. Le risorse rimanenti vengono eliminate dopo le due categorie precedenti.
-
-## <a name="resource-deletion"></a>Eliminazione delle risorse
 
 Dopo aver determinato l'ordine, Resource Manager genera un'operazione DELETE per ogni risorsa. Attende il completamento di eventuali dipendenze prima di procedere.
 
