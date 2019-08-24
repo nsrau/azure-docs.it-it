@@ -1,7 +1,7 @@
 ---
 title: Che cosa sono le pipeline di ML
 titleSuffix: Azure Machine Learning service
-description: In questo articolo viene illustrata la pipeline di machine learning che è possibile compilare con SDK di Azure Machine Learning per Python e i vantaggi dell'uso di pipeline. Le pipeline di Machine Learning (ML) vengono usate dai data scientist per creare, ottimizzare e gestire i propri flussi di lavoro di Machine Learning.
+description: In questo articolo viene illustrata la pipeline di machine learning che è possibile compilare con SDK di Azure Machine Learning per Python e i vantaggi dell'uso di pipeline. Le pipeline di Machine learning (ML) vengono utilizzate dai data scientist per creare, ottimizzare e gestire i flussi di lavoro di apprendimento automatico.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22d1da4c194b392993b37b16ab20673120c3362e
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 160be4224e31793b5bb172f5b913c364ae2c8a59
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951805"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013033"
 ---
 # <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Che cosa sono le pipeline di ML nel servizio Azure Machine Learning?
 
@@ -59,7 +59,7 @@ Con Azure Machine Learning, è possibile usare diversi Toolkit e Framework, ad e
 
 I vantaggi principali dell'uso delle pipeline per i flussi di lavoro di Machine Learning sono:
 
-|Vantaggi principali|DESCRIZIONE|
+|Vantaggi principali|Descrizione|
 |:-------:|-----------|
 |**Esecuzione&nbsp;automatica**|Pianificare i passaggi da eseguire in parallelo o in sequenza in modo affidabile e automatico. La preparazione e la modellazione dei dati possono durare giorni o settimane e le pipeline consentono di concentrarsi su altre attività durante l'esecuzione del processo. |
 |**Calcolo eterogeneo**|Usare più pipeline che vengono coordinate in modo affidabile tra le risorse di calcolo eterogenee e scalabili e i percorsi di archiviazione. Eseguire singoli passaggi della pipeline su destinazioni di calcolo diverse, ad esempio HDInsight, VM di Data Science GPU e databricks. Ciò rende efficiente l'uso delle opzioni di calcolo disponibili.|
@@ -69,7 +69,7 @@ I vantaggi principali dell'uso delle pipeline per i flussi di lavoro di Machine 
 
 ## <a name="the-python-sdk-for-pipelines"></a>Python SDK per le pipeline
 
-[Usare Python SDK](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) per creare le pipeline di ml nei notebook IDE o Jupyter preferiti. SDK di Azure Machine Learning offre costrutti imperativi per la sequenziazione e l'abbinamento dei passaggi nelle pipeline quando non è presente alcuna dipendenza dei dati. 
+[USA Python SDK](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) per creare le tue pipeline di ml nei tuoi Integrated Development Environment preferiti (IDE) o Jupyter notebook. SDK di Azure Machine Learning offre costrutti imperativi per la sequenziazione e l'abbinamento dei passaggi nelle pipeline quando non è presente alcuna dipendenza dei dati. 
 
 Usando le dipendenze dei dati dichiarativi, è possibile ottimizzare le attività. L'SDK include un framework di moduli precompilati per attività comuni, come il trasferimento dei dati e la pubblicazione dei modelli. È possibile estendere il Framework per modellare le convenzioni implementando passaggi personalizzati riutilizzabili tra le pipeline. Anche le destinazioni di calcolo e le risorse di archiviazione possono essere gestite direttamente dall'SDK.
 

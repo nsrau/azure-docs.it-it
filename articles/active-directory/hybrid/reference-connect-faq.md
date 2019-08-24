@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2019
+ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6b551ee9a0a9c7ef9a8f5ff1bd7452a24dc04b7
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 0442b987c502533bfbd55990f201a5c02b119804
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014186"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011304"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -258,7 +258,7 @@ In rari casi, il servizio Azure AD Connect non si avvia dopo l'aggiornamento. In
 **D: Quali rischi si corrono quando si esegue l'aggiornamento a una versione più recente di Azure AD Connect? È possibile ricevere assistenza telefonica per eseguire correttamente l'aggiornamento?**  
 Se è necessaria assistenza per l'aggiornamento a una versione di Azure AD Connect più recente, aprire un ticket di supporto nella pagina [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) (Creare una richiesta di servizio per contattare il supporto di Office 365).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 **D: Come è possibile ottenere informazioni su Azure AD Connect?**
 
 [Ricercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
@@ -270,3 +270,7 @@ Se è necessaria assistenza per l'aggiornamento a una versione di Azure AD Conne
 * Cercare domande e risposte tecniche o porre le proprie domande visitando [la community di Azure AD](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Ottenere supporto per Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+
+**D: Perché vengono visualizzati gli eventi 6311 e 6401 dopo gli errori del passaggio di sincronizzazione?**
+
+Gli eventi 6311- **il server ha rilevato un errore imprevisto durante l'esecuzione di un callback** e 6401- **il controller dell'agente di gestione ha rilevato un errore imprevisto** . viene sempre registrato dopo un errore del passaggio di sincronizzazione. Per risolvere questi errori, è necessario pulire gli errori dei passaggi di sincronizzazione.  Per ulteriori informazioni, vedere [risoluzione degli errori durante la sincronizzazione](tshoot-connect-sync-errors.md) e [risoluzione dei problemi di sincronizzazione degli oggetti con Azure ad Connect sincronizzazione](/tshoot-connect-objectsync.md)

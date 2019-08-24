@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8987c14fab141a71ba2dd9f1ed228a56ce419bce
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: b7cb4f1a106d8caa2c43f5f17c5efa16a3ee6df2
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982829"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011636"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -151,7 +151,7 @@ Per un esempio, vedere [Esercitazione: Eseguire il training di un modello di cla
 
 ### <a name="runs"></a>Esecuzioni
 
-Un'esecuzione è un record contenente le seguenti informazioni:
+Un'esecuzione è una singola esecuzione di uno script di training. Azure Machine Learning registra tutte le esecuzioni e archivia le informazioni seguenti:
 
 * Metadati sull'esecuzione (timestamp, durata e così via)
 * Metriche registrate dallo script

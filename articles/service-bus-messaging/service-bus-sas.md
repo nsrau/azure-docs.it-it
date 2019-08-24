@@ -4,7 +4,6 @@ description: Panoramica del controllo degli accessi del bus di servizio con firm
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
@@ -12,20 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2018
+ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: d2cd7c8e24571f66fa73ceaa9a70ce33d6105e9c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: ac240fee9a71714f2c7368b43e60f4e6c5d7093d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017751"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013059"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
 Le *firme di accesso condiviso* sono il meccanismo di sicurezza principale per la messaggistica del bus di servizio. Questo articolo illustra le firme di accesso condiviso, il loro funzionamento e come usarle in modo indipendente dalla piattaforma.
 
 La firma di accesso condiviso consente inoltre l'accesso al bus di servizio in base alle regole di autorizzazione configurate in uno spazio dei nomi o in un'entità di messaggistica (inoltro, coda o argomento). Una regola di autorizzazione ha un nome, è associata a diritti specifici e include una coppia di chiavi di crittografia. Usare il nome e la chiave della regola tramite l'SDK del bus di servizio o nel proprio codice per generare un token di firma di accesso condiviso. Un client può quindi passare il token al bus di servizio per dimostrare l'autorizzazione per l'operazione richiesta.
+
+> [!NOTE]
+> Il bus di servizio di Azure supporta l'autorizzazione dell'accesso a uno spazio dei nomi del bus di servizio e alle relative entità usando Azure Active Directory (Azure AD). L'autorizzazione di utenti o applicazioni che usano il token OAuth 2,0 restituito da Azure AD offre sicurezza e facilità d'uso superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare i token nel codice e rischiare potenziali vulnerabilità della sicurezza.
+>
+> Microsoft consiglia di usare Azure AD con le applicazioni del bus di servizio di Azure, quando possibile. Per altre informazioni, vedere i seguenti articoli:
+> - [Autenticare e autorizzare un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure](authenticate-application.md).
+> - [Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure](service-bus-managed-service-identity.md)
 
 ## <a name="overview-of-sas"></a>Panoramica di SAS
 
@@ -57,7 +63,7 @@ Quando si crea uno spazio dei nomi del bus di servizio, viene creato automaticam
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configurazione dell'autenticazione della firma di accesso condiviso
 
-È possibile configurare la regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in spazi dei nomi, code, argomenti del bus di servizio. La configurazione di una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in una sottoscrizione del bus di servizio non è attualmente supportata, ma è possibile usare le regole configurate in uno spazio dei nomi o in un argomento per proteggere l'accesso alle sottoscrizioni. Per un esempio funzionante che illustra questa procedura, vedere l'esempio relativo alla [gestione delle code del bus di servizio di Azure](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule) .
+È possibile configurare la regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in spazi dei nomi, code, argomenti del bus di servizio. La configurazione di una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in una sottoscrizione del bus di servizio non è attualmente supportata, ma è possibile usare le regole configurate in uno spazio dei nomi o in un argomento per proteggere l'accesso alle sottoscrizioni. Per un esempio pratico di questa procedura, vedere l'articolo relativo all' [uso dell'autenticazione della firma di accesso condiviso con le sottoscrizioni del bus di servizio](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -88,7 +94,7 @@ Il token contiene i valori non hash in modo che il destinatario possa ricalcolar
 
 L'URI di risorsa è l'URI completo della risorsa del bus di servizio a cui si richiede l'accesso. Ad esempio `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`, ovvero `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**L'URI deve essere [codificato in percentuale](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8).**
+**L'URI deve essere [codificato in percentuale](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 La regola di autorizzazione di accesso condiviso usata per la firma deve essere configurata nell'entità specificata da questo URI o in un elemento padre nella gerarchia. Ad esempio `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` nell'esempio precedente.
 
@@ -104,8 +110,8 @@ Se è noto o si sospetta che una chiave è compromessa ed è necessario revocare
 
 Gli scenari illustrati di seguito includono la configurazione delle regole di autorizzazione, la generazione di token di firma di accesso condiviso e l'autorizzazione dei client.
 
-Per un esempio completo di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione SAS, vedere l'esempio seguente nel repository GitHub: [Gestione delle code del bus di servizio di Azure](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
- 
+Per un esempio pratico completo di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione con firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Un esempio correlato che illustra l'uso delle regole di autorizzazione con firma di accesso condiviso configurate negli spazi dei nomi o negli argomenti per proteggere le sottoscrizioni del bus di servizio è disponibile nella pagina relativa all'[uso dell'autenticazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Accedere alle regole di autorizzazione per l'accesso condiviso in un'entità
 
 Con le librerie .NET Framework del bus di servizio è possibile accedere a un oggetto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) configurato in una coda o in un argomento del bus di servizio tramite la raccolta [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) negli oggetti [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) corrispondenti.

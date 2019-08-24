@@ -4,17 +4,16 @@ description: Elenco di controllo degli attributi di sicurezza per la valutazione
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
-author: msmbaldwin
-manager: barbkess
+author: axisc
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 0e1d6e041b47a261b549fb8b608cf09d0d6362dd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.author: aschhab
+ms.openlocfilehash: 875754282f9e7a2b8dd92b0eb2d7e277ac842696
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443888"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013098"
 ---
 # <a name="security-attributes-for-azure-service-bus-messaging"></a>Attributi di sicurezza per la messaggistica del bus di servizio di Azure
 
@@ -27,7 +26,7 @@ Questo articolo descrive gli attributi di sicurezza incorporati nella messaggist
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Crittografia dei servizi inattivi, ad esempio la crittografia lato server, la crittografia lato server con chiavi gestite dal cliente e altre funzionalità di crittografia|  Sì per la crittografia lato server per impostazione predefinita. | Chiavi gestite dal cliente e BYOK non sono ancora supportate. La crittografia lato client è responsabilità del client |
-| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Supporta il meccanismo HTTPS/TLS standard. |
+| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Yes | Supporta il meccanismo HTTPS/TLS standard. |
 | Gestione della chiave di crittografia (CMK, BYOK e così via)| No |   |
 | Crittografia a livello di colonna (servizi dati di Azure)| N/D | |
 | Chiamate API crittografate| Sì | Le chiamate API vengono eseguite tramite [Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |
@@ -51,8 +50,8 @@ Questo articolo descrive gli attributi di sicurezza incorporati nella messaggist
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Authentication| Sì | Gestito tramite [Azure Active Directory identità del servizio gestita](service-bus-managed-service-identity.md); vedere [autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md).|
-| Authorization| Sì | Supporta l'autorizzazione tramite il controllo [RBAC](service-bus-role-based-access-control.md) (anteprima) e il token SAS; vedere [autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md). |
+| Authentication| Yes | Gestito tramite [Azure Active Directory identità del servizio gestita](service-bus-managed-service-identity.md); vedere [autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md).|
+| Authorization| Yes | Supporta l'autorizzazione tramite il controllo [RBAC](authenticate-application.md) e il token SAS. vedere [autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md). |
 
 
 

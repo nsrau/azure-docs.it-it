@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 9a7baa6385e0130b784b264a4c53c232ae8a1b50
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: 85b1e3eae9d7472fa829665707fca481a28f0623
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980468"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011285"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Modalità di sincronizzazione di oggetti e credenziali in un Azure AD Domain Services dominio gestito
 
@@ -127,7 +127,7 @@ Quando si Abilita Azure AD DS, sono necessari gli hash delle password legacy per
 
 Per gli ambienti di Azure AD solo cloud, [gli utenti devono reimpostare o modificare la password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) affinché gli hash delle password richiesti vengano generati e archiviati in Azure ad. Per qualsiasi account utente del cloud creato in Azure AD dopo l'abilitazione di Azure AD Domain Services, gli hash delle password sono generati e archiviati in formati compatibili con NTLM e Kerberos. I nuovi account non devono reimpostare o modificare la password generano gli hash delle password legacy.
 
-Per gli account utente ibridi sincronizzati dall'ambiente Servizi di dominio Active Directory locale usando Azure AD Connect, è necessario [configurare Azure ad Connect per sincronizzare gli hash delle password nei formati compatibili con NTLM e Kerberos](active-directory-ds-getting-started-password-sync-synced-tenant.md).
+Per gli account utente ibridi sincronizzati dall'ambiente Servizi di dominio Active Directory locale usando Azure AD Connect, è necessario [configurare Azure ad Connect per sincronizzare gli hash delle password nei formati compatibili con NTLM e Kerberos](tutorial-configure-password-hash-sync.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

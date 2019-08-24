@@ -1,5 +1,5 @@
 ---
-title: Distribuire un'applicazione dual stack IPv6 con Load Balancer Standard in rete virtuale di Azure-interfaccia della riga di comando
+title: Distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure-interfaccia della riga di comando
 titlesuffix: Azure Virtual Network
 description: Questo articolo illustra come distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 7b231ded3fdae7553e101beff2ee77d82fe27e6e
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: f67494b229a14b66b593950903184e54e4a8ab8c
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269624"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013708"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure-virtual-network---cli-preview"></a>Distribuire un'applicazione IPv6 dual stack con Load Balancer Standard in rete virtuale di Azure-interfaccia della riga di comando (anteprima)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure-interfaccia della riga di comando (anteprima)
 
-Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale a doppio stack con una subnet dello stack doppio, un servizio di bilanciamento del carico con due configurazioni front-end Dual (IPv4 + IPv6), macchine virtuali con NIC con una doppia configurazione IP, due regole del gruppo di sicurezza di rete e doppi indirizzi IP pubblici.
+Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) usando Load Balancer Standard in Azure che include una rete virtuale dual stack con una subnet dello stack doppio, una Load Balancer Standard con configurazioni front-end Dual (IPv4 + IPv6), VM con Nic con una doppia configurazione IP, due regole del gruppo di sicurezza di rete e doppi indirizzi IP pubblici.
 
 > [!Important]
 > Il dual stack IPv6 per la rete virtuale di Azure è attualmente disponibile in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -111,7 +111,7 @@ az network public-ip create \
 
 In questa sezione vengono configurati due IP front-end (IPv4 e IPv6) e il pool di indirizzi back-end per il servizio di bilanciamento del carico e quindi viene creato un Load Balancer Standard.
 
-### <a name="create-load-balancer"></a>Creare un servizio di bilanciamento del carico
+### <a name="create-load-balancer"></a>Crea servizio di bilanciamento del carico
 
 Creare il Load Balancer Standard con [AZ Network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominato **dsLB** che include un pool Front-End denominato **dsLbFrontEnd_v4**, un pool back-end denominato **dsLbBackEndPool_v4** associato all'indirizzo **IP pubblico IPv4 dsPublicIP_v4** creato nel passaggio precedente. 
 
@@ -182,7 +182,7 @@ az network lb rule create \
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 Prima di distribuire alcune macchine virtuali, è necessario creare risorse di rete di supporto: set di disponibilità, gruppo di sicurezza di rete, rete virtuale e NIC virtuali. 
-### <a name="create-an-availability-set"></a>Creare un set di disponibilità
+### <a name="create-an-availability-set"></a>Crea set di disponibilità
 Per migliorare la disponibilità dell'app, inserire le VM in un set di disponibilità.
 
 Creare un set di disponibilità con [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest). Nell'esempio seguente viene creato un set di disponibilità denominato *dsAVset*:

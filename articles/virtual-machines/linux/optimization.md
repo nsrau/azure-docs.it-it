@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: ea8f3f1860223e102aeccf81f72b5294283b83f6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ad512baad86133cc1aad80438a6b68d2a31a6cc6
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640749"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013599"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la VM Linux su Azure
 La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come assicurarsi di averla configurata in modo da ottimizzarne le prestazioni sulla piattaforma Microsoft Azure. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -53,7 +53,7 @@ Quando si gestiscono carichi di lavoro con IOps elevati ed è stata scelta l'Arc
 ## <a name="your-vm-temporary-drive"></a>Unità temporanea per la VM
 Per impostazione predefinita, quando si crea una macchina virtuale, Azure mette a disposizione un disco del sistema operativo ( **/dev/sda**) e un disco temporaneo ( **/dev/sdb**).  Tutti gli altri dischi aggiuntivi verranno visualizzati come **/dev/sdc**, **/dev/sdd**, **/dev/sde** e così via. Tutti i dati nei dischi temporanei ( **/dev/sdb**) non sono durevoli e possono andare persi se eventi specifici come il ridimensionamento, la ridistribuzione o la manutenzione della macchina virtuale impongono un riavvio.  Le dimensioni e il tipo del disco temporaneo sono correlati alle dimensioni della VM scelte in fase di distribuzione. Nel caso di macchine virtuali con dimensioni Premium (serie DS, G e DS_V2) l'unità temporanea sarà supportata da un'unità SSD locale per assicurare prestazioni aggiuntive fino a un massimo di 48.000 IOps. 
 
-## <a name="linux-swap-file"></a>File di scambio Linux
+## <a name="linux-swap-partition"></a>Partizione di scambio Linux
 Se la VM di Azure proviene da un'immagine Ubuntu o CoreOS, è possibile usare CustomData per inviare un file cloud-config a cloud-init. Se è stata [caricata un'immagine Linux personalizzata](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) che usa cloud-init, si configurano anche partizioni di scambio con cloud-init.
 
 Nelle immagini cloud Ubuntu, è necessario usare cloud-init per configurare la partizione di scambio. Per altre informazioni vedere [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
@@ -127,6 +127,8 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Uso di Software RAID per ottenere valori I/Ops più elevati
 Se i carichi di lavoro richiedono un valore di IOps superiore a quello consentito da un singolo disco, sarà necessario usare una configurazione Software RAID con più dischi. Poiché Azure esegue già la resilienza del disco a livello di infrastruttura locale, è possibile ottenere il livello massimo di prestazioni mediante una configurazione con striping RAID-0.  È necessario effettuare il provisioning e creare dischi nell'ambiente Azure, poi collegarli alla macchina virtuale Linux prima del partizionamento, della formattazione e del montaggio delle unità.  Altri dettagli sulla configurazione di un'installazione RAID software nella VM Linux in Azure sono disponibili nel documento **[Configurare RAID software in Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+
+In alternativa a una configurazione RAID tradizionale, è anche possibile scegliere di installare Logical Volume Manager (LVM) per configurare un numero di dischi fisici in un unico volume di archiviazione logica con striping. In questa configurazione le letture e le scritture vengono distribuite in più dischi contenuti nel gruppo di volumi (simile a RAID0). Per motivi di prestazioni, è probabile che sia necessario eseguire lo striping dei volumi logici in modo che le letture e le scritture usino tutti i dischi dati associati.  Per altri dettagli sulla configurazione di un volume logico con striping nella VM Linux in Azure, vedere il documento **[configurare LVM in una macchina virtuale Linux in Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
 ## <a name="next-steps"></a>Fasi successive
 Come per tutte le considerazioni sull'ottimizzazione, sarà necessario eseguire test prima e dopo ogni modifica per misurare l'impatto della modifica stessa.  L'ottimizzazione è un processo graduale che potrà avere risultati diversi in diversi computer nell'ambiente.  Le impostazioni ottimali per una configurazione potrebbero non essere appropriate per altre.

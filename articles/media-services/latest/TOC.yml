@@ -149,7 +149,7 @@
       items:
         - name: Panoramica
           href: media-services-apis-overview.md
-          displayName: 'accessing, naming, long-running'
+          displayName: 'accessing, naming, long-running, invalid character'
         - name: 'Organizzare in pagine, filtrare e ordinare entità'
           href: entities-overview.md
         - name: Controllo degli accessi in base al ruolo

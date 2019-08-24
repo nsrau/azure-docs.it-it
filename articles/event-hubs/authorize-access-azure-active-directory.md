@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 569399b2b5f676e11cd6540126e0b26dc0d26198
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
-ms.translationtype: HT
+ms.openlocfilehash: 1a42843cc81070cc284863b3736549576e32cb17
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992861"
+ms.locfileid: "70011885"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory
 Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
@@ -38,9 +38,9 @@ Quando un ruolo RBAC viene assegnato a un'entità di sicurezza Azure AD, Azure c
 ## <a name="built-in-rbac-roles-for-azure-event-hubs"></a>Ruoli RBAC predefiniti per hub eventi di Azure
 Azure fornisce i seguenti ruoli predefiniti di controllo degli accessi in base al ruolo per autorizzare l'accesso ai dati di hub eventi tramite Azure AD e OAuth:
 
-- [Proprietario dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview): Usare questo ruolo per concedere l'accesso completo alle risorse di hub eventi.
-- [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver-preview): Usare questo ruolo per concedere l'accesso di trasmissione alle risorse di hub eventi.
-- [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender-preview): Usare questo ruolo per concedere l'accesso a consumo/ricezione alle risorse di hub eventi.
+- [Proprietario dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Usare questo ruolo per concedere l'accesso completo alle risorse di hub eventi.
+- [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Usare questo ruolo per concedere l'accesso di trasmissione alle risorse di hub eventi.
+- [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Usare questo ruolo per concedere l'accesso a consumo/ricezione alle risorse di hub eventi.
 
 ## <a name="resource-scope"></a>Ambito delle risorse 
 Prima di assegnare un ruolo di controllo degli accessi in base al ruolo a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate stabiliscono che è sempre preferibile concedere solo l'ambito più ristretto possibile.

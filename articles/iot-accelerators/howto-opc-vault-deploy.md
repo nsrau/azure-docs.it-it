@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b626f906738e3a6e65053408cfdc2002d459a6e2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 1625f0e6f9bfe8297cae2770e63107bf4f19f95e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973857"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012991"
 ---
-# <a name="build-and-deploy-the-opc-ua-certificate-management-service"></a>Compilare e distribuire il servizio di gestione dei certificati OPC UA
+# <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilare e distribuire il servizio di gestione certificati dell'insieme di credenziali OPC
 
-Questo articolo illustra come distribuire il servizio di gestione dei certificati OPC UA in Azure.
+Questo articolo illustra come distribuire il servizio di gestione certificati dell'insieme di credenziali OPC in Azure.
 
 > [!NOTE]
 > Per altre informazioni sui dettagli e le istruzioni per la distribuzione, vedere l'archivio dell'insieme di credenziali [OPC](https://github.com/Azure/azure-iiot-opc-vault-service)di GitHub.
@@ -59,20 +59,20 @@ in alternativa, immettere una riga di comando completa:
 7. Se si prevede di sviluppare con questa distribuzione, aggiungere `-development 1` per abilitare l'interfaccia utente di spavalderia e distribuire le compilazioni di debug.
 6. Seguire le istruzioni nello script per accedere alla sottoscrizione e fornire informazioni aggiuntive.
 9. Al termine di un'operazione di compilazione e distribuzione corretta, verrà visualizzato il messaggio seguente:
+   ```
+   To access the web client go to:
+   https://myResourceGroup.azurewebsites.net
 
-```
-To access the web client go to:
-https://myResourceGroup.azurewebsites.net
+   To access the web service go to:
+   https://myResourceGroup-service.azurewebsites.net
 
-To access the web service go to:
-https://myResourceGroup-service.azurewebsites.net
+   To start the local docker GDS server:
+   .\myResourceGroup-dockergds.cmd
 
-To start the local docker GDS server:
-.\myResourceGroup-dockergds.cmd
+   To start the local dotnet GDS server:
+   .\myResourceGroup-gds.cmd
+   ```
 
-To start the local dotnet GDS server:
-.\myResourceGroup-gds.cmd
-```
 Se si verificano problemi, attenersi alla procedura [riportata di seguito](#troubleshooting-deployment-failures).
 
 8. Aprire il browser preferito e aprire la pagina dell'applicazione:`https://myResourceGroup.azurewebsites.net`
@@ -86,7 +86,7 @@ Come margine, è possibile ridistribuire una compilazione con esattamente le ste
 
 Una volta completata la distribuzione, è possibile iniziare a usare i servizi: [Come gestire il servizio di gestione certificati dell'insieme di credenziali OPC](howto-opc-vault-manage.md)
 
-## <a name="delete-the-certificate-management-services-from-the-subscription"></a>Eliminare i servizi di gestione certificati dalla sottoscrizione
+## <a name="delete-the-services-from-the-subscription"></a>Eliminare i servizi dalla sottoscrizione
 
 1. Accedere al portale di Azure: `https://portal.azure.com`.
 2. Passare al gruppo di risorse in cui è stato distribuito il servizio.

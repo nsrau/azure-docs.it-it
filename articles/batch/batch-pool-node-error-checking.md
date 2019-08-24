@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 07/16/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9481263773cc919fecacce80191cf209ec2a1282
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: d115b7d56609b95f2ea10b3fee2f8900102b94e4
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359254"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012479"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 
@@ -64,7 +64,7 @@ Lo [stato del pool](https://docs.microsoft.com/rest/api/batchservice/pool/get#po
 
 ## <a name="pool-compute-node-errors"></a>Errori dei nodi di calcolo dei pool
 
-Anche quando batch esegue correttamente l'allocazione dei nodi in un pool, diversi problemi possono causare la non integrità di alcuni nodi e non è in grado di eseguire le attività. Questi nodi continuano a subire addebiti, quindi è importante rilevare i problemi per evitare di pagare per i nodi che non possono essere usati.
+Anche quando batch esegue correttamente l'allocazione dei nodi in un pool, diversi problemi possono causare la non integrità di alcuni nodi e non è in grado di eseguire le attività. Questi nodi continuano a subire addebiti, quindi è importante rilevare i problemi per evitare di pagare per i nodi che non possono essere usati. Oltre agli errori comuni del nodo, conoscere lo stato corrente del [processo](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate) è utile per la risoluzione dei problemi.
 
 ### <a name="start-task-failures"></a>Errori attività di avvio
 
@@ -84,17 +84,17 @@ Le attività di avvio devono essere rientranti, perché è possibile che l'attiv
 
 È possibile specificare uno o più pacchetti dell'applicazione per un pool. Batch Scarica i file di pacchetto specificati in ogni nodo e decomprime i file dopo l'avvio del nodo, ma prima della pianificazione delle attività. È prassi comune usare la riga di comando di un'attività di avvio insieme ai pacchetti dell'applicazione, ad esempio per copiare file n una posizione diversa o per eseguire il programma di installazione.
 
-La proprietà [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) nodo segnala un errore di download e annullamento della compressione di un pacchetto dell'applicazione. lo stato del nodo è impostato su inutilizzabile.
+La proprietà [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) nodo segnala un errore di download e annullamento della compressione di un pacchetto dell'applicazione. lo stato del nodo è impostatosu inutilizzabile.
 
 ### <a name="container-download-failure"></a>Errore di download del contenitore
 
-È possibile specificare uno o più riferimenti a contenitori in un pool. Batch Scarica i contenitori specificati in ogni nodo. La proprietà [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) nodo segnala un errore di download di un contenitore e imposta lo stato del nodo su inutilizzabile.
+È possibile specificare uno o più riferimenti a contenitori in un pool. Batch Scarica i contenitori specificati in ogni nodo. La proprietà [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) nodo segnala un errore di download di un contenitore e imposta lo stato delnodo su inutilizzabile.
 
 ### <a name="node-in-unusable-state"></a>Nodo in stato inutilizzabile
 
 Azure Batch può impostare lo [stato del nodo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) su **unusable** per diversi motivi. Quando lo stato del nodo è impostato su **unusable**, non è possibile pianificare attività sul nodo, il quale però rimane soggetto ad addebiti.
 
-I nodi in  uno stato inutilizzabile, ma senza [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) significa che batch non è in grado di comunicare con la macchina virtuale. In questo caso, batch tenta sempre di ripristinare la macchina virtuale. Batch non tenterà automaticamente di ripristinare le macchine virtuali in cui non è stato possibile installare i pacchetti dell'applicazione o i contenitori anche se lo stato è inutilizzabile.
+I nodi in uno stato inutilizzabile, ma senza [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) significa che batch non è in grado di comunicare con la macchina virtuale. In questo caso, batch tenta sempre di ripristinare la macchina virtuale. Batch non tenterà automaticamente di ripristinare le macchine virtuali in cui non è stato possibile installare i pacchetti dell'applicazione oi contenitori anche se lo stato è inutilizzabile.
 
 Se Batch è in grado di determinare la causa, questa viene indicata nella proprietà [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror).
 
@@ -118,7 +118,7 @@ Il processo dell'agente batch eseguito in ogni nodo del pool può fornire file d
 
 ### <a name="node-disk-full"></a>Disco del nodo pieno
 
-L'unità temporanea per una macchina virtuale del nodo del pool viene utilizzata da batch per i file di processo, i file delle attività e i file condivisi. 
+L'unità temporanea per una macchina virtuale del nodo del pool viene utilizzata da batch per i file di processo, i file delle attività e i file condivisi.
 
 - File di pacchetti dell'applicazione
 - File di risorse dell'attività

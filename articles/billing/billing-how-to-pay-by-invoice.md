@@ -9,14 +9,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/23/2019
 ms.author: banders
-ms.openlocfilehash: 90c7014e3c22ac7186854d5c01b911aa630d20dd
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 9e4e05acd88e9b0f0c17d4dd4caf5eb5a883d63d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774671"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012588"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pagare la sottoscrizione di Azure tramite fattura
 
@@ -24,7 +24,8 @@ Se si passa a pagamento tramite fattura, il pagamento della fattura entro 30 gio
 
 > [!IMPORTANT]
 > * Il pagamento tramite fatturazione (check/Wire Transfer) è disponibile solo per gli account aziendali.
-> * Prima di passare al pagamento con fattura, è necessario pagare tutti gli addebiti in attesa.
+> * Pagare tutti gli addebiti in attesa prima di passare al pagamento con fattura.
+> * Attualmente, il pagamento tramite fattura non è supportato per Azure globale in Cina.
 
 ## <a name="request-to-pay-by-invoice"></a>Richiesta di pagamento tramite fattura
 
@@ -64,7 +65,7 @@ Se si passa a pagamento tramite fattura, il pagamento della fattura entro 30 gio
          Specific region & series of Subscription:
 
     - Il **nome** e l' **Indirizzo** della società devono corrispondere alle informazioni fornite per l'account Azure. Per visualizzare o aggiornare le informazioni, vedere [modificare le informazioni sul profilo dell'account Azure](billing-how-to-change-azure-account-profile.md).
-    - È necessario aggiungere le informazioni di contatto per la fatturazione nel portale di Azure prima di poter approvare il limite di credito. I dettagli del contatto devono essere correlati alla contabilità fornitori o al reparto finanziario. Per aggiornare le informazioni di contatto per la fatturazione, passare a [centro account di Azure](https://account.azure.com/Profile).
+    - Aggiungere le informazioni di contatto per la fatturazione nel portale di Azure prima di poter approvare il limite di credito. I dettagli del contatto devono essere correlati alla contabilità fornitori o al reparto finanziario. Per aggiornare le informazioni di contatto per la fatturazione, passare a [centro account di Azure](https://account.azure.com/Profile).
 
 6. Verificare le informazioni di contatto e il metodo di contatto preferito e quindi fare clic su **Crea**.
 
@@ -74,7 +75,7 @@ Se è necessario eseguire una verifica del credito a causa della quantità di cr
 
 Una volta approvate le spese per fattura, è possibile passare alla fatturazione con pagamento (check/Wire Transfer) nell'portale di Azure.
 
-Se si dispone di un account di programma di Microsoft Online Services, è possibile passare alla sottoscrizione di Azure per il trasferimento in transito. Se si dispone di un contratto per i clienti Microsoft, è possibile passare al profilo di fatturazione per il trasferimento in transito. [Informazioni su come controllare il tipo di account](#check-access-to-a-microsoft-customer-agreement).
+Se si dispone di un account di programma di Microsoft Online Services, è possibile passare alla sottoscrizione di Azure per il trasferimento in transito. Con un contratto per i clienti Microsoft, è possibile cambiare il profilo di fatturazione per il trasferimento in transito. [Informazioni su come controllare il tipo di account](#check-access-to-a-microsoft-customer-agreement).
 
 ### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Passa alla sottoscrizione di Azure per il trasferimento di controllo/cablaggio
 
@@ -93,7 +94,7 @@ Seguire questa procedura per passare alla sottoscrizione di Azure per la fattura
 
 ### <a name="switch-billing-profile-to-checkwire-transfer"></a>Cambia profilo di fatturazione per il trasferimento di assegni/Wire
 
-Attenersi alla procedura seguente per passare a un profilo di fatturazione per il trasferimento di assegni/bonifici. Si noti che solo la persona che ha effettuato l'iscrizione ad Azure può modificare il metodo di pagamento predefinito di un profilo di fatturazione.
+Attenersi alla procedura seguente per passare a un profilo di fatturazione per il trasferimento di assegni/bonifici. Solo la persona che ha effettuato l'iscrizione ad Azure può modificare il metodo di pagamento predefinito di un profilo di fatturazione.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
@@ -106,7 +107,7 @@ Attenersi alla procedura seguente per passare a un profilo di fatturazione per i
 
    ![Screenshot che mostra i metodi di pagamento nel menu](./media/billing-how-to-pay-by-invoice/billing-profile-payment-methods.png)
 
-1. Fare clic sul banner blu che indica che l'utente è idoneo per il pagamento tramite check/Wire Transfer.
+1. Fare clic sul banner blu che indica che l'utente è idoneo per il pagamento tramite assegno/bonifico.
 
     ![Screenshot che mostra il banner blu per passare a controllo/cablaggio](./media/billing-how-to-pay-by-invoice/customer-led-switch-to-invoice.png)
 

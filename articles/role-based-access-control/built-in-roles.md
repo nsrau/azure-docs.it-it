@@ -15,12 +15,12 @@ ms.date: 08/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 09551eb2620349fa2445c1da3a7e0d66062ebaf0
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 776b8303e3454b40979691ea32fdcca11be4fa71
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899728"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013381"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -54,15 +54,15 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Operatore runbook di automazione](#automation-runbook-operator) | Consente di leggere le proprietà del runbook per permettere di creare processi del runbook. |
 | [Collaboratore](#avere-contributor) | Consente di creare e gestire un cluster vFXT. |
 | [Operatore di stato](#avere-operator) | Usato dal cluster vFXT per la gestione del cluster |
-| [Proprietario dati di hub eventi di Azure (anteprima)](#azure-event-hubs-data-owner-preview) | Consente l'accesso completo alle risorse di hub eventi di Azure. |
-| [Ricevitore dati di hub eventi di Azure (anteprima)](#azure-event-hubs-data-receiver-preview) | Consente di ricevere l'accesso alle risorse di hub eventi di Azure. |
-| [Mittente dati di hub eventi di Azure (anteprima)](#azure-event-hubs-data-sender-preview) | Consente di inviare l'accesso alle risorse di hub eventi di Azure. |
+| [Proprietario dati di hub eventi di Azure](#azure-event-hubs-data-owner) | Consente l'accesso completo alle risorse di hub eventi di Azure. |
+| [Ricevitore di dati di hub eventi di Azure](#azure-event-hubs-data-receiver) | Consente di ricevere l'accesso alle risorse di hub eventi di Azure. |
+| [Mittente dati di hub eventi di Azure](#azure-event-hubs-data-sender) | Consente di inviare l'accesso alle risorse di hub eventi di Azure. |
 | [Ruolo di amministratore del cluster del servizio Azure Kubernetes](#azure-kubernetes-service-cluster-admin-role) | Elencare l'azione delle credenziali di amministratore del cluster. |
 | [Ruolo di utente del cluster del servizio Azure Kubernetes](#azure-kubernetes-service-cluster-user-role) | Elencare l'azione delle credenziali di utente del cluster. |
 | [Lettore dati di Maps di Azure (anteprima)](#azure-maps-data-reader-preview) | Concede l'accesso per leggere i dati correlati alla mappa da un account Azure maps. |
-| [Proprietario dati del bus di servizio di Azure (anteprima)](#azure-service-bus-data-owner-preview) | Consente l'accesso completo alle risorse del bus di servizio di Azure. |
-| [Ricevitore dati del bus di servizio di Azure (anteprima)](#azure-service-bus-data-receiver-preview) | Consente di ricevere l'accesso alle risorse del bus di servizio di Azure. |
-| [Mittente dati del bus di servizio di Azure (anteprima)](#azure-service-bus-data-sender-preview) | Consente di inviare l'accesso alle risorse del bus di servizio di Azure. |
+| [Proprietario dati del bus di servizio di Azure](#azure-service-bus-data-owner) | Consente l'accesso completo alle risorse del bus di servizio di Azure. |
+| [Ricevitore dati del bus di servizio di Azure](#azure-service-bus-data-receiver) | Consente di ricevere l'accesso alle risorse del bus di servizio di Azure. |
+| [Mittente dati del bus di servizio di Azure](#azure-service-bus-data-sender) | Consente di inviare l'accesso alle risorse del bus di servizio di Azure. |
 | [Proprietario della registrazione di Azure Stack](#azure-stack-registration-owner) | Consente di gestire le registrazioni di Azure Stack. |
 | [Collaboratore di backup](#backup-contributor) | Consente di gestire il servizio di backup, ma non di creare insiemi di credenziali e concedere l'accesso ad altri utenti |
 | [Operatore di backup](#backup-operator) | Consente di gestire i servizi di backup, ma non di rimuovere il backup, creare insiemi di credenziali e concedere l'accesso ad altri utenti. |
@@ -556,7 +556,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
-## <a name="azure-event-hubs-data-owner-preview"></a>Proprietario dati di hub eventi di Azure (anteprima)
+## <a name="azure-event-hubs-data-owner"></a>Proprietario dati di hub eventi di Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -571,7 +571,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
-## <a name="azure-event-hubs-data-receiver-preview"></a>Ricevitore dati di hub eventi di Azure (anteprima)
+## <a name="azure-event-hubs-data-receiver"></a>Ricevitore di dati di hub eventi di Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -586,7 +586,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
-## <a name="azure-event-hubs-data-sender-preview"></a>Mittente dati di hub eventi di Azure (anteprima)
+## <a name="azure-event-hubs-data-sender"></a>Mittente dati di hub eventi di Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -646,7 +646,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
-## <a name="azure-service-bus-data-owner-preview"></a>Proprietario dati del bus di servizio di Azure (anteprima)
+## <a name="azure-service-bus-data-owner"></a>Proprietario dati del bus di servizio di Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -661,7 +661,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
-## <a name="azure-service-bus-data-receiver-preview"></a>Ricevitore dati del bus di servizio di Azure (anteprima)
+## <a name="azure-service-bus-data-receiver"></a>Ricevitore dati del bus di servizio di Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -678,7 +678,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
-## <a name="azure-service-bus-data-sender-preview"></a>Mittente dati del bus di servizio di Azure (anteprima)
+## <a name="azure-service-bus-data-sender"></a>Mittente dati del bus di servizio di Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
