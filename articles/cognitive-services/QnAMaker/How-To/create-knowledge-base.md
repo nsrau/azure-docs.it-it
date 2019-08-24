@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b2cacc8cc6d7c22a93f46007e8150a4e55dc7650
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b2fb7496f16359f01ddbbe6db31b2d047a2ab4df
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967723"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012818"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Avvio rapido: Creare una Knowledge base tramite il portale del servizio API QnA Maker
 
@@ -45,24 +45,21 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
     ![Impostare le origini dati](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
-    - Assegnare un **nome** al servizio. Sono supportati nomi duplicati e caratteri speciali.
-    - Aggiungere gli URL per i dati desiderati estratti. Altre informazioni sui tipi di origini supportati sono disponibili [qui](../Concepts/data-sources-supported.md).
-    - Aggiornare i file per i dati desiderati estratti. Per informazioni sul numero di documenti che è possibile aggiungere, vedere le [informazioni sui prezzi](https://aka.ms/qnamaker-pricing).
-    - Se si desidera aggiungere manualmente domande e risposte, è possibile ignorare il **passaggio 4** illustrato nell'immagine precedente.
+1. Assegnare un **nome** al servizio, ad `my first kb`esempio. Sono supportati nomi duplicati e caratteri speciali.
 
-1. Aggiungere **chit-chat** alla KB. Scegliere di aggiungere il supporto per Chit-Chat per il bot, scegliendo una delle personali. 
+1. Aggiungere la pagina di risoluzione dei problemi di QnA Maker come `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`URL:, `+ Add URL`quindi selezionare. Altre informazioni sui tipi di origini supportati sono disponibili [qui](../Concepts/data-sources-supported.md). Per questa Guida introduttiva, **non caricare i file** per i dati che si desidera estrarre. Per informazioni sul numero di documenti che è possibile aggiungere, vedere le [informazioni sui prezzi](https://aka.ms/qnamaker-pricing).
 
-    ![Aggiungere chit chat alla knowledge base](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+1. Aggiungere la **chat _professionale_**  alla KB. 
 
 1. Selezionare **Crea la KB**.
 
     ![Creare la knowledge base](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-1. Per l'estrazione dei dati sono necessari alcuni minuti.
+1. Potrebbero essere necessari alcuni minuti per estrarre i dati.
 
     ![Estrazione](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 
-1. Se la knowledge base è stata creata correttamente, si verrà reindirizzati alla pagina **Knowledge base**.
+1. Una volta creata correttamente la Knowledge base, si verrà reindirizzati alla pagina della **Knowledge base** .
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

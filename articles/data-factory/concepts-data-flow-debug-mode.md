@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 945d123c0901722a527e7cc8181c91f09e4e95ec
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014516"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991930"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modalità di debug dei flussi di dati di mapping
 
@@ -53,7 +53,14 @@ Quando il debug è attivato, la scheda Anteprima dati sarà attivata nel pannell
 
 ![Anteprima dati](media/data-flow/datapreview.png "Anteprima dati")
 
+> [!NOTE]
+> Le origini file limitano solo le righe visualizzate, non le righe lette. Per i set di impostazioni di grandi dimensioni, è consigliabile eseguire una piccola parte del file e usarlo per i test. È possibile selezionare un file temporaneo nelle impostazioni di debug per ogni origine che corrisponde a un tipo di set di dati di file.
+
 Quando è attiva la modalità di debug nel flusso di dati, i dati non vengono scritti nella trasformazione sink. Una sessione di debug è destinata a fungere da test harness per le trasformazioni. I sink non sono necessari durante il debug e vengono ignorati nel flusso di dati. Se si desidera testare la scrittura dei dati nel sink, eseguire il flusso di dati da una pipeline Azure Data Factory e utilizzare l'esecuzione del debug da una pipeline.
+
+### <a name="testing-join-conditions"></a>Test delle condizioni di join
+
+Quando si esegue il testing unità join, esiste o trasforma ricerca, assicurarsi di usare un piccolo set di dati noti per il test. È possibile usare l'opzione debug Settings precedente per impostare un file temporaneo da usare per il test. Questa operazione è necessaria perché quando si limitano o si campionano righe da un set di dati di grandi dimensioni, non è possibile prevedere quali righe e quali chiavi verranno lette nel flusso per il test. Il risultato è non deterministico, vale a dire che le condizioni di join potrebbero non riuscire.
 
 ### <a name="quick-actions"></a>Azioni rapide
 
