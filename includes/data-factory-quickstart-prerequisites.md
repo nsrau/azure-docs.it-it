@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: dc12d77e9a57938051300277940b6e5107e45496
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234502"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648511"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,21 +38,17 @@ Per altre informazioni, vedere gli articoli seguenti:
 ### <a name="azure-storage-account"></a>Account di archiviazione di Azure
 In questa guida introduttiva si usa un account di archiviazione di Azure per utilizzo generico (specificamente, di archiviazione BLOB) come archivio dati sia di *origine* che di *destinazione*. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../articles/storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno. 
 
-#### <a name="get-the-storage-account-name-and-account-key"></a>Recuperare il nome e la chiave dell'account di archiviazione
-Per questa guida introduttiva è necessario avere il nome e la chiave dell'account di archiviazione di Azure. La procedura seguente illustra i passaggi per recuperare il nome e la chiave dell'account di archiviazione: 
+#### <a name="get-the-storage-account-name"></a>Ottenere il nome dell'account di archiviazione
+Per questa guida introduttiva è necessario avere il nome dell'account di archiviazione di Azure. La procedura seguente illustra i passaggi per recuperare il nome dell'account di archiviazione: 
 
 1. In un Web browser passare al [portale di Azure](https://portal.azure.com) e accedere usando il nome utente e la password di Azure.
 2. Selezionare **Tutti i servizi** > **Archiviazione** > **Account di archiviazione**.
 3. Nella pagina **Account di archiviazione** filtrare gli account di archiviazione, se necessario, quindi selezionare il proprio account di archiviazione. 
-4. Dalla barra laterale della pagina *\<Nome account>*  - **Account di archiviazione** passare all'etichetta **Impostazioni** e selezionare **Chiavi di accesso**. Viene visualizzato *\<Nome account>*  - **Chiavi di accesso**.
-
-   ![Recuperare il nome e la chiave dell'account di archiviazione](media/data-factory-quickstart-prerequisites/storage-account-name-key.png)
-5. Copiare negli Appunti i valori delle caselle **Nome account di archiviazione** e **key1**. Incollarli in un blocco note o in qualsiasi altro editor e salvarli. Verranno usati più avanti in questa guida introduttiva.   
 
 #### <a name="create-a-blob-container"></a>Creare un contenitore BLOB
 In questa sezione viene creato un contenitore BLOB denominato **adftutorial** nell'archivio BLOB di Azure.
 
-1. Dalla barra laterale della pagina *\<Nome account>*  - **Chiavi di accesso** selezionare **Panoramica** > **BLOB**.
+1. Dalla pagina dell'account di archiviazione, selezionare **Panoramica** > **BLOB**.
 2. Nella barra degli strumenti *\<Nome account>*  - **BLOB** selezionare **Contenitore**.
 3. Nella finestra di dialogo **Nuovo contenitore** immettere **adftutorial** come nome e quindi fare clic su **OK**. La pagina *\<Nome account>*  - **BLOB** viene aggiornata per includere **adftutorial** nell'elenco dei contenitori.
 
