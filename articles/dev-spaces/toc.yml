@@ -73,6 +73,8 @@
           href: how-to/manage-secrets.md
         - name: Usare un feed NuGet personalizzato
           href: how-to/use-custom-nuget-feed.md
+        - name: Usare un repository Helm privato
+          href: how-to/use-private-helm-repo.md
         - name: Usare kubectl con Azure Dev Spaces
           href: how-to/use-kubectl-with-azure-dev-spaces.md
         - name: Aggiornare Azure Dev Spaces Tools

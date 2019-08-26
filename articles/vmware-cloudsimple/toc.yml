@@ -106,8 +106,6 @@
               href: users.md
             - name: Configurare una connessione di rete virtuale con il cloud privato
               href: virtual-network-connection.md
-            - name: Modificare il profilo utente
-              href: 'https://docs.azure.cloudsimple.com/editprofile/'
         - name: Configurare le macchine virtuali di VMware per il cloud privato
           items:
             - name: Creare una VM in Azure
@@ -147,7 +145,7 @@
             - name: Eseguire la migrazione delle VM dei carichi di lavoro a un cloud privato
               href: migrate-workloads.md
             - name: Assicurare la disponibilità elevata delle applicazioni in VMware in Azure
-              href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
+              href: ensuring-high-availability.md
             - name: Scegliere una soluzione di bilanciamento del carico
               href: load-balancers.md
         - name: Ecosistema di VMware
@@ -156,8 +154,10 @@
               href: backup-workloads-veeam.md
             - name: Configurare il cloud privato come sito di ripristino di emergenza con Zerto
               href: disaster-recovery-zerto.md
+            - name: Configurare il cloud privato come sito di ripristino di emergenza con VMware SRM
+              href: disaster-recovery-site-recovery-manager.md
             - name: Guida della soluzione VMware Horizon
-              href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
+              href: horizon-guide.md
             - name: Configurare la crittografia di vSAN per il cloud privato
               href: vsan-encryption.md
             - name: Ottimizzare il cloud privato per Oracle RAC

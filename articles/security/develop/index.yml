@@ -41,6 +41,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/security/develop/secure-web-app">App Web in un contenitore Linux</a>
+          - html: <a href="/azure/security/develop/secure-pci-web-app">Payment Card Industry</a>
   - title: Concetti
     items:
       - type: list

@@ -17,12 +17,16 @@
       href: tutorial-create-management-vm.md
     - name: Configurare LDAP sicuro
       href: tutorial-configure-ldaps.md
+    - name: Configurare la sincronizzazione dell'hash delle password
+      href: tutorial-configure-password-hash-sync.md
 - name: Esempi
   items:
     - name: Creare un'istanza di Azure Active Directory Domain Services con Azure PowerShell
       href: powershell-create-instance.md
 - name: Concetti
   items:
+    - name: Scenari comuni di distribuzione
+      href: scenarios.md
     - name: Funzionamento della sincronizzazione di Azure Active Directory Domain Services
       href: synchronization.md
     - name: Funzionamento della sincronizzazione dell'hash delle password
@@ -37,8 +41,6 @@
   items:
     - name: Configurare le impostazioni comuni
       items:
-        - name: Abilitare la sincronizzazione dell'hash delle password
-          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
         - name: Configurare la sincronizzazione con ambito da Azure AD
           href: scoped-synchronization.md
         - name: Creare un'unità organizzativa (OU)
@@ -47,8 +49,6 @@
           href: create-gmsa.md
     - name: Pianificare per Azure Active Directory Domain Services
       items:
-        - name: Scenari comuni
-          href: scenarios.md
         - name: Considerazioni sulla rete virtuale
           href: network-considerations.md
     - name: Gestire Azure Active Directory Domain Services

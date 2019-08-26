@@ -79,10 +79,6 @@
       href: service-bus-samples.md
 - name: Concetti
   items:
-    - name: Identità gestite per le risorse di Azure
-      href: service-bus-managed-service-identity.md
-    - name: Controllo degli accessi in base al ruolo (anteprima)
-      href: service-bus-role-based-access-control.md
     - name: Messaggistica Premium
       href: service-bus-premium-messaging.md
     - name: Confronto tra code di Azure e code del bus di servizio
@@ -95,8 +91,25 @@
       href: service-bus-async-messaging.md
     - name: Gestione di emergenze e interruzioni
       href: service-bus-outages-disasters.md
-    - name: Attributi comuni della sicurezza di Azure
-      href: service-bus-messaging-security-attributes.md
+    - name: Security
+      items:
+        - name: Autenticazione e autorizzazione
+          href: service-bus-authentication-and-authorization.md
+          items:
+            - name: Usare firme di accesso condiviso
+              items:
+                - name: Eseguire la migrazione da Servizio di controllo di accesso a firma di accesso condiviso
+                  href: service-bus-migrate-acs-sas.md
+                - name: Autenticazione con firme di accesso condiviso
+                  href: service-bus-sas.md
+            - name: Usare Azure Active Directory
+              items:
+                - name: Eseguire l'autenticazione con identità gestite per le risorse di Azure
+                  href: service-bus-managed-service-identity.md
+                - name: Eseguire l'autenticazione da un'applicazione
+                  href: authenticate-application.md
+        - name: Attributi comuni della sicurezza di Azure
+          href: service-bus-messaging-security-attributes.md
 - name: Guide alle procedure
   items:
     - name: Creare uno spazio dei nomi
@@ -119,13 +132,6 @@
               href: service-bus-to-event-grid-integration-concept.md
             - name: Esempi di Griglia di eventi di Azure
               href: service-bus-to-event-grid-integration-example.md
-        - name: Autenticazione e autorizzazione
-          href: service-bus-authentication-and-authorization.md
-          items:
-            - name: Eseguire la migrazione da Servizio di controllo di accesso a firma di accesso condiviso
-              href: service-bus-migrate-acs-sas.md
-            - name: Autenticazione con firme di accesso condiviso
-              href: service-bus-sas.md
         - name: Filtri e azioni per gli argomenti
           href: topic-filters.md
         - name: Eseguire la migrazione da spazi dei nomi Standard a Premium

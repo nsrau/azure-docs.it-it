@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: e94c4f179174a3957aef8828687ebf1fbb299903
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c4a70f337166a304bd8664da2180fcda29ca8ac
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967429"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996649"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
 
@@ -174,7 +174,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP BW Open Hub, impostare il tipo di origine nell'attività di copia su **SapOpenHubSource**. Non sono necessarie ulteriori proprietà specifiche del tipo nella sezione **origine** dell'attività di copia.
 
-Per velocizzare il caricamento dei dati, è possibile [`parallelCopies`](copy-activity-performance.md#parallel-copy) impostare l'attività di copia in modo da caricare i dati da SAP BW Hub aperto in parallelo. Se, ad esempio, si `parallelCopies` imposta su quattro, Data Factory esegue contemporaneamente quattro chiamate RFC e ogni chiamata RFC recupera una parte di dati dalla SAP BW tabella Hub aperta partizionata in base all'ID richiesta e all'ID pacchetto. Questa condizione si applica quando il numero di ID richiesta di DTP univoco + ID pacchetto è maggiore del `parallelCopies`valore di.
+Per velocizzare il caricamento dei dati, è possibile [`parallelCopies`](copy-activity-performance.md#parallel-copy) impostare l'attività di copia in modo da caricare i dati da SAP BW Hub aperto in parallelo. Se, ad esempio, si `parallelCopies` imposta su quattro, Data Factory esegue contemporaneamente quattro chiamate RFC e ogni chiamata RFC recupera una parte di dati dalla SAP BW tabella Hub aperta partizionata in base all'ID richiesta e all'ID pacchetto. Questa condizione si applica quando il numero di ID richiesta di DTP univoco + ID pacchetto è maggiore del `parallelCopies`valore di. Quando si copiano dati in un archivio dati basato su file, viene anche riordinato di scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
 
 **Esempio:**
 

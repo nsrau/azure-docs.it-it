@@ -7,19 +7,158 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 07/22/2019
+ms.date: 08/21/2019
 ms.topic: hub-page
-ms.openlocfilehash: ad403b58a0f6aad37e9d8d547d269b9f45566559
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 13bd9d8c9b5c8337e616b315187242633fce8308
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442828"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971420"
 ---
 <div id="main" class="v2">
 <h1>Documentazione di Servizi cognitivi di Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare e comprendere le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.</p>
         <p> Ogni servizio prevede una <a href="/azure/cognitive-services/language-support">lingua supportata</a> e specifici <a href="/azure/cognitive-services/cognitive-services-and-machine-learning#service-requirements-for-the-data-model">requisiti per il modello di dati</a>, che varia da un modello sottoposto completamente a training a un modello completamente personalizzabile. 
+
+
+<h2>Introduzione</h2>
+<ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
+        <li>
+            <a href="/azure/cognitive-services/welcome/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_overview.svg" alt="Learn about Azure Cognitive Services and how to use the different APIs to build intelligent apps." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Informazioni su Servizi cognitivi</h3>
+                                <p>Informazioni su Servizi cognitivi di Azure e su come usare le diverse API per compilare app intelligenti.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-and-machine-learning/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_guidelines.svg" alt="Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Servizi cognitivi e Machine Learning</h3>
+                                <p>Informazioni su Servizi cognitivi di Azure rispetto ad altre offerte di Azure per Machine Learning.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-apis-create-account/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/account-management.svg" alt="Learn how to create an Azure Cognitive Services resource." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Creare una risorsa per Servizi cognitivi</h3>
+                                <p>Informazioni su come creare una risorsa di Servizi cognitivi di Azure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/language-support/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/mic-abc.svg" alt="Learn about the human languages supported by Cognitive Services APIs." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Supporto per la lingua in Servizi cognitivi</h3>
+                                <p>Informazioni sulle lingue supportate dalle API Servizi cognitivi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/virtual-containers.svg" alt="Learn how to use Azure Cognitive Services in Containers." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Uso di Servizi cognitivi in Contenitori</h3>
+                                <p>Informazioni su come usare Servizi cognitivi di Azure in Contenitori.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/authentication/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/account-management.svg" alt="Learn how to authenticate API requests to Azure Cognitive Services." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Autenticare una richiesta</h3>
+                                <p>Informazioni su come autenticare richieste API in Servizi cognitivi di Azure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="https://docs.microsoft.com/learn/browse/?products=azure-cognitive-services">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/grad-hat.svg" alt="Up your game with a module or learning path tailored to today's developer and technology masterminds and designed to prepare you for industry-recognized Microsoft certifications." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Microsoft Learn</h3>
+                                <p>Migliora le tue competenze con un modulo o un percorso di apprendimento specifico per gli esperti di sviluppo e di tecnologie attuali, progettato per prepararti a ottenere le certificazioni Microsoft riconosciute dall'intero settore.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+</ul>
+
 
 
 <h2>API Servizi cognitivi</h2>
@@ -29,7 +168,8 @@ ms.locfileid: "68442828"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>API Visione artificiale</h3>
+                        <h3>Visione</h3>
+                        <h4>Riconosci, identifica, aggiungi sottotitoli, indicizza e modera immagini, video e contenuti di tipo input penna.</h4><br>
                         <p><a href="/azure/cognitive-services/computer-vision/">Visione artificiale</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Servizio Visione personalizzata</a></p>
                         <p><a href="/azure/cognitive-services/face/">API Viso</a></p>
@@ -46,7 +186,8 @@ ms.locfileid: "68442828"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Speech API</h3>
+                        <h3>Sintesi vocale</h3>
+                        <h4>Converti il parlato in testo e il testo in parlato simile al linguaggio naturale. Traduci da una lingua a un'altra e consenti la verifica voce e il riconoscimento del parlante.</h4><br>
                         <p><a href="/azure/cognitive-services/speech-service">Servizi Voce</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Riconoscimento del parlante&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>API Riconoscimento vocale Bing&nbsp;<sup style="font-size:70%">RITIRO</sup></span></a></p>
@@ -61,7 +202,8 @@ ms.locfileid: "68442828"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>API lingua</h3>
+                        <h3>Linguaggio</h3>
+                        <h4>Permetti alle tue app di elaborare il linguaggio naturale con script predefiniti, valutare il sentiment e riconoscere i desideri degli utenti.</h4><br>
                         <p><a href="/azure/cognitive-services/immersive-reader"><span>Strumento di lettura immersiva&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
                         <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">Analisi del testo</a></p>
@@ -76,7 +218,8 @@ ms.locfileid: "68442828"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>API di ricerca</h3>
+                        <h3>Ricerca</h3>
+                        <h4>Aggiungi le API di Ricerca Bing alle tue app e sfrutta la possibilità di esaminare miliardi di pagine Web, immagini, video e notizie con una singola chiamata all'API.</h4><br>
                         <p><a href="/azure/cognitive-services/bing-news-search/">Ricerca notizie Bing</a></p>
                         <p><a href="/azure/cognitive-services/Bing-Video-Search/">Ricerca video Bing</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/">Ricerca Web Bing</a></p>
@@ -98,6 +241,7 @@ ms.locfileid: "68442828"
                 <div class="card">
                     <div class="cardText">
                         <h3>API Decisione</h3>
+                        <h4>Crea app che espongono raccomandazioni per un processo decisionale informato ed efficiente.</h4><br>
                         <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Rilevamento anomalie&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
                         <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizza esperienze&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
@@ -109,123 +253,6 @@ ms.locfileid: "68442828"
 </ul>
 </div>
 
-<h2>Introduzione</h2>
-<ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
-        <li>
-            <a href="/azure/cognitive-services/welcome/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_overview.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Informazioni su Servizi cognitivi</h3>
-                                <p>Informazioni su Servizi cognitivi di Azure e su come usare le diverse API per compilare app intelligenti.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="/azure/cognitive-services/cognitive-services-and-machine-learning/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_get-started.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Servizi cognitivi e Machine Learning</h3>
-                                <p>Informazioni su Servizi cognitivi di Azure rispetto ad altre offerte di Azure per Machine Learning.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="/azure/cognitive-services/cognitive-services-apis-create-account/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_get-started.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Creare un account Servizi cognitivi</h3>
-                                <p>Informazioni su come creare un account di Servizi cognitivi di Azure.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="/azure/cognitive-services/authentication/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_guidelines.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Autenticare una richiesta</h3>
-                                <p>Informazioni su come autenticare richieste nei Servizi cognitivi di Azure.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="/azure/cognitive-services/language-support/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_guidelines.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Supporto per la lingua in Servizi cognitivi</h3>
-                                <p>Informazioni sulle lingue supportate dalle API Servizi cognitivi.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="/azure/cognitive-services/cognitive-services-container-support/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_guidelines.svg" alt="" />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Uso di Servizi cognitivi in Contenitori</h3>
-                                <p>Informazioni su come usare Servizi cognitivi di Azure in Contenitori.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-</ul>
 <h2>Guide introduttive di 5 minuti</h2>
 <ul class="cardsF panelContent singlePanelContent cols cols3" style="display:flex!important;">
     <li>
@@ -396,4 +423,48 @@ ms.locfileid: "68442828"
     </li>
 </ul>
 
-
+<h2>Risorse aggiuntive</h2>
+<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3></h3>
+                        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Interfaccia della riga di comando di Azure</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services">PowerShell</a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3></h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">API REST</a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3></h3>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet">.Net</a></p>
+                        <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices">Go</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest">Node.js</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python">Python</a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>

@@ -304,7 +304,7 @@ L'aggiornamento dalla versione 2.8.9 avviene automaticamente, senza alcuna azion
 
 Per verificare quale versione dell'estensione in esecuzione visitare`http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-![Screenshot del percorso URL http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
+![Screenshot del percorso URLhttp://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
 
 ### <a name="upgrade-from-versions-100---265"></a>Aggiornamento dalla versione 1.0.0-2.6.5
 

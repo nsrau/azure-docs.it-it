@@ -71,12 +71,24 @@
           href: event-hubs-geo-dr.md
     - name: Security
       items:
-        - name: Identità gestita per le risorse di Azure
-          href: event-hubs-managed-service-identity.md
-        - name: Controllo degli accessi in base al ruolo (anteprima)
-          href: event-hubs-role-based-access-control.md
-        - name: Panoramica del modello di autenticazione e sicurezza
-          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Authorization
+          items:
+            - name: Autorizzare l'accesso a Hub eventi di Azure
+              href: authorize-access-event-hubs.md
+            - name: Autorizzare l'accesso con Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+            - name: Autorizzare l'accesso con una firma di accesso condiviso
+              href: authorize-access-shared-access-signature.md
+        - name: Authentication
+          items:
+            - name: Eseguire l'autenticazione con Azure Active Directory
+              items:
+                - name: Eseguire l'autenticazione con un'identità gestita
+                  href: authenticate-managed-identity.md
+                - name: Eseguire l'autenticazione da un'applicazione
+                  href: authenticate-application.md
+            - name: Eseguire l'autenticazione con una firma di accesso condiviso
+              href: authenticate-shared-access-signature.md
         - name: Attributi di sicurezza
           href: event-hubs-security-attributes.md
     - name: Guida al protocollo AMQP 1.0
@@ -166,6 +178,8 @@
           href: event-hubs-service-endpoints.md
         - name: Abilitare l'integrazione di reti virtuali e firewall nello spazio dei nomi di Hub eventi
           href: event-hubs-tutorial-virtual-networks-firewalls.md
+        - name: Configurare le chiavi gestite dal cliente per la crittografia dei dati inattivi
+          href: configure-customer-managed-key.md
     - name: Risolvere problemi
       items:
         - name: Eccezioni

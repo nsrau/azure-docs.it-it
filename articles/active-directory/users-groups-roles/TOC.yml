@@ -116,7 +116,7 @@
           href: licensing-groups-resolve-problems.md
         - name: Passare da licenze utente a licenze di gruppo
           href: licensing-groups-migrate-users.md
-        - name: Modificare le licenze per un utente
+        - name: Cambiare le licenze per un utente
           href: licensing-groups-change-licenses.md
         - name: Scenari aggiuntivi
           href: licensing-group-advanced.md

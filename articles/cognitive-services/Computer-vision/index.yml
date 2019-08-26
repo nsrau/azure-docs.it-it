@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Documentazione dell'API Visione artificiale
 metadata:
-  title: Documentazione dell'API - Visione artificiale - Servizi cognitivi di Azure | Microsoft Docs
+  title: Documentazione delle API - Visione artificiale
+  titleSuffix: Azure Cognitive Services
   description: Informazioni su come usare Visione artificiale per elaborare immagini e restituire informazioni. Le esercitazioni illustrano come compilare app che usano l'API.
   services: cognitive-services
   author: nitinme
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/26/2019
   ms.author: nitinme

@@ -130,7 +130,7 @@ Nel modello seguente di un'attività di copia è incluso l'elenco completo delle
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type di un'attività di copia deve essere impostata su: **Copia** | Sì |
+| type | La proprietà type di un'attività di copia deve essere impostata su: **Copy** | Sì |
 | inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta un singolo input. | Sì |
 | outputs | Specificare il set di dati creato che fa riferimento ai dati sink. L'attività di copia supporta un singolo output. | Sì |
 | typeProperties | Un gruppo di proprietà per configurare l'attività di copia. | Sì |

@@ -67,8 +67,6 @@
       href: templates-cloud-consistency.md
     - name: Modalità di distribuzione
       href: deployment-modes.md
-    - name: Eliminazione delle risorse
-      href: resource-group-delete.md
     - name: Deployment Manager
       items:
         - name: Panoramica
@@ -186,6 +184,8 @@
             - name: Usare Azure PowerShell
               displayName: 'open,delete,deploy,move,lock,tag'
               href: manage-resources-powershell.md
+        - name: Eliminare risorse e gruppi di risorse
+          href: resource-group-delete.md
         - name: Bloccare le risorse
           href: resource-group-lock-resources.md
         - name: API di autenticazione per accedere alle sottoscrizioni

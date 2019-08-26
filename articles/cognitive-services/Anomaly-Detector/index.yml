@@ -2,15 +2,15 @@
 documentType: LandingData
 title: Documentazione dell'API Rilevamento anomalie
 metadata:
-  title: 'API Rilevamento anomalie - Esercitazioni, guide di avvio rapido, informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs'
+  title: 'API di Rilevamento anomalie - Esercitazioni, guide introduttive, informazioni di riferimento sulle API'
+  titleSuffix: Azure Cognitive Services
   description: 'Usare l''API Rilevamento anomalie per monitorare i dati nel corso del tempo e rilevare anomalie in Machine Learning. È possibile ottenere informazioni dettagliate sui dati, indipendentemente dalla quantità, dal settore o dallo scenario.'
   services: cognitive-services
   author: aahill
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: anomaly-detector
   ms.topic: landing-page
   ms.date: 03/26/2019
   ms.author: aahi

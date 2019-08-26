@@ -193,6 +193,8 @@
           href: api-management-howto-create-groups.md
         - name: Eseguire la distribuzione in più aree di Azure
           href: api-management-howto-deploy-multi-region.md
+        - name: Recuperare gli indirizzi IP
+          href: api-management-howto-ip-addresses.md
         - name: Registrare eventi in Hub eventi di Azure
           href: api-management-howto-log-event-hubs.md
         - name: Registrare le richieste con Azure Application Insights

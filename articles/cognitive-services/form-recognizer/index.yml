@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Documentazione di Riconoscimento modulo
 metadata:
-  title: Documentazione dell'API - Riconoscimento modulo - Servizi cognitivi di Azure | Microsoft Docs
+  title: Documentazione delle API - Riconoscimento modulo
+  titleSuffix: Azure Cognitive Services
   description: Informazioni su come usare Riconoscimento modulo per estrarre in modo intelligente dati chiave-valore dai documenti modulo.
   services: cognitive-services
   author: PatrickFarley
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/16/2019
   ms.author: pafarley
