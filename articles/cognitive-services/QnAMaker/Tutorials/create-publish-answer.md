@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: dfd0a04da9f4f728bd43d8d3fcd4c671e9b95a47
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f81492dcdd095762127baabda14da602c6698ef6
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562903"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69646995"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Esercitazione: Creare una knowledge base e quindi rispondere a una domanda con C#
 
@@ -30,7 +30,7 @@ Questa esercitazione illustra la procedura di creazione e pubblicazione di una k
 > * Usare Curl per eseguire una query sulla knowledge base
 
 
-In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
+In questa guida di avvio rapido vengono chiamate le API QnA Maker seguenti:
 
 * [Create Knowledge base (kb)](https://go.microsoft.com/fwlink/?linkid=2092179) (Creare la knowledge base)
 * [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) (Ottenere i dettagli dell'operazione)

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6725bbc1978109d2b690a98e2cf98cc8c8c25141
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033008"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534794"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Esercitazione: Eseguire il training di modelli di classificazione delle immagini con dati MNIST e scikit-learn usando Azure Machine Learning
 
@@ -40,33 +40,15 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Passare a [Configurazione dell'ambiente di sviluppo](#start) per leggere la procedura relativa al notebook oppure consultare le istruzioni seguenti per ottenere il notebook ed eseguirlo in Azure Notebooks o sul server notebook personale.  Per eseguire il notebook sarà necessario:
+* Completare l'[Esercitazione: Introduzione alla creazione del primo esperimento di Machine Learning](tutorial-1st-experiment-sdk-setup.md) per:
+    * Creare un'area di lavoro
+    * Creare un server notebook cloud
+    * Avviare il dashboard di Jupyter Notebook
 
-* Un server notebook Python 3.6 con installati i componenti seguenti:
-    * Azure Machine Learning SDK per Python
-    * `matplotlib` e `scikit-learn`
-* Notebook dell'esercitazione e file **utils.py**
-* Un'area di lavoro di Machine Learning
-* Il file di configurazione per l'area di lavoro nella stessa directory del notebook
+* Dopo aver avviato il dashboard di Jupyter Notebook, aprire il notebook **tutorials/img-classification-part1-training.ipynb**.
 
-Ottenere tutti questi prerequisiti da una delle sezioni riportate di seguito.
+Questa esercitazione e il file **utils.py** associato sono disponibili in [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se si vuole usarli nel proprio [ambiente locale](how-to-configure-environment.md#local).  Verificare di aver installato `matplotlib` e `scikit-learn` nell'ambiente.
 
-* Usare un [server notebook cloud nell'area di lavoro](#azure)
-* Usare il [server notebook personale](#server)
-
-### <a name="azure"></a>Usare un server notebook cloud nell'area di lavoro
-
-Iniziare a usare un server notebook basato sul cloud è semplice. Al termine della creazione di questa risorsa cloud, [Azure Machine Learning SDK per Python](https://aka.ms/aml-sdk) è già installato e configurato.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Dopo aver avviato la pagina Web del notebook, aprire il notebook **tutorials/img-classification-part1-training.ipynb**.
-
-### <a name="server"></a>Usare il server notebook Jupyter personale
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
- Dopo aver completato questi passaggi, eseguire il notebook **tutorials/img-classification-part1-training.ipynb** dalla directory clonata.
 
 ## <a name="start"></a>Configurare l'ambiente di sviluppo
 

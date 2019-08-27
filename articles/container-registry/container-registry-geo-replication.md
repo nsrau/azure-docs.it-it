@@ -6,14 +6,14 @@ author: stevelas
 manager: gwallace
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 2fffa3b063969cbe68fb9a405f4198f15b3f9809
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845198"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574394"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 
@@ -105,6 +105,14 @@ Il servizio Registro Azure Container inizia a sincronizzare le immagine tra le r
 La replica geografica è una funzionalità dello [SKU Premium](container-registry-skus.md) di Registro Azure Container. Quando viene eseguita la replica di un registro nelle aree desiderate, si devono sostenere i costi relativi a un registro Premium per ogni area.
 
 Nell'esempio precedente, Contoso ha unificato due registri mediante il consolidamento e ha aggiunto repliche per le aree Stati Uniti orientali, Canada centrale ed Europa occidentale. Contoso dovrà pagare quattro tariffe Premium al mese, senza costi aggiuntivi per la configurazione e la gestione. Ogni area esegue ora il pull delle relative immagini in locale, migliorando in questo modo prestazioni e affidabilità senza alcun costo aggiuntivo per il traffico in uscita dagli Stati Uniti occidentali al Canada e agli Stati Uniti orientali.
+
+## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>Risolvere i problemi relativi alle operazioni push con registri con replica geografica
+ 
+In caso di push di un'immagine in un registro con replica geografica, un client Docker potrebbe non eseguire il push di tutti i livelli dell'immagine e del relativo manifesto in un'unica area replicata. Questo può verificarsi perché Gestione traffico di Azure indirizza le richieste al registro replicato nella posizione di rete più vicina. Se il registro ha due aree di replica *nelle vicinanze*, i livelli dell'immagine e il manifesto potrebbero essere distribuiti nei due siti e l'operazione push avrà esito negativo quando viene convalidato il manifesto. Questo problema è causato dal modo in cui il nome DNS del registro viene risolto in alcuni host Linux. Non si verifica in Windows, che offre una cache DNS sul lato client.
+ 
+Se il problema si verifica, una soluzione consiste nell'applicare una cache DNS sul lato client, come `dnsmasq`, nell'host Linux. In questo modo, il nome del registro verrà risolto in modo coerente. Se si usa una VM Linux in Azure per il push in un registro, vedere le opzioni illustrate in [Opzioni di risoluzione dei nomi DNS per macchine virtuali Linux in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns).
+
+Per ottimizzare la risoluzione DNS nella replica più vicina quando si esegue il push di immagini, configurare un registro con replica geografica nelle stesse aree di Azure dell'origine delle operazioni push oppure nell'area più vicina se si lavora all'esterno di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

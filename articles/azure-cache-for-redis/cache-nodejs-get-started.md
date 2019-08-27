@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: dc629133a393c4ff8f9193b02e9080d7f08f4958
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: dc427620b8aa64b9eae7a35f81c02ae5016153f9
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326468"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542802"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Guida introduttiva: Usare Azure Cache for Redis con Node.js
 
@@ -125,13 +125,13 @@ In caso contrario, se si è terminato il lavoro con l'applicazione di esempio di
 > L'eliminazione di un gruppo di risorse è irreversibile e comporta l'eliminazione definitiva del gruppo di risorse e di tutte le risorse incluse nel gruppo. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create all'interno di un gruppo di risorse esistente che contiene anche elementi da mantenere, è possibile eliminare ogni elemento singolarmente dai rispettivi pannelli anziché eliminare il gruppo di risorse.
 >
 
-Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
+Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
 
-Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
+Nella casella di testo **Filtra per nome** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources*. Nel gruppo di risorse nell'elenco dei risultati selezionare **...** e quindi **Elimina gruppo di risorse**.
 
 ![Delete](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
 
-Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
+Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e selezionare **Elimina**.
 
 Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 

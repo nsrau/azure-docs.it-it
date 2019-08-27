@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: ''
-ms.date: 02/19/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 58193a94d09dee5df611acf5d98c8661dd18abbb
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550208"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639974"
 ---
-# <a name="tutorial-stream-video-files---cli"></a>Esercitazione: Eseguire lo streaming di file video - Interfaccia della riga di comando
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - Interfaccia della riga di comando
 
 Questa esercitazione illustra come codificare ed eseguire lo streaming di video su un'ampia gamma di browser e dispositivi con la massima semplicità tramite Servizi multimediali di Azure e l'interfaccia della riga di comando di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi a file che si trovano nell'archivio BLOB di Azure.
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: f7170fbb4a258e9d8290ad9d207028087b22003a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a2420f98bb07686b548dc6641df77dd0fdf7028b
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322307"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562803"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Guida introduttiva: Eseguire il primo processo Batch con l'API Python
 
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Creare un processo Batch
 
-Un processo Batch è un gruppo logico di una o più attività. Un processo include le impostazioni comuni per le attività, ad esempio la priorità e il pool nel quale eseguire le attività. L'app usa la classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) per creare un processo nel pool. Il metodo [job.add](/python/api/azure.batch.operations.joboperations) invia il pool al servizio Batch. Inizialmente il processo è privo di attività.
+Un processo Batch è un gruppo logico di una o più attività. Un processo include le impostazioni comuni per le attività, ad esempio la priorità e il pool nel quale eseguire le attività. L'app usa la classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) per creare un processo nel pool. Il metodo [job.add](/python/api/azure.batch.operations.joboperations) aggiunge un processo all'account Batch specificato. Inizialmente il processo è privo di attività.
 
 ```python
 job = batch.models.JobAddParameter(

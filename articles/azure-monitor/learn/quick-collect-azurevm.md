@@ -11,40 +11,43 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 08/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: e135c7fa9907d218ed32b6bdb0fd60da0ecf1851
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1a61c0f96f62712bbd2500b2e80fd08565990bbe
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084709"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874896"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Raccogliere dati sulle macchine virtuali di Azure
-[Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) può raccogliere i dati direttamente dalle macchine virtuali di Azure e da altre risorse dell'ambiente in un unico archivio per analisi dettagliate e per la correlazione.  Questa guida introduttiva illustra come configurare e raccogliere dati dalle VM Linux o Windows di Azure in pochi semplici passaggi.  
+
+[Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) può raccogliere i dati direttamente dalle macchine virtuali di Azure e da altre risorse dell'ambiente in un unico archivio per analisi dettagliate e per la correlazione. Questa guida introduttiva illustra come configurare e raccogliere dati dalle VM Linux o Windows di Azure in pochi semplici passaggi.  
  
 Questa guida introduttiva presuppone che esista già una macchina virtuale di Azure. In caso contrario, è possibile [creare una VM Windows](../../virtual-machines/windows/quick-create-portal.md) o [creare una VM Linux](../../virtual-machines/linux/quick-create-cli.md) seguendo le guide introduttive sulle VM.
 
-## <a name="log-in-to-azure-portal"></a>Accedere al portale di Azure
+## <a name="sign-in-to-azure-portal"></a>Accedere al portale di Azure
+
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
+
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 
     ![Portale di Azure](media/quick-collect-azurevm/azure-portal-01.png)<br>  
 
-2. Fare clic su **Crea** e quindi selezionare le opzioni per gli elementi seguenti:
+2. Selezionare **Crea** e quindi scegliere le opzioni per gli elementi seguenti:
 
-   * Specificare un nome per la nuova **area di lavoro Log Analytics**, ad esempio *DefaultLAWorkspace*. Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.  
+   * Specificare un nome per la nuova **area di lavoro Log Analytics**, ad esempio *DefaultLAWorkspace*.  
    * Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
    * Per **Gruppo di risorse**, selezionare un gruppo di risorse esistente contenente una o più macchine virtuali di Azure.  
    * Selezionare la **località** in cui sono distribuite le VM.  Per altre informazioni, vedere le [are in cui è disponibile Log Analytics](https://azure.microsoft.com/regions/services/).
    * Se si sta creando un'area di lavoro in una nuova sottoscrizione creata dopo il 2 aprile 2018, verrà automaticamente usato il piano di determinazione dei prezzi *Per GB* e non sarà disponibile l'opzione che consente di selezionare un piano tariffario.  Se si sta creando un'area di lavoro per una sottoscrizione esistente creata prima del 2 aprile o per una sottoscrizione collegata a un Contratto Enterprise esistente, selezionare il piano tariffario preferito.  Per altre informazioni sui piani specifici, vedere [Dettagli prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Creare il pannello della risorsa di Log Analytics](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Creare il pannello della risorsa Log Analytics](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
-3. Dopo aver specificato le informazioni necessarie nel riquadro **area di lavoro Log Analytics**, fare clic su **OK**.  
+3. Dopo aver specificato le informazioni necessarie nel riquadro **Area di lavoro di Log Analytics**, selezionare **OK**.  
 
 Per tenere traccia dello stato di avanzamento della verifica delle informazioni e della creazione dell'area di lavoro, è possibile usare la voce **Notifiche** nel menu. 
 
@@ -57,71 +60,92 @@ Per le macchine virtuali Windows e Linux già distribuite in Azure, si installa 
 >[!NOTE]
 >L'agente di Log Analytics per Linux non può essere configurato per inviare report a più di un'area di lavoro Log Analytics. 
 
-1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
+1. Nel portale di Azure selezionare **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
+
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare *DefaultLAWorkspace* creata prima.
-3. Nel menu a sinistra fare clic su **Macchine virtuali** in Origini dati dell'area di lavoro.  
+
+3. Nel menu a sinistra selezionare **Macchine virtuali** in Origini dati dell'area di lavoro.  
+
 4. Nell'elenco **Macchine virtuali** selezionare una macchina virtuale in cui si vuole installare l'agente. Si noti che lo **stato della connessione di Log Analytics** per la macchina virtuale sarà **Non connesso**.
-5. Nei dettagli relativi alla macchina virtuale selezionare **Connetti**. L'agente viene automaticamente installato e configurato per l'area di lavoro Log Analytics. Il processo richiede alcuni minuti, durante i quali lo **stato** è **Connessione**.
+
+5. Nei dettagli relativi alla macchina virtuale selezionare **Connetti**. L'agente viene automaticamente installato e configurato per l'area di lavoro Log Analytics. Il processo richiede alcuni minuti, durante i quali lo **stato** visualizzato è **Connessione in corso**.
+
 6. Al termine dell'installazione e della connessione dell'agente, lo **stato della connessione di Log Analytics** verrà aggiornato in **Questa area di lavoro**.
 
 ## <a name="collect-event-and-performance-data"></a>Raccogliere dati su eventi e prestazioni
-Log Analytics può raccogliere gli eventi dai registri eventi di Windows o da Syslog Linux e i contatori delle prestazioni specificati per l'analisi a lungo termine e la creazione di report e intervenire quando viene rilevata una particolare condizione.  Seguire questi passaggi per configurare la raccolta di eventi dal registro di sistema di Windows e da Syslog Linux e di diversi comuni contatori delle prestazioni con cui iniziare.  
+
+Log Analytics può raccogliere gli eventi dai registri eventi di Windows o da Syslog Linux e i contatori delle prestazioni specificati per l'analisi a lungo termine e la creazione di report e intervenire quando viene rilevata una particolare condizione. Seguire questi passaggi per configurare la raccolta di eventi dal registro di sistema di Windows e da Syslog Linux e di diversi comuni contatori delle prestazioni con cui iniziare.  
 
 ### <a name="data-collection-from-windows-vm"></a>Raccolta di dati da una VM Windows
+
 1. Selezionare **Impostazioni avanzate**.
 
     ![Impostazioni avanzate di Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
 
-3. Selezionare **Dati** e quindi selezionare **Log eventi Windows**.  
-4. Si aggiunge un registro eventi digitandone il nome.  Digitare **Sistema** e quindi fare clic sul segno **+**.  
-5. Nella tabella selezionare i livelli di gravità **Errore** e **Avviso**.   
-6. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
-7. Selezionare **Windows Performance Data** (Dati di prestazione di Windows) per abilitare la raccolta di contatori delle prestazioni in un computer Windows. 
-8. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
+2. Selezionare **Dati** e quindi selezionare **Log eventi Windows**.
+
+3. Si aggiunge un registro eventi digitandone il nome.  Digitare **Sistema** e quindi selezionare il segno più **+** .
+
+4. Nella tabella selezionare i livelli di gravità **Errore** e **Avviso**.
+
+5. Selezionare **Salva** nella parte superiore della pagina per salvare la configurazione.
+
+6. Selezionare **Windows Performance Data** (Dati di prestazione di Windows) per abilitare la raccolta di contatori delle prestazioni in un computer Windows.
+
+7. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
 
     ![Contatori delle prestazioni di Windows predefiniti selezionati](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
     Fare clic su **Aggiungi i contatori delle prestazioni selezionati**.  Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.
   
-9. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
+8. Selezionare **Salva** nella parte superiore della pagina per salvare la configurazione.
 
 ### <a name="data-collection-from-linux-vm"></a>Raccolta di dati da una VM Linux
 
 1. Selezionare **Syslog**.  
-2. Si aggiunge un registro eventi digitandone il nome.  Digitare **Syslog** e quindi fare clic sul segno **+**.  
+
+2. Si aggiunge un registro eventi digitandone il nome.  Digitare **Syslog** e quindi selezionare il segno più **+** .  
+
 3. Nella tabella deselezionare i livelli di gravità **Informativo**, **Avviso** e **Debug**. 
-4. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
+
+4. Selezionare **Salva** nella parte superiore della pagina per salvare la configurazione.
+
 5. Selezionare **Linux Performance Data** (Dati di prestazione di Linux) per abilitare la raccolta di contatori delle prestazioni in un computer Linux. 
+
 6. Quando si configurano i contatori delle prestazioni di Linux per la prima volta per una nuova area di lavoro Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
 
     ![Contatori delle prestazioni di Windows predefiniti selezionati](media/quick-collect-azurevm/linux-perfcounters-default.png)
 
-    Fare clic su **Aggiungi i contatori delle prestazioni selezionati**.  Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.  
+    Selezionare **Applica la configurazione seguente alle macchine virtuali** e quindi **Aggiungi i contatori delle prestazioni selezionati**.  Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.  
 
-7. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
+7. Selezionare **Salva** nella parte superiore della pagina per salvare la configurazione.
 
 ## <a name="view-data-collected"></a>Visualizzare i dati raccolti
+
 Ora che la raccolta di dati è stata abilitata, verrà eseguito un semplice esempio di ricerca log per visualizzare alcuni dati dalle VM di destinazione.  
 
 1. Nel portale di Azure passare a Log Analytics e selezionare l'area di lavoro creata prima.
-2. Fare clic sul riquadro **Ricerca log** e nel riquadro Ricerca log digitare `Perf` nel campo della query e quindi premere INVIO o fare clic sul pulsante della ricerca a destra del campo della query.
+
+2. Selezionare il riquadro **Ricerca log**, nel riquadro Ricerca log digitare `Perf` nel campo della query e quindi premere INVIO o selezionare il pulsante di ricerca a destra del campo della query.
 
     ![Esempio di query di ricerca log di Log Analytics](./media/quick-collect-azurevm/log-analytics-portal-perf-query.png) 
 
-La query nella figura seguente, ad esempio, ha restituito 735 record relativi alle prestazioni.  I risultati effettivi saranno molti di meno. 
+La query nella figura seguente, ad esempio, ha restituito 735 record relativi alle prestazioni.  I risultati effettivi saranno molti di meno.
 
 ![Risultato della ricerca log di Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'area di lavoro Log Analytics. A questo scopo, selezionare l'area di lavoro Log Analytics creata prima e nella pagina delle risorse fare clic su **Elimina**.
+
+Quando non è più necessaria, eliminare l'area di lavoro Log Analytics. A questo scopo, selezionare l'area di lavoro Log Analytics creata prima e quindi **Elimina** nella pagina delle risorse.
 
 
 ![Eliminare la risorsa Log Analytics](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Ora che è in corso la raccolta di dati operativi e sulle prestazioni dalle macchine virtuali Windows o Linux, è possibile iniziare facilmente a esplorare, analizzare e modificare i dati raccolti *gratuitamente*.  
 
-Per informazioni su come visualizzare e analizzare i dati, passare all'esercitazione.   
+Per informazioni su come visualizzare e analizzare i dati, passare all'esercitazione.
 
 > [!div class="nextstepaction"]
 > [View or analyze data in Log Analytics (Visualizzare o analizzare i dati in Log Analytics)](../../azure-monitor/learn/tutorial-viewdata.md)

@@ -9,14 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b073a270fabb8657be19b79601fa90f1b9a0351b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 03fd31333a97290a5e8a00029867fc4e73a0cdd7
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015231"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875615"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Esercitazione: Aggiungere un dispositivo reale all'applicazione Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Questa esercitazione illustra come aggiungere e configurare un dispositivo reale nell'applicazione Microsoft Azure IoT Central.
 
@@ -36,11 +38,8 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, il generatore deve completare almeno la prima esercitazione per creare l'applicazione Azure IoT Central:
+Prima di iniziare, il generatore deve completare almeno la prima esercitazione per creare l'applicazione Azure IoT Central: [Definire un nuovo tipo di dispositivo](tutorial-define-device-type.md) (obbligatorio)
 
-* [Definire un nuovo tipo di dispositivo](tutorial-define-device-type.md) (obbligatorio)
-* [Configurare le regole e le azioni per i dispositivi](tutorial-configure-rules.md) (facoltativo)
-* [Personalizzare la visualizzazione dell'operatore](tutorial-customize-operator.md) (facoltativo)
 
 Installare [Node.js](https://nodejs.org/) versione 8.0.0 o successiva nel computer di sviluppo. Per controllare la versione, è possibile eseguire `node --version` nella riga di comando. Node.js è disponibile per un'ampia gamma di sistemi operativi.
 

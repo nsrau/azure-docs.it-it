@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: c673fd43abe6808256eb74f435aad48ed8d41539
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a4395105c66756c4743373707309a88e2afa96b7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359835"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534807"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
 
@@ -38,10 +38,10 @@ Istanze di Container è un'ottima soluzione per testare e comprendere il flusso 
 > Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.41.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Andare alla sezione [Configurare l'ambiente di sviluppo](#start) per leggere la procedura relativa al notebook.  
 
-Per eseguire il notebook, completare innanzitutto il training del modello in [Esercitazione (parte 1): Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning](tutorial-train-models-with-aml.md).   Quindi eseguire il notebook **tutorials/img-classification-part2-deploy.ipynb** usando lo stesso server notebook.
+Per eseguire il notebook, completare innanzitutto il training del modello in [Esercitazione (parte 1): Eseguire il training di un modello di classificazione delle immagini](tutorial-train-models-with-aml.md).   Aprire quindi il notebook **tutorials/img-classification-part2-deploy.ipynb** usando lo stesso server notebook.
 
+Questa esercitazione è disponibile anche in [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se si vuole usarla nel proprio [ambiente locale](how-to-configure-environment.md#local).  Verificare di aver installato `matplotlib` e `scikit-learn` nell'ambiente. 
 
 ## <a name="start"></a>Configurare l'ambiente
 

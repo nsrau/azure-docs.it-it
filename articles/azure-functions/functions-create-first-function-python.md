@@ -11,16 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 58f5cfd3718720cafc922bbd7b974a353e0d9d02
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5b90702f89af260a67b69bf96c2e079a45298723
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722789"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575452"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Creare una funzione attivata tramite HTTP in Azure
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 Questo articolo illustra come usare gli strumenti da riga di comando per creare un progetto Python che viene eseguito in Funzioni di Azure. La funzione creata viene attivata da richieste HTTP. Il progetto viene infine pubblicato per essere eseguito come [funzione serverless](functions-scale.md#consumption-plan) in Azure.
 
@@ -32,7 +30,7 @@ Prima di iniziare, è necessario disporre degli elementi seguenti:
 
 + Installare [Python 3.6](https://www.python.org/downloads/)
 
-+ Installare [Azure Functions Core Tools](./functions-run-local.md#v2) versione 2.6.1071 o successiva.
++ Installare [Azure Functions Core Tools](./functions-run-local.md#v2) versione 2.7.1575 o successiva.
 
 + Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) versione 2.x o successiva.
 
@@ -40,9 +38,9 @@ Prima di iniziare, è necessario disporre degli elementi seguenti:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-and-activate-a-virtual-environment"></a>Creare e attivare un ambiente virtuale
+## <a name="create-and-activate-a-virtual-environment-optional"></a>Creare e attivare un ambiente virtuale (facoltativo)
 
-Per sviluppare e testare localmente le funzioni di Python, è necessario lavorare in un ambiente Python 3.6. Eseguire i comandi seguenti per creare e attivare un ambiente virtuale denominato `.venv`.
+Per sviluppare e testare funzioni Python in locale, è consigliabile usare un ambiente Python 3.6. Eseguire i comandi seguenti per creare e attivare un ambiente virtuale denominato `.venv`.
 
 ### <a name="bash"></a>Bash:
 
@@ -81,8 +79,6 @@ Passare alla nuova cartella MyFunctionProj:
 ```console
 cd MyFunctionProj
 ```
-
-Successivamente si procede all'aggiornamento del file host.json per abilitare i bundle di estensioni.  
 
 ## <a name="create-a-function"></a>Creare una funzione
 
@@ -165,15 +161,19 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 --consumption-plan-location westeurope  --runtime python \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
-
 > [!NOTE]
-> Funzioni di Azure - Piano a consumo per Linux è attualmente in anteprima ed è disponibile solo nelle aree seguenti: Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Asia orientale. Inoltre, le app Linux e Windows non possono essere ospitate nello stesso gruppo di risorse. Se si dispone d un gruppo di risorse esistente denominato `myResourceGroup` con un'app per le funzioni Windows o un'app Web, sarà necessario usare un gruppo di risorse diverso.
+> Le app Linux e Windows non possono essere ospitate nello stesso gruppo di risorse. Se si dispone d un gruppo di risorse esistente denominato `myResourceGroup` con un'app per le funzioni Windows o un'app Web, sarà necessario usare un gruppo di risorse diverso.
+
+Questo comando effettuerà anche il provisioning di un'istanza di Azure Application Insights associata nello stesso gruppo di risorse, che potrà essere usata per il monitoraggio e la visualizzazione dei log.
 
 A questo punto si è pronti per pubblicare il progetto di funzioni locale nell'app per le funzioni in Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+> [!NOTE]
+> Per visualizzare i log quasi in tempo reale per un'app Python pubblicata, è consigliabile usare la funzionalità [Live Metrics Stream di Application Insights](functions-monitoring.md#streaming-logs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

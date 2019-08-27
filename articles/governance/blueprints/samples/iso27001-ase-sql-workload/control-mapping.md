@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 59e47c448f58235114c8fb3147637b77dd5fcf23
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: de043e682fea5cb629a127763515b162c3ad4943
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226058"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515931"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapping dei controlli del progetto di esempio Carico di lavoro dell'ambiente del servizio app/SQL ISO 27001
 
@@ -118,13 +118,13 @@ Identificando le risorse di Azure le cui configurazioni di crittografia potrebbe
 - \[Anteprima\]: Controllare crittografia BLOB mancante per gli account di archiviazione
 - \[Anteprima\]: Distribuire l'estensione VM per controllare che le macchine virtuali Windows non archivino le password usando la crittografia reversibile
 - \[Anteprima\]: Controllare che le macchine virtuali Windows non archivino le password usando la crittografia reversibile
-- \[Anteprima\]: Monitorare i database SQL non crittografati nel Centro sicurezza di Azure
 - \[Anteprima\]: Monitorare i dischi di macchine virtuali non crittografati nel Centro sicurezza di Azure
 - Controlla l'abilitazione della crittografia delle variabili dell'account di Automazione
 - Controlla l'abilitazione delle sole connessioni sicure alla cache Redis
 - Controlla il trasferimento sicuro negli account di archiviazione
 - Controlla l'impostazione della proprietà ClusterProtectionLevel su EncryptAndSign in Service Fabric
 - Controllare lo stato di Transparent Data Encryption
+- Transparent Data Encryption deve essere abilitata nei database SQL
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 Registrazione di eventi
 
@@ -135,9 +135,9 @@ I log di diagnostica forniscono informazioni dettagliate sulle operazioni esegui
 - \[Anteprima\]: Controlla la distribuzione di Dependency Agent nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Monitorare i database SQL non controllati nel Centro sicurezza di Azure
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - Controlla le impostazioni di controllo a livello del server SQL
+- È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
 
 ## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 Log amministratore e operatore
 
@@ -147,9 +147,9 @@ Questo progetto consente di assicurarsi che gli eventi di sistema vengano regist
 - \[Anteprima\]: Controlla la distribuzione di Dependency Agent nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Monitorare i database SQL non controllati nel Centro sicurezza di Azure
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - Controlla le impostazioni di controllo a livello del server SQL
+- È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
 
 ## <a name="a1244-clock-synchronization"></a>A.12.4.4 Sincronizzazione dell'orologio
 
@@ -159,9 +159,9 @@ Questo progetto consente di assicurarsi che gli eventi di sistema vengano regist
 - \[Anteprima\]: Controlla la distribuzione di Dependency Agent nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Monitorare i database SQL non controllati nel Centro sicurezza di Azure
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - Controlla le impostazioni di controllo a livello del server SQL
+- È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>A.12.5.1 Installazione del software nei sistemi operativi
 

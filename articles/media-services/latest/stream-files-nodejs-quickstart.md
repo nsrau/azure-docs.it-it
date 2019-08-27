@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/26/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3e4172cd149726e28e0c7dff435ec1f7a59ee169
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: fa9fbf3bac55ca0b26c3644b7f6818fa96088612
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550165"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639401"
 ---
-# <a name="tutorial-stream-video-files---nodejs"></a>Esercitazione: Eseguire lo streaming di file video - Node.js
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - Node.js
 
 Questa esercitazione illustra quanto sia facile codificare e iniziare a eseguire lo streaming di video su un'ampia gamma di browser e dispositivi tramite Servizi multimediali di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi ai file che si trovano nell'archivio BLOB di Azure.
 
@@ -99,7 +99,7 @@ Eseguire il comando dell'interfaccia della riga di comando seguente:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Codici di errore dei processi](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 

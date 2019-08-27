@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: dd28fb51a4fc3fbf3dfc893f2f5f159ccafdb4b3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1e30650f932d15d23d7ffe7bd9b9fe07e9872511
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839296"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891608"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Esercitazione: Distribuire un modello di Machine Learning con l'interfaccia visiva grafica
 
@@ -83,11 +83,9 @@ L'esperimento dovrebbe risultare simile al seguente:
 
 1. Selezionare il nome del servizio Web per visualizzare altri dettagli.
 
-     ![Screenshot degli altri dettagli disponibili nella visualizzazione del servizio Web](./media/ui-tutorial-automobile-price-deploy/web-service-details.png)
-
 1. Selezionare **Test**.
 
-    ![Screenshot della pagina di test del servizio Web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
+    [![Screenshot della pagina di test del servizio Web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)](./media/ui-tutorial-automobile-price-deploy/web-service-test.png#lightbox)
 
 1. Immettere i dati di test oppure usare i dati di esempio compilati automaticamente e selezionare **Test**.
 
@@ -105,8 +103,6 @@ L'esempio di chiamate REST è disponibile nella scheda **Consume** (Utilizzo) de
 
 Passare alla scheda **API Doc** (Documentazione dell'API) per altre informazioni sull'API.
 
-  ![Screenshot che mostra altri dettagli sull'API disponibili nella scheda API Doc](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
-
 ## <a name="manage-models-and-deployments"></a>Gestire modelli e distribuzioni
 
 I modelli e le distribuzioni di servizi Web creati nell'interfaccia visiva grafica possono anche essere gestiti nell'area di lavoro del servizio Azure Machine Learning.
@@ -119,11 +115,9 @@ I modelli e le distribuzioni di servizi Web creati nell'interfaccia visiva grafi
 
     In questa pagina sono visualizzati altri dettagli sul modello.
 
-    ![Screenshot che mostra una panoramica delle statistiche dell'esperimento nel portale di Azure](./media/ui-tutorial-automobile-price-deploy/model-details.png)
-
 1. Selezionare **Distribuzioni** per visualizzare un elenco dei servizi Web che usano il modello. Selezionare il nome del servizio Web per passare alla relativa pagina di dettagli. In questa pagina è possibile visualizzare informazioni più dettagliate sul servizio Web.
 
-    ![Screenshot del report dettagliato sulle esecuzioni](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)
+    [![Screenshot del report dettagliato sulle esecuzioni](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

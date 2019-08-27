@@ -1,27 +1,27 @@
 ---
-title: Creare il primo esperimento di Machine Learning automatizzato
+title: Creare il primo esperimento automatizzato di apprendimento automatico
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come eseguire il training e distribuire un modello di classificazione con Machine Learning automatizzato nel portale di Azure.
+description: Informazioni su come eseguire il training e la distribuzione di un modello di classificazione con apprendimento automatico nel portale di Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 07/23/2019
-ms.openlocfilehash: 7ef19db472b30d82f14a5dd650cb8f4cb1f3ed3a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.date: 08/14/2019
+ms.openlocfilehash: e53cd92a9dfd8f823918fb38e14c2b73c2ce071f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990068"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534409"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Esercitazione: Usare Machine Learning automatizzato per eseguire il training e distribuire il primo modello di classificazione (anteprima)
+# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Esercitazione: Creare il primo modello di classificazione con apprendimento automatico
 
-Questa esercitazione illustra come creare il primo esperimento di Machine Learning automatizzato nel portale di Azure. In questo esempio viene creato un modello di classificazione per stimare se un client sottoscriverà un termine deposit con la banca.
+In questa esercitazione viene descritto come creare il primo esperimento automatizzato di apprendimento automatico nel portale di Azure (anteprima) senza scrivere una sola riga di codice. Questo esempio crea un modello di classificazione per stimare se un cliente sottoscriverà un deposito a termine fisso presso un istituto finanziario.
 
-Usando le funzionalità automatiche di Machine Learning del servizio e il portale di Azure, si inizia il processo di Machine Learning automatizzato. La selezione dell'algoritmo e l'ottimizzazione degli iperparametri vengono eseguite per l'utente. La tecnica di Machine Learning automatizzata scorre molte combinazioni di algoritmi e iperparametri fino a quando non trova il modello migliore in base al criterio, tutto senza dover scrivere una sola riga di codice.
+Usando le funzionalità automatizzate di apprendimento automatico del servizio Azure Machine Learning e il portale di Azure, è possibile avviare il processo automatizzato di apprendimento automatico. La selezione dell'algoritmo e l'ottimizzazione degli iperparametri vengono svolte automaticamente. La tecnica automatizzata di apprendimento automatico esegue l'iterazione su numerose combinazioni di algoritmi e iperparametri fino a trovare il modello migliore in base ai criteri definiti.
 
 In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 
@@ -29,14 +29,14 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 > * Creare un'area di lavoro del servizio Azure Machine Learning.
 > * Creare un esperimento.
 > * Eseguire il training automatico di un modello di classificazione.
-> * Visualizza i dettagli dell'esecuzione di training.
+> * Visualizzare i dettagli relativi all'esecuzione del training.
 > * Distribuire il modello.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLFree).
 
-* File di dati **bankmarketing_train. csv** . [Scaricarlo](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+* Scaricare il file di dati [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv). La colonna **y** indica se un cliente ha effettuato la sottoscrizione di un deposito a termine fisso, che in seguito viene identificata come colonna di destinazione per le stime in questa esercitazione. 
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
@@ -44,112 +44,118 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 
 ## <a name="create-an-experiment"></a>Creare un esperimento
 
-1. Passare al riquadro sinistro dell'area di lavoro. Selezionare **Machine Learning automatico** nella sezione **creazione e modifica (anteprima)** .
+Questi passaggi descrivono la configurazione dell'esperimento, dalla selezione dei dati alla scelta della metrica principale e del tipo di modello. 
 
-    ![Riquadro di spostamento portale di Azure](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
+1. Passare al riquadro di sinistra dell'area di lavoro. Selezionare **Machine Learning automatizzato** nella sezione **Creazione (anteprima)** .
+Verrà visualizzata la schermata di benvenuto di **Machine Learning automatizzato**, in quanto si tratta del primo esperimento con questo servizio.
 
-    Poiché si tratta del primo esperimento con la Machine Learning automatizzata, verrà visualizzata la schermata **iniziale Machine Learning automatizzata** . 
+    ![Riquadro di spostamento del portale di Azure](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
 
-1. Selezionare **Crea esperimento**. Quindi immettere **My-1st-automl-Experiment** come nome dell'esperimento.
 
-1. Selezionare **Crea un nuovo calcolo** e configurare il contesto di calcolo per questo esperimento.
 
-    Campo| Value
+1. Selezionare **Create experiment** (Crea esperimento). Immettere quindi **my-1st-automl-experiment** come nome dell'esperimento.
+
+1. Selezionare **Create a new compute** (Crea nuovo contesto di calcolo) e configurare il contesto di calcolo per questo esperimento.
+
+    Campo| Valore
     ---|---
-    Nome dell'ambiente di calcolo| Immettere un nome univoco che identifichi il contesto di calcolo. Per questo esempio viene usato **automl-Compute**.
-    Dimensioni delle macchine virtuali| Selezionare le dimensioni della macchina virtuale per il calcolo. Viene usato **Standard_DS12_V2**.
-    Impostazioni aggiuntive| *Nodo minimo*: 1. Per abilitare la profilatura dei dati, è necessario disporre di uno o più nodi. <br> *Nodo massimo*: 6. 
+    Nome del calcolo| Immettere un nome univoco che identifichi il contesto di calcolo. Questo esempio usa **automl-compute**.
+    Dimensioni della macchina virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo. Qui viene usato **Standard_DS12_V2**.
+    Impostazioni aggiuntive| *Min node* (Nodi minimi): 1. Per abilitare la profilatura dei dati, è necessario che siano presenti uno o più nodi. <br> *Max node* (Nodi max): 6. 
 
-    Per creare il nuovo calcolo, fare clic su **Crea**. Questa operazione richiede alcuni minuti. 
+    Per creare il nuovo contesto di calcolo, selezionare **Crea**. Questa operazione richiede alcuni istanti. 
 
-    Al termine della creazione, selezionare il nuovo calcolo nell'elenco a discesa, quindi fare clic su **Avanti**.
+    Al termine della creazione, selezionare il nuovo contesto di calcolo nell'elenco a discesa e quindi fare clic su **Avanti**.
 
-1. Per questa esercitazione viene usato l'account di archiviazione e il contenitore predefiniti creati con il nuovo calcolo. Vengono inseriti automaticamente nel form.
+    >[!NOTE]
+    >Per questa esercitazione vengono usati l'account di archiviazione e il contenitore predefiniti creati con il nuovo contesto di calcolo. Questi vengono immessi automaticamente nel modulo.
 
-1. Selezionare **carica** e scegliere il file **bankmarketing_train. csv** dal computer locale per caricarlo nel contenitore predefinito. L'anteprima pubblica supporta solo i caricamenti di file locali e gli account di archiviazione BLOB di Azure. Al termine del caricamento, selezionare il file dall'elenco. 
+1. Selezionare **Carica** e scegliere il file **bankmarketing_train.csv** dal computer locale per caricarlo nel contenitore predefinito. L'anteprima pubblica supporta solo i caricamenti di file locali e gli account di archiviazione BLOB di Azure. Al termine del caricamento, selezionare il file dall'elenco. 
 
-    [![Seleziona file di dati](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
+    [![Selezionare il file di dati](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
-1. La scheda **Anteprima** consente di configurare ulteriormente i dati per questo esperimento.
+1. La scheda **Anteprima** permette di configurare ulteriormente i dati per questo esperimento.
 
-    Nella scheda **Anteprima** indicare che i dati includono le intestazioni. Per impostazione predefinita, il servizio include tutte le funzionalità (colonne) per il training. Per questo esempio, scorrere verso destra e **ignorare** la funzionalità **DAY_OF_WEEK** .
+    Nella scheda **Anteprima** indicare che i dati includono intestazioni. Per impostazione predefinita, il servizio include tutte le funzionalità (colonne) per il training. Per questo esempio, scorrere verso destra e scegliere **Ignora** per la funzionalità **day_of_week**.
 
     ![Configurazione della scheda Anteprima](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
 
 
     >[!NOTE]
-    > Il profiling dei dati non è disponibile con i calcoli che contengono almeno zero nodi.
+    > La profilatura dei dati non è disponibile con contesti di calcolo che includono zero nodi minimi.
 
-1. Selezionare **classificazione** come attività di stima.
+1. Selezionare **Classificazione** come attività di stima.
 
-1. Selezionare **y** come colonna di destinazione, dove si desidera eseguire stime. Questa colonna indica se il client ha sottoscritto o meno un termine di deposito.
+1. Selezionare **y** come colonna di destinazione, quella in cui devono essere eseguite le stime. Questa colonna indica se il client ha sottoscritto o meno un deposito a termine.
 
-1. Espandere **Impostazioni avanzate** e popolare i campi come indicato di seguito.
+1. Espandere **Impostazioni avanzate** e completare i campi come indicato di seguito.
 
-    Impostazioni avanzate|Value
+    Impostazioni avanzate|Valore
     ------|------
-    Metrica primaria| AUC_weighted 
-    Criteri di uscita| Quando uno di questi criteri viene soddisfatto, il processo di training termina prima del completamento completo: <br> *Tempo del processo di training (minuti)* : 5  <br> *Numero massimo di iterazioni*: 10 
-    Preelaborazione| Consente la pre-elaborazione eseguita da Machine Learning automatizzato. Sono incluse la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche.
-    Convalida| Selezionare convalida incrociata K-fold e **2** per il numero di convalide incrociate. 
+    Primary metric (Metrica principale)| AUC_weighted 
+    Criteri uscita| Quando uno di questi criteri viene soddisfatto, il processo di training termina prima del completamento: <br> *Training job time (minutes)* (Durata processo di training - minuti): 5  <br> *Max number of iterations* (Numero max di iterazioni): 10 
+    Pre-elaborazione| Permette la pre-elaborazione tramite le funzionalità automatizzate di apprendimento automatico. Sono incluse la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche.
+    Convalida| Selezionare la convalida incrociata di K sezioni e **2** come numero di convalide incrociate. 
     Concorrenza| Selezionare **5** per il numero massimo di iterazioni simultanee.
 
    >[!NOTE]
-   > Per questo esperimento, non viene impostata una metrica o un numero massimo di core per iterazioni. Non è inoltre possibile bloccare la verifica degli algoritmi.
+   > Per questo esperimento, non viene impostata una metrica o un numero massimo di core come soglia delle iterazioni. Non vengono inoltre bloccati i test degli algoritmi.
 
-1. Selezionare **Start (avvia** ) per eseguire l'esperimento.
+1. Selezionare **Avvia** per eseguire l'esperimento.
 
-   Quando l'esperimento viene avviato, viene visualizzata una schermata dei **Dettagli di esecuzione** vuota con lo stato seguente nella parte superiore. 
+   All'avvio dell'esperimento, viene visualizzata una schermata **Dettagli esecuzione** vuota con lo stato seguente nella parte superiore. 
 
-      ![Esecuzione preparazione](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
+      ![Preparazione dell'esecuzione](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
       
-Il processo di preparazione dell'esperimento richiede un paio di minuti. Al termine del processo, il messaggio di stato viene modificato in **esecuzione**.
+Il processo di preparazione dell'esperimento richiede un paio di minuti. Al termine del processo, il messaggio di stato diventa **Run is Running** (Esecuzione in corso).
 
-##  <a name="view-experiment-details"></a>Visualizza i dettagli dell'esperimento
+##  <a name="view-experiment-details"></a>Visualizzare i dettagli sull'esperimento
 
-Con l'avanzamento dell'esperimento, la schermata **Esegui dettagli** aggiorna il grafico di iterazione e l'elenco con le diverse iterazioni (modelli) che vengono eseguite. L'elenco delle iterazioni è in ordine in base al punteggio della metrica. Per impostazione predefinita, il modello che assegna un punteggio al più alto in base alla metrica **AUC_weighted** si trova nella parte superiore dell'elenco.
+Mentre l'esperimento continua, la schermata **Dettagli esecuzione** aggiorna il grafico e l'elenco delle iterazioni con le diverse iterazioni (modelli) eseguite. L'elenco delle iterazioni è in ordine in base al punteggio della metrica. Per impostazione predefinita, il modello che riceve il punteggio maggiore in base alla metrica **AUC_weighted** si trova all'inizio dell'elenco.
 
 >[!TIP]
-> Per completare l'esecuzione di ogni pipeline, i processi di training sono necessari alcuni minuti.
+> I processi di training richiedono alcuni minuti prima che venga completata l'esecuzione di ogni pipeline.
 
-[![Dashboard Dettagli esecuzione](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
+[![Dashboard dei dettagli di esecuzione](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
 
 ## <a name="deploy-the-model"></a>Distribuire il modello
 
-Per questo esperimento, **VotingEnsemble** viene considerato il modello migliore, in base alla metrica **AUC_weighted** . Utilizzando Machine Learning automatizzato nella portale di Azure, è possibile distribuire questo modello come servizio Web per prevedere i nuovi dati. 
+Utilizzando le funzionalità automatizzate di apprendimento automatico nel portale di Azure, è possibile distribuire il modello migliore come servizio Web per eseguire stime sui nuovi dati e identificare le potenziali aree di opportunità. Per questo esperimento, attraverso la distribuzione l'istituto finanziario ha ora una soluzione iterativa e scalabile per l'identificazione dei potenziali clienti con deposito a termine fisso.
 
-1. Nella pagina **Esegui dettaglio** selezionare il pulsante **Distribuisci modello migliore** .
+Nel contesto di questo esperimento **VotingEnsemble** viene considerato il modello migliore, in base alla metrica **AUC_weighted**.  Viene distribuito questo modello, ma tenere presente che il completamento della distribuzione richiede circa 20 minuti.
 
-1. Popolare il riquadro **Distribuisci modello migliore** come segue:
+1. Nella pagina **Dettagli di esecuzione** selezionare il pulsante **Deploy Best Model** (Distribuisci modello migliore).
 
-    Campo| Value
+1. Immettere i dati nel riquadro **Deploy Best Model** (Distribuisci modello migliore) in questo modo:
+
+    Campo| Valore
     ----|----
-    Nome distribuzione| My-automl-deploy
-    Descrizione della distribuzione| Prima distribuzione dell'esperimento di Machine Learning automatizzato
-    Script di assegnazione dei punteggi| AutoGenerate
-    Script dell'ambiente| AutoGenerate
+    Nome distribuzione| my-automl-deploy
+    Descrizione della distribuzione| Distribuzione del primo esperimento automatizzato di apprendimento automatico
+    Scoring script (Script di assegnazione punteggi)| Genera automaticamente
+    Environment script (Script ambiente)| Genera automaticamente
     
-1. Selezionare **Distribuisci**. Il completamento della distribuzione richiede circa 20 minuti.
+1. Selezionare **Distribuisci**.
 
-    Quando la distribuzione viene completata correttamente, viene visualizzato il messaggio seguente:
+    Al termine della distribuzione, viene visualizzato il messaggio seguente:
 
     ![Distribuzione completata](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
     
-    La procedura è terminata. Per generare stime è necessario un servizio Web operativo.
+    A questo punto, è disponibile un servizio Web operativo per generare stime.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-I file di distribuzione sono più grandi dei file di dati e di esperimento, quindi sono più costosi da archiviare. Eliminare solo i file di distribuzione per ridurre al minimo i costi per l'account o se si desidera tenere i file dell'area di lavoro e degli esperimenti. In caso contrario, eliminare l'intero gruppo di risorse, se non si prevede di usare alcun file.  
+I file di distribuzione sono più grandi dei file di dati e di esperimento e di conseguenza più costosi da archiviare. Eliminare solo i file di distribuzione per ridurre al minimo i costi per l'account o se si vuole conservare i file dell'area di lavoro e degli esperimenti. In caso contrario, eliminare l'intero gruppo di risorse, se non si prevede di usare alcun file.  
 
 ### <a name="delete-the-deployment-instance"></a>Eliminare l'istanza di distribuzione
 
-Eliminare solo l'istanza di distribuzione dalla portale di Azure, se si desidera lasciare il gruppo di risorse e l'area di lavoro per altre esercitazioni ed esplorazione. 
+Eliminare solo l'istanza di distribuzione dal portale di Azure, se si vuole mantenere il gruppo di risorse e l'area di lavoro per altre esercitazioni o attività di esplorazione. 
 
-1. Passare al riquadro **Asset** a sinistra e selezionare distribuzioni. 
+1. Passare al riquadro **Asset** a sinistra e selezionare **Distribuzioni**. 
 
-1. Selezionare la distribuzione che si desidera eliminare e selezionare **Elimina**. 
+1. Selezionare la distribuzione che si vuole eliminare e scegliere **Elimina**. 
 
-1. Selezionare **continua**.
+1. Selezionare **Continua**.
 
 ### <a name="delete-the-resource-group"></a>Eliminare il gruppo di risorse.
 
@@ -157,13 +163,16 @@ Eliminare solo l'istanza di distribuzione dalla portale di Azure, se si desidera
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione di Machine Learning automatizzata è stato usato il portale di Azure per creare e distribuire un modello di classificazione. Per ulteriori informazioni e per i passaggi successivi, vedere questi articoli:
+In questa esercitazione di apprendimento automatico con automazione è stato usato il portale di Azure per creare e distribuire un modello di classificazione. Per altre informazioni e per i passaggi successivi, vedere questi articoli:
 
-+ Informazioni su come [utilizzare un servizio Web](how-to-consume-web-service.md).
+> [!div class="nextstepaction"]
+> [Utilizzare un servizio Web](how-to-consume-web-service.md)
+
+
 + Altre informazioni sulla [pre-elaborazione](how-to-create-portal-experiments.md#preprocess).
-+ Altre informazioni sul [profiling dei dati](how-to-create-portal-experiments.md#profile).
-+ Altre informazioni su [Machine Learning automatizzato](concept-automated-ml.md).
++ Altre informazioni sulla [profilatura dei dati](how-to-create-portal-experiments.md#profile).
++ [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
 
 >[!NOTE]
-> Questo set di dati di [marketing bancario viene reso disponibile in Creative Commons (UCC: Licenza](https://creativecommons.org/publicdomain/zero/1.0/)di dominio pubblico). Tutti i diritti per i singoli contenuti del database sono concessi in licenza con la licenza relativa ai [contenuti del database](https://creativecommons.org/publicdomain/zero/1.0/) e sono disponibili in [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Questo set di dati era originariamente disponibile all'interno del [database UCI Machine Learning](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
-> Per citare il lavoro seguente: <br> [Moro et al., 2014] S. Moro, P. Cortez e P. Rita. Approccio basato sui dati per prevedere la riuscita del telemarketing bancario. Sistemi di supporto decisionale, Elsevier, 62:22-31, giugno 2014.
+> Questo set di dati di marketing bancario viene reso disponibile in [Creative Comm (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Tutti i diritti per i singoli contenuti del database vengono concessi in licenza ai sensi della [licenza relativa ai contenuti del database](https://creativecommons.org/publicdomain/zero/1.0/) e resi disponibili in [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Questo set di dati era originariamente disponibile all'interno del [database di Machine Learning UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
+> Tenere presenti le risorse seguenti: <br> [Moro et al., 2014] S. Moro, P. Cortez e P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, giugno 2014.

@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3834b4f07f6450f498831accfa6640f55bc5855a
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 7f997865ba33a51c3e3aa7a4c7e990037be9e534
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550189"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637342"
 ---
-# <a name="tutorial-stream-video-files---net"></a>Esercitazione: Eseguire lo streaming di file video - .NET
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - .NET
 
 Questa esercitazione illustra quanto sia facile codificare e iniziare a eseguire lo streaming di video su un'ampia gamma di browser e dispositivi tramite Servizi multimediali di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi ai file che si trovano nell'archivio BLOB di Azure.
 L'esempio in questo argomento codifica contenuti resi accessibili tramite un URL HTTPS. Attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS.

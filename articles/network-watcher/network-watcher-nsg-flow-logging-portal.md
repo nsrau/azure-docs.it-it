@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: f254572f5c26a809f401e99f527ccd3d30451c3d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931577"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636211"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Esercitazione: Registrare il traffico di rete da e verso una macchina virtuale tramite il portale di Azure
 
@@ -95,7 +95,8 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
     La creazione dell'account di archiviazione può richiedere all'incirca un minuto. Non proseguire con i passaggi rimanenti finché non è stato creato l'account di archiviazione. Se si usa un account di archiviazione esistente invece di crearne uno, assicurarsi di selezionarne uno con l'impostazione predefinita **Tutte le reti** selezionata in **Firewall e reti virtuali** nelle **IMPOSTAZIONI** dell'account di archiviazione. In tutti i casi, l'account di archiviazione deve trovarsi nella stessa area del gruppo di sicurezza di rete. 
     
     > [!NOTE]
-    > Mentre i provider di Microsoft.Insight e Microsoft.Network sono attualmente supportati come servizi Microsoft considerati attendibili per l'Archiviazione di Azure, non è ancora stato eseguito l'onboarding completo dei log dei flussi del gruppo di sicurezza di rete. Per abilitare la registrazione del flusso del gruppo di sicurezza di rete, selezionare **Tutte le reti** fino a quando verrà eseguito l'onboarding completo di questa funzionalità. 
+    > Mentre i provider Microsoft.Insight e Microsoft.Network sono attualmente supportati come [servizi Microsoft considerati attendibili per Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), non è ancora stato eseguito l'onboarding completo dei log dei flussi del gruppo di sicurezza di rete. Per abilitare la registrazione dei flussi del gruppo di sicurezza di rete, è necessario selezionare **Tutte le reti** come indicato sopra.
+    
 4. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 5. In **LOGS** (LOG) selezionare **Log del flusso del NSG**, come illustrato nell'immagine seguente:
 
@@ -114,6 +115,8 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
    > * Negli account di archiviazione è abilitato lo [spazio dei nomi gerarchico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace).
 1. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 10. Impostare **Conservazione (giorni)** su 5 e poi selezionare **Salva**.
+    > [!IMPORTANT]
+    > Attualmente si verifica un problema per cui [i log dei flussi del gruppo di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. Se è impostato un criterio di conservazione diverso da zero, è consigliabile eliminare periodicamente i BLOB di archiviazione che superano il periodo di conservazione per evitare eventuali addebiti. Per altre informazioni su come eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete, vedere [Eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="download-flow-log"></a>Scaricare il log del flusso
 

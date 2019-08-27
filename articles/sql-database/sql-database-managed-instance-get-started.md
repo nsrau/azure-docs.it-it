@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: 646a602d7e6c47454f039a5f4f1981a60b56fa56
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567518"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873885"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Guida introduttiva: Creare un'istanza gestita di database SQL di Azure
 
@@ -35,11 +35,11 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 I passaggi seguenti mostrano come creare un'istanza gestita.
 
-1. Selezionare **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
-2. Individuare **Istanza gestita** e quindi selezionare **Istanza gestita di SQL di Azure**.
-3. Selezionare **Create** (Crea).
+1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se Azure SQL non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare *Azure SQL* nella casella di ricerca.
+2. Selezionare **+Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive sull'istanza gestita di database SQL di Azure selezionando **Mostra dettagli** nel riquadro **Istanze gestite**.
+3. Selezionare **Crea**:
 
-   ![Creare un'istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
+   ![Creare un'istanza gestita](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
 4. Compilare il modulo **Istanza gestita di SQL** con le informazioni richieste, riportate nella tabella seguente.
 

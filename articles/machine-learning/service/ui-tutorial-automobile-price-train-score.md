@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/21/2019
-ms.openlocfilehash: b0d227b71677db1d6b4ce8386b02cf957ca259f7
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.date: 08/16/2019
+ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668415"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891688"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Esercitazione: Stimare il prezzo delle automobili con l'interfaccia visiva grafica
 
@@ -27,9 +27,11 @@ Nella prima parte verrà configurato l'ambiente, quindi i set di dati e i moduli
 Nella prima parte dell'esercitazione si è apprenderà come:
 
 > [!div class="checklist"]
-> * Importare e pulire i dati
+> * Creare un nuovo esperimento
+> * Importa dati
+> * Preparazione dei dati
 > * Eseguire il training di un modello di Machine Learning
-> * Assegnare punteggi e valutare un modello
+> * Valutare un modello di Machine Learning
 
 Nella [seconda parte](ui-tutorial-automobile-price-deploy.md) dell'esercitazione si apprenderà come distribuire il modello predittivo come servizio Web di Azure in modo da poterlo usare per stimare il prezzo di qualsiasi automobile in base alle specifiche tecniche inviate. 
 
@@ -37,13 +39,17 @@ Una versione completa dell'esercitazione è disponibile come esperimento di esem
 
 Per trovarla, nella pagina **Experiments** (Esperimenti) selezionare **Add New** (Aggiungi nuovo) e quindi selezionare l'esperimento **Sample 1 - Regression: Automobile Price Prediction(Basic)** .
 
-## <a name="create-a-workspace"></a>Creare un'area di lavoro
+## <a name="create-a-new-experiment"></a>Creare un nuovo esperimento
+
+Per creare un esperimento di interfaccia visiva, è necessaria prima di tutto un'area di lavoro del servizio Azure Machine Learning. In questa sezione viene descritto come creare entrambe queste risorse.
+
+### <a name="create-a-new-workspace"></a>Creazione di una nuova area di lavoro
 
 Se è già disponibile un'area di lavoro del servizio Azure Machine Learning, passare alla sezione successiva.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-new-experiment"></a>Creare un nuovo esperimento
+### <a name="create-an-experiment"></a>Creare un esperimento
 
 1. Aprire l'area di lavoro nel [portale di Azure](https://portal.azure.com/).
 
@@ -57,7 +63,7 @@ Se è già disponibile un'area di lavoro del servizio Azure Machine Learning, pa
 
 1. Selezionare il nome predefinito dell'esperimento, **"Experiment Created on**" (Esperimento creato in data) nella parte superiore dell'area di disegno e cambiarlo con un nome significativo, ad esempio **"Automobile price prediction"** . Il nome non deve essere univoco.
 
-## <a name="specify-data"></a>Specificare i dati
+## <a name="import-data"></a>Importa dati
 
 Machine Learning dipende dai dati. In questa interfaccia sono disponibili diversi set di dati di esempio con cui sperimentare. Per questa esercitazione verrà usato il set di dati di esempio **Automobile price data (Raw)** . 
 
@@ -65,7 +71,7 @@ Machine Learning dipende dai dati. In questa interfaccia sono disponibili divers
 
 1. Selezionare il set di dati **Automobile price data (raw)** e trascinarlo nell'area di disegno.
 
-   ![Trascinare i dati nell'area di disegno](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
+   ![Trascinare i dati nell'area di disegno](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
 1. Selezionare le colonne di dati da usare. Digitare **Select** nella casella di ricerca nella parte superiore del pannello per trovare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati).
 
@@ -87,11 +93,11 @@ Machine Learning dipende dai dati. In questa interfaccia sono disponibili divers
 
     Nella finestra di dialogo **Select columns** (Seleziona colonne) selezionare **ALL COLUMNS** (TUTTE LE COLONNE) e includere **tutte le funzionalità**. La finestra di dialogo dovrebbe essere simile alla seguente:
 
-     ![column-selector](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+     ![column-selector](./media/ui-tutorial-automobile-price-train-score/select-all.gif)
 
 1. Nell'angolo in basso a destra fare clic su **OK** per chiudere il selettore di colonne.
 
-## <a name="run-the-experiment"></a>Eseguire l'esperimento
+### <a name="run-the-experiment"></a>Eseguire l'esperimento
 
 In qualsiasi momento fare clic sulla porta di output di un set di dati o di un modulo per visualizzare l'aspetto dei dati in tale punto specifico del flusso di dati. Se l'opzione **Visualize** (Visualizza) è disabilitata, è prima necessario eseguire l'esperimento.
 
@@ -100,7 +106,7 @@ In qualsiasi momento fare clic sulla porta di output di un set di dati o di un m
 Quando la destinazione di calcolo è disponibile, viene eseguito l'esperimento. Al termine dell'esecuzione, viene visualizzato un segno di spunta verde su ogni modulo.
 
 
-## <a name="visualize-the-data"></a>Visualizzare i dati
+### <a name="visualize-the-data"></a>Visualizzare i dati
 
 Ora che è stato eseguito l'esperimento iniziale, è possibile visualizzare i dati per comprendere meglio il set di dati disponibile.
 
@@ -110,9 +116,9 @@ Ora che è stato eseguito l'esperimento iniziale, è possibile visualizzare i da
 
     In questo set di dati ogni riga rappresenta un'automobile e le variabili associate a ogni automobile sono rappresentate da colonne. In questo set di dati sono presenti 205 righe e 26 colonne.
 
-     Ogni volta che si fa clic su una colonna di dati, sulla sinistra vengono visualizzate le informazioni sulle **statistiche** e l'immagine della **visualizzazione** di tale colonna. Ad esempio, quando si fa clic su **num-of-doors**, si può notare che contiene due valori univoci e due valori mancanti. Scorrere verso il basso per visualizzare i valori, ovvero due e quattro porte.
+    Ogni volta che si fa clic su una colonna di dati, sulla sinistra vengono visualizzate le informazioni sulle **statistiche** e l'immagine della **visualizzazione** di tale colonna.
 
-     ![Visualizzare l'anteprima dei dati](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+    [Visualizzare in anteprima i dati![](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)](./media/ui-tutorial-automobile-price-train-score/preview-data.gif#lightbox)
 
 1. Fare clic su ogni colonna per ottenere altre informazioni sul set di dati e stabilire se queste colonne saranno utili per stimare il prezzo di un'automobile.
 
@@ -137,15 +143,11 @@ Rimuovere prima completamente la colonna **normalized-losses**.
 
     * Nell'angolo in basso a destra fare clic su **OK** per chiudere il selettore di colonne.
 
-    ![Escludere una colonna](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+    ![Escludere una colonna](./media/ui-tutorial-automobile-price-train-score/exclude-column.gif)
         
     Il riquadro delle proprietà del modulo Select Columns in Dataset (Seleziona colonne in set di dati) indica che verranno analizzate tutte le colonne del set di dati ad eccezione di **normalized-losses**.
         
     Il riquadro delle proprietà mostra che la colonna **normalized-losses** è stata esclusa.
-        
-    ![Riquadro delle proprietà](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
-        
-    È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. 
 
 1. Fare doppio clic sul modulo **Select Columns in Dataset** (Seleziona colonne in set di dati) e immettere il commento "Escludi perdite normalizzate". 
     
@@ -168,22 +170,22 @@ Quando si esegue il training di un modello, occorre fare qualcosa in merito ai d
 1. Nel riquadro delle proprietà selezionare **Remove entire row** (Rimuovi riga intera) in **Cleaning mode** (Modalità pulizia).
 
 1. Fare doppio clic sul modulo e digitare il commento "Rimuovi righe valori mancanti".
- 
-    ![Rimuovere le righe](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
 
     L'esperimento avrà ora un aspetto analogo al seguente:
     
     ![select-column](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
 
-## <a name="train-the-model"></a>Eseguire il training del modello
+## <a name="train-a-machine-learning-model"></a>Eseguire il training di un modello di Machine Learning
 
 Una volta preparati i dati, è possibile creare un modello predittivo. Per eseguire il training del modello si useranno i propri dati. Quindi si testerà il modello per verificare la precisione con cui è in grado di stimare i prezzi.
+
+### <a name="select-an-algorithm"></a>Selezionare un algoritmo
 
 **Classificazione** e **regressione** sono due tipi di algoritmi di Machine Learning sottoposti a supervisione. La **classificazione** stima una risposta da un set di categorie definito, ad esempio un colore (rosso, blu o verde). La **regressione** viene usata per stimare un numero.
 
 Poiché si vuole stimare il prezzo, ovvero un numero, è possibile usare un algoritmo di regressione. Per questo esempio si userà un modello di regressione lineare.
 
-Eseguire il training del modello assegnando un set di dati che include il prezzo. Il modello analizza i dati e cerca le correlazioni tra le caratteristiche di un'automobile e il relativo prezzo.
+### <a name="split-the-data"></a>Dividere i dati
 
 Usare i dati per il training e il test del modello dividendoli in set di dati separati.
 
@@ -191,17 +193,17 @@ Usare i dati per il training e il test del modello dividendoli in set di dati se
 
 1. Selezionare il modulo **Split Data**. Nel riquadro delle proprietà impostare su 0,7 l'opzione Fraction of rows in the first ouptut dataset (Frazione di righe nel primo set di dati di output). In questo modo per il training del modello verrà usato il 70% dei dati, mentre il restante 30% verrà usato per i test.
 
-    ![Screenshot della configurazione corretta del riquadro di proprietà In "Split Data" il valore di "Split Rows" (Dividi righe) dovrà essere 0,7 e i valori di Randomized split (Divisione casuale) 0 e False.](./media/ui-tutorial-automobile-price-train-score/split-data.png)
-
 1. Fare doppio clic su **Split Data** e digitare il commento "Split the dataset into training set(0.7) and test set(0.3)"
+
+### <a name="train-the-model"></a>Eseguire il training del modello
+
+Eseguire il training del modello assegnando un set di dati che include il prezzo. Il modello analizza i dati e cerca le correlazioni tra le caratteristiche di un'automobile e il relativo prezzo.
 
 1. Per selezionare l'algoritmo di apprendimento, cancellare la casella di ricerca della tavolozza dei moduli.
 
 1. Espandere **Machine Learning** e quindi **Initialize Model** (Inizializza modello). Verranno visualizzate diverse categorie di moduli che possono essere usate per inizializzare gli algoritmi di Machine Learning.
 
 1. Per questo esperimento, selezionare il modulo **Regression** > **Linear Regression** (Regressione - Regressione lineare) e trascinarlo nell'area di disegno.
-
-    ![Screenshot della configurazione corretta del riquadro di proprietà In "Split Data" il valore di "Split Rows" (Dividi righe) dovrà essere 0,7 e i valori di Randomized split (Divisione casuale) 0 e False.](./media/ui-tutorial-automobile-price-train-score/linear-regression-module.png)
 
 1. Trovare e trascinare il modulo **Train Model** (Training modello) nell'area di disegno dell'esperimento. Connettere l'output del modulo Linear Regression all'input sinistro del modulo Train Model e l'output dei dati di training (porta sinistra) del modulo **Split Data** all'input destro del modulo **Train Model**.
 
@@ -215,7 +217,7 @@ Usare i dati per il training e il test del modello dividendoli in set di dati se
 
     ![Screenshot della configurazione corretta dell'esperimento dopo l'aggiunta del modulo Train Model](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
-## <a name="score-and-evaluate-the-model"></a>Assegnare punteggi e valutare il modello
+## <a name="evaluate-a-machine-learning-model"></a>Valutare un modello di Machine Learning
 
 Dopo aver eseguito il training del modello usando il 70% dei dati, è possibile usarlo per assegnare punteggi al restante 30% e verificarne il funzionamento.
 
@@ -244,26 +246,6 @@ Per il modello vengono visualizzate le seguenti statistiche:
 * **Coefficiente di determinazione**: Noto anche come valore quadratico R, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
 
 Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per il coefficiente di determinazione, più il valore si avvicina a uno (1,0) più le stime sono precise.
-
-## <a name="manage-experiments-in-azure-machine-learning-service-workspace"></a>Gestire esperimenti nell'area di lavoro del servizio Azure Machine Learning
-
-Gli esperimenti creati nell'interfaccia visiva grafica possono essere gestiti nell'area di lavoro del servizio Azure Machine Learning. Usare l'area di lavoro per visualizzare informazioni più dettagliate, come le esecuzioni dei singoli esperimenti, i log di diagnostica, i grafici dell'esecuzione e altro ancora.
-
-1. Aprire l'area di lavoro nel [portale di Azure](https://portal.azure.com/).  
-
-1. Nell'area di lavoro selezionare **Experiments** (Esperimenti). Quindi selezionare l'esperimento creato.
-
-    ![Screenshot che mostra come passare agli esperimenti nel portale di Azure](./media/ui-tutorial-automobile-price-train-score/portal-experiments.png)
-
-    In questa pagina viene visualizzata una panoramica dell'esperimento e delle ultime esecuzioni.
-
-    ![Screenshot che mostra una panoramica delle statistiche dell'esperimento nel portale di Azure](./media/ui-tutorial-automobile-price-train-score/experiment-overview.png)
-
-1. Selezionare un numero per visualizzare altri dettagli su una specifica esecuzione.
-
-    ![Screenshot del report dettagliato sulle esecuzioni](./media/ui-tutorial-automobile-price-train-score/run-details.png)
-
-    Il report sulle esecuzioni viene aggiornato in tempo reale. Se è stato usato un modulo **Execute Python Script** (Esecuzione di script Python) o **Execute R Script** (Esecuzione di script R), è possibile specificare di immettere i log dello script nella scheda **Logs**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
