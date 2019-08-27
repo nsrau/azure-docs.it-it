@@ -1,30 +1,30 @@
 ---
-title: Chat di Azure IoT Central Mostra/Nascondi | Microsoft Docs
-description: Un utente di informazioni su come mostrare e nascondere chat.
+title: Azure IoT Central Mostra/Nascondi chat | Microsoft Docs
+description: Come utente, informazioni su come mostrare e nascondere la chat.
 author: v-krghan
 ms.author: v-krghan
-ms.date: 04/18/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a8d2b71899cdd6b7f9c8cb803732b760f3009811
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ab0f830ab3b06f272e371a6908ac6dde3e3893a
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64513285"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019706"
 ---
 # <a name="toggle-live-chat"></a>Attivare e disattivare la live chat
 
-Questo articolo illustra come attivare o disattivare la chat in tempo reale nell'applicazione IoT Central. Chat in tempo reale è possibile usare per accedere al supporto tecnico.
+Questo articolo illustra come abilitare o disabilitare la chat in tempo reale nell'applicazione IoT Central. È possibile usare Live Chat per accedere al supporto tecnico.
 
 > [!NOTE]
-> L'opzione di chat è disponibile solo per le sottoscrizioni di valutazione.
+> L'opzione chat è disponibile solo per le sottoscrizioni di valutazione.
 
 ## <a name="chat-with-us"></a>Avvia una chat con noi
 
-Per ottenere supporto tecnico, aprire l'IoT Central dell'applicazione e selezionare **avvia una Chat con noi**.
+Per ottenere supporto tecnico, aprire l'applicazione IoT Central e selezionare **chat con**Microsoft.
 
 ![Avvia una chat con noi](media/howto-show-hide-chat/chat-with-us.png)
 
@@ -32,21 +32,21 @@ Per ottenere supporto tecnico, aprire l'IoT Central dell'applicazione e selezion
 
 ![Modulo "Configure Device Details" (Configura dettagli dispositivo) con i dettagli per impostazioni e proprietà](media/howto-show-hide-chat/sample-chat.png)
 
-## <a name="hide-chat"></a>Nascondi Chat
+## <a name="hide-chat"></a>Nascondi chat
 
-Per nascondere la chat, scegliere **Chat nasconde** nel **Guida** pannello:
+Per nascondere la chat, scegliere **Nascondi chat** nel pannello **Guida** :
 
- ![Nascondi Chat](media/howto-show-hide-chat/hide-chat.png)
+ ![Nascondi chat](media/howto-show-hide-chat/hide-chat.png)
 
-## <a name="enable-chat"></a>Abilitare la Chat
+## <a name="enable-chat"></a>Abilita Chat
 
-Per visualizzare le chat, scegliere **mostrare Chat** nel **Guida** pannello:
+Per visualizzare la chat, scegliere **Mostra chat** nel pannello **Guida** :
 
- ![Chat Show](media/howto-show-hide-chat/show-chat.png)
+ ![Mostra chat](media/howto-show-hide-chat/show-chat.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come attivare o disattivare la chat in tempo reale in Azure IoT Central, ecco il passaggio successivo consigliato:
+Ora che si è appreso come passare dalla chat in tempo reale in Azure IoT Central, ecco il passaggio successivo suggerito:
 
 > [!div class="nextstepaction"]
 > [Configurare il dashboard dell'applicazione](howto-configure-homepage.md)

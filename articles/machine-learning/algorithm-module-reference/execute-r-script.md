@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7de3dd016700d10ef5fac97fada5cd23c2f4e1cb
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 926e2004207472d16a195ceba2ecf3f2a4590885
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558304"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019129"
 ---
 # <a name="execute-r-script"></a>Execute R Script
 
@@ -66,7 +66,7 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
  > [!NOTE]
-    > Verificare che il pacchetto esista già prima di installarlo per evitare di ripetere l'installazione. Come `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` nel codice di esempio precedente. La ripetizione dell'installazione può causare il timeout della richiesta del servizio Web.     
+  > Verificare che il pacchetto esista già prima di installarlo per evitare di ripetere l'installazione. Come `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` nel codice di esempio precedente. La ripetizione dell'installazione può causare il timeout della richiesta del servizio Web.     
 
 ## <a name="how-to-configure-execute-r-script"></a>Come configurare Execute R script
 

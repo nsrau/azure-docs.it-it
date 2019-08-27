@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 45f383691a52d841f35ed9b67d4658341de18afc
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f4ea820eb116c4efe550997cbe7c9ed69713c965
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036253"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019121"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -71,6 +71,12 @@ Le note sulla versione seguenti sono relative alla versione 7.0.0.0 dell'agente 
 
 - Supporto per dimensioni di condivisione file più grandi
     - Con l'anteprima delle condivisioni file di Azure di dimensioni maggiori, vengono aumentati anche i limiti di supporto per sincronizzazione file. In questo primo passaggio, Sincronizzazione file di Azure ora supporta i file fino a 25TB e 50million in un singolo spazio dei nomi di sincronizzazione. Per richiedere l'anteprima della condivisione file di grandi dimensioni, compilare il https://aka.ms/azurefilesatscalesurvey modulo. 
+- Supporto per l'impostazione del firewall e della rete virtuale negli account di archiviazione
+    - Sincronizzazione file di Azure supporta ora l'impostazione del firewall e della rete virtuale negli account di archiviazione. Per configurare la distribuzione in modo che funzioni con l'impostazione firewall e rete virtuale, vedere [configurare le impostazioni del firewall e della rete virtuale](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
+- Cmdlet di PowerShell per sincronizzare immediatamente i file modificati nella condivisione file di Azure
+    - Per sincronizzare immediatamente i file modificati nella condivisione file di Azure, è possibile usare il cmdlet di PowerShell Invoke-AzStorageSyncChangeDetection per avviare manualmente il rilevamento delle modifiche nella condivisione file di Azure. Questo cmdlet è destinato agli scenari in cui alcuni tipi di processi automatici apportano modifiche alla condivisione file di Azure o le modifiche vengono eseguite da un amministratore, ad esempio lo spostamento di file e directory nella condivisione. Per le modifiche dell'utente finale, è consigliabile installare l'agente di Sincronizzazione file di Azure in una macchina virtuale IaaS e fare in modo che gli utenti finali accedano alla condivisione file tramite la macchina virtuale IaaS. In questo modo tutte le modifiche si sincronizzano rapidamente con altri agenti senza la necessità di usare il cmdlet Invoke-AzStorageSyncChangeDetection. Per altre informazioni, vedere la documentazione di [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) .
+- Miglioramento dell'esperienza del portale se si riscontrano file che non eseguono la sincronizzazione
+    - Se sono presenti file che non riescono a eseguire la sincronizzazione, ora si differenziano gli errori temporanei e permanenti nel portale. Gli errori temporanei si risolvono in genere senza richiedere l'intervento dell'amministratore. Un file attualmente in uso, ad esempio, non verrà sincronizzato fino alla chiusura dell'handle di file. Per gli errori persistenti, viene ora visualizzato il numero di file interessati da ogni errore. Il numero di errori persistente viene inoltre visualizzato nella colonna file non sincronizzati di tutti gli endpoint server in un gruppo di sincronizzazione.
 - Miglioramento del ripristino a livello di file di backup di Azure
     - I singoli file ripristinati con backup di Azure vengono ora rilevati e sincronizzati con l'endpoint server più velocemente.
 - Miglioramento dell'affidabilità del cmdlet di richiamo a livelli cloud 

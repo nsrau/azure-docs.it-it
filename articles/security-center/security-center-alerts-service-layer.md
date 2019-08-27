@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/18/2019
+ms.date: 8/25/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 5458d26172123f0f6cb9914a04ec05b3163a084f
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: bc1b2a07f15ca98da7750c85cd25f2c5766c9bb5
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013282"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018173"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Rilevamento delle minacce per il livello di servizio di Azure nel centro sicurezza di Azure
 
@@ -37,7 +37,7 @@ L'analisi a livello di rete del Centro sicurezza si basa su [dati IPFIX](https:/
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|DESCRIZIONE|
+|Avviso|Descrizione|
 |---|---|
 |**Attività di rete RDP in uscita sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala, originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente. Potrebbe indicare che la risorsa è stata compromessa e viene ora utilizzata per l'attacco di forza bruta a un endpoint RDP esterno. Si noti che questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
 |**Attività di rete RDP in uscita sospetta verso più destinazioni**|L'analisi del traffico di rete campionata ha rilevato una comunicazione RDP in uscita anomala, originata da una risorsa nella distribuzione in più destinazioni. Questa attività viene considerata anomala per questo ambiente. Potrebbe indicare che la risorsa è stata compromessa e viene ora utilizzata per l'attacco di forza bruta agli endpoint RDP esterni. Si noti che questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
@@ -52,7 +52,7 @@ L'analisi a livello di rete del Centro sicurezza si basa su [dati IPFIX](https:/
 Per comprendere in che modo il Centro sicurezza può usare i segnali correlati alla rete per applicare la protezione dalle minacce, vedere [rilevamento di DNS euristici nel centro sicurezza di Azure](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 >[!NOTE]
->Gli avvisi di rilevamento delle minacce a livello di rete di Azure, nel centro sicurezza di Azure, non vengono generati durante la prima ora dopo la creazione della macchina virtuale.
+>Gli avvisi di rilevamento delle minacce a livello di rete di Azure, nel centro sicurezza di Azure, vengono generati solo nelle macchine virtuali a cui è stato assegnato lo stesso indirizzo IP per l'intera ora durante la quale si è verificata una comunicazione sospetta. Questo vale per le macchine virtuali, nonché per le macchine virtuali create nella sottoscrizione del cliente come parte di un servizio gestito (ad esempio, AKS, databricks).
 
 ## Livello di gestione di Azure (Azure Resource Manager) (anteprima)<a name ="management-layer"></a>
 

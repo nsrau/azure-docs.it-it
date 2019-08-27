@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
-ms.openlocfilehash: ba2041495e1e3c63ee322a0b748753ad6cb68914
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 904e063ae64a971de7f34fbfac63b7679f3bc363
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870133"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019946"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servizi collegati in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-create-datasets.md)
 > * [Versione corrente](concepts-datasets-linked-services.md)
 
-Questo articolo descrive i servizi collegati sono, come vengono definite in formato JSON, e come vengono usati nella pipeline di Azure Data Factory.
+Questo articolo descrive i servizi collegati, il modo in cui vengono definiti in formato JSON e il modo in cui vengono usati nelle pipeline Azure Data Factory.
 
 Se non si ha dimestichezza con Data Factory, vedere [Introduzione al servizio Azure Data Factory](introduction.md).
 
@@ -65,8 +65,8 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 Proprietà | Descrizione | Obbligatorio |
 -------- | ----------- | -------- |
 name | Nome del servizio collegato. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Yes |
-type | Tipo di servizio collegato. Ad esempio: AzureStorage (archivio dati) o AzureBatch (calcolo). Vedere la descrizione di typeProperties. | Yes |
-typeProperties | Le proprietà del tipo sono diverse per ogni archivio dati o calcolo. <br/><br/> Per i tipi di archivio dati supportati e le relative proprietà del tipo, vedere la tabella [Tipo di set di dati](concepts-datasets-linked-services.md#dataset-type) in questo articolo. Vedere l'articolo sul connettore dell'archivio dati per informazioni sulle proprietà del tipo specifiche di un archivio dati. <br/><br/> Per i tipi di calcolo supportati e le relative proprietà del tipo, vedere [Servizi collegati di calcolo](compute-linked-services.md). | Yes |
+type | Tipo di servizio collegato. Ad esempio:  AzureStorage (archivio dati) o AzureBatch (calcolo). Vedere la descrizione di typeProperties. | Yes |
+typeProperties | Le proprietà del tipo sono diverse per ogni archivio dati o calcolo. <br/><br/> Per i tipi di archivio dati supportati e le relative proprietà del tipo, vedere la tabella [Tipo di set di dati](concepts-datasets-linked-services.md#dataset-type) in questo articolo. Vedere l'articolo sul connettore dell'archivio dati per informazioni sulle proprietà del tipo specifiche di un archivio dati. <br/><br/> Per i tipi di calcolo supportati e le relative proprietà del tipo, vedere [Servizi collegati di calcolo](compute-linked-services.md). | Sì |
 connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No
 
 ## <a name="linked-service-example"></a>Esempio di servizio collegato
@@ -92,13 +92,17 @@ Il seguente servizio collegato è un servizio collegato di Archiviazione di Azur
 ```
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
-È possibile creare servizi collegati usando uno di questi strumenti o SDK: [API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), modello Azure Resource Manager e portale di Azure
+È possibile creare servizi collegati usando uno di questi strumenti o SDK: [API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), Azure Resource Manager modello e portale di Azure
 
 ## <a name="data-store-linked-services"></a>Servizi collegati dell'archivio dati
-Connettersi ad archivi dati sono disponibili nel nostro [archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats). Fare riferimento all'elenco di proprietà di connessione specifiche necessarie per archivi diversi.
+La connessione agli archivi dati si trova negli [archivi dati e nei formati supportati](copy-activity-overview.md#supported-data-stores-and-formats). Fare riferimento all'elenco per specifiche proprietà di connessione necessarie per archivi diversi.
+
+## <a name="data-store-supported-activities"></a>Attività supportate dall'archivio dati
+
+[!INCLUDE [Connector-activity support matrix](../../includes/connector-activity-support-matrix.md)]
 
 ## <a name="compute-linked-services"></a>Servizi collegati di calcolo
-Riferimento [ambienti di calcolo supportati](compute-linked-services.md) per informazioni dettagliate sui diversi ambienti di calcolo è possibile connettersi a da data factory, nonché le diverse configurazioni.
+Gli [ambienti di calcolo](compute-linked-services.md) di riferimento sono supportati per informazioni dettagliate su diversi ambienti di calcolo a cui è possibile connettersi dal data factory e dalle diverse configurazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le esercitazioni seguenti per istruzioni dettagliate sulla creazione di pipeline e set di dati tramite uno di questi strumenti o SDK.
@@ -106,4 +110,4 @@ Vedere le esercitazioni seguenti per istruzioni dettagliate sulla creazione di p
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Avvio rapido: Creare una data factory tramite .NET)
 - [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md) (Avvio rapido: Creare una data factory tramite PowerShell)
 - [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md) (Avvio rapido: Creare una data factory tramite API REST)
-- [Guida introduttiva: creare una data factory usando il portale di Azure](quickstart-create-data-factory-portal.md)
+- [Guida introduttiva: creare un data factory usando portale di Azure](quickstart-create-data-factory-portal.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 19d3fe4285cf6bf316a0d445e49a398ed5d66a35
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: d2fec29c96639d21db362f6982b88a90bd6c319f
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991792"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019094"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Segnalazione dei metadati programmati in streaming live 
 
@@ -98,7 +98,7 @@ I documenti seguenti contengono le disposizioni, che, per riferimento in questo 
 
 Servizi multimediali di Azure supporta i metadati in banda in tempo reale per i protocolli [RTMP] e Smooth Streaming [MS-SSTR-ingeri]. I metadati in tempo reale possono essere usati per definire eventi personalizzati, con schemi personalizzati personalizzati (JSON, Binary, XML) e formati definiti dal settore come ID3, oppure SCTE-35 per la segnalazione di Active Directory in un flusso di broadcast. 
 
-Questo articolo fornisce informazioni dettagliate su come inviare segnali di metadati temporizzati personalizzati usando i protocolli di inserimento supportati di servizi multimediali. Questo articolo illustra anche come i manifesti per HLS, DASH e Smooth Streaming vengono decorati con i segnali di metadati programmati, nonché come vengono trasportati in banda quando il contenuto viene recapitato tramite CMAF (frammenti MP4) o segmenti del flusso di trasporto (TS) per HLS. 
+Questo articolo fornisce informazioni dettagliate su come inviare segnali di metadati temporizzati personalizzati usando i protocolli di inserimento supportati di servizi multimediali di Azure. Questo articolo illustra anche come i manifesti per HLS, DASH e Smooth Streaming vengono decorati con i segnali di metadati programmati, nonché come vengono trasportati in banda quando il contenuto viene recapitato tramite CMAF (frammenti MP4) o segmenti del flusso di trasporto (TS) per HLS. 
 
 Gli scenari di casi d'uso comuni per i metadati temporizzati includono:
 
@@ -122,7 +122,7 @@ Gli eventi live e i pacchetti di servizi multimediali di Azure sono in grado di 
 
 Il protocollo [RTMP] consente l'invio di segnali di metadati temporizzati per diversi scenari, tra cui i metadati personalizzati e i segnali ad SCTE-35. 
 
-I segnali pubblicitari (messaggi cue) vengono inviati come messaggi CUE [AMF0] incorporati all'interno del flusso [RTMP]. I messaggi di cue possono essere inviati a un certo punto prima dell'evento effettivo o del segnale di splicing di Active Directory [SCTE35]. Per supportare questo scenario, l'ora effettiva dell'evento viene inviata all'interno del messaggio cue. Per altre informazioni, vedere [AMF0].
+I segnali pubblicitari (messaggi cue) vengono inviati come messaggi CUE [AMF0] incorporati all'interno del flusso [RTMP]. I messaggi di cue possono essere inviati a un certo punto prima dell'evento effettivo o del segnale di splicing di Active Directory [SCTE35]. Per supportare questo scenario, il timestamp di presentazione effettivo dell'evento viene inviato all'interno del messaggio cue. Per altre informazioni, vedere [AMF0].
 
 I seguenti comandi [AMF0] sono supportati da servizi multimediali di Azure per l'inserimento RTMP:
 
@@ -139,8 +139,8 @@ Il nome del messaggio [AMF0] può essere utilizzato per distinguere più flussi 
 
 Se si vuole fornire feed di metadati personalizzati dal codificatore upstream, dalla fotocamera IP, dal drone o dal dispositivo usando il protocollo RTMP, usare il tipo di comando "onUserDataEvent" [AMF0] data Message.
 
-Il comando **"onUserDataEvent"** del messaggio di dati deve contenere un payload del messaggio con la definizione seguente che deve essere acquisito da servizi multimediali e incluso nel formato di file in banda, oltre che nei manifesti per HLS, Dash e Smooth.
-È consigliabile inviare messaggi di metadati temporizzati non più frequentemente di ogni 0,5 secondi (500 ms). Ogni messaggio può aggregare i metadati da più frame se è necessario fornire i metadati a livello di frame. Se si inviano flussi a bitrate multipli, è consigliabile fornire anche i metadati in un solo bitrate solo per ridurre la larghezza di banda ed evitare interferenze con l'elaborazione video/audio. 
+Il comando **"onUserDataEvent"** del messaggio di dati deve contenere un payload del messaggio con la definizione seguente che deve essere acquisito da servizi multimediali e incluso nel formato di file in banda, nonché nei manifesti per HLS, DASH e Smooth Streaming.
+Si consiglia di inviare messaggi di metadati temporizzati non più spesso di una volta ogni 0,5 secondi (500 ms) o di problemi di stabilità con il flusso Live può verificarsi. Ogni messaggio può aggregare i metadati da più frame se è necessario fornire i metadati a livello di frame. Se si inviano flussi a bitrate multipli, è consigliabile fornire anche i metadati in un solo bitrate solo per ridurre la larghezza di banda ed evitare interferenze con l'elaborazione video/audio. 
 
 Il payload per **"onUserDataEvent"** deve essere un messaggio di formato XML [MPEGDASH] EventStream. In questo modo è facile passare schemi definiti personalizzati che possono essere trasportati in payload ' EMSG ' in banda per il contenuto CMAF [MPEGCMAF] recapitato tramite protocolli HLS o DASH. Ogni messaggio del flusso di eventi DASH contiene un schemeIdUri che funziona come identificatore dello schema dei messaggi URN e definisce il payload del messaggio. Alcuni schemi come "https://aomedia.org/emsg/ID3" per [ID3v2] o **urn: SCTE: scte35:2013: bin** per [SCTE-35] sono standardizzati dai consorzi di settore per l'interoperabilità. Qualsiasi provider di applicazioni può definire un proprio schema personalizzato usando un URL che controlla (di proprietà del dominio) e può fornire una specifica in corrispondenza di tale URL, se scelto. Se un lettore dispone di un gestore per lo schema definito, questo è l'unico componente che deve comprendere il payload e il protocollo.
 
@@ -226,7 +226,7 @@ Singoli eventi o i relativi payload di dati non vengono restituiti direttamente 
 
 ### <a name="additional-informational-constraints-and-defaults-for-onuserdataevent-events"></a>Vincoli informativi e predefiniti aggiuntivi per gli eventi onUserDataEvent
 
-- Se la scala cronologica non è impostata nell'elemento EventStream, per impostazione predefinita viene usata la scala cronologica di RTMP kHz
+- Se la scala cronologica non è impostata nell'elemento EventStream, per impostazione predefinita viene usata la scala cronologica RTMP da 1 kHz
 - Il recapito di un messaggio onUserDataEvent è limitato a una volta ogni 500 ms max. Se gli eventi vengono inviati con maggiore frequenza, può influisca sulla larghezza di banda e sulla stabilità del feed live
 
 ## <a name="212-rtmp-ad-cue-signaling-with-oncuepoint"></a>2.1.2 la segnalazione di un annuncio RTMP con "onCuePoint"

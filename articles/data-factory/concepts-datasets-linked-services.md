@@ -1,6 +1,6 @@
 ---
-title: Set di dati in Data Factory di Azure | Microsoft Docs
-description: Informazioni sui set di dati in Data Factory. I set di dati rappresentano dati di input o di output.
+title: Set di impostazioni in Azure Data Factory | Microsoft Docs
+description: Informazioni sui set di impostazioni in Data Factory. I set di dati rappresentano dati di input o di output.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
-ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbf7159abf88ce70cc62d202a8375aad302a0552
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866458"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019962"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-create-datasets.md)
 > * [Versione corrente](concepts-datasets-linked-services.md)
 
@@ -31,7 +31,7 @@ Se non si ha dimestichezza con Data Factory, vedere [Introduzione al servizio Az
 ## <a name="overview"></a>Panoramica
 Una data factory può comprendere una o più pipeline. Una **pipeline** è un raggruppamento logico di **attività** che insieme eseguono un compito. Le attività in una pipeline definiscono le azioni da eseguire sui dati. Un **set di dati** è una visualizzazione dati denominata che punta o fa riferimento ai dati usati come input e output nelle **attività**. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti. Un set di dati BLOB di Azure, ad esempio, specifica il contenitore BLOB e la cartella nell'archiviazione BLOB da cui l'attività deve leggere i dati.
 
-Prima di creare un set di dati, è necessario creare un [ **servizio collegato** ](concepts-linked-services.md) per collegare l'archivio dati alla data factory. I servizi collegati sono molto simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. In altre parole, il set di dati rappresenta la struttura dei dati all'interno degli archivi dati collegati e il servizio collegato definisce la connessione all'origine dati. Il servizio collegato Archiviazione di Azure,ad esempio, collega l'account di archiviazione alla data factory. Un set di dati BLOB di Azure rappresenta il contenitore BLOB e la cartella all'interno dell'account di archiviazione di Azure che contiene i BLOB di input da elaborare.
+Prima di creare un set di dati, è necessario creare un [**servizio collegato**](concepts-linked-services.md) per collegare l'archivio dati al data factory. I servizi collegati sono molto simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. In altre parole, il set di dati rappresenta la struttura dei dati all'interno degli archivi dati collegati e il servizio collegato definisce la connessione all'origine dati. Il servizio collegato Archiviazione di Azure,ad esempio, collega l'account di archiviazione alla data factory. Un set di dati BLOB di Azure rappresenta il contenitore BLOB e la cartella all'interno dell'account di archiviazione di Azure che contiene i BLOB di input da elaborare.
 
 Di seguito è riportato uno scenario di esempio. Per copiare i dati da un'archiviazione BLOB a un database SQL, si creano due servizi collegati: Archiviazione di Azure e database SQL di Azure. Si creano quindi due set di dati: un set di dati BLOB di Azure, che si riferisce al servizio collegato Archiviazione di Azure, e un set di dati della tabella SQL di Azure, che si riferisce al servizio collegato Database SQL di Azure. I servizi collegati Archiviazione di Azure e Database SQL di Azure contengono stringhe di connessione usate da Data Factory in fase di runtime per connettersi rispettivamente all'archiviazione di Azure e al database SQL di Azure. Il set di dati BLOB di Azure specifica il contenitore e una cartella BLOB che contengono i BLOB di input presenti nell'archiviazione BLOB di Azure. Il set di dati della tabella SQL di Azure specifica la tabella SQL del database SQL in cui verranno copiati i dati.
 
@@ -70,21 +70,21 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 Proprietà | Descrizione | Obbligatorio |
 -------- | ----------- | -------- |
 name | Nome del set di dati. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Yes |
-type | Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipi di set di dati](#dataset-type). | Yes |
-structure | Schema del set di dati. Per informazioni dettagliate, vedere [dello schema di Dataset](#dataset-structure-or-schema). | No |
-typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio BLOB di Azure Blob, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#dataset-type). | Yes |
+type | Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipi di set di dati](#dataset-type). | Sì |
+structure | Schema del set di dati. Per informazioni dettagliate, vedere [schema del set di dati](#dataset-structure-or-schema). | No |
+typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio BLOB di Azure Blob, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#dataset-type). | Sì |
 
-### <a name="data-flow-compatible-dataset"></a>Set di dati compatibile con il flusso dei dati
+### <a name="data-flow-compatible-dataset"></a>Set di dati compatibile con il flusso di dati
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Visualizzare [tipi di set di dati supportati](#dataset-type) per un elenco di tipi di set di dati [flusso di dati](concepts-data-flow-overview.md) compatibile. I set di dati che sono compatibili per il flusso di dati richiedono le definizioni di set di dati con granularità fine per le trasformazioni. Di conseguenza, la definizione JSON è leggermente diversa. Invece di un _struttura_ dispone di proprietà, i set di dati del flusso di dati compatibile con un _schema_ proprietà.
+Per un elenco dei tipi di set di dati compatibili con il [flusso di dati](concepts-data-flow-overview.md) , vedere [tipi di set](#dataset-type) di dati supportati. Per i set di dati compatibili con il flusso di dati sono necessarie definizioni di set di dati con granularità fine per le trasformazioni. Quindi, la definizione JSON è leggermente diversa. Anziché una proprietà di _struttura_ , i set di dati compatibili con il flusso di dati hanno una proprietà _dello schema_ .
 
-Nel flusso di dati, set di dati vengono usati nelle trasformazioni di origine e sink. I set di dati consente di definire gli schemi di dati di base. Se i dati dispongono di alcuno schema, è possibile usare gli orientamenti dello schema per l'origine e sink. Lo schema del set di dati rappresenta il tipo di dati fisico e la forma.
+Nel flusso di dati i set di dati vengono usati nelle trasformazioni di origine e sink. I set di dati definiscono gli schemi di dati di base. Se i dati non hanno alcuno schema, è possibile usare la deriva dello schema per l'origine e il sink. Lo schema nel DataSet rappresenta il tipo di dati fisico e la forma.
 
-Definisce lo schema del set di dati, otterrai i tipi di dati correlati, formati di dati, percorso del file e le informazioni di connessione del servizio collegato associato. I metadati dei set di dati viene visualizzato nella tua trasformazione origine come origine *proiezione*. La proiezione nella trasformazione origine rappresenta i dati del flusso di dati con tipi e nomi definiti.
+Definendo lo schema dal set di dati, si otterranno i tipi di dati correlati, i formati dati, il percorso del file e le informazioni di connessione dal servizio collegato associato. I metadati dei set di dati vengono visualizzati nella trasformazione origine come *proiezione*di origine. La proiezione nella trasformazione origine rappresenta i dati del flusso di dati con nomi e tipi definiti.
 
-Quando si importa lo schema di un set di dati del flusso di dati, selezionare la **Importa Schema** pulsante e scegliere di importare dall'origine o da un file locale. Nella maggior parte dei casi, è possibile importare lo schema direttamente dall'origine. Ma se si dispone già di un file di schema locale (un file Parquet o CSV con intestazioni), è possibile indirizzare Data Factory per lo schema nel file di base.
+Quando si importa lo schema di un set di dati del flusso di dati, selezionare il pulsante **Importa schema** e scegliere di importare dall'origine o da un file locale. Nella maggior parte dei casi, lo schema viene importato direttamente dall'origine. Tuttavia, se si dispone già di un file di schema locale (un file parquet o CSV con intestazioni), è possibile indirizzare Data Factory per basare lo schema su tale file.
 
 
 ```json
@@ -114,10 +114,10 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 
 Proprietà | Descrizione | Obbligatorio |
 -------- | ----------- | -------- |
-name | Nome del set di dati. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Yes |
+name | Nome del set di dati. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Sì |
 type | Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipi di set di dati](#dataset-type). | Yes |
-schema | Schema del set di dati. Per informazioni dettagliate, vedere [flusso di dati compatibile con set di dati](#dataset-type). | No |
-typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio BLOB di Azure Blob, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#dataset-type). | Yes |
+schema | Schema del set di dati. Per informazioni dettagliate, vedere [set di dati compatibili con il flusso di dati](#dataset-type). | No |
+typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio BLOB di Azure Blob, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#dataset-type). | Sì |
 
 
 ## <a name="dataset-example"></a>Esempio di set di dati
@@ -149,7 +149,7 @@ Tenere presente quanto segue:
 ## <a name="dataset-type"></a>Tipo di set di dati
 Esistono molti tipi diversi di set di dati, a seconda dell'archivio dati usato. Vedere la tabella seguente per un elenco di archivi dati supportati da Data Factory. Fare clic su un archivio dati per informazioni su come creare un servizio collegato e un set di dati per tale archivio dati.
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-dataflow.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/connector-activity-support-matrix.md)]
 
 Nell'esempio della sezione precedente, il tipo di set di dati è impostato su **AzureSqlTable**. Analogamente, per un set di dati BLOB di Azure, il tipo di set di dati è impostato su **AzureBlob** come illustrato nel codice JSON seguente:
 
@@ -175,8 +175,8 @@ Nell'esempio della sezione precedente, il tipo di set di dati è impostato su **
 }
 ```
 
-## <a name="dataset-structure-or-schema"></a>Struttura di set di dati o schema
-Il **struttura** sezione o **schema** set di dati di sezione (flusso di dati compatibili) è facoltativo. Definisce lo schema del set di dati presentando una raccolta di nomi e tipi di dati delle colonne. Usare la sezione structure per inserire informazioni sul tipo da usare per convertire i tipi e mappare le colonne dall'origine alla destinazione.
+## <a name="dataset-structure-or-schema"></a>Struttura o schema del set di dati
+I set di dati della sezione della **struttura** o **dello schema** (compatibile con il flusso di dati) sono facoltativi. Definisce lo schema del set di dati presentando una raccolta di nomi e tipi di dati delle colonne. Usare la sezione structure per inserire informazioni sul tipo da usare per convertire i tipi e mappare le colonne dall'origine alla destinazione.
 
 Ogni colonna della struttura contiene le proprietà seguenti:
 
@@ -225,4 +225,4 @@ Vedere le esercitazioni seguenti per istruzioni dettagliate sulla creazione di p
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Avvio rapido: Creare una data factory tramite .NET)
 - [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md) (Avvio rapido: Creare una data factory tramite PowerShell)
 - [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md) (Avvio rapido: Creare una data factory tramite API REST)
-- [Guida introduttiva: creare una data factory usando il portale di Azure](quickstart-create-data-factory-portal.md)
+- [Guida introduttiva: creare un data factory usando portale di Azure](quickstart-create-data-factory-portal.md)

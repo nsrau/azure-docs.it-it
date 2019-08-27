@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/12/2019
-ms.openlocfilehash: 701c266705c16198f35cddc36cdf1d431331c2d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 07/31/2019
+ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847948"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019105"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Avviare, monitorare e annullare le esecuzioni di training in Python
 
@@ -220,9 +220,32 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > Quando si spostano all'esterno dell'ambito, le esecuzioni figlio vengono automaticamente contrassegnate come completate.
 
-È anche possibile avviare le esecuzioni figlio una alla volta, ma poiché ogni creazione genera una chiamata di rete, risulta meno efficiente rispetto all'invio di un batch di esecuzioni.
+Per creare molte esecuzioni figlio in modo efficiente [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) , utilizzare il metodo. Poiché ogni creazione genera una chiamata di rete, la creazione di un batch di esecuzioni è più efficiente della loro creazione una alla volta.
 
-Per eseguire una query sulle esecuzioni figlio di un elemento padre [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) specifico, usare il metodo.
+### <a name="submit-child-runs"></a>Invia esecuzioni figlio
+
+Le esecuzioni figlio possono essere inviate anche da un'esecuzione padre. In questo modo è possibile creare gerarchie di esecuzioni padre e figlio, ciascuna in esecuzione su destinazioni di calcolo diverse, connesse mediante l'ID di esecuzione padre comune.
+
+Usare il metodo [' submit_child ()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) per inviare un'esecuzione figlio dall'interno di un'esecuzione padre. Per eseguire questa operazione nello script di esecuzione padre, ottenere il contesto di esecuzione e inviare l'esecuzione figlio usando il metodo '' submit_child ''' dell'istanza del contesto.
+
+```python
+## In parent run script
+parent_run = Run.get_context()
+child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
+parent_run.submit_child(child_run_config)
+```
+
+All'interno di un'esecuzione figlio, è possibile visualizzare l'ID esecuzione padre:
+
+```python
+## In child run script
+child_run = Run.get_context()
+child_run.parent.id
+```
+
+### <a name="query-child-runs"></a>Eseguire query su esecuzioni figlio
+
+Per eseguire una query sulle esecuzioni figlio di un elemento padre [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) specifico, usare il metodo. L'argomento "'" ricorsivo = true ''' consente di eseguire una query su un albero annidato di elementi figlio e nipoti.
 
 ```python
 print(parent_run.get_children())

@@ -11,16 +11,16 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: a606364503172d5cb1ddcf00262eb81b9423b55b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f2b57aa517c1518929b857eff6aed2ef4e0d8ca1
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569056"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018975"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificazione & individuazione dati del database SQL di Azure e SQL Data Warehouse
 
-Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'**individuazione**, la **classificazione**, l'**aggiunta di etichette**  & (e) la **protezione** dei dati sensibili presenti nei database.
+Individuazione dati & classificazione offre funzionalità avanzate incorporate nel database SQL diAzure per l'individuazione, la **classificazione** & , l'assegnazione di etichette per la**protezione** dei dati sensibili nei database.
 L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
 - Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati.
@@ -76,7 +76,7 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Passare a **Sicurezza dei dati avanzata** sotto l'intestazione Sicurezza nel riquadro del database SQL di Azure. Fare clic per abilitare Sicurezza dei dati avanzata e quindi fare clic sulla scheda **Individuazione dati e classificazione (anteprima)** .
+2. Passare a **Sicurezza dei dati avanzata** sotto l'intestazione Sicurezza nel riquadro del database SQL di Azure. Fare clic per abilitare la sicurezza avanzata dei dati, quindi fare clic sulla scheda **individuazione dati & classificazione** .
 
    ![Eseguire l'analisi di un database](./media/sql-data-discovery-and-classification/data_classification.png)
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 7246a0223e156abd866594c65542069944601b01
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68740904"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018261"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione della rete virtuale del servizio app Azure e come configurarla con le app nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714). [Reti virtuali di Azure][VNETOverview] (Reti virtuali) consente di inserire molte delle risorse di Azure in una rete instradabile non Internet.  
@@ -84,8 +84,9 @@ Questa funzionalità è in anteprima ma è supportata per i carichi di lavoro di
 * L'app e la rete virtuale devono essere nella stessa area
 * Non è possibile eliminare una rete virtuale con un'app integrata. È necessario rimuovere prima l'integrazione 
 * È possibile avere una sola integrazione VNet a livello di area per ogni piano di servizio app. Più app nello stesso piano di servizio app possono usare lo stesso VNet. 
+* Non è possibile modificare la sottoscrizione di un'app o di un piano di servizio app mentre è presente un'app che usa l'integrazione VNet a livello di area
 
-Viene usato un indirizzo per ogni istanza del piano di servizio app. Se l'app è stata ridimensionata a 5 istanze, sono stati usati 5 indirizzi. Poiché non è possibile modificare le dimensioni della subnet dopo l'assegnazione, è necessario usare una subnet sufficientemente grande da contenere la scala che l'app può raggiungere. Un/27 con indirizzi 32 è la dimensione consigliata che può includere un piano di servizio App Premium che viene ridimensionato a 20 istanze.
+Viene usato un indirizzo per ogni istanza del piano di servizio app. Se l'app è stata ridimensionata a 5 istanze, verranno usati 5 indirizzi. Poiché non è possibile modificare le dimensioni della subnet dopo l'assegnazione, è necessario usare una subnet sufficientemente grande da contenere la scala che l'app può raggiungere. Le dimensioni consigliate sono le dimensioni consigliate per/26 con indirizzi 64. Se non si modificano le dimensioni del piano di servizio app, a/27 con indirizzi 32 verranno riportate le istanze del piano di servizio App Premium 20. Quando si ridimensiona un piano di servizio app verso l'alto o verso il basso, sono necessari due volte il numero di indirizzi per un breve periodo di tempo. 
 
 Se si vuole che le app in un altro piano di servizio app raggiungano una VNet connessa già da app in un altro piano di servizio app, è necessario selezionare una subnet diversa da quella usata dall'integrazione VNet preesistente.  
 
@@ -102,6 +103,8 @@ La funzionalità è in anteprima anche per Linux. Per usare la funzionalità di 
    ![Selezionare la rete virtuale e la subnet][7]
 
 Dopo che l'app è stata integrata con la VNet, userà lo stesso server DNS con cui è configurata la VNet. 
+
+L'integrazione VNet a livello di area richiede la delega della subnet di integrazione a Microsoft. Web.  L'interfaccia utente di integrazione di VNet delegherà automaticamente la subnet a Microsoft. Web. Se l'account non dispone di autorizzazioni di rete sufficienti per impostare questa impostazione, sarà necessario disporre di un utente che può impostare gli attributi nella subnet di integrazione per delegare la subnet. Per delegare manualmente la subnet di integrazione, passare all'interfaccia utente della subnet della rete virtuale di Azure e impostare la delega per Microsoft. Web.
 
 Per disconnettere l'app dalla rete virtuale, selezionare **Disconnetti**. L'app Web verrà riavviata. 
 
@@ -248,8 +251,8 @@ Esistono tre addebiti correlati all'uso della funzionalità di integrazione VNet
 * Costi del gateway VPN: un costo per il gateway VNet richiesto per la VPN da punto a sito. I dettagli sono disponibili nella pagina dei [prezzi del gateway VPN][VNETPricing] .
 
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
-La funzionalità è semplice da configurare, ma possono comunque verificarsi problemi durante l'uso. In caso di problemi di accesso all'endpoint desiderato, sono disponibili varie utilità che permettono di testare la connettività dalla console dell'app. Le console disponibili sono due: la console Kudu e la console nel portale di Azure. Per accedere alla console Kudu dalla propria app, selezionare Strumenti -> Kudu. Questa operazione equivale a visitare [nomesito].scm.azurewebsites.net. Dopo l'apertura, passare alla scheda Console di debug. Per accedere alla console ospitata nel portale di Azure dalla propria app, selezionare Strumenti -> Console. 
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+La funzionalità è semplice da configurare, ma possono comunque verificarsi problemi durante l'uso. In caso di problemi di accesso all'endpoint desiderato, sono disponibili varie utilità che permettono di testare la connettività dalla console dell'app. Le console disponibili sono due: la console Kudu e la console nel portale di Azure. Per accedere alla console Kudu dalla propria app, selezionare Strumenti -> Kudu. È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Una volta caricato il sito Web, passare alla scheda Debug Console. Per accedere alla console ospitata nel portale di Azure dalla propria app, selezionare Strumenti -> Console. 
 
 #### <a name="tools"></a>Strumenti
 Gli strumenti **ping**, **nslookup** e **tracert** non funzionano dalla console a causa di vincoli di sicurezza. Per questo motivo sono stati aggiunti due strumenti separati. Per testare la funzionalità del DNS è stato aggiunto lo strumento nameresolver.exe. La sintassi è:

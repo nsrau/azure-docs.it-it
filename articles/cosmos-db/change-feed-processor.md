@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: aecad80bb1b1e95b07b9df4105547406ff76b84c
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 2f0f3d70d51ff35e37506eab1082fc07b16e711c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991528"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018772"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB 
 
@@ -76,7 +76,9 @@ Come indicato durante l'introduzione, il processore del feed delle modifiche pu�
 
 Se si applicano queste tre condizioni, il processore del feed delle modifiche utilizzerà un algoritmo di distribuzione uguale, distribuirà tutti i lease nel contenitore di lease tra tutte le istanze in esecuzione e il calcolo parallelizzare. Un lease può essere di proprietà di un'istanza in un determinato momento, quindi il numero massimo di istanze equivale al numero di lease.
 
-È possibile aumentare e ridurre le istanze e il processore del feed delle modifiche regola dinamicamente il carico ridistribuendo di conseguenza.
+È possibile aumentare e ridurre il numero di istanze e il processore del feed delle modifiche regola dinamicamente il carico ridistribuendo di conseguenza.
+
+Inoltre, il processore del feed delle modifiche può adattarsi dinamicamente alla scalabilità dei contenitori a causa dell'aumento della velocità effettiva o dell'archiviazione. Quando il contenitore si espande, il processore del feed delle modifiche gestisce in modo trasparente questi scenari aumentando dinamicamente i lease e distribuendo i nuovi lease tra le istanze esistenti.
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Feed di modifiche e velocità effettiva di cui viene effettuato il provisioning
 
