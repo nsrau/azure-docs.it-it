@@ -1,6 +1,6 @@
 ---
-title: Configurare le notifiche di manutenzione per le macchine virtuali Windows in Azure | Microsoft Docs
-description: Informazioni su come configurare le notifiche di manutenzione pianificate per le macchine virtuali di Azure.
+title: Monitorare gli eventi pianificati per le macchine virtuali Windows in Azure | Microsoft Docs
+description: Informazioni su come monitorare le macchine virtuali di Azure per gli eventi pianificati.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mysarn
@@ -10,14 +10,14 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 18b46b848946bb2450604bdf0650a004e21778d9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657411"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051848"
 ---
-# <a name="set-up-notifications-about-maintenance-affecting-your-vm"></a>Configurare le notifiche relative alla manutenzione che interessano la macchina virtuale
+# <a name="monitoring-scheduled-events"></a>Eventi pianificati di monitoraggio
 
 Gli aggiornamenti vengono applicati a diverse parti di Azure ogni giorno, per garantire la sicurezza e l'aggiornamento dei servizi. Oltre agli aggiornamenti pianificati, possono verificarsi anche eventi non pianificati. Se, ad esempio, viene rilevato un calo o un errore hardware, i servizi di Azure potrebbero dover eseguire una manutenzione non pianificata. Usando la migrazione in tempo reale, gli aggiornamenti con mantenimento della memoria e che in genere mantengono una rigida barra sull'effetto degli aggiornamenti, nella maggior parte dei casi questi eventi sono quasi trasparenti per i clienti e non hanno alcun effetto o al massimo provocano pochi secondi di blocco della macchina virtuale. Tuttavia, per alcune applicazioni, anche alcuni secondi di blocco della macchina virtuale possono causare un certo effetto. Conoscere in anticipo la prossima manutenzione di Azure è importante per garantire la migliore esperienza per tali applicazioni. [Eventi pianificati servizio](scheduled-events.md) fornisce un'interfaccia a livello di codice per ricevere notifiche sulla manutenzione imminente e consente di gestire correttamente la manutenzione. 
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: 2b87f9bcbaa0fd9d8a23d774e0765e1eb5b56633
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eaf689ecb8fd64dca15570179733b7d7539a352e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563909"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050085"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Segnaposto | Valore |
+| Segnaposto | Value |
 |-------------|-------|
 |{APPLICATION_ID} | ID applicazione dell'app LUIS pubblicata. |
 |{APPLICATION_ENVIRONMENT} | Ambiente dell'app LUIS pubblicata. Usare uno dei valori seguenti:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -200,7 +200,7 @@ Per scaricare il pacchetto sottoposto a training, consultare la [documentazione 
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Il comando usa i parametri seguenti:
 
-| Segnaposto | Value |
+| Segnaposto | Valore |
 |-------------|-------|
 |{API_KEY} | Questa chiave viene usata per avviare il contenitore. Non usare la chiave di avvio. |
 |{ENDPOINT_URI} | Il valore dell'endpoint è disponibile nella pagina `Cognitive Services` Panoramica del portale di Azure. |
@@ -248,7 +248,7 @@ Con il contenitore sono disponibili entrambe le versioni V2 e [v3 (anteprima)](l
 
 Il contenitore fornisce API dell'endpoint di stima di query basate su REST. Gli endpoint per le app pubblicate (staging o produzione) hanno una route _diversa_ rispetto agli endpoint per le app sottoposte a training. 
 
-Usare l'host, `https://localhost:5000`, per le API del contenitore. 
+Usare l'host, `http://localhost:5000`, per le API del contenitore. 
 
 |Tipo di pacchetto|Metodo|Route|Parametri di query|
 |--|--|--|--|
@@ -312,7 +312,7 @@ Dopo il caricamento del log, [esaminare le espressioni dell'endpoint](https://do
 
 Per arrestare il contenitore, nell'ambiente della riga di comando in cui è in esecuzione il contenitore premere **CTRL+C**.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si esegue il contenitore con un punto di [montaggio](luis-container-configuration.md#mount-settings) di output e la registrazione attivata, il contenitore genera file di log utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore. 
 

@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: e3f6ad4338863fcbb35bad4f286b71993cf6fa2a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c2ff2c745ebed8385df0d351c6d43faf5ab1b9d
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854825"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050068"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installare ed eseguire contenitori di rilevatori di anomalie
 
@@ -156,7 +156,7 @@ Ogni contenitore successivo deve essere su una porta diversa.
 
 Il contenitore fornisce API dell'endpoint di stima di query basate su REST. 
 
-Usare l'host, https://localhost:5000, per le API del contenitore.
+Usare l'host, http://localhost:5000, per le API del contenitore.
 
 <!--  ## Validate container is running -->
 

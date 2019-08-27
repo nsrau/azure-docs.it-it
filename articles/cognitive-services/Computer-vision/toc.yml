@@ -147,6 +147,8 @@
           href: computer-vision-how-to-install-containers.md
         - name: Configurare i contenitori
           href: computer-vision-resource-container-config.md
+        - name: Usare con Kubernetes e Jenkins
+          href: deploy-computer-vision-on-premises.md
         - name: Usare istanze di contenitore
           href: deploy-computer-vision-on-container-instances.md
     - name: Usare il servizio connesso di Visione artificiale

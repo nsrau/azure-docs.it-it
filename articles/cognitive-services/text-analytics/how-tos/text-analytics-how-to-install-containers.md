@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: ff0be2e9dada758cce96ba7c5eebbf03b00f56c6
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 8664d0f727c47da1b70b8060f879a49fbbd8c7c5
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971455"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051382"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
@@ -48,54 +48,38 @@ Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequ
 
 La tabella seguente indica i core CPU minimi e consigliati, per una velocità di 2,6 gigahertz (GHz) o superiore, e la memoria, espressa in gigabyte (GB), da allocare per ogni contenitore di Analisi del testo.
 
-| Contenitore | Minima | Consigliato | TPS<br>(Minimo, massimo)|
-|-----------|---------|-------------|--|
-|Estrazione frasi chiave | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |15, 30|
-|Rilevamento lingua | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |15, 30|
-|Analisi del sentiment | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |15, 30|
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[Estrazione frasi chiave](#tab/keyphrase)
+
+[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
+
+#### <a name="language-detectiontablanguage"></a>[Rilevamento lingua](#tab/language)
+
+[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
+
+#### <a name="sentiment-analysistabsentiment"></a>[Analisi del sentiment](#tab/sentiment)
+
+[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
+
+***
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 * TPS - transazioni al secondo
 
 Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[Estrazione frasi chiave](#tab/keyphrase)
 
-Le immagini dei contenitori per Analisi del testo sono disponibili in Registro contenitori di Microsoft.
+[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-| Contenitore | Repository |
-|-----------|------------|
-|Estrazione frasi chiave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Rilevamento lingua | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Analisi del sentiment| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+#### <a name="language-detectiontablanguage"></a>[Rilevamento lingua](#tab/language)
 
-Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore da Microsoft container Registry.
+[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-Per una descrizione completa dei tag disponibili per i contenitori di Analisi del testo, vedere i contenitori seguenti nell'hub Docker:
+#### <a name="sentiment-analysistabsentiment"></a>[Analisi del sentiment](#tab/sentiment)
 
-* [Estrazione frasi chiave](https://go.microsoft.com/fwlink/?linkid=2018757)
-* [Rilevamento lingua](https://go.microsoft.com/fwlink/?linkid=2018759)
-* [Analisi del sentiment](https://go.microsoft.com/fwlink/?linkid=2018654)
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
-Usare il comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore.
-
-### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull per il contenitore di estrazione della frase chiave
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
-
-### <a name="docker-pull-for-the-language-detection-container"></a>Docker pull per il contenitore di rilevamento della lingua
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
-
-### <a name="docker-pull-for-the-sentiment-container"></a>Docker pull per il contenitore del sentiment
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
+***
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -112,23 +96,19 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 Sono disponibili [esempi](../text-analytics-resource-container-config.md#example-docker-run-commands) di comando `docker run`.
 
-### <a name="run-container-example-of-docker-run-command"></a>Esempio di esecuzione del contenitore del comando Docker Run
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[Estrazione frasi chiave](#tab/keyphrase)
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-Questo comando:
+#### <a name="language-detectiontablanguage"></a>[Rilevamento lingua](#tab/language)
 
-* Esegue un contenitore della frase chiave dall'immagine del contenitore
-* Alloca un core CPU e 4 GB di memoria
-* Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore
-* Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
+#### <a name="sentiment-analysistabsentiment"></a>[Analisi del sentiment](#tab/sentiment)
+
+[!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
+
+***
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).

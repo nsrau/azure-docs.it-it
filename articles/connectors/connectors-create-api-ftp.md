@@ -1,21 +1,22 @@
 ---
-title: Connettersi al server FTP - App per la logica di Azure
+title: Connettersi al server FTP-app per la logica di Azure
 description: Creare, monitorare e gestire i file in un server FTP con App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: divswa, klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: 66f1d726dcfa1a077abbff0d9f028036db43cc25
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a73fad3097be73e01a7a2a6652129cd7c9db9555
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293083"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050971"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creare, monitorare e gestire i file FTP usando App per la logica di Azure
 
@@ -30,19 +31,19 @@ Con App per la logica di Azure e il connettore FTP è possibile creare attività
 
 ## <a name="limits"></a>Limiti
 
-* Il connettore FTP supporta solo esplicite FTP over SSL (FTPS) e non è compatibile con FTPS implicito.
+* Il connettore FTP supporta solo FTP su SSL (FTPS) e non è compatibile con FTPS impliciti.
 
-* Per impostazione predefinita, le azioni FTP possano leggere o scrivere i file che sono *50 MB o più piccolo*. Per gestire file di dimensioni superiori a 50 MB, il supporto di azioni FTP [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md). Il **Ottieni contenuto file** azione utilizza in modo implicito la suddivisione in blocchi.
+* Per impostazione predefinita, le azioni FTP possono leggere o scrivere file di *dimensioni di 50 MB o inferiori*. Per gestire i file di dimensioni maggiori di 50 MB, le azioni FTP supportano la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). L'azione **Ottieni contenuto file** USA in modo implicito la suddivisione in blocchi.
 
-* Trigger FTP non supporta la suddivisione in blocchi. La richiesta di contenuto del file, i trigger selezionare solo i file a 50 MB o inferiore. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello:
+* I trigger FTP non supportano la suddivisione in blocchi. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 50 MB o inferiori. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello:
 
   * Usare un trigger FTP che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
 
-  * Il trigger con il protocollo FTP seguire **Ottieni contenuto file** azione, che legge il file completo e utilizza in modo implicito la suddivisione in blocchi.
+  * Seguire il trigger con l'azione FTP **get file content** , che legge il file completo e USA in modo implicito la suddivisione in blocchi.
 
-## <a name="how-ftp-triggers-work"></a>La modalità FTP attiva lavoro
+## <a name="how-ftp-triggers-work"></a>Funzionamento del trigger FTP
 
-Lavoro di trigger FTP tramite il polling del file system FTP e alla ricerca di tutti i file che è stato modificato dall'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
+I trigger FTP funzionano eseguendo il polling del file system FTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
 
 | Client SFTP | Azione |
 |-------------|--------|
@@ -76,7 +77,7 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
    Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione scegliere **Nuovo passaggio** e quindi selezionare **Aggiungi un'azione**. Nella casella di ricerca immettere "ftp" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Scegliere il segno più ( **+** ) che viene visualizzato e selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Scegliere il segno più ( **+** ) visualizzato e selezionare **Aggiungi un'azione**.
 
 1. Specificare i dettagli necessari per la connessione, quindi scegliere **Creare**.
 
@@ -102,7 +103,7 @@ Ecco un esempio che illustra questo trigger: **Quando viene aggiunto o modificat
 
 1. Specificare i dettagli necessari per la connessione, quindi scegliere **Creare**.
 
-   Per impostazione predefinita, questo connettore trasferisce i file in formato testo. Al trasferimento di file in formato binario di formato, ad esempio, dove e quando viene utilizzata la codifica, selezionare **trasporto binario**.
+   Per impostazione predefinita, questo connettore trasferisce i file in formato testo. Per trasferire i file in formato binario, ad esempio dove e quando viene usata la codifica, selezionare **trasporto binario**.
 
    ![Creare la connessione al server FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
@@ -146,7 +147,7 @@ Ecco un esempio che illustra questa azione: **Ottenere il contenuto**
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche dettagliate sui limiti, azioni e trigger, che sono descritte da OpenAPI del connettore (in precedenza Swagger) descrizione, rivedere le [pagina di riferimento del connettore](/connectors/ftpconnector/).
+Per informazioni tecniche su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento del connettore](/connectors/ftpconnector/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

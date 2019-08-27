@@ -12,19 +12,20 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: add5584ccf3d9d6837e328bbf70d71598e5c0839
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 339a4f93d45b3d3b3e242aa735ce4b737a9292f0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694302"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035966"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Trasformare i dati con Azure Machine Learning Data Prep SDK
 
 In questo articolo vengono illustrati i diversi metodi di trasformazione dei dati tramite il `azureml-dataprep` pacchetto. Il pacchetto offre funzioni che semplificano l'aggiunta di colonne, il filtro di righe o colonne indesiderate e l'imputazione dei valori mancanti. Vedere la documentazione di riferimento completa per il [pacchetto azureml-dataprep](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Se si compila una nuova soluzione, provare i set di dati [Azure Machine Learning](how-to-explore-prepare-data.md) (anteprima) per trasformare i dati, i dati dello snapshot e archiviare le definizioni del set di dati con versione. DataSets è la versione successiva di data Prep SDK, che offre funzionalità espanse per la gestione dei set di dati nelle soluzioni di intelligenza artificiale. Se si utilizza il `azureml-dataprep` pacchetto per creare un flusso di dati con le trasformazioni anziché utilizzare il `azureml-datasets` pacchetto per creare un set di dati, non sarà possibile utilizzare snapshot o set di dati con versione in un secondo momento.
+> Se si compila una nuova soluzione, provare i set di dati [Azure Machine Learning](how-to-explore-prepare-data.md) (anteprima) per trasformare i dati, i dati dello snapshot e archiviare le definizioni del set di dati con versione. DataSets è la versione successiva di data Prep SDK, che offre funzionalità espanse per la gestione dei set di dati nelle soluzioni di intelligenza artificiale.
+> Se si utilizza il `azureml-dataprep` pacchetto per creare un flusso di dati con le trasformazioni anziché utilizzare il `azureml-datasets` pacchetto per creare un set di dati, non sarà possibile utilizzare snapshot o set di dati con versione in un secondo momento.
 
 In questa procedura vengono illustrati esempi per le attività seguenti:
 
@@ -345,7 +346,7 @@ Usare il generatore di espressioni `col`, specificare il nome di colonna come ar
 
 In questo esempio `dflow.filter(col('Tip_amount') > 0)` restituisce un nuovo flusso di dati con le righe in cui il valore di `Tip_amount` è maggiore di 0.
 
-> [!NOTE] 
+> [!NOTE]
 > `Tip_amount` viene prima convertito in numerico, il che consente di compilare un'espressione che lo confronta con altri valori numerici.
 
 ```python
@@ -517,4 +518,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un esempio di risoluzione di uno scenario specifico, vedere l' [esercitazione](tutorial-data-prep.md) Azure Machine Learning data Prep SDK.
+* Per informazioni dettagliate, vedere la [documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#dataprep) di Azure Machine Learning data Prep SDK.

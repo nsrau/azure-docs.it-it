@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 08/21/2019
 ms.author: dapine
-ms.openlocfilehash: 65d88e6c201f633a260e31544444341e636e9941
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f1c42002343de1dd3b3ef6b9c9e35f458db925f4
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552256"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051102"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurare i contenitori docker di Analisi del testo
 
@@ -49,7 +49,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 * Portale di Azure: **Analisi del testo** Panoramica, con etichetta`Endpoint`
 
-|Obbligatoria| NOME | Tipo di dati | Descrizione |
+|Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
 |Sì| `Billing` | String | URI dell'endpoint di fatturazione obbligatorio |
 
@@ -77,7 +77,7 @@ Il contenitore Analisi del testo non usa montaggi di input o output per archivia
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](how-tos/text-analytics-how-to-install-containers.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| Name | Tipo di dati | Descrizione |
+|Facoltativo| Name | Tipo di dati | DESCRIZIONE |
 |-------|------|-----------|-------------|
 |Non consentito| `Input` | String | I contenitori di Analisi del testo non la usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -91,62 +91,28 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Segnaposto | Valore | Formato o esempio |
+| Segnaposto | Value | Formato o esempio |
 |-------------|-------|---|
-|{API_KEY} | Chiave dell'endpoint della `Text Analytics` risorsa disponibile nella pagina chiavi di Azure. `Text Analytics` |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-|{ENDPOINT_URI} | Il valore dell'endpoint di fatturazione è disponibile nella `Text Analytics` pagina Panoramica di Azure.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+| **{API_KEY}** | Chiave dell'endpoint della `Text Analytics` risorsa disponibile nella pagina chiavi di Azure. `Text Analytics` |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `Text Analytics` pagina Panoramica di Azure.| Vedere [raccolta di parametri obbligatori](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) per esempi espliciti. |
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](how-tos/text-analytics-how-to-install-containers.md#billing).
 > Il valore APIKEY è la **chiave** della pagina chiavi `Text Analytics` di risorsa di Azure. 
 
-## <a name="key-phrase-extraction-container-docker-examples"></a>Esempi di contenitori Docker di estrazione di frasi chiave
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[Estrazione frasi chiave](#tab/keyphrase)
 
-Gli esempi di Docker seguenti sono per il contenitore di estrazione frase chiave. 
+[!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
 
-### <a name="basic-example"></a>Esempio di base 
+#### <a name="language-detectiontablanguage"></a>[Rilevamento lingua](#tab/language)
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
-  ```
+[!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
 
-### <a name="logging-example"></a>Esempio di registrazione 
+#### <a name="sentiment-analysistabsentiment"></a>[Analisi del sentiment](#tab/sentiment)
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
-  ```
+[!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
 
-## <a name="language-detection-container-docker-examples"></a>Esempi di contenitori docker per il rilevamento della lingua
-
-Gli esempi docker seguenti sono per il contenitore di rilevamento della lingua. 
-
-### <a name="basic-example"></a>Esempio di base
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
-  ```
-
-### <a name="logging-example"></a>Esempio di registrazione
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
-  ```
- 
-## <a name="sentiment-analysis-container-docker-examples"></a>Esempi di contenitori docker per l'analisi del sentiment
-
-Gli esempi docker seguenti sono per il contenitore di analisi del sentiment. 
-
-### <a name="basic-example"></a>Esempio di base
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
-  ```
-
-### <a name="logging-example"></a>Esempio di registrazione
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
-  ```
+***
 
 ## <a name="next-steps"></a>Passaggi successivi
 

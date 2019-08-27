@@ -1,21 +1,22 @@
 ---
-title: Connettersi all'archiviazione blob di Azure - App per la logica di Azure
+title: "Connettersi all'archivio BLOB di Azure: app per la logica di Azure"
 description: Creare e gestire BLOB in Archiviazione di Azure con App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: d9c29837e99d327112e6a9d648a5c56cc35e8555
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: d57ea1a881980203b1c8f216239b27b64f0d71cd
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296626"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051047"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Creare e gestire BLOB in Archiviazione BLOB di Azure con App per la logica di Azure
 
@@ -34,13 +35,13 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="limits"></a>Limiti
 
-* Per impostazione predefinita, le azioni di archiviazione Blob di Azure possano leggere o scrivere i file che sono *50 MB o più piccolo*. Per gestire file di dimensioni superiori a 50 MB, ma fino a 1024 MB, le azioni di archiviazione Blob di Azure supportano [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md). Il **contenuto blob Get** azione utilizza in modo implicito la suddivisione in blocchi.
+* Per impostazione predefinita, le azioni di archiviazione BLOB di Azure possono leggere o scrivere file di *dimensioni di 50 MB o inferiori*. Per gestire file di dimensioni superiori a 50 MB ma fino a 1024 MB, le azioni di archiviazione BLOB di Azure supportano la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). L'azione **Ottieni contenuto BLOB** utilizza in modo implicito la suddivisione in blocchi.
 
-* Trigger di archiviazione Blob di Azure non supportano la suddivisione in blocchi. La richiesta di contenuto del file, i trigger selezionare solo i file a 50 MB o inferiore. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello:
+* I trigger di archiviazione BLOB di Azure non supportano la suddivisione in blocchi. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 50 MB o inferiori. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello:
 
-  * Usare un trigger di archiviazione Blob di Azure che restituisce le proprietà del file, ad esempio **quando un blob viene aggiunto o modificato (solo proprietà)** .
+  * Usare un trigger di archiviazione BLOB di Azure che restituisce le proprietà del file, ad esempio **quando un BLOB viene aggiunto o modificato (solo proprietà)** .
 
-  * Seguire il trigger di archiviazione Blob di Azure **contenuto blob Get** azione, che legge il file completo e utilizza in modo implicito la suddivisione in blocchi.
+  * Seguire il trigger con l'azione **Ottieni contenuto BLOB** di archiviazione BLOB di Azure, che legge il file completo e USA in modo implicito la suddivisione in blocchi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,15 +57,15 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 In App per la logica di Azure, ogni app per la logica deve essere avviata con un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), che viene attivato quando si verifica un determinato evento o quando viene soddisfatta una condizione specifica. Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica e avvia l'esecuzione del flusso di lavoro dell'app.
 
-Questo esempio viene illustrato come è possibile avviare un flusso di lavoro app per la logica con il **quando un blob viene aggiunto o modificato (solo proprietà)** trigger quando le proprietà del blob Ottiene aggiunti o aggiornati nel contenitore di archiviazione.
+Questo esempio illustra come avviare un flusso di lavoro di un'app per la logica con il trigger **quando un BLOB viene aggiunto o modificato (solo proprietà)** quando si aggiungono o si aggiornano le proprietà di un BLOB nel contenitore di archiviazione.
 
-1. Nel [portale di Azure](https://portal.azure.com) o Visual Studio, creare un'app per la logica vuota, che verrà visualizzata la finestra di progettazione App per la logica. Questo esempio usa il portale di Azure.
+1. Nel [portale di Azure](https://portal.azure.com) o in Visual Studio creare un'app per la logica vuota, che apre progettazione app per la logica. Questo esempio usa il portale di Azure.
 
 2. Nella casella di ricerca immettere "BLOB di Azure" come filtro. Nell'elenco di trigger selezionare il trigger desiderato.
 
-   Questo esempio viene usato questo trigger: **Quando un blob viene aggiunto o modificato (solo proprietà)**
+   Questo esempio usa questo trigger: **Quando un BLOB viene aggiunto o modificato (solo proprietà)**
 
-   ![Selezionare il trigger](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
+   ![Seleziona trigger](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
 3. Se vengono chiesti i dati della connessione, [creare la connessione all'archiviazione BLOB](#create-connection). Se la connessione è già presente, fornire le informazioni necessarie per il trigger.
 
@@ -90,15 +91,15 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 1. Nel [portale di Azure](https://portal.azure.com) o in Visual Studio aprire l'app per la logica in Logic App Designer (Progettazione app per la logica). Questo esempio usa il portale di Azure.
 
-2. In Progettazione App per la logica, sotto il trigger o azione, scegliere **nuovo passaggio**.
+2. Nella finestra di progettazione dell'app per la logica, sotto il trigger o l'azione, scegliere **nuovo passaggio**.
 
-   ![Aggiungere un'azione](./media/connectors-create-api-azureblobstorage/add-action.png) 
+   ![Aggiungi un'azione](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-   Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Scegliere il segno più ( **+** ) che viene visualizzato e selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Scegliere il segno più ( **+** ) visualizzato e selezionare **Aggiungi un'azione**.
 
 3. Nella casella di ricerca immettere "BLOB di Azure" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
 
-   Questo esempio Usa questa azione: **Recupera contenuto blob**
+   Questo esempio usa questa azione: **Ottenere il contenuto del BLOB**
 
    ![Seleziona azione](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
 
@@ -128,7 +129,7 @@ Questo esempio ottiene solo i contenuti di un BLOB. Per visualizzare i contenuti
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio trigger, azioni e i limiti, come descritto da Openapi del connettore (in precedenza Swagger), vedere la [pagina di riferimento del connettore](/connectors/azureblobconnector/).
+Per informazioni tecniche, ad esempio trigger, azioni e limiti, come descritto dal file Open API (in precedenza spavalderia) del connettore, vedere la [pagina di riferimento del connettore](/connectors/azureblobconnector/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

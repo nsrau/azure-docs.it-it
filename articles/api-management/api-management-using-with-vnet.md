@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 338ceef8ce94e97f7569f85b0079f75aed033612
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 18bbeb2b4936b1c8a03ffdc7eade8dc92d094fde
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558630"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050600"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (reti virtuali) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -140,7 +140,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 + **Inoltro SMTP**: Connettività di rete in uscita per l'inoltro SMTP, che viene risolto `smtpi-co1.msn.com`nell'host `smtpi-db3.msn.com`, `smtpi-ch1.msn.com` `smtpi-sin.msn.com` , e`ies.global.microsoft.com`
 
-+ **CAPTCHA del portale per sviluppatori**: connettività di rete in uscita per il CAPTCHA del portale degli sviluppatori, che si risolve nell'host `client.hip.live.com`.
++ **CAPTCHA del portale per sviluppatori**: Connettività di rete in uscita per il captcha del portale per sviluppatori, che risolve gli host `client.hip.live.com` e. `partner.hip.live.com`
 
 + **Diagnostica del portale di Azure**: per abilitare il flusso dei log di diagnostica dal portale di Azure quando si usa l'estensione di Gestione API dall'interno di una rete virtuale, è richiesto l'accesso in uscita a `dc.services.visualstudio.com` sulla porta 443. Ciò consente di risolvere eventuali problemi che potrebbero verificarsi quando si usa l'estensione.
 

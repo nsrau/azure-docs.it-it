@@ -1,21 +1,22 @@
 ---
-title: Connettersi a Excel Online - App per la logica di Azure
+title: Connettersi a Excel online-app per la logica di Azure
 description: Gestire i dati con le API REST di Excel Online e App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-tags: connectors
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2018
-ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+tags: connectors
+ms.openlocfilehash: 5d0d276096441c780dee4f8b1e95442a1d7e7b25
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311965"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050922"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gestire i dati di Excel Online con App per la logica di Azure
 
@@ -34,7 +35,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Un [account di Office 365](https://www.office.com/) per l'account aziendale o l'account Microsoft personale.
 
@@ -53,7 +54,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 1. Nella casella di ricerca digitare "excel" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
-1. Se viene chiesto di accedere all'account di Office 365, scegliere **Accedi**.
+1. Se richiesto, accedere all'account Office 365.
 
    Le credenziali autorizzano l'app per la logica alla creazione di una connessione a Excel Online e all'accesso ai dati.
 
@@ -61,15 +62,10 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio trigger, azioni e i limiti, come descritto dalla definizione OpenAPI del connettore (in precedenza Swagger) i file, vedere le pagine di riferimento del connettore:
+Per informazioni tecniche, ad esempio trigger, azioni e limiti, come descritto nei file OpenAPI (in precedenza spavalderia) del connettore, vedere le pagine di riferimento del connettore seguenti:
 
 * [Excel Online (Business)](/connectors/excelonlinebusiness/)
 * [Excel Online (OneDrive)](/connectors/excelonline/)
-
-## <a name="get-support"></a>Supporto
-
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

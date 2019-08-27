@@ -11,12 +11,12 @@ ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09d4a6acf93f5fb01c70f9e9bd935c404c5abf50
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104902"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050714"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Gestire i messaggi in Twilio con App per la logica di Azure
 
@@ -24,7 +24,7 @@ Con App per la logica di Azure e il connettore Twilio, è possibile creare attiv
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * Da [Twilio](https://www.twilio.com/): 
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2b7f2b0e20e85e1e62f8efabb81eddd5f901f2
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: eb4486c889dec29f81b57605c3ccee510242f832
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991106"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035134"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a Power BI mobile con Azure AD proxy di applicazione
 
@@ -37,7 +37,7 @@ Questo articolo presuppone che siano già stati distribuiti i servizi di report 
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Passaggio 1: Configurare la delega vincolata Kerberos
 
-Per le applicazioni locali che usano l'autenticazione di Windows, è possibile ottenere l'accesso Single Sign-On (SSO) con il protocollo di autenticazione Kerberos e una funzionalità chiamata delega vincolata Kerberos. Quando è configurato, delega vincolata Kerberos consente al connettore del proxy di applicazione di ottenere un token Windows per un utente, anche se l'utente non ha effettuato l'accesso direttamente a Windows. Per altre informazioni su delega vincolata Kerberos, vedere [Cenni preliminari sulla delega vincolata Kerberos](https://technet.microsoft.com/library/jj553400.aspx) e [la delega vincolata Kerberos per l'accesso Single Sign-on alle app con il proxy di applicazione](application-proxy-configure-single-sign-on-with-kcd.md).
+Per le applicazioni locali che usano l'autenticazione di Windows, è possibile ottenere l'accesso Single Sign-On (SSO) con il protocollo di autenticazione Kerberos e una funzionalità chiamata delega vincolata Kerberos. Quando è configurato, delega vincolata Kerberos consente al connettore del proxy di applicazione di ottenere un token Windows per un utente, anche se l'utente non ha effettuato l'accesso direttamente a Windows. Per altre informazioni su delega vincolata Kerberos, vedere [Cenni preliminari sulla delega vincolata Kerberos](https://technet.microsoft.com/library/jj553400.aspx) e [la delega vincolata Kerberos per Single Sign-on alle app con il proxy di applicazione](application-proxy-configure-single-sign-on-with-kcd.md).
 
 Non è molto necessario configurare sul lato Reporting Services. Assicurarsi di avere un nome dell'entità servizio (SPN) valido per consentire l'autenticazione Kerberos corretta. Verificare inoltre che il Server Reporting Services sia abilitato per l'autenticazione Negotiate.
 
@@ -75,7 +75,7 @@ Per configurare delega vincolata Kerberos, ripetere i passaggi seguenti per ogni
 6. Immettere l'account del servizio che si sta usando per Reporting Services. Si tratta dell'account a cui è stato aggiunto il nome SPN all'interno della configurazione del Reporting Services.
 7. Fare clic su **OK**. Per salvare le modifiche, fare di nuovo clic su **OK** .
 
-Per altre informazioni, vedere [delega vincolata Kerberos per l'accesso Single Sign-on alle app con il proxy di applicazione](application-proxy-configure-single-sign-on-with-kcd.md).
+Per altre informazioni, vedere [delega vincolata Kerberos per Single Sign-on alle app con il proxy di applicazione](application-proxy-configure-single-sign-on-with-kcd.md).
 
 ## <a name="step-2-publish-report-services-through-azure-ad-application-proxy"></a>Passaggio 2: Pubblicare i servizi di report tramite Azure AD proxy di applicazione
 
@@ -103,28 +103,27 @@ A questo punto si è pronti per configurare Azure AD proxy di applicazione.
 
 Per completare la configurazione dell'applicazione, passare alla sezione **utenti e gruppi** e assegnare agli utenti l'accesso a questa applicazione.
 
-## <a name="step-3-grant-power-bi-mobile-access-to-report-services"></a>Passaggio 3: Concedere Power BI accesso mobile a report Services
+## <a name="step-3-modify-the-reply-uris-for-the-application"></a>Passaggio 3: Modificare l'URI di risposta per l'applicazione
 
-Prima che l'app per dispositivi mobili Power BI possa connettersi e accedere ai servizi di report, è necessario registrarsi correttamente in Azure AD.  
+Prima che l'app per dispositivi mobili Power BI possa connettersi e accedere a servizi di report, è necessario configurare la registrazione dell'applicazione creata automaticamente nel passaggio 2. 
 
 1. Nella pagina **panoramica** Azure Active Directory selezionare **registrazioni app**.
 2. Nella scheda **tutte le applicazioni** cercare l'applicazione creata nel passaggio 2.
 3. Selezionare l'applicazione, quindi selezionare **autenticazione**.
 4. Aggiungere gli URI di reindirizzamento seguenti in base alla piattaforma in uso.
 
-   Quando si registra l'app per Power BI **iOS**per dispositivi mobili, aggiungere gli URI di reindirizzamento seguenti di tipo public client (Mobile & desktop):
+   Quando si configura l'app per Power BI **iOS**per dispositivi mobili, aggiungere gli URI di reindirizzamento seguenti di tipo public client (Mobile & desktop):
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
    
-   Quando si registra l'app per Power BI mobile **Android**, aggiungere gli URI di reindirizzamento seguenti di tipo public client (Mobile & desktop):
+   Quando si configura l'app per Power BI mobile **Android**, aggiungere gli URI di reindirizzamento seguenti di tipo public client (Mobile & desktop):
    - `urn:ietf:wg:oauth:2.0:oob`
+   - `mspbi-adal://com.microsoft.powerbimobile`
 
    > [!IMPORTANT]
-   > Per il corretto funzionamento dell'applicazione, è necessario aggiungere gli URI di reindirizzamento. Se si sta configurando questo per iOS e Android, è sufficiente registrare una **singola** applicazione e aggiungere gli URI di reindirizzamento sia per iOS che per Android. Se sono necessarie applicazioni separate per ogni piattaforma, sarà necessario includere l'URI di reindirizzamento: `mspbi-adal://com.microsoft.powerbimobile` per entrambe le app.
-
-2. Ora che è stata registrata l'applicazione nativa, è possibile concedere l'accesso ad altre applicazioni nella directory, in questo caso per accedere ai servizi di report pubblicati tramite il proxy di applicazione. Seguire i passaggi descritti [in passaggio 3: Concedere l'accesso all'applicazione](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application)proxy.
+   > Per il corretto funzionamento dell'applicazione, è necessario aggiungere gli URI di reindirizzamento. Se si configura l'app per dispositivi mobili Power BI iOS e Android, aggiungere l'URI di reindirizzamento seguente di tipo public client (Mobile & desktop) all'elenco degli URI di reindirizzamento configurati per `urn:ietf:wg:oauth:2.0:oob`iOS:.
 
 ## <a name="step-4-connect-from-the-power-bi-mobile-app"></a>Passaggio 4: Connettersi dall'app per dispositivi mobili Power BI
 

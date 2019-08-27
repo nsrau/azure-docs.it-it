@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 55dc712d323c43849fa3de23c83e29fc348a0f1e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 6f43bbcd83861f7d39de2aa89bbe035c2ff5b809
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404021"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050461"
 ---
 <!-- This tells how to create a custom shared access policy for your IoT hub and get the connection string for it-->
 
 Per creare un criterio di accesso condiviso che conceda le autorizzazioni di connessione al **servizio** e **del registro di sistema** e ottenere una stringa di connessione per questo criterio, attenersi alla procedura seguente:
 
-1. Aprire l'hub Internet delle cose nel [portale di Azure](https://portal.azure.com). Il modo più semplice per ottenere l'hub Internet è quello di selezionare i **gruppi di risorse**, selezionare il gruppo di risorse in cui si trova l'hub Internet e quindi selezionare l'hub delle cose dall'elenco di risorse.
+1. Nella [portale di Azure](https://portal.azure.com)selezionare gruppi di **risorse**. Selezionare il gruppo di risorse in cui si trova l'hub e quindi selezionare l'hub dall'elenco di risorse.
 
-2. Nel riquadro sinistro dell'hub Internet, selezionare **criteri di accesso condiviso**.
+1. Nel riquadro a sinistra dell'hub selezionare **criteri di accesso condiviso**.
 
-3. Dal menu superiore sopra l'elenco di criteri selezionare **Aggiungi**.
+1. Dal menu superiore sopra l'elenco di criteri selezionare **Aggiungi**.
 
-4. Nel riquadro **Aggiungi criteri di accesso condiviso** immettere un nome descrittivo per il criterio. ad esempio: *serviceAndRegistryRead*. In **autorizzazioni**selezionare **Registro di sistema lettura** e **servizio Connetti**e quindi selezionare **Crea**.
+1. In **Aggiungi un criterio di accesso condiviso**immettere un nome descrittivo per il criterio, ad esempio *serviceAndRegistryRead*. In **autorizzazioni**selezionare **Registro di sistema lettura** e **servizio Connetti**e quindi selezionare **Crea**.
 
     ![Mostra come aggiungere nuovi criteri di accesso condiviso](./media/iot-hub-include-find-custom-connection-string/iot-hub-add-custom-policy.png)
 
-5. Tornare al riquadro **criteri di accesso condivisi** e selezionare i nuovi criteri dall'elenco dei criteri.
+1. Selezionare il nuovo criterio dall'elenco dei criteri.
 
-6. In **chiavi di accesso condivise**selezionare l'icona di copia per la **stringa di connessione--chiave primaria** e salvare il valore.
+1. In **chiavi di accesso condivise**selezionare l'icona di copia per la **stringa di connessione--chiave primaria** e salvare il valore.
 
     ![Mostrare come recuperare la stringa di connessione](./media/iot-hub-include-find-custom-connection-string/iot-hub-get-connection-string.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479805"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051826"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -35,11 +35,12 @@ Connettore di Gestione dei servizi IT supporta le connessioni con gli strumenti 
 -   Provance
 -   Cherwell
 
-Con Connettore di Gestione dei servizi IT, è possibile
+Con Gestione dei servizi IT è possibile:
 
 -  Creare elementi di lavoro nello strumento di Gestione dei servizi IT in base agli avvisi di Azure (avvisi relativi alle metriche, avvisi del log attività e avvisi di Log Analytics).
 -  Facoltativamente, è possibile sincronizzare i dati degli eventi imprevisti e delle richieste di modifica dallo strumento di Gestione dei servizi IT a un'area di lavoro Azure Log Analytics.
 
+Scopri di più sulle [condizioni legali e sull'informativa sulla privacy](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 
 È possibile iniziare a usare Connettore di Gestione dei servizi IT seguendo questa procedura:
 
@@ -63,7 +64,7 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
 3. Nella sezione **Area di lavoro di OMS** selezionare l'area di lavoro Azure Log Analytics dove si vuole installare la soluzione.
    >[!NOTE]
    > * In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
-   > * Il connettore di gestione dei servizi IT può essere installato solo nelle aree di lavoro di Log Analitica nelle aree seguenti: Stati Uniti orientali, Europa occidentale, Asia sudorientale, Australia sudorientale, occidentale Stati Uniti centrali, Giappone orientale, Regno Unito meridionale, India centrale, Canada centrale.
+   > * Il connettore ITSM può essere installato solo nelle aree di lavoro Log Analytics nelle aree seguenti: Stati Uniti orientali, Europa occidentale, Asia sudorientale, Australia sudorientale, Stati Uniti centro-occidentali, Giappone orientale, Regno Unito meridionale, India centrale, Canada centrale.
 
 4. Nella sezione **Impostazioni dell'area di lavoro OMS** selezionare il gruppo di risorse in cui si vuole creare la risorsa soluzione.
 
@@ -103,7 +104,7 @@ Una volta preparati gli strumenti di Gestione dei servizi IT, seguire la procedu
 4. Specificare le impostazioni di connessione come descritto nell'articolo [Configurazione della connessione di Connettore di Gestione dei servizi IT con i prodotti e i servizi di Gestione dei servizi IT](../../azure-monitor/platform/itsmc-connections.md).
 
    > [!NOTE]
-   > 
+   >
    > Per impostazione predefinita, Connettore di Gestione dei servizi IT aggiorna i dati di configurazione della connessione ogni 24 ore. Per aggiornare i dati della connessione immediatamente in caso di eventuali modifiche o aggiornamenti del modello, fare clic sul pulsante **Sincronizza** nel pannello della connessione.
 
    ![Aggiornamento della connessione](media/itsmc-overview/itsmc-connections-refresh.png)
@@ -141,7 +142,7 @@ Utilizzare la procedura seguente:
 Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni con un'azione Gestione dei servizi IT. Quando l'avviso viene attivato, nello strumento di Gestione dei servizi IT viene creato o aggiornato un elemento di lavoro.
 
 > [!NOTE]
-> 
+>
 > Per informazioni sui prezzi delle azioni di Gestione dei servizi IT, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per i gruppi di azioni.
 
 
@@ -174,7 +175,7 @@ Gli eventi imprevisti e le richieste di modifica vengono sincronizzati dal prodo
 Le informazioni seguenti mostrano esempi di dati raccolti da Connettore di Gestione dei servizi IT:
 
 > [!NOTE]
-> 
+>
 > A seconda del tipo di elemento di lavoro importato in Log Analytics, **ServiceDesk_CL** contiene i campi seguenti:
 
 **Elemento di lavoro:** **Eventi imprevisti**  
@@ -291,7 +292,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
    - assicurarsi di immettere correttamente il nome utente, la password, l'ID client e il segreto client per ognuna delle connessioni.  
    - controllare se si hanno privilegi sufficienti nel prodotto ITSM corrispondente per stabilire la connessione.  
    - Per le connessioni Service Manager,  
-   - verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare la connessione è stata stabilita con la macchina di Service Manager on premises, visitare l'URL dell'app Web come descritto in dettaglio nella documentazione per la creazione di [connessione ibrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+   - verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione sia stata stabilita correttamente con il computer locale Service Manager, visitare l'URL dell'app Web come descritto in dettaglio nella documentazione per la creazione della [connessione ibrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2. Se i dati provenienti da ServiceNow non vengono sincronizzati con Log Analytics, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Le istanze di sviluppo di ServiceNow a volte vanno in sospensione se rimangono inattive a lungo. In caso contrario, segnalare il problema.
 3. Se vengono generati avvisi di Log Analytics, ma gli elementi di lavoro non vengono creati nel prodotto di Gestione dei servizi IT o gli elementi di configurazione non vengono creati o collegati a elementi di lavoro o per qualsiasi altra informazione generica, fare riferimento a quanto segue:

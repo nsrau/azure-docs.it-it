@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e93f78cf07cd4815e5b17ffd3953db121adb6535
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 7b022f71e197c5695876f2049ee376c3616afc6d
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558833"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70049072"
 ---
 <!-- put the ## header in the file that includes this file -->
 
-In questa sezione si creerà un'identità del dispositivo nel registro delle identità dell'hub IoT. Un dispositivo non è in grado di connettersi a un hub a meno che non includa una voce nel registro delle identità. Per ulteriori informazioni, vedere la sezione "Registro di identità" della [Guida](../articles/iot-hub/iot-hub-devguide-identity-registry.md)per gli sviluppatori dell'hub Internet.
+In questa sezione si creerà un'identità del dispositivo nel registro delle identità dell'hub IoT. Un dispositivo non è in grado di connettersi a un hub a meno che non includa una voce nel registro delle identità. Per ulteriori informazioni, vedere la [Guida](../articles/iot-hub/iot-hub-devguide-identity-registry.md#identity-registry-operations)per gli sviluppatori dell'hub Internet.
 
 1. Nel menu di navigazione dell'hub Internet, aprire **dispositivi**e quindi selezionare **nuovo** per aggiungere un dispositivo all'hub.
 

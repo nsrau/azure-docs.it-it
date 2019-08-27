@@ -11,12 +11,12 @@ ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22b75b2d2b47dbd496eda06c09b418ae66f6403a
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104987"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050697"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitorare e gestire Twitter con App per la logica di Azure
 
@@ -29,7 +29,7 @@ Con App per la logica di Azure e il connettore Twitter, è possibile creare atti
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * Account Twitter e credenziali utente
 
@@ -70,15 +70,15 @@ Con App per la logica di Azure e il connettore Twitter, è possibile creare atti
 
 ## <a name="examples"></a>Esempi
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Trigger di Twitter: Quando viene visualizzato un nuovo tweet
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Trigger Twitter: Quando viene visualizzato un nuovo tweet
 
 Questo trigger avvia un flusso di lavoro di un'app per la logica quando il trigger rileva un nuovo tweet, ad esempio con l'hashtag #Seattle. Così, ad esempio, quando questi tweet vengono rilevati, è possibile aggiungere un file con il contenuto dei tweet alla risorsa di archiviazione, ad esempio un account Dropbox utilizzando il connettore Dropbox. 
 
 Facoltativamente, è possibile includere una condizione secondo cui i tweet idonei devono provenire da utenti con almeno un numero specificato di follower.
 
-**Esempio riguardante un'organizzazione**: È possibile usare questo trigger per monitorare i TWEET sulla tua azienda e caricare il contenuto dei TWEET in un database SQL.
+**Esempio riguardante un'organizzazione**: È possibile usare questo trigger per monitorare i tweet relativi all'azienda e caricare il contenuto dei Tweet in un database SQL.
 
-### <a name="twitter-action-post-a-tweet"></a>Azione di Twitter: Pubblica un tweet
+### <a name="twitter-action-post-a-tweet"></a>Azione Twitter: Pubblica un tweet
 
 Questa azione pubblica un tweet, ma è possibile impostare l'azione in modo che il tweet contenga il contenuto dei tweet trovati dal trigger precedentemente descritto. 
 

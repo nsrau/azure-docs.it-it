@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: 6b6227827e8d1efbb1d20899cd08315c4cbb0150
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6898bed0645146af9c0131307459e31bad661329
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875201"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036303"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Eliminare i BLOB di archiviazione del log di flusso del gruppo di sicurezza di rete in Network Watcher
 
-Attualmente si verifica un problema per cui i [log di flusso del gruppo di sicurezza di rete (NSG)](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. È ora necessario eseguire uno script di PowerShell per eliminare manualmente i log di flusso dall'account di archiviazione, come descritto in questo articolo.
+Attualmente si verifica un problema per cui [i log dei flussi del gruppo di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. È ora necessario eseguire uno script di PowerShell per eliminare manualmente i log di flusso dall'account di archiviazione, come descritto in questo articolo.
 
 ## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>Eseguire lo script di PowerShell per eliminare i log di flusso NSG
  
@@ -135,5 +135,6 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
    ```
     
 ## <a name="next-steps"></a>Passaggi successivi
+- I clienti possono automatizzare l'esecuzione dello script usando l' [utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) o automazione di [Azure](https://azure.microsoft.com/services/automation/)
 - Per altre informazioni sulla registrazione NSG, vedere [log di monitoraggio di Azure per i gruppi di sicurezza di rete (gruppi)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 

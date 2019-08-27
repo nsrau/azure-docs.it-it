@@ -1,6 +1,6 @@
 ---
-title: Connettersi ad applicazioni 3270 su mainframe IBM con Azure - App per la logica di Azure
-description: Integra e automatizza le app basate su schermo 3270 con Azure tramite il connettore App per la logica di Azure e IBM 3270
+title: Connettersi a app 3270 in mainframe IBM con Azure-app per la logica di Azure
+description: Integra e automatizza le app 3270 basate su schermo con Azure usando app per la logica di Azure e il connettore IBM 3270
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,236 +10,236 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 50b8fc6b6a350d0a5982cc84f94067979d018cce
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538862"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050680"
 ---
-# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare le app basate su schermo 3270 su mainframe IBM in Azure usando connettore di App per la logica di Azure e IBM 3270
+# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare app basate su schermo 3270 in mainframe IBM con Azure usando app per la logica di Azure e il connettore IBM 3270
 
 > [!NOTE]
-> Questo connettore è in [ *versione di anteprima pubblica*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Questo connettore è in [*anteprima pubblica*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Con App per la logica di Azure e il connettore IBM 3270, è possibile accedere ed eseguire applicazioni mainframe IBM che generalmente l'unità navigando tra le schermate dell'emulatore 3270. In questo modo, è possibile integrare le tue App mainframe IBM con Azure, Microsoft e altre App, servizi e sistemi tramite la creazione di flussi di lavoro automatizzati con App per la logica di Azure. Il connettore comunica con mainframe IBM e mediante il protocollo TN3270 ed è disponibile in tutte le aree di App per la logica di Azure ad eccezione di Azure per enti pubblici e Azure Cina 21Vianet. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+Con le app per la logica di Azure e il connettore IBM 3270, è possibile accedere ed eseguire app IBM mainframe che in genere si spostano attraverso le schermate dell'emulatore 3270. In questo modo, è possibile integrare le app IBM mainframe con Azure, Microsoft e altre app, servizi e sistemi creando flussi di lavoro automatizzati con app per la logica di Azure. Il connettore comunica con i mainframe IBM usando il protocollo TN3270 ed è disponibile in tutte le aree di app per la logica di Azure ad eccezione di Azure per enti pubblici e Azure China 21Vianet. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
-Questo articolo illustra questi aspetti per l'uso del connettore 3270: 
+Questo articolo descrive gli aspetti relativi all'uso del connettore 3270: 
 
-* Perché usare il connettore IBM 3270 in App per la logica di Azure e come il connettore esegue App basate su schermo 3270
+* Perché usare il connettore IBM 3270 in app per la logica di Azure e il modo in cui il connettore esegue 3270 app basate sullo schermo
 
-* I prerequisiti e installazione per l'uso del connettore 3270
+* Prerequisiti e configurazione per l'uso del connettore 3270
 
-* La procedura per aggiungere 3270 azioni del connettore per app per la logica
+* Passaggi per l'aggiunta di azioni del connettore 3270 all'app per la logica
 
 ## <a name="why-use-this-connector"></a>Perché usare questo connettore?
 
-Per accedere alle App su mainframe IBM, è in genere necessario usare un emulatore terminal 3270, spesso denominato "schermata verde". Questo metodo è un modo collaudato ma ha limitazioni. Anche se potrebbero non essere possibile Host Integration Server (HIS) consente di lavorare direttamente con queste App, in alcuni casi, separare la logica di business e sullo schermo. In alternativa, forse non sono presenti le informazioni per il funzionano di applicazioni host.
+Per accedere alle app sui mainframe IBM, in genere si usa un emulatore di terminale 3270, spesso denominato "schermo verde". Questo metodo è un modo testato a tempo, ma presenta limitazioni. Sebbene Host Integration Server (HIS) consenta di lavorare direttamente con queste app, a volte è possibile che la separazione dello schermo e della logica di business non sia possibile. Oppure, forse, non sono più disponibili informazioni sul funzionamento delle applicazioni host.
 
-Per estendere questi scenari, il connettore IBM 3270 nelle App per la logica di Azure funziona con lo strumento di progettazione 3270, utilizzabile per record, o "acquisire", le schermate di host usate per un'attività specifica, definire il flusso di navigazione per tale attività tramite l'app mainframe e definire la metodi con parametri di input e output per tale attività. Lo strumento di progettazione consente di convertire tali informazioni nei metadati che il connettore 3270 Usa quando si chiama un'azione che rappresenta tale attività dall'app per la logica.
+Per estendere questi scenari, il connettore IBM 3270 in app per la logica di Azure funziona con lo strumento di progettazione 3270, che è possibile usare per registrare, o "acquisire", le schermate host usate per un'attività specifica, definire il flusso di navigazione per tale attività attraverso l'app mainframe e definire il metodi con parametri di input e output per l'attività. Lo strumento di progettazione converte tali informazioni in metadati usati dal connettore 3270 quando viene chiamata un'azione che rappresenta tale attività dall'app per la logica.
 
-Dopo aver generato il file di metadati dallo strumento di progettazione, si aggiunge tale file a un account di integrazione in Azure. In questo modo, l'app per la logica può accedere ai metadati dell'app quando si aggiunge un'azione connettore 3270. Il connettore legge il file di metadati dall'account di integrazione, gestisce lo spostamento tra le diverse 3270 schermate e illustra in modo dinamico i parametri per l'azione del connettore 3270. È quindi possibile fornire i dati all'applicazione host e il connettore restituisce i risultati per l'app per la logica. In questo modo, è possibile integrare le app legacy con Azure, Microsoft e altre App, servizi e sistemi che supporta le App per la logica di Azure.
+Dopo aver generato il file di metadati dallo strumento di progettazione, è necessario aggiungerlo a un account di integrazione in Azure. In questo modo, l'app per la logica può accedere ai metadati dell'app quando si aggiunge un'azione 3270 Connector. Il connettore legge il file di metadati dall'account di integrazione, gestisce la navigazione attraverso le schermate 3270 e visualizza dinamicamente i parametri per l'azione del connettore 3270. È quindi possibile fornire dati all'applicazione host e il connettore restituisce i risultati all'app per la logica. In questo modo, è possibile integrare le app legacy con Azure, Microsoft e altre app, servizi e sistemi supportati da app per la logica di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Consigliato: Un [ambiente del servizio di integrazione (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
+* Consigliato: [Ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
 
-  È possibile selezionare questo ambiente come percorso di creazione ed esecuzione di app per la logica. Un'istanza di ISE consente l'accesso da app per la logica alle risorse protette all'interno di reti virtuali di Azure.
+  È possibile selezionare questo ambiente come percorso per la creazione e l'esecuzione dell'app per la logica. Un ISE fornisce l'accesso dall'app per la logica alle risorse protette nelle reti virtuali di Azure.
 
-* L'app per la logica da usare per l'automazione e in esecuzione l'app basata su schermo 3270
+* App per la logica da usare per l'automazione e l'esecuzione di un'app 3270 basata sullo schermo
 
-  Il connettore IBM 3270 non dispone di trigger, pertanto usare un altro trigger per avviare l'app per la logica, ad esempio la **ricorrenza** trigger. È quindi possibile aggiungere 3270 azioni del connettore. Per iniziare, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-  Se si usa un'istanza di ISE, selezionare tale ISE come percorso dell'app per la logica.
+  Il connettore IBM 3270 non contiene trigger, quindi usare un altro trigger per avviare l'app per la logica, ad esempio il trigger di ricorrenza. È quindi possibile aggiungere azioni del connettore 3270. Per iniziare, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+  Se si usa ISE, selezionare ISE come posizione dell'app per la logica.
 
 * [Scaricare e installare lo strumento di progettazione 3270](https://aka.ms/3270-design-tool-download).
-È il solo prerequisito [Microsoft .NET Framework 4.6.1](https://aka.ms/net-framework-download).
+L'unico prerequisito è [Microsoft .NET Framework 4.6.1](https://aka.ms/net-framework-download).
 
-  In questo modo, lo strumento si registrano le schermate, i percorsi di navigazione, metodi e parametri per le attività nell'app che aggiungono e runas 3270 azioni del connettore. Lo strumento genera un file di Host Integration Designer XML HIDX () che fornisce i metadati necessari per il connettore da utilizzare per ottimizzare l'app mainframe.
+  Questo strumento consente di registrare le schermate, i percorsi di navigazione, i metodi e i parametri per le attività nell'app che vengono aggiunte ed eseguite come azioni del connettore 3270. Lo strumento genera un file XML HIDX (Host Integration Designer) che fornisce i metadati necessari per il connettore da usare per la guida dell'app mainframe.
   
-  Dopo aver scaricato e installato questo strumento, seguire questi passaggi per la connessione all'host:
+  Dopo aver scaricato e installato questo strumento, attenersi alla seguente procedura per la connessione all'host:
 
-  1. Aprire lo strumento di progettazione 3270. Dal **sessione** dal menu **Host sessioni**.
+  1. Aprire lo strumento di progettazione 3270. Scegliere **sessioni host**dal menu **sessione** .
   
-  1. L'host TN3270 vengono fornite informazioni server.
+  1. Fornire le informazioni sul server host TN3270.
 
-* Un' [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), ovvero la posizione in cui è archiviato il file HIDX come una mappa in modo che l'app per la logica possa accedere le definizioni dei metadati e il metodo in tale file. 
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), ovvero la posizione in cui si archivia il file hidx come mappa, in modo che l'app per la logica possa accedere ai metadati e alle definizioni dei metodi in tale file. 
 
-  Assicurarsi che l'account di integrazione è collegato all'app per la logica in uso. Inoltre, se si usa un'istanza di ISE, assicurarsi che località dell'account di integrazione è la stessa ISE che usa l'app per la logica.
+  Verificare che l'account di integrazione sia collegato all'app per la logica in uso. Inoltre, se si usa ISE, verificare che il percorso dell'account di integrazione sia lo stesso ISE usato dall'app per la logica.
 
-* Accesso al server che ospita l'app mainframe TN3270
+* Accesso al server TN3270 che ospita l'app mainframe
 
 <a name="define-app-metadata"></a>
 
-## <a name="create-metadata-overview"></a>Creare una panoramica dei metadati
+## <a name="create-metadata-overview"></a>Cenni preliminari sulla creazione dei metadati
 
-In un'app basata su schermo 3270, le schermate e i campi dati sono univoci per gli scenari, in modo che il connettore 3270 necessita di queste informazioni sull'app, che è possibile specificare come metadati. Questi metadati sono descritte informazioni che aiuta la tua app per la logica individuare e riconoscere le schermate, descrive come spostarsi tra le schermate, la posizione in cui i dati di input e dove aspettarsi risultati. Per specificare e generare i metadati, è utilizzare lo strumento di progettazione 3270, che illustra questi specifici *modalità*, o alle fasi, come descritto più avanti in modo più dettagliato:
+In un'app basata su schermo 3270, le schermate e i campi dati sono univoci per gli scenari, quindi il connettore 3270 richiede queste informazioni sull'app, che è possibile fornire come metadati. Questi metadati descrivono le informazioni che consentono all'app per la logica di identificare e riconoscere le schermate, descrive come spostarsi tra le schermate, dove inserire i dati e dove prevedere i risultati. Per specificare e generare questi metadati, è possibile usare lo strumento di progettazione 3270, che illustra in modo dettagliato le *modalità*specifiche, o le fasi, come descritto più avanti in dettaglio:
 
-* **Acquisire**: In questa modalità, si registrano le schermate necessari per completare un'attività specifica con l'app di mainframe, ad esempio, ottenere un saldo bancario.
+* **Acquisisci**: In questa modalità vengono registrate le schermate necessarie per il completamento di un'attività specifica con l'app mainframe, ad esempio per ottenere un saldo bancario.
 
-* **Navigazione**: In questa modalità è specificare il piano o il percorso come spostarsi tra le schermate dell'app mainframe per l'attività specifica.
+* **Navigazione**: In questa modalità è possibile specificare il piano o il percorso per spostarsi tra le schermate dell'app mainframe per l'attività specifica.
 
-* **Metodi**: In questa modalità, ad esempio, si definisce il metodo, `GetBalance`, che descrive il percorso di navigazione della schermata. È anche possibile scegliere i campi di ogni schermata che diventano l'input del metodo e i parametri di output.
+* **Metodi**: In questa modalità viene definito il metodo, ad esempio `GetBalance`, che descrive il percorso di navigazione della schermata. Si scelgono anche i campi in ogni schermata che diventano i parametri di input e output del metodo.
 
 ### <a name="unsupported-elements"></a>Elementi non supportati
 
 Lo strumento di progettazione non supporta questi elementi:
 
-* Esegue il mapping parziale IBM base Mapping supporto BMS (): Se si importa una mappa BMS, lo strumento di progettazione ignora le definizioni parziali dello schermo.
-* Ingresso/uscita parametri: Non è possibile definire parametri In/Out.
-* Elaborazione di menu: Non è supportato durante l'anteprima
-* Elaborazione di matrice: Non è supportato durante l'anteprima
+* Mappe del supporto per il mapping di base di IBM (BMS) parziale: Se si importa una mappa di BMS, lo strumento di progettazione ignora le definizioni delle schermate parziali.
+* Parametri in/out: Non è possibile definire parametri in/out.
+* Elaborazione menu: Non supportato durante l'anteprima
+* Elaborazione di matrici: Non supportato durante l'anteprima
 
 <a name="capture-screens"></a>
 
 ## <a name="capture-screens"></a>Acquisisci schermate
 
-In questa modalità, si contrassegna un elemento in ogni schermata 3270 che identifica in modo univoco tale schermata. Ad esempio, è possibile specificare una riga di testo o un set più complesso di condizioni, ad esempio il testo specificato e un campo non vuoto. È possibile registrare queste schermate vengono visualizzate tramite una connessione in tempo reale al server host o importare queste informazioni da una mappa di IBM base Mapping supporto BMS (). La connessione in tempo reale Usa un emulatore TN3270 per la connessione all'host. Ogni azione del connettore è necessario eseguire il mapping a una singola attività che inizia con la connessione alla sessione corrente e termina con la disconnessione dalla sessione.
+In questa modalità si contrassegna un elemento in ogni schermata 3270 che identifica in modo univoco la schermata. Ad esempio, è possibile specificare una riga di testo o un set più complesso di condizioni, ad esempio testo specifico e un campo non vuoto. È possibile registrare queste schermate su una connessione in tempo reale al server host oppure importare queste informazioni da una mappa di supporto per il mapping di IBM Basic (BMS). La connessione dinamica usa un emulatore di TN3270 per la connessione all'host. Ogni azione del connettore deve essere mappata a una singola attività che inizia con la connessione alla sessione e termina con la disconnessione dalla sessione.
 
-1. Se hai già fatto, aprire lo strumento di progettazione 3270. Sulla barra degli strumenti, scegliere **acquisire** in modo che la modalità di acquisizione.
+1. Se non è già stato fatto, aprire lo strumento di progettazione 3270. Sulla barra degli strumenti scegliere **Acquisisci** in modo da attivare la modalità di acquisizione.
 
-1. Per avviare la registrazione, premere il tasto F5, o dal **la registrazione** dal menu **Inizia registrazione**. 
+1. Per avviare la registrazione, premere il tasto F5 oppure scegliere **Avvia registrazione**dal menu **registrazione** . 
 
-1. Dal **sessione** dal menu **Connect**.
+1. Scegliere **Connetti**dal menu **sessione** .
 
-1. Nel **acquisire** riquadro, a partire dalla prima schermata nell'app, eseguire l'app per l'attività specifica che la registrazione.
+1. Nel riquadro **acquisizione** , a partire dalla prima schermata dell'app, eseguire un'istruzione alla volta nell'app per l'attività specifica che si sta registrando.
 
-1. Dopo aver completato l'attività, disconnettersi dall'app come di consueto.
+1. Al termine dell'attività, disconnettersi dall'app come in genere.
 
-1. Dal **sessione** dal menu **Disconnect**.
+1. Scegliere **Disconnetti**dal menu **sessione** .
 
-1. Per arrestare la registrazione, premere MAIUSC + F5 chiavi, o dal **la registrazione** dal menu **Interrompi registrazione**.
+1. Per arrestare la registrazione, premere i tasti MAIUSC + F5 oppure scegliere **Interrompi registrazione**dal menu **registrazione** .
 
-   Dopo aver acquisito le schermate per un'attività, lo strumento di progettazione Mostra le anteprime che rappresentano tali schermate. Alcune note sulle anteprime:
+   Dopo aver acquisito le schermate per un'attività, lo strumento di progettazione Mostra le anteprime che rappresentano tali schermate. Di seguito sono riportate alcune note sulle anteprime:
 
-   * Incluso con schermate acquisite, hai una schermata denominata "Empty".
+   * Con le schermate acquisite, è presente una schermata denominata "Empty".
 
-     Alla prima connessione al [CICS](https://www.ibm.com/it-infrastructure/z/cics), è necessario inviare la chiave "Cancella" prima di immettere il nome per la transazione da eseguire. La schermata in cui si invia la chiave "Cancella" non ne ha *attributi di riconoscimento*, ad esempio un titolo della schermata, che è possibile aggiungere tramite l'editor di riconoscimento dello schermo. Per rappresentare questa schermata, le anteprime sono incluse una schermata denominata "Vuoto". In un secondo momento è possibile utilizzare questa schermata per la rappresentazione di schermata in cui è stata immettere il nome della transazione.
+     Quando si esegue la prima connessione a [CICS](https://www.ibm.com/it-infrastructure/z/cics), è necessario inviare la chiave "Clear" prima di poter immettere il nome della transazione che si desidera eseguire. La schermata in cui si invia la chiave "Clear" non contiene *attributi di riconoscimento*, ad esempio un titolo della schermata, che è possibile aggiungere mediante l'editor di riconoscimento dello schermo. Per rappresentare questa schermata, le anteprime includono una schermata denominata "Empty". In seguito sarà possibile utilizzare questa schermata per rappresentare la schermata in cui si immette il nome della transazione.
 
-   * Per impostazione predefinita, il nome di una schermata acquisita Usa la prima parola sullo schermo. Se tale nome esiste già, lo strumento di progettazione aggiunge il nome con un carattere di sottolineatura e un numero, ad esempio, "WBGB" e "WBGB_1".
+   * Per impostazione predefinita, il nome di una schermata acquisita usa la prima parola sullo schermo. Se tale nome esiste già, lo strumento di progettazione aggiunge il nome con un carattere di sottolineatura e un numero, ad esempio, "WBGB" e "WBGB_1".
 
-1. Per assegnare un nome più significativo a una schermata acquisita, seguire questa procedura:
+1. Per assegnare un nome più significativo a una schermata acquisita, attenersi alla seguente procedura:
 
-   1. Nel **schermate Host** riquadro, selezionare la schermata che si desidera rinominare.
+   1. Nel riquadro **schermate host** selezionare la schermata che si desidera rinominare.
 
-   1. Nel riquadro stesso parte inferiore della pagina nello stesso riquadro, trovare il **nome della schermata** proprietà.
+   1. Nello stesso riquadro, in prossimità della parte inferiore dello stesso riquadro, trovare la proprietà **Nome schermata** .
 
-   1. Modificare il nome della schermata corrente a un nome più descrittivo.
+   1. Modificare il nome della schermata corrente con un nome più descrittivo.
 
 1. Specificare ora i campi per l'identificazione di ogni schermata.
 
-   Con il flusso di 3270 dati, schermate non sono identificatori predefiniti, pertanto è necessario selezionare il testo univoco in ogni schermata. Per scenari complessi, è possibile specificare più condizioni, ad esempio, testo univoco e un campo con una condizione specifica.
+   Con il flusso di dati 3270, le schermate non hanno identificatori predefiniti, quindi è necessario selezionare testo univoco in ogni schermata. Per gli scenari complessi è possibile specificare più condizioni, ad esempio testo univoco e un campo con una condizione specifica.
 
-Dopo aver selezionato i campi di riconoscimento, passare alla modalità successiva.
+Al termine della selezione dei campi di riconoscimento, passare alla modalità successiva.
 
 ### <a name="conditions-for-identifying-repeated-screens"></a>Condizioni per l'identificazione di schermate ripetute
 
-Per il connettore per accedere e a distinguere tra le schermate, si trova in genere testo univoco in una schermata che è possibile utilizzare come identificatore tra le schermate acquisite. Per le schermate ripetute, potrebbe essere necessario ulteriori metodi di identificazione. Ad esempio, si supponga di che avere due schermate che hanno lo stesso aspetto ma una sola schermata restituisce un valore valido, mentre l'altra schermata restituisce un messaggio di errore.
+Per spostarsi tra le schermate e distinguere tra le schermate, in genere si trova un testo univoco in una schermata che è possibile usare come identificatore tra le schermate acquisite. Per le schermate ripetute, potrebbero essere necessari altri metodi di identificazione. Si supponga, ad esempio, di avere due schermate che hanno un aspetto identico, ad eccezione del fatto che una schermata restituisce un valore valido, mentre l'altra schermata restituisce un messaggio di errore.
 
-Nello strumento di progettazione, è possibile aggiungere *attributi di riconoscimento*, ad esempio, un titolo della schermata, ad esempio "Ottenere saldo dell'Account", usando l'editor di riconoscimento dello schermo. Se si dispone di un percorso con fork e di entrambi i rami restituiscono la stessa schermata, ma con risultati diversi, è necessario ad altri attributi di riconoscimento. In fase di esecuzione, il connettore Usa questi attributi per determinare il current branch e fork. Di seguito sono indicate le condizioni che è possibile usare:
+Nello strumento di progettazione è possibile aggiungere *attributi di riconoscimento*, ad esempio un titolo di schermata, ad esempio "Get account Balance", mediante l'editor di riconoscimento dello schermo. Se si dispone di un percorso con fork ed entrambi i rami restituiscono la stessa schermata ma con risultati diversi, sono necessari altri attributi di riconoscimento. In fase di esecuzione, il connettore usa questi attributi per determinare il ramo corrente e il fork. Di seguito sono riportate le condizioni che è possibile usare:
 
 * Valore specifico: Questo valore corrisponde alla stringa specificata nella posizione specificata.
 * NON è un valore specifico: Questo valore non corrisponde alla stringa specificata nella posizione specificata.
-* Vuota: Questo campo è vuoto.
-* NON è vuoto: Questo campo non è vuoto.
+* Vuoto Questo campo è vuoto.
+* NON vuoto: Questo campo non è vuoto.
 
-Per altre informazioni, vedere la [piano di navigazione di esempio](#example-plan) più avanti in questo argomento.
+Per ulteriori informazioni, vedere il [piano di navigazione di esempio](#example-plan) più avanti in questo argomento.
 
 <a name="define-navigation"></a>
 
-## <a name="define-navigation-plans"></a>Definire piani di spostamento
+## <a name="define-navigation-plans"></a>Definire i piani di navigazione
 
-In questa modalità è definire il flusso o i passaggi per lo spostamento tra le schermate dell'app mainframe per l'attività specifica. Ad esempio, in alcuni casi, potrebbe essere più di un percorso che l'app può richiedere in un percorso produce il risultato corretto, mentre l'altro tracciato genera un errore. Per ogni schermata, specificare le pressioni di tasti necessari per lo spostamento alla schermata successiva, ad esempio `CICSPROD <enter>`.
+In questa modalità è possibile definire il flusso o i passaggi per spostarsi tra le schermate dell'app mainframe per l'attività specifica. In alcuni casi, ad esempio, si potrebbe avere più di un percorso che l'app può eseguire dove un percorso produce il risultato corretto, mentre l'altro percorso genera un errore. Per ogni schermata, specificare le sequenze di tasti necessarie per il passaggio alla schermata successiva, ad esempio `CICSPROD <enter>`.
 
 > [!TIP]
-> Se si sta automatizzare diverse attività che usano la stessa connessione e disconnessione schermate, lo strumento di progettazione fornisce tipi di piano di connessione e disconnessione speciali. Quando si definiscono questi piani, è possibile aggiungere all'inizio e alla fine del piano di navigazione.
+> Se si automatizzano diverse attività che usano le stesse schermate di connessione e disconnessione, lo strumento di progettazione fornisce tipi speciali di piani di connessione e disconnessione. Quando si definiscono questi piani, è possibile aggiungerli all'inizio e alla fine del piano di navigazione.
 
-### <a name="guidelines-for-plan-definitions"></a>Linee guida per le definizioni di piano
+### <a name="guidelines-for-plan-definitions"></a>Linee guida per le definizioni dei piani
 
-* Includere tutti gli schermi, iniziando con la connessione e che termina con la disconnessione.
+* Includere tutte le schermate, a partire dalla connessione e terminando con la disconnessione.
 
 * È possibile creare un piano autonomo o usare i piani di connessione e disconnessione, che consentono di riutilizzare una serie di schermate comuni a tutte le transazioni.
 
-  * L'ultima schermata del piano di connessione deve essere la stessa schermata come prima schermata nel piano di navigazione.
+  * L'ultima schermata del piano Connect deve essere identica a quella della prima schermata nel piano di navigazione.
 
-  * La prima schermata nel piano di disconnessione deve essere l'ultima schermata stessa schermata nel piano di navigazione.
+  * La prima schermata del piano di disconnessione deve essere identica a quella dell'ultima schermata del piano di navigazione.
 
-* Schermate acquisite potrebbero contenere molte schermate ripetute, quindi, scegliere e usare solo un'istanza di qualsiasi schermate ripetute nel piano di. Di seguito sono riportati alcuni esempi di schermate ripetute:
+* Le schermate acquisite potrebbero contenere molte schermate ripetute, quindi selezionare e usare una sola istanza di tutte le schermate ripetute del piano. Di seguito sono riportati alcuni esempi di schermate ripetute:
 
-  * Nella schermata, ad esempio, di accesso di **MSG-10** dello schermo
-  * La schermata iniziale per CICS
-  * "Chiaro" o **vuoto** dello schermo
+  * Schermata di accesso, ad esempio, la schermata **MSG-10**
+  * Schermata iniziale per CICS
+  * Schermata "Cancella" o **vuota**
 
 <a name="create-plans"></a>
 
-### <a name="create-plans"></a>Creazione di piani
+### <a name="create-plans"></a>Creare piani
 
-1. Sulla barra degli strumenti dello strumento Progettazione 3270, scegliere **navigazione** in modo che la modalità di navigazione.
+1. Sulla barra degli strumenti dello strumento di progettazione 3270 scegliere **navigazione** per attivare la modalità di navigazione.
 
-1. Per avviare il piano, nella **navigazione** riquadro, scegliere **nuovo piano**.
+1. Per avviare il piano, scegliere **nuovo piano**nel riquadro di **spostamento** .
 
-1. Sotto **scegliere Nuovo nome del piano**, immettere un nome per il piano. Dal **tipo** elencare, selezionare il tipo di piano:
+1. In **Scegli nuovo piano nome**immettere un nome per il piano. Nell'elenco **tipo** selezionare il tipo di piano:
 
    | Tipo di piano | Descrizione |
    |-----------|-------------|
-   | **Processo** | Per autonoma o integrazione dei piani |
-   | **Connettere** | Per i piani di Connect |
-   | **Disconnetti** | Per i piani di disconnessione |
+   | **Processo** | Per piani autonomi o combinati |
+   | **Connettere** | Per i piani di connessione |
+   | **Disconnettere** | Per i piani di disconnessione |
    |||
 
-1. Dal **Host schermate** riquadro, trascinare le anteprime acquisite al piano di navigazione della superficie di attacco nel **navigazione** riquadro.
+1. Dal riquadro **schermate host** trascinare le anteprime acquisite nella superficie del piano di spostamento nel riquadro di **spostamento** .
 
-   Per rappresentare la schermata vuota in cui è stata immettere il nome della transazione, utilizzare la schermata "Vuota".
+   Per rappresentare la schermata vuota in cui si immette il nome della transazione, utilizzare la schermata "Empty".
 
-1. Disporre le schermate nell'ordine in cui vengono descritte le attività che si sta definendo.
+1. Disporre le schermate nell'ordine in cui viene descritta l'attività che si sta definendo.
 
-1. Per definire il percorso del flusso tra le schermate, inclusi i fork e join, sulla barra degli strumenti dello strumento Progettazione, scegliere **Flow**.
+1. Per definire il percorso del flusso tra le schermate, inclusi i fork e i join, sulla barra degli strumenti dello strumento di progettazione scegliere **flusso**.
 
-1. Scegliere la prima schermata nel flusso. Trascinare e disegnare una connessione alla schermata successiva nel flusso.
+1. Scegliere la prima schermata nel flusso. Trascinare e creare una connessione alla schermata successiva nel flusso.
 
-1. Per ogni schermata, specificare i valori per il **chiave aiuti** proprietà (attenzione Identifier) e per il **testo fisso** proprietà, che sposta il flusso alla schermata successiva.
+1. Per ogni schermata, fornire i valori per la proprietà **chiave di supporto** (ID attenzione) e per la proprietà **testo fisso** , che sposta il flusso alla schermata successiva.
 
-   È possibile semplicemente la chiave di aiuto, o AID sia la chiave testo fisso.
+   È possibile che si disponga solo della chiave di supporto o della chiave del supporto e del testo fisso.
 
-Dopo aver completato il piano di navigazione, è possibile [definire i metodi in modalità successiva](#define-method).
+Al termine del piano di navigazione, è possibile [definire i metodi nella modalità successiva](#define-method).
 
 <a name="example-plan"></a>
 
 ### <a name="example"></a>Esempio
 
-In questo esempio, si supponga di che esegue una transazione CICS denominata "WBGB" contenente questi passaggi: 
+In questo esempio si supponga di eseguire una transazione CICS denominata "WBGB" con i passaggi seguenti: 
 
-* Nella prima schermata, immettere un nome e un account.
-* Nella seconda schermata, otterrai del saldo del conto.
-* Chiudere la schermata "Vuota".
-* Disconnettersi da CICS sullo schermo "MSG-10".
+* Nella prima schermata immettere un nome e un account.
+* Nella seconda schermata si ottiene il saldo del conto.
+* Uscire dalla schermata "vuota".
+* È possibile disconnettersi da CICS alla schermata "MSG-10".
 
-Si supponga inoltre che si ripetere questi passaggi, ma vengono immessi i dati non corretti, pertanto è possibile acquisire la schermata che mostra l'errore. Ecco le schermate acquisite:
+Si supponga inoltre di ripetere questi passaggi, ma si immettono dati non corretti per poter acquisire la schermata che mostra l'errore. Ecco le schermate acquisite:
 
 * MSG-10
-* Attività iniziali CICS
+* Pagina iniziale di CICS
 * Empty
 * WBGB_1 (input)
 * WBGB_2 (errore)
 * Empty_1
 * MSG-10_1
 
-Anche se molte schermate qui ottenere nomi univoci, alcune schermate sono la stessa schermata, ad esempio, "MSG-10" e "Vuoto". Per una schermata ripetuta, usare solo un'istanza di tale schermata nel piano. Ecco alcuni esempi che illustrano come potrebbe apparire un piano autonomo, piano di Connect, Disconnect piano e un piano combinato:
+Sebbene molte schermate ottengano nomi univoci, alcune schermate sono la stessa schermata, ad esempio "MSG-10" e "Empty". Per una schermata ripetuta, utilizzare solo un'istanza per la schermata del piano. Di seguito sono riportati alcuni esempi che illustrano come un piano autonomo, un piano di connessione, un piano di disconnessione e un piano combinato potrebbero essere:
 
 * Piano autonomo
 
   ![Piano di navigazione autonomo](./media/connectors-create-api-3270/standalone-plan.png)
 
-* Connettere il piano
+* Piano di connessione
 
-  ![Connettere il piano](./media/connectors-create-api-3270/connect-plan.png)
+  ![Piano di connessione](./media/connectors-create-api-3270/connect-plan.png)
 
-* Disconnettere piano
+* Disconnetti piano
 
-  ![Disconnettere piano](./media/connectors-create-api-3270/disconnect-plan.png)
+  ![Disconnetti piano](./media/connectors-create-api-3270/disconnect-plan.png)
 
 * Piano combinato
 
@@ -247,153 +247,153 @@ Anche se molte schermate qui ottenere nomi univoci, alcune schermate sono la ste
 
 #### <a name="example-identify-repeated-screens"></a>Esempio: Identificare le schermate ripetute
 
-Per il connettore esplorare e differenziare le schermate, si trova in genere testo univoco in una schermata che è possibile utilizzare come identificatore tra le schermate acquisite. Per le schermate ripetute, potrebbe essere necessario ulteriori metodi di identificazione. Il piano di esempio ha un fork in cui è possibile ottenere schermate simili. Una sola schermata restituisce il saldo del conto, mentre l'altra schermata restituisce un messaggio di errore.
+Poiché il connettore consente di spostarsi e distinguere le schermate, in genere si trova un testo univoco in una schermata che è possibile usare come identificatore tra le schermate acquisite. Per le schermate ripetute, potrebbero essere necessari altri metodi di identificazione. Il piano di esempio include una forchetta in cui è possibile ottenere schermate simili. Una schermata restituisce un saldo del conto, mentre l'altra schermata restituisce un messaggio di errore.
 
-Lo strumento di progettazione consente di aggiungere gli attributi di riconoscimento, ad esempio, un titolo della schermata denominata "Ottenere saldo dell'Account", usando il riconoscimento dello schermo dell'editor. Nel caso delle schermate simili, è necessario ad altri attributi. In fase di esecuzione, il connettore Usa questi attributi per determinare il ramo e fork.
+Lo strumento di progettazione consente di aggiungere attributi di riconoscimento, ad esempio un titolo di schermata denominato "Get account Balance", mediante l'editor di riconoscimento dello schermo. Nel caso di schermate simili, sono necessari altri attributi. In fase di esecuzione, il connettore usa questi attributi per determinare il ramo e il fork.
 
-* Nel ramo che restituisce un input valido, che viene visualizzata la schermata con il saldo dell'account, è possibile aggiungere un campo contenente una condizione "non vuota".
+* Nel ramo che restituisce un input valido, ovvero la schermata con il saldo del conto, è possibile aggiungere un campo con una condizione "non vuota".
 
-* Nel ramo che restituisce un errore, è possibile aggiungere un campo contenente una condizione "vuota".
+* Nel ramo restituito con un errore è possibile aggiungere un campo con una condizione "Empty".
 
 <a name="define-method"></a>
 
 ## <a name="define-methods"></a>Definire i metodi
 
-In questa modalità, si definisce un metodo che ha associato il piano di navigazione. Per ogni parametro del metodo, specifica il tipo di dati, ad esempio una stringa, intero, data o ora e così via. Al termine, è possibile testare il metodo nell'host in tempo reale e verificare che il metodo funzioni come previsto. È quindi possibile generare il file di metadati o file di Host Integration Designer XML HIDX (), che ora include le definizioni del metodo da usare per la creazione ed esecuzione di un'azione per il connettore IBM 3270.
+In questa modalità si definisce un metodo associato al piano di navigazione. Per ogni parametro di metodo è possibile specificare il tipo di dati, ad esempio una stringa, un numero intero, una data o un'ora e così via. Al termine, è possibile testare il metodo nell'host Live e verificare che il metodo funzioni come previsto. Viene quindi generato il file di metadati o il file XML HIDX (Host Integration Designer), che ora include le definizioni dei metodi da usare per la creazione e l'esecuzione di un'azione per il connettore IBM 3270.
 
-1. Sulla barra degli strumenti dello strumento Progettazione 3270, scegliere **metodi** in modo che la modalità di metodi. 
+1. Sulla barra degli strumenti dello strumento di progettazione 3270 scegliere **Metodi** per immettere la modalità dei metodi. 
 
-1. Nel **navigazione** riquadro, selezionare la schermata con i campi di input desiderati.
+1. Nel riquadro di **spostamento** selezionare la schermata con i campi di input desiderati.
 
-1. Per aggiungere il primo parametro di input per il metodo, seguire questa procedura:
+1. Per aggiungere il primo parametro di input per il metodo, attenersi alla procedura seguente:
 
-   1. Nel **acquisire** riquadro sullo schermo dell'emulatore 3270, scegliere il campo intero, non solo con il testo all'interno del campo, che desidera come primo input.
-
-      > [!TIP]
-      > Per visualizzare tutti i campi e assicurarsi di selezionare il campo completato, nella **View** dal menu **tutti i campi**.
-
-   1. Sulla barra degli strumenti dello strumento Progettazione, scegliere **campo di Input**. 
-
-   Per aggiungere più parametri di input, ripetere i passaggi precedenti per ogni parametro.
-
-1. Per aggiungere il primo parametro di output per il metodo, seguire questa procedura:
-
-   1. Nel **acquisire** riquadro sullo schermo dell'emulatore 3270, scegliere il campo intero, non solo con il testo all'interno del campo, che desidera come il primo output.
+   1. Nella schermata dell'emulatore 3270 del riquadro **acquisizione** scegliere il campo intero, non solo il testo all'interno del campo, che si vuole come primo input.
 
       > [!TIP]
-      > Per visualizzare tutti i campi e assicurarsi di selezionare il campo completato, nella **View** dal menu **tutti i campi**.
+      > Per visualizzare tutti i campi e assicurarsi di selezionare il campo completa, scegliere **tutti i campi**dal menu **Visualizza** .
 
-   1. Sulla barra degli strumenti dello strumento Progettazione, scegliere **campo di Output**.
+   1. Sulla barra degli strumenti dello strumento di progettazione scegliere **campo di input**. 
 
-   Per aggiungere ulteriori parametri di output, ripetere i passaggi precedenti per ogni parametro.
+   Per aggiungere altri parametri di input, ripetere i passaggi precedenti per ogni parametro.
+
+1. Per aggiungere il primo parametro di output per il metodo, attenersi alla procedura seguente:
+
+   1. Nella schermata dell'emulatore 3270 del riquadro **acquisizione** scegliere il campo intero, non solo il testo all'interno del campo, che si vuole come primo output.
+
+      > [!TIP]
+      > Per visualizzare tutti i campi e assicurarsi di selezionare il campo completa, scegliere **tutti i campi**dal menu **Visualizza** .
+
+   1. Sulla barra degli strumenti dello strumento di progettazione scegliere **campo di output**.
+
+   Per aggiungere altri parametri di output, ripetere i passaggi precedenti per ogni parametro.
 
 1. Dopo aver aggiunto tutti i parametri del metodo, definire queste proprietà per ogni parametro:
 
    | Nome proprietà | Valori possibili | 
    |---------------|-----------------|
-   | **Tipo di dati** | Byte, ora, Decimal, Int, Long, Short, String |
-   | **Tecnica di riempimento dei campi** | I parametri supportano questi tipi di riempimento, il riempimento con spazi vuoti se necessario: <p><p>- **Tipo**: Immettere i caratteri in modo sequenziale nel campo. <p>- **Riempimento**: Sostituire il contenuto del campo con caratteri, il riempimento con spazi vuoti se necessario. <p>- **EraseEofType**: Deselezionare il campo e quindi immettere caratteri in modo sequenziale nel campo. |
-   | **Stringa di formato** | Alcuni tipi di dati di parametro usano una stringa di formato, che informa il connettore 3270 come convertire il testo dalla schermata in un tipo di dati .NET: <p><p>- **DateTime**: La stringa di formato data/ora segue il [stringhe di formato .NET Data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Ad esempio, la data `06/30/2019` Usa la stringa di formato `MM/dd/yyyy`. <p>- **Decimal**: La stringa di formato decimale Usa la [clausola immagine COBOL](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Ad esempio, il numero `100.35` Usa la stringa di formato `999V99`. |
+   | **Tipo di dati** | Byte, data e ora, Decimal, int, Long, short, String |
+   | **Tecnica di riempimento campo** | I parametri supportano questi tipi di riempimento, inserendo spazi vuoti se necessario: <p><p>- **Tipo**: Immettere i caratteri in sequenza nel campo. <p>- **Riempimento**: Sostituire il contenuto del campo con i caratteri, riempiendo gli spazi vuoti, se necessario. <p>- **EraseEofType**: Cancellare il campo, quindi immettere i caratteri in sequenza nel campo. |
+   | **Stringa di formato** | Alcuni tipi di dati dei parametri usano una stringa di formato, che informa il connettore 3270 come convertire il testo dalla schermata in un tipo di dati .NET: <p><p>- **DateTime**: La stringa di formato DateTime segue le [stringhe di formato di data e ora personalizzate .NET](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Ad esempio, la data `06/30/2019` utilizza la stringa `MM/dd/yyyy`di formato. <p>- Decimale: La stringa di formato decimale usa la [clausola COBOL Picture](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Ad esempio, il numero `100.35` usa la stringa `999V99`di formato. |
    |||
 
 ## <a name="save-and-view-metadata"></a>Salvare e visualizzare i metadati
 
-Dopo aver definito il metodo, ma prima di testare il metodo, salvare tutte le informazioni fino ad ora definito in un file di criteri di accesso remoto (.rap).
-È possibile salvare questo file di criteri di accesso remoto in qualsiasi momento durante qualsiasi modalità. Lo strumento di progettazione include anche un file di criteri di autorizzazione risorse di esempio che è possibile aprire ed esaminare, passare alla cartella di installazione dello strumento Progettazione in questa posizione e aprire il file "WoodgroveBank.rap":
+Dopo aver definito il metodo, ma prima di testare il metodo, salvare tutte le informazioni definite finora in un file RAP (rap).
+È possibile salvare in questo file RAP in qualsiasi momento durante qualsiasi modalità. Lo strumento di progettazione include anche un file RAP di esempio che è possibile aprire ed esaminare esplorando la cartella di installazione dello strumento di progettazione in questo percorso e aprendo il file "WoodgroveBank. rap":
 
 `..\Program Files\Microsoft Host Integration Server - 3270 Design Tool\SDK\WoodgroveBank.rap`
 
-Tuttavia, se si tenta di salvare le modifiche al file di criteri di autorizzazione risorse di esempio o generando un file HIDX dal file di criteri di autorizzazione risorse di esempio mentre il file rimane nella cartella di installazione dello strumento Progettazione, è possibile ottenere un errore "accesso negato". Per impostazione predefinita, lo strumento di progettazione viene installato nella cartella del file di programma senza autorizzazioni elevate. Se si verifica un errore, provare una delle soluzioni seguenti:
+Tuttavia, se si tenta di salvare le modifiche apportate al file RAP di esempio o di generare un file HIDX dal file RAP di esempio mentre il file rimane nella cartella di installazione dello strumento di progettazione, è possibile che venga visualizzato un errore di accesso negato. Per impostazione predefinita, lo strumento di progettazione viene installato nella cartella programmi senza autorizzazioni elevate. Se viene ricevuto un errore, provare una delle soluzioni seguenti:
 
 * Copiare il file di esempio in un percorso diverso.
 * Eseguire lo strumento di progettazione come amministratore.
-* Diventare proprietario per la cartella SDK.
+* Creare il proprietario della cartella SDK.
 
-## <a name="test-your-method"></a>Il metodo di test
+## <a name="test-your-method"></a>Testare il metodo
 
-1. Per eseguire il metodo in base all'host in tempo reale, mentre si è ancora in modalità di metodi, premere il tasto F5, o dalla barra degli strumenti dello strumento Progettazione, scegliere **eseguiti**.
+1. Per eseguire il metodo sull'host Live, mentre ancora in modalità metodi premere il tasto F5 oppure scegliere **Esegui**dalla barra degli strumenti dello strumento di progettazione.
 
    > [!TIP]
-   > È possibile modificare le modalità in qualsiasi momento. Nel **File** dal menu **modalità**e quindi selezionare la modalità desiderata.
+   > È possibile modificare le modalità in qualsiasi momento. Scegliere **modalità**dal menu **file** , quindi selezionare la modalità desiderata.
 
 1. Immettere i valori dei parametri e scegliere **OK**.
 
-1. Per passare alla schermata successiva, scegli **successivo**.
+1. Per passare alla schermata successiva, fare clic su **Avanti**.
 
 1. Al termine, scegliere, che mostra i valori dei parametri output **.**
 
 <a name="add-metadata-integration-account"></a>
 
-## <a name="generate-and-upload-hidx-file"></a>Generare e caricare file HIDX
+## <a name="generate-and-upload-hidx-file"></a>Generare e caricare il file HIDX
 
-Quando si è pronti, generare il file HIDX in modo che è possibile caricare l'account di integrazione. Lo strumento di progettazione 3270 crea il file HIDX in una nuova sottocartella in cui è stato salvato il file RAP.
+Quando si è pronti, generare il file HIDX in modo che sia possibile caricarlo nell'account di integrazione. Lo strumento di progettazione 3270 crea il file HIDX in una nuova sottocartella in cui è stato salvato il file con estensione RAP.
 
-1. Sulla barra degli strumenti dello strumento Progettazione 3270, scegliere **genera codice**.
+1. Sulla barra degli strumenti dello strumento di progettazione 3270 scegliere **genera codice**.
 
-1. Passare alla cartella che contiene il file di criteri di accesso remoto e aprire la sottocartella che lo strumento creato dopo aver generato il file HIDX. Verificare che lo strumento ha creato il file HIDX.
+1. Passare alla cartella che contiene il file RAP e aprire la sottocartella creata dallo strumento dopo la generazione del file HIDX. Verificare che lo strumento abbia creato il file HIDX.
 
-1. Accedi per il [portale di Azure](https://portal.azure.com)e trovare l'account di integrazione.
+1. Accedere al [portale di Azure](https://portal.azure.com)e individuare l'account di integrazione.
 
-1. Aggiungere il file HIDX come una mappa all'account di integrazione dal [seguire questa procedura simile per l'aggiunta di mappe](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), ma quando si seleziona il tipo di mappa, selezionare **HIDX**.
+1. Aggiungere il file HIDX come mappa al proprio account di integrazione attenendosi alla [procedura seguente per l'aggiunta di mappe](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), ma quando si seleziona il tipo di mappa selezionare **hidx**.
 
-Più avanti in questo argomento, quando si aggiunge un'azione 3270 di IBM per app per la logica per la prima volta, viene chiesto di creare una connessione tra l'app per la logica e il server host, fornendo informazioni di connessione, ad esempio i nomi per il server host e account di integrazione . Dopo aver creato la connessione, è possibile selezionare il file HIDX aggiunto in precedenza, il metodo da eseguire e i parametri da utilizzare.
+Più avanti in questo argomento, quando si aggiunge un'azione IBM 3270 all'app per la logica per la prima volta, viene richiesto di creare una connessione tra l'app per la logica e il server host fornendo le informazioni di connessione, ad esempio i nomi dell'account di integrazione e del server host . Dopo aver creato la connessione, è possibile selezionare il file HIDX aggiunto in precedenza, il metodo da eseguire e i parametri da usare.
 
-Al termine tutti questi passaggi, è possibile usare l'azione che crea nell'app per la logica per la connessione a del mainframe IBM, le schermate di unità per l'app, immettere i dati, restituire i risultati e così via. È anche possibile continuare ad aggiungere altre azioni per l'app per la logica per l'integrazione con altre App, servizi e sistemi.
+Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app per la logica per la connessione al mainframe IBM, le schermate di unità per l'app, immettere i dati, restituire i risultati e così via. È anche possibile continuare ad aggiungere altre azioni all'app per la logica per l'integrazione con altre app, servizi e sistemi.
 
 <a name="run-action"></a>
 
-## <a name="run-ibm-3270-actions"></a>Eseguire le azioni di IBM 3270
+## <a name="run-ibm-3270-actions"></a>Eseguire azioni IBM 3270
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-1. Sotto l'ultimo passaggio in cui si desidera aggiungere un'azione, scegliere **nuovo passaggio**e selezionare **Aggiungi un'azione**. 
+1. Nell'ultimo passaggio in cui si desidera aggiungere un'azione, scegliere **nuovo passaggio**e selezionare **Aggiungi un'azione**. 
 
-1. Nella casella di ricerca, scegliere **Enterprise**. Nella casella di ricerca immettere "3270" come filtro. Nell'elenco di azioni selezionare questa azione: **Esegue un programma mainframe tramite una connessione TN3270**
+1. Nella casella di ricerca scegliere **Enterprise**. Nella casella di ricerca immettere "3270" come filtro. Nell'elenco di azioni selezionare questa azione: **Esegue un programma mainframe su una connessione TN3270**
 
    ![Selezionare l'azione 3270](./media/connectors-create-api-3270/select-3270-action.png)
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
    Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
-1. Se nessuna connessione esiste ancora, specificare le informazioni necessarie per la connessione e scegliere **Create**.
+1. Se non esiste ancora alcuna connessione, fornire le informazioni necessarie per la connessione e scegliere **Crea**.
 
-   | Proprietà | Obbligatorio | Value | Descrizione |
+   | Proprietà | Obbligatorio | Value | DESCRIZIONE |
    |----------|----------|-------|-------------|
    | **Connection Name** (Nome connessione) | Yes | <*nome connessione*> | Nome per la connessione |
-   | **ID Account di integrazione** | Yes | <*integration-account-name*> | Nome dell'account di integrazione |
-   | **URL firma di accesso condiviso dell'Account di integrazione** | Yes | <*integration-account-SAS-URL*> | URL di firma di accesso condiviso (SAS) dell'account di integrazione, che è possibile generare dalle impostazioni dell'account di integrazione nel portale di Azure. <p>1. L'integrazione di dal menu dell'account in **le impostazioni**, selezionare **URL di Callback**. <br>2. Nel riquadro di destra, copiare il **URL di Callback generato** valore. |
-   | **Server** | Yes | <*TN3270-server-name*> | Il nome del server per il servizio di TN3270 |
-   | **Porta** | No | <*TN3270-server-port*> | La porta usata dal server TN3270. Se lasciato vuoto, il connettore Usa `23` come valore predefinito. |
-   | **Tipo di dispositivo** | No | <*Modello di terminale IBM*> | Il nome del modello o il numero del terminale di IBM per emulare. Se lasciato vuoto, il connettore Usa valori predefiniti. |
-   | **Tabella codici** | No | <*code-page-number*> | Il numero di pagina di codice per l'host. Se lasciato vuoto, il connettore Usa `37` come valore predefinito. |
-   | **Nome dell'unità logica** | No | <*logical-unit-name*> | Il nome di unità logica specifica per richiedere dall'host |
-   | **Abilitare SSL?** | No | Attiva o disattiva | Attivare o disattivare la crittografia SSL. |
-   | **Convalida del certificato ssl host?** | No | Attiva o disattiva | Attivare o disattivare la convalida per il certificato del server. |
+   | **ID account di integrazione** | Sì | <*integration-account-name*> | Nome dell'account di integrazione |
+   | **URL SAS dell'account di integrazione** | Sì | <*integration-account-SAS-URL*> | L'URL di firma di accesso condiviso (SAS) dell'account di integrazione, che è possibile generare dalle impostazioni dell'account di integrazione nella portale di Azure. <p>1. Nel menu dell'account di integrazione in **Impostazioni**selezionare **URL callback**. <br>2. Nel riquadro di destra, copiare il valore di **URL callback generato** . |
+   | **Server** | Sì | <*TN3270-nome-server*> | Nome del server per il servizio TN3270 |
+   | **Porta** | No | <*TN3270-server-port*> | La porta usata dal server TN3270. Se viene lasciato vuoto, il connettore `23` USA come valore predefinito. |
+   | **Tipo di dispositivo** | No | <*IBM-Terminal-Model*> | Nome o numero del modello per il terminale IBM da emulare. Se viene lasciato vuoto, il connettore usa i valori predefiniti. |
+   | **Tabella codici** | No | <*code-page-number*> | Numero della tabella codici per l'host. Se viene lasciato vuoto, il connettore `37` USA come valore predefinito. |
+   | **Nome unità logica** | No | <*Logical-Unit-Name*> | Nome dell'unità logica specifica da richiedere dall'host |
+   | **Abilitare SSL?** | No | On o off | Attivare o disattivare la crittografia SSL. |
+   | **Convalidare il certificato SSL host?** | No | On o off | Attivare o disattivare la convalida per il certificato del server. |
    ||||
 
    Ad esempio:
 
-   ![Connection properties (Proprietà connessione)](./media/connectors-create-api-3270/connection-properties.png)
+   ![Proprietà di connessione](./media/connectors-create-api-3270/connection-properties.png)
 
 1. Fornire le informazioni necessarie per l'azione:
 
-   | Proprietà | Obbligatorio | Value | Descrizione |
+   | Proprietà | Obbligatorio | Value | DESCRIZIONE |
    |----------|----------|-------|-------------|
-   | **Nome Hidx** | Yes | <*HIDX-file-name*> | Selezionare il file HIDX 3270 che si desidera utilizzare. |
-   | **Nome del metodo** | Yes | <*nome del metodo*> | Selezionare il metodo nel file HIDX che si desidera utilizzare. Dopo aver selezionato un metodo, il **Aggiungi nuovo parametro** verrà visualizzato l'elenco è possibile scegliere i parametri da usare con tale metodo. |
+   | **Nome hidx** | Sì | <*HIDX-nome file*> | Selezionare il file HIDX 3270 che si vuole usare. |
+   | **Nome metodo** | Yes | <*Nome metodo*> | Selezionare il metodo nel file HIDX che si desidera utilizzare. Dopo aver selezionato un metodo, viene visualizzato l'elenco **Aggiungi nuovo parametro** in modo che sia possibile selezionare i parametri da usare con il metodo. |
    ||||
 
-   Ad esempio:
+   Esempio:
 
    **Selezionare il file HIDX**
 
-   ![Selezionare il file HIDX](./media/connectors-create-api-3270/select-hidx-file.png)
+   ![Seleziona file HIDX](./media/connectors-create-api-3270/select-hidx-file.png)
 
    **Selezionare il metodo**
 
-   ![Metodo Select](./media/connectors-create-api-3270/select-method.png)
+   ![Seleziona metodo](./media/connectors-create-api-3270/select-method.png)
 
    **Selezionare i parametri**
 
@@ -401,22 +401,16 @@ Al termine tutti questi passaggi, è possibile usare l'azione che crea nell'app 
 
 1. Al termine, salvare ed eseguire l'app per la logica.
 
-   Dopo la logica di completamento dell'esecuzione, i passaggi di esecuzione vengono visualizzati. 
-   Questa procedura ha esito positivo Mostra segni di spunta, mentre questa procedura Visualizza la lettera "X".
+   Al termine dell'esecuzione dell'app per la logica, verranno visualizzati i passaggi dell'esecuzione. 
+   I passaggi riusciti mostrano segni di spunta, mentre i passaggi non riusciti mostrano la lettera "X".
 
-1. Per esaminare gli input e output per ogni passaggio, espandere tale passaggio.
+1. Per esaminare gli input e gli output per ogni passaggio, espandere il passaggio.
 
-1. Per esaminare gli output, scegli **visualizzare l'output non elaborati**.
+1. Per esaminare gli output, scegliere **Visualizza output**non elaborati.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche dettagliate sui trigger, azioni e limite, vengono descritti dalla definizione OpenAPI del connettore (in precedenza Swagger) descrizione, rivedere le [pagina di riferimento del connettore](/connectors/si3270/).
-
-## <a name="get-support"></a>Supporto
-
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
+Per informazioni tecniche su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento del connettore](/connectors/si3270/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
