@@ -179,6 +179,9 @@
         - name: Ottimizzare gli iperparametri
           displayName: parameter
           href: how-to-tune-hyperparameters.md
+        - name: Usare Key Vault durante il training
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
     - name: Tenere traccia e monitorare gli esperimenti
       items:
         - name: 'Avviare, monitorare o annullare esecuzioni'
