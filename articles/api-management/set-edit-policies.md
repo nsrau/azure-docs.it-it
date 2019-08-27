@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 052bf619cd6f41aad139db45a8f3ecd9f4a0a62f
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205288"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034926"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Come impostare o modificare i criteri di Gestione API di Azure
 
@@ -34,28 +34,30 @@ Per impostare o modificare un criterio, seguire questa procedura:
 2. Passare all'istanza di Gestione API.
 3. Fare clic sulla scheda **API**.
 
-    ![Modificare i criteri](./media/set-edit-policies/code-editor.png)
+    ![Modifica criterio](./media/set-edit-policies/code-editor.png)
 
 4. Selezionare una delle API importate in precedenza.
 5. Selezionare la scheda **Progettazione**.
 6. Selezionare un'operazione a cui si vuole applicare il criterio. Per applicare il criterio a tutte le operazioni, selezionare **Tutte le operazioni**.
 7. Selezionare l'icona **</>** (editor di codice) nella sezione **Elaborazione in ingresso** o **Elaborazione in uscita**.
 8. Incollare il codice del criterio desiderato in uno dei blocchi appropriati.
-         
-        <policies>
-             <inbound>
-                 <base />
-             </inbound>
-             <backend>
-                 <base />
-             </backend>
-             <outbound>
-                 <base />
-             </outbound>
-             <on-error>
-                 <base />
-             </on-error>
-         </policies>
+
+    ```XML
+    <policies>
+        <inbound>
+            <base />
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
  
 ## <a name="configure-scope"></a>Configurare l'ambito
 

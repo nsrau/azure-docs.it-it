@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c6c070012db0857759c63603072b8321896398b4
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516143"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036330"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
@@ -70,7 +70,7 @@ Quando una zona di disponibilità non è più disponibile, Azure esegue gli aggi
 Se un errore interessa l'intera area primaria, Microsoft tenterà prima di tutto di ripristinare l'area primaria. Se il ripristino non è possibile, Microsoft effettuerà il failover nell'area secondaria, in modo che l'area secondaria diventi la nuova area primaria. Se per l'account di archiviazione è abilitata l'archiviazione RA-GZRS, le applicazioni progettate per questo scenario possono leggere dall'area secondaria in attesa del failover. Se l'account di archiviazione non dispone di RA-GZRS abilitato, le applicazioni non saranno in grado di leggere dal database secondario fino al completamento del failover.
 
 > [!NOTE]
-> GZRS e RA-GZRS sono attualmente in anteprima solo nell'area Stati Uniti orientali 2. Il failover dell'account gestito dal cliente (anteprima) non è ancora disponibile negli Stati Uniti orientali 2, quindi i clienti non possono attualmente gestire gli eventi di failover degli account con gli account GZRS e RA-GZRS. Durante l'anteprima, Microsoft gestirà gli eventi di failover che interessano gli account GZRS e RA-GZRS.
+> GZRS e RA-GZRS sono attualmente in anteprima solo nell'area Stati Uniti orientali. Il failover dell'account gestito dal cliente (anteprima) non è ancora disponibile negli Stati Uniti orientali 2, quindi i clienti non possono attualmente gestire gli eventi di failover degli account con gli account GZRS e RA-GZRS. Durante l'anteprima, Microsoft gestirà gli eventi di failover che interessano gli account GZRS e RA-GZRS.
 
 Poiché i dati vengono replicati in modo asincrono nell'area secondaria, un errore che interessa l'area primaria può causare la perdita di dati se non è possibile recuperare l'area primaria. L'intervallo tra le scritture più recenti nell'area primaria e l'ultima scrittura nell'area secondaria è noto come obiettivo del punto di ripristino (RPO). e indica il punto nel tempo in cui è possibile recuperare i dati. Archiviazione di Azure ha in genere un RPO di meno di 15 minuti, anche se attualmente non esiste alcun contratto di contratto per il tempo necessario per la replica dei dati nell'area secondaria.
 

@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 794f8f136521acbb51139b9e781a30c71a1560e6
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992757"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035901"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
@@ -104,7 +104,7 @@ Seguire questa procedura per abilitare i log per le chiavi gestite dal cliente.
 ## <a name="log-schema"></a>Schema del log 
 Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogni voce contiene campi stringa che usano il formato descritto nella tabella seguente. 
 
-| Name | Descrizione |
+| NOME | DESCRIZIONE |
 | ---- | ----------- | 
 | TaskName | Descrizione dell'attività non riuscita. |
 | ActivityId | ID interno usato per il rilevamento. |
@@ -170,7 +170,7 @@ Di seguito sono riportati i codici di errore comuni da cercare quando è abilita
 > Per abilitare il ripristino di emergenza geografico in uno spazio dei nomi che usa la crittografia BYOK, lo spazio dei nomi secondario per l'associazione deve trovarsi in un cluster dedicato ed è necessario che sia abilitata un'identità gestita assegnata dal sistema. Per altre informazioni, vedere [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!NOTE]
-> Per gli spazi dei nomi di hub eventi crittografati BYOK, gli endpoint di servizio della rete virtuale (VNet) non sono supportati nella versione di anteprima. 
+> Se gli endpoint di servizio della rete virtuale (VNet) sono configurati in Azure Key Vault per lo spazio dei nomi di hub eventi, BYOK non sarà supportato. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

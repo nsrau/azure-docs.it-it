@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817226"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036019"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -39,7 +39,7 @@ Come illustrato dalla formula seguente, esiste una relazione tra la velocità ef
 
 È quindi importante determinare i valori ottimali per IOPS e velocità effettiva richiesti dall'applicazione. I tentativi di ottimizzazione di uno dei valori influiscono anche sull'altro. In una sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*, verrà illustrata in modo dettagliato l'ottimizzazione di IOPS e velocità effettiva.
 
-## <a name="latency"></a>Latenza
+## <a name="latency"></a>Latency
 
 La latenza è il tempo necessario perché un'applicazione riceva una singola richiesta, la invii ai dischi di archiviazione e restituisca la risposta al client. Si tratta di una misura essenziale delle prestazioni di un'applicazione, oltre a IOPS e velocità effettiva. La latenza di un disco di Archiviazione Premium è il tempo necessario per recuperare le informazioni per una richiesta e restituirle all'applicazione. L'Archiviazione Premium offre latenze uniformemente basse. I dischi Premium sono progettati per offrire latenze di pochi millisecondi a cifra singola per la maggior parte delle operazioni di I/O. Se si abilita la memorizzazione nella cache host ReadOnly nei dischi di Archiviazione Premium, sarà possibile ottenere una latenza di lettura molto più bassa. La memorizzazione nella cache dei dischi sarà illustrata in modo più dettagliato nella sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*.
 
@@ -73,7 +73,7 @@ Nella sezione precedente sono stati illustrati gli indicatori di prestazioni com
 | Dimensioni delle richieste I/O | | | |
 | Velocità effettiva media | | | |
 | Max. Velocità effettiva | | | |
-| Min Latenza | | | |
+| Min Latency | | | |
 | Latenza media | | | |
 | Max. CPU | | | |
 | Utilizzo medio CPU | | | |
@@ -111,7 +111,7 @@ Altre informazioni su [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](h
 
 I fattori principali che influiscono sulle prestazioni di un'applicazione in esecuzione nell'archiviazione Premium sono la natura delle richieste di i/o, le dimensioni della macchina virtuale, le dimensioni del disco, il numero di dischi, la memorizzazione nella cache del disco, il multithreading e la profondità È possibile controllare alcuni di questi fattori con manopole fornite dal sistema. È possibile che la maggior parte delle applicazioni non consenta di modificare direttamente le dimensioni di I/O e la profondità della coda. Ad esempio, se si usa SQL Server, non sarà possibile scegliere le dimensioni di I/O e la profondità della coda. SQL Server sceglie i valori ottimali per le dimensioni di I/O e la profondità della coda per ottenere le prestazioni migliori possibili. È importante comprendere gli effetti di entrambi i tipi di fattori sulle prestazioni dell'applicazione, in modo da effettuare il provisioning delle risorse appropriate per soddisfare le esigenze relative alle prestazioni.
 
-In questa sezione è consigliabile vedere l'elenco di controllo creato relativo ai requisiti dell'applicazione per identificare le esigenze di ottimizzazione per le prestazioni dell'applicazione. L'elenco di controllo consentirà di determinare i fattori da perfezionare tra quelli illustrati in questa sezione. Per verificare gli effetti di ogni fattore sulle prestazioni dell'applicazione, eseguire gli strumenti di benchmarking sulla configurazione dell'applicazione. Vedere la sezione benchmarking alla fine di questo articolo per i passaggi relativi all'esecuzione di strumenti di benchmarking comuni nelle VM Windows e Linux.
+In questa sezione è consigliabile vedere l'elenco di controllo creato relativo ai requisiti dell'applicazione per identificare le esigenze di ottimizzazione per le prestazioni dell'applicazione. L'elenco di controllo consentirà di determinare i fattori da perfezionare tra quelli illustrati in questa sezione. Per verificare gli effetti di ogni fattore sulle prestazioni dell'applicazione, eseguire gli strumenti di benchmarking sulla configurazione dell'applicazione. Vedere l'articolo benchmarking, collegato alla fine, per i passaggi necessari per eseguire gli strumenti di benchmarking comuni nelle VM Windows e Linux.
 
 ### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Ottimizzazione immediata di IOPS, velocità effettiva e latenza
 
@@ -166,7 +166,7 @@ Per ottenere valori di IOPS e larghezza di banda più elevati rispetto al valore
 > [!NOTE]
 > poiché se si aumenta il valore di IOPS o di velocità effettiva aumenterà anche l'altro valore, è necessario assicurarsi di non raggiungere i limiti di velocità effettiva o IOPS del disco o della VM in caso di aumento di uno dei valori.
 
-Per verificare gli effetti delle dimensioni di I/O sulle prestazioni dell'applicazione, è possibile eseguire gli strumenti di benchmarking sulle VM e sui dischi. Creare più esecuzioni dei test e usare diverse dimensioni di I/O per ogni esecuzione per verificarne l'impatto. Per altri dettagli, vedere la sezione benchmarking alla fine di questo articolo.
+Per verificare gli effetti delle dimensioni di I/O sulle prestazioni dell'applicazione, è possibile eseguire gli strumenti di benchmarking sulle VM e sui dischi. Creare più esecuzioni dei test e usare diverse dimensioni di I/O per ogni esecuzione per verificarne l'impatto. Per altri dettagli, vedere l'articolo relativo al benchmarking collegato alla fine.
 
 ## <a name="high-scale-vm-sizes"></a>Dimensioni delle macchine virtuali a scalabilità elevata
 
@@ -294,7 +294,7 @@ Le distribuzioni Linux seguenti sono state convalidate per le unità SSD Premium
 
 Alcune versioni richiedono la versione più recente di Linux Integration Services (LIS) 4.0 per Azure. Per scaricare e installare una distribuzione, fare clic sul collegamento riportato nella tabella seguente. Nuove immagini vengono aggiunte all'elenco non appena viene completata la convalida. Le convalide mostrano che le prestazioni variano per ogni immagine. Le prestazioni dipendono dalle caratteristiche del carico di lavoro e dalle impostazioni. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi.
 
-| Distribuzione | Version | Kernel supportato | Dettagli |
+| Distribuzione | Versione | Kernel supportato | Dettagli |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
@@ -387,11 +387,3 @@ L'Archiviazione Premium di Azure effettua il provisioning di un numero specifica
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sui tipi di disco disponibili:
-
-* [Selezionare un tipo di disco](../articles/virtual-machines/windows/disks-types.md)  
-
-Per gli utenti di SQL Server sono disponibili articoli sulle procedure consigliate per le prestazioni per SQL Server:
-
-* [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

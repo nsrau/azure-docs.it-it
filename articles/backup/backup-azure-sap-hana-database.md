@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dacurwin
-ms.openlocfilehash: f5a76ef44ebef0689ec0587434996f28ba7b7025
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a11d454feb965907f3bd4e994c0916eeb7236fa7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735533"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034556"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Eseguire il backup di un database di SAP HANA in Azure
 
@@ -106,9 +106,9 @@ A questo punto, abilitare il backup.
 
 1. Nel passaggio 2 fare clic su **Configura backup**.
 2. In **Seleziona elementi di cui eseguire il backup**selezionare tutti i database che si desidera proteggere > **OK**.
-3. In **criteri** > di backup**scegliere criteri**di backup, creare un nuovo criterio di backup per i database, in base alle istruzioni riportate di seguito.
+3. In **criteri** > di backup**scegliere criteri**di backup, creare un nuovo criterio di backup per i database, in base alle istruzioni riportate di seguito.
 4. Dopo aver creato il criterio, scegliere **Abilita backup**dal menu **backup** .
-5. Tenere traccia dello stato di avanzamento della configurazione del backup nell'area **notifiche** del portale.
+5. Tenere traccia dello stato di avanzamento della configurazione del backup nell'area **notifiche** del portale.
 
 ### <a name="create-a-backup-policy"></a>Creare un criterio di backup
 

@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 059a614dff7fc0eab5419e3e2ffdeaeecb79ad99
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 5169fe5eef416812c399b421f59305f6cb1e7b62
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981377"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035792"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Esercitazione: Aggiungere un'istanza gestita di database SQL a un gruppo di failover
 
@@ -29,7 +29,9 @@ Aggiungere un'istanza gestita di database SQL a un gruppo di failover. In questo
 > - Failover di test
 
   > [!NOTE]
-  > La creazione di un'istanza gestita può richiedere una quantità di tempo significativa. Di conseguenza, per il completamento di questa esercitazione potrebbero essere necessarie diverse ore. Per altre informazioni sui tempi di provisioning, vedere [operazioni di gestione di istanze gestite](sql-database-managed-instance.md#managed-instance-management-operations). L'uso di gruppi di failover con istanze gestite è attualmente in anteprima. 
+  > - Quando si esegue questa esercitazione, assicurarsi di configurare le risorse con i [prerequisiti per la configurazione dei gruppi di failover per l'istanza gestita](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
+  > - La creazione di un'istanza gestita può richiedere una quantità di tempo significativa. Di conseguenza, per il completamento di questa esercitazione potrebbero essere necessarie diverse ore. Per altre informazioni sui tempi di provisioning, vedere [operazioni di gestione di istanze gestite](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - L'uso di gruppi di failover con istanze gestite è attualmente in anteprima. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -96,13 +98,13 @@ La seconda istanza gestita deve:
 
 Per creare un'istanza gestita secondaria, attenersi alla procedura seguente: 
 
-1. Nella [portale di Azure](http://portal.azure.com)selezionare **Crea una risorsa** e cercare *istanza gestita SQL di Azure*. 
+1. Nella [portale di Azure](https://portal.azure.com)selezionare **Crea una risorsa** e cercare *istanza gestita SQL di Azure*. 
 1. Selezionare l'opzione **istanza gestita di Azure SQL** pubblicata da Microsoft e quindi selezionare **Crea** nella pagina successiva.
 1. Nella scheda **nozioni di base** della pagina **Crea istanza gestita di database SQL di Azure** compilare i campi obbligatori per configurare l'istanza gestita secondaria. 
 
    Nella tabella seguente sono illustrati i valori necessari per l'istanza gestita secondaria:
  
-    | **Campo** | Value |
+    | **Campo** | Valore |
     | --- | --- |
     | **Sottoscrizione** |  Sottoscrizione in cui si trova l'istanza gestita primaria. |
     | **Gruppo di risorse**| Il gruppo di risorse in cui si trova l'istanza gestita primaria. |
@@ -167,7 +169,7 @@ Ripetere i passaggi nella sezione precedente per creare la subnet della rete vir
 
    La tabella seguente mostra i valori necessari per il gateway per l'istanza gestita secondaria:
 
-   | **Campo** | Valore |
+   | **Campo** | Value |
    | --- | --- |
    | **Sottoscrizione** |  Sottoscrizione in cui si trova l'istanza gestita secondaria. |
    | **Nome** | Nome del gateway di rete virtuale, ad esempio `secondary-mi-gateway`. | 

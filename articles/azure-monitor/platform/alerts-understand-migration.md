@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: f981c14e26c51c427dab6b418cab8df46b1bb026
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 5257724add570be480063ab776248a8fd1d944c7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302254"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034744"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informazioni sul funzionamento dello strumento di migrazione
 
@@ -77,7 +77,7 @@ Le regole di avviso classiche in AnonymousThrottlingError, SASThrottlingError e 
 - Livello di coerenza
 - Http 2xx
 - Http 3xx
-- Http 400
+- HTTP 400
 - Http 401
 - Internal Server Error
 - Numero massimo di RUPM utilizzati al minuto
@@ -95,7 +95,7 @@ Le regole di avviso classiche in AnonymousThrottlingError, SASThrottlingError e 
 - Disponibilità del servizio
 - Capacità di archiviazione
 - Richieste limitate
-- Totale richieste
+- Richieste totali
 
 Media di richieste al secondo, livello di coerenza, numero massimo di RUPM consumate al minuto, numero massimo di ur al secondo, latenza di lettura osservata, latenza di scrittura osservata, capacità di archiviazione attualmente non disponibile nel [nuovo sistema](metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
 
@@ -260,9 +260,16 @@ Dopo l' [attivazione della migrazione](alerts-using-migration-tool.md), si ricev
 
 A causa di alcune recenti modifiche apportate alle regole di avviso classiche nella sottoscrizione, non è possibile eseguire la migrazione della sottoscrizione. Questo problema è temporaneo. È possibile riavviare la migrazione dopo che lo stato della migrazione è stato spostato di nuovo **pronto per la migrazione** entro pochi giorni.
 
-### <a name="policy-or-scope-lock-preventing-us-from-migrating-your-rules"></a>Blocco di criteri o ambito che impedisce la migrazione delle regole
+### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>Blocco dell'ambito che impedisce la migrazione delle regole
 
-Come parte della migrazione, verranno creati nuovi avvisi per le metriche e nuovi gruppi di azioni, quindi verranno eliminate le regole di avviso classiche. Tuttavia, esiste un criterio o un blocco dell'ambito che impedisce la creazione di risorse. A seconda del criterio o del blocco dell'ambito, non è stato possibile eseguire la migrazione di alcune o di tutte le regole. È possibile risolvere il problema rimuovendo temporaneamente il blocco o il criterio dell'ambito e attivando di nuovo la migrazione.
+Come parte della migrazione, verranno creati nuovi avvisi per le metriche e nuovi gruppi di azioni, quindi verranno eliminate le regole di avviso classiche. Tuttavia, un blocco di ambito può impedire la creazione o l'eliminazione di risorse. A seconda del blocco dell'ambito, non è stato possibile eseguire la migrazione di alcune o di tutte le regole. È possibile risolvere il problema rimuovendo il blocco dell'ambito per la sottoscrizione, il gruppo di risorse o la risorsa, elencato nello [strumento di migrazione](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)e riattivando la migrazione. Il blocco dell'ambito non può essere disabilitato e deve essere rimosso per la durata del processo di migrazione. [Altre informazioni sulla gestione dei blocchi di ambito](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+
+### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>I criteri con effetto ' nega ' impediscono la migrazione delle regole
+
+Come parte della migrazione, verranno creati nuovi avvisi per le metriche e nuovi gruppi di azioni, quindi verranno eliminate le regole di avviso classiche. Tuttavia, un criterio può impedire la creazione di risorse. A seconda del criterio, non è stato possibile eseguire la migrazione di alcune o di tutte le regole. I criteri che bloccano il processo sono elencati nello [strumento di migrazione](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Per risolvere il problema, eseguire una delle operazioni seguenti:
+
+- Esclusione delle sottoscrizioni o dei gruppi di risorse per la durata del processo di migrazione dall'assegnazione dei criteri. [Altre informazioni sulla gestione dell'ambito di esclusione dei criteri](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
+- La rimozione o la modifica dell'effetto in ' audit ' o ' append ' (che, ad esempio, può risolvere i problemi relativi ai tag mancanti). [Altre informazioni sulla gestione dei criteri effetto](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

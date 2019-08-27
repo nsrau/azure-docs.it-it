@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c7b9e3a9eb5c906fa598da9c8c547cb542ecb719
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180700"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036725"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(DEPRECATO) Protezione dei contenitori Docker nel servizio Azure Container
 
@@ -34,7 +34,7 @@ Le aziende sono molto interessate alla sicurezza e per proteggersi da attacchi a
 
 Anche quando si usa un registro privato, è consigliabile usare soluzioni di analisi dell'immagine per una convalida di sicurezza aggiuntiva. Ogni livello di software in un'immagine del contenitore è potenzialmente soggetto a vulnerabilità indipendenti da altri livelli dell'immagine del contenitore. Man mano che sempre più aziende avviano la distribuzione dei carichi di lavoro di produzione basate sulle tecnologie con contenitori, l'analisi dell'immagine diventa fondamentale per prevenire le minacce alla sicurezza contro delle organizzazioni. 
 
-Le soluzioni di monitoraggio e analisi, ad esempio le soluzioni di sicurezza [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) e [Aqua Security](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry), tra le altre, possono essere usate per acquisire immagini del contenitore in un registro privato e identificare le potenziali vulnerabilità. È importante comprendere la profondità di analisi offerta dalle diverse soluzioni. Ad esempio, alcune soluzioni potrebbero eseguire dei controlli incrociati solo sui livelli dell'immagine rispetto alle vulnerabilità note. Queste soluzioni potrebbero non essere in grado di verificare il software a livello immagine creato tramite determinati software di gestione pacchetti. Altre soluzioni dispongono dell'integrazione di analisi più approfondite e possono rilevare vulnerabilità in qualsiasi software nel pacchetto.
+Le soluzioni di monitoraggio e analisi, ad esempio le soluzioni di sicurezza [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) e [Aqua Security](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry), tra le altre, possono essere usate per acquisire immagini del contenitore in un registro privato e identificare le potenziali vulnerabilità. È importante comprendere la profondità di analisi offerta dalle diverse soluzioni. Ad esempio, alcune soluzioni potrebbero eseguire dei controlli incrociati solo sui livelli dell'immagine rispetto alle vulnerabilità note. Queste soluzioni potrebbero non essere in grado di verificare il software a livello immagine creato tramite determinati software di gestione pacchetti. Altre soluzioni dispongono dell'integrazione di analisi più approfondite e possono rilevare vulnerabilità in qualsiasi software nel pacchetto.
 
 ### <a name="production-deployment-rules-and-audit"></a>Controllo e regole di distribuzione di produzione
 Dopo la distribuzione dell'applicazione nell'ambiente di produzione, è essenziale impostare alcune regole per assicurarsi che le immagini usate negli ambienti di produzione siano sicure e che non contengano vulnerabilità.

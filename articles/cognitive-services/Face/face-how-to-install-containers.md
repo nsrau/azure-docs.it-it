@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 93a6d0a42d6d7f07dd8947ce9f8ae99a39d44475
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7ab921d889c48ccd8be469328e2690cb1cb2d8b2
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564139"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050048"
 ---
 # <a name="install-and-run-face-containers"></a>Installare ed eseguire contenitori viso
 
@@ -82,7 +82,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti.
 
-| Segnaposto | Valore |
+| Segnaposto | Value |
 |-------------|-------|
 |{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina `Cognitive Services` **chiavi** di Azure. |
 |{ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile `Cognitive Services` nella pagina **Panoramica** di Azure. Un esempio è `https://westus.api.cognitive.microsoft.com/face/v1.0`.|
@@ -118,7 +118,7 @@ Sono disponibili altri [esempi](./face-resource-container-config.md#example-dock
 
 Il contenitore fornisce API dell'endpoint di stima di query basate su REST. 
 
-Usare l'host, `https://localhost:5000`, per le API del contenitore.
+Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
 
 <!--  ## Validate container is running -->
@@ -129,7 +129,7 @@ Usare l'host, `https://localhost:5000`, per le API del contenitore.
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si esegue il contenitore con un [montaggio](./face-resource-container-config.md#mount-settings) di output e la registrazione è abilitata, il contenitore genera file di log utili per la risoluzione dei problemi che si verificano durante l'avvio o l'esecuzione del contenitore. 
 

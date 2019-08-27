@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2018
 ms.author: banders
-ms.openlocfilehash: 98ed28af8df246549fb521a81f1968e1f5c28cc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39526defb8f41ddacb0a26d7ad852f820ca6ea77
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370714"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034538"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure
 
@@ -36,12 +36,12 @@ Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 
 ## <a name="user-limit-for-admin-roles"></a>Limite di utenti per i ruoli di amministratore
 
-|Ruolo| Limite di utenti|
+|Role| Limite utenti|
 |---|---|
-|Amministratore dell'organizzazione|Illimitato|
-|Amministratore dell'organizzazione (sola lettura)|Illimitato|
-|Amministratore del reparto|Illimitato|
-|Amministratore del reparto (sola lettura)|Illimitato|
+|Amministratore dell'organizzazione|Senza limitazioni|
+|Amministratore dell'organizzazione (sola lettura)|Senza limitazioni|
+|Amministratore del reparto|Senza limitazioni|
+|Amministratore del reparto (sola lettura)|Senza limitazioni|
 |Proprietario dell'account|1 per account<sup>1</sup>|
 
 <sup>1</sup> Ogni account richiede un account Microsoft univoco oppure un account aziendale o dell'istituto di istruzione.
@@ -56,7 +56,7 @@ Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 |Aggiungere o rimuovere i contatti per le notifiche<sup>2</sup> |✔|✘|✘|✘|✘|
 |Creare e gestire i reparti |✔|✘|✘|✘|✘|
 |Visualizzare gli amministratore di reparto|✔|✔|✔|✔|✘|
-|Aggiungere o rimuovere gli amministratori di reparto|✔|✔|✔|✘|✘|
+|Aggiungere o rimuovere gli amministratori di reparto|✔|✘|✔|✘|✘|
 |Visualizzare gli account nella registrazione |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
 |Aggiungere gli account alla registrazione e cambiare il proprietario dell'account|✔|✘|✔<sup>3</sup>|✘|✘|
 |Creare e gestire le sottoscrizioni e le relative autorizzazioni|✘|✘|✘|✘|✔|
@@ -95,8 +95,8 @@ La tabella seguente illustra la relazione tra i ruoli di amministratore del Cont
 |---|---|---|---|
 |Proprietario dell'account OPPURE Amministratore del reparto|✔ Abilitato|Proprietario|Prezzi per il Contratto Enterprise dell'organizzazione|
 |Proprietario dell'account OPPURE Amministratore del reparto|✘ Disabilitato|Proprietario|Prezzi al dettaglio|
-|Proprietario dell'account OPPURE Amministratore del reparto|✔ Abilitato |Nessuno|Nessun prezzo|
-|Proprietario dell'account OPPURE Amministratore del reparto|✘ Disabilitato |Nessuno|Nessun prezzo|
+|Proprietario dell'account OPPURE Amministratore del reparto|✔ Abilitato |none|Nessun prezzo|
+|Proprietario dell'account OPPURE Amministratore del reparto|✘ Disabilitato |none|Nessun prezzo|
 |Nessuna|Non applicabile |Proprietario|Prezzi al dettaglio|
 
 Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visualizzazione degli addebiti nell'Enterprise Portal. Il ruolo di controllo degli accessi in base al ruolo può essere aggiornato nel portale di Azure. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2019
+ms.date: 08/25/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f09a8c2f8caae3cbb182cf2dc4621deb95f7e5c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499654"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033314"
 ---
-# <a name="what-is-azure-ad-identity-governance"></a>Che cos'è Azure AD Identity Governance?
+# <a name="what-is-azure-ad-identity-governance"></a>Cos'è Azure AD Identity Governance?
 
 La governance delle identità Azure Active Directory (Azure AD) consente di bilanciare la necessità della sicurezza e della produttività dei dipendenti dell'organizzazione con i processi e la visibilità corretti. Fornisce le funzionalità necessarie a garantire che gli utenti giusti abbiano i diritti di accesso appropriati per le risorse corrette e consente di proteggere, monitorare e controllare l'accesso agli asset critici, assicurando allo stesso tempo la produttività dei dipendenti.  
 
@@ -80,6 +80,8 @@ Sebbene non esistano soluzioni o raccomandazioni perfette per ogni cliente, le s
 Per iniziare a usare la gestione dei diritti, le verifiche di accesso, Privileged Identity Management e Condizioni per l'utilizzo, è anche possibile consultare la scheda Introduzione di governance delle **identità** nel portale di Azure.
 
 ![Guida introduttiva alla governance delle identità](./media/identity-governance-overview/getting-started.png)
+
+Per commenti e suggerimenti sulle funzionalità di governance delle identità, fare clic su **commenti e suggerimenti?** nella portale di Azure per inviare i commenti. Il team esamina regolarmente il feedback.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

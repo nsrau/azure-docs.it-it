@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d18c74e908f6d5c4c3d2eefb0518add380fa1324
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 3b0c91357e5ab15b88c92b04fd0896b989e83953
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561312"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051439"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
 
-Gli amministratori che scelgono i metodi di autenticazione per Azure multi-factor authentication e la reimpostazione della password self-service (SSPR) si consiglia di richiedere agli utenti di registrare più metodi di autenticazione. Quando un metodo di autenticazione non è disponibile per un utente, può scegliere di eseguire l'autenticazione con un altro metodo.
+Gli amministratori che scelgono i metodi di autenticazione per Azure Multi-Factor Authentication e la reimpostazione della password self-service (SSPR) si consiglia di richiedere agli utenti di registrare più metodi di autenticazione. Quando un metodo di autenticazione non è disponibile per un utente, può scegliere di eseguire l'autenticazione con un altro metodo.
 
-Nei criteri, gli amministratori possono definire quali metodi di autenticazione sono disponibili agli utenti di SSPR e autenticazione a più fattori. Alcuni metodi di autenticazione potrebbero non essere disponibili per tutte le funzionalità. Per ulteriori informazioni sulla configurazione dei criteri, vedere gli articoli [come implementare correttamente la reimpostazione della password self-service](howto-sspr-deployment.md) e la [pianificazione di un'autenticazione Azure a più fattori basata sul cloud](howto-mfa-getstarted.md)
+Nei criteri, gli amministratori possono definire quali metodi di autenticazione sono disponibili agli utenti di SSPR e autenticazione a più fattori. Alcuni metodi di autenticazione potrebbero non essere disponibili per tutte le funzionalità. Per ulteriori informazioni sulla configurazione dei criteri, vedere gli articoli [come implementare correttamente la reimpostazione della password self-service](howto-sspr-deployment.md) e la [pianificazione di un multi-factor authentication Azure basato sul cloud](howto-mfa-getstarted.md)
 
 Si consiglia agli amministratori di consentire agli utenti la selezione di un numero maggiore di metodi di autenticazione rispetto al limite minimo nel caso in cui non abbiano accesso a uno.
 
@@ -60,15 +60,15 @@ Se vengono usate le domande di sicurezza, è consigliabile combinare questo meto
 
 ### <a name="predefined-questions"></a>Domande predefinite
 
-* Città in cui si è incontrato il coniuge/partner
+* In quale città hai incontrato tuo marito o il tuo partner?
 * In quale città si sono incontrati i tuoi genitori?
 * In quale città vive tuo fratello/sorella più vicino/a?
 * In quale città è nato tuo padre?
 * In quale città hai avuto il tuo primo lavoro?
 * In quale città è nata tua madre?
-* Città in cui si è trascorso il Capodanno del 2000
-* Cognome dell'insegnante preferito delle scuole superiori
-* Nome di un'università a cui si è inviata una richiesta di iscrizione ma che non si è frequentata
+* In quale città hai trascorso il Capodanno del 2000?
+* Qual è il cognome del tuo insegnante preferito delle scuole superiori?
+* Qual è il nome di una delle università a cui hai inviato una richiesta di iscrizione ma che non hai frequentato?
 * In quale luogo si è tenuto il tuo primo ricevimento di matrimonio?
 * Qual è il secondo nome di tuo padre?
 * Qual è il tuo piatto preferito?
@@ -94,7 +94,7 @@ Se vengono usate le domande di sicurezza, è consigliabile combinare questo meto
 * Qual è stato il tuo primo lavoro?
 * Quali erano le ultime quattro cifre del tuo numero di telefono quando eri bambino/a?
 * Cosa volevi fare da grande quando eri piccolo?
-* Persona più famosa mai incontrata
+* Qual è la persona più famosa che hai mai incontrato?
 
 Tutte le domande di sicurezza predefinite sono tradotte e localizzate nel set completo delle lingue di Office 365 in base alle impostazioni locali del browser dell'utente.
 
@@ -194,6 +194,8 @@ Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel
 > È necessario uno spazio tra il prefisso internazionale e il numero di telefono.
 >
 > La reimpostazione della password non supporta le estensioni del telefono. Anche nel formato +1 4255551234X12345, le estensioni vengono rimosse prima della chiamata.
+
+Microsoft non garantisce l'invio coerente di prompt Multi-Factor Authentication via SMS o vocali allo stesso numero. Nell'interesse degli utenti, Microsoft può aggiungere o rimuovere codici brevi in qualsiasi momento per eseguire modifiche di route per migliorare il recapito degli SMS. Microsoft non supporta i codici brevi per i paesi/aree geografiche oltre al Stati Uniti e al Canada.
 
 #### <a name="text-message"></a>SMS
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 445ee2784a74a366089a49a0e2f2f17d51ef93bf
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: b688218b871a5f652e7f4de172d23f1b1fb0aa5c
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624309"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035512"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Risolvere i problemi di trasferimento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione
 
@@ -43,7 +43,9 @@ Quando possibile, suddividere spostamenti di grandi dimensioni in operazioni di 
 
 ## <a name="resource-not-in-succeeded-state"></a>Lo stato della risorsa non è riuscito
 
-Se viene ricevuto un messaggio di errore che indica che non è possibile spostare una risorsa perché non è in uno stato Succeeded, potrebbe essere effettivamente una risorsa dipendente che blocca lo spostamento. Vedere [lo stato delle risorse dipendenti](./move-limitations/networking-move-limitations.md#state-of-dependent-resources).
+Quando viene ricevuto un messaggio di errore che indica che non è possibile spostare una risorsa perché non è in uno stato Succeeded, può essere effettivamente una risorsa dipendente che blocca lo spostamento.
+
+Se il gruppo di risorse di origine o di destinazione contiene una rete virtuale, durante lo spostamento vengono controllati gli Stati di tutte le risorse dipendenti per la rete virtuale. Se una di queste risorse si trova in uno stato di errore, lo spostamento è bloccato. Se ad esempio una macchina virtuale che usa la rete virtuale non è riuscita, lo spostamento è bloccato. Lo spostamento viene bloccato anche quando la macchina virtuale non è una delle risorse spostate e non si trova in uno dei gruppi di risorse per lo spostamento. Per evitare questo problema, spostare le risorse in un gruppo di risorse che non dispone di una rete virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

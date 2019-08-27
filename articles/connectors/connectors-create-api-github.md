@@ -1,24 +1,24 @@
 ---
-title: Connettersi a GitHub - App per la logica di Azure | Microsoft Docs
+title: Connettersi a GitHub-app per la logica di Azure
 description: Monitorare gli eventi di GitHub con le API REST di GitHub e App per la logica di Azure
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 03/02/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+manager: carmonm
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 03/02/2018
 tags: connectors
-ms.openlocfilehash: 0d2ff9368bc244a5afd6fafc40cf476b90a80a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6e2a803ee2a272189abf0f21796b2305eea40b
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462562"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050899"
 ---
-# <a name="connect-to-github"></a>Connettersi a GitHub
+# <a name="connect-to-github-from-azure-logic-apps"></a>Connettersi a GitHub da app per la logica di Azure
 
 GitHub è un servizio di hosting di repository Git basato sul Web. Offre tutte le funzionalità di controllo delle revisioni distribuito e di gestione del codice sorgente (SCM) di Git, con l'aggiunta di altre funzionalità.
 
@@ -28,19 +28,19 @@ Per iniziare a usare il connettore GitHub, [creare per prima cosa un'app per la 
 
 Per usare il connettore GitHub in un'app per la logica è necessario creare innanzitutto una *connessione* e quindi specificare i dettagli per queste proprietà: 
 
-| Proprietà | Obbligatorio | Descrizione | 
+| Proprietà | Obbligatorio | DESCRIZIONE | 
 | -------- | -------- | ----------- | 
-| token | Yes | Fornisce le credenziali di GitHub. |
+| Token | Sì | Fornisce le credenziali di GitHub. |
 
 Dopo aver creato la connessione, è possibile eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
-## <a name="connector-specific-details"></a>Dettagli specifici del connettore
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per le azioni e i trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/github/).
+Per informazioni tecniche su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento del connettore](/connectors/github/).
 
-## <a name="find-more-connectors"></a>Trovare altri connettori
+## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere [Elenco dei connettori](apis-list.md).
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)

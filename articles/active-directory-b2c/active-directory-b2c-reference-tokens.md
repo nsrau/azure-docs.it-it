@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c347a5740a13d071d4bb06daf43463f974198e5d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 2b33c35b1e4f83c30e2efdf64aed0b5f2035c79b
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980807"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032085"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Panoramica dei token in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD) B2C genera diversi tipi di token di sicurezza durante l'elaborazione di ogni [flusso di autenticazione](active-directory-b2c-apps.md). Questo documento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
+Azure Active Directory B2C (Azure AD B2C) rilascia tipi diversi di token di sicurezza durante l'elaborazione di ogni [flusso di autenticazione](active-directory-b2c-apps.md). Questo documento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
 
 ## <a name="token-types"></a>Tipi di token
 
@@ -40,7 +40,7 @@ Un' [applicazione registrata](tutorial-register-applications.md) riceve i token 
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
 
-I `/authorize` token di sicurezza ricevuti dall'applicazione da Azure ad B2C possono provenire dagli endpoint `/token` o. Quando vengono acquisiti dall' `/authorize` endpoint, i token ID vengono eseguiti usando il [flusso implicito](active-directory-b2c-reference-spa.md), che viene spesso usato per gli utenti che accedono alle applicazioni Web basate su JavaScript. Quando invece vengono acquisiti dall'endpoint `/token`, viene usato il [flusso di codice riservato](active-directory-b2c-reference-oidc.md), che mantiene il token nascosto al browser.
+I `/authorize` token di sicurezza ricevuti dall'applicazione da Azure ad B2C possono provenire dagli endpoint `/token` o. Quando vengono acquisiti dall' `/authorize` endpoint, i token ID vengono eseguiti usando il [flusso implicito](active-directory-b2c-reference-spa.md), che viene spesso usato per gli utenti che accedono alle applicazioni Web basate su JavaScript. Quando vengono acquisiti dall' `/token` endpoint, i token ID vengono eseguiti usando il flusso del [codice di autorizzazione](active-directory-b2c-reference-oidc.md#get-a-token), che mantiene il token nascosto dal browser.
 
 ## <a name="claims"></a>Attestazioni
 
@@ -50,7 +50,7 @@ Le attestazioni nei token ID non vengono restituite in un ordine particolare. Le
 
 Nella tabella seguente sono elencate le attestazioni che è possibile prevedere in token ID e token di accesso emessi da Azure AD B2C.
 
-| Name | Attestazione | Valore di esempio | Descrizione |
+| Name | Attestazione | Valore di esempio | DESCRIZIONE |
 | ---- | ----- | ------------- | ----------- |
 | Destinatari | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica il destinatario del token. Per Azure AD B2C, il destinatario è l'ID applicazione. L'applicazione deve convalidare questo valore e rifiutare il token se non corrisponde. Audience equivale a risorsa. |
 | Rilasciato da | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token. Identifica inoltre la directory in cui l'utente è stato autenticato. L'applicazione deve convalidare l'attestazione dell'autorità emittente per verificare che il token provenga dall'endpoint appropriato. |

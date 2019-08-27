@@ -5,14 +5,14 @@ services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/16/2019
+ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: 6f5ae426018c9e7fa2ac586a2886c8e5e609069b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b1d22729724c2d1a8e3705e017762dcef588245e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813855"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034863"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struttura dei log di monitoraggio di Azure
 La possibilità di ottenere rapidamente informazioni dettagliate sui dati tramite una query di [log](log-query-overview.md) è una funzionalità potente di monitoraggio di Azure. Per creare query efficienti e utili, è necessario comprendere alcuni concetti di base, ad esempio dove si trovano i dati desiderati e come sono strutturati. Questo articolo fornisce i concetti di base necessari per iniziare.
@@ -46,7 +46,7 @@ union withsource = table *
 Per informazioni dettagliate sulle tabelle create, vedere la documentazione per ogni origine dati. Gli esempi includono articoli per le [origini dati di Agent, i](../platform/agent-data-sources.md) [log di diagnostica](../platform/diagnostic-logs-schema.md)e le soluzioni di [monitoraggio](../insights/solutions-inventory.md).
 
 ### <a name="workspace-permissions"></a>Autorizzazioni per l'area di lavoro
-Per informazioni dettagliate su come fornire l'accesso ai dati in un'area di lavoro [, vedere autorizzazioni e ambito dell'area di lavoro](../platform/manage-access.md#manage-accounts-and-users) . Oltre a concedere l'accesso all'area di lavoro stessa, è possibile limitare l'accesso a singole tabelle utilizzando il [controllo degli accessi in base al ruolo](../platform/manage-access.md#table-level-rbac).
+Vedere [progettazione di una distribuzione di log di monitoraggio di Azure](../platform/design-logs-deployment.md) per comprendere la strategia di controllo degli accessi e i consigli per fornire l'accesso ai dati in un'area di lavoro. Oltre a concedere l'accesso all'area di lavoro stessa, è possibile limitare l'accesso a singole tabelle utilizzando il [controllo degli accessi in base al ruolo](../platform/manage-access.md#table-level-rbac).
 
 ## <a name="application-insights-application"></a>Applicazione Application Insights
 Quando si crea un'applicazione in Application Insights, viene creata automaticamente un'applicazione corrispondente nei log di monitoraggio di Azure. Non è necessaria alcuna configurazione per la raccolta dei dati e l'applicazione scriverà automaticamente i dati di monitoraggio, ad esempio le visualizzazioni di pagina, le richieste e le eccezioni.

@@ -1,6 +1,6 @@
 ---
-title: Gestione di avvisi di sicurezza nel Centro sicurezza di Azure | Documentazione Microsoft
-description: Questo documento illustra come usare le funzionalità del Centro sicurezza di Azure per gestire gli eventi imprevisti della sicurezza.
+title: Gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure | Microsoft Docs
+description: Questo documento consente di usare il Centro sicurezza di Azure per gestire gli eventi imprevisti della sicurezza.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -12,53 +12,62 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2018
+ms.date: 8/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: 68bcd2b1916ccdf68eaa31ed251661a6b7e1bca0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df487b5d16568605544fb69111579bd4a9fb045f
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60704127"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047646"
 ---
-# <a name="handling-security-incidents-in-azure-security-center"></a>Gestione degli eventi imprevisti della sicurezza nel Centro sicurezza di Azure
-La valutazione e l'analisi degli avvisi di sicurezza possono essere dispendiose in termini di tempo anche per gli analisti della sicurezza più esperti e per molti è difficile addirittura stabilire da dove iniziare. Usando funzionalità di [analisi](security-center-detection-capabilities.md) per collegare le informazioni di [avvisi di sicurezza](security-center-managing-and-responding-alerts.md) distinti, il Centro sicurezza può offrire una singola visualizzazione di una campagna di attacco e di tutti gli avvisi correlati, consentendo di comprendere rapidamente le azioni intraprese dall'utente malintenzionato e le risorse interessate.
+# <a name="manage-security-incidents-in-azure-security-center"></a>Gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure
 
-Questo documento illustra come usare le funzionalità degli avvisi del Centro sicurezza per gestire gli eventi imprevisti della sicurezza.
+La valutazione e l'analisi degli avvisi di sicurezza possono richiedere molto tempo per gli analisti di sicurezza più qualificati e, per molti, è difficile capire da dove iniziare. Usando funzionalità di [analisi](security-center-detection-capabilities.md) per collegare le informazioni di [avvisi di sicurezza](security-center-managing-and-responding-alerts.md) distinti, il Centro sicurezza può offrire una singola visualizzazione di una campagna di attacco e di tutti gli avvisi correlati, consentendo di comprendere rapidamente le azioni intraprese dall'utente malintenzionato e le risorse interessate.
+
+In questo argomento vengono illustrati gli eventi imprevisti nel centro sicurezza e come utilizzare la correzione degli avvisi.
 
 ## <a name="what-is-a-security-incident"></a>Che cos'è un evento imprevisto della sicurezza?
-Nel Centro sicurezza un evento imprevisto della sicurezza è un'aggregazione di tutti gli avvisi relativi a una risorsa, in linea con i modelli delle [catene di attacco](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) . Gli eventi imprevisti vengono visualizzati nel riquadro e nel pannello [Avvisi di sicurezza](security-center-managing-and-responding-alerts.md) . Un evento imprevisto riporta un elenco degli avvisi correlati, che consente di ottenere altre informazioni su ogni occorrenza.
+
+Nel Centro sicurezza un evento imprevisto della sicurezza è un'aggregazione di tutti gli avvisi relativi a una risorsa, in linea con i modelli delle [catene di attacco](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) . Gli eventi imprevisti vengono visualizzati nell'elenco degli [avvisi di sicurezza](security-center-managing-and-responding-alerts.md) . Fare clic su Ona un evento imprevisto per visualizzare gli avvisi correlati, che consentono di ottenere ulteriori informazioni su ogni occorrenza.
 
 ## <a name="managing-security-incidents"></a>Gestione degli eventi imprevisti della sicurezza
-È possibile esaminare gli eventi imprevisti della sicurezza correnti visualizzando il riquadro Avvisi di sicurezza. Accedere al portale di Azure e seguire questa procedura per visualizzare altri dettagli su ogni evento imprevisto della sicurezza:
 
-1. Nel dashboard del Centro sicurezza è disponibile il riquadro **Avvisi di sicurezza** .
+1. Nel dashboard del Centro sicurezza fare clic sul riquadro **avvisi di sicurezza** . Gli eventi imprevisti e gli avvisi sono elencati. Si noti che la descrizione dell'evento imprevisto della sicurezza ha un'icona diversa rispetto agli altri avvisi.
 
-    ![Riquadro Avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-incident/security-center-incident-fig1.png)
+    ![Visualizzare gli eventi imprevisti della sicurezza](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-2. Fare clic sul riquadro per espanderlo. In caso di rilevamento di un evento imprevisto della sicurezza, verrà visualizzato nel grafico degli avvisi di sicurezza come illustrato nell'immagine seguente:
+1. Per visualizzare i dettagli, fare clic su un evento imprevisto. Il pannello **rilevato evento imprevisto di sicurezza** Visualizza altri dettagli. La sezione **informazioni generali fornisce informazioni** dettagliate su ciò che ha attivato l'avviso di sicurezza. Vengono visualizzate informazioni quali la risorsa di destinazione, l'indirizzo IP di origine (se applicabile), se l'avviso è ancora attivo e consigli su come correggere il problema.  
 
-    ![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig2.png)
+    ![Rispondere agli eventi imprevisti della sicurezza nel centro sicurezza di Azure](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
-3. Si noti che la descrizione dell'evento imprevisto della sicurezza ha un'icona diversa rispetto agli altri avvisi. Fare clic su di essa per visualizzare altri dettagli sull'evento imprevisto.
+1. Per ottenere ulteriori informazioni su ogni avviso, fare clic su un avviso. Le correzioni suggerite dal Centro sicurezza variano in base all'avviso di sicurezza. Le correzioni suggerite dal Centro sicurezza variano in base all'avviso di sicurezza. 
 
-    ![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig3.png)
+   > [!NOTE]
+   > Lo stesso avviso può esistere come parte di un evento imprevisto, nonché essere visibile come un avviso autonomo.
 
-4. Nel pannello **Evento imprevisto** saranno visualizzati altri dettagli sull'evento imprevisto per la sicurezza. I dettagli includono la descrizione completa, la gravità, che in questo caso è alta, lo stato corrente, che in questo caso è ancora *attivo* e implica che l'utente non ha provveduto a risolverlo facendo clic con il pulsante destro del mouse sull'evento imprevisto nel pannello **Avvisi di sicurezza**, la risorsa che ha subito attacchi, in questo caso la *VM1*, la procedura di correzione e gli avvisi inclusi nell'evento imprevisto nel riquadro inferiore. Per ottenere altre informazioni su ogni avviso, basta selezionarlo. Verrà aperto un altro pannello, come illustrato di seguito:
+    ![Dettagli dell'avviso](./media/security-center-incident/security-center-incident-alert.png)
 
-    ![Evento imprevisto della sicurezza](./media/security-center-incident/security-center-incident-fig4.png)
+1. Attenersi alla procedura di correzione specificata per ogni avviso.
 
-Le informazioni visualizzate in questo pannello variano in base all'avviso. Per altre informazioni su come gestire questi avvisi, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) . Alcune considerazioni importanti in merito a questa funzionalità:
+Per ulteriori informazioni sugli avvisi, sulla [gestione e sulla risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md).
 
-* Un nuovo filtro consente di personalizzare la visualizzazione in modo che contenga solo l'evento imprevisto, solo gli avvisi o entrambi.
-* Lo stesso avviso può essere incluso in un evento imprevisto (se applicabile) ed essere anche visibile come avviso autonomo.
+Gli argomenti seguenti illustrano i diversi avvisi in base ai tipi di risorse:
+
+* [Avvisi server e VM IaaS](security-center-alerts-iaas.md)
+* [Avvisi di calcolo nativi](security-center-alerts-compute.md)
+* [Avvisi di servizi dati](security-center-alerts-data-services.md)
+
+Gli argomenti seguenti illustrano come il Centro sicurezza usa i diversi dati di telemetria raccolti dall'integrazione con l'infrastruttura di Azure, in modo da applicare livelli di protezione aggiuntivi per le risorse distribuite in Azure:
+
+* [Avvisi del livello di servizio](security-center-alerts-service-layer.md)
+* [Integrazione con i prodotti di sicurezza di Azure](security-center-alerts-integration.md)
 
 ## <a name="see-also"></a>Vedere anche
 In questo documento è stato descritto come usare le funzionalità relative agli eventi imprevisti della sicurezza nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
-* [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md)
+* [Avvisi di sicurezza nel centro sicurezza di Azure](security-center-alerts-overview.md).
+* [Gestire gli avvisi di sicurezza](security-center-managing-and-responding-alerts.md)
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md)
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità in Azure.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6f51d2907738f49ace559f1b127458eda71de287
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 18a85fae7d2d241bd8d582db73c71e1d1472f04d
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624092"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036308"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -28,11 +28,16 @@ Non è ancora possibile applicare le configurazioni.
 
 Per controllare le impostazioni all'interno di una macchina virtuale, è abilitata un'[estensione macchina virtuale](../../../virtual-machines/extensions/overview.md). L'estensione scarica l'assegnazione dei criteri applicabile e la configurazione corrispondente.
 
-### <a name="register-guest-configuration-resource-provider"></a>Registrare il provider di risorse della configurazione guest
+### <a name="limits-set-on-the-exension"></a>Limiti impostati per exension
+
+Per limitare l'estensione dall'effetto sulle applicazioni in esecuzione all'interno del computer, la configurazione Guest non può superare il 5% di utilizzo della CPU.
+Questo è il vero boh per le configurazioni fornite da Microsoft come "predefinite" e per le configurazioni personalizzate create dai clienti.
+
+## <a name="register-guest-configuration-resource-provider"></a>Registrare il provider di risorse della configurazione guest
 
 Prima di poter usare la configurazione guest, è necessario registrare il provider di risorse. È possibile eseguire la registrazione nel portale o con PowerShell. Il provider di risorse viene registrato automaticamente se l'assegnazione dei criteri di configurazione Guest viene eseguita tramite il portale.
 
-#### <a name="registration---portal"></a>Registrazione - Portale
+### <a name="registration---portal"></a>Registrazione - Portale
 
 Per registrare il provider di risorse per la configurazione guest tramite il portale di Azure, seguire questa procedura:
 
@@ -44,7 +49,7 @@ Per registrare il provider di risorse per la configurazione guest tramite il por
 
 1. Per filtrare o scorrere fino a individuare **Microsoft.GuestConfiguration**, quindi fare clic su **Registra** sulla stessa riga.
 
-#### <a name="registration---powershell"></a>Registrazione - PowerShell
+### <a name="registration---powershell"></a>Registrazione - PowerShell
 
 Per registrare il provider di risorse per la configurazione guest tramite PowerShell, eseguire il seguente comando:
 
@@ -53,7 +58,7 @@ Per registrare il provider di risorse per la configurazione guest tramite PowerS
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 ```
 
-### <a name="validation-tools"></a>Strumenti di convalida
+## <a name="validation-tools"></a>Strumenti di convalida
 
 All'interno della macchina virtuale, il client della configurazione guest usa gli strumenti locali per eseguire il controllo.
 
@@ -68,11 +73,11 @@ La tabella seguente elenca gli strumenti locali usati on ciascun sistema operati
 
 Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer. In questo modo, Criteri di Azure può valutare le proprietà di Azure Resource Manager. Una valutazione di criteri di Azure su richiesta Recupera il valore più recente dal provider di risorse di configurazione Guest. ma non attiva un nuovo controllo della configurazione nella macchina virtuale.
 
-### <a name="supported-client-types"></a>Tipi di client supportati
+## <a name="supported-client-types"></a>Tipi di client supportati
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
-|Pubblicato da|NOME|Versioni|
+|Pubblicato da|Name|Versioni|
 |-|-|-|
 |Canonico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
@@ -89,7 +94,7 @@ La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
 Windows Server nano server non è supportato in alcuna versione.
 
-### <a name="guest-configuration-extension-network-requirements"></a>Requisiti di rete dell'estensione di configurazione Guest
+## <a name="guest-configuration-extension-network-requirements"></a>Requisiti di rete dell'estensione di configurazione Guest
 
 Per comunicare con il provider di risorse di configurazione Guest in Azure, le macchine virtuali richiedono l'accesso in uscita ai Data Center di Azure sulla porta **443**. Se si usa una rete virtuale privata in Azure e non si consente il traffico in uscita, è necessario configurare le eccezioni usando le regole del [gruppo di sicurezza di rete](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . Al momento non esiste un tag di servizio per la configurazione Guest di criteri di Azure.
 
@@ -100,7 +105,7 @@ Per gli elenchi di indirizzi IP è possibile scaricare [Microsoft Azure interval
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione della configurazione guest
 
-Ogni controllo eseguito dalla configurazione Guest richiede due definizioni di criteri, una definizione **DeployIfNotExists** e una definizione di **controllo** . La definizione **DeployIfNotExists** viene utilizzata per preparare la macchina virtuale con l'agente di configurazione Guest e altri componenti per supportare gli [strumenti di convalida](#validation-tools).
+Ogni controllo eseguito dalla configurazione Guest richiede due definizioni di criteri, una definizione **DeployIfNotExists** e una definizione **AuditIfNotExists** . La definizione **DeployIfNotExists** viene utilizzata per preparare la macchina virtuale con l'agente di configurazione Guest e altri componenti per supportare gli [strumenti di convalida](#validation-tools).
 
 La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elementi seguenti:
 
@@ -111,18 +116,18 @@ La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elemen
 
 Se l'assegnazione **DeployIfNotExists** non è conforme, è possibile utilizzare un' [attività di correzione](../how-to/remediate-resources.md#create-a-remediation-task) .
 
-Quando l'assegnazione di **DeployIfNotExists** è conforme, l'assegnazione dei criteri di **controllo** usa gli strumenti di convalida locali per determinare se l'assegnazione di configurazione è conforme o non conforme.
+Quando l'assegnazione **DeployIfNotExists** è conforme, l'assegnazione dei criteri **AuditIfNotExists** usa gli strumenti di convalida locali per determinare se l'assegnazione di configurazione è conforme o non conforme.
 Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
 
 Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse della configurazione guest per segnalare la conformità nel nodo **Conformità**. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> Il criterio **DeployIfNotExists** è necessario affinché i criteri di **controllo** restituiscano i risultati.
-> Senza **DeployIfNotExists**, il criterio di **controllo** Mostra le risorse "0 di 0" come stato.
+> Il criterio **DeployIfNotExists** è necessario affinché i criteri **AuditIfNotExists** restituiscano i risultati.
+> Senza **DeployIfNotExists**, il criterio **AuditIfNotExists** Mostra le risorse "0 di 0" come stato.
 
-Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Anteprima]: Controllo delle impostazioni di sicurezza della password nelle macchine virtuali Linux e Windows* contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **Audit** per Windows e tre coppie per Linux. In ogni caso, la logica all'interno della definizione convalida solo che il sistema operativo di destinazione venga valutato in base alla definizione di [regola dei criteri](definition-structure.md#policy-rule).
+Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Anteprima]: Controllo delle impostazioni di sicurezza della password nelle macchine virtuali Linux e Windows* contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. In ogni caso, la logica all'interno della definizione convalida solo che il sistema operativo di destinazione venga valutato in base alla definizione di [regola dei criteri](definition-structure.md#policy-rule).
 
-## <a name="multiple-assignments"></a>Più assegnazioni
+### <a name="multiple-assignments"></a>Più assegnazioni
 
 I criteri di configurazione Guest attualmente supportano solo l'assegnazione della stessa assegnazione Guest una volta per ogni macchina virtuale, anche se l'assegnazione dei criteri USA parametri diversi.
 

@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900153"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033269"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Crea una nuova offerta di Dynamics 365 business Central
 
@@ -127,7 +127,7 @@ Sarà necessario definire i dettagli del Marketplace (nome dell'offerta, descriz
 > [!NOTE]
 > Il contenuto dell'offerta (ad esempio la descrizione, i documenti, le schermate, le condizioni per l'utilizzo e così via) non deve essere in inglese, purché la descrizione dell'offerta inizi con la frase "questa applicazione è disponibile solo in [lingua non inglese]". È anche accettabile fornire un URL di *collegamento utile* per offrire contenuto in una lingua diversa da quella usata nell'offerta di visualizzazione del contenuto.
 
-### <a name="name"></a>Name
+### <a name="name"></a>NOME
 
 Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di offerte. Questo campo viene prepopolato con il testo immesso per l' **alias offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e possono essere inclusi marchi o simboli di copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
 
@@ -135,7 +135,7 @@ Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di of
 
 Fornire una breve descrizione dell'offerta (fino a 100 caratteri), che può essere usata nei risultati della ricerca nel Marketplace.
 
-### <a name="description"></a>DESCRIZIONE
+### <a name="description"></a>Descrizione
 
 Fornire una descrizione più lunga dell'offerta (fino a 3.000 caratteri). Questa descrizione verrà visualizzata ai clienti nella panoramica dell'inserzione sul Marketplace. Includere la proposta di valore dell'offerta, i vantaggi principali, le associazioni di categoria e/o di settore, le opportunità di acquisto in-app ed eventuali divulgazioni necessarie. 
 
@@ -354,7 +354,7 @@ L'opzione di **elenco del Marketplace** disponibile nella scheda **test drive** 
 
 ## <a name="supplemental-content"></a>Contenuto supplementare
 
-Questa pagina consente di fornire informazioni aggiuntive necessarie sull'offerta.
+Questa pagina consente di fornire informazioni aggiuntive sull'offerta che consentono di convalidare l'offerta. Queste informazioni non vengono visualizzate ai clienti o pubblicate sul Marketplace.
 
 ### <a name="target-release"></a>Versione di destinazione
 
@@ -362,15 +362,15 @@ Indicare la versione di Microsoft Dynamics Business Central a cui è destinata l
 
 ### <a name="supported-editions"></a>Edizioni supportate
 
-Indicare se la soluzione supporta l'edizione Essentials e/o Premium di Microsoft Dynamics 365 business Central. È necessario selezionare almeno un valore.
+Se l'offerta richiede l'edizione Premium di Microsoft Dynamics 365 business Central, selezionare solo **Premium** . In caso contrario, selezionare sia **Essentials** che **Premium**.
 
 ### <a name="key-usage-scenario"></a>Scenario di utilizzo chiave
 
-Caricare un `.pdf` file che elenca gli scenari di utilizzo chiave dell'offerta elencati in un documento (formato PDF). Tutti gli scenari elencati di seguito possono essere verificati dal team di convalida prima di approvare l'offerta per il Marketplace.
+È necessario pload un `.pdf` file che elenca gli scenari di utilizzo chiave dell'offerta elencati in un documento (formato PDF). Tutti gli scenari elencati di seguito possono essere verificati dal team di convalida prima di approvare l'offerta per il Marketplace.
 
 ### <a name="app-tests-automation"></a>Automazione di test app
 
-Caricare anche un file di **automazione di test di app** qui (. app).
+Facoltativamente, è possibile caricare un file di **automazione di test di app** qui (. app).
 
 ### <a name="test-accounts"></a>Account di test
 

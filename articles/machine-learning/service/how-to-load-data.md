@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd60d9f9bee55ef1342fe344e8b4f2f64e313331
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4bd6605a6a217d6bcdd243ff1d4f7bb6017ca0ef
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360984"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036058"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Caricare e leggere i dati con Azure Machine Learning data Prep SDK
 In questo articolo vengono illustrati i diversi metodi di caricamento dei dati con Azure Machine Learning data Prep SDK.  L'SDK supporta più funzionalità di inserimento dati, tra cui:
@@ -321,4 +321,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un esempio di risoluzione di uno scenario specifico, vedere l' [esercitazione](tutorial-data-prep.md) Azure Machine Learning data Prep SDK.
+* Per informazioni dettagliate, vedere la [documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#dataprep) di Azure Machine Learning data Prep SDK.

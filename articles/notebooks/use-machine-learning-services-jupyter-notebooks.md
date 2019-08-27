@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 2ef327721fd42e5274381834721fd987ec7e9d75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c99f815bd58b03dbc43ba742577259be5638fef9
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240517"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035743"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>Usare il servizio Azure Machine Learning in un notebook
 
@@ -27,8 +27,8 @@ Azure Notebooks è preconfigurato con l'ambiente necessario per interagire con i
 ## <a name="clone-the-sample-into-your-account"></a>Clonare l'esempio nell'account personale
 
 1. Accedere ad [Azure Notebooks](https://notebooks.azure.com/).
-1. Selezionare **My Projects** (Progetti personali) per passare al dashboard dei progetti.
-1. Selezionare il pulsante **Upload GitHub Repo** (Carica repository GitHub) (freccia verso l'alto) per aprire la finestra popup **Upload GitHub Repository** (Carica repository GitHub).
+1. Selezionare **progetti personali** per passare al dashboard progetti.
+1. Selezionare il pulsante **carica repository GitHub** (freccia su) per aprire il popup **caricare il repository GitHub** .
 1. Nella finestra popup immettere `Azure/MachineLearningNotebooks` in **GitHub repository** (Repository di GitHub), specificare un nome per il progetto in **Project Name** (Nome progetto), ad esempio "Azure Machine Learning service", specificare un identificatore in **Project ID** (ID progetto), deselezionare la casella **Public** (Pubblico), se si vuole, e quindi selezionare **Import** (Importa).
 
     ![Importare un esempio di Azure Machine Learning Notebook nell'account di Notebooks](media/azureml-import-project.png)
@@ -41,7 +41,7 @@ Azure Notebooks è preconfigurato con l'ambiente necessario per interagire con i
 
     - Poiché Azure Notebooks contiene già i pacchetti Python necessari, è sufficiente eseguire il frammento di codice disponibile nel passaggio 2 dei prerequisiti per verificare la versione dell'SDK di Azure Machine Learning.
 
-1. Al termine della configurazione, selezionare **01.getting-started** per passare a una cartella contenente tredici diversi esempi di notebook, ognuno dei quali facilmente comprensibile.
+1. Al termine della configurazione, selezionare **01. Getting-Started** per aprire la cartella contenente tredici diversi notebook di esempio, ciascuno dei quali è di facile comprensione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 77c5285462c4368badd63d7cdbf6589c7ad03c8d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f72feeefeb896c9006f767f8724d9ca3b3640c1e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534558"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035223"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -36,7 +36,7 @@ Application Insights è compatibile con tutte le pagine Web, con una minima aggi
 > [!IMPORTANT]
 > È sufficiente usare uno dei metodi seguenti per aggiungere la Application Insights JavaScript SDK all'applicazione. Se si usa l'installazione basata su NPM, non usare l'installazione basata sul frammento. Lo stesso vale per lo scenario inverso quando si usa l'approccio basato su frammenti di codice, non usare anche la configurazione basata su NPM. 
 
-### <a name="npm-based-setup"></a>Configurazione basata su NPM 
+### <a name="npm-based-setup"></a>Configurazione basata su NPM
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -101,7 +101,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configurazione
 La maggior parte dei campi di configurazione è denominata in modo che sia possibile impostarla su false. Tutti i campi sono facoltativi `instrumentationKey`ad eccezione di.
 
-| Name | Predefinito | Descrizione |
+| NOME | Predefinito | DESCRIZIONE |
 |------|---------|-------------|
 | instrumentationKey | Null | **Obbligatorio**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
 | accountId | Null | ID account facoltativo, se l'app raggruppa gli utenti in account. Spazi, virgole, punti e virgola, uguali o barre verticali |
@@ -198,7 +198,7 @@ Il minimizzati stack dei dati di telemetria delle eccezioni può essere unminifi
 2. Identificare i mapping di origine corrispondenti a questo stack di chiamate. La mappa di origine deve corrispondere al file di origine di un stack frame, ma con suffisso`.map`
 3. Trascinare e rilasciare i mapping di origine nello stack di chiamate nel portale di Azure![](https://i.imgur.com/Efue9nU.gif)
 
-## <a name="application-insights-web-basic"></a>Application Insights Web Basic
+### <a name="application-insights-web-basic"></a>Application Insights Web Basic
 
 Per un'esperienza semplificata, è invece possibile installare la versione di base di Application Insights
 ```

@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: f9223fdead9d22e8f58076b47502e71c06741e3f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e711e94a4ac8098137456c2ae5bf018107687354
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900090"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033228"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Crea una nuova offerta di Dynamics 365 per le operazioni
 
@@ -339,11 +339,11 @@ L'opzione di **elenco del Marketplace** disponibile nella scheda **test drive** 
 
 ## <a name="supplemental-content"></a>Contenuto supplementare
 
-Questa pagina consente di fornire informazioni aggiuntive necessarie sull'offerta.
+Questa pagina consente di fornire informazioni aggiuntive sull'offerta che consentono di convalidare l'offerta. Queste informazioni non vengono visualizzate ai clienti o pubblicate sul Marketplace.
 
 ### <a name="validation-assets"></a>Asset di convalida
 
-In questa sezione è necessario caricare un report di analisi della personalizzazione (auto). Questo report viene generato analizzando i modelli di personalizzazione e di estensione in base a un set predefinito di regole per le procedure consigliate.
+In questa sezione è necessario caricare un [report di analisi della personalizzazione (auto)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) . Questo report viene generato analizzando i modelli di personalizzazione e di estensione in base a un set predefinito di regole per le procedure consigliate.
 
 Questo file deve essere in formato xls o xlsx. Se si dispone di più di un report, è possibile caricare un file con estensione zip contenente tutti i report.
 

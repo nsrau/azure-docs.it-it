@@ -1,6 +1,6 @@
 ---
-title: Definizioni di avviso dello schema comuni per Webhook/logica o app di Azure funzioni/automazione runbook
-description: Comprendere le definizioni di avviso dello schema comuni per i Webhook/logica o le app di Azure funzioni/automazione runbook
+title: Definizioni dello schema di avviso comuni per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione
+description: Informazioni sulle definizioni dello schema di avviso comuni per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: c37ecfbadd7345fea347ff488895f16ba505c818
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 94938358bc4e4782e91401e24a01a3688c6a51ba
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594370"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034795"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
-Questo articolo descrive la [definizioni di avviso dello schema comuni](https://aka.ms/commonAlertSchemaDocs) per i runbook di funzioni o dell'automazione di Webhook/logica o app di Azure. 
+Questo articolo descrive le [definizioni dello schema di avviso comuni](https://aka.ms/commonAlertSchemaDocs) per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione. 
 
 ## <a name="overview"></a>Panoramica
 
-Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e **la causa dell'avviso**, e queste istanze sono descritti nello schema comune nelle sezioni seguenti:
-* **Essentials**: Un set di **standardizzato campi**comune a tutti i tipi di avviso, che descrivono **quali risorse** l'avviso è sui insieme a ulteriori i metadati di avviso comuni (ad esempio, la gravità o descrizione). 
-* **Contesto dell'avviso**: Un set di campi che descrivono il **causa dell'avviso**, con i campi che variano **basato sul tipo di avviso**. Ad esempio, un avviso di metrica avrebbe campi come il nome della metrica e il valore della metrica nel contesto degli avvisi, mentre un avviso del log attività dovrà avere informazioni sull'evento che ha generato l'avviso. 
+Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa origine**, che vengono descritte nello schema comune nelle seguenti sezioni:
+* **Elementi**di base: Set di **campi standardizzati**, comune in tutti i tipi di avviso, che descrivono la **risorsa** in cui si trova l'avviso insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 
+* **Contesto avviso**: Set di campi che descrivono la **motivo dell'avviso**, con campi che variano **in base al tipo di avviso**. Ad esempio, un avviso di metrica avrebbe campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività avrebbe informazioni sull'evento che ha generato l'avviso. 
 
-##### <a name="sample-alert-payload"></a>Esempio di payload degli avvisi
+##### <a name="sample-alert-payload"></a>Payload degli avvisi di esempio
 ```json
 {
   "schemaId": "azureMonitorCommonAlertSchema",
@@ -74,22 +74,22 @@ Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e *
 }
 ```
 
-## <a name="essentials-fields"></a>Campi riga "essentials"
+## <a name="essentials-fields"></a>Campi ' Essentials '
 
-| Campo | DESCRIZIONE|
+| Campo | Descrizione|
 |:---|:---|
-| alertId | GUID che identifica l'istanza di avviso. |
+| alertId | GUID che identifica in modo univoco l'istanza di avviso. |
 | alertRule | Nome della regola di avviso che ha generato l'istanza di avviso. |
 | severity | Gravità dell'avviso Valori possibili: Sev0, Sev1, Sev2, Sev3, Sev4 |
-| signalType | Identifica il segnale in cui è stata definita la regola di avviso. Valori possibili: Metriche, Log, Log di attività |
-| monitorCondition | Quando viene generato un avviso, condizione di monitoraggio dell'avviso è impostato su 'Attivato'. Quando si cancella la condizione sottostante che ha causato l'avviso venga generato, la condizione del monitoraggio è impostata su 'Risolto'.   |
-| monitoringService | Il servizio di monitoraggio o una soluzione che ha generato l'avviso. I campi per il contesto dell'avviso dipendono dal servizio di monitoraggio. |
-| alertTargetIds | Elenco delle destinazioni ID ARM tutti interessati di un avviso. Per un avviso di log definito in un'area di lavoro di Log Analitica o istanza di Application Insights, è la rispettivo area di lavoro/applicazione. |
-| originAlertId | ID dell'istanza di avviso come generate dal servizio di monitoraggio che lo genera. |
-| firedDateTime | Ora di quando l'istanza di avviso è stato generato in formato UTC |
-| resolvedDateTime | Data l'ora di quando la condizione di monitoraggio per l'istanza di avviso è impostata su 'Risolto' in formato UTC. Attualmente applicabile solo per gli avvisi delle metriche.|
-| description | Descrizione come definito nella regola di avviso |
-|essentialsVersion| Numero di versione per la sezione informazioni di base.|
+| signalType | Identifica il segnale su cui è stata definita la regola di avviso. Valori possibili: Metrica, log, log attività |
+| monitorCondition | Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su "attivato". Quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su "risolto".   |
+| monitoringService | Il servizio di monitoraggio o la soluzione che ha generato l'avviso. I campi per il contesto dell'avviso sono determinati dal servizio di monitoraggio. |
+| alertTargetIds | Elenco degli ID ARM tutti gli obiettivi interessati di un avviso. Per un avviso di log definito in un'area di lavoro Log Analytics o in un'istanza di Application Insights, è la rispettiva area di lavoro/applicazione. |
+| originAlertId | ID dell'istanza di avviso generata dal servizio di monitoraggio che lo genera. |
+| firedDateTime | Data e ora in cui l'istanza di avviso è stata attivata in formato UTC |
+| resolvedDateTime | Data e ora in cui la condizione di monitoraggio per l'istanza di avviso è impostata su' risolto ' in formato UTC. Attualmente applicabile solo per gli avvisi della metrica.|
+| description | Descrizione definita nella regola di avviso |
+|essentialsVersion| Numero di versione per la sezione Essentials.|
 |alertContextVersion | Numero di versione per la sezione alertContext |
 
 ##### <a name="sample-values"></a>Valori di esempio
@@ -114,11 +114,11 @@ Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e *
 }
 ```
 
-## <a name="alert-context-fields"></a>Campi 'Al contesto dell'avviso'
+## <a name="alert-context-fields"></a>Campi ' contesto avviso '
 
 ### <a name="metric-alerts"></a>Avvisi delle metriche
 
-#### <a name="monitoringservice--platform"></a>monitoringService = 'Platform'
+#### <a name="monitoringservice--platform"></a>monitoringService =' Platform '
 
 ##### <a name="sample-values"></a>Valori di esempio
 ```json
@@ -151,13 +151,13 @@ Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e *
 }
 ```
 
-### <a name="log-alerts"></a>Avvisi del log
+### <a name="log-alerts"></a>Avvisi di log
 
 > [!NOTE]
-> + Per gli avvisi del log in cui è stato definito un payload JSON personalizzato, consentendo lo schema comune verrà ripristinato lo schema di payload a quello descritto di seguito.
-> + Gli avvisi con lo schema comune abilitata hanno un limite massimo di dimensioni pari a 256KB per ogni avviso. **I risultati della ricerca non sono incorporati nel payload di avvisi del log se provocano la dimensione degli avvisi da tra questa soglia.** Ciò può essere determinato controllando il flag 'IncludedSearchResults'. Negli scenari in cui non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca in combinazione con il [API di Log Analitica](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> + Per gli avvisi del log in cui è stato definito un payload JSON personalizzato, l'abilitazione dello schema comune ridurrà lo schema del payload a quello descritto di seguito.
+> + Gli avvisi con lo schema comune abilitato hanno un limite di dimensioni superiori di 256 KB per ogni avviso. **I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso.** Questa operazione può essere determinata controllando il flag ' IncludedSearchResults '. Negli scenari in cui non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca in combinazione con l' [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
-#### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
+#### <a name="monitoringservice--log-analytics"></a>monitoringService =' Log Analytics '
 
 ##### <a name="sample-values"></a>Valori di esempio
 ```json
@@ -224,7 +224,7 @@ Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e *
 }
 ```
 
-#### <a name="monitoringservice--application-insights"></a>monitoringService = 'Application Insights'
+#### <a name="monitoringservice--application-insights"></a>monitoringService =' Application Insights '
 
 ##### <a name="sample-values"></a>Valori di esempio
 ```json
@@ -287,9 +287,9 @@ Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e *
 }
 ```
 
-### <a name="activity-log-alerts"></a>Avvisi dei log attività
+### <a name="activity-log-alerts"></a>Avvisi del log attività
 
-#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = 'Log attività - amministrativo'
+#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService =' log attività-amministrativo '
 
 ##### <a name="sample-values"></a>Valori di esempio
 ```json
@@ -316,22 +316,118 @@ Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e *
 }
 ```
 
-#### <a name="monitoringservice--servicehealth"></a>monitoringService = 'ServiceHealth'
+#### <a name="monitoringservice--activity-log---policy"></a>monitoringService =' log attività-criteri '
+
+##### <a name="sample-values"></a>Valori di esempio
+```json
+{
+  "alertContext": {
+    "authorization": {
+      "action": "Microsoft.Resources/checkPolicyCompliance/read",
+      "scope": "/subscriptions/<GUID>"
+    },
+    "channels": "Operation",
+    "claims": "{\"aud\":\"https://management.azure.com/\",\"iss\":\"https://sts.windows.net/<GUID>/\",\"iat\":\"1566711059\",\"nbf\":\"1566711059\",\"exp\":\"1566740159\",\"aio\":\"42FgYOhynHNw0scy3T/bL71+xLyqEwA=\",\"appid\":\"<GUID>\",\"appidacr\":\"2\",\"http://schemas.microsoft.com/identity/claims/identityprovider\":\"https://sts.windows.net/<GUID>/\",\"http://schemas.microsoft.com/identity/claims/objectidentifier\":\"<GUID>\",\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\":\"<GUID>\",\"http://schemas.microsoft.com/identity/claims/tenantid\":\"<GUID>\",\"uti\":\"Miy1GzoAG0Scu_l3m1aIAA\",\"ver\":\"1.0\"}",
+    "caller": "<GUID>",
+    "correlationId": "<GUID>",
+    "eventSource": "Policy",
+    "eventTimestamp": "2019-08-25T11:11:34.2269098+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Warning",
+    "operationName": "Microsoft.Authorization/policies/audit/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "isComplianceCheck": "True",
+      "resourceLocation": "eastus2",
+      "ancestors": "<GUID>",
+      "policies": "[{\"policyDefinitionId\":\"/providers/Microsoft.Authorization/policyDefinitions/<GUID>/\",\"policySetDefinitionId\":\"/providers/Microsoft.Authorization/policySetDefinitions/<GUID>/\",\"policyDefinitionReferenceId\":\"vulnerabilityAssessmentMonitoring\",\"policySetDefinitionName\":\"<GUID>\",\"policyDefinitionName\":\"<GUID>\",\"policyDefinitionEffect\":\"AuditIfNotExists\",\"policyAssignmentId\":\"/subscriptions/<GUID>/providers/Microsoft.Authorization/policyAssignments/SecurityCenterBuiltIn/\",\"policyAssignmentName\":\"SecurityCenterBuiltIn\",\"policyAssignmentScope\":\"/subscriptions/<GUID>\",\"policyAssignmentSku\":{\"name\":\"A1\",\"tier\":\"Standard\"},\"policyAssignmentParameters\":{}}]"
+    },
+    "status": "Succeeded",
+    "subStatus": "",
+    "submissionTimestamp": "2019-08-25T11:12:46.1557298+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--activity-log---autoscale"></a>monitoringService =' log attività-scalabilità automatica '
+
+##### <a name="sample-values"></a>Valori di esempio
+```json
+{
+  "alertContext": {
+    "channels": "Admin, Operation",
+    "claims": "{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn\":\"Microsoft.Insights/autoscaleSettings\"}",
+    "caller": "Microsoft.Insights/autoscaleSettings",
+    "correlationId": "<GUID>",
+    "eventSource": "Autoscale",
+    "eventTimestamp": "2019-08-21T16:17:47.1551167+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Insights/AutoscaleSettings/Scaleup/Action",
+    "operationId": "<GUID>",
+    "properties": {
+      "description": "The autoscale engine attempting to scale resource '/subscriptions/d<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS' from 9 instances count to 10 instances count.",
+      "resourceName": "/subscriptions/<GUID>/resourceGroups/voiceassistancedemo/providers/Microsoft.Compute/virtualMachineScaleSets/alexademo",
+      "oldInstancesCount": "9",
+      "newInstancesCount": "10",
+      "activeAutoscaleProfile": "{\r\n  \"Name\": \"Auto created scale condition\",\r\n  \"Capacity\": {\r\n    \"Minimum\": \"1\",\r\n    \"Maximum\": \"10\",\r\n    \"Default\": \"1\"\r\n  },\r\n  \"Rules\": [\r\n    {\r\n      \"MetricTrigger\": {\r\n        \"Name\": \"Percentage CPU\",\r\n        \"Namespace\": \"microsoft.compute/virtualmachinescalesets\",\r\n        \"Resource\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"ResourceLocation\": \"eastus\",\r\n        \"TimeGrain\": \"PT1M\",\r\n        \"Statistic\": \"Average\",\r\n        \"TimeWindow\": \"PT5M\",\r\n        \"TimeAggregation\": \"Average\",\r\n        \"Operator\": \"GreaterThan\",\r\n        \"Threshold\": 0.0,\r\n        \"Source\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"MetricType\": \"MDM\",\r\n        \"Dimensions\": [],\r\n        \"DividePerInstance\": false\r\n      },\r\n      \"ScaleAction\": {\r\n        \"Direction\": \"Increase\",\r\n        \"Type\": \"ChangeCount\",\r\n        \"Value\": \"1\",\r\n        \"Cooldown\": \"PT1M\"\r\n      }\r\n    }\r\n  ]\r\n}",
+      "lastScaleActionTime": "Wed, 21 Aug 2019 16:17:47 GMT"
+    },
+    "status": "Succeeded",
+    "submissionTimestamp": "2019-08-21T16:17:47.2410185+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--activity-log---security"></a>monitoringService =' log attività-sicurezza '
+
+##### <a name="sample-values"></a>Valori di esempio
+```json
+{
+  "alertContext": {
+    "channels": "Operation",
+    "correlationId": "<GUID>",
+    "eventSource": "Security",
+    "eventTimestamp": "2019-08-26T08:34:14+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Security/locations/alerts/activate/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "threatStatus": "Quarantined",
+      "category": "Virus",
+      "threatID": "2147519003",
+      "filePath": "C:\\AlertGeneration\\test.eicar",
+      "protectionType": "Windows Defender",
+      "actionTaken": "Blocked",
+      "resourceType": "Virtual Machine",
+      "severity": "Low",
+      "compromisedEntity": "testVM",
+      "remediationSteps": "[\"No user action is necessary\"]",
+      "attackedResourceType": "Virtual Machine"
+    },
+    "status": "Active",
+    "submissionTimestamp": "2019-08-26T09:28:58.3019107+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--servicehealth"></a>monitoringService =' ServiceHealth '
 
 ##### <a name="sample-values"></a>Valori di esempio
 ```json
 {
   "alertContext": {
     "authorization": null,
-    "channels": "Admin",
+    "channels": 1,
     "claims": null,
     "caller": null,
     "correlationId": "f3cf2430-1ee3-4158-8e35-7a1d615acfc7",
-    "eventSource": "ServiceHealth",
+    "eventSource": 2,
     "eventTimestamp": "2019-06-24T11:31:19.0312699+00:00",
     "httpRequest": null,
     "eventDataId": "<GUID>",
-    "level": "Informational",
+    "level": 3,
     "operationName": "Microsoft.ServiceHealth/maintenance/action",
     "operationId": "<GUID>",
     "properties": {
@@ -355,11 +451,12 @@ Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e *
     },
     "status": "Active",
     "subStatus": null,
-    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00"
+    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00",
+    "ResourceType": null
   }
 }
 ```
-#### <a name="monitoringservice--resource-health"></a>monitoringService = 'Resource Health'
+#### <a name="monitoringservice--resource-health"></a>monitoringService =' Integrità risorse '
 
 ##### <a name="sample-values"></a>Valori di esempio
 ```json
@@ -391,5 +488,5 @@ Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e *
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Altre informazioni sullo schema di avviso comune](https://aka.ms/commonAlertSchemaDocs)
-- [Informazioni su come creare un'app per la logica che utilizza lo schema comune degli avvisi per gestire tutti gli avvisi.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
+- [Informazioni su come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 

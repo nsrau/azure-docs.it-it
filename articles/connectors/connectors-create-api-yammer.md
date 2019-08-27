@@ -11,12 +11,12 @@ ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9228a94dcf27d8987b16e2caa2681cf973db0657
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104732"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050649"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Monitorare e gestire l'account Yammer con App per la logica di Azure
 
@@ -30,7 +30,7 @@ Con App per la logica di Azure e il connettore Yammer, è possibile creare attiv
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * Account Yammer e credenziali utente
 
@@ -65,7 +65,7 @@ Con App per la logica di Azure e il connettore Yammer, è possibile creare attiv
        Nella casella di ricerca immettere "yammer" come filtro. 
        Nell'elenco delle azioni selezionare l'azione desiderata.
 
-1. Se viene chiesto di accedere a Yammer, accedere ora in modo tale da ricevere l'accesso.
+1. Se viene richiesto di accedere a Yammer, accedere ora per poter consentire l'accesso.
 
 1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 

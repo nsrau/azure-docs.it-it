@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62496aceb1454283449e952c0ed86623597e9e66
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1431a46bf0981ee7ca3ecd06be9d7ebc35f05982
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011677"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032734"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -35,7 +35,7 @@ Se si dispone di un ambiente di Active Directory (AD) locale e si desidera aggiu
 Questo articolo presuppone che l'utente abbia familiarità con l' [Introduzione alla gestione delle identità dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> Il livello di funzionalità minimo richiesto del dominio e della foresta per Windows 10 Hybrid Azure AD join è Windows Server 2008 R2.
+> La versione minima richiesta del controller di dominio per Windows 10 Hybrid Azure AD join è Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Pianificare l'implementazione
 

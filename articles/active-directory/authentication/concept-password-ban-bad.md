@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2b4ed91969248bc0818f98306a108555eac424
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853044"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032885"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminare le password non appropriate nell'organizzazione
 
@@ -121,7 +121,7 @@ Sulla password normalizzata viene applicata la corrispondenza fuzzy per verifica
 
 Esempio: si supponga che la password "abcdef" sia compresa tra le password escluse e che un utente tenti di modificarla in una delle password seguenti:
 
-'abcdeg'     *(ultimo carattere modificato da 'f' a 'g')* 'abcdefg'    *'(g' aggiunto alla fine)* 'abcde'      *('f' finale eliminata)*
+' abcdeg ' *(ultimo carattere modificato da' f ' a' g ')* ' abcdefg ' *' (g ' aggiunto alla fine)* ' abcde ' *(la fine di ' f ' è stata eliminata dall'estremità)*
 
 Nessuna delle password precedenti corrisponde esattamente alla password esclusa "abcdef", Tuttavia, poiché ogni esempio si trova all'interno di una distanza di modifica di 1 del termine ' abcdef ' vietato, vengono tutti considerati come una corrispondenza con "abcdef".
 
@@ -160,7 +160,7 @@ Dopo la normalizzazione, la password diventa "contosoblankf9!". Il processo di c
 
 |   | Protezione delle password di Azure AD con elenco globale di password escluse | Protezione delle password di Azure AD con elenco password personalizzate escluse|
 | --- | --- | --- |
-| Solo utenti cloud | Azure AD Free | Azure AD Premium P1 o P2 |
+| Solo utenti cloud | Azure AD Gratuito | Azure AD Premium P1 o P2 |
 | Utenti sincronizzati da Windows Server Active Directory locale | Azure AD Premium P1 o P2 | Azure AD Premium P1 o P2 |
 
 > [!NOTE]
