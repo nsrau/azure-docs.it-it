@@ -145,12 +145,16 @@
       items:
         - name: Installare ed eseguire i contenitori
           href: computer-vision-how-to-install-containers.md
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
         - name: Configurare i contenitori
           href: computer-vision-resource-container-config.md
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
         - name: Usare con Kubernetes e Jenkins
           href: deploy-computer-vision-on-premises.md
+          displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
         - name: Usare istanze di contenitore
           href: deploy-computer-vision-on-container-instances.md
+          displayName: 'container instances, container, containers, images'
     - name: Usare il servizio connesso di Visione artificiale
       href: vs-computer-vision-connected-service.md
     - name: Analizzare video in tempo reale
