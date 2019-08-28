@@ -245,6 +245,7 @@
           href: speech-container-howto-on-premises.md
         - name: Usare istanze di contenitore
           href: deploy-speech-on-container-instances.md
+          displayName: 'container instances, speech container, containers, images'
 - name: Esempi
   items:
     - name: Speech SDK
