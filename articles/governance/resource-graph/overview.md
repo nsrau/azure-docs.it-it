@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: d78c640f4269c799d3d371e6dd9db477faf96694
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: faad0a0166c1b11f51f814bb6ce3351d7a017239
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807434"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900017"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Panoramica del servizio Azure Resource Graph
 
@@ -62,6 +62,9 @@ Per usare Resource Graph, è necessario avere i diritti appropriati nel [control
 
 > [!NOTE]
 > Resource Graph usa le sottoscrizioni disponibili a un'entità di sicurezza durante l'accesso. Per visualizzare le risorse di una nuova sottoscrizione aggiunta durante una sessione attiva, l'entità deve aggiornare il contesto. Questa azione viene eseguita automaticamente quando ci si disconnette e si accede nuovamente.
+
+L'interfaccia della riga di comando di Azure e Azure PowerShell usano sottoscrizioni accessibili all'utente. Quando si usa direttamente l'API REST, l'elenco delle sottoscrizioni viene fornito dall'utente. Se l'utente ha accesso a una qualsiasi delle sottoscrizioni dell'elenco, i risultati della query vengono restituiti per le sottoscrizioni accessibili all'utente. Questo comportamento è identico a quello riscontrato quando si chiama [Gruppi di risorse - Elenco](/rest/api/resources/resourcegroups/list) e si ottengono i gruppi di risorse cui si ha accesso senza alcuna indicazione del fatto che il risultato potrebbe essere parziale.
+Se l'elenco non include presenti sottoscrizioni per cui l'utente dispone dei diritti appropriati, la risposta è _403_ (accesso negato).
 
 ## <a name="throttling"></a>Limitazione
 

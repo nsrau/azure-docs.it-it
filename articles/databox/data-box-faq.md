@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: f1a1a8a6b32567a1571c70e76a4ae6c570d27ca5
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561406"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900576"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -185,6 +185,9 @@ R. Per il servizio Data Box, Microsoft gestisce la spedizione da e verso il data
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>D: I dispositivi Data Box possono essere spediti oltre i confini nazionali?
 R. Tutti i dispositivi Data Box vengono spediti all'interno dello stesso paese e non possono superare i confini internazionali. L'unica eccezione è data dagli ordini nell'Unione Europea (UE), in cui i dispositivi possono essere spediti da e verso i paesi dell'Unione Europea. Questo approccio si applica ai dispositivi Data Box e Data Box Heavy.
+
+### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>D: Ho ordinato un Data Box negli Stati Uniti orientali, ma ho ricevuto un dispositivo spedito da una località negli Stati Uniti occidentali. A chi devo restituire il dispositivo?
+R. Per ridurre i tempi di recapito dei dispositivi Data Box, per le spedizioni viene data priorità ai data center più vicini alla località dell'account di archiviazione, tuttavia i dispositivi vengono spediti da qualsiasi data center di Azure con inventario disponibile. Il Data Box deve essere restituito all'indirizzo da cui è stato spedito, indicato nell'etichetta di spedizione.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>D: Nello schermo E-ink non viene visualizzata l'etichetta di spedizione di restituzione. Cosa devo fare?
 R. Se nello schermo E-ink non viene visualizzata l'etichetta di spedizione di restituzione, seguire questa procedura:

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: c6ae23efa90874bbefc2aff35f8798aa6c0da791
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 94df90db4a715d2540dfc5ec0aa521d76d22f757
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503737"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624221"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modellazione di dati del grafo per l'API Gremlin di Azure Cosmos DB
 
@@ -94,7 +94,7 @@ Gli oggetti arco hanno una direzione predefinita che viene seguita da un attrave
 
 L'attraversamento nella direzione opposta di un arco, con la funzione `in()`, implica però una query tra partizioni. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md). Se è necessario eseguire costantemente attraversamenti con la funzione `in()`, è consigliabile aggiungere archi in entrambe le direzioni.
 
-Per determinare la direzione degli archi, usare il predicato `.to()` o `.from()` nel passaggio `.addE()` di Gremlin. In alternativa, è possibile usare la [libreria BulkExecutor per l'API Gremlin](bulk-executor-graph-dotnet.md).
+Per determinare la direzione degli archi, usare il predicato `.to()` o `.from()` nel passaggio `.addE()` di Gremlin. In alternativa, è possibile usare la [libreria dell'executor bulk per l'API Gremlin](bulk-executor-graph-dotnet.md).
 
 > [!NOTE]
 > Agli oggetti arco è assegnata una direzione per impostazione predefinita.

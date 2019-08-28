@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 484763adfa154dcdf226b03f1f591d248532ee35
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 295430027afabcfcf793a87ae5859dc9c6675966
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451502"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876299"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Guida introduttiva: Eseguire uno script R in un cluster ML Services in Azure HDInsight con RStudio Server
 
@@ -23,7 +23,7 @@ Questo argomento di avvio rapido illustra come eseguire uno script R con RStudio
 
 ## <a name="prerequisite"></a>Prerequisito
 
-Un cluster ML Services in Azure HDInsight. Consultare [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
+Un cluster ML Services in Azure HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
 
 ## <a name="connect-to-rstudio-server"></a>Connettersi a RStudio Server
 
@@ -33,7 +33,7 @@ RStudio Server viene eseguito nel nodo perimetrale del cluster. Passare all'URL 
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-La prima volta che si esegue l'accesso è necessario autenticarsi due volte. Al primo prompt di autenticazione specificare l'account di accesso e la password di amministratore del cluster. I valori predefiniti sono `admin`. Per il secondo prompt di autenticazione, specificare l'account di accesso e la password di SSH. I valori predefiniti sono `sshuser`. Per gli accessi successivi saranno necessarie solo le credenziali SSH.
+La prima volta che si esegue l'accesso è necessario autenticarsi due volte. Alla prima richiesta di autenticazione specificare l'account di accesso e la password di amministratore del cluster. I valori predefiniti sono `admin`. Per la seconda richiesta di autenticazione, specificare l'account di accesso e la password di SSH. I valori predefiniti sono `sshuser`. Per gli accessi successivi saranno necessarie solo le credenziali SSH.
 
 Una volta connessi, la schermata dovrebbe avere un aspetto simile allo screenshot seguente:
 
@@ -182,3 +182,6 @@ In questo argomento di avvio rapido si è appreso come eseguire uno script R con
 
 > [!div class="nextstepaction"]
 >[Opzioni del contesto di calcolo per ML Services in HDInsight](./r-server-compute-contexts.md)
+
+> [!NOTE]
+> Questa pagina descrive le funzionalità del software RStudio. Microsoft Azure HDInsight non è affiliato a RStudio, Inc.

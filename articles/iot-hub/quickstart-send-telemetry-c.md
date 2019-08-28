@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 92575f2fc8e6dbcfc5767a179ddf60df1bce0c83
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 842efca1b40827f63ab23581aeac7e5226d04349
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872565"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900271"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (C)
 
@@ -55,21 +55,21 @@ Per questo argomento di avvio rapido si userà [Azure IoT SDK per dispositivi pe
 
 * **iOS**: IoT Hub Device SDK è disponibile come CocoaPods per lo sviluppo di dispositivi iOS e Mac. Per altre informazioni, vedere [iOS Samples for Microsoft Azure IoT](https://cocoapods.org/pods/AzureIoTHubClient) (Esempi di iOS per Microsoft Azure IoT).
 
-Tuttavia, in questo argomento di avvio rapido si preparerà un ambiente di sviluppo usato per clonare e compilare [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) da GitHub. L'SDK in GitHub include il codice di esempio usato in questa guida introduttiva. 
+Tuttavia, in questo argomento di avvio rapido si preparerà un ambiente di sviluppo usato per clonare e compilare [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) da GitHub. L'SDK in GitHub include il codice di esempio usato in questa guida introduttiva.
 
 1. Scaricare il [sistema di compilazione CMake](https://cmake.org/download/).
 
     È importante che i prerequisiti di Visual Studio (Visual Studio e il carico di lavoro "Sviluppo di applicazioni desktop con C++") siano installati nel computer **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
 
-2. Aprire un prompt dei comandi o la shell Git Bash. Eseguire il comando seguente per clonare il repository GitHub [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c):
-    
+2. Aprire un prompt dei comandi o la shell Git Bash e passare a una directory di lavoro in cui clonare Azure IoT C SDK. Eseguire il comando seguente per clonare il repository GitHub [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c):
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
+
     Il completamento di questa operazione richiederà alcuni minuti.
 
-
-3. Creare una sottodirectory `cmake` nella directory radice del repository Git e passare a tale cartella. 
+3. Creare una sottodirectory `cmake` nella directory radice del repository Git e passare a tale cartella. Immettere i comandi seguenti dalla directory di lavoro:
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -77,12 +77,12 @@ Tuttavia, in questo argomento di avvio rapido si preparerà un ambiente di svilu
     cd cmake
     ```
 
-4. Eseguire il comando seguente che compila una versione dell'SDK specifica per la piattaforma di sviluppo client. Verrà generata una soluzione di Visual Studio per il dispositivo simulato nella directory `cmake`. 
+4. Eseguire il comando seguente per compilare una versione dell'SDK specifica per la piattaforma di sviluppo client. Verrà generata una soluzione di Visual Studio per il dispositivo simulato nella directory `cmake`.
 
     ```cmd
     cmake ..
     ```
-    
+
     Se `cmake` non trova il compilatore C++, è possibile che si verifichino errori di compilazione durante l'esecuzione del comando precedente. In tal caso, provare a eseguire questo comando nel [prompt dei comandi di Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Al termine della compilazione, le ultime righe di output saranno simili all'output seguente:
@@ -100,7 +100,6 @@ Tuttavia, in questo argomento di avvio rapido si preparerà un ambiente di svilu
     -- Generating done
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
-
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -138,10 +137,10 @@ Tuttavia, in questo argomento di avvio rapido si preparerà un ambiente di svilu
 
 L'applicazione del dispositivo simulato si connette a un endpoint specifico del dispositivo nell'hub IoT e invia una stringa come dati di telemetria simulati.
 
-1. Usando un editor di testo, aprire il file di origine iothub_convenience_sample.c ed esaminare il codice di esempio per l'invio di dati di telemetria. Il file si trova nel percorso seguente:
+1. Usando un editor di testo, aprire il file di origine iothub_convenience_sample.c ed esaminare il codice di esempio per l'invio di dati di telemetria. Il file si trova nel percorso seguente nella directory di lavoro in cui è stato clonato Azure IoT C SDK:
 
     ```
-    \azure-iot-sdk-c\iothub_client\samples\iothub_convenience_sample\iothub_convenience_sample.c
+    azure-iot-sdk-c\iothub_client\samples\iothub_convenience_sample\iothub_convenience_sample.c
     ```
 
 2. Individuare la dichiarazione della costante `connectionString`:
@@ -150,12 +149,13 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
     /* Paste in your device connection string  */
     static const char* connectionString = "[device connection string]";
     ```
+
     Sostituire il valore della costante `connectionString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche in **iothub_convenience_sample.c**.
 
-3. In una finestra del terminale locale passare alla directory del progetto *iothub_convenience_sample* nella directory CMake creata in Azure IoT C SDK.
+3. In una finestra del terminale locale passare alla directory del progetto *iothub_convenience_sample* nella directory CMake creata in Azure IoT C SDK. Immettere il comando seguente dalla directory di lavoro:
 
-    ```
-    cd /azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
+    ```cmd/sh
+    cd azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
     ```
 
 4. Eseguire CMake nella finestra del terminale locale per compilare l'esempio con il valore `connectionString` aggiornato:
@@ -164,7 +164,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
     cmake --build . --target iothub_convenience_sample --config Debug
     ```
 
-5. In una finestra del terminale eseguire i comandi seguenti per eseguire l'applicazione del dispositivo simulato:
+5. Nella finestra del terminale eseguire i comandi seguenti per eseguire l'applicazione del dispositivo simulato:
 
     ```cmd/sh
     Debug\iothub_convenience_sample.exe
@@ -175,7 +175,6 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
     ![Eseguire il dispositivo simulato](media/quickstart-send-telemetry-c/simulated-device-app.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Leggere i dati di telemetria dell'hub
-
 
 In questa sezione si userà Azure Cloud Shell con l'[estensione IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) per eseguire il monitoraggio dei messaggi inviati dal dispositivo simulato.
 
@@ -188,8 +187,6 @@ In questa sezione si userà Azure Cloud Shell con l'[estensione IoT](https://doc
     ```
 
     ![Leggere i messaggi del dispositivo tramite l'interfaccia della riga di comando di Azure](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
-
-    
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
