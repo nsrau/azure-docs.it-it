@@ -145,7 +145,7 @@ Scaricare l'SDK degli Ancoraggi nello spazio di Azure. Andare alla [pagina delle
 
 In Unity, andare a **Risorse** e fare clic su **Importa pacchetto** > **Pacchetto personalizzato...** . Passare al pacchetto e selezionare **Apri**.
 
-Nella nuova finestra **Importa pacchetto Unity** che viene visualizzata, selezionare **Nessuno** in basso a sinistra. Quindi in Plugin **AzureSpatialAnchorsPlugin** >  **** , selezionare **Comuni**, **Editor** e **HoloLens**. Fare clic su **Importa** nell'angolo in basso a destra.
+Nella nuova finestra **Importa pacchetto Unity** che viene visualizzata, selezionare **Nessuno** in basso a sinistra. Quindi in Plugin **AzureSpatialAnchorsPlugin** > **selezionare** **Comuni**, **Editor** e **HoloLens**. Fare clic su **Importa** nell'angolo in basso a destra.
 
 È ora necessario ripristinare i pacchetti Nuget per ottenere l'SDK degli Ancoraggi nello spazio di Azure. Eseguire la compilazione da **Unity** e quindi aprire e compilare nuovamente la soluzione **Visual Studio** risultante, come descritto in maniera dettagliata in [Prova pratica](#trying-it-out). 
 

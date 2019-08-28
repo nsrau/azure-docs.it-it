@@ -1,5 +1,5 @@
 ---
-title: Concetti - Sicurezza nei servizi Kubernetes di Azure
+title: Concetti - Sicurezza nei servizi Azure Kubernetes
 description: Informazioni sulla sicurezza nel servizio Azure Kubernetes, inclusi comunicazione master e tra nodi, criteri di rete e segreti di Kubernetes.
 services: container-service
 author: mlearned

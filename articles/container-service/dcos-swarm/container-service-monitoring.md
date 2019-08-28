@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60508125"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo del servizio contenitore di Azure con DataDog
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo del servizio Azure Container con DataDog
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 

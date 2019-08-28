@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: 66e0a7e13df9eddcd722492c9c894721517af5f9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cf73b6e0477e46f0a2eac43d7fa6bccc6845db92
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968927"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615253"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 
@@ -48,11 +48,11 @@ Una volta scritta, la stored procedure deve essere registrata con una raccolta. 
 
 ### <a id="create-an-item"></a>Creare un elemento usando una stored procedure
 
-Quando si crea un elemento con una stored procedure, l'elemento viene inserito nel contenitore di Azure Cosmos DB e un id per l'elemento appena creato che ha restituito. La creazione di un elemento è un'operazione asincrona e dipende dalle funzioni di callback JavaScript. La funzione di callback ha due parametri: uno per l'oggetto errore in caso di errore dell'operazione e uno per il valore restituito (in questo caso, l'oggetto creato). All'interno del callback, è possibile gestire l'eccezione oppure generare un errore. Nel caso in cui non sia disponibile un callback e si verifichi un errore, il runtime di Azure Cosmos DB genererà un errore. 
+Gli elementi creati con una stored procedure vengono inseriti nel contenitore di Azure Cosmos DB e viene restituito un ID per ognuno di quelli appena creati. La creazione di un elemento è un'operazione asincrona e dipende dalle funzioni di callback JavaScript. La funzione di callback ha due parametri: uno per l'oggetto errore in caso di errore dell'operazione e uno per il valore restituito (in questo caso, l'oggetto creato). All'interno del callback, è possibile gestire l'eccezione oppure generare un errore. Nel caso in cui non sia disponibile un callback e si verifichi un errore, il runtime di Azure Cosmos DB genererà un errore. 
 
 La stored procedure include anche un parametro per impostare la descrizione, cioè un valore booleano. Quando il parametro è impostato su true e la descrizione non è presente, la stored procedure genererà un'eccezione. In caso contrario, il resto della stored procedure rimane in esecuzione.
 
-La stored procedure di esempio seguente accetta un nuovo elemento di Azure Cosmos DB come input, lo inserisce nel contenitore di Azure Cosmos DB e restituisce l'id dell'elemento appena creato. In questo esempio, viene usato l'esempio ToDoList dall'[API SQL .NET di avvio rapido](create-sql-api-dotnet.md)
+La stored procedure di esempio seguente accetta un nuovo elemento di Azure Cosmos come input, lo inserisce nel contenitore Azure Cosmos e restituisce l'ID dell'elemento appena creato. In questo esempio, viene usato l'esempio ToDoList dall'[API SQL .NET di avvio rapido](create-sql-api-dotnet.md)
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -87,7 +87,7 @@ function sample(arr) {
 
 ### <a id="transactions"></a>Transazioni all'interno di stored procedure
 
-È possibile implementare le transazioni negli elementi all'interno di un contenitore usando una stored procedure. L'esempio seguente usa le transazioni in un'app di gioco di fantacalcio per scambiare giocatori tra due squadre in un'unica operazione. La stored procedure prova a leggere i due elementi di Azure Cosmos DB, ciascuno corrispondente all'ID del giocatore passato come argomento. Se vengono trovati entrambi i giocatori, la stored procedure aggiorna gli elementi scambiando le rispettive squadre. Se si verificano errori lungo il percorso, la stored procedure genera un'eccezione JavaScript che interrompe implicitamente la transazione.
+È possibile implementare le transazioni negli elementi all'interno di un contenitore usando una stored procedure. L'esempio seguente usa le transazioni in un'app di gioco di fantacalcio per scambiare giocatori tra due squadre in un'unica operazione. La stored procedure prova a leggere i due elementi di Azure Cosmos, ciascuno corrispondente all'ID del giocatore passato come argomento. Se vengono trovati entrambi i giocatori, la stored procedure aggiorna gli elementi scambiando le rispettive squadre. Se si verificano errori lungo il percorso, la stored procedure genera un'eccezione JavaScript che interrompe implicitamente la transazione.
 
 ```javascript
 // JavaScript source code
@@ -214,7 +214,7 @@ Azure Cosmos DB supporta pre-trigger e post-trigger. I pre-trigger vengono esegu
 
 ### <a id="pre-triggers"></a>Pre-trigger
 
-Di seguito è riportato un esempio di come è possibile usare un pre-trigger per convalidare le proprietà di un elemento di Azure Cosmos DB in corso di creazione. In questo esempio, viene usato l'esempio ToDoList dall'[API SQL .NET di avvio rapido](create-sql-api-dotnet.md) per aggiungere una proprietà timestamp a un elemento appena aggiunto se non ne contiene uno.
+Di seguito è riportato un esempio sull'uso di un pre-trigger per convalidare le proprietà di un elemento di Azure Cosmos in corso di creazione. In questo esempio, viene usato l'esempio ToDoList dall'[API SQL .NET di avvio rapido](create-sql-api-dotnet.md) per aggiungere una proprietà timestamp a un elemento appena aggiunto se non ne contiene uno.
 
 ```javascript
 function validateToDoItemTimestamp() {
@@ -235,7 +235,7 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-I pre-trigger non possono avere parametri di input. L'oggetto richiesta nel trigger viene usato per gestire il messaggio di richiesta associato all'operazione. Nell'esempio precedente, si eseguiva il pre-trigger contemporaneamente alla creazione di un elemento di Azure Cosmos DB e il corpo del messaggio di richiesta contiene l'elemento da creare in formato JSON.
+I pre-trigger non possono avere parametri di input. L'oggetto richiesta nel trigger viene usato per gestire il messaggio di richiesta associato all'operazione. Nell'esempio precedente si esegue il pre-trigger contemporaneamente alla creazione di un elemento di Azure Cosmos e il corpo del messaggio di richiesta contiene l'elemento da creare in formato JSON.
 
 Quando i trigger vengono registrati, è possibile specificare le operazioni con le quali è possibile eseguirli. Questo trigger deve essere creato con un valore `TriggerOperation` di `TriggerOperation.Create`, quindi non è consentito l'uso del trigger in un'operazione di sostituzione come illustrato nel codice seguente.
 

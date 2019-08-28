@@ -6,17 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: overview
-ms.date: 05/28/2019
+ms.date: 08/15/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 524ab33fc1d6a88620077a28ec70f09d55b06106
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 4987c17eabf5d9e140352e3581b38a7d29049c5f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015789"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899969"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Che cos'è la ricerca cognitiva in Ricerca di Azure?
 
@@ -36,7 +34,27 @@ Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante
 > Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario [collegare una risorsa fatturabile di Servizi cognitivi](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di individuazione di documenti in Ricerca di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
 > L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione delle immagini sono descritti nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
-## <a name="components-of-cognitive-search"></a>Componenti della ricerca cognitiva
+
+## <a name="when-to-use-cognitive-search"></a>Quando usare la ricerca cognitiva
+
+La ricerca cognitiva, con competenze predefinite, è particolarmente indicata per gli scenari di applicazione seguenti:
+
++ Documenti analizzati (JPEG) che si vogliono rendere disponibili per la ricerca full-text. È possibile collegare una competenza di riconoscimento ottico dei caratteri (OCR) per identificare, estrarre e inserire testo da file JPEG.
+
++ PDF con una combinazione di immagini e testo. È possibile estrarre il testo nei file PDF durante l'indicizzazione di Ricerca di Azure senza usare la ricerca cognitiva, ma l'aggiunta dell'elaborazione di immagini e linguaggio naturale consente in genere di ottenere un risultato migliore rispetto a un'indicizzazione standard.
+
++ Contenuto multilingue per cui si vuole applicare il rilevamento della lingua e possibilmente una traduzione testuale.
+
++ Documenti non strutturati o semistrutturati con contenuto che ha un significato intrinseco o un contesto nascosto nel documento più grande. 
+
+  I BLOB in particolare contengono spesso un corpo di contenuto di grandi dimensioni che viene compresso in un singolo "campo". Collegando competenze di elaborazione di immagini e linguaggio naturale all'indicizzatore, è possibile creare nuove informazioni ancora esistenti nel contenuto non elaborato ma non altrimenti visualizzate come campi distinti. Alcune competenze cognitive predefinite che possono essere utili: estrazione di frasi chiave, analisi del sentiment e riconoscimento di entità (persone, organizzazioni e località).
+
+  Inoltre, le competenze predefinite possono essere usate anche per ristrutturare il contenuto tramite operazioni di divisione, unione e modellazione del testo.
+
+Le competenze personalizzate possono supportare scenari più complessi, ad esempio il riconoscimento di moduli o il rilevamento di entità personalizzate tramite un modello fornito e inserito nell'[interfaccia Web di competenze personalizzate](cognitive-search-custom-skill-interface.md). Alcuni esempi di competenze personalizzate includono [Riconoscimento modulo](/azure/cognitive-services/form-recognizer/overview), l'integrazione dell'[API Ricerca entità Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) e il [riconoscimento di entità personalizzate](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+
+
+## <a name="component-pipeline-of-cognitive-search"></a>Pipeline di componenti di ricerca cognitiva
 
 Una pipeline della ricerca cognitiva si basa su [*indicizzatori* di Ricerca di Azure](search-indexer-overview.md) che effettuano ricerche nelle origini dati e garantiscono l'elaborazione degli indici end-to-end. Le competenze sono ora associate agli indicizzatori, intercettando e arricchendo i documenti in base al set di competenze definito. Terminata l'indicizzazione è possibile accedere al contenuto tramite richieste di ricerca attraverso tutti i [tipi di query supportati da Ricerca di Azure](search-query-overview.md).  Se non si ha familiarità con gli indicizzatori, in questa sezione viene illustrata la procedura da seguire.
 
@@ -104,7 +122,7 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 + [Esercitazione (richieste HTTP)](cognitive-search-tutorial-blob.md)
 + [Esempio: Creare una competenza personalizzata per la ricerca cognitiva (C#)](cognitive-search-create-custom-skill-example.md)
 
-Il servizio gratuito è consigliabile a scopi formativi, ma tenere presente che il numero di transazioni gratuite è limitato a 20 documenti al giorno. Per eseguire la guida di avvio rapido e l'esercitazione nello stesso giorno, usare un set di file più piccolo (10 documenti) in modo da far rientrare entrambi gli esercizi.
+Il servizio gratuito è consigliabile a scopi formativi, ma tenere presente che il numero di transazioni gratuite è limitato a 20 documenti al giorno. Per eseguire la guida di avvio rapido e l'esercitazione nello stesso giorno, usare un set di file più piccolo (10 documenti), in modo da far rientrare entrambi gli esercizi, oppure eliminare l'indicizzatore usato nella guida di avvio rapido o nell'esercitazione.
 
 **Passaggio 3: Esaminare l'API**
 
@@ -115,9 +133,9 @@ In questo passaggio vengono usate API REST per creare una soluzione per la ricer
 | API REST | DESCRIZIONE |
 |-----|-------------|
 | [Creare un'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Risorsa che identifica un'origine dati esterna che fornisce dati di origine usati per creare documenti arricchiti.  |
-| [Creare un set di competenze (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Risorsa che coordina l'utilizzo di [competenze predefinite](cognitive-search-predefined-skills.md) e [competenze cognitive personalizzate](cognitive-search-custom-skill-interface.md) usate in una pipeline di arricchimento durante l'indicizzazione. |
+| [Creare un set di competenze (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Questa API è specifica della ricerca cognitiva. Si tratta di una risorsa che coordina l'uso di [competenze predefinite](cognitive-search-predefined-skills.md) e [competenze cognitive personalizzate](cognitive-search-custom-skill-interface.md) in una pipeline di arricchimento durante l'indicizzazione. |
 | [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Schema che esprime un indice di Ricerca di Azure. Viene eseguito il mapping dei campi nell'indice con i campi nei dati di origine o i campi prodotti durante la fase di arricchimento (ad esempio, un campo per i nomi dell'organizzazione creati dal riconoscimento entità). |
-| [Creare un indicizzatore (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Risorsa che definisce i componenti usati durante l'indicizzazione, incluso un'origine dati, un set di competenze, associazioni di campi dalle strutture dei dati di origine e intermedie all'indice di destinazione, oltre all'indice stesso. L'esecuzione dell'indicizzatore è il trigger di inserimento dati e arricchimento. L'output è un indice di ricerca basato sullo schema dell'indice, popolato con dati di origine e arricchito da set di competenze.  |
+| [Creare un indicizzatore (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Risorsa che definisce i componenti usati durante l'indicizzazione, incluso un'origine dati, un set di competenze, associazioni di campi dalle strutture dei dati di origine e intermedie all'indice di destinazione, oltre all'indice stesso. L'esecuzione dell'indicizzatore è il trigger di inserimento dati e arricchimento. L'output è un indice di ricerca basato sullo schema dell'indice, popolato con dati di origine e arricchito da set di competenze. Questa API esistente viene estesa per gli scenari di ricerca cognitiva con l'inclusione di una proprietà skillset. |
 
 **Elenco di controllo: un flusso di lavoro tipico**
 

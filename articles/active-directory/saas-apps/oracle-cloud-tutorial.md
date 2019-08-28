@@ -165,7 +165,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
       ![Configurazione](./media/oracle-cloud-tutorial/config09.png)
 
-   1. Il **** gruppo di provider di identità deve essere selezionato come gruppo personalizzato. L'ID del gruppo deve essere il GUID del gruppo di Azure Active Directory. Il gruppo deve essere mappato al gruppo corrispondente nel campo **OCI GROUP** (GRUPPO OCI).
+   1. Il**gruppo di provider di identità** deve essere selezionato come gruppo personalizzato. L'ID del gruppo deve essere il GUID del gruppo di Azure Active Directory. Il gruppo deve essere mappato al gruppo corrispondente nel campo **OCI GROUP** (GRUPPO OCI).
 
    1. È possibile eseguire il mapping di più gruppi in base alla configurazione nel portale di Azure e alle esigenze dell'organizzazione. Fare clic su **+ Add mapping** (Aggiungi mapping) per aggiungere tutti i gruppi richiesti.
 

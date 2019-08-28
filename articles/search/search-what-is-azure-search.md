@@ -6,25 +6,20 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/13/2019
+ms.date: 08/21/2019
 ms.author: heidist
-ms.openlocfilehash: eefa0eb5d1e15df34089d7baa3241cbbed4724c2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034842"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899691"
 ---
 # <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
 
-Ricerca di Azure è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. Il codice personalizzato richiama l'inserimento dati (indicizzazione), invia richieste di query e gestisce le risposte. L'esperienza di ricerca viene definita nel codice client usando funzionalità di Ricerca di Azure, con l'esecuzione di query su un indice permanente creato dall'utente e di sua proprietà e archiviato in Ricerca di Azure.
+Ricerca di Azure è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. Il codice personalizzato richiama l'inserimento dei dati (indicizzazione) per creare e caricare un indice. Dall'altro lato, il codice dell'applicazione immette richieste di query e gestisce le risposte. L'esperienza di ricerca viene definita nel codice client usando funzionalità di Ricerca di Azure, con l'esecuzione di query su un indice permanente creato dall'utente e di sua proprietà, archiviato in Ricerca di Azure.
 
-![Architettura di Ricerca di Azure](media/search-what-is-azure-search/azure-search-diagram.png "Architettura di Ricerca di Azure")
-
-<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
-+ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
-+ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
-+ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
+![Architettura di Ricerca di Azure](media/search-what-is-azure-search/azure-search-diagram.svg "Architettura di Ricerca di Azure")
 
 La funzionalità viene esposta tramite una semplice [API REST](/rest/api/searchservice/) o un [SDK .NET](search-howto-dotnet-sdk.md) che maschera la complessità intrinseca del recupero delle informazioni. Oltre alle API, il portale di Azure fornisce il supporto di amministrazione e gestione dei contenuti, con strumenti per la creazione di prototipi e per le query degli indici. Poiché il servizio viene eseguito nel cloud, disponibilità e infrastruttura sono gestite da Microsoft.
 
@@ -36,7 +31,7 @@ Ricerca di Azure è una soluzione particolarmente adatta agli scenari di applica
 
 + Facile implementazione delle funzionalità correlate alla ricerca. Le API di Ricerca di Azure semplificano la costruzione di query, l'esplorazione in base a facet, i filtri (inclusa la ricerca geospaziale), il mapping dei sinonimi, le query con completamento automatico e l'ottimizzazione della pertinenza. Grazie alle funzionalità predefinite, è possibile soddisfare le aspettative degli utenti finali per un'esperienza di ricerca simile ai motori di ricerca Web commerciali.
 
-+ Indicizzazione di testo non strutturato o estrazione di testo e informazioni dai file di immagine. La funzionalità di ricerca cognitiva di Ricerca di Azure aggiunge l'elaborazione tramite intelligenza artificiale a una pipeline di indicizzazione. Alcuni casi d'uso comuni includono OCR su documenti digitalizzati, riconoscimento di entità ed estrazione di frasi chiave da documenti di grandi dimensioni, rilevamento della lingua e traduzione testuale, nonché analisi del sentiment.
++ Indicizzazione di testo non strutturato o estrazione di testo e informazioni dai file di immagine. La funzionalità di [ricerca cognitiva](cognitive-search-concept-intro.md) di Ricerca di Azure aggiunge l'elaborazione tramite intelligenza artificiale a una pipeline di indicizzazione. Alcuni casi d'uso comuni includono OCR su documenti digitalizzati, riconoscimento di entità ed estrazione di frasi chiave da documenti di grandi dimensioni, rilevamento della lingua e traduzione testuale, nonché analisi del sentiment.
 
 + Possibilità di soddisfare i requisiti linguistici usando gli analizzatori del linguaggio e personalizzati di Ricerca di Azure. Se si ha contenuto non in lingua inglese, Ricerca di Azure supporta sia gli analizzatori Lucene che i processori di linguaggio naturale Microsoft. È anche possibile configurare gli analizzatori per ottenere un'elaborazione specializzata di contenuto non elaborato, ad esempio l'esclusione tramite filtro dei segni diacritici.
 
@@ -93,7 +88,9 @@ Il modello pull recupera i dati da origini dati esterne. È supportato tramite *
 Il modello push viene fornito tramite il componente SDK o l'API REST per l'invio di documenti aggiornati a un indice. È possibile eseguire il push dei dati da qualsiasi set di dati usando il formato JSON. Per informazioni sul caricamento dei dati, vedere [Aggiungere, aggiornare o eliminare documenti](/rest/api/searchservice/addupdate-or-delete-documents) oppure [Come usare .NET SDK](search-howto-dotnet-sdk.md).
 
 ### <a name="step-4-search"></a>Passaggio 4: Ricerca
-Dopo avere compilato un indice, è possibile [eseguire query di ricerca](/rest/api/searchservice/Search-Documents) nell'endpoint di servizio tramite semplici richieste HTTP con l'API REST o .NET SDK.
+Dopo avere compilato un indice, è possibile [eseguire query di ricerca](search-query-overview.md) nell'endpoint di servizio tramite semplici richieste HTTP con l'[API REST](/rest/api/searchservice/Search-Documents) o [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations).
+
+Per creare ed estendere una pagina Web che raccoglie l'input degli utenti e gestisce i risultati, vedere [Creare la prima app di ricerca](tutorial-csharp-create-first-app.md). Per eseguire query su un indice esistente, è anche possibile usare [Postman per le chiamate REST interattive](search-get-started-postman.md) oppure la funzionalità predefinita [Esplora ricerche](search-explorer.md) nel portale di Azure.
 
 ## <a name="how-it-compares"></a>Confronto
 

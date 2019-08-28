@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 45f5e21e05cf627d418cb66418cf305833a73891
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: e8f943ebaa5dfc06e0bfb04dc1097d6794ec6d05
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965098"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616821"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gestire le risorse dell'API SQL di Azure Cosmos DB tramite PowerShell
 
@@ -46,7 +46,7 @@ Le sezioni seguenti illustrano come gestire l'account Azure Cosmos:
 
 ### <a id="create-account"></a> Creare un account Azure Cosmos
 
-Questo comando crea un account del database Azure Cosmos DB con [multiple-regions][distribute-data-globally] e [consistency policy](consistency-levels.md) bounded-staleness.
+Questo comando crea un account del database Azure Cosmos con il [criterio di coerenza](consistency-levels.md) bounded-staleness in [più aree][distribute-data-globally].
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API
@@ -112,7 +112,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="update-account"></a> Aggiornare un account Azure Cosmos
 
-Questo comando consente di aggiornare le proprietà di un account del database Azure Cosmos DB. Le proprietà che possono essere aggiornate includono:
+Questo comando consente di aggiornare le proprietà di un account del database Azure Cosmos. Le proprietà che possono essere aggiornate includono:
 
 * Aggiunta o rimozione di aree
 * Modifica dei criteri di coerenza predefiniti
@@ -247,6 +247,7 @@ Per l'esempio seguente, si presuppone che l'account abbia la priorità di failov
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"

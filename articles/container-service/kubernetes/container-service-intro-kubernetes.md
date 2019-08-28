@@ -50,7 +50,7 @@ Diagramma dell'architettura di Kubernetes distribuito tramite il servizio Azure 
 
 ## <a name="videos"></a>Video
 
-Il supporto per Kubernetes nei servizi contenitore di Azure (Azure Friday, gennaio 2017):
+Il supporto per Kubernetes nei servizi Azure Container (Azure Friday, gennaio 2017):
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Kubernetes-Support-in-Azure-Container-Services/player]
 >

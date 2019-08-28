@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "66148870"
 ---
-# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Bilanciare il carico dei contenitori in un cluster DC/OS del servizio contenitore di Azure
+# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Bilanciare il carico dei contenitori in un cluster DC/OS del servizio Azure Container
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 

@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61468227"
 ---
-# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(DEPRECATO) Gestire un cluster DC/OS del servizio contenitore di Azure tramite l'interfaccia utente Web di Marathon
+# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(DEPRECATO) Gestire un cluster DC/OS del servizio Azure Container tramite l'interfaccia utente Web di Marathon
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 

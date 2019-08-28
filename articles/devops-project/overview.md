@@ -25,7 +25,7 @@ ms.locfileid: "68404494"
 
  Azure DevOps Projects permette di iniziare a usare Azure velocemente. Consente di avviare l'app preferita nel servizio di Azure desiderato in pochi passaggi rapidi dal portale di Azure. 
 
- DevOps Projects configura tutto ciò che occorre per lo sviluppo, la distribuzione e il monitoraggio di un'applicazione. È possibile usare il dashboard del progetto DevOps per monitorare i commit, le compilazioni e le distribuzioni del codice, il tutto da una singola visualizzazione nel portale di Azure.
+ DevOps Projects configura tutto ciò che occorre per lo sviluppo, la distribuzione e il monitoraggio di un'applicazione. È possibile usare il dashboard di DevOps Projects per monitorare i commit, le compilazioni e le distribuzioni del codice, il tutto da una singola visualizzazione nel portale di Azure.
 
 ## <a name="why-should-i-use-devops-projects"></a>Perché usare DevOps Projects?
 

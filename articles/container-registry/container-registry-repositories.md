@@ -1,6 +1,6 @@
 ---
-title: Repository di registri contenitori di Azure nel portale di Azure
-description: Come visualizzare repository di registri contenitori di Azure nel portale di Azure.
+title: Repository di registro Azure Container nel portale di Azure
+description: Come visualizzare repository di registro Azure Container nel portale di Azure.
 services: container-registry
 author: cristy
 manager: gwallace

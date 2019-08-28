@@ -1,5 +1,5 @@
 ---
-title: (DEPRECATO) Esercitazione sul servizio contenitore di Azure - Monitorare Kubernetes
+title: (DEPRECATO) Esercitazione sul servizio Azure Container - Monitorare Kubernetes
 description: Esercitazione sul servizio Azure Container - Monitorare Kubernetes con Log Analytics
 services: container-service
 author: iainfoulds

@@ -1,5 +1,5 @@
 ---
-title: (DEPRECATO) Esercitazione sul servizio contenitore di Azure - Distribuire un'applicazione
+title: (DEPRECATO) Esercitazione sul servizio Azure Container - Distribuire un'applicazione
 description: Esercitazione sul servizio Azure Container - Distribuire un'applicazione
 services: container-service
 author: iainfoulds

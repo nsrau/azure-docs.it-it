@@ -68,7 +68,7 @@ Come è possibile determinare il rapporto tra utenti per lab e numero complessiv
 
 Potrebbe anche essere necessario considerare i limiti geografici. Gli sviluppatori nell'area degli Stati Uniti nordorientali potrebbero ad esempio usare un lab sottoposto a provisioning nell'area degli Stati Uniti orientali 2. E gli sviluppatori a Dallas, in Texas, e a Denver, in Colorado, potrebbero essere indirizzati all'uso di una risorsa negli Stati Uniti centro-meridionali. In caso di un'attività collaborativa con una terza parte esterna, quest'ultima potrebbe essere assegnata a un lab non usato dagli sviluppatori interni. 
 
-È anche possibile usare un lab per un progetto specifico all'interno dei progetti di Azure DevOps. In questo caso, applicare la sicurezza tramite un gruppo di Azure Active Directory specificato, che consente l'accesso a entrambi i set di risorse. La rete virtuale assegnata al lab può essere un altro limite al consolidamento degli utenti.
+È anche possibile usare un lab per un progetto specifico all'interno di Azure DevOps Projects. In questo caso, applicare la sicurezza tramite un gruppo di Azure Active Directory specificato, che consente l'accesso a entrambi i set di risorse. La rete virtuale assegnata al lab può essere un altro limite al consolidamento degli utenti.
 
 ## <a name="deletion-of-resources"></a>Eliminazione di risorse
 

@@ -48,7 +48,7 @@ sections:
             image:
               src: /azure/media/index/container-registry.svg
           - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
-            title: Eseguire un'app contenitore su richiesta in Istanze di Azure Container
+            title: Eseguire un'app contenitore su richiesta in Istanze di Azure Container.
             image:
               src: /azure/media/index/containerinstances.svg
   - title: Esercitazioni dettagliate

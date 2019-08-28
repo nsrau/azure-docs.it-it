@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 268b15fb0f3e185be4c06c5c0ba20668d1635f04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c957aff49e3428fec4b7ac7f2db19eeed9d7a40
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66154676"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614753"
 ---
-# <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>Replicare l'account di database di Azure Cosmos DB in più aree e configurare le priorità di failover mediante l'interfaccia della riga di comando di Azure
+# <a name="replicate-an-azure-cosmos-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>Replicare l'account del database Azure Cosmos in più aree e configurare le priorità di failover tramite l'interfaccia della riga di comando di Azure
 
-Questo esempio replica qualsiasi tipo di database di Azure Cosmos DB in più aree e configura le priorità di failover mediante l'interfaccia della riga di comando di Azure.
+Questo esempio replica qualsiasi tipo di database Azure Cosmos in più aree e configura le priorità di failover tramite l'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

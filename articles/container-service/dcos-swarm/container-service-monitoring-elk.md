@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61467716"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(DEPRECATO) Monitorare un cluster del servizio contenitore di Azure con ELK
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(DEPRECATO) Monitorare un cluster del servizio Azure Container con ELK
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 

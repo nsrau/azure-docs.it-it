@@ -11,16 +11,16 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: 2864acca443e3135ea0023070da95accf97fe2e9
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b7b7d4cfe699ffdef3a8f736f5656d0b0067453a
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479445"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575186"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: Creare un data warehouse SQL di Azure ed eseguirvi una query nel portale di Azure
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse nel portale di Azure ed eseguire query
 
-Creare rapidamente un data warehouse SQL di Azure ed eseguirvi una query usando il portale di Azure.
+Creare rapidamente un'istanza di Azure SQL Data Warehouse Azure ed eseguire query usando il portale di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -37,9 +37,9 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Creare un data warehouse
 
-Un data warehouse SQL di Azure viene creato con un set definito di [risorse di calcolo](memory-and-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-logical-servers.md). 
+L'istanza di Azure SQL Data Warehouse viene creata con un set definito di [risorse di calcolo](memory-and-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-logical-servers.md). 
 
-Seguire questa procedura per creare un data warehouse SQL contenente i dati dell'esempio AdventureWorksDW. 
+Seguire questa procedura per creare un'istanza di SQL Data Warehouse contenente i dati dell'esempio AdventureWorksDW. 
 
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 

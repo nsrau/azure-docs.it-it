@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6884cb7b10da3996977f2aea7693625bc45c3139
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 8683169e0f8464cdcf52600968f67f3622e61445
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369569"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509592"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola con Azure Active Directory B2C
 
@@ -49,8 +49,8 @@ In più, nell'ambiente di sviluppo locale devono anche essere installati gli ele
 Nella seconda esercitazione completata come parte dei prerequisiti è stata registrata un'applicazione Web in Azure AD B2C. Per consentire la comunicazione con l'esempio nell'esercitazione, è necessario aggiungere un URI di reindirizzamento all'applicazione in Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
-1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
+1. Selezionare **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Applicazioni** e quindi l'applicazione *webapp1*.
 1. In **URL di risposta** aggiungere `http://localhost:6420`.
 1. Selezionare **Salva**.
@@ -115,17 +115,17 @@ L'esempio supporta l'iscrizione, l'accesso, la modifica del profilo e la reimpos
 
 ### <a name="sign-up-using-an-email-address"></a>Iscriversi usando un indirizzo di posta elettronica
 
-1. Fare clic su **Accedi** per avviare il flusso utente *B2C_1_signupsignin1* specificato in un passaggio precedente.
-1. Azure AD B2C presenta una pagina di accesso con un collegamento di iscrizione. Non avendo ancora un account, fare clic sul collegamento **Iscriversi adesso**.
+1. Selezionare **Accedi** per avviare il flusso utente *B2C_1_signupsignin1* specificato in un passaggio precedente.
+1. Azure AD B2C presenta una pagina di accesso con un collegamento di iscrizione. Non avendo ancora un account, selezionare il collegamento **Iscriversi adesso**.
 1. Il flusso di lavoro per l'iscrizione presenta una pagina per raccogliere e verificare l'identità dell'utente usando un indirizzo e-mail. Il flusso di lavoro per l'iscrizione raccoglie anche la password dell'utente e gli attributi richiesti definiti nel flusso utente.
 
     Usare un indirizzo e-mail valido ed eseguire la convalida usando un codice di verifica. Impostare una password. Immettere i valori per gli attributi richiesti.
 
     ![Pagina di iscrizione visualizzata dal flusso utente di accesso/iscrizione](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
-1. Fare clic su **Crea** per creare un account locale nella directory di Azure AD B2C.
+1. Selezionare **Crea** per creare un account locale nella directory di Azure AD B2C.
 
-Quando fa clic su **Crea**, si chiude la pagina di iscrizione e viene nuovamente visualizzata la pagina di accesso.
+Quando si seleziona **Crea**, la pagina di iscrizione si chiude e viene nuovamente visualizzata la pagina di accesso.
 
 È ora possibile usare l'indirizzo di posta elettronica e la password per accedere all'applicazione.
 

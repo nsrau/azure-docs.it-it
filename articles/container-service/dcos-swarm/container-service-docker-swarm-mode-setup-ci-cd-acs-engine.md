@@ -1,5 +1,5 @@
 ---
-title: (DEPRECATO) CI/CD con il motore del servizio contenitore di Azure e la modalità Swarm
+title: (DEPRECATO) CI/CD con il motore del servizio Azure Container e la modalità Swarm
 description: Usare il motore del servizio Azure Container con la modalità Swarm Docker, un'istanza di Registro Azure Container e Azure DevOps per distribuire in modo continuativo un'applicazione multi-contenitore .Net Core
 services: container-service
 author: diegomrtnzg
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 07/29/2019
 ms.locfileid: "68598565"
 ---
-# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione con più contenitori nel servizio contenitore di Azure con il motore ACS e la modalità Docker Swarm tramite Azure DevOps
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione con più contenitori nel servizio Azure Container con il motore ACS e la modalità Docker Swarm tramite Azure DevOps
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 

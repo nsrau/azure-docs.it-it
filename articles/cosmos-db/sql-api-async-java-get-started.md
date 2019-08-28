@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/15/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: c466c11cc51ca8d8efcf9ff4e86a9dbd2fd4930c
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2a6f12bfe7aa3de028039d00c259a606d028a0e5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67985643"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614623"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Esercitazione: Compilare un'app Java con l’SDK Async Java per gestire i dati archiviati in un account API SQL
 
@@ -114,7 +114,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>Creare un database
 
-Creare un database di Azure Cosmos DB usando il metodo `createDatabaseIfNotExists()` della classe DocumentClient. Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
+Creare un database Azure Cosmos usando il metodo `createDatabaseIfNotExists()` della classe DocumentClient. Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 

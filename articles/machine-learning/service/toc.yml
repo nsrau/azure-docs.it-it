@@ -28,10 +28,7 @@
               href: tutorial-deploy-models-with-aml.md
         - name: Regressione (dati di NYC Taxi)
           items:
-            - name: 1. Preparare i dati per la modellazione
-              displayName: data prep
-              href: tutorial-data-prep.md
-            - name: 2. Eseguire il training automatico di un modello di Machine Learning
+            - name: Eseguire il training automatico di un modello di Machine Learning
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
     - name: Interfaccia visiva
@@ -260,7 +257,7 @@
     - name: Creare flussi di lavoro riutilizzabili
       displayName: pipelines
       items:
-        - name: Pipeline di apprendimento automatico
+        - name: Creare pipeline di Machine Learning in Python
           href: how-to-create-your-first-pipeline.md
         - name: Azure Pipelines per CI/CD
           displayName: 'continuous, integration, delivery'

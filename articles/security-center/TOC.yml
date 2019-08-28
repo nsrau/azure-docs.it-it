@@ -33,18 +33,16 @@
       href: security-center-data-security.md
     - name: Usare le raccomandazioni per migliorare la sicurezza
       href: security-center-using-recommendations.md
-    - name: Rilevare le minacce
-      href: security-center-detection-capabilities.md
-    - name: Gestire gli avvisi di sicurezza
-      href: security-center-managing-and-responding-alerts.md
-    - name: Eventi imprevisti relativi alla sicurezza
-      href: security-center-incident.md
     - name: Gestione tra tenant
       href: security-center-cross-tenant-management.md
-    - name: Avvisi di rilevamento delle minacce
+    - name: Avvisi ed eventi di rilevamento delle minacce
       items:
         - name: Panoramica sugli avvisi di sicurezza
           href: security-center-alerts-overview.md
+        - name: Gestire gli avvisi di sicurezza
+          href: security-center-managing-and-responding-alerts.md
+        - name: Gestire gli eventi imprevisti della sicurezza
+          href: security-center-incident.md
         - name: Rilevamento delle minacce per macchine virtuali e server
           href: security-center-alerts-iaas.md
         - name: Rilevamento delle minacce per il calcolo nativo cloud

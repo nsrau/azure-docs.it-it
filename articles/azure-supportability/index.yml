@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Documentazione sulla supportabilità di Azure
+summary: Descrive come i clienti di Azure possono creare e gestire le richieste di supporto nel portale di Azure.
+metadata:
+  title: Documentazione sulla supportabilità di Azure
+  description: Descrive come i clienti di Azure possono creare e gestire le richieste di supporto nel portale di Azure.
+  services: azure supportability
+  ms.service: azure-supportability
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: 
+  author: arob98
+  ms.author: angrobe
+  ms.date: 08/24/2019
+  ms.openlocfilehash: 4ee8de0f591618be7eb3a08c04f5820faeebaf4a
+  ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70052138"
+landingContent:
+- title: Creare una richiesta di supporto
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Come creare una richiesta di supporto in Azure
+      url: how-to-create-azure-support-request.md
+  - linkListType: get-started
+    links:
+    - text: Creare una richiesta di supporto nel portale di Azure
+      url: https://portal.azure.com/#create/Microsoft.Support
+- title: Richieste di aumento della quota
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Aumento del limite di vCPU per una serie di VM
+      url: per-vm-quota-requests.md
+    - text: Aumento del limite di vCPU totali di un'area
+      url: regional-quota-requests.md
+    - text: Aumento del limite delle connessioni di rete
+      url: networking-quota-requests.md
+- title: Risolvere problemi
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Area o SKU non disponibili
+      url: sku-series-unavailable.md

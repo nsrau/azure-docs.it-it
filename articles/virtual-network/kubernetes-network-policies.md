@@ -38,7 +38,7 @@ Quando si implementa la sicurezza per il cluster, usare i gruppi di sicurezza di
 È possibile usare criteri di rete di Azure nei modi seguenti per implementare la micro-segmentazione per i pod.
 
 ### <a name="acs-engine"></a>ACS-Engine
-ACS-Engine è uno strumento che genera un modello di Azure Resource Manager per la distribuzione di un cluster Kubernetes in Azure. La configurazione del cluster è specificata in un file JSON che viene passato allo strumento durante la generazione del modello. Per altre informazioni sull'intero elenco delle impostazioni di cluster supportate e le relative descrizioni, vedere Motore del servizio contenitore di Microsoft Azure - Definizione del cluster.
+ACS-Engine è uno strumento che genera un modello di Azure Resource Manager per la distribuzione di un cluster Kubernetes in Azure. La configurazione del cluster è specificata in un file JSON che viene passato allo strumento durante la generazione del modello. Per altre informazioni sull'intero elenco delle impostazioni di cluster supportate e le relative descrizioni, vedere Motore del servizio Microsoft Azure Container - Definizione del cluster.
 
 Per abilitare i criteri nei cluster distribuiti tramite ACS-Engine, specificare il valore "azure" per l'impostazione networkPolicy nel file di definizione del cluster.
 

@@ -26,8 +26,8 @@ Il [gateway applicazione di Azure](/azure/application-gateway/overview) è un se
 > [!div class="checklist"]
 >
 > * Configurare una rete
-> * Creare due istanze di contenitore di Azure con immagini HTTPD
-> * Creare un gateway applicazione utilizzabile con le istanze di contenitore di Azure nel pool di server
+> * Creare due Istanze di Azure Container con immagini HTTPD
+> * Creare un gateway applicazione utilizzabile con le Istanze di Azure Container nel pool di server
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -118,7 +118,7 @@ ansible-playbook vnet_create.yml
 
 ## <a name="create-servers"></a>Creare server
 
-Il codice del playbook in questa sezione crea due istanze di contenitore di Azure con le immagini HTTPD da usare come server Web per il gateway applicazione.  
+Il codice del playbook in questa sezione crea due Istanze di Azure Container con le immagini HTTPD da usare come server Web per il gateway applicazione.  
 
 Salvare il playbook seguente come `aci_create.yml`:
 

@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2019
 ms.locfileid: "65788732"
 ---
-# <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(DEPRECATO) Introduzione alle soluzioni di hosting di contenitori Docker con il servizio contenitore di Azure 
+# <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(DEPRECATO) Introduzione alle soluzioni di hosting di contenitori Docker con il servizio Azure Container 
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 

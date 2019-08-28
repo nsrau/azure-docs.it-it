@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Sospendere e riprendere il calcolo in Azure SQL Data Warehouse - Portale di Azure | Microsoft Docs'
+title: 'Guida introduttiva: Sospendere e riprendere il calcolo in Azure SQL Data Warehouse - Portale di Azure | Microsoft Docs'
 description: Usare il portale di Azure per sospendere il calcolo in Azure SQL Data Warehouse per ridurre i costi. Riprendere il calcolo quando si è pronti a usare il data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,14 +10,14 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9c3ed6dd79d6225b38751c910253cfa1f0720d1c
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 46fb1fc6455cd35d8bb1eaf0a1b7ee499f5c1caf
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731970"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574878"
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Avvio rapido: Sospendere e riprendere il calcolo per un'istanza di Azure SQL Data Warehouse nel portale di Azure
+# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: Sospendere e riprendere il calcolo per un'istanza di Azure SQL Data Warehouse nel portale di Azure
 
 Usare il portale di Azure per sospendere il calcolo in Azure SQL Data Warehouse per ridurre i costi. [Riprendere il calcolo](sql-data-warehouse-manage-compute-overview.md) quando si è pronti a usare il data warehouse.
 
@@ -33,9 +33,9 @@ Usare [Creare e connettere - portale](create-data-warehouse-portal.md) per crear
 
 ## <a name="pause-compute"></a>Sospendere le risorse di calcolo
 
-Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo su richiesta. Ad esempio, se non si usa il database durante la notte e nei fine settimana, è possibile sospenderlo in questi intervalli di tempo e riprenderne l'esecuzione durante il giorno. Mentre il database è sospeso, non verranno addebitati costi per le risorse di calcolo. Verranno tuttavia applicati comunque addebiti per l'archiviazione. 
+Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo su richiesta. Ad esempio, se non si usa il database durante la notte e nei fine settimana, è possibile sospenderlo in questi intervalli di tempo e riprenderne l'esecuzione durante il giorno. Mentre il database è sospeso, non verranno addebitati costi per le risorse di calcolo. Continueranno tuttavia a essere applicati addebiti per l'archiviazione. 
 
-Per sospendere un SQL Data Warehouse, seguire questa procedura.
+Per sospendere un'istanza di SQL Data Warehouse, seguire questa procedura.
 
 1. Nella pagina di sinistra del portale di Azure fare clic su **Database SQL**.
 2. Selezionare **mySampleDataWarehouse** nella pagina **Database SQL**. Verrà aperto il data warehouse. 
@@ -57,7 +57,7 @@ Per sospendere un SQL Data Warehouse, seguire questa procedura.
 
 ## <a name="resume-compute"></a>Riavviare le risorse di calcolo
 
-Per riprendere un SQL Data Warehouse, seguire questa procedura.
+Per riprendere un'istanza di SQL Data Warehouse, seguire questa procedura.
 
 1. Nella pagina di sinistra del portale di Azure fare clic su **Database SQL**.
 2. Selezionare **mySampleDataWarehouse** nella pagina **Database SQL**. Verrà aperto il data warehouse. 

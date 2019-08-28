@@ -49,7 +49,7 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 Poiché i registri contenitori sono risorse usate in più host contenitori, un registro deve trovarsi nel relativo gruppo di risorse.
 
-Anche se è possibile provare con un tipo di host specifico, come le istanze di contenitori di Azure, probabilmente al termine si vorrà eliminare l'istanza del contenitore. Tuttavia, è anche possibile mantenere la raccolta di immagini inserita in Registro Azure Container. Posizionando il registro nel suo gruppo di risorse, si riduce al minimo il rischio di eliminare accidentalmente la raccolta di immagini nel registro quando si elimina il gruppo di risorse delle istanze del contenitore.
+Anche se è possibile provare con un tipo di host specifico, come le Istanze di Azure Container, probabilmente al termine si vorrà eliminare l'istanza del contenitore. Tuttavia, è anche possibile mantenere la raccolta di immagini inserita in Registro Azure Container. Posizionando il registro nel suo gruppo di risorse, si riduce al minimo il rischio di eliminare accidentalmente la raccolta di immagini nel registro quando si elimina il gruppo di risorse delle istanze del contenitore.
 
 ## <a name="authentication"></a>Authentication
 

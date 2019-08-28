@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: f465ac91936b766d2c19ea8efd67b3acc8df6d75
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20a9ca8e28961a6dc49947a22f745424961b4a3f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243939"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615257"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Come scrivere stored procedure e trigger in Azure Cosmos DB usando l'API di query di Javascript
 
@@ -19,7 +19,7 @@ Azure Cosmos DB consente di eseguire query ottimizzate usando un'interfaccia Jav
 
 ## <a id="stored-procedures"></a>Stored procedure usando l'API di query JavaScript
 
-L'esempio di codice seguente illustra come si usa l'API Query JavaScript nel contesto di una stored procedure. La stored procedure inserisce un elemento di Azure Cosmos DB specificato da un parametro di input, e aggiorna un documento di metadati usando il metodo `__.filter()`, con minSize, maxSize e totalSize in base alla proprietà relativa alle dimensioni dell'elemento di input.
+L'esempio di codice seguente illustra come si usa l'API Query JavaScript nel contesto di una stored procedure. La stored procedure inserisce un elemento di Azure Cosmos specificato da un parametro di input e aggiorna un documento di metadati usando il metodo `__.filter()`, con minSize, maxSize e totalSize impostati in base alla proprietà relativa alle dimensioni dell'elemento di input.
 
 > [!NOTE]
 > `__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()` quando si usa l'API di query JavaScript.

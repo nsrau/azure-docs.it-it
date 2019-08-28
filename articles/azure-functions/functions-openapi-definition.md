@@ -1,24 +1,23 @@
 ---
-title: Creare una definizione OpenAPI per una funzione con Gestione API di Azure
+title: Creare una definizione OpenAPI per un'API serverless con Gestione API di Azure
 description: Creare una definizione OpenAPI che consente ad altri servizi e app di chiamare la funzione in Azure.
-services: functions
 keywords: OpenAPI, Swagger, app cloud, servizi cloud
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 54a4c6eba094231e8e73cdef87b911dfba20f657
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510476"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533534"
 ---
-# <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Creare una definizione OpenAPI per una funzione con Gestione API di Azure
+# <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Creare una definizione OpenAPI per un'API serverless con Gestione API di Azure
 
 Le API REST vengono spesso descritte usando una definizione OpenAPI. Questa definizione contiene informazioni sulle operazioni disponibili in un'API e su come devono essere strutturati i dati della richiesta e della risposta per l'API.
 

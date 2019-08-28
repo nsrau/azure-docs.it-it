@@ -1,6 +1,6 @@
 ---
-title: Distribuire le istanze di contenitore di Azure abilitate per la GPU
-description: Informazioni su come distribuire le istanze di contenitore di Azure per l'esecuzione in risorse della GPU.
+title: Distribuire le Istanze di Azure Container abilitate per la GPU
+description: Informazioni su come distribuire le Istanze di Azure Container per l'esecuzione in risorse della GPU.
 services: container-instances
 author: dlepow
 manager: gwallace
