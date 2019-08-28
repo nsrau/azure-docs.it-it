@@ -15,27 +15,30 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
 ms.author: vijetaj
-ms.openlocfilehash: 5816f53115f3ec54cbd9784894a5262b68dd6e95
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2814ad51d2f0f868833cf9c6964b7ea4a8424435
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565181"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574920"
 ---
 # <a name="what-is-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione a Data Science Virtual Machine per Linux e Windows
 
-La macchina virtuale per l'analisi scientifica dei dati (DSVM) è un'immagine VM personalizzata nel cloud di Microsoft Azure creata in modo specifico per l'analisi scientifica dei dati. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata. È disponibile in Windows Server e in Linux. L'edizione della DSVM per Windows è disponibile in Windows Server 2016 e Windows Server 2012. Le edizioni della DSVM per Linux sono disponibili in Ubuntu 16.04 LTS e CentOS 7.4.
+La macchina virtuale per l'analisi scientifica dei dati (DSVM) è un'immagine VM personalizzata nel cloud di Microsoft Azure creata in modo specifico per l'analisi scientifica dei dati. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata. 
 
-Questo articolo illustra cosa è possibile fare con una Data Science Virtual Machine. Descrive alcuni degli scenari principali di utilizzo della macchina virtuale e illustra nel dettaglio le più importanti funzionalità disponibili nelle versioni di Windows e Linux. L'articolo fornisce anche istruzioni su come iniziare a usare queste funzionalità.
+Le configurazioni degli strumenti vengono rigorosamente testate da data scientist e sviluppatori di Microsoft e dalla più ampia community di data science per assicurare la stabilità e la redditività generale.
+
+Data Science Virtual Machine è disponibile in:
++ Windows Server 2016, Windows Server 2012
++ Ubuntu 16.04 LTS e CentOS 7.4
+
+Tutti gli strumenti **Deep Learning Virtual Machine** sono stati integrati in Data Science Virtual Machine. 
 
 
-## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Usi della macchina virtuale per l'analisi scientifica dei dati
+## <a name="what-can-i-do-with-dsvm"></a>Quali operazioni si possono eseguire con Data Science Virtual Machine?
 L'obiettivo di Data Science Virtual Machine (DSVM) è offrire ai professionisti dei dati, a tutti i livelli di competenza e in tutti i settori, un ambiente di data science privo di problemi, preconfigurato e totalmente integrato. Anziché implementare un'area di lavoro analoga, è possibile effettuare il provisioning di una macchina virtuale per l'analisi scientifica e risparmiare così giorni o persino _settimane_ per i processi di installazione, configurazione e gestione dei pacchetti. Dopo aver allocato la macchina virtuale per l'analisi scientifica, è possibile iniziare immediatamente a lavorare al progetto di analisi scientifica dei dati.
 
 La VM data science è progettata e configurata per essere usata in un'ampia gamma di scenari di utilizzo. È possibile aumentare e ridurre le prestazioni dell'ambiente man mano che cambiano i requisiti del progetto. È anche possibile usare il linguaggio preferito per programmare le attività di data science e installare altri strumenti per personalizzare il sistema in base alle specifiche esigenze.
-
-## <a name="key-scenarios"></a>Scenari chiave
-Questa sezione suggerisce alcuni scenari chiave per i quali può essere distribuita la VM per l'analisi scientifica dei dati.
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Desktop di analisi preconfigurato nel cloud
 La VM per l'analisi scientifica dei dati offre una configurazione di base per i team di analisi scientifica dei dati che vogliono sostituire i desktop locali con un desktop cloud gestito. Questa configurazione di base garantisce che tutti gli scienziati dei dati presenti in un team abbiano una configurazione coerente mediante la quale verificare gli esperimenti e promuovere la collaborazione. Anche i costi diminuiscono, grazie alla riduzione del carico lavorativo per gli amministratori di sistema e del tempo richiesto per valutare, installare e gestire i vari pacchetti software necessari per eseguire analisi avanzate.
@@ -47,18 +50,37 @@ Gli istruttori e i formatori aziendali che insegnano la data science in genere f
 Gli hackathon e i concorsi di analisi scientifica dei dati o la modellazione e l'esplorazione di dati su larga scala richiedono una maggiore capacità hardware, in genere per brevi periodi di tempo. La Data Science VM consente di replicare rapidamente e su richiesta l'ambiente di data science su server con maggiore capacità, che consentono di eseguire esperimenti che richiedono l'esecuzione di risorse di calcolo con potenza elevata.
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>Potenza di calcolo personalizzata per Azure Notebooks
-
-[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) è un servizio ospitato gratuito che consente di sviluppare, eseguire e condividere notebook di Jupyter nel cloud senza alcuna installazione. Il livello di servizio gratuito però è limitato a 4 GB di memoria e 1 GB di dati. Per eliminare tutti i limiti, è quindi possibile collegare un progetto di Notebooks a una macchina virtuale di data science o a qualsiasi altra macchina virtuale che esegua il server Jupyter. Se si accede ad Azure Notebooks con un account che usa Azure Active Directory (come nel caso di un account aziendale), Notebooks mostrerà automaticamente le macchine virtuali di data science incluse in qualsiasi sottoscrizione associata a tale account. Per altre informazioni, vedere [Gestire e configurare progetti - Livello di calcolo](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) è un servizio ospitato gratuito che consente di sviluppare, eseguire e condividere notebook di Jupyter nel cloud senza alcuna installazione. Il livello di servizio gratuito però è limitato a 4 GB di memoria e 1 GB di dati. Per eliminare tutti i limiti, è quindi possibile collegare un progetto di Notebooks a una macchina virtuale di data science o a qualsiasi altra macchina virtuale che esegua il server Jupyter. Se si accede ad Azure Notebooks con un account che usa Azure Active Directory (come nel caso di un account aziendale), Notebooks mostrerà automaticamente le macchine virtuali di data science incluse in qualsiasi sottoscrizione associata a tale account. È possibile [collegare una Data Science Virtual Machine ad Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) per espandere la potenza di calcolo disponibile.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Valutazione e sperimentazione a breve termine
 La VM per l'analisi scientifica dei dati può essere usata per valutare o imparare a usare strumenti quali Microsoft ML Server, SQL Server, strumenti di Visual Studio, Jupyter, toolkit di deep learning/ML e i nuovi strumenti popolari nella comunità con il minimo sforzo di installazione. Grazie alla rapidità di configurazione, la Data Science VM può essere applicata ad altri scenari di utilizzo a breve termine, come la replica di esperimenti pubblicati, l'esecuzione di demo, l'esecuzione di procedure dettagliate nelle sessioni online e le esercitazioni in conferenza.
 
 ### <a name="deep-learning"></a>Apprendimento avanzato
-La Data science VM può essere usata per il training di modelli con algoritmi di apprendimento avanzato su hardware basato su GPU (unità di elaborazione grafica). Grazie alle funzioni di scalabilità delle VM del cloud di Azure, la DSVM consente di usare hardware basato su GPU nel cloud in base alle necessità. È possibile passare a una VM basata su GPU durante il training di modelli di grandi dimensioni o quando sono necessari calcoli ad alta velocità, mantenendo lo stesso disco del sistema operativo.  Nell'edizione Windows Server 2016 della DSVM sono preinstallati i driver GPU, i framework e la versione GPU dei framework di apprendimento avanzato. Nell'edizione Linux, l'apprendimento avanzato su GPU è abilitato sulle DSVM CentOS e Ubuntu. È possibile distribuire l'edizione Ubuntu, CentOS o Windows 2016 della Data Science VM in una macchina virtuale di Azure non basata su GPU. In questo caso tutti i framework di Deep Learning eseguiranno il fallback alla modalità CPU.
+La Data science VM può essere usata per il training di modelli con algoritmi di apprendimento avanzato su hardware basato su GPU (unità di elaborazione grafica). Grazie alle funzioni di scalabilità delle VM del cloud di Azure, la DSVM consente di usare hardware basato su GPU nel cloud in base alle necessità. È possibile passare a una VM basata su GPU durante il training di modelli di grandi dimensioni o quando sono necessari calcoli ad alta velocità, mantenendo lo stesso disco del sistema operativo.  Nell'edizione Windows Server 2016 della DSVM sono preinstallati i driver GPU, i framework e la versione GPU dei framework di apprendimento avanzato. Nell'edizione Linux, l'apprendimento avanzato su GPU è abilitato sulle DSVM CentOS e Ubuntu. È possibile distribuire l'edizione Ubuntu, CentOS o Windows 2016 della Data Science VM in una macchina virtuale di Azure non basata su GPU. In questo caso tutti i framework di Deep Learning eseguiranno il fallback alla modalità CPU. Altre informazioni sui [framework disponibili per Deep Learning e IA](dsvm-deep-learning-ai-frameworks.md).
+ 
+Altre informazioni sui [framework disponibili per Deep Learning e IA](dsvm-deep-learning-ai-frameworks.md).
 
-## <a name="whats-included-in-the-data-science-vm"></a>Funzionalità incluse nella VM per l'analisi scientifica dei dati
-La macchina virtuale per l'analisi scientifica dei dati ha già installati e configurati numerosi strumenti comuni per l'analisi scientifica dei dati e l'apprendimento avanzato. Include anche strumenti che semplificano l'uso di vari prodotti di analisi e dati di Azure, ad esempio Microsoft ML Server (R, Python) per la creazione di modelli predittivi o SQL Server 2017 per l'esplorazione di set di dati su larga scala. La Data Science VM include anche una serie di altri strumenti della community open source e di Microsoft, nonché esempi di codice e notebook. La tabella seguente indica in modo dettagliato e confronta i componenti principali inclusi nelle edizioni per Windows e Linux della macchina virtuale per l'analisi scientifica dei dati.
+<a name="included"></a>
 
+## <a name="whats-included-on-dsvm"></a>Funzionalità incluse in Data Science Virtual Machine
+La macchina virtuale per l'analisi scientifica dei dati ha già installati e configurati numerosi strumenti comuni per l'analisi scientifica dei dati e l'apprendimento avanzato. Include anche strumenti che semplificano l'uso di vari prodotti di analisi e dati di Azure, ad esempio Microsoft ML Server (R, Python) per la creazione di modelli predittivi o SQL Server 2017 per l'esplorazione di set di dati su larga scala. La Data Science VM include anche una serie di altri strumenti della community open source e di Microsoft, nonché [esempi di codice e notebook](dsvm-samples-and-walkthroughs.md). 
+
+Strumenti e piattaforme:
++ [Linguaggi di programmazione supportati](dsvm-languages.md)
+
++ [Piattaforme dati supportate](dsvm-data-platforms.md)
+
++ [IDE e strumenti di sviluppo](dsvm-tools-development.md)
+
++ [Framework per Deep Learning e IA](dsvm-deep-learning-ai-frameworks.md).
+
++ [Strumenti per apprendimento automatico e data science](dsvm-ml-data-science-tools.md)
+
++ [Strumenti per l'inserimento di dati](dsvm-tools-ingestion.md)
+
++ [Strumenti per la visualizzazione e l'esplorazione dei dati](dsvm-tools-explore-and-visualize.md)
+
+La tabella seguente indica in modo dettagliato e confronta i componenti principali inclusi nelle edizioni per Windows e Linux della macchina virtuale per l'analisi scientifica dei dati.
 
 | **Strumento**                                                           | **Edizione per Windows** | **Edizione per Linux** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
@@ -129,18 +151,16 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) | S | S |
-| **Piattaforma Big Data (soltanto Devtest)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](https://spark.apache.org/) locale indipendente | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Hadoop](https://hadoop.apache.org/) locale (HDFS, YARN) | N | S |
-
-## <a name="get-started"></a>Attività iniziali
-
-### <a name="windows-data-science-vm"></a>Macchina virtuale data science Windows
-* Per altre informazioni su come creare una macchina virtuale data science Windows, vedere [Effettuare il provisioning di una macchina virtuale data science Windows](provision-vm.md). Per altre informazioni sull'esecuzione di varie attività necessarie per il progetto di data science sulla macchina virtuale data science Windows, vedere [Dieci cose da fare con la macchina virtuale data science](vm-do-ten-things.md).
-
-### <a name="linux-data-science-vm"></a>Macchina virtuale data science Linux
-* Per altre informazioni su come creare una macchina virtuale data science Ubuntu, vedere [Effettuare il provisioning di una macchina virtuale data science per Linux (Ubuntu)](dsvm-ubuntu-intro.md). Per altre informazioni su come creare una macchina virtuale data science CentOS, vedere [Effettuare il provisioning di una macchina virtuale data science CentOS in Azure](linux-dsvm-intro.md).
-* Per una procedura dettagliata che illustra come eseguire diverse attività comuni di data science con la macchina virtuale Linux, CentOS e Ubuntu, vedere [Data science in una macchina virtuale data science Linux](linux-dsvm-walkthrough.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Guida di Azure per sviluppatori R](/azure/architecture/data-guide/technology-choices/r-developers-guide)
+
+Per altre informazioni, vedere gli articoli seguenti:
+
++ Windows:
+  + [Configurare una Data Science Virtual Machine Windows](provision-vm.md)
+  + [Dieci cose da fare con una Data Science Virtual Machine Windows](vm-do-ten-things.md)
+
++ Linux:
+  + [Configurare una Data Science Virtual Machine Linux (Ubuntu)](dsvm-ubuntu-intro.md)
+  + [Configurare una Data Science Virtual Machine Linux (CentOS)](linux-dsvm-intro.md)
+  + [Data science in una Data Science Virtual Machine Linux](linux-dsvm-walkthrough.md)
