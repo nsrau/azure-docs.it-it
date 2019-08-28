@@ -238,7 +238,7 @@
     - name: Piattaforma distribuita come servizio
       items:
         - name: 'Documentazione sulla piattaforma distribuita come servizio (PaaS, Platform as a Service)'
-          href: sql-database-paas.yml
+          href: sql-database-paas-index.yml
         - name: Continuità aziendale
           href: sql-database-business-continuity.md
         - name: Disponibilità elevata
