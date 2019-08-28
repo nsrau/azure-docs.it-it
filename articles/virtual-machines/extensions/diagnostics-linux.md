@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 0627361fdd4f94a329b08b184dbd542e1927af39
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 19aa0877c7c37083a6206e094aced40542d0ef72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871917"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092675"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
@@ -135,9 +135,7 @@ storageAccountSasToken | Un [token SAS dell'account](https://azure.microsoft.com
 mdsdHttpProxy | (facoltativo) Informazioni sul proxy HTTP necessarie per abilitare l'estensione affinché si connetta all'account di archiviazione e all'endpoint specificati.
 sinksConfig | (facoltativo) Informazioni sulle destinazioni alternative a cui possono essere inviati le metriche e gli eventi. Nelle sezioni che seguono vengono illustrati i dettagli specifici di ogni sink di dati supportato dall'estensione.
 
-
-> [!NOTE]
-> Quando si distribuisce l'estensione con un modello di distribuzione di Azure, è necessario creare prima l'account di archiviazione e il token di firma di accesso condiviso e poi passarli al modello. Non è possibile distribuire una macchina virtuale, l'account di archiviazione e configurare l'estensione in un unico modello. La creazione di un token di firma di accesso condiviso all'interno di un modello non è attualmente supportata.
+Per ottenere un token di firma di accesso condiviso all'interno di un modello di Gestione risorse, usare la funzione **listAccountSas** . Per un modello di esempio, vedere [esempio di funzione List](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
 
 È possibile costruire con facilità il token SAS richiesto tramite il portale di Azure.
 

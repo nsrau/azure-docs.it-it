@@ -7,16 +7,15 @@ author: craigshoemaker
 manager: gwallace
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: e970afbfd9c302dc95667a7c356e95824838e9b4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 84e4cc69d173fd37ecd15f537feadf19c275ef34
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636465"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086208"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -392,7 +391,7 @@ Se il BLOB è denominato *{20140101}-soundfile.mp3*, il valore della variabile `
 
 Il trigger del BLOB contiene diverse proprietà di metadati. Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Questi valori hanno la stessa semantica del tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet).
 
-|Proprietà  |Type  |Descrizione  |
+|Proprietà  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Percorso del BLOB trigger.|
 |`Uri`|`System.Uri`|L'URI del BLOB per la posizione primaria.|

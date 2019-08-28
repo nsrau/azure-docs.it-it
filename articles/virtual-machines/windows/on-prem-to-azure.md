@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42ad7bc10cb7b93bd4db9260f950ae4ca12aba44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4611efa8767094ea8f92dac584a5610811947620
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61126895"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102581"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Eseguire la migrazione da Amazon Web Services (AWS) e altre piattaforme a Managed Disks in Azure
 
@@ -55,7 +54,7 @@ Questa sezione consente di prendere le decisioni migliori sui tipi di macchina v
 
 Se si intende pianificare la migrazione da dischi non gestiti a dischi gestiti, occorre tener presente che gli utenti con il ruolo [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) non saranno in grado di modificare le dimensioni della macchina virtuale com'era possibile prima della conversione. Il motivo è che le macchine virtuali con dischi gestiti richiedono che gli utenti abbiano l'autorizzazione Microsoft.Compute/disks/write per i dischi del sistema operativo.
 
-### <a name="location"></a>Località
+### <a name="location"></a>Location
 
 Selezionare una posizione in cui Azure Managed Disks è disponibile. Se si esegue la migrazione a Managed Disks Premium, assicurarsi anche che l'Archiviazione Premium sia disponibile nell'area di destinazione della migrazione. Per informazioni aggiornate sulle località disponibili, vedere [Prodotti in base all'area](https://azure.microsoft.com/regions/#services) .
 

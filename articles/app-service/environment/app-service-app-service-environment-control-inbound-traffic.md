@@ -10,25 +10,24 @@ ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 84575dcb67845a074ce19cf9d819e1dda3f90e20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c887ae5568bfd0f72f8d90daecd95547ed7b8b7d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130790"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070415"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Come controllare il traffico in ingresso a un ambiente del servizio app
 ## <a name="overview"></a>Panoramica
-Un ambiente del servizio app può essere creato **o** in una rete virtuale di Azure Resource Manager **o** in una [rete virtuale][virtualnetwork] del modello di distribuzione classica.  È possibile definire una nuova rete virtuale e una nuova subnet al momento della creazione di un ambiente del servizio app.  In alternativa, è possibile creare un ambiente del servizio app in una rete virtuale e in una subnet preesistenti.  Con una modifica apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918 (ovvero indirizzi privati).  Per altre informazioni su come creare un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
+Un ambiente del servizio app può essere creato in una rete virtuale Azure Resource Manager **o** in una [rete virtuale][virtualnetwork]del modello di distribuzione classica.  È possibile definire una nuova rete virtuale e una nuova subnet al momento della creazione di un ambiente del servizio app.  In alternativa, è possibile creare un ambiente del servizio app in una rete virtuale e in una subnet preesistenti.  Con una modifica apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918 (ovvero indirizzi privati).  Per ulteriori informazioni sulla creazione di un ambiente del servizio app vedere [come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
 
 È sempre necessario creare un ambiente del servizio app all'interno di una subnet perché la subnet fornisce un limite di rete che può essere usato per bloccare il traffico in ingresso proveniente da dispositivi e servizi upstream, in modo che il traffico HTTP e HTTPS sia accettato solo da indirizzi IP upstream specifici.
 
-Il traffico in ingresso e in uscita diretto verso e proveniente da una subnet è controllato tramite un [gruppo di sicurezza di rete][NetworkSecurityGroups]. Per controllare il traffico in ingresso è necessario creare regole di sicurezza di rete in un gruppo di sicurezza di rete, quindi assegnare al gruppo di sicurezza di rete la subnet contenente l'ambiente del servizio app.
+Il traffico di rete in ingresso e in uscita in una subnet è controllato tramite un [gruppo di sicurezza di rete][NetworkSecurityGroups]. Per controllare il traffico in ingresso è necessario creare regole di sicurezza di rete in un gruppo di sicurezza di rete, quindi assegnare al gruppo di sicurezza di rete la subnet contenente l'ambiente del servizio app.
 
 Dopo aver assegnato un gruppo di sicurezza di rete a una subnet, il traffico in ingresso alle app nell'ambiente del servizio app è consentito/bloccato in base alle regole di autorizzazione consentita o negata definite nel gruppo di sicurezza di rete.
 
@@ -53,12 +52,12 @@ Di seguito è riportato un elenco delle porte usate da un ambiente del servizio 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Requisiti per DNS e connettività in uscita
 Per un corretto funzionamento dell'ambiente del servizio app, è necessario l'accesso in uscita ai vari endpoint. Un elenco completo degli endpoint esterni usati da un ambiente del servizio app è disponibile nella sezione "Requisiti della connettività di rete" dell'articolo [Configurazione di rete per ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
 
-Gli ambienti del servizio app richiedono un'infrastruttura DNS valida configurata per la rete virtuale.  Se per qualsiasi motivo viene modificata la configurazione DNS dopo aver creato un ambiente di servizio app, gli sviluppatori possono forzare un ambiente di servizio app per selezionare la nuova configurazione del DNS.  L'attivazione di un riavvio di ambiente in sequenza con l'icona "Riavvia" disponibile nella parte superiore del pannello di gestione dell'ambiente del servizio app nel [portale di Azure][NewPortal] farà sì che l'ambiente selezioni la nuova configurazione del DNS.
+Gli ambienti del servizio app richiedono un'infrastruttura DNS valida configurata per la rete virtuale.  Se per qualsiasi motivo viene modificata la configurazione DNS dopo aver creato un ambiente di servizio app, gli sviluppatori possono forzare un ambiente di servizio app per selezionare la nuova configurazione del DNS.  L'attivazione di un riavvio di ambiente in sequenza con l'icona "Riavvia" che si trova nella parte superiore del pannello di gestione ambiente del servizio app nel [portale di Azure][NewPortal] comporterà la selezione della nuova configurazione DNS da parte dell'ambiente.
 
 È anche consigliabile che i server DNS personalizzati nella rete virtuale vengano configurati prima di creare un ambiente del servizio app.  Se la configurazione DNS della rete virtuale viene modificata durante la creazione di un ambiente del servizio app, il processo di creazione dell'ambiente del servizio app avrà esito negativo.  In modo analogo, se esiste un server DNS personalizzato nell’altra estremità di un gateway VPN e il server DNS è irraggiungibile o non disponibile, anche il processo di creazione dell’ambiente del servizio App avrà esito negativo.
 
 ## <a name="creating-a-network-security-group"></a>Creazione di un gruppo di sicurezza di rete
-Per i dettagli sul funzionamento dei gruppi di sicurezza di rete, vedere le [informazioni][NetworkSecurityGroups] seguenti.  Di seguito sono riportate le informazioni principali relative ai gruppi di sicurezza di rete, con particolare attenzione alla configurazione e all'applicazione di un gruppo di sicurezza di rete a una subnet contenente un ambiente del servizio app.
+Per informazioni dettagliate sul funzionamento dei gruppi di sicurezza di rete, vedere le [informazioni][NetworkSecurityGroups]seguenti.  Di seguito sono riportate le informazioni principali relative ai gruppi di sicurezza di rete, con particolare attenzione alla configurazione e all'applicazione di un gruppo di sicurezza di rete a una subnet contenente un ambiente del servizio app.
 
 **Nota:** i gruppi di sicurezza di rete possono essere configurati in modalità grafica con il [portale di Azure](https://portal.azure.com) oppure tramite Azure PowerShell.
 
@@ -120,7 +119,7 @@ Quando un'app in un ambiente del servizio app è configurata in modo da usare l'
 ## <a name="getting-started"></a>Introduzione
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment]
 
-Per informazioni dettagliate sulle app che si connettono in modo sicuro alla risorsa back-end da un ambiente del servizio app, vedere [Connessione sicura alle risorse back-end da un ambiente del servizio app][SecurelyConnecttoBackend]
+Per informazioni dettagliate sulle app che si connettono in modo sicuro alla risorsa back-end da un ambiente del servizio app, vedere [connessione sicura alle risorse back-end da un ambiente del servizio app][SecurelyConnecttoBackend]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

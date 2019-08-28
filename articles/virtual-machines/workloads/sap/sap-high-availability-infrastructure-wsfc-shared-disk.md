@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: ec976257-396b-42a0-8ea1-01c97f820fa6
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4e107da9d8e5019ba51769d283f3faa34839380
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 63a2a3a68adaa2e389cc2af173c8f75a18fbc36d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67709247"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078699"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e dischi condivisi per SAP ASCS/SCS
 
@@ -525,7 +524,7 @@ Per usare numeri diversi per le istanze di SAP ASCS o SCS, è necessario cambiar
 1. Nel portale di Azure selezionare **\<SID\>-lb-ascs load balancer** > **Regole di bilanciamento del carico**.
 2. Per tutte le regole di bilanciamento del carico appartenenti all'istanza di SAP ASCS o SCS, modificare questi valori:
 
-   * NOME
+   * Name
    * Port
    * Porta back-end
 
@@ -555,7 +554,7 @@ Per aggiungere le voci del Registro di sistema in entrambi i nodi del cluster de
 | --- | --- |
 | Nome variabile |`KeepAliveTime` |
 | Tipo di variabile |REG_DWORD (decimale) |
-| Valore |120000 |
+| Value |120000 |
 | Collegamento alla documentazione |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 **Tabella 3:** Modificare il primo parametro TCP/IP

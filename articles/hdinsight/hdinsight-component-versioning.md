@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: b451769f5f98bf64ca340504c983f16d1db36647
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: a844d28067fc0851760849317160d5902918252e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991548"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074381"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Componenti e versioni di Apache Hadoop disponibili in HDInsight.
 
@@ -74,8 +74,8 @@ La tabella seguente elenca le versioni di HDInsight disponibili nel portale di A
 
 | Versione HDInsight | Versione HDP | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Yes |Sì |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | 30 giugno 2020 |31 dicembre 2020 |Sì |Yes |
+| HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Sì |Yes |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | 30 giugno 2020 |31 dicembre 2020 |Sì |Sì |
 
 
 > [!NOTE]  
@@ -88,14 +88,14 @@ La tabella seguente elenca le versioni di HDInsight attualmente **non** disponib
 
 | Versione HDInsight | Versione HDP | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 settembre 2016 |5 settembre 2017 |28 giugno 2018 |Yes |No |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 marzo 2016 |29 dicembre 2016 |9 gennaio 2018 |Yes |No |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 dicembre 2015 |27 giugno 2016 |31 luglio 2018 |Yes |No |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 dicembre 2015 |27 giugno 2016 |31 luglio 2017 |Yes |No |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 settembre 2016 |5 settembre 2017 |28 giugno 2018 |Sì |No |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 marzo 2016 |29 dicembre 2016 |9 gennaio 2018 |Sì |No |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 dicembre 2015 |27 giugno 2016 |31 luglio 2018 |Sì |No |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 dicembre 2015 |27 giugno 2016 |31 luglio 2017 |Sì |No |
 | HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS o Windows Server 2012 R2 |18 febbraio 2015 |1° marzo 2016 |1° aprile 2017 |Sì |No |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 giugno 2014 |18 maggio 2015 |30 giugno 2016 |Yes |No |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 giugno 2014 |18 maggio 2015 |30 giugno 2016 |Sì |No |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 febbraio 2014 |17 settembre 2014 |30 giugno 2015 |Sì |No |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 ottobre 2013 |12 maggio 2014 |31 maggio 2015 |Sì |No |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 ottobre 2013 |12 maggio 2014 |31 maggio 2015 |Yes |No |
 | HDInsight 1.6 |HDP 1.1 | |28 ottobre 2013 |26 aprile 2014 |31 maggio 2015 |No |No |
 
 > [!NOTE]  
@@ -177,63 +177,7 @@ La sezione fornisce collegamenti alle note sulla versione di Hortonworks Data Pl
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Configurazione del nodo predefinito e dimensioni della macchina virtuale per i cluster
 
-La tabella seguente elenca le dimensioni di macchina virtuale (VM) predefinite per i cluster HDInsight.  Questo grafico è necessario per comprendere le dimensioni delle VM da usare durante la creazione di script di PowerShell o dell'interfaccia della riga di comando di Azure per distribuire i cluster HDInsight.
-
-> [!NOTE]
-> Gli unici tipi di cluster con dischi dati sono i cluster Kafka e HBase con la funzionalità di scrittura accelerata abilitata. HDInsight supporta le dimensioni dei dischi P30 e S30 in questi scenari.
-
-> [!IMPORTANT]  
-> Se si prevedono più di 32 nodi di lavoro in un cluster, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
-
-* Tutte le aree supportate tranne Brasile meridionale e Giappone occidentale:
-
-|Tipo di cluster|Hadoop|hbase|Interactive Query|Storm|Spark|ML Server|Kafka|
-|---|---|---|---|---|---|---|---|
-|Head: dimensioni VM predefinite|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
-|Head: dimensioni VM consigliate|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
-||D4 v2|D4 v2|D14|A8 v2|D13 v2|D13 v2|D3 v2|
-||D12 v2|D12 v2|E16 v3|A2m v2|D14 v2|D14 v2|D4 v2|
-||E4 v3|E4 v3|E32 v3|E4 v3|E4 v3|E4 v3|D12 v2|
-|Ruolo di lavoro: dimensioni VM predefinite|D4 v2|D4 v2|D14 v2|D3 v2|D13 v2|D4 v2|4 D12v2 con 2 dischi S30 per broker|
-|Ruolo di lavoro: dimensioni VM consigliate|D3 v2|D3 v2|D13|D3 v2|D4 v2|D4 v2|D13 v2|
-||D4 v2|D4 v2|D14|D4 v2|D12 v2|D12 v2|DS12 v2|
-||D12 v2|D12 v2|E16 v3|D12 v2|D13 v2|D13 v2|DS13 v2|
-||E4 v3|E4 v3|E20 v3|E4 v3|D14 v2|D14 v2|E4 v3|
-||||E32 v3||E16 v3|E16 v3|ES4 v3|
-||||E64 v3||E20 v3|E20 v3|E8 v3|
-||||||E32 v3|E32 v3|ES8 v3|
-||||||E64 v3|E64 v3||
-|ZooKeeper: dimensioni VM predefinite||A4 v2|A4 v2|A4 v2||A2 v2|D3v2|
-|ZooKeeper: dimensioni VM consigliate||A4 v2||A2 v2|||A2M v2|
-|||A8 v2||A4 v2|||D3 v2|
-|||A2m v2||A8 v2|||E8 v3|
-|ML Services: dimensioni VM predefinite||||||D4 v2||
-|ML Services: dimensioni VM consigliate||||||D4 v2||
-|||||||D12 v2||
-|||||||D13 v2||
-|||||||D14 v2||
-|||||||E16 v3||
-|||||||E20 v3||
-|||||||E32 v3||
-|||||||E64 v3||
-
-* Solo Brasile meridionale e Giappone occidentale (non sono disponibili dimensioni v2):
-
-  | Tipo di cluster | Hadoop | hbase | Interactive Query |Storm | Spark | ML Services |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | Head: dimensioni VM predefinite |D12 |D12  | D13 |A3 |D12 |D12 |
-  | Head: dimensioni VM consigliate |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
-  | Ruolo di lavoro: dimensioni VM predefinite |D4 |D4  |  D14 |D3 |D13 |D4 |
-  | Ruolo di lavoro: dimensioni VM consigliate |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
-  | ZooKeeper: dimensioni VM predefinite | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
-  | ZooKeeper: dimensioni VM consigliate | |A2,<br/> A3,<br/> A4. | |A2,<br/> A3,<br/> A4. | | |
-  | ML Services: dimensioni VM predefinite | | | | | |D4 |
-  | ML Services: dimensioni di VM consigliate | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
-
-> [!NOTE]
-> - Il nodo Head è chiamato *Nimbus* per il tipo di cluster Storm.
-> - Il nodo Ruolo di lavoro è chiamato *Supervisor* per il tipo di cluster Storm.
-> - Il nodo Ruolo di lavoro è chiamato *Regione* per il tipo di cluster HBase.
+Per altre informazioni sugli SKU di macchine virtuali da selezionare per il cluster, vedere [i dettagli di configurazione del cluster HDInsight di Azure](hdinsight-supported-node-configuration.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurazione del cluster per Apache Hadoop, Spark e altre informazioni su HDInsight](hdinsight-hadoop-provision-linux-clusters.md)

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0e32c81f37a8b81511cd009dfddbcc546aee1797
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f797d3ee525806d8002b19edb1378d0376508b08
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876741"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073922"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
 
@@ -34,39 +34,45 @@ Se si verificano problemi durante l'aggiunta di macchine virtuali al dominio, se
 
 **Causa:** Si è verificato un errore di digitazione quando sono state immesse le credenziali nelle correzioni dell'interfaccia del modello Azure Resource Manager.
 
-**Difficoltà** Per correggere le credenziali, seguire queste istruzioni.
+**Difficoltà** Eseguire una delle azioni seguenti per risolvere il comportamento.
 
-1. Aggiungere manualmente le VM a un dominio.
-2. Ridistribuire una volta che le credenziali sono state confermate. Vedere [creare un pool di host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
-3. Aggiungere macchine virtuali a un dominio usando un modello con un join di una [macchina virtuale Windows esistente al dominio di Active Directory](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Aggiungere manualmente le VM a un dominio.
+- Ridistribuire il modello dopo aver confermato le credenziali. Vedere [creare un pool di host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+- Aggiungere macchine virtuali a un dominio usando un modello con un join di una [macchina virtuale Windows esistente al dominio di Active Directory](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
 ### <a name="error-timeout-waiting-for-user-input"></a>Errore: Timeout in attesa dell'input dell'utente
 
 **Causa:** L'account usato per completare l'aggiunta a un dominio può avere multi-factor authentication.
 
-**Difficoltà** Per completare l'aggiunta a un dominio, seguire queste istruzioni.
+**Difficoltà** Eseguire una delle azioni seguenti per risolvere il comportamento.
 
-1. Rimuovere temporaneamente l'autenticazione a più fattori per l'account.
-2. Usare un account del servizio.
+- Rimuovere temporaneamente l'autenticazione a più fattori per l'account.
+- Usare un account del servizio.
 
 ### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Errore: L'account usato durante il provisioning non ha le autorizzazioni necessarie per completare l'operazione
 
 **Causa:** L'account usato non dispone delle autorizzazioni per aggiungere macchine virtuali al dominio a causa della conformità e delle normative.
 
-**Difficoltà** Seguire queste istruzioni.
+**Difficoltà** Eseguire una delle azioni seguenti per risolvere il comportamento.
 
-1. Utilizzare un account membro del gruppo Administrators.
-2. Concedere le autorizzazioni necessarie all'account in uso.
+- Utilizzare un account membro del gruppo Administrators.
+- Concedere le autorizzazioni necessarie all'account in uso.
 
 ### <a name="error-domain-name-doesnt-resolve"></a>Errore: Il nome di dominio non viene risolto
 
-**Causa 1:** Le macchine virtuali si trovano in un gruppo di risorse non associato alla rete virtuale (VNET) in cui si trova il dominio.
+**Causa 1:** Le macchine virtuali si trovano in una rete virtuale non associata alla rete virtuale (VNET) in cui si trova il dominio.
 
 **Correzione 1:** Creare il peering VNET tra il VNET in cui è stato effettuato il provisioning delle macchine virtuali e il VNET in cui è in esecuzione il controller di dominio (DC). Vedere [creare un peering di rete virtuale-Gestione risorse, sottoscrizioni diverse](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
 
-**Causa 2:** Quando si usa AadService (AADS), le voci DNS non sono state impostate.
+**Causa 2:** Quando si usa Azure Active Directory Domain Services (Azure AD DS), le impostazioni del server DNS per la rete virtuale non sono aggiornate in modo che puntino ai controller di dominio gestiti.
 
-**Fix 2:** Per impostare i servizi del dominio, vedere [Enable Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
+**Fix 2:** Per aggiornare le impostazioni DNS per la rete virtuale che contiene Azure AD DS, vedere [aggiornare le impostazioni DNS per la rete virtuale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
+
+**Motivo 3:** Le impostazioni del server DNS dell'interfaccia di rete non puntano al server DNS appropriato nella rete virtuale.
+
+**Correzione 3:** Eseguire una delle azioni seguenti per risolvere, seguendo i passaggi descritti in [modificare i server DNS].
+- Modificare le impostazioni del server DNS dell'interfaccia di rete in **personalizzata** con i passaggi da [modificare i server DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers) e specificare gli indirizzi IP privati dei server DNS nella rete virtuale.
+- Modificare le impostazioni del server DNS dell'interfaccia di rete in modo che **ereditino da rete virtuale** con i passaggi da [modificare i server DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers), quindi modificare le impostazioni del server DNS della rete virtuale con i passaggi da modificare i server [DNS](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Il caricatore di avvio di Windows Virtual Desktop Agent e Windows Virtual Desktop non sono installati
 

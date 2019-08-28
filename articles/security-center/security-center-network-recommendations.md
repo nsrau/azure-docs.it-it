@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6dfd3bd86e55d19bf1c15486a502a4cbab3c96a8
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 3683550045699a24c27a3226fba2e90a671f80e1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905310"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101019"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteggere le risorse di Azure nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
@@ -153,7 +153,6 @@ Lo standard di protezione DDoS deve essere abilitato|Proteggi le reti virtuali c
 Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
 * [Protezione del servizio SQL di Azure nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:

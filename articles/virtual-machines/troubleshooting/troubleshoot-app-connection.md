@@ -12,16 +12,15 @@ ms.assetid: b9ff7cd0-0c5d-4c3c-a6be-3ac47abf31ba
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 9bc528cdd098a2e355c542c3ca8f9bcb0287f339
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fd79e04cdd8f9d01131c016031d696c1583eb55d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710518"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080407"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Risolvere i problemi di connettività delle applicazioni in macchine virtuali in Azure
 
@@ -85,7 +84,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
 
 Nelle macchine virtuali basate su Windows o Linux, utilizzare il comando **netstat - a** per visualizzare le porte di ascolto attive. Esaminare l'output per le porte previste sulle quali l’applicazione dovrebbe essere in ascolto. Riavviare l'applicazione oppure configurarla per usare le porte previste in base alle esigenze e provare di nuovo ad accedere all'applicazione in locale.
 
-## <a id="step2"></a>Passaggio 2: Applicazione di accesso da un'altra VM nella stessa rete virtuale
+## <a id="step2"></a>Passaggio 2: Accedere all'applicazione da un'altra VM nella stessa rete virtuale
 Provare ad accedere all'applicazione da una macchina virtuale diversa, ma nella stessa rete virtuale, usando il nome host della macchina virtuale o l'indirizzo IP pubblico, privato o del provider assegnato da Azure. Per le macchine virtuali create con il modello di distribuzione classica, non usare l'indirizzo IP pubblico del servizio cloud.
 
 ![applicazione avviata da una macchina virtuale diversa](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -105,7 +104,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
 
 In una macchina virtuale basata su Windows, utilizzare Windows Firewall con sicurezza avanzata per determinare se le regole del firewall escludono il traffico in entrata e in uscita dell'applicazione.
 
-## <a id="step3"></a>Passaggio 3: Applicazione di accesso dall'esterno della rete virtuale
+## <a id="step3"></a>Passaggio 3: Accedere all'applicazione dall'esterno della rete virtuale
 Provare ad accedere all'applicazione da un computer all'esterno della rete virtuale come VM in cui è in esecuzione l'applicazione. Usare una rete diversa come computer client originale.
 
 ![avviare l'applicazione da un computer all'esterno della rete virtuale](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)

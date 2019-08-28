@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: 3c4dbd38edaf36461578e087010d978a25450d06
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: bdf81eb447596c8f580809eed99004186a81eacf
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614921"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70065926"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -21,7 +21,7 @@ ms.locfileid: "69614921"
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB è un database distribuito veloce e flessibile, facilmente scalabile e con latenza e velocità effettiva garantite. Non è necessario apportare modifiche significative all'architettura o scrivere codice complesso per ridimensionare il database con Azure Cosmos DB. Aumentare o ridurre le prestazioni è semplice come eseguire una singola chiamata API. Per altre informazioni, vedere [Effettuare il provisioning della velocità effettiva per un contenitore](how-to-provision-container-throughput.md) oppure [Effettuare il provisioning della velocità effettiva per un database](how-to-provision-database-throughput.md). Dato che si accede ad Azure Cosmos DB tramite chiamate di rete, è tuttavia possibile apportare ottimizzazioni lato client per ottenere prestazioni ottimali se si usa l'[SQL .NET SDK](documentdb-sdk-dotnet.md).
+Azure Cosmos DB è un database distribuito veloce e flessibile, facilmente scalabile e con latenza e velocità effettiva garantite. Non è necessario apportare modifiche significative all'architettura o scrivere codice complesso per ridimensionare il database con Azure Cosmos DB. Aumentare o ridurre le prestazioni è semplice come eseguire una singola chiamata API. Per altre informazioni, vedere [Effettuare il provisioning della velocità effettiva per un contenitore](how-to-provision-container-throughput.md) oppure [Effettuare il provisioning della velocità effettiva per un database](how-to-provision-database-throughput.md). Dato che si accede ad Azure Cosmos DB tramite chiamate di rete, è tuttavia possibile apportare ottimizzazioni lato client per ottenere prestazioni ottimali se si usa l'[SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
 
 Se si vogliono migliorare le prestazioni del database, prendere in considerazione le opzioni seguenti:
 
@@ -94,7 +94,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 ## <a name="sdk-usage"></a>Uso dell'SDK
 1. **Installare l'SDK più recente**
 
-    Agli SDK di Azure Cosmos DB vengono apportati continui miglioramenti per offrire prestazioni ottimali. Per determinare la versione di SDK più recente e verificare i miglioramenti, vedere le pagine relative agli [SDK di Azure Cosmos DB](documentdb-sdk-dotnet.md).
+    Agli SDK di Azure Cosmos DB vengono apportati continui miglioramenti per offrire prestazioni ottimali. Per determinare la versione di SDK più recente e verificare i miglioramenti, vedere le pagine relative agli [SDK di Azure Cosmos DB](sql-api-sdk-dotnet-standard.md).
 2. **Usare un client Azure Cosmos DB singleton per la durata dell'applicazione**
 
     Ogni istanza di DocumentClient è thread-safe ed esegue la gestione efficiente delle connessioni e la memorizzazione nella cache degli indirizzi quando viene usata la modalità diretta. Per consentire una gestione efficiente delle connessioni e prestazioni migliori da parte di DocumentClient, è consigliabile usare una singola istanza di DocumentClient per ogni AppDomain per la durata dell'applicazione.

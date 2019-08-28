@@ -7,19 +7,18 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f596f44acfd51b1e2449bc77eed6add0d9d90b0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 99ad334a526b269879034dcc0e1cd0b1b22f1f7f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707401"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101185"
 ---
 # <a name="onboarding-requirements"></a>Requisiti di onboarding
 
@@ -33,7 +32,7 @@ Questo elenco include i requisiti per l'esecuzione di SAP HANA in Azure (istanze
 
 **Connettività di rete**
 
-- ExpressRoute da locale ad Azure: per connettere il data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Di conseguenza, i clienti non si verifichino altri costi oltre il collegamento ExpressRoute tra origini locali e Azure.
+- ExpressRoute da locale ad Azure: per connettere il data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Per questo motivo, i clienti non rilevano costi aggiuntivi oltre il collegamento ExpressRoute tra l'ambiente locale e Azure.
 
 **Sistema operativo**
 

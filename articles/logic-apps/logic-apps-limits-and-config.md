@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 95df72875338b6964f42075404cf9c30ba132f9d
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 891273a98c61b59e08b4a15f3b0892e6828a2a47
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900215"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099423"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -26,7 +26,7 @@ Questo articolo include informazioni dettagliate sui limiti e sulla configurazio
 
 Ecco i limiti per una singola definizione di app per la logica:
 
-| Name | Limite | Note |
+| NOME | Limite | Note |
 | ---- | ----- | ----- |
 | Azioni per flusso di lavoro | 500 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
 | Livello di annidamento consentito per le azioni | 8 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
@@ -48,7 +48,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| NOME | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
+| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Durata esecuzione | 90 giorni | 365 giorni | Per modificare il limite predefinito, vedere la pagina relativa alla [durata dell'esecuzione delle modifiche](#change-duration). |
 | Conservazione in risorsa di archiviazione | 90 giorni dalla data di inizio dell'esecuzione | 365 giorni | Per modificare il limite predefinito, vedere [modificare la conservazione dell'archiviazione](#change-retention). |
@@ -75,7 +75,7 @@ Per modificare il limite predefinito per la durata dell'esecuzione e la conserva
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| NOME | Limite | Note |
+| Name | Limite | Note |
 | ---- | ----- | ----- |
 | Concorrenza di trigger | * Senza limiti quando il controllo della concorrenza è disattivato <p><p>* 25 è il limite predefinito quando il controllo della concorrenza è attivato e non può essere annullato dopo l'attivazione del controllo. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite descrive il numero più alto di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Numero massimo di esecuzioni in attesa | Quando il controllo della concorrenza è attivato, il numero minimo di esecuzioni in attesa è 10 più il numero di esecuzioni simultanee (trigger di concorrenza). È possibile modificare il numero massimo impostando un valore fino a 100 (incluso). | Questo limite descrive il numero più alto di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
@@ -105,7 +105,9 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 ### <a name="integration-service-environment-ise"></a>Ambiente Integration Services (ISE)
 
-| Name | Limite | Note |
+Di seguito sono riportati i limiti di velocità effettiva per lo SKU Premium:
+
+| NOME | Limite | Note |
 |------|-------|-------|
 | Limite esecuzione unità di base | Limitazione del sistema quando la capacità dell'infrastruttura raggiunge il 80% | In sono disponibili ~ 4.000 esecuzioni di azioni al minuto, ovvero ~ 160 milioni esecuzioni di azioni al mese | |
 | Limite di esecuzione delle unità di scala | Limitazione del sistema quando la capacità dell'infrastruttura raggiunge il 80% | Ogni unità di scala può fornire circa 2.000 esecuzioni di azioni aggiuntive al minuto, ovvero ~ 80 milioni altre esecuzioni di azioni al mese | |
@@ -113,6 +115,9 @@ Ecco i limiti per una singola definizione di app per la logica:
 ||||
 
 Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
+
+> [!NOTE]
+> Lo [SKU Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) non ha limiti pubblicati perché questo SKU non dispone di alcun contratto di servizio o funzionalità per la scalabilità verticale. Utilizzare questo SKU solo per la sperimentazione, lo sviluppo e il test, non per la produzione o il test delle prestazioni.
 
 <a name="request-limits"></a>
 
@@ -154,7 +159,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 Limiti per i connettori personalizzati che è possibile creare da API Web.
 
-| NOME | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
+| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Numero di connettori personalizzati | 1\.000 per ogni sottoscrizione di Azure | 1\.000 per ogni sottoscrizione di Azure ||
 | Numero di richieste al minuto per un connettore personalizzato | 500 richieste al minuto per connessione | 2\.000 richieste al minuto per *connettore personalizzato* ||
@@ -181,10 +186,10 @@ Ogni sottoscrizione di Azure ha questi limiti di account di integrazione:
 
 * Ogni ISE, che sia [Developer o Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), è limitato a 5 account di integrazione totali:
 
-  | SKU ISE | Limite |
-  |---------|-------|
-  | **Premium** | 5 totale-solo standard, nessuna [versione](../logic-apps/logic-apps-pricing.md#integration-accounts) gratuita o di base |
-  | **Developer** | 5 totale-gratuito (limitato a 1), standard o entrambi, ma senza base |
+  | SKU ISE | Limiti dell'account di integrazione |
+  |---------|----------------------------|
+  | **Premium** | 5 account [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) totali, incluso un account standard gratuito. Non sono consentiti account gratuiti o Basic. |
+  | **Developer** | 5 totale- [gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitato a 1 account) e [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combinato o tutti gli account standard. Non sono consentiti account di base. Usare lo [SKU Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) per la sperimentazione, lo sviluppo e il testing, ma non per la produzione o il test delle prestazioni. |
   |||
 
 Ulteriori costi si applicano agli account di integrazione aggiunti oltre gli account di integrazione inclusi in ISE. Per informazioni sul funzionamento dei prezzi e della fatturazione per ISEs, vedere il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md#fixed-pricing)per la logica. Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/)per la logica.

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 37921c655cc3c5de5c3c5079eda47fb7513fdf9f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 878e2b03e21c18ef4ee845251e91642037c6c5ff
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560948"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114654"
 ---
 # <a name="limits-and-quotas"></a>Limiti e quote
 
@@ -27,7 +27,7 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 |-----|-----|-----|
 |Progetti|2|100|
 |Immagini di training per progetto |5\.000|100,000|
-|Previsioni/mese|10,000 |Senza limitazioni|
+|Stime/mese|10,000 |Senza limitazioni|
 |Tag/progetto|50|500|
 |Iterazioni |10|10|
 |Immagini con etichetta min per tag, classificazione (50 + consigliata) |5|5|
@@ -37,7 +37,13 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 |Operazioni di [stima](https://go.microsoft.com/fwlink/?linkid=865445) senza archiviazione (transazioni al secondo)|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (chiamate API al secondo)|2|10|
 |[Altre chiamate API](https://go.microsoft.com/fwlink/?linkid=865446) (transazioni al secondo)|10|10|
+|Tipi di immagine accettati|jpg, PNG, BMP, gif|jpg, PNG, BMP, gif|
+|Altezza/larghezza minima immagine in pixel|256 (vedere la nota)|256 (vedere la nota)|
+|Altezza/Larghezza immagine massima in pixel|senza limitazioni|senza limitazioni|
 |Dimensioni max dell'immagine (caricamento dell'immagine di training) |6 MB|6 MB|
 |Dimensioni max dell'immagine (stima)|4 MB|4 MB|
 |Numero massimo di aree per l'immagine di training del rilevamento oggetti|200|200|
 |Numero massimo di tag per ogni immagine di classificazione|30|30|
+
+> [!NOTE]
+> Le immagini più piccole di 256 pixel verranno accettate ma ridimensionate.

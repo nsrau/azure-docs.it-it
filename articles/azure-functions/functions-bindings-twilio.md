@@ -7,17 +7,16 @@ author: craigshoemaker
 manager: gwallace
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c63b81e5461af5407d260651b79ec80e79fc9b4d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 32f987caed915aff8c581b974dec7689fc90b007
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479984"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114364"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Associazione di Twilio per Funzioni di Azure
 
@@ -122,7 +121,7 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 }
 ```
 
-Non è possibile usare parametri out nel codice sincrono. Ecco un esempio di codice script C# asincrono:
+Non è possibile usare parametri out nel codice asincrono. Ecco un esempio di codice script C# asincrono:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -298,7 +297,7 @@ public static void Run(string myQueueItem, out CreateMessageOptions message,  IL
 }
 ```
 
-Non è possibile usare parametri out nel codice sincrono. Ecco un esempio di codice script C# asincrono:
+Non è possibile usare parametri out nel codice asincrono. Ecco un esempio di codice script C# asincrono:
 
 ```cs
 #r "Newtonsoft.Json"

@@ -9,26 +9,25 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31512bb264b5e998e5b6adc76d37c82c174933be
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771278"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091696"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Risoluzione dei problemi relativi alla distribuzione di OpenShift in Azure
 
 Se il cluster OpenShift non viene distribuito correttamente, il portale di Azure fornirà un output degli errori. L'output potrebbe risultare difficile da leggere, rendendo complicata l'identificazione del problema. Eseguire rapidamente un'analisi di questo output per il codice di uscita 3, 4 o 5. Di seguito vengono fornite informazioni su questi tre codici di uscita:
 
-- Codice di uscita 3: Il nome di Red Hat sottoscrizione utente / Password oppure ID organizzazione / chiave di attivazione non è corretto
-- Codice di uscita 4: L'ID del Pool di Red Hat non è corretto o non sono diritti disponibili
-- Codice di uscita 5: Non è possibile eseguire il provisioning Volume del Thin Pool Docker
+- Codice di uscita 3: Il nome utente/password o l'ID organizzazione/chiave di attivazione della sottoscrizione Red Hat non è corretto
+- Codice di uscita 4: L'ID del pool di Red Hat non è corretto o non ci sono diritti disponibili
+- Codice di uscita 5: Non è possibile eseguire il provisioning del volume del pool thin
 
 Per tutti gli altri codici di uscita, connettersi agli host tramite ssh per visualizzare i file di log.
 
@@ -42,9 +41,9 @@ Stabilire una connessione SSH all'host del playbook di Ansible. Per il modello O
 
 ## <a name="log-files"></a>File di log
 
-I file di log (stderr e stdout) per l'host di script di preparazione si trovano `/var/lib/waagent/custom-script/download/0` in tutti gli host. Se si è verificato un errore durante la preparazione dell'host, è possibile visualizzare questi file di log per determinare l'errore.
+I file di log (stderr e stdout) per gli script di preparazione host si `/var/lib/waagent/custom-script/download/0` trovano in in tutti gli host. Se si è verificato un errore durante la preparazione dell'host, è possibile visualizzare questi file di log per determinare l'errore.
 
-Se gli script di preparazione è stato eseguito correttamente, quindi i file di registro nel `/var/lib/waagent/custom-script/download/1` directory dell'host del playbook ansible dovrà essere esaminato. Se l'errore si è verificato durante l'installazione di OpenShift, il file stdout visualizzerà l'errore. Riportare queste informazioni quando si contatta il supporto tecnico per ulteriore assistenza.
+Se gli script di preparazione sono stati eseguiti correttamente, sarà necessario esaminare `/var/lib/waagent/custom-script/download/1` i file di log nella directory dell'host Ansible PlayBook. Se l'errore si è verificato durante l'installazione di OpenShift, il file stdout visualizzerà l'errore. Riportare queste informazioni quando si contatta il supporto tecnico per ulteriore assistenza.
 
 Output di esempio
 
@@ -93,11 +92,11 @@ Gli errori più comuni durante l'installazione sono:
 
 ### <a name="private-key-has-a-passphrase"></a>La chiave privata ha una passphrase
 
-Verrà visualizzato un errore che è stata negata per ssh. SSH all'host del playbook ansible per verificare la presenza di una passphrase per la chiave privata.
+Verrà visualizzato un errore per cui è stata negata l'autorizzazione per SSH. eseguire ssh nell'host PlayBook Ansible per verificare la presenza di una passphrase sulla chiave privata.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Il segreto dell'insieme di credenziali delle chiavi con chiave privata non è stato creato correttamente
 
-La chiave privata viene copiata in host il playbook ansible - ~/.ssh/id_rsa. Verificare che il file sia corretto. Eseguire un test aprendo una sessione SSH in uno dei nodi del cluster dall'host del playbook di Ansible.
+La chiave privata viene copiata nell'host PlayBook di Ansible-~/.ssh/id_rsa. Verificare che il file sia corretto. Eseguire un test aprendo una sessione SSH in uno dei nodi del cluster dall'host del playbook di Ansible.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Le credenziali dell'entità servizio non sono state immesse in modo corretto
 
@@ -119,5 +118,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Per alcuni errori, è anche possibile usare i comandi seguenti per ottenere ulteriori informazioni:
 
-1. stato systemctl \<service >
+1. > del \<servizio di stato systemctl
 2. journalctl -xe

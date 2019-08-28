@@ -3,15 +3,15 @@ title: Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio
 description: Informazioni su come modellare e partizionare un esempio reale usando l'API Core di Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 4bb99c8cbec88d23f9297dcbe8b13cc69cd0006c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070679"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093421"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
 
@@ -538,11 +538,11 @@ Il passaggio finale consiste nel reindirizzare la query al nuovo contenitore `fe
 | --- | --- | --- |
 | 9 ms | 16,97 UR | ✅ |
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Verranno ora esaminati i miglioramenti complessivi delle prestazioni e della scalabilità introdotti nelle diverse versioni progettate.
 
-| | V1 | V2 | V3 |
+| | V1 | Versione 2 | V3 |
 | --- | --- | --- | --- |
 | **[C1]** | 7 ms/5,71 UR | 7 ms/5,71 UR | 7 ms/5,71 UR |
 | **[Q1]** | 2 ms/1 UR | 2 ms/1 UR | 2 ms/1 UR |

@@ -9,17 +9,16 @@ ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3e24b95704249a8a0b7588112cbaa678ae1e2c86
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a3136939b27a5703aef8213225dee3d4d525754d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619126"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069481"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blocco di un ambiente del servizio app
 
@@ -94,7 +93,7 @@ Firewall di Azure può inviare log ai log di Archiviazione di Azure, Hub eventi 
  
 L'integrazione di Firewall di Azure con i log di Monitoraggio di Azure è molto utile all'inizio dell'utilizzo di un'applicazione quando non si è consapevoli di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di Monitoraggio di Azure, vedere [Analizzare i dati di log in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
-## <a name="dependencies"></a>Dipendenze
+## <a name="dependencies"></a>Dependencies
 
 Le informazioni seguenti sono necessarie solo se si vuole configurare un'appliance firewall diversa da Firewall di Azure. 
 

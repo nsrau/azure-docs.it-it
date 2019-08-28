@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 89d652f440e97650b7e7ac63cccc7fde75d7204a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: ee5a6c732bcb48cd347b8d87b95d2896d7230a08
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798273"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092365"
 ---
 # <a name="powershell-dsc-extension"></a>Estensione DSC di PowerShell
 
@@ -33,11 +32,11 @@ L'estensione DSC di PowerShell per Windows è pubblicata e supportata da Microso
 
 L'estensione DSC supporta i seguenti sistemi operativi
 
-Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
+Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, client Windows 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-L'estensione DSC per Windows richiede che la macchina virtuale di destinazione è in grado di comunicare con Azure e il percorso del pacchetto di configurazione (file con estensione zip) archiviata in una posizione di fuori di Azure. 
+Per l'estensione DSC per Windows è necessario che la macchina virtuale di destinazione sia in grado di comunicare con Azure e il percorso del pacchetto di configurazione (file zip) se archiviato in una posizione esterna ad Azure. 
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -116,7 +115,7 @@ Il JSON seguente illustra lo schema per la sezione delle impostazioni dell'esten
 | settings.configurationArguments | Collection | Definisce i parametri da passare alla configurazione DSC. Questa proprietà non verrà crittografata.
 | settings.configurationData.url | string | Specifica l'URL da cui scaricare il file di dati di configurazione con estensione pds1 da usare come input per la configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per accedere, sarà necessario impostare la proprietà protectedSettings.configurationDataUrlSasToken sul valore del token di firma di accesso condiviso.
 | settings.privacy.dataEnabled | string | Abilita o disabilita la raccolta di dati di telemetria. Gli unici valori possibili per questa proprietà sono "Abilita", "Disabilita", '' o $null. Lasciando questa proprietà vuota o con valore null verrà abilitata la raccolta di dati di telemetria.
-| settings.advancedOptions.forcePullAndApply | Bool | Questa impostazione è progettata per migliorare l'esperienza di utilizzo con l'estensione per registrare i nodi con DSC di automazione di Azure.  Se il valore è `$true`, attenderà l'estensione per la prima esecuzione della configurazione dal servizio di pull prima della restituzione di esito positivo o negativo.  Se il valore è impostato su $false false per, lo stato restituito dall'estensione farà riferimento solo a se il nodo è stato registrato con configurazione dello stato di automazione di Azure e la configurazione del nodo non verrà eseguita durante la registrazione.
+| settings.advancedOptions.forcePullAndApply | Bool | Questa impostazione è progettata per migliorare l'esperienza di utilizzo dell'estensione per registrare i nodi con Azure Automation DSC.  Se il valore è `$true`, l'estensione attenderà la prima esecuzione del pull della configurazione dal servizio prima di restituire esito positivo o negativo.  Se il valore è impostato su $false, lo stato restituito dall'estensione indica solo se il nodo è stato registrato correttamente con la configurazione dello stato di automazione di Azure e la configurazione del nodo non verrà eseguita durante la registrazione.
 | settings.advancedOptions.downloadMappings | Collection | Definisce posizioni alternative per scaricare le dipendenze, ad esempio WMF e .NET
 
 ### <a name="protected-settings-property-values"></a>Valori di proprietà delle impostazioni protette
@@ -132,7 +131,7 @@ Il JSON seguente illustra lo schema per la sezione delle impostazioni dell'esten
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager.
 I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione.
-Un modello di Resource Manager di esempio che include l'estensione DSC per Windows è reperibile nel [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
+Un modello di Gestione risorse di esempio che include l'estensione DSC per Windows si trova nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
@@ -149,7 +148,7 @@ Il pacchetto di estensione viene scaricato e distribuito in questa posizione nel
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-File di stato dell'estensione contiene la stato secondario e i codici di esito positivo/errore di stato con l'errore dettagliato e una descrizione per ogni estensione per eseguire.
+Il file di stato dell'estensione contiene i codici di stato secondario e di esito positivo/errore insieme all'errore e alla descrizione dettagliati per ogni esecuzione dell'estensione.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```

@@ -9,16 +9,15 @@ editor: mattfarm
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: c371333dcc7db0b60ffa5f94d6e2d55ae500a4f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4ee4ca2ede2e0a2d6d1af906cc34051c76353bd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241175"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073749"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -53,7 +52,7 @@ Per visualizzare e configurare le impostazioni di configurazione di Git, è poss
 ![Abilitare GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Eventuali segreti non definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia fino a disabilitarla e riabilitare l'accesso a Git. Valori denominati rappresentano un luogo sicuro per gestire i valori stringa costanti, segreti inclusi, attraverso tutte le configurazione dell'API e criteri, quindi non è necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni, vedere [come usare i valori denominati nei criteri di gestione API di Azure](api-management-howto-properties.md).
+> Tutti i segreti che non sono definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia fino a quando non si disabilita e si riabilita l'accesso git. I valori denominati forniscono una posizione sicura per gestire i valori stringa costanti, inclusi i segreti, in tutti i criteri e la configurazione dell'API, quindi non è necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni, vedere [come usare i valori denominati nei criteri di gestione API di Azure](api-management-howto-properties.md).
 >
 >
 
@@ -149,7 +148,7 @@ Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere
 
 I file e cartelle nel repository Git locale contengono le informazioni di configurazione dell'istanza del servizio.
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 | --- | --- |
 | Cartella api-management radice |Contiene la configurazione di livello superiore per l'istanza del servizio |
 | Cartella apis |Contiene la configurazione per le API nell'istanza del servizio |
@@ -253,7 +252,7 @@ La cartella `products` contiene una cartella per ogni prodotto definito nell'ist
 * `products\<product name>\configuration.json`: configurazione del prodotto. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un prodotto specifico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) .
 * `products\<product name>\product.description.html`: descrizione del prodotto. Corrisponde alla proprietà `description` dell'[entità relativa al prodotto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) nell'API REST.
 
-### <a name="templates"></a>Modelli
+### <a name="templates"></a>modelli
 La cartella `templates` contiene la configurazione per i [modelli di posta elettronica](api-management-howto-configure-notifications.md) dell'istanza del servizio.
 
 * `<template name>\configuration.json` : configurazione del modello di posta elettronica.

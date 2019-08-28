@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e68aac07379de142968b85884e7dbd95e73195f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362255"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103465"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Non è possibile stabilire una connessione remota a una macchina virtuale Windows 10 o Windows Server 2016 in Azure a causa di netvsc.sys
 
@@ -26,7 +25,7 @@ Questo articolo illustra come risolvere un problema dovuto all'assenza di connes
 
 ## <a name="symptoms"></a>Sintomi
 
-È possibile connettersi a un Azure Windows 10 o una macchina virtuale di Windows Server 2016 tramite Remote Desktop Protocol (RDP). In [Diagnostica di avvio](boot-diagnostics.md) viene visualizzata una croce rossa sulla scheda di interfaccia di rete (NIC). Ciò indica che la macchina virtuale non dispone di connettività dopo che il sistema operativo è completamente caricato.
+Non è possibile connettersi a una macchina virtuale Windows 10 o Windows Server 2016 di Azure usando Remote Desktop Protocol (RDP). In [Diagnostica di avvio](boot-diagnostics.md) viene visualizzata una croce rossa sulla scheda di interfaccia di rete (NIC). Ciò indica che la macchina virtuale non dispone di connettività dopo che il sistema operativo è completamente caricato.
 
 Questo problema si verifica nelle build [14393](https://support.microsoft.com/help/4093120/) e [15063](https://support.microsoft.com/help/4015583/) di Windows. Se si usa una versione successiva del sistema operativo, questo articolo non si applica allo specifico scenario. Per controllare la versione del sistema, aprire una sessione CMD nella [console seriale di accesso](serial-console-windows.md) e quindi eseguire **Ver**.
 
@@ -55,7 +54,7 @@ Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-conso
 
 2. Scaricare dalla stessa area l'aggiornamento appropriato in un disco dati nuovo o già esistente collegato a una macchina virtuale in esecuzione:
 
-   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) o un aggiornamento successivo
+   - **10.0.14393.594**: [KB4073562 o un aggiornamento](https://support.microsoft.com/help/4073562) successivo
    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) o un aggiornamento successivo
 
 3. Scollegare il disco di utilità dalla macchina virtuale in esecuzione e collegarlo alla macchina virtuale non funzionante.
@@ -98,7 +97,7 @@ Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-conso
 
 12. Scaricare l'aggiornamento appropriato:
 
-    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) o un aggiornamento successivo
+    - **10.0.14393.594**: [KB4073562 o un aggiornamento](https://support.microsoft.com/help/4073562) successivo
     - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) o un aggiornamento successivo
 
 13. Collegare il disco di sistema come disco dati in una macchina virtuale di ripristino in cui è possibile scaricare l'aggiornamento.
@@ -117,6 +116,6 @@ Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-conso
 
 16. [Scollegare il disco di sistema e creare di nuovo la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contatta il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

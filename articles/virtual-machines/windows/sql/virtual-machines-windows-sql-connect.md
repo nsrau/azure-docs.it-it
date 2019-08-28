@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 70e478ac70b7ab53f1357394f3a3cb0d92f41f00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ae5c4cdd76f164d13da349c355a30d8b6dc83058
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075815"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102094"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Connettersi a una macchina virtuale SQL Server in Azure
 
@@ -98,11 +97,11 @@ Server=mysqlvm;Integrated Security=true
 
 È possibile modificare le impostazioni di connettività per la macchina virtuale di SQL Server nel portale di Azure.
 
-1. Nel portale di Azure, selezionare **macchine virtuali SQL**.
+1. Nella portale di Azure selezionare **macchine virtuali SQL**.
 
 2. Selezionare la VM di SQL Server.
 
-3. Sotto **le impostazioni**, selezionare **sicurezza**.
+3. In **Impostazioni**selezionare **sicurezza**.
 
 4. Modificare il valore di **Livello di connettività SQL** sull'impostazione necessaria. Facoltativamente, è possibile usare quest'area per modificare la porta di SQL Server o le impostazioni di autenticazione SQL.
 

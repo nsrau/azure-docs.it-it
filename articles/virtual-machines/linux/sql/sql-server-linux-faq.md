@@ -7,18 +7,17 @@ author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e729c608a2cad28c810f8d5236360c909a496b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60739268"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082039"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Domande frequenti su SQL Server nelle macchine virtuali Linux di Azure
 
@@ -75,7 +74,7 @@ Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzio
 
    No. Non è possibile sostituire una licenza con costo al secondo con una propria licenza. È necessario creare una nuova VM Linux, installare SQL Server ed eseguire la migrazione dei dati. Per altre informazioni sull'opzione Bring Your Own License, vedere la domanda precedente.
 
-## <a name="administration"></a>Administration
+## <a name="administration"></a>Amministrazione
 
 1. **È possibile gestire una macchina virtuale Linux di SQL Server con SQL Server Management Studio (SSMS)?**
 

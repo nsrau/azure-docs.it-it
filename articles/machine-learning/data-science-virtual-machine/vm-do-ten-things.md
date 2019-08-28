@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: vijetaj
-ms.openlocfilehash: 2effbd5fec1bbe32bcd6f599d2c2cbba66f33bdb
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 33f1d102f128f7e63d625132c9d3c3834955747b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998081"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099440"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati di Windows
 
@@ -207,7 +207,7 @@ ep <- endpoints(ws, s)
 ans = consume(ep, sleepstudy)$ans
 ```
 
-Per altre informazioni sui [pacchetti R](/azure/machine-learning/studio-module-reference/r-packages-supported-by-azure-machine-learning.md), vedere Machine Learning Studio.
+Per altre informazioni sui [pacchetti R](/azure/machine-learning/studio-module-reference/r-packages-supported-by-azure-machine-learning), vedere Machine Learning Studio.
 
 ## <a name="manage-azure-resources"></a>Gestire le risorse di Azure
 Il DSVM non consente solo di compilare localmente la soluzione di analisi nella macchina virtuale. Consente inoltre di accedere ai servizi sulla piattaforma cloud di Azure. Azure offre diversi servizi di calcolo, archiviazione, analisi dei dati e altri servizi che puoi amministrare e accedere dalla tua DSVM.

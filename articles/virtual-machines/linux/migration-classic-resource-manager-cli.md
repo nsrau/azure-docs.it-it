@@ -11,16 +11,15 @@ ms.assetid: d6f5a877-05b6-4127-a545-3f5bede4e479
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 0e21a962fb03a42af4cb32fcdf60cd59746a591d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7af101b036e8e40a14ad5d9931cc897cb1758ea0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667373"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082775"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure
 Questi passaggi mostrano come usare i comandi dell'interfaccia della riga di comando di Azure per eseguire la migrazione dalle risorse IaaS (infrastruttura distribuita come servizio) dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager. Ai fini dell'articolo, è necessario usare l'[interfaccia della riga di comando classica di Azure](../../cli-install-nodejs.md). Poiché l'interfaccia della riga di comando di Azure è disponibile solo per le risorse di Azure Resource Manager, non può essere usata per la migrazione.

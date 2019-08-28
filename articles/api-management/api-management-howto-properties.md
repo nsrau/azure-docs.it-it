@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 46f4e1b3df5f1c77a57d432297685d6d1a0a14a8
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: d71d71c4d289235e5b67a5201c1f7417274b8fca
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405811"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072334"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare i valori denominati nei criteri di Gestione API di Azure
 
@@ -26,7 +25,7 @@ I criteri di Gestione API sono una potente funzionalità del sistema che consent
 
 Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di coppie chiave/valore, chiamate valori denominati, globali per l'istanza del servizio. Non esiste alcun limite imposto per il numero di elementi nella raccolta. I valori denominati possono essere usati per gestire i valori stringa costanti in tutti i criteri e la configurazione dell'API. Ogni valore denominato può avere gli attributi seguenti:
 
-| Attributo      | Type            | DESCRIZIONE                                                                                                                         |
+| Attributo      | Type            | Descrizione                                                                                                                         |
 | -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `Display name` | string          | Utilizzato per fare riferimento alla proprietà nei criteri. Stringa da uno a 256 caratteri. Sono consentiti solo lettere, numeri, punti e trattini. |
 | `Value`        | string          | Valore effettivo. Non devono essere vuoti o contenere solo spazi. Lunghezza massima di 4096 caratteri.                                     |
@@ -39,7 +38,7 @@ I valori denominati possono contenere stringhe letterali ed [espressioni di crit
 
 | Name       | Value                      | Segreto | Tag          |
 | ---------- | -------------------------- | ------ | ------------- |
-| Value      | 42                         | False  | numeri vitali |
+| Valore      | 42                         | False  | numeri vitali |
 | Credenziale | ••••••••••••••••••••••     | True   | sicurezza      |
 | Expression | @(DateTime.Now.ToString()) | False  |               |
 

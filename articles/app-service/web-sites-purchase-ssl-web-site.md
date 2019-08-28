@@ -10,18 +10,17 @@ ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 8f55e2eb3ac7fe2e869b6b1061f6d45d11894ccf
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: d6d3e91bef6c4f837b068d755994b2f3268600da
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905932"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074048"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -50,7 +49,7 @@ Usare la tabella seguente per informazioni sulla configurazione del certificato.
 
 | Impostazione | DESCRIZIONE |
 |-|-|
-| NOME | Nome descrittivo per il certificato del servizio app. |
+| Name | Nome descrittivo per il certificato del servizio app. |
 | Nome host di dominio di tipo naked | Specificare qui il dominio radice. Il certificato emesso protegge *sia* il dominio radice che il `www` sottodominio. Nel certificato emesso il campo nome comune contiene il dominio radice e il campo nome alternativo oggetto contiene il `www` dominio. Per proteggere solo un sottodominio, specificare qui il nome di dominio completo del sottodominio, ad esempio `mysubdomain.contoso.com`.|
 | Sottoscrizione | Data center in cui è ospitata l'app Web. |
 | Gruppo di risorse | Gruppo di risorse che contiene il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
@@ -71,7 +70,7 @@ Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Reposi
 
 | Impostazione | DESCRIZIONE |
 |-|-|
-| Name | Nome univoco costituito da caratteri alfanumerici e trattini. |
+| NOME | Nome univoco costituito da caratteri alfanumerici e trattini. |
 | Gruppo di risorse | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
 | Location | Selezionare la stessa località dell'app del servizio app. |
 | Piano tariffario | Per altre informazioni, vedere [Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -112,7 +111,7 @@ Ora che il certificato è stato importato, è necessario associarlo a un nome di
 
 Usare la tabella seguente per informazioni sulla configurazione dell'associazione nella finestra di dialogo **Associazioni SSL**, quindi fare clic su **Aggiungi l'associazione**.
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |-|-|
 | Nome host | Nome di dominio per cui aggiungere l'associazione SSL. |
 | Identificazione personale del certificato privato | Certificato da associare. |

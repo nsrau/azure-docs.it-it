@@ -10,16 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 135368fd9b838573ae8aa65e16d5df2cd3df3e6d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 18d7e9b0ab44dfe18df0dcd7cd36fb708649a4bc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709238"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089686"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Risolvere i problemi relativi a una macchina virtuale di Azure usando la virtualizzazione annidata in Azure
 
@@ -41,7 +40,7 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
     -  Sistema operativo: Windows Server 2016 Datacenter
 
-    -  Dimensione: Una serie V3 con almeno due core che supportano la virtualizzazione annidata. Per altre informazioni, vedere [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) (Introduzione alle nuove dimensioni Dv3 ed Ev3 delle macchine virtuali).
+    -  Dimensione: Qualsiasi serie V3 con almeno due core che supportano la virtualizzazione nidificata. Per altre informazioni, vedere [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) (Introduzione alle nuove dimensioni Dv3 ed Ev3 delle macchine virtuali).
 
     -  Posizione, account di archiviazione e gruppo di risorse identici a quelli della macchina virtuale con problemi.
 
@@ -71,7 +70,7 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 13. Consentire al server di installare il ruolo Hyper-V. Questa operazione richiede alcuni minuti e il server verrà riavviato automaticamente.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Passaggio 2: Creare il macchina virtuale con problemi sul server Hyper-V della macchina virtuale di ripristino
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Passaggio 2: Creare la macchina virtuale con problemi sul server Hyper-V della macchina virtuale di ripristino
 
 1.  Prendere nota del nome del disco nella macchina virtuale con problemi e quindi eliminare quest'ultima. Assicurarsi di mantenere collegati tutti i dischi. 
 
@@ -87,7 +86,7 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 4.  Aprire Gestione disco (diskmgmt.msc). Verificare che il disco della macchina virtuale con problemi sia impostato su **Offline**.
 
-5.  Aprire Gestione di Hyper-V: Nelle **Server Manager**, selezionare la **ruolo Hyper-V**. Fare clic con il pulsante destro del mouse sul server e quindi scegliere **Console di gestione di Hyper-V**.
+5.  Aprire la console di gestione di Hyper-V: In **Server Manager**selezionare il **ruolo Hyper-V**. Fare clic con il pulsante destro del mouse sul server e quindi scegliere **Console di gestione di Hyper-V**.
 
 6.  Nella console di gestione di Hyper-V fare clic con il pulsante destro del mouse sulla macchina virtuale di ripristino e quindi scegliere **Nuovo** > **Macchina virtuale** > **Avanti**.
 
@@ -122,7 +121,7 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 19. È ora possibile usare la macchina virtuale come macchina virtuale locale e quindi eseguire le procedure di risoluzione dei problemi necessarie.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Passaggio 3: Ricreare la VM di Azure in Azure
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Passaggio 3: Ricreare la macchina virtuale di Azure in Azure
 
 1.  Dopo aver ripristinato la macchina virtuale online, arrestare la macchina virtuale nella console di gestione di Hyper-V.
 

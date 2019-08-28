@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: mlearned
-ms.openlocfilehash: 6c06453d479ae55ceb1c05a7ee8a29ce19a7a13b
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 1f07581be8fc416f8aae5eec1460ca3d33bda8f9
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034966"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114243"
 ---
 # <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Anteprima-eseguire l'autenticazione con Container Registry di Azure dal servizio Azure Kubernetes
 
@@ -59,7 +59,7 @@ Il completamento di questo passaggio può richiedere alcuni minuti.
 
 ## <a name="create-acr-integration-for-existing-aks-clusters"></a>Creare l'integrazione ACR per i cluster AKS esistenti
 
-Integrare ACR con cluster ACR esistenti fornendo valori validi per **ACR-Name** e **ACR-Resource-ID** di seguito.
+Integrare un ACR esistente con i cluster AKS esistenti fornendo valori validi per **ACR-Name** o **ACR-Resource-ID** come indicato di seguito.
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>

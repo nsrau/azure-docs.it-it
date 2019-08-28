@@ -8,18 +8,17 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 8d197bbf464038918dd083d14a1befa740c8ce0e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5a8b6c9885099ed549f7f29d7f2096de5983d9d0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846083"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100392"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 
@@ -121,7 +120,7 @@ Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://
 
 Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM di SQL.
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | --- | --- |
 | Dimensioni di striping |256 KB (data warehousing); 64 KB (transazionale) |
 | Dimensione disco |1 TB ciascuno |
@@ -141,7 +140,7 @@ Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM 
 
 La tabella seguente descrive le tre opzioni disponibili per il tipo di carico di lavoro e le ottimizzazioni corrispondenti:
 
-| Tipo di carico di lavoro | DESCRIZIONE | Ottimizzazioni |
+| Tipo di carico di lavoro | Descrizione | Ottimizzazioni |
 | --- | --- | --- |
 | **Generale** |Impostazione predefinita che supporta la maggior parte dei carichi di lavoro |Nessuna |
 | **Elaborazione transazionale** |Ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali |Flag di traccia 1117<br/>Flag di traccia 1118 |

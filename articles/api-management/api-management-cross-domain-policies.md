@@ -10,16 +10,15 @@ ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 86c61679a73f03f7e54bba746107685796ec07c9
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: db64a2f64c592a62f621355047a7bc9844d66457
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442309"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073730"
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -126,7 +125,7 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 |NOME|Descrizione|Obbligatorio|Predefinito|
 |----------|-----------------|--------------|-------------|
 |CORS|Elemento radice.|Sì|N/D|
-|allowed-origins|Contiene elementi `origin` che descrivono le origini consentite per le richieste tra domini. `allowed-origins` può contenere un unico elemento `origin` che specifichi `*` per consentire qualsiasi origine oppure uno o più elementi `origin` che contengano un URI.|Yes|N/D|
+|allowed-origins|Contiene elementi `origin` che descrivono le origini consentite per le richieste tra domini. `allowed-origins` può contenere un unico elemento `origin` che specifichi `*` per consentire qualsiasi origine oppure uno o più elementi `origin` che contengano un URI.|Sì|N/D|
 |origin|Il valore può essere `*` per consentire tutte le origini oppure un URI che specifichi una singola origine. L'URI deve includere uno schema, un host e una porta.|Sì|Se la porta viene omessa in un URI, vengono utilizzate la porta 80 per HTTP e la porta 443 per HTTPS.|
 |allowed-methods|Questo elemento è obbligatorio se sono consentiti metodi diversi da GET o POST. Contiene elementi `method` che specificano i verbi HTTP supportati.|No|Se questa sezione non è presente, sono supportati i metodi GET e POST.|
 |statico|Specifica un verbo HTTP.|È richiesto almeno un elemento `method` se è presente la sezione `allowed-methods`.|N/D|
@@ -176,7 +175,7 @@ Se si aggiunge il parametro di callback `?cb=XXX`, restituirà un risultato JSON
 
 |NOME|Descrizione|Obbligatorio|Predefinito|
 |----------|-----------------|--------------|-------------|
-|callback-parameter-name|Funzione JavaScript tra domini che ha come prefisso il nome completo del dominio in cui si trova la funzione.|Sì|N/D|
+|callback-parameter-name|Funzione JavaScript tra domini che ha come prefisso il nome completo del dominio in cui si trova la funzione.|Yes|N/D|
 
 ### <a name="usage"></a>Utilizzo
 Questo criterio può essere utilizzato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.

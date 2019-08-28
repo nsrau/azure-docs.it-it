@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4260f4640f488e67d6bb3101ff2cf7d269e2bf3e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696740"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073651"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Come autorizzare gli account per sviluppatore usando Azure Active Directory B2C in Gestione API di Azure
 
@@ -36,9 +35,9 @@ Azure Active Directory B2C è una soluzione di gestione delle identità cloud pe
 1. Per iniziare, accedere al [portale di Azure](https://portal.azure.com) e individuare l'istanza di Gestione API.
 
    > [!NOTE]
-   > Se non è stata ancora creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][Create an API Management service instance] nell'esercitazione [Introduzione a Gestione API di Azure][Get started with Azure API Management].
+   > Se non è ancora stata creata un'istanza del servizio gestione API, vedere [creare un'istanza del servizio gestione API][Create an API Management service instance] nell' [esercitazione Introduzione a gestione API di Azure][Get started with Azure API Management].
 
-2. Sotto **identità**. Fare clic su **+Aggiungi** nella parte superiore.
+2. In **identità**. Fare clic su **+Aggiungi** nella parte superiore.
 
    Sulla destra verrà visualizzato il riquadro **Aggiungi provider di identità**. Scegliere **Azure Active Directory B2C**.
     
@@ -76,9 +75,9 @@ Azure Active Directory B2C è una soluzione di gestione delle identità cloud pe
 
 11. Tornare al pannello **Aggiungi provider di identità** di Gestione API e incollare la chiave nella casella di testo **Segreto client**.
     
-12. Specificare il nome di dominio del tenant in Azure Active Directory B2C **Signin tenant**.
+12. Specificare il nome di dominio del tenant di Azure Active Directory B2C nel **tenant di accesso**.
 
-13. Il **autorità** campo consenta di controllare l'URL di accesso di Azure AD B2C da usare. Impostare il valore su **< your_b2c_tenant_name >. b2clogin.com**.
+13. Il campo **Authority** consente di controllare l'URL di accesso Azure ad B2C da usare. Impostare il valore su **< your_b2c_tenant_name >. b2clogin. com**.
 
 14. Come criteri del tenant B2C specificare **Criteri di iscrizione** e **Criteri di accesso**. Facoltativamente è possibile specificare anche **Criteri di modifica del profilo** e **Criteri di reimpostazione password**.
 

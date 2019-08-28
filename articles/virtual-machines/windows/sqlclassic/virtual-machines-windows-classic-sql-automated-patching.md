@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9fabccd477883750c1aecb5493fdb64ddf5ab2c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362136"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100285"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -66,7 +65,7 @@ Per usare l'applicazione automatica delle patch, tenere in considerazione i segu
 ## <a name="settings"></a>Impostazioni
 Nella seguente tabella sono descritte le opzioni che possono essere configurate per l'applicazione automatica delle patch. Nella macchine virtuali classiche, per configurare queste impostazioni è necessario usare PowerShell.
 
-| Impostazione | Valori possibili | Descrizione |
+| Impostazione | Valori possibili | DESCRIZIONE |
 | --- | --- | --- |
 | **Applicazione automatica delle patch** |Enable/Disable (disabilitato) |Abilita o disabilita l'applicazione automatica delle patch per una macchina virtuale di Azure. |
 | **Pianificazione della manutenzione** |Ogni giorno, lunedì, martedì, mercoledì, giovedì, venerdì, sabato, domenica |Pianificazione per il download e l'installazione degli aggiornamenti di Windows, SQL Server e Microsoft per la macchina virtuale. |

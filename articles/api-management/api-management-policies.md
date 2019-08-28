@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: e27829fe5ebf57552ef4e97a2bfc7b6aefd81dc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed20ef023a884ac79150cd31f25fde86b715c752
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254391"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073401"
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
 Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
@@ -56,7 +55,7 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
 -   [Criteri di autenticazione](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [authentication-basic](api-management-authentication-policies.md#Basic) : consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.  
     -   [Autenticazione con certificato](api-management-authentication-policies.md#ClientCertificate): consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.  
-    -   [Eseguire l'autenticazione con identità gestita](api-management-authentication-policies.md#ManagedIdentity) -l'autenticazione con un servizio back-end usando una [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+    -   [Eseguire l'autenticazione con identità gestita](api-management-authentication-policies.md#ManagedIdentity) : eseguire l'autenticazione con un servizio back-end usando un' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Criteri di memorizzazione nella cache](api-management-caching-policies.md#CachingPolicies)  
     -   [Recupera dalla cache](api-management-caching-policies.md#GetFromCache) : esegue una ricerca nella cache e restituisce una risposta valida memorizzata nella cache, se disponibile.  
     -   [cache-lookup](api-management-caching-policies.md#StoreToCache) : memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.  

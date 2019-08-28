@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 4b0cd88cbb3729a3e81aeb5d6f43f417c8cb2f17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c37b81e08e5d9f150081a9dc12af51175e3f590c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64682757"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084712"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -67,7 +66,7 @@ Di seguito sono riportati tutti i parametri della configurazione pubblica suppor
 * `ConfigurationModeFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) con cui DSC verifica che la configurazione si trovi nello stato desiderato.
 
 > [!NOTE]
-> Se si usa una versione precedente alla 2.3, il parametro relativo alla modalità equivale a ExtensionAction. Modalità sembra un termine in overload. Di conseguenza, per evitare confusione, dalla versione 2.3 in avanti viene usato ExtensionAction. Per garantire la compatibilità con le versioni precedenti, l'estensione li supporta entrambi. 
+> Se si usa una versione precedente alla 2.3, il parametro relativo alla modalità equivale a ExtensionAction. La modalità sembra essere un termine di overload. Di conseguenza, per evitare confusione, dalla versione 2.3 in avanti viene usato ExtensionAction. Per garantire la compatibilità con le versioni precedenti, l'estensione li supporta entrambi. 
 >
 
 ### <a name="12-protected-configuration"></a>1.2 Configurazione protetta
@@ -287,7 +286,7 @@ Per altri dettagli sul modello di Azure Resource Manager, vedere [Creazione di m
 ### <a name="21-using-azure-cliazure-cli"></a>2.1. Uso dell'[**interfaccia della riga di comando di Azure**][azure-cli]
 Prima di distribuire l'estensione DSCForLinux è necessario configurare i file `public.json` e `protected.json` in base ai diversi scenari descritti nella sezione 3.
 
-#### <a name="211-classic"></a>2.1.1. Classico
+#### <a name="211-classic"></a>2.1.1. Classica
 La modalità classica viene anche denominata modalità Gestione dei servizi di Azure. Per passare a questa modalità, eseguire:
 ```
 $ azure config mode asm

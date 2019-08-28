@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3524f34773f4627dff478ee7cc9cbff9f674bf8e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ec23d3f08fb22f73618c27443bcd8b72c43a9862
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931776"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113552"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -34,7 +34,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
   
   1. Attributi, che devono essere racchiusi tra parentesi quadre. Ad esempio: [NomeAttributo]
   2. Costanti di stringa, che devono essere racchiuse tra virgolette doppie. Ad esempio:  "Stati Uniti"
-  3. Altre funzioni. Ad esempio:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+  3. Altre funzioni. Esempio: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio:  "Nome società: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Elenco di funzioni
@@ -48,7 +48,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **suffix** |Obbligatoria |String |Stringa da aggiungere alla fine del valore di origine. |
@@ -61,7 +61,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **inputFormat** |Obbligatoria |String |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -116,7 +116,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
@@ -164,7 +164,8 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 > [!NOTE]
 >1. Si tratta di una funzione di primo livello che non può essere annidata.
->2. Questa funzione è destinata a essere usata solo per la creazione di voci. Se viene usata con un attributo, impostare la proprietà **Applica questo mapping** su **Solo durante la creazione dell'oggetto**.
+>2. Questa funzione non può essere applicata agli attributi con precedenza corrispondente.  
+>3. Questa funzione è destinata a essere usata solo per la creazione di voci. Se viene usata con un attributo, impostare la proprietà **Applica questo mapping** su **Solo durante la creazione dell'oggetto**.
 
 
 **Parametri:**<br> 
@@ -234,7 +235,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
@@ -247,7 +248,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|

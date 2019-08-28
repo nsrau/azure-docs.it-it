@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f97cce2d1a8b2de5634215629ddb997dc8f7196a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 02dcb7174dd9cb2926ef2fafda4b521b939ae68a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235197"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077977"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Gruppi di selezione host di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP
 Le applicazioni SAP basate sull'architettura SAP NetWeaver o SAP S/4HANA sono sensibili alla latenza di rete tra il livello applicazione SAP e il livello database SAP. Il motivo di questa distinzione di queste architetture è radicato nel fatto che la maggior parte della logica di business viene eseguita a livello di applicazione. In seguito all'esecuzione della logica di business, il livello dell'applicazione SAP emette query al livello di database con frequenza elevata di migliaia e decine di migliaia al secondo. Nella maggior parte dei casi, la natura delle query è semplice. E spesso possono essere eseguite a livello di database in meno di 500 microsecondi o addirittura inferiori. Il tempo impiegato nella rete per inviare una query di questo tipo dal livello applicazione al livello database e ricevere il set di risultati dal livello database ha un notevole effetto sul tempo richiesto per l'esecuzione dei processi di business. Questa sensibilità alla latenza di rete è il motivo per cui è necessario trascorrere i progetti di distribuzione SAP per ottenere una latenza di rete ottimale. Nella [Nota SAP #1100926-domande frequenti: Prestazioni](https://launchpad.support.sap.com/#/notes/1100926/E)di rete, SAP ha pubblicato alcune linee guida per la classificazione della latenza di rete.

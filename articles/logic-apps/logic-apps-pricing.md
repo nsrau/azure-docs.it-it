@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: e1285f6bc3bd081eae03cf1e5a124a86cac7a2ae
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 62b96fa8722408aed81e87cb31218140fa4f5da8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335984"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099417"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -61,7 +61,7 @@ Un [ *ambiente Integration Services* (ISE)](../logic-apps/connect-virtual-networ
 
   * **SKU per sviluppatori**: Un massimo di 4 account standard o fino a 5 account standard totali. Nessun account di base.
 
-Per altre informazioni sui limiti dell'account di integrazione, vedere [limiti e configurazione delle app](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)per la logica. Più avanti in questo argomento sono disponibili ulteriori informazioni sui [livelli di account di integrazione e sul relativo modello di determinazione dei prezzi](#integration-accounts) . 
+Per altre informazioni sui limiti dell'account di integrazione, vedere [limiti e configurazione delle app](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)per la logica. Più avanti in questo argomento sono disponibili ulteriori informazioni sui [livelli di account di integrazione e sul relativo modello di determinazione dei prezzi](#integration-accounts) .
 
 Per lo SKU Premium ISE, l'unità di base ha una capacità fissa, quindi se è necessaria una velocità effettiva maggiore, è possibile [aggiungere altre unità di scala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), durante la creazione o successivamente. Lo SKU Developer ISE non è in grado di aggiungere altre unità di scala. Le app per la logica eseguite in ISE non incorrono sui costi di conservazione dei dati.
 

@@ -9,16 +9,15 @@ keywords: funzioni di azure, funzioni, architettura senza server, infrastruttura
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.service: azure-functions
 ms.server: functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: f84bc92f51f8d6d7700cb15accb4b1282c97a37b
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 3d60e5e4aae3457ae04cd7e4ecfe4f9253a04751
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562896"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085393"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -147,7 +146,7 @@ La risorsa dell'app per le funzioni viene definita usando una risorsa di tipo **
 
 Un'app per le funzioni deve includere le impostazioni dell'applicazione seguenti:
 
-| Nome impostazione                 | DESCRIZIONE                                                                               | Valori di esempio                        |
+| Nome impostazione                 | Descrizione                                                                               | Valori di esempio                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Una stringa di connessione a un account di archiviazione che il runtime di funzioni per l'accodamento interno | Vedere l' [account di archiviazione](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | Versione del runtime di funzioni di Azure                                                | `~2`                                  |

@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 52f6e7ebb1cbae14878b1897bd8c59c73dd0f493
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981016"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102220"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Come effettuare il provisioning di una macchina virtuale Windows di SQL Server nel portale di Azure
 
@@ -37,21 +36,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Quando si crea una macchina virtuale di SQL Server, è possibile selezionare una delle numerose immagini configurate in precedenza dalla raccolta delle macchine virtuali. La procedura seguente spiega come selezionare una delle immagini di SQL Server 2017.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account.
+1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. Opzionale Selezionare la stella accanto a **SQL di Azure** per favorirla e aggiungerla come elemento nel menu di spostamento a sinistra. 
+1. Selezionare **+ Aggiungi** per aprire la pagina **Seleziona opzione distribuzione SQL** . È possibile visualizzare informazioni aggiuntive selezionando **Mostra dettagli**. 
+1. Digitare `2017` nella casella di ricerca SQL Server immagine del riquadro **macchine virtuali SQL** e quindi selezionare **Free SQL Server License: SQL Server 2017 Developer su Windows Server 2016** dall'elenco a discesa. 
 
-1. Nel portale di Azure fare clic su **Crea una risorsa**. Nel portale verrà aperta la finestra **Nuovo**.
 
-1. Nella finestra **Nuovo** fare clic su **Calcolo** e quindi su **Visualizza tutto**.
-
-1. Nel campo di ricerca digitare **SQL Server 2017** e premere INVIO.
-
-1. Negli elenchi a discesa Filtro selezionare _Windows Server 2016_ per il **sistema operativo** e selezionare _Microsoft_ come **server di pubblicazione**. 
-
-     ![Finestre Nuovo e Calcolo](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
-
-1. Esaminare le immagini di SQL Server disponibili. Ogni immagine identifica una versione di SQL Server e un sistema operativo.
-
-1. Selezionare l'immagine denominata **Licenza gratuita di SQL Server: SQL Server 2017 Developer in Windows Server 2016**.
+   ![Selezionare l'immagine di macchina virtuale SQL](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
 
    > [!TIP]
    > L'edizione per sviluppatori viene usata in questa procedura dettagliata perché è una versione completa di SQL Serve gratuita per i test di sviluppo. Si paga solo il costo dell'esecuzione della macchina virtuale. Per questa procedura dettagliata è tuttavia possibile scegliere e usare qualsiasi immagine. Per una descrizione delle immagini disponibili, vedere la [panoramica delle macchine virtuali di Microsoft SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -61,7 +51,6 @@ Quando si crea una macchina virtuale di SQL Server, è possibile selezionare una
    >
    > Per altre informazioni su queste opzioni, vedere [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
 
-1. In **Selezionare un modello di distribuzione** assicurarsi che l'opzione **Resource Manager** sia selezionata. Resource Manager è il modello di distribuzione consigliato per le nuove macchine virtuali. 
 
 1. Selezionare **Create**.
 

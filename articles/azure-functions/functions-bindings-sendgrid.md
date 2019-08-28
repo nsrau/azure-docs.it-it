@@ -6,16 +6,15 @@ documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 8b7666b043379f3ff143e2a5eaae6b40ea80ab90
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: dc113417be3df97b9ab9509c30a1f23e1eeaf35b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480246"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086289"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
 
@@ -164,7 +163,7 @@ public class Message
 
 ### <a name="java-example"></a>Esempio per Java
 
-L'esempio seguente usa il `@SendGridOutput` annotazione il [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per inviare un'email tramite SendGrid l'associazione di output.
+Nell'esempio seguente viene usata `@SendGridOutput` l'annotazione dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per inviare un messaggio di posta elettronica tramite l'associazione di output SendGrid.
 
 ```java
 @FunctionName("SendEmail")
@@ -261,7 +260,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**apiKey**|**ApiKey**| Il nome di un'impostazione dell'app che contiene la chiave API. Se non viene impostato, il nome dell'impostazione dell'app predefinita è "AzureWebJobsSendGridApiKey".|
 |**to**|**To**| Indirizzo e-mail del destinatario. |
 |**from**|**From**| Indirizzo e-mail del mittente. |
-|**subject**|**Subject**| Oggetto del messaggio di posta elettronica. |
+|**subject**|**Oggetto**| Oggetto del messaggio di posta elettronica. |
 |**text**|**Text**| Contenuto del messaggio di posta elettronica. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

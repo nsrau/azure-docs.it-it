@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 155f392410c5722a28ba09acafc1480e72586773
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877299"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100896"
 ---
 # <a name="create-a-new-device-template-version"></a>Creare una nuova versione di un modello di dispositivo
 
@@ -50,7 +50,7 @@ L'elenco seguente descrive le azioni dell'utente che potrebbero richiedere una n
 
 Cosa accade alle regole e ai dashboard di dispositivo quando viene eseguito un cambio di versione?
 
-Le **regole** potrebbero contenere condizioni che dipendono da proprietà. Se sono state rimosse una o più di tali proprietà, le regole potrebbe perdere l'integrità nella nuova versione del modello di dispositivo. È possibile accedere a queste regole specifiche e aggiornare le condizioni per correggere le regole stesse. Le regole per la versione precedente devono funzionare senza conseguenze.
+Le **regole** della versione precedente del modello di dispositivo continuano a funzionare senza modifiche. Non viene automaticamente eseguita la migrazione delle regole alla nuova versione del modello di dispositivo. È possibile creare regole per la nuova versione del modello come di consueto. Per altre informazioni, vedere l'articolo procedure per la [creazione di una regola di telemetria e la configurazione delle notifiche nell'applicazione Azure IOT Central](howto-create-telemetry-rules.md) .
 
 I **dashboard di dispositivo** possono contenere diversi tipi di riquadri. Alcuni riquadri possono contenere impostazioni e proprietà. Quando viene rimossa un'impostazione o una proprietà utilizzata in un riquadro, il riquadro perde l'integrità totalmente o parzialmente. È possibile accedere al riquadro e risolvere il problema eliminando il riquadro o aggiornando il contenuto del riquadro.
 

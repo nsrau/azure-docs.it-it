@@ -10,16 +10,15 @@ ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 323b3effb4c4a63d03ab7ea5251e0d59271d9dcd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61094523"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072144"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure
 Questo argomento descrive le rappresentazioni di entità e tipi per elementi comuni usati nei modelli di dati per i modelli del portale per sviluppatori in Gestione API di Azure.  
@@ -60,7 +59,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="API"></a>API  
  L'entità `API` ha le proprietà seguenti:  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificatore di risorsa. Identifica in modo univoco l'API all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `apis/{id}` dove `{id}` è un identificatore API. Questa proprietà è di sola lettura.|  
 |`name`|string|Nome dell'API. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
@@ -83,7 +82,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Application"></a> Applicazione  
  L'entità `application` ha le proprietà seguenti:  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore univoco dell'applicazione.|  
 |`Title`|string|Titolo dell'applicazione.|  
@@ -128,7 +127,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Comment"></a>Commento  
  L'entità `API` ha le proprietà seguenti:  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |`Id`|number|ID del commento.|  
 |`CommentText`|string|Corpo del commento. Può includere HTML.|  
@@ -194,7 +193,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Operation"></a>Operazione  
  L'entità `operation` ha le proprietà seguenti:  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificatore di risorsa. Identifica in modo univoco l'operazione all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `apis/{aid}/operations/{id}` dove `{aid}` è un identificatore API e `{id}` è un identificatore di operazione. Questa proprietà è di sola lettura.|  
 |`name`|string|Nome dell'operazione. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
@@ -209,7 +208,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Menu"></a>Menu operazione  
  L'entità `operation menu` ha le proprietà seguenti:  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |`ApiId`|string|ID dell'API corrente.|  
 |`CurrentOperationId`|string|ID dell'operazione corrente.|  
@@ -219,7 +218,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="MenuItem"></a>Voce di menu operazione  
  L'entità `operation menu item` ha le proprietà seguenti:  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |`Id`|string|ID dell'operazione.|  
 |`Title`|string|Descrizione dell'operazione.|  
@@ -252,7 +251,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Product"></a>Prodotto  
  L'entità `product` ha le proprietà seguenti:  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore di risorsa. Identifica in modo univoco il prodotto all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `products/{pid}` dove `{pid}` è un identificatore di prodotto. Questa proprietà è di sola lettura.|  
 |`Title`|string|Nome del prodotto. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  

@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5ff87e761bbe5243a478a00ca90d4be03fdbc6d4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cce4e558331cad0045772f53f7fc3c78aeed2bb7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706572"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082209"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la Console seriale per accedere a GRUB e alla modalità utente singolo
 GRUB è l'acronimo di GRand Unified Bootloader. Da GRUB è possibile, tra le altre cose, modificare la configurazione di avvio per eseguire l'avvio in modalità utente singolo.

@@ -9,17 +9,16 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496515"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073218"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app #
 
@@ -31,11 +30,11 @@ Ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure
 - **Archiviazione**: Le risorse di archiviazione vengono usate per ospitare le app pubblicate dai clienti.
 
 > [!NOTE]
-> Esistono due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. In ASEv1 è necessario gestire le risorse prima di poterle usare. Per informazioni su come configurare e gestire ASEv1, vedere [Configurare un ambiente del servizio app v1][ConfigureASEv1]. Il resto di questo articolo è incentrato su ASEv2.
+> Esistono due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. In ASEv1 è necessario gestire le risorse prima di poterle usare. Per informazioni su come configurare e gestire ASEv1, vedere [configurare un ambiente del servizio app V1][ConfigureASEv1]. Il resto di questo articolo è incentrato su ASEv2.
 >
 >
 
-È possibile distribuire un ambiente del servizio app (sia ASEv1 che ASEv2) con un indirizzo VIP esterno o interno per l'accesso app. La distribuzione con un indirizzo VIP esterno viene comunemente definita come un ambiente del servizio app esterno. La versione interna viene chiamata ambiente del servizio app ILB, poiché usa un servizio di bilanciamento del carico interno (ILB). Per altre informazioni sull'ambiente del servizio app con bilanciamento del carico interno, vedere [Creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app][MakeILBASE].
+È possibile distribuire un ambiente del servizio app (sia ASEv1 che ASEv2) con un indirizzo VIP esterno o interno per l'accesso app. La distribuzione con un indirizzo VIP esterno viene comunemente definita come un ambiente del servizio app esterno. La versione interna viene chiamata ambiente del servizio app ILB, poiché usa un servizio di bilanciamento del carico interno (ILB). Per altre informazioni sull'ambiente del servizio app ILB, vedere [creare e usare un][MakeILBASE]ambiente del servizio app ILB.
 
 ## <a name="create-an-app-in-an-ase"></a>Creare un'app in un ambiente del servizio app ##
 
@@ -44,7 +43,7 @@ Per creare un'app in un ambiente del servizio app, procedere come di consueto pe
 - Invece di selezionare una località geografica per distribuire l'app, selezionare un ambiente del servizio app come posizione.
 - Tutti i piani di servizio app creati in un ambiente del servizio app devono essere in un piano tariffario isolato.
 
-Se non si ha un ambiente del servizio app, è possibile crearne uno seguendo le istruzioni in [Creare un ambiente del servizio app][MakeExternalASE].
+Se non si dispone di un ambiente del servizio app, è possibile crearne uno seguendo le istruzioni riportate in [creare un ambiente del servizio app][MakeExternalASE].
 
 Per creare un'app in un ambiente del servizio app:
 
@@ -92,7 +91,7 @@ In un ambiente del servizio app è possibile ridimensionare fino a 100 istanze. 
 
 ## <a name="ip-addresses"></a>Indirizzi IP ##
 
-Il servizio app ha la possibilità di allocare un indirizzo IP dedicato a un'app. Questa capacità è disponibile configurando un certificato SSL basato su IP, come illustrato in [Associare un certificato SSL personalizzato esistente a Servizio app di Azure][ConfigureSSL]. Tuttavia, in un ambiente del servizio app vi è un'eccezione. Non è possibile aggiungere altri indirizzi IP da usare per un certificato SSL basato su IP in un ambiente del servizio app con bilanciamento del carico interno.
+Il servizio app ha la possibilità di allocare un indirizzo IP dedicato a un'app. Questa funzionalità è disponibile dopo la configurazione di un SSL basato su IP, come descritto in [associare un certificato SSL personalizzato esistente al servizio app Azure][ConfigureSSL]. Tuttavia, in un ambiente del servizio app vi è un'eccezione. Non è possibile aggiungere altri indirizzi IP da usare per un certificato SSL basato su IP in un ambiente del servizio app con bilanciamento del carico interno.
 
 In ASEv1 è necessario allocare gli indirizzi IP come risorse prima di poterli usare. In ASEv2 è possibile usarli dall'app proprio come nel servizio app multi-tenant. In ASEv2 è sempre presente un indirizzo di riserva fino a 30 indirizzi IP. Ogni volta che se ne usa uno, ne viene aggiunto un altro, in modo che sia sempre disponibile un indirizzo da usare. Si verifica un ritardo, necessario per allocare un altro indirizzo IP, che impedisce di aggiungere gli indirizzi IP in rapida successione.
 
@@ -100,20 +99,20 @@ In ASEv1 è necessario allocare gli indirizzi IP come risorse prima di poterli u
 
 In ASEv2, quando si aumenta il numero di istanze dei piani di servizio app, i ruoli di lavoro vengono automaticamente aggiunti per supportarli. Ogni ambiente del servizio app viene creato con due front-end. Inoltre, il front-end scala automaticamente in orizzontale a una velocità di un front-end per tutte le 15 istanze nei piani di servizio App. Se ad esempio si hanno 15 istanze, si hanno tre front-end. Se si passa a 30 istanze, si avranno quattro front-end e così via.
 
-Questo numero di front-end deve essere più che sufficiente per la maggior parte degli scenari. Tuttavia, è possibile scalare orizzontalmente a una maggiore velocità. È possibile modificare il rapporto minimo a un front-end per ogni cinque istanze. Per modificare il rapporto è previsto un addebito. Per altre informazioni, vedere [Prezzi del Servizio app di Azure][Pricing].
+Questo numero di front-end deve essere più che sufficiente per la maggior parte degli scenari. Tuttavia, è possibile scalare orizzontalmente a una maggiore velocità. È possibile modificare il rapporto minimo a un front-end per ogni cinque istanze. Per modificare il rapporto è previsto un addebito. Per altre informazioni, vedere [prezzi del servizio app Azure][Pricing].
 
 Le risorse front-end sono gli endpoint HTTP/HTTPS per l'ambiente del servizio app. Con la configurazione front-end predefinita, l'uso della memoria per ogni front-end è di circa il 60%. I carichi di lavoro del cliente non vengono eseguiti in un front-end. Il fattore chiave per un front-end dal punto di vista del ridimensionamento è la CPU, che dipende principalmente dal traffico HTTPS.
 
 ## <a name="app-access"></a>Accesso all'app ##
 
-In un ambiente del servizio app esterno, il dominio usato per creare le app è diverso dal servizio app multi-tenant. Include il nome dell'ambiente del servizio app. Per altre informazioni sulla creazione di un ambiente del servizio app esterno, vedere [Creazione di un ambiente del servizio app][MakeExternalASE]. Il nome di dominio in un ambiente del servizio app esterno è simile a *.&lt;nomeambientedelservizioapp&gt;.p.azurewebsites.net*. Ad esempio, se l'ambiente del servizio app è denominato _external-ase_ e si ospita un'app denominata _contoso_ in tale ambiente del servizio app, sarà possibile raggiungerlo agli URL seguenti:
+In un ambiente del servizio app esterno, il dominio usato per creare le app è diverso dal servizio app multi-tenant. Include il nome dell'ambiente del servizio app. Per altre informazioni su come creare un ambiente del servizio app esterno, vedere [creare un ambiente del servizio app][MakeExternalASE]. Il nome di dominio in un ambiente del servizio app esterno è simile a *.&lt;nomeambientedelservizioapp&gt;.p.azurewebsites.net*. Ad esempio, se l'ambiente del servizio app è denominato _external-ase_ e si ospita un'app denominata _contoso_ in tale ambiente del servizio app, sarà possibile raggiungerlo agli URL seguenti:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-L'URL contoso.scm.external-ase.p.azurewebsites.net viene usato per accedere alla console Kudu o per pubblicare l'app usando la distribuzione Web. Per informazioni sulla console Kudu, vedere [Kudu console for Azure App Service][Kudu] (Console Kudu per il servizio app di Azure). La console Kudu offre un'interfaccia utente Web per il debug, il caricamento di file, la modifica di file e altro ancora.
+L'URL contoso.scm.external-ase.p.azurewebsites.net viene usato per accedere alla console Kudu o per pubblicare l'app usando la distribuzione Web. Per informazioni sulla console Kudu, vedere la [console Kudu per il servizio app Azure][Kudu]. La console Kudu offre un'interfaccia utente Web per il debug, il caricamento di file, la modifica di file e altro ancora.
 
-In un ambiente del servizio app con bilanciamento del carico interno si determina il dominio in fase di distribuzione. Per informazioni su come creare un ambiente del servizio app con bilanciamento del carico interno, vedere [Creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app][MakeILBASE]. Se si specifica il nome di dominio _ilb-ase.info_, le app in tale ambiente del servizio app usano questo dominio durante la creazione delle app. Per l'app denominata _contoso_, gli URL saranno:
+In un ambiente del servizio app con bilanciamento del carico interno si determina il dominio in fase di distribuzione. Per altre informazioni su come creare un ambiente del servizio app ILB, vedere [creare e usare un][MakeILBASE]ambiente del servizio app ILB. Se si specifica il nome di dominio _ilb-ase.info_, le app in tale ambiente del servizio app usano questo dominio durante la creazione delle app. Per l'app denominata _contoso_, gli URL saranno:
 
 - contoso.ilb-ase.info
 - contoso.scm.ilb-ase.info
@@ -128,11 +127,11 @@ Come nel servizio app multi-tenant, in un ambiente del servizio app è possibile
 - Trascinamento della selezione nella console Kudu.
 - Un ambiente di sviluppo integrato, ad esempio Visual Studio, Eclipse o Intellij IDEA.
 
-Con un ambiente del servizio app esterno, queste opzioni di pubblicazione hanno lo stesso comportamento. Per altre informazioni, vedere [Distribuzione nel servizio app di Azure][AppDeploy]. 
+Con un ambiente del servizio app esterno, queste opzioni di pubblicazione hanno lo stesso comportamento. Per ulteriori informazioni, vedere [distribuzione nel servizio app Azure][AppDeploy]. 
 
-La grande differenza dal punto di vista della pubblicazione è negli ambienti del servizio app con bilanciamento del carico interno. Con un ambiente del servizio app con bilanciamento del carico interno gli endpoint di pubblicazione sono tutti disponibili solo tramite il servizio di bilanciamento del carico interno. Il servizio di bilanciamento del carico interno è in un IP privato nella subnet dell'ambiente del servizio app nella rete virtuale. Se non si ha accesso di rete al servizio di bilanciamento del carico interno, non è possibile pubblicare app in tale ambiente del servizio app. Come indicato in [Create and use an ILB ASE][MakeILBASE] (Creare e usare un ambiente del servizio app con bilanciamento del carico interno), è necessario configurare DNS per le app nel sistema, incluso l'endpoint Gestione controllo servizi. Se non definiti correttamente, non è possibile pubblicarli. Gli ambienti di sviluppo integrato devono anche avere accesso di rete al servizio di bilanciamento del carico interno per potervi eseguire direttamente la pubblicazione.
+La grande differenza dal punto di vista della pubblicazione è negli ambienti del servizio app con bilanciamento del carico interno. Con un ambiente del servizio app con bilanciamento del carico interno gli endpoint di pubblicazione sono tutti disponibili solo tramite il servizio di bilanciamento del carico interno. Il servizio di bilanciamento del carico interno è in un IP privato nella subnet dell'ambiente del servizio app nella rete virtuale. Se non si ha accesso di rete al servizio di bilanciamento del carico interno, non è possibile pubblicare app in tale ambiente del servizio app. Come indicato nella pagina relativa alla [creazione e all'uso di un][MakeILBASE]ambiente del servizio app ILB, è necessario configurare DNS per le app nel sistema. incluso l'endpoint Gestione controllo servizi. Se non definiti correttamente, non è possibile pubblicarli. Gli ambienti di sviluppo integrato devono anche avere accesso di rete al servizio di bilanciamento del carico interno per potervi eseguire direttamente la pubblicazione.
 
-Per impostazione predefinita, i sistemi di integrazione continua basati su Internet, ad esempio GitHub e DevOps di Azure, non funzionano con un ambiente del servizio App ILB perché l'endpoint di pubblicazione non è accessibile tramite Internet. Per DevOps di Azure, è possibile risolvere il problema installando un agente di rilascio self-hosted nella rete interna in cui poter raggiungere il bilanciamento del carico interno. In alternativa, è anche possibile usare un sistema di integrazione continua che usa un modello pull, ad esempio Dropbox.
+I sistemi CI basati su Internet, ad esempio GitHub e Azure DevOps, non funzionano con un ambiente del servizio app ILB perché l'endpoint di pubblicazione non è accessibile tramite Internet. Per Azure DevOps, è possibile risolvere il problema installando un agente di rilascio self-hosted nella rete interna in cui è possibile raggiungere il ILB. In alternativa, è anche possibile usare un sistema CI che usa un modello pull, ad esempio Dropbox.
 
 Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bilanciamento del carico interno usano il dominio con cui l'ambiente del servizio app con bilanciamento del carico interno è stato creato, che può essere visualizzato nel profilo di pubblicazione dell'app e nel pannello del portale dell'app (in **Panoramica** > **Informazioni di base** e anche in **Proprietà**). 
 
@@ -148,7 +147,7 @@ Se ad esempio si imposta la proporzione di ridimensionamento su 10, verrà aggiu
 
 Se si modificano le dimensioni dei front-end in base a due core, ma non si modifica il rapporto, si paga per i core aggiuntivi.  Poiché viene creato un ambiente del servizio app con due front-end, anche al di sotto della soglia di ridimensionamento automatica si paga per due core aggiuntivi se le dimensioni sono state aumentate a due core front-end.
 
-Per altre informazioni, vedere [Prezzi del Servizio app di Azure][Pricing].
+Per altre informazioni, vedere [prezzi del servizio app Azure][Pricing].
 
 ## <a name="delete-an-ase"></a>Eliminare un ambiente del servizio app ##
 

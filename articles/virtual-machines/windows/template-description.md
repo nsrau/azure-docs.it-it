@@ -11,16 +11,15 @@ ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: fd4fad40ef4809c756321493854f38fd813569ca
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710292"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101764"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -253,7 +252,7 @@ Tenere presente che la creazione di un ciclo per una risorsa nel modello potrebb
 } ]
 ```
 
-## <a name="dependencies"></a>Dipendenze
+## <a name="dependencies"></a>Dependencies
 
 Il corretto funzionamento della maggior parte delle risorse dipende dalle altre risorse. Le macchine virtuali deve essere associate a una rete virtuale e a tale scopo è necessaria un'interfaccia di rete. L'elemento [dependsOn](../../resource-group-define-dependencies.md) viene usato per verificare che l'interfaccia di rete sia pronta per essere usata prima che vengano create le VM:
 
@@ -447,7 +446,7 @@ Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio,
 
 È possibile anche ottenere informazioni sull'estensione mediante il comando **Get-AzVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure oppure l'API REST **Get extension information**.
 
-## <a name="deployments"></a>Deployments
+## <a name="deployments"></a>Distribuzioni
 
 Quando si distribuisce un modello, Azure tiene traccia delle risorse distribuite come gruppo e assegna automaticamente un nome a questo gruppo distribuito. Il nome della distribuzione corrisponde a quello del modello.
 

@@ -10,16 +10,15 @@ ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df7b14c8221ab7837cabe968a82cfc5d5d9050c4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704430"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072591"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
 
@@ -77,11 +76,11 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 
  Quando si verifica un errore e il controllo passa alla sezione di criteri `on-error`, l'errore viene conservato nella proprietà [context.LastError](api-management-policy-expressions.md#ContextVariables), accessibile dai criteri nella sezione `on-error`. LastError ha le seguenti proprietà.  
   
-| Name       | Type   | Descrizione                                                                                               | Obbligatorio |
+| NOME       | Type   | Descrizione                                                                                               | Obbligatoria |
 |------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
 | `Source`   | string | Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.     | Yes      |
 | `Reason`   | string | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No       |
-| `Message`  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Yes      |
+| `Message`  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
 | `Scope`    | string | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No       |
 | `Section`  | string | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".       | No       |
 | `Path`     | string | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                        | No       |
@@ -108,7 +107,7 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 | `Source`       | Condizione                                                       | `Reason`                    | `Message`                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | rate-limit   | Limite di velocità superato                                             | RateLimitExceeded         | Il limite di velocità è stato superato                                                                                                               |
-| quota        | La quota è stata superata                                                  | QuotaExceeded             | La quota del volume di chiamate è esaurita. La quota verrà ripristinata in xx:xx:xx. -oppure- La quota della larghezza di banda è esaurita. La quota verrà ripristinata in xx:xx:xx. |
+| quota        | Quota superata                                                  | QuotaExceeded             | La quota del volume di chiamate è esaurita. La quota verrà ripristinata in xx:xx:xx. -oppure- La quota della larghezza di banda è esaurita. La quota verrà ripristinata in xx:xx:xx. |
 | jsonp        | Il valore del parametro callback non è valido (contiene caratteri errati) | CallbackParameterInvalid  | Il valore del parametro callback {callback-parameter-name} non è un identificatore JavaScrpit valido.                                          |
 | ip-filter    | Impossibile analizzare l'IP del chiamante dalla richiesta                          | FailedToParseCallerIP     | Impossibile stabilire l'indirizzo IP per il chiamante. Accesso negato.                                                                        |
 | ip-filter    | L'IP del chiamante non è presente nell'elenco degli IP consentiti                                | CallerIpNotAllowed        | L'indirizzo IP del chiamante {ip-address} non è consentito. Accesso negato.                                                                        |

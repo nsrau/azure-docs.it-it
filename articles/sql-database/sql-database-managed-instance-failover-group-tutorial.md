@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 5169fe5eef416812c399b421f59305f6cb1e7b62
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035792"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103064"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Esercitazione: Aggiungere un'istanza gestita di database SQL a un gruppo di failover
 
@@ -40,13 +40,15 @@ Per completare questa esercitazione, accertarsi di avere:
 - Una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) se non ne è già disponibile uno. 
 
 
-## <a name="1----create-resource-group-and-primary-managed-instance"></a>1-creare il gruppo di risorse e l'istanza gestita primaria
+## <a name="1---create-resource-group-and-primary-managed-instance"></a>1-creare il gruppo di risorse e l'istanza gestita primaria
 In questo passaggio si creeranno il gruppo di risorse e l'istanza gestita primaria per il gruppo di failover usando il portale di Azure. 
 
-1. Accedere al [portale di Azure](https://portal.azure.com). 
-1. Scegliere di **creare una risorsa** nell'angolo superiore sinistro della portale di Azure. 
-1. Digitare `managed instance` nella casella di ricerca e selezionare l'opzione per Azure SQL istanza gestita. 
-1. Selezionare **Crea** per avviare la pagina di creazione dell' **istanza gestita di SQL** . 
+1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. Opzionale Selezionare la stella accanto a **SQL di Azure** per favorirla e aggiungerla come elemento nel menu di spostamento a sinistra. 
+1. Selezionare **+ Aggiungi** per aprire la pagina **Seleziona opzione distribuzione SQL** . È possibile visualizzare informazioni aggiuntive sui diversi database selezionando Mostra dettagli nel riquadro database.
+1. Selezionare **Crea** nel riquadro **istanze gestite di SQL** . 
+
+    ![Seleziona istanza gestita](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. Nella pagina **crea istanza gestita di database SQL di Azure** , nella scheda nozioni di **base**
     1. In **Dettagli progetto**selezionare la **sottoscrizione** dall'elenco a discesa, quindi scegliere di creare un **nuovo** gruppo di risorse. Digitare un nome per il gruppo di risorse, ad esempio `myResourceGroup`. 
     1. In **istanza gestita dettagli**specificare il nome dell'istanza gestita e l'area in cui si desidera distribuire l'istanza gestita. Lasciare i valori predefiniti per il calcolo e l' **archiviazione** . 
@@ -98,13 +100,17 @@ La seconda istanza gestita deve:
 
 Per creare un'istanza gestita secondaria, attenersi alla procedura seguente: 
 
-1. Nella [portale di Azure](https://portal.azure.com)selezionare **Crea una risorsa** e cercare *istanza gestita SQL di Azure*. 
-1. Selezionare l'opzione **istanza gestita di Azure SQL** pubblicata da Microsoft e quindi selezionare **Crea** nella pagina successiva.
+1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. Opzionale Selezionare la stella accanto a **SQL di Azure** per favorirla e aggiungerla come elemento nel menu di spostamento a sinistra. 
+1. Selezionare **+ Aggiungi** per aprire la pagina **Seleziona opzione distribuzione SQL** . È possibile visualizzare informazioni aggiuntive sui diversi database selezionando Mostra dettagli nel riquadro database.
+1. Selezionare **Crea** nel riquadro **istanze gestite di SQL** . 
+
+    ![Seleziona istanza gestita](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. Nella scheda **nozioni di base** della pagina **Crea istanza gestita di database SQL di Azure** compilare i campi obbligatori per configurare l'istanza gestita secondaria. 
 
    Nella tabella seguente sono illustrati i valori necessari per l'istanza gestita secondaria:
  
-    | **Campo** | Valore |
+    | **Campo** | Value |
     | --- | --- |
     | **Sottoscrizione** |  Sottoscrizione in cui si trova l'istanza gestita primaria. |
     | **Gruppo di risorse**| Il gruppo di risorse in cui si trova l'istanza gestita primaria. |
@@ -209,9 +215,8 @@ Per configurare la connettività, attenersi alla procedura seguente:
 ## <a name="7---create-a-failover-group"></a>7-creare un gruppo di failover
 In questo passaggio si creerà il gruppo di failover e si aggiungeranno entrambe le istanze gestite. 
 
-1. Nella [portale di Azure](https://portal.azure.com)passare a tutti i **Servizi** `managed instance` e digitare nella casella di ricerca. 
-1. Opzionale Selezionare la stella accanto a **istanze gestite da SQL** per aggiungere istanze gestite come collegamento alla barra di spostamento a sinistra. 
-1. Selezionare **istanze gestite di SQL** e selezionare l'istanza gestita primaria, ad `sql-mi-primary`esempio. 
+1. Selezionare **Azure SQL** nel menu a sinistra del [portale di Azure](https://portal.azure.com). Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. Opzionale Selezionare la stella accanto a **SQL di Azure** per favorirla e aggiungerla come elemento nel menu di spostamento a sinistra. 
+1. Selezionare l'istanza gestita primaria creata nella prima sezione, ad esempio `sql-mi-primary`. 
 1. In **Impostazioni**passare a **gruppi di failover istanza** , quindi scegliere **Aggiungi gruppo** per aprire la pagina **gruppo di failover dell'istanza** . 
 
    ![Aggiungere un gruppo di failover](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)

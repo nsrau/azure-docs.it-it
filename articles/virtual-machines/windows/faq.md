@@ -11,22 +11,21 @@ ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 69c79db937d70bcc8ae834bf0bdf8f1930bed3c9
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 0b1af2052e8aa916bf5fd6a40bea3502ff81a02d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722748"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079488"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Domande frequenti sulle Macchine virtuali Windows
-Questo articolo analizza alcune delle domande più comuni sulle macchine virtuali Windows create in Azure mediante il modello di distribuzione di Gestione risorse. Per la versione Linux di questo argomento, vedere [domande frequenti sulle macchine virtuali Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Questo articolo analizza alcune delle domande più comuni sulle macchine virtuali Windows create in Azure mediante il modello di distribuzione di Gestione risorse. Per la versione di Linux di questo argomento, vedere [domande frequenti su macchine virtuali Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Cosa è possibile eseguire in una VM di Azure?
-Tutti i sottoscrittori possono eseguire software del server in una macchina virtuale Azure. Per informazioni sui criteri di supporto per il software server Microsoft in esecuzione in Azure, vedere [supporto di software server Microsoft per le macchine virtuali di Azure](https://support.microsoft.com/kb/2721672).
+Tutti i sottoscrittori possono eseguire software del server in una macchina virtuale Azure. Per informazioni sui criteri di supporto per l'esecuzione di software server Microsoft in Azure, vedere [supporto di software server Microsoft per macchine virtuali di Azure](https://support.microsoft.com/kb/2721672).
 
 Alcune versioni di Windows 7, Windows 8.1 e Windows 10 sono disponibili agli abbonati MSDN Azure con benefici e agli abbonati MSDN sviluppo e test con pagamento in base al consumo, per attività di sviluppo e test. Per ulteriori informazioni, incluse le istruzioni e limitazioni, vedere [Immagini Client Windows per gli abbonati MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
@@ -101,10 +100,10 @@ I nomi utente seguenti non sono consentiti:
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Quali requisiti devono avere le password durante la creazione di una VM?
 
-Esistono diverse password i requisiti di lunghezza, a seconda dello strumento in uso:
- - Portale - compresa tra 12 e 72 caratteri
- - PowerShell - compresa tra 8 e 123 caratteri
- - CLI - tra 12 e 123
+I requisiti di lunghezza delle password variano a seconda dello strumento in uso:
+ - Portale-tra 12-72 caratteri
+ - PowerShell-tra 8-123 caratteri
+ - INTERFACCIA della riga di comando-tra 12-123
 
 * Devono contenere caratteri minuscoli
 * Devono contenere caratteri maiuscoli

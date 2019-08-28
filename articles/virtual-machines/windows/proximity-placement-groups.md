@@ -6,18 +6,17 @@ documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 9e9b8dddf7f48fe672a37b0343d215e0735ed760
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: af75b3f98232d6507fc8b0fda179bebc75828086
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302511"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088829"
 ---
 # <a name="preview-deploy-vms-to-proximity-placement-groups-using-powershell"></a>Anteprima: Distribuire macchine virtuali in gruppi di posizionamento di prossimità usando PowerShell
 

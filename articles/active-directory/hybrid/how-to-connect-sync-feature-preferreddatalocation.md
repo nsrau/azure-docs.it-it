@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff74db14a1621cdcea1b1ae082d351ce6a3a52f6
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 13beafe9a6937b0404a58d3508a9aba9892ac04d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227397"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073883"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Questo argomento illustra in dettaglio come configurare l'attributo relativo al percorso dati preferito nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Quando qualcuno usa Multi-Geo Capabilities in Office 365, si usa questo attributo per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -32,7 +32,7 @@ Per impostazione predefinita, le risorse di Office 365 per gli utenti si trovano
 Impostando l'attributo **preferredDataLocation** è possibile definire l'area geografica dell'utente. È possibile avere le risorse di Office 365 dell'utente, ad esempio la cassetta postale e OneDrive, nella stessa area geografica dell'utente e continuare ad avere un tenant per l'intera organizzazione.
 
 > [!IMPORTANT]
-> La funzionalità multigeo è attualmente disponibile per i clienti con almeno 500 abbonamenti ai servizi di Office 365. Per informazioni dettagliate, contattare il rappresentante Microsoft.
+> La funzionalità multigeo è attualmente disponibile per i clienti con un Enterprise Agreement attivo e un minimo di 500 abbonamenti ai servizi di Office 365. Per informazioni dettagliate, contattare il rappresentante Microsoft.
 >
 >
 
@@ -50,7 +50,7 @@ Le aree geografiche di Office 365 disponibili per Multi-Geo Capabilities sono:
 | India | IND |
 | Giappone | JPN |
 | Corea del Sud | KOR |
-| Sud Africa | ZAF |
+| Sudafrica | ZAF |
 | Emirati Arabi Uniti | SONO |
 | Regno Unito | GBR |
 | Stati Uniti | NAM |
@@ -128,7 +128,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 
     | Attributo | Value | Dettagli |
     | --- | --- | --- |
-    | Name | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
+    | NOME | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
     | DESCRIZIONE | *Fornire una descrizione personalizzata* |  |
     | Connected System | *Selezionare l'istanza di Active Directory Connector locale* |  |
     | Connected System Object Type | **Utente** |  |
@@ -158,7 +158,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
     | Attributo | Value | Dettagli |
     | ----- | ------ | --- |
     | Name | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
-    | DESCRIZIONE | *Inserire una descrizione* ||
+    | Descrizione | *Inserire una descrizione* ||
     | Connected System | *Selezionare il connettore di Azure AD* ||
     | Connected System Object Type | **Utente** ||
     | Metaverse Object Type | **Person** ||

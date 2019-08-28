@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: eddd99be9d4a30e3e71c806a3f98c6be6800e8fb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650422"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095763"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -188,7 +188,7 @@ Specificare la risorsa usando il nome della risorsa stessa o la [funzione resour
 
 Se si usa una funzione di **elenco** in una risorsa distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non viene distribuita. Viene ricevuto un errore se la funzione **elenco** fa riferimento a una risorsa che non esiste. Usare la funzione **if** per assicurarsi che la funzione venga valutata solo quando la risorsa viene distribuita. Vedere la [funzione If](resource-group-template-functions-logical.md#if) per un modello di esempio che usa if ed list con una risorsa distribuita in modo condizionale.
 
-### <a name="example"></a>Esempio
+### <a name="list-example"></a>Esempio di elenco
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) seguente mostra come restituire le chiavi primaria e secondaria da un account di archiviazione nella sezione outputs. Restituisce anche un token SAS per l'account di archiviazione. 
 
@@ -265,9 +265,9 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sì |string |Spazio dei nomi del provider |
+| providerNamespace |Yes |string |Spazio dei nomi del provider |
 | resourceType |No |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -284,7 +284,7 @@ Ogni tipo supportato viene restituito nel formato seguente:
 
 L'ordine della matrice dei valori restituiti non è garantito.
 
-### <a name="example"></a>Esempio
+### <a name="providers-example"></a>Esempio di provider
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) seguente mostra come usare la funzione provider:
 
@@ -342,7 +342,7 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Yes |string |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza, fornire l'ID risorsa. |
+| resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza, fornire l'ID risorsa. |
 | apiVersion |No |string |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. Per le versioni API valide per la risorsa, vedere [riferimento ai modelli](/azure/templates/). |
 | 'Full' |No |string |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
@@ -433,7 +433,7 @@ Ad esempio:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` è corretto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` non è corretto
 
-### <a name="example"></a>Esempio
+### <a name="reference-example"></a>Esempio di riferimento
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) seguente distribuisce una risorsa e fa riferimento a tale risorsa.
 
@@ -600,7 +600,7 @@ Un utilizzo comune della funzione resourceGroup consiste nel creare risorse nell
 
 È anche possibile usare la funzione resourceGroup per applicare tag dal gruppo di risorse a una risorsa. Per altre informazioni, vedere [applicare tag dal gruppo di risorse](resource-group-using-tags.md#apply-tags-from-resource-group).
 
-### <a name="example"></a>Esempio
+### <a name="resource-group-example"></a>Esempio di gruppo di risorse
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) seguente restituisce le proprietà del gruppo di risorse.
 
@@ -737,7 +737,7 @@ Spesso è necessario usare questa funzione quando si usa un account di archiviaz
 }
 ```
 
-### <a name="example"></a>Esempio
+### <a name="resource-id-example"></a>Esempio di ID risorsa
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) seguente restituisce l'ID della risorsa per un account di archiviazione nel gruppo di risorse:
 
@@ -795,7 +795,7 @@ La funzione restituisce il formato seguente:
 }
 ```
 
-### <a name="example"></a>Esempio
+### <a name="subscription-example"></a>Esempio di sottoscrizione
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) seguente mostra la funzione subscription chiamata nella sezione outputs. 
 

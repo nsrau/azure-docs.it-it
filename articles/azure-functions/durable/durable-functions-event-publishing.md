@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 837e29731b617fcb8da95b89668403638c4d049a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60733776"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087398"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (anteprima)
 
@@ -35,16 +34,16 @@ Di seguito sono indicati alcuni scenari in cui questa funzionalità è utile:
 * Installare l'[emulatore di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
 * Installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) oppure usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
-## <a name="create-a-custom-event-grid-topic"></a>Creare un argomento di griglia di eventi personalizzati
+## <a name="create-a-custom-event-grid-topic"></a>Creazione di un argomento personalizzato di griglia di eventi
 
-Creare un argomento di griglia di eventi per l'invio di eventi da funzioni permanenti. Le istruzioni seguenti illustrano come creare un argomento tramite l'interfaccia della riga di comando di Azure. Per informazioni su come eseguire questa operazione tramite PowerShell o il portale di Azure, vedere gli articoli seguenti:
+Creare un argomento di griglia di eventi per l'invio di eventi da Durable Functions. Le istruzioni seguenti illustrano come creare un argomento tramite l'interfaccia della riga di comando di Azure. Per informazioni su come eseguire questa operazione tramite PowerShell o il portale di Azure, vedere gli articoli seguenti:
 
 * [Avvio rapido EventGrid: Creare un evento personalizzato - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
 * [Avvio rapido EventGrid: Creare un evento personalizzato - Portale di Azure](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando `az group create`. Attualmente, griglia di eventi di Azure non supporta tutte le aree. Per informazioni sulle aree supportate, vedere la [Panoramica di griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
+Creare un gruppo di risorse con il comando `az group create`. Attualmente, griglia di eventi di Azure non supporta tutte le aree. Per informazioni sulle aree supportate, vedere [Panoramica di griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -52,7 +51,7 @@ az group create --name eventResourceGroup --location westus2
 
 ### <a name="create-a-custom-topic"></a>Creare un argomento personalizzato
 
-Un argomento di griglia di eventi fornisce un endpoint definito dall'utente che si registra l'evento. Sostituire `<topic_name>` con un nome univoco per l'argomento. Il nome dell'argomento deve essere univoco perché diventa una voce DNS.
+Un argomento di griglia di eventi fornisce un endpoint definito dall'utente in cui è stato pubblicato l'evento. Sostituire `<topic_name>` con un nome univoco per l'argomento. Il nome dell'argomento deve essere univoco perché diventa una voce DNS.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
@@ -89,7 +88,7 @@ Aggiungere `eventGridTopicEndpoint` e `eventGridKeySettingName` in una propriet�
 }
 ```
 
-Le possibili proprietà di configurazione di griglia di eventi di Azure sono reperibili nel [documentazione di host. JSON](../functions-host-json.md#durabletask). Dopo aver configurato il `host.json` file, l'app per le funzioni invia gli eventi del ciclo di vita per l'argomento di griglia di eventi. Questo procedimento funziona quando si esegue l'app per le funzioni in locale e in Azure. ' '
+Le possibili proprietà di configurazione di griglia di eventi di Azure sono disponibili nella [documentazione di host. JSON](../functions-host-json.md#durabletask). Dopo aver configurato il `host.json` file, l'app per le funzioni Invia gli eventi del ciclo di vita all'argomento di griglia di eventi. Questa operazione funziona quando si esegue l'app per le funzioni sia localmente che in Azure .''
 
 Definire l'impostazione dell'app per la chiave dell'argomento nell'app per le funzioni e in `local.setting.json`. Il codice JSON seguente è un esempio di `local.settings.json` per il debug locale. Sostituire `<topic_key>` con la chiave dell'argomento.  
 
@@ -108,7 +107,7 @@ Assicurarsi che l'[emulatore di archiviazione](https://docs.microsoft.com/azure/
 
 ## <a name="create-functions-that-listen-for-events"></a>Creare funzioni che ascoltano gli eventi
 
-Creare un'app per le funzioni. È consigliabile per individuarlo nella stessa area dell'argomento di griglia di eventi.
+Creare un'app per le funzioni. È consigliabile individuarlo nella stessa area dell'argomento griglia di eventi.
 
 ### <a name="create-an-event-grid-trigger-function"></a>Creare una funzione trigger griglia di eventi
 
@@ -138,11 +137,11 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-Selezionare `Add Event Grid Subscription`. Questa operazione aggiunge una sottoscrizione di griglia di eventi per l'argomento di griglia di eventi che è stato creato. Per altre informazioni, vedere [Concetti di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/concepts).
+Selezionare `Add Event Grid Subscription`. Questa operazione aggiunge una sottoscrizione di griglia di eventi per l'argomento di griglia di eventi creato. Per altre informazioni, vedere [Concetti di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/concepts).
 
 ![Selezionare il collegamento del trigger di Griglia di eventi.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Selezionare `Event Grid Topics` per il **tipo di argomento**. Selezionare il gruppo di risorse creato per l'argomento di griglia di eventi. Selezionare quindi l'istanza dell'argomento di griglia di eventi. Fare clic su `Create`.
+Selezionare `Event Grid Topics` per il **tipo di argomento**. Selezionare il gruppo di risorse creato per l'argomento di griglia di eventi. Quindi selezionare l'istanza dell'argomento griglia di eventi. Fare clic su `Create`.
 
 ![Creare una sottoscrizione di Griglia di eventi.](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -262,7 +261,7 @@ L'elenco seguente spiega lo schema degli eventi del ciclo di vita:
 * **`eventTime`** : Ora evento (UTC).
 * **`dataVersion`** : versione dello schema di eventi del ciclo di vita.
 * **`metadataVersion`** :  Versione dei metadati.
-* **`topic`** : Risorsa di argomento della griglia di eventi.
+* **`topic`** : Risorsa dell'argomento di griglia di eventi.
 
 ## <a name="how-to-test-locally"></a>Come eseguire test in locale
 

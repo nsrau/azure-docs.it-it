@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: abff12e1a304c51cb0df394534c7da0a35518008
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319514"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089804"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Risolvere un errore generale RDP in una VM di Azure
 
@@ -65,7 +64,7 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
 
 ### <a name="serial-console"></a>Console seriale
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passaggio 1: Istanza CMD aperta nella console seriale
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passaggio 1: Apri istanza CMD in console seriale
 
 1. Accedere alla [console seriale](serial-console-windows.md) selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)** . Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
 
@@ -77,7 +76,7 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Passaggio 2: Controllare i valori delle chiavi del Registro di sistema RDP:
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Passaggio 2: Controllare i valori delle chiavi del registro di sistema RDP:
 
 1. Controllare se RDP è disabilitato da criteri.
 
@@ -164,17 +163,17 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
 
 Se il problema persiste, procedere al passaggio 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilitare Servizi desktop remoto
+#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilita Servizi Desktop remoto
 
 Per altre informazioni vedere [Servizi Desktop remoto non si avvia in una macchina virtuale di Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Passaggio 3: Reimpostare il listener RDP
+#### <a name="step-3-reset-rdp-listener"></a>Passaggio 3: Reimposta listener RDP
 
 Per altre informazioni vedere [Remote Desktop disconnects frequently in Azure VM](troubleshoot-rdp-intermittent-connectivity.md) (Servizi Desktop remoto non si avvia in una macchina virtuale di Azure).
 
 ### <a name="offline-repair"></a>Riparazione non in linea
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Passaggio 1: Attivare Desktop remoto
+#### <a name="step-1-turn-on-remote-desktop"></a>Passaggio 1: Attiva Desktop remoto
 
 1. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
@@ -234,14 +233,14 @@ Per altre informazioni vedere [Remote Desktop disconnects frequently in Azure VM
 
 Se il problema persiste, procedere al passaggio 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilitare Servizi desktop remoto
+#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilita Servizi Desktop remoto
 
 Per altre informazioni vedere [Servizi Desktop remoto non si avvia in una macchina virtuale di Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Passaggio 3: Reimpostare il listener RDP
+#### <a name="step-3-reset-rdp-listener"></a>Passaggio 3: Reimposta listener RDP
 
 Per altre informazioni vedere [Remote Desktop disconnects frequently in Azure VM](troubleshoot-rdp-intermittent-connectivity.md) (Servizi Desktop remoto non si avvia in una macchina virtuale di Azure).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contatta il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

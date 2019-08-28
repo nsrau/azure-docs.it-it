@@ -11,17 +11,16 @@ ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 79fe3bce558a8315f5fbf7dbc82a4979e8e24238
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb63b25ee9257a402a9887bc8ed8aa83370f3ea0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831980"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066416"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controllo del traffico del servizio app di Azure con Gestione traffico di Azure
 > [!NOTE]
@@ -43,7 +42,7 @@ Gestione traffico di Azure usa quattro metodi di routing diversi. Questi metodi 
 Per altre informazioni, vedere [Metodi di routing di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>Servizio app e profili di Gestione traffico
-Per configurare il controllo del traffico app del servizio, si crea un profilo di gestione di traffico di Azure che utilizzi uno dei quattro carico bilanciamento del carico i metodi descritti in precedenza e quindi aggiungere gli endpoint (in questo caso, servizio App) per il quale si desidera controllare il traffico verso la profilo. Lo stato dell'app (in esecuzione, interrotta o eliminata) viene comunicato regolarmente al profilo in modo che Gestione traffico di Azure possa instradare il traffico di conseguenza.
+Per configurare il controllo del traffico delle app del servizio app, creare un profilo in gestione traffico di Azure che usa uno dei quattro metodi di bilanciamento del carico descritti in precedenza e quindi aggiungere gli endpoint (in questo caso, il servizio app) per i quali si vuole controllare il traffico al profilo. Lo stato dell'app (in esecuzione, interrotta o eliminata) viene comunicato regolarmente al profilo in modo che Gestione traffico di Azure possa instradare il traffico di conseguenza.
 
 Quando si utilizza Gestione traffico con Azure, è opportuno tenere presenti i fattori seguenti:
 
