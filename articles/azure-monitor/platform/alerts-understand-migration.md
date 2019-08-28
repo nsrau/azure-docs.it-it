@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 5257724add570be480063ab776248a8fd1d944c7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034744"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061566"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informazioni sul funzionamento dello strumento di migrazione
 
@@ -36,7 +36,7 @@ Sebbene lo strumento possa eseguire la migrazione di quasi tutte le [regole di a
 - Regole di avviso classiche in alcune Cosmos DB metriche. Vedere [i dettagli](#cosmos-db-metrics) più avanti in questo articolo.
 - Regole di avviso classiche per tutte le macchine virtuali classiche e le metriche dei servizi cloud (Microsoft. ClassicCompute/virtualMachines e Microsoft. ClassicCompute/domainNames/Slots/Roles). Vedere [i dettagli](#classic-compute-metrics) più avanti in questo articolo.
 
-Se la sottoscrizione include regole classiche di questo tipo, è necessario eseguirne la migrazione manualmente. Dal momento che non è possibile fornire una migrazione automatica, eventuali avvisi di metrica esistenti e classici di questi tipi continueranno a funzionare fino al 2020 giugno. Questa estensione consente di passare ai nuovi avvisi. Non è tuttavia possibile creare nuovi avvisi classici dopo il 2019 agosto.
+Se la sottoscrizione include regole classiche di questo tipo, è necessario eseguirne la migrazione manualmente. Dal momento che non è possibile fornire una migrazione automatica, eventuali avvisi di metrica esistenti e classici di questi tipi continueranno a funzionare fino al 2020 giugno. Questa estensione consente di passare ai nuovi avvisi. È anche possibile continuare a creare nuovi avvisi classici sulle eccezioni elencate sopra fino al 2020 giugno. Tuttavia, per tutti gli altri, non è possibile creare nuovi avvisi classici dopo il 2019 agosto.
 
 > [!NOTE]
 > Oltre alle eccezioni elencate in precedenza, se le regole di avviso classiche non sono valide, ad esempio se si tratta di [metriche deprecate](#classic-alert-rules-on-deprecated-metrics) o di risorse eliminate, non verranno migrate durante la migrazione volontaria. Eventuali regole di avviso classiche non valide verranno eliminate al momento della migrazione automatica.

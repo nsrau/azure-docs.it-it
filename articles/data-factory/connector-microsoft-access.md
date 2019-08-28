@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 2010799dd590808a2c5be7d9e2330bd60e2c7913
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 79a960b106cc9de4116e8e59b2fa17f48c896221
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842491"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061464"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Copiare dati da e in archivi dati di Microsoft Access usando Azure Data Factory
 
@@ -34,6 +34,9 @@ Per usare questo connettore di Microsoft Access, è necessario:
 - Configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
 - Installare il driver ODBC di Microsoft Access per l'archivio dati nel computer Integration Runtime.
 
+>[!NOTE]
+>Microsoft Access 2016 versione del driver ODBC non funziona con questo connettore. Usare invece la versione del driver 2013 o 2010.
+
 ## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -48,7 +51,7 @@ Per il servizio collegato di Microsoft Access sono supportate le proprietà segu
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **MicrosoftAccess** | Sì |
 | connectionString | Stringa di connessione ODBC che esclude la parte delle credenziali. È possibile specificare la stringa di connessione o usare il DSN di sistema (nome dell'origine dati) configurato nel computer Integration Runtime (è necessario comunque specificare la parte delle credenziali nel servizio collegato di conseguenza).<br>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md).| Sì |
-| authenticationType | Tipo di autenticazione usato per la connessione all'archivio dati di Microsoft Access.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. | Yes |
+| authenticationType | Tipo di autenticazione usato per la connessione all'archivio dati di Microsoft Access.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. | Sì |
 | userName | Specificare il nome utente se si usa l'autenticazione di base. | N. |
 | password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credential | La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver. Contrassegnare questo campo come SecureString. | No |
@@ -120,7 +123,7 @@ Per copiare dati da un archivio dati compatibile con Microsoft Access, nella sez
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **MicrosoftAccessSource** | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **MicrosoftAccessSource** | Yes |
 | query | Usare la query personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

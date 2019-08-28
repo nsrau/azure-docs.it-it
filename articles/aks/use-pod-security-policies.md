@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 374e86409be08f1f9859b3e325dda57080b89dbf
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df8aa51558bc3aa456758510792c198a8bd9cf78
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033998"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061855"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è ne
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-Per usare i criteri di sicurezza di Pod, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.1 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] ::
+Per usare i criteri di sicurezza di Pod, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.1 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la disponibilità di eventuali aggiornamenti tramite il comando [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -136,7 +136,7 @@ subjects:
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>Creare un utente di test in un cluster AKS
 
-Per impostazione predefinita, quando si usa il comando [AZ AKS Get-credentials][az-aks-get-credentials] , le credenziali di *amministratore* per il cluster AKS e `kubectl` aggiunte alla configurazione. L'utente amministratore ignora l'applicazione dei criteri di sicurezza pod. Se si usa Azure Active Directory integrazione per i cluster AKS, è possibile accedere con le credenziali di un utente non amministratore per vedere l'applicazione dei criteri in azione. In questo articolo viene creato un account utente di test nel cluster AKS che è possibile usare.
+Per impostazione predefinita, quando si usa il comando [AZ AKS Get-credentials][az-aks-get-credentials] , vengono `kubectl` aggiunte alla configurazione le credenziali di *amministratore* per il cluster AKS. L'utente amministratore ignora l'applicazione dei criteri di sicurezza pod. Se si usa Azure Active Directory integrazione per i cluster AKS, è possibile accedere con le credenziali di un utente non amministratore per vedere l'applicazione dei criteri in azione. In questo articolo viene creato un account utente di test nel cluster AKS che è possibile usare.
 
 Creare uno spazio dei nomi di esempio denominato *PSP-AKS* per le risorse di test usando il comando [kubectl create namespace][kubectl-create] . Quindi, creare un account del servizio denominato *nonadmin-User* usando il comando [kubectl create ServiceAccount][kubectl-create] :
 
@@ -202,7 +202,7 @@ $ kubectl-nonadminuser apply -f nginx-privileged.yaml
 Error from server (Forbidden): error when creating "nginx-privileged.yaml": pods "nginx-privileged" is forbidden: unable to validate against any pod security policy: [spec.containers[0].securityContext.privileged: Invalid value: true: Privileged containers are not allowed]
 ```
 
-Il Pod non raggiunge la fase di pianificazione, quindi non ci sono risorse da eliminare prima di procedere.
+Il Pod non raggiunge la fase di pianificazione, quindi non sono presenti risorse da eliminare prima di procedere.
 
 ## <a name="test-creation-of-an-unprivileged-pod"></a>Creazione di test di un pod senza privilegi
 
@@ -443,7 +443,7 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 ```
 
 > [!NOTE]
-> Nel primo passaggio di questo articolo, la funzionalità dei criteri di sicurezza Pod è stata abilitata nel cluster AKS. La procedura consigliata consiste nell'abilitare la funzionalità dei criteri di sicurezza pod solo dopo aver definito i propri criteri. Questa è la fase in cui è possibile abilitare la funzionalità dei criteri di sicurezza pod. Sono stati definiti uno o più criteri personalizzati e gli account utente sono stati associati a tali criteri. A questo punto è possibile controllare in modo sicuro la funzionalità dei criteri di sicurezza di Pod e ridurre al minimo i problemi causati dai criteri predefiniti.
+> Nel primo passaggio di questo articolo, la funzionalità dei criteri di sicurezza Pod è stata abilitata nel cluster AKS. La procedura consigliata consiste nell'abilitare la funzionalità dei criteri di sicurezza pod solo dopo aver definito i propri criteri. Questa è la fase in cui è possibile abilitare la funzionalità dei criteri di sicurezza pod. Sono stati definiti uno o più criteri personalizzati e gli account utente sono stati associati a tali criteri. A questo punto è possibile abilitare la funzionalità dei criteri di sicurezza di Pod e ridurre al minimo i problemi causati dai criteri predefiniti.
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>Testare di nuovo la creazione di un pod senza privilegi
 

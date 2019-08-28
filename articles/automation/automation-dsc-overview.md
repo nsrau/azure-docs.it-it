@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533463"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061394"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Panoramica di Configurazione stato di Automazione di Azure
 
@@ -58,16 +58,11 @@ Per i nodi che eseguono Windows sono supportate le versioni seguenti:
 - Windows 8.1
 - Windows 7
 
-Lo SKU del prodotto autonomo [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) non contiene un'implementazione della configurazione dello stato desiderato, quindi non può essere gestito tramite PowerShell DSC o la configurazione dello stato di automazione di Azure.
+Lo SKU del prodotto [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) autonomo non contiene un'implementazione della configurazione dello stato desiderato, quindi non può essere gestito da PowerShell DSC o dalla configurazione dello stato di automazione di Azure.
 
 Per i nodi che eseguono Linux, sono supportate le distribuzioni/versioni seguenti:
 
-L'estensione DSC per Linux supporta tutte le distribuzioni [di Linux approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , tranne:
-
-Distribuzione | Versione
--|-
-Debian  | tutte le versioni
-Ubuntu  | 18,04
+L'estensione DSC per Linux supporta tutte le distribuzioni di Linux elencate in distribuzioni di [Linux supportate](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
 ### <a name="dsc-requirements"></a>Requisiti DSC
 

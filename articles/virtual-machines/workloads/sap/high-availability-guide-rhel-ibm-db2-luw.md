@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: c649b93284a48df705d389f4de728d83f793af04
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: bed56f169e2a985b23b3bca96c32f7caba596432
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036642"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061511"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -158,7 +158,7 @@ Per altre informazioni su pacemaker per Linux in Azure, vedere la pagina relativ
 
 L'agente di risorse per IBM DB2 LUW è incluso in Red Hat Enterprise Linux addon a disponibilità elevata del server. Per la configurazione descritta in questo documento, è necessario usare Red Hat Enterprise Linux per SAP. Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux 7,4 per SAP o versione successiva che è possibile usare per distribuire nuove macchine virtuali di Azure. Quando si sceglie un'immagine di macchina virtuale nel Marketplace di macchine virtuali di Azure, tenere presente i vari modelli di supporto o di servizio offerti da Red Hat tramite Azure Marketplace.
 
-### <a name="hosts-dns-updates"></a>Host: Aggiornamenti del DNS
+### <a name="hosts-dns-updates"></a>Ospita Aggiornamenti del DNS
 Creare un elenco di tutti i nomi host, inclusi i nomi host virtuali, e aggiornare i server DNS per abilitare l'indirizzo IP appropriato per la risoluzione dei nomi host. Se un server DNS non esiste o non è possibile aggiornare e creare voci DNS, è necessario usare i file host locali delle singole VM che partecipano a questo scenario. Se si usano voci di file host, assicurarsi che le voci vengano applicate a tutte le macchine virtuali nell'ambiente di sistema SAP. Tuttavia, si consiglia di usare il DNS che, idealmente, si estende in Azure
 
 
@@ -517,15 +517,19 @@ Se è stata eseguita l'installazione prima di creare la configurazione di DB2 HA
 Usare lo strumento di configurazione J2EE per controllare o aggiornare l'URL JDBC. Poiché lo strumento di configurazione J2EE è uno strumento grafico, è necessario installare il server X:
  
 1. Accedere al server applicazioni primario dell'istanza di J2EE ed eseguire:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
-1.Nel riquadro a sinistra scegliere **Archivio sicurezza**.
-1.Nel riquadro destro scegliere la chiave JDBC/pool/\<SAPSID>/URL.
-1.Modificare il nome host nell'URL JDBC per il nome host virtuale.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
-1.Selezionare **Aggiungi**.
-1.Per salvare le modifiche, selezionare l'icona del disco in alto a sinistra.
-1.Chiudere lo strumento di configurazione di.
-1.Riavviare l'istanza di Java.
+    
+    <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
+    
+1. Nel riquadro a sinistra scegliere **Archivio sicurezza**.
+1. Nel riquadro destro scegliere la chiave `jdbc/pool/\<SAPSID>/url`.
+1. Modificare il nome host nell'URL JDBC per il nome host virtuale.
+    
+    <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
+    
+1. Selezionare **Aggiungi**.
+1. Per salvare le modifiche, selezionare l'icona del disco in alto a sinistra.
+1. Chiudere lo strumento di configurazione di.
+1. Riavviare l'istanza di Java.
 
 ## <a name="configure-log-archiving-for-hadr-setup"></a>Configurare l'archiviazione dei log per l'installazione di HADR
 Per configurare l'archiviazione dei log DB2 per il programma di installazione di HADR, è consigliabile configurare il database primario e quello di standby in modo da ottenere la funzionalità di recupero log automatica da tutti i percorsi di archiviazione dei log. Sia il database primario che quello di standby devono essere in grado di recuperare i file di archivio di log da tutti i percorsi di archiviazione dei log in cui una delle istanze del database può archiviare i file di log. 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c84f68a9af855f61523919069e1947e051b130b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622258"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061367"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Domande frequenti
 
@@ -43,11 +43,9 @@ Gli account utente per le applicazioni devono essere sempre creati tramite un fl
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quali provider di identità di social networking sono attualmente supportati? Per quali provider è previsto il supporto in futuro?
 
-Attualmente sono supportati Facebook, Google +, LinkedIn, Amazon, Twitter (anteprima), WeChat (anteprima), Weibo (anteprima) e QQ (anteprima). Verrà aggiunto il supporto per altri provider di identità di social networking noti, in base alle esigenze dei clienti.
+Attualmente sono supportati diversi provider di identità basati su social network, tra cui Amazon, Facebook, GitHub (Preview), Google, LinkedIn, account Microsoft (MSA), QQ (anteprima), Twitter, WeChat (anteprima) e Weibo (anteprima). Viene valutato l'aggiunta del supporto per altri provider di identità di social networking comuni in base alla domanda dei clienti.
 
-In Azure AD B2C è stato aggiunto anche il supporto per i [criteri personalizzati](active-directory-b2c-overview-custom.md). Questi criteri personalizzati consentono a uno sviluppatore di creare criteri propri con qualsiasi provider di identità che supporta [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) o SAML.
-
-Per un'introduzione ai criteri personalizzati, vedere lo [starter pack sui criteri personalizzati](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+Azure AD B2C supporta anche [criteri personalizzati](active-directory-b2c-overview-custom.md). I criteri personalizzati consentono di creare criteri personalizzati per qualsiasi provider di identità che supporta [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) o SAML. Per un'introduzione ai criteri personalizzati, vedere lo [starter pack sui criteri personalizzati](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>È possibile configurare ambiti per raccogliere altre informazioni sugli utenti da diversi provider di identità di social networking?
 

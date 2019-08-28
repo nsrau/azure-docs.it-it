@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: bf28fb69d35256d65fdfd2c092ad48d0ad1281f9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5920fe4a1addd2188f53a15c1d2232f505009087
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985992"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061484"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiare dati in e da Archiviazione tabelle di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -221,10 +221,8 @@ Per copiare dati in e da Tabella di Azure, impostare la proprietà type del set 
 
 Per gli archivi di dati privi di schema, ad esempio Tabella di Azure, Data Factory deduce lo schema in uno dei modi seguenti:
 
-* Se si specifica la struttura dei dati usando la proprietà **structure** nella definizione del set di dati, Data Factory considera la struttura come schema. In questo caso, se una riga non contiene un valore per una colonna, viene inserito un valore null.
-* Se non si specifica la struttura dei dati usando la proprietà **structure** nella definizione del set di dati, Data Factory deduce lo schema usando la prima riga di dati. In questo caso, se la prima riga non contiene lo schema completo, alcune colonne risultano mancanti nel risultato dell'operazione di copia.
-
-Per le origini dati prive di schema, la procedura consigliata consiste nello specificare la struttura dei dati usando la proprietà **structure**.
+* Se si specifica il mapping delle colonne nell'attività di copia, Data Factory utilizzare l'elenco colonna sul lato di origine per recuperare i dati. In questo caso, se una riga non contiene un valore per una colonna, viene inserito un valore null.
+* Se non si specifica il mapping delle colonne nell'attività di copia, Data Factory deduce lo schema usando la prima riga dei dati. In questo caso, se la prima riga non contiene lo schema completo, ad esempio se alcune colonne hanno un valore null, alcune colonne non vengono perse nel risultato dell'operazione di copia.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 

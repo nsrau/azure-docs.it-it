@@ -4,14 +4,14 @@ description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 08/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: b688218b871a5f652e7f4de172d23f1b1fb0aa5c
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: d56f6a5ffe01540b9ce1e5a20ec628a90da594c6
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035512"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061784"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Risolvere i problemi di trasferimento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione
 
@@ -43,9 +43,11 @@ Quando possibile, suddividere spostamenti di grandi dimensioni in operazioni di 
 
 ## <a name="resource-not-in-succeeded-state"></a>Lo stato della risorsa non è riuscito
 
-Quando viene ricevuto un messaggio di errore che indica che non è possibile spostare una risorsa perché non è in uno stato Succeeded, può essere effettivamente una risorsa dipendente che blocca lo spostamento.
+Quando viene ricevuto un messaggio di errore che indica che non è possibile spostare una risorsa perché non è in uno stato Succeeded, può essere effettivamente una risorsa dipendente che blocca lo spostamento. Il codice di errore è in genere **MoveCannotProceedWithResourcesNotInSucceededState**.
 
-Se il gruppo di risorse di origine o di destinazione contiene una rete virtuale, durante lo spostamento vengono controllati gli Stati di tutte le risorse dipendenti per la rete virtuale. Se una di queste risorse si trova in uno stato di errore, lo spostamento è bloccato. Se ad esempio una macchina virtuale che usa la rete virtuale non è riuscita, lo spostamento è bloccato. Lo spostamento viene bloccato anche quando la macchina virtuale non è una delle risorse spostate e non si trova in uno dei gruppi di risorse per lo spostamento. Per evitare questo problema, spostare le risorse in un gruppo di risorse che non dispone di una rete virtuale.
+Se il gruppo di risorse di origine o di destinazione contiene una rete virtuale, durante lo spostamento vengono controllati gli Stati di tutte le risorse dipendenti per la rete virtuale. Il controllo include le risorse direttamente e indirettamente dipendenti dalla rete virtuale. Se una di queste risorse si trova in uno stato di errore, lo spostamento è bloccato. Se ad esempio una macchina virtuale che usa la rete virtuale non è riuscita, lo spostamento è bloccato. Lo spostamento viene bloccato anche quando la macchina virtuale non è una delle risorse spostate e non si trova in uno dei gruppi di risorse per lo spostamento.
+
+Quando si riceve questo errore, sono disponibili due opzioni. Spostare le risorse in un gruppo di risorse che non dispone di una rete virtuale o [contattare il supporto tecnico](../azure-supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

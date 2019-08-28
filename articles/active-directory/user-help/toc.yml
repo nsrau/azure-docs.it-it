@@ -1,5 +1,5 @@
 - name: Documentazione della Guida dell'utente
-  href: index.md
+  href: index.yml
 - name: Guida alla verifica in due passaggi
   items:
     - name: Panoramica

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 06/26/2019
-ms.openlocfilehash: 776a27ca0babfd7557bf4d16c449a8dfa5bceaf7
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 08/27/2019
+ms.openlocfilehash: 921a14243bc50651358f0df42b88857ab227916d
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998207"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060642"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -51,7 +51,7 @@ Istanza gestita ha due livelli di servizio: Per utilizzo generico e business cri
 
 | **Funzionalità** | **Utilizzo generico** | **Business Critical** |
 | --- | --- | --- |
-| Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24, 32 <br/> Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 |
+| Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24 <br/> Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 |
 | Memoria massima | Quarta generazione: 56 GB-168 GB (7 GB/vCore)<br/>Quinta generazione: 40,8 GB-408 GB (5.1 GB/vCore)<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. | Quarta generazione: 56 GB-168 GB (7 GB/vCore)<br/>Quinta generazione: 40,8 GB-408 GB (5.1 GB/vCore)<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. |
 | Dimensioni massime archiviazione riservata istanza | -2 TB per 4 Vcore (solo quinta generazione)<br/>-8 TB per altre dimensioni | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>-1 TB per 4, 8, 16 vcore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
 | Dimensioni massime del database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
@@ -65,10 +65,12 @@ Istanza gestita ha due livelli di servizio: Per utilizzo generico e business cri
 | Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore)<br/>Aggiungere altri Vcore per ottenere ulteriore spazio in TempDB. | Limitato dalle dimensioni massime di archiviazione dell'istanza. Le dimensioni del file di log TempDB sono attualmente limitate a 24 GB/vCore. |
 | OLTP in memoria | Non supportate | Disponibile |
 | Numero massimo di sessioni | 30000 | 30000 |
+| Repliche leggibili | 0 | 1 |
 
 > [!NOTE]
 > - La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include la dimensione dei dati e dei file di log presenti sia nel database utenti che in quello di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
 > - La velocità effettiva e IOPS dipendono anche dalle dimensioni di pagina non esplicitamente limitate dall'istanza gestita.
+> È possibile creare un'altra replica leggibile in un'area di Azure diversa usando i gruppi di failover automatico.
 
 ## <a name="supported-regions"></a>Aree supportate
 
@@ -107,7 +109,7 @@ La tabella seguente illustra i limiti internazionali predefiniti per le sottoscr
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e MSDN Platforms|2|32|
 
-\*Per la pianificazione delle distribuzioni, tenere presente che il livello di servizio business critical (BC) richiede quattro (4) volte più capacità vCore rispetto al livello di servizio per utilizzo generico (GP). Esempio: 1 GP vCore = 1 unità vCore e 1 BC vCore = 4 unità vCore. Per semplificare l'analisi del consumo rispetto ai limiti predefiniti, riepilogare le unità vCore in tutte le subnet dell'area in cui vengono distribuite le istanze gestite e confrontare i risultati con i limiti di unità di istanza per il tipo di sottoscrizione. Il **numero massimo di unità vCore** viene applicato a ogni sottoscrizione in un'area. Non esiste alcun limite per le singole subnet, ad eccezione del fatto che la somma di tutti i Vcore distribuiti tra più subnet deve essere minore o uguale al **numero massimo di unità vCore**.
+\*Per la pianificazione delle distribuzioni, tenere presente che il livello di servizio business critical (BC) richiede quattro (4) volte più capacità vCore rispetto al livello di servizio per utilizzo generico (GP). Ad esempio:  1 GP vCore = 1 unità vCore e 1 BC vCore = 4 unità vCore. Per semplificare l'analisi del consumo rispetto ai limiti predefiniti, riepilogare le unità vCore in tutte le subnet dell'area in cui vengono distribuite le istanze gestite e confrontare i risultati con i limiti di unità di istanza per il tipo di sottoscrizione. Il **numero massimo di unità vCore** viene applicato a ogni sottoscrizione in un'area. Non esiste alcun limite per le singole subnet, ad eccezione del fatto che la somma di tutti i Vcore distribuiti tra più subnet deve essere minore o uguale al **numero massimo di unità vCore**.
 
 \*\*I limiti di subnet e vCore maggiori sono disponibili nelle aree geografiche seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali 2.
 

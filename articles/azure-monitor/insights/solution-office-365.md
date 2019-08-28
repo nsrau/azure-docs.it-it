@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: d50b3ab68b406db47a4cc8fec081b2fc076071d1
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741667"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061673"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -83,45 +83,46 @@ Il primo passaggio consiste nel creare un'applicazione in Azure Active Directory
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).
 1. Selezionare **Azure Active Directory** e quindi **Registrazioni per l'app**.
-1. Fare clic su **Registrazione nuova applicazione**.
+1. Fare clic su **nuova registrazione**.
 
     ![Aggiungere la registrazione per l'app](media/solution-office-365/add-app-registration.png)
-1. Impostare **Nome** e **URL di accesso** per l'applicazione.  Il nome deve essere descrittivo.  Usare `http://localhost` per l'URL e lasciare l' _app Web/API_ per il **tipo di applicazione**
+1. Immettere un **nome**di applicazione. Selezionare **account in qualsiasi directory organizzativa (qualsiasi Azure ad directory-multi-tenant)** per i **tipi di account supportati**.
     
     ![Creare l'applicazione](media/solution-office-365/create-application.png)
-1. Fare clic su **Crea** e convalidare le informazioni dell'applicazione.
+1. Fare clic su **registra** e convalidare le informazioni sull'applicazione.
 
     ![App registrata](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>Configurare l'applicazione per Office 365
 
-1. Fare clic su **Impostazioni** per aprire il menu **Impostazioni**.
-1. Selezionare **Proprietà**. Impostare **Multi-tenant** su _Sì_.
+1. Selezionare **autenticazione** e verificare che gli **account in qualsiasi directory organizzativa, ovvero qualsiasi Azure ad directory-multi-tenant,** siano selezionati in **tipi di account supportati**.
 
     ![Impostazioni multi-tenant](media/solution-office-365/settings-multitenant.png)
 
-1. Selezionare **Autorizzazioni necessarie** nel menu **Impostazioni** e quindi fare clic su **Aggiungi**.
-1. Fare clic su **Selezionare un'API** e quindi **Office 365 Management APIs** (API di gestione di Office 365). Fare clic su **Office 365 Management APIs** (API di gestione di Office 365). Fare clic su **Seleziona**.
+1. Selezionare **autorizzazioni API** e quindi **aggiungere un'autorizzazione**.
+1. Fare clic su **API di gestione di Office 365**. 
 
     ![Selezionare l'API](media/solution-office-365/select-api.png)
 
-1. In **Selezionare le autorizzazioni** selezionare le opzioni seguenti per **Autorizzazioni applicazione** e **Autorizzazioni delegate**:
+1. In **quali tipi di autorizzazioni sono necessarie per l'applicazione?** selezionare le opzioni seguenti per le autorizzazioni **dell'applicazione** e le **autorizzazioni delegate**:
    - Legge le informazioni sull'integrità dei servizi per l'organizzazione
    - Legge i dati dell'attività per l'organizzazione
    - Legge i report attività per l'organizzazione
 
-     ![Selezionare l'API](media/solution-office-365/select-permissions.png)
+     ![Selezionare l'API](media/solution-office-365/select-permissions-01.png)![Selezionare l'API](media/solution-office-365/select-permissions-02.png)
 
-1. Fare clic su **Seleziona** e quindi su **Fine**.
-1. Fare clic su **Concedi autorizzazioni** e quindi su **Sì** quando viene chiesto di confermare.
+1. Fare clic su **Aggiungi autorizzazioni**.
+1. Fare clic su **concedi il consenso dell'amministratore** e quindi su **Sì** quando viene richiesta la verifica.
 
-    ![Concedere le autorizzazioni](media/solution-office-365/grant-permissions.png)
 
-### <a name="add-a-key-for-the-application"></a>Aggiungere una chiave per l'applicazione
+### <a name="add-a-secret-for-the-application"></a>Aggiungere un segreto per l'applicazione
 
-1. Select **Chiavi** nel menu **Impostazioni**.
+1. Selezionare **certificati & segreti** e quindi **nuovo segreto client**.
+
+    ![Chiavi](media/solution-office-365/secret.png)
+ 
 1. Impostare **Descrizione** e **Durata** per la nuova chiave.
-1. Fare clic su **Salva** e quindi copiare il **valore** che viene generato.
+1. Fare clic su **Aggiungi** , quindi copiare il **valore** generato.
 
     ![Chiavi](media/solution-office-365/keys.png)
 
@@ -569,7 +570,7 @@ Le proprietà seguenti sono comuni a tutti i record di Azure Active Directory.
 
 Questi record vengono creati quando un utente di Active Directory tenta di accedere.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |

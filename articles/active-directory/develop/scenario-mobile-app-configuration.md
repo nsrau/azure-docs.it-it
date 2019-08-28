@@ -15,22 +15,22 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bdf9210eb88b2057cf861b208f19d3e6f562e9a
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 8ebf524d932322fa08729f229a451afe656900d5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414850"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061413"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>App per dispositivi mobili che chiama API Web-configurazione del codice
 
-Dopo aver creato l'applicazione, si apprenderà come configurare il codice dai parametri dell'applicazione ottenuti alla registrazione dell'app. Le applicazioni per dispositivi mobili hanno anche alcune specifiche complesse, che è necessario eseguire con l'adattamento al Framework usato per compilare queste app
+Dopo aver creato l'applicazione, si apprenderà come configurare il codice usando i parametri di registrazione dell'app. Le applicazioni per dispositivi mobili hanno anche alcune specifiche complesse, che è necessario eseguire con l'adattamento al Framework usato per compilare queste app
 
 ## <a name="msal-libraries-supporting-mobile-apps"></a>Librerie MSAL che supportano app per dispositivi mobili
 
 Le librerie Microsoft che supportano le app per dispositivi mobili sono:
 
-  Libreria MSAL | Descrizione
+  Libreria MSAL | DESCRIZIONE
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Per lo sviluppo di applicazioni portabili. Le piattaforme supportate da MSAL.NET per compilare un'applicazione per dispositivi mobili sono UWP, Novell. iOS e Novell. Android.
   ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Per sviluppare applicazioni iOS native con Objective C o SWIFT
@@ -38,7 +38,7 @@ Le librerie Microsoft che supportano le app per dispositivi mobili sono:
 
 ## <a name="configuring-the-application"></a>Configurazione dell'applicazione
 
-Le applicazioni per dispositivi mobili usano `PublicClientApplication` la classe MSAL. Ecco come crearne un'istanza:
+Le applicazioni per dispositivi `PublicClientApplication` mobili usano la classe. Ecco come crearne un'istanza:
 
 ### <a name="android"></a>Android
 
@@ -68,7 +68,7 @@ Il paragrafo seguente illustra come configurare il codice dell'applicazione per 
 
 #### <a name="instantiating-the-application"></a>Creazione di un'istanza dell'applicazione
 
-In Novell, o UWP, il modo più semplice per creare un'istanza dell'applicazione è il seguente, dove `ClientId` è il GUID dell'applicazione registrato.
+In Novell, o UWP, il modo più semplice per creare un'istanza dell'applicazione è il seguente, dove `ClientId` è il GUID dell'app registrata.
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
@@ -87,7 +87,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
   .Build();
 ```
 
-In Android è `CurrentActivityPlugin` consigliabile usare [qui](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Quindi, `PublicClientApplication` il codice del generatore sarà simile al seguente:
+In Android è consigliabile usare `CurrentActivityPlugin` [qui](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Quindi, `PublicClientApplication` il codice del generatore sarà simile al seguente:
 
 ```CSharp
 // Requires MSAL.NET 4.2 or above
@@ -128,7 +128,7 @@ Infine, esistono alcune particolarità da conoscere sui browser in Android. Sono
 
 #### <a name="uwp-specific-considerations"></a>Considerazioni specifiche di UWP
 
-In UWP è possibile usare le reti aziendali. Per informazioni sulle specifiche UWP, vedere [considerazioni specifiche di piattaforma UWP (Universal Windows Platform) con MSAL.NET](msal-net-uwp-considerations.md).
+In UWP è possibile usare le reti aziendali. Per altre informazioni sull'uso della libreria MSAL con UWP, vedere [considerazioni specifiche di piattaforma UWP (Universal Windows Platform) con MSAL.NET](msal-net-uwp-considerations.md).
 
 ## <a name="configuring-the-application-to-use-the-broker"></a>Configurazione dell'applicazione per l'utilizzo del broker
 

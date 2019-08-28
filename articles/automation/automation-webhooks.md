@@ -9,22 +9,22 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e0e0cdfd5bdda125ed38173df56e0fb7a84f71a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 153e910ea85ae843c6d4db51e709b58e441f6761
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477936"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061441"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
 
-Un *webhook* consente di avviare un Runbook specifico in Automazione di Azure tramite una singola richiesta HTTP. In questo modo i servizi esterni, ad esempio servizi di Azure DevOps, GitHub, log di monitoraggio di Azure o applicazioni personalizzate possono avviare i runbook senza implementare una soluzione completa usando l'API di automazione di Azure.  
+Un *webhook* consente di avviare un Runbook specifico in Automazione di Azure tramite una singola richiesta HTTP. In questo modo, i servizi esterni come Azure DevOps Services, GitHub, i log di monitoraggio di Azure o le applicazioni personalizzate possono avviare manuali operativi senza implementare una soluzione completa usando l'API di automazione di Azure.
 ![Panoramica dei webhook](media/automation-webhooks/webhook-overview-image.png)
 
 È possibile confrontare i webhook con altre modalità di avvio di un Runbook nell'articolo relativo all' [avvio di un Runbook in Automazione di Azure](automation-starting-a-runbook.md)
 
 > [!NOTE]
-> Usando un webhook per avviare un runbook di Python non è supportato.
+> L'uso di un webhook per avviare un Runbook Python non è supportato.
 
 ## <a name="details-of-a-webhook"></a>Informazioni dettagliate sui webhook
 
@@ -32,9 +32,9 @@ La tabella seguente descrive le proprietà che devono essere configurate per un 
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| NOME |È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client. Il nome viene usato solo per consentire all'utente di identificare il runbook in Automazione di Azure. <br> Come procedura consigliata è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
+| Name |È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client. Il nome viene usato solo per consentire all'utente di identificare il runbook in Automazione di Azure. <br> Come procedura consigliata è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
 | URL |L'URL del webhook è l'indirizzo univoco che viene chiamato da un client con HTTP POST per avviare il Runbook collegato al webhook. Viene generato automaticamente al momento della creazione del webhook. Non è possibile specificare un URL personalizzato. <br> <br> L'URL contiene un token di sicurezza che consente al runbook di essere richiamato da un sistema di terze parti senza un'autenticazione aggiuntiva. Per questo motivo, deve essere considerato come una password. Per motivi di sicurezza, è possibile visualizzare l'URL solo nel portale di Azure al momento della creazione del webhook. Prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
-| Expiration date |Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato. La data di scadenza può essere modificata dopo la creazione del webhook, a condizione che quest'ultimo non sia scaduto. |
+| Data scadenza |Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato. La data di scadenza può essere modificata dopo la creazione del webhook, a condizione che quest'ultimo non sia scaduto. |
 | Enabled |Un webhook viene abilitato per impostazione predefinita nel momento in cui viene creato. Se viene disabilitato, nessun client sarà in grado di usarlo. È possibile impostare la proprietà **Enabled** quando si crea il webhook o in qualsiasi momento successivo. |
 
 ### <a name="parameters"></a>Parametri
@@ -47,13 +47,16 @@ Quando avvia un runbook con un webhook, un client non può eseguire l'override d
 
 Di seguito sono elencate le proprietà dell'oggetto **$WebhookData**:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | WebhookName |Nome del webhook. |
 | RequestHeader |Tabella hash contenente le intestazioni della richiesta POST in ingresso. |
 | RequestBody |Corpo della richiesta POST in ingresso. Mantiene tutta la formattazione, ad esempio stringa, JSON, XML o dati codificati in un modulo. Il Runbook deve essere scritto in modo che funzioni con il formato di dati previsto. |
 
 Non è richiesta alcuna configurazione del webhook per supportare il parametro **$WebhookData** e il runbook non deve necessariamente accettarlo. Se il runbook non definisce il parametro, gli eventuali dettagli della richiesta inviata dal client verranno ignorati.
+
+> [!NOTE]
+> Quando si chiama un webhook, è sempre necessario archiviare tutti i valori dei parametri in caso di errore della chiamata. Se si verifica un'interruzione di rete o un problema di connessione, non sarà possibile recuperare le chiamate al webhook non riuscite.
 
 Se si specifica un valore per $WebhookData quando si crea il webhook, viene eseguito l'override di tale valore quando il webhook avvia il runbook con i dati della richiesta POST del client, anche se il client non include dati nel corpo della richiesta. Se si avvia un runbook con l'oggetto $WebhookData che usa un metodo diverso da un webhook, è possibile specificare un valore per $Webhookdata che verrà riconosciuto dal runbook. Questo valore deve essere un oggetto con le stesse [proprietà](#details-of-a-webhook) di $Webhookdata in modo che il Runbook possa usarlo correttamente come se stesse usando con il WebhookData effettivo passato da un webhook.
 
@@ -113,7 +116,7 @@ Il client riceve uno dei codici restituiti seguenti dalla richiesta POST.
 | Codice | Testo | Descrizione |
 |:--- |:--- |:--- |
 | 202 |Accepted |La richiesta è stata accettata e il Runbook è stato accodato. |
-| 400 |Bad Request |La richiesta non è stata accettata per uno dei motivi seguenti: <ul> <li>Il webhook è scaduto.</li> <li>Il webhook è disabilitato.</li> <li>Il token nell'URL non è valido.</li>  </ul> |
+| 400 |Richiesta errata |La richiesta non è stata accettata per uno dei motivi seguenti: <ul> <li>Il webhook è scaduto.</li> <li>Il webhook è disabilitato.</li> <li>Il token nell'URL non è valido.</li>  </ul> |
 | 404 |Non trovato |La richiesta non è stata accettata per uno dei motivi seguenti: <ul> <li>Il webhook non è stato trovato.</li> <li>Il runbook non è stato trovato.</li> <li>L'account non è stato trovato.</li>  </ul> |
 | 500 |Internal Server Error |L'URL è valido, ma si è verificato un errore. Inviare di nuovo la richiesta. |
 
@@ -171,7 +174,7 @@ if ($WebhookData) {
             {
                 throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
             }
-            Write-Output "Authenticating to Azure with service principal." 
+            Write-Output "Authenticating to Azure with service principal."
             Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Output
 
         # Start each virtual machine
