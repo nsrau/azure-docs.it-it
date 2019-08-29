@@ -15,20 +15,20 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 629e7bf8ee7100b5927483ecfd4efa1d9223c151
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 72493400ba20ef3c838a636b66afdf26aa00ff62
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989930"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127428"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Report degli accessi a rischio nel portale di Azure Active Directory
 
-Azure Active Directory (Azure AD) rileva le azioni sospette correlate agli account utente. Per ogni azione rilevata viene creato un record detto **evento di rischio**. Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](concept-risk-events.md). 
+Azure Active Directory (Azure AD) rileva le azioni sospette correlate agli account utente. Per ogni azione rilevata, viene creato un record denominato **rilevamento dei rischi** . Per informazioni dettagliate, vedere [Azure ad rilevamento dei rischi](concept-risk-events.md). 
 
 È possibile accedere ai report di sicurezza dal [portale di Azure](https://portal.azure.com) selezionando il pannello **Azure Active Directory** e quindi passando alla sezione **Sicurezza**. 
 
-Sono disponibili due report di sicurezza diversi che vengono calcolati in base agli eventi di rischio:
+Sono disponibili due report di sicurezza diversi che vengono calcolati in base ai rilevamenti dei rischi:
 
 - **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente.
 
@@ -36,7 +36,7 @@ Sono disponibili due report di sicurezza diversi che vengono calcolati in base a
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/10.png)
 
-Per informazioni su come configurare i criteri che attivano gli eventi di rischio, vedere [Procedura: Configurare i criteri di rischio utente](../identity-protection/howto-user-risk-policy.md).  
+Per informazioni su come configurare i criteri per l'attivazione di questi rilevamenti dei rischi, vedere [come configurare i criteri di rischio utente](../identity-protection/howto-user-risk-policy.md).  
 
 ## <a name="who-can-access-the-risky-sign-ins-report"></a>Chi può accedere al report sugli accessi a rischio?
 
@@ -54,9 +54,9 @@ Tutte le edizioni di Azure AD offrono report relativi agli accessi a rischio. Tu
 
 - Nelle edizioni **Azure Active Directory Free e Basic**  è incluso un elenco di accessi a rischio. 
 
-- L'edizione **Azure Active Directory Premium 1** consente anche di esaminare alcuni degli eventi di rischio sottostanti che sono stati rilevati per ogni report. 
+- Inoltre, la **Azure Active Directory Premium 1** edizione consente di esaminare alcuni dei rilevamenti di rischio sottostanti rilevati per ogni report. 
 
-- L'edizione **Azure Active Directory Premium 2** offre informazioni più dettagliate su tutti gli eventi di rischio sottostanti e permette anche di configurare criteri di sicurezza che rispondono automaticamente a livelli di rischio configurati.
+- L'edizione **Azure Active Directory Premium 2** fornisce le informazioni più dettagliate su tutti i rilevamenti di rischi sottostanti e consente inoltre di configurare criteri di sicurezza che rispondono automaticamente ai livelli di rischio configurati.
 
 ## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Report degli accessi a rischio per le edizioni Azure AD Free e Basic
 
@@ -90,26 +90,26 @@ Questo report offre anche la possibilità di:
 
 Il report degli accessi a rischio nelle edizioni Azure AD Premium fornisce:
 
-- Informazioni aggregate sui [tipi di evento di rischio](concept-risk-events.md) che sono stati rilevati. Con l'**edizione Azure AD Premium P1**, i rilevamenti non previsti dalla licenza in uso vengono visualizzati come evento di rischio con l'indicazione **È stato rilevato un accesso con rischi aggiuntivi**. Con l'**edizione Azure AD Premium P2**, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti.
+- Informazioni aggregate sui [tipi di rilevamento dei rischi](concept-risk-events.md) rilevati. Con l' **edizione Azure ad Premium P1**, i rilevamenti che non sono coperti dalla licenza vengono visualizzati come l'accesso al rilevamento dei rischi **con rischi aggiuntivi**rilevati. Con l'**edizione Azure AD Premium P2**, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti.
 
 - un'opzione per scaricare il report
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/456.png)
 
-Quando si seleziona un evento di rischio, si ottiene la visualizzazione di un report dettagliato per questo evento di rischio che consente di:
+Quando si seleziona un rilevamento del rischio, si ottiene una visualizzazione dettagliata del report per questo rilevamento dei rischi che consente di:
 
 - avere un'opzione per configurare i [criteri per la correzione del rischio per gli utenti](../identity-protection/howto-user-risk-policy.md)  
 
-- esaminare la cronologia di rilevamento per l'evento di rischio  
+- Esaminare la sequenza temporale di rilevamento per il rilevamento dei rischi  
 
-- esaminare l'elenco di utenti per cui è stato rilevato l'evento di rischio
+- Esaminare un elenco di utenti per cui è stato rilevato questo rilevamento dei rischi
 
-- chiudere manualmente gli eventi di rischio. 
+- Chiudere manualmente i rilevamenti di rischio. 
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/457.png)
 
 > [!IMPORTANT]
-> A volte è possibile trovare un evento di rischio senza una voce di accesso corrispondente nel [report sugli accessi](concept-sign-ins.md). Questo avviene perché Identity Protection valuta il rischio per gli accessi sia **interattivi** che **non interattivi** mentre il report sugli accessi mostra solo gli accessi interattivi.
+> In alcuni casi, è possibile che si verifichi un rilevamento dei rischi senza una voce di accesso corrispondente nel [report](concept-sign-ins.md)degli accessi. Questo avviene perché Identity Protection valuta il rischio per gli accessi sia **interattivi** che **non interattivi** mentre il report sugli accessi mostra solo gli accessi interattivi.
 
 Quando si seleziona un utente, si ottiene la visualizzazione di un report dettagliato per questo utente che consente di:
 
@@ -117,14 +117,14 @@ Quando si seleziona un utente, si ottiene la visualizzazione di un report dettag
 
 - Reimpostare la password dell'utente
 
-- eliminare tutti gli eventi
+- Elimina tutti gli eventi
 
-- ricercare la causa degli eventi a rischio segnalati per l'utente. 
+- Esaminare i rilevamenti dei rischi segnalati per l'utente. 
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/324.png)
 
-Per ricercare la causa di un evento di rischio, selezionarlo dall'elenco.  
-Verrà visualizzato il pannello **Dettagli** per questo evento di rischio. Nel pannello **Dettagli**, è possibile chiudere manualmente un evento di rischio o riattivare un evento di rischio chiuso manualmente. 
+Per esaminare un rilevamento dei rischi, selezionarne uno dall'elenco.  
+Verrà visualizzato il pannello dei **Dettagli** per questo rilevamento dei rischi. Nel pannello dei **Dettagli** è possibile scegliere di chiudere manualmente un rilevamento dei rischi oppure riattivare un rilevamento dei rischi chiuso manualmente. 
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/325.png)
 
@@ -132,4 +132,4 @@ Verrà visualizzato il pannello **Dettagli** per questo evento di rischio. Nel p
 
 - [Procedura: Configurare i criteri di rischio utente](../identity-protection/howto-user-risk-policy.md)
 - [Procedura: Configurare i criteri di correzione del rischio utente](../identity-protection/howto-user-risk-policy.md)
-- [Tipi di eventi di rischio](concept-risk-events.md)
+- [Tipi di rilevamento del rischio](concept-risk-events.md)

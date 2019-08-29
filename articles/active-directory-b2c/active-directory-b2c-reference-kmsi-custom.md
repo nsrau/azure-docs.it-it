@@ -1,5 +1,5 @@
 ---
-title: Funzionalità Mantieni l'accesso in Azure Active Directory B2C | Microsoft Docs
+title: Mantieni l'accesso in Azure Active Directory B2C
 description: Informazioni su come configurare Mantieni l'accesso (KMSI) in Active Directory B2C di Azure.
 services: active-directory-b2c
 author: mmacy
@@ -7,29 +7,31 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 08/29/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e99dacbe7ae0f42919616e04e60bf4f21b9bd985
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 29cdf5e7723113b4673945bf5db3158680a44b79
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835376"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147046"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Abilitare "Mantieni l'accesso (KMSI)" in Active Directory B2C di Azure
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La funzionalità "Mantieni l'accesso (KMSI)" può essere abilitata per il Web e le applicazioni native in Active Directory B2C di Azure (Azure AD). Questa funzionalità permette l'accesso agli utenti che tornano alle applicazioni senza dover immettere nuovamente il nome utente e la password. Quando l'utente si scollega, l'accesso viene revocato.
+È possibile abilitare la funzionalità Mantieni l'accesso (KMSI) per gli utenti delle applicazioni Web e native che dispongono di account locali nella directory Azure Active Directory B2C (Azure AD B2C). Questa funzionalità concede l'accesso agli utenti che tornano all'applicazione senza chiedere di immettere nuovamente il nome utente e la password. Quando l'utente si scollega, l'accesso viene revocato.
 
 Gli utenti dovrebbero evitare di abilitare questa funzione su un computer pubblico.
 
-![Esempio per l'abbonamento nella pagina di accesso che mostra un Mantieni l'accesso nella casella di controllo](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
+![Pagina di accesso di esempio che mostra una casella di controllo Mantieni l'accesso](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un tenant di Azure AD B2C configurato per consentire l'iscrizione/accesso a un account locale. Se non si dispone di un tenant, è possibile crearne uno seguendo la procedura descritta in [Esercitazione: Creare un tenant di Azure Active Directory B2C](tutorial-create-tenant.md).
+Un tenant di Azure AD B2C configurato per consentire l'accesso all'account locale. KMSI non è supportato per gli account del provider di identità esterno.
+
+Se non si dispone di un tenant, è possibile crearne uno seguendo la procedura descritta in [Esercitazione: Creare un tenant di Azure Active Directory B2C](tutorial-create-tenant.md).
 
 ## <a name="add-a-content-definition-element"></a>Aggiungere un elemento di definizione del contenuto
 
@@ -87,7 +89,7 @@ Aggiungere gli identificatori dell'applicazione per il file *trustframeworkexten
 
 1. Nel file *trustframeworkextensions. XML*, trovare l'elemento **TechnicalProfile** con l'identificatore di `login-NonInteractive` e l'elemento **TechnicalProfile** con un identificatore di `login-NonInteractive-PasswordChange` e sostituire tutti i valori di `IdentityExperienceFrameworkAppId` con l'identificatore di applicazione dell'applicazione Framework dell'esperienza di gestione delle identità come descritto in [Introduzione](active-directory-b2c-get-started-custom.md).
 
-    ```
+    ```XML
     <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
     ```
 
@@ -183,11 +185,3 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
 5. Per testare i criteri personalizzati caricati, nel portale di Azure passare alla pagina dei criteri e quindi selezionare **Esegui ora**.
 
 È possibile trovare i criteri di esempio [qui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
-
-
-
-
-
-
-
-

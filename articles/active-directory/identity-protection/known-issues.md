@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d5aa50aec98b3944aed92b9da49182f0608f34c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: fe7125174129752e6d6dbe0e00d01d4f32755333
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333899"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126099"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Domande frequenti e problemi noti con Identity Protection (procedura aggiornata) in Azure Active Directory
 
@@ -34,15 +34,15 @@ Le query sul campo del **nome utente** fanno distinzione tra maiuscole e minusco
 
 Attivando **Visualizza date come** viene nascosta la colonna **ULTIMO AGGIORNAMENTO RISCHIO**. Per aggiungere nuovamente la colonna fare clic su **Colonne** nella parte superiore del pannello Utenti a rischio.
 
-**Elimina tutti gli eventi** nella modalità classica di Identity Protection imposta lo stato degli eventi di rischio come **Chiusi (risolti)** .
+**Ignora tutti gli eventi** in classica Identity Protection imposta lo stato dei rilevamenti dei rischi su **chiuso (risolto)** .
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Problemi noti segnalati dagli accessi a rischio
 
-**Risolvi** su un evento di rischio imposta lo stato su **Utenti che hanno superato la MFA secondo i criteri basati sul rischio**.
+**Risolvi** in un rilevamento dei rischi imposta lo stato sugli utenti che hanno superato l'autenticazione a più fattori **basata sui criteri basati sul rischio**.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-event"></a>Cause che impediscono di impostare i livelli di rischio per ogni evento di rischio.
+### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>Perché non è possibile impostare i propri livelli di rischio per ogni rilevamento dei rischi?
 
 I livelli di rischio in Identity Protection si basano sulla precisione del rilevamento e si avvalgono della tecnologia di Machine Learning. Per personalizzare ciò che viene presentato agli utenti, l'amministratore può includere o escludere determinati utenti o gruppi dai criteri di rischio utente e di rischio di accesso.
 
@@ -68,11 +68,11 @@ Il mapping di georilevazione IP costituisce una sfida a livello di settore. Se s
 - Inoltre, offriamo le informazioni ai sistemi di Machine Learning per futuri miglioramenti nella valutazione dei rischi.
 
     > [!NOTE]
-    > Se si ritiene che l'utente non sia compromesso, usare **Ignora rischio utente** sul livello utente anziché **Confermato sicuro** a livello di accesso. **Ignora rischio utente** sul livello dell'utente chiude il rischio utente e tutti gli accessi a rischio e gli eventi di rischio precedenti.
+    > Se si ritiene che l'utente non sia compromesso, usare **Ignora rischio utente** sul livello utente anziché **Confermato sicuro** a livello di accesso. Un **rischio** per l'utente di eliminazione a livello di utente chiude il rischio dell'utente e tutti gli accessi a rischio e i rilevamenti dei rischi precedenti.
 
-### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>Cause per cui viene visualizzato un punteggio di rischio utente con un valore basso (o superiore), anche se non vengono visualizzati gli accessi rischiosi o gli eventi di rischio in Identity Protection.
+### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Perché viene visualizzato un utente con un punteggio di rischio basso o superiore, anche se non vengono visualizzati accessi rischiosi o rilevamenti dei rischi in Identity Protection?
 
-Considerato il fatto che il rischio utente è di natura cumulativo e non ha scadenza, un utente potrebbe avere un rischio utente basso o superiore anche se non vi sono recenti accessi rischiosi o eventi di rischio visualizzati in Identity Protection. Questo problema può verificarsi se l'unica attività dannosa di un utente ha avuto luogo al di fuori dell'intervallo di tempo per cui si archiviano i dettagli degli accessi rischiosi e degli eventi di rischio. Il rischio utente non ha scadenza poiché gli attori dannosi sono noti rimanere nell'ambiente dei clienti per oltre 140 giorni con un'identità compromessa prima di lanciare l'attacco. I clienti possono esaminare la sequenza temporale del rischio utente per comprendere il motivo per cui un utente è a rischio, recandosi a: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
+Dato che i rischi per l'utente sono cumulativi e non scadono, un utente può avere un rischio utente minore o superiore anche se non sono presenti accessi rischiosi o rilevamenti rischiosi recenti in Identity Protection. Questo problema può verificarsi se l'unica attività dannosa per un utente ha avuto luogo oltre l'intervallo di tempo per cui vengono archiviati i dettagli degli accessi a rischio e dei rilevamenti dei rischi. Il rischio utente non ha scadenza poiché gli attori dannosi sono noti rimanere nell'ambiente dei clienti per oltre 140 giorni con un'identità compromessa prima di lanciare l'attacco. I clienti possono esaminare la sequenza temporale del rischio utente per comprendere il motivo per cui un utente è a rischio, recandosi a: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Cause per cui un accesso presenta un punteggio Elevato di "rischio di accesso (aggregato)" quando l'attività di rilevamento associata presenta un rischio basso o medio.
 

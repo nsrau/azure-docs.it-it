@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 80c1ffd27b0668f19fd87e7eda62e578c861ba64
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fb17d1b95d74a67f220651cf198f367bdd31f19f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934613"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129310"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -130,7 +130,7 @@ Azure Active Directory offre molte funzionalità che intercettano automaticament
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Implementare criteri di sicurezza per il rischio utente mediante Azure AD Identity Protection
 
-Il rischio utente indica la probabilità che l'identità di un utente sia stata compromessa e viene calcolato in base agli [eventi di rischio utente](../../active-directory/identity-protection/overview.md) associati all'identità di un utente. I criteri di rischio utente sono criteri di accesso condizionale che valutano il livello di rischio per un utente o un gruppo specifico. Basato su un livello di rischio basso, medio o elevato, un criterio può essere configurato per bloccare l'accesso o richiedere una modifica sicura della password mediante autenticazione a più fattori. Microsoft consiglia di richiedere una modifica sicura della password per gli utenti con rischio alto.
+Rischio utente indica la probabilità che l'identità dell'utente sia stata compromessa e calcolata in base ai rilevamenti dei [rischi utente](../../active-directory/identity-protection/overview.md) associati all'identità di un utente. I criteri di rischio utente sono criteri di accesso condizionale che valutano il livello di rischio per un utente o un gruppo specifico. Basato su un livello di rischio basso, medio o elevato, un criterio può essere configurato per bloccare l'accesso o richiedere una modifica sicura della password mediante autenticazione a più fattori. Microsoft consiglia di richiedere una modifica sicura della password per gli utenti con rischio alto.
 
 ![Utenti contrassegnati per il rischio](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
@@ -156,7 +156,7 @@ Il [monitoraggio di AD FS con Azure AD Connect Health](../../active-directory/hy
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Monitorare eventi di Azure AD Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) è uno strumento di notifica, monitoraggio e creazione di report che consente di rilevare le potenziali vulnerabilità che interessano le identità dell'organizzazione. Rileva eventi di rischio, ad esempio credenziali perse, comunicazione impossibile e accessi da dispositivi infettati, indirizzi IP anonimi, indirizzi IP associati a un'attività sospetta e posizioni sconosciute. Abilitare avvisi di notifica per ricevere un messaggio di posta elettronica degli utenti a rischio e/o un messaggio di posta elettronica di riepilogo settimanale.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) è uno strumento di notifica, monitoraggio e creazione di report che consente di rilevare le potenziali vulnerabilità che interessano le identità dell'organizzazione. Rileva i rilevamenti dei rischi, ad esempio le credenziali perse, il viaggio impossibile e gli accessi da dispositivi infetti, indirizzi IP anonimi, indirizzi IP associati all'attività sospetta e posizioni sconosciute. Abilitare avvisi di notifica per ricevere un messaggio di posta elettronica degli utenti a rischio e/o un messaggio di posta elettronica di riepilogo settimanale.
 
 Azure AD Identity Protection offre due importanti report da monitorare quotidianamente:
 1. Report sugli accessi a rischio, che evidenzieranno le attività di accesso dell'utente che è necessario analizzare: il legittimo proprietario può non aver eseguito l'accesso.

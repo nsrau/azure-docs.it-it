@@ -11,29 +11,29 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 939f08fd16cf27e641cf6436a00396ad2db8e6c3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499554"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126382"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procedura: Configurare i criteri di registrazione di Azure per l'autenticazione a più fattori
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procedura: Configurare i criteri di registrazione del Multi-Factor Authentication di Azure
 
 Azure AD Identity Protection consente di gestire l'implementazione della registrazione dell'autenticazione a più fattori tramite la configurazione di un criterio di accesso condizionale per richiedere la registrazione a più fattori, indipendentemente dall'app di autenticazione moderna a cui si accede. Questo articolo illustra il modo in cui è possibile usare i criteri e come configurarlo.
 
 
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Che cosa sono i criteri di registrazione di Azure per l'autenticazione a più fattori?
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Informazioni sui criteri di registrazione di Azure Multi-Factor Authentication
 
-Autenticazione a più fattori di Azure fornisce un mezzo per verificare chi sta usando più di un nome utente e una password. Fornisce un secondo livello di sicurezza agli accessi degli utenti. Affinché gli utenti siano in grado di rispondere alle richieste di autenticazione a più fattori, devono prima registrarsi per Azure multi-factor authentication.
+Azure Multi-Factor Authentication fornisce un mezzo per verificare chi sta usando più di un nome utente e una password. Fornisce un secondo livello di sicurezza agli accessi degli utenti. Affinché gli utenti siano in grado di rispondere alle richieste di autenticazione a più fattori, devono prima registrarsi per Multi-Factor Authentication di Azure.
 
-È consigliabile richiedere l'autenticazione a più fattori di Azure per gli accessi utente perché:
+Per gli accessi utente è consigliabile richiedere Azure Multi-Factor Authentication perché:
 
 - Offre un'autenticazione avanzata con una gamma di opzioni di verifica semplici
-- Svolge un ruolo chiave nella preparazione dell'organizzazione per la protezione e il ripristino da eventi di rischio in Identity Protection
+- Gioca un ruolo fondamentale nella preparazione dell'organizzazione per la protezione e il ripristino da rilevamenti dei rischi in Identity Protection
 
-Per altri dettagli sull'autenticazione a più [fattori, vedere che cos'è Azure multi-factor authentication?](../authentication/howto-mfa-getstarted.md)
+Per altri dettagli sull'autenticazione a più fattori, vedere informazioni su [Azure multi-factor authentication](../authentication/howto-mfa-getstarted.md)
 
 ## <a name="how-do-i-access-the-registration-policy"></a>Ricerca per categorie accedere ai criteri di registrazione?
 

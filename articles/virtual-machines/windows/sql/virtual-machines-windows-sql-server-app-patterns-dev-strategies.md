@@ -3,8 +3,8 @@ title: Modelli di applicazione di SQL Server in macchine virtuali | Microsoft Do
 description: Questo articolo descrive i modelli di applicazione per SQL Server in macchine virtuali di Azure. Offre agli architetti e agli sviluppatori di soluzioni una base solida per l'architettura e il design efficace delle applicazioni.
 services: virtual-machines-windows
 documentationcenter: na
-author: ninarn
-manager: craigg
+author: MashaMSFT
+manager: jroth
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
-ms.author: ninarn
-ms.openlocfilehash: 89935669d9dd2f7a30fbdc80694cc822df044c78
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: mathoma
+ms.openlocfilehash: cbc2bfbb68910c3eb12352bebb575c4548885a24
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102038"
+ms.locfileid: "70124020"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -40,7 +40,7 @@ Per ogni modello di applicazione sono disponibili uno scenario locale, la rispet
 
 Una tipica applicazione *a più livelli* include il livello presentazione, il livello business e il livello dati:
 
-| Livello | Descrizione |
+| Livello | DESCRIZIONE |
 | --- | --- |
 | **Presentazione** |Il *livello presentazione* (livello Web, livello front-end) è il livello in cui gli utenti interagiscono con un'applicazione. |
 | **Business** |Il *livello business* (livello intermedio) è quello usato dal livello presentazione e dal livello dati per comunicare tra loro e include la funzionalità centrale del sistema. |

@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4430e2115e4282ba7bb618184139a845547a06ed
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 064724b3c6a5faa485850ecdfa3d3759d3631be0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967084"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124916"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegare attività in Azure AD gestione dei diritti (anteprima)
 
@@ -30,13 +30,15 @@ ms.locfileid: "68967084"
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Per impostazione predefinita, gli amministratori globali e gli amministratori utenti possono creare e gestire tutti gli aspetti della gestione dei diritti Azure AD. Tuttavia, gli utenti di questi ruoli potrebbero non essere a conoscenza di tutti gli scenari in cui sono necessari i pacchetti di accesso. In genere si tratta di utenti all'interno di reparti che sanno chi deve collaborare.
+Per impostazione predefinita, gli amministratori globali e gli amministratori utenti possono creare e gestire tutti gli aspetti della gestione dei diritti Azure AD. Tuttavia, gli utenti di questi ruoli potrebbero non essere a conoscenza di tutti gli scenari in cui sono necessari i pacchetti di accesso. In genere si tratta di utenti all'interno di reparti che sanno chi deve collaborare. 
 
-Anziché concedere autorizzazioni senza restrizioni a utenti non amministratori, è possibile concedere agli utenti le autorizzazioni minime necessarie per eseguire il proprio lavoro ed evitare la creazione di diritti di accesso in conflitto o non appropriati. Questo articolo descrive i ruoli che è possibile assegnare per delegare diverse attività nella gestione dei diritti.
+Anziché concedere autorizzazioni senza restrizioni a utenti non amministratori, è possibile concedere agli utenti le autorizzazioni minime necessarie per eseguire il proprio lavoro ed evitare la creazione di diritti di accesso in conflitto o non appropriati. Questo articolo descrive i ruoli che è possibile assegnare per delegare diverse attività nella gestione dei diritti. 
 
 ## <a name="delegate-example-for-departmental-adoption"></a>Esempio di delegato per l'adozione del reparto
 
-Per comprendere come è possibile delegare le attività nella gestione dei diritti, è utile prendere in considerazione un esempio. Si supponga che l'organizzazione disponga dei seguenti cinque utenti:
+Per comprendere come è possibile delegare le attività nella gestione dei diritti, è utile prendere in considerazione un esempio. 
+
+Si supponga che l'organizzazione disponga dei seguenti cinque utenti:
 
 | Utente | department | Note |
 | --- | --- | --- |
@@ -59,6 +61,7 @@ I reparti di ricerca e marketing desiderano utilizzare la gestione dei diritti p
 Ora i reparti di ricerca e marketing possono utilizzare la gestione dei diritti. Bob, Carol, Dave ed Elisa possono creare e gestire i pacchetti di accesso nei rispettivi cataloghi.
 
 ![Esempio di delegati di gestione dei diritti](./media/entitlement-management-delegate/elm-delegate.png)
+
 
 ## <a name="entitlement-management-roles"></a>Ruoli di gestione dei diritti
 
@@ -113,6 +116,7 @@ Per un utente che non è un amministratore globale o un amministratore di utenti
 | [Amministratore dell'applicazione](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
 | [Amministratore applicazione cloud](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
 | Utente | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il proprietario del gruppo | Solo se il proprietario dell'app |  |
+
 
 ## <a name="add-a-catalog-creator"></a>Aggiungere un creatore del catalogo
 

@@ -3,22 +3,20 @@ title: 'Azure Data Factory: esempi'
 description: Fornisce informazioni dettagliate sugli esempi inclusi nel servizio Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: c0538b90-2695-4c4c-a6c8-82f59111f4ab
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: f7ebc57e09691af1583815ae9672e1afb820145b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 63db1810cbdd2133bc0577530325351997b31f30
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462070"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139252"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: esempi
 > [!NOTE]
@@ -28,7 +26,7 @@ ms.locfileid: "67462070"
 ## <a name="samples-on-github"></a>Esempi in GitHub
 Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-datafactory) include alcuni esempi che permettono di acquisire rapidamente familiarità con il servizio Azure Data Factory (o) modificare gli script e usarlo nella propria applicazione. La cartella Samples\JSON include frammenti di codice JSON per scenari comuni.
 
-| Esempio | Descrizione |
+| Esempio | DESCRIZIONE |
 |:--- |:--- |
 | [Procedura dettagliata di Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |Questo esempio fornisce una procedura dettagliata end-to-end per l'elaborazione dei file di log mediante Azure Data Factory allo scopo di trasformare i dati da file di log in informazioni. <br/><br/>In questa procedura dettagliata la pipeline di Data Factory raccoglie log di esempio, elabora e arricchisce i dati dei log con dati di riferimento e trasforma i dati per valutare l'efficacia di una campagna di marketing lanciata di recente. |
 | [Esempi JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Questo esempio fornisce esempi JSON relativi a scenari comuni. |
@@ -48,7 +46,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 ## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 È possibile trovare i seguenti modelli di Azure Resource Manager per Data Factory in GitHub.
 
-| Modello | Descrizione |
+| Modello | DESCRIZIONE |
 | --- | --- |
 | [Copiare i dati dall'archiviazione BLOB di Azure al Database SQL di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |La distribuzione di questo modello consente di creare una data factory di Azure con una pipeline che copia dati dall'archiviazione BLOB di Azure specificata al database SQL di Azure |
 | [Copiare da Salesforce all'archiviazione BLOB di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |La distribuzione di questo modello consente di creare una data factory di Azure con una pipeline che copia dati dall'account Salesforce specificato all'archiviazione BLOB di Azure. |

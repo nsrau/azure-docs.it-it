@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 12b88e14ed1d20ad26c9c8832877da08d3d98523
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543505"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146114"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Come creare i criteri di configurazione Guest
 
@@ -142,7 +142,7 @@ Nella configurazione Guest di criteri di Azure, il modo migliore per gestire i s
 Per prima cosa, creare un'identità gestita assegnata dall'utente in Azure. L'identità viene utilizzata dalle macchine virtuali per accedere ai segreti archiviati in Key Vault. Per i passaggi dettagliati, vedere [creare, elencare o eliminare un'identità gestita assegnata dall'utente con Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
 Successivamente, creare un'istanza di Key Vault. Per i passaggi dettagliati, vedere [impostare e recuperare un segreto-PowerShell](../../../key-vault/quick-create-powershell.md).
-Assegnare le autorizzazioni all'istanza per concedere all'identità assegnata dall'utente l'accesso ai segreti archiviati in Key Vault. Per i passaggi dettagliati, vedere [impostare e recuperare un segreto-.NET](../../../key-vault/quick-create-net.md#assign-permissions-to-your-application-to-read-secrets-from-key-vault).
+Assegnare le autorizzazioni all'istanza per concedere all'identità assegnata dall'utente l'accesso ai segreti archiviati in Key Vault. Per i passaggi dettagliati, vedere [impostare e recuperare un segreto-.NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
 
 Assegnare quindi l'identità assegnata dall'utente alla macchina virtuale. Per i passaggi dettagliati, vedere [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure con PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
 A livello di scala, assegnare questa identità usando Azure Resource Manager tramite criteri di Azure. Per i passaggi dettagliati, vedere [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure usando un modello](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
@@ -318,11 +318,11 @@ Con le definizioni di criteri e iniziative create in Azure, l'ultimo passaggio c
 
 Dopo aver pubblicato un criterio personalizzato di Azure usando il pacchetto di contenuto personalizzato, è necessario aggiornare due campi se si vuole pubblicare una nuova versione.
 
-- **Versione**: Quando si esegue il `New-GuestConfigurationPolicy` cmdlet cmdlet è necessario specificare un numero di versione maggiore di quello attualmente pubblicato.  In questo modo verrà aggiornata la versione dell'assegnazione di configurazione Guest nel nuovo file dei criteri in modo che l'estensione riconosca che il pacchetto è stato aggiornato.
-- **contentHash**: Questa operazione viene aggiornata automaticamente dal `New-GuestConfigurationPolicy` cmdlet.  Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`.  Questa operazione deve essere corretta per `.zip` il file pubblicato.  Se viene aggiornata `contentUri` solo la proprietà, ad esempio nel caso in cui un utente possa apportare una modifica manuale alla definizione dei criteri dal portale, l'estensione non accetterà il pacchetto di contenuto.
+- **Versione**: Quando si esegue il `New-GuestConfigurationPolicy` cmdlet è necessario specificare un numero di versione maggiore di quello attualmente pubblicato.  Tramite la proprietà viene aggiornata la versione dell'assegnazione di configurazione Guest nel nuovo file dei criteri in modo che l'estensione riconosca che il pacchetto è stato aggiornato.
+- **contentHash**: Questa proprietà viene aggiornata automaticamente dal `New-GuestConfigurationPolicy` cmdlet.  Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`.  La proprietà deve essere corretta per il `.zip` file pubblicato.  Se viene aggiornata `contentUri` solo la proprietà, ad esempio nel caso in cui un utente possa apportare una modifica manuale alla definizione dei criteri dal portale, l'estensione non accetterà il pacchetto di contenuto.
 
 Il modo più semplice per rilasciare un pacchetto aggiornato consiste nel ripetere il processo descritto in questo articolo e fornire un numero di versione aggiornato.
-In questo modo si garantisce che tutte le proprietà siano state aggiornate correttamente.
+Questo processo garantisce che tutte le proprietà siano state aggiornate correttamente.
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversione del contenuto di Windows Criteri di gruppo nella configurazione Guest di criteri di Azure
 
@@ -330,7 +330,7 @@ La configurazione Guest, quando si controllano i computer Windows, è un'impleme
 La community DSC ha pubblicato strumenti per convertire i modelli esportati Criteri di gruppo in formato DSC.
 Usando questo strumento con i cmdlet di configurazione Guest descritti in precedenza, è possibile convertire il contenuto di Windows Criteri di gruppo e il pacchetto/pubblicarlo per il controllo di criteri di Azure.
 Per informazioni dettagliate sull'uso dello strumento, vedere l' [articolo Guida introduttiva: Convertire Criteri di gruppo in DSC](/powershell/dsc/quickstarts/gpo-quickstart).
-Una volta che il contenuto è stato convertito, i passaggi precedenti per creare un pakcage e pubblicarlo come criterio di Azure saranno identici a quelli per qualsiasi contenuto DSC.
+Una volta che il contenuto è stato convertito, i passaggi precedenti per creare un pacchetto e pubblicarlo come criterio di Azure saranno identici a quelli per qualsiasi contenuto DSC.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>FACOLTATIVO: Firma dei pacchetti di configurazione Guest
 

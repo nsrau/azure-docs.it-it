@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9be48d8f403d3ddde993ebdcf0142b55e52afce
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779681"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125119"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -145,28 +145,28 @@ L'esempio seguente: **L'esempio A: criteri di accesso condizionale di emergenza 
   * App cloud: Exchange Online e SharePoint Online
   * Condizioni: Any
   * Concedere controllo: Richiedere aggiunta a un dominio
-  * Stato: Disabled
+  * Stato: Disabilitata
 * Criterio 2: Bloccare le piattaforme diverse da Windows
   * Nome: EM002 - ENABLE IN EMERGENCY: Interruzione autenticazione a più fattori[2/4] - Exchange SharePoint - Blocca l'accesso escluso Windows
   * Utenti e gruppi: Includere tutti gli utenti. Escludere CoreAdmins ed EmergencyAccess
   * App cloud: Exchange Online e SharePoint Online
   * Condizioni: La piattaforma del dispositivo include tutte le piattaforme, esclude Windows
   * Concedere controllo: Blocca
-  * Stato: Disabled
+  * Stato: Disabilitata
 * Criterio 3: Bloccare reti diverse da CorpNetwork
   * Nome: EM003 - ENABLE IN EMERGENCY: Interruzione autenticazione a più fattori[3/4] - Exchange SharePoint - Blocca l'accesso esclusa rete aziendale
   * Utenti e gruppi: Includere tutti gli utenti. Escludere CoreAdmins ed EmergencyAccess
   * App cloud: Exchange Online e SharePoint Online
   * Condizioni: I percorsi includono qualsiasi percorso, escludono CorpNetwork
   * Concedere controllo: Blocca
-  * Stato: Disabled
+  * Stato: Disabilitata
 * Criteri 4: Bloccare EAS in modo esplicito
   * Nome: EM004 - ENABLE IN EMERGENCY: Interruzione autenticazione a più fattori[4/4] - Exchange SharePoint - Blocca EAS per tutti gli utenti
   * Utenti e gruppi: Includere tutti gli utenti
   * App cloud: Includere Exchange Online
   * Condizioni: App client: Exchange Active Sync
   * Concedere controllo: Blocca
-  * Stato: Disabled
+  * Stato: Disabilitata
 
 Ordine di attivazione:
 
@@ -187,14 +187,14 @@ In questo esempio successivo, **Esempio B: criteri di accesso condizionale di em
   * App cloud: Salesforce.
   * Condizioni: Nessuna
   * Concedere controllo: Blocca
-  * Stato: Disabled
+  * Stato: Disabilitata
 * Criterio 2: Bloccare il team vendite da tutte le piattaforme diverse dai dispositivi mobili (per ridurre la superficie di attacco)
   * Nome: EM002 - ENABLE IN EMERGENCY: Interruzione conformità dispositivi[2/2] - Salesforce - Blocca tutte le piattaforme tranne iOS e Android
   * Utenti e gruppi: Includere SalesforceContingency. Escludere SalesAdmins
   * App cloud: Salesforce
   * Condizioni: La piattaforma del dispositivo include tutte le piattaforme, esclude iOS e Android
   * Concedere controllo: Blocca
-  * Stato: Disabled
+  * Stato: Disabilitata
 
 Ordine di attivazione:
 
@@ -232,7 +232,7 @@ A seconda delle mitigazioni o emergenze usate durante un'interruzione, l'organiz
 1. Come parte della strategia di controllo modifiche, documentare tutte le modifiche e lo stato precedente per poter eseguire il rollback di qualsiasi emergenza implementata non appena i controlli di accesso sono completamente operativi.
 2. Presupporre che i malintenzionati tenteranno di rubare password tramite attacchi di tipo password spray o phishing quando si disabilita l'autenticazione a più fattori. Inoltre, i malintenzionati potrebbero avere già password che, se in precedenza non consentivano l'accesso a nessuna risorsa, possono essere tentate durante questo intervallo. Per gli utenti fondamentali, come i dirigenti, è possibile ridurre parzialmente questo rischio reimpostando le loro password prima di disabilitare l'autenticazione a più fattori.
 3. Archiviare tutte le attività di accesso per identificare chi accede a cosa durante la fase in cui l'autenticazione a più fattori è disabilitata.
-4. Eseguire la [valutazione di tutti gli eventi di rischio segnalati](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) durante questa finestra.
+4. [Valutazione di tutti i](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) rilevamenti di rischio segnalati durante questa finestra.
 
 ## <a name="after-a-disruption"></a>Dopo un'interruzione
 
@@ -242,7 +242,7 @@ Annullare le modifiche apportate nell'ambito del piano di emergenza attivato una
 2. Disabilitare i criteri di emergenza. 
 3. Eseguire il rollback delle modifiche apportate e documentate durante l'interruzione.
 4. Se si usa un account di accesso di emergenza, ricordarsi di rigenerare le credenziali e proteggere fisicamente i dettagli delle nuove credenziali come parte delle procedure di account di accesso di emergenza.
-5. Continuare a [valutare tutti gli eventi di rischio segnalati](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) dopo l'interruzione per rilevare attività sospette.
+5. Continua a valutare [tutti i](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) rilevamenti dei rischi segnalati dopo l'interferenza per attività sospette.
 6. Revocare tutti i token di aggiornamento rilasciati [usando PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) e destinati a un set di utenti. La revoca di tutti i token di aggiornamento è importante per gli account con privilegi usati durante l'interruzione. Questa operazione costringerà gli utenti a ripetere l'autenticazione e rispettare il controllo dei criteri ripristinati.
 
 ## <a name="emergency-options"></a>Opzioni di emergenza
@@ -254,7 +254,7 @@ Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'
    1. Se non si ha l'inventario degli indirizzi IP in uscita, o se è necessario abilitare l'accesso all'interno e all'esterno della rete aziendale, è possibile aggiungere l'intero spazio indirizzi IPv4 come indirizzi IP attendibili specificando 0.0.0.0/1 e 128.0.0.0/1.
 
 >[!IMPORTANT]
- > Se si estendono gli indirizzi IP attendibili per sbloccare l'accesso, non verranno generati gli eventi di rischio associati con gli indirizzi IP (ad esempio, comunicazione impossibile o posizioni non note).
+ > Se si ampliano gli indirizzi IP attendibili per sbloccare l'accesso, i rilevamenti dei rischi associati a indirizzi IP (ad esempio, spostamento impossibile o posizioni non note) non verranno generati.
 
 >[!NOTE]
  > La configurazione di [indirizzi IP attendibili](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) per l'autenticazione a più fattori di Azure è disponibile solo con [licenze Azure AD Premium](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).

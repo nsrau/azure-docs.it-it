@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 2ec3872b9e11830f7891e98f5fc0182b99e1586d
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 4bf2e057f4c5dad650834f9b42c75be3aedec46e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997334"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142851"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informazioni sulle definizioni del ruolo per le risorse di Azure
 
@@ -48,7 +48,7 @@ Le operazioni vengono specificate con stringhe che hanno il formato seguente:
 
 La parte `{action}` di una stringa relativa a un'operazione specifica il tipo di operazioni che è possibile eseguire su un tipo di risorsa. In `{action}` possono ad esempio essere elencate le sottostringhe seguenti:
 
-| Sottostringa azione    | DESCRIZIONE         |
+| Sottostringa azione    | Descrizione         |
 | ------------------- | ------------------- |
 | `*` | Il carattere jolly concede l'accesso a tutte le operazioni che corrispondono alla stringa. |
 | `read` | Abilita le operazioni di lettura (GET). |
@@ -165,7 +165,7 @@ Per visualizzare ed eseguire le operazioni sui dati, è necessario disporre dell
 | [Azure per .NET](/dotnet/azure/) | 2.8.0-Preview o successiva |
 | [Azure SDK per Go](/azure/go/azure-sdk-go-install) | 15.0.0 o successiva |
 | [Azure per Java](/java/azure/) | 1.9.0 o successiva |
-| [Azure per Python](/python/azure) | 0.40.0 o successiva |
+| [Azure per Python](/azure/python/) | 0.40.0 o successiva |
 | [Azure SDK per Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 o successiva |
 
 Per visualizzare e usare le operazioni di dati di API REST, è necessario impostare il parametro **api-version** per la seguente versione o versioni successive:

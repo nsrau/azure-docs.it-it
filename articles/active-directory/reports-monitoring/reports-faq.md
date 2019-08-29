@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a9b1144e3ef1f1a49c39d694f465653da5881cb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e8c3138b82c7dc4a7217e8cb67448a5d824398ba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987910"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127015"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Domande frequenti sui report di Azure Active Directory
 
@@ -37,7 +37,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: Attualmente si usano le `https://graph.windows.net/<tenant-name>/reports/` API dell'endpoint per estrarre i report di sicurezza Azure ad (tipi specifici di rilevamento, ad esempio le credenziali perse o gli accessi da indirizzi IP anonimi) nei sistemi di report a livello di codice. a quale API occorre passare?**
 
-**R:** é possibile usare l' [API per gli eventi di rischio di protezione dell'identità](../identity-protection/graph-get-started.md)  per accedere ai rilevamenti relativi alla sicurezza tramite Microsoft Graph. Questo nuovo formato offre maggiore flessibilità per l'esecuzione di query sui dati, grazie a filtri avanzati, modalità di selezione dei campi e altro, oltre a standardizzare gli eventi di rischio su un solo tipo per una più facile integrazione con gli strumenti per la raccolta di informazioni di sicurezza e gestione degli eventi e altri dati. Poiché i dati sono un formato diverso, non è possibile sostituire le query precedenti con una nuova query. Tuttavia, [la nuova API usa Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), ovvero lo standard Microsoft per API come Office 365 o Azure AD. Saranno quindi necessari interventi per estendere gli investimenti esistenti per Microsoft Graph o per avviare la transizione a questa nuova piattaforma standard.
+**R:** È possibile usare l' [API](../identity-protection/graph-get-started.md) di rilevamento dei rischi di Identity Protection per accedere ai rilevamenti di sicurezza tramite Microsoft Graph. Questo nuovo formato offre maggiore flessibilità nel modo in cui è possibile eseguire query sui dati, con filtri avanzati, selezione dei campi e altro ancora, e standardizza i rilevamenti dei rischi in un unico tipo per semplificare l'integrazione in SIEM e altri strumenti di raccolta dati. Poiché i dati sono un formato diverso, non è possibile sostituire le query precedenti con una nuova query. Tuttavia, [la nuova API usa Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), ovvero lo standard Microsoft per API come Office 365 o Azure AD. Saranno quindi necessari interventi per estendere gli investimenti esistenti per Microsoft Graph o per avviare la transizione a questa nuova piattaforma standard.
 
 ---
 
@@ -107,7 +107,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 ## <a name="risky-sign-ins"></a>Accessi a rischio
 
-**D: esiste un evento di rischio nella protezione dell'identità, ma l'accesso corrispondente non è visualizzato nel report sugli accessi. È normale?**
+**D: È presente un rilevamento dei rischi in Identity Protection, ma non è possibile visualizzare l'accesso corrispondente nel report degli accessi. È normale?**
 
 **R:** sì, la protezione dell'identità valuta il rischio per tutti i flussi di autenticazione, sia interattivi che non interattivi. Tuttavia, tutti i report degli accessi mostrano solo gli accessi interattivi.
 
@@ -115,7 +115,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: come sapere perché un accesso o un utente è stato contrassegnato come rischioso nel portale di Azure?**
 
-**R:** se si ha una sottoscrizione di **Azure AD Premium** è possibile ottenere altre informazioni sugli eventi di rischio sottostanti selezionando l'utente in **Utenti contrassegnati per il rischio** o selezionando un record nel report **Accessi a rischio**. Se si ha una sottoscrizione di livello **Gratuito** o **Basic**, è possibile visualizzare gli utenti a rischio e i report sugli accessi a rischio, ma non le informazioni sugli eventi di rischio sottostanti.
+**R:** Se si dispone di una sottoscrizione di **Azure ad Premium** , è possibile ottenere altre informazioni sui rilevamenti dei rischi sottostanti selezionando l'utente in **utenti contrassegnati per il rischio** o selezionando un record nel report degli accessi a **rischio** . Se si dispone di una sottoscrizione **gratuita** o **Basic** , è possibile visualizzare i report utenti a rischio e accessi a rischio, ma non è possibile visualizzare le informazioni di rilevamento dei rischi sottostanti.
 
 ---
 
@@ -125,7 +125,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 ---
 
-**D: cosa significa l'evento di rischio "È stato rilevato un accesso con rischi aggiuntivi"?**
+**D: Qual è il significato del rilevamento dei rischi "accesso con rischi aggiuntivi"?**
 
 **R:** per offrire informazioni dettagliate su tutti gli accessi rischiosi effettuati nell'ambiente, "È stato rilevato un accesso con rischi aggiuntivi" funziona come segnaposto per gli accessi associati a rilevamenti esclusivi per i sottoscrittori di Azure AD Identity Protection.
 

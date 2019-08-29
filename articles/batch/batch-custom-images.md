@@ -6,14 +6,14 @@ author: laurenhughes
 manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: lahugh
-ms.openlocfilehash: 00da17512cbc2e713955ea83c7d9fa7517958169
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3c2213c25a8fdc6d6545711bd2af9b94662ee609
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036700"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141802"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-pool"></a>Usare la raccolta di immagini condivise per creare un pool
 
@@ -23,7 +23,7 @@ Quando si crea un pool in Azure Batch usando la configurazione della macchina vi
 
 Quando si usa la raccolta di immagini condivise per l'immagine personalizzata, è possibile controllare il tipo di sistema operativo e la configurazione, nonché il tipo di dischi dati. L'immagine condivisa può includere le applicazioni e i dati di riferimento che diventano disponibili in tutti i nodi del pool di batch non appena ne viene effettuato il provisioning.
 
-È inoltre possibile disporre di più versioni di un'immagine in base alle esigenze dell'ambiente in uso. Quando si usa una versione di immagine per creare una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale. 
+È inoltre possibile disporre di più versioni di un'immagine in base alle esigenze dell'ambiente in uso. Quando si usa una versione di immagine per creare una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale.
 
 L'uso di un'immagine condivisa consente di risparmiare tempo nella preparazione dei nodi di calcolo del pool per l'esecuzione del carico di lavoro batch. È possibile usare un'immagine di Azure Marketplace e installare il software in ogni nodo di calcolo dopo il provisioning, ma l'uso di un'immagine condivisa è in genere più efficiente. Inoltre, è possibile specificare più repliche per l'immagine condivisa, in modo che quando si creano pool con molte VM (più di 600 VM), si risparmia tempo durante la creazione del pool.
 
@@ -91,6 +91,19 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
     ...
 }
 ```
+
+## <a name="create-a-pool-from-a-shared-image-using-the-azure-portal"></a>Creare un pool da un'immagine condivisa usando il portale di Azure
+
+Usare la procedura seguente per creare un pool da un'immagine condivisa nel portale di Azure.
+
+1. Aprire il [portale di Azure](https://portal.azure.com).
+1. Passare a **account batch** e selezionare l'account.
+1. Selezionare **pool** e quindi **Aggiungi** per creare un nuovo pool.
+1. Nella sezione **tipo di immagine** selezionare **raccolta immagini condivise**.
+1. Completare le sezioni rimanenti con le informazioni sull'immagine gestita.
+1. Selezionare **OK**.
+
+![Creare un pool con da un'immagine condivisa con il portale.](media/batch-custom-images/create-custom-pool.png)
 
 ## <a name="considerations-for-large-pools"></a>Considerazioni per i pool di grandi dimensioni
 

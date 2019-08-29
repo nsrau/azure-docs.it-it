@@ -1,32 +1,33 @@
 ---
-title: Limiti di Azure Data finestra pesante | Microsoft Docs
-description: Descrive i limiti di sistema e le dimensioni consigliate per i componenti finestra pesante di Microsoft Azure i dati e connessioni.
+title: Limiti di Azure Data Box Heavy | Microsoft Docs
+description: Vengono descritti i limiti di sistema e le dimensioni consigliate per i componenti e le connessioni di Microsoft Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 07/03/2019
+ms.date: 08/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 021aedc94b59f73e18679783cfc8b981924769c3
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 76e543a5bec749db55eb77649d2f6e0526f2cb1d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592350"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126114"
 ---
-# <a name="azure-data-box-heavy-limits"></a>Limiti di finestra elevati di dati di Azure
+# <a name="azure-data-box-heavy-limits"></a>Limiti di Azure Data Box Heavy
 
-Prendere in considerazione questi limiti durante la distribuzione e funzionamento del dispositivo pesante casella dei dati di Azure. La tabella seguente illustra i limiti di Data Box.
+Considerare questi limiti quando si distribuisce e si utilizza il dispositivo Azure Data Box Heavy. La tabella seguente illustra i limiti di Data Box.
 
 
-## <a name="data-box-heavy-service-limits"></a>Limiti di servizio finestra pesante dati
+## <a name="data-box-heavy-service-limits"></a>Limiti del servizio Data Box Heavy
 
 [!INCLUDE [data-box-service-limits](../../includes/data-box-service-limits.md)]
 
-## <a name="data-box-heavy-limits"></a>Limiti di finestra elevato dei dati
+## <a name="data-box-heavy-limits"></a>Limiti di Data Box Heavy
 
-- Data Box è possibile archiviare un massimo di 1 miliardo di file per ogni nodo.
+- Data Box Heavy possibile archiviare un massimo di 1 miliardo file per nodo.
+- Data Box Heavy supporta un massimo di 512 contenitori o condivisioni per nodo nel cloud. Le directory di livello superiore all'interno della condivisione utente diventano contenitori o condivisioni file di Azure nel cloud.
 
 ## <a name="azure-storage-limits"></a>Limiti di archiviazione di Azure
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a978e2755818e88cad580753e041eacd50a9e6d2
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1b5615de8df42bca64822b0e459c7815412300af
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980472"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125373"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivio per le novità in Azure Active Directory
 
@@ -1183,7 +1183,7 @@ Per altre informazioni su come inserire l'applicazione nella raccolta di app di 
 **Categoria di servizio:** Altro  
 **Funzionalità del prodotto:** Directory
  
-Nuove istruzioni dettagliate su come distribuire Azure Active Directory (Azure AD), inclusa la reimpostazione della password self-service (SSPR), l'accesso Single Sign-on (SSO), l'accesso condizionale (CA), il proxy applicazione, il provisioning utenti, Active Directory Federation Services (ADFS) a Autenticazione pass-through (PTA) e ADFS per la sincronizzazione dell'hash delle password (pH).
+Nuove istruzioni dettagliate su come distribuire Azure Active Directory (Azure AD), tra cui la reimpostazione della password self-service (SSPR), la Single Sign-On (SSO), l'accesso condizionale (CA), il proxy applicazione, il provisioning utenti, Active Directory Federation Services (ADFS) a Autenticazione pass-through (PTA) e ADFS per la sincronizzazione dell'hash delle password (pH).
 
 Per visualizzare le guide alla distribuzione, visitare il repository [Identity Deployment Guides](https://aka.ms/DeploymentPlans) (Guide alla distribuzione di identità) in GitHub. Per fornire commenti e suggerimenti sulle guide alla distribuzione, usare il [modulo di feedback per il piano di distribuzione](https://aka.ms/deploymentplanfeedback). In caso di domande sulle guide alla distribuzione, contattare Microsoft all'indirizzo [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -1841,13 +1841,13 @@ Per altre informazioni su come inserire l'applicazione nella raccolta di app di 
 
 **Tipo:** Nuova funzionalità  
 **Categoria di servizio:** Identity Protection  
-**Funzionalità del prodotto:** Protezione e sicurezza delle identità
+**Funzionalità del prodotto:** Identity Security e Protection
 
-Le informazioni ottenute per un evento di rischio rilevato sono associate alla sottoscrizione di Azure AD in corso. Con l'edizione Azure AD Premium P2, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti.
+Le informazioni che si ottengono per un rilevamento dei rischi rilevato sono legate alla sottoscrizione del Azure AD. Con l'edizione Azure AD Premium P2, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti.
 
-Con l'edizione Azure AD Premium P1, i rilevamenti non previsti dalla licenza in uso vengono visualizzati come evento di rischio di tipo "Rilevato accesso con rischi aggiuntivi".
+Con l'edizione Azure AD Premium P1, i rilevamenti che non sono coperti dalla licenza vengono visualizzati come l'accesso al rilevamento dei rischi con rischi aggiuntivi rilevati.
 
-Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
+Per ulteriori informazioni, vedere [Azure Active Directory rilevamento dei rischi](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
 ---
 
@@ -1913,7 +1913,7 @@ Considerando la disponibilità generale della nuova console di amministrazione d
 
 **Elementi disponibili**
 
-Nell'ambito della transizione alla nuova console di amministrazione, sono state rese disponibili due nuove API per il recupero dei log attività di Azure AD. Il nuovo set di API offre funzionalità di filtro e ordinamento più complete, oltre ad attività di controllo e accesso più avanzate. L'API relativa agli eventi di rischio di Identity Protection in Microsoft Graph consente ora di accedere ai dati disponibili in precedenza tramite i report di sicurezza.
+Nell'ambito della transizione alla nuova console di amministrazione, sono state rese disponibili due nuove API per il recupero dei log attività di Azure AD. Il nuovo set di API offre funzionalità di filtro e ordinamento più complete, oltre ad attività di controllo e accesso più avanzate. È ora possibile accedere ai dati disponibili in precedenza tramite i report di sicurezza tramite l'API di rilevamento dei rischi di Identity Protection in Microsoft Graph.
 
 Per altre informazioni, vedere:
 
@@ -2264,13 +2264,13 @@ Per altre informazioni, vedere [controlli in Azure ad accesso condizionale](http
  
 ---
 
-### <a name="aggregation-of-real-time-risk-events"></a>Aggregazione di eventi di rischio in tempo reale
+### <a name="aggregation-of-real-time-risk-detections"></a>Aggregazione di rilevamenti di rischi in tempo reale
 
 **Tipo:** Funzionalità modificata    
 **Categoria di servizio:** Identity Protection  
 **Funzionalità del prodotto:** Sicurezza e protezione delle identità
 
-In Azure AD Identity Protection tutti gli eventi di rischio in tempo reale creati dallo stesso indirizzo IP in un determinato giorno vengono ora aggregati per ciascun tipo di evento di rischio. Questa modifica consente di limitare il volume degli eventi di rischio mostrati senza modificare la protezione dell'utente.
+In Azure AD Identity Protection, tutti i rilevamenti di rischio in tempo reale originati dallo stesso indirizzo IP in un determinato giorno vengono ora aggregati per ogni tipo di rilevamento dei rischi. Questa modifica limita il volume dei rilevamenti dei rischi visualizzati senza alcuna modifica nella sicurezza dell'utente.
 
 Il rilevamento in tempo reale sottostante funziona ogni volta che l'utente effettua l'accesso. Se si impostano criteri di sicurezza relativi al rischio di accesso per Multi-Factor Authentication o il blocco dell'accesso, verranno attivati per ogni accesso rischioso.
  
@@ -2388,7 +2388,7 @@ Per altre informazioni, vedere [Nascondere un'applicazione di terze parti dall'e
 
 **Elementi disponibili**
 
- Nell'ambito della transizione alla nuova console di amministrazione, sono state rese disponibili due nuove API per il recupero dei log attività di Azure AD. Il nuovo set di API offre funzionalità di filtro e ordinamento più complete, oltre ad attività di controllo e accesso più avanzate. L'API relativa agli eventi di rischio di Identity Protection in Microsoft Graph consente ora di accedere ai dati disponibili in precedenza tramite i report di sicurezza.
+ Nell'ambito della transizione alla nuova console di amministrazione, sono state rese disponibili due nuove API per il recupero dei log attività di Azure AD. Il nuovo set di API offre funzionalità di filtro e ordinamento più complete, oltre ad attività di controllo e accesso più avanzate. È ora possibile accedere ai dati disponibili in precedenza tramite i report di sicurezza tramite l'API rilevamento dei rischi di Identity Protection in Microsoft Graph.
 
 
 ## <a name="september-2017"></a>Settembre 2017

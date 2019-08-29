@@ -1,7 +1,7 @@
 ---
-title: 'Divisione dei dati: Riferimento al modulo'
+title: 'Suddividere i dati: Riferimento al modulo'
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Split Data nel servizio Azure Machine Learning per dividere un set di dati in due set distinti.
+description: Informazioni su come usare il modulo Split data nel servizio Azure Machine Learning per dividere un set di dati in due set distinti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,110 +9,109 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: a7395280ed9a2e9dcb94a081f0b3bf10a28da719
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31612e10e7978e94f1ed467b5ffbecde40910ef9
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029401"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128455"
 ---
-# <a name="split-data-module"></a>Modulo Split Data
+# <a name="split-data-module"></a>Modulo Split data
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio di Azure Machine Learning.
+Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
 
-Usare questo modulo per dividere un set di dati in due set distinti.
+Utilizzare questo modulo per dividere un set di dati in due set distinti.
 
-Questo modulo è particolarmente utile quando è necessario separare i dati in set di training e set di testing. È possibile personalizzare il modo che i dati vengono divisi anche. Alcune opzioni di supportano della sequenza casuale dei dati. altre sono specifiche per un determinato tipo di dati o un tipo di modello.
+Questo modulo è particolarmente utile quando è necessario separare i dati in set di training e di testing. È possibile personalizzare anche il modo in cui i dati vengono divisi. Alcune opzioni supportano la sequenza casuale dei dati; altre sono personalizzate per un tipo di dati o un tipo di modello specifico.
 
 ## <a name="how-to-configure"></a>Come configurare
 
 > [!TIP]
-> Prima di scegliere la modalità di suddivisione, leggere tutte le opzioni per determinare il tipo di divisione che è necessario.
-> Se si modifica la modalità di suddivisione, è possibile reimpostare tutte le altre opzioni.
+> Prima di scegliere la modalità di suddivisione, leggere tutte le opzioni per determinare il tipo di suddivisione necessario.
+> Se si modifica la modalità di suddivisione, tutte le altre opzioni potrebbero essere reimpostate.
 
-1. Aggiungere il **Split Data** modulo all'esperimento nell'interfaccia. È possibile trovare questo modulo sotto **Data Transformation**, nella **Sample and Split** categoria.
+1. Aggiungere il modulo **Split data** all'esperimento nell'interfaccia. È possibile trovare questo modulo in **trasformazione dati**, nella categoria **esempio e divisione** .
 
-2. **Modalità di suddivisione**: Scegliere una delle modalità seguenti, a seconda del tipo di dati che disponibili e la modalità di divisione. Ogni modalità di suddivisione ha opzioni diverse. Fare clic sugli argomenti seguenti per istruzioni dettagliate ed esempi. 
+2. **Modalità di suddivisione**: Scegliere una delle modalità seguenti, a seconda del tipo di dati disponibili, e come si desidera suddividerla. Ogni modalità di suddivisione ha opzioni diverse. Per istruzioni dettagliate ed esempi, fare clic sugli argomenti seguenti. 
 
-    - **Suddividere le righe**: Usare questa opzione se si desidera dividere i dati in due parti. È possibile specificare la percentuale di dati da inserire in ciascuna suddivisione, ma per impostazione predefinita, i dati vengano divisi 50-50.
+    - **Suddividere le righe**: Usare questa opzione se si vuole semplicemente dividere i dati in due parti. È possibile specificare la percentuale di dati da inserire in ogni divisione, ma per impostazione predefinita i dati sono divisi 50-50.
 
-        È anche possibile impostare in modo casuale la selezione delle righe in ogni gruppo e usare il campionamento stratificato. In un campionamento stratificato, è necessario selezionare una singola colonna di dati per il quale si desidera che i valori per essere ripartite in modo uniforme tra i set di dati di due risultati.  
+        È anche possibile ordinare in modo casuale la selezione delle righe in ogni gruppo e usare il campionamento stratificato. Per il campionamento stratificato, è necessario selezionare una singola colonna di dati per cui si desidera che i valori vengano ripartiti equamente tra i due set di dati del risultato.  
 
-    - **Suddivisione di espressione regolare** scegliere questa opzione se si desidera dividere il set di dati testando una singola colonna per un valore.
+    - **Suddivisione espressione regolare**  Scegliere questa opzione quando si desidera dividere il set di dati testando una singola colonna per un valore.
 
-        Ad esempio, se si effettua un'analisi del sentiment, è possibile verificare la presenza di un nome di prodotto specifico in un campo di testo e dividere il set di dati le righe con il nome di prodotto di destinazione e quelli senza.
+        Se ad esempio si analizzano i sentimenti, è possibile verificare la presenza di un determinato nome di prodotto in un campo di testo, quindi dividere il set di dati in righe con il nome del prodotto di destinazione e quelli senza.
 
-    - **Espressione relativa suddivisione**:  Usare questa opzione ogni volta che si desidera applicare una condizione a una colonna numerica. Il numero potrebbe essere un campo Data/ora, età contenente una colonna o quantità di denaro o persino una percentuale. Ad esempio, è possibile dividere il set di dati in base al costo degli elementi, raggruppare le persone da intervalli di età o dati separati da una data del calendario.
+    - **Suddivisione espressione relativa**:  Utilizzare questa opzione quando si desidera applicare una condizione a una colonna numerica. Il numero può essere un campo di data/ora, una colonna contenente importi di età o dollaro o addirittura una percentuale. È ad esempio possibile dividere il set di dati in base al costo degli elementi, raggruppare le persone in base all'intervallo di età o separare i dati in base a una data di calendario.
 
 ### <a name="split-rows"></a>Suddividere le righe
-1.  Aggiungere il [Split Data](./split-data.md) all'esperimento nell'interfaccia del modulo e connettere il set di dati da suddividere.
+1.  Aggiungere il modulo [Split data](./split-data.md) all'esperimento nell'interfaccia e connettere il set di dati che si desidera suddividere.
   
-2.  Per la **Splitting mode**, scegliere **suddividere le righe**. 
+2.  Per la **modalità di suddivisione**, scegliere Dividi **righe**. 
 
-3.  **Frazione di righe nel primo set di dati di output**. Usare questa opzione per determinare il numero di righe inserito il primo output (a sinistra). Tutte le altre righe entra nel secondo output (destra).
+3.  **Frazione di righe nel primo set di dati di output**. Usare questa opzione per determinare il numero di righe che vengono inserite nel primo output (a sinistra). Tutte le altre righe verranno indirizzate al secondo output (destro).
 
-    La percentuale rappresenta la percentuale di righe inviate al primo set di dati di output, pertanto è necessario digitare un numero decimale compreso tra 0 e 1.
+    Il rapporto rappresenta la percentuale di righe inviate al primo set di dati di output, quindi è necessario digitare un numero decimale compreso tra 0 e 1.
      
-     Ad esempio, se si digita 0,75 come valore, il set di dati viene suddiviso con un rapporto 75:25, 75% delle righe viene inviato al primo set di dati di output e il 25% per il secondo set di dati di output.
+     Se, ad esempio, si digita 0,75 come valore, il set di dati verrebbe suddiviso usando un rapporto 75:25, con 75% delle righe inviate al primo set di dati di output e il 25% inviato al secondo set di dati di output.
   
-4. Selezionare il **suddivisione casuale** opzione se si desidera impostare in modo casuale di selezione dei dati in due gruppi. Questo è l'opzione preferita durante la creazione di set di dati di training e test.
+4. Selezionare l'opzione **suddivisione casuale** se si desidera eseguire la selezione casuale dei dati nei due gruppi. Questa è l'opzione preferita per la creazione di set di risultati di training e di test.
 
-5.  **Valore di inizializzazione casuale**: Digitare un valore intero non negativo per inizializzare la sequenza pseudocasuale di istanze da usare. Questo valore di inizializzazione predefinito viene usato in tutti i moduli che generano numeri casuali. 
+5.  Valore di **inizializzazione casuale**: Digitare un valore integer non negativo per inizializzare la sequenza di istanze di pseudocasuale da utilizzare. Questo valore di inizializzazione predefinito viene usato in tutti i moduli che generano numeri casuali. 
 
-     Specificare un valore di inizializzazione risulta i risultati generalmente riproducibili. Se è necessario ripetere i risultati di un'operazione split, è necessario specificare un valore di inizializzazione per il generatore di numeri casuali. In caso contrario, il valore di inizializzazione casuale è impostato per impostazione predefinita su 0, ovvero che il valore di inizializzazione iniziale viene ottenuto dal clock di sistema. Di conseguenza, la distribuzione dei dati potrebbe essere leggermente diversa ogni volta che si esegue una divisione. 
+     La specifica di un valore di inizializzazione rende i risultati generalmente riproducibili. Se è necessario ripetere i risultati di un'operazione Split, è necessario specificare un valore di inizializzazione per il generatore di numeri casuali. In caso contrario, il valore di inizializzazione casuale viene impostato su 0 per impostazione predefinita, il che significa che il valore di inizializzazione iniziale viene ottenuto dal clock di sistema. Di conseguenza, la distribuzione dei dati potrebbe essere leggermente diversa a ogni esecuzione di una divisione. 
 
-6. **Suddivisione stratificata**: Impostare questa opzione su **True** per garantire che i set di dati di due output contengano un campione rappresentativo dei valori nel *colonna degli strati* oppure *colonna chiave di stratificazione*. 
+6. **Suddivisione**stratificata: Impostare questa opzione su **true** per assicurarsi che i due set di risultati di output contengano un campione rappresentativo dei valori nella colonna *strati* o nella *colonna chiave*di stratificazione. 
 
-    Con il campionamento stratificato, i dati vengono divisi in modo che ogni set di dati di output Ottiene approssimativamente la stessa percentuale di ogni valore di destinazione. Si potrebbe ad esempio, per assicurarsi che il training e set di testing all'incirca siano bilanciati per quanto riguarda il risultato o con considerano ot ad altre colonne quali gender.
+    Con il campionamento stratificato, i dati vengono divisi in modo che ogni set di dati di output ottenga approssimativamente la stessa percentuale di ogni valore di destinazione Ad esempio, potrebbe essere necessario assicurarsi che i set di training e di testing siano approssimativamente bilanciati rispetto al risultato oppure, in relazione ad altre colonne, ad esempio il sesso.
 
 7. Eseguire l'esperimento.
 
 
-## <a name="regular-expression-split"></a>Suddivisione di espressioni regolari
+## <a name="regular-expression-split"></a>Suddivisione espressione regolare
 
-1.  Aggiungere il [Split Data](./split-data.md) modulo nell'esperimento e connetterli come input per il set di dati da suddividere.  
+1.  Aggiungere il modulo [Split data](./split-data.md) all'esperimento e connetterlo come input al set di dati che si desidera suddividere.  
   
-2.  Per la **Splitting mode**, selezionare **suddivisione di espressioni regolari**.
+2.  Per la **modalità di suddivisione**selezionare **espressione regolare divisa**.
 
-3. Nel **espressione regolare** , digitare un'espressione regolare valida. 
+3. Nella casella **espressione regolare** Digitare un'espressione regolare valida. 
   
-   L'espressione regolare deve seguire la sintassi di espressione regolare di Python.
+   L'espressione regolare deve seguire la sintassi delle espressioni regolari di Python.
 
 
 4. Eseguire l'esperimento.
 
-    In base all'espressione regolare è fornire, il set di dati è suddiviso in due set di righe: le righe con valori corrispondono all'espressione e tutte le righe rimanenti. 
+    In base all'espressione regolare fornita, il set di dati è suddiviso in due set di righe: righe con valori corrispondenti all'espressione e tutte le righe rimanenti. 
 
-## <a name="relative-expression-split"></a>Espressione relativa suddivisione.
+## <a name="relative-expression-split"></a>Suddivisione espressione relativa.
 
-1. Aggiungere il [Split Data](./split-data.md) modulo nell'esperimento e connetterli come input per il set di dati da suddividere.
+1. Aggiungere il modulo [Split data](./split-data.md) all'esperimento e connetterlo come input al set di dati che si desidera suddividere.
   
-2. Per la **Splitting mode**, selezionare **espressione relativa suddivisione**.
+2. Per la **modalità di suddivisione**selezionare **espressione relativa divisa**.
   
-3. Nel **espressione relazionale** casella di testo, digitare un'espressione che esegue un'operazione di confronto, per una singola colonna:
+3. Nella casella di testo **espressione relazionale** Digitare un'espressione che esegue un'operazione di confronto in una singola colonna:
 
 
  - Colonna numerica:
-    - La colonna contiene numeri di qualsiasi tipo di dati numerici, inclusi i tipi di dati Data/ora.
+    - La colonna contiene numeri di qualsiasi tipo di dati numerico, inclusi i tipi di dati di data/ora.
 
     - L'espressione può fare riferimento a un massimo di un nome di colonna.
 
-    - Usare il carattere e commerciale (&) per l'operazione AND e usare il carattere barra verticale (|) per l'operazione.
+    - Usare il carattere e commerciale (&) per l'operazione AND e usare il carattere barra verticale (|) per l'operazione OR.
 
-    - Sono supportati gli operatori seguenti: `<`, `>`, `<=`, `>=`, `==`, `!=`
+    - Sono supportati gli operatori seguenti: `<`, `>`, `<=`, `>=`, `==`,`!=`
 
-    - È possibile raggruppare le operazioni usando `(` e `)`.
+    - Non è possibile raggruppare le `(` operazioni `)`utilizzando e.
 
- - Colonna di tipo stringa: 
-    - Sono supportati gli operatori seguenti: `==`, `!=`
+ - Colonna stringa: 
+    - Sono supportati gli operatori seguenti: `==`,`!=`
 
 
 
 4. Eseguire l'esperimento.
 
-    L'espressione divide il set di dati in due set di righe: le righe con valori che soddisfano la condizione e tutte le righe rimanenti.
+    L'espressione divide il set di dati in due set di righe: righe con valori che soddisfano la condizione e tutte le righe rimanenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [set di moduli disponibili](module-reference.md) al servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 

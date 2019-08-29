@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f57f09f146e542768c83fa034f0b4e65bc6b2ae
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ce62a5059304fe83d933a46ae69f4b8e0c276ba7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987919"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127041"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
 
@@ -64,16 +64,16 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per i report 
 | Utenti a rischio.          | 5 minuti   | 15 minuti  | 2 ore  |
 | Accessi a rischio         | 5 minuti   | 15 minuti  | 2 ore  |
 
-## <a name="risk-events"></a>Eventi di rischio
+## <a name="risk-detections"></a>Rilevamento del rischio
 
-Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record detto **evento di rischio**.
+Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record denominato **rilevamento del rischio**.
 
-Nella tabella seguente sono elencate le informazioni sulla latenza per gli eventi di rischio.
+Nella tabella seguente sono elencate le informazioni sulla latenza per i rilevamenti dei rischi.
 
 | Report | Minima | Average | Massima |
 | :-- | --- | --- | --- |
 | Accessi da indirizzi IP anonimi |5 minuti |15 minuti |2 ore |
-| Accessi da posizioni insolite |5 minuti |15 minuti |2 ore |
+| Accessi da posizioni non note |5 minuti |15 minuti |2 ore |
 | Utenti con credenziali perse |2 ore |4 ore |8 ore |
 | Trasferimento impossibile a posizioni atipiche |5 minuti |1 ora |8 ore  |
 | Accessi da dispositivi infetti |2 ore |4 ore |8 ore  |
@@ -84,4 +84,4 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per gli event
 
 * [Panoramica dei report di Azure AD](overview-reports.md)
 * [Accesso programmatico ai report di Azure AD](concept-reporting-api.md)
-* [Eventi di rischio di Azure Active Directory](concept-risk-events.md)
+* [Rilevamento del rischio Azure Active Directory](concept-risk-events.md)

@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60382292"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135746"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
 L'obiettivo di questo documento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri documenti.
@@ -95,7 +95,6 @@ Per questa funzionalità, l'account Active Directory Domain Services usato per l
   > Solo le versioni più recenti di Azure AD Connect, ovvero la 1.1.524.0 e successive, supportano l'uso di ConsistencyGuid come sourceAnchor durante una nuova installazione.
 
 ### <a name="how-to-enable-the-consistencyguid-feature"></a>Come abilitare la funzionalità ConsistencyGuid
-Al momento la funzionalità può essere abilitata solo durante una nuova installazione di Azure AD Connect.
 
 #### <a name="express-installation"></a>Installazione rapida
 Quando si installa Azure AD Connect in modalità rapida, la procedura guidata di Azure AD Connect determina automaticamente l'attributo AD più appropriato da usare come attributo sourceAnchor mediante la logica seguente:
@@ -120,7 +119,7 @@ Quando si installa Azure AD Connect in modalità personalizzata, la procedura gu
 
 ![Installazione personalizzata - Configurazione di sourceAnchor](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 | --- | --- |
 | Consenti ad Azure di gestire automaticamente l'ancoraggio di origine | Selezionare questa opzione se si vuole che Azure AD selezioni automaticamente l'attributo. Se si seleziona questa opzione, la procedura guidata di Azure AD Connect applica la stessa [logica di selezione dell'attributo sourceAnchor usata durante l'installazione rapida](#express-installation). Alla stregua dell'installazione rapida, la procedura guidata informa l'utente sull'attributo selezionato come attributo sourceAnchor al termine dell'installazione personalizzata. |
 | Attributo specifico | Selezionare questa opzione se si vuole specificare un attributo di AD esistente come attributo sourceAnchor. |
@@ -157,7 +156,7 @@ Durante l'analisi, al passaggio 4, se l'attributo è configurato su uno o più o
 
 ![Abilitare ConsistencyGuid per una distribuzione esistente: errore](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- Se si è certi che l'attributo non viene usato da altre applicazioni esistenti, è possibile eliminare l'errore, riavviare la procedura guidata Azure AD Connect con la **/SkipLdapSearch** commutatore specificato. A tale scopo, al prompt dei comandi eseguire questo comando:
+ Se si è certi che l'attributo non sia usato da altre applicazioni esistenti, è possibile eliminarlo riavviando la procedura guidata di Azure AD Connect con l'opzione **/SkipLdapSearch** specificata. A tale scopo, al prompt dei comandi eseguire questo comando:
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -171,7 +170,7 @@ Se si gestisce AD FS dall'esterno di Azure AD Connect o se per l'autenticazione 
 ![Configurazione della federazione di terze parti](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Aggiunta di nuove directory alla distribuzione esistente
-Si supponga di aver distribuito Azure AD Connect con la funzionalità ConsistencyGuid abilitata e di voler aggiungere un'altra directory alla distribuzione. Quando si tenta di aggiungere la directory, la procedura guidata di Azure AD Connect controlla lo stato dell'attributo ms-DS-ConsistencyGuid nella directory. Se l'attributo è configurato su uno o più oggetti nella directory, la procedura conclude che l'attributo è usato da altre applicazioni e restituisce un errore, come mostrato di seguito. Se si è certi che l'attributo non viene usato dalle applicazioni esistenti, è possibile eliminare l'errore, riavviare la procedura guidata Azure AD Connect con la **/SkipLdapSearch** commutatore specificato come descritto in precedenza oppure è necessario contattare Supporto per altre informazioni.
+Si supponga di aver distribuito Azure AD Connect con la funzionalità ConsistencyGuid abilitata e di voler aggiungere un'altra directory alla distribuzione. Quando si tenta di aggiungere la directory, la procedura guidata di Azure AD Connect controlla lo stato dell'attributo ms-DS-ConsistencyGuid nella directory. Se l'attributo è configurato su uno o più oggetti nella directory, la procedura conclude che l'attributo è usato da altre applicazioni e restituisce un errore, come mostrato di seguito. Se si è certi che l'attributo non venga utilizzato dalle applicazioni esistenti, è possibile eliminarlo riavviando la procedura guidata di Azure AD Connect con l'opzione **/SkipLdapSearch** specificata come descritto in precedenza oppure è necessario contattare il supporto tecnico per ulteriori informazioni .
 
 ![Aggiunta di nuove directory alla distribuzione esistente](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

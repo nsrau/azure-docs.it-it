@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8df01c204a6893f4e2ff1c2ff22fa337d77c519b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637584"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125011"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Blocco intelligente di Azure Active Directory
 
@@ -45,7 +45,7 @@ Quando si usa l'[autenticazione pass-through](../hybrid/how-to-connect-pta.md), 
 * La soglia di blocco di Azure AD è **inferiore** alla soglia di blocco dell'account Active Directory. Configurare i valori in modo che la soglia di blocco dell'account Active Directory sia almeno due o tre volte superiore rispetto alla soglia di blocco di Azure AD. 
 * La durata del blocco di Azure AD deve essere impostata più a lungo rispetto al contatore del blocco dell'account di Active Directory reset dopo la durata. Tenere presente che la durata del Azure AD è impostata in secondi, mentre la durata di Active Directory è impostata in minuti. 
 
-Ad esempio, se si vuole che il contatore di Azure AD sia maggiore di AD, Azure AD sarebbe 120 secondi (2 minuti) mentre l'annuncio in locale è impostato su 1 minuto (60 secondi).
+Se ad esempio si vuole che il contatore di Azure AD sia maggiore di AD, Azure AD sarà di 120 secondi (2 minuti) mentre Active Directory locale è impostato su 1 minuto (60 secondi).
 
 > [!IMPORTANT]
 > Attualmente, un amministratore non può sbloccare gli account cloud degli utenti se questi sono stati bloccati dalla funzionalità di blocco Smart. L'amministratore deve attendere la scadenza della durata del blocco. Tuttavia, l'utente può sbloccare usando la reimpostazione della password self-service (SSPR) da una posizione o un dispositivo attendibile.
@@ -67,7 +67,7 @@ In base alle esigenze dell'organizzazione, può essere necessario personalizzare
 
 Per verificare o modificare i valori del blocco intelligente per l'organizzazione, seguire questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com), fare clic su **Azure Active Directory** e quindi su **Metodi di autenticazione**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Azure Active Directory** > **Metodi** > di autenticazione**Password Protection**.
 1. Impostare il valore di **Soglia di blocco**, in base al numero di accessi non riusciti consentiti per un account prima che venga applicato il primo blocco. Il valore predefinito è 10.
 1. Impostare il valore di **Durata del blocco in secondi** sulla durata in secondi di ogni blocco. Il valore predefinito è 60 secondi (1 minuto).
 

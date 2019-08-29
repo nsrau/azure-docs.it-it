@@ -3,21 +3,20 @@ title: Espressioni e funzioni in Azure Data Factory | Microsoft Docs
 description: Questo articolo fornisce informazioni sulle espressioni e funzioni che è possibile usare per la creazione di entità di data factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-ms.openlocfilehash: 533d0c7461530a00e6f640ee53c0c87d336e799d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c500c4b2d35a449a9f9c0f693a02c008ea6e3c5e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876322"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141684"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -167,7 +166,7 @@ Questa [esercitazione](https://azure.microsoft.com/mediahandler/files/resourcefi
 ## <a name="collection-functions"></a>Funzioni di raccolta  
  Queste funzioni operano sulle raccolte come le matrici, le stringhe e, in alcuni casi, i dizionari.  
   
-|Nome funzione|Descrizione|  
+|Nome funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |contiene|Restituisce true se un dizionario contiene una chiave, se un elenco contiene un valore o se una stringa contiene una sottostringa. Ad esempio, l'espressione seguente restituisce `true:``contains('abacaba','aca')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: WithinCollection<br /><br /> **Descrizione**: Richiesto. Raccolta in cui eseguire la ricerca.<br /><br /> **Numero parametro**: 2<br /><br /> **Nome**: FindObject<br /><br /> **Descrizione**: Richiesto. Oggetto da trovare all'interno di **WithinCollection**.|  
 |length|Restituisce il numero di elementi in una matrice o in una stringa. Ad esempio, l'espressione seguente restituisce `3`: `length('abc')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Collection<br /><br /> **Descrizione**: Richiesto. La raccolta di cui si vuole ottenere la lunghezza.|  
@@ -182,7 +181,7 @@ Questa [esercitazione](https://azure.microsoft.com/mediahandler/files/resourcefi
 ## <a name="logical-functions"></a>Funzioni logiche  
  Queste funzioni sono utili all'interno delle condizioni e possono essere usate per valutare qualsiasi tipo di logica.  
   
-|Nome funzione|DESCRIZIONE|  
+|Nome funzione|Descrizione|  
 |-------------------|-----------------|  
 |equals|Restituisce true se due valori sono uguali. Se ad esempio parameter1 è foo, l'espressione seguente restituisce `true`: `equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Object 1<br /><br /> **Descrizione**: Richiesto. Oggetto da confrontare a **Object 2**.<br /><br /> **Numero parametro**: 2<br /><br /> **Nome**: Object 2<br /><br /> **Descrizione**: Richiesto. Oggetto da confrontare a **Object 1**.|  
 |less|Restituisce true se il primo argomento è inferiore al secondo. Si noti che i valori possono essere solo di tipo intero, a virgola mobile o stringa. Ad esempio, l'espressione seguente restituisce `true`: `less(10,100)`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Object 1<br /><br /> **Descrizione**: Richiesto. Oggetto da controllare per verificare se è inferiore a **Object 2**.<br /><br /> **Numero parametro**: 2<br /><br /> **Nome**: Object 2<br /><br /> **Descrizione**: Richiesto. Oggetto da controllare per verificare se è superiore a **Object 1**.|  
@@ -214,16 +213,16 @@ Questa [esercitazione](https://azure.microsoft.com/mediahandler/files/resourcefi
 |int|Converte il parametro in un valore intero. Ad esempio, l'espressione seguente restituisce 100 sotto forma di numero, invece di una stringa: `int('100')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: Richiesto. Valore convertito in un valore intero.|  
 |string|Converte il parametro in una stringa. Ad esempio, l'espressione seguente restituisce `'10'`:  `string(10)`. È anche possibile convertire un oggetto in una stringa, ad esempio se il parametro **foo** è un oggetto con una sola proprietà `bar : baz`, l'espressione seguente restituisce `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: Richiesto. Valore convertito in una stringa.|  
 |json|Converte il parametro in un valore di tipo JSON. È il contrario di string(). Ad esempio, l'espressione seguente restituisce `[1,2,3]` come matrice, anziché come stringa:<br /><br /> `json('[1,2,3]')`<br /><br /> È analogamente possibile convertire una stringa in un oggetto. Ad esempio, `json('{"bar" : "baz"}')` restituisce:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: Richiesto. Stringa convertita in un valore di tipo nativo.<br /><br /> La funzione JSON supporta anche l'input XML. Ad esempio, il valore del parametro di:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> viene convertito nel codice JSON seguente:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|float|Converte l'argomento del parametro in un numero a virgola mobile. Ad esempio, l'espressione seguente restituisce `10.333`: `float('10.333')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Valore<br /><br /> **Descrizione**: Richiesto. Valore convertito in un numero a virgola mobile.|  
-|bool|Converte il parametro in un valore booleano. Ad esempio, l'espressione seguente restituisce `false`: `bool(0)`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: Richiesto. Valore convertito in un valore booleano.|  
+|float|Converte l'argomento del parametro in un numero a virgola mobile. Ad esempio, l'espressione seguente restituisce `10.333`: `float('10.333')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: Richiesto. Valore convertito in un numero a virgola mobile.|  
+|bool|Converte il parametro in un valore booleano. Ad esempio, l'espressione seguente restituisce `false`: `bool(0)`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Valore<br /><br /> **Descrizione**: Richiesto. Valore convertito in un valore booleano.|  
 |coalesce|Restituisce il primo oggetto non Null negli argomenti passati. Nota: una stringa vuota non è Null. Se ad esempio i parametri 1 e 2 non sono definiti, questa funzione restituisce `fallback`: `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Numero parametro**: 1 ... *n*<br /><br /> **Nome**: Object*n*<br /><br /> **Descrizione**: Richiesto. Oggetto da controllare per rilevare valori `null`.|  
 |base64|Restituisce la rappresentazione base64 della stringa di input. Ad esempio, l'espressione seguente restituisce `c29tZSBzdHJpbmc=`: `base64('some string')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: String 1<br /><br /> **Descrizione**: Richiesto. Stringa da codificare nella rappresentazione con codifica Base64.|  
 |base64ToBinary|Restituisce una rappresentazione binaria di una stringa con codifica Base64. Ad esempio, l'espressione seguente restituisce la rappresentazione binaria di una stringa: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: Richiesto. Stringa con codifica Base64.|  
 |base64ToString|Restituisce una rappresentazione di stringa di una stringa con codifica Based64. Ad esempio, l'espressione seguente restituisce una stringa: `base64ToString('c29tZSBzdHJpbmc=')`.<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: Richiesto. Stringa con codifica Base64.|  
-|Binary|Restituisce una rappresentazione binaria di un valore.  Ad esempio, l'espressione seguente restituisce la rappresentazione binaria di una stringa: `binary(‘some string’).`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Valore<br /><br /> **Descrizione**: Richiesto. Valore convertito in un valore binario.|  
+|Binary|Restituisce una rappresentazione binaria di un valore.  Ad esempio, l'espressione seguente restituisce la rappresentazione binaria di una stringa: `binary(‘some string’).`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: Richiesto. Valore convertito in un valore binario.|  
 |dataUriToBinary|Restituisce una rappresentazione binaria di un URI di dati. Ad esempio, l'espressione seguente restituisce la rappresentazione binaria di una stringa: `dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: Richiesto. URI di dati da convertire in una rappresentazione binaria.|  
 |dataUriToString|Restituisce una rappresentazione di stringa di un URI di dati. Ad esempio, l'espressione seguente restituisce una stringa: `dataUriToString('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: String<br /><br />**Descrizione**: Richiesto. URI di dati da convertire in una rappresentazione di tipo stringa.|  
-|dataUri|Restituisce un URI di dati di un valore. Ad esempio, l'espressione seguente restituisce dati: `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=: dataUri('some string')`<br /><br /> **Numero parametro**: 1<br /><br />**Nome**: Valore<br /><br />**Descrizione**: Richiesto. Valore da convertire in URI di dati.|  
+|dataUri|Restituisce un URI di dati di un valore. Ad esempio, l'espressione seguente restituisce dati: `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=: dataUri('some string')`<br /><br /> **Numero parametro**: 1<br /><br />**Nome**: Value<br /><br />**Descrizione**: Richiesto. Valore da convertire in URI di dati.|  
 |decodeBase64|Restituisce una rappresentazione di stringa di una stringa di input con codifica Based64. Ad esempio, l'espressione seguente restituisce `some string`: `decodeBase64('c29tZSBzdHJpbmc=')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: Restituisce una rappresentazione di stringa di una stringa di input con codifica Based64.|  
 |encodeUriComponent|Aggiunge un URL come escape alla stringa passata. Ad esempio, l'espressione seguente restituisce `You+Are%3ACool%2FAwesome`: `encodeUriComponent('You Are:Cool/Awesome')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: Richiesto. Stringa a cui aggiungere caratteri di escape per i caratteri non sicuri per gli URL.|  
 |decodeUriComponent|Rimuove i caratteri di escape per l'URL nella stringa passata. Ad esempio, l'espressione seguente restituisce `You Are:Cool/Awesome`: `encodeUriComponent('You+Are%3ACool%2FAwesome')`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: Richiesto. Stringa da cui decodificare i caratteri non sicuri per gli URL.|  
@@ -239,7 +238,7 @@ Questa [esercitazione](https://azure.microsoft.com/mediahandler/files/resourcefi
 ## <a name="math-functions"></a>Funzioni matematiche  
  Queste funzioni possono essere usate per qualsiasi tipo di numero, ovvero **numeri interi** e **numeri a virgola mobile**.  
   
-|Nome funzione|DESCRIZIONE|  
+|Nome funzione|Descrizione|  
 |-------------------|-----------------|  
 |aggiungi|Restituisce il risultato della somma dei due numeri. Ad esempio, questa funzione restituisce `20.333`: `add(10,10.333)`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Summand 1<br /><br /> **Descrizione**: Richiesto. Numero da aggiungere a **Summand 2**.<br /><br /> **Numero parametro**: 2<br /><br /> **Nome**: Summand 2<br /><br /> **Descrizione**: Richiesto. Numero da aggiungere a **Summand 1**.|  
 |sub|Restituisce il risultato della differenza dei due numeri. Ad esempio, questa funzione restituisce `-0.333`:<br /><br /> `sub(10,10.333)`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Minuend<br /><br /> **Descrizione**: Richiesto. Numero da cui viene rimosso **Subtrahend**.<br /><br /> **Numero parametro**: 2<br /><br /> **Nome**: Subtrahend<br /><br /> **Descrizione**: Richiesto. Numero da rimuovere da **Minuend**.|  
@@ -253,7 +252,7 @@ Questa [esercitazione](https://azure.microsoft.com/mediahandler/files/resourcefi
   
 ## <a name="date-functions"></a>Funzioni di data  
   
-|Nome funzione|Descrizione|  
+|Nome funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |utcnow|Restituisce il timestamp corrente come stringa. Ad esempio, `2015-03-15T13:27:36Z`:<br /><br /> `utcnow()`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Formato<br /><br /> **Descrizione**: facoltativo. [Singolo carattere di identificatore formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o [modello di formato personalizzato](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) che indica come formattare il valore di questo timestamp. Se il formato non viene specificato, viene usato il formato ISO 8601 ("o").|  
 |addseconds|Aggiunge un numero intero di secondi a un timestamp di stringa passato. Il numero di secondi può essere positivo o negativo. Per impostazione predefinita, il risultato è una stringa in formato ISO 8601 ("o"), a meno che non venga fornito un identificatore di formato. Ad esempio, `2015-03-15T13:27:00Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -36)`<br /><br /> **Numero parametro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrizione**: Richiesto. Stringa contenente l'ora.<br /><br /> **Numero parametro**: 2<br /><br /> **Nome**: Secondi<br /><br /> **Descrizione**: Richiesto. Numero di secondi da aggiungere. Può essere negativo per sottrarre secondi.<br /><br /> **Numero parametro**: 3<br /><br /> **Nome**: Formato<br /><br /> **Descrizione**: facoltativo. [Singolo carattere di identificatore formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o [modello di formato personalizzato](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) che indica come formattare il valore di questo timestamp. Se il formato non viene specificato, viene usato il formato ISO 8601 ("o").|  

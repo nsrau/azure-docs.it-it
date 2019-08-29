@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8fffc74075abf6dcc4b5c293819f739a9725646b
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998166"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128210"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -30,15 +30,15 @@ Questo articolo illustra come usare l'API [Upload video](https://api-portal.vide
 Una volta caricato il video, facoltativamente Video Indexer lo codifica (illustrato in questo articolo). Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
 
 ## <a name="uploading-considerations"></a>Considerazioni sul caricamento
-
-- Quando si carica il video in base all'URL (scelta preferita), l'endpoint deve essere protetto con il protocollo TLS 1.2 (o versione successiva)
-- Le dimensioni di caricamento con l'opzione URL sono limitate a 30 GB
-- La lunghezza dell'URL della richiesta è limitata a 2048 caratteri
-- Le dimensioni di caricamento con l'opzione matrice di byte sono limitate a 2 GB
-- L'opzione di matrice di byte scade dopo 30 minuti
-- L'URL fornito nel parametro `videoURL` deve essere codificato.
-- L'indicizzazione degli asset di servizi multimediali ha la stessa limitazione dell'indicizzazione dall'URL
-- Video Indexer ha un limite di durata massima di 4 ore per un singolo file
+ 
+- Quando si carica il video in base all'URL (scelta consigliata), l'endpoint deve essere protetto con TLS 1,2 (o versione successiva).
+- Le dimensioni di caricamento con l'opzione URL sono limitate a 30 GB.
+- La lunghezza dell'URL della richiesta è limitata a 6144 caratteri, in cui la lunghezza dell'URL della stringa di query è limitata a 4096 caratteri.
+- Le dimensioni di caricamento con l'opzione di matrice di byte sono limitate a 2 GB.
+- L'opzione della matrice di byte scade dopo 30 minuti.
+- L'URL specificato nel `videoURL` parametro deve essere codificato.
+- L'indicizzazione degli asset di servizi multimediali ha la stessa limitazione dell'indicizzazione dall'URL.
+- Video Indexer ha un limite di durata massima di 4 ore per un singolo file.
 
 > [!Tip]
 > È consigliabile usare .NET framework versione 4.6.2. o versione successiva perché le versioni precedenti di .NET Framework non usano per impostazione predefinita TLS 1.2.
@@ -60,7 +60,7 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Modifica stato indicizzazione: 
     - Proprietà:    
     
-        |Name|DESCRIZIONE|
+        |NOME|Descrizione|
         |---|---|
         |id|ID video|
         |stato|Lo stato del video|  
@@ -284,7 +284,7 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|status code|ErrorType (nel corpo della risposta)|Descrizione|
+|status code|ErrorType (nel corpo della risposta)|DESCRIZIONE|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|

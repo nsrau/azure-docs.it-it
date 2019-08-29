@@ -3,21 +3,20 @@ title: Attività filtro in Azure Data Factory | Documenti Microsoft
 description: L'attività filtro consente di filtrare gli input.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: shlo
-ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7e2e735baa7e40b4170d3397327e90fc1a5d2d5
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60554848"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141680"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Attività filtro in Azure Data Factory
 È possibile usare un'attività filtro in una pipeline per applicare un'espressione filtro a una matrice di input. 
@@ -37,12 +36,12 @@ ms.locfileid: "60554848"
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività `Filter`. | String | Yes
-type | Deve essere impostato su **filter**. | String | Yes
-condition | Condizione da usare per il filtraggio dell'input. | Expression | Yes
-items | Matrice di input a cui deve essere applicato il filtro. | Expression | Yes
+type | Deve essere impostato su **filter**. | String | Sì
+condition | Condizione da usare per il filtraggio dell'input. | Expression | Sì
+elementi | Matrice di input a cui deve essere applicato il filtro. | Expression | Sì
 
 ## <a name="example"></a>Esempio
 

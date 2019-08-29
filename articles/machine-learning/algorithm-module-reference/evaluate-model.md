@@ -1,7 +1,7 @@
 ---
-title: 'Valutazione del modello: Riferimento al modulo'
+title: 'Modello di valutazione: Riferimento al modulo'
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Evaluate Model nel servizio Azure Machine Learning per misurare l'accuratezza di un modello con training.
+description: Informazioni su come usare il modulo Evaluate Model nel servizio Azure Machine Learning per misurare l'accuratezza di un modello sottoposto a training.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,20 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 40a8247c22da1f7a057e222565ffb2ec4c6b7fb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17263c8e7300f427b7d82aea65e1f83edf6d6fc4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028741"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128861"
 ---
-# <a name="evaluate-model-module"></a>Valutare il modulo di modello
+# <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio di Azure Machine Learning.
+Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
 
-Usare questo modulo per misurare l'accuratezza di un modello con training. Si forniscono un set di dati contenente i punteggi generati da un modello e il **Evaluate Model** modulo Calcola un set di metriche di valutazione standard del settore.
+Utilizzare questo modulo per misurare l'accuratezza di un modello sottoposto a training. Si fornisce un set di dati contenente i punteggi generati da un modello e il modulo **Evaluate Model** calcola un set di metriche di valutazione standard del settore.
   
- Le metriche restituite da **Evaluate Model** variano a seconda del tipo di modello che si sta valutando:  
+ Le metriche restituite dal **modello di valutazione** dipendono dal tipo di modello che si sta valutando:  
   
 -   **Modelli di classificazione**    
 -   **Modelli di regressione**    
@@ -31,100 +30,100 @@ Usare questo modulo per misurare l'accuratezza di un modello con training. Si fo
 
 
 > [!TIP]
-> Se ha esperienza di valutazione del modello, è consigliabile la serie di video dal ripristino di emergenza. Stephen Elston, durante la [corso di machine learning](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) da EdX. 
+> Se non si ha familiarità con la valutazione del modello, è consigliabile usare la serie di video di ripristino di emergenza. Stephen Elston, come parte del [corso di apprendimento automatico](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) di EDX. 
 
 
-Esistono tre modi per usare la **Evaluate Model** modulo:
+Esistono tre modi per usare il modulo **Evaluate Model** :
 
-+ Generare i punteggi sui dati di training e valutare il modello basato su questi punteggi
-+ Generare punteggi per il modello, ma confrontare i punteggi di punteggi in un set di testing riservato
-+ Confrontare i punteggi per due modelli di diversi ma correlati, usando lo stesso set di dati
++ Genera punteggi sui dati di training e valuta il modello in base a questi punteggi
++ Genera punteggi sul modello, ma confronta i punteggi con i punteggi in un set di testing riservato
++ Confrontare i punteggi per due modelli diversi, ma correlati, usando lo stesso set di dati
 
 ## <a name="use-the-training-data"></a>Usare i dati di training
 
-Per valutare un modello, è necessario connettere un set di dati che contiene un set di colonne di input e punteggi.  Se nessun altro dato è disponibile, è possibile usare il set di dati originale.
+Per valutare un modello, è necessario connettere un set di dati che contiene un set di colonne di input e punteggi.  Se non sono disponibili altri dati, è possibile usare il set di dati originale.
 
-1. Connettere il **Scored dataset** di output delle [Score Model](./score-model.md) all'input di **Evaluate Model**. 
-2. Fare clic su **Evaluate Model** modulo ed eseguire l'esperimento per generare i punteggi di valutazione.
+1. Connettere l'output del **set di dati con punteggio** del modello di [Punteggio](./score-model.md) all'input di **Evaluate Model**. 
+2. Fare clic su **Evaluate Model** Module ed eseguire l'esperimento per generare i punteggi di valutazione.
 
-## <a name="use-testing-data"></a>Usare i dati di testing
+## <a name="use-testing-data"></a>Usare i dati di test
 
-Uno scenario comune di apprendimento automatico consiste nel separare il set di dati originale in training e testing di set di dati, tramite il [suddivisione](./split-data.md) modulo, o il [Partition and Sample](./partition-and-sample.md) modulo. 
+Uno scenario comune nell'apprendimento automatico consiste nel separare il set di dati originale in set di dati di training e di testing, usando il modulo [Split](./split-data.md) o il modulo [Partition and Sample](./partition-and-sample.md) . 
 
-1. Connettere il **Scored dataset** di output delle [Score Model](score-model.md) all'input di **Evaluate Model**. 
-2. Connettere l'output del modulo Split Data che contiene i dati di test per l'input di destra **Evaluate Model**.
-2. Fare clic su **Evaluate Model** modulo e selezionare **Esegui selezionati** per generare i punteggi di valutazione.
+1. Connettere l'output del **set di dati con punteggio** del modello di [Punteggio](score-model.md) all'input di **Evaluate Model**. 
+2. Connettere l'output del modulo Split data che contiene i dati di test all'input di destra di **Evaluate Model**.
+2. Fare clic su modulo **Evaluate Model** e selezionare **Esegui selezione** per generare i punteggi di valutazione.
 
 ## <a name="compare-scores-from-two-models"></a>Confrontare i punteggi di due modelli
 
-È anche possibile collegare un secondo set di punteggi a **Evaluate Model**.  I punteggi potrebbero essere un set di valutazione condivisa presenta noti i risultati o un set di risultati da un modello diverso per gli stessi dati.
+È anche possibile connettere un secondo set di punteggi per **valutare il modello**.  I punteggi potrebbero essere un set di valutazione condiviso con risultati noti o un set di risultati di un modello diverso per gli stessi dati.
 
 Questa funzionalità è utile perché è possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
 
-1. Connettere il **Scored dataset** di output delle [Score Model](score-model.md) all'input di **Evaluate Model**. 
-2. Connettere l'output del modulo Score Model per il secondo modello all'input di destra **Evaluate Model**.
-3. Fare doppio clic su **Evaluate Model**e selezionare **Esegui selezionati** per generare i punteggi di valutazione.
+1. Connettere l'output del **set di dati con punteggio** del modello di [Punteggio](score-model.md) all'input di **Evaluate Model**. 
+2. Connettere l'output del modulo Score Model per il secondo modello all'input di destra di **Evaluate Model**.
+3. Fare clic con il pulsante destro del mouse su **Evaluate Model**e selezionare **Esegui selezione** per generare i punteggi di valutazione.
 
 ## <a name="results"></a>Risultati
 
-Dopo aver eseguito **Evaluate Model**, fare clic sul modulo e selezionare **i risultati della valutazione** per visualizzare i risultati. È possibile:
+Dopo aver eseguito **Evaluate Model**, fare clic con il pulsante destro del mouse sul modulo e selezionare **Risultati valutazione** per visualizzare i risultati. È possibile:
 
-+ Salvare i risultati come set di dati, per semplificarne l'analisi con altri strumenti
++ Salvare i risultati come set di dati, per semplificare l'analisi con altri strumenti
 + Generare una visualizzazione nell'interfaccia
 
-Se i set di dati si connette a entrambi gli input della **Evaluate Model**, i risultati conterrà le metriche per entrambi i set di dati, o entrambi i modelli.
-Il modello o i dati allegati alla porta di sinistra viene visualizzati prima di tutto nel report, aggiungendo le metriche per il set di dati o nel modello collegato nella porta di destra.  
+Se si connettono i set di dati a entrambi gli input di **Evaluate Model**, i risultati conterranno le metriche per entrambi i set di dati o per entrambi i modelli.
+Il modello o i dati collegati alla porta sinistra vengono presentati per primi nel report, seguiti dalle metriche per il set di dati o dal modello collegato sulla porta destra.  
 
-Ad esempio, l'immagine seguente rappresenta un confronto dei risultati di due modelli di clustering che sono stato sviluppati sugli stessi dati, ma con parametri diversi.  
+Ad esempio, l'immagine seguente rappresenta un confronto dei risultati di due modelli di clustering basati sugli stessi dati, ma con parametri diversi.  
 
-![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
+![Comparing2Models&#95;AML](media/module/aml-comparing2models.png "AML_Comparing2Models")  
 
-Poiché si tratta di un modello di clustering, i risultati della valutazione sono diversi rispetto a se confrontare i punteggi di due modelli di regressione o confrontare due modelli di classificazione. Tuttavia, la presentazione generale è lo stesso. 
+Poiché si tratta di un modello di clustering, i risultati della valutazione sono diversi rispetto a quelli di due modelli di regressione oppure a confrontati due modelli di classificazione. Tuttavia, la presentazione complessiva è la stessa. 
 
 ## <a name="metrics"></a>metrics
 
-In questa sezione illustra le metriche restituite per i tipi specifici di modelli supportati per l'uso con **Evaluate Model**:
+In questa sezione vengono descritte le metriche restituite per i tipi specifici di modelli supportati per l'utilizzo con **Evaluate Model**:
 
 + [modelli di classificazione](#bkmk_classification)
 + [modelli di regressione](#bkmk_regression)
 
-###  <a name="bkmk_classification"></a> Metriche per i modelli di classificazione
+###  <a name="bkmk_classification"></a>Metriche per i modelli di classificazione
 
-Le metriche seguenti vengono segnalate durante la valutazione di modelli di classificazione. Se si confrontano modelli, essi vengono classificate in base alla metrica che si seleziona per la valutazione.  
+Quando si valutano i modelli di classificazione, vengono restituite le metriche seguenti. Se si confrontano i modelli, vengono classificati in base alla metrica selezionata per la valutazione.  
   
--   **Accuratezza** misura l'adeguatezza del modello di classificazione come la percentuale di risultati totale dei case.  
+-   L'accuratezza misura la bontà di un modello di classificazione come la percentuale di risultati reali al numero totale di case.  
   
--   **Precisione** è la percentuale dei risultati true su tutti i risultati positivi.  
+-   La **precisione** è la percentuale di risultati reali rispetto a tutti i risultati positivi.  
   
--   **È importante ricordare** indica la frazione di tutti i risultati corretti restituiti dal modello.  
+-   **Richiama** è la frazione di tutti i risultati corretti restituiti dal modello.  
   
--   **F-score** viene calcolato come media ponderata di precisione e richiamo compreso tra 0 e 1, dove il valore F-score ideale è 1.  
+-   Il **Punteggio f** viene calcolato come media ponderata della precisione e richiama tra 0 e 1, dove il valore f-Score ideale è 1.  
   
--   **Area sottesa alla curva** misure l'area sottesa alla curva tracciata con veri positivi su di y dell'asse e false positivi sull'asse x. Questa metrica è utile perché offre un singolo numero che consente di confrontare i modelli di tipi diversi.  
+-   **AUC** misura l'area sotto la curva tracciata con i veri positivi sull'asse y e i falsi positivi sull'asse x. Questa metrica è utile perché fornisce un singolo numero che consente di confrontare modelli di tipi diversi.  
   
-- **Perdita logaritmica Media** corrisponde a un punteggio singolo usato per esprimere la penalità per i risultati errati. Viene calcolato come la differenza tra due distribuzioni di probabilità: quella reale e quella nel modello.  
+- La **perdita di log media** è un singolo punteggio usato per esprimere la penalità per i risultati errati. Viene calcolata come differenza tra due distribuzioni di probabilità, quella vera e quella nel modello.  
   
-- **Perdita logaritmica di training** corrisponde a un singolo punteggio che rappresenta il vantaggio del classificatore su una stima casuale. La perdita logaritmica misura l'incertezza del modello tramite il confronto tra le probabilità che restituisce come output per i valori noti (ground truth) nelle etichette. Si vuole ridurre al minimo la perdita di log per il modello nel suo complesso.
+- La **perdita dei log di training** è un singolo punteggio che rappresenta il vantaggio del classificatore su una stima casuale. La perdita di log misura l'incertezza del modello confrontando le probabilità che restituisce ai valori noti (verità) nelle etichette. Si desidera ridurre al minimo la perdita di log per il modello nel suo complesso.
 
-##  <a name="bkmk_regression"></a> Metriche per i modelli di regressione
+##  <a name="bkmk_regression"></a>Metriche per i modelli di regressione
  
-Le metriche restituite per i modelli di regressione sono in genere progettate per stimare la quantità di errori.  Un modello viene considerato come adattare i dati anche se la differenza tra i valori osservati e previsti è ridotto. Tuttavia, osservando il modello dei residui (la differenza tra un determinato stimato e il valore effettivo corrispondente) può fornire informazioni molto su potenziali distorsione del modello.  
+Le metriche restituite per i modelli di regressione sono in genere progettate per stimare la quantità di errori.  Un modello viene considerato adatto ai dati anche se la differenza tra i valori osservati e quelli stimati è ridotta. Tuttavia, l'analisi del modello dei residui (la differenza tra un punto stimato e il valore effettivo corrispondente) può indicare una grande quantità di potenziali distorsioni nel modello.  
   
- Le metriche seguenti vengono indicate per la valutazione dei modelli di regressione. Quando si confrontano modelli, essi vengono classificate in base alla metrica che si seleziona per la valutazione.  
+ Per la valutazione dei modelli di regressione vengono restituite le metriche seguenti. Quando si confrontano i modelli, vengono classificati in base alla metrica selezionata per la valutazione.  
   
-- **Errore assoluto medio (MAE)** misura la prossimità le stime sono per i risultati effettivi; pertanto, è preferibile un punteggio basso.  
+- **Errore assoluto medio (Mae)** consente di misurare la distanza tra le stime e i risultati effettivi; un punteggio più basso è quindi migliore.  
   
-- **Radice errore quadratico medio (RMSE) significa che** crea un valore singolo che riepiloga l'errore nel modello. Dall'elevazione al quadrato la differenza, la metrica non considera la differenza tra stima in eccesso e correggerà stima.  
+- **Radice errore quadratico medio (valori RMSE)** crea un singolo valore che riepiloga l'errore nel modello. Grazie alla quadratura della differenza, la metrica ignora la differenza tra la stima e la stima.  
   
-- **Errore assoluto relativo (RAE)** è la relativa differenza assoluta tra i valori previsti ed effettivi; relativo perché la differenza media viene diviso per la media aritmetica.  
+- **Errore assoluto relativo (Rae)** è la differenza assoluta relativa tra i valori previsti ed effettivi; relativa perché la differenza media è divisa per la media aritmetica.  
   
-- **Quadratico relativo (RSE) errore** Analogamente Normalizza l'errore quadratico totale dei valori stimati proporzionalmente dividendoli per l'errore quadratico totale dei valori effettivi.  
+- L'errore **quadratico relativo (RSE)** normalizza in modo analogo l'errore quadrato totale dei valori stimati dividendo per l'errore quadrato totale dei valori effettivi.  
   
-- **Significa Zero un errore (MZOE)** indica se è stata corretta la stima o meno.  In altre parole: `ZeroOneLoss(x,y) = 1` quando si `x!=y`; in caso contrario `0`.
+- **Media zero un errore (MZOE)** indica se la stima è stata corretta o meno.  In altre parole: `ZeroOneLoss(x,y) = 1` quando `x!=y`; in `0`caso contrario,.
   
-- **Coefficiente di determinazione**, spesso detta R<sup>2</sup>, rappresenta la capacità predittiva del modello come un valore compreso tra 0 e 1. Zero indica che il modello è casuale (spiega nothing); 1 indica che è ideale. Tuttavia, prestare attenzione nell'interpretazione R<sup>2</sup> valori, come valori bassi possono essere interamente normali e i valori elevati possono essere sospetto.
+- Il **coefficiente di determinazione**, spesso definito R<sup>2</sup>, rappresenta la potenza predittiva del modello come valore compreso tra 0 e 1. Zero indica che il modello è casuale (non spiega niente); 1 indica una soluzione perfetta. Tuttavia, è consigliabile usare l'attenzione per interpretare i valori di R<sup>2</sup> , in quanto i valori bassi possono essere completamente normali e i valori elevati possono essere sospetti.
   
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [set di moduli disponibili](module-reference.md) al servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 

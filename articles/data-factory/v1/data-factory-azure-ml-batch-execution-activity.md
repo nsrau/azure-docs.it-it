@@ -3,22 +3,20 @@ title: Creare pipeline di dati predittive tramite Azure Data Factory | Microsoft
 description: Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7c48c1d91ae08be29531f4a99ea75ab7a928f34
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567424"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140477"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 
@@ -54,7 +52,7 @@ Il servizio Data Factory consente di creare pipeline di dati che spostano e tras
 Per una rapida introduzione al servizio Azure Data Factory, vedere gli articoli [Introduzione al servizio Azure Data Factory](data-factory-introduction.md) e [Creare la prima pipeline](data-factory-build-your-first-pipeline.md).
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory e Machine Learning
-Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di [Azure Machine Learning][azure-machine-learning] per l'analisi predittiva. Con **Attività di esecuzione batch** in una pipeline di Azure Data Factory è possibile eseguire stime dei dati in batch richiamando un servizio Web di Azure Machine Learning Studio. Per altre informazioni, vedere Richiamo di un servizio Web di Azure Machine Learning Studio tramite Attività di esecuzione batch.
+Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato [Azure Machine Learning][azure-machine-learning] per l'analisi predittiva. Con **Attività di esecuzione batch** in una pipeline di Azure Data Factory è possibile eseguire stime dei dati in batch richiamando un servizio Web di Azure Machine Learning Studio. Per altre informazioni, vedere Richiamo di un servizio Web di Azure Machine Learning Studio tramite Attività di esecuzione batch.
 
 Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Azure Machine Learning Studio usando nuovi set di dati di input. È possibile ripetere il training di un modello di Azure Machine Learning Studio da una pipeline di Data Factory seguendo questa procedura:
 
@@ -137,7 +135,7 @@ Il questo scenario il servizio Web Azure Machine Learning esegue stime usando da
 ### <a name="example"></a>Esempio
 Questo esempio usa Archiviazione di Azure per archiviare i dati di input e di output.
 
-Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione relativa alla [creazione della prima pipeline con Data Factory][adf-build-1st-pipeline]. Usare l'editor di Data Factory per creare elementi di Data Factory, come servizi collegati, set di dati e pipeline, in questo esempio.
+Prima di procedere con questo esempio, è consigliabile eseguire la [creazione della prima pipeline con data factory][adf-build-1st-pipeline] esercitazione. Usare l'editor di Data Factory per creare elementi di Data Factory, come servizi collegati, set di dati e pipeline, in questo esempio.
 
 1. Creare un **servizio collegato** per **Archiviazione di Azure**. Se i file di input e output si trovano in account di archiviazione diversi, sono necessari due servizi collegati. Di seguito è fornito un esempio JSON:
 
@@ -184,7 +182,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
     }
     ```
 
-    Il file con estensione csv di input deve avere una riga di intestazione di colonna. Se si usa l'**attività di copia** per creare/spostare il file CSV nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true**. Ad esempio:
+    Il file con estensione csv di input deve avere una riga di intestazione di colonna. Se si usa l'**attività di copia** per creare/spostare il file CSV nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true**. Esempio:
 
     ```JSON
     sink:
@@ -303,7 +301,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
       }
       ```
 
-      Per la data e l'ora di **inizio** e di **fine** è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Ad esempio: 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
+      Per la data e l'ora di **inizio** e di **fine** è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Esempio: 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
 
       > [!NOTE]
       > La specifica dell'input per l'attività AzureMLBatchExecution è opzionale.
@@ -407,7 +405,7 @@ Quando si usa il modulo Reader in un esperimento di Azure Machine Learning, è p
 Nell'esempio JSON precedente:
 
 * Il servizio Web Azure Machine Learning distribuito usa un modulo Reader e un modulo Writer per leggere e scrivere i dati da e in un database SQL di Azure. Questo servizio Web espone i quattro parametri seguenti:  Database server name, Database name, Server user account name e Server user account password.
-* Per la data e l'ora di **inizio** e di **fine** è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Ad esempio:  2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
+* Per la data e l'ora di **inizio** e di **fine** è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Esempio: 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
 
 ### <a name="other-scenarios"></a>Altri scenari
 #### <a name="web-service-requires-multiple-inputs"></a>Il servizio Web richiede più input

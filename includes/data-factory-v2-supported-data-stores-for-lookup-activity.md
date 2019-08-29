@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 1b7a44a0707a3680aff7d93354f616c5d8ee7cd4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a2b00173f463cf5bf0cda321286042a516b7e322
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843244"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70130093"
 ---
 | Category | Archivio dati |
 |:--- |:--- |

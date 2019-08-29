@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 6ab500fe6a7f288bcfbdc9168ada8bdad5bdb6ea
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: be69f18f30b796e7401ef68aa5088153e07f14f5
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772955"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127892"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -45,7 +45,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Afrikaans| `af`    |Solo sistema statistico|  Neurale|
 |Arabo|    `ar`    |Sistema neurale disponibile|  Neurale|
 |Bengali|    `bn`    |Sistema neurale disponibile|  Neurale|
-|Bosniaco (alfabeto latino)|   `bs`    |Sistema neurale disponibile|  Neurale|
+|Bosniaco (latino)|   `bs`    |Sistema neurale disponibile|  Neurale|
 |Bulgaro| `bg`    |Sistema neurale disponibile|  Neurale|
 |Cantonese (tradizionale)|   `yue`   |Solo sistema statistico|  Statistica|
 |Catalano|   `ca`    |Solo sistema statistico|  Statistica|
@@ -115,10 +115,10 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
 |Bengali  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
-| Cinese semplificato | `zh-Hans` | Cinese semplificato `Hans`| <--> | Latino `Latn` |
-| Cinese semplificato | `zh-Hans` | Cinese semplificato `Hans`| <--> | Cinese tradizionale `Hant`|
-| Cinese tradizionale | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Latino `Latn` |
-| Cinese tradizionale | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Cinese semplificato `Hans` |
+| Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Latino `Latn` |
+| Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Cinese tradizionale `Hant`|
+| Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Latino `Latn` |
+| Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Cinese semplificato `Hans` |
 | Gujarati | `gu`  | Gujarati `Gujr` | --> | Latino `Latn` |
 | Ebraico | `he` | Ebraico `Hebr` | <--> | Latino `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latino `Latn` |
@@ -143,7 +143,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
 | Bengali      | `bn`          |
-| Bosniaco (alfabeto latino)      | `bs`          |
+| Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Catalano      | `ca`          |
 | Cinese semplificato      | `zh-Hans`          |
@@ -210,7 +210,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 |:----------- |:-------------:|
 | Arabo       | `ar`          |
 | Bengali      | `bn`          |
-| Bosniaco (alfabeto latino)      | `bs`          |
+| Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Cinese semplificato      | `zh-Hans`          |
 |Cinese tradizionale|   `zh-Hant`   |
@@ -237,6 +237,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Lituano      | `lt`          |
 |Malgascio|  `mg`    |
 | Norvegese      | `nb`          |
+| Persiano      | `fa`          |
 | Polacco      | `pl`          |
 | Portoghese      | `pt`          |
 | Rumeno      | `ro`          |

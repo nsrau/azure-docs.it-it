@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: d9f1afdff53ada2df7722fcfdd7014fb6c417e39
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998230"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135184"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
@@ -555,7 +555,7 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
 |Type|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT.SQ |
+|ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: Errors |
 |OperationName|Nome dell'operazione. Sempre: ErrorEvent |
 |Risorsa|Nome della risorsa |

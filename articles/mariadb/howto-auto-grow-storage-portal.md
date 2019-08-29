@@ -1,45 +1,45 @@
 ---
-title: Aumento automatico delle dimensioni archiviazione nel Database di Azure per MariaDB usando il portale di Azure
-description: Questo articolo descrive come abilitare l'auto aumento delle dimensioni di archiviazione per Database di Azure per MariaDB usando il portale di Azure
+title: Aumento automatico delle dimensioni di archiviazione nel database di Azure per MariaDB usando il portale di Azure
+description: Questo articolo descrive come abilitare l'espansione automatica dell'archiviazione per database di Azure per MariaDB usando portale di Azure
 author: ambhatna
 ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 5/29/2019
-ms.openlocfilehash: bb3291b66776a5f0f6be16069b2d6a999b2d1f32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d7b126b5c07cc8661cf50b4c4e13f78592b118e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676879"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136707"
 ---
-# <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Aumento automatico delle dimensioni archiviazione nel Database di Azure per MariaDB usando il portale di Azure
-Questo articolo descrive come configurare un Database di Azure per l'archiviazione server MariaDB a crescere senza conseguenze per il carico di lavoro.
+# <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Aumento automatico delle dimensioni di archiviazione nel database di Azure per MariaDB usando il portale di Azure
+Questo articolo descrive come configurare un database di Azure per l'archiviazione del server MariaDB in modo che cresca senza compromettere il carico di lavoro.
 
-Quando un server raggiunge il limite di memoria allocata, il server viene contrassegnato come sola lettura. Tuttavia, se si abilita aumento automatico di archiviazione, aumenta l'archiviazione del server per contenere i dati in continua crescita. Per i server con meno di 100 GB effettuato il provisioning di archiviazione, le dimensioni di archiviazione sottoposte a provisioning vengano aumentata da 5 GB, non appena la memoria disponibile è di sotto di maggiore di 1 GB o 10% dello spazio di archiviazione con provisioning. Per i server con più di 100 GB di spazio di archiviazione, le dimensioni di archiviazione con provisioning aumenta del 5% quando lo spazio di archiviazione disponibile è inferiore al 5% le dimensioni di archiviazione con provisioning. Spazio di archiviazione massimo limita come specificato [qui](https://docs.microsoft.com/azure/mariadb/concepts-pricing-tiers#storage) applicare.
+Quando un server raggiunge il limite di archiviazione allocato, il server è contrassegnato come di sola lettura. Tuttavia, se si Abilita l'aumento automatico delle dimensioni di archiviazione, l'archiviazione del server aumenta per adattarsi ai dati in crescita. Per i server con archiviazione con provisioning inferiore a 100 GB, le dimensioni di archiviazione di cui è stato effettuato il provisioning vengono aumentate di 5 GB non appena lo spazio di archiviazione disponibile è inferiore a 1 GB o al 10% dell'archiviazione con provisioning. Per i server con più di 100 GB di spazio di archiviazione di cui è stato effettuato il provisioning, la dimensione di archiviazione con provisioning viene aumentata del 5% quando lo spazio di archiviazione disponibile è inferiore al 5% delle dimensioni di archiviazione con provisioning. Si applicano i limiti di archiviazione massimi come specificato [qui](https://docs.microsoft.com/azure/mariadb/concepts-pricing-tiers#storage) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida, è necessario:
-- Un [Database di Azure per il server di MariaDB](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- Un [database di Azure per il server MariaDB](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 
-## <a name="enable-storage-auto-grow"></a>Abilitare automaticamente archiviazione aumento delle dimensioni 
+## <a name="enable-storage-auto-grow"></a>Abilita espansione automatica dell'archiviazione 
 
-Seguire questi passaggi per impostare l'aumento automatico di archiviazione server MariaDB:
+Seguire questa procedura per impostare l'aumento automatico delle dimensioni di archiviazione del server MariaDB:
 
-1. Nel [portale di Azure](https://portal.azure.com/), selezionare il Database di Azure per MariaDB server.
+1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per il server MariaDB esistente.
 
-2. Nella pagina server MariaDB sotto **le impostazioni** , fare clic su **tariffario** per aprire la pagina dei prezzi a livelli.
+2. Nella pagina Server MariaDB, in **Impostazioni** intestazione, fare clic su piano tariffario per aprire la pagina piano tariffario.
 
-3. Nella sezione aumento automatico, selezionare **Sì** per abilitare l'aumento automatico di archiviazione.
+3. Nella sezione aumento automatico selezionare **Sì** per abilitare l'aumento automatico delle dimensioni di archiviazione.
 
-    ![Database di Azure per MariaDB - Settings_Pricing_tier - aumento automatico](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    ![Database di Azure per MariaDB-Settings_Pricing_tier-aumento automatico](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
 
 4. Fare clic su **OK** per salvare le modifiche.
 
-5. Una notifica viene visualizzata la conferma l'aumento automatico che è stata abilitata.
+5. Una notifica conferma che l'espansione automatica è stata abilitata correttamente.
 
-    ![Database di Azure per MariaDB - operazione riuscita di aumento automatico](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
+    ![Database di Azure per MariaDB-crescita automatica riuscita](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri [come creare avvisi sulle metriche](howto-alert-metric.md).
+Informazioni su [come creare avvisi per le metriche](howto-alert-metric.md).

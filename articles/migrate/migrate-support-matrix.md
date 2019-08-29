@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 08/29/2019
 ms.author: raynew
-ms.openlocfilehash: 49bd193303255cdf7d18fd5da9dec8d84c50a829
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 99ef5c8a4a4291dd1b9d047da9006623dacd0b53
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019196"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147871"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto Azure Migrate
 
@@ -31,10 +31,10 @@ Sono disponibili due versioni del servizio Azure Migrate:
 
 Nella tabella sono riepilogati gli scenari di migrazione supportati.
 
-**Distribuzione** | **Dettagli*** 
+**Distribuzione** | **Dettagli** 
 --- | --- 
 **Valutazione locale** | Valutare i carichi di lavoro e i dati locali in esecuzione su macchine virtuali VMware e Hyper-V. Valuta l'uso di Azure Migrate server Assessment and Microsoft Data Migration Assistant (DMA), nonché di strumenti di terze parti che includono Cloudamize, Corent Tech e Turbonomic server.
-**Migrazione locale ad Azure** | Eseguire la migrazione di carichi di lavoro e dati in esecuzione su server fisici, macchine virtuali VMware, macchine virtuali Hyper-V e in istanze di AWS/GCP in Azure. Esegui la migrazione con Azure Migrate server assessment e il servizio migrazione del database di Azure (DMS), oltre che con strumenti di terze parti che includono Carbonite e CorentTech.
+**Migrazione locale ad Azure** | Eseguire la migrazione di carichi di lavoro e dati in esecuzione su server fisici, macchine virtuali VMware, macchine virtuali Hyper-V, server fisici e macchine virtuali basate su cloud in Azure. Esegui la migrazione con Azure Migrate server assessment e il servizio migrazione del database di Azure (DMS), oltre che con strumenti di terze parti che includono Carbonite e CorentTech.
 
 Il supporto dello strumento specifico viene riepilogato come indicato di seguito.
 
@@ -53,7 +53,7 @@ CorentTech | Migrazione | [Altre informazioni](https://www.corenttech.com/)
 
 **Supporto** | **Dettagli**
 --- | ---
-Sottoscrizione | È possibile disporre di un singolo progetto Azure Migrate in una sottoscrizione.
+Sottoscrizione | È possibile avere più progetti Azure Migrate in una sottoscrizione.
 Autorizzazioni di Azure | Per creare un progetto di Azure Migrate, è necessario disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
 VM VMware  | Consente di valutare fino a 35.000 VM VMware in un singolo progetto.
 VM Hyper-V | Valutazione di un massimo di 10.000 macchine virtuali Hyper-V in un singolo progetto.

@@ -1,7 +1,7 @@
 ---
-title: 'Regressione tramite foresta delle decisioni: Riferimento al modulo'
+title: 'Regressione della foresta delle decisioni: Riferimento al modulo'
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Decision Forest Regression nel servizio Azure Machine Learning per creare un modello di regressione basato su un insieme di alberi delle decisioni.
+description: Informazioni su come usare il modulo di regressione della foresta delle decisioni nel servizio Azure Machine Learning per creare un modello di regressione basato su un insieme di alberi delle decisioni.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,77 +9,76 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: d372adf75d46fdedb7a6f2b17e47822475d1f155
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8bb3285aecb6aff399606e6263f014027a86581
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65442371"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128894"
 ---
-# <a name="decision-forest-regression-module"></a>Modulo di regressione di foreste delle decisioni
+# <a name="decision-forest-regression-module"></a>Modulo di regressione della foresta delle decisioni
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio di Azure Machine Learning.
+Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
 
 Usare questo modulo per creare un modello di regressione basato su un insieme di alberi delle decisioni.
 
-Dopo aver configurato il modello, è necessario eseguirne il training del modello usando un set di dati con etichette e la [Train Model](./train-model.md) modulo.  Il modello con training può quindi utilizzabile per eseguire stime. 
+Dopo aver configurato il modello, è necessario eseguire il training del modello usando un set di dati con etichetta e il modulo [Train Model](./train-model.md) .  Il modello con Training può quindi essere utilizzato per eseguire stime. 
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Gli alberi delle decisioni sono modelli non parametrici che eseguono una sequenza di semplici test per ogni istanza, attraversando una struttura di dati ad albero binario fino al raggiungimento di un nodo foglia (decisione).
+Gli alberi delle decisioni sono modelli non parametrici che eseguono una sequenza di semplici test per ogni istanza, attraversando una struttura di dati dell'albero binario finché non viene raggiunto un nodo foglia (decisione).
 
 Gli alberi delle decisioni offrono i vantaggi seguenti:
 
-- Sono efficienti in calcolo e dell'utilizzo della memoria durante il training e stima.
+- Sono efficienti sia nel calcolo che nell'utilizzo della memoria durante il training e la stima.
 
 - Possono rappresentare limiti di decisione non lineari.
 
-- Che eseguono funzionalità integrate di selezione e classificazione e sono resilienti in caso di funzionalità rumorose.
+- Eseguono la selezione e la classificazione delle funzionalità integrate e sono resilienti in presenza di funzionalità rumorose.
 
-Questo modello di regressione è costituito da un insieme di alberi delle decisioni. Ogni albero in una foresta delle decisioni regressione genera una distribuzione di Gauss come una stima. Un'aggregazione viene eseguita tramite l'insieme di alberi per trovare più vicino alla distribuzione combinata per tutti gli alberi nel modello di distribuzione gaussiana.
+Questo modello di regressione è costituito da un insieme di alberi delle decisioni. Ogni albero in una foresta delle decisioni di regressione restituisce una distribuzione gaussiana come stima. Viene eseguita un'aggregazione sull'insieme di alberi per trovare una distribuzione gaussiana più vicina alla distribuzione combinata per tutti gli alberi nel modello.
 
-Per altre informazioni sul framework di teorico per questo algoritmo e la relativa implementazione, vedere questo articolo: [Le foreste delle decisioni: Un Framework unificato per la classificazione, regressione, la stima, densità del collettore formazione e apprendimento semi-supervisionati](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Per ulteriori informazioni sul framework teorico per questo algoritmo e la relativa implementazione, vedere questo articolo: [Foreste delle decisioni: Un framework unificato per la classificazione, la regressione, la stima della densità, l'apprendimento di manifold e l'apprendimento semi supervisionato](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
-## <a name="how-to-configure-decision-forest-regression-model"></a>Jak nakonfigurovat modello di regressione di foreste delle decisioni
+## <a name="how-to-configure-decision-forest-regression-model"></a>Come configurare il modello di regressione della foresta delle decisioni
 
-1. Aggiungere il **Decision Forest Regression** modulo all'esperimento. È possibile trovare il modulo nell'interfaccia sotto **Machine Learning**, **modello di inizializzazione**, e **regressione**.
+1. Aggiungere il modulo di regressione della **foresta delle decisioni** all'esperimento. È possibile trovare il modulo nell'interfaccia in **Machine Learning**, inizializzare il **modello**e **regressione**.
 
-2. Aprire le proprietà del modulo e per **metodo di ricampionamento**, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra **Bagging** oppure **replicare**.
+2. Aprire le proprietà del modulo e, per il **Metodo**di ricampionamento, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra l'insaccamento o la **replica**.
 
-    - **Bagging**: Viene anche chiamato bagging *l'aggregazione di bootstrap*. Ogni albero in una foresta delle decisioni regressione genera una distribuzione di Gauss mezzo di stima. L'aggregazione consiste nel trovare un Gauss cui primi due istanti corrispondono i momenti della miscela di Gaussians dato dalla combinazione di tutti i Gaussians restituito da singoli alberi.
+    - Insaccamento: L'insaccamento viene chiamato anche *aggregazione bootstrap*. Ogni albero in una foresta delle decisioni di regressione restituisce una distribuzione gaussiana mediante la stima. L'aggregazione consiste nel trovare un controllo gaussiana i cui primi due istanti corrispondono ai momenti della combinazione di gaussiana forniti combinando tutti i gaussiana restituiti da singoli alberi.
 
-         Per altre informazioni, vedere la voce di Wikipedia relativa [l'aggregazione di Bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
+         Per ulteriori informazioni, vedere la voce Wikipedia per l' [aggregazione bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
-    - **Replicare**: Nella replica di ogni albero viene eseguito il training su esattamente gli stessi dati di input. La determinazione di quali split predicato è utilizzato per ciascun nodo dell'albero rimane casuali e alberi saranno diversi.
+    - **Replica**: Nella replica ogni albero viene sottoposto a training esattamente sugli stessi dati di input. La determinazione del predicato Split utilizzato per ogni nodo della struttura ad albero rimane casuale e gli alberi saranno diversi.
 
-         Per altre informazioni sul processo di training con il **replicare** opzione, vedere [foreste delle decisioni per visione artificiale e analisi delle immagini medici. Criminisi e J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/).
+         Per altre informazioni sul processo di training con l' opzione replicate, [vedere foreste delle decisioni per visione artificiale e analisi delle immagini mediche. Criminisi e J. Shotton. Springer 2013. ](https://research.microsoft.com/projects/decisionforests/).
 
-3. Specificare come si desidera che il modello di esecuzione del training, impostando il **modalità di creazione trainer** opzione.
+3. Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .
 
-    - **Parametro singolo**
+    - **Singolo parametro**
 
-      Se si conosce la modalità con cui si desidera configurare il modello, è possibile definire un set specifico di valori come argomenti. È che questi valori possono essere stati appresi dalle sperimentazioni o ricevuti come istruzioni.
+      Se si conosce il modo in cui si desidera configurare il modello, è possibile specificare come argomenti un set specifico di valori. Questi valori potrebbero essere stati appresi per sperimentazione o ricevuti come linee guida.
 
 
 
-4. Per la **numero di alberi delle decisioni**, indicare il numero totale di alberi delle decisioni da creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma sarà necessario più tempo di training.
+4. Per **numero di alberi delle decisioni**, indicare il numero totale di alberi delle decisioni da creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma il tempo di training aumenterà.
 
     > [!TIP]
-    > Questo valore controlla anche il numero di alberi visualizzati durante la visualizzazione del modello con training. Se si desidera visualizzare o stampare un singolo albero, è possibile impostare il valore su 1. Tuttavia, ciò significa che un solo albero sarà generati (l'albero con il set iniziale di parametri) e non verranno eseguite alcuna ulteriore iterazioni.
+    > Questo valore controlla anche il numero di alberi visualizzati durante la visualizzazione del modello sottoposto a training. Se si desidera visualizzare o stampare un singolo albero, è possibile impostare il valore su 1; Ciò significa tuttavia che verrà prodotto solo un albero (l'albero con il set di parametri iniziale) e non verranno eseguite altre iterazioni.
 
-5. Per la **profondità massima degli alberi delle decisioni**, digitare un numero per limitare la profondità massima degli alberi delle decisioni. L'aumento della profondità dell'albero potrebbe aumentare la precisione, con il rischio di overfitting e una maggiore tempi di training.
+5. Per la **profondità massima degli alberi delle decisioni**, digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero può aumentare la precisione, a rischio di overfitting e di aumento dei tempi di training.
 
-6. Per la **numero di divisioni casuali per nodo**, digitare il numero di suddivisioni da usare durante la compilazione di ogni nodo dell'albero. Oggetto *dividere* significa che le funzionalità disponibili in ogni livello dell'albero (nodo) venga divise in modo casuale.
+6. Per **numero di**divisioni casuali per nodo, digitare il numero di divisioni da usare durante la compilazione di ogni nodo dell'albero. Una *suddivisione* indica che le funzionalità di ogni livello dell'albero (nodo) sono divise in modo casuale.
 
-7. Per la **numero minimo di campioni per ogni nodo foglia**, indicare il numero minimo di casi necessari per creare un nodo terminale (foglia) in una struttura ad albero.
+7. Per il **numero minimo di campioni per nodo foglia**, indicare il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.
 
-     Se si aumenta questo valore, aumenta la soglia per la creazione di nuove regole. Ad esempio, con il valore predefinito pari a 1, anche un singolo caso può determinare una nuova regola da creare. Se si aumenta il valore su 5, i dati di training devono contenere almeno cinque casi che soddisfano le stesse condizioni.
+     Aumentando questo valore, si aumenta la soglia per la creazione di nuove regole. Ad esempio, con il valore predefinito 1, anche un singolo caso può causare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno cinque case che soddisfano le stesse condizioni.
 
 
-9. Connettere un set di dati con etichetta, selezionare una colonna di etichetta singola contenente non più di due risultati e connettersi al [Train Model](./train-model.md).
+9. Connettere un set di dati con etichetta, selezionare una singola colonna di etichetta che non contenga più di due risultati e connettersi al [modello di training](./train-model.md).
 
-    - Se si imposta **modalità di creazione trainer** possibilità **singolo parametro**, il training del modello utilizzando il [Train Model](./train-model.md) modulo.
+    - Se si imposta l'opzione **create Trainer Mode** su un **singolo parametro**, eseguire il training del modello usando il modulo [Train Model](./train-model.md) .
 
    
 
@@ -87,14 +86,14 @@ Per altre informazioni sul framework di teorico per questo algoritmo e la relati
 
 ### <a name="results"></a>Risultati
 
-Dopo aver completata la formazione:
+Al termine del training:
 
-+ Per visualizzare la struttura ad albero che è stata creata in ogni iterazione, l'output del modulo di formazione e scegliere **Visualize**.
++ Per visualizzare l'albero che è stato creato a ogni iterazione, fare clic con il pulsante destro del mouse sull'output del modulo training e scegliere **Visualizza**.
 
-+ Per visualizzare le regole per ogni nodo, fare clic su ciascuna struttura e il drill down le divisioni.
++ Per visualizzare le regole per ogni nodo, fare clic su ogni albero ed eseguire il drill-down nelle divisioni.
 
-+ Per salvare uno snapshot del modello con training, l'output del modulo di formazione e scegliere **Salva come modello sottoposto a training**. Questa copia del modello non viene aggiornata a ogni esecuzione dell'esperimento. 
++ Per salvare uno snapshot del modello sottoposto a training, fare clic con il pulsante destro del mouse sull'output del modulo training e selezionare **Salva come modello con**training. Questa copia del modello non viene aggiornata sulle esecuzioni successive dell'esperimento. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [set di moduli disponibili](module-reference.md) al servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 

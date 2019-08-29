@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 2c5eb25ae536a6cdb0eb12f1233307215fe2d7d1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4da699237a0c56a27fb27908b483c5d0c90b0d2a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080016"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136524"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Il server licenze Desktop remoto non è disponibile durante la connessione a una macchina virtuale di Azure
 
@@ -122,7 +122,7 @@ Per risolvere il problema, [eseguire il backup del disco del sistema operativo](
        telnet <FQDN / IP License Server> 135
        ```
 
-3. Se nell'ambiente non è presente alcun server licenze Desktop remoto e se ne vuole uno, è possibile [installare un ruolo Servizio licenze Desktop remoto](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). Quindi [configurare le licenze di Servizi Desktop remoto](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
+3. Se nell'ambiente non è presente alcun server licenze Desktop remoto e se ne vuole uno, è possibile [installare un ruolo Servizio licenze Desktop remoto](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). Quindi [configurare le licenze di Servizi Desktop remoto](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383).
 
 4. Se un server licenze Desktop remoto è configurato e integro, assicurarsi che sia attivato con le licenze CAL.
 

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38383685f74020f5208d42df4428f896931fbe2a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931795"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125425"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione 
 
@@ -41,7 +41,24 @@ Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per 
 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 
-2019 agosto: Applicare la semantica POST in base alle regole di analisi dell'URL: i parametri duplicati generano un errore, le virgolette tra i parametri non verranno più ignorate e il [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) verrà ignorato.
+2019 settembre: Imposizione aggiuntiva della semantica POST in base alle regole di analisi dell'URL. i parametri duplicati generano un errore e il valore [DBA](https://www.w3.org/International/questions/qa-byte-order-mark) viene ignorato.
+
+## <a name="august-2019"></a>Agosto 2019
+
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>La semantica POST-form verrà applicata in modo più rigoroso e le virgolette verranno ignorate
+
+**Data di validità**: 2 settembre 2019
+
+**Endpoint interessati**: sia la versione 1.0 che la versione 2.0
+
+**Protocollo interessato**: Viene usato Anywhere POST ([credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [riscatto del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e riscatto del [token di aggiornamento](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+
+A partire dalla settimana 9/2, le richieste di autenticazione che utilizzano il metodo POST verranno convalidate utilizzando standard HTTP più restrittivi.  In particolare, gli spazi e le virgolette doppie (") non verranno più rimossi dai valori del modulo della richiesta. Queste modifiche non devono interrompere i client esistenti e garantire che le richieste inviate a Azure AD siano gestite in modo affidabile ogni volta. In futuro (vedere sopra) si prevede di rifiutare anche i parametri duplicati e ignorare il BOM all'interno delle richieste. 
+
+Esempio:
+
+Attualmente, `?e=    "f"&g=h` viene analizzato in `?e=f&g=h` modo `e`  ==  identico`f`.  Con questa modifica, verrà analizzato in modo `e`  ==  `    "f"` da non essere un argomento valido e la richiesta avrà ora esito negativo. 
+
 
 ## <a name="july-2019"></a>2019 luglio
 

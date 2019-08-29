@@ -1,7 +1,7 @@
 ---
-title: 'Multiclass Decision Forest: Riferimento al modulo'
+title: 'Foresta delle decisioni multiclasse: Riferimento al modulo'
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Multiclass Decision Forest nel servizio Azure Machine Learning per creare un modello di machine learning in base il *Decision Trees foresta* algoritmo.
+description: Informazioni su come usare il modulo multiCLASS Decision Forest nel servizio Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo della *foresta delle decisioni* .
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,84 +9,83 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b56f08dfd1a14ffedffb612bb8974086ee08ede7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411461"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128624"
 ---
-# <a name="multiclass-decision-forest-module"></a>Modulo multiclass Decision Forest
+# <a name="multiclass-decision-forest-module"></a>Modulo della foresta delle decisioni multiclasse
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio di Azure Machine Learning.
+Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
 
-Usare questo modulo per creare un modello di machine learning in base il *Decision Trees foresta* algoritmo. Una foresta delle decisioni è un modello di insieme che consente di creare rapidamente una serie di alberi delle decisioni, durante l'apprendimento dai dati con tag.
+Usare questo modulo per creare un modello di machine learning basato sull'algoritmo della *foresta delle decisioni* . Una foresta delle decisioni è un modello di ensemble che consente di compilare rapidamente una serie di alberi delle decisioni, imparando dai dati con tag.
 
-## <a name="more-about-decision-forests"></a>Informazioni sulle foreste delle decisioni
+## <a name="more-about-decision-forests"></a>Altre informazioni sulle foreste delle decisioni
 
-L'algoritmo di foresta delle decisioni è un metodo per la classificazione di apprendimento dell'insieme. L'algoritmo funziona creando più alberi delle decisioni e quindi *voto* della classe di output più comune. È possibile votare una maschera di aggregazione, in cui ciascuna struttura di una decisione relativa alla classificazione dell'insieme di strutture genera un istogramma non normalizzato frequenza delle etichette. Il processo di aggregazione Somma questi istogrammi e normalizza il risultato per ottenere la "probabilità" per ogni etichetta. Gli alberi dotati di attendibilità elevata hanno un peso maggiore decisione finale dell'insieme.
+L'algoritmo di foresta delle decisioni è un metodo di apprendimento dell'insieme per la classificazione. L'algoritmo funziona compilando più alberi delle decisioni e quindi votando la classe di output più diffusa. Il voto è una forma di aggregazione, in cui ogni albero in una foresta delle decisioni di classificazione restituisce un istogramma non normalizzato di etichette. Il processo di aggregazione Somma questi istogrammi e normalizza il risultato per ottenere le "probabilità" per ciascuna etichetta. Gli alberi con attendibilità di stima elevata hanno un peso maggiore nella decisione finale dell'insieme.
 
-In generale, gli alberi delle decisioni sono modelli non parametrici, vale a dire che supportano dati con diverse distribuzioni. In ogni albero, viene eseguita una sequenza di semplici test per ogni classe, aumentando i livelli di una struttura ad albero fino al raggiungimento di un nodo foglia (decisione).
+Gli alberi delle decisioni in generale sono modelli non parametrici, ovvero supportano i dati con diverse distribuzioni. In ogni albero viene eseguita una sequenza di test semplici per ogni classe, aumentando i livelli di una struttura ad albero fino a quando non viene raggiunto un nodo foglia (decisione).
 
-Gli alberi delle decisioni offrono molti vantaggi:
+Gli alberi delle decisioni presentano molti vantaggi:
 
 + Possono rappresentare limiti di decisione non lineari.
-+ Sono efficienti in calcolo e di utilizzo della memoria durante il training e stima.
-+ Eseguono selezione caratteristica integrata e la classificazione.
-+ Sono resilienti in caso di funzionalità rumorose.
++ Sono efficienti nell'utilizzo di calcolo e memoria durante il training e la stima.
++ Eseguono la selezione e la classificazione delle funzionalità integrate.
++ Sono resilienti in presenza di funzionalità rumorose.
 
-Il classificatore delle foreste delle decisioni in Azure Machine Learning è costituito da un insieme di alberi delle decisioni. In generale, i modelli di insieme offrono una copertura e accuratezza rispetto a singoli alberi delle decisioni migliori. Per altre informazioni, vedere [algoritmo Microsoft Decision Trees](https://go.microsoft.com/fwlink/?LinkId=403677).
+Il classificatore della foresta delle decisioni in Azure Machine Learning è costituito da un insieme di alberi delle decisioni. In genere, i modelli di insieme offrono una migliore copertura e accuratezza rispetto a singoli alberi delle decisioni. Per altre informazioni, vedere [Decision Trees](https://go.microsoft.com/fwlink/?LinkId=403677).
 
-## <a name="how-to-configure-multiclass-decision-forest"></a>Jak nakonfigurovat Multiclass Decision Forest
+## <a name="how-to-configure-multiclass-decision-forest"></a>Come configurare una foresta delle decisioni multiclasse
 
 
 
-1. Aggiungere il **Multiclass Decision Forest** modulo all'esperimento nell'interfaccia. È possibile trovare questo modulo sotto **Machine Learning**, **modello di inizializzazione**, e **classificazione**.
+1. Aggiungere il modulo **multiCLASS Decision Forest** all'esperimento nell'interfaccia. È possibile trovare questo modulo in **Machine Learning**, **inizializzare il modello**e la **classificazione**.
 
-2. Fare doppio clic sul modulo per aprire la **proprietà** riquadro.
+2. Fare doppio clic sul modulo per aprire il riquadro **Proprietà** .
 
-3. Per la **metodo di ricampionamento**, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra bagging o la replica.
+3. Per il **Metodo**di ricampionamento, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra l'insaccamento o la replica.
 
-    + **Bagging**: Viene anche chiamato bagging *l'aggregazione di bootstrap*. In questo metodo, ogni albero è cresciuto in un nuovo esempio, creato tramite il campionamento in modo casuale il set di dati originale con sostituzione fino a quando non si dispone di un set di dati le dimensioni dell'originale. Gli output dei modelli vengono combinati da *voto*, ovvero una maschera di aggregazione. Per altre informazioni, vedere la pagina di Wikipedia per l'aggregazione di Bootstrap.
+    + Insaccamento: L'insaccamento viene chiamato anche *aggregazione bootstrap*. In questo metodo ogni albero viene ampliato in un nuovo esempio, creato eseguendo il campionamento casuale del set di dati originale con sostituzione fino a quando non si dispone di un set di dati di dimensioni originali. Gli output dei modelli vengono combinati *votando*, ovvero una forma di aggregazione. Per ulteriori informazioni, vedere la voce Wikipedia per l'aggregazione bootstrap.
 
-    + **Replicare**: Nella replica di ogni albero viene eseguito il training su esattamente gli stessi dati di input. La determinazione di quali split predicato è utilizzato per ciascun nodo dell'albero rimane casuale, creazione di alberi diversi.
+    + **Replica**: Nella replica ogni albero viene sottoposto a training esattamente sugli stessi dati di input. La determinazione del predicato Split utilizzato per ogni nodo della struttura ad albero resta casuale e crea alberi diversi.
 
    
 
-4. Specificare come si desidera che il modello di esecuzione del training, impostando il **modalità di creazione trainer** opzione.
+4. Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .
 
-    + **Singolo parametro**: Selezionare questa opzione se si sa come si desidera configurare il modello e fornire un set di valori come argomenti.
-
-
-5. **Numero di alberi delle decisioni**: Digitare il numero massimo di alberi delle decisioni che possono essere creati nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma potrebbero aumentare i tempi di training.
-
-    Questo valore controlla anche il numero di alberi visualizzati nei risultati, fare riferimento alla terminologia modello con training. Per visualizzare o stampare un singolo albero, è possibile impostare il valore su 1. Tuttavia, ciò significa che un solo albero può essere generata (l'albero con il set iniziale di parametri) e non ci sono altre iterazioni vengono eseguite.
-
-6. **Profondità massima degli alberi delle decisioni**: Digitare un numero per limitare la profondità massima degli alberi delle decisioni. L'aumento della profondità dell'albero potrebbe aumentare la precisione, con il rischio di overfitting e una maggiore tempi di training.
-
-7. **Numero di divisioni casuali per nodo**: Digitare il numero di suddivisioni da usare durante la compilazione di ogni nodo dell'albero. Oggetto *dividere* significa che le funzionalità disponibili in ogni livello dell'albero (nodo) venga divise in modo casuale.
-
-8. **Numero minimo di esempi per nodo foglia**: Indicare il numero minimo di casi necessari per creare un nodo terminale (foglia) in una struttura ad albero. Se si aumenta questo valore, aumenta la soglia per la creazione di nuove regole.
-
-    Ad esempio, con il valore predefinito pari a 1, anche un singolo caso può determinare una nuova regola da creare. Se si aumenta il valore su 5, i dati di training devono contenere almeno cinque casi che soddisfano le stesse condizioni.
+    + **Singolo parametro**: Selezionare questa opzione se si conosce la modalità di configurazione del modello e si specifica un set di valori come argomenti.
 
 
+5. **Numero di alberi delle decisioni**: Digitare il numero massimo di alberi delle decisioni che è possibile creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma il tempo di training potrebbe aumentare.
 
-10. Connettere un set di dati con etichette e uno dei moduli di formazione:
+    Questo valore controlla anche il numero di alberi visualizzati nei risultati, quando si Visualizza il modello sottoposto a training. Per visualizzare o stampare un singolo albero, è possibile impostare il valore su 1; Ciò significa tuttavia che è possibile produrre solo un albero (l'albero con il set di parametri iniziale) e non vengono eseguite altre iterazioni.
 
-    + Se si imposta **modalità di creazione trainer** al **singolo parametro**, usare il [Train Model](./train-model.md) modulo.
+6. **Profondità massima degli alberi delle decisioni**: Digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero può aumentare la precisione, a rischio di overfitting e di aumento dei tempi di training.
+
+7. **Numero di divisioni casuali per nodo**: Digitare il numero di divisioni da usare durante la compilazione di ogni nodo dell'albero. Una *suddivisione* indica che le funzionalità di ogni livello dell'albero (nodo) sono divise in modo casuale.
+
+8. **Numero minimo di campioni per nodo foglia**: Indica il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero. Aumentando questo valore, si aumenta la soglia per la creazione di nuove regole.
+
+    Ad esempio, con il valore predefinito 1, anche un singolo caso può causare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno cinque case che soddisfano le stesse condizioni.
+
+
+
+10. Connettere un set di dati con etichetta e uno dei moduli di training:
+
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare il modulo [Train Model](./train-model.md) .
 
 11. Eseguire l'esperimento.
 
 ## <a name="results"></a>Risultati
 
-Dopo aver completata la formazione:
+Al termine del training:
 
-+ Per visualizzare la struttura ad albero che è stata creata in ogni iterazione, fare doppio clic sull'output del [Train Model](./train-model.md) modulo e selezionare **Visualize**.
-+ Per visualizzare le regole per ogni nodo, fare clic su ciascuna struttura di drill-down le divisioni per.
++ Per visualizzare l'albero che è stato creato a ogni iterazione, fare clic con il pulsante destro del mouse sull'output del modulo [Train Model](./train-model.md) e selezionare Visualize ( **Visualizza**).
++ Per visualizzare le regole per ogni nodo, fare clic su ogni albero per eseguire il drill-down nelle divisioni.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [set di moduli disponibili](module-reference.md) al servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 

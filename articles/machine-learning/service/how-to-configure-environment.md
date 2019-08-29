@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2f60b496594946e9175ecf5c1948b08c9065b1b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848190"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128347"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -59,7 +59,7 @@ La macchina virtuale notebook (anteprima) è una workstation di Azure sicura bas
 
 La VM del notebook è:
 
-+ **Sicuro**. Poiché l'accesso alla macchina virtuale e al notebook viene protetto con HTTPS e Azure Active Directory per impostazione predefinita, i professionisti IT possono applicare facilmente Single Sign-on e altre funzionalità di sicurezza, ad esempio l'autenticazione a più fattori.
++ **Sicuro**. Poiché l'accesso alla macchina virtuale e al notebook viene protetto con HTTPS e Azure Active Directory per impostazione predefinita, i professionisti IT possono applicare con facilità Single Sign-On e altre funzionalità di sicurezza, ad esempio l'autenticazione a più fattori.
 
 + **Preconfigurato**. Questo ambiente Python ML completamente preparato ne trae il proprio pedigree dal popolare Data Science VM IaaS e include:
   + Azure ML Python SDK (versione più recente)
@@ -72,7 +72,7 @@ La VM del notebook è:
 
   Se ci si trova nel codice, nella macchina virtuale sono incluse esercitazioni ed esempi che consentono di esplorare e apprendere come usare Azure Machine Learning servizio. I notebook di esempio vengono archiviati nell'account di archiviazione BLOB di Azure dell'area di lavoro rendendoli condivisibili tra le macchine virtuali. Quando vengono eseguiti, possono anche accedere agli archivi dati e alle risorse di calcolo dell'area di lavoro.
 
-+ **Installazione semplice**: Crearne uno in qualsiasi momento dall'area di lavoro Azure Machine Learning. Fornire un solo nome e specificare un tipo di macchina virtuale di Azure. Provare ora con questa [esercitazione: Ambiente e area di](tutorial-1st-experiment-sdk-setup.md)lavoro di installazione.
++ **Installazione semplice**: Crearne uno in qualsiasi momento dall'area di lavoro Azure Machine Learning. Fornire un solo nome e specificare un tipo di macchina virtuale di Azure. Provare ora con questa [esercitazione: Configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
 
 + **Personalizzabile**. Anche se un'offerta di macchina virtuale gestita e sicura consente di mantenere l'accesso completo alle funzionalità hardware e di personalizzarlo in base alle proprie esigenze. Ad esempio, è possibile creare rapidamente la macchina virtuale più recente con tecnologia NVidia V100 per eseguire il debug dettagliato di una nuova architettura di rete neurale.
 
@@ -187,16 +187,21 @@ Quando si usa un computer locale (che potrebbe anche essere una macchina virtual
 
     Questo comando installa il Azure Machine Learning SDK di base con notebook e automl aggiuntivi. Il `automl` supplemento è un'installazione di grandi dimensioni e può essere rimosso dalle parentesi quadre se non si intende eseguire esperimenti automatici di machine learning. Il `automl` supplemento include anche l'SDK di preparazione dei dati Azure Machine Learning per impostazione predefinita come dipendenza.
 
-     ```shell
+    ```shell
     pip install azureml-sdk[notebooks,automl]
     ```
 
    > [!NOTE]
-   > Se si riceve un messaggio che indica che PyYAML non può essere installato, usare in alternativa il comando seguente:
+   > * Se si riceve un messaggio che indica che PyYAML non può essere installato, usare in alternativa il comando seguente:
    >
-   > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >   `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >
+   > * A partire da macOS Catalina, zsh (Z Shell) è la shell di accesso predefinita e la shell interattiva. In zsh usare il comando seguente che consente di eseguire l'escape delle parentesi\\quadre con "" (barra rovesciata):
+   >
+   >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-   L'installazione dell'SDK può richiedere diversi minuti. Per ulteriori informazioni sulle opzioni di installazione, vedere la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) all'installazione.
+
+   L'installazione dell'SDK può richiedere diversi minuti. Per ulteriori informazioni sulle opzioni di installazione, vedere la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)all'installazione.
 
 1. Installare altri pacchetti per la sperimentazione di machine learning.
 
@@ -280,7 +285,7 @@ Per usare Visual Studio Code per lo sviluppo, seguire questa procedura:
 <a name="aml-databricks"></a>
 
 ## <a name="azure-databricks"></a>Azure Databricks
-Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Offre un ambiente basato su notebook collaborativo con cluster di calcolo basato su CPU o GPU.
+Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Offre un ambiente di collaborazione basato su notebook con CPU o cluster di calcolo basato su GPU.
 
 Funzionamento di Azure Databricks con il servizio Azure Machine Learning:
 + È possibile eseguire il training di un modello usando Spark MLlib e distribuire il modello in ACI/AKS dall'interno Azure Databricks.
@@ -329,10 +334,10 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
    1. Nella scheda **Librerie** selezionare **Riavvia**.
 
    Prendere in considerazione anche:
-   + In Automl config, quando si usa Azure Databricks aggiungere i parametri seguenti:
+   + In AutoML config, quando si usa Azure Databricks aggiungere i parametri seguenti:
        1. ```max_concurrent_iterations```si basa sul numero di nodi del ruolo di lavoro nel cluster.
         2. ```spark_context=sc```si basa sul contesto Spark predefinito.
-   + In alternativa, se si dispone di una versione precedente dell'SDK, deselezionarla dalle librerie installate del cluster e spostarla nel Cestino. Installare la nuova versione dell'SDK e riavviare il cluster. Se successivamente si verifica un problema, scollegare e ricollegare il cluster.
+   + In alternativa, se si dispone di una versione precedente dell'SDK, deselezionarla dalle librerie installate del cluster e spostarla nel Cestino. Installare la nuova versione dell'SDK e riavviare il cluster. Se si verifica un problema dopo il riavvio, scollegare e riconnettere il cluster.
 
 Se l'installazione ha avuto esito positivo, la libreria importata avrà un aspetto simile al seguente:
 
@@ -371,7 +376,7 @@ Il file di configurazione dell'area di lavoro è un file JSON che indica all'SDK
 }
 ```
 
-Questo file JSON deve trovarsi nella struttura della directory che contiene gli script di Python o i notebook di Jupyter. Può trovarsi nella stessa directory, in una sottodirectory denominata *. azureml*o in una directory padre.
+Questo file JSON deve trovarsi nella struttura della directory che contiene gli script di Python o i notebook di Jupyter. Può trattarsi della stessa directory, in una sottodirectory denominata *.azureml* o in una directory padre.
 
 Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo codice carica le informazioni dal file e si connette all'area di lavoro.
 

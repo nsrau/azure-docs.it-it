@@ -1,17 +1,17 @@
 ---
 title: Creare e gestire Database di Azure per il server MySQL con il portale di Azure
-description: Questo articolo descrive come creare rapidamente una nuova istanza di Database di Azure per il server MySQL e gestire il server con il portale di Azure.
+description: Questo articolo descrive come è possibile creare rapidamente un nuovo database di Azure per il server MySQL e gestire il server usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdcb302d3a14b02ea86fb92c8dbf822ef3f42177
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459519"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142234"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Creare e gestire Database di Azure per il server MySQL con il portale di Azure
 Questo argomento descrive come creare rapidamente una nuova istanza di Database di Azure per il server MySQL. Include anche informazioni sulla gestione del server tramite il portale di Azure. La gestione del server include la visualizzazione di database e dettagli del server, la reimpostazione della password, il ridimensionamento delle risorse e l'eliminazione del server.
@@ -44,6 +44,8 @@ Seguire questa procedura per creare un server di Database di Azure per MySQL den
     | *Location* | Asia sud-orientale (scegliere tra Europa settentrionale e Stati Uniti occidentali) |
     | *Versione* | 5.7 (scegliere la versione del server di Database di Azure per MySQL) |
 
+   ![create-new-server](./media/howto-create-manage-server-portal/form-field.png)
+
 4. Fare clic su **Piano tariffario** per specificare il livello di servizio e il livello delle prestazioni per il nuovo server. Selezionare la scheda **Utilizzo generico**. *Generazione 5*, *2 vCore*, *5 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo**, **vCore**, **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
@@ -53,7 +55,7 @@ Seguire questa procedura per creare un server di Database di Azure per MySQL den
     > Selezionare l'opzione **Aggiungi al dashboard** per tenere facilmente traccia delle distribuzioni.
 
 ## <a name="update-an-azure-database-for-mysql-server"></a>Aggiornare un'istanza di Database di Azure per il server MySQL
-Dopo l'esecuzione del provisioning del nuovo server, l'utente dispone di diverse opzioni per la configurazione del server esistente, tra cui la reimpostazione della password amministratore e il ridimensionamento del server tramite la modifica di vCore o delle risorse di archiviazione.
+Una volta eseguito il provisioning del nuovo server, l'utente dispone di diverse opzioni per la configurazione del server esistente, inclusa la reimpostazione della password dell'amministratore, la modifica del piano tariffario e la scalabilità verticale del server modificando vCore o archiviazione
 
 ### <a name="change-the-administrator-user-password"></a>Modificare la password amministratore
 1. Nella pagina **Panoramica** del server fare clic su **Reimposta password** per visualizzare la finestra di reimpostazione della password.
@@ -65,6 +67,17 @@ Dopo l'esecuzione del provisioning del nuovo server, l'utente dispone di diverse
    ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Fare clic su **OK** per salvare la nuova password.
+
+### <a name="change-the-pricing-tier"></a>Modificare il piano tariffario
+> [!NOTE]
+> Il ridimensionamento è supportato solo da per utilizzo generico a livelli di servizio con ottimizzazione per la memoria e viceversa. Si noti che la modifica da e verso il piano tariffario di base dopo la creazione del server non è supportata nel database di Azure per MySQL.
+> 
+1. Fare clic su **Piano tariffario** in **Impostazioni**.
+2. Selezionare il piano tariffario che si desidera modificare.
+
+    ![modifica-piano tariffario](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+
+4. Fare clic su **OK** per salvare le modifiche. 
 
 ### <a name="scale-vcores-updown"></a>Ridimensionamento di vCore
 

@@ -11,29 +11,29 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce4e2958978de9339f4340755e3740730025a5f
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: f244c28b99c429fef5641bb4fc399e09fd451069
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334037"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126564"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procedura: Configurare i criteri di rischio in Azure Active Directory Identity Protection (procedura aggiornata)
 
-Azure AD rileva eventi di rischio indicanti identità potenzialmente compromesse. Configurando i criteri di rischio è possibile definire le risposte automatiche per i risultati di rilevamento:
+Azure AD rileva i rilevamenti dei rischi che sono indicatori per le identità potenzialmente compromesse. Configurando i criteri di rischio è possibile definire le risposte automatiche per i risultati di rilevamento:
 
-- Con i criteri di rischio di accesso è possibile configurare una risposta per eventi di rischio in tempo reale rilevati durante l'accesso dell'utente. 
+- Con i criteri di rischio di accesso, è possibile configurare una risposta ai rilevamenti dei rischi in tempo reale rilevati durante l'accesso dell'utente. 
 - Con i criteri di rischio utente è possibile configurare una risposta per tutti i rischi relativi a utenti attivi che sono stati rilevati per un utente nel corso del tempo.  
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>Cosa sono i criteri di rischio di accesso?
 
-Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. Si controlla, ad esempio, se l'accesso viene eseguito usando un indirizzo IP anonimo o se viene avviato da una posizione insolita. In Azure AD, le azioni sospette che il sistema è in grado di rilevare prendono il nome di "eventi di rischio". In base agli eventi di rischio rilevati durante un accesso, Azure AD calcola un valore, che rappresenta la probabilità (bassa, media, elevata) che l'accesso non sia stato eseguito dall'utente legittimo. Questa probabilità viene definita **livello di rischio di accesso**.
+Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. Si controlla, ad esempio, se l'accesso viene eseguito usando un indirizzo IP anonimo o se viene avviato da una posizione insolita. In Azure AD, le azioni sospette che il sistema è in grado di rilevare sono note anche come rilevamenti dei rischi. In base ai rilevamenti dei rischi rilevati durante un accesso, Azure AD calcola un valore. che rappresenta la probabilità (bassa, media, elevata) che l'accesso non sia stato eseguito dall'utente legittimo. Questa probabilità viene definita **livello di rischio di accesso**.
 
 I criteri di rischio di accesso sono costituiti da una risposta automatica che è possibile configurare per un determinato livello di rischio di accesso. Nella risposta è possibile bloccare l'accesso alle risorse o richiedere il passaggio a una richiesta di autenticazione a più fattori per ottenere l'accesso.
 
-Quando un utente completa correttamente una richiesta di autenticazione a più fattori attivata dai criteri di rischio di accesso, fornisce commenti e suggerimenti su Identity Protection che l'accesso ha originato dall'utente legittimo. Pertanto, l'evento di rischio di accesso che ha attivato la richiesta di autenticazione a più fattori verrà chiuso automaticamente e Identity Protection impedirà a questo evento di contribuire all'elevazione dei rischi dell'utente. L'abilitazione dei criteri di rischio di accesso può ridurre la rumorosità nella visualizzazione degli accessi a rischio consentendo agli utenti di eseguire autonomamente la correzione quando viene richiesta l'autenticazione a più fattori e successivamente la chiusura automatica dell'accesso a rischio associato.
+Quando un utente completa correttamente una richiesta di autenticazione a più fattori attivata dai criteri di rischio di accesso, fornisce commenti e suggerimenti su Identity Protection che l'accesso ha originato dall'utente legittimo. Il rilevamento dei rischi di accesso che ha attivato la richiesta di autenticazione a più fattori verrà quindi chiuso automaticamente e Identity Protection impedirà a questo evento di contribuire all'elevazione dei rischi dell'utente. L'abilitazione dei criteri di rischio di accesso può ridurre la rumorosità nella visualizzazione degli accessi a rischio consentendo agli utenti di eseguire autonomamente la correzione quando viene richiesta l'autenticazione a più fattori e successivamente la chiusura automatica dell'accesso a rischio associato.
 
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Com'è possibile accedere ai criteri di rischio di accesso?
    
@@ -51,7 +51,7 @@ Quando si configurano i criteri di rischio di accesso, è necessario impostare:
 
 - Il livello di rischio di accesso che attiva i criteri:
 
-   ![Livello di rischio di accesso](./media/howto-configure-risk-policies/12.png)
+   ![Livello di rischio di un accesso](./media/howto-configure-risk-policies/12.png)
 
 - Il tipo di accesso che si intende applicare quando viene raggiunto il livello di rischio di accesso:  
 
@@ -93,9 +93,9 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 
 ## <a name="what-is-a-user-risk-policy"></a>Cosa sono i criteri di rischio utente?
 
-Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. In Azure AD, le azioni sospette che il sistema è in grado di rilevare prendono il nome di "eventi di rischio". Mentre alcuni eventi di rischio possono essere rilevati in tempo reale, altri richiedono più tempo. Per rilevare un trasferimento impossibile in una posizione atipica, ad esempio, il sistema richiede un periodo di apprendimento iniziale di 14 giorni per capire il comportamento normale dell'utente. Sono disponibili varie opzioni per risolvere gli eventi di rischio rilevati. Ad esempio, è possibile risolvere i singoli eventi di rischio manualmente oppure è possibile risolverli con un rischio di accesso o con un criterio di accesso condizionale a rischio utente.
+Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. In Azure AD, le azioni sospette che il sistema è in grado di rilevare sono note anche come rilevamenti dei rischi. Sebbene sia possibile rilevare alcuni rilevamenti dei rischi in tempo reale, esistono anche rilevamenti di rischio che richiedono più tempo. Per rilevare un trasferimento impossibile in una posizione atipica, ad esempio, il sistema richiede un periodo di apprendimento iniziale di 14 giorni per capire il comportamento normale dell'utente. Sono disponibili diverse opzioni per la risoluzione del rilevamento del rischio rilevato. Ad esempio, è possibile risolvere manualmente i singoli rilevamenti dei rischi oppure è possibile risolverli usando un rischio di accesso o un criterio di accesso condizionale a rischio utente.
 
-Tutti gli eventi di rischio rilevati per un utente e non risolti prendono il nome di "eventi di rischio attivi". Con "rischio utente" si intendono gli eventi di rischio attivi associati a un utente. Sulla base del rischio utente, Azure AD calcola la probabilità (bassa, media, elevata) che un utente sia stato compromesso. Questa probabilità viene definita "livello di rischio utente".
+Tutti i rilevamenti dei rischi rilevati per un utente che non sono stati risolti sono noti come rilevamenti dei rischi attivi. I rilevamenti dei rischi attivi associati a un utente sono noti come rischi utente. Sulla base del rischio utente, Azure AD calcola la probabilità (bassa, media, elevata) che un utente sia stato compromesso. Questa probabilità viene definita "livello di rischio utente".
 
 ![Rischi utente](./media/howto-configure-risk-policies/11031.png)
 
@@ -139,8 +139,8 @@ La finestra di dialogo di configurazione dei criteri include un'opzione che cons
 
 Il blocco dell'accesso:
 
-* Impedisce la generazione di nuovi eventi di rischio utente per l'utente interessato
-* Consente agli amministratori di correggere manualmente gli eventi di rischio che interessano l'identità dell'utente e di ripristinarne lo stato protetto
+* Impedisce la generazione di nuovi rilevamenti dei rischi utente per l'utente interessato
+* Consente agli amministratori di correggere manualmente i rilevamenti dei rischi che interessano l'identità dell'utente e di ripristinarli in uno stato sicuro
 
 ## <a name="best-practices"></a>Procedure consigliate
 

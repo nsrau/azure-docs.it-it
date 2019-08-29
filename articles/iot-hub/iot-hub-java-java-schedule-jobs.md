@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.openlocfilehash: 60d8d4594d76fbef36df0259940d4437e28280cb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5957a7c555c5b5d9905fcb7e3310093416ae5efb
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873412"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147700"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Pianificare e trasmettere processi (Java)
 
@@ -52,8 +52,6 @@ Al termine dell'esercitazione saranno disponibili un'app per il dispositivo cons
 > L'articolo [Azure IoT SDK](iot-hub-devguide-sdks.md) riporta informazioni sui componenti Azure IoT SDK che consentono di compilare le app back-end e per dispositivi.
 
 ## <a name="prerequisites"></a>Prerequisiti
-
-Per completare questa esercitazione, sono necessari:
 
 * [Java SE Development Kit 8](https://aka.ms/azure-jdks) più recente
 

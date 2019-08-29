@@ -11,23 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6751fe74bfd9b8a07aec2263582d9f1a4bc0b2ac
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: b1a1c35929670891c38bb1b3e26806b4c9bed6a0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333975"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126454"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossario di Azure Active Directory Identity Protection
 
 ### <a name="at-risk-user"></a>A rischio (utente)
-Utente con uno o più eventi di rischio attivi. 
+Utente con uno o più rilevamenti di rischio attivi. 
 
 ### <a name="atypical-sign-in-location"></a>Posizione di accesso atipica
 Accesso da una posizione geografica non tipica per l'utente specifico, utenti simili o il tenant.
 
 ### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
-Modulo di sicurezza di Azure Active Directory che fornisce una visualizzazione consolidata degli eventi di rischio e delle potenziali vulnerabilità che interessano le identità di un'organizzazione.
+Un modulo di sicurezza di Azure Active Directory che fornisce una visualizzazione consolidata dei rilevamenti dei rischi e potenziali vulnerabilità che interessano le identità di un'organizzazione.
 
 ### <a name="conditional-access"></a>Accesso condizionale
 Criteri per la protezione dell'accesso alle risorse. Le regole di accesso condizionale vengono archiviate nel Azure Active Directory e vengono valutate da Azure AD prima di concedere l'accesso alla risorsa.  Le regole includono la limitazione dell'accesso in base alla posizione dell'utente, all'integrità del dispositivo o al metodo di autenticazione dell'utente.
@@ -38,29 +38,29 @@ Informazioni che includono l'identificazione e la prova dell'identificazione usa
 ### <a name="event"></a>event
 Record di un'attività in Azure Active Directory.
 
-### <a name="false-positive-risk-event"></a>Falso positivo (evento di rischio)
-Stato dell'evento di rischio impostato manualmente da un utente di Identity Protection, che indica che l'evento di rischio è stato esaminato e che era stato erroneamente contrassegnato come evento di rischio.
+### <a name="false-positive-risk-detection"></a>Falso positivo (rilevamento del rischio)
+Stato di rilevamento del rischio impostato manualmente da un utente di Identity Protection, che indica che il rilevamento del rischio è stato analizzato ed è stato erroneamente contrassegnato come rilevamento dei rischi.
 
 ### <a name="identity"></a>identità
 Persona o entità che deve essere verificata tramite autenticazione, in base a criteri quali password o certificato.
 
-### <a name="identity-risk-event"></a>Evento di rischio di identità
+### <a name="identity-risk-detection"></a>Rilevamento del rischio di identità
 Evento di AAD che è stato contrassegnato come anomalo da Identity Protection e che può indicare che un'identità è stata compromessa.
 
-### <a name="ignored-risk-event"></a>Ignorato (evento di rischio)
-Stato dell'evento di rischio impostato manualmente da un utente di Identity Protection, che indica che l'evento di rischio è stato chiuso senza eseguire azioni correttive.
+### <a name="ignored-risk-detection"></a>Ignorato (rilevamento del rischio)
+Stato di rilevamento del rischio impostato manualmente da un utente di Identity Protection, che indica che il rilevamento dei rischi viene chiuso senza eseguire un'azione di correzione.
 
 ### <a name="impossible-travel-from-atypical-locations"></a>Trasferimento impossibile con posizioni atipiche
-Evento di rischio che viene attivato quando per lo stesso utente vengono rilevati due accessi, almeno uno dei quali proviene da una posizione di accesso atipica e per i quali il tempo trascorso tra un accesso e l'altro è più breve del tempo minimo necessario per spostarsi da una posizione all'altra.  
+Rilevamento dei rischi attivato quando vengono rilevati due accessi per lo stesso utente, in cui almeno uno di essi si trova in una posizione di accesso atipica e dove il tempo tra gli accessi è inferiore al tempo minimo necessario per spostarsi fisicamente tra questi posizioni.  
 
 ### <a name="investigation"></a>Analisi
-Processo di analisi di attività, log e altre informazioni rilevanti relative a un evento di rischio per decidere se sono necessarie procedure di correzione o mitigazione, comprendere se e come l'identità è stata compromessa e come è stata usata l'identità compromessa.
+Il processo di revisione di attività, log e altre informazioni rilevanti relative a un rilevamento dei rischi per decidere se sono necessarie procedure di correzione o mitigazione, comprendere se e come l'identità è stata compromessa e comprendere il modo in cui l'identità è stata compromessa è stata usata l'identità.
 
 ### <a name="leaked-credentials"></a>Credenziali perse
-Evento di rischio che viene attivato quando le credenziali dell'utente corrente, ovvero nome utente e password, vengono trovate pubblicate nel Dark Web dai ricercatori.
+Rilevamento dei rischi attivato quando le credenziali dell'utente corrente (nome utente e password) vengono trovate pubblicate nel Dark Web dai ricercatori.
 
-### <a name="mitigation"></a>Mitigazione
-Azione che consente di limitare o eliminare la possibilità che un utente malintenzionato sfrutti un'identità o un dispositivo compromesso senza ripristinare l'identità o il dispositivo a uno stato sicuro. La mitigazione non risolve gli eventi di rischio precedenti associati all'identità o al dispositivo.
+### <a name="mitigation"></a>Attenuazione
+Azione che consente di limitare o eliminare la possibilità che un utente malintenzionato sfrutti un'identità o un dispositivo compromesso senza ripristinare l'identità o il dispositivo a uno stato sicuro. Una mitigazione non risolve i rilevamenti di rischio precedenti associati all'identità o al dispositivo.
 
 ### <a name="multi-factor-authentication"></a>Autenticazione a più fattori
 Metodo di autenticazione che richiede due o più fattori di autenticazione. Può includere un elemento di cui l'utente è in possesso, ad esempio un certificato, un'informazione nota all'utente, ad esempio nomi utente, password o passphrase, attributi fisici, ad esempio un'impronta digitale, e attributi personali, ad esempio una firma personale.
@@ -75,10 +75,10 @@ Parte dei criteri di sicurezza che definiscono le entità (gruppi, utenti, app, 
 Parte dei criteri di sicurezza che descrive le circostanze che attivano i criteri e le azioni intraprese dopo che i criteri sono stati attivati.
 
 ### <a name="prevention"></a>Prevenzione
-Azione per prevenire i danni arrecati all'organizzazione derivanti dall'uso non corretto di un'identità o di un dispositivo che si sospetta o si ritiene sia compromesso. Un'azione di prevenzione non protegge il dispositivo o l'identità né risolve gli eventi di rischio precedenti.
+Azione per prevenire i danni arrecati all'organizzazione derivanti dall'uso non corretto di un'identità o di un dispositivo che si sospetta o si ritiene sia compromesso. Un'azione di prevenzione non protegge il dispositivo o l'identità e non risolve i rilevamenti dei rischi precedenti.
 
 ### <a name="privileged-user"></a>Con privilegi (utente)
-Utente che al momento dell'evento di rischio dispone di autorizzazioni di amministratore permanenti o provvisorie per una o più risorse in Azure Active Directory, ad esempio amministratore globale, amministratore fatturazione, amministratore del servizio, amministratore utenti e amministratore password. 
+Un utente che al momento di un rilevamento dei rischi aveva autorizzazioni di amministratore permanenti o temporanee per una o più risorse in Azure Active Directory, ad esempio un amministratore globale, un amministratore di fatturazione, un amministratore del servizio, un amministratore utente e una password Amministratore. 
 
 ### <a name="real-time"></a>Tempo reale
 Vedere Rilevamento in tempo reale.
@@ -86,23 +86,23 @@ Vedere Rilevamento in tempo reale.
 ### <a name="real-time-detection"></a>Rilevamento in tempo reale
 Rilevamento di anomalie e valutazione del rischio di un evento, ad esempio un tentativo di accesso prima che all'evento sia consentito di procedere.
 
-### <a name="remediated-risk-event"></a>Con correzione (evento di rischio)
-Stato dell'evento di rischio impostato automaticamente da Identity Protection, che indica che l'evento di rischio è stato corretto tramite l'azione di correzione standard per questo tipo di evento di rischio. Ad esempio, quando la password utente viene reimpostata, molti eventi di rischio che indicano che la password precedente era compromessa vengono corretti automaticamente.
+### <a name="remediated-risk-detection"></a>Corretti (rilevamento del rischio)
+Stato di rilevamento del rischio impostato automaticamente da Identity Protection, che indica che il rilevamento dei rischi è stato risolto utilizzando l'azione di correzione standard per questo tipo di rilevamento dei rischi. Ad esempio, quando viene reimpostata la password utente, molti rilevamenti dei rischi che indicano che la password precedente è stata compromessa vengono risolti automaticamente.
 
 ### <a name="remediation"></a>Correzione
-Azione che consente di proteggere un'identità o un dispositivo che in precedenza è stato ritenuto o sospettato essere compromesso. Un'azione di correzione ripristina l'identità o il dispositivo a uno stato sicuro e risolve gli eventi di rischio precedenti associati all'identità o al dispositivo.
+Azione che consente di proteggere un'identità o un dispositivo che in precedenza è stato ritenuto o sospettato essere compromesso. Un'azione di correzione ripristina l'identità o il dispositivo a uno stato sicuro e risolve i rilevamenti di rischio precedenti associati all'identità o al dispositivo.
 
-### <a name="resolved-risk-event"></a>Risolto (evento di rischio)
-Stato dell'evento di rischio impostato manualmente da un utente di Identity Protection che indica che l'utente ha eseguito un'azione di correzione appropriata all'esterno di Identity Protection e che l'evento di rischio deve essere considerato chiuso.
+### <a name="resolved-risk-detection"></a>Risolto (rilevamento del rischio)
+Stato di rilevamento del rischio impostato manualmente da un utente di Identity Protection, che indica che l'utente ha eseguito un'azione di correzione appropriata all'esterno di Identity Protection e che il rilevamento dei rischi deve essere considerato chiuso.
 
-### <a name="risk-event-status"></a>Stato dell'evento di rischio
-Proprietà di un evento di rischio che indica se l'evento è attivo e, se chiuso, il motivo della chiusura.
+### <a name="risk-detection-status"></a>Stato di rilevamento del rischio
+Proprietà di un rilevamento dei rischi, che indica se l'evento è attivo e se chiuso, il motivo per la chiusura.
 
-### <a name="risk-event-type"></a>Tipo di evento di rischio
-Categoria per l'evento di rischio che indica il tipo di anomalia in base a cui l'evento viene considerato rischioso.
+### <a name="risk-detection-type"></a>Tipo di rilevamento del rischio
+Categoria per il rilevamento dei rischi, che indica il tipo di anomalia che ha causato l'evento come rischioso.
 
-### <a name="risk-level-risk-event"></a>Livello di rischio (evento di rischio)
-Può essere Alto, Medio o Basso e indica la gravità dell'evento di rischio per consentire agli utenti di Identity Protection di assegnare correttamente le priorità alle azioni da eseguire al fine di ridurre i rischi per l'organizzazione. 
+### <a name="risk-level-risk-detection"></a>Livello di rischio (rilevamento del rischio)
+Indicazione (alta, media o bassa) della gravità del rilevamento dei rischi per consentire agli utenti di Identity Protection di assegnare una priorità alle azioni eseguite per ridurre i rischi per la propria organizzazione. 
 
 ### <a name="risk-level-sign-in"></a>Livello di rischio (accesso)
 Può essere Alto, Medio o Basso e indica la probabilità che per un accesso specifico qualcun altro stia tentando di usare l'identità dell'utente.
@@ -126,16 +126,16 @@ Consente di eseguire l'autenticazione a un'identità in Azure Active Directory.
 Processo o azione di autenticazione di un'identità in Azure Active Directory ed evento che acquisisce questa operazione.
 
 ### <a name="sign-in-from-anonymous-ip-address"></a>Accesso da indirizzo IP anonimo
-Evento di rischio attivato dopo che un accesso da un indirizzo IP è stato identificato come indirizzo IP proxy anonimo.
+Rilevamento dei rischi attivato dopo un accesso riuscito dall'indirizzo IP che è stato identificato come indirizzo IP proxy anonimo.
 
 ### <a name="sign-in-from-infected-device"></a>Accesso da dispositivo infetto
-Evento di rischio attivato quando l'accesso è originato da un indirizzo IP, noto per essere usato da uno o più dispositivi compromessi che tentano di comunicare attivamente con un server bot.
+Rilevamento dei rischi attivato quando un accesso proviene da un indirizzo IP, che è noto come usato da uno o più dispositivi compromessi che tentano attivamente di comunicare con un server bot.
 
 ### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Accesso da indirizzo IP con attività sospetta
-Evento di rischio attivato dopo un accesso riuscito da un indirizzo IP con un numero elevato di tentativi di accesso non riusciti tra più account utente in un breve periodo di tempo.
+Rilevamento dei rischi attivato dopo un accesso riuscito da un indirizzo IP con un numero elevato di tentativi di accesso non riusciti tra più account utente in un breve periodo di tempo.
 
 ### <a name="sign-in-from-unfamiliar-location"></a>Accesso da posizione non nota
-Evento di rischio attivato quando un utente esegue l'accesso da una nuova posizione (indirizzo IP, latitudine/longitudine e numero ASN).
+Rilevamento dei rischi attivato quando un utente accede correttamente da una nuova posizione (IP, Latitudine/Longitudine e ASN).
 
 ### <a name="sign-in-risk"></a>Rischio di accesso
 Vedere Livello di rischio (accesso)
@@ -153,7 +153,7 @@ Vedere Livello di rischio (compromissione dell'utente)
 Criteri di accesso condizionale che considerano l'accesso e applicano le mitigazioni in base a condizioni e regole predefinite.
 
 ### <a name="users-flagged-for-risk"></a>Utenti contrassegnati per il rischio
-Utenti con eventi di rischio, attivi o corretti
+Utenti con rilevamento dei rischi, attivi o corretti
 
 ### <a name="vulnerability"></a>Vulnerabilità
 Configurazione o condizione in Azure Active Directory che rende la directory vulnerabile ad attacchi o minacce.

@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5630c157ef7843726bcc17455a1e683e58b88ffd
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: a9464b408f43f55cb75a57798b098be6335328e3
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905247"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136519"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -76,8 +76,8 @@ Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app
 
 |Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Anteprima | Non disponibile | Non disponibile | Non disponibile |
-| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dal sistema | Disponibile | Disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Disponibile | Disponibile | Non disponibile | Non disponibile |
 
 Vedere l'elenco seguente per usare un'identità gestita con i [progetti di Azure](../../governance/blueprints/overview.md):
 

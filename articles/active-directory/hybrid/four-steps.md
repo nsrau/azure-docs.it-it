@@ -13,18 +13,18 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4eb5b4c634fe495a0ed149016d862defc2eb45
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532452"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124935"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quattro passaggi per una solida base di identità con Azure Active Directory
 
 La gestione dell'accesso alle app e ai dati non può più basarsi sulle strategie di limite di sicurezza di rete tradizionali, ad esempio le reti perimetrali e i firewall, grazie al rapido spostamento delle app nel cloud. Ora le organizzazioni devono considerare attendibile la propria soluzione di identità per controllare chi ha accesso alle app e ai dati dell'organizzazione. Un numero maggiore di organizzazioni consente ai dipendenti di usare i propri dispositivi per lavorare e di usare i propri dispositivi ovunque possano connettersi a Internet. Verificare che questi dispositivi siano conformi e sicuri siano diventati una considerazione importante nella soluzione di identità che un'organizzazione sceglie di implementare. Nell'area di lavoro digitale odierna, [l'identità è il piano di controllo primario](https://www.microsoft.com/security/technology/identity-access-management?rtc=1) di qualsiasi organizzazione che passa al cloud.
 
-Quando si adotta una soluzione di identità ibrida Azure Active Directory (Azure AD), le organizzazioni ottengono l'accesso alle funzionalità Premium che consentono di sbloccare la produttività tramite funzionalità di automazione, delega, self-service e Single Sign-on. Consente ai dipendenti di accedere alle risorse aziendali da qualsiasi luogo che debbano svolgere il proprio lavoro consentendo al team IT di governare tale accesso garantendo che gli utenti giusti dispongano del diritto di accesso alle risorse appropriate per stabilire una produttività sicura.
+Quando si adotta una soluzione di identità ibrida Azure Active Directory (Azure AD), le organizzazioni ottengono l'accesso alle funzionalità Premium che consentono di sbloccare la produttività tramite funzionalità di automazione, delega, self-service e Single Sign-On. Consente ai dipendenti di accedere alle risorse aziendali da qualsiasi luogo che debbano svolgere il proprio lavoro consentendo al team IT di governare tale accesso garantendo che gli utenti giusti dispongano del diritto di accesso alle risorse appropriate per stabilire una produttività sicura.
 
 In base alle nostre informazioni, questo elenco di controllo delle procedure consigliate ti aiuterà a distribuire rapidamente le azioni consigliate per creare una *solida* identità di base nell'organizzazione:
 
@@ -35,13 +35,13 @@ In base alle nostre informazioni, questo elenco di controllo delle procedure con
 
 ## <a name="step-1---connect-to-apps-easily"></a>Passaggio 1: connettersi facilmente alle app
 
-Connettendo le app con Azure AD, è possibile migliorare la produttività e la protezione degli utenti finali abilitando Single Sign-on (SSO) ed effettuando il provisioning degli utenti. Gestendo le app in un'unica posizione, Azure AD, è possibile ridurre al minimo il sovraccarico amministrativo e ottenere un singolo punto di controllo per i criteri di sicurezza e conformità.
+Connettendo le app con Azure AD, è possibile migliorare la produttività e la protezione degli utenti finali abilitando Single Sign-On (SSO) ed effettuando il provisioning degli utenti. Gestendo le app in un'unica posizione, Azure AD, è possibile ridurre al minimo il sovraccarico amministrativo e ottenere un singolo punto di controllo per i criteri di sicurezza e conformità.
 
 Questa sezione illustra le opzioni per la gestione dell'accesso degli utenti alle app, l'abilitazione dell'accesso remoto sicuro alle app interne e i vantaggi della migrazione delle app a Azure AD.
 
 ### <a name="make-apps-available-to-your-users-seamlessly"></a>Rendere le app disponibili per gli utenti in modo uniforme
 
-Azure AD consente agli amministratori di [aggiungere applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) alla raccolta di applicazioni aziendali nel [portale di Azure](https://portal.azure.com/). L'aggiunta di applicazioni alla raccolta di applicazioni aziendali semplifica la configurazione delle applicazioni per l'uso di Azure AD come provider di identità. Consente inoltre di gestire l'accesso degli utenti all'applicazione con criteri di accesso condizionale e di configurare l'accesso Single Sign-on (SSO) per le applicazioni in modo che gli utenti non debbano immettere le password ripetutamente e vengano automaticamente firmate in locale e applicazioni basate su cloud.
+Azure AD consente agli amministratori di [aggiungere applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) alla raccolta di applicazioni aziendali nel [portale di Azure](https://portal.azure.com/). L'aggiunta di applicazioni alla raccolta di applicazioni aziendali semplifica la configurazione delle applicazioni per l'uso di Azure AD come provider di identità. Consente inoltre di gestire l'accesso degli utenti all'applicazione con criteri di accesso condizionale e di configurare Single Sign-On (SSO) per le applicazioni in modo che gli utenti non debbano immettere le password ripetutamente e vengano automaticamente firmate in locale e applicazioni basate su cloud.
 
 Una volta aggiunte le applicazioni alla raccolta di Azure AD, gli utenti possono visualizzare le app a loro assegnate e cercare e richiedere altre app in base alle esigenze. Azure AD offre [diversi metodi](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences) per consentire agli utenti di accedere alle app:
 
@@ -54,7 +54,7 @@ Per altre informazioni sull'accesso degli utenti alle app, vedere **il passaggio
 
 ### <a name="migrate-apps-from-active-directory-federation-services-to-azure-ad"></a>Eseguire la migrazione di app da Active Directory Federation Services a Azure AD
 
-La migrazione della configurazione dell'accesso Single Sign-on da Active Directory Federation Services (ADFS) a Azure AD Abilita funzionalità aggiuntive per la sicurezza, una gestione più coerente e una collaborazione. Per risultati ottimali, è consigliabile eseguire la migrazione delle app da AD FS a Azure AD. L'autenticazione e l'autorizzazione dell'applicazione per Azure AD offrono i vantaggi seguenti:
+La migrazione di Single Sign-On configurazione da Active Directory Federation Services (ADFS) a Azure AD offre funzionalità aggiuntive per la sicurezza, una gestione più coerente e una collaborazione. Per risultati ottimali, è consigliabile eseguire la migrazione delle app da AD FS a Azure AD. L'autenticazione e l'autorizzazione dell'applicazione per Azure AD offrono i vantaggi seguenti:
 
 * Gestione dei costi
 * Gestione dei rischi
@@ -65,13 +65,13 @@ Per altre informazioni, vedere il white paper relativo alla [migrazione delle ap
 
 ### <a name="enable-secure-remote-access-to-apps"></a>Abilitare l'accesso remoto sicuro alle app
 
-[Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy) fornisce una soluzione semplice per le organizzazioni per la pubblicazione di applicazioni locali nel cloud per gli utenti remoti che necessitano dell'accesso alle app interne in modo sicuro. Dopo un accesso Single Sign-on a Azure AD, gli utenti possono accedere alle applicazioni cloud e locali tramite URL esterni o un portale di applicazioni interno.
+[Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy) fornisce una soluzione semplice per le organizzazioni per la pubblicazione di applicazioni locali nel cloud per gli utenti remoti che necessitano dell'accesso alle app interne in modo sicuro. Dopo un Single Sign-On Azure AD, gli utenti possono accedere alle applicazioni cloud e locali tramite URL esterni o un portale di applicazioni interno.
 
 Azure AD proxy di applicazione offre i vantaggi seguenti:
 
 * Estensione di Azure AD a risorse locali
   * Sicurezza e protezione a livello di scalabilità
-  * Funzionalità quali l'accesso condizionale e l'autenticazione a più fattori facili da abilitare
+  * Funzionalità quali l'accesso condizionale e Multi-Factor Authentication facili da abilitare
 * Nessun componente nella rete perimetrale, ad esempio soluzioni VPN e proxy inverso tradizionali
 * Nessuna connessione in ingresso necessaria
 * Single Sign-on (SSO) tra dispositivi, risorse e app nel cloud e in locale
@@ -115,7 +115,7 @@ Le organizzazioni con Active Directory locale devono estendere la directory ai A
 
 Il metodo più semplice e consigliato per abilitare l'autenticazione cloud per gli oggetti directory locali in Azure AD consiste nell'abilitare la [sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (pH). In alternativa, alcune organizzazioni possono prendere in considerazione l'abilitazione dell' [autenticazione pass-through](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA).
 
-Se si sceglie pH o PTA, non dimenticare di abilitare l'accesso [Single Sign-on](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) facile per consentire agli utenti di accedere alle app cloud senza immettere costantemente il nome utente e la password nell'app quando si usano dispositivi Windows 7 e 8 nella rete aziendale. Senza Single Sign-on, gli utenti devono ricordare le password specifiche dell'applicazione e accedere a ogni applicazione. Allo stesso modo, il personale IT deve creare e aggiornare gli account utente per ogni applicazione, ad esempio Office 365, box e Salesforce. Gli utenti devono ricordare le proprie password, oltre a dedicare il tempo necessario per accedere a ogni applicazione. Fornire un meccanismo di accesso Single Sign-on standardizzato all'intera azienda è fondamentale per la migliore esperienza utente, riduzione del rischio, possibilità di creare report e governance.
+Se si sceglie pH o PTA, non dimenticare di abilitare l'accesso [Single Sign-on](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) facile per consentire agli utenti di accedere alle app cloud senza immettere costantemente il nome utente e la password nell'app quando si usano dispositivi Windows 7 e 8 nella rete aziendale. Senza Single Sign-On, gli utenti devono ricordare le password specifiche dell'applicazione e accedere a ogni applicazione. Allo stesso modo, il personale IT deve creare e aggiornare gli account utente per ogni applicazione, ad esempio Office 365, box e Salesforce. Gli utenti devono ricordare le proprie password, oltre a dedicare il tempo necessario per accedere a ogni applicazione. Fornire un meccanismo di Single Sign-On standardizzato per l'intera organizzazione è fondamentale per ottimizzare l'esperienza utente, la riduzione del rischio, la possibilità di creare report e governance.
 
 Per le organizzazioni che usano già AD FS o un altro provider di autenticazione locale, il passaggio a Azure AD come provider di identità può ridurre la complessità e migliorare la disponibilità. A meno che non si disponga di casi d'uso specifici per l'uso della Federazione, è consigliabile eseguire la migrazione dall'autenticazione federata a pH e seamless SSO o PTA e a seamless SSO per sfruttare i vantaggi di un footprint locale ridotto e la flessibilità offerta dal cloud con esperienza utente migliorata. Per ulteriori informazioni, vedere [eseguire la migrazione dalla Federazione alla sincronizzazione dell'hash delle password per Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync).
 
@@ -141,7 +141,7 @@ Per impostazione predefinita, Azure AD sblocca gli account quando esegue la reim
 
 Azure fornisce report che possono essere usati dall'utente e dall'organizzazione per assicurarsi che gli utenti siano registrati per l'autenticazione a più fattori e SSPR. Per gli utenti che non hanno eseguito la registrazione potrebbe essere necessario istruire il processo.
 
-Il [report](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) degli accessi a più fattori include informazioni sull'utilizzo dell'autenticazione a più fattori e fornisce informazioni approfondite sul funzionamento dell'autenticazione a più fattori nell'organizzazione. L'accesso alle attività di accesso (e controlli ed eventi di rischio) per Azure AD è fondamentale per la risoluzione dei problemi, l'analisi dell'utilizzo e le indagini forensi.
+Il [report](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) degli accessi a più fattori include informazioni sull'utilizzo dell'autenticazione a più fattori e fornisce informazioni approfondite sul funzionamento dell'autenticazione a più fattori nell'organizzazione. La possibilità di accedere alle attività di accesso (e ai controlli e ai rilevamenti dei rischi) per Azure AD è fondamentale per la risoluzione dei problemi, l'analisi dell'utilizzo e le indagini forensi.
 
 Analogamente, è possibile usare il [report di gestione delle password self-service](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) per determinare chi ha o non è registrato per sspr.
 

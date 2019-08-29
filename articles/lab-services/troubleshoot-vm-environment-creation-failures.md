@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: bcdb549ce5b522b2d456e2cbeb5471b9df984514
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 945afd4f0a5049985955bbc71bbf6b2250f68d2a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774425"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129046"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Risolvere gli errori di creazione della macchina virtuale (VM) e dell'ambiente in Azure DevTest Labs
 DevTest Labs fornisce avvisi se il nome di un computer non è valido o se si sta per violare un criterio Lab. In alcuni casi, viene `X` visualizzato rosso accanto alla macchina virtuale del Lab o allo stato dell'ambiente che informa che si è verificato un errore.  Questo articolo fornisce alcuni trucchi che è possibile usare per individuare il problema sottostante e, possibilmente, evitare il problema in futuro.
 
 ## <a name="portal-notifications"></a>Notifiche del portale
-Se si usa il portale di Azure, il primo punto da considerare è il **pannello notifiche**.  Pannello di notifiche, disponibili sulla barra dei comandi principale facendo il **sull'icona a forma di campanello**, indicherà se la creazione della macchina virtuale o ambiente di laboratorio esito positivo o negativo.  Se si è verificato un errore, viene visualizzato il messaggio di errore associato all'errore di creazione. I dettagli forniscono spesso ulteriori informazioni per facilitare la risoluzione del problema. Nell'esempio seguente, la creazione della macchina virtuale non è riuscita a causa di un esaurimento delle memorie centrali. Il messaggio dettagliato indica come risolvere il problema e richiedere un aumento della quota di core.
+Se si usa il portale di Azure, il primo punto da considerare è il **pannello notifiche**.  Pannello di notifiche, disponibili sulla barra dei comandi principale facendo il **sull'icona a forma di campanello**, indicherà se la creazione della macchina virtuale o ambiente di laboratorio esito positivo o negativo.  Se si è verificato un errore, viene visualizzato il messaggio di errore associato all'errore di creazione. I dettagli forniscono spesso ulteriori informazioni per facilitare la risoluzione del problema. Nell'esempio seguente, la creazione della macchina virtuale non è riuscita a causa di un esaurimento delle memorie centrali. Il messaggio dettagliato indica come risolvere il problema e richiedere un aumento della quota di core.
 
 ![Notifica portale di Azure](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
 

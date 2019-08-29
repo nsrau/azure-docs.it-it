@@ -2,26 +2,27 @@
 title: Determinazione dei prezzi di Azure Data Factory ed esempi | Microsoft Docs
 description: Questo articolo spiega e illustra il modello di determinazione dei prezzi di Azure Data Factory con esempi dettagliati
 documentationcenter: ''
-author: shlo
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: shlo
-ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f08dea90e7700082b6eeb708b576451060f81255
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233942"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140950"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Determinazione dei prezzi di Data Factory ed esempi
 
 Questo articolo spiega e illustra il modello di determinazione dei prezzi di Azure Data Factory con esempi dettagliati.
 
 > [!NOTE]
-> I prezzi usati negli esempi seguenti sono ipotetici e non sono destinati a implica il prezzo effettivo.
+> I prezzi usati negli esempi seguenti sono ipotetici e non sono destinati a implicare prezzi effettivi.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Copiare i dati da AWS S3 in Archiviazione BLOB di Azure ogni ora
 
@@ -125,21 +126,21 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
   - Attività di pipeline = $ 0,00003 (in quote per 1 minuto di tempo di esecuzione; $ 0,002/ora in Azure Integration Runtime)
   - Attività di pipeline esterna = $ 0,000041 (in quote per 10 minuti di tempo di esecuzione; $ 0,00025/ora in Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Con debug del flusso dei dati di mapping per un giorno lavorativo normale (prezzo anteprima)
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Uso del debug del flusso di dati di mapping per una giornata lavorativa normale (prezzi anteprima)
 
-Data Engineer, si è responsabile della progettazione, compilazione e test di flussi di dati di Mapping di ogni giorno. Si accede al mattino di UI ADF e abilita la modalità di Debug per i dati vengono trasmessi. Il valore TTL predefinito per le sessioni di Debug è 60 minuti. Si lavora nel corso della giornata per 10 ore, in modo che la sessione di Debug non scade mai. Pertanto, l'addebito per il giorno sarà:
+In qualità di ingegnere dei dati, l'utente è responsabile della progettazione, della compilazione e del testing di flussi di dati di mapping ogni giorno. Accedere all'interfaccia utente di ADF al mattino e abilitare la modalità di debug per i flussi di dati. Il valore TTL predefinito per le sessioni di debug è 60 minuti. Si lavora in tutto il giorno per 10 ore, quindi la sessione di debug non scade mai. L'addebito per la giornata sarà quindi:
 
-**10 (ore) x 8 (Core) x $0.112 = $8.96**
+**10 (ore) x 8 (Core) x $0,112 = $8,96**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Trasformare i dati nell'archivio blob con il mapping dei flussi di dati (prezzo anteprima)
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Trasformare i dati nell'archivio BLOB con i flussi di dati di mapping (prezzi anteprima)
 
-In questo scenario, si desidera trasformare i dati in Blob Store visivamente in Azure Data factory il Mapping di flusso dei dati in una pianificazione oraria.
+In questo scenario si desidera trasformare i dati nell'archivio BLOB in modo visivo in ADF mapping dei flussi di dati in base a una pianificazione oraria.
 
 Per eseguire lo scenario è necessario creare una pipeline con gli elementi seguenti:
 
 1. Un'attività flusso di dati con la logica di trasformazione.
 
-2. Un set di dati input per i dati nell'archiviazione di Azure.
+2. Un set di dati di input per i dati in archiviazione di Azure.
 
 3. Un set di dati di output per i dati in Archiviazione di Azure.
 
@@ -152,17 +153,17 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 | Creare una pipeline | 3 Entità di lettura/scrittura (1 per la creazione di pipeline, 2 per i riferimenti a set di dati) |
 | Ottenere la pipeline | 1 Entità di lettura/scrittura |
 | Eseguire la pipeline | 2 Esecuzioni di attività (1 per l'esecuzione di trigger, 1 per le esecuzioni di attività) |
-| Tempo di esecuzione presupposti di flusso di dati: = 10 min + Durata (TTL) a 10 minuti | 10 \* 8 core di calcolo generale con durata (TTL) di 10 |
+| Presupposti del flusso di dati: tempo di esecuzione = 10 min + 10 min TTL | 10 \* 8 core di calcolo generale con TTL di 10 |
 | Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 2 Record di esecuzione monitoraggio ritentata (1 per l'esecuzione di pipeline, 1 per l'esecuzione di attività) |
 
-**Totale dei prezzi di Scenario: $0.3011**
+**Prezzi dello scenario totale: $0,3011**
 
 - Operazioni di Data Factory = **$ 0,0001**
   - Lettura/scrittura = 10\*00001 = $ 0,0001 [1 L/S = $ 0,50/50000 = 0,00001]
   - Monitoraggio = 2\*000005 = $ 0,00001 [1 monitoraggio = $ 0,25/50000 = 0,000005]
-- Orchestrazione di pipeline &amp; esecuzione = **$0.301**
+- Esecuzione orchestrazione &amp; pipeline = **$0,301**
   - Esecuzioni di attività = 001\*2 = 0,002 [1 esecuzione = $ 1/1000 = 0,001]
-  - Attività del flusso di dati = $0.299 in quote per 20 minuti (tempo di esecuzione di 10 minuti + 10 minuti di durata (TTL)). calcolare $0.112/ ora nel Runtime di integrazione di Azure con 8 core generale
+  - Attività flusso di dati = $0,299 propagate per 20 minuti (tempo di esecuzione di 10 minuti + TTL di 10 minuti). $0.112/hour in Azure Integration Runtime con 8 core calcolo generale
 
 ## <a name="next-steps"></a>Passaggi successivi
 

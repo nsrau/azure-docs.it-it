@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: fa3aedf138564fedafe555adfbaf6c56efc1813e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 9bb53a8e68866e2ed346277171e2706f5907e8af
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360851"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141919"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Come usare le code del bus di servizio con Python
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come creare applicazioni Python per invia
 
         > [!NOTE]
         > In questa esercitazione verrà creata una **coda** nello spazio dei nomi del bus di servizio usando Python. 
-1. Installare Python o il [pacchetto del bus di servizio di Azure per Python][Python Azure Service Bus package], vedere la Guida all'installazione di [Python](../python-how-to-install.md). Vedere la documentazione completa di Python SDK di Service Bus [qui](/python/api/overview/azure/servicebus?view=azure-python).
+1. Installare Python o il [pacchetto del bus di servizio di Azure per Python][Python Azure Service Bus package], vedere la Guida all'installazione di [Python](/azure/python/python-sdk-azure-install). Vedere la documentazione completa di Python SDK di Service Bus [qui](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Crea una coda
 L'oggetto **ServiceBusClient** consente di usare le code. Aggiungere il seguente codice all'inizio di ogni file Python da cui si desidera accedere al bus di servizio a livello di codice:

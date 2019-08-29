@@ -1,7 +1,7 @@
 ---
-title: 'Creare modelli di Python: Riferimento al modulo'
+title: 'Crea modello Python: Riferimento al modulo'
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modello Crea modello di Python nel servizio Azure Machine Learning per creare modulo personalizzato di modellazione o l'elaborazione dei dati.
+description: Informazioni su come usare il modello di creazione modello Python nel servizio Azure Machine Learning per creare un modulo di modellazione o elaborazione dati personalizzato.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,39 +9,38 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: ea9b50cede3e2d264ca0476b6a987ca6896c3c79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d7aabd41e9d0e872926adbbcb2d18332cb7d5e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029746"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128930"
 ---
 # <a name="create-python-model"></a>Creare il modello Python
 
-Questo articolo descrive come usare il **Create Model Python** modulo per creare un modello senza Training da uno script Python. 
+Questo articolo descrive come usare il modulo **Crea modello Python** per creare un modello non sottoposto a training da uno script Python. 
 
-È possibile basare il modello in qualsiasi strumento di apprendimento incluso in un pacchetto Python nell'ambiente di Azure Machine Learning. 
+È possibile basare il modello su qualsiasi discente incluso in un pacchetto python nell'ambiente Azure Machine Learning. 
 
-Dopo aver creato il modello, è possibile usare [Train Model](train-model.md) per il training del modello su un set di dati, come qualsiasi altro strumento di apprendimento in Azure Machine Learning. Il modello con training può essere passato a [Score Model](score-model.md) per utilizzare il modello per eseguire stime. Il modello con training può quindi essere salvato e il flusso di lavoro assegnazione dei punteggi può essere pubblicato come servizio web.
+Dopo aver creato il modello, è possibile utilizzare [Train Model](train-model.md) per eseguire il training del modello su un set di dati, come qualsiasi altro discente in Azure Machine Learning. Il modello sottoposto a training può essere passato al [modello di Punteggio](score-model.md) per utilizzare il modello per eseguire stime. Il modello con Training può quindi essere salvato e il flusso di lavoro di assegnazione dei punteggi può essere pubblicato come servizio Web.
 
 > [!WARNING]
-> Non è attualmente possibile passare i risultati con punteggi di un modello Python per [Evaluate Model](evaluate-model.md). Se è necessario valutare un modello, è possibile scrivere Python personalizzato dello script ed eseguirlo usando il [Execute Python Script](execute-python-script.md) modulo.  
+> Attualmente non è possibile passare i risultati con punteggio di un modello Python per valutare il [modello](evaluate-model.md). Se è necessario valutare un modello, è possibile scrivere uno script Python personalizzato ed eseguirlo usando il modulo [Execute Python script](execute-python-script.md) .  
 
 
-## <a name="how-to-configure-create-python-model"></a>Come configurare Create Model Python
+## <a name="how-to-configure-create-python-model"></a>Come configurare la creazione di un modello Python
 
-Uso di questo modulo richiede una conoscenza intermedia o esperti di Python. Il modulo supporta l'uso di qualsiasi strumento di apprendimento è inclusa nei pacchetti Python già installati in Azure Machine Learning. Vedere l'elenco dei pacchetti Python pre-installato in [Execute Python Script](execute-python-script.md).
+L'uso di questo modulo richiede una conoscenza intermedia o esperta di Python. Il modulo supporta l'uso di qualsiasi discente incluso nei pacchetti Python già installati in Azure Machine Learning. Vedere l'elenco di pacchetti Python preinstallato in [Esegui script Python](execute-python-script.md).
   
 
-Questo articolo illustra come usare il **Create Model Python** con un semplice esperimento. Di seguito è riportato il grafico dell'esperimento.
+Questo articolo illustra come usare il **modello create Python** con un esperimento semplice. Di seguito è riportato il grafico dell'esperimento.
 
-![Create-python-model](./media/module/aml-create-python-model.png)
+![creare-Python-Model](./media/module/aml-create-python-model.png)
 
-1.  Fare clic su **Create Model Python**, modificare lo script per implementare la modellazione o elaborare la gestione dei dati. È possibile basare il modello in qualsiasi strumento di apprendimento incluso in un pacchetto Python nell'ambiente di Azure Machine Learning.
+1.  Fare clic su **Crea modello Python**, modificare lo script per implementare la modellazione o il processo di gestione dei dati. È possibile basare il modello su qualsiasi discente incluso in un pacchetto python nell'ambiente Azure Machine Learning.
 
 
-    Di seguito è un codice di esempio del classificatore di Naive Bayes due classi usando il diffuso *sklearn* pacchetto.
+    Di seguito è riportato un codice di esempio di classificatore Naive Bayes a due classi usando il popolare pacchetto *sklearn* .
 
 ```Python
 
@@ -76,9 +75,9 @@ class AzureMLModel:
 ```
 
 
-2. Connettere il **Create Model Python** modulo appena creato per una **Train Model** e **Score Model**
+2. Connettere il modulo di **creazione del modello Python** appena creato a un modello **Train** e un **modello di Punteggio**
 
-3. Se è necessario valutare il modello, aggiungere un [Execute Python Script](execute-python-script.md) e modificare lo script Python per implementare la valutazione.
+3. Se è necessario valutare il modello, aggiungere uno [script Execute Python](execute-python-script.md) e modificare lo script Python per implementare la valutazione.
 
 Di seguito è riportato il codice di valutazione di esempio.
 

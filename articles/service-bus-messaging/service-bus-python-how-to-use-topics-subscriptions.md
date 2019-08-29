@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d294ceaaf77175a3010131b18864b71c7b26b88b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360824"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141892"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Python
 
@@ -39,7 +39,7 @@ Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di
 
     > [!NOTE]
     > In questa Guida introduttiva si creerà un **argomento** e una **sottoscrizione** all'argomento usando **Python** . 
-3. Installare il [pacchetto python di Azure][Azure Python package]. Vedere la [Guida all'installazione di Python](../python-how-to-install.md).
+3. Installare il [pacchetto python di Azure][Azure Python package]. Vedere la [Guida all'installazione di Python](/azure/python/python-sdk-azure-install).
 
 ## <a name="create-a-topic"></a>Crea un argomento
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 879e2831dc099eabe43f1eefb81b1b7373c665dc
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a173272600bab71264ed3b85ce5141814c0a6aed
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898717"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147213"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima: creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
 
@@ -121,8 +121,11 @@ L'output di esempio seguente mostra il gruppo di risorse creato correttamente:
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
 Per eseguire un cluster AKS che supporta i pool di nodi per i contenitori di Windows Server, il cluster deve usare un criterio di rete che usa il plug-in di rete [Azure CNI][azure-cni-about] (Advanced). Per informazioni più dettagliate che consentono di pianificare gli intervalli di subnet e le considerazioni sulla rete richiesti, vedere Configurare la rete [CNI di Azure][use-advanced-networking]. Usare il comando [AZ AKS create][az-aks-create] per creare un cluster AKS denominato *myAKSCluster*. Questo comando creerà le risorse di rete necessarie se non esistono.
-  * Il cluster è configurato con un nodo
+  * Il cluster è configurato con due nodi
   * I parametri *Windows-admin-password* e *Windows-admin-username* impostano le credenziali di amministratore per tutti i contenitori di Windows Server creati nel cluster.
+
+> [!NOTE]
+> Per garantire il funzionamento affidabile del cluster, è consigliabile eseguire almeno 2 (due) nodi nel pool di nodi predefinito.
 
 Fornire il proprio *PASSWORD_WIN* sicuro (tenere presente che i comandi in questo articolo sono stati immessi in una shell bash):
 
@@ -132,7 +135,7 @@ PASSWORD_WIN="P@ssw0rd1234"
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --enable-addons monitoring \
     --kubernetes-version 1.14.6 \
     --generate-ssh-keys \
@@ -184,7 +187,7 @@ Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl
 kubectl get nodes
 ```
 
-L'esempio di output seguente mostra il nodo singolo creato nei passaggi precedenti. Assicurarsi che lo stato del nodo sia impostato su *Pronto*:
+L'output di esempio seguente mostra tutti i nodi del cluster. Verificare che lo stato di tutti i nodi sia *pronto*:
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION

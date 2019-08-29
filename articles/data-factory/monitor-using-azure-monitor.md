@@ -3,21 +3,20 @@ title: Monitorare le data factory con Monitoraggio di Azure | Microsoft Docs
 description: Informazioni su come usare Monitoraggio di Azure per monitorare le pipeline di Data Factory abilitando i log di diagnostica con informazioni da Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: shlo
-ms.openlocfilehash: 6bad74d33f5d50bb7a35de69927bf97daad07798
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0614de8bbb1429c84bf5f2e55c1765f3e4863f3a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326857"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141138"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Avvisi e monitoraggio delle data factory con Monitoraggio di Azure
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
@@ -396,7 +395,7 @@ Log Analytics eredita lo schema da monitoraggio di Azure con le eccezioni seguen
     | $. Properties. Input | Input | Dynamic |
     | $. Properties. Output | Output | Dynamic |
     | $. Properties. Errore. errorCode | ErrorCode | int |
-    | $. Properties. Errore. messaggio | ErrorMessage | string |
+    | $. Properties. Errore. messaggio | MessaggioErrore | string |
     | $. Properties. Errore | Errore | Dynamic |
     | $. Properties. Predecessori | Predecessori | Dynamic |
     | $. Properties. Parametri | Parametri | Dynamic |

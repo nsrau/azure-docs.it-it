@@ -3,21 +3,20 @@ title: Attività IfCondition in Azure Data Factory | Microsoft Docs
 description: L'attività IfCondition consente di controllare il flusso di elaborazione in base a una condizione.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc6318b5033ff1297f917ab95b28f8ed9285e930
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153463"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142498"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Attività IfCondition in Azure Data Factory
 L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività se la condizione restituisce `true` e un altro set di attività se la condizione restituisce `false`. 
@@ -64,13 +63,13 @@ L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguag
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività if-condition. | String | Yes
-type | Deve essere impostata su **IfCondition** | String | Yes
+type | Deve essere impostata su **IfCondition** | String | Sì
 expression | Espressione che deve restituire true o false | Espressione con tipo di risultato booleano | Yes
 ifTrueActivities | Set di attività che vengono eseguite quando l'espressione restituisce `true`. | Array | Yes
-ifFalseActivities | Set di attività che vengono eseguite quando l'espressione restituisce `false`. | Array | Yes
+ifFalseActivities | Set di attività che vengono eseguite quando l'espressione restituisce `false`. | Array | Sì
 
 ## <a name="example"></a>Esempio
 La pipeline in questo esempio copia i dati da una cartella di input a una cartella di output. La cartella di output è determinata dal valore del parametro di pipeline routeSelection. Se il valore di routeSelection è true, i dati vengono copiati in outputPath1. E se il valore di routeSelection è false, i dati vengono copiati in outputPath2. 

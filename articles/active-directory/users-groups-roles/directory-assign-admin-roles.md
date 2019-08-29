@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a228c0d349fd45f34923a64ef99dcfba50c4c548
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 93532b1b40dc138a234d5433591a2ba79167194e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034982"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135565"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -123,7 +123,7 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **[Amministratore del dispositivo](#device-administrators)** : questo ruolo è disponibile per l'assegnazione solo come amministratore locale aggiuntivo in [Impostazioni dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gli utenti con questo ruolo diventano amministratori del computer locale in tutti i dispositivi Windows 10 aggiunti ad Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory. 
 
-* **[Ruoli con autorizzazioni di lettura nella directory](#directory-readers)** : Si tratta di un ruolo che deve essere assegnato solo alle applicazioni legacy che non supportano il [Framework di consenso](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Non assegnarlo agli utenti.
+* **[Ruoli con autorizzazioni di lettura nella directory](#directory-readers)** : Si tratta di un ruolo che deve essere assegnato solo alle applicazioni legacy che non supportano il [Framework di consenso](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Gli utenti con questo ruolo possono leggere le informazioni di base sulla directory. Questo ruolo deve essere usato per: 1) concedere a un set specifico di utenti guest l'accesso in lettura anziché concederlo a tutti gli utenti guest. 2) concedere a un set specifico di utenti non amministratori l'accesso al portale di Azure quando "limita l'accesso al portale di Azure AD solo agli amministratori" è impostato su "Sì". 3) la concessione dell'accesso alle entità servizio alla directory whereDirectory. Read. All non è un'opzione.
 
 * **[Account di sincronizzazione della directory](#directory-synchronization-accounts)** : Non usare. Questo ruolo viene assegnato automaticamente al servizio Azure AD Connect e non è progettato o supportato per altri usi.
 
@@ -658,7 +658,7 @@ Gli utenti assegnati a questo ruolo vengono aggiunti al gruppo Administrators lo
 | microsoft.aad.directory/groupSettingTemplates/basic/read | Eseguire la lettura delle proprietà di base su groupSettingTemplates in Azure Active Directory. |
 
 ### <a name="directory-readers"></a>Ruolo con autorizzazioni di lettura nella directory
-Può leggere le informazioni base della directory. Per concedere l'accesso alle applicazioni, non destinato agli utenti.
+Può leggere le informazioni base della directory. Gli utenti con questo ruolo possono leggere le informazioni di base sulla directory. Questo ruolo deve essere usato per: 1) concedere a un set specifico di utenti guest l'accesso in lettura anziché concederlo a tutti gli utenti guest. 2) concedere a un set specifico di utenti non amministratori l'accesso al portale di Azure quando "limita l'accesso al portale di Azure AD solo agli amministratori" è impostato su "Sì". 3) la concessione dell'accesso alle entità servizio alla directory whereDirectory. Read. All non è un'opzione.
 
 | **Actions** | **Descrizione** |
 | --- | --- |

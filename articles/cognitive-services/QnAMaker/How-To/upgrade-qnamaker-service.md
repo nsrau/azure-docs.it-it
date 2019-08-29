@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 08/26/2019
 ms.author: diberry
-ms.openlocfilehash: df4aa2d6a3c4690fb1fc38b0f4f7d49afccdd657
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ba9c2cd5a85e02a7dd4b1091a050d76e94861964
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640473"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147095"
 ---
 # <a name="share-or-upgrade-your-qna-maker-service"></a>Condividere o aggiornare il servizio QnA Maker
 Condividere o aggiornare i servizi di QnA Maker per gestire meglio le risorse. 
@@ -26,13 +26,14 @@ Condividere o aggiornare i servizi di QnA Maker per gestire meglio le risorse.
 
 QnA Maker crea diverse risorse di Azure. Per ridurre la gestione e trarre vantaggio dalla condivisione dei costi, usare la tabella seguente per comprendere cosa è possibile e non è possibile condividere:
 
-|Service|Condividi|
-|--|--|
-|Servizi cognitivi|X|
-|Piano di servizio app|✔|
-|Servizio app|X|
-|Application Insights|✔|
-|Servizio di ricerca|✔|
+|Service|Condividi|`Reason`|
+|--|--|--|
+|Servizi cognitivi|X|Non possibile dalla progettazione|
+|Piano di servizio app|✔|Spazio su disco fisso allocato per un piano di servizio app. Se altre app, che condividono lo stesso piano di servizio app, usano spazio su disco significativo, il servizio app QnAMaker si risolverà in problemi.|
+|Servizio app|X|Non possibile dalla progettazione|
+|Application Insights|✔|Può essere condivisa|
+|Servizio di ricerca|✔|1. `testkb` è un nome riservato per il servizio QnAMaker, non può essere usato da altri.<br>2. Il mapping dei sinonimi `synonym-map` con il nome è riservato per il servizio QnAMaker.<br>3. Il numero di KB pubblicati è limitato dal livello di servizio di ricerca. Se sono disponibili indici gratuiti, possono essere usati da altri servizi.|
+
 
 ## <a name="upgrade-qna-maker-management-sku"></a>Aggiornare lo SKU di gestione di QnA Maker
 

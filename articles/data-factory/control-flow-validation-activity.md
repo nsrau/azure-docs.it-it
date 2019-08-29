@@ -1,26 +1,25 @@
 ---
 title: Attività di convalida in Azure Data Factory | Microsoft Docs
-description: L'attività di convalida non potrà continua l'esecuzione della pipeline fino a quando non viene convalidato il set di dati collegato a determinati criteri, che l'utente specifica.
+description: L'attività di convalida non continua l'esecuzione della pipeline fino a quando non convalida il set di dati collegato con determinati criteri specificati dall'utente.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: shlo
-ms.openlocfilehash: 46447bdbea93d1f99c5682cf878c2035e6f49b78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77fdab04e03429d135875cb2ef223e8c23d312a2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764323"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141614"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Attività di convalida in Azure Data Factory
-È possibile utilizzare una convalida in una pipeline per assicurarsi che la pipeline continui l'esecuzione solo dopo aver convalidato l'oggetto associato è presente il riferimento di set di dati, che sia conforme ai criteri specificati o viene raggiunto timeout.
+È possibile usare una convalida in una pipeline per garantire che la pipeline continui a essere eseguita solo dopo aver convalidato il riferimento al set di dati allegato, che soddisfa i criteri specificati oppure che sia stato raggiunto il timeout.
 
 
 ## <a name="syntax"></a>Sintassi
@@ -59,15 +58,15 @@ ms.locfileid: "60764323"
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività "Convalida" | String | Yes |
-type | Deve essere impostata su **convalida**. | String | Yes |
-dataset | Attività verranno di bloccare l'esecuzione fino a quando la convalida il riferimento di set di dati esista e che soddisfa i criteri specificati, o viene raggiunto timeout. Set di dati fornito deve supportare la proprietà "MinimumSize" o "ChildItems". | Riferimento di set di dati | Yes |
-timeout | Specifica il timeout per l'attività da eseguire. Se viene specificato alcun valore, valore predefinito è 7 giorni ("7.00:00:00"). Formato è d.hh:mm:ss | String | No |
-Modalità di sospensione | Un ritardo in secondi tra i tentativi di convalida. Se viene specificato alcun valore, valore predefinito è 10 secondi. | Integer | No |
-childItems | Controlla se la cartella contiene gli elementi figlio. Può essere impostata a true: Verificare che la cartella esista e che disponga di elementi. Blocca fino a quando non è presente nella cartella almeno un elemento o viene raggiunto il valore di timeout.-false: Verificare che la cartella esista e che è vuota. Si blocca fino a cartella è vuota o fino al timeout di valore viene raggiunto. Se viene specificato alcun valore, attività si bloccherà fino a quando la cartella esista o fino a quando non viene raggiunto il timeout. | Boolean | No |
-minimumSize | Dimensioni minime di un file in byte. Se viene specificato alcun valore, valore predefinito è pari a 0 byte | Integer | No |
+name | Nome dell'attività' Validation ' | String | Sì |
+type | Deve essere impostato su **Validation**. | String | Sì |
+dataset | L'attività bloccherà l'esecuzione fino a quando non viene convalidato il riferimento al set di dati esistente e soddisfa i criteri specificati oppure è stato raggiunto il timeout. Il set di dati fornito deve supportare la proprietà "MinimumSize" o "ChildItems". | Riferimento a DataSet | Yes |
+timeout | Specifica il timeout per l'attività da eseguire. Se non viene specificato alcun valore, il valore predefinito è 7 giorni ("7.00:00:00"). Il formato è d. hh: mm: SS | String | No |
+sospensione | Ritardo in secondi tra i tentativi di convalida. Se non viene specificato alcun valore, il valore predefinito è 10 secondi. | Integer | No |
+childItems | Controlla se la cartella contiene elementi figlio. Può essere impostato su-true: Verificare che la cartella esista e che includa elementi. Si blocca fino a quando almeno un elemento non è presente nella cartella o viene raggiunto il valore di timeout.-false: Verificare che la cartella esista e che sia vuota. Blocca fino a quando la cartella non è vuota o fino al raggiungimento del valore di timeout. Se non viene specificato alcun valore, l'attività si bloccherà fino a quando la cartella non esiste o fino al raggiungimento del timeout. | Boolean | No |
+minimumSize | Dimensioni minime di un file in byte. Se non viene specificato alcun valore, il valore predefinito è 0 byte | Integer | No |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

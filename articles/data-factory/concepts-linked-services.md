@@ -3,21 +3,20 @@ title: Servizi collegati in Azure Data Factory | Microsoft Docs
 description: Informazioni sui servizi collegati in Data Factory. I servizi collegati collegano archivi calcolo o dati a una data factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-ms.openlocfilehash: 904e063ae64a971de7f34fbfac63b7679f3bc363
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 80e9cee0d973dc8575e9645c537b6b69fbeef700
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019946"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137110"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servizi collegati in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -64,8 +63,8 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 
 Proprietà | Descrizione | Obbligatorio |
 -------- | ----------- | -------- |
-name | Nome del servizio collegato. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Yes |
-type | Tipo di servizio collegato. Ad esempio:  AzureStorage (archivio dati) o AzureBatch (calcolo). Vedere la descrizione di typeProperties. | Yes |
+name | Nome del servizio collegato. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Sì |
+type | Tipo di servizio collegato. Ad esempio:  AzureStorage (archivio dati) o AzureBatch (calcolo). Vedere la descrizione di typeProperties. | Sì |
 typeProperties | Le proprietà del tipo sono diverse per ogni archivio dati o calcolo. <br/><br/> Per i tipi di archivio dati supportati e le relative proprietà del tipo, vedere la tabella [Tipo di set di dati](concepts-datasets-linked-services.md#dataset-type) in questo articolo. Vedere l'articolo sul connettore dell'archivio dati per informazioni sulle proprietà del tipo specifiche di un archivio dati. <br/><br/> Per i tipi di calcolo supportati e le relative proprietà del tipo, vedere [Servizi collegati di calcolo](compute-linked-services.md). | Sì |
 connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No
 
@@ -92,14 +91,11 @@ Il seguente servizio collegato è un servizio collegato di Archiviazione di Azur
 ```
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
+
 È possibile creare servizi collegati usando uno di questi strumenti o SDK: [API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), Azure Resource Manager modello e portale di Azure
 
 ## <a name="data-store-linked-services"></a>Servizi collegati dell'archivio dati
-La connessione agli archivi dati si trova negli [archivi dati e nei formati supportati](copy-activity-overview.md#supported-data-stores-and-formats). Fare riferimento all'elenco per specifiche proprietà di connessione necessarie per archivi diversi.
-
-## <a name="data-store-supported-activities"></a>Attività supportate dall'archivio dati
-
-[!INCLUDE [Connector-activity support matrix](../../includes/connector-activity-support-matrix.md)]
+È possibile trovare l'elenco dei dati archiviati supportati da Data Factory dall'articolo [Panoramica del connettore](copy-activity-overview.md#supported-data-stores-and-formats) . Fare clic su un archivio dati per informazioni sulle proprietà di connessione supportate.
 
 ## <a name="compute-linked-services"></a>Servizi collegati di calcolo
 Gli [ambienti di calcolo](compute-linked-services.md) di riferimento sono supportati per informazioni dettagliate su diversi ambienti di calcolo a cui è possibile connettersi dal data factory e dalle diverse configurazioni.

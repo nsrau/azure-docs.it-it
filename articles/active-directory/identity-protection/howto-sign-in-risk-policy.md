@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0645e01c8ad9c620b77abd9af6cf7fe7c26ab4ea
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: d00376c6689b6be773f24e8acd09c3697fb6a799
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335401"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126301"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Procedura: Configurare i criteri di rischio di accesso
 
-Azure Active Directory rileva i [tipi di eventi di rischio](../reports-monitoring/concept-risk-events.md#risk-event-types) in tempo reale e offline. Ogni evento di rischio in tempo reale rilevato per un accesso di un utente rientra nel concetto logico degli accessi a rischio. Un accesso a rischio è indicativo di un tentativo di accesso che potrebbe non essere stato eseguito dal legittimo proprietario di un account utente.
+Azure Active Directory rileva i [tipi di rilevamento del rischio](../reports-monitoring/concept-risk-events.md#risk-detection-types) in tempo reale e offline. Ogni rilevamento dei rischi rilevato per un accesso di un utente contribuisce a un concetto logico denominato accesso rischioso. Un accesso a rischio è indicativo di un tentativo di accesso che potrebbe non essere stato eseguito dal legittimo proprietario di un account utente.
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>Cosa sono i criteri di rischio di accesso?
 
-Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. Si controlla, ad esempio, se l'accesso viene eseguito usando un indirizzo IP anonimo o se viene avviato da una posizione insolita. In Azure AD, le azioni sospette che il sistema è in grado di rilevare prendono il nome di "eventi di rischio". In base agli eventi di rischio rilevati durante un accesso, Azure AD calcola un valore, che rappresenta la probabilità (bassa, media, elevata) che l'accesso non sia stato eseguito dall'utente legittimo. Questa probabilità viene definita **livello di rischio di accesso**.
+Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. Si controlla, ad esempio, se l'accesso viene eseguito usando un indirizzo IP anonimo o se viene avviato da una posizione insolita. In Azure AD, le azioni sospette che il sistema è in grado di rilevare sono note anche come rilevamenti dei rischi. In base ai rilevamenti dei rischi rilevati durante un accesso, Azure AD calcola un valore. che rappresenta la probabilità (bassa, media, elevata) che l'accesso non sia stato eseguito dall'utente legittimo. Questa probabilità viene definita **livello di rischio di accesso**.
 
 I criteri di rischio di accesso sono costituiti da una risposta automatica che è possibile configurare per un determinato livello di rischio di accesso. Nella risposta è possibile bloccare l'accesso alle risorse o richiedere il passaggio a una richiesta di autenticazione a più fattori per ottenere l'accesso.
    
@@ -44,7 +44,7 @@ Quando si configurano i criteri di rischio di accesso, è necessario impostare:
 
 - Il livello di rischio di accesso che attiva i criteri:
 
-    ![Livello di rischio di accesso](./media/howto-sign-in-risk-policy/12.png)
+    ![Livello di rischio di un accesso](./media/howto-sign-in-risk-policy/12.png)
 
 - Il tipo di accesso che si intende applicare quando viene raggiunto il livello di rischio di accesso:  
 

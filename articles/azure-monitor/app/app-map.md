@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 73cf6fd1c20f2e4208d1f7c28a756f28a2fad839
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: ce44be5bae5aaa8f86d04068cce1c4bc919b0893
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302581"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126966"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: Valutazione delle applicazioni distribuite
 
@@ -50,7 +50,7 @@ Fare clic su qualsiasi componente per visualizzare le informazioni dettagliate c
 
 ![Riquadro a comparsa](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Esaminare gli errori
+### <a name="investigate-failures"></a>Esamina errori
 
 Selezionare **Esamina errori** per aprire il riquadro Errori.
 
@@ -58,7 +58,7 @@ Selezionare **Esamina errori** per aprire il riquadro Errori.
 
 ![Screenshot dell'esperienza Errori](media/app-map/failures.png)
 
-### <a name="investigate-performance"></a>Esaminare le prestazioni
+### <a name="investigate-performance"></a>Esamina prestazioni
 
 Per risolvere i problemi relativi alle prestazioni, selezionare **Esamina prestazioni**.
 
@@ -232,7 +232,7 @@ Uno scenario in cui potrebbe essere necessario eseguire l'override del valore pe
 
 Per altre informazioni su come eseguire l'override della proprietà del nome del ruolo cloud con gli inizializzatori [di telemetria, vedere Aggiungere proprietà: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verificano problemi nel far funzionare come previsto la mappa delle applicazioni, provare questa procedura:
 
@@ -272,4 +272,6 @@ Per inviare commenti e suggerimenti, usare l'apposita opzione del feedback.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Correlazione di comprensione](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* Per altre informazioni sul funzionamento della correlazione in Application Insights, vedere l'articolo https://docs.microsoft.com/azure/application-insights/application-insights-correlation) sulla correlazione dei dati di telemetria.
+* L' [esperienza di diagnostica delle transazioni end-to-end](transaction-diagnostics.md) mette in correlazione i dati di telemetria sul lato server da tutti i Application Insights componenti monitorati in una singola visualizzazione.
+* Per gli scenari di correlazione avanzati in ASP.NET Core e ASP.NET, vedere l'articolo [tenere traccia delle operazioni personalizzate](custom-operations-tracking.md) .

@@ -1,6 +1,6 @@
 ---
 title: Funzionalità di sicurezza di Azure per la gestione delle identità | Documentazione Microsoft
-description: " Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure per la gestione delle identità. Le soluzioni Microsoft per la gestione delle identità e degli accessi consentono di proteggere l'accesso alle applicazioni e alle risorse nel data center aziendale e nel cloud, abilitando livelli aggiuntivi di convalida, ad esempio l'autenticazione a più fattori e l'accesso condizionale criteri. "
+description: " Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure per la gestione delle identità. Le soluzioni Microsoft per la gestione delle identità e degli accessi consentono di proteggere l'accesso alle applicazioni e alle risorse nel data center aziendale e nel cloud, abilitando livelli di convalida aggiuntivi, ad esempio Multi-Factor Authentication e l'accesso condizionale criteri. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 1081fa8c9c7cc64418515aabbb755ecf056196ca
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 021767aa20dc35459c68fead674ff00510af2538
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826283"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129369"
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 
- La gestione delle identità è il processo di autenticazione e autorizzazione delle [entità di sicurezza](/windows/security/identity-protection/access-control/security-principals). Comporta anche il controllo delle informazioni su tali entità (identità). Le entità di sicurezza (identità) possono includere servizi, applicazioni, utenti, gruppi e così via. Le soluzioni Microsoft di gestione degli accessi e delle identità consentono all'IT di proteggere l'accesso ad applicazioni e risorse nel data center aziendale e nel cloud, Tale protezione consente livelli di convalida aggiuntivi, ad esempio l'autenticazione a più fattori e i criteri di accesso condizionale. Il monitoraggio delle attività sospette tramite funzioni avanzate di report di sicurezza, controllo e avvisi consente di attenuare i potenziali problemi di sicurezza. [Azure Active Directory Premium](/azure/active-directory/active-directory-editions) offre un punto di accesso singolo (SSO) a migliaia di app software come un servizio (SaaS) cloud e alle app Web eseguite in locale.
+ La gestione delle identità è il processo di autenticazione e autorizzazione delle [entità di sicurezza](/windows/security/identity-protection/access-control/security-principals). Comporta anche il controllo delle informazioni su tali entità (identità). Le entità di sicurezza (identità) possono includere servizi, applicazioni, utenti, gruppi e così via. Le soluzioni Microsoft di gestione degli accessi e delle identità consentono all'IT di proteggere l'accesso ad applicazioni e risorse nel data center aziendale e nel cloud, Tale protezione consente livelli di convalida aggiuntivi, ad esempio Multi-Factor Authentication e criteri di accesso condizionale. Il monitoraggio delle attività sospette tramite funzioni avanzate di report di sicurezza, controllo e avvisi consente di attenuare i potenziali problemi di sicurezza. [Azure Active Directory Premium](/azure/active-directory/active-directory-editions) offre un punto di accesso singolo (SSO) a migliaia di app software come un servizio (SaaS) cloud e alle app Web eseguite in locale.
  
 Sfruttando i vantaggi della sicurezza di Azure Active Directory (AD) è possibile:
 
@@ -160,7 +160,7 @@ Altre informazioni:
 
 ## <a name="identity-protection"></a>Identity Protection
 
-Azure AD Identity Protection è un servizio di sicurezza che offre una visualizzazione consolidata degli eventi di rischio e delle potenziali vulnerabilità che interessano le identità dell'organizzazione. Identity Protection trae vantaggio dalle funzionalità di rilevamento anomalie di Azure AD, disponibili tramite i report di Anomalie dell'attività di Azure AD. Introduce anche nuovi tipi di eventi di rischio che permettono di rilevare le anomalie in tempo reale.
+Azure AD Identity Protection è un servizio di sicurezza che offre una visualizzazione consolidata dei rilevamenti dei rischi e delle potenziali vulnerabilità che interessano le identità dell'organizzazione. Identity Protection trae vantaggio dalle funzionalità di rilevamento anomalie di Azure AD, disponibili tramite i report di Anomalie dell'attività di Azure AD. Identity Protection introduce anche nuovi tipi di rilevamento del rischio in grado di rilevare le anomalie in tempo reale.
 
 Altre informazioni:
 

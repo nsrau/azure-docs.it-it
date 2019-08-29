@@ -3,24 +3,23 @@ title: Esecuzione e trigger di pipeline in Azure Data Factory | Microsoft Docs
 description: Questo articolo contiene informazioni sulla modalità di esecuzione di una pipeline in Azure Data Factory su richiesta o mediante la creazione di un trigger.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: shlo
-ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155224"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137042"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory usato:"]
 > * [Versione 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versione corrente](concepts-pipeline-execution-triggers.md)
 
@@ -277,12 +276,12 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 ### <a name="schema-defaults-limits-and-examples"></a>Impostazioni predefinite dello schema, limiti ed esempi
 
-| Proprietà JSON | Type | Obbligatorio | Valore predefinito | Valori validi | Esempio |
+| Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Yes | Nessuna | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | object | Yes | Nessuna | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | Sì | Nessuna | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | object | Sì | Nessuna | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | No | 1 | Da 1 a 1000 | `"interval":10` |
-| **endTime** | string | Yes | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | string | Sì | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | object | No | Nessuna | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
@@ -310,7 +309,7 @@ Se vengono specificati più elementi **schedule**, la valutazione viene eseguita
 
 La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 
-| Elemento JSON | Descrizione | Valori validi |
+| Elemento JSON | DESCRIZIONE | Valori validi |
 |:--- |:--- |:--- |
 | **minutes** | Minuti dell'ora in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi|
 | **hours** | Ore del giorno in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi|
@@ -334,7 +333,7 @@ Questa sezione fornisce esempi di pianificazioni di ricorrenza. È incentrata su
 
 Gli esempi presumono che il valore **interval** sia 1 e che il valore **frequency** sia corretto in base alla definizione della pianificazione. Non è ad esempio possibile avere un valore **frequency** uguale a "day" e anche una modifica **monthDays** nell'oggetto **schedule**. Questi tipi di restrizioni vengono descritti nella tabella disponibile nella sezione precedente.
 
-| Esempio | Descrizione |
+| Esempio | DESCRIZIONE |
 |:--- |:--- |
 | `{"hours":[5]}` | Viene eseguito alle 5:00 ogni giorno. |
 | `{"minutes":[15], "hours":[5]}` | Viene eseguito alle 05:15 ogni giorno. |

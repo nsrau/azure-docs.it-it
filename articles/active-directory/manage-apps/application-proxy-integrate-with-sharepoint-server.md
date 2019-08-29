@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f213acea71f22815d8b26b6c4c6cb54f64b8b34
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 1265341ecfdb7f418ea89bb0ec848a20c6b430cd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807795"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127679"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD
 
@@ -36,6 +36,9 @@ Questo articolo presuppone che SharePoint 2013 o versione successiva sia già in
 * SharePoint include il supporto nativo di Kerberos. Di conseguenza, gli utenti che accedono in remoto ai siti interni tramite il proxy di applicazione di Azure AD possono presumere di essere in possesso dell'esperienza Single Sign-On.
 * Questo scenario include le modifiche di configurazione per il server SharePoint. Si consiglia di usare un ambiente di gestione temporanea. In questo modo, è possibile apportare aggiornamenti al server di gestione temporanea e quindi facilitare un ciclo di test prima del passaggio in produzione.
 * Nell'URL pubblicato è necessario SSL. SSL è necessario anche nell'URL interno per garantire l'invio e il mapping corretti dei collegamenti.
+
+> [!NOTE]
+> Come procedura consigliata, usare i domini personalizzati quando possibile. Con un dominio personalizzato, è possibile configurare lo stesso URL per l'URL interno e per l'URL esterno. Quindi, è possibile usare lo stesso collegamento per accedere all'applicazione dall'interno o dall'esterno della rete. Questa configurazione consente di ottimizzare l'esperienza degli utenti e di altre applicazioni che devono accedere all'applicazione. Altre informazioni sull' [uso di domini personalizzati nel proxy di applicazione Azure ad](application-proxy-configure-custom-domain.md).
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Passaggio 1: Configurare la delega vincolata Kerberos
 
@@ -75,7 +78,7 @@ HTTP/SharePoint
 ```
 
 > [!NOTE]
-> Seguire questi consigli per l'URL interno:
+> Seguire queste indicazioni per l'URL interno:
 > * Usare HTTPS
 > * Non usare porte personalizzate
 > * Nel DNS creare un host (A) che punti al front-end Web di SharePoint (o a un servizio di bilanciamento del carico) e non un alias (CName)
@@ -127,7 +130,7 @@ Dopo aver configurato la delega vincolata Kerberos, è possibile configurare Azu
    1. Nella pagina dell'applicazione nel portale selezionare **Single Sign-On**.
    1. Per la modalità Single Sign-On, selezionare **Autenticazione integrata di Windows**.
    1. Impostare l'SPN dell'applicazione interna sul valore configurato in precedenza. Per questo esempio, il valore è **HTTP/SharePoint**.
-   1. In "Identità di accesso delegata", selezionare l'opzione più adatta per la configurazione di foresta di Active Directory. Ad esempio se si dispone di un singolo dominio di Active Directory nella foresta, seleziona **nome dell'account SAM di On-premises** (come indicato di seguito), ma se gli utenti non sono nello stesso dominio di SharePoint e quindi selezionare i server App Proxy Connector  **Nome dell'entità utente locale** (non illustrato).
+   1. In "identità di accesso delegata" selezionare l'opzione più adatta per la configurazione della foresta Active Directory. Se, ad esempio, si dispone di un singolo dominio AD nella foresta, selezionare il **nome dell'account SAM locale** (come illustrato di seguito), ma se gli utenti non si trovano nello stesso dominio di SharePoint e nei server del connettore proxy applicazione, selezionare il **nome dell'entità utente locale** (non visualizzato).
 
    ![Configurare l'autenticazione integrata di Windows per SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
@@ -151,7 +154,7 @@ Il passaggio successivo consiste nell'estendere l'applicazione Web SharePoint a 
 1. In **Impostazioni di sistema** selezionare **Configura mapping di accesso alternativo**. Verrà visualizzata la casella Mapping di accesso alternativo.
 1. Selezionare il sito, ad esempio **SharePoint - 80**. Per il momento, l'URL interno non è ancora impostato correttamente per la zona Extranet:
 
-   ![Viene visualizzata la finestra di mapping di accesso alternativo](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
+   ![Mostra la casella mapping di accesso alternativo](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
 
 1. Fare clic su **Aggiungi URL interni**.
 1. Nella casella di testo **URL protocol, host and port** (Protocollo, host e porta URL) immettere in **URL interno** il valore configurato nel proxy di Azure AD, ad esempio <https://SharePoint/>.

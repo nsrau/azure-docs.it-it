@@ -1,5 +1,5 @@
 ---
-title: "Autenticazione dell'utente finale: Python con Azure Data Lake archiviazione Gen1 tramite Azure Active Directory | Microsoft Docs"
+title: "Autenticazione dell'utente finale: Python con Azure Data Lake Storage Gen1 con Azure Active Directory | Microsoft Docs"
 description: Informazioni su come ottenere l'autenticazione dell'utente finale con Azure Data Lake Storage Gen1 con Azure Active Directory tramite Python
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8b72604d7e736230911d0a0987b88d372be4ddf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71ca7bec7f69007fd0290211fac308eb5f3983a7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878051"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139060"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite Python
 > [!div class="op_single_selector"]
@@ -113,7 +113,7 @@ Usare questo tipo di autenticazione con Azure AD per le operazioni del file syst
 
 ## <a name="end-user-authentication-without-multi-factor-authentication"></a>Autenticazione dell'utente finale senza autenticazione a più fattori
 
-Deprecato. Per altre informazioni, vedere [Autenticazione con Python SDK](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python#mgmt-auth-token).
+Deprecato. Per altre informazioni, vedere [Autenticazione con Python SDK](/azure/python/python-sdk-azure-authenticate).
    
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo si è appreso come usare l'autenticazione dell'utente finale per eseguire l'autenticazione con Azure Data Lake Storage Gen1 usando Python. È ora possibile leggere gli articoli seguenti per informazioni su come usare Python in Azure Data Lake Storage Gen1.

@@ -11,24 +11,24 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64d1b3e2f36256164420ae6b2e699f0ef48e2e78
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 3cf3281e00560a289fbb4adfe57083644e1a86e3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576550"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125437"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>Accesso condizionale: Accesso condizionale basato sul rischio
 
-Le organizzazioni con Azure AD Premium licenze P2 possono creare criteri di accesso condizionale che incorporano Azure AD Identity Protection eventi di rischio. Sono disponibili tre criteri predefiniti che è possibile abilitare. 
+Le organizzazioni con Azure AD Premium licenze P2 possono creare criteri di accesso condizionale che incorporano Azure AD Identity Protection rilevamento dei rischi. Sono disponibili tre criteri predefiniti che è possibile abilitare. 
 
-* Richiedere a tutti gli utenti di registrarsi per l'autenticazione a più fattori di Azure.
+* Richiedere a tutti gli utenti di registrarsi per Multi-Factor Authentication di Azure.
 * Richiedere una modifica della password per gli utenti ad alto rischio.
 * Richiedere l'autenticazione a più fattori per gli utenti con rischi di accesso medio o elevato.
 
-## <a name="require-all-users-to-register-for-azure-multi-factor-authentication"></a>Richiedere a tutti gli utenti di registrarsi per l'autenticazione a più fattori di Azure
+## <a name="require-all-users-to-register-for-azure-multi-factor-authentication"></a>Richiedi la registrazione di tutti gli utenti per Multi-Factor Authentication di Azure
 
-L'abilitazione di questo criterio richiede a tutti gli utenti di registrarsi per l'autenticazione a più fattori di Azure entro 14 giorni. 
+L'abilitazione di questo criterio richiede che tutti gli utenti si registrino per Multi-Factor Authentication di Azure entro 14 giorni. 
 
 1. Accedere al **portale di Azure**.
 1. Fare clic su **Tutti i servizi** e quindi passare ad **Azure AD Identity Protection**.

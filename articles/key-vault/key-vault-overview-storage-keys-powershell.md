@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: df377b19d78a63b3cfc57347fff00345a9c63ead
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 21b046a54c2fbe309113222f54dbad4405fc409d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562527"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136575"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Account di archiviazione gestita di Azure Key Vault - PowerShell
 
@@ -21,6 +21,7 @@ ms.locfileid: "69562527"
 > - Autenticare l'applicazione client con un'identità di applicazione o utente, anziché con le credenziali dell'account di archiviazione. 
 > - Usare un'[identità gestita di Azure AD](/azure/active-directory/managed-identities-azure-resources/) per l'esecuzione in Azure. Le identità gestite eliminano la necessità di eseguire l'autenticazione di tutti i client e di archiviare le credenziali nell'applicazione.
 > - Usare il controllo degli accessi in base al ruolo per la gestione delle autorizzazioni, che è supportato anche da Key Vault.
+> - L'accesso ad AAD all'account di archiviazione non funziona ancora per l'accesso alle tabelle.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -142,7 +143,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Abilitare la rigenerazione delle chiavi
 
-Se si vuole che Key Vault rigeneri periodicamente le chiavi dell'account di archiviazione, è possibile impostare un periodo di rigenerazione. Nell'esempio seguente viene impostato un periodo di rigenerazione di tre giorni. Dopo tre giorni, Key Vault rigenera 'key1' e cambia l'impostazione della chiave attiva da 'key2' a 'key1'.
+Se si vuole che Key Vault rigeneri periodicamente le chiavi dell'account di archiviazione, è possibile impostare un periodo di rigenerazione. Nell'esempio seguente viene impostato un periodo di rigenerazione di tre giorni. Dopo tre giorni, Key Vault rigenererà' Key2' e scambierà la chiave attiva da' Key2' a' Key1'.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

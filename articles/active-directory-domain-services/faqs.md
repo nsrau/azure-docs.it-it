@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612892"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124668"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Domande frequenti (FAQ)
 Questa pagina include le risposte a domande frequenti relative a Servizi di dominio Azure AD. Controllarla costantemente per eventuali aggiornamenti.
@@ -61,6 +61,9 @@ No. Il dominio fornito da Servizi di dominio Azure Active Directory è un domini
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Gli utenti guest invitati a una directory possono usare Azure AD Domain Services?
 No. Gli utenti guest invitati a una directory di Azure AD tramite la procedura di invito [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) vengono sincronizzati nel dominio gestito di Azure AD Domain Services. Tuttavia, le password di questi utenti non vengono archiviate nella directory di Azure AD. Azure AD Domain Service non ha pertanto alcuna possibilità di sincronizzare gli hash NTLM e Kerberos per questi utenti nel dominio gestito. Di conseguenza, tali utenti non possono eseguire l'accesso né aggiungere computer al dominio gestito.
+
+### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>È possibile spostare un dominio gestito Azure AD Domain Services esistente in una sottoscrizione, un gruppo di risorse, un'area o una rete virtuale diversi?
+No. Dopo aver creato un Azure AD Domain Services dominio gestito, non è possibile spostare l'istanza di in un gruppo di risorse, una rete virtuale, una sottoscrizione e così via. Quando si distribuisce l'istanza di Azure AD DS, prestare attenzione a selezionare la sottoscrizione, il gruppo di risorse, l'area e la rete virtuale più appropriati.
 
 ## <a name="administration-and-operations"></a>Amministrazione e gestione
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>È possibile connettersi al controller di dominio per il dominio gestito tramite Desktop remoto?

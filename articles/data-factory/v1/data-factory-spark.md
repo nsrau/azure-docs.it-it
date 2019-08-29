@@ -3,23 +3,20 @@ title: Chiamare i programmi Spark da Azure Data Factory | Microsoft Docs
 description: Informazioni su come chiamare programmi Spark da una data factory di Azure usando l'attività MapReduce.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: ''
-editor: ''
-ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 5f39331cb6fb5da370ec34b38592f513d713e957
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 08aa1303aeaa0a80f0825f45e037109b98e9771e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640285"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135346"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
 
@@ -331,7 +328,7 @@ La tabella seguente descrive le proprietà JSON usate nella definizione JSON.
 | -------- | ----------- | -------- |
 | name | Nome dell'attività nella pipeline. | Sì |
 | description | Testo che descrive la funzione dell'attività. | No |
-| type | Questa proprietà deve essere impostata su HDInsightSpark. | Yes |
+| type | Questa proprietà deve essere impostata su HDInsightSpark. | Sì |
 | linkedServiceName | Riferimento a un servizio collegato HDInsight in cui viene eseguito il programma Spark. | Yes |
 | rootPath | Contenitore BLOB e cartella che contiene il file Spark. Il nome del file fa distinzione tra maiuscole e minuscole. | Sì |
 | entryFilePath | Percorso relativo alla cartella radice del pacchetto/codice Spark. | Sì |
@@ -349,7 +346,7 @@ Creare la struttura di cartelle seguente nell'archivio BLOB a cui fa riferimento
 
 | `Path` | Descrizione | Obbligatorio | Type |
 | ---- | ----------- | -------- | ---- |
-| . | Percorso radice del processo Spark nel servizio collegato di archiviazione. | Yes | Cartella |
+| . | Percorso radice del processo Spark nel servizio collegato di archiviazione. | Sì | Cartella |
 | &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark. | Sì | File |
 | ./jars | Tutti i file in questa cartella vengono caricati e inseriti in classpath Java del cluster. | No | Cartella |
 | ./pyFiles | Tutti i file in questa cartella vengono caricati e inseriti in PYTHONPATH del cluster. | No | Cartella |

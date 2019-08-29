@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c35863ed1d564adf4190efa1888d24f4f4f68ddf
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637278"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147849"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Scegliere tra i livelli di servizio vCore ed eseguire la migrazione dai livelli di servizio DTU
 
@@ -43,7 +43,7 @@ La tabella seguente illustra le differenze tra i tre livelli:
 ||**Utilizzo generico**|**Business critical**|**Con iperscalabilità**|
 |---|---|---|---|
 |Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione orientate al budget, bilanciate e scalabili.|Applicazioni aziendali con requisiti di I/O elevati. Offre la massima resilienza agli errori usando diverse repliche isolate.|La maggior parte dei carichi di lavoro aziendali con requisiti di archiviazione e scalabilità a scalabilità elevata.|
-|Calcolo|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore<br/>**Calcolo senza server**:<br/>Quinta generazione: 0,5-4 vcore|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore|
+|Calcolo|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore<br/>**Calcolo senza server**:<br/>Quinta generazione: 0,5-16 vcore|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore|
 |Memoria|**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore<br/>**Calcolo senza server**:<br/>Quinta generazione: 3 GB per vCore|**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore |**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore|
 |Archiviazione|Usa l'archiviazione remota.<br/>Calcolo con provisioning a **database singolo**:<br/>5 GB - 4 TB<br/>**Calcolo senza server a database singolo**:<br/>5 GB-1 TB<br/>**Istanza gestita**: 32 GB - 8 TB |Usa l'archiviazione SSD locale.<br/>Calcolo con provisioning a **database singolo**:<br/>5 GB - 4 TB<br/>**Istanza gestita**:<br/>32 GB - 4 TB |Aumento automatico delle dimensioni dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di spazio di archiviazione. Usa l'archiviazione SSD locale per la cache locale del pool di buffer e l'archiviazione dei dati locali. Usa l'archiviazione remota di Azure come archivio dati finale a lungo termine. |
 |Velocità effettiva I/O (approssimativa)|**Database singolo**: 500 IOPS per vCore con 7000 numero massimo di IOPS.<br/>**Istanza gestita**: Dipende dalle [dimensioni del file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPs effettivi dipendono dal carico di lavoro.|

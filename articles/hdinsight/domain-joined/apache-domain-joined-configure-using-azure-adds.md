@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 300fd31632a6b3c9043c19dd9b47f40258080261
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1165cbeff1144567e43f408c0866c0b8a571882d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614215"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125598"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurare un cluster HDInsight con Enterprise Security Package usando Azure Active Directory Domain Services
 
@@ -22,12 +22,12 @@ I cluster Enterprise Security Package (ESP) offrono un accesso multiutente sui c
 Questo articolo illustra come configurare un cluster HDInsight con ESP usando Azure Active Directory Domain Services (Azure AD DS).
 
 > [!NOTE]  
-> ESP è disponibile a livello generale in HDInsight 3,6 e 4,0 per i tipi di cluster: Apache Spark, Interactive, Apache Hadoop e HBase. ESP per il tipo di cluster Apache Kafka è in anteprima.
+> ESP è disponibile a livello generale in HDInsight 3,6 e 4,0 per i tipi di cluster: Apache Spark, Interactive, Hadoop e HBase. ESP per il tipo di cluster Apache Kafka è in anteprima solo con il supporto per il massimo sforzo. I cluster ESP creati prima della data GA di ESP (1 ottobre 2018) non sono supportati.
 
 ## <a name="enable-azure-ad-ds"></a>Abilitare Azure AD DS
 
 > [!NOTE]  
-> Solo gli amministratori dei tenant hanno i privilegi necessari per abilitare Azure AD DS. Se l'archiviazione cluster è Azure Data Lake Storage (ADLS) Gen1 o Gen2, è necessario disabilitare l'autenticazione a più fattori solo per gli utenti che dovranno accedere al cluster usando le autenticazioni Kerberos di base. È possibile usare gli [indirizzi](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) IP attendibili o [l'accesso condizionale](../../active-directory/conditional-access/overview.md) per disabilitare l'autenticazione a più fattori per utenti specifici solo quando accedono all'intervallo IP VNET del cluster HDInsight. Se si usa l'accesso condizionale, assicurarsi che l'endpoint del servizio Active Directory in sia abilitato in HDInsight VNET.
+> Solo gli amministratori dei tenant hanno i privilegi necessari per abilitare Azure AD DS. Se l'archiviazione cluster è Azure Data Lake Storage (ADLS) Gen1 o Gen2, è necessario disabilitare Multi-Factor Authentication (multi-factor authentication) solo per gli utenti che dovranno accedere al cluster usando le autenticazioni Kerberos di base. È possibile usare gli [indirizzi](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) IP attendibili o [l'accesso condizionale](../../active-directory/conditional-access/overview.md) per disabilitare l'autenticazione a più fattori per utenti specifici solo quando accedono all'intervallo IP VNET del cluster HDInsight. Se si usa l'accesso condizionale, assicurarsi che l'endpoint del servizio Active Directory in sia abilitato in HDInsight VNET.
 >
 > Se l'archiviazione del cluster viene eseguita in Archiviazione BLOB di Azure (WASB), non disabilitare MFA.
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 889158aeb40cfcbc69291845acfee833af0930b6
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 20a90a70c66310f6838b41a40aa945308bf338d4
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114288"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147913"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuire un modello di machine learning nel servizio app Azure (anteprima)
 
@@ -265,8 +265,8 @@ print(response.json())
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni sulla configurazione dell'app Web, vedere la documentazione relativa al [servizio app in Linux](/azure/app-service/containers/) .
-* Per altre informazioni sul ridimensionamento, vedere Introduzione a scalabilità automatica [in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* Per altre informazioni sul supporto SSL, vedere [usare un certificato SSL nel servizio app Azure](/azure/app-service/app-service-web-ssl-cert-load).
-* Per altre informazioni sull'autenticazione, vedere [configurare l'app del servizio app per usare Azure Active Directory l'accesso](/azure/app-service/configure-authentication-provider-aad).
+* Informazioni su come configurare l'app Web nel [servizio app](/azure/app-service/containers/) nella documentazione di Linux.
+* Per altre informazioni sul ridimensionamento, [vedere Introduzione alla scalabilità automatica in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
+* [Usare un certificato SSL nel servizio app Azure](/azure/app-service/app-service-web-ssl-cert-load).
+* [Configurare l'app del servizio app per usare Azure Active Directory l'accesso](/azure/app-service/configure-authentication-provider-aad).
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)

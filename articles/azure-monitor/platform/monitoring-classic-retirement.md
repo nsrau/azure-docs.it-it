@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: c53bc9527eeb6c7ca8194ef056177a79dd880957
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2ba93ad347783d467d467b72cfa49ffccf309fa0
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874781"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147346"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Funzionalità unificata di avviso e monitoraggio in Monitoraggio di Azure in sostituzione delle funzionalità classiche di avviso e monitoraggio
 
@@ -72,6 +72,10 @@ Alla fine del 2019 agosto, in monitoraggio di Azure:
 > [!IMPORTANT]
 > Microsoft Azure monitor è stato implementato nello [strumento fasi per eseguire a](alerts-using-migration-tool.md) breve la migrazione volontaria delle regole di avviso classiche alla nuova piattaforma. Ed eseguirlo per forza per tutte le regole di avviso classiche ancora esistenti e di cui è possibile eseguire la migrazione, a partire dal 2019 settembre. I clienti dovranno assicurarsi che il payload delle regole di avviso classiche, dispendioso in termini di automazione, sia adattato in modo da gestire il nuovo payload da [Metriche e avvisi unificati in Application Insights](#unified-metrics-and-alerts-in-application-insights) o [Metriche e avvisi unificati per altre risorse di Azure](#unified-metrics-and-alerts-for-other-azure-resources) dopo la migrazione delle regole di avviso classiche. Per ulteriori informazioni, vedere la pagina relativa alla [preparazione alla migrazione della regola di avviso classica](alerts-prepare-migration.md)
 
+Questo articolo verrà continuamente aggiornato con collegamenti e informazioni sulle nuove funzionalità di monitoraggio e avviso di Azure e sulla disponibilità di strumenti di supporto per l'adozione della nuova piattaforma Monitoraggio di Azure.
+
+## <a name="pricing-for-migrated-alert-rules"></a>Prezzi per le regole di avviso migrate
+
 Viene implementato uno strumento di migrazione che consente di eseguire la migrazione degli [avvisi classici](../../azure-monitor/platform/alerts-classic.overview.md) di monitoraggio di Azure alla nuova esperienza degli avvisi. Le regole di avviso migrate e i corrispondenti gruppi di azioni migrati (email, webhook o LogicApp) rimarranno gratuiti. La funzionalità con gli avvisi classici, inclusa la possibilità di modificare la soglia, il tipo di aggregazione e la granularità di aggregazione continuerà a essere disponibile gratuitamente con la regola di avviso migrata. Tuttavia, se si modifica la regola di avviso migrata in modo da usare una delle nuove funzionalità della piattaforma avvisi, le notifiche o i tipi di azione, viene applicato un addebito corrispondente. Per altre informazioni sui prezzi per le regole di avviso e le notifiche, vedere [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 
 Di seguito sono riportati alcuni esempi di casi in cui verrà addebitato un addebito per la regola di avviso:
@@ -82,9 +86,6 @@ Di seguito sono riportati alcuni esempi di casi in cui verrà addebitato un adde
 - Tutte le metriche personalizzate archiviate oltre le unità gratuite incluse in Monitoraggio di Azure
 - Eventuali regole di avviso migrate modificate per l'uso di funzionalità di avviso di metrica più recenti, ad esempio frequenza, più risorse/dimensioni, [soglie dinamiche](alerts-dynamic-thresholds.md), modifica di risorse/segnali e così via.
 - Tutti i gruppi di azioni migrati che vengono modificati per usare notifiche più recenti o tipi di azione quali SMS, chiamata vocale e integrazione con ITSM.
-
-Questo articolo verrà continuamente aggiornato con collegamenti e informazioni sulle nuove funzionalità di monitoraggio e avviso di Azure e sulla disponibilità di strumenti di supporto per l'adozione della nuova piattaforma Monitoraggio di Azure.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

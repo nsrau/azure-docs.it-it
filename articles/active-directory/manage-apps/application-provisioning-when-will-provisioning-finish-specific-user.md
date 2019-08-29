@@ -16,12 +16,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf6190ae35a573ab4b9a37f5cd1f2bd75f06ca46
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3c6ad7e305958131c4f544dfa2022e7471e9adac
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667148"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147101"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificare lo stato del provisioning utenti
 
@@ -62,7 +62,7 @@ I log di controllo di provisioning registrano tutte le operazioni eseguite dal s
 Per ulteriori informazioni su come leggere i log di controllo nell'portale di Azure, vedere la [Guida alla creazione di report](check-status-user-account-provisioning.md)sul provisioning.
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Quanto tempo sarà necessario per eseguire il provisioning degli utenti?
-Quando si usa il provisioning utenti automatico con un'applicazione, Azure AD esegue automaticamente il provisioning e aggiorna gli account utente in un'app in base a elementi come l' [assegnazione di utenti e gruppi](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) a un intervallo di tempo pianificato regolarmente, in genere ogni 10 minuti.
+Quando si usa il provisioning utenti automatico con un'applicazione, Azure AD esegue automaticamente il provisioning e aggiorna gli account utente in un'app in base a elementi come l' [assegnazione di utenti e gruppi](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) a un intervallo di tempo pianificato regolarmente, in genere ogni 40 minuti.
 
 Il tempo necessario per eseguire il provisioning di un determinato utente dipende principalmente dal fatto che il processo di provisioning esegua una sincronizzazione iniziale o una sincronizzazione incrementale.
 

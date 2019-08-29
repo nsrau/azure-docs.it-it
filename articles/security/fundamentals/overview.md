@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2cc8f4f81ad95376dcbc10c2952c1b2ed95ffe42
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 30ec36067b4a047478abc294361b015d12d21319
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907902"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129342"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica
@@ -365,7 +365,7 @@ Per gestire le identità e l'accesso, Microsoft usa più procedure e tecnologie 
 
 - [Cloud App Discovery](../../active-directory/cloudappdiscovery-get-started.md) è una funzionalità Premium di Azure Active Directory che consente di identificare le applicazioni cloud usate dai dipendenti dell'organizzazione.
 
-- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) è un servizio di sicurezza che usa le funzionalità di rilevamento anomalie di Azure Active Directory per offrire una visualizzazione consolidata degli eventi di rischio e delle potenziali vulnerabilità che potrebbero influire sulle identità dell'organizzazione.
+- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) è un servizio di sicurezza che usa Azure Active Directory funzionalità di rilevamento delle anomalie per offrire una visualizzazione consolidata dei rilevamenti dei rischi e potenziali vulnerabilità che potrebbero influire sull'azienda identità.
 
 - [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) consente di aggiungere VM di Azure a un dominio senza che sia necessario distribuire controller di dominio. Gli utenti accedono a queste VM usando le credenziali aziendali di Active Directory e possono accedere alle risorse con facilità.
 

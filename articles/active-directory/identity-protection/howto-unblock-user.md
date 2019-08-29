@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28e30b8e44b6888cdb7416b9c7b563b955a68ce
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4e3756435703c4e8c887a4e7b9d4f75a6701d840
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335369"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126259"
 ---
 # <a name="how-to-unblock-users"></a>Procedura: Sbloccare gli utenti
 
@@ -52,7 +52,7 @@ Per sbloccare un accesso sospetto, sono disponibili le opzioni seguenti:
 Per sbloccare un account a rischio, sono disponibili le opzioni seguenti:
 
 1. **Reimpostazione della password** : è possibile reimpostare la password dell'utente. 
-2. **Eliminazione di tutti gli eventi di rischio** : il criterio di rischio utente blocca un utente se è stato raggiunto il livello di rischio utente configurato per il blocco dell'accesso. È possibile ridurre il livello di rischio di un utente chiudendo manualmente gli eventi di rischio segnalati. 
+2. **Ignora tutti i** rilevamenti dei rischi: il criterio di rischio utente blocca un utente se è stato raggiunto il livello di rischio utente configurato per il blocco dell'accesso. È possibile ridurre il livello di rischio di un utente chiudendo manualmente i rilevamenti dei rischi segnalati. 
 3. **Esclusione dal criterio** : se si ritiene che la configurazione corrente del criterio di accesso provochi problemi agli utenti, è possibile escludere gli utenti dal criterio. Per altre informazioni, vedere [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 4. **Disabilitazione del criterio** : se si ritiene che la configurazione del criterio provochi problemi per tutti gli utenti, è possibile disabilitare il criterio. Per altre informazioni, vedere [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0f1a2e0bad39b54edc153416e4120bbc6912578c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532937"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125458"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Criteri di base: Protezione dell'utente finale (anteprima)
 
@@ -24,7 +24,7 @@ Si tende a pensare che gli account amministratore siano gli unici account che ne
 
 Per ottenere un ragionevole equilibrio di sicurezza e usabilità, gli utenti non devono essere richiesti ogni volta che accedono. Le richieste di autenticazione che riflettono il normale comportamento dell'utente, ad esempio l'accesso dallo stesso dispositivo dalla stessa posizione, hanno una bassa probabilità di compromissione. Solo gli accessi che sono considerati rischiosi e mostrano le caratteristiche di un attore non valido dovrebbero essere richiesti con le difficoltà di autenticazione a più fattori.
 
-La protezione degli utenti finali è un criterio di [base](concept-baseline-protection.md) dell'autenticazione a più fattori basato sul rischio che protegge tutti gli utenti in una directory, inclusi tutti i ruoli di amministratore. Per abilitare questo criterio è necessario che tutti gli utenti eseguano la registrazione per l'autenticazione a più fattori usando l'app Authenticator Gli utenti possono ignorare la richiesta di registrazione dell'autenticazione a più fattori per 14 giorni, dopo i quali verrà impedito l'accesso fino alla registrazione per l'autenticazione a più fattori. Una volta registrati per l'autenticazione a più fattori, agli utenti verrà richiesto di eseguire l'autenticazione a più fattori solo durante i tentativi di accesso rischioso. Gli account utente compromessi vengono bloccati finché la password non viene reimpostata e gli eventi di rischio sono stati rilasciati.
+La protezione degli utenti finali è un criterio di [base](concept-baseline-protection.md) dell'autenticazione a più fattori basato sul rischio che protegge tutti gli utenti in una directory, inclusi tutti i ruoli di amministratore. Per abilitare questo criterio è necessario che tutti gli utenti eseguano la registrazione per l'autenticazione a più fattori usando l'app Authenticator Gli utenti possono ignorare la richiesta di registrazione dell'autenticazione a più fattori per 14 giorni, dopo i quali verrà impedito l'accesso fino alla registrazione per l'autenticazione a più fattori. Una volta registrati per l'autenticazione a più fattori, agli utenti verrà richiesto di eseguire l'autenticazione a più fattori solo durante i tentativi di accesso rischioso. Gli account utente compromessi vengono bloccati finché la password non viene reimpostata e i rilevamenti dei rischi sono stati rilasciati.
 
 > [!NOTE]
 > Questi criteri si applicano a tutti gli utenti, inclusi gli account Guest, e verranno valutati durante l'accesso a tutte le applicazioni.
@@ -33,7 +33,7 @@ La protezione degli utenti finali è un criterio di [base](concept-baseline-prot
 
 Per garantire la protezione dei clienti, il servizio di credenziali perse trova le coppie nome utente/password disponibili pubblicamente. Se corrispondono a uno degli utenti, Microsoft contribuisce a proteggere immediatamente l'account. Gli utenti identificati con una credenziale persa vengono confermati compromessi. A questi utenti verrà impedito l'accesso fino alla reimpostazione della password.
 
-Gli utenti assegnati a una licenza Azure AD Premium possono ripristinare l'accesso tramite la reimpostazione della password self-service (SSPR) se la funzionalità è abilitata nella propria directory. Gli utenti senza una licenza Premium che viene bloccata devono contattare un amministratore per eseguire una reimpostazione manuale della password e ignorare l'evento di rischio utente contrassegnato.
+Gli utenti assegnati a una licenza Azure AD Premium possono ripristinare l'accesso tramite la reimpostazione della password self-service (SSPR) se la funzionalità è abilitata nella propria directory. Gli utenti senza una licenza Premium che viene bloccata devono contattare un amministratore per eseguire una reimpostazione manuale della password e ignorare il rilevamento dei rischi utente contrassegnato.
 
 ### <a name="steps-to-unblock-a-user"></a>Passaggi per sbloccare un utente
 

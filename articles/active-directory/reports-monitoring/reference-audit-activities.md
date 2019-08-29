@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a687823d1344ca11864523cb9187f48d7373fd41
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989625"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127135"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
 
@@ -65,7 +65,7 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Verifiche di accesso|Eliminare il collegamento al controllo del programma|
 |Verifiche di accesso|Aggiornare la verifica di accesso|
 |Verifiche di accesso|Aggiornare lo stato dell'onboarding delle verifiche di accesso di Azure AD|
-|Verifiche di accesso|Aggiorna le impostazioni per le notifiche tramite posta elettronica delle verifiche dell'accesso|
+|Verifiche di accesso|Aggiornare le impostazioni per le notifiche tramite posta elettronica delle verifiche di accesso|
 |Verifiche di accesso|Aggiorna l'impostazione del numero di ricorrenze delle verifiche di accesso|
 |Verifiche di accesso|Aggiorna l'impostazione della durata in giorni delle ricorrenze delle verifiche di accesso|
 |Verifiche di accesso|Aggiorna l'impostazione del tipo di fine ricorrenza delle verifiche di accesso|
@@ -348,10 +348,10 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 |Categoria di controllo|Attività|
 |---|---|
-|Gestione delle unità amministrative|Scaricare un singolo tipo di evento di rischio|
+|Gestione delle unità amministrative|Scarica un tipo di rilevamento a rischio singolo|
 |Gestione delle unità amministrative|Scaricare amministratori e stato del consenso esplicito per il digest settimanale|
-|Gestione delle unità amministrative|Scaricare tutti i tipi di eventi di rischio|
-|Gestione delle unità amministrative|Scaricare gli eventi di rischio degli utenti del piano gratuito|
+|Gestione delle unità amministrative|Scarica tutti i tipi di rilevamento del rischio|
+|Gestione delle unità amministrative|Scarica i rilevamenti di rischi utente gratuiti|
 |Gestione delle unità amministrative|Scaricare gli utenti contrassegnati per il rischio|
 |Gestione applicazioni|Inviti batch elaborati|
 |Gestione applicazioni|Inviti batch caricati|
@@ -517,7 +517,7 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |---|---|
 |Gestione gruppo|Verificare la richiesta di approvazione richiesta|
 |Gestione gruppo|Aggiornare la verifica di accesso|
-|Gestione gruppo|Aggiorna le impostazioni per le notifiche tramite posta elettronica delle verifiche dell'accesso|
+|Gestione gruppo|Aggiornare le impostazioni per le notifiche tramite posta elettronica delle verifiche di accesso|
 |Gestione gruppo|Aggiorna l'impostazione del numero di ricorrenze delle verifiche di accesso|
 |Gestione gruppo|Aggiorna l'impostazione della durata in giorni delle ricorrenze delle verifiche di accesso|
 |Gestione utenti|Aggiorna l'impostazione del tipo di fine ricorrenza delle verifiche di accesso|

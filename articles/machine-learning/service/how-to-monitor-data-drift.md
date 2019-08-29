@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623972"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128268"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 
@@ -178,16 +178,7 @@ Per configurare gli avvisi e le azioni personalizzati, tutte le metriche di spos
 
 ## <a name="retrain-your-model-after-drift"></a>Ripetere il training del modello dopo la deriva
 
-Quando la tendenza dei dati influisce negativamente sulle prestazioni del modello distribuito, è il momento di ripetere il training del modello. Il metodo [ seguente `diff()` offre un'idea iniziale di ciò che è cambiato tra i set di dati di training vecchi e nuovi. ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
-) 
-
-```python
-from azureml.core import Dataset
-
-old_training_dataset.diff(new_training_dataset)
-```
-
-In base all'output del codice precedente, potrebbe essere necessario ripetere il training del modello. A tale scopo, procedere con i passaggi seguenti.
+Quando la tendenza dei dati influisce negativamente sulle prestazioni del modello distribuito, è il momento di ripetere il training del modello. A tale scopo, procedere con i passaggi seguenti.
 
 * Esaminare i dati raccolti e preparare i dati per il training del nuovo modello.
 * Suddividerla in dati di training/test.

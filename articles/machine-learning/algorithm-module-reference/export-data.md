@@ -1,7 +1,7 @@
 ---
-title: 'Esportazione dei dati: Riferimento al modulo'
+title: 'Esporta dati: Riferimento al modulo'
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo di esportare i dati nel servizio Azure Machine Learning per salvare i risultati, i dati intermedi e dati in uso dei propri esperimenti in destinazioni di archiviazione cloud all'esterno di Azure Machine Learning.
+description: Informazioni su come usare il modulo Export data nel servizio Azure Machine Learning per salvare i risultati, i dati intermedi e i dati di lavoro dagli esperimenti nelle destinazioni di archiviazione cloud all'esterno di Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,75 +9,74 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: c3744803f172edf9fbf2556a12677e8faef370c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4fb539f4c86d27813b60964794fc1f398d3f2a4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028321"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128769"
 ---
-# <a name="export-data-module"></a>Modulo di esportazione dati
+# <a name="export-data-module"></a>Modulo Export Data
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio di Azure Machine Learning.
+Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
 
-Usare questo modulo per salvare i risultati, i dati intermedi e inoltre i dati derivanti dagli esperimenti in destinazioni di archiviazione cloud all'esterno di Azure Machine Learning.
+Usare questo modulo per salvare i risultati, i dati intermedi e i dati di lavoro dagli esperimenti nelle destinazioni di archiviazione cloud all'esterno Azure Machine Learning.
 
-Questo modulo supporta l'esportazione o salvataggio dei dati per i servizi dati cloud seguenti:
+Questo modulo supporta l'esportazione o il salvataggio dei dati nei servizi cloud data seguenti:
 
 
-- **Esportare in archiviazione Blob di Azure**: Salva i dati nel servizio Blob di Azure. I dati nel servizio Blob possono essere condivise pubblicamente o salvati in archivi dati protetti dell'applicazione.
+- **Esportare nell'archivio BLOB di Azure**: Salva i dati nel servizio BLOB in Azure. I dati nel servizio BLOB possono essere condivisi pubblicamente o salvati in archivi dati dell'applicazione protetti.
 
   
-## <a name="how-to-configure-export-data"></a>Come configurare l'esportazione di dati
+## <a name="how-to-configure-export-data"></a>Come configurare i dati di esportazione
 
-1. Aggiungere il **esportazione di dati** modulo all'esperimento nell'interfaccia. È possibile trovare questo modulo nel **di Input e Output** categoria.
+1. Aggiungere il modulo **Export Data (Esporta dati** ) all'esperimento nell'interfaccia. È possibile trovare questo modulo nella categoria **input e output** .
 
-2. Connettere **esportazione di dati** al modulo che contiene i dati da esportare.
+2. Connettere **Esporta dati** al modulo che contiene i dati che si desidera esportare.
 
-3. Fare doppio clic su **Export Data** per aprire il **proprietà** riquadro.
+3. Fare doppio clic su **Esporta dati** per aprire il riquadro **Proprietà** .
 
-4. Per la **destinazione dati**, selezionare il tipo di archiviazione cloud in cui si salveranno i dati. Se si apportano modifiche a questa opzione, vengono reimpostate tutte le altre proprietà. Pertanto, assicurarsi di scegliere questa opzione prima di tutto!
+4. Per **destinazione dati**selezionare il tipo di archiviazione cloud in cui verranno salvati i dati. Se si apportano modifiche a questa opzione, tutte le altre proprietà vengono reimpostate. Prima di tutto, assicurarsi di scegliere questa opzione.
 
-5. Fornire un metodo di autenticazione e nome account necessario per accedere all'account di archiviazione specificato.
+5. Fornire un nome account e un metodo di autenticazione necessari per accedere all'account di archiviazione specificato.
 
-    **Esportare in archiviazione Blob di Azure** è l'unica opzione disponibile in anteprima privata. Di seguito viene illustrato come impostare il modulo.
-    1. Il servizio blob di Azure è per archiviare grandi quantità di dati, inclusi dati binari. Esistono due tipi di archiviazione blob: BLOB pubblici e i blob che richiedono credenziali di accesso.
+    L' **esportazione nell'archiviazione BLOB di Azure** è l'unica opzione dell'anteprima privata. Di seguito viene illustrato come impostare il modulo.
+    1. Il servizio BLOB di Azure è per l'archiviazione di grandi quantità di dati, inclusi i dati binari. Sono disponibili due tipi di archiviazione BLOB: BLOB pubblici e BLOB che richiedono credenziali di accesso.
 
-    2. Per la **tipo di autenticazione**, scegliere **pubblico (SAS)** se si sa che lo spazio di archiviazione supporta l'accesso tramite un URL di firma di accesso condiviso.
+    2. Per **tipo di autenticazione**scegliere **pubblico (SAS)** se si è certi che l'archiviazione supporta l'accesso tramite un URL di firma di accesso condiviso.
 
-          Un URL di firma di accesso condiviso è un tipo speciale di URL che può essere generato utilizzando un'utilità di archiviazione di Azure, è disponibile per un periodo di tempo limitato.  Contiene tutte le informazioni necessarie per l'autenticazione e il download.
+          Un URL di firma di accesso condiviso è un tipo speciale di URL che può essere generato usando un'utilità di archiviazione di Azure ed è disponibile solo per un periodo di tempo limitato.  Contiene tutte le informazioni necessarie per l'autenticazione e il download.
 
-        Per la **URI**digitare o incollare l'URI completo che definisce l'account e i blob pubblico.
+        Per **URI**, digitare o incollare l'URI completo che definisce l'account e il BLOB pubblico.
 
-        Per il formato di file, CSV e TSV sono supportati.
+        Per il formato di file CSV e TSV sono supportati.
 
-    3. Per gli account privati, scegliere **Account**e fornire il nome dell'account e la chiave dell'account, in modo che l'esperimento è possibile scrivere nell'account di archiviazione.
+    3. Per gli account privati, scegliere **account**e specificare il nome dell'account e la chiave dell'account, in modo che l'esperimento possa scrivere nell'account di archiviazione.
 
-         - **Account name** (Nome dell'account): Digitare o incollare il nome dell'account in cui si desidera salvare i dati. Ad esempio, se è l'URL completo dell'account di archiviazione `http://myshared.blob.core.windows.net`, si digiterà `myshared`.
+         - **Account name** (Nome dell'account): Digitare o incollare il nome dell'account in cui si desidera salvare i dati. Ad esempio, se l'URL completo dell'account di archiviazione è `http://myshared.blob.core.windows.net`, digitare. `myshared`
 
-        - **Account key** (Chiave dell'account): Incollare la chiave di accesso di archiviazione che è associata all'account.
+        - **Account key** (Chiave dell'account): Incollare la chiave di accesso alle archiviazione associata all'account.
 
-        -  **Percorso di directory, contenitore o blob**: Digitare il nome del blob in cui verranno archiviati i dati esportati. Ad esempio, per salvare i risultati dell'esperimento in un nuovo blob denominato **results01.csv** nel contenitore **stime** in un account denominato **mymldata**, l'URL completo per il BLOB sarebbe `http://mymldata.blob.core.windows.net/predictions/results01.csv`.
+        -  **Percorso del contenitore, della directory o del BLOB**: Digitare il nome del BLOB in cui verranno archiviati i dati esportati. Ad esempio, per salvare i risultati dell'esperimento in un nuovo BLOB denominato **results01. csv** nelle **stime** del contenitore in un account denominato **mymldata**, l'URL completo per il BLOB sarà `http://mymldata.blob.core.windows.net/predictions/results01.csv`.
 
-            Pertanto, nel campo **percorso di directory, contenitore o blob**, si specificherà il contenitore e il nome di blob come segue: `predictions/results01.csv`
+            Quindi, nel campo **percorso del contenitore, della directory o del BLOB**, è necessario specificare il nome del contenitore e del BLOB come indicato di seguito:`predictions/results01.csv`
 
-        - Se si specifica il nome di un blob che non esiste, Azure crea il blob per l'utente.
+        - Se si specifica il nome di un BLOB che non esiste già, Azure crea automaticamente il BLOB.
 
-       -  Quando si scrive in un blob esistente, è possibile specificare che il contenuto corrente del blob sovrascritto impostando la proprietà **archiviazione blob di Azure alla modalità di scrittura**. Per impostazione predefinita, questa proprietà è impostata su **errore**, vale a dire che viene generato un errore ogni volta che viene trovato un file di blob esistente con lo stesso nome.
+       -  Quando si scrive in un BLOB esistente, è possibile specificare che il contenuto corrente del BLOB venga sovrascritto impostando la proprietà, **modalità di scrittura dell'archiviazione BLOB di Azure**. Per impostazione predefinita, questa proprietà è impostata su **Error**, a indicare che viene generato un errore ogni volta che viene trovato un file BLOB esistente con lo stesso nome.
 
 
-    4. Per la **formato di file blob**, selezionare il formato in cui devono essere archiviati i dati.
+    4. Per **formato file per file BLOB**selezionare il formato in cui archiviare i dati.
 
-        - **CSV**: Valori delimitati da virgole (CSV) rappresentano il formato di archiviazione predefinito. Per esportare le intestazioni di colonna insieme ai dati, selezionare l'opzione **riga di intestazione di scrittura blob**.  Per altre informazioni sulle virgole - formato delimitato usato in Azure Machine Learning, vedere [Convert to CSV](./convert-to-csv.md).
+        - **CSV**: I valori delimitati da virgole (CSV) sono il formato di archiviazione predefinito. Per esportare le intestazioni di colonna insieme ai dati, selezionare l'opzione **Scrivi riga intestazione BLOB**.  Per altre informazioni sul formato delimitato da virgole usato in Azure Machine Learning, vedere [Convert to CSV (Converti in CSV](./convert-to-csv.md)).
 
-        - **TSV**: Formato con valori delimitati da tabulazioni (TSV) è compatibile con molti strumenti di machine learning. Per esportare le intestazioni di colonna insieme ai dati, selezionare l'opzione **riga di intestazione di scrittura blob**.  
+        - **TSV**: Il formato con valori delimitati da tabulazioni (TSV) è compatibile con molti strumenti di machine learning. Per esportare le intestazioni di colonna insieme ai dati, selezionare l'opzione **Scrivi riga intestazione BLOB**.  
 
  
-    5. **Usare i risultati memorizzati nella cache**: Selezionare questa opzione se si desidera evitare di dover riscrivere i risultati del file blob ogni volta che si esegue l'esperimento. Se vi sono altri cambiamenti per i parametri del modulo, l'esperimento scrive i risultati solo la prima volta il modulo viene eseguito, o quando sono presenti modifiche ai dati.
+    5. **USA risultati memorizzati nella cache**: Selezionare questa opzione se si vuole evitare di riscrivere i risultati nel file BLOB ogni volta che si esegue l'esperimento. Se non sono presenti altre modifiche ai parametri del modulo, l'esperimento scrive i risultati solo la prima volta che il modulo viene eseguito o quando sono presenti modifiche ai dati.
 
     6. Eseguire l'esperimento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [set di moduli disponibili](module-reference.md) al servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0e26b9b5aee61f399a39c032cdbd2084884538c9
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 27b180d8d95d7dad967b8ac2495a795ed70836b9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982704"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147228"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -49,13 +49,13 @@ Il servizio Azure Kubernetes supporta quattro versioni secondarie di Kubernetes:
 
 Questa operazione è nota come "N-3"-(N (ultima versione)-3 (versioni secondarie).
 
-Se, ad esempio, AKS introduce *1.13. x* oggi, viene fornito il supporto per le versioni seguenti:
+Ad esempio, se AKS introduce *1.13. a* oggi, viene fornito il supporto per le versioni seguenti:
 
 Nuova versione secondaria    |    Elenco versioni supportate
 -----------------    |    ----------------------
-1.13.x               |    1.12. a, 1.12. b, 1.11. a, 1.11. b, 1.10. a, 1.10. b
+1.13. a               |    1.12. a, 1.12. b, 1.11. a, 1.11. b, 1.10. a, 1.10. b
 
-Dove "x" e ". a" e ". b" sono versioni di patch rappresentative.
+Dove ". a" e ". b" sono versioni di patch rappresentative ". a "da 1.13. a può essere diverso da 1.12. a. Ad esempio, 1.13.9 e 1.12.8.
 
 Per informazioni dettagliate sulle comunicazioni relative alle modifiche della versione e alle aspettative, vedere "comunicazioni" di seguito.
 
@@ -72,7 +72,7 @@ Quando viene introdotta una nuova versione secondaria, la versione secondaria pi
 1.9.b
 ```
 
-E AKS rilasciano 1.13. x, ciò significa che le versioni 1.9. x (tutte le versioni 1,9) verranno rimosse e non supportate.
+E AKS rilascia 1,13. *questo significa che 1,9.* le versioni (tutte le versioni 1,9) verranno rimosse e non supportate.
 
 > [!NOTE]
 > Si noti che se i clienti eseguono una versione di Kubernetes non supportata, verrà richiesto di eseguire l'aggiornamento quando richiede il supporto per il cluster. I cluster che eseguono versioni Kubernetes non supportate non sono coperti dai [criteri di supporto di AKS](https://docs.microsoft.com/azure/aks/support-policies).
@@ -126,7 +126,7 @@ AKS si riserva il diritto di aggiungere o rimuovere le versioni nuove/esistenti 
 
 ### <a name="azure-portal-and-cli-default-versions"></a>portale di Azure e le versioni predefinite dell'interfaccia della riga di comando
 
-Quando si distribuisce un cluster del servizio contenitore di Azure nel portale o con l'interfaccia della riga di comando di Azure, il cluster è sempre impostato sulla versione secondaria N-1 e sulla patch più recente. Ad esempio, se AKS supporta *1.13. x*, *1.12. a* + *1.12. b*, *1.11. a* + *1.11. b*, *1.10. a* + *1.10 b*, la versione predefinita per i nuovi cluster è *1.12. b* .
+Quando si distribuisce un cluster del servizio contenitore di Azure nel portale o con l'interfaccia della riga di comando di Azure, il cluster è sempre impostato sulla versione secondaria N-1 e sulla patch più recente. Ad esempio, se AKS supporta *1.13. a*, *1.12. a* + *1.12. b*, *1.11. a* + *1.11. b*, *1.10. a* + *1.10 b*, la versione predefinita per i nuovi cluster è *1.12. b* .
 
 Il valore predefinito di AKS è N-1 (minor. latestPatch, ad esempio 1.12. b) per fornire ai clienti una versione nota, stabile e con patch per impostazione predefinita.
 
@@ -161,8 +161,8 @@ KubernetesVersion    Upgrades
 
 Se si utilizza la versione *n-4* , l'utente non è supportato e verrà richiesto di effettuare l'aggiornamento. Se l'aggiornamento dalla versione n-4 a n-3 ha esito positivo, si è ora all'interno dei criteri di supporto. Ad esempio:
 
-- Se le versioni AKS supportate sono *1.13. x*, *1.12. a* + *1.12. b*, *1.11. c* + *1.11 d*e *1.10. e* + *1.10 f* e l'utente si trova in *1,9. g* o *1.9. h*, l'utente non è supportato.
-- Se l'aggiornamento da *1,9. g* o *1.9. h* a *1.10. e* o *1.10. f* ha esito positivo, si torna all'interno dei criteri di supporto.
+- Se le versioni di AKS supportate sono *1.13. a*, *1.12. b* + *1.12. c*, *1.11. d* + *1.11.* e e *1.10. f* + *1,10. g* e l'utente si trova in *1,9. h* o *1.9. i* , l'utente non è supportato.
+- Se l'aggiornamento da *1,9. h* o *1.9. i* a *1.10. f* o *1.10. g* ha esito positivo, si torna all'interno dei criteri di supporto.
 
 Gli aggiornamenti alle versioni precedenti a *n-4* non sono supportati. In questi casi, è consigliabile creare nuovi cluster del servizio Azure Kubernetes e ridistribuire i carichi di lavoro.
 

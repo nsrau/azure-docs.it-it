@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 86b17efdb811e9e4040b8b267c161b950f6de5fd
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6278e848a82fb31939117fa9b916a92a2fb74a3e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036187"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129272"
 ---
 # <a name="azure-advanced-threat-detection"></a>Rilevamento delle minacce avanzato in Azure
 
@@ -30,13 +30,13 @@ Azure offre una vasta gamma di opzioni per configurare e personalizzare la sicur
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) è una funzionalità di [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) che offre una panoramica degli eventi di rischio e delle potenziali vulnerabilità che possono interessare le identità dell'organizzazione. Identity Protection si avvale delle funzionalità di rilevamento anomalie di Azure AD, che sono disponibili tramite i [report di Anomalie dell'attività di Azure AD](../../active-directory/active-directory-reporting-azure-portal.md), e introduce nuovi tipi di eventi di rischio che permettono di rilevare le anomalie in tempo reale.
+[Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) è una funzionalità di [Azure Active Directory Premium p2](../../active-directory/active-directory-whatis.md) Edition che fornisce una panoramica dei rilevamenti dei rischi e potenziali vulnerabilità che possono influire sulle identità dell'organizzazione. Identity Protection usa le funzionalità di rilevamento delle anomalie di Azure AD esistenti disponibili tramite [Azure ad report di attività anomale](../../active-directory/active-directory-reporting-azure-portal.md)e introduce nuovi tipi di rilevamento dei rischi in grado di rilevare anomalie in tempo reale.
 
 ![Schema di Azure AD Identity Protection](./media/threat-detection/azure-threat-detection-fig1.png)
 
-Identity Protection usa l'euristica e algoritmi di apprendimento automatico adattivi per rilevare anomalie ed eventi di rischio che possono indicare la compromissione di un'identità. Sulla base di tali dati, Identity Protection genera report e avvisi che consentono di analizzare gli eventi di rischio e adottare le azioni di correzione o mitigazione appropriate.
+Identity Protection usa algoritmi di apprendimento automatico adattivi e euristica per rilevare le anomalie e i rilevamenti di rischio che potrebbero indicare che un'identità è stata compromessa. Usando questi dati, Identity Protection genera report e avvisi in modo da poter analizzare questi rilevamenti dei rischi e adottare misure correttive appropriate o di mitigazione.
 
-Azure Active Directory Identity Protection è ben più di un semplice strumento di monitoraggio e reporting. In base agli eventi di rischio, Identity Protection calcola un livello di rischio utente per ogni utente e permette di configurare criteri basati sul rischio per proteggere automaticamente le identità dell'organizzazione.
+Azure Active Directory Identity Protection è ben più di un semplice strumento di monitoraggio e reporting. In base ai rilevamenti dei rischi, Identity Protection calcola un livello di rischio utente per ogni utente, in modo che sia possibile configurare criteri basati sul rischio per proteggere automaticamente le identità dell'organizzazione.
 
 Questi criteri basati sul rischio, oltre ad altri [controlli di accesso condizionale](../../active-directory/active-directory-conditional-access-azure-portal.md) forniti da Azure Active Directory e [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md), possono bloccare automaticamente o offrire azioni correttive adattive che includono reimpostazioni della password e a più fattori imposizione dell'autenticazione.
 
@@ -46,14 +46,14 @@ Azure Active Directory Identity Protection è ben più di un semplice strumento 
 
 Di seguito sono riportati esempi di alcuni dei modi in cui Azure Identity Protection consente di proteggere gli account e le identità:
 
-[Rilevamento di eventi di rischio e account rischiosi](../../active-directory/identity-protection/overview.md)
--   Rilevamento di sei tipi di eventi di rischio tramite regole euristiche e apprendimento automatico.
+[Rilevamento di rilevamenti di rischi e account rischiosi](../../active-directory/identity-protection/overview.md)
+-   Rilevare sei tipi di rilevamento del rischio usando regole euristiche e machine learning.
 -   Calcolo dei livelli di rischio utente.
 -   Raccomandazioni personalizzate per migliorare il comportamento di sicurezza in generale evidenziando le vulnerabilità.
 
-[Analisi degli eventi di rischio](../../active-directory/identity-protection/overview.md)
--   Invio di notifiche per gli eventi di rischio.
--   Analisi degli eventi di rischio con informazioni rilevanti e contestuali.
+[Analisi del rilevamento del rischio](../../active-directory/identity-protection/overview.md)
+-   Inviare notifiche per i rilevamenti dei rischi.
+-   Esaminare i rilevamenti di rischio usando le informazioni rilevanti e contestuali.
 -   Flussi di lavoro di base per tenere traccia delle analisi.
 -   Accesso semplificato ad azioni di correzione come la reimpostazione della password.
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abaf8c910710000930f4e0ab6200d0ebd75b8d46
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ca82efbd4e26ccb8a169c84332e3d24196fae95e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835204"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135864"
 ---
 # <a name="national-clouds"></a>Cloud nazionali
 
@@ -68,9 +68,6 @@ La tabella seguente elenca gli URL di base per gli endpoint Azure AD usati per a
   - L'endpoint comune di token è `https://login.microsoftonline.de/common/oauth2/token`.
 
 Per le applicazioni a tenant singolo, sostituire "Common" negli URL precedenti con l'ID o il nome del tenant. Un esempio è `https://login.microsoftonline.de/contoso.com`.
-
-> [!NOTE]
-> Gli endpoint di autorizzazione e di token [Azure ad v 2.0]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) sono disponibili solo per il servizio globale. Non sono supportate per le distribuzioni cloud nazionali.
 
 ## <a name="microsoft-graph-api"></a>API Microsoft Graph
 

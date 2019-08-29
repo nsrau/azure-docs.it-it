@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356412bfca19e72d09338faf8c8bcac5ec8f273a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988295"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127400"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
@@ -112,12 +112,12 @@ Per accedere al report degli accessi:
 
 ### <a name="anomalous-activity-reports"></a>Report Anomalie dell'attività
 
-I report Anomalie dell'attività forniscono informazioni sugli eventi di rischio correlati alla sicurezza che Azure AD può rilevare e segnalare.
+I report di attività anomale forniscono informazioni sui rilevamenti dei rischi correlati alla sicurezza che Azure AD possibile rilevare e segnalare.
 
-La tabella seguente elenca i report di sicurezza sulle attività anomale di Azure AD e le corrispondenti tipologie degli eventi di rischio nel portale di Azure. Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](concept-risk-events.md).  
+Nella tabella seguente sono elencati i report di sicurezza delle attività anomale Azure AD e i tipi di rilevamento dei rischi corrispondenti nell'portale di Azure. Per ulteriori informazioni, vedere [Azure Active Directory rilevamento dei rischi](concept-risk-events.md).  
 
 
-| Report di Anomalie dell'attività di Azure AD |  Tipo di evento di rischio di Identity Protection|
+| Report di Anomalie dell'attività di Azure AD |  Tipo di rilevamento del rischio di Identity Protection|
 | :--- | :--- |
 | Utenti con credenziali perse | Credenziali perse |
 | Attività di accesso irregolare | Trasferimento impossibile a posizioni atipiche |
@@ -126,15 +126,15 @@ La tabella seguente elenca i report di sicurezza sulle attività anomale di Azur
 | Accessi da indirizzi IP con attività sospette | Accessi da indirizzi IP con attività sospette |
 | - | Accessi da posizioni non note |
 
-I report di sicurezza sulle attività anomale di Azure AD seguenti non sono inclusi come eventi di rischio nel portale di Azure:
+I report di sicurezza delle attività anomale Azure AD seguenti non sono inclusi come rilevamenti dei rischi nel portale di Azure:
 
 * Accessi dopo più errori
 * Accessi da più aree geografiche
 
 
-### <a name="detected-risk-events"></a>Eventi di rischio rilevati
+### <a name="detected-risk-detections"></a>Rilevamento del rischio rilevato
 
-È possibile accedere ai report sugli eventi di rischio rilevati nella sezione **Sicurezza** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com). Gli eventi di rischio rilevati vengono registrati nei report seguenti:   
+È possibile accedere ai report sui rilevamenti dei rischi rilevati nella sezione **sicurezza** del pannello **Azure Active Directory** della [portale di Azure](https://portal.azure.com). I rilevamenti dei rischi rilevati vengono registrati nei report seguenti:   
 
 - [Utenti a rischio](concept-user-at-risk.md)
 - [Accessi a rischio](concept-risky-sign-ins.md)

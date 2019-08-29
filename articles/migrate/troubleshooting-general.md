@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: fa1e7fcf89ccc06e429831191ba5dfce3cf33797
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 7fea6d16c8846909a8ce9bb33aae74ce343018fa
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828307"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142313"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -199,9 +199,9 @@ Sistema operativo Linux non approvato | Il computer potrebbe essere avviato in A
 Sistema operativo sconosciuto | Il sistema operativo della macchina virtuale è stato specificato come "altro" in server vCenter. Questo comportamento blocca Azure Migrate dalla verifica della conformità di Azure della macchina virtuale. Prima di eseguire la migrazione del computer, assicurarsi che il sistema operativo della macchina virtuale sia [supportato](https://aka.ms/azureoslist) da Azure.
 Numero di bit del sistema operativo non supportati | Le VM con un sistema operativo a 32 bit possono essere avviate in Azure, ma è consigliabile aggiornare il sistema operativo della macchina virtuale a 64 bit prima di eseguire la migrazione ad Azure.
 Richiede una sottoscrizione di Microsoft Visual Studio | Il computer esegue un sistema operativo client Windows, che è supportato solo tramite una sottoscrizione di Visual Studio.
-Non è stata trovata alcuna macchina virtuale per le prestazioni di archiviazione richieste | Le prestazioni di archiviazione (operazioni di input/output al secondo [IOPS] e velocità effettiva) richieste per il computer superano il supporto delle macchine virtuali di Azure. Prima di eseguire la migrazione, ridurre i requisiti di archiviazione per la macchina.
-Non è stata trovata alcuna macchina virtuale per le prestazioni di rete richieste | Le prestazioni di rete (ingresso/uscita) richieste per la macchina superano le prestazioni supportate dalla macchina virtuale di Azure. Ridurre i requisiti di rete per la macchina.
-La macchina virtuale non è stata trovata nella località specificata | Usare una località di destinazione diversa prima di eseguire migrazione.
+Macchina virtuale non trovata per le prestazioni di archiviazione richieste | Le prestazioni di archiviazione (operazioni di input/output al secondo [IOPS] e velocità effettiva) richieste per il computer superano il supporto delle macchine virtuali di Azure. Prima di eseguire la migrazione, ridurre i requisiti di archiviazione per la macchina.
+Macchina virtuale non trovata per le prestazioni di rete richieste | Le prestazioni di rete (ingresso/uscita) richieste per la macchina superano le prestazioni supportate dalla macchina virtuale di Azure. Ridurre i requisiti di rete per la macchina.
+La macchina virtuale non è stata trovata nel percorso specificato | Usare una località di destinazione diversa prima di eseguire migrazione.
 Uno o più dischi non idonei | Uno o più dischi collegati alla macchina virtuale non soddisfano i requisiti di Azure. Azure Migrate: Server Assessment attualmente non supporta i dischi Ultra SSD e valuta i dischi in base ai limiti del disco per Managed disks Premium (32 TB).  Per ogni disco collegato alla macchina virtuale, assicurarsi che la dimensione del disco sia < 64 TB (supportata da dischi Ultra SSD), in caso contrario, ridurre le dimensioni del disco prima di eseguire la migrazione ad Azure o usare più dischi in Azure e [rimuoverli insieme](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) per ottenere limiti di archiviazione più elevati. Assicurarsi che le prestazioni (IOPS e velocità effettiva) richieste da ogni disco siano supportate dai [dischi delle macchine virtuali gestite](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)da Azure.
 Una o più schede di rete non idonee. | Prima di eseguire la migrazione, rimuovere le schede di rete non usate dalla macchina.
 Il numero di dischi supera il limite | Rimuovere i dischi non usati dalla macchina prima di eseguire la migrazione.
@@ -271,7 +271,7 @@ Per la macchina virtuale Linux, assicurarsi che i comandi di installazione di MM
 
 ### <a name="what-operating-systems-does-the-dependency-agent-support"></a>Quali sistemi operativi sono supportati da Dependency Agent?
 
-[Ecco un elenco dei sistemi operativi Windows supportati da Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems). [Ecco un elenco dei sistemi operativi Linux supportati da Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+[Ecco un elenco dei [sistemi operativi Windows e Linux supportati da monitoraggio di Azure per le macchine virtuali](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems).
 
 ### <a name="i-cant-visualize-dependencies-in-azure-migrate-for-more-than-a-one-hour-duration"></a>Non è possibile visualizzare le dipendenze in Azure Migrate per un periodo di tempo superiore a un'ora.
 In Azure Migrate è possibile visualizzare le dipendenze per un periodo di tempo di un'ora. Sebbene Azure Migrate consenta di tornare a una data specifica nell'ultimo mese, la durata massima per la quale è possibile visualizzare le dipendenze è di un'ora.

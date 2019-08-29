@@ -11,25 +11,25 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc02b8b5dccbec106e90430fc1714253df6ad847
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: e30f8264870272fc12dcb7e15b37e5fd30688bcb
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334006"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126520"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Domande frequenti su Azure Active Directory Identity Protection
 
 Questo articolo include le risposte alle domande frequenti su Azure Active Directory (Azure AD) Identity Protection. Per altre informazioni, vedere [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). 
 
-## <a name="why-do-some-risk-events-have-closed-system-status"></a>Perché alcuni eventi di rischio hanno lo stato "Closed (system)" (Chiuso (sistema))?
+## <a name="why-do-some-risk-detections-have-closed-system-status"></a>Perché alcuni rilevamenti dei rischi hanno lo stato "chiuso (sistema)"?
 
-**R:** Questi eventi di rischio sono stati rilevati e successivamente chiusi da Identity Protection perché gli eventi non sono più stati considerati rischiosi. Questi eventi non vengono conteggiati ai fini del livello di rischio dell'utente. 
+**R:** Questi rilevamenti dei rischi sono stati rilevati da Identity Protection e successivamente chiusi perché gli eventi non sono più considerati rischiosi. Questi eventi non vengono conteggiati ai fini del livello di rischio dell'utente. 
 
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>È necessario essere un amministratore globale per usare Identity Protection nel portale di Azure?
-**R:**  No. È possibile avere il ruolo con autorizzazioni di lettura per la sicurezza, di amministratore protezione o amministratore globale per usare Identity Protection.
+**R:** No. È possibile avere il ruolo con autorizzazioni di lettura per la sicurezza, di amministratore protezione o amministratore globale per usare Identity Protection.
 
 ---
 

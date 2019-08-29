@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4b24805cd59d1eb9d28591749d5169486e54d506
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250126"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141784"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Fatturazione a consumo con il servizio di misurazione del Marketplace
 
@@ -73,7 +73,7 @@ Le dimensioni di fatturazione vengono condivise tra tutti i piani per un'offerta
 Gli attributi che definiscono la dimensione sono condivisi tra tutti i piani per un'offerta.  Prima di pubblicare l'offerta, una modifica apportata a questi attributi dal contesto di qualsiasi piano influirà sulla definizione della dimensione in tutti i piani.  Dopo la pubblicazione dell'offerta, questi attributi non saranno più modificabili.  Questi attributi sono:
 
 * Identificatore
-* NOME
+* Name
 * Unità di misura
 
 Gli altri attributi di una dimensione sono specifici di ogni piano e possono avere valori diversi dal piano al piano.  Prima di pubblicare il piano è possibile modificare questi valori e solo questo piano sarà interessato.  Una volta pubblicato il piano, questi attributi non saranno più modificabili.  Questi attributi sono:
@@ -84,7 +84,7 @@ Gli altri attributi di una dimensione sono specifici di ogni piano e possono ave
 
 Anche le dimensioni hanno due concetti speciali, "Enabled" e "infinite":
 
-* **Enabled** indica che questo piano fa parte di questa dimensione.  Se si crea un nuovo piano che non invia eventi di utilizzo in base a questa dimensione, è possibile lasciare l'opzione non selezionata.  Inoltre, tutte le nuove dimensioni aggiunte dopo la prima pubblicazione di un piano vengono visualizzate come "non abilitate" nel piano già pubblicato.  Una dimensione disabilitata verrà ora visualizzata in qualsiasi elenco di dimensioni per un piano visualizzato dai clienti.
+* **Enabled** indica che questo piano fa parte di questa dimensione.  Se si crea un nuovo piano che non invia eventi di utilizzo in base a questa dimensione, è possibile lasciare l'opzione non selezionata.  Inoltre, tutte le nuove dimensioni aggiunte dopo la prima pubblicazione di un piano vengono visualizzate come "non abilitate" nel piano già pubblicato.  Una dimensione disabilitata non viene visualizzata in alcun elenco di dimensioni per un piano visualizzato dai clienti.
 * **Infinito**, rappresentato dal simbolo di infinito "∞", indica che questo piano fa parte di questa dimensione, ma non di misurazione dell'utilizzo rispetto a questa dimensione.  Se si desidera indicare ai clienti che la funzionalità rappresentata da questa dimensione è inclusa nel piano, ma senza limiti di utilizzo.  Una dimensione con utilizzo infinito verrà visualizzata in elenchi di dimensioni per un piano visualizzato dai clienti, con l'indicazione che non verrà mai addebitato alcun costo per questo piano.
 
 >[!Note] 

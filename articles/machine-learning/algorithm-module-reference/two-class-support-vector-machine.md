@@ -1,7 +1,7 @@
 ---
-title: 'Two-Class Support Vector Machine: Riferimento al modulo'
+title: 'Macchina a vettori di supporto a due classi: Riferimento al modulo'
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il **Two-Class Support Vector Machine** modulo nel servizio di Azure Machine Learning per creare un modello basato su algoritmo macchina a vettori di supporto.
+description: Informazioni su come usare il modulo **Two-Class Support Vector Machine** nel servizio Azure Machine Learning per creare un modello basato sull'algoritmo della macchina a vettori di supporto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,76 +9,75 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 2f076dd3a5b1ceb9e24548652a71fda5b9aa48b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23f5c638146472b72078e76745e557b6babe7a49
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65027931"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128317"
 ---
-# <a name="two-class-support-vector-machine-module"></a>Modulo Two-Class Support Vector Machine
+# <a name="two-class-support-vector-machine-module"></a>Modulo della macchina a vettori di supporto a due classi
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio di Azure Machine Learning.
+Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
 
-Usare questo modulo per creare un modello basato su algoritmo macchina a vettori di supporto. 
+Usare questo modulo per creare un modello basato sull'algoritmo della macchina a vettori di supporto. 
 
-Macchine a vettori di supporto (SVM) sono una classe di metodi di apprendimento supervisionato e consolidata. Questa implementazione specifica è adatti per la stima dei due possibili risultati, in base alle variabili categoriche o continue.
+Le macchine a vettori di supporto (SVM) sono una classe ben ricercata di metodi di apprendimento supervisionato. Questa particolare implementazione è adatta per la stima di due possibili risultati, in base alle variabili continue o categoriche.
 
-Dopo aver definito i parametri di modello, il training del modello usando i moduli di training e specificando una *set di dati con tag* che include una colonna di etichetta o il risultato.
+Dopo aver definito i parametri del modello, eseguire il training del modello usando i moduli di training e fornire un *set di dati con tag* che includa un'etichetta o una colonna risultato.
 
-## <a name="about-support-vector-machines"></a>Sulle macchine a vettori di supporto
+## <a name="about-support-vector-machines"></a>Informazioni sulle macchine a vettori di supporto
 
-Macchine a vettori di supporto sono tra i primi algoritmi di machine learning e i modelli SVM sono stati usati in molte applicazioni, dal recupero di informazioni alla classificazione di testo e immagini. SVM possono essere utilizzate per le attività di classificazione e regressione.
+Le macchine a vettori di supporto sono tra i primi degli algoritmi di machine learning e i modelli SVM sono stati usati in molte applicazioni, dal recupero delle informazioni alla classificazione di testo e immagini. SVM può essere usato sia per le attività di classificazione che di regressione.
 
-Questo modello SVM è un modello di apprendimento supervisionato che richiede dati etichettati. Nel processo di training, l'algoritmo analizza i dati di input e riconoscere gli schemi in uno spazio multidimensionale denominata la *iperpiano*.  Tutti gli esempi di input sono rappresentati come punti in questo spazio e vengono eseguito il mapping di output di categorie in modo che le categorie sono divise da larga e cancellare un gap possibile.
+Questo modello SVM è un modello di apprendimento supervisionato che richiede dati con etichetta. Nel processo di training, l'algoritmo analizza i dati di input e riconosce i modelli in uno spazio di funzionalità multidimensionaledenominato iperpiano.  Tutti gli esempi di input sono rappresentati come punti in questo spazio ed è stato eseguito il mapping alle categorie di output in modo che le categorie siano divise per il livello più ampio e determinino il gap possibile.
 
-Per la stima, l'algoritmo SVM assegna i nuovi esempi in una categoria o l'altro, eseguendone il mapping nello stesso spazio. 
+Per la stima, l'algoritmo SVM assegna nuovi esempi in una categoria o nell'altra, eseguendone il mapping nello stesso spazio. 
 
 ## <a name="how-to-configure"></a>Come configurare 
 
-Per questo tipo di modello, è consigliabile normalizzare il set di dati prima di usarlo per eseguire il training del classificatore.
+Per questo tipo di modello, è consigliabile normalizzare il set di dati prima di usarlo per il training del classificatore.
   
-1.  Aggiungere il **Two-Class Support Vector Machine** modulo nell'esperimento.  
+1.  Aggiungere il modulo **Two-Class Support Vector Machine** all'esperimento.  
   
-2.  Specificare come si desidera che il modello di esecuzione del training, impostando il **modalità di creazione trainer** opzione.  
+2.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: Se si conosce la modalità con cui si desidera configurare il modello, è possibile definire un set specifico di valori come argomenti.  
+    -   **Singolo parametro**: Se si conosce il modo in cui si desidera configurare il modello, è possibile specificare come argomenti un set specifico di valori.  
 
-3.  Per la **numero di iterazioni**, digitare un numero che indica il numero di iterazioni usate quando si compila il modello.  
+3.  Per **numero di iterazioni**, digitare un numero che indica il numero di iterazioni utilizzate durante la compilazione del modello.  
   
-     Questo parametro può essere utilizzato per controllare il compromesso tra precisione e velocità di training.  
+     Questo parametro può essere usato per controllare il compromesso tra velocità e precisione di training.  
   
-4.  Per la **Lambda**, digitare un valore da usare come peso per la regolarizzazione L1.  
+4.  Per **lambda**, digitare un valore da usare come peso per la regolarizzazione L1.  
   
-     Questo coefficiente di regolarizzazione è utilizzabile per ottimizzare il modello. Valori più elevati penalizzano i modelli più complessi.  
+     Questo coefficiente di regolarizzazione può essere utilizzato per ottimizzare il modello. I valori più elevati penalizzano i modelli più complessi.  
   
-5.  Selezionare l'opzione **funzioni vengono normalizzate**, se si desidera normalizzare le funzionalità prima del training.
+5.  Selezionare l'opzione normalizzare le **funzionalità**se si vuole normalizzare le funzionalità prima del training.
   
-     Se si applica la normalizzazione, prima del training, i punti dati sono centrati nella Media e adeguati per avere un'unità di deviazione standard.
+     Se si applica la normalizzazione, prima del training, i punti dati vengono centrati sul valore medio e ridimensionati in modo da avere un'unità di deviazione standard.
   
-6.  Selezionare l'opzione **progetto per la sfera unitaria**per normalizzare i coefficienti.
+6.  Selezionare l'opzione **progetto per la sfera di unità**per normalizzare i coefficienti.
   
-     Inserimento dei valori nello spazio di unità significa che prima del training, i punti dati sono centrati nella 0 e ridimensionati in modo da avere un'unità di deviazione standard.
+     La proiezione di valori nello spazio unità significa che prima del training, i punti dati vengono centrati su 0 e ridimensionati in modo da avere un'unità di deviazione standard.
   
-7.  Nelle **seed numeri Random**, digitare un valore intero da utilizzare come valore di inizializzazione per garantire la riproducibilità nelle esecuzioni.  In caso contrario, un valore dell'orologio di sistema viene utilizzato come valore di inizializzazione, che può comportare risultati leggermente diversi da un'esecuzione.
+7.  In valore di **inizializzazione numeri casuali**Digitare un valore intero da utilizzare come valore di inizializzazione se si desidera garantire la riproducibilità tra le esecuzioni.  In caso contrario, viene usato un valore di clock di sistema come valore di inizializzazione, che può produrre risultati leggermente diversi tra le esecuzioni.
   
-9. Connettere un set di dati con etichette e uno dei [moduli di training](module-reference.md):
+9. Connettere un set di dati con etichetta e uno dei [moduli di training](module-reference.md):
   
-    -   Se si imposta **modalità di creazione trainer** al **singolo parametro**, usare il [Train Model](train-model.md) modulo.
+    -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare il modulo [Train Model](train-model.md) .
   
 
 10. Eseguire l'esperimento.
 
 ## <a name="results"></a>Risultati
 
-Dopo aver completata la formazione:
+Al termine del training:
 
-+ Per visualizzare un riepilogo dei parametri del modello, con i pesi delle funzionalità appreso dal training, fare doppio clic sull'output del [Train Model](./train-model.md)e selezionare **Visualize**.
++ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi delle funzionalità appresi dal training, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md)e selezionare Visualize ( **Visualizza**).
 
-+ Per usare i modelli con training per eseguire stime, connettere il modello con training per il [Score Model](score-model.md) modulo.
++ Per usare i modelli sottoposti a training per eseguire stime, connettere il modello sottoposto a training al modulo [Score Model](score-model.md) .
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [set di moduli disponibili](module-reference.md) al servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 

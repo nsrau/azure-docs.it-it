@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 92bfb921833d99a3538ffa8c4c5d16a9f0cd3acd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335447"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126292"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Procedura: Configurare i criteri di rischio utente
 
@@ -26,9 +26,9 @@ Questo articolo fornisce le informazioni necessarie per configurare i criteri di
 
 ## <a name="what-is-a-user-risk-policy"></a>Cosa sono i criteri di rischio utente?
 
-Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. In Azure AD, le azioni sospette che il sistema è in grado di rilevare prendono il nome di "eventi di rischio". Mentre alcuni eventi di rischio possono essere rilevati in tempo reale, altri richiedono più tempo. Per rilevare un trasferimento impossibile in una posizione atipica, ad esempio, il sistema richiede un periodo di apprendimento iniziale di 14 giorni per capire il comportamento normale dell'utente. Sono disponibili varie opzioni per risolvere gli eventi di rischio rilevati. Ad esempio, è possibile risolvere i singoli eventi di rischio manualmente oppure è possibile risolverli con un rischio di accesso o con un criterio di accesso condizionale a rischio utente.
+Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. In Azure AD, le azioni sospette che il sistema è in grado di rilevare sono note anche come rilevamenti dei rischi. Sebbene sia possibile rilevare alcuni rilevamenti dei rischi in tempo reale, esistono anche rilevamenti di rischio che richiedono più tempo. Per rilevare un trasferimento impossibile in una posizione atipica, ad esempio, il sistema richiede un periodo di apprendimento iniziale di 14 giorni per capire il comportamento normale dell'utente. Sono disponibili diverse opzioni per la risoluzione del rilevamento del rischio rilevato. Ad esempio, è possibile risolvere manualmente i singoli rilevamenti dei rischi oppure è possibile risolverli usando un rischio di accesso o un criterio di accesso condizionale a rischio utente.
 
-Tutti gli eventi di rischio rilevati per un utente e non risolti prendono il nome di "eventi di rischio attivi". Con "rischio utente" si intendono gli eventi di rischio attivi associati a un utente. Sulla base del rischio utente, Azure AD calcola la probabilità (bassa, media, elevata) che un utente sia stato compromesso. Questa probabilità viene definita "livello di rischio utente".
+Tutti i rilevamenti dei rischi rilevati per un utente che non sono stati risolti sono noti come rilevamenti dei rischi attivi. I rilevamenti dei rischi attivi associati a un utente sono noti come rischi utente. Sulla base del rischio utente, Azure AD calcola la probabilità (bassa, media, elevata) che un utente sia stato compromesso. Questa probabilità viene definita "livello di rischio utente".
 
 ![Rischi utente](./media/howto-user-risk-policy/1031.png)
 
@@ -72,8 +72,8 @@ La finestra di dialogo di configurazione dei criteri include un'opzione che cons
 
 Il blocco dell'accesso:
 
-* Impedisce la generazione di nuovi eventi di rischio utente per l'utente interessato
-* Consente agli amministratori di correggere manualmente gli eventi di rischio che interessano l'identità dell'utente e di ripristinarne lo stato protetto
+* Impedisce la generazione di nuovi rilevamenti dei rischi utente per l'utente interessato
+* Consente agli amministratori di correggere manualmente i rilevamenti dei rischi che interessano l'identità dell'utente e di ripristinarli in uno stato sicuro
 
 ## <a name="best-practices"></a>Procedure consigliate
 

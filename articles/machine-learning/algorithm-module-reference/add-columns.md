@@ -1,7 +1,7 @@
 ---
-title: 'Aggiungere colonne: Riferimento al modulo'
+title: 'Aggiungi colonne: Riferimento al modulo'
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo di aggiunta di colonne nel servizio Azure Machine Learning per concatenare due set di dati.
+description: Informazioni su come usare il modulo Add columns nel servizio Azure Machine Learning per concatenare due set di impostazioni.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,42 +9,41 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: f1e087e97007c6ba271651a9791c7c3b38a9b9b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 630f8f7d4561ed6e7e9f943f4b3b123daeee4d67
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029356"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129028"
 ---
-# <a name="add-columns-module"></a>Aggiungere un modulo di colonne
+# <a name="add-columns-module"></a>Modulo Aggiungi colonne
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio di Azure Machine Learning.
+Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
 
-Usare questo modulo per concatenare due set di dati. È combinare tutte le colonne da due set di dati specificato come input per creare un singolo set di dati. Se è necessario concatenare più di due set di dati, usare più istanze di **Add Columns**.
+Usare questo modulo per concatenare due set di impostazioni. Per creare un singolo set di dati, è possibile combinare tutte le colonne dei due set di dati specificati come input. Se è necessario concatenare più di due set di impostazioni, utilizzare diverse istanze di **Aggiungi colonne**.
 
 
 
-## <a name="how-to-configure-add-columns"></a>Come configurare Add Columns
-1. Aggiungi il **Add Columns** modulo nell'esperimento.
+## <a name="how-to-configure-add-columns"></a>Come configurare Aggiungi colonne
+1. Aggiungere il modulo **Aggiungi colonne** all'esperimento.
 
-2. Connettere i due set di dati che si desidera concatenare. Se si desidera combinare più di due set di dati, è possibile concatenare diverse combinazioni di **Add Columns**.
+2. Connettere i due set di impostazioni che si desidera concatenare. Se si desidera combinare più di due set di impostazioni, è possibile concatenare diverse combinazioni di **Aggiungi colonne**.
 
-    - È possibile combinare due colonne che contengono un numero diverso di righe. Il set di dati di output viene riempito con i valori mancanti per ogni riga nella colonna di origine più piccola.
+    - È possibile combinare due colonne con un numero diverso di righe. Il set di dati di output viene riempito con valori mancanti per ogni riga della colonna di origine di dimensioni inferiori.
 
-    - Non è possibile scegliere singole colonne da aggiungere. Vengono concatenate tutte le colonne da ogni set di dati quando si usa **Add Columns**. Pertanto, se si desidera aggiungere solo un subset delle colonne, è possibile usare Seleziona colonne in set di dati per creare un set di dati con le colonne desiderate.
+    - Non è possibile scegliere singole colonne da aggiungere. Tutte le colonne di ogni set di dati vengono concatenate quando si usa **Aggiungi colonne**. Se pertanto si desidera aggiungere solo un subset delle colonne, utilizzare Seleziona colonne nel set di dati per creare un set di dati con le colonne desiderate.
 
 3. Eseguire l'esperimento.
 
 ### <a name="results"></a>Risultati
-Al termine dell'esecuzione dell'esperimento:
+Dopo l'esecuzione dell'esperimento:
 
-- Per visualizzare le prime righe del nuovo set di dati, fare doppio clic sull'output del **Add Columns** e scegliere Visualize.
+- Per visualizzare le prime righe del nuovo set di dati, fare clic con il pulsante destro del mouse sull'output di **Aggiungi colonne** e selezionare Visualizza.
 
-Il numero di colonne nel nuovo set di dati equivale alla somma delle colonne di entrambi i set di dati input.
+Il numero di colonne nel nuovo set di dati equivale alla somma delle colonne di entrambi i set di dati di input.
 
-Se sono presenti due colonne con lo stesso nome nel set di dati di input, viene aggiunto un suffisso numerico al nome della colonna. Ad esempio, se sono presenti due istanze di una colonna denominata TargetOutcome, la colonna a sinistra verrà rinominata TargetOutcome_1 e nella colonna destra sarebbe rinominata TargetOutcome_2.
+Se sono presenti due colonne con lo stesso nome nei set di dati di input, viene aggiunto un suffisso numerico al nome della colonna. Se, ad esempio, sono presenti due istanze di una colonna denominata TargetOutcome, la colonna sinistra verrà rinominata TargetOutcome_1 e la colonna destra verrà rinominata TargetOutcome_2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [set di moduli disponibili](module-reference.md) al servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 

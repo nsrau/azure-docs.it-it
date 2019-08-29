@@ -1,7 +1,7 @@
 ---
 title: 'Immettere i dati manualmente: Riferimento al modulo'
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo immettere manualmente i dati nel servizio Azure Machine Learning per creare un set di dati di piccole dimensioni digitando valori. Il set di dati può avere più colonne.
+description: Informazioni su come usare il modulo Enter data Manual in Azure Machine Learning Service per creare un set di dati di piccole dimensioni digitando i valori. Il set di dati può contenere più colonne.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,61 +9,60 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: ee15b6fb7160ece907d55e790b0ae38ee458ab96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d7e6cede12f5a348f59db83b31b19c89266dfdf7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028606"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128829"
 ---
-# <a name="enter-data-manually-module"></a>Immettere manualmente i dati di modulo
+# <a name="enter-data-manually-module"></a>Immettere manualmente i dati del modulo
 
-Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio di Azure Machine Learning.
+Questo articolo descrive un modulo dell'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
 
-Usare questo modulo per creare un set di dati di piccole dimensioni digitando i valori. Il set di dati può avere più colonne.
+Usare questo modulo per creare un set di dati di piccole dimensioni digitando i valori. Il set di dati può contenere più colonne.
   
-Questo modulo può essere utile nei seguenti scenari:  
+Questo modulo può essere utile in scenari come i seguenti:  
   
-- Generazione di un piccolo set di valori per i test  
+- Generazione di un piccolo set di valori per il test  
   
 - Creazione di un breve elenco di etichette
   
-- Digitare un elenco di nomi di colonna da inserire in un set di dati
+- Immissione di un elenco di nomi di colonna da inserire in un set di dati
 
 ## <a name="enter-data-manually"></a>Immettere i dati manualmente 
   
-1.  Aggiungere il [Immetti manualmente i dati](./enter-data-manually.md) modulo nell'esperimento. È possibile trovare questo modulo nel **Data Input and Output** categoria in Azure Machine Learning. 
+1.  Aggiungere il modulo [immettere manualmente i dati](./enter-data-manually.md) all'esperimento. È possibile trovare questo modulo nella categoria **input e output dei dati** in Azure Machine Learning. 
   
-2.  Per la **DataFormat**, selezionare una delle opzioni seguenti. Queste opzioni determinano la modalità devono essere analizzati i dati forniti. I requisiti per ogni formato sono molto diversi, pertanto assicurarsi di leggere gli argomenti correlati.  
+2.  Per **DataFormat**, selezionare una delle opzioni seguenti. Queste opzioni determinano la modalità di analisi dei dati forniti. Poiché i requisiti per ogni formato sono molto diversi, assicurarsi di leggere gli argomenti correlati.  
   
-    -   **ARFF**. Formato di file attributi-relazione, usato da Weka.   
+    -   **ARFF**. Formato di file di relazione tra attributi, utilizzato da weka.   
   
-    -   **CSV**. Formato con valori delimitati da virgole. Per altre informazioni, vedere [Convert to CSV](./convert-to-csv.md).  
+    -   **CSV**. Formato con valori delimitati da virgole. Per altre informazioni, vedere [Convert to CSV (Converti in CSV](./convert-to-csv.md)).  
   
-    -   **SVMLight**. Il formato Vowpal Wabbit e altri framework di machine learning.  
+    -   **SVMLight**. Formato usato da Vowpal Wabbit e altri Framework di machine learning.  
   
     -   **TSV**. Formato con valori delimitati da tabulazioni.
 
-     Se si sceglie un formato e non forniscono i dati che soddisfano le specifiche di formato, si verifica un errore di run-time.
+     Se si sceglie un formato e non si forniscono dati che soddisfano le specifiche di formato, si verificherà un errore di run-time.
   
-3.  Fare clic all'interno di **dati** casella di testo per iniziare a immettere dati. I formati seguenti richiedono un'attenzione particolare:  
+3.  Fare clic all'interno della casella di testo **dati** per iniziare a immettere i dati. I formati seguenti richiedono particolare attenzione:  
   
-    - **CSV**:  Per creare più colonne, incollare testo delimitato da virgole, o più colonne con una virgola tra i campi di tipo.
+    - **CSV**:  Per creare più colonne, incollare un testo delimitato da virgole o digitare più colonne usando le virgole tra i campi.
   
-        Se si seleziona il **HasHeader** opzione, è possibile usare la prima riga di valori come intestazione di colonna.  
+        Se si seleziona l'opzione **HasHeader** , è possibile utilizzare la prima riga di valori come intestazione di colonna.  
   
-        Se si deseleziona questa opzione, i nomi delle colonne, Col1, Col2 e così via, vengono usati. È possibile aggiungere o modificare le colonne nomi in un secondo momento tramite [Edit Metadata](./edit-metadata.md).  
+        Se si deseleziona questa opzione, vengono utilizzati i nomi delle colonne, col1, Col2 e così via. È possibile aggiungere o modificare i nomi delle colonne in un secondo momento usando [Modifica metadati](./edit-metadata.md).  
   
-    - **TSV**: Per creare più colonne, incollare testo delimitati da tabulazioni, o più colonne usando le schede tra i campi di tipo.  
+    - **TSV**: Per creare più colonne, incollare il testo delimitato da tabulazioni oppure digitare più colonne usando le schede tra i campi.  
   
-        Se si seleziona il **HasHeader** opzione, è possibile usare la prima riga di valori come intestazione di colonna.  
+        Se si seleziona l'opzione **HasHeader** , è possibile utilizzare la prima riga di valori come intestazione di colonna.  
   
-        Se si deseleziona questa opzione, i nomi delle colonne, Col1, Col2 e così via, vengono usati. È possibile aggiungere o modificare le colonne nomi in un secondo momento tramite [Edit Metadata](./edit-metadata.md).  
+        Se si deseleziona questa opzione, vengono utilizzati i nomi delle colonne, col1, Col2 e così via. È possibile aggiungere o modificare i nomi delle colonne in un secondo momento usando [Modifica metadati](./edit-metadata.md).  
   
-    -   **ARFF**:  Incollare in un file di formato ARFF esistente. Se si digita valori direttamente, assicurarsi di aggiungere l'intestazione facoltativa e i campi attributo obbligatorio all'inizio dei dati. 
+    -   **ARFF**:  Incollare un file di formato ARFF esistente. Se si digitano direttamente i valori, assicurarsi di aggiungere i campi intestazione facoltativa e attributo obbligatorio all'inizio dei dati. 
     
-        Ad esempio, le righe di intestazione e di attributo seguente è stato possibile aggiungere a un elenco semplice. L'intestazione di colonna sarebbe `SampleText`.
+        Ad esempio, è possibile aggiungere le righe di intestazione e di attributo seguenti a un elenco semplice. L'intestazione di colonna è `SampleText`.
     
         ```text
         % Title: SampleText.ARFF  
@@ -75,7 +74,7 @@ Questo modulo può essere utile nei seguenti scenari:
 
     -   **SVMLight**: Digitare o incollare i valori usando il formato SVMLight.  
   
-        Ad esempio, l'esempio seguente rappresenta le prime due righe del set di dati Blood Donation, nel formato SVMight:  
+        Ad esempio, l'esempio seguente rappresenta le prime due righe del set di dati di donazione del sangue, in formato SVMight:  
   
         ```text  
         # features are [Recency], [Frequency], [Monetary], [Time]  
@@ -83,24 +82,24 @@ Questo modulo può essere utile nei seguenti scenari:
         1 1:0 2:13 3:3250 4:28   
         ```  
   
-        Quando si esegue la [Immetti manualmente i dati](./enter-data-manually.md) modulo, queste righe vengono convertite in un set di dati delle colonne e indicizzare i valori come indicato di seguito:  
+        Quando si esegue il modulo [Enter data manually](./enter-data-manually.md) , queste righe vengono convertite in un set di dati di colonne e valori di indice come indicato di seguito:  
   
         |Col1|Col2|Col3|Col4|Etichette|  
         |-|-|-|-|-|  
-        |0.00016|0.004|0.999961|0.00784|1|  
-        |0|0.004|0.999955|0.008615|1|  
+        |0,00016|0,004|0,999961|0,00784|1|  
+        |0|0,004|0,999955|0,008615|1|  
   
-4.  Premere INVIO dopo ogni riga, per avviare una nuova riga.  
+4.  Premere INVIO dopo ogni riga per avviare una nuova riga.  
   
      **Assicurarsi di premere INVIO dopo la riga finale.** 
      
-     Se si preme INVIO più volte per aggiungere più vuote finali righe, una riga vuota finale viene rimosso troncate, ma altre righe vuote vengono trattati come valori mancanti.  
+     Se si preme INVIO più volte per aggiungere più righe finali vuote, la riga vuota finale viene rimossa, ma le altre righe vuote vengono considerate come valori mancanti.  
   
-     Se si creano le righe con valori mancanti, è possibile sempre filtrare tali in un secondo momento.  
+     Se si creano righe con valori mancanti, è sempre possibile filtrarle in un secondo momento.  
   
-5.  Il modulo e scegliere **Esegui selezionati** per analizzare i dati e caricarli nell'area di lavoro come set di dati.  
+5.  Fare clic con il pulsante destro del mouse sul modulo e scegliere **Esegui selezionati** per analizzare i dati e caricarli nell'area di lavoro come set di dati.  
   
-     Per visualizzare il set di dati, fare clic sulla porta di output e selezionare **Visualize**.  
+     Per visualizzare il set di dati, fare clic sulla porta di output e selezionare **Visualizza**.  
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [set di moduli disponibili](module-reference.md) al servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 

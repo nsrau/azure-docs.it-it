@@ -3,21 +3,21 @@ title: Trasformare i dati con i notebook di Databricks - Azure | Microsoft Docs
 description: Informazioni su come elaborare o trasformare i dati eseguendo un notebook di Databricks.
 services: data-factory
 documentationcenter: ''
-ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: 2bc8b84d4b98036acc93788dee88444786df139e
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: db437c7699c7fddc2b04175537446f53c4c4bc85
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335847"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140821"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Trasformare i dati eseguendo un notebook di Databricks
 
@@ -59,11 +59,11 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella de
 
 |Proprietà|Descrizione|Obbligatorio|
 |---|---|---|
-|name|Nome dell'attività nella pipeline.|Sì|
+|name|Nome dell'attività nella pipeline.|Yes|
 |description|Testo che descrive l'attività.|No|
-|type|Per l'attività dei notebook di Databricks il tipo di attività è DatabricksNotebook.|Yes|
+|type|Per l'attività dei notebook di Databricks il tipo di attività è DatabricksNotebook.|Sì|
 |linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione il notebook di Databricks. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Sì|
-|notebookPath|Percorso assoluto del notebook da eseguire nell'area di lavoro di Databricks. Questo percorso deve iniziare con una barra.|Sì|
+|notebookPath|Percorso assoluto del notebook da eseguire nell'area di lavoro di Databricks. Questo percorso deve iniziare con una barra.|Yes|
 |baseParameters|Matrice di coppie chiave-valore. I parametri base possono essere usati per ogni esecuzione attività. Se il notebook accetta un parametro non specificato, verrà usato il valore predefinito del notebook. Per altre informazioni sui parametri, vedere [Notebook di Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
 |libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di \<stringa, oggetto>.|No|
 

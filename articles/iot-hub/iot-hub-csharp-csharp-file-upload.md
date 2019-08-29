@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: 98b5fb06bf018c9176fc989786d8bd1821914f43
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: db020092c076680eddd575f8e7e85a2060603dd8
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558505"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147762"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Caricare i file dal dispositivo al cloud con l'hub Internet (.NET)
 
@@ -47,7 +47,7 @@ Al termine di questa esercitazione vengono eseguite due app console .NET:
 > [!NOTE]
 > L'hub Internet delle cose supporta molte piattaforme e linguaggi di dispositivi, tra cui C, Java, Python e JavaScript, tramite gli SDK per dispositivi Azure. Vedere il [Centro per sviluppatori di IoT di Azure](https://azure.microsoft.com/develop/iot) per istruzioni dettagliate su come connettere il dispositivo all'Hub IoT di Azure.
 
-Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
+## <a name="prerequisites"></a>Prerequisiti
 
 * Visual Studio
 

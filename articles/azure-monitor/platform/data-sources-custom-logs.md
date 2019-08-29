@@ -11,16 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: bwren
-ms.openlocfilehash: 397272c3a47aca2aa73394f443d76dead66308e0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9ecae51d996e2e065b15d1fa70bdaf796f8f197b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555333"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124200"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
+
 L'origine dati dei log personalizzati in Monitoraggio di Azure consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog. Al termine della raccolta, è possibile analizzare i dati nei singoli campi nelle query o estrarli durante la raccolta in singoli campi.
 
 ![Raccolta di log personalizzati](media/data-sources-custom-logs/overview.png)
@@ -46,6 +47,9 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 > * Il numero massimo di caratteri per il nome della colonna è 500. 
 >
 
+>[!IMPORTANT]
+>Per la raccolta di log personalizzata è necessario che l'applicazione che scrive il file di log scarichi periodicamente il contenuto del log sul disco. Questo perché la raccolta di log personalizzata si basa sulle notifiche di modifica del file System per il file di log rilevato.
+
 ## <a name="defining-a-custom-log"></a>Definizione di un log personalizzato
 Usare la procedura seguente per definire un file di log personalizzato.  Scorrere fino alla fine dell'articolo per la procedura dettagliata di un esempio che spiega come aggiungere un log personalizzato.
 
@@ -64,7 +68,6 @@ Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata 
 
 Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni record archiviato in Monitoraggio di Azure viene popolata con il valore di data/ora specificato per quella voce nel file di log.  Se viene usato un delimitatore nuova riga, TimeGenerated viene popolata con la data e l'ora in cui Monitoraggio di Azure ha raccolto la voce.
 
-
 1. Fare clic su **Sfoglia** e passare a un file di esempio.  In alcuni browser, questo pulsante potrebbe essere denominato **Scegli file** .
 2. Fare clic su **Avanti**.
 3. La procedura guidata per i log personalizzati carica il file ed elenca i record identificati.
@@ -75,7 +78,6 @@ Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni re
 È necessario definire uno o più percorsi nell'agente in cui è possibile individuare il log personalizzato.  È possibile fornire un percorso specifico e un nome per il file di log oppure specificare un percorso con un carattere jolly per il nome. Questa opzione è utile per le applicazioni che creano un nuovo file ogni giorno o quando un file raggiunge una determinata dimensione. È anche possibile fornire più percorsi per un singolo file di log.
 
 Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la data inclusa nel nome, come in log20100316.txt. Un modello per questo log potrebbe essere *log\*.txt*, applicabile a qualsiasi file di log in base allo schema di denominazione dell'applicazione.
-
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 
@@ -105,7 +107,6 @@ Dopo che Monitoraggio di Azure avvia la raccolta dal log personalizzato, i recor
 > [!NOTE]
 > Se la proprietà RawData non è presente nella query, potrebbe essere necessario chiudere e riaprire il browser.
 
-
 ### <a name="step-6-parse-the-custom-log-entries"></a>Passaggio 6. Analizzare le voci del log personalizzato
 L'intera voce di log viene archiviata in una singola proprietà denominata **RawData**.  È probabile che si preferisca separare le diverse parti di informazioni di ogni voce in singole proprietà per ciascun record. Fare riferimento a [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per le opzioni relative all'analisi di **RawData** in più proprietà.
 
@@ -114,7 +115,6 @@ Usare la procedura seguente nel portale di Azure per rimuovere un log personaliz
 
 1. Dal menu **Dati** in **Impostazioni avanzate** per l'area di lavoro selezionare **Log personalizzato** per elencare tutti i log personalizzati.
 2. Fare clic su **Rimuovi** accanto al log personalizzato da rimuovere.
-
 
 ## <a name="data-collection"></a>Raccolta dei dati
 Monitoraggio di Azure raccoglie nuove voci da ogni log personalizzato a intervalli di circa 5 minuti.  L'agente registra la propria posizione in ogni file di log da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, Monitoraggio di Azure raccoglie le voci dal punto in cui è stato interrotto, anche se le voci sono state create mentre l'agente era offline.
@@ -135,11 +135,11 @@ Il tipo dei record del log personalizzato corrisponde al nome del log specificat
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Procedura dettagliata di esempio per l'aggiunta di un log personalizzato
 La sezione seguente descrive un esempio di creazione di un log personalizzato.  Il log di esempio raccolto ha una singola voce per ogni riga contenente una data e un'ora iniziali seguite da campi delimitati da virgole per il codice, lo stato e il messaggio.  Di seguito sono visualizzate alcune voci di esempio.
 
-    2016-03-10 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2016-03-10 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2016-03-10 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2016-03-10 01:38:22 302,Error,Application could not connect to database
-    2016-03-10 01:31:34 303,Error,Application lost connection to database
+    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+    2019-08-27 01:38:22 302,Error,Application could not connect to database
+    2019-08-27 01:31:34 303,Error,Application lost connection to database
 
 ### <a name="upload-and-parse-a-sample-log"></a>Caricare e analizzare un log di esempio
 Viene fornito uno dei file di log per visualizzare gli eventi che saranno raccolti.  In questo caso Nuova riga è un delimitatore sufficiente.  Se una singola voce nel log può estendersi su più righe, è necessario usare un delimitatore Timestamp.
@@ -157,14 +157,10 @@ Viene usato il nome *MyApp_CL* e viene digitata una **descrizione**.
 ![Nome del log](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>Verificare che i log personalizzati vengano raccolti
-Viene usata una query *Type=MyApp_CL* per restituire tutti i record dal log raccolto.
+Viene usata una semplice query di *MyApp_CL* per restituire tutti i record dal log raccolto.
 
 ![Query di log senza campi personalizzati](media/data-sources-custom-logs/query-01.png)
 
-### <a name="parse-the-custom-log-entries"></a>Analizzare le voci del log personalizzato
-Viene usato Campi personalizzati per definire i campi *EventTime*, *Code*, *Status* e *Message* ed è possibile osservare la differenza nei record restituiti dalla query.
-
-![Query di log con campi personalizzati](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="alternatives-to-custom-logs"></a>Alternative per i log personalizzati
 Anche se i log personalizzati sono utili se i dati soddisfano i criteri summenzionati, vi sono tuttavia casi come il seguente in cui è necessario adottare un'altra strategia:

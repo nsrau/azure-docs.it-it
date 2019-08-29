@@ -11,33 +11,33 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 7fcf24256634ef11b575348d9da7d6bbbab8b67c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333921"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127774"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
 
 Questo studio consente di:
 
-* Inserire i dati nell'ambiente Identity Protection simulando eventi di rischio e vulnerabilità
+* Popola i dati nell'ambiente Identity Protection simulando i rilevamenti e le vulnerabilità dei rischi
 * Configurare criteri di accesso condizionale basato sul rischio e testare l'effetto di questi criteri
 
-## <a name="simulating-risk-events"></a>Simulazione di eventi di rischio
+## <a name="simulating-risk-detections"></a>Simulazione del rilevamento del rischio
 
-Questa sezione riporta i passaggi per la simulazione dei seguenti tipi di eventi di rischio:
+In questa sezione vengono illustrati i passaggi per simulare i tipi di rilevamento dei rischi seguenti:
 
 * Accessi da indirizzi IP anonimi (facile)
 * Accessi da posizioni non note (intermedio)
 * Trasferimento impossibile a posizioni atipiche (difficile)
 
-Non è possibile simulare altri eventi di rischio in modo sicuro.
+Non è possibile simulare altri rilevamenti del rischio in modo sicuro.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Accessi da indirizzi IP anonimi
 
-Per altre informazioni su questo evento di rischio, vedere [Accessi da indirizzi IP anonimi](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
+Per ulteriori informazioni su questo rilevamento dei rischi, vedere [accessi da indirizzi IP anonimi](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
 
 Per completare la procedura seguente, sono necessari:
 
@@ -51,9 +51,9 @@ Per completare la procedura seguente, sono necessari:
 
 L'accesso viene visualizzato nel dashboard Identity Protection entro 10-15 minuti. 
 
-### <a name="sign-ins-from-unfamiliar-locations"></a>Accessi da posizioni insolite
+### <a name="sign-ins-from-unfamiliar-locations"></a>Accessi da posizioni non note
 
-Per altre informazioni su questo evento di rischio, vedere [Accessi da posizioni non note](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations). 
+Per ulteriori informazioni su questo rilevamento dei rischi, vedere [accessi da posizioni non note](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations). 
 
 Per simulare posizioni non note, è necessario accedere da una posizione e da un dispositivo mai usati prima con l'account di test.
 
@@ -76,14 +76,14 @@ L'accesso viene visualizzato nel dashboard Identity Protection entro 10-15 minut
 
 ### <a name="impossible-travel-to-atypical-location"></a>Trasferimento impossibile a posizioni atipiche
 
-Per altre informazioni su questo evento di rischio, vedere [Trasferimento impossibile a posizioni atipiche](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
+Per ulteriori informazioni su questo rilevamento dei rischi, vedere la pagina relativa [alla trasmissione Impossibile a posizioni atipiche](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
 
-La condizione di trasferimento impossibile è difficile da simulare perché l'algoritmo usa Machine Learning per eliminare i falsi positivi, ad esempio il trasferimento impossibile da dispositivi noti o l'accesso da VPN usate da altri utenti nella directory. Per iniziare a generare eventi di rischio, l'algoritmo richiede anche una cronologia di accesso di 14 giorni e 10 accessi per l'utente. A causa dei complessi modelli di Machine Learning coinvolti e delle regole sopra descritte, è possibile che con la procedura seguente non venga rilevato alcun evento di rischio. Per pubblicare questo evento di rischio, è consigliabile replicare la procedura per più account Azure AD.
+La condizione di trasferimento impossibile è difficile da simulare perché l'algoritmo usa Machine Learning per eliminare i falsi positivi, ad esempio il trasferimento impossibile da dispositivi noti o l'accesso da VPN usate da altri utenti nella directory. Inoltre, l'algoritmo richiede una cronologia di accesso di 14 giorni e 10 account di accesso dell'utente prima di iniziare la generazione dei rilevamenti dei rischi. Grazie ai modelli di apprendimento automatico complessi e alle regole sopra riportate, è possibile che la procedura seguente non provochi un rilevamento dei rischi. Per pubblicare questo rilevamento dei rischi, potrebbe essere necessario replicare questi passaggi per più account Azure AD.
 
 **Per simulare un trasferimento impossibile a posizioni atipiche, seguire questa procedura**:
 
 1. Usando il browser standard, passare a [https://myapps.microsoft.com](https://myapps.microsoft.com).  
-2. Immettere le credenziali dell'account per cui si vuole generare un evento di rischio trasferimento impossibile.
+2. Immettere le credenziali dell'account per cui si vuole generare un rilevamento dei rischi di viaggio non possibile.
 3. Modificare l'agente utente. Per modificare l'agente utente in Internet Explorer, usare Strumenti di sviluppo. Per modificare l'agente utente in Firefox o Chrome, usare un componente aggiuntivo di selezione dell'agente utente.
 4. Modificare l'indirizzo IP. È possibile modificare l'indirizzo IP usando una VPN, un componente aggiuntivo Tor o avviare un nuovo computer in Azure in un altro data center.
 5. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com) con le stesse credenziali usate in precedenza ed entro pochi minuti dall'accesso precedente.
@@ -118,8 +118,8 @@ Per altre informazioni, vedere [Come configurare i criteri di rischio utente](ho
 
 5. Nella sezione Controlli selezionare il controllo di accesso desiderato, ad esempio Richiedi modifica password.
 5. Come valore di **Imponi criteri**, selezionare **Disattivato**.
-6. Alzare di livello il rischio di utente di un account di test, ad esempio, simulando alcune volte uno degli eventi di rischio.
-7. Attendere alcuni minuti e poi verificare che il livello utente sia Medio. Se non lo è, simulare altri eventi di rischio per l'utente.
+6. Elevare il rischio utente di un account di test, ad esempio, simulando una delle rilevazioni dei rischi alcune volte.
+7. Attendere alcuni minuti e poi verificare che il livello utente sia Medio. In caso contrario, simulare un maggior numero di rilevamenti di rischio per l'utente.
 8. Come valore di **Imponi criteri**, selezionare **Attivato**.
 9. È ora possibile testare l'accesso condizionale basato sul rischio utente eseguendo l'accesso con un utente con un livello di rischio elevato.
 
