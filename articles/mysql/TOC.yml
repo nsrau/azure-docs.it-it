@@ -171,6 +171,8 @@
       items:
         - name: Portale di Azure
           href: howto-auto-grow-storage-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-auto-grow-storage-cli.md
     - name: Accesso ai log server
       items:
         - name: Log query lente

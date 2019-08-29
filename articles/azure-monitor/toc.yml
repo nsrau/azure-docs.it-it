@@ -135,6 +135,7 @@
           href: platform/roles-permissions-security.md
         - name: Indirizzi IP
           href: app/ip-addresses.md
+          displayname: 'firewall, firewall exceptions, whitelist'
         - name: Aree di lavoro di Log Analytics
           items:
             - name: Creare un'area di lavoro
@@ -277,7 +278,11 @@
               displayname: 'dashboard, Application Insights dashboard'
               href: app/overview-dashboard.md
             - name: Mappa delle applicazioni
+              displayname: 'appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node'
               href: app/app-map.md
+            - name: Diagnostica delle transazioni
+              href: app/transaction-diagnostics.md
+              displayname: 'e2e, end-to-end, component, dependency, cross-compoent transaction, operation ID, dependencies'
             - name: Disponibilità
               items:
                 - name: Test tramite URL
@@ -298,6 +303,9 @@
               items:
                 - name: Panoramica
                   href: app/distributed-tracing.md
+                - name: Correlazione di dati di telemetria
+                  href: app/correlation.md
+                  displayname: 'correlation headers, w3c, distributed tracing, tracing'
                 - name: Server d'inoltro locale
                   href: app/opencensus-local-forwarder.md
                 - name: Python
@@ -406,6 +414,7 @@
                   href: app/resources-roles-access-control.md
                 - name: Raccolta di indirizzi IP
                   href: app/ip-collection.md
+                  displayname: 'geolocation, IP collection, IP tracking, IP storage'
                 - name: campionamento
                   displayname: 'adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling'
                   href: app/sampling.md
@@ -417,8 +426,10 @@
                   href: app/api-filtering-sampling.md
                 - name: Correlazione di dati di telemetria
                   href: app/correlation.md
+                  displayname: 'correlation headers, w3c, distributed tracing'
                 - name: Tenere traccia delle operazioni personalizzate in .NET SDK
                   href: app/custom-operations-tracking.md
+                  displayname: 'correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation'
                 - name: Report di posta elettronica personalizzati
                   href: app/automate-custom-reports.md
                 - name: Eccezioni
@@ -431,8 +442,6 @@
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
                   href: app/configuration-with-applicationinsights-config.md
-                - name: Diagnostica delle transazioni
-                  href: app/transaction-diagnostics.md
                 - name: Correlare origini dati personalizzate
                   href: app/custom-data-correlation.md
                 - name: Argomenti speciali

@@ -7,18 +7,17 @@ author: MSSedusch
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 7b9d3791d44e9541df7fc95c34b5e8c83a4295b3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "67709091"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078399"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -693,7 +692,7 @@ Eseguire tutti i test case elencati nella guida allo scenario di ottimizzazione 
 I test seguenti sono una copia delle descrizioni dei test della guida di SUSE Linux Enterprise Server for SAP Applications 12 SP1 per lo scenario di ottimizzazione delle prestazioni della replica di sistema SAP HANA. Per una versione aggiornata, fare sempre riferimento alla guida. Assicurarsi sempre che HANA sia sincronizzato prima di avviare il test e che la configurazione di Pacemaker sia corretta.
 
 Nelle descrizioni dei test seguenti si presuppone che PREFER_SITE_TAKEOVER="true" e AUTOMATED_REGISTER="false".
-NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendono dal risultato dei test precedenti.
+NOTA:  i test seguenti sono progettati per essere eseguiti in sequenza e dipendono dal risultato dei test precedenti.
 
 1. TEST 1: ARRESTARE IL DATABASE PRIMARIO NEL NODO 1
 

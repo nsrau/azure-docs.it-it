@@ -127,8 +127,6 @@
           href: security-center-install-endpoint-protection.md
         - name: La valutazione della vulnerabilità non è installata
           href: security-center-vulnerability-assessment-recommendations.md
-        - name: Abilitare i gruppi di sicurezza di rete
-          href: security-center-enable-network-security-groups.md
         - name: Report sulle minacce
           href: security-center-threat-report.md
         - name: Avvisi personalizzati
@@ -143,8 +141,6 @@
           href: security-center-investigation-user-data.md
         - name: Playbook per app per la logica
           href: security-center-playbooks.md
-        - name: Visualizzare eventi
-          href: security-center-events-dashboard.md
         - name: Ricerca
           href: security-center-search.md
         - name: Pianificazione e gestione
