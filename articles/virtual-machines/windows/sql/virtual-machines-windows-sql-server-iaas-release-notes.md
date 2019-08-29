@@ -8,17 +8,16 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 61bf9d53b5ceda9420ae594680466a70b1e3d0cd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e58b01c6a01a22ef2dd45dc49d741f0287d603a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882327"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100369"
 ---
 # <a name="release-notes-for-sql-server-on-azure-virtual-machines"></a>Note sulla versione per SQL Server in macchine virtuali di Azure
 
@@ -75,7 +74,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | &nbsp; | &nbsp; |
 
 
-## <a name="march-2019"></a>2019 marzo
+## <a name="march-2019"></a>Marzo 2019
 
 | Miglioramenti al servizio | Dettagli |
 | --- | --- |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 0704db7444756fb44c5587ae8e8e743f671c9dcc
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5f34f5e0c622ff107da880d9a4a77c63568b63b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907937"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100929"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Proteggere i servizi di archiviazione e dati di Azure nel centro sicurezza di Azure
 Questo argomento illustra come visualizzare e implementare le raccomandazioni sulla sicurezza per i dati e le risorse di archiviazione. Il Centro sicurezza di Azure ha rilevato questi consigli durante l'analisi dello stato di sicurezza delle risorse di Azure.
@@ -61,7 +61,7 @@ Da questa pagina è possibile:
 
 ## <a name="data-and-storage-recommendations"></a>Raccomandazioni per i dati e l'archiviazione
 
-|Tipo di risorsa|Punteggio di sicurezza|Recommendation|DESCRIZIONE|
+|Tipo di risorsa|Punteggio di sicurezza|Recommendation|Descrizione|
 |----|----|----|----|
 |Account di archiviazione|20|Il trasferimento sicuro negli account di archiviazione deve essere abilitato|Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). HTTPS assicura l'autenticazione tra il server e il servizio e protegge i dati in transito da attacchi a livello di rete, ad esempio Man-in-the-Middle, intercettazione e Hijack della sessione.|
 |Redis|20|Devono essere abilitate solo connessioni sicure alla Cache Redis|Consenti solo connessioni sicure alla Cache Redis di Azure tramite SSL. L'uso di connessioni sicure garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione.|
@@ -78,7 +78,6 @@ Da questa pagina è possibile:
 Per ulteriori informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
 * [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)
 
 Per ulteriori informazioni sul centro sicurezza, vedere gli argomenti seguenti:

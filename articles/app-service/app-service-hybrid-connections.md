@@ -10,17 +10,16 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e26cf5ede2c8884719152b6d35f1b41eb092eda6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67069598"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071809"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connessioni ibride del Servizio app di Azure #
 
@@ -170,7 +169,7 @@ Per consentire a un'entità esterna alla propria sottoscrizione di ospitare un'i
 
 ![Aggiungere manualmente una connessione ibrida][11]
 
-### <a name="upgrade"></a>Aggiorna ###
+### <a name="upgrade"></a>Aggiornamento ###
 
 A Gestione connessione ibrida vengono apportati aggiornamenti periodici per correggere errori o aggiungere miglioramenti. Quando gli aggiornamenti vengono resi disponibili, viene visualizzata una finestra popup nell'interfaccia utente di Gestione connessione ibrida. L'aggiornamento applica le modifiche e riavvia Gestione connessione ibrida. 
 
@@ -219,7 +218,7 @@ Per usare questa API, sono necessari la chiave di invio e l'ID risorsa di inoltr
     armclient login
     armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
 
-## <a name="troubleshooting"></a>risoluzione dei problemi ##
+## <a name="troubleshooting"></a>Risoluzione dei problemi ##
 
 Lo stato "Connesso" indica che almeno un'istanza di Gestione connessione ibrida è configurata con quella specifica connessione ed è in grado di raggiungere Azure. Se lo stato della connessione ibrida non è **Connesso**, la connessione ibrida non è configurata in alcuna istanza di Gestione connessione ibrida con accesso ad Azure.
 

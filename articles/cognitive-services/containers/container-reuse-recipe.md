@@ -1,7 +1,7 @@
 ---
 title: Ricette per i contenitori Docker
 titleSuffix: Azure Cognitive Services
-description: Usare queste soluzioni contenitore come per creare contenitori di servizi cognitivi che può essere riutilizzato. I contenitori possono essere creati con alcune o tutte le impostazioni di configurazione in modo che non sono necessari quando viene avviato il contenitore. Una volta che si dispone di questo nuovo livello di contenitore (con le impostazioni) ed è stata testata in locale, è possibile archiviare il contenitore in un registro contenitori. All'avvio del contenitore, è necessario solo le impostazioni che non sono attualmente archiviate nel contenitore.
+description: Usare queste ricette contenitore per creare contenitori di servizi cognitivi che possono essere riutilizzati. I contenitori possono essere compilati con alcune o tutte le impostazioni di configurazione in modo che non siano necessarie quando il contenitore viene avviato. Quando si dispone di questo nuovo livello di contenitore (con impostazioni) ed è stato testato localmente, è possibile archiviare il contenitore in un registro contenitori. Quando il contenitore viene avviato, saranno necessarie solo le impostazioni non attualmente archiviate nel contenitore.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,52 +10,52 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 37fa972d52c564c4d61e5923c2b3dc48bde9d2ee
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a8162f96051a73b9f6e6a6fe3ece020e0a94f08f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445813"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068833"
 ---
-# <a name="create-containers-for-reuse"></a>Creare contenitori per il riutilizzo
+# <a name="create-containers-for-reuse"></a>Creare contenitori da riutilizzare
 
-Usare queste soluzioni contenitore come per creare contenitori di servizi cognitivi che può essere riutilizzato. I contenitori possono essere creati con alcune o tutte le impostazioni di configurazione in modo che siano _non_ necessarie quando viene avviato il contenitore.
+Usare queste ricette contenitore per creare contenitori di servizi cognitivi che possono essere riutilizzati. I contenitori possono essere compilati con alcune o tutte le impostazioni di configurazione in modo che _non_ siano necessarie quando il contenitore viene avviato.
 
-Una volta che si dispone di questo nuovo livello di contenitore (con le impostazioni) ed è stata testata in locale, è possibile archiviare il contenitore in un registro contenitori. All'avvio del contenitore, è necessario solo le impostazioni che non sono attualmente archiviate nel contenitore. Il contenitore del Registro di sistema privato fornisce lo spazio di configurazione per il passaggio di tali impostazioni in.
+Quando si dispone di questo nuovo livello di contenitore (con impostazioni) ed è stato testato localmente, è possibile archiviare il contenitore in un registro contenitori. Quando il contenitore viene avviato, saranno necessarie solo le impostazioni non attualmente archiviate nel contenitore. Il contenitore del registro di sistema privato fornisce spazio di configurazione in cui è possibile passare tali impostazioni.
 
-## <a name="docker-run-syntax"></a>Eseguire la sintassi di docker
+## <a name="docker-run-syntax"></a>Sintassi di Docker Run
 
-Eventuali `docker run` negli esempi in questo documento si presuppone una console di Windows con un `^` carattere di continuazione di riga. Tenere presente quanto segue per uso personale:
+Tutti `docker run` gli esempi in questo documento presuppongono una console `^` di Windows con un carattere di continuazione di riga. Tenere presente quanto segue per uso personale:
 
 * Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
-* Se si usa un sistema operativo diverso da Windows o una console di console di Windows, usare la console/terminal corretto, sintassi cartella per punti di montaggio e il carattere di continuazione di riga per la console e il sistema.  Poiché il contenitore di servizi cognitivi è un sistema operativo Linux, il montaggio di destinazione utilizza una sintassi di cartella basato su Linux.
-* `docker run` Negli esempi viene usata la directory di disattivare il `c:` unità per evitare eventuali conflitti di autorizzazione su Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker.
+* Se si utilizza un sistema operativo diverso da Windows o una console diversa dalla console di Windows, utilizzare la console/terminale, la sintassi di cartella per i montaggi e il carattere di continuazione di riga corretti per la console e il sistema.  Poiché il contenitore di servizi cognitivi è un sistema operativo Linux, il montaggio di destinazione usa una sintassi di cartella di tipo Linux.
+* `docker run`gli esempi usano la directory `c:` dall'unità per evitare eventuali conflitti di autorizzazione in Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker.
 
-## <a name="store-no-configuration-settings-in-image"></a>Non Store Nessuna impostazione di configurazione nell'immagine
+## <a name="store-no-configuration-settings-in-image"></a>Archivia nessuna impostazione di configurazione nell'immagine
 
-L'esempio `docker run` comandi per ogni servizio non archiviano le impostazioni di configurazione nel contenitore. Quando si avvia il contenitore da un servizio di console o del Registro di sistema, è necessario passare le impostazioni di configurazione. Il contenitore del Registro di sistema privato fornisce lo spazio di configurazione per il passaggio di tali impostazioni in.
+I comandi `docker run` di esempio per ogni servizio non archiviano le impostazioni di configurazione nel contenitore. Quando si avvia il contenitore da un servizio console o registro di sistema, le impostazioni di configurazione devono essere passate. Il contenitore del registro di sistema privato fornisce spazio di configurazione in cui è possibile passare tali impostazioni.
 
-## <a name="reuse-recipe-store-all-configuration-settings-with-container"></a>Riutilizzare file recipe: archiviare tutte le impostazioni di configurazione con contenitore
+## <a name="reuse-recipe-store-all-configuration-settings-with-container"></a>Riutilizza la ricetta: archivia tutte le impostazioni di configurazione con il contenitore
 
-Per poter archiviare tutte le impostazioni di configurazione, creare un `Dockerfile` con tali impostazioni.
+Per archiviare tutte le impostazioni di configurazione, creare un `Dockerfile` con tali impostazioni.
 
 Problemi con questo approccio:
 
-* Il nuovo contenitore è un nome distinto e un tag dal contenitore originale.
-* Per modificare queste impostazioni, si dovrà modificare i valori del Dockerfile, ricompilare l'immagine e pubblicare di nuovo al Registro di sistema.
-* Se un utente ottiene accesso per l'host locale o nel registro contenitori, possono eseguire il contenitore e usino gli endpoint di servizi cognitivi.
-* Se il servizio cognitivo non richiede input punti di montaggio, non aggiungere il `COPY` righe al Dockerfile.
+* Il nuovo contenitore ha un nome e un tag separati dal contenitore originale.
+* Per modificare queste impostazioni, sarà necessario modificare i valori di Dockerfile, ricompilare l'immagine e ripubblicarla nel registro.
+* Se un utente ottiene l'accesso al registro contenitori o all'host locale, può eseguire il contenitore e usare gli endpoint di servizi cognitivi.
+* Se il servizio cognitivo non richiede montaggi di input, non aggiungere `COPY` le righe alla Dockerfile.
 
-Creare file di Docker, eseguire il pull dal contenitore di servizi cognitivi esistente da usare, quindi usare i comandi di docker nel Dockerfile o estrarre le informazioni del contenitore deve.
+Creare Dockerfile, effettuando il pull dal contenitore di servizi cognitivi esistente che si vuole usare, quindi usare i comandi di Docker nel Dockerfile per impostare o inserire le informazioni necessarie per il contenitore.
 
-In questo esempio:
+Questo esempio:
 
-* Imposta l'endpoint di fatturazione `{BILLING_ENDPOINT}` dall'host dell'ambiente della chiave usando `ENV`.
-* Imposta la chiave API di fatturazione, `{ENDPOINT_KEY}` dall'host dell'ambiente della chiave usando ' ENV.
+* Imposta l'endpoint `{BILLING_ENDPOINT}` di fatturazione dalla chiave dell'ambiente dell'host tramite `ENV`.
+* Imposta la chiave API di fatturazione, `{ENDPOINT_KEY}` dalla chiave dell'ambiente dell'host usando "ENV".
 
-### <a name="reuse-recipe-store-billing-settings-with-container"></a>Riutilizzare file recipe: archiviare le impostazioni di fatturazione con contenitore
+### <a name="reuse-recipe-store-billing-settings-with-container"></a>Riutilizza la ricetta: archivia le impostazioni di fatturazione con il contenitore
 
-In questo esempio viene illustrato come generare sentiment contenitore il testo degli Analitica da un file Docker.
+Questo esempio illustra come creare il contenitore di valutazione di Analisi del testo ' da un Dockerfile.
 
 ```Dockerfile
 FROM mcr.microsoft.com/azure-cognitive-services/sentiment:latest
@@ -64,15 +64,15 @@ ENV apikey={ENDPOINT_KEY}
 ENV EULA=accept
 ```
 
-Compilare ed eseguire il contenitore [localmente](#how-to-use-container-on-your-local-host) o dalle [contenitore del Registro di sistema privato](#how-to-add-container-to-private-registry) in base alle esigenze.
+Compilare ed eseguire il contenitore [localmente](#how-to-use-container-on-your-local-host) o dal [contenitore del registro di sistema privato](#how-to-add-container-to-private-registry) in base alle esigenze.
 
-### <a name="reuse-recipe-store-billing-and-mount-settings-with-container"></a>Riutilizzare file recipe: archiviare la fatturazione e le impostazioni con contenitore di montaggio
+### <a name="reuse-recipe-store-billing-and-mount-settings-with-container"></a>Riutilizza la ricetta: archivia le impostazioni di fatturazione e montaggio con il contenitore
 
-In questo esempio viene illustrato come utilizzare comprensione del linguaggio, il salvataggio di modelli e fatturazione del dockerfile.
+Questo esempio illustra come usare Language Understanding, salvando la fatturazione e i modelli dal Dockerfile.
 
-* Le copie del file modello LUIS (Language Understanding) dell'host del file system usando `COPY`.
-* Il contenitore di LUIS supporta più di un modello. Se tutti i modelli vengono archiviati nella stessa cartella, tutto è necessario uno `COPY` istruzione.
-* Eseguire il file di docker dal relativo padre della directory di input del modello. Nell'esempio seguente, eseguire la `docker build` e `docker run` comandi dal relativo padre di `/input`. Il primo `/input` nella `COPY` comando è la directory del computer host. Il secondo `/input` è la directory del contenitore.
+* Copia il file del modello di Language Understanding (LUIS) dal file system dell'host `COPY`usando.
+* Il contenitore LUIS supporta più di un modello. Se tutti i modelli sono archiviati nella stessa cartella, è necessario disporre di `COPY` un'istruzione.
+* Eseguire il file Docker dall'elemento padre relativo della directory di input del modello. Per l'esempio seguente, eseguire i `docker build` comandi `docker run` e dal padre relativo di `/input`. Il primo `/input` `COPY` del comando è la directory del computer host. Il secondo `/input` è la directory del contenitore.
 
 ```Dockerfile
 FROM <container-registry>/<cognitive-service-container-name>:<tag>
@@ -82,67 +82,67 @@ ENV EULA=accept
 COPY /input /input
 ```
 
-Compilare ed eseguire il contenitore [localmente](#how-to-use-container-on-your-local-host) o dalle [contenitore del Registro di sistema privato](#how-to-add-container-to-private-registry) in base alle esigenze.
+Compilare ed eseguire il contenitore [localmente](#how-to-use-container-on-your-local-host) o dal [contenitore del registro di sistema privato](#how-to-add-container-to-private-registry) in base alle esigenze.
 
-## <a name="how-to-use-container-on-your-local-host"></a>Come usare i contenitori nell'host locale
+## <a name="how-to-use-container-on-your-local-host"></a>Come usare un contenitore nell'host locale
 
-Per compilare il file di Docker, sostituire `<your-image-name>` con il nuovo nome dell'immagine, usare:
+Per compilare il file Docker, sostituire `<your-image-name>` con il nuovo nome dell'immagine, quindi usare:
 
 ```console
 docker build -t <your-image-name> .
 ```
 
-Per eseguire l'immagine e lo rimuove quando si arresta il contenitore (`--rm`):
+Per eseguire l'immagine e rimuoverla quando il contenitore si interrompe (`--rm`):
 
 ```console
 docker run --rm <your-image-name>
 ```
 
-## <a name="how-to-add-container-to-private-registry"></a>Come aggiungere contenitori in un registro privato
+## <a name="how-to-add-container-to-private-registry"></a>Come aggiungere un contenitore al registro privato
 
-Seguire questi passaggi per usare il Dockerfile e posizionare la nuova immagine nel registro contenitori privato.  
+Seguire questa procedura per usare Dockerfile e inserire la nuova immagine nel registro contenitori privato.  
 
-1. Creare un `Dockerfile` con il testo dal file recipe di riutilizzo. Oggetto `Dockerfile` non dispone di un'estensione.
+1. Creare un `Dockerfile` oggetto con il testo dalla ricetta per il riutilizzo. Un `Dockerfile` oggetto non ha un'estensione.
 
-1. Sostituire i valori nelle parentesi acute con i propri valori.
+1. Sostituire i valori nelle parentesi acute con i valori personalizzati.
 
-1. Compilare il file in un'immagine nella riga di comando o terminal, usando il comando seguente. Sostituire i valori nelle parentesi acute, `<>`, con il proprio nome di contenitore e tag.  
+1. Compilare il file in un'immagine nella riga di comando o nel terminale, usando il comando seguente. Sostituire i valori tra parentesi acute, `<>`, con il nome del contenitore e il tag.  
 
-    L'opzione dei tag, `-t`, consente di aggiungere informazioni su ciò che sono stati modificati per il contenitore. Ad esempio, un nome di contenitore `modified-LUIS` indica il contenitore originale è stata a più livelli. Il nome di un tag di `with-billing-and-model` indica come il contenitore di LUIS (Language Understanding) è stato modificato.
+    L'opzione Tag, `-t`, è un modo per aggiungere informazioni su ciò che è stato modificato per il contenitore. Ad esempio, un nome di `modified-LUIS` contenitore indica che il contenitore originale è stato sovrapposto. Il nome di `with-billing-and-model` un tag indica il modo in cui il contenitore Language Understanding (Luis) è stato modificato.
 
     ```Bash
     docker build -t <your-new-container-name>:<your-new-tag-name> .
     ```
 
-1. Accedere al comando di Azure da una console. Questo comando apre una finestra del browser e richiede l'autenticazione. Una volta autenticato, è possibile chiudere il browser e continuare a utilizzare la console.
+1. Accedere all'interfaccia della riga di comando di Azure da una console. Questo comando apre un browser ed è richiesta l'autenticazione. Una volta autenticato, è possibile chiudere il browser e continuare a lavorare nella console.
 
-    ```azure-cli
+    ```azurecli
     az login
     ```
 
-1. Accedere al registro privato con CLI di Azure da una console.
+1. Accedere al registro privato con l'interfaccia della riga di comando di Azure da una console.
 
-    Sostituire i valori nelle parentesi acute, `<my-registry>`, con il nome del Registro di sistema.  
+    Sostituire i valori tra parentesi acute, `<my-registry>`, con il proprio nome del registro di sistema.  
 
-    ```azure-cli
+    ```azurecli
     az acr login --name <my-registry>
     ```
 
-    È anche possibile accedere con accesso a docker se si è assegnati a un'entità servizio.
+    È anche possibile accedere con Docker login se viene assegnata un'entità servizio.
 
     ```Bash
     docker login <my-registry>.azurecr.io
     ```
 
-1. Contrassegnare il contenitore con il percorso del Registro di sistema privato. Sostituire i valori nelle parentesi acute, `<my-registry>`, con il nome del Registro di sistema. 
+1. Contrassegnare il contenitore con il percorso del registro di sistema privato. Sostituire i valori tra parentesi acute, `<my-registry>`, con il proprio nome del registro di sistema. 
 
     ```Bash
     docker tag <your-new-container-name>:<your-new-tag-name> <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
-    Se non si usa un nome di tag, `latest` è implicita.
+    Se non si usa un nome di tag `latest` , è implicito.
 
-1. Eseguire il push della nuova immagine nel registro contenitori privato. Quando si visualizza il registro contenitori privato, il nome del contenitore usato nel comando seguente dell'interfaccia della riga sarà il nome del repository.
+1. Eseguire il push della nuova immagine nel registro contenitori privato. Quando si Visualizza il registro contenitori privato, il nome del contenitore usato nel comando CLI seguente sarà il nome del repository.
 
     ```Bash
     docker push <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>

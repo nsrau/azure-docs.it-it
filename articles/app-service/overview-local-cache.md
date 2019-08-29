@@ -10,19 +10,18 @@ tags: optional
 keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9102d6f3ce3be44107268419517dc9ebe434ac7a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839038"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098452"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 
@@ -35,7 +34,7 @@ Il contenuto del Servizio app di Azure viene memorizzato in Archiviazione di Azu
 * Il contenuto è condiviso tra più istanze di macchina virtuale (VM) dell'app.
 * Il contenuto è permanente e può essere modificato dalle app in esecuzione.
 * I file di log e file dei dati di diagnostica sono disponibili nella stessa cartella del contenuto condivisa.
-* La pubblicazione di nuovo contenuto aggiorna direttamente la cartella del contenuto. È possibile visualizzare immediatamente il contenuto stesso tramite il sito Web di Gestione controllo servizi e l'esecuzione dell'applicazione (in genere alcune tecnologie quali ASP.NET avvia un riavvio dell'app su alcune modifiche ai file per ottenere il contenuto più recente).
+* La pubblicazione di nuovo contenuto aggiorna direttamente la cartella del contenuto. È possibile visualizzare immediatamente lo stesso contenuto tramite il sito Web SCM e l'app in esecuzione, in genere alcune tecnologie, ad esempio ASP.NET, avviano il riavvio di un'app in alcune modifiche dei file per ottenere il contenuto più recente.
 
 Mentre molte app usano una o tutte queste funzionalità, alcune richiedono solo un archivio del contenuto di sola lettura ad alte prestazioni da cui poterle eseguire con disponibilità elevata. Queste applicazioni possono trarre vantaggio da un'istanza di VM di una cache locale specifica.
 

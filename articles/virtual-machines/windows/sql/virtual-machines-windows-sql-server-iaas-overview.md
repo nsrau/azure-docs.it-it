@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ece55cdad04e71d339944b5fcda5a16d35630c16
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 855bd64bc8beb86a1bc62c65f71254f43c7a722a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877748"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101996"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Cos'è SQL Server in Macchine virtuali di Azure? (Windows)
 
@@ -102,7 +101,7 @@ Se esiste già un database, è possibile spostarlo nella nuova VM di SQL di cui 
 
 Il portale di Azure fornisce un'unica pagina in cui è possibile gestire [tutte le risorse SQL di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) , incluse le macchine virtuali SQL.
 
-Per accedere alla pagina **risorse SQL di Azure** , selezionare **Azure SQL** nel menu a sinistra del portale di Azure. Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare *Azure SQL* nella casella di ricerca.
+Per accedere alla pagina **risorse SQL di Azure** , selezionare **Azure SQL** nel menu a sinistra del portale di Azure. Se **Azure SQL** non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare *Azure SQL* nella casella di ricerca.
 
 > [!NOTE]
 > **Azure SQL** offre un modo semplice e rapido per accedere a tutti i database SQL, i pool elastici, i server di database, le istanze gestite di SQL e le macchine virtuali SQL. SQL di Azure non è un servizio o una risorsa. 

@@ -11,25 +11,24 @@ ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70a9680b9f8696cd40cb5631217861dc6d1d7ad8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7e1f50753f155d1583de3a1e8426975e1b0d6aee
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719911"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102526"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creare una macchina virtuale Windows usando un modello di Resource Manager
 
-Informazioni su come creare una macchina virtuale Windows usando un modello di Azure Resource Manager e Azure PowerShell da Azure Cloud shell. Il modello usato in questo articolo consente di distribuire una singola macchina virtuale che esegue Windows Server in una nuova rete virtuale con una sola subnet. Per la creazione di una macchina virtuale Linux, vedere [come creare una macchina virtuale Linux con modelli Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
+Informazioni su come creare una macchina virtuale Windows usando un modello di Azure Resource Manager e Azure PowerShell da Azure cloud Shell. Il modello usato in questo articolo distribuisce una singola macchina virtuale che esegue Windows Server in una nuova rete virtuale con una singola subnet. Per la creazione di una macchina virtuale Linux, vedere [come creare una macchina virtuale Linux con modelli di Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-Creazione di una macchina virtuale di Azure in genere include due passaggi:
+La creazione di una macchina virtuale di Azure include in genere due passaggi:
 
 - Creare un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse deve essere creato prima della macchina virtuale.
 - Creare una macchina virtuale.
@@ -38,7 +37,7 @@ L'esempio seguente crea una macchina virtuale da un [modello di avvio rapido di 
 
 [!code-json[create-windows-vm](~/quickstart-templates/101-vm-simple-windows/azuredeploy.json)]
 
-Per eseguire lo script di PowerShell, selezionare **Provalo** per aprire Azure Cloud shell. Per incollare lo script, la shell e quindi scegliere **incollare**:
+Per eseguire lo script di PowerShell, selezionare **prova** per aprire Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse sulla shell, quindi scegliere **Incolla**:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -59,19 +58,19 @@ New-AzResourceGroupDeployment `
 
 ```
 
-Se si sceglie di installare e usare PowerShell in locale invece che da Azure Cloud shell, questa esercitazione richiede il modulo Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell localmente anziché da Azure cloud Shell, per questa esercitazione è necessario il modulo Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 Nell'esempio precedente è stato specificato un modello archiviato in GitHub. È anche possibile scaricare o creare un modello e specificare il percorso locale con il parametro `--template-file`.
 
 Altre risorse:
 
 - Per informazioni su come sviluppare modelli di Resource Manager, vedere [Documentazione di Resource Manager in Azure](/azure/azure-resource-manager/).
-- Per visualizzare gli schemi di macchina virtuale di Azure, vedere [riferimento a un modello di Azure](/azure/templates/microsoft.compute/allversions).
-- Per ulteriori esempi di modelli di macchina virtuale, vedere [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+- Per visualizzare gli schemi delle macchine virtuali di Azure, vedere informazioni di [riferimento sui modelli di Azure](/azure/templates/microsoft.compute/allversions).
+- Per visualizzare altri esempi di modelli di macchina virtuale, vedere [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 ## <a name="connect-to-the-virtual-machine"></a>Connettersi alla macchina virtuale
 
-L'ultimo comando di PowerShell dello script precedente mostra il nome della macchina virtuale. Per connettersi alla macchina virtuale, vedere [come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](./connect-logon.md).
+L'ultimo comando di PowerShell dello script precedente Mostra il nome della macchina virtuale. Per connettersi alla macchina virtuale, vedere [come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](./connect-logon.md).
 
 ## <a name="next-steps"></a>Fasi successive
 

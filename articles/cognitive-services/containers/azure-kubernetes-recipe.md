@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 5b406f9c7f8c16038561853170896d2cd95dc383
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 852530910f7a8c6c815493d0dbcc57f67695d6de
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444857"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066098"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua nel servizio Azure Kubernetes
 
@@ -62,19 +62,19 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
 
 1. Accedere all'interfaccia della riga di comando di Azure
 
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
 
 1. Creare un gruppo di risorse denominato `cogserv-container-rg` per contenere tutte le risorse create in questa procedura.
 
-    ```azurecli
+    ```azurecli-interactive
     az group create --name cogserv-container-rg --location westus
     ```
 
 1. Creare quindi il Registro Azure Container con il formato del proprio nome e quindi `registry`, ad esempio `pattyregistry`. Non usare trattini o caratteri di sottolineatura nel nome.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     ```
 
@@ -104,7 +104,7 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
 
 1. Accedere al registro contenitori. È necessario accedere prima di eseguire il push di immagini nel registro.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr login --name pattyregistry
     ```
 
@@ -174,7 +174,7 @@ I passaggi seguenti servono per ottenere le informazioni necessarie per la conne
 
 1. Creare un'entità servizio.
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp create-for-rbac --skip-assignment
     ```
 
@@ -193,7 +193,7 @@ I passaggi seguenti servono per ottenere le informazioni necessarie per la conne
 
 1. Ottenere l'ID del registro contenitori.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
     ```
 
@@ -208,7 +208,7 @@ I passaggi seguenti servono per ottenere le informazioni necessarie per la conne
 
 1. Per concedere l'accesso corretto al cluster AKS per l'uso delle immagini archiviate nel registro contenitori, creare un'assegnazione di ruolo. Sostituire `<appId>` e `<acrId>` con i valori raccolti nei due passaggi precedenti.
 
-    ```azurecli
+    ```azurecli-interactive
     az role assignment create --assignee <appId> --scope <acrId> --role Reader
     ```
 
@@ -216,7 +216,7 @@ I passaggi seguenti servono per ottenere le informazioni necessarie per la conne
 
 1. Creare il cluster del servizio Azure Kubernetes. Tutti i valori dei parametri provengono dalle sezioni precedenti, ad eccezione del parametro del nome. Scegliere un nome che indichi chi ha creato il servizio e lo scopo, ad esempio `patty-kube`.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
     ```
 
@@ -284,7 +284,7 @@ I passaggi seguenti servono per ottenere le informazioni necessarie per la conne
 
 1. Ottenere le credenziali del cluster Kubernetes.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks get-credentials --resource-group cogserv-container-rg --name patty-kube
     ```
 
@@ -397,7 +397,7 @@ Modificare l'URL nel browser impostando l'indirizzo IP esterno del contenitore `
 
 Quando il cluster non è più necessario, eliminare il gruppo di risorse di Azure.
 
-```azure-cli
+```azurecli-interactive
 az group delete --name cogserv-container-rg
 ```
 

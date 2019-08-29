@@ -10,17 +10,16 @@ ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 862887e1e530bfdca4359e914b9a81c9360ac4dd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130756"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070417"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Come creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando modelli di Azure Resource Manager
 
@@ -40,7 +39,7 @@ L'automazione della creazione di un ambiente del servizio app con servizio di bi
 3. Il certificato SSL caricato viene assegnato in modo esplicito all'ambiente del servizio app con servizio di bilanciamento del carico interno come certificato "predefinito".  Il certificato SSL verrà usato per il traffico SSL verso le app nell'ambiente del servizio app con bilanciamento del carico interno quando le app vengono indirizzate attraverso un dominio radice comune assegnato all'ambiente del servizio app (ad esempio https://someapp.mycustomrootcomain.com)
 
 ## <a name="creating-the-base-ilb-ase"></a>Creazione dell'ambiente del servizio app con servizio di bilanciamento del carico interno
-Un modello di Azure Resource Manager di esempio e il file dei parametri associati sono disponibili in GitHub [qui][quickstartilbasecreate].
+Un esempio di Azure Resource Manager modello e il file dei parametri associati sono disponibili in GitHub [qui][quickstartilbasecreate].
 
 La maggior parte dei parametri del file *azuredeploy.parameters.json* è comune alla creazione sia dell'ambiente del servizio app con servizio di bilanciamento del carico interno che dell'ambiente del servizio app associato a un indirizzo VIP pubblico.  L'elenco seguente indica parametri importanti o specifici per la creazione di un ambiente del servizio app con servizio di bilanciamento del carico interno:
 
@@ -69,7 +68,7 @@ Dopo aver ottenuto un certificato SSL valido sono necessari altri due passaggi p
 
 Il file con estensione pfx dovrà quindi essere convertito in una stringa con codifica Base64 perché il certificato SSL verrà caricato usando un modello di Azure Resource Manager.  Poiché i modelli di Azure Resource Manager sono file di testo, il file con estensione pfx deve essere convertito in una stringa con codifica Base64 per essere incluso come parametro del modello.
 
-Il frammento di codice Powershell riportato di seguito illustra un esempio di generazione di un certificato autofirmato, esportazione del certificato come file con estensione pfx, conversione del file con estensione pfx in una stringa con codifica Base64 e quindi salvataggio della stringa con codifica Base64 in un file separato.  Il codice Powershell per la codifica Base64 è stato adattato dal [blog di script di Powershell][examplebase64encoding].
+Il frammento di codice Powershell riportato di seguito illustra un esempio di generazione di un certificato autofirmato, esportazione del certificato come file con estensione pfx, conversione del file con estensione pfx in una stringa con codifica Base64 e quindi salvataggio della stringa con codifica Base64 in un file separato.  Il codice PowerShell per la codifica Base64 è stato adattato dal [Blog di script di PowerShell][examplebase64encoding].
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
@@ -83,7 +82,7 @@ Il frammento di codice Powershell riportato di seguito illustra un esempio di ge
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
 
-Dopo aver generato il certificato SSL e averlo convertito in una stringa con codifica Base64, è possibile usare il modello di esempio di Azure Resource Manager disponibile in GitHub per la [configurazione del certificato SSL predefinito][configuringDefaultSSLCertificate].
+Una volta che il certificato SSL è stato generato e convertito in una stringa con codifica Base64, è possibile usare il modello di esempio Azure Resource Manager in GitHub per la [configurazione del certificato SSL predefinito][configuringDefaultSSLCertificate] .
 
 I parametri del file *azuredeploy.parameters.json* sono elencati di seguito:
 

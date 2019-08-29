@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 501aeb60eba1d94b4c5882a7c6cbfa8d0359e44d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c2c9e3d29ced5f75873656e253ecdbab5efe7df8
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033902"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114415"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitazioni correnti per i pool di nodi di Windows Server e i carichi di lavoro delle applicazioni in Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Questo articolo illustra alcune limitazioni e concetti del sistema operativo per
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitazioni per Windows Server in Kubernetes
 
-I contenitori di Windows Server devono essere eseguiti in un host contenitore basato su Windows. Per eseguire i contenitori di Windows Server in AKS, è possibile [creare un pool di nodi che esegue Windows Server][windows-node-cli] come sistema operativo guest. Il supporto del pool di nodi di Windows Server include alcune limitazioni che fanno parte dell'upstream di Windows Server nel progetto Kubernetes. Queste limitazioni non sono specifiche di AKS. Per ulteriori informazioni su questo supporto upstream per Windows Server in Kubernetes, vedere la pagina relativa ai [contenitori di Windows Server in limitazioni di Kubernetes](https://docs.microsoft.com/azure/aks/windows-node-limitations).
+I contenitori di Windows Server devono essere eseguiti in un host contenitore basato su Windows. Per eseguire i contenitori di Windows Server in AKS, è possibile [creare un pool di nodi che esegue Windows Server][windows-node-cli] come sistema operativo guest. Il supporto del pool di nodi di Windows Server include alcune limitazioni che fanno parte dell'upstream di Windows Server nel progetto Kubernetes. Queste limitazioni non sono specifiche di AKS. Per ulteriori informazioni su questo supporto upstream per Windows Server in Kubernetes, vedere la pagina relativa ai [contenitori di Windows Server in limitazioni di Kubernetes](https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations).
 
 Le seguenti limitazioni upstream per i contenitori di Windows Server in Kubernetes sono rilevanti per AKS:
 

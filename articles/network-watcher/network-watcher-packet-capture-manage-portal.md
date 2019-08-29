@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 50092db9e2e3670168cbb3440b8cb99eb0c2ac20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00349a7e681beab447e585139e481c04755b7879
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64714725"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102861"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale
 
@@ -34,27 +34,27 @@ L'acquisizione di pacchetti richiede la connettività seguente:
 * Connettività in ingresso e in uscita a 169.254.169.254
 * Connettività in ingresso e in uscita a 168.63.129.16
 
-Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla subnet in cui si trova l'interfaccia di rete, garantire l’esistenza di regole che autorizzino le porte precedenti. 
+Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla subnet in cui si trova l'interfaccia di rete, garantire l’esistenza di regole che autorizzino le porte precedenti. Analogamente, l'aggiunta di route di traffico definite dall'utente alla rete può impedire la connettività agli indirizzi IP e alle porte indicati in precedenza. Assicurati che siano raggiungibili. 
 
 ## <a name="start-a-packet-capture"></a>Avviare un'acquisizione di pacchetti
 
 1. Nel browser, passare al [portale di Azure](https://portal.azure.com) e selezionare **Tutti i servizi**e quindi selezionare **Network Watcher** nella **sezione rete**.
 2. Selezionare **Acquisizione di pacchetti** sotto **Strumenti di diagnostica di rete**. Sono elencate tutte le acquisizioni di pacchetti esistenti, indipendentemente dal loro stato.
 3. Selezionare **Aggiungi** per creare un'acquisizione di pacchetti. Selezionare i valori per gli elementi seguenti:
-   - **Sottoscrizione** La sottoscrizione che consentono di acquisire la macchina virtuale che si desidera creare il pacchetto per le novità.
+   - **Sottoscrizione** Sottoscrizione in cui si trova la macchina virtuale per la quale si desidera creare l'acquisizione di pacchetti.
    - **Gruppo di risorse**: Il gruppo di risorse della macchina virtuale.
-   - **Macchina virtuale di destinazione**: La macchina virtuale che si desidera creare per l'acquisizione di pacchetti.
-   - **Nome acquisizione pacchetti**: Un nome per l'acquisizione di pacchetti.
-   - **Account di archiviazione o file**: Selezionare **account di archiviazione**, **File**, o entrambi. Se si seleziona **File**, l'acquisizione viene scritta in un percorso all'interno della macchina virtuale.
-   - **Percorso file locale**: Il percorso locale nella macchina virtuale in cui verrà salvata l'acquisizione di pacchetti (valido solo quando *File* è selezionata). Il percorso deve essere valido. Se si usa una macchina virtuale Linux, il percorso deve iniziare con *var/captures*.
-   - **Account di archiviazione**: Selezionare un account di archiviazione esistente, se è stato selezionato *account di archiviazione*. Questa opzione è disponibile solo se è stato selezionato **Archiviazione**.
+   - **Macchina virtuale di destinazione**: Macchina virtuale per la quale si desidera creare l'acquisizione di pacchetti.
+   - **Nome acquisizione pacchetti**: Nome dell'acquisizione di pacchetti.
+   - **Account di archiviazione o file**: Selezionare **account di archiviazione**, **file**o entrambi. Se si seleziona **File**, l'acquisizione viene scritta in un percorso all'interno della macchina virtuale.
+   - **Percorso file locale**: Il percorso locale nella macchina virtuale in cui verrà salvata l'acquisizione pacchetti (valido solo quando è selezionato *file* ). Il percorso deve essere valido. Se si usa una macchina virtuale Linux, il percorso deve iniziare con *var/captures*.
+   - **Account di archiviazione**: Selezionare un account di archiviazione esistente, se si seleziona *account di archiviazione*. Questa opzione è disponibile solo se è stato selezionato **Archiviazione**.
    
      > [!NOTE]
      > Gli account di archiviazione Premium non sono attualmente supportati per l'archiviazione delle acquisizioni di pacchetti.
 
-   - **Numero massimo di byte per pacchetto**: Il numero di byte che sono stati acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte.
+   - **Numero massimo di byte per pacchetto**: Numero di byte di ogni pacchetto acquisito. Se lasciato vuoto, vengono acquisiti tutti i byte.
    - **Numero massimo di byte per sessione**: Numero totale di byte acquisiti. Una volta raggiunto il valore, l'acquisizione pacchetti si arresta.
-   - **Il limite di tempo (secondi)** : Il limite di tempo prima che l'acquisizione di pacchetti viene arrestata. Il valore predefinito è 18.000 secondi.
+   - **Limite di tempo (secondi)** : Limite di tempo prima che l'acquisizione di pacchetti venga arrestata. Il valore predefinito è 18.000 secondi.
    - Filtro (facoltativo). Selezionare **+ Aggiungere filtro**
      - **Protocollo**: Protocollo per filtrare l'acquisizione di pacchetti. I valori disponibili sono TCP, UDP e Qualsiasi.
      - **Indirizzo IP locale**: Filtra l'acquisizione di pacchetti per i pacchetti in cui l'indirizzo IP locale corrisponde a questo valore.

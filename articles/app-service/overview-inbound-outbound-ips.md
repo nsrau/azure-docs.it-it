@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: de9ae8e5c0cbf0997811db9624f6c6b92e03a5df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2508090fa8831c8fefb0e710c28e512ec0c94c6e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742947"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074150"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Indirizzi IP in ingresso e in uscita in Servizio app di Azure
 
@@ -37,7 +36,7 @@ Indipendentemente dal numero di istanze cui è applicata scalabilità orizzontal
 
 ## <a name="find-the-inbound-ip"></a>Trovare l'indirizzo IP in ingresso
 
-Eseguire semplicemente il comando seguente in un terminale locale:
+È sufficiente eseguire il comando seguente in un terminale locale:
 
 ```bash
 nslookup <app-name>.azurewebsites.net
@@ -53,11 +52,11 @@ Indipendentemente dal numero di istanze cui è applicata scalabilità orizzontal
 
 Il set di indirizzi IP in uscita per l'app cambia quando si ridimensiona l'app tra i livelli inferiori (**Basic**, **Standard** e **Premium**) e il livello  **Premium V2**.
 
-È possibile trovare il set di tutti i possibili in uscita indirizzi IP in cui è possibile usare l'app, indipendentemente dal fatto di piani tariffari, cercando il `possibleOutboundIPAddresses` proprietà o nella **altri indirizzi IP in uscita** campo il **proprietà**  pannello nel portale di Azure. Vedere [Trovare gli indirizzi IP in uscita](#find-outbound-ips).
+È possibile trovare il set di tutti i possibili indirizzi IP in uscita che possono essere usati dall'app, indipendentemente dai piani tariffari, cercando la `possibleOutboundIPAddresses` proprietà o nel campo **indirizzi IP in uscita aggiuntivi** nel pannello **Proprietà** della portale di Azure. Vedere [Trovare gli indirizzi IP in uscita](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Trovare gli indirizzi IP in uscita
 
-Per trovare gli indirizzi IP in uscita attualmente usati dall'app nel portale di Azure, fare clic su **Proprietà** nel riquadro di spostamento a sinistra dell'app. Cui sono elencati i **indirizzi IP in uscita** campo.
+Per trovare gli indirizzi IP in uscita attualmente usati dall'app nel portale di Azure, fare clic su **Proprietà** nel riquadro di spostamento a sinistra dell'app. Sono elencate nel campo **indirizzi IP in uscita** .
 
 È possibile trovare le stesse informazioni eseguendo il comando seguente in [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -69,7 +68,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Per trovare _tutte_ possibili indirizzi IP in uscita per l'app, indipendentemente dal fatto di piani tariffari, fare clic su **proprietà** nel riquadro di spostamento a sinistra dell'app. Cui sono elencati i **altri indirizzi IP in uscita** campo.
+Per trovare _tutti i_ possibili indirizzi IP in uscita per l'app, indipendentemente dai piani tariffari, fare clic su **Proprietà** nel riquadro di spostamento a sinistra dell'app. Sono elencate nel campo **altri indirizzi IP in uscita** .
 
 È possibile trovare le stesse informazioni eseguendo il comando seguente in [Cloud Shell](../cloud-shell/quickstart.md).
 

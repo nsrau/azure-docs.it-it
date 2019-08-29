@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/29/2019
 ms.author: victorh
-ms.openlocfilehash: ebe02e8bf3fecc03c46bb66c9ab178e4f277e6e4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971611"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114769"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -153,4 +153,12 @@ Ogni volta che viene applicata una modifica alla configurazione, il firewall di 
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Esiste un limite di caratteri per un nome di firewall?
 
-Sì. È previsto un limite di 50 caratteri per il nome di un firewall. 
+Sì. È previsto un limite di 50 caratteri per il nome di un firewall.
+
+## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Perché il firewall di Azure necessita di una dimensione della subnet/26?
+
+Il firewall di Azure deve effettuare il provisioning di più istanze di macchine virtuali in scala. Uno spazio degli indirizzi/26 garantisce che il firewall disponga di un numero sufficiente di indirizzi IP disponibili per la scalabilità.
+
+## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>È necessario modificare la dimensione della subnet del firewall con la scalabilità del servizio?
+
+No. Il firewall di Azure non necessita di una subnet maggiore di/26.

@@ -8,19 +8,18 @@ manager: gwallace
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: b9f4757b9a4282c7b932b9dc74ce741d9bca2f72
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 4628955998ab8b289a429cdfb85e23f7f97b0b40
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515321"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101422"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluzioni di applicazioni Oracle che integrano Microsoft Azure e l'infrastruttura cloud Oracle (anteprima)
 
@@ -71,7 +70,7 @@ Inoltre, è possibile configurare gli [elenchi di sicurezza](https://docs.cloud.
 
 Identity è uno dei principali pilastri della partnership tra Microsoft e Oracle. È stato eseguito un lavoro significativo per integrare [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDC) con [Azure Active Directory](../../../active-directory/index.yml) (Azure ad). Azure AD è il servizio Microsoft di gestione delle identità e degli accessi basato sul cloud. Consente agli utenti di accedere e accedere a diverse risorse. Azure AD consente inoltre di gestire gli utenti e le relative autorizzazioni.
 
-Attualmente questa integrazione consente di gestire in un'unica posizione centrale, che è Azure Active Directory. Azure AD Sincronizza tutte le modifiche apportate alla directory con la directory Oracle corrispondente e viene utilizzata per l'accesso Single Sign-on alle soluzioni Oracle tra cloud.
+Attualmente questa integrazione consente di gestire in un'unica posizione centrale, che è Azure Active Directory. Azure AD Sincronizza tutte le modifiche apportate alla directory con la directory Oracle corrispondente e viene usata per Single Sign-On per le soluzioni Oracle tra cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

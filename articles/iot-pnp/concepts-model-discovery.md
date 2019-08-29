@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4ab1d45e27762ef05ab7ec74c98ab0b0b934cbf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c37446fd5a0cdc986044405a9aa3da32462d9c04
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880553"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114268"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementare l'individuazione del modello di Plug and Play di anteprima in una soluzione Internet delle cose
 
@@ -24,13 +24,13 @@ Sono disponibili due categorie generali di soluzioni Internet, ovvero soluzioni 
 
 Questo articolo descrive come implementare l'individuazione del modello in entrambi i tipi di soluzione.
 
-## <a name="model-discovery"></a>Individuazione modello
+## <a name="model-discovery"></a>Individuazione dei modelli
 
 Quando un utente Plug and Play dispositivo si connette per la prima volta all'hub Internet delle cose, invia un messaggio di telemetria per informazioni sul modello. Questo messaggio include gli ID delle interfacce implementate dal dispositivo. Affinché la soluzione funzioni con il dispositivo, è necessario risolvere gli ID e recuperare le definizioni per ciascuna interfaccia.
 
 Di seguito sono riportati i passaggi necessari per un dispositivo Plug and Play quando usa il servizio Device provisioning (DPS) per connettersi a un hub:
 
-1. Quando il dispositivo è acceso, si connette all'endpoint globale per il DPS ed esegue l'autenticazione usando uno dei metodi consentiti.
+1. Quando il dispositivo è acceso, si connette all'endpoint globale per DPS ed esegue l'autenticazione usando uno dei metodi consentiti.
 1. DPS esegue quindi l'autenticazione del dispositivo e cerca la regola che indica a quale hub Internet è necessario assegnare il dispositivo. DPS registra quindi il dispositivo con tale hub.
 1. DPS restituisce una stringa di connessione dell'hub Internet al dispositivo.
 1. Il dispositivo invia quindi un messaggio di telemetria di individuazione all'hub Internet. Il messaggio di telemetria di individuazione contiene gli ID delle interfacce implementate dal dispositivo.
@@ -69,9 +69,9 @@ Quando la soluzione riceve una notifica per una nuova connessione a un dispositi
 1. Leggere il messaggio di telemetria di individuazione per recuperare gli ID del modello di funzionalità e delle interfacce implementate dal dispositivo.
 1. Per ogni ID, leggere il file JSON completo per trovare le funzionalità del dispositivo.
 1. Verificare che ogni interfaccia sia presente in tutte le cache create per archiviare i file JSON recuperati in precedenza dalla soluzione.
-1. Quindi, controllare se un'interfaccia con tale ID è presente nel repository del modello globale. Per ulteriori informazioni, vedere il [repository del modello globale](howto-manage-models.md).
-1. Se l'interfaccia non è presente nel repository del modello globale, provare a cercarla in tutti i repository di modelli privati noti alla soluzione. Per accedere a un repository di modelli privati è necessaria una stringa di connessione. Per altre informazioni, vedere [repository di modelli privati](howto-manage-models.md).
-1. Se non è possibile trovare tutte le interfacce nel repository del modello globale o in un repository di modelli privati, è possibile verificare se il dispositivo è in grado di fornire la definizione dell'interfaccia. Un dispositivo può implementare l'interfaccia [ModelDefinition](concepts-common-interfaces.md) standard per pubblicare informazioni su come recuperare i file di interfaccia con un comando.
+1. Quindi, controllare se un'interfaccia con tale ID è presente nel repository del modello pubblico. Per altre informazioni, vedere [repository di modelli pubblici](howto-manage-models.md).
+1. Se l'interfaccia non è presente nel repository del modello pubblico, provare a cercarla in tutti i repository del modello aziendale noti alla soluzione. Per accedere a un repository del modello aziendale è necessaria una stringa di connessione. Per altre informazioni, vedere [repository del modello aziendale](howto-manage-models.md).
+1. Se non è possibile trovare tutte le interfacce nel repository del modello pubblico o in un repository del modello aziendale, è possibile verificare se il dispositivo è in grado di fornire la definizione dell'interfaccia. Un dispositivo può implementare l'interfaccia [ModelDefinition](concepts-common-interfaces.md) standard per pubblicare informazioni su come recuperare i file di interfaccia con un comando.
 1. Se sono stati trovati file JSON per ogni interfaccia implementata dal dispositivo, è possibile enumerare le funzionalità del dispositivo. Usare la logica scritta in precedenza per consentire agli utenti di interagire con il dispositivo.
 1. In qualsiasi momento, è possibile chiamare l'API Digital Twins per recuperare l'ID del modello di funzionalità e gli ID di interfaccia per il dispositivo.
 

@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28819bc9d2eaf7d4b595bed59bcd1df8741b62a5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61481581"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101841"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estendere i gruppi di disponibilità AlwaysOn locali ad Azure
 I gruppi di disponibilità AlwaysOn garantiscono un disponibilità elevata per i gruppi di database grazie all'aggiunta di repliche secondarie, che consentono il failover dei database in caso di errore. Le repliche possono essere usate anche per l'offload di carichi di lavoro di lettura o attività di backup.
@@ -48,7 +47,7 @@ Questa sezione mostra come usare la **procedura guidata per l'aggiunta della rep
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 4. Verrà richiesto di connettersi a tutte le repliche secondarie esistenti. È possibile fare clic su **Connetti...** accanto a ogni replica oppure selezionare **Connetti tutto...** nella parte inferiore della schermata. Dopo l'autenticazione, fare clic su **Avanti** per passare alla schermata successiva.
-5. Nel **specifica repliche** pagina sono disponibili più schede nella parte superiore: **Le repliche**, **endpoint**, **preferenze di Backup**, e **Listener**. Dalla scheda **Repliche** fare clic su **Aggiungi Replica Azure...** per avviare la procedura guidata Aggiungi replica di Azure.
+5. Nella pagina **Specifica repliche** sono elencate più schede nella parte superiore: **Repliche**, **endpoint**, **Preferenze di backup**e **listener**. Dalla scheda **Repliche** fare clic su **Aggiungi Replica Azure...** per avviare la procedura guidata Aggiungi replica di Azure.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)
 6. Selezionare un certificato di gestione di Azure esistente dall'archivio certificati di Windows locale, se in precedenza ne è già stato installato uno. Selezionare o immettere l'ID di una sottoscrizione di Azure, se invece non ne è mai stato usato uno. È possibile fare clic su Download per scaricare e installare un certificato di gestione di Azure e scaricare l'elenco delle sottoscrizioni tramite un account di Azure.

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 65debc8c65752150651d00d84eeff469cefbc268
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68311877"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114796"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -42,7 +42,7 @@ Per un'introduzione, vedere la Guida introduttiva per [compilare ed eseguire un'
 
 La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per ACR Tasks:
 
-| Posizione contesto | Descrizione | Esempio |
+| Posizione contesto | DESCRIZIONE | Esempio |
 | ---------------- | ----------- | ------- |
 | File system locale | File contenuti in una directory nel file System locale. | `/home/user/projects/myapp` |
 | Ramo master GitHub | File nel master (o altra impostazione predefinita) di un repository GitHub.  | `https://github.com/gituser/myapp-repo.git` |
@@ -56,7 +56,7 @@ Per informazioni su come usare le attività rapide, vedere la prima esercitazion
 
 ## <a name="automatic-build-on-source-code-commit"></a>Compilazione automatica in caso di commit del codice sorgente
 
-Usare ACR Tasks per attivare automaticamente una compilazione dell'immagine del contenitore quando viene eseguito il commit di codice in un repository GIT. Le attività di compilazione, configurabili con il comando dell'interfaccia della riga di comando di Azure [AZ ACR Task][az-acr-task], consentono di specificare un repository git e, facoltativamente, un Branch e un Dockerfile. Quando il team esegue il commit di codice nel repository, un webhook creato da ACR Tasks attiva una compilazione dell'immagine del contenitore definita nel repository.
+Usare le attività ACR per attivare automaticamente una compilazione dell'immagine del contenitore quando viene eseguito il commit del codice in un repository git in GitHub o Azure DevOps. Le attività di compilazione, configurabili con il comando dell'interfaccia della riga di comando di Azure [AZ ACR Task][az-acr-task], consentono di specificare un repository git e, facoltativamente, un Branch e un Dockerfile. Quando il team esegue il commit di codice nel repository, un webhook creato da ACR Tasks attiva una compilazione dell'immagine del contenitore definita nel repository.
 
 > [!IMPORTANT]
 > Se in precedenza sono state create attività durante l'anteprima con il comando `az acr build-task`, tali attività devono essere ricreate con il comando [az acr task][az-acr-task].
@@ -73,10 +73,14 @@ Quando un'immagine del sistema operativo o del framework app viene aggiornata da
 
 Individuando dinamicamente le dipendenze dell'immagine di base durante la compilazione di un'immagine del contenitore, ACR Tasks può rilevare l'aggiornamento dell'immagine di base di un'immagine di applicazione. Con un'[attività di compilazione](container-registry-tutorial-base-image-update.md#create-a-task) preconfigurata, ACR Tasks **ricompila quindi automaticamente ogni immagine di applicazione**. Grazie al rilevamento e alla ricompilazione automatici, ACR Tasks consente di risparmiare il tempo e il lavoro normalmente necessari per monitorare e aggiornare manualmente ogni immagine di applicazione che fa riferimento all'immagine di base aggiornata.
 
-Per informazioni sull'applicazione di patch al sistema operativo e al framework, vedere la terza esercitazione su ACR Tasks, [Automatizzare la compilazione di immagini in caso di aggiornamento dell'immagine di base con ACR Tasks](container-registry-tutorial-base-image-update.md).
+Un'attività ACR tiene traccia dell'aggiornamento di un'immagine di base quando l'immagine di base si trova in una delle posizioni seguenti:
 
-> [!NOTE]
-> Attualmente, il trigger aggiornamenti di immagini di base si basa solo quando le immagini di base e dell'applicazione si trovano nello stesso registro contenitori di Azure o la base risiede in un hub Docker pubblico o in un repository di Microsoft Container Registry.
+* Lo stesso registro contenitori di Azure in cui viene eseguita l'attività
+* Un altro registro contenitori di Azure nella stessa area 
+* Un repository pubblico nell'hub Docker
+* Un repository pubblico in Microsoft Container Registry
+
+Per altre informazioni sull'applicazione di patch per il sistema operativo e il Framework, vedere la terza esercitazione sulle attività di ACR, automatizzare le compilazioni di [Immagini nell'aggiornamento dell'immagine di base con container Registry Azure](container-registry-tutorial-base-image-update.md)
 
 ## <a name="multi-step-tasks"></a>Attività in più passaggi
 
@@ -99,7 +103,7 @@ Altre informazioni sulle attività in più passaggi in [Run multi-step build, te
 
 Ogni esecuzione di attività genera l'output del log che è possibile esaminare per determinare se i passaggi dell'attività sono stati eseguiti correttamente. Se si usa il comando [AZ ACR Build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)o [AZ ACR task run](/cli/azure/acr/task#az-acr-task-run) per attivare l'attività, l'output del log per l'esecuzione dell'attività viene trasmesso alla console e archiviato anche per un successivo recupero. Visualizzare i log per un'attività eseguita nel portale di Azure o usare il comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
 
-A partire da luglio 2019, i dati e i log per le esecuzioni delle attività in un registro verranno conservati per impostazione predefinita per 30 giorni e quindi eliminati automaticamente. Se si vogliono archiviare i dati per un'esecuzione di attività, abilitare l'archiviazione usando il comando [AZ ACR task update-Run](/cli/azure/acr/task#az-acr-task-update-run) . Nell'esempio seguente viene abilitata l'archiviazione per l'esecuzione dell'attività *CF11* nel registro di sistema del registro di *sistema.*
+A partire da luglio 2019, i dati e i log per le esecuzioni delle attività in un registro verranno conservati per impostazione predefinita per 30 giorni e quindi eliminati automaticamente. Se si vogliono archiviare i dati per un'esecuzione di attività, abilitare l'archiviazione usando il comando [AZ ACR task update-Run](/cli/azure/acr/task#az-acr-task-update-run) . Nell'esempio seguente viene abilitata l'archiviazione per l'esecuzione dell'attività *CF11* nel registro di sistema del registro di sistema.
 
 ```azurecli
 az acr task update-run --registry myregistry --run-id cf11 --no-archive false

@@ -7,16 +7,15 @@ author: craigshoemaker
 manager: gwallace
 keywords: funzioni di azure, funzioni, architettura serverless
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 82e3744c8129a076bbae34314b1f829c6f48d548
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e28abbe8d44094d8599545479f4611a84e9d9bd5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479865"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085680"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Debug locale del trigger della Griglia di eventi di Funzioni di Azure
 
@@ -28,7 +27,7 @@ Questo articolo illustra come eseguire il debug di una funzione locale che gesti
 - Creare o usare un account di archiviazione esistente
 - Scaricare [ngrok](https://ngrok.com/) per consentire ad Azure di chiamare la funzione locale
 
-## <a name="create-a-new-function"></a>Creare una nuova funzione
+## <a name="create-a-new-function"></a>Crea una nuova funzione
 
 Aprire l'app per le funzioni in Visual Studio, fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni e fare clic su **Aggiungi > Nuova funzione di Azure**.
 
@@ -87,7 +86,7 @@ Dopo aver immesso il valore appropriato, fare clic su **Confermare la selezione*
 > [!IMPORTANT]
 > Ogni volta che si avvia *ngrok*, l'URL HTTPS viene rigenerato e il valore cambia. Pertanto è necessario creare una nuova Sottoscrizione di eventi ogni volta che si espone la propria funzione ad Azure tramite *ngrok*.
 
-## <a name="upload-a-file"></a>Caricare un file
+## <a name="upload-a-file"></a>Carica un file
 
 Ora è possibile caricare un file nell'account di archiviazione per attivare un evento della Griglia di eventi per la funzione locale da gestire. 
 

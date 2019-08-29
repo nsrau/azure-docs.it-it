@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fa80ebea93ae897ba01ff54bdb797ed4194665cd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558860"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068854"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è la sintesi vocale?
 
@@ -31,7 +31,7 @@ Di seguito sono riportate le funzionalità disponibili tramite l'SDK vocale e le
 
 | Caso d'uso | SDK | REST |
 |----------|-----|------|
-| Trascrivere brevi espressioni (< 15 secondi). Supporta solo il risultato finale della trascrizione. | Yes | Yes |
+| Trascrivere brevi espressioni (< 15 secondi). Supporta solo il risultato finale della trascrizione. | Yes | Sì |
 | Trascrizione continua di espressioni Long e audio di streaming (> 15 secondi). Supporta i risultati della trascrizione temporanea e finale. | Yes | No |
 | Derivare gli Intent dai risultati del riconoscimento con [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Sì | No\* |
 | Trascrizione batch di file audio in modo asincrono. | No | Sì\** |
@@ -63,13 +63,7 @@ Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub
 
 ## <a name="customization"></a>Personalizzazione
 
-Oltre al modello universale usato dai servizi di riconoscimento vocale, è possibile creare modelli di lingua acustica, lingua e pronuncia personalizzati specifici per la propria esperienza. Ecco un elenco di opzioni di personalizzazione:
-
-| Modello | Descrizione |
-|-------|-------------|
-| [Modello acustico](how-to-customize-acoustic-models.md) | La creazione di un modello acustico personalizzato è utile se l'applicazione, gli strumenti o i dispositivi vengono usati in un ambiente specifico, ad esempio in una macchina o in una fabbrica con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
-| [Modello linguistico](how-to-customize-language-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |
-| [Modello di pronuncia](how-to-customize-pronunciation.md) | Con un modello di pronuncia personalizzato è possibile definire la forma fonetica e visualizzare una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Tutto ciò che serve è un file di pronunce, un semplice file con estensione TXT. |
+Oltre al modello di base standard usato dai servizi di riconoscimento vocale, è possibile personalizzare i modelli in base alle esigenze con i dati disponibili, per superare gli ostacoli al riconoscimento vocale, ad esempio lo stile parlato, il vocabolario e il rumore di fondo, vedere [riconoscimento vocale personalizzato](how-to-custom-speech.md)
 
 > [!NOTE]
 > Le opzioni di personalizzazione variano in base alla lingua o alle impostazioni locali (vedere [lingue supportate](supported-languages.md)).

@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b720d64f5b0a5f66375083b7854658aa754db150
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656926"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072292"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlli pagina in Gestione API di Azure
 Gestione API di Azure mette a disposizione i seguenti controlli per l'uso nei modelli del portale per sviluppatori.  
@@ -51,7 +50,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
  ![Controllo app&#45;actions](./media/api-management-page-controls/APIM-app-actions-control.png "Controllo app-actions in Gestione API di Azure")  
   
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -73,7 +72,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
  ![Controllo basic&#45;signin](./media/api-management-page-controls/APIM-basic-signin-control.png "Controllo basic-signin in Gestione API di Azure")  
   
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
   
 ```xml  
 <basic-SignIn></basic-SignIn>  
@@ -92,7 +91,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
  ![paging-control](./media/api-management-page-controls/APIM-paging-control.png "paging-control in Gestione API di Azure")  
   
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
   
 ```xml  
 <paging-control></paging-control>  
@@ -115,7 +114,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
  ![Controllo providers](./media/api-management-page-controls/APIM-providers-control.png "Controllo providers in Gestione API di Azure")  
   
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
   
 ```xml  
 <providers></providers>  
@@ -134,7 +133,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
  ![search- control](./media/api-management-page-controls/APIM-search-control.png "search-control in Gestione API di Azure")  
   
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
   
 ```xml  
 <search-control></search-control>  
@@ -155,7 +154,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
  ![Controllo sign&#45;up](./media/api-management-page-controls/APIM-sign-up-control.png "Controllo sign-up in Gestione API di Azure")  
   
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
   
 ```xml  
 <sign-up></sign-up>  
@@ -174,7 +173,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
  ![Controllo subscribe&#45;button](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controllo subscribe-button in Gestione API di Azure")  
   
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
   
 ```xml  
 <subscribe-button></subscribe-button>  
@@ -193,7 +192,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
  ![Controllo subscription&#45;cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Controllo subscription-cancel in Gestione API di Azure")  
   
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
   
 ```xml  
 <subscription-cancel params="{ subscriptionId: '{{subscription.id}}', cancelUrl: '{{subscription.cancelUrl}}' }">  

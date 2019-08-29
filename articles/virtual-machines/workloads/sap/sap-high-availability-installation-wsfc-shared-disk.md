@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 6209bcb3-5b20-4845-aa10-1475c576659f
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1a7d3d3a8f66cfbb3ed649ac645520f39cbb1e4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a22d77de80c7440fc120d2c48f9e73e606388848
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709006"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078179"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e nel disco condiviso per un'istanza ASCS/SCS di SAP in Azure
 
@@ -153,9 +152,9 @@ Questo articolo descrive come installare e configurare un sistema SAP a disponib
 
 Prima di iniziare l'installazione, esaminare questi documenti:
 
-* [Guida all'architettura: Cluster di un'istanza di SAP ASCS/SCS in un cluster di failover Windows con disco condiviso del cluster][sap-high-availability-guide-wsfc-shared-disk]
+* [Guida all'architettura: Cluster di un'istanza di SAP ASC/SCS in un cluster di failover Windows tramite un disco condiviso del cluster][sap-high-availability-guide-wsfc-shared-disk]
 
-* [Preparare l'infrastruttura di Azure per SAP a disponibilità elevata usando un cluster di failover Windows e dischi condivisi per un'istanza di SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP usando un cluster di failover Windows e un disco condiviso per un'istanza di SAP ASC/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 In questo articolo non viene trattata la configurazione del sistema DBMS perché varia a seconda del sistema DBMS usato. Si presuppone che i problemi di disponibilità elevata del sistema DBMS vengano risolti con le funzionalità supportate dai diversi fornitori di sistemi DBMS per Azure, ad esempio Gruppi di disponibilità AlwaysOn o mirroring del database per SQL Server e Oracle Data Guard per database Oracle. Nello scenario usato in questo articolo, non sono state aggiunte altre funzionalità di protezione per il sistema DBMS.
 
@@ -211,7 +210,7 @@ L'installazione di SAP con un'istanza di ASCS/SCS a disponibilità elevata preve
    * Per il **sistema Java**: **SCS** numero di istanza **01**
    * Per il **sistema ABAP + Java**: **ASCS** numero di istanza **00** e **SCS** numero di istanza **01**
 
-   Per usare numeri di istanza diversi da 00 per l'istanza ABAP ASCS e 01 per l'istanza Java SCS, modificare in primo luogo le regole di bilanciamento del carico predefinite del servizio di bilanciamento del carico interno di Azure. Per altre informazioni, vedere [modificare il carico predefinite di ASCS/SCS bilanciamento del carico delle regole di bilanciamento del carico interno di Azure][sap-ha-guide-8.9].
+   Per usare numeri di istanza diversi da 00 per l'istanza ABAP ASCS e 01 per l'istanza Java SCS, modificare in primo luogo le regole di bilanciamento del carico predefinite del servizio di bilanciamento del carico interno di Azure. Per altre informazioni, vedere [modificare le regole di bilanciamento del carico predefinite di ASC/SCS per il servizio di bilanciamento del carico interno di Azure][sap-ha-guide-8.9].
 
 Le attività successive non sono descritte nella documentazione di installazione generale di SAP.
 
@@ -222,7 +221,7 @@ Le attività successive non sono descritte nella documentazione di installazione
 
 ### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modificare il profilo SAP dell'istanza di ASCS/SCS
 
-Aggiungere prima di tutto un nuovo parametro del profilo. Questo parametro impedisce la chiusura delle connessioni tra i processi di lavoro SAP e il server di accodamento quando sono inattivi per un tempo eccessivo. È importante tenere presente lo scenario del problema nella [aggiungere le voci del Registro di sistema in entrambi i nodi del cluster dell'istanza SAP ASCS/SCS][sap-ha-guide-8.11]. In quella sezione sono anche illustrate due modifiche ad alcuni parametri della connessione TCP/IP di base. Nel secondo passaggio è necessario impostare il server di accodamento per l'invio di un segnale `keep_alive` per impedire alle connessioni di raggiungere la soglia di inattività del servizio di bilanciamento del carico interno di Azure.
+Aggiungere prima di tutto un nuovo parametro del profilo. Questo parametro impedisce la chiusura delle connessioni tra i processi di lavoro SAP e il server di accodamento quando sono inattivi per un tempo eccessivo. Viene menzionato lo scenario del problema in [aggiungere voci del registro di sistema in entrambi i nodi del cluster dell'istanza di SAP ASC/SCS][sap-ha-guide-8.11]. In quella sezione sono anche illustrate due modifiche ad alcuni parametri della connessione TCP/IP di base. Nel secondo passaggio è necessario impostare il server di accodamento per l'invio di un segnale `keep_alive` per impedire alle connessioni di raggiungere la soglia di inattività del servizio di bilanciamento del carico interno di Azure.
 
 Per modificare il profilo SAP dell'istanza di ASCS/SCS:
 
@@ -389,9 +388,9 @@ Installare un'istanza di Additional Application Server (AAS) SAP in tutte le mac
 
 Il gruppo di cluster SAP PR1 è in esecuzione nel nodo A del cluster, ad esempio in pr1-ascs-0. Assegnare al nodo A del cluster l'unità disco condivisa S, appartenente al gruppo di cluster SAP PR1 e usata anche dall'istanza di ASCS/SCS. 
 
-![Figura 6: Gestione cluster di failover: SAP \<SID\> gruppo cluster è in esecuzione nel nodo A del cluster][sap-ha-guide-figure-5000]
+![Figura 6: Gestione cluster di failover: Il gruppo \<di\> cluster SID di SAP è in esecuzione nel nodo a del cluster][sap-ha-guide-figure-5000]
 
-_**Figura 6:** Gestione cluster di failover: SAP \<SID\> gruppo cluster è in esecuzione nel nodo A del cluster_
+_**Figura 6:** Gestione cluster di failover: Il gruppo \<di\> cluster SID di SAP è in esecuzione nel nodo a del cluster_
 
 Nello strumento di configurazione e gestione di SIOS DataKeeper è possibile verificare che i dati di dischi condivisi vengano replicati in modo sincrono dall'unità S del volume di origine nel nodo A del cluster all'unità S del volume di destinazione nel nodo B del cluster, ad esempio da pr1-ascs-0 [10.0.0.40] a pr1-ascs-1 [10.0.0.41].
 
@@ -418,9 +417,9 @@ _**Figura 7:** In SIOS DataKeeper replicare il volume locale dal nodo A al nodo 
 
    Dopo il failover, il gruppo di cluster \<SID\> di SAP è in esecuzione nel nodo B del cluster, ad esempio in pr1-ascs-1.
 
-   ![Figura 8: In Gestione Cluster di Failover SAP \<SID\> gruppo cluster è in esecuzione nel nodo B del cluster][sap-ha-guide-figure-5002]
+   ![Figura 8: In Gestione cluster di failover, il gruppo \<di\> cluster SID di SAP è in esecuzione nel nodo B del cluster][sap-ha-guide-figure-5002]
 
-   _**Figura 8**: In Gestione Cluster di Failover SAP \<SID\> gruppo cluster è in esecuzione nel nodo B del cluster_
+   _**Figura 8**: In Gestione cluster di failover, il gruppo \<di\> cluster SID di SAP è in esecuzione nel nodo B del cluster_
 
    Il disco condiviso è ora montato nel nodo B del cluster. SIOS DataKeeper replica i dati dall'unità S del volume di origine nel nodo B del cluster all'unità S del volume di destinazione nel nodo A del cluster, ad esempio da pr1-ascs-1 [10.0.0.41] a pr1-ascs-0 [10.0.0.40].
 

@@ -11,17 +11,16 @@ ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59a0cdd29e50501f023faf323948a400f325df0b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: acb6e14845beb4c947992e63f1984c072ba9f59f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706174"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084813"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
 
@@ -108,12 +107,12 @@ Leggere la documentazione nel [repository dell'agente Linux di Azure su GitHub](
 
 ## <a name="command-line-options"></a>Opzioni della riga di comando
 ### <a name="flags"></a>Flag
-* verbose: Aumentare il livello di dettaglio del comando specificato
-* Force: Ignora la conferma interattiva per determinati comandi
+* dettagliato Aumenta il livello di dettaglio del comando specificato
+* forzare Ignora la conferma interattiva per alcuni comandi
 
 ### <a name="commands"></a>Comandi:
-* aiuto: Elenca i comandi supportati e i flag.
-* effettuare il deprovisioning: Provare a pulire il sistema e renderlo idoneo per un nuovo provisioning. L'operazione seguente elimina:
+* Guida: Elenca i comandi e i flag supportati.
+* deprovisioning Provare a pulire il sistema e a renderlo adatto per il nuovo provisioning. L'operazione seguente elimina:
   
   * Tutte le chiavi host (se Provisioning.RegenerateSshHostKeyPair è 'y' nel file di configurazione)
   * Configurazione NameServer in /etc/resolv.conf
@@ -126,11 +125,11 @@ Leggere la documentazione nel [repository dell'agente Linux di Azure su GitHub](
 > 
 > 
 
-* deprovision+user: Esegue tutte le operazioni in - deprovision (sopra) e inoltre consente di eliminare l'ultimo account utente con provisioning (ottenuto da /var/lib/waagent) e i dati associati. Questo parametro viene usato per il deprovisioning di un'immagine precedentemente sottoposta a provisioning in Azure in modo che possa essere acquisita e riutilizzata.
+* deprovision + utente: Esegue tutto il deprovisioning (sopra) ed elimina anche l'ultimo account utente di cui è stato effettuato il provisioning (ottenuto da/var/lib/waagent) e i dati associati. Questo parametro viene usato per il deprovisioning di un'immagine precedentemente sottoposta a provisioning in Azure in modo che possa essere acquisita e riutilizzata.
 * Versione: Visualizza la versione di waagent
-* serialconsole: Configura GRUB affinché contrassegni ttyS0 (la prima porta seriale) come console di avvio. Questo garantisce che i log di avvio del kernel vengano inviati alla porta seriale e resi disponibili per il debug.
-* daemon: Esegue waagent come daemon per gestire l'interazione con la piattaforma. Questo argomento è specificato per waagent nello script di inizializzazione di waagent.
-* Start: Esegue waagent come processo in background
+* serialconsole: Configura GRUB per contrassegnare ttyS0 (la prima porta seriale) come console di avvio. Questo garantisce che i log di avvio del kernel vengano inviati alla porta seriale e resi disponibili per il debug.
+* DAEMON Eseguire waagent come daemon per gestire l'interazione con la piattaforma. Questo argomento è specificato per waagent nello script di inizializzazione di waagent.
+* iniziare Eseguire waagent come processo in background
 
 ## <a name="configuration"></a>Configurazione
 Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente waagent. Di seguito viene illustrato un file di configurazione di esempio:
@@ -344,6 +343,6 @@ Le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpad.net/ubuntu
 
 * Per altre informazioni, vedere le risorse seguenti per configurare il punto di montaggio del disco di risorsa e scambiare spazio nelle immagini di Ubuntu Cloud durante il provisioning:
   
-  * [Ubuntu Wiki: Configurare partizioni di scambio](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Wiki di Ubuntu: Configurare le partizioni di scambio](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Inserimento di dati personalizzati in una macchina virtuale di Azure](../windows/classic/inject-custom-data.md)
 

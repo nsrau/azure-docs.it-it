@@ -10,23 +10,22 @@ ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: fd9902a83a813daffc52e089e6e8bfc4137c5b8f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656630"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072281"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificare il contenuto e il layout delle pagine nel portale per sviluppatori in Gestione API di Azure
 Per personalizzare il portale per sviluppatori in Gestione API di Azure ci sono tre modalità principali:
 
-* [Modificare il contenuto di pagine statiche e gli elementi di layout di pagina][modify-content-layout] (descritto in questa guida)
+* [Modificare il contenuto delle pagine statiche e degli elementi del layout di pagina][modify-content-layout] (descritto in questa guida)
 * [Aggiornare gli stili usati per gli elementi della pagina nel portale per sviluppatori][customize-styles]
-* [Modificare i modelli usati per le pagine generati dal portale][portal-templates] (ad esempio documenti API, prodotti, autenticazione utente e così via)
+* [Modificare i modelli usati per le pagine generate dal portale][portal-templates] ad esempio, documentazione API, prodotti, autenticazione utente e così via.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -57,7 +56,7 @@ A questo punto, la nuova intestazione dovrebbe essere visualizzata in ogni pagin
 
 ## <a name="next-steps"> </a>Passaggi successivi
 * [Aggiornare gli stili usati per gli elementi della pagina nel portale per sviluppatori][customize-styles]
-* [Modificare i modelli usati per le pagine generati dal portale][portal-templates] (ad esempio documenti API, prodotti, autenticazione utente e così via)
+* [Modificare i modelli usati per le pagine generate dal portale][portal-templates] ad esempio, documentazione API, prodotti, autenticazione utente e così via.
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f50f013020c704ddc294a59f8c6c5dac24bbd5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51e97089b1de88ccf9f45b1a0f429abc0cfac9f3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835278"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101333"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per SAP ASE di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -379,9 +378,9 @@ Come per i sistemi locali, sono necessari diversi passaggi per abilitare tutte l
 
 I collegamenti generati nella transazione DBACockpit sono simili ai seguenti:
 
-> https:\//\<fullyqualifiedhostname >: 44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//fullyqualifiedhostname>:44300/SAP/BC/WebDynpro\</SAP/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname >: 8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//fullyqualifiedhostname>:8000/SAP/BC/WebDynpro\</SAP/dba_cockpit
 > 
 > 
 
@@ -397,9 +396,9 @@ Altri dettagli relativi al nome DNS sono disponibili [qui][virtual-machines-azur
 
 Impostando il parametro del profilo SAP icm/host_name_full sul nome DNS della VM di Azure, il collegamento sarà simile a:
 
-> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//mydomainlabel.westeurope.cloudapp.NET:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//mydomainlabel.westeurope.cloudapp.NET:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 
 In questo caso è necessario assicurarsi di:
 
@@ -504,7 +503,7 @@ Per tali sistemi, eseguire questa procedura per il tempdb aggiuntivo creato:
 
 Questa configurazione consente al tempdb di usare più spazio di quello offerto dall'unità di sistema. Come riferimento è possibile controllare le dimensioni del dispositivo tempdb nei sistemi esistenti eseguiti in locale. In alternativa, con una tale configurazione potrà essere eseguito su tempdb un numero di operazioni di I/O al secondo che l'unità di sistema non può garantire. I sistemi in esecuzione in locale possono essere usati per monitorare il carico di lavoro di operazioni di I/O rispetto al tempdb.
 
-Non inserire mai le directory SAP ASE in /mnt o /mnt/resource nella VM. Per SAP ASE, questo consiglio vale anche per il tempdb, anche se gli oggetti in esso presenti sono solo temporanei. Questo perché /mnt o /mnt/resource è uno spazio temporaneo predefinito della VM di Azure, che non è persistente. Per altri dettagli sullo spazio temporaneo della macchina virtuale di Azure, vedere [questo articolo][virtual-machines-linux-how-to-attach-disk]
+Non inserire mai le directory SAP ASE in /mnt o /mnt/resource nella VM. Per SAP ASE, questo consiglio vale anche per il tempdb, anche se gli oggetti in esso presenti sono solo temporanei. Questo perché /mnt o /mnt/resource è uno spazio temporaneo predefinito della VM di Azure, che non è persistente. Altri dettagli sullo spazio temporaneo della macchina virtuale di Azure sono disponibili in [questo articolo][virtual-machines-linux-how-to-attach-disk]
 
 Per le distribuzioni dei file di dati e dei file registro transazioni, le istruzioni e i suggerimenti sono disponibili in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP). In caso di distribuzioni basate su Linux, è consigliabile usare LVM o MDADM per creare set con striping con operazioni di I/O al secondo, velocità effettiva e volume sufficienti. 
 
@@ -532,9 +531,9 @@ Come per i sistemi locali, sono necessari diversi passaggi per abilitare tutte l
 
 I collegamenti generati nella transazione DBACockpit saranno simili ai seguenti:
 
-> https:\//\<fullyqualifiedhostname >: 44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//fullyqualifiedhostname>:44300/SAP/BC/WebDynpro\</SAP/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname >: 8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//fullyqualifiedhostname>:8000/SAP/BC/WebDynpro\</SAP/dba_cockpit
 > 
 > 
 
@@ -550,9 +549,9 @@ Altri dettagli relativi al nome DNS sono disponibili [qui][virtual-machines-azur
 
 Impostando il parametro del profilo SAP icm/host_name_full sul nome DNS della VM di Azure, il collegamento sarà simile a:
 
-> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//mydomainlabel.westeurope.cloudapp.NET:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//mydomainlabel.westeurope.cloudapp.NET:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 
 In questo caso è necessario assicurarsi di:
 

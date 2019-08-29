@@ -11,16 +11,15 @@ ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
-ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 74b92c277b1d6eaa0984e55a70459bad59c2bf84
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 5cbf53da5a0af0a511350b9f30153e2fefe72dcf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719284"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080135"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automazione della distribuzione delle macchine virtuali di Azure con Chef
 
@@ -54,13 +53,13 @@ Chef usa anche i concetti di "guida di riferimento dettagliata" e di "recipe", c
 
 In primo luogo, preparare la workstation creando una directory in cui archiviare file di configurazione e guide di riferimento dettagliate di Chef.
 
-Creare una directory denominata c:\chef.
+Creare una directory denominata C:\Chef.
 
-Scaricare e installare la versione più recente [CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) versione alla workstation.
+Scaricare e installare la versione più recente dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) nella workstation.
 
 ## <a name="configure-azure-service-principal"></a>Configurare un'entità servizio di Azure
 
-In più semplice dei termini e delle entità servizio di Azure è un account del servizio.   Si userà un'entità servizio per consentire agli utenti di creare risorse di Azure dalla nostra Chef Workstation.  Per creare l'entità servizio rilevanti con le autorizzazioni necessarie, che è necessario eseguire i comandi seguenti in PowerShell:
+In termini più semplici, l'entità servizio di Azure è un account del servizio.   Verrà usata un'entità servizio per semplificare la creazione delle risorse di Azure dalla workstation chef.  Per creare l'entità servizio pertinente con le autorizzazioni necessarie, è necessario eseguire i comandi seguenti all'interno di PowerShell:
  
 ```powershell
 Login-AzureRmAccount
@@ -71,7 +70,7 @@ New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
 ```
 
-Annotare l'ID sottoscrizione, TenantID, ClientID e il segreto Client (la password è impostato in precedenza), sarà necessario in un secondo momento. 
+Prendere nota di SubscriptionID, TenantID, ClientID e client Secret (la password impostata in precedenza), che sarà necessaria in un secondo momento. 
 
 ## <a name="setup-chef-server"></a>Configurare il server Chef
 
@@ -100,7 +99,7 @@ Una volta creata l'organizzazione, scaricare lo Starter Kit.
 
 Il file ZIP dello starter kit contiene i file di configurazione dell'organizzazione e la chiave utente nella directory `.chef`.
 
-`organization-validator.pem` deve essere scaricato separatamente, perché è una chiave privata e le chiavi private non devono essere archiviate nel server Chef. Dal [Chef gestire](https://manage.chef.io/), passare alla sezione di amministrazione e selezionare "Reimpostazione della chiave di convalida", che fornisce un file da scaricare separatamente. Salvare il file in c:\chef.
+`organization-validator.pem` deve essere scaricato separatamente, perché è una chiave privata e le chiavi private non devono essere archiviate nel server Chef. Da [chef Manage](https://manage.chef.io/), passare alla sezione amministrazione e selezionare "Reimposta chiave di convalida", che fornisce un file da scaricare separatamente. Salvare il file in c:\chef.
 
 ### <a name="configuring-your-chef-workstation"></a>Configurazione della workstation Chef
 
@@ -148,9 +147,9 @@ cookbook_path       ["#{current_dir}/cookbooks"]
 
 Aggiungere le informazioni seguenti al file knife.rb:
 
-validation_client_name   "myorg-validator"
+validation_client_name "MyOrg-validator"
 
-validation_key           "#{current_dir}/myorg.pem"
+validation_key "#{current_dir}/myorg.pem"
 
 knife[:azure_tenant_id] =         "0000000-1111-aaaa-bbbb-222222222222"
 
@@ -161,7 +160,7 @@ knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 knife[:azure_client_secret] =     "#1234p$wdchef19"
 
 
-Queste righe garantirà che fa riferimento a directory Cookbook in c:\chef\cookbooks Knife e Usa anche l'entità servizio di Azure creato durante le operazioni di Azure.
+Queste righe garantiscono che Knife faccia riferimento alla directory Cookbooks in c:\chef\cookbooks e usa anche l'entità servizio di Azure creata durante le operazioni di Azure.
 
 Il file knife.rb dovrebbe avere un aspetto simile all'esempio seguente:
 
@@ -194,7 +193,7 @@ knife[:azure_client_secret] = "#1234p$wdchef19"
 [Scaricare e installare](https://downloads.chef.io/chef-workstation/) la workstation Chef.
 Installare la workstation Chef nel percorso predefinito. Questa installazione potrebbe richiedere alcuni minuti.
 
-Nel desktop verrà visualizzato "CW PowerShell", un ambiente caricato con lo strumento, necessario per interagire con i prodotti Chef. Il comando di PowerShell CW rende disponibili, ad esempio nuovi comandi ad hoc `chef-run` comandi CLI Chef anche tradizionali, ad esempio `chef`. Per conoscere la versione installata della workstation Chef e degli strumenti Chef, eseguire `chef -v`. È anche possibile controllare la versione della workstation selezionando "About Chef Workstation" (Informazioni sulla workstation Chef) nell'app della workstation Chef.
+Nel desktop verrà visualizzato "CW PowerShell", un ambiente caricato con lo strumento, necessario per interagire con i prodotti Chef. Il PowerShell CW rende disponibili nuovi comandi ad hoc, ad `chef-run` esempio, nonché i comandi dell'interfaccia della riga di comando chef tradizionali, `chef`ad esempio. Per conoscere la versione installata della workstation Chef e degli strumenti Chef, eseguire `chef -v`. È anche possibile controllare la versione della workstation selezionando "About Chef Workstation" (Informazioni sulla workstation Chef) nell'app della workstation Chef.
 
 `chef --version` restituirà un output simile al seguente:
 
@@ -290,7 +289,7 @@ In questo passaggio si crea una copia della guida di riferimento dettagliata cre
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Distribuzione di una macchina virtuale con il comando Knife Azure
 Distribuire una macchina virtuale di Azure e applicare la guida di riferimento dettagliata "Webserver", che installa il servizio Web IIS e la pagina Web predefinita.
 
-Per eseguire questa operazione, usare il **knife azurerm server creare** comando.
+A tale scopo, usare il comando **Knife azurerm server create** .
 
 Un esempio del comando è visualizzato qui di seguito.
 
@@ -310,10 +309,10 @@ Un esempio del comando è visualizzato qui di seguito.
     -r "recipe[webserver]"
 
 
-Nell'esempio precedente creerà una macchina virtuale Standard_DS2_v2 con Windows Server 2016 già installato all'interno dell'area Stati Uniti occidentali. Sostituire le variabili desiderate ed eseguire il comando.
+Nell'esempio precedente viene creata una macchina virtuale Standard_DS2_v2 con Windows Server 2016 installato all'interno dell'area Stati Uniti occidentali. Sostituire le variabili desiderate ed eseguire il comando.
 
 > [!NOTE]
-> Nella riga di comando sono state automatizzate anche le regole di filtro per la rete degli endpoint mediante il parametro –tcp-endpoints. Sono state aperte le porte 80 e 3389 per fornire l'accesso alla pagina web e sessione RDP.
+> Nella riga di comando sono state automatizzate anche le regole di filtro per la rete degli endpoint mediante il parametro –tcp-endpoints. Ho aperto le porte 80 e 3389 per consentire l'accesso alla pagina Web e alla sessione RDP.
 >
 >
 
@@ -325,13 +324,13 @@ Di seguito viene visualizzato il prompt dei comandi.
 
 ![][16]
 
-Una volta completata la distribuzione, verrà visualizzato l'indirizzo IP pubblico della macchina virtuale nuova al completamento della distribuzione, è possibile copiare questa e incollarlo in un web browser e visualizzare il sito Web che è stato distribuito. Quando è stata distribuita la macchina virtuale è aperta la porta 80 in modo che dovrebbe essere disponibile esternamente.   
+Al termine della distribuzione, l'indirizzo IP pubblico della nuova macchina virtuale verrà visualizzato al termine della distribuzione. è possibile copiarlo e incollarlo in un Web browser e visualizzare il sito Web distribuito. Quando la macchina virtuale è stata distribuita, è stata aperta la porta 80 in modo che sia disponibile esternamente.   
 
 ![][11]
 
 Questo esempio usa un codice HTML creativo.
 
-È anche possibile visualizzare lo stato del nodo [Chef gestire](https://manage.chef.io/). 
+È anche possibile visualizzare lo stato di [gestione](https://manage.chef.io/)del nodo. 
 
 ![][17]
 
