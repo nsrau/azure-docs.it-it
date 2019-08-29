@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 68c516ee7ca2d76339760ce0ad95590686250603
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521938"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067460"
 ---
 # <a name="transform-and-protect-your-api"></a>Trasformare e proteggere l'API
 
@@ -75,8 +74,8 @@ La risposta originale dovrebbe avere l'aspetto seguente:
 1. Selezionare **Demo Conference API**.
 2. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
 3. Selezionare **Tutte le operazioni**.
-4. Nella sezione **Elaborazione in uscita** fare clic sull'icona **</>**.
-5. Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;**.
+4. Nella sezione **Elaborazione in uscita** fare clic sull'icona **</>** .
+5. Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;** .
 6. Nella finestra di destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Set HTTP header** (+ Imposta intestazione HTTP) due volte (per inserire due frammenti di criteri).
 
    ![Criteri](./media/transform-api/transform-api.png)
@@ -112,10 +111,10 @@ Per visualizzare la risposta originale:
 1.  Selezionare **Demo Conference API**.
 2.  Selezionare **Tutte le operazioni**.
 3.  Nella parte superiore della schermata selezionare la scheda **Progettazione**.
-4.  Nella sezione **Elaborazione in uscita** fare clic sull'icona **</>**.
-5.  Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;**.
+4.  Nella sezione **Elaborazione in uscita** fare clic sull'icona **</>** .
+5.  Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;** .
 6.  Nella finestra a destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Find and replace string in body** (+ Trova e sostituisci la stringa nel corpo).
-7.  Modificare il codice **find-and-replace** (nell'elemento **\<in uscita\>**) per sostituire l'URL in modo che corrisponda al gateway di Gestione API. Ad esempio: 
+7.  Modificare il codice **find-and-replace** (nell'elemento **\<in uscita\>** ) per sostituire l'URL in modo che corrisponda al gateway di Gestione API. Ad esempio:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -128,10 +127,10 @@ Questa sezione illustra come aggiungere la protezione per l'API back-end configu
 1.  Selezionare **Demo Conference API**.
 2.  Selezionare **Tutte le operazioni**.
 3.  Nella parte superiore della schermata selezionare la scheda **Progettazione**.
-4.  Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>**.
-5.  Posizionare il cursore all'interno dell'elemento **&lt;inbound&gt;**.
+4.  Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>** .
+5.  Posizionare il cursore all'interno dell'elemento **&lt;inbound&gt;** .
 6.  Nella finestra a destra, in **Access restriction policies** (Criteri di restrizione dell'accesso) fare clic su **+ Limit call rate per key** (+ Limita frequenza delle chiamate per chiave).
-7.  Sostituire il codice **rate-limit-by-key** (nell'elemento **\<in ingresso\>**) con il codice seguente:
+7.  Sostituire il codice **rate-limit-by-key** (nell'elemento **\<in ingresso\>** ) con il codice seguente:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 0ab658b26a44e98b073c477c1aaeeb683372ee46
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0f3995e8904396dbb0bcbeeea1f993913d68587e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988498"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013129"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 
@@ -97,7 +97,7 @@ Se si verifica un errore a causa del quale il client è in dubbio sul risultato 
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>Firma di accesso condiviso, controllo degli accessi in base al ruolo e identità gestite per risorse di Azure
 
-Il bus di servizio supporta i protocolli di sicurezza, ad esempio [firme di accesso condiviso](service-bus-sas.md), [controllo degli accessi in base al ruolo](service-bus-role-based-access-control.md) e [identità gestite per risorse di Azure](service-bus-managed-service-identity.md).
+Il bus di servizio supporta i protocolli di sicurezza, ad esempio [firme di accesso condiviso](service-bus-sas.md), [controllo degli accessi in base al ruolo](authenticate-application.md) e [identità gestite per risorse di Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Ripristino di emergenza geografico
 

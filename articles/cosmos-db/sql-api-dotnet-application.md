@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
-ms.openlocfilehash: b1d8d2539ae89dfdb8feb2e38f00bf4440411d8a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9824e1468604763834e37abe94290d68d81077ab
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815148"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020118"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET Core con Azure Cosmos DB usando .NET SDK 
 
@@ -120,22 +120,6 @@ A questo punto occorre aggiungere i modelli, le visualizzazioni e i controller a
    
    I dati archiviati in Azure Cosmos DB vengono passati sulla rete cablata e archiviati come JSON. Per controllare il modo in cui gli oggetti vengono serializzati/deserializzati da JSON.NET, è possibile usare l'attributo **JsonProperty**, come mostrato nella classe **Item** creata in precedenza. Non solo è possibile controllare il formato del nome della proprietà usata in JSON, ma anche rinominare le proprietà .NET come è stato fatto con la proprietà **Completed**. 
 
-### <a name="add-a-controller"></a>Aggiungere un controller
-
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Controller**, scegliere **Aggiungi** e quindi selezionare **Controller**. Verrà visualizzata la finestra di dialogo **Aggiungi scaffolding** .
-
-1. Selezionare **Controller MVC - Vuoto** e quindi scegliere **Aggiungi**.
-
-   ![Screenshot della finestra di dialogo Aggiungi scaffolding con l'opzione Controller MVC - Vuoto evidenziata](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
-
-1. Assegnare al nuovo controller il nome **ItemController** e sostituire il codice incluso nel file con il codice seguente:
-
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
-
-   L'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di falsificazione (CSRF) richiesta tra siti. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per altre informazioni in proposito e per alcuni esempi sulla corretta implementazione, vedere [Prevenzione degli attacchi di falsificazione (CSRF) richiesta tra siti nell'applicazione ASP.NET MVC][Preventing Cross-Site Request Forgery]. Il codice sorgente fornito in [GitHub][GitHub] permette l'implementazione completa.
-
-   Viene usato anche l'attributo **Bind** nel parametro del metodo come protezione dagli attacchi di overposting. Per informazioni dettagliate, vedere [Implementazione della funzionalità CRUD di base con Entity Framework nell'applicazione ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
-
 ### <a name="add-views"></a>Aggiungere visualizzazioni
 
 A questo punto occorre creare le tre visualizzazioni seguenti: 
@@ -190,6 +174,22 @@ Infine, aggiungere una visualizzazione per la modifica di elementi seguendo ques
    * Selezionare **Aggiungi**.
 
 Al termine, chiudere tutti i documenti con estensione cshtml in Visual Studio. Si tornerà a queste visualizzazioni in un secondo momento.
+
+### <a name="add-a-controller"></a>Aggiungere un controller
+
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Controller**, scegliere **Aggiungi** e quindi selezionare **Controller**. Verrà visualizzata la finestra di dialogo **Aggiungi scaffolding** .
+
+1. Selezionare **Controller MVC - Vuoto** e quindi scegliere **Aggiungi**.
+
+   ![Screenshot della finestra di dialogo Aggiungi scaffolding con l'opzione Controller MVC - Vuoto evidenziata](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+
+1. Assegnare al nuovo controller il nome **ItemController** e sostituire il codice incluso nel file con il codice seguente:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+
+   L'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di falsificazione (CSRF) richiesta tra siti. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per altre informazioni in proposito e per alcuni esempi sulla corretta implementazione, vedere [Prevenzione degli attacchi di falsificazione (CSRF) richiesta tra siti nell'applicazione ASP.NET MVC][Preventing Cross-Site Request Forgery]. Il codice sorgente fornito in [GitHub][GitHub] permette l'implementazione completa.
+
+   Viene usato anche l'attributo **Bind** nel parametro del metodo come protezione dagli attacchi di overposting. Per informazioni dettagliate, vedere [Implementazione della funzionalità CRUD di base con Entity Framework nell'applicazione ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 ## <a name="connect-to-cosmosdb"></a>Passaggio 5: Connettersi ad Azure Cosmos DB 
 

@@ -6,19 +6,18 @@ manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a62a302748cb7e60b6a857c686d1833ad499cc7a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901424"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081663"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Jenkins e Azure DevOps Services
 
@@ -133,7 +132,7 @@ Un endpoint di servizio consente ad Azure DevOps Services di connettersi a Jenki
 
 1. Aprire la scheda **Versioni** nell'hub **Compilazione e versione**, quindi aprire **Gruppi di distribuzione** e selezionare **+ Nuovo**.
 2. Immettere un nome per il gruppo di distribuzione e una descrizione facoltativa, Selezionare quindi **Crea**.
-3. Scegliere il sistema operativo per la macchina virtuale di destinazione di distribuzione. Ad esempio selezionare **Ubuntu 16.04+**.
+3. Scegliere il sistema operativo per la macchina virtuale di destinazione di distribuzione. Ad esempio selezionare **Ubuntu 16.04+** .
 4. Selezionare **Usa un token di accesso personale nello script per l'autenticazione**.
 5. Selezionare il collegamento **Prerequisiti di sistema**. Installare i prerequisiti per il sistema operativo.
 6. Selezionare **Copia script negli appunti** per copiare lo script.
@@ -166,7 +165,7 @@ Per creare la pipeline di versione in Azure Pipelines:
 2. Selezionare la build completata nell'elenco a discesa evidenziato e quindi **Accoda**.
 3. Scegliere il collegamento di versione nel messaggio popup. Ad esempio:  "Versione **Versione-1** creata".
 4. Aprire la scheda **Log** per osservare l'output della console della versione.
-5. Nel browser aprire l'URL di uno dei server aggiunti al gruppo di distribuzione. Ad esempio, immettere **http://{indirizzo-ip-server-personale}**.
+5. Nel browser aprire l'URL di uno dei server aggiunti al gruppo di distribuzione. Ad esempio, immettere **http://{indirizzo-ip-server-personale}** .
 6. Passare al repository Git di origine e modificare il contenuto del titolo **h1** nel file app/views/index.jade con un testo modificato.
 7. Eseguire il commit delle modifiche.
 8. Dopo alcuni minuti, si noterà una nuova versione creata nella pagina **Versioni** di Azure DevOps. Aprire la versione per visualizzare la distribuzione in corso. Congratulazioni!

@@ -10,17 +10,16 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2762a81c9f366ad4a5d0d6d87cf04490fc10b23c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: b64fd653a737201921ad481c50e2a72dc00cd912
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630585"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071744"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Creare un'app Web ASP.NET Core in Azure
 
@@ -40,7 +39,7 @@ Per completare questa esercitazione, installare <a href="https://www.visualstudi
 
 Se Visual Studio 2017 è già installato:
 
-- Installare gli aggiornamenti più recenti in Visual Studio facendo clic su **?** > **Controlla la disponibilità di aggiornamenti**.
+- Installare gli aggiornamenti più recenti in Visual Studio facendo clic su **?**  > **Controlla la disponibilità di aggiornamenti**.
 - Aggiungere il carico di lavoro facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Creare un'app Web ASP.NET Core
@@ -104,7 +103,7 @@ Nella finestra di dialogo **Configura piano di hosting** usare le impostazioni d
 | Impostazione | Valore consigliato | DESCRIZIONE |
 |-|-|-|
 |Piano di servizio app| myAppServicePlan | Nome del piano di servizio app. |
-| Località | Europa occidentale | Data center in cui è ospitata l'app Web. |
+| Location | Europa occidentale | Data center in cui è ospitata l'app Web. |
 | Dimensione | Gratuito | [Piano tariffario](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) che determina le funzionalità di hosting. |
 
 Selezionare **OK**.
@@ -151,7 +150,7 @@ Al termine del processo di pubblicazione, Visual Studio avvia un browser sull'UR
 
 Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per visualizzare l'app Web.
 
-Dal menu a sinistra scegliere **Servizi app** e quindi selezionare il nome dell'app Azure.
+Nel menu a sinistra scegliere **Servizi app** e quindi selezionare il nome dell'app Azure.
 
 ![Passaggio all'app di Azure nel portale](./media/app-service-web-get-started-dotnet/access-portal.png)
 

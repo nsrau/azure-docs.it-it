@@ -3,16 +3,16 @@ title: Informazioni su Azure Lighthouse
 description: Azure Lighthouse consente ai provider di servizi di offrire servizi gestiti ai clienti con maggiore automazione ed efficienza su larga scala.
 author: JnHs
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 ms.service: lighthouse
 manager: carmonm
-ms.openlocfilehash: eb55af5a1121eb193bb76efc9f9e0b833f4b5a1f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 05fa16504e25a6bf0f6aa1c0a348284abba6e1ed
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810795"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011893"
 ---
 # <a name="what-is-azure-lighthouse"></a>Informazioni su Azure Lighthouse
 
@@ -42,3 +42,8 @@ Azure Lighthouse include più modi per semplificare l'engagement e la gestione d
 
 > [!NOTE]
 > Le funzionalità descritte in precedenza sono attualmente disponibili in cloud pubblici. Per la disponibilità a livello di area dei singoli servizi, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Informazioni sulla [gestione risorse delegate di Azure](concepts/azure-delegated-resource-management.md).
+- Informazioni sulle [esperienze di gestione tra tenant](concepts/cross-tenant-management-experience.md).

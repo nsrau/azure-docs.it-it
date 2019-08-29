@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 0e104f4cbdef7edc5c109781509e3924400e5ba4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 6a1ae2966e8d5535a5fd9aeffb5ddc3a788f85ee
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959732"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072110"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importare e pubblicare la prima API 
 
@@ -71,7 +70,7 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
     >[!NOTE]
     > Per pubblicare l'API, è necessario associarla a un prodotto. È possibile eseguire questa operazione nella pagina **Impostazioni**.
 
-3. Selezionare **Create**.
+3. Selezionare **Create** (Crea).
 
 > [!TIP]
 > In caso di problemi nell'importazione della definizione API, [vedere l'elenco delle restrizioni e dei problemi noti](api-management-api-import-restrictions.md).

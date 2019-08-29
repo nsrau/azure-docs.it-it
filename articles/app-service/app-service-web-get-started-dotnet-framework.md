@@ -10,17 +10,16 @@ ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8dc062a1c9490a03aa5369dc103db750d7531140
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6c32415e750964e94129a4a6f9cf3812fe9117b5
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635273"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067285"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creare un'app Web del framework ASP.NET in Azure
 
@@ -36,14 +35,14 @@ Per completare questa esercitazione, installare <a href="https://www.visualstudi
 
 Se Visual Studio 2017 è già installato:
 
-- Installare gli aggiornamenti più recenti in Visual Studio facendo clic su **?** > **Controlla la disponibilità di aggiornamenti**.
+- Installare gli aggiornamenti più recenti in Visual Studio facendo clic su **?**  > **Controlla la disponibilità di aggiornamenti**.
 - Aggiungere il carico di lavoro facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità**.
 
 ## <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
 
 In Visual Studio creare un progetto selezionando **File > Nuovo > Progetto**. 
 
-Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Web > Applicazione Web ASP.NET (.NET Framework)**.
+Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Web > Applicazione Web ASP.NET (.NET Framework)** .
 
 Assegnare all'applicazione il nome _myFirstAzureWebApp_ e fare clic su **OK**.
    
@@ -98,10 +97,10 @@ Nella finestra di dialogo **Configura piano di hosting** usare le impostazioni d
 
 ![Creare un piano di servizio app](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
-| Impostazione | Valore consigliato | Descrizione |
+| Impostazione | Valore consigliato | DESCRIZIONE |
 |-|-|-|
 |Piano di servizio app| myAppServicePlan | Nome del piano di servizio app. |
-| Località | Europa occidentale | Data center in cui è ospitata l'app Web. |
+| Location | Europa occidentale | Data center in cui è ospitata l'app Web. |
 | Dimensione | Gratuito | [Piano tariffario](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) che determina le funzionalità di hosting. |
 
 Selezionare **OK**.
