@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebcfa9da8fc8760fa4c13cec1a8921c4ecef5691
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583083"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101948"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
 
@@ -140,7 +139,7 @@ Per ogni disco, attenersi alla procedura seguente:
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-1. Si noti il LUN e DiskName.
+1. Prendere nota di DiskName e LUN.
 
     ![DisknameAndLUN][2]
 1. Desktop remoto nella macchina virtuale. Passare quindi a **Gestione computer** | **Gestione dispositivi** | **Unità disco**. Esaminare le proprietà di ciascun ’Disco virtuale Microsoft’
@@ -245,7 +244,7 @@ $standardstorageaccountname = "danstdams"
 Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
 ```
 
-#### <a name="step-6-create-vm"></a>Passaggio 6: Creare una macchina virtuale
+#### <a name="step-6-create-vm"></a>Passaggio 6: Crea macchina virtuale
 
 ```powershell
 #Get list of available SQL Server Images from the Azure Image Gallery.
@@ -486,7 +485,7 @@ Se si usano pool di archiviazione di Windows nella VM per una velocità effettiv
 * È possibile modificare le dimensioni della macchina virtuale e personalizzare la risorsa di archiviazione per i requisiti specifici. Tuttavia, sarebbe opportuno mantenere tutti i percorsi di file SQL inalterati.
 * È possibile controllare quando viene avviato il trasferimento dei backup del database alle repliche secondarie. Questo comportamento è diverso dal quello del commandlet di Azure **Start-AzureStorageBlobCopy** per copiare i dischi rigidi virtuali perché in quest’ultimo caso la copia è asincrona.
 
-##### <a name="disadvantages"></a>Svantaggi:
+##### <a name="disadvantages"></a>Svantaggi
 
 * Quando si utilizzano pool di archiviazione di Windows, durante la convalida del cluster completo si verifica un tempo di inattività del cluster per i nuovi nodi aggiuntivi.
 * A seconda della versione di SQL Server e del numero di repliche secondarie esistenti, potrebbe non essere possibile aggiungere ulteriori repliche secondarie senza rimuovere i le repliche secondarie esistenti.
@@ -511,7 +510,7 @@ Quando si trasferiscono utenti e applicazioni al nuovo listener AlwaysOn, si ver
 * Durante questo processo, è possibile aggiornare il build o la versione di SQL Server. È inoltre possibile aggiornare il sistema operativo.
 * Il cluster AlwaysOn precedente può fungere da destinazione di rollback.
 
-##### <a name="disadvantages"></a>Svantaggi:
+##### <a name="disadvantages"></a>Svantaggi
 
 * È necessario modificare il nome DNS del listener, se si vuole che entrambi i cluster AlwaysOn vengano eseguiti contemporaneamente. Ciò comporta un sovraccarico di amministrazione durante la migrazione perché le stringhe dell’applicazione client devono riflettere il nuovo nome del listener.
 * È necessario implementare un meccanismo di sincronizzazione tra i due ambienti per mantenerli quanto più vicini è possibile al fine di ridurre al minimo i requisiti di sincronizzazione finale prima della migrazione.
@@ -544,7 +543,7 @@ Una strategia per il tempo di inattività minimo consiste nel rimuovere una repl
 * Minore complessità.
 * Consente un maggiore IOPS dalle SKU di Archiviazione Premium. Quando i dischi sono disconnessi dalla macchina virtuale e copiati nel nuovo servizio cloud, è possibile utilizzare uno strumento di terze parti per aumentare le dimensioni del disco rigido virtuale, fornendo una maggiore velocità effettiva. Per aumentare le dimensioni del disco rigido virtuale, vedere questo [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows).
 
-##### <a name="disadvantages"></a>Svantaggi:
+##### <a name="disadvantages"></a>Svantaggi
 
 * Perdita temporanea di disponibilità elevata e ripristino di emergenza durante la migrazione.
 * Poiché si tratta di una migrazione 1:1, è necessario usare una dimensione minima di VM che supporti il numero di dischi rigidi virtuali presenti, pertanto potrebbe non essere possibile ridurre le dimensioni delle VM.
@@ -592,7 +591,7 @@ Si consideri l'esempio seguente di una configurazione di AlwaysOn ibrida:
 * Esiste un minimo di due failover durante la migrazione, esclusi i failover di test.
 * Non è necessario spostare i dati di SQL Server con backup e ripristino.
 
-##### <a name="disadvantages"></a>Svantaggi:
+##### <a name="disadvantages"></a>Svantaggi
 
 * A seconda dell’accesso client a SQL Server, potrebbe esserci un aumento della latenza durante l'esecuzione di SQL Server in un centro dati alternativo per l'applicazione.
 * Il tempo di copia dei dischi rigidi virtuali in Archiviazione Premium potrebbe essere lungo. Ciò potrebbe influire sulla decisione relativa al mantenimento del nodo nel gruppo di disponibilità. Considerare questo aspetto quando carichi di lavoro a uso intensivo di log vengono eseguiti durante le migrazioni richieste, dal momento che il nodo primario deve mantenere le transazioni non replicate nel proprio log delle transazioni, aumentando così in modo significativo.
@@ -682,7 +681,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Passaggio 2: Aumentare il numero di errori consentiti nelle risorse \<facoltativo >
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Passaggio 2: Aumentare gli errori consentiti \<nelle risorse facoltative >
 
 In alcune risorse che appartengono al gruppo di disponibilità AlwaysOn sono previsti limiti al numero di errori che possono verificarsi in un intervallo di tempo durante il quale il servizio cluster prova a riavviare il gruppo di risorse. Si consiglia di aumentare questo numero durante l’esecuzione di questa procedura poiché se non si esegue il failover manuale e non si attivano i failover arrestando le macchine si potrebbe raggiungere il limite.
 
@@ -692,7 +691,7 @@ Sarebbe prudente raddoppiare la quantità di errori consentita. A questo scopo, 
 
 Modificare il numero massimo di errori in 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passaggio 3: Risorsa di indirizzo IP di addizione per il gruppo Cluster \<facoltativo >
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passaggio 3: Aggiunta della risorsa indirizzo IP per il \<gruppo cluster facoltativo >
 
 Con un solo indirizzo IP per il gruppo cluster, se viene allineato alla subnet cloud, tenere presente che se si portano accidentalmente offline tutti i nodi del cluster nel cloud nella rete, la risorsa IP del cluster e il nome di rete del cluster non potranno essere portati online. In questo caso vengono impediti gli aggiornamenti ad altre risorse cluster.
 
@@ -750,7 +749,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### <a name="client-application-settings"></a>Impostazioni applicazione client
 
-Se l'applicazione client SQL supporta il .NET 4.5 SQLClient, è quindi possibile usare ' MULTISUBNETFAILOVER = TRUE' (parola chiave). È consigliabile applicare questa parola chiave, poiché consente una connessione più veloce al gruppo di disponibilità SQL AlwaysOn durante il failover. Enumera tutti gli indirizzi IP associati al listener AlwaysOn in parallelo e consente una velocità di tentativi di connessione TCP maggiore durante un failover.
+Se l'applicazione client SQL supporta .NET 4,5 SQLClient, è possibile usare la parola chiave ' MULTISUBNETFAILOVER = TRUE '. È consigliabile applicare questa parola chiave, poiché consente una connessione più veloce al gruppo di disponibilità SQL AlwaysOn durante il failover. Enumera tutti gli indirizzi IP associati al listener AlwaysOn in parallelo e consente una velocità di tentativi di connessione TCP maggiore durante un failover.
 
 Per altre informazioni riguardanti le impostazioni precedenti, vedere [Parola chiave MultiSubnetFailover e funzionalità associate](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Vedere anche [Supporto SqlClient per disponibilità elevata, ripristino di emergenza](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
@@ -1223,7 +1222,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #### <a name="step-23-test-failover"></a>Passaggio 23: Failover di test
 
-Attendere la sincronizzazione del nodo sottoposto a migrazione con il nodo AlwaysOn locale. Posizionarlo in modalità di replica sincrona e attendere il completamento della sincronizzazione. Quindi il failover da locale al primo nodo migrato, ossia AFP. Successivamente, modificare l’ultimo nodo migrato in AFP.
+Attendere la sincronizzazione del nodo sottoposto a migrazione con il nodo AlwaysOn locale. Posizionarlo in modalità di replica sincrona e attendere il completamento della sincronizzazione. Eseguire quindi il failover da locale al primo nodo migrato, che è l'AFP. Successivamente, modificare l’ultimo nodo migrato in AFP.
 
 È consigliabile testare i failover tra tutti i nodi ed eseguire i caos test per assicurarsi che i failover funzionino nel modo previsto e nei tempi indicati.
 

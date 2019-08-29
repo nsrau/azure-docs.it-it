@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2a6e8985a2cb13da0f2e34f4e9961f84aacdd974
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449806"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103498"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Visualizzazione dell'errore "CRITICAL SERVICE FAILED" su schermata blu all'avvio di una macchina virtuale di Azure
 Questo articolo descrive l'errore "CRITICAL SERVICE FAILED", dovuto alla mancata esecuzione di un servizio critico, che può verificarsi all'avvio di una macchina virtuale Windows in Microsoft Azure. Illustra inoltre i passaggi da seguire per risolvere i problemi. 
@@ -106,7 +105,7 @@ Per abilitare i log di dump e la console seriale, eseguire lo script seguente.
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facoltativo: Analizzare i log di dump in modalità di dump di arresto anomalo
 
-Per analizzare i log di dump, seguire questa procedura:
+Per analizzare i log di dump manualmente, attenersi alla procedura seguente:
 
 1. Collegare il disco del sistema operativo alla macchina virtuale di ripristino.
 2. Nel disco del sistema operativo collegato passare alla cartella **\windows\system32\config**. Copiare tutti i file come backup, nel caso risulti necessario un ripristino dello stato precedente.

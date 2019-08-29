@@ -6,22 +6,21 @@ author: jeffhollan
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 8ad09550e572c98931346b44a6c6f84da29a85e4
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 2cc6493d01508d439d8dcef2d12ca1ea40632d81
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443978"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096235"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Piano Premium di funzioni di Azure (anteprima)
 
 Il piano Premium di funzioni di Azure è un'opzione di hosting per le app per le funzioni. Il piano Premium offre funzionalità come la connettività VNet, l'avvio a freddo e l'hardware Premium.  È possibile distribuire più app per le funzioni nello stesso piano Premium e il piano consente di configurare le dimensioni dell'istanza di calcolo, le dimensioni del piano di base e la dimensione massima del piano.  Per un confronto tra il piano Premium e altri tipi di piano e hosting, vedere [Opzioni di scalabilità e hosting delle funzioni](functions-scale.md).
 
-## <a name="create-a-premium-plan"></a>Creazione di un piano Premium
+## <a name="create-a-premium-plan"></a>Creare un piano Premium
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 

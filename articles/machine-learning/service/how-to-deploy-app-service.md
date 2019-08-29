@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/01/2019
-ms.openlocfilehash: ada2a19de12c2f3f6b23fcc3d759afb0c747d37d
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/27/2019
+ms.openlocfilehash: 889158aeb40cfcbc69291845acfee833af0930b6
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897434"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114288"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuire un modello di machine learning nel servizio app Azure (anteprima)
 
@@ -38,6 +38,7 @@ Per altre informazioni sulle funzionalità fornite dal servizio app Azure, veder
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un'area di lavoro del servizio Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Un modello di apprendimento automatico sottoposto a training registrato nell'area di lavoro. Se non si dispone di un modello, usare l' [esercitazione relativa alla classificazione delle immagini: Train Model](tutorial-train-models-with-aml.md) per eseguire il training e la registrazione di un modello.
 
     > [!IMPORTANT]
@@ -97,34 +98,151 @@ Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribu
 
 Per creare l'immagine Docker distribuita nel servizio app Azure, usare [Model. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). Il frammento di codice seguente illustra come compilare una nuova immagine dalla configurazione del modello e dell'inferenza:
 
+> [!NOTE]
+> Il frammento di codice `model` presuppone che contenga un modello registrato `inference_config` e che contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con il servizio Azure Machine Learning](how-to-deploy-and-where.md).
+
 ```python
+from azureml.core import Model
+
 package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
+# Display the package location/ACR path
+print(package.location)
 ```
 
-Quando `show_output=True`viene visualizzato l'output del processo di compilazione docker. Al termine del processo, l'immagine è stata creata nel Container Registry di Azure per l'area di lavoro.
+Quando `show_output=True`viene visualizzato l'output del processo di compilazione docker. Al termine del processo, l'immagine è stata creata nel Container Registry di Azure per l'area di lavoro. Una volta compilata l'immagine, viene visualizzata la località nel Container Registry di Azure. Il percorso restituito è nel formato `<acrinstance>.azurecr.io/package:<imagename>`. Ad esempio `myml08024f78fd10.azurecr.io/package:20190827151241`.
+
+> [!IMPORTANT]
+> Salvare le informazioni sul percorso, così come vengono usate durante la distribuzione dell'immagine.
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuire un'immagine come app Web
 
-1. Dal [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro Azure Machine Learning. Nella sezione __Panoramica__ usare il collegamento al __Registro di sistema__ per accedere al container Registry di Azure per l'area di lavoro.
+1. Usare il comando seguente per ottenere le credenziali di accesso per il Container Registry di Azure che contiene l'immagine. Sostituire `<acrinstance>` con il valore e restituito in precedenza `package.location`da: 
 
-    [![Screenshot della panoramica dell'area di lavoro](media/how-to-deploy-app-service/workspace-overview.png)](media/how-to-deploy-app-service/workspace-overview-expanded.png)
+    ```azurecli-interactive
+    az acr credential show --name <myacr>
+    ```
 
-2. Dal Container Registry di Azure selezionare __repository__, quindi selezionare il __nome dell'immagine__ che si desidera distribuire. Per la versione che si vuole distribuire, selezionare la voce __...__ e quindi eseguire la __distribuzione nell'app Web__.
+    L'output di questo comando è simile al documento JSON seguente:
 
-    [![Screenshot della distribuzione da ACR a un'app Web](media/how-to-deploy-app-service/deploy-to-web-app.png)](media/how-to-deploy-app-service/deploy-to-web-app-expanded.png)
+    ```json
+    {
+    "passwords": [
+        {
+        "name": "password",
+        "value": "Iv0lRZQ9762LUJrFiffo3P4sWgk4q+nW"
+        },
+        {
+        "name": "password2",
+        "value": "=pKCxHatX96jeoYBWZLsPR6opszr==mg"
+        }
+    ],
+    "username": "myml08024f78fd10"
+    }
+    ```
 
-3. Per creare l'app Web, specificare un nome di sito, una sottoscrizione, un gruppo di risorse e selezionare il piano di servizio app/percorso. Infine, selezionare __Crea__.
+    Salvare il valore per __username__ e una delle __password__.
 
-    ![Screenshot della finestra di dialogo nuova app Web](media/how-to-deploy-app-service/web-app-for-containers.png)
+1. Se non si dispone già di un gruppo di risorse o di un piano di servizio app per distribuire il servizio, i comandi seguenti illustrano come creare entrambi:
+
+    ```azurecli-interactive
+    az group create --name myresourcegroup --location "West Europe"
+    az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
+    ```
+
+    In questo esempio viene usato un piano tariffario`--sku B1`di base ().
+
+    > [!IMPORTANT]
+    > Le immagini create dal servizio Azure Machine Learning usano Linux, quindi è necessario usare il `--is-linux` parametro.
+
+1. Per creare l'app Web, usare il comando seguente. Sostituire `<app-name>` con il nome che si vuole usare. Sostituire `<acrinstance>` `package.location` e `<imagename>` con i valori restituiti in precedenza:
+
+    ```azurecli-interactive
+    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
+    ```
+
+    Questo comando restituisce informazioni simili al documento JSON seguente:
+
+    ```json
+    { 
+    "adminSiteName": null,
+    "appServicePlanName": "myplanname",
+    "geoRegion": "West Europe",
+    "hostingEnvironmentProfile": null,
+    "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myplanname",
+    "kind": "linux",
+    "location": "West Europe",
+    "maximumNumberOfWorkers": 1,
+    "name": "myplanname",
+    < JSON data removed for brevity. >
+    "targetWorkerSizeId": 0,
+    "type": "Microsoft.Web/serverfarms",
+    "workerTierName": null
+    }
+    ```
+
+    > [!IMPORTANT]
+    > A questo punto, l'app Web è stata creata. Tuttavia, poiché non sono state fornite le credenziali per il Container Registry di Azure che contiene l'immagine, l'app Web non è attiva. Nel passaggio successivo vengono fornite le informazioni di autenticazione per il registro contenitori.
+
+1. Per fornire all'app Web le credenziali necessarie per accedere al registro contenitori, usare il comando seguente. Sostituire `<app-name>` con il nome che si vuole usare. Sostituire `<acrinstance>` `package.location` e `<imagename>` con i valori restituiti in precedenza. Sostituire `<username>` e`<password>` con le informazioni di accesso di ACR recuperate in precedenza:
+
+    ```azurecli-interactive
+    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
+    ```
+
+    Questo comando restituisce informazioni simili al documento JSON seguente:
+
+    ```json
+    [
+    {
+        "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+        "slotSetting": false,
+        "value": "false"
+    },
+    {
+        "name": "DOCKER_REGISTRY_SERVER_URL",
+        "slotSetting": false,
+        "value": "https://myml08024f78fd10.azurecr.io"
+    },
+    {
+        "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+        "slotSetting": false,
+        "value": "myml08024f78fd10"
+    },
+    {
+        "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+        "slotSetting": false,
+        "value": null
+    },
+    {
+        "name": "DOCKER_CUSTOM_IMAGE_NAME",
+        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+    }
+    ]
+    ```
+
+A questo punto, l'app Web inizia a caricare l'immagine.
+
+> [!IMPORTANT]
+> Potrebbero essere necessari alcuni minuti prima che l'immagine venga caricata. Per monitorare lo stato di avanzamento, usare il comando seguente:
+>
+> ```azurecli-interactive
+> az webapp log tail --name <app-name> --resource-group myresourcegroup
+> ```
+>
+> Una volta che l'immagine è stata caricata e il sito è attivo, nel log viene visualizzato `Container <container name> for site <app-name> initialized successfully and is ready to serve requests`un messaggio che indica che lo stato è.
+
+Una volta distribuita l'immagine, è possibile trovare il nome host usando il comando seguente:
+
+```azurecli-interactive
+az webapp show --name <app-name> --resource-group myresourcegroup
+```
+
+Questo comando restituisce informazioni simili al nome host seguente: `<app-name>.azurewebsites.net`. Utilizzare questo valore come parte dell' __URL di base__ per il servizio.
 
 ## <a name="use-the-web-app"></a>Usare l'app Web
 
-Dal [portale di Azure](https://portal.azure.com)selezionare l'app Web creata nel passaggio precedente. Nella sezione __Panoramica__ copiare l' __URL__. Questo valore è l' __URL di base__ del servizio.
-
-[![Screenshot della panoramica per l'app Web](media/how-to-deploy-app-service/web-app-overview.png)](media/how-to-deploy-app-service/web-app-overview-expanded.png)
-
-Il servizio Web che passa le richieste al modello si trova in `{baseurl}/score`. Ad esempio `https://mywebapp.azurewebsites.net/score`. Il codice Python seguente illustra come inviare dati all'URL e visualizzare la risposta:
+Il servizio Web che passa le richieste al modello si trova in `{baseurl}/score`. Ad esempio `https://<app-name>.azurewebsites.net/score`. Il codice Python seguente illustra come inviare dati all'URL e visualizzare la risposta:
 
 ```python
 import requests
@@ -134,8 +252,6 @@ scoring_uri = "https://mywebapp.azurewebsites.net/score"
 
 headers = {'Content-Type':'application/json'}
 
-print(headers)
-    
 test_sample = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10],
     [10,9,8,7,6,5,4,3,2,1]

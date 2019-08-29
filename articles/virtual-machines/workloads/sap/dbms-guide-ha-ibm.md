@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 0da426a9302ce72b5359df15d3f8e244fc1766a0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4571b0e1a2c9207ce913901f11157f5155201393
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935350"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100028"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -144,7 +143,7 @@ Per altre informazioni su pacemaker per Linux in Azure, vedere [configurare pace
 
 Resource Agent per IBM DB2 LUW è incluso in SUSE Linux Enterprise Server per le applicazioni SAP. Per la configurazione descritta in questo documento, è necessario usare SUSE Linux Server per le applicazioni SAP. Azure Marketplace contiene un'immagine per SUSE Enterprise Server per applicazioni SAP 12 che è possibile usare per distribuire nuove macchine virtuali di Azure. Quando si sceglie un'immagine di macchina virtuale nel Marketplace di macchine virtuali di Azure, tenere presente i vari modelli di supporto o di servizio offerti da SUSE tramite Azure Marketplace. 
 
-### <a name="hosts-dns-updates"></a>Host: Aggiornamenti del DNS
+### <a name="hosts-dns-updates"></a>Ospita Aggiornamenti del DNS
 Creare un elenco di tutti i nomi host, inclusi i nomi host virtuali, e aggiornare i server DNS per abilitare l'indirizzo IP appropriato per la risoluzione dei nomi host. Se un server DNS non esiste o non è possibile aggiornare e creare voci DNS, è necessario usare i file host locali delle singole VM che partecipano a questo scenario. Se si usano voci di file host, assicurarsi che le voci vengano applicate a tutte le macchine virtuali nell'ambiente di sistema SAP. Tuttavia, si consiglia di usare il DNS che, idealmente, si estende in Azure
 
 

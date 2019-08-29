@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 44bc5a245d1bcbc8ff53991af4193ef86f7cd704
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c169d9cc774a2c6264ba1520240005f13ba9d2da
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62107075"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096446"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 
@@ -127,7 +126,7 @@ Impostazioni di configurazione per i [trigger e le associazioni di Hub eventi](f
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funzioni
 
 Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l’esecuzione di tutte le funzioni. Deve essere utilizzato solo in caso di [esecuzione in locale](functions-run-local.md). In app per le funzioni in Azure è necessario invece seguire i passaggi descritti in [Come disabilitare le funzioni in Funzioni di Azure](disable-function.md) per disabilitare le funzioni specifiche invece di usare questa impostazione.
 
@@ -163,7 +162,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------| 
 |enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
@@ -232,7 +231,7 @@ Impostazione di configurazione per i [trigger e le associazioni per code di arch
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------| 
 |maxPollingInterval|60000|L'intervallo massimo, in millisecondi, tra i polling di coda.| 
 |visibilityTimeout|0|L'intervallo di tempo tra i tentativi se l'elaborazione di un messaggio ha esito negativo.| 
@@ -254,7 +253,7 @@ Impostazione di configurazione per i [trigger e le associazioni dei bus di servi
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. | 
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.| 
@@ -299,7 +298,7 @@ Le impostazioni di configurazione per i log creati usando un oggetto `TraceWrite
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------| 
 |consoleLevel|info|Il livello di traccia per la registrazione della console. Le opzioni sono: `off`, `error`, `warning`, `info` e `verbose`.|
 |fileLoggingMode|debugOnly|Il livello di traccia per la registrazione di file. Le opzioni sono `never`, `always`, `debugOnly`.| 

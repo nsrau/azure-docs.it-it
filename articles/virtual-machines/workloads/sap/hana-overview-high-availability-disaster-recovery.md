@@ -7,19 +7,18 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 078ce7e2acd93ecab6b37407f460672d4acb1853
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d0150aeace3960d075bbf61c1dd0bba4865aaf2b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707332"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099715"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure 
 
@@ -33,9 +32,9 @@ La disponibilità elevata e il ripristino di emergenza sono aspetti fondamentali
 
 Microsoft supporta alcune funzionalità di disponibilità elevata con le istanze Large di SAP HANA. Queste funzionalità includono:
 
-- **Replica di archiviazione**: Capacità del sistema di archiviazione di replicare tutti i dati in un altro modulo per istanze Large di HANA in un'altra area di Azure. SAP HANA funziona in modo indipendente da questo metodo. Questa funzionalità è il meccanismo di ripristino di emergenza predefinito offerto per HANA in istanze Large.
-- **Replica di sistema HANA**: Il [replica di tutti i dati in SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) in un sistema SAP HANA separato. L'obiettivo tempo di ripristino è ridotto al minimo tramite la replica dei dati a intervalli regolari. SAP HANA supporta le modalità asincrona, sincrona in memoria e sincrona, La modalità sincrona viene usata solo per i sistemi SAP HANA che si trovano all'interno dello stesso data center o a distanze inferiori a 100 km. Nell'attuale progettazione degli indicatori di HANA in istanze Large la replica di sistema HANA può essere usata solo per la disponibilità elevata all'interno di una sola area. La replica di sistema HANA richiede un componente proxy inverso o di routing di terze parti per le configurazioni di ripristino di emergenza in un'altra area di Azure. 
-- **Failover automatico dell'host**: Una soluzione locale di ripristino dagli errori per SAP HANA che è un'alternativa alla replica di sistema HANA. Se il nodo master diventa non disponibile, vengono configurati uno o più nodi SAP HANA di standby in modalità di scalabilità orizzontale e SAP HANA esegue automaticamente il failover in un nodo di standby.
+- **Replica di archiviazione**: Capacità del sistema di archiviazione di replicare tutti i dati in un altro indicatore di istanze large di HANA in un'altra area di Azure. SAP HANA funziona in modo indipendente da questo metodo. Questa funzionalità è il meccanismo di ripristino di emergenza predefinito offerto per HANA in istanze Large.
+- **Replica di sistema Hana**: La [replica di tutti i dati in SAP Hana](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) in un sistema SAP Hana separato. L'obiettivo tempo di ripristino è ridotto al minimo tramite la replica dei dati a intervalli regolari. SAP HANA supporta le modalità asincrona, sincrona in memoria e sincrona, La modalità sincrona viene usata solo per i sistemi SAP HANA che si trovano all'interno dello stesso data center o a distanze inferiori a 100 km. Nell'attuale progettazione degli indicatori di HANA in istanze Large la replica di sistema HANA può essere usata solo per la disponibilità elevata all'interno di una sola area. La replica di sistema HANA richiede un componente proxy inverso o di routing di terze parti per le configurazioni di ripristino di emergenza in un'altra area di Azure. 
+- **Failover automatico dell'host**: Soluzione di ripristino degli errori locale per SAP HANA che costituisce un'alternativa alla replica di sistema HANA. Se il nodo master diventa non disponibile, vengono configurati uno o più nodi SAP HANA di standby in modalità di scalabilità orizzontale e SAP HANA esegue automaticamente il failover in un nodo di standby.
 
 SAP HANA in Azure (istanze Large) è disponibile in due aree di Azure all'interno di quattro diverse aree geopolitiche (Stati Uniti, Australia, Europa e Giappone). Due aree all'interno di un'area geopolitica che ospitano gli indicatori di HANA in istanze Large sono connesse a circuiti di rete dedicati separati. Questi vengono usati per la replica di snapshot di archiviazione in modo da fornire metodi di ripristino di emergenza. La replica non viene definita per impostazione predefinita, ma viene configurata per i clienti che ordinano la funzionalità di ripristino di emergenza. La replica di archiviazione dipende dall'utilizzo degli snapshot di archiviazione per le istanze Large di HANA. Non è possibile scegliere un'area di Azure come area di ripristino di emergenza in un'area geopolitica diversa. 
 

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83319118c778d89749b1eb5d5fd792a5200c19c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6824eae4d5fed2eceaf85b9a674f980815afb260
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836035"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101383"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Distribuzione di SAP MaxDB, SAP liveCache e SAP Content Server in macchine virtuali di Azure
 
@@ -320,7 +319,7 @@ Le informazioni generali sull'esecuzione di SAP NetWeaver in SAP MaxDB sono disp
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>Versioni di Microsoft Windows e tipi di VM di Azure supportati per SAP MaxDB DBMS
 Per trovare la versione supportata di Microsoft Windows per SAP MaxDB DBMS in Azure, vedere:
 
-* [Product Availability Matrix (PAM) SAP][sap-pam]
+* [Matrice di disponibilità del prodotto SAP (PAM)][sap-pam]
 * Nota SAP [1928533]
 
 È consigliabile usare le versione più recente del sistema operativo Microsoft Windows, ovvero Microsoft Windows 2016.
@@ -386,7 +385,7 @@ La versione minima di SAP liveCache supportata nelle macchine virtuali di Azure 
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>Versioni di Microsoft Windows e tipi di VM di Azure supportati per SAP liveCache DBMS
 Per trovare la versione supportata di Microsoft Windows per SAP liveCache in Azure, vedere:
 
-* [Product Availability Matrix (PAM) SAP][sap-pam]
+* [Matrice di disponibilità del prodotto SAP (PAM)][sap-pam]
 * Nota SAP [1928533]
 
 È consigliabile usare le versione più recente del sistema operativo Microsoft Windows Server. 
@@ -428,18 +427,18 @@ SAP attualmente supporta:
 
 È consigliabile usare la versione più recente di SAP Content Server e la versione più recente di **Microsoft IIS**. 
 
-Controllare le versioni supportate più recenti di SAP Content Server e Microsoft IIS in [Product Availability Matrix (PAM) SAP][sap-pam].
+Controllare le versioni supportate più recenti di SAP Content Server e Microsoft IIS in [SAP Product Availability Matrix (PAM)][sap-pam].
 
 ### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>Tipi di VM di Azure e di Microsoft Windows supportati per SAP Content Server
 Per trovare le versioni di Windows supportate per SAP Content Server in Azure, vedere:
 
-* [Product Availability Matrix (PAM) SAP][sap-pam]
+* [Matrice di disponibilità del prodotto SAP (PAM)][sap-pam]
 * Nota SAP [1928533]
 
 È consigliabile usare le versione più recente di Microsoft Windows Server.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Linee guida per la configurazione di SAP Content Server per le installazioni di SAP nelle VM di Azure
-#### <a name="storage-configuration-for-content-server-in-azure"></a>Configurazione dell'archiviazione per Server di contenuti in Azure
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Configurazione dell'archiviazione per il server di contenuti in Azure
 Se si configura SAP Content Server per archiviare i file nel database SAP MaxDB, tutte le procedure consigliate per Archiviazione di Azure indicate per SAP MaxDB in questo documento sono valide anche per lo scenario di SAP Content Server. 
 
 Se si configura SAP Content Server per archiviare i file nel file system, è consigliabile usare un'unità logica dedicata. Gli spazi di archiviazione Windows consentono anche di aumentare le dimensioni logiche del disco e la velocità effettiva delle operazioni di I/O al secondo, come descritto in[Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di Macchine virtuali di Azure per un carico di lavoro SAP). 
@@ -468,7 +467,7 @@ Se si configura SAP Content Server per archiviare i file del database SAP MaxDB,
 
 Se si configura SAP Content Server per archiviare i file nel file system, una possibilità consiste nell'eseguire il backup/ripristino manuale dell'intera struttura di file in cui si trovano i documenti. Come per il backup/ripristino di SAP MaxDB, è consigliabile avere un volume del disco dedicato per il backup. 
 
-#### <a name="other"></a>Altri
+#### <a name="other"></a>Altro
 Le altre impostazioni specifiche di SAP Content Server sono trasparenti per le VM di Azure e sono descritte in diversi documenti e note SAP:
 
 * <https://service.sap.com/contentserver> 

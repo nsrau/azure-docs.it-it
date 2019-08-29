@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: c31fa96457a3945c39fcc34770cb6783af3b81e8
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d89e8f174c7006c1a0f771dd4dfaa816ded3698c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049109"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100996"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Estendere IoT Central di Azure con regole personalizzate che inviano notifiche
 
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ### <a name="iot-central-application"></a>Applicazione IoT Central
 
-Creare un'applicazione IoT Central dalla pagina [IOT Central di Azure-applicazioni personali](https://aka.ms/iotcentral) con le impostazioni seguenti:
+Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
 
 | Impostazione | Valore |
 | ------- | ----- |
@@ -60,7 +60,7 @@ Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https:/
 
 | Impostazione | Valore |
 | ------- | ----- |
-| Name    | Scegliere il nome dello spazio dei nomi |
+| NOME    | Scegliere il nome dello spazio dei nomi |
 | Piano tariffario | Basic |
 | Sottoscrizione | Sottoscrizione |
 | Gruppo di risorse | DetectStoppedDevices |
@@ -84,7 +84,7 @@ Usare il [portale di Azure per creare un processo di analisi di flusso](https://
 
 Usare il [portale di Azure per creare un'app per le funzioni](https://portal.azure.com/#create/Microsoft.FunctionApp) con le impostazioni seguenti:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
 | Nome app    | Scegliere il nome dell'app per le funzioni |
 | Sottoscrizione | Sottoscrizione |
@@ -101,7 +101,7 @@ Usare il [portale di Azure per creare un account SendGrid](https://portal.azure.
 
 | Impostazione | Valore |
 | ------- | ----- |
-| NOME    | Scegliere il nome dell'account SendGrid |
+| Name    | Scegliere il nome dell'account SendGrid |
 | Password | Crea una password |
 | Sottoscrizione | Sottoscrizione |
 | Gruppo di risorse | DetectStoppedDevices |
@@ -240,7 +240,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 1. Nel portale di Azure passare al processo di analisi di flusso, in **topologia processi** selezionare **input**, scegliere **+ Aggiungi input flusso**, quindi scegliere **Hub eventi**.
 1. Usare le informazioni nella tabella seguente per configurare l'input usando l'hub eventi creato in precedenza, quindi scegliere **Salva**:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Alias di input | centraltelemetry |
     | Sottoscrizione | Sottoscrizione |
@@ -305,7 +305,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 
 ## <a name="configure-export-in-iot-central"></a>Configurare l'esportazione in IoT Central
 
-Passare all' [applicazione IoT Central](https://aka.ms/iotcentral) creata dal modello contoso. In questa sezione l'applicazione viene configurata in modo da trasmettere i dati di telemetria dai dispositivi simulati all'hub eventi. Per configurare l'esportazione:
+Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) passare all'applicazione IoT Central creata dal modello contoso. In questa sezione l'applicazione viene configurata in modo da trasmettere i dati di telemetria dai dispositivi simulati all'hub eventi. Per configurare l'esportazione:
 
 1. Passare alla pagina **esportazione dati continui** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:

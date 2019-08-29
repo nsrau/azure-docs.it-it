@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f74f9ba55f3593ed31994b83bb9bda1501445e0a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571740"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100659"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurare un gruppo di disponibilità AlwaysOn in macchine virtuali di Azure in aree diverse
 
@@ -145,7 +144,7 @@ La replica nel data center remoto fa parte del gruppo di disponibilità, ma si t
 
 È preferibile aggiornare le stringhe di connessione client per impostare `MultiSubnetFailover=Yes`. Vedere [Connessione con MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Se non è possibile modificare le stringhe di connessione, è possibile configurare la memorizzazione nella cache della risoluzione dei nomi. Visualizzare [errore di timeout ed è possibile connettersi a un listener del gruppo di disponibilità AlwaysOn di SQL Server 2012 in un ambiente con più subnet](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
+Se non è possibile modificare le stringhe di connessione, è possibile configurare la memorizzazione nella cache della risoluzione dei nomi. Vedere [errore di timeout e non è possibile connettersi a un listener del gruppo di disponibilità AlwaysOn di SQL Server 2012 in un ambiente con più subnet](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
 ## <a name="fail-over-to-remote-region"></a>Effettuare il failover in un'area remota
 
@@ -165,7 +164,7 @@ Per testare la connettività del listener all'area remota, è possibile effettua
 
 Dopo avere testato la connettività, spostare di nuovo la replica primaria nel data center primario e configurare di nuovo la modalità di disponibilità sulle normali impostazioni operative. La tabella seguente indica le normali impostazioni operative per l'architettura descritta in questo documento:
 
-| Località | Istanza del server | Ruolo | Modalità di disponibilità | Modalità di failover
+| Location | Istanza del server | Role | Modalità di disponibilità | Modalità di failover
 | ----- | ----- | ----- | ----- | -----
 | Data center primario | SQL-1 | Primario | Sincrono | Automatico
 | Data center primario | SQL-2 | Secondario | Sincrono | Automatico

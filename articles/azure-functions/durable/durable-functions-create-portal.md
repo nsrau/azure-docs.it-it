@@ -6,17 +6,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: glenga
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 4670dd37facf341e355d736a72b4d71f27237fda
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 520579334d88bbab8ac28df7e446879aa9736248
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612894"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098198"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creare funzioni permanenti con il portale di Azure
 
@@ -24,7 +23,7 @@ L'estensione [Funzioni permanenti](durable-functions-overview.md) di Funzioni di
 
 > [!NOTE]
 > 
-> * Se si sviluppano funzioni permanenti in C#, è consigliabile utilizzare invece [sviluppo di Visual Studio 2019](durable-functions-create-first-csharp.md).
+> * Se si sviluppano funzioni permanenti C#in, è necessario prendere in considerazione [lo sviluppo di Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Se si sviluppano funzioni permanenti in JavaScript, è consigliabile usare invece lo [sviluppo di Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni

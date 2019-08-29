@@ -8,18 +8,17 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb19dc7262721e672bd3f54b32db9188dad7fee0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477145"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101881"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usare Archiviazione di Azure per il backup e il ripristino di SQL Server
 ## <a name="overview"></a>Panoramica
@@ -56,7 +55,7 @@ Quando si eseguono backup nel servizio di archiviazione BLOB di Azure, vengono u
 ## <a name="sql-server-components"></a>Componenti di SQL Server
 Quando si eseguono backup nel servizio di archiviazione BLOB di Azure, vengono usati i componenti di SQL Server indicati di seguito.
 
-| Componente | Descrizione |
+| Componente | DESCRIZIONE |
 | --- | --- |
 | **URL** |un URL specifica un URI (Uniform Resource Identifier) per un file di backup specifico. L'URL viene usato per fornire il percorso e il nome del file di backup di SQL Server. L'URL deve puntare a un BLOB effettivo e non a un contenitore. Se il BLOB non esiste, verrà creato. Se viene specificato un BLOB esistente, il comando BACKUP non riuscirà a meno che non sia specificata l'opzione WITH FORMAT. Di seguito è riportato un esempio di URL specificato in un comando BACKUP: **http[s]://[accountarchiviazione].blob.core.windows.net/[contenitore]/[FILENAME.bak]** . HTTPS non è obbligatorio ma è consigliato. |
 | **Credenziali** |le informazioni necessarie per la connessione e l'autenticazione a un servizio di archiviazione BLOB di Azure vengono archiviate in una credenziale.  Per fare in modo che SQL Server sia in grado di scrivere backup in un BLOB di Azure o di eseguire un ripristino da quest'ultimo, è necessario creare una credenziale di SQL Server. Per altre informazioni, vedere [Credenziali di SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |

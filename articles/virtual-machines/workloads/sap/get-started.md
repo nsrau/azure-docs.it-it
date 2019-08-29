@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8737d468b49904eaa16e873dd5d468b4eed6fb6
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 44ee910aa1a5f3c1a703b9ed4202d395359970cb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992014"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099944"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -32,7 +31,7 @@ Oltre a ospitare scenari di SAP NetWeaver con i diversi sistemi DBMS in Azure, �
 
 L'univocità di Azure per SAP HANA è un'offerta che consente di impostare Azure separatamente. Per consentire l'hosting di più risorse di memoria e CPU che richiedono scenari SAP che coinvolgono SAP HANA, Azure offre l'uso di hardware bare metal dedicato ai clienti. Usare questa soluzione per eseguire distribuzioni SAP HANA che richiedono fino a 24 TB (scalabilità orizzontale 120 TB) per S/4HANA o un altro carico di lavoro SAP HANA. 
 
-L'hosting di scenari di carico di lavoro SAP in Azure può anche creare requisiti per l'integrazione delle identità e Single Sign-on. Questa situazione può verificarsi quando si usa Azure Active Directory (Azure AD) per connettere componenti SAP diversi e offerte SaaS (software-as-a-Service) di SAP o piattaforma distribuita come servizio (PaaS). Un elenco di questi scenari di integrazione e Single Sign-On con le entità Azure AD e SAP viene descritto e documentato nella sezione "integrazione delle identità e Single Sign-On di AAD SAP".
+L'hosting di scenari di carico di lavoro SAP in Azure può anche creare requisiti per l'integrazione di identità e Single Sign-On. Questa situazione può verificarsi quando si usa Azure Active Directory (Azure AD) per connettere componenti SAP diversi e offerte SaaS (software-as-a-Service) di SAP o piattaforma distribuita come servizio (PaaS). Un elenco di questi scenari di integrazione e Single Sign-On con le entità Azure AD e SAP viene descritto e documentato nella sezione "integrazione delle identità e Single Sign-On di AAD SAP".
 
 ## <a name="changes-to-the-sap-workload-section"></a>Modifiche alla sezione del carico di lavoro SAP
 Alla fine di questo articolo sono elencate le modifiche apportate ai documenti nella sezione del carico di lavoro SAP in Azure.

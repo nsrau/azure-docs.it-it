@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: c47cc49a8e81b44a4529f8f82954797e2648c938
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: c2aad97cea39221da56666dbeff72ce56fcb2a22
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983100"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113688"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
@@ -83,7 +83,7 @@ I nomi dei cluster HDInsight presentano le restrizioni seguenti:
 - Caratteri consentiti: a-z, 0-9, A-Z 
 - Lunghezza massima: 59
 - Nomi riservati: app
-- Deve essere univoco
+- L'ambito di denominazione del cluster è per tutti gli Azure, in tutte le sottoscrizioni. Il nome del cluster deve quindi essere univoco in tutto il mondo.
 - I primi 6 caratteri devono essere univoci all'interno di un VNET
 
 ## <a name="cluster-login-and-ssh-username"></a>Account di accesso del cluster e nome utente SSH

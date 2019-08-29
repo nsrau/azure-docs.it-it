@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7683812c5ee98d21d5aa8191a88926669b2ed120
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593608"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102373"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Esercitazione: Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
@@ -53,7 +52,7 @@ La tabella seguente elenca i prerequisiti da completare prima di iniziare l'eser
 Prima di iniziare l'esercitazione, è necessario [completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Se questi prerequisiti sono già stati completati, è possibile passare a [Creare il cluster](#CreateCluster).
 
   >[!NOTE]
-  > Molti dei passaggi forniti in questa esercitazione è ora possibile automatizzare con [macchina virtuale di SQL Azure CLI](virtual-machines-windows-sql-availability-group-cli.md) e [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Molti dei passaggi disponibili in questa esercitazione possono ora essere automatizzati con l'interfaccia della riga di comando di [Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) e i [modelli di avvio rapido di Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -73,9 +72,9 @@ Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di
    ![Creare un cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. Nella Creazione guidata Cluster creare un cluster a un nodo procedendo nelle pagine con le impostazioni della tabella seguente:
 
-   | Page | Impostazioni |
+   | Pagina | Impostazioni |
    | --- | --- |
-   | Prima di iniziare |Valori predefiniti |
+   | Prima di iniziare |Usa impostazioni predefinite |
    | Selezione dei server |Digitare il nome della prima istanza di SQL Server in **Immettere il nome del server** e fare clic su **Aggiungi**. |
    | Avviso di convalida |Selezionare **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti, si proseguirà con la creazione del cluster**. |
    | Punto di accesso per l'amministrazione del cluster |Digitare un nome di cluster, ad esempio **SQLAGCluster1**, in **Nome cluster**.|
@@ -114,7 +113,7 @@ Aggiungere l'altra istanza di SQL Server al cluster.
 
 1. Fare clic su **Avanti**.
 
-1. Fare clic su **Finish**.
+1. Scegliere **Fine**.
 
    A questo punto, Gestione cluster di failover visualizza il cluster con un nuovo nodo elencato nel contenitore **Nodi**.
 
@@ -177,7 +176,7 @@ Impostare ora il quorum del cluster.
 
 1. Verificare le impostazioni in **Conferma**. Fare clic su **Avanti**.
 
-1. Fare clic su **Finish**.
+1. Scegliere **Fine**.
 
 Le risorse principali del cluster vengono configurate con un controllo di condivisione file.
 
@@ -365,7 +364,7 @@ Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load 
    | **Assegnazione indirizzi IP** |statico |
    | **Indirizzo IP** |Usare un indirizzo disponibile nella subnet. Usare questo indirizzo per il listener del gruppo di disponibilità. Si noti che questo indirizzo è diverso dall'indirizzo IP del cluster.  |
    | **Sottoscrizione** |Usare la stessa sottoscrizione della macchina virtuale. |
-   | **Posizione** |Usare la stessa posizione della macchina virtuale. |
+   | **Location** |Usare la stessa posizione della macchina virtuale. |
 
    Il pannello del portale di Azure dovrebbe essere simile al seguente:
 
@@ -443,7 +442,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare il probe di integrità dell'indirizzo IP principale del cluster WSFC come segue:
 
-   | Impostazione | Descrizione | Esempio
+   | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Text | WSFCEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
@@ -457,10 +456,10 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare le regole di bilanciamento del carico dell'indirizzo IP principale del cluster come indicato di seguito.
 
-   | Impostazione | Descrizione | Esempio
+   | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Text | WSFCEndPoint |
-   | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. Questo comportamento è diverso dall'indirizzo IP del listener |
+   | **Indirizzo IP front-end IP** | Scegli un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. Questo comportamento è diverso dall'indirizzo IP del listener |
    | **Protocollo** | Scegliere TCP |TCP |
    | **Porta** | Usare la porta per l'indirizzo IP del cluster. Si tratta di una porta disponibile che non viene usata per la porta probe del listener. | 58888 |
    | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 58888 |

@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32905f6d505f83ead805550205df0daf6be501e5
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 00c38c5c8140bffe0767ebe69470285bb15f5fc6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710120"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098708"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -199,7 +198,7 @@ ms.locfileid: "67710120"
 > ![Windows][Logo_Windows] Windows
 >
 
-È possibile gestire più indirizzi IP virtuali usando un [servizio di bilanciamento del carico interno di Azure][load-balancer-multivip-overview]. 
+È possibile gestire più indirizzi IP virtuali usando un servizio di [bilanciamento del carico interno di Azure][load-balancer-multivip-overview]. 
 
 Se si dispone di una distribuzione SAP, è possibile usare un servizio di bilanciamento del carico interno per creare una configurazione cluster Windows per istanze ASCS/SCS di SAP.
 
@@ -241,7 +240,7 @@ L'obiettivo è installare più istanze con cluster Advanced Business Application
 
 _**Figura 2:** Configurazione multi-SID di SAP in due cluster_
 
-L'installazione di un'ulteriore **SAP \<SID2 >** è identico per l'installazione di un sistema \<SID > system. Sono necessari due passaggi di preparazione aggiuntivi nel cluster ASCS/SCS e nel cluster di file server di scalabilità orizzontale della condivisione file.
+L'installazione di un sistema **di \<> SAP SID2** aggiuntivo è identica all'installazione di un \<sistema SID >. Sono necessari due passaggi di preparazione aggiuntivi nel cluster ASCS/SCS e nel cluster di file server di scalabilità orizzontale della condivisione file.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Preparare l'infrastruttura per uno scenario di multi-SID di SAP
 
@@ -256,12 +255,12 @@ Creare il gruppo di dominio **\<Domain>\SAP_\<SID2>_GlobalAdmin**, ad esempio co
 * Creare un nome host virtuale per l'istanza ASCS/SCS di SAP in cluster sul server DNS.
 * Aggiungere un indirizzo IP a un servizio di bilanciamento del carico interno di Azure esistente usando PowerShell.
 
-Questi passaggi sono descritti [preparazione dell'infrastruttura per uno scenario di multi-SID di SAP][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
+Questi passaggi sono descritti in [preparazione dell'infrastruttura per uno scenario di SAP][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]a più SID.
 
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Preparare l'infrastruttura in un cluster di file server di scalabilità orizzontale usando l'host globale SAP esistente
 
-È possibile riutilizzare l'oggetto esistente \<SAPGlobalHost > e Volume1 del primo SAP \<SID1 > system.
+È possibile riutilizzare il \<> SAPGlobalHost esistente e volume1 del primo sistema \<SAP SID1 >.
 
 ![Figura 3: Il file server di scalabilità orizzontale multi-SID è lo stesso del nome host globale SAP][sap-ha-guide-figure-8014]
 
@@ -271,7 +270,7 @@ _**Figura 3:** Il file server di scalabilità orizzontale multi-SID è lo stesso
 >Per il secondo sistema **SAP \<SID2>** , vengono usati lo stesso Volume1 e lo stesso nome di rete **\<SAPGlobalHost>** .
 >Dal momento che è già stato impostato **SAPMNT** come nome di condivisione per i vari sistemi SAP, per usare di nuovo il nome di rete **\<SAPGlobalHost>** , è necessario usare lo stesso **Volume1**.
 >
->Il percorso del file per il \<SID2 > host globale è C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
+>Il percorso del file di \<SID2 > host globale è C:\ClusterStorage\\**volume1**\usr\sap\<SID2 > \sys\.
 >
 
 Per il sistema \<SID2>, è necessario preparare la cartella SAP Global Host ..\SYS\. nel cluster del file server di scalabilità orizzontale.
@@ -347,7 +346,7 @@ Creare il secondo **Volume2**. Eseguire questo script di PowerShell:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Figura 5: Secondo Volume2 in Gestione Cluster di Failover][sap-ha-guide-figure-8016]
+![Figura 5: Secondo Volume2 in Gestione cluster di failover][sap-ha-guide-figure-8016]
 
 _**Figura 5:** Secondo Volume2 in Gestione cluster di failover_
 
@@ -404,19 +403,19 @@ _**Figura 6:** Avviare la procedura guidata "Aggiungi condivisione file"_
 
 <br>
 
-![Figura 7: "Scegliere condivisione SMB-rapida"][sap-ha-guide-figure-8018]
+![Figura 7: "Selezionare condivisione SMB-rapida"][sap-ha-guide-figure-8018]
 
 _**Figura 7:** Selezionare "Condivisione SMB - rapida"_
 
 <br>
 
-![Figura 8: Selezionare "sapglobalhost2" e specificare un percorso su Volume2][sap-ha-guide-figure-8019]
+![Figura 8: Selezionare "sapglobalhost2" e specificare il percorso in Volume2][sap-ha-guide-figure-8019]
 
 _**Figura 8:** Selezionare "sapglobalhost2" e specificare il percorso in Volume2_
 
 <br>
 
-![Figura 9: Impostare il nome di condivisione di file su "sapmnt"][sap-ha-guide-figure-8020]
+![Figura 9: Impostare il nome della condivisione file su "sapmnt"][sap-ha-guide-figure-8020]
 
 _**Figura 9:** Impostare il nome della condivisione file su "sapmnt"_
 
@@ -444,7 +443,7 @@ _**Figura 12:** Selezionare "Crea"_
 
 <br>
 
-![Figura 13: Il secondo sapmnt associato all'host sapglobal2 e Volume2 viene creato][sap-ha-guide-figure-8024]
+![Figura 13: Viene creato il secondo sapmnt associato all'host all'sapglobal2 e Volume2][sap-ha-guide-figure-8024]
 
 _**Figura 13:** Viene creato il secondo sapmnt collegato all'host sapglobal2 e a Volume2_
 
@@ -461,10 +460,10 @@ Installare i server applicazioni DBMS e SAP come descritto in precedenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Installare un'istanza ASCS/SCS in un cluster di failover senza dischi condivisi][sap-official-ha-file-share-document]: linee guida SAP ufficiali per una condivisione file a disponibilità elevata
+* [Installare un'istanza di ASC/SCS in un cluster di failover senza dischi condivisi][sap-official-ha-file-share-document]: linee guida SAP ufficiali per una condivisione file a disponibilità elevata
 
 * [Spazi di archiviazione diretta in Windows Server 2016][s2d-in-win-2016]
 
-* [Di tipo scale-out file server per Cenni preliminari sui dati dell'applicazione][sofs-overview]
+* [Panoramica del file server di scalabilità orizzontale per i dati delle applicazioni][sofs-overview]
 
-* [Novità nell'archiviazione in Windows Server 2016][new-in-win-2016-storage]
+* [Novità di archiviazione in Windows Server 2016][new-in-win-2016-storage]

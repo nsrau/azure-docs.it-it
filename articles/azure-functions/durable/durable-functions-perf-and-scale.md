@@ -6,16 +6,15 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed0fe22903412d4164fb3a85dbd9afafdc7023e6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60733242"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097994"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -51,16 +50,16 @@ Le code di controllo contengono messaggi di diverso tipo relativi al ciclo di vi
 
 ### <a name="queue-polling"></a>Polling della coda
 
-L'estensione durable task implementa un algoritmo esponenziale casuale back-off per ridurre l'effetto di code inattive sui costi delle transazioni di archiviazione di polling. Quando viene trovato un messaggio, il runtime controlla immediatamente per un altro messaggio. Quando viene trovato alcun messaggio, rimane in attesa per un periodo di tempo prima di riprovare. Dopo alcuni tentativi non riusciti per ottenere un messaggio della coda, il tempo di attesa continua ad aumentare finché non raggiunge il tempo di attesa massimo, impostazione predefinita è 30 secondi.
+L'estensione di attività durevole implementa un algoritmo di backup esponenziale casuale per ridurre l'effetto del polling delle code inattive sui costi delle transazioni di archiviazione. Quando viene trovato un messaggio, il runtime verifica immediatamente la presenza di un altro messaggio. Quando non viene trovato alcun messaggio, attende un certo periodo di tempo prima di riprovare. Dopo i tentativi successivi non riusciti di ottenere un messaggio in coda, il tempo di attesa continua ad aumentare fino a raggiungere il tempo di attesa massimo, che per impostazione predefinita è 30 secondi.
 
-L'intervallo di polling massimo è configurabile tramite il `maxQueuePollingInterval` proprietà il [file host. JSON](../functions-host-json.md#durabletask). Impostazione di un valore più elevato potrebbe causare latenze di elaborazione dei messaggi superiore. Latenze più elevate dovrebbe solo dopo i periodi di inattività. Questa impostazione su un valore inferiore potrebbe causare un aumento dei costi di archiviazione a causa di transazioni di archiviazione maggiore.
+Il ritardo massimo di polling può essere configurato tramite `maxQueuePollingInterval` la proprietà nel [file host. JSON](../functions-host-json.md#durabletask). L'impostazione di questa opzione su un valore più alto può comportare latenze di elaborazione dei messaggi superiori. Le latenze più elevate sarebbero previste solo dopo periodi di inattività. L'impostazione di questa opzione su un valore inferiore può comportare costi di archiviazione più elevati a causa dell'aumento delle transazioni di archiviazione.
 
 > [!NOTE]
-> Durante l'esecuzione nei piani di consumo di funzioni di Azure e Premium, il [Controller di scalabilità di funzioni di Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) eseguirà il polling ogni coda di controllo e di elemento di lavoro una volta ogni 10 secondi. Polling aggiuntivi è necessario determinare il momento di attivazione di istanze di app di funzione e per prendere decisioni di scalabilità. Al momento della scrittura, questo intervallo di 10 secondi è costante e non può essere configurato.
+> Quando viene eseguito nei piani di consumo e Premium di funzioni di Azure, il controller di scalabilità di [funzioni di Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) eseguirà il polling di ogni controllo e coda di elementi di lavoro ogni 10 secondi. Questo polling aggiuntivo è necessario per determinare quando attivare le istanze delle app per le funzioni e prendere decisioni di scalabilità. Al momento della stesura di questa operazione, questo intervallo di 10 secondi è costante e non può essere configurato.
 
 ## <a name="storage-account-selection"></a>Selezione dell'account di archiviazione
 
-Le code, tabelle e i BLOB usati da funzioni permanenti vengono creati in un account di archiviazione di Azure configurato. L'account da usare può essere specificato tramite l'impostazione `durableTask/azureStorageConnectionStringName` nel file **host.json**.
+Le code, le tabelle e i BLOB usati da Durable Functions vengono creati in un account di archiviazione di Azure configurato. L'account da usare può essere specificato tramite l'impostazione `durableTask/azureStorageConnectionStringName` nel file **host.json**.
 
 ### <a name="functions-1x"></a>Funzioni 1.x
 

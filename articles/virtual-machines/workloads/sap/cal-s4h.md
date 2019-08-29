@@ -10,18 +10,17 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 65643352a269796fc5353ff4cd0cb15d5f1502ec
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2fa68d9dc3052263b5354086ee802cc31fa35ace
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707483"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101450"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Distribuire SAP S/4HANA o BW/4HANA in Azure
 Questo articolo descrive come distribuire S/4HANA in Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Per distribuire altre soluzioni basate su SAP HANA, ad esempio BW/4HANA, seguire la stessa procedura.
@@ -120,7 +119,7 @@ In questo articolo verrà illustrato il percorso di distribuzione di base.
 
     d. Immettere una **password** master di otto o nove caratteri per la soluzione. La password viene usata per gli amministratori dei diversi componenti.
 
-   ![Modalità SAP CAL di base: creare un'istanza](./media/cal-s4h/s4h-pic10a.png)
+   ![Modalità SAP CAL di base: Crea istanza](./media/cal-s4h/s4h-pic10a.png)
 
 1. Fare clic su **Create** (Crea). Nella finestra di messaggio visualizzata fare clic su **OK**.
 

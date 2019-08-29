@@ -7,23 +7,22 @@ author: romitgirdhar
 manager: gwallace
 tags: ''
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: ca16dceae9ab1afab17b2893b61f6a1c3309cf93
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: b183a4d4922c89f60ccb19b3e3e978216f33cc9a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361583"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100094"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Architetture per la distribuzione di applicazioni Oracle in Azure
 
-Microsoft e Oracle hanno collaborato per consentire ai clienti di distribuire applicazioni Oracle come Oracle E-Business Suite, JD Edwards EnterpriseOne e PeopleSoft nel cloud. Con l'introduzione della versione di anteprima della [connettività di rete privata](configure-azure-oci-networking.md) tra Microsoft Azure e Oracle Cloud Infrastructure (OCI), le applicazioni Oracle possono essere ora distribuite in Azure con i relativi database back-end in Azure o OCI. Le applicazioni Oracle possono inoltre essere integrate con Azure Active Directory, consentendo di configurare l'accesso Single Sign-on in modo che gli utenti possano accedere all'applicazione Oracle utilizzando le proprie credenziali di Azure Active Directory (Azure AD).
+Microsoft e Oracle hanno collaborato per consentire ai clienti di distribuire applicazioni Oracle come Oracle E-Business Suite, JD Edwards EnterpriseOne e PeopleSoft nel cloud. Con l'introduzione della versione di anteprima della [connettività di rete privata](configure-azure-oci-networking.md) tra Microsoft Azure e Oracle Cloud Infrastructure (OCI), le applicazioni Oracle possono essere ora distribuite in Azure con i relativi database back-end in Azure o OCI. Le applicazioni Oracle possono anche essere integrate con Azure Active Directory, consentendo di configurare Single Sign-On in modo che gli utenti possano accedere all'applicazione Oracle usando le credenziali Azure Active Directory (Azure AD).
 
 OCI offre più opzioni di database Oracle per le applicazioni Oracle, tra cui DBaaS, il servizio cloud Exadata, Oracle RAC e l'infrastruttura distribuita come servizio (IaaS). Attualmente, il database autonomo non è un back-end supportato per le applicazioni Oracle.
 
@@ -82,9 +81,9 @@ Microsoft e Oracle consigliano una configurazione a disponibilità elevata. È p
 
 ### <a name="identity-tier"></a>Livello di identità
 
-Il livello Identity contiene la VM dell'asserzione EBS. L'asserzione EBS consente di sincronizzare le identità da Oracle Identity Cloud Service (IDC) e Azure AD. L'asserzione EBS è necessaria perché EBS non supporta protocolli Single Sign-on come SAML 2,0 o OpenID Connect. L'asserzione EBS usa il token OpenID Connect (generato da IDC), lo convalida e quindi crea una sessione per l'utente in EBS. 
+Il livello Identity contiene la VM dell'asserzione EBS. L'asserzione EBS consente di sincronizzare le identità da Oracle Identity Cloud Service (IDC) e Azure AD. L'asserzione EBS è necessaria perché EBS non supporta protocolli Single Sign-On come SAML 2,0 o OpenID Connect. L'asserzione EBS usa il token OpenID Connect (generato da IDC), lo convalida e quindi crea una sessione per l'utente in EBS. 
 
-Anche se questa architettura Mostra l'integrazione con IDC, Azure AD accesso unificato e Single Sign-on possono essere abilitati con Oracle Access Manager con Oracle Internet Directory o Oracle Unified directory. Per altre informazioni, vedere la pagina relativa alla [distribuzione di Oracle EBS con IDC](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_idcs.pdf) in white paper o alla [distribuzione di Oracle EBS con OAM Integration](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_oam.pdf).
+Anche se questa architettura Mostra l'integrazione di IDC, Azure AD accesso unificato e Single Sign-On possono essere abilitati con Oracle Access Manager con Oracle Internet Directory o Oracle Unified directory. Per altre informazioni, vedere la pagina relativa alla [distribuzione di Oracle EBS con IDC](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_idcs.pdf) in white paper o alla [distribuzione di Oracle EBS con OAM Integration](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_oam.pdf).
 
 Per la disponibilità elevata, è consigliabile distribuire i server ridondanti dell'asserzione EBS tra più zone di disponibilità con un servizio di bilanciamento del carico.
 

@@ -6,16 +6,15 @@ documentationcenter: na
 author: ggailey777
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: glenga
-ms.openlocfilehash: 96dbe9b15831a349afc0e68c15c39c1cb31b1032
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: b6a2347ff79268cdaf54993952d59bd700b781bc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444063"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095953"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Eseguire Funzioni di Azure da un file di pacchetto
 
@@ -61,11 +60,11 @@ Di seguito viene illustrata un'app per le funzioni configurata per l'esecuzione 
 
 La [distribuzione zip][Zip deployment for Azure Functions] è una funzionalità di app Azure servizio che consente di distribuire il progetto di app per `wwwroot` le funzioni nella directory. Il progetto viene impacchettato come un file di distribuzione di file ZIP. La stesse API possono essere usate per distribuire il pacchetto nella cartella `d:\home\data\SitePackages`. Con il valore `1` dell'impostazione dell'app `WEBSITE_RUN_FROM_PACKAGE`, le API di distribuzione di file ZIP copiano il pacchetto nella cartella `d:\home\data\SitePackages` invece di estrarre i file in `d:\home\site\wwwroot`. Questa operazione crea anche il file `packagename.txt`. L'app per le funzioni viene quindi eseguita dal pacchetto dopo il riavvio e `wwwroot` diventa di sola lettura. Per altre informazioni sulla distribuzione di file ZIP, vedere [Distribuzione di file ZIP nelle Funzioni di Azure](deployment-zip-push.md).
 
-## <a name="adding-the-websiterunfrompackage-setting"></a>Aggiungere l'impostazione WEBSITE_RUN_FROM_PACKAGE
+## <a name="adding-the-website_run_from_package-setting"></a>Aggiungere l'impostazione WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 - L'esecuzione dal pacchetto `wwwroot` rende di sola lettura, pertanto verrà visualizzato un errore durante la scrittura di file in questa directory.
 - I formati tar e gzip non sono supportati.

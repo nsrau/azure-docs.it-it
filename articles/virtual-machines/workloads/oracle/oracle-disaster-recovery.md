@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: db0b9887b80f13938045a5d11fb09ed0a43efc19
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f6f678f91e74ea9b0b68127c1786fee745508b99
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706973"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101469"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Ripristino di emergenza per un'istanza di Database Oracle 12c in un ambiente Azure
 
@@ -32,7 +31,7 @@ ms.locfileid: "67706973"
 ## <a name="goals"></a>Obiettivi
 - Progettare la topologia e la configurazione che soddisfano i requisiti di ripristino di emergenza.
 
-## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Scenario 1: Database primario e i siti di ripristino di emergenza in Azure
+## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Scenario 1: Siti primari e di ripristino di emergenza in Azure
 
 Un cliente ha un database Oracle configurato nel sito primario. Un sito di ripristino di emergenza si trova in un'area diversa. Il cliente usa Oracle Data Guard per eseguire un ripristino rapido tra questi siti. Il sito primario ha anche un database secondario per la creazione di report e altri usi. 
 
@@ -58,7 +57,7 @@ Il cliente ha una configurazione del database Oracle locale nel sito primario. I
 
 Per questo tipo di configurazione esistono due approcci.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Approccio 1: Connessioni dirette tra origini locali e Azure, che richiedono porte TCP aperte sul firewall 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Approccio 1: Connessioni dirette tra l'istanza locale e Azure, che richiedono porte TCP aperte sul firewall 
 
 Le connessioni dirette non sono consigliate perché espongono le porte TCP al mondo esterno.
 
@@ -78,7 +77,7 @@ Il seguente è un riepilogo della configurazione di Azure:
 
 ![Schermata della pagina di topologia del ripristino di emergenza](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
-### <a name="approach-2-site-to-site-vpn"></a>Approccio 2: Da sito a VPN
+### <a name="approach-2-site-to-site-vpn"></a>Approccio 2: VPN da sito a sito
 La VPN da sito a sito è un approccio migliore. Per altre informazioni sulla configurazione di una VPN, vedere [Creare una rete virtuale con una connessione VPN da sito a sito usando l'interfaccia della riga di comando](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
 #### <a name="topology"></a>Topologia

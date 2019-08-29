@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 8934306efadc4ec732afbb658c081ada30f232cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4b6a140ec428ce3b053c41074f02f65f19b8dc72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312212"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102898"
 ---
 # <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 
@@ -27,8 +27,8 @@ La visualizzazione delle dipendenze in server Assessment consente di creare grup
 ## <a name="before-you-start"></a>Prima di iniziare
 
 - Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
-- Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) la Azure migrate: Strumento di valutazione server.
-- Assicurarsi di aver individuato i computer in Azure Migrate; a tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: Valutazione del server. [Altre informazioni](migrate-appliance.md)
+- Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) la Azure migrate: Valutazione server.
+- Assicurarsi di aver individuato i computer in Azure Migrate; a tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: Valutazione server. [Altre informazioni](migrate-appliance.md)
 
 ## <a name="how-does-it-work"></a>Come funziona?
 
@@ -36,7 +36,7 @@ Azure Migrate usa la soluzione [mapping dei servizi](../operations-management-su
 - Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro Log Analytics, nuova o esistente, a un progetto di Azure Migrate.
 - È possibile creare o alleghi solo un'area di lavoro nella stessa sottoscrizione in cui viene creato il progetto Azure Migrate.
 - Per alleghi un'area di lavoro Log Analytics a un progetto:
-    1. Nella scheda **Server** , in **Azure migrate: Riquadro Server** Assessment, fare clic su **Panoramica**.
+    1. Nella scheda **Server**, nel riquadro **Azure Migrate: Riquadro Server** Assessment, fare clic su **Panoramica**.
     2. In **Panoramica**fare clic sulla freccia in giù per espandere **Essentials**.
     3. Nell' **area di lavoro di OMS**fare clic su **richiede la configurazione**.
     4. In **Configura area di lavoro**, specificare se si desidera creare una nuova area di lavoro oppure utilizzarne una esistente:
@@ -58,7 +58,7 @@ Azure Migrate usa la soluzione [mapping dei servizi](../operations-management-su
 Per usare la visualizzazione delle dipendenze, è necessario scaricare e installare gli agenti in ogni computer locale che si vuole analizzare.  
 
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) deve essere installato in ogni computer. [Altre](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) informazioni su come installare l'agente MMA.
-- [Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) deve essere installato in ogni computer. [Altre](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) informazioni su come installare Dependency Agent.
+- [Dependency Agent](../azure-monitor/platform/agents-overview.md#dependency-agent) deve essere installato in ogni computer. [Altre](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) informazioni su come installare Dependency Agent.
 - Se vi sono computer senza accesso a Internet, è necessario scaricare e installare il gateway di Log Analytics.
 
 Questi agenti non sono necessari sui computer da valutare, a meno che non si usi la visualizzazione delle dipendenze.

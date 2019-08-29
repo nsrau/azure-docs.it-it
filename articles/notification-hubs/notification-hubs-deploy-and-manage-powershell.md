@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cff6ef25d0fe812cc6df26bf946daff29d37f84
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61457839"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102834"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuire e gestire Hub di notifica tramite PowerShell
 
@@ -74,7 +74,7 @@ catch [System.Exception]
 
 ## <a name="create-the-namespacemanager-class"></a>Creare la classe `NamespaceManager`
 
-Per eseguire il provisioning degli hub di notifica creare un'istanza della classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) dall’SDK.
+Per eseguire il provisioning degli hub di notifica creare un'istanza della classe [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) dall’SDK.
 
 È possibile usare il cmdlet [Get-AzureSBAuthorizationRule] incluso con Azure PowerShell per recuperare una regola di autorizzazione usata per fornire una stringa di connessione. Viene archiviato un riferimento all'istanza di `NamespaceManager` nella variabile `$NamespaceManager`. Si usa `$NamespaceManager` per eseguire il provisioning di un hub di notifica.
 

@@ -7,19 +7,18 @@ author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5bfbf995b67ac49cf169565046daa2887a57e476
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 58174704051709a720950ac51591a1d53b9d01bb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846159"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100556"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usare l'interfaccia della riga di comando di Azure per configurare un gruppo di disponibilità Always On per SQL Server in una macchina virtuale di Azure
 Questo articolo descrive come usare l'interfaccia della riga di comando di [Azure](/cli/azure/sql/vm?view=azure-cli-latest/) per distribuire un cluster di failover Windows, aggiungere SQL Server macchine virtuali al cluster e creare il servizio di bilanciamento del carico interno e il listener per un gruppo di disponibilità always on. La distribuzione del gruppo di disponibilità Always On viene ancora eseguita manualmente tramite SQL Server Management Studio (SSMS). 

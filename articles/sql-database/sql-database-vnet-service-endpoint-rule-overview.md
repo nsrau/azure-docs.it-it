@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 03/12/2019
-ms.openlocfilehash: 9b28a8efcc09954d9046ad1dda3ba5f10f45bdfa
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.date: 08/27/2019
+ms.openlocfilehash: 8948a0fe6112df0d29c0f04685dadbd379a4a382
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840464"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098913"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usare endpoint servizio e regole di rete virtuale per server di database
 
@@ -31,44 +31,7 @@ Per creare una regola della rete virtuale, è necessario prima di tutto un [endp
 
 Se si crea solo una regola di rete virtuale, è possibile procedere direttamente ai passaggi e alla spiegazione [più avanti in questo articolo](#anchor-how-to-by-using-firewall-portal-59j).
 
-<a name="anch-terminology-and-description-82f" />
-
-## <a name="terminology-and-description"></a>Terminologia e descrizione
-
-**Rete virtuale:** è possibile associare reti virtuali alla sottoscrizione di Azure.
-
-**Subnet:** una rete virtuale contiene una o più **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
-
-**Endpoint del servizio di rete virtuale:** un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
-
-**Regola di rete virtuale:** una regola di rete virtuale per il server di database SQL è una subnet presente nell'elenco di controllo di accesso (ACL) del server di database SQL. Per essere nell'elenco ACL del database SQL, la subnet deve contenere il nome del tipo **Microsoft.Sql**.
-
-Una regola di rete virtuale indica al server di database SQL di accettare le comunicazioni da ogni nodo che si trova nella subnet.
-
-<a name="anch-benefits-of-a-vnet-rule-68b" />
-
-## <a name="benefits-of-a-virtual-network-rule"></a>Vantaggi di una regola di rete virtuale
-
-Fino a quando non si interviene, le macchine virtuali nelle subnet non possono comunicare con il database SQL. Un'azione che stabilisce la comunicazione è la creazione di una regola di rete virtuale. La base logica per la scelta dell'approccio delle regole di rete virtuale richiede una discussione di confronto riguardo le opzioni di sicurezza concorrenti offerte dal firewall.
-
-### <a name="a-allow-access-to-azure-services"></a>R. Possibilità di accedere ai servizi di Azure
-
-Il riquadro del firewall contiene un pulsante **ON/OFF** etichettato **Consenti l'accesso a Servizi di Azure**. L'impostazione **ON** consente le comunicazioni da tutti gli indirizzi IP di Azure e tutte le subnet di Azure. Questi indirizzi IP o subnet di Azure potrebbero non essere di proprietà dell'utente. Questa impostazione **ON** è probabilmente più aperta rispetto al livello desiderato per il database SQL. La funzione delle regole di rete virtuale offre un controllo molto più granulare.
-
-### <a name="b-ip-rules"></a>B. Regole IP
-
-Il firewall del database SQL consente di specificare gli intervalli di indirizzi IP da cui vengono accettate le comunicazioni nel database SQL. Questo approccio è ideale per gli indirizzi IP stabili esterni alla rete privata di Azure, ma molti nodi all'interno della rete privata di Azure sono configurati con indirizzi IP *dinamici*. Gli indirizzi IP dinamici potrebbero cambiare, ad esempio al riavvio di una macchina virtuale. Sarebbe inutile specificare un indirizzo IP dinamico in una regola del firewall, in un ambiente di produzione.
-
-È possibile recuperare l'opzione IP ottenendo un indirizzo IP *statico* per la macchina virtuale. Per informazioni dettagliate, vedere [configurare indirizzi IP privati per una macchina virtuale usando il portale di Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
-
-Tuttavia, l'approccio IP statico può diventare difficile da gestire ed è dispendioso a livello di scalabilità. Le regole di rete virtuale sono più semplici da creare e gestire.
-
-> [!NOTE]
-> Il database SQL non è ancora disponibile in una subnet. Se il server di database SQL di Azure è un nodo in una subnet nella rete virtuale, tutti i nodi all'interno della rete virtuale possono comunicare con il database SQL. In questo caso, le macchine virtuali possono comunicare con il database SQL senza aver bisogno di regole di rete virtuale o IP.
-
-Tuttavia, a partire da settembre 2017, il database SQL di Azure non è ancora tra i servizi che possono essere assegnati a una subnet.
-
-<a name="anch-details-about-vnet-rules-38q" />
+<!--<a name="anch-details-about-vnet-rules-38q"/> -->
 
 ## <a name="details-about-virtual-network-rules"></a>Dettagli sulle regole di rete virtuale
 
@@ -141,27 +104,7 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Impatto della rimozione di "Consenti ai servizi di Azure di accedere al server"
 
-Molti utenti vogliono rimuovere **Consenti ai servizi di Azure di accedere al server** dai server SQL di Azure e sostituirlo con una regola del firewall della rete virtuale.
-Questa rimozione tuttavia ha effetto sulle funzionalità seguenti:
-
-### <a name="import-export-service"></a>Servizio Importazione/Esportazione di Azure
-
-Il servizio Importazione/Esportazione del database SQL di Azure viene eseguito sulle VM in Azure. Queste VM non sono nella rete virtuale e quindi ottengono un IP di Azure quando si connettono al database. Rimuovendo **Consenti ai servizi di Azure di accedere al server**, queste macchine virtuali non potranno accedere ai database.
-È possibile applicare una soluzione alternativa per ovviare al problema. Eseguire l'importazione o l'esportazione BACPAC direttamente nel codice usando l'API DACFx. Assicurarsi che venga distribuita in una VM nella stessa subnet della rete virtuale per cui si è impostata la regola del firewall.
-
-### <a name="sql-database-query-editor"></a>Editor di query del database SQL
-
-L'editor di query del database SQL di Azure viene distribuito nelle VM in Azure. Queste VM non sono nella rete virtuale. Le VM ottengono quindi un IP di Azure quando si connettono al database. Rimuovendo **Consenti ai servizi di Azure di accedere al server**, queste macchine virtuali non potranno accedere ai database.
-
-### <a name="table-auditing"></a>Controllo tabelle
-
-Al momento è possibile abilitare il controllo sul database SQL in due modi. Il controllo tabelle non riesce dopo avere abilitato gli endpoint di servizio nel server di Azure SQL. Per mitigare il problema, in questo caso passare al controllo BLOB.
-
-### <a name="impact-on-data-sync"></a>Impatto sulla sincronizzazione dati
-
-Il database SQL di Azure è dotato della funzionalità di sincronizzazione dei dati che si connette ai database dell'utente tramite gli indirizzi IP di Azure. Quando si usano gli endpoint del servizio, è probabile che si scelga di disattivare l'accesso **Consenti ai servizi di Azure di accedere al server** per il server di database SQL. Questa operazione interromperà la funzionalità di sincronizzazione dei dati.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impatto dell'uso degli endpoint di servizio di rete virtuale con Archiviazione di Azure
 
@@ -174,6 +117,7 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
 #### <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
@@ -182,12 +126,12 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
 3.  È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**  nel menu delle impostazioni **Firewall e reti virtuali** di tale account. Per altre informazioni, fare riferimento a [questa guida](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
  
 #### <a name="steps"></a>Passaggi
-1. In PowerShell **registrare il server di database SQL** con Azure Active Directory (AAD):
+1. In PowerShell **registrare il SQL Server di Azure** che ospita l'istanza di Azure SQL Data Warehouse con Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
    Select-AzSubscription -SubscriptionId your-subscriptionId
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
     
    1. Creare **un account di archiviazione per utilizzo generico v2** usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -196,7 +140,7 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
    > - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Per problemi noti con Azure Data Lake Storage Gen2, fare riferimento a questa [guida](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo di **collaboratore dei dati BLOB di archiviazione** al server del database SQL.
+1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo controllo degli accessi in base al ruolo di **collaboratore dei dati BLOB di archiviazione** al SQL Server di Azure che ospita i Azure SQL data warehouse registrati con Azure Active DIRECOTORY (AAD) come nel passaggio 1.
 
    > [!NOTE] 
    > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti per le risorse di Azure, fare riferimento a questa [guida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

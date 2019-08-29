@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae6c2bd27e9192966ecffb4d4296063201fca970
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387088"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098010"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
 
@@ -89,7 +88,7 @@ Si possono eseguire simultaneamente più istanze dell'agente di orchestrazione i
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Trasferimento dei dati fortemente tipizzati (solo .NET)
 
-L'agente di orchestrazione richiede più gruppi di dati, pertanto [oggetti POCO condivisi](../functions-reference-csharp.md#reusing-csx-code) usati per il trasferimento di dati fortemente tipizzati in C# e C# script:  
+L'agente di orchestrazione richiede più dati, quindi [gli oggetti poco condivisi](../functions-reference-csharp.md#reusing-csx-code) vengono usati per il trasferimento di dati C# fortemente C# tipizzati in e nello script:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]

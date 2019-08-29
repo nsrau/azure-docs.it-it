@@ -1,5 +1,5 @@
 ---
-title: Uso con il servizio Kubernetes e Helm-Speech
+title: Usare il contenitore di servizi vocali con Kubernetes e Helm
 titleSuffix: Azure Cognitive Services
 description: Usando Kubernetes e Helm per definire le immagini del contenitore sintesi vocale e sintesi vocale, verrà creato un pacchetto Kubernetes. Questo pacchetto verrà distribuito in un cluster Kubernetes locale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/16/2019
+ms.date: 8/26/2019
 ms.author: dapine
-ms.openlocfilehash: d8a5b941be34028f7a1c53e39b38ab30714ba301
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 3c8ffcdb08fc99f5d815639e14fb4456fbd035e8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971312"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066500"
 ---
-# <a name="use-with-kubernetes-and-helm"></a>Usare con Kubernetes e Jenkins
+# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Usare il contenitore di servizi vocali con Kubernetes e Helm
 
 Un'opzione per gestire i contenitori di riconoscimento vocale in locale consiste nell'usare Kubernetes e Helm. Usando Kubernetes e Helm per definire le immagini del contenitore sintesi vocale e sintesi vocale, verrà creato un pacchetto Kubernetes. Questo pacchetto verrà distribuito in un cluster Kubernetes locale. Infine, si esaminerà come testare i servizi distribuiti e le varie opzioni di configurazione. Per altre informazioni sull'esecuzione di contenitori Docker senza orchestrazione Kubernetes, vedere [installare ed eseguire i contenitori dei servizi vocali](speech-container-howto.md).
 

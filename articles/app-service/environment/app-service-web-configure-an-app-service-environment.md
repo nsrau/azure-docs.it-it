@@ -10,17 +10,16 @@ ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8a05b7e8466187202e6a4d11efce288238cc19b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130620"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069942"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configurazione di un ambiente del servizio app v1
 
@@ -71,7 +70,7 @@ Se le app richiedono dimensioni delle risorse di calcolo superiori, le indicazio
 
 **Ridimensionamento automatico**: uno degli strumenti che consentono di gestire l'utilizzo delle risorse di calcolo è il ridimensionamento automatico, che può essere usato per pool di lavoro o front-end. È ad esempio possibile aumentare e successivamente ridurre nell'arco della stessa giornata le istanze di qualsiasi tipo di pool o eventualmente aggiungere istanze quando il numero dei ruoli di lavoro disponibili in un pool di lavoro scende al di sotto di una determinata soglia.
 
-Se si vogliono impostare regole di ridimensionamento automatico in base alle metriche del pool di risorse di calcolo, tenere presente il tempo necessario per il provisioning. Per altri dettagli sul ridimensionamento automatico degli ambienti del servizio app, vedere [Come configurare il ridimensionamento automatico in un ambiente del servizio app][ASEAutoscale].
+Se si vogliono impostare regole di ridimensionamento automatico in base alle metriche del pool di risorse di calcolo, tenere presente il tempo necessario per il provisioning. Per altri dettagli sul ridimensionamento automatico degli ambienti del servizio app, vedere [come configurare la scalabilità automatica in un ambiente del servizio app][ASEAutoscale].
 
 ### <a name="storage"></a>Archiviazione
 Ogni ambiente del servizio app è configurato con 500 GB di spazio di archiviazione. Questo spazio viene usato da tutte le app incluse nell'ambiente. Lo spazio di archiviazione fa parte dell'ambiente del servizio app e non è possibile cambiare l'impostazione per usare il proprio spazio di archiviazione. Se si apportano modifiche al routing o alla sicurezza della rete virtuale, è necessario consentire l'accesso ad Archiviazione di Azure. In caso contrario, l'ambiente del servizio app non può funzionare.
@@ -89,7 +88,7 @@ Esistono alcune restrizioni per la rete virtuale usata per un ambiente del servi
 * Se una subnet viene usata per ospitare un ambiente del servizio app, l'intervallo di indirizzi della subnet non può essere modificato. Per questo motivo, è consigliabile che la subnet contenga almeno 64 indirizzi per supportare un'eventuale crescita futura dell'ambiente del servizio app.
 * La subnet non può contenere altro oltre all'ambiente del servizio app.
 
-A differenza del servizio ospitato contenente l'ambiente del servizio app, la [rete virtuale][virtualnetwork] e la subnet sono controllate dall'utente.  È possibile amministrare la rete virtuale con l'interfaccia utente Rete virtuale o con PowerShell.  Un ambiente del servizio app può essere distribuito in una rete virtuale classica o di Resource Manager.  L'esperienza a livello di portale e di API è leggermente diversa tra reti virtuali classiche e di Resource Manager, ma l'esperienza dell'ambiente del servizio app è identica.
+A differenza del servizio ospitato che contiene l'ambiente del servizio app, la [rete virtuale][virtualnetwork] e la subnet sono controllate dall'utente.  È possibile amministrare la rete virtuale con l'interfaccia utente Rete virtuale o con PowerShell.  Un ambiente del servizio app può essere distribuito in una rete virtuale classica o di Resource Manager.  L'esperienza a livello di portale e di API è leggermente diversa tra reti virtuali classiche e di Resource Manager, ma l'esperienza dell'ambiente del servizio app è identica.
 
 La rete virtuale usata per ospitare un ambiente del servizio app può usare indirizzi IP RFC1918 privati o indirizzi IP pubblici.  Se si vuole usare un intervallo IP non coperto da RFC1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), la rete virtuale e la subnet usate dall'ambiente del servizio app devono essere create prima di creare l'ambiente.
 
@@ -97,14 +96,14 @@ Poiché il servizio app di Azure viene inserito nella rete virtuale, le app ospi
 
 È ad esempio possibile usare l'integrazione rete virtuale per ottenere l'integrazione con una rete virtuale disponibile nella sottoscrizione ma non connessa alla rete virtuale che include l'ambiente del servizio app. oppure usare la funzionalità Connessioni ibride per accedere a risorse in altre reti, come normalmente possibile.  
 
-Se la rete virtuale è configurata con una VPN ExpressRoute, è necessario tenere conto di alcune esigenze di routing specifiche di un ambiente del servizio app. Alcune configurazioni di route definite dall'utente sono incompatibili con un ambiente del servizio app. Per altri dettagli sull'esecuzione di un ambiente del servizio app in una rete virtuale con ExpressRoute, vedere [Esecuzione di un ambiente del servizio app in una rete virtuale con ExpressRoute][ExpressRoute].
+Se la rete virtuale è configurata con una VPN ExpressRoute, è necessario tenere conto di alcune esigenze di routing specifiche di un ambiente del servizio app. Alcune configurazioni di route definite dall'utente sono incompatibili con un ambiente del servizio app. Per altri dettagli sull'esecuzione di un ambiente del servizio app in una rete virtuale con ExpressRoute, vedere [esecuzione di un ambiente del servizio app in una rete virtuale con ExpressRoute][ExpressRoute].
 
 #### <a name="securing-inbound-traffic"></a>Protezione del traffico in ingresso
 Per controllare il traffico in ingresso all'ambiente del servizio app esistono due metodi principali.  È possibile usare gruppi di sicurezza di rete (NSG) per controllare gli indirizzi IP che potranno accedere all'ambiente del servizio app, come descritto nell'articolo [Come controllare il traffico in ingresso a un ambiente del servizio app](app-service-app-service-environment-control-inbound-traffic.md) , nonché configurare l'ambiente del servizio app con un servizio di bilanciamento del carico interno.  Queste funzionalità possono anche essere usate contemporaneamente, se si vuole limitare l'accesso usando gruppi di sicurezza di rete per un ambiente del servizio app con servizio di bilanciamento del carico interno.
 
 Quando si crea un ambiente del servizio app, verrà creato un indirizzo VIP nella rete virtuale.  Esistono due tipi di indirizzo VIP: esterno e interno.  Quando si crea un ambiente del servizio app con un indirizzo VIP esterno, le app nell'ambiente saranno accessibili tramite un indirizzo IP instradabile su Internet. Quando si seleziona un indirizzo VIP interno, l'ambiente del servizio app verrà configurato con un servizio di bilanciamento del carico interno e non sarà accessibile direttamente da Internet.  In un ambiente del servizio app con servizio di bilanciamento del carico interno è comunque necessario un indirizzo VIP esterno, ma viene usato solo per l'accesso a scopo di gestione e di manutenzione di Azure.  
 
-Durante la creazione di un ambiente del servizio app con servizio di bilanciamento del carico interno si specifica il sottodominio usato dall'ambiente ed è necessario gestire un proprio DNS per il sottodominio specificato.  Poiché si imposta il nome del sottodominio, è necessario anche gestire il certificato usato per l'accesso HTTPS.  Al termine della creazione dell'ambiente del servizio app verrà richiesto di specificare il certificato.  Per altre informazioni sulla creazione e sull'uso di un ambiente del servizio app con servizio di bilanciamento del carico interno, vedere [Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app][ILBASE]. 
+Durante la creazione di un ambiente del servizio app con servizio di bilanciamento del carico interno si specifica il sottodominio usato dall'ambiente ed è necessario gestire un proprio DNS per il sottodominio specificato.  Poiché si imposta il nome del sottodominio, è necessario anche gestire il certificato usato per l'accesso HTTPS.  Al termine della creazione dell'ambiente del servizio app verrà richiesto di specificare il certificato.  Per altre informazioni sulla creazione e sull'uso di un ambiente del servizio app ILB, vedere uso di un [Load Balancer interno con una ambiente del servizio app][ILBASE]. 
 
 ## <a name="portal"></a>Portale
 È possibile gestire e monitorare l'ambiente del servizio app usando l'interfaccia utente del portale di Azure. Se è stato creato un ambiente del servizio app, nella barra laterale verrà probabilmente visualizzato il simbolo dei servizi app, usato per rappresentare gli ambienti del servizio app nel portale di Azure:
@@ -137,7 +136,7 @@ Il pannello dell'ambiente del servizio app include una sezione **Impostazioni** 
 
 ![Pannello Impostazioni e Proprietà][4]
 
-**Impostazioni** > **Indirizzi IP**: quando si crea un'app IP SSL (Secure Sockets Layer) nell'ambiente del servizio app, è necessario un indirizzo IP SSL. Per ottenerne uno, è necessario che l'ambiente del servizio app possieda indirizzi IP SSL da allocare. Quando viene creato, l'ambiente del servizio app ha un indirizzo IP SSL a tale scopo, ma è possibile aggiungerne altri. Per gli indirizzi IP SSL aggiuntivi è previsto un addebito, come indicato nella sezione relativa alle connessioni SSL in [Prezzi di Servizio app ][AppServicePricing]. Il prezzo indicato è il prezzo aggiuntivo per la connessione IP SSL.
+**Impostazioni** > **Indirizzi IP**: quando si crea un'app IP SSL (Secure Sockets Layer) nell'ambiente del servizio app, è necessario un indirizzo IP SSL. Per ottenerne uno, è necessario che l'ambiente del servizio app possieda indirizzi IP SSL da allocare. Quando viene creato, l'ambiente del servizio app ha un indirizzo IP SSL a tale scopo, ma è possibile aggiungerne altri. Sono previsti addebiti per gli indirizzi IP SSL aggiuntivi, come illustrato nel [prezzo del servizio app][AppServicePricing] nella sezione relativa alle connessioni SSL. Il prezzo indicato è il prezzo aggiuntivo per la connessione IP SSL.
 
 **Impostazioni** > **Pool front end** / **Pool di lavoro**: ogni pannello dei pool di risorse consente di visualizzare informazioni relative al pool specifico, nonché i controlli per il ridimensionamento completo del pool.  
 

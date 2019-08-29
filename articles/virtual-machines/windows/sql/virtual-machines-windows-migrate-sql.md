@@ -11,17 +11,16 @@ ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a8b66c181505a617b002d1a45675d4677588b1c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65795785"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102187"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure
 
@@ -31,7 +30,7 @@ Esistono diversi metodi per eseguire la migrazione di un database utente di SQL 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
   > [!NOTE]
-  > SQL Server 2008 e SQL Server 2008 R2 si stanno avvicinando il [fine del loro ciclo di vita del supporto](https://www.microsoft.com/sql-server/sql-server-2008) per le istanze locali. Per estendere il supporto, è possibile eseguire la migrazione di istanza di SQL Server in una VM di Azure, o acquistare aggiornamenti della protezione estesa per mantenerli in locale. Per altre informazioni, vedere [estendere il supporto per SQL Server 2008 e 2008 R2 con Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
+  > SQL Server 2008 e SQL Server 2008 R2 si avvicinano alla [fine del ciclo di vita del supporto](https://www.microsoft.com/sql-server/sql-server-2008) per le istanze locali. Per estendere il supporto, è possibile eseguire la migrazione dell'istanza di SQL Server a una macchina virtuale di Azure oppure acquistare aggiornamenti della sicurezza estesi per mantenerli in locale. Per altre informazioni, vedere [estendere il supporto per SQL Server 2008 e 2008 R2 con Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>Quali sono i metodi di migrazione principali?
 I metodi di migrazione principali sono:

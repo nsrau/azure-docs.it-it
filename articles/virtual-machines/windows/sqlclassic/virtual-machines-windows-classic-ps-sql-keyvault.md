@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96d2dc567a4ccc96d33c2ccac233268a5b9148e4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108482"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100350"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -53,7 +52,7 @@ La tabella seguente elenca i parametri necessari per eseguire lo script di Power
 
 | Parametro | DESCRIZIONE | Esempio |
 | --- | --- | --- |
-| **$akvURL** |**URL dell'insieme di credenziali delle chiavi** |"https:\//contosokeyvault.vault.azure.net/" |
+| **$akvURL** |**URL dell'insieme di credenziali delle chiavi** |"https:\//contosokeyvault.Vault.Azure.NET/" |
 | **$spName** |**Nome entità servizio** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Segreto entità servizio** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Nome credenziali**: L'integrazione dell'insieme di credenziali delle chiavi di Azure crea le credenziali all'interno di SQL Server, consentendo alla VM di accedere all'insieme di credenziali delle chiavi. Scegliere un nome per la credenziale. |"mycred1" |

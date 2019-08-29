@@ -1,6 +1,7 @@
 ---
-title: Impedisci limitazioni di archiviazione e latenza dell'esperimento con le directory di input e di output
-description: In questo articolo viene illustrato dove salvare i file di input dell'esperimento e dove scrivere i file di output per evitare errori di limitazione dell'archiviazione e la latenza degli esperimenti.
+title: Dove salvare & scrivere i file dell'esperimento
+titleSuffix: Azure Machine Learning service
+description: Informazioni su dove salvare i file di input dell'esperimento e su dove scrivere i file di output per evitare errori di limitazione dell'archiviazione e latenza degli esperimenti.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ea820536d93ec095f6f2929a9dc3b38d92779a58
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7d5e147173e766d0da54aa3422faef4b6035b914
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856056"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114507"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dove salvare e scrivere file per esperimenti di Azure Machine Learning
 

@@ -8,18 +8,18 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 7893c8e8b8d67b4b63bd9d6bb5a71552e95c9125
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 25751db785bf5d0b67195d1e1db660c0b9b5bf4e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850254"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100960"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gestire IoT Central dal portale di Azure
 
 [!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
-Invece di creare e gestire le applicazioni IoT Central dalla pagina [Gestione applicazioni](https://aka.ms/iotcentral) di IoT Central, è possibile usare il [portale di Azure](https://portal.azure.com) per gestire le applicazioni.
+Invece di creare e gestire applicazioni IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) , è possibile usare la [portale di Azure](https://portal.azure.com) per gestire le applicazioni.
 
 ## <a name="create-iot-central-applications"></a>Creare applicazioni IoT Central
 
@@ -39,7 +39,7 @@ Selezionare quindi **Crea**.
 
 ![Portale di gestione: risorsa IoT Central](media/howto-manage-iot-central-from-portal/image0c1.png)
 
-Compilare tutti i campi del modulo. Questo modulo è analogo a quello che si compila per creare applicazioni nella pagina [Gestione applicazioni](https://aka.ms/iotcentral) di IoT Central. Per altre informazioni, consultare la guida introduttiva [Creare un'applicazione Azure IoT Central](quick-deploy-iot-central.md).
+Compilare tutti i campi del modulo. Questo modulo è simile al modulo compilato per creare applicazioni nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) . Per altre informazioni, consultare la guida introduttiva [Creare un'applicazione Azure IoT Central](quick-deploy-iot-central.md).
 
 ![Portale di gestione: creare la risorsa IoT Central](media/howto-manage-iot-central-from-portal/image1a.png)  
 

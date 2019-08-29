@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 5f9b255e8aa370184ec244ed418f02e55fc149b3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e1649d1ad50a62374cb5a1d9491c594e1b485ec1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049177"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100967"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics"></a>Estendi IoT Central di Azure con analisi personalizzate
 
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ### <a name="iot-central-application"></a>Applicazione IoT Central
 
-Creare un'applicazione IoT Central dalla pagina [IOT Central di Azure-applicazioni personali](https://aka.ms/iotcentral) con le impostazioni seguenti:
+Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
 
 | Impostazione | Valore |
 | ------- | ----- |
@@ -99,7 +99,7 @@ Lo spazio dei nomi di hub eventi è simile allo screenshot seguente:
 
 ## <a name="configure-export-in-iot-central"></a>Configurare l'esportazione in IoT Central
 
-Passare all' [applicazione IoT Central](https://aka.ms/iotcentral) creata dal modello contoso. In questa sezione l'applicazione viene configurata in modo da trasmettere i dati di telemetria dai dispositivi simulati all'hub eventi. Per configurare l'esportazione:
+Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) passare all'applicazione IoT Central creata dal modello contoso. In questa sezione l'applicazione viene configurata in modo da trasmettere i dati di telemetria dai dispositivi simulati all'hub eventi. Per configurare l'esportazione:
 
 1. Passare alla pagina **esportazione dati continui** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:
@@ -128,7 +128,7 @@ Nell'elenco delle attività comuni della pagina **Azure Databricks** selezionare
 
 Usare le informazioni nella tabella seguente per creare il cluster:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
 | Nome cluster | centralanalysis |
 | Modalità cluster | Standard |

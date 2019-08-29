@@ -8,24 +8,23 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f95d3487adecb17e0f4b79e81a08e16bafe4594f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2b44b51da11bc1c51fcbc60992a9b5b870daf02e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855246"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100574"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usare i modelli di avvio rapido di Azure per configurare un gruppo di disponibilità Always On per SQL Server in una macchina virtuale di Azure
 Questo articolo descrive come usare i modelli di avvio rapido di Azure per automatizzare parzialmente la distribuzione di una configurazione del gruppo di disponibilità Always On per le macchine virtuali SQL Server in Azure. In questo processo vengono usati due modelli di avvio rapido di Azure: 
 
-   | Modello | DESCRIZIONE |
+   | Modello | Descrizione |
    | --- | --- |
    | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Consente di creare il cluster di failover di Windows e di aggiungervi le macchine virtuali SQL Server. |
    | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Crea il listener del gruppo di disponibilità e configura il servizio di bilanciamento del carico interno. Questo modello può essere usato solo se il cluster di failover di Windows è stato creato con il modello **101-SQL-VM-AG-Setup** . |
@@ -102,7 +101,7 @@ Il listener del gruppo di disponibilità Always On richiede un'istanza interna d
 4. Nel pannello **Load Balancer** selezionare **Crea**.
 5. Bella finestra di dialogo **Crea servizio di bilanciamento del carico** configurare il servizio di bilanciamento del carico come segue:
 
-   | Impostazione | Valore |
+   | Impostazione | Value |
    | --- | --- |
    | **Nome** |Immettere un nome di testo che rappresenti il servizio di bilanciamento del carico. Ad esempio, immettere **sqlLB**. |
    | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: Consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
@@ -140,7 +139,7 @@ Per configurare il servizio di bilanciamento del carico interno e creare il list
 
    Nella tabella seguente vengono illustrati i valori necessari per il modello: 
 
-   | **Campo** | Valore |
+   | **Campo** | Value |
    | --- | --- |
    |**Gruppo di risorse** | Gruppo di risorse in cui si trovano le VM di SQL Server e il gruppo di disponibilità. | 
    |**Existing Failover Cluster Name** (Nome cluster di failover esistente) | Nome del cluster a cui sono aggiunte le VM di SQL Server. |

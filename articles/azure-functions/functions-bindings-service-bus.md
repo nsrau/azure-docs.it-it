@@ -8,16 +8,15 @@ manager: gwallace
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d5b2afd642a7eb042b2e6e07ef93a505f6b9648
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: f2bdfab82e1b9fb05d74f69536ec672a4b18a4bf
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774707"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114374"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
@@ -367,7 +366,7 @@ Il valore `maxAutoRenewDuration` può essere configurato in *host.json*, che ese
 
 Il trigger del bus di servizio fornisce diverse [proprietà di metadati](./functions-bindings-expressions-patterns.md#trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono le proprietà della classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
 
-|Proprietà|Type|DESCRIZIONE|
+|Proprietà|Type|Descrizione|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Il numero di recapiti.|
 |`DeadLetterSource`|`string`|La coda di messaggi non recapitabili.|
@@ -400,7 +399,7 @@ Il file [host.json](functions-host-json.md#servicebus) contiene le impostazioni 
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------|
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. |
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.|
@@ -715,14 +714,19 @@ In C# e nello script C# è possibile usare i tipi di parametro seguenti per l'as
 * `out T paramName` - `T` può essere qualsiasi tipo serializzabile con JSON. Se il valore del parametro è null quando la funzione termina, Funzioni di Azure crea il messaggio con un oggetto null.
 * `out string`: se il valore del parametro è null quando la funzione termina, Funzioni di Azure non crea un messaggio.
 * `out byte[]`: se il valore del parametro è null quando la funzione termina, Funzioni di Azure non crea un messaggio.
-* `out BrokeredMessage`: se il valore del parametro è null quando la funzione termina, Funzioni di Azure non crea un messaggio.
+* `out BrokeredMessage`-Se il valore del parametro è null quando la funzione viene chiusa, funzioni non crea un messaggio (per le funzioni 1. x)
+* `out Message`-Se il valore del parametro è null quando la funzione viene chiusa, funzioni non crea un messaggio (per functions 2. x)
 * `ICollector<T>` o `IAsyncCollector<T>`: per la creazione di più messaggi. Quando si chiama il metodo `Add` viene creato un messaggio.
 
-Nelle funzioni asincrone usare il valore restituito o `IAsyncCollector` anziché un parametro `out`.
+Quando si utilizzano C# le funzioni:
 
-Questi parametri sono per le versioni di Funzioni di Azure 1.x. Per le versioni 2.x, usare [ `Message` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) invece di `BrokeredMessage`.
+* Per le funzioni asincrone è necessario un `IAsyncCollector` valore restituito o `out` anziché un parametro.
 
-In JavaScript accedere alla coda o all'argomento usando `context.bindings.<name from function.json>`. È possibile assegnare una stringa, una matrice di byte o un oggetto Javascript (deserializzato in JSON) a `context.binding.<name>`.
+* Per accedere all'ID sessione, eseguire l'associazione [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) a un tipo e `sessionId` usare la proprietà.
+
+In JavaScript accedere alla coda o all'argomento usando `context.bindings.<name from function.json>`. È possibile assegnare una stringa, una matrice di byte o un oggetto JavaScript (deserializzato in JSON) a `context.binding.<name>`.
+
+Per inviare un messaggio a una coda abilitata per la sessione inC# lingue diverse, usare [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) anziché l'associazione di output incorporata.
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
@@ -756,7 +760,7 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.|
 |autoComplete|true|Indica se il trigger deve contrassegnare immediatamente come completato (completamento automatico) oppure attendere che venga eseguita la chiamata a complete.|

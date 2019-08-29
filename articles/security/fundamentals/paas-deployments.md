@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: a562630ef19c134c227ef44b944c1dd921ff2e46
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726815"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098631"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -139,7 +139,7 @@ Di seguito sono illustrate le procedure consigliate per l'uso della cache locale
 **Dettagli**: [Ambiente del servizio app](/azure/app-service/environment/intro) ha una funzionalità di integrazione di rete virtuale che consente di limitare gli indirizzi IP di origine in ingresso tramite gruppi di sicurezza di rete. Le reti virtuali consentono di posizionare le risorse di Azure in una rete instradabile non Internet di cui si controlla l'accesso. Per altre informazioni, vedere [Integrare un'app in una rete virtuale di Azure](/azure/app-service/web-sites-integrate-with-vnet).
 
 **Procedura consigliata**: monitorare lo stato di sicurezza degli ambienti del Servizio app di Azure.   
-**Dettagli**: usare il Centro sicurezza per monitorare gli ambienti del servizio app. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea degli [elementi consigliati](/azure/security-center/security-center-virtual-machine-recommendations) utili per definire il processo di configurazione dei controlli necessari.
+**Dettagli**: usare il Centro sicurezza per monitorare gli ambienti del servizio app. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea degli [elementi consigliati](../../security-center/security-center-virtual-machine-protection.md) utili per definire il processo di configurazione dei controlli necessari.
 
 > [!NOTE]
 > La funzionalità di monitoraggio del Servizio app di Azure è disponibile in anteprima e solo per il [livello Standard](/azure/security-center/security-center-pricing) del Centro sicurezza.
