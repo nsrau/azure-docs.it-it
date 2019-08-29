@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: a7f624bc85d35048a8f9afa0f527ae592a24fbf1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 9851305bdaa2f214e0d00eda3235068cac2ea980
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667953"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083468"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
 
@@ -52,7 +51,7 @@ Oltre ai parametri `{subscription-id}` e `{resourceGroupName}`, è necessario sp
 
 Gli argomenti seguenti sono obbligatori:
 
-| Intestazione della richiesta   | DESCRIZIONE |
+| Intestazione della richiesta   | Descrizione |
 |------------------|-----------------|
 | *Content-Type:*  | Richiesto. Impostare su `application/json`. |
 | *Authorization:* | Richiesto. Impostare su un [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valido. |
@@ -127,7 +126,7 @@ Un esempio di corpo di richiesta è riportato di seguito. Assicurarsi di specifi
 }
 ```
 
-Per un elenco completo delle definizioni disponibili nel corpo della richiesta, vedere [macchine virtuali creare o aggiornare le definizioni dei corpi di richiesta](/rest/api/compute/virtualmachines/createorupdate#definitions).
+Per un elenco completo delle definizioni disponibili nel corpo della richiesta, vedere [macchine virtuali creare o aggiornare le definizioni del corpo della richiesta](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## <a name="sending-the-request"></a>Invio della richiesta
 
@@ -137,10 +136,10 @@ Per un elenco completo delle definizioni disponibili nel corpo della richiesta, 
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di una macchina virtuale:
 
-| Name        | Type                                                                              | Descrizione |
+| NOME        | Type                                                                              | Descrizione |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 - OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
-| 201 Creato | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Data di creazione     |
+| 201 Creato | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Data creazione     |
 
 Una risposta condensata *201 Creato* dall'esempio di corpo della richiesta precedente per la creazione di una macchina virtuale mostra che è stato assegnato un *vmId* e che *provisioningState* è *Creating*:
 

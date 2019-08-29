@@ -10,16 +10,15 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 46f52cb0478b47f8f6b45356815bc4c74e7cc800
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: d403292a7f7ab1080f4270a420c23353eda5fd71
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724114"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090035"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -51,9 +50,9 @@ In genere si verificano problemi di attivazione della macchina virtuale di Azure
 >
 >Se si usa ExpressRoute ed è stata pubblicata una route predefinita, vedere [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Potrebbe non essere possibile attivare la VM di Azure tramite ExpressRoute).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Passaggio 1 configurare la chiave di configurazione client KMS appropriata
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Passaggio 1 configurare la chiave di configurazione del client del servizio di gestione delle chiavi appropriata
 
-Per la macchina virtuale creata da un'immagine personalizzata, è necessario configurare la chiave di configurazione client KMS appropriata per la macchina virtuale.
+Per la macchina virtuale creata da un'immagine personalizzata, è necessario configurare la chiave di configurazione del client del servizio di gestione delle chiavi appropriata per la macchina virtuale.
 
 1. Eseguire **slmgr.vbs /dlv** in un prompt dei comandi con privilegi elevati. Controllare il valore Description nell'output e quindi determinare se è stato creato da un supporto per licenze al dettaglio (canale RETAIL) o per contratti multilicenza (VOLUME_KMSCLIENT):
   
@@ -101,7 +100,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
 
    Tenere presente che, se si rimuovono tutti i server DNS da una rete virtuale, le VM usano il servizio DNS interno di Azure. Questo servizio può risolvere kms.core.windows.net.
   
-    Assicurarsi anche che il traffico di rete in uscita per endpoint KMS con la porta 1688 non sia bloccato dal firewall nella macchina virtuale.
+    Assicurarsi inoltre che il traffico di rete in uscita verso l'endpoint KMS con la porta 1688 non sia bloccato dal firewall nella macchina virtuale.
 
 5. Dopo avere verificato la corretta connettività a kms.core.windows.net, usare il comando seguente in tale prompt di Windows PowerShell con privilegi elevati. Questo comando tenta l'attivazione più volte.
 
@@ -111,7 +110,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
 
     Un'attivazione corretta restituisce informazioni simili alle seguenti:
     
-    **Attivazione di Windows (r), server datacenter edition (12345678-1234-1234-1234-12345678)...  Attivata prodotto completata.**
+    **Attivazione di Windows (R), ServerDatacenter Edition (12345678-1234-1234-1234-12345678)...  Il prodotto è stato attivato correttamente.**
 
 ## <a name="faq"></a>Domande frequenti 
 

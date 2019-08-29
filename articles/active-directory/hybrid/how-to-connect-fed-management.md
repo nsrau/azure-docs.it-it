@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7249f2077666530964afa16ef47d69731cee846a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353632"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085235"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
 In questo articolo viene descritto come gestire e personalizzare Active Directory Federation Services (ADFS) tramite Azure Active Directory (Azure AD) Connect. Si includono inoltre altre attività comuni di AD FS che potrebbero essere necessarie per eseguire una configurazione completa di una farm di AD FS.
@@ -32,7 +32,7 @@ In questo articolo viene descritto come gestire e personalizzare Active Director
 |:--- |:--- |
 | **Gestire AD FS** | |
 | [Ripristinare il trust](#repairthetrust) |Come ripristinare il trust federativo con Office 365. |
-| [Attuare la federazione con Azure AD usando l'ID di accesso alternativo](#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
+| [Federazione con Azure AD utilizzando un ID di accesso alternativo](#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
 | [Aggiungere un server AD FS](#addadfsserver) |Come espandere una farm AD FS con un server AD FS aggiuntivo. |
 | [Aggiungere un server proxy applicazione Web AD FS](#addwapserver) |Come espandere la farm AD FS con un server Proxy applicazione Web (WAP) aggiuntivo. |
 | [Aggiunta di un dominio federato](#addfeddomain) |Come aggiungere un dominio federato. |
@@ -231,7 +231,7 @@ Questa regola definisce un flag temporaneo denominato **idflag**, che è imposta
 **Regola 3: Rilasciare ms-ds-consistencyguid come ID non modificabile se presente**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
-    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
+    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
 
 Si tratta di un controllo **Exist** implicito. Se il valore per l'attestazione esiste, viene emesso come ID non modificabile. Nell'esempio precedente si usa l'attestazione **nameidentifier** . Sarà necessario sostituirla con il tipo di attestazione appropriato per l'ID non modificabile nel proprio ambiente.
 
@@ -239,7 +239,7 @@ Si tratta di un controllo **Exist** implicito. Se il valore per l'attestazione e
 
     c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
-    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c2.Value);
+    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
 
 In questa regola si verifica semplicemente il flag temporaneo **idflag**. Decidere se rilasciare l'attestazione in base al relativo valore.
 

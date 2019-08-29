@@ -6,16 +6,15 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7aef7eb2e3d88bef7d2700d9945b9ff343c17536
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 11ae418ddbe007c6fd5aa44ef22ed7fddec9c702
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812823"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087259"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP in Funzioni permanenti (Funzioni di Azure)
 
@@ -44,14 +43,14 @@ La classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-d
 
 Queste funzioni di esempio generano i dati di risposta JSON seguenti. Il tipo di dati di tutti i campi è `string`.
 
-| Campo                   |DESCRIZIONE                           |
+| Campo                   |Descrizione                           |
 |-----------------------------|--------------------------------------|
 | **`id`**                    |ID dell'istanza di orchestrazione. |
 | **`statusQueryGetUri`**     |URL di stato dell'istanza di orchestrazione. |
 | **`sendEventPostUri`**      |URL di generazione evento dell'istanza di orchestrazione. |
 | **`terminatePostUri`**      |URL di terminazione dell'istanza di orchestrazione. |
-| **`purgeHistoryDeleteUri`** |L'URL dell'istanza di orchestrazione "Elimina cronologia". |
-| **`rewindPostUri`**         |(anteprima) L'URL "rewind" dell'istanza di orchestrazione. |
+| **`purgeHistoryDeleteUri`** |URL dell'istanza di orchestrazione "Elimina cronologia". |
+| **`rewindPostUri`**         |anteprima URL "Rewind" dell'istanza di orchestrazione. |
 
 Di seguito è riportata una risposta di esempio:
 
@@ -92,7 +91,7 @@ Questo protocollo consente di coordinare processi a esecuzione prolungata con cl
 
 Tutte le API HTTP implementate dall'estensione richiedono i parametri seguenti. Il tipo di dati di tutti i parametri è `string`.
 
-| Parametro        | Tipo di parametro  | Descrizione |
+| Parametro        | Tipo parametro  | Descrizione |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Stringa di query    | Nome dell'[hub attività](durable-functions-task-hubs.md). Se non specificato, viene usato il nome dell'hub attività dell'app per le funzioni corrente. |
 | **`connection`** | Stringa di query    | **Nome** della stringa di connessione per l'account di archiviazione. Se non specificato, viene usata la stringa di connessione predefinita dell'app per le funzioni. |
@@ -108,7 +107,7 @@ Ottiene lo stato di un'istanza di orchestrazione specificata.
 
 #### <a name="request"></a>Richiesta
 
-Per la versione 1.x del runtime di funzioni, la richiesta viene formattato come segue (vengono visualizzate più righe per maggiore chiarezza):
+Per la versione 1. x del runtime di funzioni, la richiesta viene formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
@@ -120,7 +119,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showInput=[true|false]
 ```
 
-Nella versione 2.x del runtime di funzioni, il formato dell'URL ha gli stessi parametri, ma con un prefisso leggermente diverso:
+Nella versione 2. x del runtime di funzioni, il formato dell'URL presenta tutti gli stessi parametri, ma con un prefisso leggermente diverso:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/{instanceId}
@@ -137,11 +136,11 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 | Campo                   | Tipo di parametro  | Descrizione |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | ID dell'istanza di orchestrazione. |
-| **`showInput`**         | Stringa di query    | Parametro facoltativo. Se impostato su `false`, la funzione di input non verrà incluso nel payload della risposta.|
+| **`showInput`**         | Stringa di query    | Parametro facoltativo. Se impostato su `false`, l'input della funzione non verrà incluso nel payload della risposta.|
 | **`showHistory`**       | Stringa di query    | Parametro facoltativo. Se impostato su `true`, la cronologia di esecuzione dell'orchestrazione verrà inclusa nel payload della risposta.|
-| **`showHistoryOutput`** | Stringa di query    | Parametro facoltativo. Se impostato su `true`, la funzione restituisce verranno inclusi nella cronologia di esecuzione dell'orchestrazione.|
-| **`createdTimeFrom`**   | Stringa di query    | Parametro facoltativo. Se specificato, consente di filtrare l'elenco di istanze restituite che sono stati creati in o successivi al timestamp ISO8601 specificato.|
-| **`createdTimeTo`**     | Stringa di query    | Parametro facoltativo. Se specificato, consente di filtrare l'elenco di istanze restituite che sono stati creati in corrispondenza o prima del timestamp ISO8601 specificato.|
+| **`showHistoryOutput`** | Stringa di query    | Parametro facoltativo. Se impostato su `true`, gli output della funzione verranno inclusi nella cronologia di esecuzione dell'orchestrazione.|
+| **`createdTimeFrom`**   | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze restituite create in corrispondenza o dopo il timestamp ISO8601 specificato.|
+| **`createdTimeTo`**     | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze restituite create in corrispondenza o prima del timestamp ISO8601 specificato.|
 | **`runtimeStatus`**     | Stringa di query    | Parametro facoltativo. Se specificato, filtra l'elenco delle istanze restituite in base allo stato del runtime. Per un elenco dei valori possibili di stato del runtime, vedere l'argomento [Esecuzione di query sulle istanze](durable-functions-instance-management.md). |
 
 #### <a name="response"></a>Risposta
@@ -156,7 +155,7 @@ Possono essere restituiti diversi valori di codice di stato.
 
 Il payload di risposta per i casi **HTTP 200** e **HTTP 202** è un oggetto JSON con i campi seguenti:
 
-| Campo                 | Tipo di dati | Descrizione |
+| Campo                 | Tipo di dati | DESCRIZIONE |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | string    | Stato di runtime dell'istanza. I valori includono *In esecuzione*, *In sospeso*, *Non riuscito*, *Annullato*, *Terminato*, *Completato*. |
 | **`input`**           | JSON      | Dati JSON usati per inizializzare l'istanza. Questo campo è `null` quando il parametro della stringa di query `showInput` è impostato su `false`.|
@@ -225,14 +224,14 @@ La risposta **HTTP 202** include anche un'intestazione di risposta **Location** 
 
 ### <a name="get-all-instances-status"></a>Ottenere lo stato di tutte le istanze
 
-È anche possibile eseguire una query lo stato di tutte le istanze rimuovendo le `instanceId` dalla richiesta 'Get sullo stato dell'istanza'. In questo caso, i parametri di base sono le stesse 'Get stato dell'istanza di'. Sono supportati anche i parametri della stringa di query per il filtro.
+È anche possibile eseguire una query sullo stato di tutte le istanze `instanceId` rimuovendo dalla richiesta "Get instance status". In questo caso, i parametri di base sono gli stessi di "Get instance status". Sono supportati anche i parametri della stringa di query per il filtro.
 
 Tenere presente che `connection` e `code` sono facoltativi. Se si usa l'autenticazione anonima nella funzione, non è necessario il parametro code.
-Se non si desidera usare una stringa di connessione di archiviazione diverso diverso da definiti nell'impostazione dell'app AzureWebJobsStorage, quindi è possibile ignorare il parametro di stringa di query di connessione.
+Se non si vuole usare una stringa di connessione di archiviazione diversa da quella definita nell'impostazione dell'app AzureWebJobsStorage, è possibile ignorare tranquillamente il parametro della stringa di query di connessione.
 
 #### <a name="request"></a>Richiesta
 
-Per la versione 1.x del runtime di funzioni, la richiesta viene formattato come segue (vengono visualizzate più righe per maggiore chiarezza):
+Per la versione 1. x del runtime di funzioni, la richiesta viene formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances
@@ -246,7 +245,7 @@ GET /admin/extensions/DurableTaskExtension/instances
     &top={integer}
 ```
 
-Nella versione 2.x del runtime di funzioni, il formato dell'URL ha gli stessi parametri, ma con un prefisso leggermente diverso:
+Nella versione 2. x del runtime di funzioni, il formato dell'URL presenta tutti gli stessi parametri, ma con un prefisso leggermente diverso:
 
 ```http
 GET /runtime/webhooks/durableTask/instances?
@@ -262,16 +261,16 @@ GET /runtime/webhooks/durableTask/instances?
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo                   | Tipo di parametro  | DESCRIZIONE |
+| Campo                   | Tipo di parametro  | Descrizione |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | ID dell'istanza di orchestrazione. |
-| **`showInput`**         | Stringa di query    | Parametro facoltativo. Se impostato su `false`, la funzione di input non verrà incluso nel payload della risposta.|
+| **`showInput`**         | Stringa di query    | Parametro facoltativo. Se impostato su `false`, l'input della funzione non verrà incluso nel payload della risposta.|
 | **`showHistory`**       | Stringa di query    | Parametro facoltativo. Se impostato su `true`, la cronologia di esecuzione dell'orchestrazione verrà inclusa nel payload della risposta.|
-| **`showHistoryOutput`** | Stringa di query    | Parametro facoltativo. Se impostato su `true`, la funzione restituisce verranno inclusi nella cronologia di esecuzione dell'orchestrazione.|
-| **`createdTimeFrom`**   | Stringa di query    | Parametro facoltativo. Se specificato, consente di filtrare l'elenco di istanze restituite che sono stati creati in o successivi al timestamp ISO8601 specificato.|
-| **`createdTimeTo`**     | Stringa di query    | Parametro facoltativo. Se specificato, consente di filtrare l'elenco di istanze restituite che sono stati creati in corrispondenza o prima del timestamp ISO8601 specificato.|
+| **`showHistoryOutput`** | Stringa di query    | Parametro facoltativo. Se impostato su `true`, gli output della funzione verranno inclusi nella cronologia di esecuzione dell'orchestrazione.|
+| **`createdTimeFrom`**   | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze restituite create in corrispondenza o dopo il timestamp ISO8601 specificato.|
+| **`createdTimeTo`**     | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze restituite create in corrispondenza o prima del timestamp ISO8601 specificato.|
 | **`runtimeStatus`**     | Stringa di query    | Parametro facoltativo. Se specificato, filtra l'elenco delle istanze restituite in base allo stato del runtime. Per un elenco dei valori possibili di stato del runtime, vedere l'argomento [Esecuzione di query sulle istanze](durable-functions-instance-management.md). |
-| **`top`**               | Stringa di query    | Parametro facoltativo. Quando specificato, limita il numero di istanze restituite dalla query. |
+| **`top`**               | Stringa di query    | Parametro facoltativo. Se specificato, limita il numero di istanze restituite dalla query. |
 
 #### <a name="response"></a>Risposta
 
@@ -330,17 +329,17 @@ Di seguito è riportato un esempio di payload di risposta, compreso lo stato del
 > Questa operazione può risultare molto costosa in termini di Archiviazione di Azure I/O se sono presenti molte righe nella tabella delle istanze. Altre informazioni sulla tabella di istanza sono reperibili nella documentazione [Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)](durable-functions-perf-and-scale.md#instances-table).
 >
 
-Se esistono altri risultati, viene restituito un token di continuazione nell'intestazione della risposta.  Il nome dell’intestazione è `x-ms-continuation-token`.
+Se sono presenti più risultati, nell'intestazione della risposta viene restituito un token di continuazione.  Il nome dell’intestazione è `x-ms-continuation-token`.
 
-Se si imposta valore del token di continuazione nell'intestazione della richiesta successiva, è possibile ottenere la pagina successiva di risultati. Questo nome dell'intestazione della richiesta viene inoltre `x-ms-continuation-token`.
+Se si imposta il valore del token di continuazione nell'intestazione della richiesta successiva, è possibile ottenere la pagina di risultati successiva. Il nome dell'intestazione della richiesta è inoltre `x-ms-continuation-token`.
 
-### <a name="purge-single-instance-history"></a>Eliminare la cronologia a istanza singola
+### <a name="purge-single-instance-history"></a>Ripulisci cronologia istanza singola
 
-Elimina la cronologia e gli elementi correlati per un'istanza di orchestrazione specificata.
+Elimina la cronologia e gli artefatti correlati per un'istanza di orchestrazione specificata.
 
 #### <a name="request"></a>Richiesta
 
-Per la versione 1.x del runtime di funzioni, la richiesta viene formattato come segue (vengono visualizzate più righe per maggiore chiarezza):
+Per la versione 1. x del runtime di funzioni, la richiesta viene formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
@@ -349,7 +348,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &code={systemKey}
 ```
 
-Nella versione 2.x del runtime di funzioni, il formato dell'URL ha gli stessi parametri, ma con un prefisso leggermente diverso:
+Nella versione 2. x del runtime di funzioni, il formato dell'URL presenta tutti gli stessi parametri, ma con un prefisso leggermente diverso:
 
 ```http
 DELETE /runtime/webhooks/durabletask/instances/{instanceId}
@@ -360,22 +359,22 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo             | Tipo di parametro  | DESCRIZIONE |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 
 #### <a name="response"></a>Risposta
 
-I valori di codice di stato HTTP seguenti possono essere restituiti.
+È possibile restituire i seguenti valori di codice di stato HTTP.
 
-* **HTTP 200 (OK)** : La cronologia di istanza è stata eliminata correttamente.
+* **HTTP 200 (OK)** : La cronologia dell'istanza è stata eliminata correttamente.
 * **HTTP 404 (Non trovata)** : L'istanza specificata non esiste.
 
-Il payload di risposta per la **HTTP 200** case è un oggetto JSON con il campo seguente:
+Il payload di risposta per il case **HTTP 200** è un oggetto JSON con il campo seguente:
 
 | Campo                  | Tipo di dati | DESCRIZIONE |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | integer   | Il numero di istanze eliminato. Nel caso di istanza singola, questo valore deve essere sempre `1`. |
+| **`instancesDeleted`** | integer   | Numero di istanze eliminate. Per il caso a istanza singola, questo valore deve essere `1`sempre. |
 
 Di seguito è riportato un payload di risposta di esempio (formattato per migliorare la leggibilità):
 
@@ -385,13 +384,13 @@ Di seguito è riportato un payload di risposta di esempio (formattato per miglio
 }
 ```
 
-### <a name="purge-multiple-instance-history"></a>Eliminare la cronologia di istanza più
+### <a name="purge-multiple-instance-history"></a>Elimina la cronologia di più istanze
 
-È anche possibile eliminare la cronologia e gli elementi correlati per più istanze all'interno di un hub attività rimuovendo la `{instanceId}` dalla richiesta "Ripulisci cronologia singola istanza". Per eliminare in modo selettivo la cronologia di istanza, utilizzare filtri per gli stessi descritti nella richiesta 'Ottenere lo stato di tutte le istanze'.
+È anche possibile eliminare la cronologia e gli artefatti correlati per più istanze all'interno di un hub attività `{instanceId}` rimuovendo dalla richiesta di ripulitura della cronologia a istanza singola. Per eliminare selettivamente la cronologia delle istanze, usare gli stessi filtri descritti nella richiesta "Ottieni stato di tutte le istanze".
 
 #### <a name="request"></a>Richiesta
 
-Per la versione 1.x del runtime di funzioni, la richiesta viene formattato come segue (vengono visualizzate più righe per maggiore chiarezza):
+Per la versione 1. x del runtime di funzioni, la richiesta viene formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances
@@ -403,7 +402,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
 ```
 
-Nella versione 2.x del runtime di funzioni, il formato dell'URL ha gli stessi parametri, ma con un prefisso leggermente diverso:
+Nella versione 2. x del runtime di funzioni, il formato dell'URL presenta tutti gli stessi parametri, ma con un prefisso leggermente diverso:
 
 ```http
 DELETE /runtime/webhooks/durabletask/instances
@@ -417,27 +416,27 @@ DELETE /runtime/webhooks/durabletask/instances
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo                 | Tipo di parametro  | DESCRIZIONE |
+| Campo                 | Tipo di parametro  | Descrizione |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Stringa di query    | Filtra l'elenco delle istanze programmate che sono stati creati in o successivi al timestamp ISO8601 specificato.|
-| **`createdTimeTo`**   | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze programmate che sono stati creati in corrispondenza o prima del timestamp ISO8601 specificato.|
-| **`runtimeStatus`**   | Stringa di query    | Parametro facoltativo. Quando specificato, i filtri l'elenco delle istanze programmate basato sul loro stato di runtime. Per un elenco dei valori possibili di stato del runtime, vedere l'argomento [Esecuzione di query sulle istanze](durable-functions-instance-management.md). |
+| **`createdTimeFrom`** | Stringa di query    | Filtra l'elenco delle istanze eliminate create in corrispondenza o dopo il timestamp ISO8601 specificato.|
+| **`createdTimeTo`**   | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze eliminate che sono state create in corrispondenza o prima del timestamp ISO8601 specificato.|
+| **`runtimeStatus`**   | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze eliminate in base al relativo stato di Runtime. Per un elenco dei valori possibili di stato del runtime, vedere l'argomento [Esecuzione di query sulle istanze](durable-functions-instance-management.md). |
 
 > [!NOTE]
-> Questa operazione può risultare dispendiosa in termini dei / o archiviazione di Azure se sono presenti molte delle righe di istanze e/o della cronologia nelle tabelle. Altre informazioni su queste tabelle sono reperibili nel [prestazioni e scalabilità in funzioni permanenti (funzioni di Azure)](durable-functions-perf-and-scale.md#instances-table) documentazione.
+> Questa operazione può essere molto costosa in termini di I/O di archiviazione di Azure, se sono presenti numerose righe nelle tabelle delle istanze e/o della cronologia. Per ulteriori informazioni su queste tabelle, vedere la documentazione relativa [a prestazioni e scalabilità in Durable Functions (funzioni di Azure)](durable-functions-perf-and-scale.md#instances-table) .
 
 #### <a name="response"></a>Risposta
 
-I valori di codice di stato HTTP seguenti possono essere restituiti.
+È possibile restituire i seguenti valori di codice di stato HTTP.
 
-* **HTTP 200 (OK)** : La cronologia di istanza è stata eliminata correttamente.
-* **HTTP 404 (Non trovata)** : Nessuna istanza trovata che corrisponde all'espressione di filtro.
+* **HTTP 200 (OK)** : La cronologia dell'istanza è stata eliminata correttamente.
+* **HTTP 404 (Non trovata)** : Non sono state trovate istanze corrispondenti all'espressione di filtro.
 
-Il payload di risposta per la **HTTP 200** case è un oggetto JSON con il campo seguente:
+Il payload di risposta per il case **HTTP 200** è un oggetto JSON con il campo seguente:
 
 | Campo                   | Tipo di dati | DESCRIZIONE |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | integer   | Il numero di istanze eliminato. |
+| **`instancesDeleted`**  | integer   | Numero di istanze eliminate. |
 
 Di seguito è riportato un payload di risposta di esempio (formattato per migliorare la leggibilità):
 
@@ -453,7 +452,7 @@ Invia un messaggio di notifica evento per un'istanza di orchestrazione in esecuz
 
 #### <a name="request"></a>Richiesta
 
-Per la versione 1.x del runtime di funzioni, la richiesta viene formattato come segue (vengono visualizzate più righe per maggiore chiarezza):
+Per la versione 1. x del runtime di funzioni, la richiesta viene formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}
@@ -462,7 +461,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
     &code={systemKey}
 ```
 
-Nella versione 2.x del runtime di funzioni, il formato dell'URL ha gli stessi parametri, ma con un prefisso leggermente diverso:
+Nella versione 2. x del runtime di funzioni, il formato dell'URL presenta tutti gli stessi parametri, ma con un prefisso leggermente diverso:
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
@@ -473,7 +472,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo             | Tipo di parametro  | DESCRIZIONE |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 | **`eventName`**   | URL             | Nome dell'evento atteso dall'istanza di orchestrazione di destinazione. |
@@ -506,7 +505,7 @@ Termina un'istanza di orchestrazione in esecuzione.
 
 #### <a name="request"></a>Richiesta
 
-Per la versione 1.x del runtime di funzioni, la richiesta viene formattato come segue (vengono visualizzate più righe per maggiore chiarezza):
+Per la versione 1. x del runtime di funzioni, la richiesta viene formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
@@ -516,7 +515,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
     &reason={text}
 ```
 
-Nella versione 2.x del runtime di funzioni, il formato dell'URL ha gli stessi parametri, ma con un prefisso leggermente diverso:
+Nella versione 2. x del runtime di funzioni, il formato dell'URL presenta tutti gli stessi parametri, ma con un prefisso leggermente diverso:
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
@@ -528,7 +527,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti.
 
-| Campo             | Tipo di parametro  | DESCRIZIONE |
+| Campo             | Tipo parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 | **`reason`**      | Stringa di query    | facoltativo. Motivo dell'interruzione dell'istanza di orchestrazione. |
@@ -555,7 +554,7 @@ Ripristina lo stato in corso di esecuzione di un'istanza di orchestrazione non r
 
 #### <a name="request"></a>Richiesta
 
-Per la versione 1.x del runtime di funzioni, la richiesta viene formattato come segue (vengono visualizzate più righe per maggiore chiarezza):
+Per la versione 1. x del runtime di funzioni, la richiesta viene formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
@@ -565,7 +564,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
     &reason={text}
 ```
 
-Nella versione 2.x del runtime di funzioni, il formato dell'URL ha gli stessi parametri, ma con un prefisso leggermente diverso:
+Nella versione 2. x del runtime di funzioni, il formato dell'URL presenta tutti gli stessi parametri, ma con un prefisso leggermente diverso:
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
@@ -577,7 +576,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti.
 
-| Campo             | Tipo di parametro  | Descrizione |
+| Campo             | Tipo parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 | **`reason`**      | Stringa di query    | facoltativo. Motivo del ripristino dell'istanza di orchestrazione. |
@@ -598,13 +597,13 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 Nelle risposte per questa API non è presente contenuto.
 
-### <a name="signal-entity-preview"></a>Entità di segnale (anteprima)
+### <a name="signal-entity-preview"></a>Entità Signal (anteprima)
 
-Invia un messaggio di operazione unidirezionale a un [durevole entità](durable-functions-types-features-overview.md#entity-functions). Se l'entità non esiste, verrà creato automaticamente.
+Invia un messaggio di operazione unidirezionale a un' [entità durevole](durable-functions-types-features-overview.md#entity-functions). Se l'entità non esiste, verrà creata automaticamente.
 
 #### <a name="request"></a>Richiesta
 
-La richiesta HTTP viene formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
+La richiesta HTTP è formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
 
 ```http
 POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
@@ -616,14 +615,14 @@ POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo             | Tipo di parametro  | Descrizione |
+| Campo             | Tipo di parametro  | DESCRIZIONE |
 |-------------------|-----------------|-------------|
-| **`entityType`**  | URL             | Tipo di entità. |
-| **`entityKey`**   | URL             | Il nome univoco dell'entità. |
-| **`op`**          | Stringa di query    | facoltativo. Il nome dell'operazione definita dall'utente da richiamare. |
+| **`entityType`**  | URL             | Tipo dell'entità. |
+| **`entityKey`**   | URL             | Nome univoco dell'entità. |
+| **`op`**          | Stringa di query    | facoltativo. Nome dell'operazione definita dall'utente da richiamare. |
 | **`{content}`**   | Contenuto della richiesta | Payload dell'evento in formato JSON. |
 
-Ecco una richiesta di esempio che invia un messaggio di "Aggiungi" definita dall'utente a un `Counter` entità denominata `steps`. Il contenuto del messaggio è il valore `5`. Se l'entità non esiste già, si verrà creato da questa richiesta:
+Di seguito è riportato un esempio di richiesta che invia un messaggio "Add" definito dall' `Counter` utente a `steps`un'entità denominata. Il contenuto del messaggio è il valore `5`. Se l'entità non esiste già, verrà creata da questa richiesta:
 
 ```http
 POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
@@ -634,21 +633,21 @@ Content-Type: application/json
 
 #### <a name="response"></a>Risposta
 
-Questa operazione ha diversi possibili risposte:
+Questa operazione presenta diverse risposte possibili:
 
-* **HTTP 202 (Accettata)** : L'operazione di segnale è stata accettata per l'elaborazione asincrona.
-* **HTTP 400 (Richiesta non valida)** : Il contenuto della richiesta non è di tipo `application/json`, non è un oggetto JSON valido o ha un valore non valido `entityKey` valore.
-* **HTTP 404 (Non trovata)** : L'oggetto specificato `entityType` non è stato trovato.
+* **HTTP 202 (Accettata)** : L'operazione Signal è stata accettata per l'elaborazione asincrona.
+* **HTTP 400 (Richiesta non valida)** : Il contenuto della richiesta non è di `application/json`tipo, non è un JSON valido o ha un `entityKey` valore non valido.
+* **HTTP 404 (Non trovata)** : Il parametro `entityType` specificato non è stato trovato.
 
-Una richiesta HTTP con esito positivo non contiene il contenuto della risposta. Una richiesta HTTP non riuscita può contenere informazioni sugli errori in formato JSON nel contenuto della risposta.
+Una richiesta HTTP con esito positivo non contiene contenuto nella risposta. Una richiesta HTTP non riuscita può contenere informazioni sull'errore in formato JSON nel contenuto della risposta.
 
-### <a name="query-entity-preview"></a>Entità di query (anteprima)
+### <a name="query-entity-preview"></a>Entità query (anteprima)
 
 Ottiene lo stato dell'entità specificata.
 
 #### <a name="request"></a>Richiesta
 
-La richiesta HTTP viene formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
+La richiesta HTTP è formattata come segue (vengono visualizzate più righe per maggiore chiarezza):
 
 ```http
 GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
@@ -659,21 +658,21 @@ GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 #### <a name="response"></a>Risposta
 
-Questa operazione presenta due risposte possibili:
+Questa operazione ha due risposte possibili:
 
 * **HTTP 200 (OK)** : L'entità specificata esiste.
 * **HTTP 404 (Non trovata)** : L'entità specificata non è stata trovata.
 
-Una risposta corretta contiene lo stato serializzato JSON dell'entità come proprio contenuto.
+Una risposta con esito positivo contiene lo stato serializzato JSON dell'entità come contenuto.
 
 #### <a name="example"></a>Esempio
-Di seguito è riportato un esempio di una richiesta HTTP che ottiene lo stato di un oggetto esistente `Counter` entità denominata `steps`:
+Di seguito è riportato un esempio di una richiesta HTTP che ottiene lo stato di un' `Counter` entità esistente `steps`denominata:
 
 ```http
 GET /runtime/webhooks/durabletask/entities/Counter/steps
 ```
 
-Se il `Counter` entità contenuti semplicemente una serie di passaggi salvato in un `currentValue` campo, il contenuto della risposta potrebbe essere simile al seguente (formattato per migliorare la leggibilità):
+Se l' `Counter` entità contiene semplicemente una serie di passaggi salvati in un `currentValue` campo, il contenuto della risposta potrebbe essere simile al seguente (formattato per migliorare la leggibilità):
 
 ```json
 {

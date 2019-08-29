@@ -3,15 +3,15 @@ title: Usare lo strumento di stima dei feed di modifiche - Azure Cosmos DB
 description: Informazioni su come usare lo strumento di stima dei feed di modifiche per analizzare lo stato di avanzamento del processore di feed di modifiche
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: f72a3bfcfd6b4f480977510963f49f73a7207e1f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
-ms.translationtype: HT
+ms.openlocfilehash: 0023f68400b36b9abd3b9d4a789895e79f67aa03
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615279"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092957"
 ---
 # <a name="use-the-change-feed-estimator"></a>Usare lo strumento di stima dei feed di modifiche
 
@@ -55,7 +55,7 @@ Di seguito è riportato un esempio di un delegato che riceve la stima:
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [SDK di Azure Cosmos DB](sql-api-sdk-dotnet.md)
-* [Esempi di utilizzo su GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [Esempi di utilizzo su GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Altri esempi in GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Passaggi successivi

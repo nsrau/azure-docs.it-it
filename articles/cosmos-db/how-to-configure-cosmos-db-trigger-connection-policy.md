@@ -3,15 +3,15 @@ title: Trigger di Funzioni di Azure per i criteri di connessione di Cosmos DB
 description: Informazioni su come configurare i criteri di connessione usati dal trigger di Funzioni di Azure per Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 359b6a905e64046aad62b70ae53b993c86884ad2
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
-ms.translationtype: HT
+ms.openlocfilehash: 6e4c50e5dcc35450463d02bbed040754ea778e70
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335634"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093610"
 ---
 # <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Come configurare i criteri di connessione usati dal trigger di Funzioni di Azure per Cosmos DB
 

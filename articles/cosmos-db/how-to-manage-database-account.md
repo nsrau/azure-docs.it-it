@@ -3,21 +3,21 @@ title: Informazioni su come gestire gli account di database in Azure Cosmos DB
 description: Informazioni su come gestire gli account di database in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5ba45fce2870b44a6ebb1be43cc1f36b3cda311
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
-ms.translationtype: HT
+ms.openlocfilehash: db7746bc91935c0385e97d494a45d34819665ced
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815154"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093396"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gestire un account Azure Cosmos
 
 Questo articolo descrive come gestire varie attività relative a un account Azure Cosmos usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure e i modelli di Azure Resource Manager.
 
-## <a name="create-an-account"></a>Creare un account
+## <a name="create-an-account"></a>Crea un account
 
 ### <a id="create-database-account-via-portal"></a>Portale di Azure
 

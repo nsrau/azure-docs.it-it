@@ -12,16 +12,15 @@ ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 56fa1363e9737a2ce06ba5f0215235a84ee70ce6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a0f4c4172661b0f041a30df2d4d63ba58f203e89
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709907"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080532"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Procedura dettagliata per la risoluzione dei problemi di connessione di Desktop remoto con le macchine virtuali Windows in Azure
 Questo articolo contiene una procedura dettagliata sulla risoluzione dei problemi per diagnosticare e risolvere errori di Desktop remoto complessi per le macchine virtuali di Azure basate su Windows.
@@ -99,14 +98,14 @@ Per le VM create mediante il modello di distribuzione classico, verificare che u
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
-> Per le macchine virtuali create in Gestione risorse, andare al [origine 4: I gruppi di sicurezza di rete](#source-4-network-security-groups).
+> Per le macchine virtuali create in Gestione risorse, passare [a origine 4: Gruppi](#source-4-network-security-groups)di sicurezza di rete.
 
 Se non si dispone di un'altra macchina virtuale nello stesso servizio cloud o rete virtuale, crearne una. Seguire la procedura riportata in [Creazione rapida di una macchina virtuale che esegue Linux in Azure](../virtual-machines-windows-hero-tutorial.md). Eliminare la macchina virtuale di test al completamento del test.
 
 Se è possibile connettersi tramite Desktop remoto a una macchina virtuale nello stesso servizio cloud o rete virtuale, verificare le impostazioni seguenti:
 
-* La configurazione dell'endpoint per il traffico di Desktop remoto nella macchina virtuale di destinazione: La porta TCP privata dell'endpoint deve corrispondere alla porta TCP su cui è in ascolto il servizio di Desktop remoto della macchina virtuale (impostazione predefinita è 3389).
-* L'ACL per l'endpoint del traffico di Desktop remoto nella VM di destinazione: Gli ACL consentono di specificare concedere o negare il traffico in ingresso da Internet in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Verificare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)?](../../virtual-network/virtual-networks-acl.md)
+* La configurazione dell'endpoint per il traffico Desktop remoto nella macchina virtuale di destinazione: La porta TCP privata dell'endpoint deve corrispondere alla porta TCP su cui è in ascolto il servizio Desktop remoto della VM (il valore predefinito è 3389).
+* ACL per l'endpoint del traffico Desktop remoto nella macchina virtuale di destinazione: Gli ACL consentono di specificare il traffico in ingresso consentito o negato da Internet in base all'indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Verificare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)?](../../virtual-network/virtual-networks-acl.md)
 
 Per controllare se l'endpoint è l'origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -115,7 +114,7 @@ I gruppi di sicurezza di rete consentono un controllo più granulare del traffic
 
 Usare la [verifica del flusso IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) per verificare che una regola in un gruppo di sicurezza di rete blocchi il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere [Uso di regole di sicurezza effettive per risolvere i problemi di flusso del traffico delle VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
-## <a name="source-5-windows-based-azure-vm"></a>Origine 5: Macchina virtuale di Azure basata su Windows
+## <a name="source-5-windows-based-azure-vm"></a>Origine 5: VM di Azure basata su Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 Seguire le istruzioni disponibili in [questo articolo](../windows/reset-rdp.md). per reimpostare il servizio Desktop remoto nella macchina virtuale:

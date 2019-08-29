@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fd88f8e9b32b3fe5a0d7ab0caf233098ea19fde0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f894a7438c56c3830eb62c516447195f10fc3b76
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323097"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094659"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -39,7 +38,7 @@ I pool di batch nella configurazione della macchina virtuale supportano quasi tu
 
 Eventuali dimensioni di VM promozionali o di anteprima non elencate non sono garantite per il supporto.
 
-| Serie VM  | Dimensioni supportate | Modalità di allocazione pool di account batch<sup>1</sup> |
+| Serie macchina virtuale  | Dimensioni supportate | Modalità di allocazione pool di account batch<sup>1</sup> |
 |------------|---------|-----------------|
 | Serie A Basic | Tutte le dimensioni *eccetto* Basic_A0 (a0) | Any |
 | Serie A | Tutte le dimensioni *ad eccezione* di Standard_A0 | Any |
@@ -72,7 +71,7 @@ Eventuali dimensioni di VM promozionali o di anteprima non elencate non sono gar
 
 I pool di Batch in configurazione servizio cloud supportano tutte le [dimensioni di VM per i servizi cloud](../cloud-services/cloud-services-sizes-specs.md) **tranne** le seguenti:
 
-| Serie VM  | Dimensioni non supportate |
+| Serie macchina virtuale  | Dimensioni non supportate |
 |------------|-------------------|
 | Serie A   | Molto piccola       |
 | Serie Av2 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |

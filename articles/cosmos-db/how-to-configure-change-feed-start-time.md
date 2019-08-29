@@ -3,15 +3,15 @@ title: Come configurare l'ora di avvio del processore dei feed di modifiche - Az
 description: Informazioni su come configurare l'avvio della lettura del processore dei feed di modifiche da una data e ora specifiche
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 3ad9aff10b3bae36a173f776f55a434fd8b38b98
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: HT
+ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574278"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093653"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Come configurare l'ora di avvio del processore dei feed di modifiche
 
@@ -46,7 +46,7 @@ Il processore dei feed di modifiche verrà inizializzato e inizierà a leggere l
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [SDK di Azure Cosmos DB](sql-api-sdk-dotnet.md)
-* [Esempi di utilizzo su GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [Esempi di utilizzo su GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Altri esempi in GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Passaggi successivi

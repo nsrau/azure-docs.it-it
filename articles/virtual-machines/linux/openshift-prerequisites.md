@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 834484278bb597bba4a5e1821d0b6572913a761d
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: ab8814f1620cc019a0bee872c7b8f42cbb427365
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67146993"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091730"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift in Azure
 
@@ -28,19 +27,19 @@ Questo articolo descrive i prerequisiti comuni per distribuire OpenShift Contain
 
 L'installazione di OpenShift usa i playbook Ansible. Ansible usa Secure Shell (SSH) per la connessione a tutti gli host del cluster al fine di completare i passaggi di installazione.
 
-Quando ansible effettua la connessione SSH agli host remoti, è possibile immettere una password. Per questo motivo, la chiave privata non può avere una password (passphrase) associata, altrimenti la distribuzione avrà esito negativo.
+Quando Ansible esegue la connessione SSH agli host remoti, non è possibile immettere una password. Per questo motivo, la chiave privata non può avere una password (passphrase) associata, altrimenti la distribuzione avrà esito negativo.
 
-Poiché tutte le macchine virtuali vengono distribuite tramite modelli di Azure Resource Manager, viene usata la stessa chiave pubblica per l'accesso a tutte le macchine virtuali. La chiave privata corrispondente deve essere nella macchina virtuale che esegue tutti i Playbook. Per eseguire questa azione in modo sicuro, Azure key vault consente di passare la chiave privata alla macchina virtuale.
+Poiché tutte le macchine virtuali vengono distribuite tramite modelli di Azure Resource Manager, viene usata la stessa chiave pubblica per l'accesso a tutte le macchine virtuali. La chiave privata corrispondente deve trovarsi anche nella macchina virtuale che esegue tutti i PlayBook. Per eseguire questa azione in modo sicuro, viene usato un insieme di credenziali delle chiavi di Azure per passare la chiave privata alla macchina virtuale.
 
-Se è necessario un archivio permanente per i contenitori, sono necessari volumi permanenti. OpenShift supporta dischi rigidi virtuali (VHD) Azure per volumi permanenti, ma è innanzitutto necessario configurare Azure come provider di servizi cloud.
+Se è necessario un archivio permanente per i contenitori, sono necessari volumi permanenti. OpenShift supporta i dischi rigidi virtuali (VHD) di Azure per i volumi permanenti, ma Azure deve prima essere configurato come provider di servizi cloud.
 
 In questo modello, OpenShift provvederà a:
 
-- Crea un oggetto disco rigido virtuale in un account di archiviazione di Azure o un disco gestito.
+- Consente di creare un oggetto VHD in un account di archiviazione di Azure o in un disco gestito.
 - Montare il disco rigido virtuale in una macchina virtuale e formattare il volume.
 - Montare il volume nel pod.
 
-A tale scopo, OpenShift necessita delle autorizzazioni per eseguire le attività precedenti in Azure. Un'entità servizio viene usata per questo scopo. L'entità servizio è un account di sicurezza in Azure Active Directory a cui vengono concesse le autorizzazioni per le risorse.
+A tale scopo, OpenShift necessita delle autorizzazioni per eseguire le attività precedenti in Azure. A questo scopo, viene usata un'entità servizio. L'entità servizio è un account di sicurezza in Azure Active Directory a cui vengono concesse le autorizzazioni per le risorse.
 
 L'entità servizio deve avere accesso agli account di archiviazione e alle macchine virtuali che costituiscono il cluster. Se tutte le risorse del cluster OpenShift vengono distribuite in un singolo gruppo di risorse, è possibile concedere all'entità servizio le autorizzazioni per tale gruppo di risorse.
 
@@ -60,7 +59,7 @@ az login
 ```
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. È consigliabile utilizzare un gruppo di risorse dedicato per ospitare l'insieme di credenziali delle chiavi. Questo gruppo è separato dal gruppo di risorse in cui vengono distribuite le risorse del cluster OpenShift.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. È necessario usare un gruppo di risorse dedicato per ospitare l'insieme di credenziali delle chiavi. Questo gruppo è separato dal gruppo di risorse in cui vengono distribuite le risorse del cluster OpenShift.
 
 L'esempio seguente crea un gruppo di risorse denominato *keyvaultrg* nella località *eastus*:
 
@@ -69,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
-Creare un insieme di credenziali delle chiavi per archiviare le chiavi SSH per il cluster con il comando [az keyvault create](/cli/azure/keyvault). Il nome dell'insieme di credenziali chiave deve essere globalmente univoco e deve essere abilitato per la distribuzione del modello o la distribuzione avrà esito negativo con errore "KeyVaultParameterReferenceSecretRetrieveFailed".
+Creare un insieme di credenziali delle chiavi per archiviare le chiavi SSH per il cluster con il comando [az keyvault create](/cli/azure/keyvault). Il nome dell'insieme di credenziali delle chiavi deve essere univoco a livello globale e deve essere abilitato per la distribuzione del modello, altrimenti la distribuzione avrà esito negativo con l'errore "KeyVaultParameterReferenceSecretRetrieveFailed".
 
 L'esempio seguente crea un insieme di credenziali delle chiavi denominato *keyvault* nel gruppo di risorse *keyvaultrg*:
 
@@ -99,7 +98,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio 
-OpenShift comunica con Azure usando un nome utente e una password o un'entità servizio. Un'entità servizio di Azure è un'identità di sicurezza che è possibile usare con le app, con i servizi e con strumenti di automazione come OpenShift. Le autorizzazioni per le operazioni che l'entità servizio può eseguire in Azure vengono controllate e definite dall'utente. È consigliabile limitare le autorizzazioni dell'entità per i gruppi di risorse specifico servizio anziché l'intera sottoscrizione.
+OpenShift comunica con Azure usando un nome utente e una password o un'entità servizio. Un'entità servizio di Azure è un'identità di sicurezza che è possibile usare con le app, con i servizi e con strumenti di automazione come OpenShift. Le autorizzazioni per le operazioni che l'entità servizio può eseguire in Azure vengono controllate e definite dall'utente. È consigliabile definire come ambito le autorizzazioni dell'entità servizio per gruppi di risorse specifici anziché per l'intera sottoscrizione.
 
 Creare un'entità servizio con [az ad sp create-for-rbac](/cli/azure/ad/sp) e generare l'output delle credenziali necessarie per OpenShift.
 
@@ -136,28 +135,28 @@ Prendere nota della proprietà appId restituita dal comando:
 
 Per altre informazioni sulle entità servizio, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
-## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Prerequisiti applicabili solo al modello di Resource Manager
+## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Prerequisiti applicabili solo al modello di Gestione risorse
 
-I segreti dovrà essere creato per la chiave privata SSH (**sshPrivateKey**), segreto client di Azure AD (**aadClientSecret**), la password di amministratore di OpenShift (**openshiftPassword** ) e la chiave di password o l'attivazione di Red Hat Subscription Manager (**rhsmPasswordOrActivationKey**).  Inoltre, se vengono utilizzati i certificati SSL personalizzati, quindi sei altri segreti saranno necessario creare - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, e **masterkeyfile**.  Questi parametri verranno spiegati più dettagliatamente.
+È necessario creare i segreti per la chiave privata SSH (**sshPrivateKey**), il segreto client Azure ad (**aadClientSecret**), la password amministratore OpenShift (**openshiftPassword**) e la password o la chiave di attivazione di Red Hat Subscription Manager ( **rhsmPasswordOrActivationKey**).  Inoltre, se si usano certificati SSL personalizzati, sarà necessario creare sei segreti aggiuntivi, ovvero **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**e  **masterkeyfile**.  Questi parametri verranno illustrati in modo più dettagliato.
 
-Il modello fa riferimento a nomi di segreto specifici così si **necessario** Usa i nomi in grassetto elencati in precedenza (maiuscole / minuscole).
+Il modello fa riferimento a nomi di segreti specifici, quindi è **necessario** usare i nomi in grassetto elencati sopra (maiuscole/minuscole).
 
 ### <a name="custom-certificates"></a>Certificati personalizzati
 
-Per impostazione predefinita, il modello verrà distribuito un cluster OpenShift usando i certificati autofirmati per la console web di OpenShift e il dominio di routing. Se si desidera usare i certificati SSL personalizzati, impostare 'routingCertType' a 'personalizzata' e 'masterCertType' a 'custom'.  I file di autorità di certificazione, certificato e chiave in formato PEM sarà necessario per i certificati.  È possibile usare certificati personalizzati per uno, ma non in altra.
+Per impostazione predefinita, il modello consente di distribuire un cluster OpenShift usando certificati autofirmati per la console Web OpenShift e il dominio di routing. Se si desidera utilizzare certificati SSL personalizzati, impostare ' routingCertType ' su' Custom ' è masterCertType ' su' Custom '.  Per i certificati sono necessari i file di CA, CERT e Key nel formato PEM.  È possibile utilizzare certificati personalizzati per uno ma non per l'altro.
 
-È necessario archiviare i file dei segreti di Key Vault.  Usare la stessa di Key Vault come quello usato per la chiave privata.  Anziché richiedere 6 input aggiuntivi per i nomi di segreto, il modello è hardcoded per usare i nomi di segreto specifici per ognuno dei file di certificato SSL.  Store i dati del certificato usando le informazioni contenute nella tabella seguente.
+È necessario archiviare questi file in Key Vault segreti.  Usare lo stesso Key Vault di quello usato per la chiave privata.  Anziché richiedere 6 input aggiuntivi per i nomi dei segreti, il modello è hardcoded per l'uso di nomi di segreti specifici per ogni file di certificato SSL.  Archiviare i dati del certificato usando le informazioni riportate nella tabella seguente.
 
-| Nome del segreto      | File del certificato   |
+| Nome del segreto      | File di certificato   |
 |------------------|--------------------|
-| mastercafile     | file CA master     |
-| mastercertfile   | file del certificato master   |
-| masterkeyfile    | file della chiave master    |
-| routingcafile    | file di autorità di certificazione di routing    |
-| routingcertfile  | file di certificato di routing  |
-| routingkeyfile   | file di chiave di routing   |
+| mastercafile     | file CA Master     |
+| mastercertfile   | file certificato Master   |
+| masterkeyfile    | file di chiave master    |
+| routingcafile    | file CA di routing    |
+| routingcertfile  | file CERT di routing  |
+| routingkeyfile   | file della chiave di routing   |
 
-Creare i segreti tramite la CLI di Azure. Di seguito è riportato un esempio.
+Creare i segreti usando l'interfaccia della riga di comando di Azure. Di seguito è riportato un esempio.
 
 ```bash
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
@@ -173,4 +172,4 @@ Questo articolo ha illustrato gli argomenti seguenti:
 Distribuire ora un cluster OpenShift:
 
 - [Distribuire OpenShift Container Platform](./openshift-container-platform.md)
-- [Distribuire l'offerta sul Marketplace autogestiti piattaforma contenitore OpenShift](./openshift-marketplace-self-managed.md)
+- [Distribuisci l'offerta del Marketplace self-Managed OpenShift container Platform](./openshift-marketplace-self-managed.md)

@@ -6,20 +6,19 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 79af90d1c2c5b698ee7394f7fb20486b3069038c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33d1b410119e631e0ccc9941beac1062d4ec30f9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751949"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087337"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestione degli errori in Funzioni permanenti (Funzioni di Azure)
 
-Le orchestrazioni di Funzioni permanenti vengono implementate nel codice e possono usare le funzionalità di gestione degli errori del linguaggio di programmazione. Con questa premessa, effettivamente non sono tutti nuovi concetti che necessari per informazioni su come incorporare la gestione degli errori e compensazione in orchestrazioni. È tuttavia opportuno conoscere alcuni comportamenti.
+Le orchestrazioni di Funzioni permanenti vengono implementate nel codice e possono usare le funzionalità di gestione degli errori del linguaggio di programmazione. Tenendo presente questo aspetto, in realtà non sono disponibili nuovi concetti che è necessario conoscere per incorporare la gestione degli errori e la compensazione nelle orchestrazioni. È tuttavia opportuno conoscere alcuni comportamenti.
 
 ## <a name="errors-in-activity-functions"></a>Errori nelle funzioni di attività
 

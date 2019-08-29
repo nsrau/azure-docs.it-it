@@ -12,16 +12,15 @@ ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 153117488cf94eb304eeb63ba6dca92a6c6ff27d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 41265973df21be289e63cbd6ed2703febc50cff2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696219"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090505"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Procedura dettagliata di risoluzione dei problemi di connessione SSH a una macchina virtuale Linux in Azure
 Se il client SSH non riesce a raggiungere il servizio SSH nella VM, i motivi possono essere molti. Se è stata eseguita la [procedura generica di risoluzione dei problemi SSH](troubleshoot-ssh-connection.md), per risolvere il problema di connessione è necessario ricorrere una procedura dettagliata. Questo articolo descrive i passaggi dettagliati per individuare e risolvere gli eventuali errori della connessione SSH.
@@ -77,7 +76,7 @@ Se si usa l'autenticazione del certificato, verificare la presenza delle seguent
 * Chmod 644 ~/.ssh/known_hosts (contiene gli host con i quali è stabilita una connessione SSH)
 
 ## <a name="source-2-organization-edge-device"></a>Origine 2: Dispositivo periferico dell'organizzazione
-Per escludere il dispositivo periferico dell'organizzazione come origine dell'errore, verificare che un computer connesso direttamente a Internet sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure. Se la macchina virtuale si accede tramite una VPN site-to-site o una connessione ExpressRoute di Azure, andare al [origine 4: I gruppi di sicurezza di rete](#nsg).
+Per escludere il dispositivo periferico dell'organizzazione come origine dell'errore, verificare che un computer connesso direttamente a Internet sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure. Se si accede alla macchina virtuale tramite una VPN da sito a sito o una connessione Azure ExpressRoute, passare all' [origine 4: Gruppi](#nsg)di sicurezza di rete.
 
 ![Diagramma che evidenzia il dispositivo periferico dell'organizzazione](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
@@ -93,7 +92,7 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni dei disposi
 
 ## <a name="source-3-cloud-service-endpoint-and-acl"></a>Origine 3: Endpoint del servizio cloud e ACL
 > [!NOTE]
-> Questa origine si applica solo alle VM create con il modello di distribuzione classica. Per le macchine virtuali che sono state create tramite Resource Manager, andare al [origine 4: I gruppi di sicurezza di rete](#nsg).
+> Questa origine si applica solo alle VM create con il modello di distribuzione classica. Per le VM create con gestione risorse, passare all' [origine 4: Gruppi](#nsg)di sicurezza di rete.
 
 Per escludere l'endpoint servizio cloud e l'elenco di controllo di accesso (ACL) come possibili origini dell'errore, verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di connettersi tramite SSH.
 

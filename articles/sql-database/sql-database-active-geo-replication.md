@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c1f50dfb499c220a4e13f043438798c556319ddf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935062"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092819"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creazione e uso della replica geografica attiva
 
@@ -106,6 +106,10 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 ## <a name="preparing-secondary-database-for-failover"></a>Preparazione del database secondario per il failover
 
 Per assicurarsi che l'applicazione possa accedere immediatamente al nuovo database primario dopo il failover, verificare che i requisiti di autenticazione per il server secondario e il database siano configurati correttamente. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md). Per garantire la conformità dopo il failover, assicurarsi che i criteri di conservazione dei backup nel database secondario corrispondano a quelli della replica primaria. Queste impostazioni non fanno parte del database e non vengono replicate. Per impostazione predefinita, il database secondario verrà configurato con un periodo di conservazione predefinito di ripristino temporizzato di sette giorni. Per conoscere i dettagli, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
+
+> [!IMPORTANT]
+> Se il database è membro di un gruppo di failover, non è possibile avviare il failover usando il comando faiover per la replica geografica. Provare a usare il comando di failover per il gruppo. Se è necessario eseguire il failover di un singolo database, è necessario rimuoverlo prima dal gruppo di failover. Per informazioni dettagliate, vedere [gruppi di failover](sql-database-auto-failover-group.md) . 
+
 
 ## <a name="configuring-secondary-database"></a>Configurazione del database secondario
 

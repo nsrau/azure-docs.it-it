@@ -10,16 +10,15 @@ ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8b250c45716146c505a803046b18bf5d05cf116
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837232"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073778"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
 
@@ -27,7 +26,7 @@ Per personalizzare il portale per sviluppatori in Gestione API di Azure ci sono 
 
 * [Modificare i contenuti di pagine statiche e gli elementi di layout di pagina][modify-content-layout]
 * [Aggiornare gli stili usati per gli elementi della pagina nel portale per sviluppatori][customize-styles]
-* [Modificare i modelli usati per le pagine generate dal portale] [ portal-templates] (come illustrato in questa guida)
+* [Modificare i modelli usati per le pagine generate dal portale][portal-templates] (descritto in questa guida)
 
 I modelli vengono usati per personalizzare il contenuto delle pagine del portale per sviluppatori generate dal sistema, ad esempio la documentazione delle API, i prodotti, l'autenticazione utente e così via. La sintassi [DotLiquid](http://dotliquidmarkup.org/), insieme a un set fornito di risorse stringa localizzate, icone e controlli di pagina, offre grande flessibilità nella configurazione del contenuto delle pagine nel modo opportuno.
 
@@ -132,7 +131,7 @@ Il markup del modello **Product list** elabora i dati per fornire l'output previ
 ## <a name="to-save-a-template"></a>Per salvare un modello
 Per salvare un modello, fare clic sull'icona di salvataggio nell'editor del modello.
 
-![Salvare il modello][api-management-save-template]
+![Salva modello][api-management-save-template]
 
 Le modifiche salvate non sono attive nel portale per sviluppatori fino a quando non vengono pubblicate.
 

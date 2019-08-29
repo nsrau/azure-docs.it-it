@@ -14,12 +14,12 @@ ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a9d997f9ced0fbd921abfb13cda5a4845eb3763
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: fc6f6f7b02db664ca6cd62dc7aad61baf5f132fa
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616253"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088414"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gestire le password per le app per la verifica in due passaggi
 
@@ -47,7 +47,7 @@ Durante il processo iniziale di registrazione della verifica a due fattori, vien
 
 - **L'organizzazione usa la verifica a due fattori e la pagina verifica aggiuntiva di sicurezza.** Se si usa l'account aziendale o dell'Istituto di istruzione (ad alain@contoso.comesempio,) con la verifica a due fattori all'interno dell'organizzazione, è possibile gestire le password dell'app dalla [pagina di verifica aggiuntiva di sicurezza](https://account.activedirectory.windowsazure.com/Proofup.aspx). Per istruzioni dettagliate, vedere [creare ed eliminare password di app usando la pagina verifica aggiuntiva di sicurezza](#create-and-delete-app-passwords-from-the-additional-security-verification-page) in questo articolo.
 
-- **L'organizzazione usa la verifica a due fattori e il portale di Office 365.** Se si usa l'account aziendale o dell'Istituto di istruzione (ad alain@contoso.comesempio,), la verifica a due fattori e le app di Office 365 nell'organizzazione, è possibile gestire le password dell'app dalla [pagina del portale di Office 365](https://office.portal.com). Per istruzioni dettagliate, vedere [creare ed eliminare password di app usando il portale di Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) in questo articolo.
+- **L'organizzazione usa la verifica a due fattori e il portale di Office 365.** Se si usa l'account aziendale o dell'Istituto di istruzione (ad alain@contoso.comesempio,), la verifica a due fattori e le app di Office 365 nell'organizzazione, è possibile gestire le password dell'app dalla [pagina del portale di Office 365](https://www.office.com). Per istruzioni dettagliate, vedere [creare ed eliminare password di app usando il portale di Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) in questo articolo.
 
 - **Si sta usando la verifica a due fattori con un account Microsoft personale.** Se si usa un account Microsoft personale (ad esempio, alain@outlook.com) con la verifica a due fattori, è possibile gestire le password dell'app dalla pagina delle nozioni di base sulla [sicurezza](https://account.microsoft.com/security/). Per istruzioni dettagliate, vedere [uso di password di app con app che non supportano la verifica in due passaggi](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
