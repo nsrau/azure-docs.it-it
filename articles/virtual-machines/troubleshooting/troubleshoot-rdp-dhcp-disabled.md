@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d16c5b6304f598440fe4d70648dd652f0dcf06ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362289"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089943"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Non è possibile stabilire una connessione RDP a Macchine virtuali di Azure perché il servizio Client DHCP è disabilitato
 
@@ -34,8 +33,8 @@ Non è possibile stabilire una connessione RDP a una macchina virtuale in Azure 
 **Data**: 16/12/2015 11:19:36 </br>
 **ID evento**: 7022 </br>
 **Categoria attività**: Nessuna </br>
-**Livello**: Tipi di errore </br>
-**Parole chiave**: Classico</br>
+**Livello**: Errore </br>
+**Parole chiave**: Classica</br>
 **Utente**: N/D </br>
 **Computer**: myvm.cosotos.com</br>
 **Descrizione**: Il servizio DHCP Client si è bloccato all'avvio.</br>
@@ -77,7 +76,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
     Provare a connettersi alla macchina virtuale e verificare se il problema è stato risolto.
 5. Se il servizio non si avvia, usare una delle soluzioni seguenti, in base al messaggio di errore ricevuto:
 
-    | Tipi di errore  |  Soluzione |
+    | Errore  |  Soluzione |
     |---|---|
     | 5- ACCESS DENIED  | Vedere [Il servizio Client DHCP è arrestato a causa di un errore di accesso negato](#dhcp-client-service-is-stopped-because-of-an-access-denied-error).  |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT   | Vedere [Il servizio Client DHCP si arresta in modo anomalo o è bloccato](#dhcp-client-service-crashes-or-hangs).  |
@@ -124,7 +123,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 
     1. [Collegare un disco dati alla macchina virtuale](../windows/attach-managed-disk-portal.md
 ).
-    2. Con la console seriale è possibile copiare il file nella nuova unità. Ad esempio: `copy C:\temp\ProcMonTrace.PML F:\`. In questo comando F è la lettera di unità del disco dati collegato. Sostituire la lettera con il valore corretto.
+    2. Con la console seriale è possibile copiare il file nella nuova unità. Ad esempio `copy C:\temp\ProcMonTrace.PML F:\`. In questo comando F è la lettera di unità del disco dati collegato. Sostituire la lettera con il valore corretto.
     3. Scollegare l'unità dati e collegarla a una macchina virtuale in esecuzione in cui è installato lo strumento di monitoraggio del processo.
 
 6. Aprire **ProcMonTrace.PML** usando lo strumento di monitoraggio del processo nella macchina virtuale in esecuzione. Applicare quindi il filtro  **Result is ACCESS DENIED** (Risultato è ACCESSO NEGATO), come illustrato nello screenshot seguente：

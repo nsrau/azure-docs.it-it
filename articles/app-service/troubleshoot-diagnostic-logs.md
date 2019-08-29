@@ -10,17 +10,16 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af6d8b61c5d49ae219e90513abb93185f957222e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059653"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074064"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -34,8 +33,8 @@ Il servizio app offre funzionalità diagnostiche per la registrazione di informa
 ### <a name="web-server-diagnostics"></a>Diagnostica del server Web
 È possibile abilitare o disabilitare i seguenti tipi di log:
 
-* **Registrazione degli errori dettagliata** -informazioni dettagliate per tutte le richieste che genera codice di stato HTTP 400 o superiore. incluse eventuali informazioni che aiutano a determinare il motivo per cui il server ha restituito il codice di errore. Un file HTML viene generato per ogni errore nel file system dell'app e fino a 50 errori (file) vengono mantenuti. Quando il numero di file HTML di superare i 50, i file di 26 meno recenti vengono eliminati automaticamente.
-* **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. È utile per migliorare le prestazioni del sito o isolare uno specifico errore HTTP. Una cartella viene generata per ogni errore nel file system dell'app. Criteri di conservazione dei file sono le stesse di registrazione sopra dettagliata degli errori.
+* **Registrazione dettagliata degli errori** : informazioni dettagliate per qualsiasi richiesta che restituisce il codice di stato HTTP 400 o versione successiva. incluse eventuali informazioni che aiutano a determinare il motivo per cui il server ha restituito il codice di errore. Viene generato un file HTML per ogni errore nel file system dell'app e vengono conservati fino a 50 errori (file). Quando il numero di file HTML supera 50, i 26 file meno recenti vengono eliminati automaticamente.
+* **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. È utile per migliorare le prestazioni del sito o isolare uno specifico errore HTTP. Viene generata una cartella per ogni errore nel file system dell'app. I criteri di conservazione dei file sono identici a quelli descritti in precedenza.
 * **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging). È utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP.
 
 ### <a name="application-diagnostics"></a>Diagnostica applicazioni
@@ -51,7 +50,7 @@ Il servizio app registra anche le informazioni di distribuzione dei log quando s
 Per abilitare la diagnostica nel [portale di Azure](https://portal.azure.com), passare alla pagina dell'app e fare clic su **Impostazioni > Log di diagnostica**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
-![Parte del log](./media/web-sites-enable-diagnostic-log/logspart.png)
+![Parte dei log](./media/web-sites-enable-diagnostic-log/logspart.png)
 
 Se si abilita **Diagnostica applicazioni**, è anche possibile scegliere il **Livello**. La tabella seguente elenca le categorie dei log incluse in ogni livello:
 
@@ -115,7 +114,7 @@ Per scaricare i file di log mediante l'interfaccia della riga di comando di Azur
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-Questo comando Salva i log dell'App denominata 'appname' in un file denominato **webapp_logs.zip** nella directory corrente.
+Questo comando Salva i log per l'app denominata ' AppName ' in un file denominato **webapp_logs. zip** nella directory corrente.
 
 > [!NOTE]
 > Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
@@ -215,7 +214,7 @@ Le tracce delle richieste non riuscite vengono memorizzate nei file XML denomina
 ![richiesta non riuscita visualizzata nel browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
 > [!NOTE]
-> Un modo semplice per visualizzare le tracce di richieste non riuscite formattata è passare alla pagina dell'app nel portale. Nel menu a sinistra, selezionare **diagnosi e risoluzione dei problemi**, quindi cercare **non è stato possibile log traccia delle richieste**, quindi fare clic sull'icona per esplorare e visualizzare la traccia desiderato.
+> Un modo semplice per visualizzare le tracce delle richieste non riuscite formattate consiste nell'accedere alla pagina dell'app nel portale. Dal menu a sinistra selezionare **diagnostica e Risolvi i problemi**, quindi cercare i **log di traccia delle richieste non riuscite**, quindi fare clic sull'icona per esplorare e visualizzare la traccia desiderata.
 >
 
 ### <a name="detailed-error-logs"></a>Detailed Error Logs

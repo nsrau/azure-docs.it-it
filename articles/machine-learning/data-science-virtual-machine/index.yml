@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentazione sulle macchine virtuale di Azure Data Science
+title: Documentazione di Azure Data Science Virtual Machine
 metadata:
-  title: Documentazione sulle macchine virtuali di data science - Azure
-  description: 'Informazioni su come usare Data Science Virtual Machine, un ambiente sperimentale nel cloud di Azure pensato per il data science. Diversi strumenti comuni per l''analisi scientifica dei dati e altri strumenti sono preinstallati e preconfigurati per agevolare la rapida creazione di applicazioni intelligenti per l''analisi avanzata.'
+  title: Documentazione di Data Science Virtual Machine - Azure
+  description: 'Informazioni su come usare Data Science Virtual Machine, un ambiente sperimentale nel cloud di Azure pensato per le attività di data science. Gli strumenti di data science e Machine Learning più diffusi sono preinstallati e preconfigurati. Questo modello consente di iniziare subito a creare applicazioni intelligenti per l''analisi avanzata.'
   services: machine-learning
   author: vijetajo
   ms.service: machine-learning
@@ -14,12 +14,12 @@ metadata:
   ms.date: 08/19/2019
   ms.author: vijetaj
 abstract:
-  description: Data Science Virtual Machine (DSVM) è un'immagine di macchina virtuale (VM) personalizzata che include strumenti di apprendimento automatico e data science. È possibile usare questa macchina virtuale per creare applicazioni intelligenti di analisi avanzata. <a href="overview.md">Altre informazioni</a>
+  description: Data Science Virtual Machine (DSVM) è un'immagine di macchina virtuale (VM) personalizzata che include strumenti di apprendimento automatico e data science. È possibile usare questa macchina virtuale per creare applicazioni intelligenti per l'analisi avanzata. <a href="overview.md">Altre informazioni</a>
 sections:
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph
-        text: 'Informazioni su come configurare una VM di Data Science basata su Windows o Linux:'
+        text: 'Informazioni su come configurare una Data Science VM basata su Windows o Linux:'
       - type: paragraph
         text: <b>DSVM di Windows</b>
       - type: list

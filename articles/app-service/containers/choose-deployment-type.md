@@ -11,24 +11,23 @@ ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: bba38bb69e5abaa94b01308924fe0c6bf07ca08e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae28b185aa44ca22d59204826036435a10c64e91
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64919959"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066783"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Immagine personalizzata, multi-contenitore o immagine della piattaforma predefinita?
 
 Il [servizio app in Linux](app-service-linux-intro.md) offre tre percorsi diversi per pubblicare un'applicazione sul Web:
 
 - **Distribuzione di un'immagine personalizzata**: integrare l'app in un'immagine Docker che contiene tutti i file e le dipendenze in un pacchetto pronto per l'esecuzione.
-- **Distribuzione multi-contenitore**: "Inserirla" l'app su più contenitori con un file di configurazione di Docker Compose.
+- **Distribuzione multi-contenitore**: "Contenitore Docker" l'app tra più contenitori usando un file di configurazione Docker Compose.
 - **Distribuzione di un'app con un'immagine di piattaforma predefinita**: le immagini di piattaforma predefinite contengono runtime e dipendenze di app Web comuni, come Node e PHP. Usare uno qualsiasi dei [metodi di distribuzione di Servizio app di Azure](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per distribuire l'app nello spazio di archiviazione dell'app Web e quindi usare un'immagine della piattaforma predefinita per eseguirla.
 
 ## <a name="which-method-is-right-for-your-app"></a>Qual è il metodo più appropriato per l'app? 
@@ -47,12 +46,12 @@ Ecco i principali fattori da prendere in considerazione:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Contenitore personalizzato:
-* [Eseguire un contenitore personalizzato](quickstart-docker-go.md)
+* [Esegui contenitore personalizzato](quickstart-docker-go.md)
 
-Multi-contenitore:
-* [Crea app multi-contenitore](quickstart-multi-container.md)
+Più contenitori:
+* [Creare un'app a più contenitori](quickstart-multi-container.md)
 
-Gli articoli seguenti consentono di iniziare con il servizio App in Linux con un'immagine di piattaforma predefinite:
+Gli articoli seguenti consentono di iniziare a usare il servizio app in Linux con un'immagine della piattaforma incorporata:
 
 * [.NET Core](quickstart-dotnetcore.md)
 * [PHP](quickstart-php.md)

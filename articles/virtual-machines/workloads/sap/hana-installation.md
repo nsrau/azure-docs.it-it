@@ -7,19 +7,18 @@ author: hermanndms
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bfd278cc4252167aace3aca52fec65fb3c6367f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ebf4a0f892e65bf96e07e333cf5446d3036108a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869126"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099802"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze Large) in Azure
 
@@ -151,7 +150,7 @@ Le dimensioni approssimative dei diversi volumi delle diverse SKU di istanze Lar
 
 Le convenzioni di denominazione dei volumi di archiviazione sono elencate nella tabella seguente:
 
-| Utilizzo delle risorse di archiviazione | Nome del montaggio | Nome del volume | 
+| Utilizzo dello spazio di archiviazione | Nome del montaggio | Nome del volume | 
 | --- | --- | ---|
 | Dati HANA | /Hana/data/SID/mnt0000\<m > | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
 | Log HANA | /Hana/log/SID/mnt0000\<m > | Storage IP:/hana_log_SID_mnt00001_tenant_vol |

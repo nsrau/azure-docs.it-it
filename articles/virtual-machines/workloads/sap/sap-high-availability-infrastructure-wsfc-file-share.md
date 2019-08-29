@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3577128e66112bda5a5e3e08097d14604043cbd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f9b7ac97cb190073966f9be450e9f9e04014fbd7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708988"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078045"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS
 
@@ -214,7 +213,7 @@ Questo articolo descrive la procedura di preparazione dell'infrastruttura di Azu
 
 Prima di iniziare l'installazione, esaminare l'articolo seguente:
 
-* [Guida all'architettura: Istanze del cluster SAP ASCS/SCS in un cluster di failover Windows tramite condivisione file][sap-high-availability-guide-wsfc-file-share]
+* [Guida all'architettura: Clustering di istanze SAP ASC/SCS in un cluster di failover Windows tramite condivisione file][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Nomi host e indirizzi IP
@@ -227,13 +226,13 @@ Prima di iniziare l'installazione, esaminare l'articolo seguente:
 | Nome di rete del cluster SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/d |
 
 
-**Tabella 1**: Cluster ASCS/SCS
+**Tabella 1**: Cluster ASC/SCS
 
 | SAP \<SID> | Numero di istanza di SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
-**Tabella 2**: Dettagli dell'istanza SAP ASCS/SCS
+**Tabella 2**: Dettagli dell'istanza di SAP ASC/SCS
 
 
 | Ruolo nome host virtuale | Nome host virtuale | Indirizzo IP statico | Set di disponibilità |
@@ -244,7 +243,7 @@ Prima di iniziare l'installazione, esaminare l'articolo seguente:
 | Nome rete di cluster | sofs-cl | 10.0.6.13 | n/d |
 | Nome host di SAP GLOBAL | sapglobal | Usare gli indirizzi IP di tutti i nodi del cluster | n/d |
 
-**Tabella 3**: Cluster di tipo Scale-Out File Server
+**Tabella 3**: Cluster File server di scalabilità orizzontale
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Distribuire le macchine virtuali per un cluster SAP ASCS/SCS, un cluster di sistema di gestione orizzontale (DBMS, Database Management System) e le istanze dei server di applicazioni SAP
@@ -257,24 +256,24 @@ Per preparare l'infrastruttura di Azure, completare la procedura seguente:
 
 * [Impostare gli indirizzi IP DNS necessari][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
 
-* [Impostare gli indirizzi IP statici per le macchine virtuali SAP][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
+* [Impostare indirizzi IP statici per le macchine virtuali SAP][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
 
-* [Impostare un indirizzo IP statico per il bilanciamento del carico interno di Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
+* [Impostare un indirizzo IP statico per il servizio di bilanciamento del carico interno di Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
 
-* [Le regole predefinite di set di bilanciamento del carico di ASCS/SCS per il bilanciamento del carico interno di Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
+* [Impostare le regole di bilanciamento del carico predefinite di ASC/SCS per il servizio di bilanciamento del carico interno di Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
 
-* [Modificare il carico predefinite di ASCS/SCS bilanciamento del carico delle regole di bilanciamento del carico interno di Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
+* [Modificare le regole di bilanciamento del carico predefinite di ASC/SCS per il servizio di bilanciamento del carico interno di Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
 
-* [Aggiungere le macchine virtuali Windows al dominio][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+* [Aggiungere macchine virtuali Windows al dominio][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* [Aggiungere le voci del Registro di sistema in entrambi i nodi del cluster dell'istanza SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+* [Aggiungere le voci del registro di sistema in entrambi i nodi del cluster dell'istanza di SAP ASC/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* Se si usa Windows Server 2016, è consigliabile configurare [controllo Cloud di Azure][deploy-cloud-witness].
+* Quando si usa Windows Server 2016, è consigliabile configurare [Azure cloud Witness][deploy-cloud-witness].
 
 
 ## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Distribuire manualmente il cluster di file server di scalabilità orizzontale 
 
-È possibile distribuire il cluster di Microsoft Scale-Out File Server manualmente, come descritto nel post di blog [spazi di archiviazione diretta in Azure][ms-blog-s2d-in-azure], eseguendo il codice seguente:  
+È possibile distribuire manualmente il cluster Microsoft File server di scalabilità orizzontale, come descritto nel Blog [spazi di archiviazione diretta in Azure][ms-blog-s2d-in-azure], eseguendo il codice seguente:  
 
 
 ```powershell
@@ -317,15 +316,15 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 > È necessario specificare il numero di macchine virtuali nell'interfaccia utente del modello di Resource Manager del file server di scalabilità orizzontale.
 >
 
-### <a name="use-managed-disks"></a>Usare i dischi gestiti
+### <a name="use-managed-disks"></a>Usa dischi gestiti
 
-Il modello di Azure Resource Manager per la distribuzione di File Server di scalabilità orizzontale con spazi di archiviazione diretta e Azure Managed Disks è disponibile nel [GitHub][arm-sofs-s2d-managed-disks].
+Il modello di Azure Resource Manager per la distribuzione di File server di scalabilità orizzontale con Spazi di archiviazione diretta e Managed Disks di Azure è disponibile in [GitHub][arm-sofs-s2d-managed-disks].
 
 È consigliabile usare Managed Disks.
 
-![Figura 1: Schermata dell'interfaccia utente per il modello di gestione risorse di tipo Scale-Out File Server con dischi gestiti][sap-ha-guide-figure-8010]
+![Figura 1: Schermata dell'interfaccia utente per File server di scalabilità orizzontale modello di Gestione risorse con Managed Disks][sap-ha-guide-figure-8010]
 
-_**Figura 1**: Schermata dell'interfaccia utente per il modello di gestione risorse di tipo Scale-Out File Server con dischi gestiti_
+_**Figura 1**: Schermata dell'interfaccia utente per File server di scalabilità orizzontale modello di Gestione risorse con Managed Disks_
 
 Nel modello eseguire le operazioni seguenti:
 1. Nella casella **Conteggio macchine virtuali** inserire un numero minimo di **2**.
@@ -335,24 +334,24 @@ Nel modello eseguire le operazioni seguenti:
 
 ### <a name="use-unmanaged-disks"></a>Usare i dischi non gestiti
 
-Il modello di Azure Resource Manager per la distribuzione di File Server di scalabilità orizzontale con spazi di archiviazione diretta e Azure Unmanaged Disks è disponibile nel [GitHub][arm-sofs-s2d-non-managed-disks].
+Il modello di Azure Resource Manager per la distribuzione di File server di scalabilità orizzontale con Spazi di archiviazione diretta e dischi non gestiti di Azure è disponibile in [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figura 2: Schermata dell'interfaccia utente per il modello di Azure Resource Manager di tipo Scale-Out File Server senza dischi gestiti][sap-ha-guide-figure-8011]
+![Figura 2: Schermata dell'interfaccia utente per il modello di Azure Resource Manager File server di scalabilità orizzontale senza dischi gestiti][sap-ha-guide-figure-8011]
 
-_**Figura 2**: Schermata dell'interfaccia utente per il modello di Azure Resource Manager di tipo Scale-Out File Server senza dischi gestiti_
+_**Figura 2**: Schermata dell'interfaccia utente per il modello di Azure Resource Manager File server di scalabilità orizzontale senza dischi gestiti_
 
 Nella casella **Tipo di account di archiviazione** selezionare **Archiviazione Premium**. Le altre impostazioni sono le stesse usate con i dischi gestiti.
 
-## <a name="adjust-cluster-timeout-settings"></a>Modificare le impostazioni del timeout del cluster
+## <a name="adjust-cluster-timeout-settings"></a>Modificare le impostazioni di timeout del cluster
 
-Dopo aver installato correttamente il cluster Windows Scale-Out File Server, adattare le soglie di timeout per rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati [impostazione di soglie di rete cluster di failover][tuning-failover-cluster-network-thresholds]. Supponendo che le macchine virtuali in cluster sono nella stessa subnet, modificare i parametri seguenti impostando i valori indicati:
+Dopo aver installato correttamente il cluster di Windows File server di scalabilità orizzontale, adattare le soglie di timeout per il rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati in [impostazione][tuning-failover-cluster-network-thresholds]delle soglie di rete del cluster di failover. Supponendo che le macchine virtuali in cluster si trovino nella stessa subnet, modificare i parametri seguenti in questi valori:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
 - RoutingHistoryLength = 30
 
-Queste impostazioni sono state testate con i clienti e rappresentano un buon compromesso. Sono sufficientemente resilienti, ma offrono anche rapidamente un failover sufficientemente condizioni di errore reale o un errore della macchina virtuale.
+Queste impostazioni sono state testate con i clienti e rappresentano un buon compromesso. Sono sufficientemente resilienti, ma forniscono anche un failover sufficientemente rapido in condizioni di errore reale o errore della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Installare la disponibilità elevata di SAP NetWeaver in una Windows failover cluster e la condivisione file per le istanze di SAP ASCS/SCS][sap-high-availability-installation-wsfc-file-share]
+* [Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e nella condivisione file per le istanze di SAP ASC/SCS][sap-high-availability-installation-wsfc-file-share]

@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 39f38af601888f847cd1a82da9e2e03e6893c28e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3ff9a694dca0d2a205c27569a7c744f482b662ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607290"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100651"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -74,7 +73,7 @@ Prima di procedere, è necessario conoscere alcuni aspetti ed essere in possesso
 - [Tecnologie cluster di Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [Istanze del cluster di failover di SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-Una differenza importante è che in un cluster di failover guest VM IaaS di Azure, è consigliabile una singola scheda di rete per ogni server (nodo del cluster) e una sola subnet. La ridondanza fisica della rete di Azure rende superfluo l'uso di altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Anche se il report di convalida del cluster avviserà che i nodi sono raggiungibili solo in una rete, tale avviso potrà essere tranquillamente ignorato per i cluster di failover guest delle macchine virtuali IaaS di Azure. 
+Una differenza importante è che in un cluster di failover di macchine virtuali IaaS di Azure è consigliabile usare una singola scheda di interfaccia di rete per ogni server (nodo del cluster) e una singola subnet. La ridondanza fisica della rete di Azure rende superfluo l'uso di altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Anche se il report di convalida del cluster avviserà che i nodi sono raggiungibili solo in una rete, tale avviso potrà essere tranquillamente ignorato per i cluster di failover guest delle macchine virtuali IaaS di Azure. 
 
 Inoltre, è necessario avere una conoscenza generale delle tecnologie seguenti:
 
@@ -399,7 +398,7 @@ Per creare il servizio di bilanciamento del carico:
 
    - **Nome**: un nome per il probe di integrità.
    - **Protocollo**: TCP.
-   - **Porta**: Impostare la porta è stato creato nel firewall per il probe di integrità nel [questo passaggio](#ports). In questo articolo, l'esempio Usa la porta TCP `59999`.
+   - **Porta**: Impostare sulla porta creata nel firewall per il probe di integrità in [questo passaggio](#ports). In questo articolo viene usata la porta `59999`TCP.
    - **Intervallo**: 5 secondi.
    - **Soglia non integra**: 2 errori consecutivi.
 
@@ -475,7 +474,7 @@ Testare il failover dell'istanza del cluster di failover per convalidare le funz
 
 In **Gestione cluster di failover** viene visualizzato il ruolo e le relative risorse passano alla modalità offline. Le risorse vengono quindi spostate e portate online nell'altro nodo.
 
-### <a name="test-connectivity"></a>Testare la connettività
+### <a name="test-connectivity"></a>Test della connettività
 
 Per testare la connettività, accedere a un'altra macchina virtuale nella stessa rete virtuale. Aprire **SQL Server Management Studio** e connettersi al nome dell'istanza del cluster di failover di SQL Server.
 

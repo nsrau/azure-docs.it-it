@@ -7,20 +7,20 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 04/16/2019
-ms.openlocfilehash: 69fe3287083523a3a47975a3db51d7241681f5c4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 08/22/2019
+ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68569503"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70065983"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
-Il controllo del [database SQL di Azure](sql-database-technical-overview.md) e di [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) consente di tenere traccia degli eventi che si verificano nel database e registrarli in un log di controllo nell'account di Archiviazione di Azure, nell'area di lavoro di OMS o in Hub eventi. Inoltre, il servizio di controllo:
+Il controllo per il [database SQL](sql-database-technical-overview.md) di azure e [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tiene traccia degli eventi di database e li scrive in un log di controllo nell'account di archiviazione di Azure, log Analytics area di lavoro o hub eventi. Inoltre, il servizio di controllo:
 
 - Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che potrebbero indicare problemi aziendali o possibili violazioni della sicurezza.
 
@@ -121,11 +121,22 @@ Se si sceglie di scrivere i log di controllo nei log di monitoraggio di Azure:
 
 - Usare il [portale di Azure](https://portal.azure.com).  Aprire il database corrispondente. Nella parte superiore della pagina **Controllo** del database fare clic su **Visualizza log di controllo**.
 
-    ![visualizzare i log di controllo](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+    ![visualizzare i log di controllo](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
-- Quindi, facendo clic su **aprire in OMS** nella parte superiore della pagina **record di controllo** verrà aperta la visualizzazione dei log in Log Analytics, in cui è possibile personalizzare l'intervallo di tempo e la query di ricerca.
+- Quindi, sono disponibili due modi per visualizzare i log:
+    
+    Facendo clic su **log Analytics** nella parte superiore della pagina **record di controllo** , si aprirà la visualizzazione log nell'area di lavoro log Analytics, in cui è possibile personalizzare l'intervallo di tempo e la query di ricerca.
+    
+    ![Apri in area di lavoro Log Analytics](./media/sql-database-auditing-get-started/auditing-log-analytics.png)
 
-    ![aprire in Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    Facendo clic su **Visualizza dashboard** nella parte superiore della pagina **record di controllo** , si aprirà un dashboard che visualizza le informazioni sui log di controllo, in cui è possibile eseguire il drill-down nelle informazioni dettagliate sulla sicurezza, accedere ai dati sensibili e altro ancora. Questo dashboard è stato progettato per ottenere informazioni approfondite sulla sicurezza per i dati.
+    È anche possibile personalizzare l'intervallo di tempo e la query di ricerca. 
+    ![Visualizza dashboard Log Analytics](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+
+    ![Dashboard Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
+
+    ![Informazioni dettagliate sulla sicurezza Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard-data.png)
+ 
 
 - In alternativa, è possibile accedere anche i log di controllo dal pannello Log Analytics. Aprire l'area di lavoro Log Analytics e nella sezione **generale** fare clic su **log**. È possibile iniziare con una query semplice, ad esempio: *cercare "SQLSecurityAuditEvents"* per visualizzare i log di controllo.
     Da qui è anche possibile usare i [log di monitoraggio di Azure](../log-analytics/log-analytics-log-search.md) per eseguire ricerche avanzate sui dati del log di controllo. Log di monitoraggio di Azure offre informazioni operative in tempo reale usando la ricerca integrata e i dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca dei log di Azure e sui comandi, vedere i [riferimenti alla ricerca nei log di monitoraggio](../log-analytics/log-analytics-log-search.md)di Azure.
@@ -257,7 +268,7 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 - [Ottenere i criteri di controllo *esteso* del database](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Ottenere i criteri di controllo estesi del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Gestire il controllo del database SQL usando i modelli ARM
+## <a id="subheading-10"></a>Gestire il controllo del database SQL tramite modelli di Azure Resource Manager
 
 È possibile gestire il controllo del database SQL di Azure usando i modelli di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), come illustrato negli esempi seguenti:
 

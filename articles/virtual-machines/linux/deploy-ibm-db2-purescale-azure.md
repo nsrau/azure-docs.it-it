@@ -11,16 +11,15 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 68fde09b1ee5f18aa784793cc19e9f547b19ed43
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 8eb8075454dc3a49e9525d566c34c64bab8be5a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871888"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083440"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuire IBM DB2 pureScale in Azure
 
@@ -78,9 +77,9 @@ Il repository GitHub include il file di risposta DB2server.rsp, che consente di 
 > [!NOTE]
 > Un file di risposta di esempio, DB2server.rsp, è incluso nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub. Se si usa questo file, è necessario modificarlo in modo che sia compatibile con l'ambiente in uso.
 
-| Nome schermata               | Campo                                        | Value                                                                                                 |
+| Nome schermata               | Campo                                        | Valore                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| Schermata iniziale                   |                                              | New Install (Nuova installazione)                                                                                           |
+| Procedura guidata                   |                                              | New Install (Nuova installazione)                                                                                           |
 | Choose a Product (Scegliere un prodotto)          |                                              | DB2 Version 11.1.3.3. Server Editions with DB2 pureScale                                              |
 | Configurazione             | Directory                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Select the installation type (Selezionare il tipo di installazione)                 | Typical (Tipica)                                                                                               |
@@ -88,7 +87,7 @@ Il repository GitHub include il file di risposta DB2server.rsp, che consente di 
 | Instance Owner (Proprietario istanza)            | Existing User For Instance, User name (Utente esistente per istanza, Nome utente)        | DB2sdin1                                                                                              |
 | Fenced User (Utente confinato)               | Existing User, User name (Utente esistente, Nome utente)                     | DB2sdfe1                                                                                              |
 | Cluster File System (File system cluster)       | Shared disk partition device path (Percorso dispositivo partizione disco condiviso)            | /dev/dm-2                                                                                             |
-|                           | Mount point (Punto di montaggio)                                  | /DB2sd\_1804a                                                                                         |
+|                           | Punto di montaggio                                  | /DB2sd\_1804a                                                                                         |
 |                           | Shared disk for data (Disco condiviso per i dati)                         | /dev/dm-1                                                                                             |
 |                           | Mount point (Data) (Punto di montaggio - Dati)                           | /DB2fs/datafs1                                                                                        |
 |                           | Shared disk for log (Disco condiviso per il log)                          | /dev/dm-0                                                                                             |

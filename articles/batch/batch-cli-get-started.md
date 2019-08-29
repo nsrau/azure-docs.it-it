@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e541ef82b7fe63042adf84733dd86fdd3eabdf1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: dd4a93b9829d69d9d0262428d23d2156d732c006
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323726"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095416"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
 
@@ -152,7 +151,7 @@ Quando si esegue una query sul servizio Batch con un'operazione `list`, è possi
 
 La tabella seguente illustra le clausole OData supportate dal servizio Batch:
 
-| Clausola | DESCRIZIONE |
+| Clausola | Descrizione |
 |---|---|
 | `--select-clause [select-clause]` | Restituisce un subset di proprietà per ogni entità. |
 | `--filter-clause [filter-clause]` | Restituisce solo le entità che corrispondono all'espressione OData specificata. |

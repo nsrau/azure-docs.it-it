@@ -240,6 +240,8 @@
           href: virtual-machine-scale-sets-automatic-upgrade.md
         - name: Protezione delle istanze (anteprima)
           href: virtual-machine-scale-sets-instance-protection.md
+        - name: Notifica di termine all'eliminazione (anteprima)
+          href: virtual-machine-scale-sets-terminate-notification.md
         - name: Raccolte di immagini condivise
           items:
             - name: Panoramica

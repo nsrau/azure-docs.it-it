@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 831eacf8197e90d7ae6b752ee11898c9667b5b6a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 3294a7b2112e9527041ef343f4452aedb7a2a272
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036544"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073472"
 ---
 # <a name="how-to-migrate-azure-api-management-across-regions"></a>Come eseguire la migrazione di gestione API di Azure tra aree
 Per eseguire la migrazione delle istanze di gestione API da un'area di Azure a un'altra, è possibile usare la funzionalità di [backup e ripristino](api-management-howto-disaster-recovery-backup-restore.md) . È necessario scegliere lo stesso piano tariffario di gestione API nelle aree di origine e di destinazione. 

@@ -1,6 +1,6 @@
 ---
-title: Creare immagini di macchina virtuale di Azure condivise per Windows tramite portale | Microsoft Docs
-description: Informazioni su come usare il portale di Azure per creare e condividere le immagini di macchina virtuale.
+title: Creare immagini di macchine virtuali di Azure condivise per Windows tramite il portale | Microsoft Docs
+description: Informazioni su come usare portale di Azure per creare e condividere immagini di macchine virtuali.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 475bf3d07ff619618339207b53d5bcc4c8b0ab06
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e04cbd4750a97857166eb5939045bdb8ace1b426
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709142"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102377"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Creare una raccolta di immagini condivise nel portale di Azure
+# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Creare una raccolta di immagini condivise usando il portale di Azure
 
 La [raccolta di immagini condivise](shared-image-galleries.md) semplifica la condivisione di immagini personalizzate all'interno dell'organizzazione. Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. Le immagini personalizzate possono essere usate per l'avvio di attività di distribuzione, ad esempio il precaricamento e le configurazioni di applicazioni e altre configurazioni del sistema operativo. 
 
@@ -43,7 +42,7 @@ La funzionalità di raccolta di immagini condivise presenta più tipi di risorse
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente. Per crearne una, se necessario, è possibile seguire questa [Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell](tutorial-custom-images.md). Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono essere più di 1 TB.
+Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente. Per crearne una, se necessario, è possibile seguire questa [Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell](tutorial-custom-images.md). Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono superare 1 TB.
 
 Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e delle macchine virtuali dove necessario.
 
@@ -55,21 +54,21 @@ Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e dell
 Dopo aver completato la versione dell'immagine, è possibile creare una o più nuove macchine virtuali. 
 
 > [!IMPORTANT]
-> È possibile usare il portale per distribuire una macchina virtuale da un'immagine in un altro tenant di azure. Per creare una macchina virtuale da un'immagine condivise tra i tenant, è necessario usare il [Azure CLI](../linux/shared-images.md#create-a-vm) oppure [Powershell](shared-images.md#create-vms-from-an-image).
+> Non è possibile usare il portale per distribuire una macchina virtuale da un'immagine in un altro tenant di Azure. Per creare una macchina virtuale da un'immagine condivisa tra i tenant, è necessario usare l'interfaccia della riga di comando di [Azure](../linux/shared-images.md#create-a-vm) o [PowerShell](shared-images.md#create-vms-from-an-image).
 
 Questo esempio crea una VM denominata *myVMfromImage* in *myResourceGroup* nel datacenter *Stati Uniti orientali*.
 
-1. Nella pagina per la versione di immagine, selezionare **creare una macchina virtuale** dal menu nella parte superiore della pagina.
-1. Per la **gruppo di risorse**, selezionare **Crea nuovo** e digitare *myResourceGroup* per il nome.
-1. Nelle **nome della macchina virtuale**, digitare *myVM*.
-1. Per la **regione**, selezionare *Stati Uniti orientali*.
-1. Per la **opzioni di disponibilità**, lasciare il valore predefinito *alcuna ridondanza dell'infrastruttura necessaria*.
-1. Il valore per **immagine** deve essere impostato automaticamente se è stata avviata dalla pagina per la versione dell'immagine.
-1. Per la **dimensioni**, scegli una dimensione di macchina virtuale dall'elenco delle dimensioni disponibili e quindi fare clic su "Seleziona".
+1. Nella pagina per la versione dell'immagine selezionare **Crea macchina virtuale** dal menu nella parte superiore della pagina.
+1. Per **gruppo di risorse**selezionare **Crea nuovo** e digitare *myResourceGroup* per nome.
+1. In **nome macchina virtuale**digitare *myVM*.
+1. Per **area**selezionare *Stati Uniti orientali*.
+1. Per le **Opzioni di disponibilità**, lasciare l'impostazione predefinita nessuna ridondanza dell' *infrastruttura richiesta*.
+1. Il valore per l' **immagine** deve essere compilato automaticamente se è stato avviato dalla pagina per la versione dell'immagine.
+1. Per **dimensione**scegliere una dimensione di macchina virtuale dall'elenco delle dimensioni disponibili, quindi fare clic su "Seleziona".
 1. Sotto **Account amministratore**, specificare un nome utente, ad esempio *azureuser*, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
-1. Se si desidera consentire l'accesso remoto alla macchina virtuale, nella sezione **porte in ingresso pubbliche**, scegliere **consentire le porte selezionate** e quindi selezionare **RDP (3389)** dall'elenco a discesa. Se non si desidera consentire l'accesso remoto alla macchina virtuale, lasciare **None** selezionati per **porte in ingresso pubbliche**.
-1. Al termine, selezionare la **revisione + Crea** nella parte inferiore della pagina.
-1. Dopo che la macchina virtuale supera la convalida, selezionare **Create** nella parte inferiore della pagina per avviare la distribuzione.
+1. Se si vuole consentire l'accesso remoto alla macchina virtuale, in **porte in ingresso pubbliche**scegliere **Consenti porte selezionate** , quindi selezionare **RDP (3389)** nell'elenco a discesa. Se non si vuole consentire l'accesso remoto alla macchina virtuale, lasciare selezionata l'opzione **Nessuna** per le **porte in ingresso pubbliche**.
+1. Al termine, selezionare il pulsante **Verifica e crea** nella parte inferiore della pagina.
+1. Dopo che la macchina virtuale ha superato la convalida, selezionare **Crea** nella parte inferiore della pagina per avviare la distribuzione.
 
 
 
@@ -77,7 +76,7 @@ Questo esempio crea una VM denominata *myVMfromImage* in *myResourceGroup* nel d
 
 Quando non serve più, è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale, selezionare **Elimina** e quindi confermare il nome del gruppo di risorse da eliminare.
 
-Se si desidera eliminare le singole risorse, è necessario eliminarli in ordine inverso. Ad esempio, per eliminare una definizione dell'immagine, è necessario eliminare tutte le versioni di immagini create da tale immagine.
+Se si desidera eliminare singole risorse, è necessario eliminarle in ordine inverso. Per eliminare la definizione di un'immagine, ad esempio, è necessario eliminare tutte le versioni di immagine create da tale immagine.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

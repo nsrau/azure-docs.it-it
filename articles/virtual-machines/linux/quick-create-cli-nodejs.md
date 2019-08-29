@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: gwallace
-ms.openlocfilehash: b36f6e2ace02324a63616f31fcdccfa666856699
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 116811a8b4d8e61a2a727cd4606344f2b169be96
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875225"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091607"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Creare una VM Linux usando l'interfaccia della riga di comando classica di Azure
 
@@ -50,14 +49,14 @@ La seguente procedura riguarda la distribuzione di una VM UbuntuLTS, passo passo
 
 Per scegliere rapidamente una distribuzione è possibile usare gli alias dell'interfaccia della riga di comando di Azure con mapping alle distribuzioni di sistemi operativi più diffuse. La tabella seguente elenca gli alias, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Per impostazione predefinita, tutte le distribuzioni che usano `quick-create` fanno uso di macchine virtuali con risorse di archiviazione basate su unità SSD, che garantiscono un provisioning più veloce e accesso al disco a prestazioni elevate. Questi alias rappresentano una minima parte delle distribuzioni disponibili in Azure. Per trovare altre immagini in Azure Marketplace, è possibile [cercare un'immagine in PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [sul Web](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) o [caricare un'immagine personalizzata](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-| Alias | Editore | Offerta | SKU | Version |
+| Alias | Pubblicato da | Offerta | SKU | Versione |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7.2 |latest |
 | CoreOS |CoreOS |CoreOS |Stabile |latest |
 | Debian |credativ |Debian |8 |latest |
 | openSUSE |SUSE |openSUSE |13.2 |latest |
 | RHEL |Red Hat |RHEL |7.2 |latest |
-| UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |latest |
+| UbuntuLTS |Canonico |Ubuntu Server |14.04.4-LTS |latest |
 
 Le sezioni seguenti illustrano come usare l'alias `UbuntuLTS` per l'opzione **ImageURN** (`-Q`) per distribuire Ubuntu Server 14.04.4 LTS.
 

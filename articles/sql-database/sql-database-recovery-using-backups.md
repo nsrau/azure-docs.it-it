@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/30/2019
-ms.openlocfilehash: 55d60ec332515fcfa3deb565a4a770027681537a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/27/2019
+ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566973"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103109"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 
@@ -37,7 +37,7 @@ Quando si usa un livello di servizio Standard o Premium, un database ripristinat
 - Ripristino di P11 – P15 in S4 S12 o P1 – P6 se le dimensioni massime del database sono maggiori di 500 GB.
 - Ripristino di P1–P6 in S4-S12 se le dimensioni massime del database sono maggiori di 250 GB.
 
-Il costo aggiuntivo è icurred quando la dimensione massima del database ripristinato è maggiore della quantità di spazio di archiviazione inclusa con il livello di servizio e il livello di prestazioni del database di destinazione. Il provisioning di archiviazione aggiuntivo superiore alla quantità inclusa viene addebitato in eccesso. Per i dettagli dei prezzi delle risorse di archiviazione aggiuntive, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore alla quantità di spazio di archiviazione inclusa, è possibile evitare questo costo aggiuntivo impostando le dimensioni massime del database sulla quantità inclusa.
+Il costo aggiuntivo si verifica quando le dimensioni massime del database ripristinato sono maggiori della quantità di spazio di archiviazione inclusa con il livello di servizio e il livello di prestazioni del database di destinazione. Il provisioning di archiviazione aggiuntivo superiore alla quantità inclusa viene addebitato in eccesso. Per i dettagli dei prezzi delle risorse di archiviazione aggiuntive, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore alla quantità di spazio di archiviazione inclusa, è possibile evitare questo costo aggiuntivo impostando le dimensioni massime del database sulla quantità inclusa.
 
 > [!NOTE]
 > [I backup di database automatici](sql-database-automated-backups.md) vengono usati quando si crea un [copia del database](sql-database-copy.md).
@@ -127,7 +127,7 @@ Il ripristino temporizzato in un database di replica geografica secondaria non �
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Eseguire il ripristino geografico tramite il portale di Azure
 
-Per geo-ripristinare un database eliminato durante il [periodo di conservazione basato su DTU](sql-database-service-tiers-dtu.md) o il [periodo di conservazione basato su vCore](sql-database-service-tiers-vcore.md) tramite il portale di Azure, aprire la pagina dei database SQL e fare clic su **Aggiungi**. Nel casella di testo **Seleziona origine** selezionare **Backup**. Specificare il backup da cui eseguire il ripristino nell'area e nel server di propria scelta.
+Per eseguire il ripristino geografico di un database usando il portale di Azure, aprire la pagina database SQL e quindi fare clic su **Aggiungi**. Nel casella di testo **Seleziona origine** selezionare **Backup**. Specificare il backup da cui eseguire il ripristino nell'area e nel server di propria scelta.
 
 > [!Note]
 > Il ripristino geografico tramite il portale di Azure non è disponibile in Istanza gestita. Usare invece PowerShell.

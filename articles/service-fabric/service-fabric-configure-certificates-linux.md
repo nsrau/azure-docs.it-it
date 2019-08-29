@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a5a67133d52a0cdc0cc082ab85c1cc791c13ad5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3816fb56b806029d7a23b67741197e32de6a6ff3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876571"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103002"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificati e sicurezza nei cluster Linux
 
@@ -72,7 +71,7 @@ Il codice XML seguente illustra una sezione **TransportSettings** che si basa su
 </Section>
 ```
 
-### <a name="using-x5092-securitycredentialstype"></a>Uso di X509_2 per SecurityCredentialsType
+### <a name="using-x509_2-securitycredentialstype"></a>Uso di X509_2 per SecurityCredentialsType
 
 Con Java SDK, è possibile specificare **X509_2** per **SecurityCredentialsType**. Questo corrisponde al tipo `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) di `SecurityCredentials` ([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
 

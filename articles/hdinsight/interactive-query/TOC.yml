@@ -281,6 +281,8 @@
           maintainContext: true
 - name: riferimento
   items:
+    - name: Configurazioni di nodi supportate
+      href: ../hdinsight-supported-node-configuration.md
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Azure PowerShell

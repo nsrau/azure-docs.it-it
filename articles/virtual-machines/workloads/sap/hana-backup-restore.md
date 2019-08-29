@@ -7,19 +7,18 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27f7a9b576263b97c251306c9817b85c31041739
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 705dfb0b62327d9675fe9bf3e5860b1396e2fab9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312233"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101315"
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
 
@@ -132,7 +131,7 @@ Il sistema operativo Linux installato in SAP HANA in Azure (istanze large) inclu
 
 È responsabilità dell'utente installare il client HDB SAP HANA nelle unità di istanze large di HANA durante l'installazione di SAP HANA.
 
-### <a name="step-2-change-the-etcsshsshconfig"></a>Passaggio 2: Modificare /etc/ssh/ssh\_config
+### <a name="step-2-change-the-etcsshssh_config"></a>Passaggio 2: Modificare /etc/ssh/ssh\_config
 
 Questo passaggio è descritto in "abilitare la comunicazione con l'archiviazione" in [Microsoft snapshot Tools for SAP Hana in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
 

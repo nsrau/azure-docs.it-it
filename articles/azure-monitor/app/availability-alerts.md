@@ -1,5 +1,5 @@
 ---
-title: Configurare avvisi di disponibilità con Azure Application Insights | Microsoft Docs
+title: Configurare gli avvisi di disponibilità con applicazione Azure Insights | Microsoft Docs
 description: Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente.
 services: application-insights
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: cc022f91d4b4fec42929769df8c979320548a1f9
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 1d7527d6f52235c6b95ad2e336ea9f9ba85d6344
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305142"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114386"
 ---
 # <a name="availability-alerts"></a>Avvisi di disponibilità
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Può inviare un avviso se l'applicazione non risponde o se la risposta è troppo lenta.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Consente di avvisare l'utente se l'applicazione non risponde o se risponde troppo lentamente.
 
-## <a name="enable-alerts"></a>Attivare gli avvisi
+## <a name="enable-alerts"></a>Abilita avvisi
 
-Gli avvisi sono ora abilitati automaticamente per impostazione predefinita, ma per poter configurare completamente l'avviso è innanzitutto necessario creare inizialmente il test di disponibilità.
+Gli avvisi vengono ora abilitati automaticamente per impostazione predefinita, ma per poter configurare completamente l'avviso è necessario innanzitutto creare il test di disponibilità.
 
 ![Esperienza di creazione](./media/availability-alerts/create-test.png)
 
@@ -61,18 +61,21 @@ Usando i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-an
 
 ### <a name="alert-on-custom-analytics-queries"></a>Inviare avvisi per le query di analisi personalizzate
 
-Usando i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) è possibile inviare avvisi per le [query di log personalizzate](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Con le query personalizzate è possibile inviare avvisi per qualsiasi condizione arbitraria che consenta di ottenere il segnale più affidabile di problemi di disponibilità. Questa opzione si applica in particolare se si inviano risultati di disponibilità personalizzati tramite l'SDK TrackAvailability. 
+Usando i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) è possibile inviare avvisi per le [query di log personalizzate](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Con le query personalizzate è possibile inviare avvisi per qualsiasi condizione arbitraria che consenta di ottenere il segnale più affidabile di problemi di disponibilità. Questa operazione è applicabile anche se si inviano risultati di disponibilità personalizzati con TrackAvailability SDK.
 
 > [!Tip]
 > Le metriche sui dati di disponibilità includono tutti i risultati di disponibilità personalizzati che si possono inviare chiamando l'SDK TrackAvailability. È possibile usare gli avvisi per il supporto delle metriche per inviare avvisi sui risultati di disponibilità personalizzati.
 >
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="automate-alerts"></a>Automatizzare gli avvisi
 
-Dedicata [risoluzione dei problemi di articolo](troubleshoot-availability.md).
+Per automatizzare questo processo con i modelli di Azure Resource Manager, vedere la documentazione [creare un avviso di metrica con gestione risorse modello](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert) .
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Articolo dedicato alla [risoluzione dei problemi](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Test web in più passi](availability-multistep.md)
-* [Test web di ping URL](monitor-web-app-availability.md)
-
+* [Test Web in più passaggi](availability-multistep.md)
+* [Test Web di ping URL](monitor-web-app-availability.md)

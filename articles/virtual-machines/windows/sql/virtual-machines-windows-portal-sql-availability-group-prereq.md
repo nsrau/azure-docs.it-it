@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 62232283fb0b2f499601615702fef3292bb88317
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60592167"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100725"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure
 
@@ -89,7 +88,7 @@ Per creare la rete virtuale:
    | **Intervallo di indirizzi subnet** |10.33.0.0/29 |
    | **Sottoscrizione** |Specificare la sottoscrizione da usare. Se è disponibile una sola sottoscrizione, il valore di **Sottoscrizione** non è impostato. |
    | **Gruppo di risorse** |Scegliere **Utilizza esistente** e selezionare il nome del gruppo di risorse. |
-   | **Posizione** |Specificare la località di Azure. |
+   | **Location** |Specificare la località di Azure. |
 
    Lo spazio indirizzi e l'intervallo di indirizzi subnet possono essere diversi da quelli della tabella. A seconda della sottoscrizione, sul portale verrà suggerito uno spazio indirizzi disponibile e un intervallo di indirizzi subnet corrispondente. Se non è disponibile uno spazio indirizzi sufficiente, usare un'altra sottoscrizione.
 
@@ -131,7 +130,7 @@ La tabella seguente riepiloga le impostazioni di configurazione della rete:
 | **Intervallo di indirizzi subnet** |Questo valore dipende dagli intervalli di indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.1.0/24 |
 | **Sottoscrizione** |Specificare la sottoscrizione da usare. |
 | **Gruppo di risorse** |**SQL-HA-RG** |
-| **Posizione** |Specificare la stessa località scelta per il gruppo di risorse. |
+| **Location** |Specificare la stessa località scelta per il gruppo di risorse. |
 
 ## <a name="create-availability-sets"></a>Creare set di disponibilità
 
@@ -182,7 +181,7 @@ La tabella seguente descrive le impostazioni per queste due macchine:
 | **Password** |Contoso!0000 |
 | **Sottoscrizione** |*Sottoscrizione in uso* |
 | **Gruppo di risorse** |Nome gruppo di risorse |
-| **Posizione** |*Località corrente* |
+| **Location** |*Località corrente* |
 | **Dimensione** |DS1_V2 |
 | **Archiviazione** | **Usa dischi gestiti** - **Sì** |
 | **Rete virtuale** |autoHAVNET |
@@ -315,7 +314,7 @@ Nei passaggi successivi vengono configurati gli account Active Directory (AD). L
 | |Account di installazione<br/> |sqlserver-0 <br/>Account del servizio SQL Agent e SQL Server |sqlserver-1<br/>Account del servizio SQL Agent e SQL Server
 | --- | --- | --- | ---
 |**Nome** |Installa |SQLSvc1 | SQLSvc2
-|**Utente SamAccountName** |Installa |SQLSvc1 | SQLSvc2
+|**Utente SamAccountName** |Installazione |SQLSvc1 | SQLSvc2
 
 Usare i passaggi seguenti per creare ogni account.
 
@@ -464,7 +463,7 @@ Per aggiungere le funzionalità del cluster di failover, seguire questa procedur
 Ripetere i passaggi nell'altra VM di SQL Server.
 
   >[!NOTE]
-  > Questo passaggio, insieme a effettivamente l'aggiunta di macchine virtuali di SQL Server al cluster di failover, è ora possibile automatizzare con [macchina virtuale di SQL Azure CLI](virtual-machines-windows-sql-availability-group-cli.md) e [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Questo passaggio, insieme alla possibilità di eseguire il join delle VM SQL Server al cluster di failover, ora può essere automatizzato con l'interfaccia della riga di comando della [VM SQL di Azure](virtual-machines-windows-sql-availability-group-cli.md) e i [modelli di avvio rapido](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configurare il firewall in ogni macchina virtuale di SQL Server
