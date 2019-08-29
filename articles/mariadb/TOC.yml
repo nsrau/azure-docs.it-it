@@ -89,6 +89,10 @@
           href: concepts-read-replicas.md
 - name: Guide alle procedure
   items:
+    - name: Gestire un server
+      items:
+        - name: Portale di Azure
+          href: howto-create-manage-server-portal.md
     - name: Regole del firewall
       items:
         - name: Portale di Azure
@@ -123,6 +127,8 @@
       items:
         - name: Portale di Azure
           href: howto-auto-grow-storage-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-auto-grow-storage-cli.md
     - name: Accesso ai log server
       items:
         - name: Log query lente

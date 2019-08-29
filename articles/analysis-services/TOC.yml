@@ -1,5 +1,5 @@
 - name: Documentazione di Analysis Services
-  href: index.md
+  href: index.yml
 - name: Panoramica
   items:
     - name: Informazioni su Azure Analysis Services
