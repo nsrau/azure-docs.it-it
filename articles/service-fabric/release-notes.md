@@ -20,7 +20,7 @@ ms.locfileid: "70018977"
 
 | <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Guida</a> 
 | <a href="https://github.com/Azure/service-fabric-issues" target="blank">alla risoluzione dei problemi</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank"></a>delleOpzioni 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">delleOpzioni</a> 
 | <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">supporto</a> 
 | <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank"> per la gestione delle versioni supportate esempi di codice</a>
 
