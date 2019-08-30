@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 4c1208d8cbc795e53128df0ccf93e79dc427abad
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: a26789bb41fb3fb1e7dec376b7e187f45745ea65
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325845"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172264"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorare le risorse dei contenitori in Istanze di Azure Container
 
@@ -49,7 +49,7 @@ Se un gruppo di contenitori contiene più contenitori, usare una [dimensione][mo
 1. Nella pagina **Panoramica** selezionare uno dei grafici delle metriche, ad esempio **CPU**. 
 1. Selezionare il pulsante **Applicare separazione** e quindi **Nome contenitore**.
 
-![dimensioni][dimension]
+![dimensione][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Ottenere le metriche: interfaccia della riga di comando di Azure
 

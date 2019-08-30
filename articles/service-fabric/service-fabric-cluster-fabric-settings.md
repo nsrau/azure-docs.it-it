@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/12/2019
+ms.date: 08/29/2019
 ms.author: atsenthi
-ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 5d6f1fcba5d93cbd4efb63cd080848258eb2a262
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014435"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172879"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -236,6 +236,8 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |UserMaxStandByReplicaCount |Int, valore predefinito: 1 |Dynamic|Il numero massimo predefinito di repliche in standby che il sistema conserva per i servizi utente. |
 |UserReplicaRestartWaitDuration |Tempo in secondi, valore predefinito: \* 60,0 30 |Dynamic|Specificare l'intervallo di tempo in secondi. Quando una replica persistente va offline, Windows Fabric attende che torni online per questo intervallo di tempo, passato il quale crea nuove repliche sostitutive, che richiederanno una copia dello stato. |
 |UserStandByReplicaKeepDuration |Tempo in secondi, valore predefinito: 3600.0 \* 24 \* 7 |Dynamic|Specificare l'intervallo di tempo in secondi. Quando una replica persistente torna online, potrebbe già essere stata sostituita. Questo timer determina per quanto tempo FM manterrà la replica in standby prima di rimuoverla. |
+|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, valore predefinito: common:: TimeSpan:: FromSeconds (60 * 10)|Dynamic|Specificare l'intervallo di tempo in secondi. Voce di configurazione per il timeout facoltativo del controllo di sicurezza WaitForInBuildReplica. Questa configurazione definisce il timeout per il controllo di sicurezza di WaitForInBuildReplica per la disattivazione e gli aggiornamenti del nodo. Questo controllo di sicurezza ha esito negativo se si verifica una delle condizioni seguenti:-è in corso la creazione di un database primario e le dimensioni del set di repliche di destinazione ft > 1-se la replica corrente è in fase di compilazione e viene resa persistente, questo controllo di sicurezza verrà ignorato PED se il timeout scade anche se una delle condizioni precedenti è ancora vera. |
+|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, valore predefinito: common:: TimeSpan:: FromSeconds (60.0 * 10)|Dynamic|Specificare l'intervallo di tempo in secondi. Voce di configurazione per il timeout facoltativo del controllo di sicurezza WaitForReconfiguration. Questa configurazione definisce il timeout del controllo di sicurezza WaitForReconfiguration per le disattivazioni del nodo e gli aggiornamenti. Questo controllo di sicurezza ha esito negativo se la replica controllata fa parte di una partizione in fase di riconfigurazione. Il controllo di sicurezza verrà ignorato dopo la scadenza di questo timeout anche se la partizione è ancora in fase di riconfigurazione.|
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 

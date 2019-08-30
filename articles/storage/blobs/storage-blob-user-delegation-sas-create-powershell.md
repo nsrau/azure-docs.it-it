@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: bdb66ec65d493c6af2f33bf6ed6e4a2bb2154235
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8a455fdb8ef81b0e06d1f77f7a9cdd5bec351b2b
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897033"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164275"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con PowerShell (anteprima)
 
@@ -164,6 +164,9 @@ Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori p
 Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account>
 ```
+
+> [!IMPORTANT]
+> Sia la chiave di delega utente che le assegnazioni di ruolo RBAC vengono memorizzate nella cache da archiviazione di Azure, pertanto potrebbe verificarsi un ritardo tra il momento in cui si avvia il processo di revoca e quando una firma di accesso condiviso dell'utente esistente diventa non valida.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

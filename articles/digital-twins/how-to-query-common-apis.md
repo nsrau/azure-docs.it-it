@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/29/2019
 ms.author: v-adgera
-ms.openlocfilehash: eca355a51b516311d060df09905c1df769037ec5
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 55b0676ce0a0dc6d4347ddcadf43b7b650f0f9a1
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722848"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172798"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Come eseguire una query delle API di Gemelli digitali di Azure per trovare le attività comuni
 
@@ -238,4 +238,4 @@ Questa sezione illustra alcune query delle API di esempio per la gestione degli 
 
 Per informazioni su come eseguire l'autenticazione con l'API di gestione, vedere [Connettersi alle API ed eseguire l'autenticazione](./security-authenticating-apis.md).
 
-Per altre informazioni sull'endpoint API, leggere [come usare Swagger gemelli digitale](./how-to-use-swagger.md).
+Per altre informazioni sugli endpoint dell'API, vedere l'articolo su [come usare i gemelli digitali spavalderia](./how-to-use-swagger.md).

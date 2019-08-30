@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 06/26/2019
-ms.openlocfilehash: c35863ed1d564adf4190efa1888d24f4f4f68ddf
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.date: 08/29/2019
+ms.openlocfilehash: 4af269faab21207e1a754e309cac16e5e0a94b69
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147849"
+ms.locfileid: "70164332"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Scegliere tra i livelli di servizio vCore ed eseguire la migrazione dai livelli di servizio DTU
 
 Il modello di acquisto basato su Virtual Core (vCore) consente di ridimensionare in modo indipendente le risorse di calcolo e di archiviazione, trovare le prestazioni locali e ottimizzare il prezzo. Consente inoltre di scegliere la generazione di hardware:
 
-- **Gen4**: Fino a 24 CPU logiche basate sui processori Intel E5-2673 V3 (Haswell) a 2,4 GHz, vCore = 1 PP (core fisico), 7 GB per core, SSD collegata
-- **Gen5**: Fino a 80 CPU logiche basate sui processori Intel E5-2673 V4 (Broadwell) 2,3-GHz, vCore = 1 LP (Hyper-thread), 5,1 GB per core, SSD eNVM veloce
+- **Gen4**: Fino a 24 CPU logiche basate sui processori Intel E5-2673 V3 (Haswell) a 2,4 GHz, vCore = 1 PP (core fisico), 7 GB per vCore, unità SSD collegata
+- **Gen5**: Fino a 80 CPU logiche basate sui processori Intel E5-2673 V4 (Broadwell) 2,3-GHz, vCore = 1 LP (Hyper-thread), 5,1 GB per vCore per il calcolo di cui è stato effettuato il provisioning e fino a 24 GB per vCore per le risorse di calcolo senza server, unità SSD Fast eNVM
 
 L'hardware Gen4 offre molta più memoria per ogni vCore. L'hardware Gen5 consente tuttavia di aumentare molto di più le risorse di calcolo.
 
@@ -44,9 +44,9 @@ La tabella seguente illustra le differenze tra i tre livelli:
 |---|---|---|---|
 |Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione orientate al budget, bilanciate e scalabili.|Applicazioni aziendali con requisiti di I/O elevati. Offre la massima resilienza agli errori usando diverse repliche isolate.|La maggior parte dei carichi di lavoro aziendali con requisiti di archiviazione e scalabilità a scalabilità elevata.|
 |Calcolo|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore<br/>**Calcolo senza server**:<br/>Quinta generazione: 0,5-16 vcore|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore|**Calcolo**con provisioning:<br/>Quarta generazione: da 1 a 24 vcore<br/>Quinta generazione: da 2 a 80 vcore|
-|Memoria|**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore<br/>**Calcolo senza server**:<br/>Quinta generazione: 3 GB per vCore|**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore |**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore|
-|Archiviazione|Usa l'archiviazione remota.<br/>Calcolo con provisioning a **database singolo**:<br/>5 GB - 4 TB<br/>**Calcolo senza server a database singolo**:<br/>5 GB-1 TB<br/>**Istanza gestita**: 32 GB - 8 TB |Usa l'archiviazione SSD locale.<br/>Calcolo con provisioning a **database singolo**:<br/>5 GB - 4 TB<br/>**Istanza gestita**:<br/>32 GB - 4 TB |Aumento automatico delle dimensioni dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di spazio di archiviazione. Usa l'archiviazione SSD locale per la cache locale del pool di buffer e l'archiviazione dei dati locali. Usa l'archiviazione remota di Azure come archivio dati finale a lungo termine. |
-|Velocità effettiva I/O (approssimativa)|**Database singolo**: 500 IOPS per vCore con 7000 numero massimo di IOPS.<br/>**Istanza gestita**: Dipende dalle [dimensioni del file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPs effettivi dipendono dal carico di lavoro.|
+|Memoria|**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore<br/>**Calcolo senza server**:<br/>Quinta generazione: Fino a 24 GB per vCore|**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore |**Calcolo**con provisioning:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore|
+|Archiviazione|Usa l'archiviazione remota.<br/>**Calcolo con provisioning di database singolo e pool elastico**:<br/>5 GB - 4 TB<br/>**Calcolo senza server**:<br/>5 GB-3 TB<br/>**Istanza gestita**: 32 GB - 8 TB |Usa l'archiviazione SSD locale.<br/>**Calcolo con provisioning di database singolo e pool elastico**:<br/>5 GB - 4 TB<br/>**Istanza gestita**:<br/>32 GB - 4 TB |Aumento automatico delle dimensioni dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di spazio di archiviazione. Usa l'archiviazione SSD locale per la cache locale del pool di buffer e l'archiviazione dei dati locali. Usa l'archiviazione remota di Azure come archivio dati finale a lungo termine. |
+|Velocità effettiva I/O (approssimativa)|**Database singolo e pool elastico**: 500 IOPS per vCore fino a 40000 numero massimo di IOPS.<br/>**Istanza gestita**: Dipende dalle [dimensioni del file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per core fino a 200.000 numero massimo di IOPS|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPs effettivi dipendono dal carico di lavoro.|
 |Disponibilità|1 replica, nessuna replica con scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](sql-database-read-scale-out.md),<br/>disponibilità elevata con ridondanza della zona (HA)|1 replica di lettura/scrittura, più 0-4 repliche con scalabilità in [lettura](sql-database-read-scale-out.md)|
 |Backup|[Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|Backup basati su snapshot nell'archiviazione remota di Azure. Questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscano sulle prestazioni di I/O di calcolo. I ripristini sono veloci e non sono un'operazione di dimensioni dei dati (che richiede minuti anziché ore o giorni).|
 |In memoria|Non supportate|Supportato|Non supportate|

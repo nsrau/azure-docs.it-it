@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d500f6c74bb62322a5e14ce3c489e8dba11dc2f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555768"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162410"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestire le impostazioni utente nel cloud con Azure Multi-Factor Authentication
 
@@ -32,9 +32,12 @@ Quando un amministratore ha assegnato il ruolo di amministratore dell'autenticaz
 
 ![Gestire i metodi di autenticazione dal portale di Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
-1. Reimposta password Reimposta la password dell'utente e assegna una password temporanea che deve essere modificata al successivo accesso.
-2. È necessario ripetere la registrazione dell'autenticazione a più fattori, in modo che, quando l'utente esegue l'accesso in un secondo momento, verrà richiesto di configurare un nuovo metodo di autenticazione a più fattori.
-3. Revoca le sessioni di autenticazione a più fattori consente di cancellare le sessioni di autenticazione a più fattori memorizzate dall'utente e le richiede di eseguire l'autenticazione a più fattori la volta successiva che è richiesta dal criterio sul dispositivo.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. A sinistra selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
+1. Scegliere l'utente su cui si vuole eseguire un'azione e selezionare **metodi di autenticazione**.
+   - **Reimposta password** Reimposta la password dell'utente e assegna una password temporanea che deve essere modificata al successivo accesso.
+   - È **necessario ripetere la registrazione** dell'autenticazione a più fattori, in modo che, quando l'utente esegue l'accesso in un secondo momento, verrà richiesto di configurare un nuovo metodo di autenticazione a più fattori.
+   - **Revoca le sessioni** di autenticazione a più fattori consente di cancellare le sessioni di autenticazione a più fattori memorizzate dall'utente e le richiede di eseguire l'autenticazione a più fattori la volta successiva che è richiesta dal criterio sul dispositivo.
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Richiedere agli utenti di fornire di nuovo i metodi di contatto
 

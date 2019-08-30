@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 167f697d4928d88114a30739a1d39a576c87ac84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cc60ee2c73aa6858f68d6b13a895a0188bb5735
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126668"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098143"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostica in Durable Functions in Azure
 
@@ -327,7 +326,7 @@ Funzioni di Azure supporta direttamente il debug del codice della funzione e lo 
 
 Per impostazione predefinita, Funzioni permanenti archivia lo stato in Archiviazione di Azure. È quindi possibile controllare lo stato delle orchestrazioni tramite strumenti come [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Screenshot di Esplora archivi Azure](./media/durable-functions-diagnostics/storage-explorer.png)
+![Schermata Azure Storage Explorer](./media/durable-functions-diagnostics/storage-explorer.png)
 
 Risulta utile per il debug perché viene visualizzato esattamente lo stato in cui potrebbe trovarsi un'orchestrazione. È possibile esaminare i messaggi nelle code anche per individuare le attività in sospeso o, in alcuni casi, bloccate.
 

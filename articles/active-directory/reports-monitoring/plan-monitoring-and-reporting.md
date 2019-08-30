@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f974b3564857a439f1ac1c40ddd572633b761862
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 6d24a4ab74f7957c068fc664fc4e8898c525afcb
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879855"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162532"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
 
@@ -99,7 +99,7 @@ La creazione di report e il monitoraggio vengono usati per soddisfare i requisit
 * Ideale per soddisfare le esigenze aziendali
 * Non applicabile
 
-|Area |Descrizione |
+|Area |DESCRIZIONE |
 |-|-|
 |Fidelizzazione| **Conservazione dei log di più di 30 giorni**. A causa dei requisiti legali o aziendali, è necessario archiviare i log di controllo e i log di accesso di Azure AD più di 30 giorni. |
 |Analisi| **I log devono essere disponibili per la ricerca**. È necessario eseguire ricerche nei log archiviati con gli strumenti di analisi. |
@@ -164,8 +164,6 @@ A seconda delle decisioni prese in precedenza utilizzando le linee guida di prog
 ### <a name="consume-and-archive-azure-ad-logs"></a>Utilizzare e archiviare i log di Azure AD
 
 [Trovare i report attività nel portale di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
-
-[Usare Power BI pacchetto di contenuto per Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-power-bi-content-pack)
 
 [Archiviare i log di Azure AD in un account di archiviazione di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
 

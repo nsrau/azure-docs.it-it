@@ -10,14 +10,14 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: c85d69b823956a5cf5e7f9d6dfa3c39b918cd465
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 8684e786de64f91acba0c61017083015288ca4eb
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034812"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172778"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>Inviare o ricevere eventi da Hub eventi di Azure usando Java
+# <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Usare Java per inviare o ricevere eventi da Hub eventi di Azure
 
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 

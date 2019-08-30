@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: fa34baa7569b0552708cd1a9b57d79186e5acd57
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 4be1ed779ad424d30ac34fd55f117ada3ed9c7a2
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669702"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70166730"
 ---
 Le immagini di macchine virtuali (VM) standardizzate consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere impostazioni di configurazione e sicurezza predefinite e il software necessario. Per configurare la pipeline di imaging, è necessario disporre di tempo, infrastruttura e configurazione, ma con generatore di immagini di VM di Azure è sufficiente fornire una semplice configurazione che descriva l'immagine, la invii al servizio e l'immagine venga compilata e distribuita.
  
@@ -73,7 +73,7 @@ Azure Image Builder è un servizio di Azure completamente gestito accessibile da
 
 1. Creare il modello di immagine come file con estensione JSON. Questo file con estensione JSON contiene informazioni sull'origine, le personalizzazioni e la distribuzione dell'immagine. Nel [repository GitHub di Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)sono disponibili diversi esempi.
 1. Inviarlo al servizio. verrà creato un elemento del modello di immagine nel gruppo di risorse specificato. In background, Image Builder Scarica l'immagine di origine o l'ISO e gli script in base alle esigenze. Questi vengono archiviati in un gruppo di risorse distinto creato automaticamente nella sottoscrizione, nel formato: It_\<DestinationResourceGroup > _\<templateName >. 
-1. Una volta creato il modello di immagine, è possibile compilare l'immagine. Nel generatore di immagini di sfondo usa il modello e i file di origine per creare una macchina virtuale, una rete e\<un'archiviazione nel\<gruppo di risorse it_ DestinationResourceGroup > _ templateName >.
+1. Una volta creato il modello di immagine, è possibile compilare l'immagine. Nel generatore di immagini di sfondo usa il modello e i file di origine per creare una macchina virtuale (D1v2), rete, IP pubblico e\<archiviazione nel gruppo\<di risorse it_ DestinationResourceGroup > _ templateName >.
 1. Nell'ambito della creazione dell'immagine, Image Builder distribuisce l'immagine in base al modello, quindi Elimina le risorse aggiuntive nel gruppo di risorse\<it_ DestinationResourceGroup >\<_ templateName > creato per processo.
 
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: eaa169714006ec948a5790ed5841f9dcf52c2a23
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d3e22df76124185c1e23f04f59145e12a1fec023
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846656"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164252"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
@@ -33,7 +33,7 @@ Time Series Insights supporta le risorse seguenti:
 
 Un modello di Resource Manager è un file JSON che definisce l'infrastruttura e la configurazione delle risorse in un gruppo di risorse. I documenti seguenti descrivono i file modello in modo più dettagliato:
 
-- [Panoramica di Azure Resource Manager - Distribuzione modelli](../azure-resource-manager/resource-group-overview.md#template-deployment)
+- [Distribuzione del modello di Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md)
 - [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Tipi di risorsa Microsoft.TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 
@@ -71,7 +71,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
    * Parametri facoltativi
 
-     | Parametro | DESCRIZIONE |
+     | Parametro | Descrizione |
      | --- | --- |
      | existingEventHubResourceId | Un ID di risorsa facoltativo di un hub eventi esistente che verrà connesso all'ambiente di Time Series Insights tramite l'origine evento. **NOTA:** l'utente che distribuisce il modello deve disporre delle autorizzazioni necessarie per eseguire l'operazione listkey nell'hub eventi di origine. Se non viene superato alcun valore, verrà creato un nuovo hub eventi dal modello. |
      | environmentDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'ambiente. |
@@ -148,7 +148,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Se non esiste, creare un nuovo gruppo di risorse.
 
-   * Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
+   * Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Esempio:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

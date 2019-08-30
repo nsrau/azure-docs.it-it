@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/11/2019
+  ms.date: 08/29/2019
   ms.author: terrylan
 abstract:
   description: 'Informazioni su come sviluppare e distribuire applicazioni sicure in Azure con app di esempio, procedure consigliate e istruzioni.'
@@ -41,7 +41,6 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/security/develop/secure-web-app">App Web in un contenitore Linux</a>
-          - html: <a href="/azure/security/develop/secure-pci-web-app">Payment Card Industry</a>
   - title: Concetti
     items:
       - type: list

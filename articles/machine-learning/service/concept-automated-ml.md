@@ -11,16 +11,16 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fb4d953f575dcf6582f9f1c8c2a725971134159
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c654da71a0c060a9344ef7d7d42b30263a7fb2db
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856248"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165200"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
-Il Machine Learning automatizzato, noto anche come autoML, è il processo di automazione delle attività iterative che richiedono molto tempo per lo sviluppo di modelli di machine learning. Consente a data scientist, analisti e sviluppatori di creare modelli ML con scalabilità, efficienza e produttività elevate, garantendo al tempo stesso la qualità del modello.
+Il Machine Learning automatizzato, noto anche come autoML, è il processo di automazione delle attività iterative che richiedono molto tempo per lo sviluppo di modelli di machine learning. Consente a data scientist, analisti e sviluppatori di creare modelli ML con scalabilità, efficienza e produttività elevate, garantendo al tempo stesso la qualità del modello. Il Machine Learning automatico si basa su un'innovazione della [divisione Microsoft Research](https://arxiv.org/abs/1705.05355).
 
 Lo sviluppo tradizionale di modelli di Machine Learning prevede un uso intensivo delle risorse, che richiede una conoscenza significativa del dominio e tempi per produrre e confrontare dozzine di modelli. Applicare il Machine Learning automatico quando si desidera Azure Machine Learning per eseguire il training e l'ottimizzazione di un modello utilizzando la metrica di destinazione specificata. Il servizio esegue quindi l'iterazione degli algoritmi ML abbinati alle selezioni di funzionalità, in cui ogni iterazione produce un modello con un punteggio di training. Maggiore è il punteggio, maggiore è il modello considerato "adatta" ai dati.
 
@@ -63,12 +63,12 @@ Sebbene la creazione di modelli sia automatizzata, è anche possibile [scoprire 
 
 <a name="preprocess"></a>
 
-## <a name="preprocessing"></a>Preelaborazione
+## <a name="preprocessing"></a>Pre-elaborazione
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono pre-elaborati usando i metodi predefiniti e, facoltativamente, tramite la pre-elaborazione avanzata.
 
 > [!NOTE]
-> I passaggi di pre-elaborazione automatizzati di Machine Learning, ovvero la normalizzazione delle funzionalità, la gestione dei dati mancanti, la conversione di testo in numeri e così via, diventano parte del modello sottostante. Quando si usa il modello per le stime, le stesse fasi di pre-elaborazione applicate durante il training vengono applicate automaticamente ai dati di input.
+> I passaggi di pre-elaborazione di Machine Learning automatizzati (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione di valori di testo nel formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di pre-elaborazione applicati durante il training vengono automaticamente applicati ai dati di input.
 
 ### <a name="automatic-preprocessing-standard"></a>Pre-elaborazione automatica (standard)
 

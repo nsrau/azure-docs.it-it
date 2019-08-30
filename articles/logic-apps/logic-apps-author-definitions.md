@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 89a77c25c75617be0e1ef92b73eec28263f53f82
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: a96cc56c85db6726bf2cdaff72904e76ecbaf087
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385580"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164639"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni di app per la logica - App per la logica di Azure
 
-Quando si creano soluzioni di integrazione a livello aziendale con flussi di lavoro automatizzati in [App per la logica di Azure](../logic-apps/logic-apps-overview.md), le definizioni di app per la logica sottostanti usano il semplice linguaggio dichiarativo JSON (JavaScript Object Notation) insieme allo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) per la descrizione e la convalida. Questi formati rendono le definizioni di app per la logica più semplici da leggere e da comprendere, senza dover necessariamente avere familiarità con il codice. Quando si vuole automatizzare la creazione e la distribuzione di app per la logica, è possibile includere le definizioni di app per la logica come [risorse di Azure](../azure-resource-manager/resource-group-overview.md) all'interno di [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment). Per creare, gestire e distribuire app per la logica, è quindi possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o le [API REST di App per la logica di Azure](https://docs.microsoft.com/rest/api/logic/).
+Quando si creano soluzioni di integrazione a livello aziendale con flussi di lavoro automatizzati in [App per la logica di Azure](../logic-apps/logic-apps-overview.md), le definizioni di app per la logica sottostanti usano il semplice linguaggio dichiarativo JSON (JavaScript Object Notation) insieme allo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) per la descrizione e la convalida. Questi formati rendono le definizioni di app per la logica più semplici da leggere e da comprendere, senza dover necessariamente avere familiarità con il codice. Quando si vuole automatizzare la creazione e la distribuzione di app per la logica, è possibile includere le definizioni di app per la logica come [risorse di Azure](../azure-resource-manager/resource-group-overview.md) all'interno di [modelli di Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Per creare, gestire e distribuire app per la logica, è quindi possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o le [API REST di App per la logica di Azure](https://docs.microsoft.com/rest/api/logic/).
 
 Per usare le definizioni di app per la logica in JSON, aprire l'editor della visualizzazione Codice quando si lavora nel portale di Azure o in Visual Studio oppure copiare la definizione nell'editor che si preferisce. Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -45,7 +45,7 @@ In Visual Studio è possibile aprire le app per la logica che sono state create 
 
 1. Aprire la soluzione di Visual Studio o il progetto del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) contenente l'app per la logica.
 
-2. Individuare e aprire la definizione dell'app per la logica, che per impostazione predefinita viene visualizzata in un [modello di Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), denominato **LogicApp.json**. È possibile usare e personalizzare questo modello per la distribuzione in ambienti diversi.
+2. Individuare e aprire la definizione dell'app per la logica, che per impostazione predefinita viene visualizzata in un [modello di Resource Manager](../azure-resource-manager/template-deployment-overview.md), denominato **LogicApp.json**. È possibile usare e personalizzare questo modello per la distribuzione in ambienti diversi.
 
 3. Aprire il menu di scelta rapida per la definizione e il modello dell'app per la logica. Selezionare **Open With Logic App Designer** (Apri con Progettazione app per la logica).
 

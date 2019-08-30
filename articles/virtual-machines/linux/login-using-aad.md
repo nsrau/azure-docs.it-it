@@ -1,6 +1,6 @@
 ---
 title: Accedere a una macchina virtuale Linux con le credenziali di Azure Active Directory | Microsoft Docs
-description: In questa procedura viene illustrato come creare e configurare una macchina virtuale Linux per usare l'autenticazione di Azure Active Directory per gli accessi dell'utente
+description: Informazioni su come creare e configurare una macchina virtuale Linux per accedere usando l'autenticazione Azure Active Directory.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -12,21 +12,26 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/17/2018
+ms.date: 08/29/2019
 ms.author: cynthn
-ms.openlocfilehash: f8f00c49ced4e06eb634cbbfb1b786e6729783d2
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 0e3996c28750639b227475bf4e0196f3a0c3ab0d
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667656"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163211"
 ---
-# <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Linux in Azure usando l'autenticazione di Azure Active Directory (anteprima)
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: Accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
 Per migliorare la sicurezza delle macchine virtuali Linux in Azure, è possibile eseguire l'integrazione con l'autenticazione di Azure Active Directory. Quando si usa l'autenticazione di Azure AD per le macchine virtuali Linux, i criteri che consentono o negano l'accesso alle macchine virtuali sono controllati e applicati dall'utente a livello centrale. Questo articolo illustra come creare e configurare una macchina virtuale Linux per usare l'autenticazione di Azure AD.
 
-> [!NOTE]
-> Questa funzionalità è disponibile in anteprima e non è consigliata per l'uso con carichi di lavoro o macchine virtuali di produzione. Usare questa funzionalità in una macchina virtuale di test che si prevede di rimuovere al termine del test.
+
+> [!IMPORTANT]
+> L'autenticazione Azure Active Directory è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Usare questa funzionalità in una macchina virtuale di test che si prevede di rimuovere al termine del test.
+>
+
 
 L'uso dell'autenticazione di Azure AD per accedere alle macchine virtuali Linux in Azure comporta molti vantaggi, tra cui:
 
@@ -43,7 +48,7 @@ L'uso dell'autenticazione di Azure AD per accedere alle macchine virtuali Linux 
 
 Durante l'anteprima di questa funzionalità sono attualmente supportate le distribuzioni di Linux seguenti:
 
-| Distribuzione | Version |
+| Distribuzione | Versione |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
@@ -60,7 +65,6 @@ Durante l'anteprima di questa funzionalità sono attualmente supportate le aree 
 >[!IMPORTANT]
 > Per usare questa funzionalità in anteprima, basta distribuire una distribuzione Linux supportata in un'area di Azure supportata. La funzionalità non è supportata in Azure per enti pubblici o nei cloud sovrani.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
@@ -83,7 +87,7 @@ La creazione della macchina virtuale e delle risorse di supporto richiede alcuni
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installare l'estensione della macchina virtuale per l'accesso ad Azure AD
 
-Per accedere a una VM Linux con credenziali di Azure AD, installare l'account di accesso di Azure Active Directory estensione della macchina virtuale. Le estensioni della macchina virtuale sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Usare [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) per installare l'estensione *AADLoginForLinux* nella macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*:
+Per accedere a una macchina virtuale Linux con Azure AD credenziali, installare l'estensione della macchina virtuale Azure Active Directory Login. Le estensioni della macchina virtuale sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Usare [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) per installare l'estensione *AADLoginForLinux* nella macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*:
 
 ```azurecli-interactive
 az vm extension set \
@@ -93,7 +97,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-Dopo aver installato l'estensione nella macchina virtuale viene visualizzato lo stato di *provisioningState* *Succeeded*.
+Il *provisioningState* di *succeeded* viene visualizzato dopo che l'estensione è stata installata correttamente nella macchina virtuale.
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurare le assegnazioni di ruolo per la macchina virtuale
 
@@ -132,24 +136,21 @@ Visualizzare innanzitutto l'indirizzo IP pubblico della macchina virtuale con [a
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Accedere alla macchina virtuale Linux di Azure usando le credenziali di Azure AD. Il parametro `-l` consente di specificare il proprio indirizzo dell'account di Azure AD. Gli indirizzi dell'account devono essere immessi in tutte lettere minuscole. Usare l'indirizzo IP pubblico della macchina virtuale dal comando precedente:
+Accedere alla macchina virtuale Linux di Azure usando le credenziali di Azure AD. Il parametro `-l` consente di specificare il proprio indirizzo dell'account di Azure AD. Sostituire l'account di esempio con il proprio. Gli indirizzi dell'account devono essere immessi in tutte lettere minuscole. Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico della macchina virtuale con il comando precedente.
 
 ```azurecli-interactive
-ssh -l azureuser@contoso.onmicrosoft.com publicIps
+ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-Viene richiesto di eseguire l'accesso ad Azure AD con un codice monouso all'indirizzo [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Copiare e incollare il codice monouso nella pagina di accesso del dispositivo, come illustrato nell'esempio seguente:
+Viene richiesto di eseguire l'accesso ad Azure AD con un codice monouso all'indirizzo [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Copiare e incollare il codice use monouso nella pagina di accesso del dispositivo.
 
-```bash
-~$ ssh -l azureuser@contoso.onmicrosoft.com 13.65.237.247
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FJS3K6X4D to authenticate. Press ENTER when ready.
-```
+Quando richiesto, immettere le credenziali di accesso di Azure AD nella pagina di accesso. 
 
-Quando richiesto, immettere le credenziali di accesso di Azure AD nella pagina di accesso. Dopo aver eseguito correttamente l'autenticazione, nel Web browser viene visualizzato il messaggio seguente:
+Il messaggio seguente viene visualizzato nel Web browser dopo che è stata eseguita l'autenticazione:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
-    You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
+Chiudere la finestra del browser, tornare al prompt di SSH e premere il tasto **Invio**. 
 
-Chiudere la finestra del browser, tornare al prompt di SSH e premere il tasto **Invio**. È stato effettuato l'accesso alla macchina virtuale Linux di Azure con le autorizzazioni del ruolo assegnato, ad esempio come *utente della macchina virtuale* oppure *amministratore della macchina virtuale*. Se all'account utente viene assegnato il ruolo *Accesso amministratore alle macchine virtuali*, è possibile usare `sudo` per eseguire i comandi che richiedono i privilegi radice.
+È stato effettuato l'accesso alla macchina virtuale Linux di Azure con le autorizzazioni del ruolo assegnato, ad esempio come *utente della macchina virtuale* oppure *amministratore della macchina virtuale*. Se all'account utente viene assegnato il ruolo di *accesso amministratore macchina virtuale* , è possibile `sudo` utilizzare per eseguire comandi che richiedono privilegi radice.
 
 ## <a name="sudo-and-aad-login"></a>Accesso AAD e sudo
 
@@ -186,7 +187,7 @@ Access denied
 
 Dopo aver completato correttamente il passaggio di autenticazione in un Web browser, è possibile che venga subito richiesto di eseguire di nuovo l'accesso con un codice aggiornato. Questo errore è in genere causato da una mancata corrispondenza tra il nome di accesso specificato nel prompt SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Per correggere questo problema:
 
-- Verificare che il nome di accesso specificato nel prompt SSH sia corretto. Un errore di battitura nel nome di accesso potrebbe causare una mancata corrispondenza tra il nome di accesso specificato nel prompt di SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Ad esempio, è stato digitato *azuresuer\@contoso.onmicrosoft.com* anziché *azureuser\@contoso.onmicrosoft.com*.
+- Verificare che il nome di accesso specificato nel prompt SSH sia corretto. Un errore di battitura nel nome di accesso potrebbe causare una mancata corrispondenza tra il nome di accesso specificato nel prompt di SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Ad esempio, è stato digitato *azuresuer\@contoso.onmicrosoft.com* *\@anziché azureuser contoso.onmicrosoft.com*.
 - Se si dispone di più account utente, assicurarsi che non si indichi un account utente diverso nella finestra del browser quando si accede ad Azure AD.
 - Linux è un sistema operativo che distingue tra maiuscole e minuscole. Quindi "Azureuser@contoso.onmicrosoft.com" e "azureuser@contoso.onmicrosoft.com" sono diversi e questo può causare una mancata corrispondenza. Assicurarsi di specificare l'UPN usando correttamente le maiuscole e le minuscole nel prompt SSH.
 

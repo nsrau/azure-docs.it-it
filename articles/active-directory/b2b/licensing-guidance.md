@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/29/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 081061eae07fa3765d032ad155e59ebf5aa3cbc9
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5968536d0bd0fbe2496fd9bf5fca86c7a1c4053d
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512553"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162273"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Linee guida sulla Collaborazione B2B di Azure Active Directory
 
@@ -32,7 +32,7 @@ In più, gli utenti guest possono usare le funzionalità gratuite di Azure AD se
 ## <a name="examples-calculating-guest-user-licenses"></a>Esempi: Calcolare le licenze utente guest
 Dopo aver determinato il numero di utenti guest necessario ad accedere ai servizi di Azure AD a pagamento, assicurarsi di avere licenze a pagamento di Azure AD sufficienti a coprire gli utenti guest nel rapporto 1: 5 obbligatorio. Ecco alcuni esempi:
 
-- Si vogliono invitare 100 utenti guest nelle app o nei servizi di Azure AD e si vuole assegnare a tutti gli utenti guest il provisioning e la gestione dell'accesso. È anche necessario richiedere l'autenticazione a più fattori e l'accesso condizionale per 50 di tali utenti guest. Per includere questa combinazione, sono necessarie 10 licenze di Azure AD Basic e 10 licenze P1 di Azure AD Premium. Se si prevede di usare le funzionalità di Identity Protection con gli utenti guest, per includerli saranno necessarie le licenze P2 di Azure AD Premium con lo stesso rapporto 1:5.
+- Si vuole invitare gli utenti Guest 100 per le app o i servizi Azure AD e fornire la gestione e il provisioning degli accessi. Per 50 di questi utenti guest, è anche necessario richiedere l'autenticazione a più fattori e l'accesso condizionale. Pertanto, per queste funzionalità sono necessarie 10 Azure AD Premium P1 licenze. Se si prevede di usare le funzionalità di Identity Protection con gli utenti guest, per includerli saranno necessarie le licenze P2 di Azure AD Premium con lo stesso rapporto 1:5.
 - Si vogliono invitare 60 utenti guest che richiedono tutti l'autenticazione a più fattori, quindi è necessario avere almeno 12 licenze P1 di Azure AD Premium. Si hanno 10 dipendenti con licenze P1 di Azure AD Premium, che consentono fino a 50 utenti guest con il rapporto licenze 1:5. È necessario acquistare due licenze Premium P1 aggiuntive per includere 10 utenti guest aggiuntivi.
 
 ## <a name="next-steps"></a>Passaggi successivi

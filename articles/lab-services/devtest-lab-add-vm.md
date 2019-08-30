@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: be5ff2c59878cc966e73d89c18343b0a6ea3d89c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64a5892226b90019f175308b5984dc0a0108e226
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311633"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162247"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Aggiungere una VM in un lab in Azure DevTest Labs
 Se è già stata [creata la prima VM](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), l'operazione è stata eseguita con un'[immagine di marketplace](devtest-lab-configure-marketplace-images.md) precaricata. Se ora si vuole aggiungere le macchine virtuali successive al lab, è anche possibile scegliere una *base* che sia un'[immagine personalizzata](devtest-lab-create-template.md) o una [formula](devtest-lab-manage-formulas.md). Questa esercitazione illustra l'uso del portale di Azure per aggiungere una VM in un lab in DevTest Labs.
@@ -107,7 +107,7 @@ I passaggi seguenti illustrano come visualizzare o modificare i parametri di un 
 ## <a name="save-azure-resource-manager-template"></a>Save Azure Resource Manager template
 Un modello di Azure Resource Manager permette di definire una distribuzione ripetibile in modo dichiarativo.
 I passaggi seguenti illustrano come salvare il modello di Azure Resource Manager per la VM da creare.
-Dopo il salvataggio è possibile usare il modello di Azure Resource Manager per [distribuire nuove macchine virtuali con Azure PowerShell](../azure-resource-manager/resource-group-overview.md#template-deployment).
+Dopo il salvataggio è possibile usare il modello di Azure Resource Manager per [distribuire nuove macchine virtuali con Azure PowerShell](../azure-resource-manager/template-deployment-overview.md).
 
 1. Nel riquadro **Macchina virtuale** selezionare **Visualizza il modello di Azure Resource Manager**.
 2. Nel riquadro **Visualizza il modello di Azure Resource Manager** selezionare il testo del modello.

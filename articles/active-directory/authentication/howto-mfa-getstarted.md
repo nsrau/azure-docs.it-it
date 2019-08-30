@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b555ecdf8bbd3d29e440675599041f40ac3c9d0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 62ea1761cef48ab7808a352789963ab55129d2f8
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125037"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162378"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud
 
@@ -173,6 +173,8 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 Se gli utenti sono stati abilitati con l'abilitazione per l'utente e l'applicazione di Azure Multi-Factor Authentication, il seguente PowerShell può risultare utile per eseguire la conversione in Azure Multi-Factor Authentication basato sull'accesso condizionale.
 
+Eseguire questo PowerShell in una finestra ISE o salvarlo come. File PS1 da eseguire localmente.
+
 ```PowerShell
 # Disable MFA for all users, keeping their MFA methods intact
 Get-MsolUser -All | Disable-MFA -KeepMethods
@@ -240,7 +242,7 @@ Per pianificare la strategia di criteri di accesso condizionale, che determina q
 ### <a name="create-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale.
-1. Passare ad **Azure Active Directory** , **Accesso condizionale**.
+1. Passare ad **Azure Active Directory **, **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. Immettere un nome significativo per i criteri.
 1. In **Utenti e gruppi**:
@@ -297,7 +299,7 @@ Se è già stata distribuita un'istanza NPS e in uso, fare riferimento a [integr
 
 Scegliere cosa accade quando gli utenti che non sono registrati con l'autenticazione a più fattori tentano di eseguire l'autenticazione. Usare l'impostazione `REQUIRE_USER_MATCH` del registro di sistema nel `HKLM\Software\Microsoft\AzureMFA` percorso del registro di sistema per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
-| Chiave | Valore | Predefinito |
+| Chiave | Value | Predefinito |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Non impostato (equivalente a VERO) |
 

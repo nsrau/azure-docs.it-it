@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3ef727c4d1f1af13b66c7de02b8e67cc5e45f065
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 81b80edcd2e880488e203960f8e2a6aa71b69679
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147486"
+ms.locfileid: "70161826"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Caricare i file dal dispositivo al cloud con l'hub Internet (Java)
 
@@ -26,7 +26,7 @@ Questa esercitazione si basa sul codice nell'esercitazione [inviare messaggi da 
 
 * Usare le notifiche di caricamento di file dell'hub IoT per attivare l'elaborazione del file nel back-end dell'app.
 
-L'esercitazione inviare i dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-java.md) Internet e [inviare messaggi da cloud a dispositivo con l'hub](iot-hub-java-java-c2d.md) Internet illustra le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub Internet. L'esercitazione [Configurare il routing dei messaggi con l'IoT Hub](tutorial-routing.md) illustra come archiviare in modo affidabile i messaggi da dispositivo a cloud nell'archivio BLOB di Azure. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Ad esempio:
+L'esercitazione inviare i dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-java.md) Internet e [inviare messaggi da cloud a dispositivo con l'hub](iot-hub-java-java-c2d.md) Internet illustra le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub Internet. L'esercitazione [Configurare il routing dei messaggi con l'IoT Hub](tutorial-routing.md) illustra come archiviare in modo affidabile i messaggi da dispositivo a cloud nell'archivio BLOB di Azure. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Esempio:
 
 * File di grandi dimensioni che contengono immagini
 * Video
@@ -46,9 +46,9 @@ Al termine di questa esercitazione verranno eseguite due app console Java:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Java SE Development Kit 8](https://aka.ms/azure-jdks) più recente
+* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **supporto a lungo termine** per ottenere i download per JDK 8.
 
-* [Maven 3](https://maven.apache.org/install.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * Un account Azure attivo. Se non si ha un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 

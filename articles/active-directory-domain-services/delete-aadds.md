@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 2f9b7f5342753c27bd8159056c8f162a5a4b78d3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d5917ad94212c8b18d4362528bdfbafb02aec808
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473540"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171961"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Disabilitare Azure Active Directory Domain Services tramite il portale di Azure
 Questo articolo illustra come usare il portale di Azure per disabilitare Azure Active Directory (AD) Domain Services per la directory di Azure AD.
@@ -48,6 +48,6 @@ Per eliminare il dominio gestito di Azure AD Domain Services, seguire questa pro
 
     ![Conferma dell'eliminazione del dominio](./media/getting-started/domain-services-delete-domain-confirm.png)
 
-Il dominio gestito viene eliminato in circa 15-20 minuti.
+Per eliminare il dominio gestito può essere necessario più di 15-20 minuti.
 
 [Condividendo i loro commenti](contact-us.md) gli utenti ci aiuteranno a comprendere quali funzionalità potrebbero far ricadere la loro scelta in futuro su Servizi di dominio Azure AD. Questi commenti e suggerimenti ci consentiranno di migliorare il servizio in modo da adattarlo ad altre esigenze di distribuzione e casi di utilizzo.

@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388133"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164757"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>I modelli di Azure Resource Manager possono essere sviluppati per la coerenza cloud
 
@@ -47,7 +47,7 @@ Il resto di questa guida descrive le aree da considerare quando si pianifica di 
 * Assicurarsi che i parametri del modello utilizzati lavorino nei cloud di destinazione.
 * Verificare che siano disponibili le proprietà specifiche delle risorse nei cloud di destinazione.
 
-Per un'introduzione ai modelli di Azure Resource Manger, vedere [Distribuzione modelli](resource-group-overview.md#template-deployment).
+Per un'introduzione ai modelli di Azure Resource Manger, vedere [Distribuzione modelli](template-deployment-overview.md).
 
 ## <a name="ensure-template-functions-work"></a>Assicurarsi che le funzioni di modello vengano eseguite correttamente
 
@@ -154,7 +154,7 @@ In tutto il modello, i collegamenti sono generati combinando l'URI di base (dal 
 
 Usando questo approccio, viene utilizzato il valore predefinito per il parametro `_artifactsLocation`. Se i modelli collegati devono essere recuperati da un percorso diverso, il parametro di input può essere utilizzato in fase di distribuzione per sostituire il valore predefinito, non è necessaria alcuna modifica al modello stesso.
 
-### <a name="use-artifactslocation-instead-of-hardcoding-links"></a>Usare _artifactsLocation al posto dei link per la codifica rigida
+### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Usare _artifactsLocation al posto dei link per la codifica rigida
 
 Oltre ad essere usato per i modelli annidati, l'URL nel parametro `_artifactsLocation` è usato come base per tutti gli artefatti correlati di un modello di distribuzione. Alcune estensioni di macchina virtuale includono un collegamento a uno script archiviato all'esterno del modello. Per queste estensioni, non è consigliabile codificare i link in modo rigido. Ad esempio, le estensioni Custom Script e PowerShell DSC possono essere collegate a uno script esterno su GitHub come mostrato: 
 
@@ -493,7 +493,7 @@ Per recuperare un elenco delle immagini per macchina virtuale disponibili in un 
 az vm image list -all
 ```
 
-È possibile recuperare l'elenco stesso con il cmdlet di Azure PowerShell [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) e specificare il percorso desiderato con il parametro `-Location`. Ad esempio:
+È possibile recuperare l'elenco stesso con il cmdlet di Azure PowerShell [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) e specificare il percorso desiderato con il parametro `-Location`. Esempio:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage

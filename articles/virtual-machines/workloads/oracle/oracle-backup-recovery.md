@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 461f6127111e745fe4a81958aaa225ed1dc4392a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c493f79a066f872be6b38d127622cc757ab3c1cc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707725"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100234"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Eseguire backup e ripristino di un database Oracle Database 12c in una macchina virtuale Linux di Azure
 
@@ -133,7 +132,7 @@ Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure 
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Passaggio 4: Backup coerente delle applicazioni per le macchine virtuali Linux
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Passaggio 4: Backup coerente con l'applicazione per macchine virtuali Linux
 
 I backup coerenti con l'applicazione sono una nuova funzionalità di Backup di Azure. È possibile creare e selezionare gli script da eseguire prima e dopo lo snapshot della macchina virtuale, ovvero pre-snapshot e post-snapshot.
 
@@ -170,7 +169,7 @@ I backup coerenti con l'applicazione sono una nuova funzionalità di Backup di A
 
 4. Modificare il file JSON.
 
-    Modificare il file VMSnapshotScriptPluginConfig.json per includere i parametri `PreScriptLocation` e `PostScriptlocation`. Ad esempio:
+    Modificare il file VMSnapshotScriptPluginConfig.json per includere i parametri `PreScriptLocation` e `PostScriptlocation`. Esempio:
 
     ```azurecli
     {
@@ -266,7 +265,7 @@ I backup coerenti con l'applicazione sono una nuova funzionalità di Backup di A
 Per altre informazioni, vedere [Backup coerente delle applicazioni per le macchine virtuali Linux](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
-### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Passaggio 5: Insiemi di credenziali dei servizi di ripristino di Azure Usa per eseguire il backup della macchina virtuale
+### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Passaggio 5: Usare gli insiemi di credenziali dei servizi di ripristino di Azure per eseguire il backup della macchina virtuale
 
 1.  Nel portale di Azure cercare gli **insiemi di credenziali di Servizi di ripristino**.
 
@@ -307,7 +306,7 @@ Per altre informazioni, vedere [Backup coerente delle applicazioni per le macchi
 
     ![Comando Backup now (Esegui il backup ora) degli insiemi di credenziali dei servizi di ripristino](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Fare clic sul pulsante **Backup**. Attendere il completamento del processo di backup. Passare quindi a [passaggio 6: Rimuovere i file di database](#step-6-remove-the-database-files).
+10. Fare clic sul pulsante **Backup**. Attendere il completamento del processo di backup. Quindi, andare al [passaggio 6: Rimuovere i file](#step-6-remove-the-database-files)di database.
 
     Per visualizzare lo stato del processo di backup, fare clic su **Processi**.
 
@@ -452,7 +451,7 @@ Per ripristinare i file eliminati, completare la procedura seguente:
 
 Anziché ripristinare i file eliminati dagli insiemi di credenziali dei servizi di ripristino, è possibile ripristinare l'intera macchina virtuale.
 
-### <a name="step-1-delete-myvm"></a>Passaggio 1: Eliminare myVM
+### <a name="step-1-delete-myvm"></a>Passaggio 1: Elimina myVM
 
 *   Nel portale di Azure passare all'insieme di credenziali **myVM1** e selezionare **Elimina**.
 
@@ -537,9 +536,9 @@ Dopo il ripristino della macchina virtuale, configurare l'indirizzo IP pubblico.
     ```
 
     > [!IMPORTANT]
-    > Se il database **avvio** comando genera un errore, per ripristinare il database, vedere [passaggio 6: Usare RMAN per ripristinare il database](#step-6-optional-use-rman-to-recover-the-database).
+    > Se il comando di **avvio** del database genera un errore, per recuperare il database [, vedere passaggio 6: Usare RMAN per ripristinare il database](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Passaggio 6: (Facoltativo) Usare RMAN per ripristinare il database
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Passaggio 6: Opzionale Usare RMAN per ripristinare il database
 *   Usare lo script seguente per ripristinare il database:
 
     ```bash

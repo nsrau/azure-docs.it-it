@@ -3,15 +3,15 @@ title: Configurare un firewall IP per l'account Azure Cosmos DB
 description: Informazioni su come configurare i criteri di controllo di accesso agli indirizzi IP per il supporto del firewall negli account Azure Cosmos.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: ee9a686060fd712e9a1f14058ce7db325aaedffd
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
-ms.translationtype: HT
+ms.openlocfilehash: 534f64b19adb29a0ff7811c50c9698ca33d6966f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615375"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093550"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurare un firewall IP in Azure Cosmos DB
 

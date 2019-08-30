@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: bc32ce59a7ec99278fb193f375d4ca945c227d2f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114796"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172182"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -42,13 +42,20 @@ Per un'introduzione, vedere la Guida introduttiva per [compilare ed eseguire un'
 
 La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per ACR Tasks:
 
-| Posizione contesto | DESCRIZIONE | Esempio |
+| Posizione contesto | Descrizione | Esempio |
 | ---------------- | ----------- | ------- |
 | File system locale | File contenuti in una directory nel file System locale. | `/home/user/projects/myapp` |
 | Ramo master GitHub | File nel master (o altra impostazione predefinita) di un repository GitHub.  | `https://github.com/gituser/myapp-repo.git` |
 | Ramo GitHub | Ramo specifico di un repository GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Sottocartella di GitHub | File all'interno di una sottocartella in un repository GitHub. Esempio mostra la combinazione di una specifica di Branch e sottocartella. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | File tarball remoto | File in un archivio compresso in un server Web remoto. | `http://remoteserver/myapp.tar.gz` |
+
+Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il `--platform` tag per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/ `--platform Linux/arm`architettura (ad esempio,). Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante ( `--platform Linux/arm64/v8`ad esempio,):
+
+| OS | Architettura|
+| --- | ------- | 
+| Linux | amd64<br/>ARM<br/>arm64<br/>386 |
+| Windows | amd64 |
 
 ACR Tasks è progettato come primitiva del ciclo di vita dei contenitori. È ad esempio possibile integrare ACR Tasks in una soluzione CI/CD. Eseguendo [AZ login][az-login] con un' [entità servizio][az-login-service-principal], la soluzione ci/CD potrebbe quindi rilasciare i comandi [AZ ACR Build][az-acr-build] per avviare le compilazioni di immagini.
 

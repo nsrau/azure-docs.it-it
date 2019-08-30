@@ -133,12 +133,6 @@
       href: concept-detecting-adult-content.md
 - name: Guide alle procedure
   items:
-    - name: Usare Visione artificiale
-      items:
-        - name: Java
-          href: Tutorials/java-tutorial.md
-        - name: JavaScript
-          href: Tutorials/javascript-tutorial.md
     - name: Chiamare l'API Visione artificiale
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Usare i contenitori

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b079d311e357f4dfb94e55fbca3cafdec198ade9
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124668"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171894"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Domande frequenti (FAQ)
 Questa pagina include le risposte a domande frequenti relative a Servizi di dominio Azure AD. Controllarla costantemente per eventuali aggiornamenti.
@@ -79,7 +79,7 @@ No. Non si ottengono privilegi amministrativi nel dominio gestito. Non è possib
 No. Le appartenenze ai gruppi non possono essere modificate nei domini gestiti da Servizi di dominio Azure AD. Lo stesso vale per gli attributi utente. È tuttavia possibile modificare le appartenenze ai gruppi o gli attributi utente in Azure AD o nel dominio locale. Tali modifiche verranno sincronizzate automaticamente in Servizi di dominio Azure AD.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Quanto tempo passa prima che eventuali modifiche apportate alla directory di Azure AD siano visibili nel dominio gestito?
-Le modifiche apportate nella directory di Azure AD tramite l'interfaccia utente di Azure Active Directory o PowerShell vengono sincronizzate con il dominio gestito. Il processo di sincronizzazione avviene in background. Dopo che la sincronizzazione iniziale è stata completata, occorrono in genere circa 20 minuti perché le modifiche apportate in Azure AD diventino visibili nel dominio gestito.
+Le modifiche apportate alla directory Azure AD usando l'interfaccia utente di Azure AD o PowerShell vengono automaticamente sincronizzate con il dominio gestito. Il processo di sincronizzazione avviene in background. Non esiste un periodo di tempo definito per completare la sincronizzazione di tutte le modifiche apportate all'oggetto.
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>È possibile estendere lo schema del dominio gestito fornito da Azure AD Domain Services?
 No. Lo schema è amministrato da Microsoft per il dominio gestito. Le estensioni dello schema non sono supportate da Servizi di dominio Azure Active Directory.

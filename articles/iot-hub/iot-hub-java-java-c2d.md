@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 4d9a73ee9fb9e4019d30354e6d9fbbe57d081e33
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 4754d7c2182de79d583dce4982b33395bf037479
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147511"
+ms.locfileid: "70161885"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (Java)
 
@@ -47,9 +47,9 @@ Al termine di questa esercitazione, vengono eseguite due app console Java:
 
 * Una versione funzionante completa della Guida introduttiva per l'invio di dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-java.md) Internet o l'esercitazione [configurare il routing dei messaggi con l'hub](tutorial-routing.md) .
 
-* [Java SE Development Kit 8](https://aka.ms/azure-jdks) più recente
+* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **supporto a lungo termine** per ottenere i download per JDK 8.
 
-* [Maven 3](https://maven.apache.org/install.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
