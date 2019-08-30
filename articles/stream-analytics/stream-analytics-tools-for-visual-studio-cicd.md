@@ -1,6 +1,6 @@
 ---
-title: L'integrazione continua e sviluppare con l'integrazione continua/recapito Continuo Azure Stream Analitica mobileengagement
-description: Questo articolo descrive come usare pacchetto NuGet di integrazione continua/distribuzione continua di Azure Stream Analitica per configurare l'integrazione continua e processo di distribuzione.
+title: Usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per l'integrazione e lo sviluppo
+description: Questo articolo descrive come usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per configurare un processo di integrazione e distribuzione continua.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -8,19 +8,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f34139dafffe3d4890f17988114dffdd8b480d2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47bcd29ca8a1da0c42f7bc39aeb4ffc1ad8e8571
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827302"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172910"
 ---
-# <a name="continuously-integrate-and-develop-with-azure-stream-analytics-cicd-nuget-package"></a>L'integrazione continua e sviluppare con l'integrazione continua/recapito Continuo Azure Stream Analitica mobileengagement
-Questo articolo descrive come usare il pacchetto NuGet di integrazione continua/distribuzione continua di Azure Stream Analitica per configurare l'integrazione continua e processo di distribuzione.
+# <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per l'integrazione e lo sviluppo 
+Questo articolo descrive come usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per configurare un processo di integrazione e distribuzione continua.
 
 Usare la versione 2.3.0000.0 o una versione successiva degli [strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) per ottenere il supporto di MSBuild.
 
-È disponibile un pacchetto NuGet: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Fornisce il MSBuild, esecuzione locale e gli strumenti di distribuzione che supportano il processo di integrazione e distribuzione continuo del [progetti di Visual Studio di Stream Analitica](stream-analytics-vs-tools.md). 
+È disponibile un pacchetto NuGet: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Fornisce gli strumenti MSBuild, di esecuzione locale e di distribuzione che supportano il processo di integrazione e distribuzione continua dei [progetti di analisi di flusso di Visual Studio](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > Il pacchetto NuGet può essere usato solo con la versione 2.3.0000.0 o successiva di strumenti di Analisi di flusso di Azure per Visual Studio. Se i progetti sono stati creati con le versioni precedenti degli strumenti di Visual Studio, aprirli con la versione 2.3.0000.0 o successiva e salvare. Le nuove funzionalità vengono quindi abilitate. 
 
@@ -93,6 +93,6 @@ Esempio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Avvio rapido: Creare un processo di cloud di Azure Stream Analitica in Visual Studio](stream-analytics-quick-create-vs.md)
+* [Avvio rapido: Creare un processo cloud di analisi di flusso di Azure in Visual Studio](stream-analytics-quick-create-vs.md)
 * [Eseguire test locali delle query di Analisi di flusso con Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Esplorare i processi di Analitica Stream di Azure con Visual Studio](stream-analytics-vs-tools.md)
+* [Esplorare i processi di analisi di flusso di Azure con Visual Studio](stream-analytics-vs-tools.md)

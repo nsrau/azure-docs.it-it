@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 6ea4dbf07c8ef99c43dbe7add1ae9270056f708c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896972"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164315"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o BLOB con l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -61,7 +61,7 @@ Quando si crea una firma di accesso condiviso `--auth-mode login` di `--as-user 
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Creare una firma di accesso condiviso di delega utente per un contenitore
 
-Per creare una firma di accesso condiviso dell'utente per un contenitore con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ Storage container generate-SAS](/cli/azure/storage/container#az-storage-container-generate-sas) .
+Per creare una firma di accesso condiviso di delega utente per un contenitore con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ Storage container generate-SAS](/cli/azure/storage/container#az-storage-container-generate-sas) .
 
 Le autorizzazioni supportate per una firma di accesso condiviso di delega utente in un contenitore includono Aggiungi, crea, Elimina, elenca, lettura e scrittura. È possibile specificare le autorizzazioni singolarmente o combinate. Per altre informazioni su queste autorizzazioni, vedere [creare una](/rest/api/storageservices/create-user-delegation-sas)firma di accesso condiviso di delega utente.
 
@@ -85,7 +85,7 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 ### <a name="create-a-user-delegation-sas-for-a-blob"></a>Creare una firma di accesso condiviso di delega utente per un BLOB
 
-Per creare una firma di accesso condiviso dell'utente per un BLOB con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ storage BLOB generate-SAS](/cli/azure/storage/blob#az-storage-blob-generate-sas) .
+Per creare una firma di accesso condiviso di delega utente per un BLOB con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ storage BLOB generate-SAS](/cli/azure/storage/blob#az-storage-blob-generate-sas) .
 
 Le autorizzazioni supportate per la firma di accesso condiviso di una delega utente in un BLOB includono Aggiungi, crea, Elimina, lettura e scrittura. È possibile specificare le autorizzazioni singolarmente o combinate. Per altre informazioni su queste autorizzazioni, vedere [creare una](/rest/api/storageservices/create-user-delegation-sas)firma di accesso condiviso di delega utente.
 
@@ -112,6 +112,21 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 > [!NOTE]
 > Una firma di accesso condiviso di delega utente non supporta la definizione di autorizzazioni con criteri di accesso archiviati.
+
+## <a name="revoke-a-user-delegation-sas"></a>Revocare una firma di accesso condiviso di delega utente
+
+Per revocare una firma di accesso condiviso di delega utente dall'interfaccia della riga di comando di Azure, chiamare il comando [AZ storage account Revoke-Delegation-Keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) . Questo comando revoca tutte le chiavi di delega utente associate all'account di archiviazione specificato. Eventuali firme di accesso condiviso associate a tali chiavi vengono invalidate.
+
+Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
+
+```azurecli-interactive
+az storage account revoke-delegation-keys \
+    --name <storage-account> \
+    --resource-group <resource-group>
+```
+
+> [!IMPORTANT]
+> Sia la chiave di delega utente che le assegnazioni di ruolo RBAC vengono memorizzate nella cache da archiviazione di Azure, pertanto potrebbe verificarsi un ritardo tra il momento in cui si avvia il processo di revoca e quando una firma di accesso condiviso dell'utente esistente diventa non valida.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

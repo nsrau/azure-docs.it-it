@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 3f0355ae14ed1a6157c8d3b7fccb5fb8a225ee80
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 4f9f4661a2c6c78438414029e803abc624a773ca
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147495"
+ms.locfileid: "70161984"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introduzione ai dispositivi gemelli (Java)
 
@@ -30,9 +30,9 @@ In questa esercitazione vengono create due app console Java:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Java SE Development Kit 8](https://aka.ms/azure-jdks) più recente
+* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **supporto a lungo termine** per ottenere i download per JDK 8.
 
-* [Maven 3](https://maven.apache.org/install.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 

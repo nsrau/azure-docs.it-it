@@ -2,18 +2,18 @@
 title: Connessione Istanza gestita SQL di Azure per l'indicizzazione di ricerca-ricerca di Azure
 description: Abilitare l'endpoint pubblico per consentire le connessioni alle istanze gestite di SQL da un indicizzatore in ricerca di Azure.
 author: vl8163264128
-manager: briansmi
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: victliu
-ms.openlocfilehash: ae947e85f600b3bc380898ad5820239aa823794d
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 07bc1a55c0222fda87b28acbaa8bfe552fb8e6ed
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229128"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186629"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-managed-instance"></a>Configurare una connessione da un indicizzatore di ricerca di Azure a SQL Istanza gestita
 Come indicato nella pagina relativa [alla connessione del database SQL di Azure a ricerca di Azure tramite](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)gli indicizzatori, la creazione di indicizzatori in **istanze gestite da SQL** è supportata da ricerca di Azure tramite l'endpoint pubblico.

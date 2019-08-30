@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/03/2019
-ms.openlocfilehash: e9cc5aaaf11a799b17cc87b40113e166fcd93afb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/29/2019
+ms.openlocfilehash: cdbc79ca6764dd49f427b395dbaf8502c58bf63a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569000"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173422"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
 
@@ -24,7 +24,7 @@ Il database SQL di Azure offre diversi metodi per la creazione di una copia coer
 
 ## <a name="overview"></a>Panoramica
 
-Una copia del database è uno snapshot del database di origine al momento della richiesta di copia. È possibile selezionare lo stesso server o un server diverso. È anche possibile scegliere di mantengono il livello di servizio e le dimensioni di calcolo oppure utilizzare una dimensione di calcolo diversa nello stesso livello di servizio (edizione). Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.  
+Una copia del database è uno snapshot del database di origine al momento della richiesta di copia. È possibile selezionare lo stesso server o un server diverso. È anche possibile scegliere di mantengono il livello di servizio e le dimensioni di calcolo oppure utilizzare una dimensione di calcolo diversa nello stesso livello di servizio (edizione). Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente. La copia viene creata usando la tecnologia di replica geografica e, una volta completato il seeding, il collegamento di replica geografica viene terminato automaticamente. Tutti i requisiti per l'uso della replica geografica si applicano all'operazione di copia del database. Per informazioni dettagliate, vedere [Panoramica della replica geografica attiva](sql-database-active-geo-replication.md) .
 
 > [!NOTE]
 > [I backup di database automatizzati](sql-database-automated-backups.md) vengono usati quando si crea una copia del database.
@@ -61,6 +61,26 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 ```
 
 Per uno script di esempio completo, vedere [Copiare un database in un nuovo server](scripts/sql-database-copy-database-to-new-server-powershell.md).
+
+La copia del database è un'operazione asincrona, ma il database di destinazione viene creato immediatamente dopo l'accettazione della richiesta. Se è necessario annullare l'operazione di copia mentre è ancora in corso, eliminare il database di destinazione usando il cmdlet [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .  
+
+## <a name="rbac-roles-to-manage-database-copy"></a>Ruoli RBAC per gestire la copia del database
+
+Per creare una copia del database, è necessario disporre dei seguenti ruoli
+
+- Proprietario della sottoscrizione
+- SQL Server ruolo Collaboratore o
+- Ruolo personalizzato nei database di origine e di destinazione con l'autorizzazione seguente:
+
+   Microsoft. SQL/Servers/databases/Read Microsoft. SQL/Servers/databases/Write
+
+Per annullare una copia del database, è necessario avere i seguenti ruoli
+
+- Proprietario della sottoscrizione
+- SQL Server ruolo Collaboratore o
+- Ruolo personalizzato nei database di origine e di destinazione con l'autorizzazione seguente:
+
+   Microsoft. SQL/Servers/databases/Read Microsoft. SQL/Servers/databases/Write
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Copiare un database tramite Transact-SQL
 
@@ -107,6 +127,10 @@ Monitorare il processo di copia eseguendo una query sulle visualizzazioni sys.da
 
 > [!NOTE]
 > Se si decide di annullare il processo di copia mentre è in corso, eseguire l'istruzione [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) nel nuovo database. In alternativa, anche l'esecuzione dell'istruzione DROP DATABASE sul database di origine annulla il processo di copia.
+
+> [!IMPORTANT]
+> Se è necessario creare una copia con un SLO notevolmente più piccolo rispetto all'origine, è possibile che il database di destinazione non disponga di risorse sufficienti per completare il processo di seeding, causando l'esito negativo dell'operazione di copia. In questo scenario usare una richiesta di ripristino geografico per creare una copia in un server diverso e/o in un'area diversa. Per ulteriori informazioni, vedere [ripristinare un database SQL di Azure tramite backup del database](sql-database-recovery-using-backups.md#geo-restore) .
+
 
 ## <a name="resolve-logins"></a>Risolvere gli account di accesso
 

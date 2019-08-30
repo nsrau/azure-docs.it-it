@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/29/2019
 ms.author: v-adgera
-ms.openlocfilehash: da1493d2d52f2c8a964df3b72c1622a9c6b66abf
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 8472a86800d13cedd228ca881a7c095ff748350a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719861"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172809"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Come usare le API di gestione di Gemelli digitali di Azure
 
@@ -88,6 +88,7 @@ L'elenco seguente illustra alcuni esempi di spostamento nelle API [/devices](htt
 
 
 ## <a name="odata-support"></a>Supporto OData
+
 La maggior parte delle API che restituiscono raccolte, ad esempio una chiamata GET su /spaces, supporta il subset seguente delle opzioni di query di sistema di [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) generiche:  
 
 * **$filter**
@@ -95,11 +96,12 @@ La maggior parte delle API che restituiscono raccolte, ad esempio una chiamata G
 * **$top**
 * **$skip**: se si vuole visualizzare l'intera raccolta, è consigliabile richiederla come un unico set in una singola chiamata e quindi eseguire il paging nell'applicazione. 
 
-Si noti che le altre opzioni di query, ad esempio $count, $expand, $search, non sono supportate.
+> [!NOTE]
+> Alcune opzioni OData, ad esempio le opzioni di query **$count**, **$expand**e **$Search**, non sono attualmente supportate.
 
 ### <a name="examples"></a>Esempi
 
-L'elenco seguente illustra alcuni esempi di query che usano le opzioni di query di sistema di OData:
+Nell'elenco seguente vengono illustrate diverse query con sintassi OData valida:
 
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
 - `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,’space’)`
@@ -108,9 +110,10 @@ L'elenco seguente illustra alcuni esempi di query che usano le opzioni di query 
 - `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,’k’)&$orderby=LastName`
 - `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor’,Name)`
  
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su alcuni modelli di query sulle API comuni, vedere [Come eseguire una query delle API di Gemelli digitali di Azure per trovare le attività comuni](how-to-query-common-apis.md).
+Per informazioni su alcuni modelli di query sulle API comuni, vedere [Come eseguire una query delle API di Gemelli digitali di Azure per trovare le attività comuni](./how-to-query-common-apis.md).
 
-Per altre informazioni sull'endpoint API, leggere [come usare Swagger gemelli digitale](./how-to-use-swagger.md).
+Per altre informazioni sugli endpoint dell'API, vedere l'articolo su [come usare i gemelli digitali spavalderia](./how-to-use-swagger.md).
+
+Per esaminare la sintassi OData e gli operatori di confronto disponibili, vedere [operatori di confronto OData in ricerca di Azure](../search/search-query-odata-comparison-operators.md).

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f4f081001f2573bccc58205ccc7955739b7f5c4c
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779283"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170650"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
@@ -52,8 +52,10 @@ Per altre informazioni, vedere [restrizioni di accesso statico del servizio app 
 ## <a name="private-site-access"></a>Accesso al sito privato
 
 L'accesso al sito privato si riferisce a rendere l'app accessibile solo da una rete privata, ad esempio dall'interno di una rete virtuale di Azure. 
-* L'accesso al sito privato è disponibile nel [piano di servizio app](functions-scale.md#app-service-plan) e [Premium](./functions-premium-plan.md) quando sono configurati gli **endpoint di servizio** . Per altre informazioni, vedere [endpoint del servizio rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * Tenere presente che con gli endpoint di servizio, la funzione ha ancora l'accesso in uscita completo a Internet, anche con l'integrazione della rete virtuale configurata.
+* L'accesso al sito privato è disponibile nel piano [Premium](./functions-premium-plan.md), [utilizzo](functions-scale.md#consumption-plan) e [servizio app](functions-scale.md#app-service-plan) quando sono configurati gli **endpoint di servizio** . 
+    * Gli endpoint di servizio possono essere configurati in base alle singole app in funzionalità della piattaforma > rete > configurare le restrizioni di accesso > Aggiungi regola. È ora possibile selezionare le reti virtuali come "tipo" di una regola.
+    * Per altre informazioni, vedere [endpoint del servizio rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md)
+        * Tenere presente che con gli endpoint di servizio, la funzione ha ancora l'accesso in uscita completo a Internet, anche con l'integrazione della rete virtuale configurata.
 * L'accesso al sito privato è disponibile anche con un ambiente del servizio app configurato con un servizio di bilanciamento del carico interno (ILB). Per altre informazioni, vedere [creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app](../app-service/environment/create-ilb-ase.md).
 
 ## <a name="virtual-network-integration"></a>Integrazione della rete virtuale
@@ -99,6 +101,13 @@ L'integrazione della rete virtuale in funzioni usa l'infrastruttura condivisa co
 * [Integrazione VNet necessaria per il gateway](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 Per altre informazioni sull'uso dell'integrazione della rete virtuale, vedere [integrare un'app per le funzioni con una rete virtuale di Azure](functions-create-vnet.md).
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Limitazione dell'account di archiviazione a una rete virtuale
+
+> [!note] 
+> Temporaneamente, potrebbero essere necessarie fino a 12 ore perché l'account di archiviazione diventi disponibile per l'app per le funzioni una volta configurate le restrizioni di accesso per tale account di archiviazione. Durante questo periodo, l'applicazione sarà completamente offline.
+
+Per garantire un livello di sicurezza più elevato, è possibile limitare l'account di archiviazione dell'applicazione a una rete virtuale. Per accedere all'account di archiviazione, è quindi necessario integrare il sito con tale rete virtuale. Questa configurazione è supportata in tutti i piani che supportano l'integrazione della rete virtuale.
 
 ## <a name="virtual-network-triggers-non-http"></a>Trigger della rete virtuale (non HTTP)
 

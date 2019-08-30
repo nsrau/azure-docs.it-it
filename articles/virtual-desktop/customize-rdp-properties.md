@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 624edaea9a0fb56e34eb83f033dfdab64985bd5c
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: fbc24705288d9bb4acf0d1b2d99dfbda32149614
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950718"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163565"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool host
 
@@ -20,7 +20,11 @@ La personalizzazione delle proprietà di Remote Desktop Protocol (RDP) di un poo
 
 Per un elenco completo delle proprietà supportate e dei relativi valori predefiniti, vedere [Desktop remoto impostazioni del file RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) .
 
-Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
+Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto. Successivamente, eseguire il cmdlet seguente per accedere al proprio account:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="add-or-edit-a-single-custom-rdp-property"></a>Aggiungere o modificare una singola proprietà RDP personalizzata
 

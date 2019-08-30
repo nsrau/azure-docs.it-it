@@ -3,21 +3,31 @@ title: Creare e distribuire funzioni di Azure in Python con Visual Studio Code
 description: Come usare l'estensione Visual Studio Code per funzioni di Azure per creare funzioni senza server in Python e distribuirle in Azure.
 services: functions
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4f5c10536992f51ac61815507a3869e521520299
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639098"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170701"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Distribuisci Python in funzioni di Azure con Visual Studio Code
 
 In questa esercitazione si usano Visual Studio Code e l'estensione funzioni di Azure per creare un endpoint HTTP senza server con Python e aggiungere anche una connessione (o "binding") alla risorsa di archiviazione. Funzioni di Azure esegue il codice in un ambiente senza server senza dover eseguire il provisioning di una macchina virtuale o pubblicare un'app Web. L'estensione funzioni di Azure per Visual Studio Code semplifica notevolmente il processo di utilizzo delle funzioni gestendo automaticamente molti problemi di configurazione.
+
+In questa esercitazione si imparerà a:
+
+> [!div class="checklist"]
+> * Installare l'estensione Funzioni di Azure
+> * Creare una funzione attivata tramite HTTP
+> * Esegui debug localmente
+> * Sincronizzare le impostazioni dell'applicazione
+> * Visualizzare i log in streaming
+> * Connettersi ad archiviazione di Azure
 
 Se si verificano problemi con i passaggi descritti in questa esercitazione, è opportuno conoscere i dettagli. Usare il pulsante **ho eseguito un problema** alla fine di ogni sezione per inviare commenti e suggerimenti dettagliati.
 
@@ -84,7 +94,7 @@ L'output che inizia con il logo di funzioni di Azure (è necessario scorrere l'o
 Se il `func` comando non è riconosciuto, verificare che la cartella in cui è stato installato il Azure Functions Core Tools sia inclusa nella variabile di ambiente Path.
 
 > [!div class="nextstepaction"]
-> [Si è riscontrato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=01-verify-prerequisites)
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=01-verify-prerequisites)
 
 ## <a name="create-the-function"></a>Creare la funzione
 
@@ -100,29 +110,26 @@ Se il `func` comando non è riconosciuto, verificare che la cartella in cui è s
     | Selezionare un linguaggio per il progetto di app per le funzioni | **Python** | Linguaggio da utilizzare per la funzione, che determina il modello utilizzato per il codice. |
     | Selezionare un modello per la prima funzione del progetto | **Trigger HTTP** | Una funzione che usa un trigger HTTP viene eseguita ogni volta che viene effettuata una richiesta HTTP all'endpoint della funzione. Sono disponibili diversi altri trigger per funzioni di Azure. Per altre informazioni, vedere [che cosa è possibile fare con le funzioni?](functions-overview.md#what-can-i-do-with-functions)). |
     | Specificare un nome di funzione | HttpExample | Il nome viene usato per una sottocartella che contiene il codice della funzione insieme ai dati di configurazione e definisce anche il nome dell'endpoint HTTP. Usare "HttpExample" invece di accettare il valore predefinito "HTTPTrigger" per distinguere la funzione stessa dal trigger. |
-    | Livello di autorizzazione | **Anonimo** | L'autorizzazione anonima rende la funzione accessibile pubblicamente a chiunque. |
+    | Livello di autorizzazione | **Funzione** | Le chiamate effettuate all'endpoint della funzione richiedono un [tasto funzione](functions-bindings-http-webhook.md#authorization-keys). |
     | Specificare come aprire il progetto | **Apri nella finestra corrente** | Apre il progetto nella finestra di Visual Studio Code corrente. |
 
-1. Dopo un breve periodo di tempo, un messaggio per indicare che il nuovo progetto è stato creato. Nella finestra di **esplorazione**è presente la sottocartella creata per la funzione e Visual Studio Code apre il  *\_ \_file init\_\_. py* che contiene il codice della funzione predefinito:
+1. Dopo un breve periodo di tempo, un messaggio per indicare che il nuovo progetto è stato creato. Nella finestra di **esplorazione**è presente la sottocartella creata per la funzione. 
+
+1. Se non è già aperto, aprire il  *\_ \_file init\_\_. py* che contiene il codice della funzione predefinito:
 
     [![Risultato della creazione di un nuovo progetto di funzioni Python](media/tutorial-vs-code-serverless-python/project-create-results.png)](media/tutorial-vs-code-serverless-python/project-create-results.png)
 
     > [!NOTE]
-    > Se Visual Studio Code indica che non è stato selezionato un interprete Python **quando si apre  *\_ \_\_init\_. py*, aprire il riquadro comandi (F1), selezionare Python: Selezionare** comando interprete e quindi selezionare l'ambiente virtuale nella cartella locale `.env` (creata come parte del progetto). L'ambiente deve essere basato su Python 3.6 x in modo specifico, come indicato in precedenza in [prerequisiti](#prerequisites).
+    > Quando Visual Studio Code indica che non è stato selezionato un interprete Python **quando si apre  *\_ \_\_init\_. py*, aprire il riquadro comandi (F1), selezionare Python: Selezionare** comando interprete e quindi selezionare l'ambiente virtuale nella cartella locale `.env` (creata come parte del progetto). L'ambiente deve essere basato su Python 3.6 x in modo specifico, come indicato in precedenza in [prerequisiti](#prerequisites).
     >
     > ![Selezione dell'ambiente virtuale creato con il progetto](media/tutorial-vs-code-serverless-python/select-venv-interpreter.png)
 
-> [!TIP]
-> Quando si vuole creare un'altra funzione nello stesso progetto, usare il comando **create function** in **Azure: Esplora** funzioni oppure aprire il riquadro comandi (F1) e **selezionare funzioni di Azure: Creare il comando Funzione** . Entrambi i comandi richiedono un nome di funzione, ovvero il nome dell'endpoint, quindi crea una sottocartella con i file predefiniti.
->
-> ![Comando New Function in Azure: Esplora funzioni](media/tutorial-vs-code-serverless-python/function-create-new.png)
-
 > [!div class="nextstepaction"]
-> [Si è riscontrato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=02-create-function)
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=02-create-function)
 
 ## <a name="examine-the-code-files"></a>Esaminare i file di codice
 
-Nella sottocartella della funzione appena creata sono presenti tre file  *\_:\_ \_\_init. py* contiene il codice della funzione, *Function. JSON* descrive la funzione in funzioni di Azure e *Sample. dat* è un file di dati di esempio. È possibile eliminare *Sample. dat* se lo si desidera, perché esiste solo per mostrare che è possibile aggiungere altri file alla sottocartella.
+Nella sottocartella della _funzione HttpExample_ appena creata sono presenti tre file  *\_:\_ \_\_init. py* contiene il codice della funzione, *Function. JSON* descrive la funzione in Azure Functions ed *Sample. dat* è un file di dati di esempio. È possibile eliminare *Sample. dat* se lo si desidera, perché esiste solo per mostrare che è possibile aggiungere altri file alla sottocartella.
 
 Esaminiamo prima di tutto *Function. JSON* , quindi il codice in  *\_ \_init\_\_. py*.
 
@@ -135,7 +142,7 @@ Il file function. JSON fornisce le informazioni di configurazione necessarie per
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
@@ -155,9 +162,9 @@ Il file function. JSON fornisce le informazioni di configurazione necessarie per
 
 La `scriptFile` proprietà identifica il file di avvio per il codice e il codice deve contenere una funzione Python denominata `main`. È possibile fattorizzare il codice in più file purché il file specificato contenga una `main` funzione.
 
-L' `bindings` elemento contiene due oggetti, uno per descrivere le richieste in ingresso e l'altro per descrivere la risposta http. Per le richieste in ingresso`"direction": "in"`(), la funzione risponde alle richieste HTTP GET o post e non richiede l'autenticazione. La risposta (`"direction": "out"`) è una risposta HTTP che restituisce qualsiasi valore restituito `main` dalla funzione Python.
+L' `bindings` elemento contiene due oggetti, uno per descrivere le richieste in ingresso e l'altro per descrivere la risposta http. Per le richieste in ingresso`"direction": "in"`(), la funzione risponde alle richieste HTTP GET o post e richiede di specificare il tasto funzione. La risposta (`"direction": "out"`) è una risposta HTTP che restituisce qualsiasi valore restituito `main` dalla funzione Python.
 
-### <a name="initpy"></a>\_\_init.py\_\_
+### <a name="__initpy__"></a>\_\_init.py\_\_
 
 Quando si crea una nuova funzione, funzioni di Azure fornisce codice Python predefinito  *\_in\_ \_\_init. py*:
 
@@ -196,7 +203,7 @@ Di seguito sono riportate le parti importanti del codice:
 - Se viene trovato un nome, il codice restituisce la stringa "Hello" con il nome aggiunto; in caso contrario, viene restituito un messaggio di errore.
 
 > [!div class="nextstepaction"]
-> [Si è riscontrato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=03-examine-code-files)
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=03-examine-code-files)
 
 ## <a name="debug-locally"></a>Esegui debug localmente
 
@@ -233,12 +240,12 @@ Di seguito sono riportate le parti importanti del codice:
 
     In alternativa, creare un file come *Data. JSON* che contiene `{"name":"Visual Studio Code"}` e usare il comando `curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`.
 
-1. Per testare il debug della funzione, impostare un punto di interruzione sulla riga `name = req.params.get('name')` che legge ed eseguire nuovamente una richiesta all'URL. Il debugger Visual Studio Code dovrebbe arrestarsi su tale riga, consentendo di esaminare le variabili ed eseguire il codice un'istruzione alla volta. Per una breve procedura dettagliata del debug di base, vedere [Visual Studio Code esercitazione-configurare ed eseguire il debugger](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger).
+1. Per eseguire il debug della funzione, impostare un punto di interruzione sulla `name = req.params.get('name')` riga che legge ed eseguire nuovamente una richiesta all'URL. Il debugger Visual Studio Code dovrebbe arrestarsi su tale riga, consentendo di esaminare le variabili ed eseguire il codice un'istruzione alla volta. Per una breve procedura dettagliata del debug di base, vedere [Visual Studio Code esercitazione-configurare ed eseguire il debugger](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger).
 
 1. Quando si è soddisfatti che la funzione è stata testata in locale, arrestare il debugger (con il comando di menu **debug** > **Interrompi debug** oppure il comando **Disconnetti** sulla barra degli strumenti di debug).
 
 > [!div class="nextstepaction"]
-> [Si è riscontrato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=04-test-debug)
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=04-test-debug)
 
 ## <a name="deploy-to-azure-functions"></a>Distribuire in Funzioni di Azure
 
@@ -276,7 +283,7 @@ In questa procedura si userà l'estensione funzioni per creare un'app per le fun
     Usare questo endpoint per eseguire gli stessi test effettuati localmente, usando i parametri URL e/o le richieste con dati JSON nel corpo della richiesta. I risultati dell'endpoint pubblico devono corrispondere ai risultati dell'endpoint locale testato in precedenza.
 
 > [!div class="nextstepaction"]
-> [Si è riscontrato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=05-deploy)
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=05-deploy)
 
 ### <a name="stream-logs"></a>Eseguire lo streaming dei log
 
@@ -303,7 +310,7 @@ Dopo la prima distribuzione, è possibile apportare modifiche al codice, ad esem
 
 1. Nell'area **Azure: Esplora** funzioni, selezionare il comando **Crea funzione** o usare **funzioni di Azure: Creare una** funzione dal riquadro comandi. Specificare i dettagli seguenti per la funzione:
 
-    - Modello: Trigger HTTP
+    - Template: Trigger HTTP
     - Nome: "DigitsOfPi"
     - Livello di autorizzazione: Anonymous
 
@@ -403,7 +410,7 @@ Dopo la prima distribuzione, è possibile apportare modifiche al codice, ad esem
 1. Al termine della distribuzione (richiede qualche minuto), nella finestra di **output** vengono visualizzati gli endpoint pubblici con cui è possibile ripetere i test.
 
 > [!div class="nextstepaction"]
-> [Si è riscontrato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=06-second-function)
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=06-second-function)
 
 ## <a name="add-a-binding-to-write-messages-to-azure-storage"></a>Aggiungere un'associazione per scrivere messaggi in archiviazione di Azure
 
@@ -487,7 +494,7 @@ In questa sezione viene aggiunta un'associazione di archiviazione alla funzione 
 1. Per eseguire il test nel cloud, ridistribuire il codice usando la **distribuzione per app per le funzioni** in **Azure: Esplora** funzioni. Se richiesto, selezionare il app per le funzioni creato in precedenza. Al termine della distribuzione (richiede qualche minuto), la finestra di **output** Mostra di nuovo gli endpoint pubblici con cui è possibile ripetere i test.
 
 > [!div class="nextstepaction"]
-> [Si è riscontrato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=07-storage-binding)
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=07-storage-binding)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -511,5 +518,5 @@ Di seguito sono riportate alcune estensioni comuni:
 
 - [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 - [Servizio app di Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
-- [Strumenti dell'interfaccia della riga di comando Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
+- [Strumenti dell'interfaccia della riga di comando di Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 - [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

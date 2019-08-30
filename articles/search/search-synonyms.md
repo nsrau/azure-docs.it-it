@@ -7,15 +7,15 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 99abcc70a81622e4efbe85722d457bd1846b6e15
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d9ddb5af42c538558a69ce68e7ea90161c947b12
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485223"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186452"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinonimi in Ricerca di Azure
 
@@ -25,9 +25,9 @@ In Ricerca di Azure l'espansione sinonimica viene eseguita in fase di query. È 
 
 ## <a name="create-synonyms"></a>Creare sinonimi
 
-Nessun supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, è consigliabile [usando Postman](search-get-started-postman.md) e di formulazione delle richieste effettuate utilizzando questa API: [Creare le mappe Sinonimiche](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Per C# gli sviluppatori, è possibile iniziare a usare [aggiungere sinonimi in ricerca di Azure utilizzando C# ](search-synonyms-tutorial-sdk.md).
+Non è disponibile il supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, è consigliabile [usare il post](search-get-started-postman.md) e la formulazione delle richieste tramite questa API: [Creare mappe sinonimo](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Per C# gli sviluppatori, è possibile iniziare a [aggiungere sinonimi in ricerca di C#Azure usando ](search-synonyms-tutorial-sdk.md).
 
-Facoltativamente, se si usa [le chiavi gestite dal cliente](search-security-manage-encryption-keys.md) per lato servizio di crittografia inattivi, è possibile applicare tale protezione per il contenuto della mappa del sinonimo.
+Facoltativamente, se si usano [chiavi gestite dal cliente](search-security-manage-encryption-keys.md) per la crittografia sul lato servizio, è possibile applicare tale protezione al contenuto della mappa di sinonimi.
 
 ## <a name="use-synonyms"></a>Usare sinonimi
 
@@ -76,14 +76,14 @@ In alternativa è possibile usare PUT e specificare il nome della mappa sinonimi
 
 ##### <a name="apache-solr-synonym-format"></a>Formato dei sinonimi Apache Solr
 
-Il formato Solr supporta il mapping sinonimico equivalente ed esplicito. Le regole del mapping aderiscono alla specifica del filtro sinonimo open source di Apache Solr descritta in questo documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Di seguito è riportata una regola di esempio per sinonimi equivalenti.
+Il formato Solr supporta il mapping sinonimico equivalente ed esplicito. Le regole di mapping sono conformi alla specifica del filtro di sinonimi open source di Apache Solr, descritta in questo documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Di seguito è riportata una regola di esempio per sinonimi equivalenti.
 ```
 USA, United States, United States of America
 ```
 
 Con la regola precedente, la query di ricerca "USA" si espanderà in "USA" OR "Stati Uniti" OR "Stati Uniti d'America".
 
-Il mapping esplicito è indicato da una freccia "=>". Quando specificato, una sequenza di termini di una query di ricerca che corrisponde al lato sinistro della "= >" verrà sostituito con le alternative sul lato destro. Data la regola seguente, le query di ricerca "Washington", "Wash." o "WA" saranno riscritte tutte come "WA". Il mapping esplicito si applica solo nella direzione specificata e, in questo caso, non riscrivere la query "WA" come "Washington".
+Il mapping esplicito è indicato da una freccia "=>". Quando specificato, una sequenza di termini di una query di ricerca che corrisponde al lato sinistro di "= >" verrà sostituita con le alternative sul lato destro. Data la regola seguente, le query di ricerca "Washington", "Wash." o "WA" saranno riscritte tutte come "WA". Il mapping esplicito si applica solo nella direzione specificata e, in questo caso, non riscrivere la query "WA" come "Washington".
 ```
 Washington, Wash., WA => WA
 ```

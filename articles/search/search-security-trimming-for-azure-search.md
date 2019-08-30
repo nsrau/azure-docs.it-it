@@ -7,14 +7,14 @@ services: search
 ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
-manager: jlembicz
+manager: nitinme
 ms.custom: seodec2018
-ms.openlocfilehash: a222b9e506988929c25a560361611b8f78142053
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d1ffa5b29a56d32a4f6a8ccf40f5bafd27795e6
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024359"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186482"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtri di sicurezza per limitare i risultati in Ricerca di Azure
 
@@ -150,9 +150,9 @@ Specificare il filtro nel corpo della richiesta:
  ]
 }
 ```
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
-Ecco come è possibile filtrare i risultati in base all'identità dell'utente e alla funzione `search.in()` di Ricerca di Azure. È possibile utilizzare questa funzione per passare gli identificatori di entità per l'utente richiedente per confrontare gli identificatori dell'entità associati a ogni documento di destinazione. Quando viene gestita una richiesta di ricerca, la funzione `search.in` filtra i risultati della ricerca per cui l'accesso in lettura non è consentito ad alcuna entità di sicurezza dell'utente. Gli identificatori dell'entità di sicurezza possono rappresentare oggetti quali i gruppi di sicurezza, i ruoli o persino l'identità dell'utente.
+Ecco come è possibile filtrare i risultati in base all'identità dell'utente e alla funzione `search.in()` di Ricerca di Azure. È possibile usare questa funzione per passare gli identificatori di principio che l'utente richiedente deve confrontare con gli identificatori di entità associati a ogni documento di destinazione. Quando viene gestita una richiesta di ricerca, la funzione `search.in` filtra i risultati della ricerca per cui l'accesso in lettura non è consentito ad alcuna entità di sicurezza dell'utente. Gli identificatori dell'entità di sicurezza possono rappresentare oggetti quali i gruppi di sicurezza, i ruoli o persino l'identità dell'utente.
  
 ## <a name="see-also"></a>Vedere anche
 

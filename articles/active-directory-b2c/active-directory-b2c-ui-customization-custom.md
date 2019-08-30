@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c6186334820d0e419a06b9c60a8279825bf54c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e79d7a4b97f010b035f5c864682b4d3882a21393
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927302"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171908"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -65,17 +65,16 @@ Per ospitare il contenuto HTML nell'archivio Blob, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel menu **Hub** selezionare **Nuovo** > **Archiviazione** > **Account di archiviazione**.
-3. Immettere un **nome** unico per l'account di archiviazione.
-4. Per **Modello di distribuzione** è possibile lasciare **Resource Manager**.
-5. Modificare **Tipo di Account** in **archiviazione BLOB**.
-6. Per **Prestazioni** è possibile lasciare **Standard**.
-7. Per **Replica** è possibile lasciare **RA-GRS**.
-8. Per **Livello di accesso** è possibile lasciare **Frequente**.
-9. Per **Crittografia del servizio di archiviazione** è possibile lasciare **Disabilitata**.
-10. Selezionare una **sottoscrizione** per l'account di archiviazione.
-11. Creare un **gruppo di risorse** o selezionarne uno esistente.
-12. Selezionare la **posizione geografica** dell'account di archiviazione.
-13. Fare clic su **Crea** per creare l'account di archiviazione.  
+3. Selezionare una **sottoscrizione** per l'account di archiviazione.
+4. Creare un **gruppo di risorse** o selezionarne uno esistente.
+5. Immettere un **nome** unico per l'account di archiviazione.
+6. Selezionare la **posizione geografica** dell'account di archiviazione. 
+7. Per **Modello di distribuzione** è possibile lasciare **Resource Manager**.
+8. Per **Prestazioni** è possibile lasciare **Standard**.
+9. Modificare **Tipo di Account** in **archiviazione BLOB**.
+10. Per **Replica** è possibile lasciare **RA-GRS**.
+11. Per **Livello di accesso** è possibile lasciare **Frequente**. 
+12. Fare clic su **Verifica + crea** per creare l'account di archiviazione.  
     Quando la distribuzione è terminata, il pannello dell'**account di archiviazione** si aprirà automaticamente.
 
 ## <a name="create-a-container"></a>Creare un contenitore
@@ -192,7 +191,7 @@ Ecco i passaggi per usare l'esempio.
 
 Nella sezione Modificare i criteri personalizzati di iscrizione o di accesso è stata configurata la definizione del contenuto per `api.idpselections`. Il set completo di ID di definizione del contenuto riconosciuti dal framework dell'esperienza di gestione delle identità di AD B2C e le relative descrizioni sono disponibili nella tabella seguente:
 
-| ID definizione del contenuto | Descrizione | 
+| ID definizione del contenuto | DESCRIZIONE | 
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Si tratta di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |

@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 manager: gwallace
 ms.service: container-registry
-ms.topic: overview
+ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: HT
+ms.openlocfilehash: 50ab3fc92fc980638547bb090c5d0d78aa20ab5f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574394"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172281"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 
@@ -64,7 +64,7 @@ L'uso della funzionalità di replica geografica di Registro Azure Container è c
 
 ## <a name="configure-geo-replication"></a>Configurare la replica geografica
 
-La configurazione della replica geografica è un'operazione semplice basata sulla selezione delle aree mediante clic su una mappa. È anche possibile gestire la replica geografica mediante strumenti, tra cui i comandi [az acr replication](/cli/azure/acr/replication) nell'interfaccia della riga di comando di Azure.
+La configurazione della replica geografica è un'operazione semplice basata sulla selezione delle aree mediante clic su una mappa. È anche possibile gestire la replica geografica usando gli strumenti inclusi i comandi [AZ ACR Replication](/cli/azure/acr/replication) nell'interfaccia della riga di comando di Azure o distribuire un registro di sistema abilitato per la replica geografica con un [modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
 La replica geografica è una funzionalità disponibile solo per i [registri Premium](container-registry-skus.md). Se la versione del registro non è Premium, è possibile passare dalla versione Basic e quella Standard e infine a quella Premium nel [portale di Azure](https://portal.azure.com):
 

@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/16/2019
-ms.openlocfilehash: 6357b5a477390f484a47167a0b9d2e524d37c9ac
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 08/29/2019
+ms.openlocfilehash: 73aeea42cd843716c845d7712539ae5c81f03dca
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035763"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173079"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
-I gruppi di failover automatico sono una funzionalità del database SQL che consente di gestire la replica e il failover di un gruppo di database in un server di database SQL o di tutti i database in un'istanza gestita in un'altra area. Si tratta di un'astrazione dichiarativa basata sulla funzionalità di [replica geografica attiva](sql-database-active-geo-replication.md) esistente, progettata per semplificare la distribuzione e la gestione di database con replica geografica su larga scala. È possibile avviare manualmente il failover oppure delegarlo al servizio del database SQL in base a criteri definiti dall'utente. Grazie a questa seconda opzione è possibile ripristinare automaticamente più database correlati in un'area secondaria dopo un errore irreversibile o un altro evento imprevisto che comporta la perdita parziale o completa di disponibilità del servizio del database SQL nell'area primaria. Un gruppo di failover può includere uno o più database, in genere utilizzati dalla stessa applicazione. È inoltre possibile usare i database secondari leggibili per l'offload dei carichi di lavoro delle query di sola lettura. Poiché i gruppi di failover automatico coinvolgono più database, questi ultimi devono essere configurati nel server primario. I server primario e secondario per i database nel gruppo di failover devono trovarsi nella stessa sottoscrizione. I gruppi di failover automatico supportano la replica di tutti i database nel gruppo in un solo server secondario in un'area diversa.
+I gruppi di failover automatico sono una funzionalità del database SQL che consente di gestire la replica e il failover di un gruppo di database in un server di database SQL o di tutti i database in un'istanza gestita in un'altra area. Si tratta di un'astrazione dichiarativa basata sulla funzionalità di [replica geografica attiva](sql-database-active-geo-replication.md) esistente, progettata per semplificare la distribuzione e la gestione di database con replica geografica su larga scala. È possibile avviare manualmente il failover oppure delegarlo al servizio del database SQL in base a criteri definiti dall'utente. Grazie a questa seconda opzione è possibile ripristinare automaticamente più database correlati in un'area secondaria dopo un errore irreversibile o un altro evento imprevisto che comporta la perdita parziale o completa di disponibilità del servizio del database SQL nell'area primaria. Un gruppo di failover può includere uno o più database, in genere utilizzati dalla stessa applicazione. È inoltre possibile usare i database secondari leggibili per l'offload dei carichi di lavoro delle query di sola lettura. Poiché i gruppi di failover automatico coinvolgono più database, questi ultimi devono essere configurati nel server primario. I gruppi di failover automatico supportano la replica di tutti i database nel gruppo in un solo server secondario in un'area diversa.
 
 > [!NOTE]
 > Se si usano database singoli o in pool in un server di database SQL e si intende avere più database secondari nella stessa area geografica o in aree diverse, usare la [replica geografica attiva](sql-database-active-geo-replication.md). 
@@ -191,12 +191,20 @@ Se l'applicazione usa l'istanza gestita come livello dati, seguire queste linee 
 
   Per garantire connettività ininterrotta all'istanza primaria dopo il failover, l'istanza primaria e l'istanza secondaria devono essere nella stessa zona DNS. Garantisce che lo stesso certificato di multidominio (SAN) possa essere utilizzato per autenticare le connessioni client a una delle due istanze del gruppo di failover. Quando l'applicazione è pronta per la distribuzione in produzione, creare un'istanza secondaria in un'area diversa e assicurarsi che condivida la zona DNS con l'istanza primaria. È possibile eseguire questa operazione specificando `DNS Zone Partner` un parametro facoltativo usando il portale di Azure, PowerShell o l'API REST. 
 
-  Per ulteriori informazioni sulla creazione dell'istanza secondaria nella stessa zona DNS dell'istanza primaria, vedere [gestione dei gruppi di failover con istanze gestite (anteprima)](#powershell-managing-failover-groups-with-managed-instances-preview).
+  Per ulteriori informazioni sulla creazione dell'istanza secondaria nella stessa zona DNS dell'istanza primaria, vedere [creare un'istanza gestita secondaria](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
 - **Consentire il traffico di replica tra due istanze**
 
   Poiché ogni istanza è isolata nella propria rete virtuale, è necessario consentire il traffico bidirezionale tra queste reti virtuali. Vedere [Gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
+- **Creazione di un gruppo di failover tra istanze gestite in sottoscrizioni diverse**
+
+  È possibile creare un gruppo di failover tra istanze gestite in due sottoscrizioni diverse. Quando si usa l'API di PowerShell, è possibile eseguire `PartnerSubscriptionId` questa operazione specificando il parametro per l'istanza secondaria. Quando si usa l' `properties.managedInstancePairs` API REST, ogni ID istanza incluso nel parametro può avere un proprio subscriptionID. 
+  
+  > [!IMPORTANT]
+  > Il portale di Azure non supporta i gruppi di failover tra sottoscrizioni diverse.
+
+  
 - **Configurare un gruppo di failover per gestire il failover dell'intera istanza**
 
   Il gruppo di failover gestisce il failover di tutti i database nell'istanza. Quando viene creato un gruppo, ogni database nell'istanza sarà automaticamente sottoposto a replica geografica nell'istanza secondaria. Non è possibile usare gruppi di failover per avviare un failover parziale di un subset dei database.
@@ -326,38 +334,20 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 > Per uno script di esempio, vedere [Configure and failover a failover group for a single database](scripts/sql-database-add-single-db-to-failover-group-powershell.md) (Configurare ed eseguire il failover di un gruppo di failover per un singolo database).
 >
 
-### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Gestione dei gruppi di failover con istanze gestite (anteprima)
+### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell: Gestione dei gruppi di failover del database SQL con istanze gestite 
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installare la versione provvisoria più recente di PowerShell
-
-1. Aggiornare il modulo PowerShellGet alla versione 1.6.5 (o versione di anteprima più recente). Vedere il [sito di anteprima di PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
-
-   ```powershell
-      install-module PowerShellGet -MinimumVersion 1.6.5 -force
-   ```
-
-2. In una nuova finestra di PowerShell eseguire i comandi seguenti:
-
-   ```powershell
-      import-module PowerShellGet
-      get-module PowerShellGet #verify version is 1.6.5 (or newer)
-      install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
-      import-module azurerm.sql
-   ```
-
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>Cmdlet di PowerShell per creare un gruppo di failover dell'istanza
-
-| API | Descrizione |
+| Cmdlet | DESCRIZIONE |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica la configurazione del gruppo di failover|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Recupera la configurazione del gruppo di failover|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Attiva il failover del gruppo di failover per il server secondario|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Rimuove un gruppo di failover|
+| [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
+| [Set-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifica la configurazione del gruppo di failover|
+| [Get-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |Recupera la configurazione del gruppo di failover|
+| [Switch-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Attiva il failover del gruppo di failover per il server secondario|
+| [Remove-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | Rimuove un gruppo di failover|
+|  | |
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gestire gruppi di failover del database SQL con database singoli e in pool
 
-| API | Descrizione |
+| API | DESCRIZIONE |
 | --- | --- |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Crea o aggiorna un gruppo di failover. |
 | [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Rimuove il gruppo di failover dal server |

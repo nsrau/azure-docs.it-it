@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 07/09/2019
 ms.author: danlep
-ms.openlocfilehash: 4099bc0b15f02faade02f47aeb00fb7c4b4a3332
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 9b57775040251312c8afbff5983a52ae9d14e6c6
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325876"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172502"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze di contenitore con i log di Monitoraggio di Azure
 
@@ -27,7 +27,7 @@ Per inviare i dati delle istanze di contenitore ai log di Monitoraggio di Azure,
 
 Per abilitare la registrazione nelle istanze di contenitore, è necessario quanto segue:
 
-* [area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [Area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Ottenere le credenziali di Log Analytics

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 33ee006a704cec1fb0d75a953629aec68461a4f4
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128347"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165197"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -76,7 +76,7 @@ La VM del notebook è:
 
 + **Personalizzabile**. Anche se un'offerta di macchina virtuale gestita e sicura consente di mantenere l'accesso completo alle funzionalità hardware e di personalizzarlo in base alle proprie esigenze. Ad esempio, è possibile creare rapidamente la macchina virtuale più recente con tecnologia NVidia V100 per eseguire il debug dettagliato di una nuova architettura di rete neurale.
 
-Per arrestare gli addebiti per le VM notebook, [arrestare la VM del notebook](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm). 
+Per arrestare gli addebiti per le VM notebook, [arrestare la VM del notebook](tutorial-1st-experiment-sdk-train.md#clean-up-resources). 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
