@@ -1,18 +1,18 @@
 ---
 title: Come gestire un account Marketplace commerciale nel centro per i partner
 description: Informazioni su come gestire un account Marketplace commerciale nel centro per i partner.
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f0557f21e791dd22df16451003d5efcfc72c56b4
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.date: 08/30/2019
+ms.openlocfilehash: 99f981698daf12bf7d493159fc7fd08a98a28104
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164726"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194257"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire l'account del Marketplace commerciale nel centro per i partner 
 
@@ -223,7 +223,7 @@ Se è necessario modificare la password di uno degli utenti, è possibile farlo 
 3.  Verrà visualizzata una pagina di conferma che mostra le informazioni di accesso per l'utente, inclusa una password temporanea. Assicurarsi di stampare o copiare queste informazioni e di fornirle all'utente, perché non sarà possibile accedere alla password temporanea dopo aver lasciato questa pagina.
 
 
-## <a name="manage-groups"></a>Gestisci gruppi
+## <a name="manage-groups"></a>Gestisci i gruppi
 
 I gruppi consentono di controllare contemporaneamente più ruoli utente e autorizzazioni.
 
@@ -305,9 +305,15 @@ Se l'applicazione Azure AD legge e scrive i dati in Microsoft Azure AD, sarà ne
 Agli utenti della società è possibile assegnare i seguenti ruoli e autorizzazioni per il programma Commercial Marketplace nel centro per i partner. 
 
 |**Ruolo**|**Autorizzazioni**|
-|----------------------------------|:---------------------------------|
-
-| Manager | • può accedere a tutte le funzionalità di account Microsoft ad eccezione delle impostazioni fiscali e di pagamento |      | • È in grado di gestire utenti, ruoli e account di lavoro (tenant) | | Developer | • è in grado di gestire e pubblicare le offerte |      | • È possibile visualizzare alcuni report del server di pubblicazione | | Amministratore globale | • non pertinente per il Marketplace commerciale | | Collaboratore aziendale | • non pertinente per Marketplace commerciale | | Collaboratore finanziario | • non pertinente per il Marketplace commerciale | | Marketer | • non pertinente per il Marketplace commerciale |
+|----------------------------------|---------------------------------|
+|Supervisore|-Può accedere a tutte le funzionalità di account Microsoft ad eccezione delle impostazioni fiscali e di pagamento|
+|      |-Può gestire utenti, ruoli e account di lavoro (tenant)|
+|Sviluppatore|-È in grado di gestire e pubblicare le offerte|
+|      |-È possibile visualizzare alcuni report del server di pubblicazione|
+|Amministratore globale|-Non pertinente per il Marketplace commerciale|
+|Collaboratore aziendale|-Non pertinente per il Marketplace commerciale|
+|Collaboratore finanziario|-Non pertinente per il Marketplace commerciale|
+|Venditore|-Non pertinente per il Marketplace commerciale|
 
 Per ulteriori informazioni sulla gestione dei ruoli e delle autorizzazioni in altre aree del centro per i partner, ad esempio Azure Active Directory (AD), Cloud Solution Provider (CSP), pannello di controllo Fornitore (CPV), utenti guest o Microsoft Partner Network (MPN), vedere [assegnare ruoli agli utenti. e autorizzazioni nel centro per i partner](https://docs.microsoft.com/partner-center/permissions-overview).
 

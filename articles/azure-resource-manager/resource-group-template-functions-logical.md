@@ -3,15 +3,15 @@ title: 'Funzioni del modello di Azure Resource Manager: logiche | Microsoft Docs
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per determinare i valori logici.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea91798a1c0ca0aad729128ce4694a85165f3c3b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447981"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194795"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funzioni logiche nei modelli di Azure Resource Manager
 
@@ -69,7 +69,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -83,7 +83,7 @@ Converte il parametro in un valore booleano.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |stringa o numero intero |Valore da convertire in un valore booleano. |
 
@@ -122,7 +122,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
@@ -139,8 +139,8 @@ Restituisce un valore in base a un condizione true o false.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| condition |Yes |boolean |Valore da controllare se è true o false. |
-| trueValue |Yes | string, int, object o array |Valore da restituire quando la condizione è true. |
+| condition |Sì |boolean |Valore per verificare se è true o false. |
+| trueValue |Sì | string, int, object o array |Valore da restituire quando la condizione è true. |
 | falseValue |Yes | string, int, object o array |Valore da restituire quando la condizione è false. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -149,7 +149,7 @@ Restituisce il secondo parametro, quando il primo parametro è **True**. In caso
 
 ### <a name="remarks"></a>Note
 
-Quando la condizione è **True**, viene valutato solo il valore true. Quando la condizione è **False**, viene valutato solo il valore false. Con il **se** (funzione), è possibile includere le espressioni in modo condizionale solo validi. Ad esempio, è possibile fare riferimento a una risorsa esistente in una condizione, ma non nell'altra condizione. Nella sezione seguente è illustrato un esempio di in modo condizionale la valutazione delle espressioni.
+Quando la condizione è **true**, viene valutato solo il valore true. Quando la condizione è **false**, viene valutato solo il valore false. Con la funzione **if** è possibile includere espressioni che sono valide solo in modo condizionale. Ad esempio, è possibile fare riferimento a una risorsa presente in una condizione ma non in un'altra condizione. Nella sezione seguente viene illustrato un esempio della valutazione condizionale delle espressioni.
 
 ### <a name="examples"></a>Esempi
 
@@ -180,13 +180,13 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| yesOutput | string | sì |
-| noOutput | string | no |
+| yesOutput | String | sì |
+| noOutput | String | no |
 | objectOutput | Object | { "test": "value1" } |
 
-Quanto segue [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) viene illustrato come utilizzare questa funzione con le espressioni in modo condizionale solo validi.
+Nel [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) seguente viene illustrato come utilizzare questa funzione con espressioni che sono valide solo in modo condizionale.
 
 ```json
 {
@@ -242,7 +242,7 @@ Converte il valore booleano nel valore opposto.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |Valore da convertire. |
 
@@ -278,7 +278,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Value |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -302,7 +302,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -314,7 +314,7 @@ Verifica se uno qualsiasi dei valori dei parametri è true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Yes |boolean |Secondo valore da controllare per verificare se è true. |
@@ -352,7 +352,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |

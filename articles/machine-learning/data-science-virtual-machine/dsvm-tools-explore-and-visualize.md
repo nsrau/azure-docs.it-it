@@ -1,28 +1,23 @@
 ---
-title: Strumenti per la visualizzazione e l'esplorazione dei dati in Azure | Microsoft Docs
+title: Strumenti per la visualizzazione e l'esplorazione dei dati
+titleSuffix: Azure Data Science Virtual Machine
 description: Strumenti per la visualizzazione e l'esplorazione dei dati per la macchina virtuale per data science.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vijetaj
-ms.openlocfilehash: d60acdf483d418e458f51ef6cf31b17c43b7379f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 14c34a13440d50fcf42c2207f9933dc1de014a14
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065898"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191972"
 ---
-# <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Strumenti per la visualizzazione e l'esplorazione dei dati nella macchina virtuale per data science
+# <a name="data-exploration-and-visualization-tools-on-the-azure-data-science-virtual-machine"></a>Strumenti per l'esplorazione e la visualizzazione dei dati nel Data Science Virtual Machine di Azure
 
 In data science, la chiave consiste nel comprendere i dati. Gli strumenti di visualizzazione ed esplorazione dei dati consentono di velocizzare la comprensione dei dati. Gli strumenti seguenti, disponibili nella Data Science Virtual Machine (DSVM), rendono più semplice questo passaggio chiave.
 

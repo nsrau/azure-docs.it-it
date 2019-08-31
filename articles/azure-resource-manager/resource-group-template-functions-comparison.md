@@ -3,15 +3,15 @@ title: Funzioni di confronto del modello di Azure Resource Manager | Microsoft D
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per confrontare valori.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 0eafadd4049baea58aa882b3421eaa6a684a3a38
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 05e51af62be974f925fefc46ad63c489f27fd163
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205489"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194827"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funzioni di confronto per i modelli di Azure Resource Manager
 
@@ -32,10 +32,10 @@ Controlla se due valori sono uguali tra loro.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |int, stringa, matrice o oggetto |Il primo valore per verificare l'uguaglianza. |
-| arg2 |Yes |int, stringa, matrice o oggetto |Il secondo valore per verificare l'uguaglianza. |
+| arg2 |Sì |int, string, array, o object |Il secondo valore per verificare l'uguaglianza. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -127,7 +127,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Value |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | True |
@@ -165,7 +165,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Name | Type | Value |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -188,10 +188,10 @@ Controlla se il primo valore è maggiore del secondo.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int o stringa |Il primo valore per il confronto del maggiore. |
-| arg2 |Yes |int o stringa |Il secondo valore per il confronto del maggiore. |
+| arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore. |
+| arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -240,7 +240,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Value |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -264,7 +264,7 @@ Controlla se il primo valore è maggiore o uguale al secondo valore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |int o stringa |Il primo valore per il confronto del maggiore e dell'uguaglianza. |
 | arg2 |Yes |int o stringa |Il secondo valore per il confronto del maggiore e dell'uguaglianza. |
@@ -316,7 +316,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Value |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -333,14 +333,14 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
 ```
 
-## <a name="less"></a>less
+## <a name="less"></a>meno
 `less(arg1, arg2)`
 
 Controlla se il primo valore è minore del secondo.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |int o stringa |Il primo valore per il confronto del minore. |
 | arg2 |Yes |int o stringa |Il secondo valore per il confronto del minore. |
@@ -392,7 +392,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Value |
+| NOME | Type | Valore |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
@@ -416,10 +416,10 @@ Controlla se il primo valore è minore o uguale al secondo valore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
-| arg2 |Yes |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |
+| arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -468,7 +468,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Value |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |

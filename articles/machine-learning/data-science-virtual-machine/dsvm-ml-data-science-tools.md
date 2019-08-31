@@ -1,37 +1,32 @@
 ---
-title: Strumenti per data science e machine learning in Azure | Microsoft Docs
+title: Strumenti di & data science di Machine Learning
+titleSuffix: Azure Data Science Virtual Machine
 description: Informazioni su strumenti per machine learning e framework preinstallati in Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vijetaj
-ms.openlocfilehash: 3b05d076a61593e8c34ce642f2fe2fd137e07109
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d823eb615f983190ee6974ee3012f069309ca753
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565248"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195633"
 ---
-# <a name="machine-learning-and-data-science-tools"></a>Strumenti per machine learning e data science
+# <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Strumenti di machine learning e data science sulle macchine virtuali di Data Science di Azure
 Data Science Virtual Machine offre un ampio set di strumenti e librerie per machine learning (ML) disponibili nei linguaggi più diffusi, ad esempio Python, R, Julia. 
 
 Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine. 
 
-## <a name="azure-machine-learninghttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>SDK di [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml)
+## <a name="azure-machine-learning-sdk-for-python"></a>SDK di Azure Machine Learning per Python
+Vedere le informazioni di riferimento complete per [Azure Machine Learning SDK per Python](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml).
 |    |           |
 | ------------- | ------------- |
-| Informazioni   |   Azure Machine Learning è un servizio cloud usato per sviluppare e distribuire modelli di Machine Learning. È possibile tenere traccia dei modelli durante la compilazione, il training, il ridimensionamento e la gestione con Python SDK. Distribuire modelli come contenitori ed eseguirli nel cloud, in locale o in Azure IoT Edge.   |
+| Che cos'è?   |   Azure Machine Learning è un servizio cloud usato per sviluppare e distribuire modelli di Machine Learning. È possibile tenere traccia dei modelli durante la compilazione, il training, il ridimensionamento e la gestione con Python SDK. Distribuire modelli come contenitori ed eseguirli nel cloud, in locale o in Azure IoT Edge.   |
 | Edizioni supportate     | Windows (ambiente conda: Azure ML), Linux (ambiente conda: py36)    |
 | Usi tipici      | Piattaforma Machine Learning generale      |
 | Come viene configurata o installata?      |  Installata con supporto GPU   |
@@ -42,7 +37,7 @@ Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine.
 ## <a name="xgboost"></a>XGBoost 
 |    |           |
 | ------------- | ------------- |
-| Informazioni   |    XGBoost è una libreria di gradient boosting veloce, portatile e distribuita (GBDT, GBRT o GBM) per Python, R, Java, Scala, C++ e altro ancora. Viene eseguita su un solo computer, Hadoop, Spark.    |
+| Che cos'è?   |    XGBoost è una libreria di gradient boosting veloce, portatile e distribuita (GBDT, GBRT o GBM) per Python, R, Java, Scala, C++ e altro ancora. Viene eseguita su un solo computer, Hadoop, Spark.    |
 | Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Libreria ML generale      |
 | Come viene configurata o installata?      |  Installata con supporto GPU   |
@@ -55,7 +50,7 @@ Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine.
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 |    |           |
 | ------------- | ------------- |
-| Informazioni   |   Vowpal Wabbit, noto anche come "VW", è una libreria del sistema di apprendimento esterno rapido e open source.    |
+| Che cos'è?   |   Vowpal Wabbit, noto anche come "VW", è una libreria del sistema di apprendimento esterno rapido e open source.    |
 | Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Libreria ML generale      |
 | Come viene configurata o installata?      |  Windows: programma di installazione msi, Linux: apt-get |
@@ -67,7 +62,7 @@ Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine.
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| Informazioni   |  Weka è una raccolta di algoritmi per Machine Learning per attività di data mining. Gli algoritmi possono essere applicati direttamente a un set di dati o chiamati dal codice Java. Weka contiene strumenti per la pre-elaborazione, la classificazione, la regressione, il clustering, le regole di associazione e la visualizzazione dei dati. |
+| Che cos'è?   |  Weka è una raccolta di algoritmi per Machine Learning per attività di data mining. Gli algoritmi possono essere applicati direttamente a un set di dati o chiamati dal codice Java. Weka contiene strumenti per la pre-elaborazione, la classificazione, la regressione, il clustering, le regole di associazione e la visualizzazione dei dati. |
 | Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Strumento Machine Learning generale     |
 | Come usarla o eseguirla      | In Windows cercare Weka nel menu Start. In Linux accedere con X2Go e quindi andare a **Applications** > **Development** > **Weka**. |
@@ -77,7 +72,7 @@ Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine.
 ## <a name="rattle"></a>Rattle
 |    |           |
 | ------------- | ------------- |
-| Informazioni   |   Rattle è un'interfaccia utente grafica per data mining con R.   |
+| Che cos'è?   |   Rattle è un'interfaccia utente grafica per data mining con R.   |
 | Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Strumento di data mining dell'interfaccia utente generale per R    |
 | Come usarla o eseguirla      | Strumento dell'interfaccia utente. In Windows avviare un prompt dei comandi, eseguire R, quindi all'interno di R eseguire `rattle()`. In Linux connettersi con X2Go, avviare un terminale, eseguire R, quindi all'interno di R eseguire `rattle()`. |
@@ -87,7 +82,7 @@ Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine.
 ## <a name="lightgbm"></a>LightGBM
 |    |           |
 | ------------- | ------------- |
-| Informazioni   | LightGBM è un framework rapido, distribuito e a prestazioni elevate di gradient boosting (GBDT, GBRT, GBM, or MART) basato su algoritmi dell'albero delle decisioni. Viene usato per la classificazione e molte altre attività di Machine Learning.    |
+| Che cos'è?   | LightGBM è un framework rapido, distribuito e a prestazioni elevate di gradient boosting (GBDT, GBRT, GBM, or MART) basato su algoritmi dell'albero delle decisioni. Viene usato per la classificazione e molte altre attività di Machine Learning.    |
 | Versioni supportate      | Windows, Linux    |
 | Usi tipici      | Framework di gradient boosting generico      |
 | Come viene configurata o installata?      | In Windows LightGBM viene installato come pacchetto di Python. In Linux il file eseguibile da riga di comando si trova in `/opt/LightGBM/lightgbm`, viene installato il pacchetto R e i pacchetti di Python.     |
@@ -97,7 +92,7 @@ Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine.
 ## <a name="h2o"></a>H2O
 |    |           |
 | ------------- | ------------- |
-| Informazioni   | H2O è una piattaforma IA open source che supporta Machine Learning in memoria, distribuito, veloce e scalabile.  |
+| Che cos'è?   | H2O è una piattaforma IA open source che supporta Machine Learning in memoria, distribuito, veloce e scalabile.  |
 | Versioni supportate      | Linux   |
 | Usi tipici      | ML scalabile e distribuito generico   |
 | Come viene configurata o installata?      | H2O è installato in `/dsvm/tools/h2o`.      |

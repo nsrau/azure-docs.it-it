@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 3fa97c5738128907b0edad40cedf582e80c33443
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891714"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194466"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -277,7 +277,11 @@ Sì, lo SKU del gateway applicazione V2 supporta Key Vault. Per ulteriori inform
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Ricerca per categorie configurare i listener HTTPS per i siti com e .NET? 
 
-Per più routing basato su dominio (basato su host), è possibile creare listener multisito, configurare listener che usano HTTPS come protocollo e associare i listener alle regole di routing. Per altre informazioni, vedere [hosting di più siti tramite il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
+Per più routing basato su dominio (basato su host), è possibile creare listener multisito, configurare listener che usano HTTPS come protocollo e associare i listener alle regole di routing. Per altre informazioni, vedere [hosting di più siti tramite il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
+
+### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>È possibile usare caratteri speciali nella password del file con estensione pfx?
+
+No, usare solo caratteri alfanumerici nella password del file con estensione pfx.
 
 ## <a name="configuration---web-application-firewall-waf"></a>Configuration-web application firewall (WAF)
 

@@ -1,103 +1,103 @@
 ---
-title: Aggiornare un'offerta commerciale Marketplace esistente
-description: Come eseguire aggiornamenti a un'offerta commerciale Marketplace esistente, tra cui la modifica, eliminazione di una bozza, l'annullamento di una richiesta di pubblicazione, arrestare vendere un'offerta o un piano, la sincronizzazione e destinatari privati.
-author: mattwojo
+title: Aggiornare un'offerta di Marketplace commerciale esistente
+description: Come apportare aggiornamenti a un'offerta del Marketplace commerciale esistente, inclusa la modifica, l'eliminazione di una bozza, l'annullamento di una richiesta di pubblicazione, la vendita di un'offerta o un piano e la sincronizzazione di destinatari privati.
+author: ChJenk
 manager: evansma
-ms.author: mattwoj
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: f591df0fe93336da09e9c441292c97be09f25a2e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9cefdc9354560ac5b7f3789cde2408a4c255c186
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442088"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191768"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aggiornare un'offerta esistente nel Marketplace commerciale
 
-È possibile visualizzare le offerte esistenti nella **Panoramica** scheda della finestra di [portale Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) nel centro per i Partner.
+È possibile visualizzare le offerte esistenti nella scheda **Panoramica** del portale del [Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) nel centro per i partner.
 
-Per aggiornare un'offerta esistente che è attualmente disponibile nel marketplace: 
+Per aggiornare un'offerta esistente attualmente disponibile nel Marketplace: 
 
-1. Selezionare il nome dell'offerta, che si desidera aggiornare. Lo stato dell'offerta potrebbe essere elencato come **Live**, **Publish in corso**, **bozza**, **attenzione necessita**, o **non è in corso venduti nel marketplace** (se si è precedentemente scelto di interrompere l'offerta di vendita). Una volta selezionato, il **panoramica dell'offerta** pagina di offerta verrà aperti.
-2. Selezionare **aggiornare** dalla carta panoramica o la voce di menu nella finestra di navigazione a sinistra per l'area che si desidera aggiornare. È possibile aggiornare il **offrono il programma di installazione**, **delle proprietà**, **inserzione dell'offerta**, **anteprima**, **configurazione tecnica** , **Panoramica del piano**, o **Test drive**. 
-3. Apportare le modifiche desiderate e quindi selezionare **salvare**. Ripetere questo processo fino al completamento di tutte le modifiche.
+1. Selezionare il nome dell'offerta che si desidera aggiornare. Lo stato dell'offerta può essere indicato come **Live**, **pubblicazione in corso**, **bozza**, **attenzione necessaria**o **non venduta nel Marketplace** (se si è scelto in precedenza di interrompere la vendita dell'offerta). Una volta selezionata, viene visualizzata la pagina di **Panoramica dell'offerta** per l'offerta.
+2. Selezionare **Aggiorna** dalla scheda Panoramica o la voce di menu nel riquadro di spostamento a sinistra per l'area che si desidera aggiornare. Potrebbe essere necessario aggiornare la **configurazione dell'offerta**, le **Proprietà**, l' **elenco di offerte**, l' **Anteprima**, la **configurazione tecnica**, la **Panoramica del piano**o la **test drive**. 
+3. Apportare le modifiche e quindi selezionare **Salva**. Ripetere questo processo fino a quando non vengono completate tutte le modifiche.
 
-## <a name="review-and-publish-an-updated-offer"></a>Verificare e pubblicare un'offerta aggiornata
+## <a name="review-and-publish-an-updated-offer"></a>Esaminare e pubblicare un'offerta aggiornata
 
-Quando si è pronti per pubblicare l'offerta aggiornata, selezionare **pubblica** da qualsiasi pagina. Il **revisione e pubblicare** verrà aperta la pagina. In questa pagina è possibile:
+Quando si è pronti per pubblicare l'offerta aggiornata, selezionare **pubblica** da qualsiasi pagina. Viene visualizzata la pagina **revisione e pubblicazione** . In questa pagina è possibile:
 
 
-- Visualizzare lo stato di completamento per le sezioni dell'offerta, è stato aggiornato: 
-    - **Modifiche non salvate**: La sezione è stata aggiornata ed è stata completata. Tutti i dati richiesti è stato specificato e nessun errore introdotte negli aggiornamenti.
-    - **Dati incompleti**: Gli aggiornamenti apportati alla sezione introdotti errori che devono essere corretti o richiede informazioni da fornire.
-- Fornire informazioni aggiuntive al team di test di certificazione per assicurarsi che il test avvenga.
-- Inviare l'offerta aggiornata per la pubblicazione selezionando **Submit**.  Verrà inviato quando una versione di anteprima dell'offerta aggiornata è disponibile per la revisione e approvazione.
+- Vedere lo stato di completamento per le sezioni dell'offerta aggiornata: 
+    - **Modifiche non pubblicate**: La sezione è stata aggiornata ed è stata completata. Sono stati forniti tutti i dati necessari e non sono stati introdotti errori negli aggiornamenti.
+    - **Dati incompleti**: Gli aggiornamenti apportati alla sezione hanno introdotto errori che devono essere corretti o sono necessarie altre informazioni.
+- Fornire informazioni aggiuntive al team di test della certificazione per assicurarsi che il test venga eseguito senza problemi.
+- Inviare l'offerta aggiornata per la pubblicazione selezionando **Invia**.  Ti invieremo un messaggio di posta elettronica quando sarà disponibile una versione di anteprima dell'offerta aggiornata per la verifica e la disconnessione.
 
-**IMPORTANTE**: È necessario esaminare la versione di anteprima di offerta, una volta disponibili e selezioniamo **Go-live** per pubblicare l'offerta aggiornata per i destinatari desiderati (pubblico o privato).
+**IMPORTANTE**: È necessario rivedere l'anteprima dell'offerta, una volta disponibile, e selezionare **Go-Live** per pubblicare l'offerta aggiornata nei destinatari desiderati (pubblico o privato).
 
-## <a name="update-a-plan-within-an-existing-offer"></a>Aggiornare un piano all'interno di un'offerta esistente
+## <a name="update-a-plan-within-an-existing-offer"></a>Aggiornare un piano in un'offerta esistente
 
-Per apportare modifiche a un piano all'interno di un'offerta esistente a cui è già stata pubblicata:
+Per apportare modifiche a un piano all'interno di un'offerta esistente già pubblicata:
 
-- Con il **panoramica dell'offerta** pagina aperta per l'offerta esistente, scegliere il piano che si desidera modificare. Se il piano non è accessibile dal **Panoramica del piano** elenco, selezionare **vedere tutti i piani**.
-- È possibile scegliere di selezionare il piano **Name**, **modello di determinazione prezzi**, o **disponibilità**. *Attualmente i piani sono disponibili solo in lingua inglese (Stati Uniti)* .
-- Selezionare **salvare** dopo aver apportato le modifiche necessarie per il nome del piano, descrizione, prezzi o disponibilità gruppo di destinatari. 
-- Selezionare **pubblica** quando è pronti per pubblicare gli aggiornamenti. Il **[revisione e pubblicare](#review-and-publish-an-updated-offer)** pagina verrà aperto e fornire uno stato di completamento per gli aggiornamenti. 
+- Con la pagina **Panoramica dell'offerta** aperta per l'offerta esistente, scegliere il piano che si desidera modificare. Se il piano non è accessibile dall'elenco **panoramica piano** , selezionare **Visualizza tutti i piani**.
+- È possibile scegliere di selezionare il **nome**del piano, il **modello di determinazione dei prezzi**o la **disponibilità**. *Attualmente i piani sono disponibili solo in inglese (Stati Uniti)* .
+- Selezionare **Save (Salva** ) dopo aver apportato le modifiche necessarie al nome del piano, alla descrizione, ai prezzi o alla disponibilità dei destinatari. 
+- Selezionare **pubblica** quando si è pronti per pubblicare gli aggiornamenti. La pagina **[revisione e pubblicazione](#review-and-publish-an-updated-offer)** si aprirà e fornirà uno stato di completamento per gli aggiornamenti. 
 
 ## <a name="delete-a-draft-offer"></a>Eliminare un'offerta bozza
 
-È possibile eliminare un'offerta bozza (uno che non è stato pubblicato) selezionando **Elimina bozza** dalle **offrono Panoramica** pagina. Questa opzione non sarà disponibile all'utente se è stata pubblicata in precedenza l'offerta.
+È possibile eliminare un'offerta bozza (una che non è stata pubblicata) selezionando **Elimina bozza** dalla pagina **Panoramica dell'offerta** . Questa opzione non sarà disponibile se in precedenza è stata pubblicata l'offerta.
 
-Dopo aver confermato che si desidera eliminare l'offerta bozza, l'offerta non saranno accessibili o visibili nel centro per i Partner e il **tutte le offerte** verrà aperta la pagina.
+Dopo aver confermato che si vuole eliminare l'offerta bozza, l'offerta non sarà più visibile o accessibile nel centro per i partner e verrà aperta la pagina **tutte le offerte** .
 
-## <a name="delete-a-draft-plan"></a>Eliminare un piano 2D
+## <a name="delete-a-draft-plan"></a>Eliminare un piano bozza
 
-Per eliminare un piano che non è stato pubblicato, selezionare **Elimina bozza** dalle **Cenni preliminari sul piano** pagina. Questa opzione non sarà disponibile all'utente se è stata pubblicata in precedenza l'offerta.
+Per eliminare un piano che non è stato pubblicato, selezionare **Elimina bozza** dalla pagina **panoramica piano** . Questa opzione non sarà disponibile se l'offerta è stata pubblicata in precedenza.
 
-Dopo aver confermato che si desidera eliminare il piano di bozza, il piano non saranno accessibili o visibili nel centro per i Partner.
+Dopo aver confermato che si desidera eliminare il piano bozza, il piano non sarà più visibile né accessibile nel centro per i partner.
 
-## <a name="cancel-publishing"></a>Annullare la pubblicazione
+## <a name="cancel-publishing"></a>Annulla pubblicazione
 
-Per annullare un'offerta con la **pubblicazione in corso** stato:
+Per annullare un'offerta con lo stato **pubblicazione in corso** :
 
-- Selezionare il nome dell'offerta per aprire la **panoramica dell'offerta** pagina. 
-- Selezionare **Annulla pubblicazione** dall'angolo superiore destro della pagina.
-- Confermare che si desidera interrompere l'offerta non viene pubblicata. 
+- Selezionare il nome dell'offerta per aprire la pagina **Panoramica dell'offerta** . 
+- Selezionare **Annulla pubblicazione** nell'angolo superiore destro della pagina.
+- Confermare che si desidera arrestare la pubblicazione dell'offerta. 
 
-Se si desidera pubblicare l'offerta in un secondo momento, è necessario ricominciare da capo il processo di pubblicazione.
+Se si vuole pubblicare l'offerta in un secondo momento, è necessario avviare il processo di pubblicazione.
 
 > [!NOTE]
-> È possibile interrompere un'offerta vengano pubblicati solo se l'offerta non è ancora avanzata con il passaggio di approvazione di server di pubblicazione. Dopo aver selezionato **Go live** non si avrà la possibilità di annullare la pubblicazione più.
+> È possibile arrestare la pubblicazione di un'offerta solo se l'offerta non è ancora progredita nel passaggio di approvazione dell'editore. Dopo aver selezionato **Go Live** , non sarà più possibile annullare la pubblicazione.
 
-## <a name="stop-selling-an-offer-or-plan"></a>Prima di vendere un'offerta o un piano
+## <a name="stop-selling-an-offer-or-plan"></a>Interrompi la vendita di un'offerta o di un piano
 
-Per interrompere un'offerta di vendita dopo averlo già pubblicato, selezionare **prima di vendere** dalle **offrono Panoramica** pagina. Per interrompere la vendita di un piano, selezionare **prima di vendere** dal **Cenni preliminari sul piano** pagina. (L'opzione per arrestare un piano di vendita è disponibile solo se si dispone di più di un piano nell'offerta. È possibile scegliere di arrestare la vendita di un piano senza alcun impatto sugli altri piani all'interno dell'offerta.)
+Per interrompere la vendita di un'offerta dopo che è già stata pubblicata, selezionare Interrompi la **vendita** dalla pagina **Panoramica dell'offerta** . Per interrompere la vendita di un piano, selezionare Interrompi la **vendita** dalla pagina **Panoramica del piano** . (L'opzione per arrestare la vendita di un piano è disponibile solo se si dispone di più di un piano nell'offerta. È possibile scegliere di interrompere la vendita di un piano senza influito sugli altri piani nell'offerta.
 
-Dopo aver verificato che si vuole arrestare all'offerta o un piano di vendita, in poche ore non sarà visibile nel marketplace e nessun nuovi clienti possono scaricarlo. 
+Quando si conferma che si desidera interrompere la vendita dell'offerta o del piano, entro poche ore non sarà più visibile nel Marketplace e nessun nuovo cliente potrà scaricarlo. 
 
-I clienti che viene acquisito in precedenza all'offerta o un piano possono comunque usarlo. Questi possono scaricarlo di nuovo, ma non otterranno gli aggiornamenti se si aggiorna e ripubblicare l'offerta o piano in un secondo momento. 
+Tutti i clienti che hanno precedentemente acquisito l'offerta o il piano possono comunque utilizzarlo. Possono scaricarlo nuovamente, ma non gli aggiornamenti se si aggiorna e si pubblica nuovamente l'offerta o il piano in un secondo momento. 
 
-Dopo aver completata la richiesta di arresto/piano di offerta di vendita, si verrà comunque visualizzarlo nel portale commerciale Marketplace nel centro per i Partner. Per eliminare la bozza, selezionare **Elimina bozza** da una il **panoramica dell'offerta** oppure **Panoramica del piano** pagina. 
+Dopo che la richiesta di interruzione della vendita dell'offerta o del piano è stata completata, verrà comunque visualizzata nel portale del Marketplace commerciale nel centro per i partner. Per eliminare la bozza, selezionare **Elimina bozza** dalla pagina **Panoramica dell'offerta** o **Panoramica del piano** . 
 
-Se si decide di elencare o vendere questa offerta o pianificare nuovamente, seguire le istruzioni per [aggiornare un'offerta esistente](#update-an-existing-offer-in-the-commercial-marketplace). Non dimenticare che dovrai **pubblicare** all'offerta o un piano di nuovo dopo aver apportato eventuali modifiche.
+Se si decide di elencare o vendere questa offerta o pianificare nuovamente, seguire le istruzioni per [aggiornare un'offerta esistente](#update-an-existing-offer-in-the-commercial-marketplace). Non dimenticare che è necessario **pubblicare** di nuovo l'offerta o il piano dopo avere apportato modifiche.
 
-## <a name="remove-offers-from-existing-customers"></a>Rimuovere le offerte da clienti esistenti
+## <a name="remove-offers-from-existing-customers"></a>Rimuovi offerte da clienti esistenti
 
-Per rimuovere i clienti esistenti, le offerte [registrare una richiesta di supporto](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Selezionare il tipo di offerta specifiche dal **tipo di problema** elenco e quindi selezionare **rimuovere un'offerta pubblicata** nel **categoria** elenco. Inviare la richiesta. Il team di supporto guiderà è il processo per la rimozione dell'offerta.
+Per rimuovere le offerte da clienti esistenti, [registrare una richiesta di supporto](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Selezionare il tipo di offerta specifico dall'elenco **tipo di problema** e quindi selezionare **Rimuovi un'offerta pubblicata** nell'elenco **categoria** . Inviare la richiesta. Il team di supporto guiderà l'utente durante il processo di rimozione dell'offerta.
 
-## <a name="sync-private-plan-audiences"></a>Gruppi di destinatari di sincronizzazione piano privato
+## <a name="sync-private-plan-audiences"></a>Sincronizzare i destinatari del piano privato
 
-Se l'offerta include uno o più piani che sono configurati per sia disponibile solo per un gruppo di destinatari limitato privato, è possibile aggiornare solo i destinatari che possono accedere a tale piano privato senza pubblicare altre modifiche all'offerta. 
+Se l'offerta include uno o più piani configurati per essere disponibili solo per destinatari privati, è possibile aggiornare solo i destinatari che possono accedere a tale piano privato senza pubblicare altre modifiche nell'offerta. 
 
-Per aggiornare e sincronizzare i destinatari per i piani privati:
+Per aggiornare e sincronizzare i destinatari privati per i piani:
 
-- Modificare i destinatari in uno o più piani privati tramite il + **aggiungere ID** oppure **importare i clienti (csv)** pulsante e quindi salvare le modifiche.
-- Selezionare **audience privata di sincronizzazione** dalle **Panoramica del piano** pagina.
+- Modificare i destinatari in uno o più piani privati usando il pulsante + **Aggiungi ID** o **Importa clienti (CSV)** e quindi salvare le modifiche.
+- Selezionare **Sincronizza i destinatari privati** nella pagina **Panoramica del piano** .
 
-**Sincronizzare audience privata** pubblicherà solo le modifiche per i gruppi di destinatari privati, senza la pubblicazione degli aggiornamenti potrebbe essere apportate all'offerta bozza.
+I **destinatari privati della sincronizzazione** pubblicheranno solo le modifiche apportate ai destinatari privati, senza pubblicare altri aggiornamenti che potrebbero essere stati apportati all'offerta bozza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Controllare lo stato di pubblicazione dell'offerta commerciale Marketplace](./publishing-status.md)
+- [Verificare lo stato di pubblicazione dell'offerta del Marketplace commerciale](./publishing-status.md)

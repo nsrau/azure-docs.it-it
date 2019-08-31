@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 7/01/2019
+ms.date: 08/30/2019
 ms.author: aahi
-ms.openlocfilehash: 6604e5d5b3b77955c9e5f78df5d2a5b804bf09ef
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e857401591d45048962e9f606973dbf59dfe99c8
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883586"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194323"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Invio di query di ricerca all'API Ricerca visiva Bing
 
@@ -73,7 +73,7 @@ Le richieste devono essere inviate solo come richieste HTTP POST.
 
 Di seguito vengono indicati i parametri di query da specificare nella richiesta. Come minimo, è necessario includere il `mkt` parametro di query:
 
-| Name | Value | Type | Obbligatoria |
+| Name | Valore | Type | Obbligatoria |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | Codice paese a due caratteri che rappresenta la provenienza dei risultati.<br /><br /> Se si imposta questo parametro, è necessario specificare anche l'intestazione [Accept-Language](#acceptlanguage). Bing usa la prima lingua supportata individuata nell'elenco delle lingue e combina la lingua con il codice paese specificato per determinare il mercato da cui restituire i risultati. Se nell'elenco non è presenta alcuna lingua supportata, Bing rileva la lingua e il mercato più vicini che supportano la richiesta. In alternativa, Bing può usare un mercato aggregato o predefinito per i risultati anziché quello specificato.<br /><br /> È necessario usare questo parametro di query e il parametro di query `Accept-Language` solo se si specificano più lingue. In caso contrario, è necessario usare i parametri di query `mkt` e `setLang`.<br /><br /> Tale parametro e il parametro di query [mkt](#mkt) si escludono a vicenda&mdash;non specificarli entrambi. | String | No       |
 | <a name="mkt" />mkt   | Mercato dal quale provengono i risultati. <br /><br /> **NOTA:** È necessario specificare sempre il mercato, se noto. La specifica del mercato consente a Bing indirizzare la richiesta e di restituire una risposta appropriata e ottimale.<br /><br /> Tale parametro e il parametro di query [cc](#cc) si escludono a vicenda&mdash;non specificarli entrambi. | String | Yes      |
@@ -84,7 +84,7 @@ Di seguito vengono indicati i parametri di query da specificare nella richiesta.
 
 Di seguito vengono indicate le intestazioni che la richiesta deve specificare. Le `Content-Type` intestazioni `Ocp-Apim-Subscription-Key` e sono le uniche intestazioni obbligatorie, ma è `X-MSEdge-ClientIP`necessario includere `User-Agent`anche, `X-MSEdge-ClientID`, e `X-Search-Location`.
 
-| Intestazione | Descrizione |
+| Intestazione | DESCRIZIONE |
 | --- | --- |
 | <a name="acceptlanguage" />Accept-Language  | Intestazione di richiesta facoltativa.<br /><br /> Elenco delimitato da virgole di lingue da usare per le stringhe dell'interfaccia utente. L'elenco è in ordine decrescente di preferenza. Per altre informazioni, incluso il formato previsto, vedere [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Questa intestazione e il parametro di query [setLang](#setlang) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Se si imposta questa intestazione, è necessario anche specificare il parametro di query [cc](#cc). Per determinare il mercato per cui restituire i risultati, Bing usa la prima lingua supportata individuata nell'elenco e la combina con il valore del parametro `cc`. Se l'elenco non include una lingua supportata, Bing trova la corrispondenza più vicina della lingua e il mercato che supporta la richiesta oppure usa un mercato aggregato o predefinito per i risultati. Per determinare il mercato usato da Bing, vedere l' `BingAPIs-Market` intestazione.<br /><br /> Usare questa intestazione e il parametro di query `cc` solo se si specificano più lingue. In caso contrario, usare i parametri di query [mkt](#mkt) e [setLang](#setlang).<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti di risposta si applicano alla lingua specificata.  |
 | <a name="contenttype" />Content-Type  |     |
@@ -242,7 +242,7 @@ Il campo `tags` contiene un nome visualizzato e un elenco di azioni (informazion
 
 Per un elenco delle informazioni predefinite, vedere [tag Insights predefinito](../default-insights-tag.md).
 
-I tag restanti contengono altre informazioni dettagliate importanti che possono essere di interesse per l'utente. Se ad esempio l'immagine contiene, un tag può includere un'informazione TextResults, che contiene il testo riconosciuto. In alternativa, se Bing riconosce un'entità (ovvero una persona, una posizione o una cosa) nell'immagine, è possibile che uno dei tag identifichi l'entità. Ricerca visiva restituisce anche un set eterogeneo di termini (tag) derivati dall'immagine di input. Questi tag consentono agli utenti di esplorare i concetti trovati nell'immagine. Se ad esempio l'immagine di input è di un atleta famoso, un tag potrebbe essere Sport, che contiene i collegamenti alle immagini di sportive.
+I tag restanti contengono altre informazioni dettagliate importanti che possono essere di interesse per l'utente. Se ad esempio l'immagine contiene, un tag può includere un'informazione TextResults, che contiene il testo riconosciuto. In alternativa, se Bing riconosce un'entità (ovvero una persona, una posizione o un elemento culturalmente noto/popolare) nell'immagine, è possibile che uno dei tag identifichi l'entità. Ricerca visiva restituisce anche un set eterogeneo di termini (tag) derivati dall'immagine di input. Questi tag consentono agli utenti di esplorare i concetti trovati nell'immagine. Se ad esempio l'immagine di input è di un atleta famoso, un tag potrebbe essere Sport, che contiene i collegamenti alle immagini di sportive.
 
 Ogni tag include un nome visualizzato che è possibile usare per suddividere in categorie le informazioni dettagliate, un rettangolo di selezione che identifica l'area di interesse cui applicare le informazioni, le informazioni dettagliate stesse e un'anteprima dell'immagine. Se ad esempio l'immagine è quella di una persona che indossa una maglia sportiva, un tag può includere un rettangolo di selezione che delimita la maglia e include le informazioni dettagliate VisualSearch e ProductVisualSearch. Un altro tag potrebbe includere un'informazione ImageResults contenente un URL per una richiesta all'API /images/search per ottenere immagini tipicamente correlate oppure un URL d ricerca su Bing.com che indirizza l'utente ai risultati di ricerca delle immagini su Bing.com.
 
@@ -368,7 +368,7 @@ Il riconoscimento di testo è in grado di riconoscere anche le informazioni di c
     }
 ```
 
-Se l'immagine contiene un'entità riconosciuta, ad esempio una persona, un luogo o una cosa, un tag può includere un'informazione Entità.
+Se l'immagine contiene un'entità riconosciuta, ad esempio una persona, un luogo o una persona nota culturalmente conosciuta, uno dei tag può includere un'analisi delle entità.
 
 ```json
     {
@@ -403,5 +403,5 @@ Se l'immagine contiene un'entità riconosciuta, ad esempio una persona, un luogo
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Qual è la API Ricerca visiva Bing?](../overview.md)
+- [Informazioni sull'API Ricerca visiva Bing](../overview.md)
 - [Esercitazione: Creare un'app Web a singola pagina Ricerca visiva](../tutorial-bing-visual-search-single-page-app.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 0a6b1782b9822877850f7c223dd80eed008ef706
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706322"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193196"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -194,7 +194,7 @@ Gli utenti eliminati o disabilitati che non hanno effettuato l'accesso in preced
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>D: Perché alcuni utenti non ottengono richieste di autenticazione a più fattori di Azure sui dispositivi Azure AD aggiunti?
+### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>D: Perché alcuni utenti non ricevono richieste di Multi-Factor Authentication di Azure per i dispositivi aggiunti Azure AD?
 
 **R:** Un utente può aggiungere o registrare un dispositivo con Azure AD avvalendosi di Multi-Factor Authentication. Il dispositivo stesso diventa quindi un secondo fattore attendibile per tale utente. Ogni volta che lo stesso utente esegue l'accesso al dispositivo e accede a un'applicazione, Azure AD considera tale dispositivo come secondo fattore. Ciò consente di accedere facilmente alle applicazioni senza altri messaggi prompt da parte di Multi-Factor Authentication. 
 
@@ -269,24 +269,31 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>D: I dispositivi Windows 10 Hybrid Azure AD aggiunti richiedono una serie di informazioni sul controller di dominio per ottenere l'accesso alle risorse cloud?
 
-**R:** No, tranne quando viene modificata la password dell'utente. Dopo che Windows 10 Hybrid Azure AD join è stato completato e l'utente ha eseguito l'accesso almeno una volta, il dispositivo non necessita di una linea di visibilità per il controller di dominio per accedere alle risorse cloud. Windows 10 può ottenere l'accesso Single Sign-on per Azure AD applicazioni da qualsiasi posizione con una connessione Internet, tranne quando viene modificata una password. Gli utenti che eseguono l'accesso con Windows Hello for business continuano a ottenere l'accesso Single Sign-on alle applicazioni Azure AD anche dopo una modifica della password, anche se non hanno una linea di controllo per il controller di dominio. 
+**R:** No, tranne quando viene modificata la password dell'utente. Dopo che Windows 10 Hybrid Azure AD join è stato completato e l'utente ha eseguito l'accesso almeno una volta, il dispositivo non necessita di una linea di visibilità per il controller di dominio per accedere alle risorse cloud. Windows 10 può ottenere Single Sign-On Azure AD le applicazioni da qualsiasi posizione con una connessione Internet, tranne quando viene modificata una password. Gli utenti che effettuano l'accesso con Windows Hello for business continuano a ottenere Single Sign-On Azure AD le applicazioni anche dopo una modifica della password, anche se non hanno una linea di visibilità per il controller di dominio. 
 
 ---
 
 ### <a name="q-what-happens-if-a-user-changes-their-password-and-tries-to-login-to-their-windows-10-hybrid-azure-ad-joined-device-outside-the-corporate-network"></a>D: Cosa accade se un utente modifica la password e tenta di accedere al dispositivo Windows 10 Hybrid Azure AD aggiunto al di fuori della rete aziendale?
 
-**R:** Se una password viene modificata all'esterno della rete aziendale, ad esempio usando Azure AD SSPR, l'accesso dell'utente con la nuova password avrà esito negativo. Per i dispositivi ibridi Azure AD aggiunti, l'Active Directory locale è l'autorità primaria. Quando un dispositivo non dispone di una linea di visibilità per il controller di dominio, non è in grado di convalidare la nuova password. Quindi, l'utente deve stabilire una connessione con il controller di dominio (tramite VPN o nella rete aziendale) prima di poter accedere al dispositivo con la nuova password. In caso contrario, possono accedere solo con la vecchia password a causa della funzionalità di accesso memorizzato nella cache di Windows. Tuttavia, la vecchia password viene invalidata da Azure AD durante le richieste di token e, di conseguenza, impedisce l'accesso Single Sign-on e non genera alcun criterio di accesso condizionale basato su dispositivo. Questo problema non si verifica se si usa Windows Hello for business. 
+**R:** Se una password viene modificata all'esterno della rete aziendale, ad esempio usando Azure AD SSPR, l'accesso dell'utente con la nuova password avrà esito negativo. Per i dispositivi ibridi Azure AD aggiunti, l'Active Directory locale è l'autorità primaria. Quando un dispositivo non dispone di una linea di visibilità per il controller di dominio, non è in grado di convalidare la nuova password. Quindi, l'utente deve stabilire una connessione con il controller di dominio (tramite VPN o nella rete aziendale) prima di poter accedere al dispositivo con la nuova password. In caso contrario, possono accedere solo con la vecchia password a causa della funzionalità di accesso memorizzato nella cache di Windows. Tuttavia, la vecchia password viene invalidata da Azure AD durante le richieste di token e, di conseguenza, impedisce Single Sign-On e non riesce a tutti i criteri di accesso condizionale basati su dispositivo. Questo problema non si verifica se si usa Windows Hello for business. 
 
 ---
 
 ## <a name="azure-ad-register-faq"></a>Domande frequenti sulla registrazione in Azure AD
 
-### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>D: Ricerca per categorie rimuovere un dispositivo registrato Azure AD localmente sul dispositivo?
+### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>D: Ricerca per categorie rimuovere uno stato Azure AD registrato per un dispositivo localmente?
 
 **R:** 
 - Per i dispositivi registrati Azure ad Windows 10, passare a **Impostazioni** > **account** > **Accedi all'ufficio o all'Istituto di istruzione**. Selezionare l'account e quindi **Disconnetti**. La registrazione del dispositivo è per profilo utente in Windows 10.
 - Per iOS e Android, è possibile usare le **Impostazioni** > dell'applicazione Microsoft Authenticator**registrazione del dispositivo** e selezionare **Annulla registrazione del dispositivo**.
 - Per macOS, è possibile usare l'applicazione Portale aziendale Microsoft Intune per annullare la registrazione del dispositivo dalla gestione e rimuovere eventuali registrazioni. 
+
+---
+### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>D: Come è possibile impedire agli utenti di aggiungere altri account di lavoro (Azure AD registrati) sui dispositivi Windows 10 aziendali?
+
+**R:** Abilitare il registro di sistema seguente per impedire agli utenti di aggiungere altri account di lavoro al dominio aziendale aggiunto, Azure AD aggiunti o ibridi Azure AD aggiunti ai dispositivi Windows 10. Questo criterio può essere usato anche per bloccare la registrazione accidentale dei computer aggiunti al dominio Azure AD con lo stesso account utente. 
+
+`HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
 ---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>D: È possibile registrare I dispositivi Android o iOS BYOD?

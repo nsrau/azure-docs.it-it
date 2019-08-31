@@ -1,27 +1,21 @@
 ---
-title: Uso della macchina virtuale di data science con intelligenza artificiale geografica - Azure | Microsoft Docs
+title: Usare l'intelligenza artificiale geografica
+titleSuffix: Azure Data Science Virtual Machine
 description: Informazioni su come usare la Data Science Virtual Machine Geo intelligenza artificiale per analizzare i dati e costruire modelli basati su dati geospaziali.
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: vijetaj
-ms.openlocfilehash: 22c0d7d604ca41044d2d969d4ddbd2ae1a4d23d5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 01238885e68a39ff713bd346a9206668e16e7ee4
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170491"
+ms.locfileid: "70195292"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Uso della macchina virtuale di data science con intelligenza artificiale geografica
 
@@ -47,7 +41,7 @@ Oltre agli esempi basati su Framework di apprendimento automatico e di apprendim
 
 2. [Introduzione all'analisi geospaziale con R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Esempio introduttivo che illustra come usare i dati geospaziali usando l'interfaccia R in ArcGIS fornito dalla libreria [ArcGIS](https://github.com/R-ArcGIS/r-bridge) . 
 
-3. [Classificazione dell'uso del suolo a livello di pixel](https://github.com/Azure/pixel_level_land_classification): Esercitazione che illustra come creare un modello di rete neurale profonda che accetta un'immagine aerea come input e restituisce un'etichetta relativa alla copertura del suolo. Esempi di etichette di copertura fondiaria sono *foreste* e *acqua*. Il modello restituisce tale etichetta per ogni pixel dell'immagine. Il modello viene compilato usando il Framework di apprendimento avanzato Microsoft Open Source [cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) .
+3. [Classificazione dell'uso del suolo a livello di pixel](https://github.com/Azure/pixel_level_land_classification): Esercitazione che illustra come creare un modello di rete neurale profonda che accetta un'immagine aerea come input e restituisce un'etichetta relativa alla copertura del suolo. Esempi di etichette di copertura fondiaria sono *foreste* e *acqua*. Il modello restituisce tale etichetta per ogni pixel dell'immagine. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

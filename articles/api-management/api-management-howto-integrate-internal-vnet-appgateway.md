@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: f7617348a98899251dcd3b8f1645c40bd297ffdb
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b994f75327cb78cd422d75682ee68ea7840a87e8
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073547"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193966"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
 
@@ -84,6 +84,9 @@ In questa guida verrà esposto il **portale per sviluppatori** anche a destinata
 
 > [!WARNING]
 > Se si usa Azure AD o un'autenticazione di terze parti, attivare la funzionalità [affinità di sessione basata su cookie](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) nel gateway applicazione.
+
+> [!WARNING]
+> Per evitare che WAF del gateway applicazione rompa il download della specifica OpenAPI nel portale per sviluppatori, è necessario disabilitare la regola `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`del firewall.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Creare un gruppo di risorse per Gestione risorse
 

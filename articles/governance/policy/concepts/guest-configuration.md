@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b6c9e50334a25b505655a49a02cd98165d04740b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 269d13e0b64d2da7a21316b16c88acde46ba1722
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164959"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194631"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -77,7 +77,7 @@ Il client della configurazione guest verifica la presenza di nuovi contenuti ogn
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
-|Pubblicato da|NOME|Versioni|
+|Pubblicato da|Name|Versioni|
 |-|-|-|
 |Canonico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
@@ -130,6 +130,11 @@ Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'inizi
 ### <a name="multiple-assignments"></a>Più assegnazioni
 
 I criteri di configurazione Guest attualmente supportano solo l'assegnazione della stessa assegnazione Guest una volta per ogni computer, anche se l'assegnazione dei criteri USA parametri diversi.
+
+## <a name="built-in-resource-modules"></a>Moduli di risorse predefiniti
+
+Quando si installa l'estensione di configurazione Guest, il modulo di PowerShell ' GuestConfiguration ' è incluso nella versione più recente dei moduli di risorse DSC. È possibile scaricare questo modulo dal PowerShell Gallery usando il collegamento "download manuale" della pagina del modulo [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
+Il formato del file ". nupkg" può essere rinominato in ". zip" per decomprimere ed esaminare.
 
 ## <a name="client-log-files"></a>File di log del client
 

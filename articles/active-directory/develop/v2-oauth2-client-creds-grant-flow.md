@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a3a097c164628e6d4e4b7886a195901207d83a3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d3bb18f11de92680d296d747fc34e16c3264c369
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852205"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193276"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform e il flusso di credenziali client OAuth 2,0
 
@@ -142,7 +142,7 @@ Se l'amministratore non approva le autorizzazioni per l'applicazione, la rispost
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | `error` | Stringa di codice di errore che può essere usata per classificare i tipi di errori e correggerli. |
 | `error_description` | Messaggio di errore specifico che consente di identificare la causa principale di un errore. |
@@ -170,7 +170,8 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+// Replace {tenant} with your tenant! 
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
 | Parametro | Condizione | Descrizione |
@@ -195,7 +196,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| Parametro | Condizione | Descrizione |
+| Parametro | Condizione | DESCRIZIONE |
 | --- | --- | --- |
 | `tenant` | Obbligatoria | Tenant di directory su cui l'applicazione intende agire, in formato di GUID o nome di dominio. |
 | `client_id` | Obbligatoria |ID applicazione (client) assegnato all'app. |
@@ -250,10 +251,6 @@ La risposta di errore è simile alla seguente:
 | `trace_id` | Identificatore univoco per la richiesta utile per la diagnostica. |
 | `correlation_id` | Identificatore univoco per la richiesta utile per la diagnostica dei componenti. |
 
-> [!NOTE]
-> Per consentire all'applicazione di ricevere il token V2, è possibile aggiornare il file manifesto dell'applicazione dall'interno del portale di Azure. È possibile aggiungere l'attributo `accessTokenAcceptedVersion` e impostare il valore su 2 come `"accessTokenAcceptedVersion": 2`. Per ulteriori informazioni sullo stesso, vedere il [manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) . Per impostazione predefinita, l'applicazione attualmente riceve un token V1. Se non è definito nel manifesto dell'applicazione o dell'API Web, il valore per questo attributo nel manifesto verrà impostato su 1 e pertanto l'applicazione riceverà il token V1.  
-
-
 ## <a name="use-a-token"></a>Usare di un token
 
 Ora che è stato acquisito un token, è possibile usarlo per inoltrare richieste alla risorsa. Alla scadenza del token, ripetere la richiesta all'endpoint `/token` per ottwnere un token di accesso aggiornato.
@@ -269,14 +266,14 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
 ## <a name="code-samples-and-other-documentation"></a>Esempi di codice e altra documentazione
 
 Leggere la [documentazione generale sulle credenziali client](https://aka.ms/msal-net-client-credentials) da Microsoft Authentication Library
 
-| Esempio | Piattaforma |DESCRIZIONE |
+| Esempio | Piattaforma |Descrizione |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | Console .NET Core 2.1 | Un'applicazione .NET Core semplice che visualizza gli utenti di un tenant eseguendo una query in Microsoft Graph con la propria identità, anziché per conto di un utente. L'esempio illustra anche la variante in cui vengono usati certificati per l'autenticazione. |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Un'applicazione Web che sincronizza i dati da Microsoft Graph usando la propria identità, anziché per conto di un utente. |

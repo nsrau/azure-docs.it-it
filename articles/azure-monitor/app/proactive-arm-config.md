@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 6bb89eec0b4905e101bed87d3d3fc617dec589e0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e7a54c2e207a27f3519375df09d0c930a92d52d6
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477870"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193713"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gestire le regole di rilevamento intelligente di Application Insights usando modelli di Azure Resource Manager
 
@@ -29,9 +29,9 @@ Questo metodo può essere usato durante la distribuzione di nuove risorse di App
 
 Per una regola di rilevamento intelligente è possibile configurare le impostazioni seguenti:
 - Se la regola è abilitata (il valore predefinito è **true**.)
-- Se è necessario inviare messaggi di posta elettronica per gli utenti associati alla sottoscrizione [lettore di monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [collaboratore al monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ruoli quando viene trovato un rilevamento (il valore predefinito è **true**.)
+- Se i messaggi di posta elettronica devono essere inviati agli utenti associati ai ruoli di [lettore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [collaboratore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) della sottoscrizione quando viene individuato un rilevamento (il valore predefinito è **true**).
 - Eventuali destinatari di posta elettronica aggiuntivi che devono ricevere una notifica quando si ha un rilevamento.
-    -  Configurazione della posta elettronica non è disponibile per le regole di rilevamento intelligente contrassegnate come _preview_.
+    -  La configurazione della posta elettronica non è disponibile per le regole di rilevamento intelligente contrassegnate come _Anteprima_.
 
 Per consentire la configurazione delle impostazioni delle regole tramite Azure Resource Manager, la configurazione delle regole di rilevamento intelligente è ora disponibile come risorsa interna alla risorsa di Application Insights denominata **ProactiveDetectionConfigs**.
 Per la massima flessibilità, ogni regola di rilevamento intelligente può essere configurata con impostazioni di notifica univoche.
@@ -138,9 +138,9 @@ Assicurarsi di sostituire il nome della risorsa di Application Insights e di spe
 
 ```
 
-### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Regola avviso di errore anomalie v2 (non classico)
+### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Regola di avviso di anomalie degli errori V2 (non classica)
 
-Questo modello di Azure Resource Manager illustra la configurazione di una regola di avviso v2 anomalie degli errori con gravità pari a 2. Questa nuova versione della regola di avviso anomalie degli errori fa parte di Azure nuova piattaforma di avviso e sostituisce la versione classica che è in fase di ritiro come parte del [processo di ritiro degli avvisi classici](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+Questo modello di Azure Resource Manager illustra la configurazione di una regola di avviso per le anomalie di errore V2 con gravità 2. Questa nuova versione della regola di avviso per le anomalie degli errori fa parte della nuova piattaforma di avvisi di Azure e sostituisce la versione classica che verrà ritirata come parte del [processo di ritiro degli avvisi classici](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ```json
 {
@@ -151,6 +151,7 @@ Questo modello di Azure Resource Manager illustra la configurazione di una regol
             "type": "microsoft.alertsmanagement/smartdetectoralertrules",
             "apiVersion": "2019-03-01",
             "name": "Failure Anomalies - my-app",
+            "location": "global", 
             "properties": {
                   "description": "Detects a spike in the failure rate of requests or dependencies",
                   "state": "Enabled",
@@ -170,14 +171,14 @@ Questo modello di Azure Resource Manager illustra la configurazione di una regol
 ```
 
 > [!NOTE]
-> Questo modello di Azure Resource Manager è univoco per la regola di avviso v2 anomalie degli errori ed è diversa dalle altre regole di rilevamento intelligente classiche descritta in questo articolo.   
+> Questo modello di Azure Resource Manager è univoco per la regola di avviso delle anomalie di errore V2 ed è diverso dalle altre regole di rilevamento intelligente classiche descritte in questo articolo.   
 
 ## <a name="smart-detection-rule-names"></a>Nomi delle regole di rilevamento intelligente
 
 Di seguito è riportata una tabella dei nomi delle regole di rilevamento intelligente come appaiono nel portale, insieme ai rispettivi nomi interni che devono essere usati nel modello di Azure Resource Manager.
 
 > [!NOTE]
-> Regole di rilevamento intelligente è contrassegnato come _preview_ non supporta le notifiche di posta elettronica. Pertanto, è possibile impostare solo le _abilitato_ proprietà per queste regole. 
+> Le regole di rilevamento intelligente contrassegnate come _Anteprima_ non supportano le notifiche tramite posta elettronica. Pertanto, è possibile impostare solo la proprietà _Enabled_ per queste regole. 
 
 | Nome della regola nel portale di Azure | Nome interno
 |:---|:---|
@@ -190,7 +191,7 @@ Di seguito è riportata una tabella dei nomi delle regole di rilevamento intelli
 | Aumento anomalo nel volume delle eccezioni (anteprima) | extension_exceptionchangeextension |
 | Potenziale perdita di memoria rilevata (anteprima) | extension_memoryleakextension |
 | Potenziale problema di sicurezza rilevato (anteprima) | extension_securityextensionspackage |
-| Aumento anomalo nel volume di dati giornaliero (anteprima) | extension_billingdatavolumedailyspikeextension |
+| Incremento anomalo nel volume giornaliero di dati (anteprima) | extension_billingdatavolumedailyspikeextension |
 
 ## <a name="next-steps"></a>Fasi successive
 

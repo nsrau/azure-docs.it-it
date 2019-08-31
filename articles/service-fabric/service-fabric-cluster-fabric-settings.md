@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/29/2019
+ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5d6f1fcba5d93cbd4efb63cd080848258eb2a262
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 096b6a13c85d04ebeb4f2ffae72acdd8629ae886
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172879"
+ms.locfileid: "70191756"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -649,6 +649,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |AADClusterApplication|stringa, il valore predefinito è ""|statico|Nome dell'applicazione API Web o ID che rappresenta il cluster. |
 |AADLoginEndpoint|stringa, il valore predefinito è ""|statico|Endpoint di accesso AAD, valore commerciale predefinito di Azure, specificato per un ambiente non predefinito, ad esempio Azure\/Government "https:/login.microsoftonline.US" |
 |AADTenantId|stringa, il valore predefinito è ""|statico|ID del tenant (GUID) |
+|AcceptExpiredPinnedClusterCertificate|bool, valore predefinito: FALSE|Dynamic|Flag che indica se accettare i certificati del cluster scaduti dichiarati dall'identificazione personale si applica solo ai certificati del cluster; per garantire che il cluster sia attivo. |
 |AdminClientCertThumbprints|stringa, il valore predefinito è ""|Dynamic|Identificazioni personali dei certificati usati dai client nel ruolo di amministratore. Elenco di nomi delimitati da virgole. |
 |AADTokenEndpointFormat|stringa, il valore predefinito è ""|statico|Endpoint token AAD, valore commerciale predefinito di Azure, specificato per un ambiente non predefinito, ad esempio Azure Government\/"https{0}:/login.microsoftonline.US/" |
 |AdminClientClaims|stringa, il valore predefinito è ""|Dynamic|Tutte le attestazioni possibili previste dai client di amministrazione. Stesso formato di ClientClaims. Questo elenco viene aggiunto internamente a ClientClaims, pertanto non occorre aggiungere le stesse voci a ClientClaims. |

@@ -1,35 +1,29 @@
 ---
-title: Esempi e procedure dettagliate per Data Science Virtual Machine - Azure | Microsoft Docs
+title: Procedure dettagliate & esempi
+titleSuffix: Azure Data Science Virtual Machine
 description: Con questi esempi e procedure dettagliate, viene illustrato come gestire le attività e gli scenari comuni con i Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: vijetaj
-ms.openlocfilehash: 628c516553c2304739229c53d725645c799d06ce
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f3d683ffb91639db64000efa2d9791d13d84b79b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047845"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195667"
 ---
-# <a name="samples-on-data-science-virtual-machines"></a>Esempi nelle Data Science Virtual Machine
+# <a name="samples-on-azure-data-science-virtual-machines"></a>Esempi sulle macchine virtuali di Data Science di Azure
 
 Le macchine virtuali di Data Science di Azure (Dsvm) includono un set completo di codice di esempio. Questi esempi includono notebook e script di Jupyter in linguaggi come Python e R.
 > [!NOTE]
 > Per altre informazioni su come eseguire Jupyter notebook in data science macchine virtuali, vedere la sezione accedere a [Jupyter](#access-jupyter) .
 
-## <a name="quick-reference-of-samples"></a>Avvio rapido per gli esempi
+## <a name="available-samples"></a>Esempi disponibili
 | Categoria di esempi | Descrizione | Località |
 | ------------- | ------------- | ------------- |
 | Linguaggio di programmazione di R  | Gli esempi illustrano scenari come la connessione con gli archivi dati cloud basati su Azure e la modalità di confronto tra R e Microsoft Machine Learning Server Open Source. Spiegano inoltre come rendere operativo i modelli in Microsoft Machine Learning Server e SQL Server. <br/> [Linguaggio di programmazione di R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|

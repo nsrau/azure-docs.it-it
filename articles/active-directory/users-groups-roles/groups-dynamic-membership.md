@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650235"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194603"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -27,30 +27,32 @@ In Azure Active Directory (Azure AD) è possibile creare regole complesse basate
 
 Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica attiverà aggiunte o rimozioni nel gruppo. Se un utente o un dispositivo soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfano la regola, vengono rimossi. Non è possibile aggiungere o rimuovere un membro di un gruppo dinamico manualmente.
 
-* Sebbene sia possibile creare un gruppo dinamico per i dispositivi o gli utenti, non è possibile creare una regola che contenga sia oggetti utente che dispositivo.
-* Non è possibile creare un gruppo di dispositivi in base agli attributi dei proprietari dei dispositivi. Le regole di appartenenza dei dispositivi possono fare riferimento solo agli attributi dei dispositivi.
+- Sebbene sia possibile creare un gruppo dinamico per i dispositivi o gli utenti, non è possibile creare una regola che contenga sia oggetti utente che dispositivo.
+- Non è possibile creare un gruppo di dispositivi in base agli attributi dei proprietari dei dispositivi. Le regole di appartenenza dei dispositivi possono fare riferimento solo agli attributi dei dispositivi.
 
 > [!NOTE]
 > Questa funzionalità richiede una licenza Azure AD Premium P1 per ogni utente univoco membro di almeno un gruppo dinamico. Perché gli utenti siano membri dei gruppi dinamici, non è obbligatorio che vengano effettivamente assegnate loro le licenze, ma è necessario avere il numero necessario di licenze nel tenant per coprire tutti gli utenti. Se ad esempio si ha un totale di 1.000 utenti univoci in tutti i gruppi dinamici del tenant, è necessario avere almeno 1.000 licenze di Azure AD Premium P1 per soddisfare il requisito delle licenze.
 >
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>Creazione del corpo di una regola di appartenenza
+## <a name="rule-builder-in-the-azure-portal"></a>Generatore regole nella portale di Azure
 
-Una regola di appartenenza che popola automaticamente un gruppo con utenti o dispositivi è un'espressione binaria che restituisce un risultato true o false. Le tre parti di una regola semplice sono:
+Azure AD fornisce un generatore di regole per creare e aggiornare le regole importanti più rapidamente. Il generatore regole supporta la costruzione di un massimo di cinque espressioni. Il generatore regole rende più semplice formare una regola con alcune semplici espressioni, ma non può essere usata per riprodurre ogni regola. Se il generatore regole non supporta la regola che si desidera creare, è possibile utilizzare la casella di testo.
 
-* Proprietà
-* Operator
-* Value
+Di seguito sono riportati alcuni esempi di regole avanzate o sintassi per cui è consigliabile costruire utilizzando la casella di testo:
 
-L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
+- Regola con più di cinque espressioni
+- Regola dei report diretti
+- Impostazione della [precedenza degli operatori](groups-dynamic-membership.md#operator-precedence)
+- [Regole con espressioni complesse](groups-dynamic-membership.md#rules-with-complex-expressions); Per esempio`(user.proxyAddresses -any (_ -contains "contoso"))`
 
-### <a name="rule-builder-in-the-azure-portal"></a>Generatore regole nella portale di Azure
+> [!NOTE]
+> Il generatore regole potrebbe non essere in grado di visualizzare alcune regole costruite nella casella di testo. Potrebbe essere visualizzato un messaggio quando il generatore regole non è in grado di visualizzare la regola. Il generatore regole non modifica in alcun modo la sintassi, la convalida o l'elaborazione delle regole di gruppo dinamiche supportate.
 
-Azure AD fornisce un generatore di regole per creare e aggiornare le regole importanti più rapidamente. Il generatore regole supporta fino a cinque regole. Per aggiungere un sesto e gli eventuali termini della regola successiva, è necessario utilizzare la casella di testo. Per altre istruzioni dettagliate, vedere [aggiornare un gruppo dinamico](groups-update-rule.md).
+Per altre istruzioni dettagliate, vedere [aggiornare un gruppo dinamico](groups-update-rule.md).
 
-   ![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-### <a name="rules-with-a-single-expression"></a>Regole con una singola espressione
+### <a name="rule-syntax-for-a-single-expression"></a>Sintassi della regola per una singola espressione
 
 Una singola espressione è la forma più semplice per una regola di appartenenza e include solo le tre parti indicate in precedenza. Una regola con una singola espressione è simile a quanto segue: `Property Operator Value`, dove la sintassi per la proprietà è il nome di oggetto.proprietà.
 
@@ -62,13 +64,23 @@ user.department -eq "Sales"
 
 Per una singola espressione le parentesi sono facoltative. La lunghezza totale del corpo della regola di appartenenza non può superare i 2048 caratteri.
 
+# <a name="constructing-the-body-of-a-membership-rule"></a>Creazione del corpo di una regola di appartenenza
+
+Una regola di appartenenza che popola automaticamente un gruppo con utenti o dispositivi è un'espressione binaria che restituisce un risultato true o false. Le tre parti di una regola semplice sono:
+
+- Proprietà
+- Operator
+- Value
+
+L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
+
 ## <a name="supported-properties"></a>Proprietà supportate
 
 Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
 
-* Boolean
-* String
-* Raccolta di tipi string
+- Boolean
+- String
+- Raccolta di tipi string
 
 Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
 
@@ -119,7 +131,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 
 Per le proprietà usate per le regole dei dispositivi, vedere [Regole per i dispositivi](#rules-for-devices).
 
-## <a name="supported-operators"></a>Operatori supportati
+## <a name="supported-expression-operators"></a>Operatori di espressione supportati
 
 Nella tabella seguente sono elencati tutti gli operatori supportati e la relativa sintassi per un'espressione singola. Gli operatori possono essere usati con o senza trattino (-) come prefisso.
 
@@ -297,10 +309,10 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 I suggerimenti seguenti sono utili per usare la regola in modo appropriato.
 
-* L'**ID del manager** è l'ID oggetto del manager. È indicato nella sezione **Profilo** del manager.
-* Per il corretto funzionamento della regola, verificare che la proprietà **Manager** sia impostata correttamente per gli utenti inclusi nel tenant. È possibile controllare il valore corrente per un utente nella sezione **Profilo** dell'utente.
-* Questa regola supporta solo i dipendenti diretti del manager. In altre parole, non è possibile creare un gruppo con i dipendenti diretti del manager *e* i loro dipendenti diretti.
-* Questa regola non può essere combinata con altre regole di appartenenza.
+- L'**ID del manager** è l'ID oggetto del manager. È indicato nella sezione **Profilo** del manager.
+- Per il corretto funzionamento della regola, verificare che la proprietà **Manager** sia impostata correttamente per gli utenti inclusi nel tenant. È possibile controllare il valore corrente per un utente nella sezione **Profilo** dell'utente.
+- Questa regola supporta solo i dipendenti diretti del manager. In altre parole, non è possibile creare un gruppo con i dipendenti diretti del manager *e* i loro dipendenti diretti.
+- Questa regola non può essere combinata con altre regole di appartenenza.
 
 ### <a name="create-an-all-users-rule"></a>Creare una regola "Tutti gli utenti"
 
@@ -373,8 +385,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 Questi articoli forniscono informazioni aggiuntive sui gruppi in Azure Active Directory.
 
-* [Vedere i gruppi esistenti](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Creare un nuovo gruppo e aggiunta di membri](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Gestire le impostazioni di un gruppo](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Gestire le appartenenze di un gruppo](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gestire le regole dinamiche per gli utenti in un gruppo](groups-create-rule.md)
+- [Vedere i gruppi esistenti](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Creare un nuovo gruppo e aggiunta di membri](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [Gestire le impostazioni di un gruppo](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Gestire le appartenenze di un gruppo](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Gestire le regole dinamiche per gli utenti in un gruppo](groups-create-rule.md)

@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1ee18abfab2cf286ee010bd6d25dfbc5a38cebb
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c9bc9d64d7f21498acd5cb0c23447e7ff77de629
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011572"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195567"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello 
+# <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 
 Con il servizio Azure Machine Learning è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, collettivamente definiti [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-targets). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Machine Learning, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
 
@@ -47,33 +47,9 @@ Il servizio Azure Machine Learning offre un supporto variabile per le diverse de
 
 Solitamente il training si avvia nel computer locale e in un secondo momento si esegue tale script di training in una destinazione di calcolo diversa. Con il servizio Azure Machine Learning è possibile eseguire lo script in diverse destinazioni di calcolo senza doverlo modificare. 
 
-È sufficiente definire l'ambiente per ogni destinazione di calcolo con una **configurazione di esecuzione**.  Quindi, quando si vuole eseguire l'esperimento di training in una destinazione di calcolo diversa, specificare la configurazione di esecuzione per tale ambiente di calcolo.
+È sufficiente definire l'ambiente per ogni destinazione di calcolo all'interno di una configurazione di **esecuzione**.  Quindi, quando si vuole eseguire l'esperimento di training in una destinazione di calcolo diversa, specificare la configurazione di esecuzione per tale ambiente di calcolo. Per informazioni dettagliate su come specificare un ambiente e associarlo per eseguire la configurazione, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md)
 
 Altre informazioni sull'[invio degli esperimenti](#submit) alla fine di questo articolo.
-
-### <a name="manage-environment-and-dependencies"></a>Gestire l'ambiente e le dipendenze
-
-Quando si crea una configurazione di esecuzione è necessario decidere come gestire l'ambiente e le dipendenze nella destinazione di calcolo. 
-
-#### <a name="system-managed-environment"></a>Ambiente gestito dal sistema
-
-Usare un ambiente gestito del sistema quando si vuole che [Conda](https://conda.io/docs/) gestisca l'ambiente di Python e le dipendenze di script per l'utente. Per impostazione predefinita e come scelta più comune viene usato un ambiente gestito del sistema. È utile in destinazioni di calcolo remote, soprattutto quando non è possibile configurare la destinazione. 
-
-È sufficiente specificare ogni dipendenza del pacchetto usando la[classe CondaDependency](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py). Conda quindi crea un file denominato **conda_dependencies.yml** nella directory **aml_config** dell'area di lavoro con l'elenco delle dipendenze del pacchetto e configura l'ambiente Python quando si invia l'esperimento di training. 
-
-La configurazione iniziale di un nuovo ambiente può richiedere diversi minuti, a seconda delle dimensioni delle dipendenze richieste. Finché l'elenco dei pacchetti rimane invariato, la configurazione avviene una sola volta.
-  
-Il codice seguente illustra un esempio per un ambiente gestito dal sistema che richiede scikit-learn:
-    
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_system_managed)]
-
-#### <a name="user-managed-environment"></a>Ambiente gestito dall'utente
-
-Per un ambiente gestito dall'utente è necessario configurare l'ambiente e installare ogni pacchetto richiesto dallo script di training nella destinazione di calcolo. Se l'ambiente di training è già configurato (ad esempio nel computer locale), è possibile ignorare il passaggio di configurazione impostando `user_managed_dependencies` su True. Conda non controllerà l'ambiente e non istallerà alcun elemento.
-
-Il codice seguente illustra un esempio di configurazione di esecuzioni di training per un ambiente gestito dall'utente:
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
 
 ## <a name="whats-an-estimator"></a>Che cos'è un estimatore?
 
@@ -390,7 +366,7 @@ Per altre informazioni consultare [Gestione delle risorse](reference-azure-machi
 
 È possibile accedere, creare e gestire le destinazioni di calcolo associate all'area di lavoro usando l' [estensione vs code](how-to-vscode-tools.md#create-and-manage-compute-targets) per Azure Machine Learning servizio.
 
-## <a id="submit"></a>Inviare l'esecuzione di training
+## <a id="submit"></a>Inviare l'esecuzione del training usando Azure Machine Learning SDK
 
 Dopo aver creato una configurazione di esecuzione, questa si usa per l'esecuzione dell'esperimento.  Il criterio di codice per inviare l'esecuzione di un training è uguale per tutti i tipi di destinazioni di calcolo:
 
@@ -430,8 +406,70 @@ Eseguire lo stesso esperimento in una destinazione di calcolo diversa tramite un
 In alternativa, è possibile:
 
 * Inviare l'esperimento con un oggetto `Estimator` come illustrato in [Eseguire il training di modelli di Machine Learning con oggetti Estimator](how-to-train-ml-models.md).
-* Inviare un esperimento [usando l'estensione dell'interfaccia della riga di comando](reference-azure-machine-learning-cli.md#experiments).
+* Inviare un'esecuzione iperguida per l' [ottimizzazione iperparametri](how-to-tune-hyperparameters.md).
 * Inviare un esperimento tramite l' [estensione vs code](how-to-vscode-tools.md#train-and-tune-models).
+
+## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Creare una configurazione di esecuzione e inviare l'esecuzione usando Azure Machine Learning interfaccia della riga di comando
+
+È possibile usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e [Machine Learning estensione CLI](reference-azure-machine-learning-cli.md) per creare configurazioni di esecuzione e inviare esecuzioni su destinazioni di calcolo diverse. Gli esempi seguenti presuppongono che si disponga di un area di lavoro di Azure Machine Learning esistente ed è stato effettuato l' `az login` accesso ad Azure tramite il comando CLI. 
+
+### <a name="create-run-configuration"></a>Crea configurazione di esecuzione
+
+Il modo più semplice per creare la configurazione di esecuzione è esplorare la cartella che contiene gli script Python di machine learning e usare il comando dell'interfaccia della riga di comando
+
+```azurecli
+az ml folder attach
+```
+
+Questo comando crea una sottocartella `.azureml` che contiene i file di configurazione dell'esecuzione del modello per diverse destinazioni di calcolo. È possibile copiare e modificare questi file per personalizzare la configurazione, ad esempio per aggiungere pacchetti Python o modificare le impostazioni di Docker.  
+
+### <a name="create-an-experiment"></a>Creare un esperimento
+
+Prima di tutto, creare un esperimento per le esecuzioni
+
+```azurecli
+az ml experiment create -n <experiment>
+```
+
+### <a name="script-run"></a>Esecuzione script
+
+Per inviare un'esecuzione di script, eseguire un comando
+
+```azurecli
+az ml run submit-script -e <experiment> -c <runconfig> my_train.py
+```
+
+### <a name="hyperdrive-run"></a>Esecuzione iperguida
+
+È possibile usare l'iperguida con l'interfaccia della riga di comando di Azure per eseguire l'ottimizzazione dei parametri Per prima cosa, creare un file di configurazione di iperguida nel formato seguente. Per informazioni dettagliate sui parametri di ottimizzazione iperparametri, vedere [ottimizzare gli iperparametri per l'articolo del modello](how-to-tune-hyperparameters.md) .
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+Aggiungere questo file insieme ai file di configurazione di esecuzione. Inviare quindi un'esecuzione iperguida utilizzando:
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+Prendere nota della sezione degli *argomenti* in runconfig e nello *spazio dei parametri* nella configurazione di iperguida. Contengono gli argomenti della riga di comando da passare allo script di training. Il valore in runconfig rimane invariato per ogni iterazione, mentre l'intervallo nella configurazione di iperguida viene iterato. Non specificare lo stesso argomento in entrambi i file.
+
+Per ulteriori informazioni su questi ```az ml``` comandi dell'interfaccia della riga di comando e sul set completo di argomenti, vedere [la documentazione di riferimento](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 

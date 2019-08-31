@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b2fb7496f16359f01ddbbe6db31b2d047a2ab4df
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 322a1d25ed434d8be674288b1b13d6ecf961590b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012818"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193573"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Avvio rapido: Creare una Knowledge base tramite il portale del servizio API QnA Maker
 
@@ -67,7 +67,7 @@ Dopo aver completato la knowledge base, rimuoverla dal portale di QnA Maker.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per le misure di risparmio sui costi, è possibile [condividere](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) alcune risorse di Azure create per QnA Maker.
+Per le misure di risparmio sui costi, è possibile [condividere](set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) alcune risorse di Azure create per QnA Maker.
 
 > [!div class="nextstepaction"]
-> [Aggiungere personale chit chat](./chit-chat-knowledge-base.md)
+> [Aggiungere domande con i metadati](../quickstarts/add-question-metadata-portal.md)
