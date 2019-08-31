@@ -2,19 +2,19 @@
 title: Come usare Ricerca di Azure da un'applicazione .NET - Ricerca di Azure
 description: Informazioni su come usare Ricerca di Azure in un'applicazione .NET tramite C# e .NET SDK. Le attività basate su codice includono la connessione al servizio, l'indicizzazione del contenuto e l'esecuzione di query su un indice.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: 9f0af40d442747181636b50612f7d2162ead6a86
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42d3a4a0840e7241666f66a09e7e6b11342cbfbc
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450021"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182274"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Come utilizzare Ricerca di Azure da un'applicazione .NET
 
@@ -29,28 +29,28 @@ Gli altri pacchetti NuGet in SDK sono:
  
   - `Microsoft.Azure.Search.Data`: usare questo pacchetto se si sta sviluppando un'applicazione .NET con Ricerca di Azure ed è sufficiente eseguire una query o aggiornare i documenti negli indici. Se invece occorre anche creare o aggiornare gli indici, le mappe di sinonimi o altre risorse a livello di servizio, usare il pacchetto `Microsoft.Azure.Search`.
   - `Microsoft.Azure.Search.Service`: usare questo pacchetto se si sta sviluppando l'automazione in .NET per gestire gli indici di Ricerca di Azure, le mappe di sinonimi, gli indicizzatori, le origini dati o altre risorse a livello di servizio. Se invece occorre solo eseguire query o aggiornare i documenti negli indici, usare il pacchetto `Microsoft.Azure.Search.Data`. Nel caso in cui servano tutte le funzionalità di Ricerca di Azure, usare il pacchetto `Microsoft.Azure.Search`.
-  - `Microsoft.Azure.Search.Common`: tipi comuni necessari per le librerie .NET di Ricerca di Azure. Non devi usare il pacchetto direttamente nell'applicazione. È destinato solo a essere usato come dipendenza.
+  - `Microsoft.Azure.Search.Common`: tipi comuni necessari per le librerie .NET di Ricerca di Azure. Non è necessario usare questo pacchetto direttamente nell'applicazione. È destinato solo a essere utilizzato come dipendenza.
 
 Le diverse librerie client definiscono classi come `Index`, `Field`, e `Document`, nonché operazioni quali `Indexes.Create` e `Documents.Search` sulle classi `SearchServiceClient` e `SearchIndexClient`. Le classi sono organizzate negli spazi dei nomi seguenti:
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
-Se si desidera fornire commenti e suggerimenti per un aggiornamento futuro di SDK, vedere la [pagina commenti](https://feedback.azure.com/forums/263029-azure-search/) oppure creare un problema nel [GitHub](https://github.com/azure/azure-sdk-for-net/issues) e parlare di "Ricerca di Azure" nel titolo del problema.
+Per inviare commenti e suggerimenti per un aggiornamento futuro dell'SDK, vedere la pagina relativa ai [Commenti](https://feedback.azure.com/forums/263029-azure-search/) o creare un problema in [GitHub](https://github.com/azure/azure-sdk-for-net/issues) e menzionare "ricerca di Azure" nel titolo del problema.
 
-.NET SDK supporta la versione `2019-05-06` dell'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). Questa versione include il supporto per [i tipi complessi](search-howto-complex-data-types.md), [ricerca cognitiva](cognitive-search-concept-intro.md), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete), e [JsonLines modalità di analisi](search-howto-index-json-blobs.md) quando indicizzazione di BLOB di Azure. 
+.NET SDK supporta la versione `2019-05-06` dell'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). Questa versione include il supporto per i [tipi complessi](search-howto-complex-data-types.md), la [ricerca cognitiva](cognitive-search-concept-intro.md), il [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete)e la [modalità di analisi JsonLines](search-howto-index-json-blobs.md) durante l'indicizzazione dei BLOB di Azure. 
 
 Questo SDK non supporta [operazioni di gestione](https://docs.microsoft.com/rest/api/searchmanagement/), come la creazione e la scalabilità di servizi di ricerca e la gestione delle chiavi API. Se è necessario gestire le risorse di ricerca da un'applicazione .NET, è possibile utilizzare l'[SDK di gestione .NET di Ricerca di Azure](https://aka.ms/search-mgmt-sdk).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>Aggiornamento alla versione più recente dell'SDK
-Se si usa già una versione precedente di .NET SDK ricerca di Azure e si desidera eseguire l'aggiornamento all'ultima versione disponibile a livello generale, [questo articolo](search-dotnet-sdk-migration-version-9.md) spiega come.
+Se si usa già una versione precedente di Azure search .NET SDK e si vuole eseguire l'aggiornamento alla versione più recente disponibile a livello generale, in [questo articolo](search-dotnet-sdk-migration-version-9.md) viene illustrato come.
 
 ## <a name="requirements-for-the-sdk"></a>Requisiti per l'SDK
 1. Visual Studio 2017 o versione successiva.
 2. Un servizio di Ricerca di Azure. Per utilizzare l'SDK, è necessario il nome del servizio e una o più chiavi API. [Creare un servizio nel portale](search-create-service-portal.md) per eseguire facilmente questi passaggi.
 3. Scaricare il [pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search) di SDK .NET di Ricerca di Azure tramite "Gestisci pacchetti NuGet" in Visual Studio. Cercare semplicemente il nome del pacchetto `Microsoft.Azure.Search` in NuGet.org (o uno degli altri nomi dei pacchetti riportati sopra se è necessario solo un subset delle funzionalità).
 
-Azure Search .NET SDK supporta applicazioni destinate a .NET Framework 4.5.2 e versioni successive, come anche come .NET Core 2.0 e versioni successive.
+Azure search .NET SDK supporta applicazioni destinate a .NET Framework 4.5.2 e versioni successive, oltre a .NET Core 2,0 e versioni successive.
 
 ## <a name="core-scenarios"></a>Scenari chiave
 Esistono diverse operazioni che è necessario eseguire nell'applicazione di ricerca. In questa esercitazione saranno illustrati questi scenari chiave:
@@ -59,7 +59,7 @@ Esistono diverse operazioni che è necessario eseguire nell'applicazione di rice
 * Popolamento dell’indice con i documenti
 * Ricerca di documenti mediante filtri e ricerca con testo completo
 
-Esempio di codice seguente illustra ognuno di questi scenari. È possibile utilizzare i frammenti di codice nell'applicazione.
+Il codice di esempio seguente illustra ognuno di questi scenari. È possibile utilizzare i frammenti di codice nell'applicazione.
 
 ### <a name="overview"></a>Panoramica
 L'applicazione di esempio crea un nuovo indice denominato "hotels", vi inserisce alcuni documenti, quindi esegue alcune query di ricerca. Ecco il programma principale che mostra il flusso generale:
@@ -135,11 +135,11 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 ```
 
 > [!NOTE]
-> In un'applicazione di ricerca tipica, il popolamento e la gestione degli indici può essere gestite da un componente separato dalle query di ricerca. `Indexes.GetClient` è utile per il popolamento di un indice perché ti evita di dover fornire ulteriore `SearchCredentials`. Questa operazione viene eseguita passando la chiave di amministrazione utilizzata per creare il `SearchServiceClient` al nuovo `SearchIndexClient`. Tuttavia, nella parte dell'applicazione che esegue le query, è preferibile creare il `SearchIndexClient` direttamente in modo che è possibile passare una chiave di query, che consente solo di leggere i dati, anziché una chiave amministratore. Questo procedimento è coerente con il principio del privilegio minimo e consente di rendere più sicura l'applicazione. È possibile trovare ulteriori informazioni su chiavi di amministrazione e chiavi di query [qui](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
+> In una tipica applicazione di ricerca, la gestione degli indici e il popolamento possono essere gestiti da un componente separato dalle query di ricerca. `Indexes.GetClient`è utile per popolare un indice perché evita di dover fornire ulteriori `SearchCredentials`informazioni. Questa operazione viene eseguita passando la chiave di amministrazione utilizzata per creare il `SearchServiceClient` al nuovo `SearchIndexClient`. Tuttavia, nella parte dell'applicazione che esegue le query, è preferibile creare direttamente il `SearchIndexClient` in modo che sia possibile passare una chiave di query, che consente solo di leggere i dati, anziché una chiave amministratore. Questo procedimento è coerente con il principio del privilegio minimo e consente di rendere più sicura l'applicazione. È possibile trovare ulteriori informazioni su chiavi di amministrazione e chiavi di query [qui](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
 > 
 > 
 
-Ora che è disponibile un `SearchIndexClient`, è possibile popolare l'indice. Il popolamento dell'indice viene eseguito da un altro metodo che verranno illustrati più avanti.
+Ora che è disponibile un `SearchIndexClient`, è possibile popolare l'indice. Il popolamento dell'indice viene eseguito da un altro metodo che verrà esaminato più avanti.
 
 ```csharp
 Console.WriteLine("{0}", "Uploading documents...\n");
@@ -169,7 +169,7 @@ private static SearchIndexClient CreateSearchIndexClient(string indexName, IConf
 
 In questo caso è utilizzata una chiave di query poiché non è necessario l'accesso in scrittura all'indice. È possibile immettere queste informazioni nel file `appsettings.json` dell'[applicazione di esempio](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
-Se si esegue questa applicazione con un nome di servizio valido e le chiavi API, l'output dovrebbe essere simile all'esempio: (Output console è stato sostituito con "..." a scopo illustrativo.)
+Se si esegue questa applicazione con un nome di servizio e chiavi API validi, l'output dovrebbe essere simile a questo esempio: (Alcuni output della console sono stati sostituiti con "..." a scopo illustrativo.
 
     Deleting index...
 
@@ -217,7 +217,7 @@ Alla fine di questo articolo viene fornito il codice sorgente completo dell'appl
 Successivamente, verrà esaminato ognuno dei metodi chiamati da `Main`.
 
 ### <a name="creating-an-index"></a>Creazione di un indice
-Dopo aver creato un `SearchServiceClient`, `Main` Elimina l'indice "hotels", se esiste già. L'eliminazione viene eseguita nel modo seguente:
+Dopo la creazione `SearchServiceClient`di `Main` un, Elimina l'indice "Hotels" se esiste già. L'eliminazione viene eseguita con il metodo seguente:
 
 ```csharp
 private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
@@ -258,10 +258,10 @@ Questo metodo crea un nuovo oggetto `Index` con un elenco di oggetti `Field` che
 >
 > 
 
-Oltre ai campi, è possibile aggiungere anche i profili di punteggio, gli strumenti suggerimenti o opzioni CORS per l'indice (questi parametri vengono omessi dall'esempio per brevità). Altre informazioni sull'oggetto indice e le relative parti costituenti sono disponibili nella [guida di riferimento dell'SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index) e nella [guida di riferimento dell'interfaccia API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/).
+Oltre ai campi, è anche possibile aggiungere profili di punteggio, suggerimenti o opzioni CORS all'indice. questi parametri vengono omessi dall'esempio per brevità. Altre informazioni sull'oggetto indice e le relative parti costituenti sono disponibili nella [guida di riferimento dell'SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index) e nella [guida di riferimento dell'interfaccia API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/).
 
 ### <a name="populating-the-index"></a>Popolamento dell'indice
-Il passaggio successivo in `Main` popola l'indice appena creato. Il popolamento dell'indice viene eseguito nel metodo seguente: (Codice sostituito con "..." a scopo illustrativo.  Vedere la soluzione di esempio completo per il codice di popolamento completo dei dati).
+Il passaggio successivo in `Main` popola l'indice appena creato. Il popolamento dell'indice viene eseguito nel seguente metodo: (Il codice è stato sostituito con "..." a scopo illustrativo.  Vedere la soluzione di esempio completa per il codice di popolamento completo dei dati.
 
 ```csharp
 private static void UploadDocuments(ISearchIndexClient indexClient)
@@ -377,7 +377,7 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 }
 ```
 
-Questo metodo è costituito da quattro parti. Il primo crea una matrice di 3 `Hotel` ognuna con 3 oggetti `Room` gli oggetti verranno usati come dati di input per caricare l'indice. Questi dati sono hardcoded per motivi di semplicità. Nell'applicazione, i dati probabilmente proverranno da un'origine dati esterna, ad esempio un database SQL.
+Questo metodo è costituito da quattro parti. Il primo crea una matrice di 3 `Hotel` oggetti ognuno con 3 `Room` oggetti che serviranno come dati di input da caricare nell'indice. Questi dati sono hardcoded per motivi di semplicità. Nell'applicazione, i dati probabilmente proverranno da un'origine dati esterna, ad esempio un database SQL.
 
 La seconda parte crea un oggetto `IndexBatch` contenente i documenti. Specificare l'operazione che si vuole applicare al batch al momento della creazione, in questo caso chiamando `IndexBatch.Upload`. Il batch viene quindi caricato nell'indice di Ricerca di Azure dal metodo `Documents.Index` .
 
@@ -386,7 +386,7 @@ La seconda parte crea un oggetto `IndexBatch` contenente i documenti. Specificar
 > 
 > 
 
-La terza parte di questo metodo è un blocco catch che gestisce un caso di errore importante per l'indicizzazione. Se il servizio Ricerca di Azure non riesce a indicizzare alcuni dei documenti nel batch, viene generato un `IndexBatchException` da `Documents.Index`. Questa eccezione può verificarsi se si esegue l'indicizzazione documenti mentre il servizio è in sovraccarico. **Si consiglia di gestire in modo esplicito questo caso nel codice.** È possibile ritardare e quindi ritentare l'indicizzazione di documenti, accedere e continuare come nell'esempio,  oppure eseguire altre attività a seconda dei requisiti di coerenza di dati dell'applicazione.
+La terza parte di questo metodo è un blocco catch che gestisce un caso di errore importante per l'indicizzazione. Se il servizio Ricerca di Azure non riesce a indicizzare alcuni dei documenti nel batch, viene generato un `IndexBatchException` da `Documents.Index`. Questa eccezione può verificarsi se si indicizzazione dei documenti quando il servizio è sottoposto a un carico elevato. **Si consiglia di gestire in modo esplicito questo caso nel codice.** È possibile ritardare e quindi ritentare l'indicizzazione di documenti, accedere e continuare come nell'esempio,  oppure eseguire altre attività a seconda dei requisiti di coerenza di dati dell'applicazione.
 
 > [!NOTE]
 > È possibile usare il metodo [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) per creare un nuovo batch contenente solo le azioni non riuscite in una precedente chiamata a `Index`. È disponibile una discussione su come usare questo metodo in modo corretto su [StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
@@ -455,29 +455,29 @@ public partial class Hotel
 }
 ```
 
-La prima cosa da notare è che il nome di ogni proprietà pubblica nel `Hotel` classe verrà eseguito il mapping a un campo con lo stesso nome nella definizione dell'indice. Se si desidera ogni campo per iniziare con una lettera minuscola ("convenzione camel"), è possibile indicare a SDK per eseguire il mapping ai nomi delle proprietà alla convenzione camel automaticamente con il `[SerializePropertyNamesAsCamelCase]` attributo della classe. Questo scenario è comune in applicazioni .NET che eseguono il data binding in cui lo schema di destinazione è all'esterno del controllo dello sviluppatore di applicazioni senza la necessità di violare la "convenzione Pascal" convenzioni di denominazione in .NET.
+La prima cosa da notare è che il nome di ogni proprietà pubblica nella `Hotel` classe verrà mappato a un campo con lo stesso nome nella definizione dell'indice. Se si vuole che ogni campo inizi con una lettera minuscola ("Camel maiuscole"), è possibile indicare all'SDK di eseguire il mapping dei nomi delle proprietà a Camel-case automaticamente `[SerializePropertyNamesAsCamelCase]` con l'attributo nella classe. Questo scenario è comune nelle applicazioni .NET che eseguono l'associazione dati in cui lo schema di destinazione è esterno al controllo dello sviluppatore di applicazioni senza dover violare le linee guida per la denominazione "Pascal case" in .NET.
 
 > [!NOTE]
 > Azure Search .NET SDK usa la libreria [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) per serializzare e deserializzare gli oggetti modello personalizzati in e da JSON. Se necessario, è possibile personalizzare questa serializzazione. Per altre informazioni, vedere [serializzazione personalizzata con JSON.NET](#JsonDotNet).
 > 
 > 
 
-La seconda cosa da notare è ogni proprietà è decorata con attributi, ad esempio `IsFilterable`, `IsSearchable`, `Key`, e `Analyzer`. Questi attributi eseguono il mapping direttamente al [attributi di campo corrispondente in un indice di ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/create-index#request). Il `FieldBuilder` classe utilizza queste proprietà per creare definizioni di campo per l'indice.
+La seconda cosa da notare è che ogni proprietà è decorata con attributi `IsFilterable`quali `IsSearchable` `Key`,, e `Analyzer`. Questi attributi vengono mappati direttamente agli [attributi di campo corrispondenti in un indice di ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/create-index#request). La `FieldBuilder` classe utilizza queste proprietà per costruire definizioni di campo per l'indice.
 
-Il terzo aspetto importante di `Hotel` classe corrisponde ai tipi di dati delle proprietà pubbliche. Viene eseguito il mapping dei tipi .NET di queste proprietà ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `Edm.String`. Esistono mapping di tipi simili tra `bool?`, `Edm.Boolean`, `DateTimeOffset?`, e `Edm.DateTimeOffset` e così via. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` nella [documentazione di riferimento relativa a .NET SDK di Ricerca di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). La classe `FieldBuilder` si occupa di questo mapping automaticamente, ma la comprensione può comunque essere utile nel caso in cui sia necessario risolvere eventuali problemi di serializzazione.
+Il terzo aspetto `Hotel` importante della classe è costituito dai tipi di dati delle proprietà pubbliche. Viene eseguito il mapping dei tipi .NET di queste proprietà ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `Edm.String`. Esistono mapping di tipi simili `bool?`tra, `Edm.Boolean`, `DateTimeOffset?`e `Edm.DateTimeOffset` e così via. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` nella [documentazione di riferimento relativa a .NET SDK di Ricerca di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). La classe `FieldBuilder` si occupa di questo mapping automaticamente, ma la comprensione può comunque essere utile nel caso in cui sia necessario risolvere eventuali problemi di serializzazione.
 
-È stato eseguito da notare il `SmokingAllowed` proprietà?
+La `SmokingAllowed` proprietà è stata nota?
 
 ```csharp
 [JsonIgnore]
 public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
 ```
 
-Il `JsonIgnore` attributo su questa proprietà indica il `FieldBuilder` di non eseguirne la serializzazione per l'indice come un campo.  Questo è un ottimo modo per creare proprietà calcolate sul lato client, che è possibile usare come helper nell'applicazione.  In questo caso, il `SmokingAllowed` proprietà riflette se eventuali `Room` nel `Rooms` raccolta consente fumatori.  Se tutti sono false, significa che l'intera hotel non consente il fumo.
+L' `JsonIgnore` attributo di questa proprietà `FieldBuilder` indica a di non serializzarlo nell'indice come campo.  Questo è un ottimo modo per creare proprietà calcolate sul lato client che è possibile usare come helper nell'applicazione.  In questo caso, la `SmokingAllowed` proprietà indica se un `Room` oggetto `Rooms` della raccolta consente il fumo.  Se tutti sono false, significa che l'intero hotel non consente il fumo.
 
-Alcune proprietà, ad esempio `Address` e `Rooms` sono istanze di classi .NET.  Queste proprietà rappresentano strutture dei dati più complesse e, di conseguenza, richiedono i campi con un [tipo di dati complesso](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) nell'indice.
+Alcune proprietà, ad `Address` esempio `Rooms` e, sono istanze delle classi .NET.  Queste proprietà rappresentano strutture di dati più complesse e, di conseguenza, richiedono campi con un [tipo di dati complesso](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) nell'indice.
 
-Il `Address` proprietà rappresenta un set di valori multipli nel `Address` classe, definito di seguito:
+La `Address` proprietà rappresenta un set di più valori `Address` nella classe, definiti di seguito:
 
 ```csharp
 using System;
@@ -507,9 +507,9 @@ namespace AzureSearch.SDKHowTo
 }
 ```
 
-Questa classe contiene i valori standard usati per descrivere gli indirizzi negli Stati Uniti o in Canada. È possibile utilizzare tipi simile al seguente per raggruppare i campi logici nell'indice.
+Questa classe contiene i valori standard utilizzati per descrivere gli indirizzi nell'Stati Uniti o in Canada. È possibile utilizzare tipi simili a questo per raggruppare i campi logici nell'indice.
 
-Il `Rooms` proprietà rappresenta una matrice di `Room` oggetti:
+La `Rooms` proprietà rappresenta una matrice di `Room` oggetti:
 
 ```csharp
 using System;
@@ -551,9 +551,9 @@ namespace AzureSearch.SDKHowTo
 }
 ```
 
-Il modello di dati in .NET e il relativo schema di indice corrispondente deve essere progettato per supportare l'esperienza di ricerca che si vuole assegnare all'utente finale. Ogni oggetto di primo livello in .NET, ad esempio i documenti nell'indice, corrisponde a un risultato della ricerca che presenterebbe nell'interfaccia utente. Ad esempio, in un'applicazione di ricerca hotel gli utenti finali potrebbero quale effettuare la ricerca nome hotel, le funzionalità dell'hotel, o le caratteristiche di un particolare spazio. Illustreremo alcuni esempi di query un po' più tardi.
+Il modello di dati in .NET e lo schema di indice corrispondente devono essere progettati per supportare l'esperienza di ricerca che si vuole assegnare all'utente finale. Ogni oggetto di primo livello in .NET, documento IE nell'indice, corrisponde a un risultato della ricerca che si presenterebbe nell'interfaccia utente. Ad esempio, in un'applicazione di ricerca di un hotel è possibile che gli utenti finali desiderino eseguire la ricerca in base al nome dell'albergo, alle funzionalità dell'albergo o alle caratteristiche di una determinata chat room. Verranno illustrati alcuni esempi di query in un secondo momento.
 
-La possibilità di usare classi personalizzate per interagire con i documenti nell'indice funziona in entrambe le direzioni; È anche possibile recuperare i risultati della ricerca e che il SDK li deserializzi automaticamente in un tipo di propria scelta, come vedremo nella prossima sezione.
+La possibilità di utilizzare classi personalizzate per interagire con i documenti nell'indice funziona in entrambe le direzioni. È anche possibile recuperare i risultati della ricerca e fare in modo che l'SDK li deserializza automaticamente in un tipo di propria scelta, come si vedrà nella sezione successiva.
 
 > [!NOTE]
 > .NET SDK di Ricerca di Azure supporta anche documenti tipizzati in modo dinamico utilizzando la classe `Document`, un mapping chiave/valore dei campi e valori dei campi. Ciò è utile negli scenari in cui non si conosce lo schema di indice in fase di progettazione o quando l’associazione a classi di modello specifico non sarebbe conveniente. Tutti i metodi in SDK che gestiscono documenti dispongono di overload che funzionano con la classe `Document` , nonché overload fortemente tipizzati che accettano un parametro di tipo generico. Solo questi ultimi vengono utilizzati nell'esempio di codice fornito in questa esercitazione. La [classe `Document`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) eredita da `Dictionary<string, object>`.
@@ -573,7 +573,7 @@ Per questo motivo, è consigliabile usare tipi nullable nelle classi di modelli.
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>Serializzazione personalizzata con JSON.NET
-L'SDK usa JSON.NET per serializzare e deserializzare i documenti. È possibile personalizzare la serializzazione e la deserializzazione se necessario, che definisce il proprio `JsonConverter` o `IContractResolver`. Per altre informazioni, vedere la [documentazione di JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm). Ciò può risultare utile quando si vuole adattare una classe modello esistente dell'applicazione per usarla con Ricerca di Azure e in altri scenari più avanzati. Con la serializzazione personalizzata, ad esempio, è possibile:
+L'SDK usa JSON.NET per serializzare e deserializzare i documenti. Se necessario, è possibile personalizzare la serializzazione e la `JsonConverter` deserializzazione definendo o. `IContractResolver` Per ulteriori informazioni, vedere la [documentazione di JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm). Ciò può risultare utile quando si vuole adattare una classe modello esistente dell'applicazione per usarla con Ricerca di Azure e in altri scenari più avanzati. Con la serializzazione personalizzata, ad esempio, è possibile:
 
 * Includere o escludere determinate proprietà della classe modello da archiviare come campi di un documento.
 * Eseguire il mapping tra i nomi di proprietà nel codice e i nomi di campo nell'indice.
@@ -582,7 +582,7 @@ L'SDK usa JSON.NET per serializzare e deserializzare i documenti. È possibile p
 Esempi di implementazione della serializzazione personalizzata sono disponibili negli unit test per Azure Search .NET SDK in GitHub. È consigliabile iniziare da [questa cartella](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models), che contiene le classi usate dai test di serializzazione personalizzata.
 
 ### <a name="searching-for-documents-in-the-index"></a>Ricerca di documenti nell'indice
-L'ultimo passaggio nell'applicazione di esempio è cercare alcuni documenti nell'indice:
+L'ultimo passaggio nell'applicazione di esempio consiste nel cercare alcuni documenti nell'indice:
 
 ```csharp
 private static void RunQueries(ISearchIndexClient indexClient)
@@ -641,9 +641,9 @@ private static void RunQueries(ISearchIndexClient indexClient)
 }
 ```
 
-Ogni volta che viene eseguita una query, questo metodo crea prima un nuovo oggetto `SearchParameters`. Questo oggetto viene usato per specificare opzioni aggiuntive per la query, ad esempio l'ordinamento, filtro, paging e facet. In questo metodo, impostiamo le proprietà `Filter`, `Select`, `OrderBy` e `Top` per diverse query. Tutte le proprietà `SearchParameters` sono documentate [qui](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
+Ogni volta che viene eseguita una query, questo metodo crea prima un nuovo oggetto `SearchParameters`. Questo oggetto viene utilizzato per specificare opzioni aggiuntive per la query, ad esempio ordinamento, filtro, paging e facet. In questo metodo, impostiamo le proprietà `Filter`, `Select`, `OrderBy` e `Top` per diverse query. Tutte le proprietà `SearchParameters` sono documentate [qui](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
 
-Il passaggio successivo consiste nell’esecuzione effettiva della query di ricerca. Che esegue la ricerca viene eseguita usando il `Documents.Search` (metodo). Per ogni query, è possibile passare il testo di ricerca da utilizzare come stringa (o `"*"` se non è presente il testo di ricerca), oltre ai parametri di ricerca creati in precedenza. Viene inoltre specificato `Hotel` come parametro di tipo per `Documents.Search`, che indica all'SDK di deserializzare i documenti nei risultati della ricerca in oggetti di tipo `Hotel`.
+Il passaggio successivo consiste nell’esecuzione effettiva della query di ricerca. L'esecuzione della ricerca viene eseguita utilizzando `Documents.Search` il metodo. Per ogni query, è possibile passare il testo di ricerca da utilizzare come stringa (o `"*"` se non è presente il testo di ricerca), oltre ai parametri di ricerca creati in precedenza. Viene inoltre specificato `Hotel` come parametro di tipo per `Documents.Search`, che indica all'SDK di deserializzare i documenti nei risultati della ricerca in oggetti di tipo `Hotel`.
 
 > [!NOTE]
 > È possibile trovare ulteriori informazioni sulla sintassi delle espressioni di query di ricerca [qui](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
@@ -678,13 +678,13 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-In questo caso, viene eseguita la ricerca nell'intero indice per la parola "motel" in qualsiasi campo ricercabile e si vuole recuperare i nomi degli hotel, come specificato da solo il `Select` parametro. Ecco i risultati:
+In questo caso, è in corso la ricerca dell'intero indice per la parola "Motel" in qualsiasi campo ricercabile e si vogliono recuperare solo i nomi degli alberghi, come specificato `Select` dal parametro. Ecco i risultati:
 
     Name: Secret Point Motel
 
     Name: Twin Dome Motel
 
-La query successiva è un po' più interessante.  Si desidera trovare tutti gli alberghi con una chat con una tariffa notturna inferiore a 100 dollari e restituiscono solo l'ID dell'hotel e la descrizione:
+La query successiva è un po' più interessante.  Si desidera trovare gli eventuali Alberghi con una stanza con una tariffa notturna inferiore a $100 e restituire solo l'ID e la descrizione dell'hotel:
 
 ```csharp
 parameters =
@@ -699,7 +699,7 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 WriteDocuments(results);
 ```
 
-Questa query utilizza un'espressione `$filter` OData, `Rooms/any(r: r/BaseRate lt 100)`, per filtrare i documenti nell'indice. Questo metodo utilizza il [qualsiasi operatore](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) per applicare il ' BaseRate lt 100' a ogni elemento della raccolta di chat. È possibile trovare informazioni sulla sintassi OData supportata da Ricerca di Azure [qui](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
+Questa query utilizza un'espressione `$filter` OData, `Rooms/any(r: r/BaseRate lt 100)`, per filtrare i documenti nell'indice. Viene usato l' [operatore Any](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) per applicare ' BaseRate lt 100' a ogni elemento della raccolta chat room. È possibile trovare informazioni sulla sintassi OData supportata da Ricerca di Azure [qui](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
 
 Di seguito sono riportati i risultati della query:
 
@@ -732,7 +732,7 @@ Ecco i risultati:
     Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
     Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
 
-Infine, si desidera trovare tutti i nomi degli hotel che corrispondono alla parola "hotel":
+Infine, si desidera trovare tutti i nomi degli alberghi che corrispondono alla parola "Hotel":
 
 ```csharp
 parameters = new SearchParameters()
@@ -750,7 +750,7 @@ Di seguito sono riportati i risultati, che includono tutti i campi, poiché non 
     Name: Triple Landscape Hotel
     ...
 
-Questo passaggio completa l'esercitazione. \* * Avanti passaggi offrono risorse aggiuntive per altre informazioni su ricerca di Azure.
+Questo passaggio completa l'esercitazione. \* * I passaggi successivi forniscono ulteriori risorse per ulteriori informazioni su ricerca di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere le guide di riferimento di [SDK di .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).

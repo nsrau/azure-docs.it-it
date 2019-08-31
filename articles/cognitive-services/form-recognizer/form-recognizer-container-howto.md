@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 08/29/2019
 ms.author: dapine
-ms.openlocfilehash: 3c0129275ecf78e6a4e6b9286f975ded2b6f9ae3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 25ea4c96a0e392db2af9c25a150696ca2b25b2dd
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051197"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164544"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installare ed eseguire i contenitori Riconoscimento modulo
 
@@ -58,28 +58,25 @@ La tabella seguente indica i core di CPU minimi e consigliati e la memoria da al
 
 | Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
-|cognitive-services-form-recognizer | 2 Core, 4 GB di memoria | 4 core, 8 GB di memoria |
+| Riconoscimento modulo | 2 Core, 4 GB di memoria | 4 core, 8 GB di memoria |
+| Riconoscimento del testo | 1 core, 8 GB di memoria | 2 Core, 8 GB di memoria |
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
-* TPS - transazioni al secondo
 * Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
 
 > [!Note]
 > I valori minimi e consigliati sono basati sui limiti di Docker e *non* sulle risorse del computer host.
 
-## <a name="get-the-container-image-with-the-docker-pull-command"></a>Ottenere l'immagine del contenitore con il comando docker pull
+## <a name="get-the-container-images-with-the-docker-pull-command"></a>Ottenere le immagini del contenitore con il comando docker pull
 
-Le immagini di contenitori per Riconoscimento modulo son disponibili nel repository seguente:
+Le immagini del contenitore per il **riconoscimento dei moduli** e le offerte di **riconoscimento del testo** sono disponibili nel registro contenitori seguente:
 
-| Contenitore | Repository |
+| Contenitore | Nome completo dell'immagine |
 |-----------|------------|
-| cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+| Riconoscimento modulo | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+| Riconoscimento del testo | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-Se si intende usare il ​​[contenitore](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) `cognitive-services-recognize-text` invece del servizio Riconoscimento modulo, usare il comando `docker pull` con il nome contenitore corretto: 
-
-```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
+Sono necessari entrambi i contenitori. si noti che il contenitore di **testo del riconoscimento** è [dettagliato al di fuori di questo articolo.](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull)
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -91,6 +88,15 @@ Per ottenere il contenitore di Riconoscimento modulo, usare il comando seguente:
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
+```
+### <a name="docker-pull-for-the-recognize-text-container"></a>Docker pull per il contenitore di Riconoscimento del testo
+
+#### <a name="recognize-text"></a>Riconoscimento del testo
+
+Per ottenere il contenitore di riconoscimento del testo, usare il comando seguente:
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>Come usare il contenitore
@@ -104,7 +110,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti:
 
-| Segnaposto | Valore |
+| Segnaposto | Value |
 |-------------|-------|
 |{FORM_RECOGNIZER_API_KEY} | Questa chiave viene usata per avviare il contenitore. È disponibile nella pagina **Form Recognizer Keys** (Chiavi di Riconoscimento modulo) del portale di Azure.  |
 |{FORM_RECOGNIZER_ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina **Form Recognizer Overview** (Panoramica di Riconoscimento modulo) del portale di Azure.|

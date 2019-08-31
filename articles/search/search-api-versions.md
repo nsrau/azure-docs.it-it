@@ -2,19 +2,19 @@
 title: Gestione delle versioni dell'API per .NET SDK e API REST - Ricerca di Azure
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: d72901653e995e811a1d3e89cef8a5f77a9ea8bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f400c6fcb2b35e2adcf605c96bb802041cd9e0a9
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523798"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182349"
 ---
 # <a name="api-versions-in-azure-search"></a>Versioni API in Ricerca di Azure
 Il servizio Ricerca di Azure Search distribuisce regolarmente aggiornamenti delle funzionalità. Talvolta, ma non sempre, questi aggiornamenti richiedono una nuova versione dell'API per mantenere la compatibilità con le versioni precedenti. Questa pubblicazione consente di controllare come e quando integrare gli aggiornamenti del servizio di ricerca nel codice.
@@ -32,10 +32,10 @@ Di seguito è illustrata una panoramica delle versioni correnti di tutte le inte
 
 | Interfacce | Versione principale più recente | Stato |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |9.0 |In genere disponibile, rilasciata a maggio 2019 |
-| [Anteprima di .NET SDK](https://aka.ms/search-sdk-preview) |8.0-preview |Anteprima, rilasciata aprile 2019 |
+| [.NET SDK](https://aka.ms/search-sdk) |9.0 |Disponibile a livello generale, rilasciato il 2019 maggio |
+| [Anteprima di .NET SDK](https://aka.ms/search-sdk-preview) |8,0-Anteprima |Anteprima, rilasciata il 2019 aprile |
 | [API REST del servizio](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Disponibile a livello generale |
-| [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-preview |Anteprima |
+| [API REST del servizio 2019-05-06-Preview](search-api-preview.md) |2019-05-06-anteprima |Anteprima |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Disponibile a livello generale |
 | [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Disponibile a livello generale |
 

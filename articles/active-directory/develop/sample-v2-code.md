@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bded69a256a6fb76eabcdc53bc4115f534cfda37
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6c62bf4a887bb6d3b24cdd1234a586c61df17df4
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852921"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183111"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Esempi di codice della piattaforma Microsoft Identity (endpoint v 2.0)
 
@@ -63,6 +63,7 @@ Gli esempi seguenti illustrano le applicazioni Web che eseguono l'accesso degli 
 | -------- | ------------------- | --------------------------------- |
 | ![Questa immagine mostra il logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | [Esercitazione sugli utenti di WebApp per l'accesso a ASP.NET Core](https://aka.ms/aspnetcore-webapp-sign-in) | Lo stesso esempio in [ASP.NET Core app Web chiama Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) fase |
 | ![Questa immagine mostra il logo di ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Guida introduttiva di ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+| ![Questa immagine mostra il logo Java](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp): un'app Web MSAL4J che chiama Microsoft Graph |
 | ![Questa immagine mostra il logo node. js](media/sample-v2-code/logo_nodejs.png)  |                   | [Guida introduttiva di Node. js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) |
 | ![Questa immagine mostra il logo Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 

@@ -2,7 +2,7 @@
 title: Competenza Riconoscimento delle entità della ricerca cognitiva - Ricerca di Azure
 description: Estrarre tipi diversi di entità dal testo in una pipeline di ricerca cognitiva di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 25f6075d1e026745d4db1a60149e109a0f9636a4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: eb196b9ff72201358982764f227ab7935489f05d
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635965"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183413"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competenza cognitiva Riconoscimento delle entità
 
@@ -37,7 +37,7 @@ La dimensione massima di un record deve essere di 50.000 caratteri misurata [`St
 
 I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi.
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | categories    | Matrice di categorie che devono essere estratte.  Possibili tipi di categorie: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
 |defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
@@ -48,7 +48,7 @@ Si tratta di entità note che non sono classificate come parte delle "categorie"
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome di input      | Descrizione                   |
+| Nome di input      | DESCRIZIONE                   |
 |---------------|-------------------------------|
 | languageCode  | facoltativo. Il valore predefinito è `"en"`.  |
 | text          | Testo da analizzare.          |

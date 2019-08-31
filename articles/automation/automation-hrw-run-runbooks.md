@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e726b60a08f234ef021b2901f8ed29ec74f0ff47
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97d900146b3485df5cdf226f07aaa3aee116fc92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087568"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186761"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook
 
@@ -61,7 +61,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 ### <a name="runas-account"></a>Account RunAs
 
-Per impostazione predefinita il ruolo di lavoro ibrido per runbook usa Sistema locale per Windows e un account utente speciale `nxautomation` per Linux per eseguire i runbook. Per evitare che i runbook debbano autenticarsi per le risorse locali, è possibile specificare un account **RunAs** per un gruppo di ruoli di lavoro ibridi. Specificare un [asset credenziali](automation-credentials.md) con accesso alle risorse locali. Tutti i runbook useranno queste credenziali durante l'esecuzione in un ruolo di lavoro ibrido per runbook nel gruppo.
+Per impostazione predefinita il ruolo di lavoro ibrido per runbook usa Sistema locale per Windows e un account utente speciale `nxautomation` per Linux per eseguire i runbook. Per evitare che i runbook debbano autenticarsi per le risorse locali, è possibile specificare un account **RunAs** per un gruppo di ruoli di lavoro ibridi. È possibile specificare un [Asset credenziali](automation-credentials.md) con accesso alle risorse locali, inclusi gli archivi certificati e tutti i manuali operativi eseguiti con queste credenziali durante l'esecuzione in un ruolo di lavoro ibrido per Runbook nel gruppo.
 
 Il nome utente per le credenziali deve essere in uno dei formati seguenti:
 

@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24716a9b9fa5174d899cf0678b83b2da0c59957c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358663"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183548"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi al servizio Azure Machine Learning di Azure Kubernetes e alla distribuzione di istanze di contenitore di Azure
 
@@ -204,6 +204,9 @@ print(prediction)
 
 Durante i test locali, potrebbe essere necessario aggiornare il `score.py` file per aggiungere la registrazione o tentare di risolvere eventuali problemi individuati. Per ricaricare le modifiche `score.py` apportate `reload()`al file, usare. Il codice seguente, ad esempio, consente di ricaricare lo script per il servizio e quindi di inviarvi dati. Il Punteggio dei dati viene eseguito usando il `score.py` file aggiornato:
 
+> [!IMPORTANT]
+> Il `reload` metodo è disponibile solo per le distribuzioni locali. Per informazioni sull'aggiornamento di una distribuzione di a un'altra destinazione di calcolo, vedere la sezione relativa all'aggiornamento di [deploy Models](how-to-deploy-and-where.md#update).
+
 ```python
 service.reload()
 print(service.run(input_data=test_sample))
@@ -240,7 +243,7 @@ Dopo che l'immagine è stata compilata correttamente, il sistema tenta di avviar
 
 Usare le informazioni nella sezione [esaminare il registro Docker](#dockerlog) per controllare i log.
 
-## <a name="function-fails-getmodelpath"></a>Errore della funzione: get_model_path()
+## <a name="function-fails-get_model_path"></a>Errore della funzione: get_model_path()
 
 Spesso, nella `init()` funzione nello script di assegnazione dei punteggi, viene chiamata la funzione [Model. Get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) per individuare un file di modello o una cartella di file di modello nel contenitore. Se non è possibile trovare il file o la cartella del modello, la funzione ha esito negativo. Il modo più semplice per eseguire il debug di questo errore consiste nell'eseguire il codice Python seguente nella shell del contenitore:
 
@@ -255,7 +258,7 @@ Questo esempio Mostra come stampare il percorso locale (relativo `/var/azureml-a
 
 L'impostazione del livello di registrazione su DEBUG può causare la registrazione di informazioni aggiuntive, che possono essere utili per identificare l'errore.
 
-## <a name="function-fails-runinputdata"></a>Errore della funzione: run(input_data)
+## <a name="function-fails-runinput_data"></a>Errore della funzione: run(input_data)
 
 Se il servizio viene distribuito correttamente, ma si arresta in modo anomalo quando si pubblicano dati nell'endpoint di assegnazione dei punteggi, è possibile aggiungere un'istruzione di rilevamento degli errori nella funzione `run(input_data)` in modo che restituisca il messaggio di errore dettagliato. Ad esempio:
 
@@ -276,7 +279,7 @@ def run(input_data):
 
 ## <a name="http-status-code-503"></a>Codice di stato HTTP 503
 
-Le distribuzioni del servizio Azure Kubernetes supportano la scalabilità automatica, che consente di aggiungere le repliche per supportare un carico aggiuntivo. Tuttavia, la scalabilità automatica è progettata per gestire  modifiche graduali del carico. Se si ricevono picchi elevati di richieste al secondo, i client possono ricevere un codice di stato HTTP 503.
+Le distribuzioni del servizio Azure Kubernetes supportano la scalabilità automatica, che consente di aggiungere le repliche per supportare un carico aggiuntivo. Tuttavia, la scalabilità automatica è progettata per gestire modifiche graduali del carico. Se si ricevono picchi elevati di richieste al secondo, i client possono ricevere un codice di stato HTTP 503.
 
 Esistono due elementi che consentono di prevenire i codici di stato 503:
 

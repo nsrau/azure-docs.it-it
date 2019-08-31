@@ -2,7 +2,7 @@
 title: Competenza Riconoscimento delle entità denominate della ricerca cognitiva - Ricerca di Azure
 description: Estrarre le entità denominate per utente, posizione e organizzazione dal testo in una pipeline di ricerca cognitiva di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: b689b577ed940dad03cdf25570187bde98222ee3
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f91d0b17cfc984ccf56ad4a25ef2ece651dcbed5
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635893"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183335"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Competenza cognitiva di Riconoscimento di entità denominate
 
@@ -40,7 +40,7 @@ La dimensione massima di un record deve essere di 50.000 caratteri misurata [`St
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | Descrizione |
+| Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
 | categories    | Matrice di categorie che devono essere estratte.  Possibili tipologie di categorie: `"Person"`, `"Location"`, `"Organization"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
 |defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
@@ -55,7 +55,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-outputs"></a>Output competenze
 
-| Nome output     | DESCRIZIONE                   |
+| Nome output     | Descrizione                   |
 |---------------|-------------------------------|
 | persons      | Una matrice di stringhe in cui ogni stringa rappresenta il nome di una persona. |
 | locations  | Una matrice di stringhe in cui ogni stringa rappresenta il nome una posizione. |

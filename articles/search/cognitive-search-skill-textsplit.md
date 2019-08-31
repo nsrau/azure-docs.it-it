@@ -2,7 +2,7 @@
 title: Competenza Divisione del testo della ricerca cognitiva - Ricerca di Azure
 description: Suddividere il testo in blocchi o pagine di testo in base alla lunghezza in una pipeline di arricchimento di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 03ebf39db264c9d6f78b228f3af4239c6e249b26
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: fcde448c664ad85b78d275304dd01a1eedaca006
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635935"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183312"
 ---
 #   <a name="text-split-cognitive-skill"></a>Competenza cognitiva Divisione del testo
 
@@ -40,14 +40,14 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome parametro       | Descrizione      |
+| Nome parametro       | DESCRIZIONE      |
 |----------------------|------------------|
 | text  | Testo da suddividere in sottostringhe. |
 | languageCode  | (Facoltativo) Codice lingua per il documento.  |
 
 ## <a name="skill-outputs"></a>Output competenze 
 
-| Nome parametro     | Descrizione |
+| Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
 | textItems | Una matrice di sottostringhe che sono state estratte. |
 

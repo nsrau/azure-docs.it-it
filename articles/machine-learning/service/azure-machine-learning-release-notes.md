@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1e35baf24b59e7864982d131f44f79458e0d9015
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 01ee8e5b9d7ab1e8ab4086e559ce8dd8df76252f
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971502"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182696"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -84,6 +84,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Consentire agli utenti di AutoML di eliminare le serie di training che non sono sufficientemente lunghe durante la previsione.
     + Consente agli utenti di AutoML di eliminare i granularità dal set di test che non esistono nel set di training durante la previsione.
     + Ora AutoMLStep passa attraverso la configurazione automl al back-end per evitare eventuali problemi di modifiche o aggiunte di nuovi parametri di configurazione.
+    + AutoML data barriera è ora disponibile in anteprima pubblica. L'utente visualizzerà un report di barriera di dati (per attività di classificazione/regressione) dopo il training e sarà in grado di accedervi tramite l'API SDK.
   + **azureml-train-core**
     + Aggiunto il supporto di torcia 1,2 in PyTorch Estimator.
   + **azureml-widget**

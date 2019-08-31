@@ -2,7 +2,7 @@
 title: Competenza valutazione della ricerca cognitiva - Ricerca di Azure
 description: Estrarre un punteggio di valutazione positiva/negativa dal testo in una pipeline di arricchimento di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: df5e33cfc19d4e91fdf4eddc50b25a2b380f0dc4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ad6689dad3789329ad202c82dd10847c618906a2
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638936"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183364"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Competenza valutazione cognitiva
 
@@ -51,7 +51,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-outputs"></a>Output competenze
 
-| Nome output | DESCRIZIONE |
+| Nome output | Descrizione |
 |--------------------|-------------|
 | score | Un valore compreso tra 0 e 1 che rappresenta la valutazione del testo analizzato. I valori prossimi allo 0 hanno una valutazione negativa, quelli prossimi allo 0,5 hanno una valutazione neutra, quelli prossimi all'1 hanno una valutazione positiva.|
 

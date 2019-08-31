@@ -1,7 +1,7 @@
 ---
 title: Creare un set di competenze in una pipeline di ricerca cognitiva - Ricerca di Azure
 description: Definire le procedure di estrazione dei dati, di elaborazione del linguaggio naturale o di analisi delle immagini per completare ed estrarre informazioni strutturate dai dati a disposizione da usare in Ricerca di Azure.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: c67131154fd50a2b20b4b07b7294fad250dfa9d9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 457157b93e6fb6be8ed734ae6f58c3b8717fc83d
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639250"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183469"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Come creare un set di competenze in una pipeline di arricchimento
 
@@ -172,7 +172,7 @@ Verrà ora esaminata la prima competenza, ovvero la [capacità di riconoscimento
 
 * La competenza genera un output denominato ```"organizations"```. Gli output esistono solo durante l'elaborazione. Per concatenare questo output all'input della competenza a valle, fare riferimento all'output come ```"/document/organizations"```.
 
-* Per un particolare documento, il valore di ```"/document/organizations"``` è una matrice di organizzazioni estratte dal testo. Esempio:
+* Per un particolare documento, il valore di ```"/document/organizations"``` è una matrice di organizzazioni estratte dal testo. Ad esempio:
 
   ```json
   ["Microsoft", "LinkedIn"]

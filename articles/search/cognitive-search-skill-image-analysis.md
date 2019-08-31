@@ -2,7 +2,7 @@
 title: Competenza di ricerca cognitiva Analisi delle immagini - Ricerca di Azure
 description: Estrarre il testo semantico tramite l'analisi delle immagini usando la competenza cognitiva di analisi delle immagini in una pipeline di arricchimento di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 2bdb65355f835eec232efd4f0493ecefbecfdd26
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 07969a92286837f8f72b533173ac8d170378d0ea
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128199"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183393"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Competenza cognitiva di Analisi delle immagini
 
@@ -34,7 +34,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | Descrizione |
+| Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
 | defaultLanguageCode   |  Stringa che indica la lingua di restituzione. Il servizio restituisce i risultati di riconoscimento nella lingua specificata. Se questo parametro non è specificato, il valore predefinito è "en". <br/><br/>Le lingue supportate sono: <br/>*en* - Inglese (predefinito) <br/> *zh* - Cinese semplificato|
 |visualFeatures |   Matrice di stringhe che indica i tipi di caratteristiche visive da restituire. I tipi di caratteristiche visive valide comprendono:  <ul><li> *categorie* : Categorizza il contenuto dell'immagine in base a una tassonomia definita nella documentazione dei servizi cognitivi [visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li> *tag* - contrassegna l'immagine con un elenco dettagliato delle parole correlate con il contenuto dell'immagine.</li><li>*Descrizione* : descrive il contenuto dell'immagine con una frase inglese completa.</li><li>*visi* : rileva se sono presenti visi. Se presenti, genera le coordinate, il genere e l'età.</li><li>    *ImageType* : rileva se image è clip art o un disegno a linee.</li><li>  *colore* : determina il colore dell'accento, il colore dominante e se un'immagine è nera & bianco.</li><li>*Adult* : rileva se l'immagine è di natura pornografica (raffigurato nudità o un sex Act). Viene rilevato anche il contenuto che presenta riferimenti sessuali.</li></ul> I nomi delle caratteristiche visive fanno distinzione tra maiuscole e minuscole.|

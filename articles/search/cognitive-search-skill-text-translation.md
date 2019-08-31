@@ -2,7 +2,7 @@
 title: Traduzione del testo skill cognitive search-ricerca di Azure
 description: Valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato in una pipeline di arricchimento di ricerca di Azure.
 services: search
-manager: briansmi
+manager: nitinme
 author: careyjmac
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
 ms.subservice: cognitive-search
-ms.openlocfilehash: 5f608ee058dd4e463253f4c4f5e410c515031e25
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 407fd246313e582a3d28a6cbb474edefecd7f0af
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638889"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183320"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Competenze cognitive per la traduzione del testo
 
@@ -48,7 +48,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome di input     | Descrizione |
+| Nome di input     | DESCRIZIONE |
 |--------------------|-------------|
 | text | Testo da tradurre.|
 | toLanguageCode    | Stringa che indica la lingua in cui deve essere convertito il testo. Se questo input non è specificato, verrà usato defaultToLanguageCode per tradurre il testo. <br/>Vedere l'[elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|

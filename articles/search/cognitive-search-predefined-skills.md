@@ -1,7 +1,7 @@
 ---
 title: Estrazione di dati incorporata, linguaggio naturale, elaborazione delle immagini - Ricerca di Azure
 description: Estrazione dei dati, linguaggio naturale, competenze cognitive di elaborazione delle immagini, semantica e struttura per il contenuto non elaborato in una pipeline di Ricerca di Azure.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 08f4d94f1cd5afc9e626d4b774c3924b89cbbfad
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 8d367f7588feb892f667522a515ad4411bf96624
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639117"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183448"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Competenze predefinite per l'arricchimento del contenuto (Ricerca di Azure)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b90b4806e86ed0ba33500cf31a6ed892241ceabe
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
-ms.translationtype: MT
+ms.openlocfilehash: 27526f4940cb7ab538992f3506c1a35a81cec9bc
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423447"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165018"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
@@ -44,19 +44,31 @@ Il numero massimo di collegamenti profondi che possono essere sottoposti a ricer
 
 ## <a name="metadata-limits"></a>Limiti di metadati
 
+### <a name="by-azure-search-pricing-tier"></a>Del piano tariffario di ricerca di Azure
+
 Il numero massimo di campi di metadati per Knowledge base è basato sui **[limiti del livello di ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
 
 |**Livello di ricerca di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di campi di metadati per ogni servizio QnA Maker (attraverso tutte le knowledge base)|1\.000|100*|1\.000|1\.000|1\.000|1\.000|
 
+### <a name="by-name-and-value"></a>Per nome e valore
+
+Nella tabella seguente sono elencati i caratteri di lunghezza e accettabili per il nome e il valore dei metadati.
+
+|Elemento|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
+|--|--|--|--|
+|Name|Consente<br>alfanumerico (lettere e cifre)<br>`_`sottolineatura|`^[a-zA-Z0-9_]+$`|100|
+|Valore|Consente tutti gli elementi eccetto<br>`:`virgola<br>`|`(barra verticale)|`^[^:|]+$`|500|
+|||||
+
 ## <a name="knowledge-base-content-limits"></a>Limiti di contenuto della Knowledge Base
 Limiti complessivi sul contenuto nella knowledge base:
 * Lunghezza del testo della risposta: 25.000
 * Lunghezza del testo della domanda: 1.000
 * Lunghezza del testo di chiave/valore dei metadati: 100
-* Caratteri supportati per il nome dei metadati: caratteri alfabetici, cifre e _  
-* Caratteri supportati per il valore dei metadati: tutti tranne : e | 
+* Caratteri supportati per il nome dei metadati: Alfabeti, cifre e`_`  
+* Caratteri supportati per il valore dei metadati: Tutti tranne `:` e`|` 
 * Lunghezza del nome file: 200
 * Formati di file supportati: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Numero massimo di domande alternative: 300

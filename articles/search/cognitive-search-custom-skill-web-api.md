@@ -2,7 +2,7 @@
 title: Competenza personalizzata della ricerca cognitiva - Ricerca di Azure
 description: Estendere le funzionalità dei set di competenze di ricerca cognitiva chiamando API Web
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: bd38dacd9161812032512fcb8bfdcbe90d64731c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a01518158e063d68734b1230f11cae78f461faac
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639862"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183462"
 ---
 # <a name="custom-web-api-skill"></a>Competenza API Web personalizzata
 

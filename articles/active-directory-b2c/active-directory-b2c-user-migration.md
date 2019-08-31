@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 08ace7170a982fbaa186b77b27e342f16349aadd
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c922799b650de7f921cc0493eb3feb2ad90b9d92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613318"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183156"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migrazione degli utenti
 
@@ -27,7 +27,7 @@ Con Azure AD B2C, è possibile eseguire la migrazione degli utenti tramite la [A
 
 - **Pre-migrazione**: questo flusso si applica quando si ha accesso alle credenziali di un utente (nome utente e password) o se le credenziali sono crittografate ma è possibile decrittografarle. Il processo di pre-migrazione include la lettura degli utenti dal vecchio provider di identità e la creazione di nuovi account nella directory di Azure AD B2C.
 
-- **Pre-migrazione e reimpostazione della password**: questo flusso si applica quando la password di un utente non è accessibile. Esempio:
+- **Pre-migrazione e reimpostazione della password**: questo flusso si applica quando la password di un utente non è accessibile. Ad esempio:
   - La password è archiviata in formato HASH.
   - La password è archiviata in un provider di identità a cui non è possibile accedere. Il vecchio provider di identità convalida le credenziali dell'utente chiamando un servizio Web.
 
@@ -139,7 +139,9 @@ Modificare il valore `$AppId` con l'**ID applicazione** di Azure AD.
 
 ## <a name="step-2-pre-migration-application-sample"></a>Passaggio 2: Esempio di applicazione di pre-migrazione
 
-[Scaricare ed eseguire il codice di esempio][UserMigrationSample]. È possibile scaricarlo come file con estensione zip.
+L'esempio di codice di pre-migrazione è reperibile nel repository GitHub `azure-ad-b2c/user-migration` gestito dalla community:
+
+[Azure-ad-B2C/utente-migrazione/pre-migrazione][UserMigrationSample-code] GitHub
 
 ### <a name="step-21-edit-the-migration-data-file"></a>Passaggio 2.1: Modificare il file dei dati di migrazione
 
@@ -364,7 +366,7 @@ Dopo aver definito il profilo tecnico per l'API RESTful, indicare ai criteri di 
 
 ## <a name="optional-download-the-complete-policy-files"></a>(Facoltativo) Scaricare i file dei criteri completi
 
-Dopo aver completato la procedura dettagliata [Introduzione ai criteri personalizzati][B2C-GetStartedCustom] , è consigliabile compilare lo scenario usando i file dei criteri personalizzati. Per informazioni di riferimento, sono disponibili [file di criteri di esempio][UserMigrationSample].
+Dopo aver completato la procedura dettagliata [Introduzione ai criteri personalizzati][B2C-GetStartedCustom] , è consigliabile compilare lo scenario usando i file dei criteri personalizzati. Per informazioni di riferimento, sono disponibili [file di criteri di esempio][UserMigrationSample-policy].
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
 [AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
@@ -375,4 +377,5 @@ Dopo aver completato la procedura dettagliata [Introduzione ai criteri personali
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/azure-ad-b2c/user-migration
+[UserMigrationSample-code]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/source-code
+[UserMigrationSample-policy]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/policy

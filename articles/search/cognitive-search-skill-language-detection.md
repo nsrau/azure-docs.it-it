@@ -2,7 +2,7 @@
 title: Competenza rilevamento lingua della ricerca cognitiva - Ricerca di Azure
 description: Valuta testo non strutturato e per ogni record restituisce un identificatore di lingua con un punteggio che indica il livello di attendibilità dell'analisi in una pipeline di arricchimento di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 14163b959a6e91406133ca2f5a125c7e2df967ad
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 8375d41e3ece3bdd97b218925a8b1b6d45fc327d
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635801"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186374"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Competenza cognitiva di rilevamento lingua
 
