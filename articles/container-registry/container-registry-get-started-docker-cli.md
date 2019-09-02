@@ -1,5 +1,5 @@
 ---
-title: Effettuare il push di un'immagine Docker in un registro contenitori di Azure privato
+title: Effettuare il push di un'immagine Docker in un Registro Azure Container privato
 description: Effettuare il push e il pull di immagini Docker in un registro contenitori privato in Azure tramite l'interfaccia della riga di comando di Docker
 services: container-registry
 author: dlepow
@@ -20,7 +20,7 @@ ms.locfileid: "68309437"
 
 Un registro Azure Container archivia e gestisce le immagini dei contenitori [Docker](https://hub.docker.com) private, in modo analogo a come [Docker Hub](https://hub.docker.com/) archivia le immagini Docker pubbliche. È possibile usare l'[interfaccia della riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/cli/) per eseguire l'[accesso](https://docs.docker.com/engine/reference/commandline/login/), il [push](https://docs.docker.com/engine/reference/commandline/push/), il [pull](https://docs.docker.com/engine/reference/commandline/pull/) e altre operazioni sul registro contenitori.
 
-La procedura seguente esegue il download di un'[immagine di Nginx](https://store.docker.com/images/nginx) ufficiale dal registro pubblico di Docker Hub, la contrassegna per il registro contenitori di Azure privato, ne effettua il push nel registro e quindi ne effettua il pull dal registro.
+La procedura seguente esegue il download di un'[immagine di Nginx](https://store.docker.com/images/nginx) ufficiale dal registro pubblico di Docker Hub, la contrassegna per il Registro Azure Container privato, ne effettua il push nel registro e quindi ne effettua il pull dal registro.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -116,7 +116,7 @@ Se l'immagine di Nginx non è più necessaria, è possibile eliminarla in locale
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Per rimuovere le immagini dal registro contenitori di Azure, è possibile usare il comando dell'interfaccia della riga di comando di Azure [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Il comando seguente, ad esempio, elimina il manifesto a cui fa riferimento il tag `samples/nginx:latest`, tutti i dati di livello univoci e tutti gli altri tag che fanno riferimento al manifesto.
+Per rimuovere le immagini dal Registro Azure Container, è possibile usare il comando dell'interfaccia della riga di comando di Azure [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Il comando seguente, ad esempio, elimina il manifesto a cui fa riferimento il tag `samples/nginx:latest`, tutti i dati di livello univoci e tutti gli altri tag che fanno riferimento al manifesto.
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest

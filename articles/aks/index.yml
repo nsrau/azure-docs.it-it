@@ -31,7 +31,7 @@ sections:
             text: Portale di Azure
             href: /azure/aks/kubernetes-walkthrough-portal
       - type: paragraph
-        text: 'Informazioni su come sviluppare applicazioni ed eseguirne il debug con AKS:'
+        text: 'Informazioni su come sviluppare applicazioni ed eseguirne il debug con il servizio Azure Kubernetes:'
       - type: list
         style: icon48
         items:

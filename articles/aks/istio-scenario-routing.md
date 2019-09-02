@@ -79,7 +79,7 @@ Etichettare lo spazio dei nomi con `istio-injection=enabled`. Questa etichetta i
 kubectl label namespace voting istio-injection=enabled
 ```
 
-A questo punto è possibile creare i componenti per l'app di voto AKS. Creare questi componenti nel `voting` dello spazio dei nomi creato nel passaggio precedente.
+A questo punto è possibile creare i componenti per l'app di voto del servizio Azure Kubernetes. Creare questi componenti nel `voting` dello spazio dei nomi creato nel passaggio precedente.
 
 ```azurecli
 kubectl apply -f kubernetes/step-1-create-voting-app.yaml --namespace voting

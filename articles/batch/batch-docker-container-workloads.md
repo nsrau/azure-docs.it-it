@@ -91,7 +91,7 @@ Altre considerazioni sull'uso di un'immagine Linux personalizzata:
 
 Per abilitare un pool Batch a eseguire carichi di lavoro del contenitore, è necessario specificare le impostazioni di [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) nell'oggetto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) del pool. Questo articolo contiene i collegamenti alla documentazione di riferimento sull'API Batch .NET. Nell'API [Python per Batch](/python/api/azure.batch) si trovano impostazioni corrispondenti.
 
-È possibile creare un pool abilitato per il contenitore con o senza le immagini del contenitore prelette, come illustrato negli esempi seguenti. Il processo di pull, o di prelettura, consente di precaricare le immagini del contenitore dall'hub Docker o da un altro registro contenitori in Internet. Per prestazioni ottimali, usare un [registro contenitori di Azure](../container-registry/container-registry-intro.md) nella stessa area dell'account Batch.
+È possibile creare un pool abilitato per il contenitore con o senza le immagini del contenitore prelette, come illustrato negli esempi seguenti. Il processo di pull, o di prelettura, consente di precaricare le immagini del contenitore dall'hub Docker o da un altro registro contenitori in Internet. Per prestazioni ottimali, usare un [Registro Azure Container](../container-registry/container-registry-intro.md) nella stessa area dell'account Batch.
 
 Il vantaggio della prelettura delle immagini del contenitore è che quando le attività iniziano l'esecuzione non devono attendere che l'immagine contenitore venga scaricata. La configurazione del contenitore esegue il pull delle immagini del contenitore nelle macchine virtuali quando viene creato il pool. Le attività eseguite nel pool potranno quindi fare riferimento all'elenco delle immagini del contenitore e alle opzioni di esecuzione del contenitore.
 
@@ -193,7 +193,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Prelettura delle immagini da un contenitori privato
 
-È anche possibile eseguire la prelettura delle immagini del contenitore eseguendo l'autenticazione a un server del registro contenitori privato. Nell'esempio seguente gli oggetti `ContainerConfiguration` e `VirtualMachineConfiguration` eseguono la prelettura di un'immagine privata di TensorFlow da un registro contenitori di Azure privato. Il riferimento all'immagine è lo stesso dell'esempio precedente.
+È anche possibile eseguire la prelettura delle immagini del contenitore eseguendo l'autenticazione a un server del registro contenitori privato. Nell'esempio seguente gli oggetti `ContainerConfiguration` e `VirtualMachineConfiguration` eseguono la prelettura di un'immagine privata di TensorFlow da un Registro Azure Container privato. Il riferimento all'immagine è lo stesso dell'esempio precedente.
 
 ```csharp
 // Specify a container registry

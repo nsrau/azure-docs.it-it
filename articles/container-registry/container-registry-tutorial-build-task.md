@@ -40,7 +40,7 @@ Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, �
 
 ## <a name="create-the-build-task"></a>Creare l'attività di compilazione
 
-Dopo aver completato i passaggi necessari per consentire ad ACR Tasks di leggere lo stato del commit e creare webhook in un repository, è possibile creare un'attività che attiva la compilazione di un'immagine del contenitore in caso di commit nel repository.
+Dopo aver completato i passaggi necessari per consentire ad Attività del Registro Azure Container di leggere lo stato del commit e creare webhook in un repository, è possibile creare un'attività che attiva la compilazione di un'immagine del contenitore in caso di commit nel repository.
 
 Per prima cosa, popolare queste variabili di ambiente della shell con i valori appropriati per l'ambiente in uso. Questo passaggio non è obbligatorio, ma semplifica in parte l'esecuzione dei comandi su più righe dell'interfaccia della riga di comando di Azure. Se non si popolano queste variabili di ambiente, sarà necessario sostituire manualmente ogni valore in ogni occorrenza nei comandi di esempio.
 
@@ -66,7 +66,7 @@ az acr task create \
 > [!IMPORTANT]
 > Se in precedenza sono state create attività durante l'anteprima con il comando `az acr build-task`, tali attività devono essere ricreate con il comando [az acr task][az-acr-task].
 
-L'attività specifica che ogni volta che verrà eseguito il commit di codice nel ramo *principale* del repository specificato da `--context`, ACR Tasks compilerà l'immagine del contenitore dal codice in tale ramo. Per creare l'immagine viene usato il Dockerfile specificato da `--file` presente nella radice del repository. L'argomento `--image` specifica un valore `{{.Run.ID}}` con parametri per la parte della versione del tag dell'immagine, affinché l'immagine compilata sia correlata a una compilazione specifica e contrassegnata con un tag univoco.
+L'attività specifica che ogni volta che verrà eseguito il commit di codice nel ramo *principale* del repository specificato da `--context`, Attività del Registro Azure Container compilerà l'immagine del contenitore dal codice in tale ramo. Per creare l'immagine viene usato il Dockerfile specificato da `--file` presente nella radice del repository. L'argomento `--image` specifica un valore `{{.Run.ID}}` con parametri per la parte della versione del tag dell'immagine, affinché l'immagine compilata sia correlata a una compilazione specifica e contrassegnata con un tag univoco.
 
 L'output di un comando [az acr task create][az-acr-task-create] riuscito è simile al seguente:
 

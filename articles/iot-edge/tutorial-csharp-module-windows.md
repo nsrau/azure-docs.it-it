@@ -88,7 +88,7 @@ Azure IoT Edge Tools offre modelli di progetto per tutti i linguaggi dei moduli 
 
 ### <a name="add-your-registry-credentials"></a>Aggiungere le credenziali del registro
 
-Il manifesto della distribuzione condivide le credenziali per il registro contenitori con il runtime IoT Edge. Queste credenziali sono necessarie al runtime per eseguire il pull delle immagini private nel dispositivo IoT Edge. Usare le credenziali della sezione **Chiavi di accesso** del registro contenitori di Azure. 
+Il manifesto della distribuzione condivide le credenziali per il registro contenitori con il runtime IoT Edge. Queste credenziali sono necessarie al runtime per eseguire il pull delle immagini private nel dispositivo IoT Edge. Usare le credenziali della sezione **Chiavi di accesso** del Registro Azure Container. 
 
 1. In Esplora soluzioni di Visual Studio aprire il file **deployment.template.json**. 
 
@@ -289,7 +289,7 @@ Il codice del modulo predefinito riceve i messaggi in una coda di input e li pas
 
 Nella sezione precedente è creata una soluzione IoT Edge ed è stato aggiunto a **CSharpModule** il codice per filtrare i messaggi in cui la temperatura del computer segnalata è inferiore alla soglia accettabile. È ora necessario compilare la soluzione come immagine del contenitore ed eseguirne il push nel registro contenitori. 
 
-1. Usare il comando seguente per accedere a Docker nel computer di sviluppo. Usare il nome utente, la password e il server di accesso del registro contenitori di Azure. È possibile recuperare questi valori dalla sezione **Chiavi di accesso** del registro nel portale di Azure.
+1. Usare il comando seguente per accedere a Docker nel computer di sviluppo. Usare il nome utente, la password e il server di accesso del Registro Azure Container. È possibile recuperare questi valori dalla sezione **Chiavi di accesso** del registro nel portale di Azure.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>

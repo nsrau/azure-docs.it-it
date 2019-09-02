@@ -142,7 +142,7 @@ Al termine della sottoscrizione, l'output dovrebbe essere simile al seguente:
 
 ## <a name="trigger-registry-events"></a>Attivare gli eventi del registro
 
-Ora che l'app di esempio è attiva e si è eseguita la sottoscrizione al registro con Griglia di eventi, si è pronti per generare alcuni eventi. In questa sezione si usa ACR Tasks per compilare un'immagine di contenitore ed eseguirne il push nel registro. ACR Tasks è una funzionalità di Registro Azure Container che consente di compilare immagini dei contenitori nel cloud, senza che sia necessario installare il motore Docker nel computer locale.
+Ora che l'app di esempio è attiva e si è eseguita la sottoscrizione al registro con Griglia di eventi, si è pronti per generare alcuni eventi. In questa sezione si usa Attività del Registro Azure Container per compilare un'immagine di contenitore ed eseguirne il push nel registro. ACR Tasks è una funzionalità di Registro Azure Container che consente di compilare immagini dei contenitori nel cloud, senza che sia necessario installare il motore Docker nel computer locale.
 
 ### <a name="build-and-push-image"></a>Compilare l'immagine ed eseguirne il push
 
@@ -228,7 +228,7 @@ az group delete --name $RESOURCE_GROUP_NAME
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è distribuito un registro contenitori, si è compilata un'immagine con ACR Tasks, si è eliminata l'immagine e si sono usati gli eventi del registro da Griglia di eventi con un'applicazione di esempio. A questo punto, passare all'esercitazione di ACR Tasks per altre informazioni sulla compilazione di immagini dei contenitori nel cloud, tra cui la compilazione automatizzata in caso di aggiornamento dell'immagine di base:
+In questa guida introduttiva si è distribuito un registro contenitori, si è compilata un'immagine con Attività del Registro Azure Container, si è eliminata l'immagine e si sono usati gli eventi del registro da Griglia di eventi con un'applicazione di esempio. A questo punto, passare all'esercitazione di ACR Tasks per altre informazioni sulla compilazione di immagini dei contenitori nel cloud, tra cui la compilazione automatizzata in caso di aggiornamento dell'immagine di base:
 
 > [!div class="nextstepaction"]
 > [Compilare immagini dei contenitori nel cloud con ACR Tasks](container-registry-tutorial-quick-task.md)

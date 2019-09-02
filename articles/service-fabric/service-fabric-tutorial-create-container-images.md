@@ -94,7 +94,7 @@ Eseguire per prima cosa il comando **az login** per accedere al proprio account 
 az login
 ```
 
-Successivamente, usare il comando **az account** per scegliere la sottoscrizione per creare il registro contenitori di Azure. Sostituire <subscription_id> con l'ID della sottoscrizione di Azure.
+Successivamente, usare il comando **az account** per scegliere la sottoscrizione per creare il Registro Azure Container. Sostituire <subscription_id> con l'ID della sottoscrizione di Azure.
 
 ```bash
 az account set --subscription <subscription_id>

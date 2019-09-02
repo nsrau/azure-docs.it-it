@@ -22,7 +22,7 @@ ms.locfileid: "69624377"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Come arrestare il monitoraggio del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
 
-Dopo aver abilitato il monitoraggio di un cluster AKS, è possibile interrompere il monitoraggio del cluster se non lo si ritiene più necessario. Questo articolo illustra come eseguire questa operazione usando l'interfaccia della riga di comando di Azure o i modelli di Azure Resource Manager disponibili.  
+Dopo aver abilitato il monitoraggio di un cluster del servizio Azure Kubernetes, è possibile interrompere il monitoraggio del cluster se non lo si ritiene più necessario. Questo articolo illustra come eseguire questa operazione usando l'interfaccia della riga di comando di Azure o i modelli di Azure Resource Manager disponibili.  
 
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
@@ -37,7 +37,7 @@ Per riabilitare il monitoraggio per il cluster, vedere [Abilitare il monitoraggi
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
-Sono disponibili due modelli di Azure Resource Manager per poter rimuovere le risorse della soluzione in modo coerente e ripetuto nel gruppo di risorse. Uno è un modello JSON che specifica la configurazione per interrompere il monitoraggio, mentre l'altro contiene i valori dei parametri da configurare per specificare l'ID risorsa del cluster AKS e il gruppo di risorse in cui è distribuito il cluster. 
+Sono disponibili due modelli di Azure Resource Manager per poter rimuovere le risorse della soluzione in modo coerente e ripetuto nel gruppo di risorse. Uno è un modello JSON che specifica la configurazione per interrompere il monitoraggio, mentre l'altro contiene i valori dei parametri da configurare per specificare l'ID risorsa del cluster del servizio Azure Kubernetes e il gruppo di risorse in cui è distribuito il cluster. 
 
 Se non si ha familiarità con il concetto di distribuzione delle risorse tramite un modello, vedere:
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)

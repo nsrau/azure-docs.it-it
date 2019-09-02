@@ -23,7 +23,7 @@ Questo articolo illustra in particolare come proteggere il cluster del servizio 
 > [!div class="checklist"]
 > * Usare Azure Active Directory e i controlli degli accessi in base al ruolo per proteggere l'accesso al server API
 > * Proteggere l'accesso del contenitore alle risorse dei nodi
-> * Aggiornare un cluster AKS alla versione più recente di Kubernetes
+> * Aggiornare un cluster del servizio Azure Kubernetes alla versione più recente di Kubernetes
 > * Mantenere i nodi aggiornati e applicare automaticamente le patch di protezione
 
 È anche possibile leggere le procedure consigliate per la [gestione delle immagini del contenitore][best-practices-container-image-management] e per la [sicurezza Pod][best-practices-pod-security].
@@ -32,15 +32,15 @@ Questo articolo illustra in particolare come proteggere il cluster del servizio 
 
 **Indicazioni sulle procedure consigliate** - La protezione dell'accesso al server dell'API Kubernetes è una delle cose più importanti da fare per proteggere il cluster. Integrare il controllo degli accessi in base al ruolo di Kubernetes con Azure Active Directory per controllare l'accesso al server dell'API. Questi controlli consentono di proteggere il servizio Azure Kubernetes allo stesso modo in cui si protegge l'accesso alle sottoscrizioni di Azure.
 
-Il server dell'API Kubernetes fornisce un singolo punto di connessione per le richieste di esecuzione di azioni all'interno di un cluster. Per proteggere e controllare l'accesso al server dell'API, limitare l'accesso e concedere le autorizzazioni di accesso con privilegi minime necessarie. Questo approccio non è esclusivo di Kubernetes, ma è particolarmente importante quando il cluster AKS è isolato logicamente per l'uso in più tenant.
+Il server dell'API Kubernetes fornisce un singolo punto di connessione per le richieste di esecuzione di azioni all'interno di un cluster. Per proteggere e controllare l'accesso al server dell'API, limitare l'accesso e concedere le autorizzazioni di accesso con privilegi minime necessarie. Questo approccio non è esclusivo di Kubernetes, ma è particolarmente importante quando il cluster del servizio Azure Kubernetes è isolato logicamente per l'uso in più tenant.
 
-Azure Active Directory (AD) offre una soluzione di gestione delle identità di livello aziendale che si integra con i cluster AKS. Dal momento che Kubernetes non fornisce una soluzione di gestione delle identità, senza Azure AD sarebbe difficile limitare l'accesso al server dell'API in modo granulare. Grazie ai cluster integrati con Azure AD nel servizio Azure Kubernetes è possibile usare gli account utente e di gruppo esistenti per autenticare gli utenti nel server dell'API.
+Azure Active Directory (AD) offre una soluzione di gestione delle identità di livello aziendale che si integra con i cluster del servizio Azure Kubernetes. Dal momento che Kubernetes non fornisce una soluzione di gestione delle identità, senza Azure AD sarebbe difficile limitare l'accesso al server dell'API in modo granulare. Grazie ai cluster integrati con Azure AD nel servizio Azure Kubernetes è possibile usare gli account utente e di gruppo esistenti per autenticare gli utenti nel server dell'API.
 
-![Integrazione di Azure Active Directory per i cluster del servizio Kubernetes di Azure (AKS)](media/operator-best-practices-cluster-security/aad-integration.png)
+![Integrazione di Azure Active Directory per i cluster del servizio Azure Kubernetes](media/operator-best-practices-cluster-security/aad-integration.png)
 
 Usare il controllo degli accessi in base al ruolo di Kubernetes e l'integrazione con Azure AD per proteggere il server dell'API e concedere il minor numero di autorizzazioni necessarie a un set di risorse con ambito, ad esempio un singolo spazio dei nomi. A utenti o gruppi diversi in Azure AD possono essere concessi ruoli di controllo degli accessi in base al ruolo diversi. Queste autorizzazioni granulari consentono di limitare l'accesso al server dell'API e forniscono un chiaro audit trail delle azioni eseguite.
 
-Come procedura consigliata, per fornire l'accesso a file e cartelle usare gruppi invece di singole identità e usare l'appartenenza ai *gruppi* di Azure AD invece dei singoli *utenti* per associare gli utenti ai ruoli di controllo degli accessi in base al ruolo. Se cambia l'appartenenza a un gruppo di un utente, cambiano di conseguenza anche le sue autorizzazioni di accesso nel cluster AKS. Se si associa l'utente direttamente a un ruolo, la relativa funzione lavorativa può cambiare. L'appartenenza ai gruppi di Azure AD verrebbe aggiornata, ma le autorizzazioni nel cluster AKS non verrebbero aggiornate di conseguenza. In uno scenario di questo tipo l'utente finisce per avere più autorizzazioni del necessario.
+Come procedura consigliata, per fornire l'accesso a file e cartelle usare gruppi invece di singole identità e usare l'appartenenza ai *gruppi* di Azure AD invece dei singoli *utenti* per associare gli utenti ai ruoli di controllo degli accessi in base al ruolo. Se cambia l'appartenenza a un gruppo di un utente, cambiano di conseguenza anche le sue autorizzazioni di accesso nel cluster del servizio Azure Kubernetes. Se si associa l'utente direttamente a un ruolo, la relativa funzione lavorativa può cambiare. L'appartenenza ai gruppi di Azure AD verrebbe aggiornata, ma le autorizzazioni nel cluster del servizio Azure Kubernetes non verrebbero aggiornate di conseguenza. In uno scenario di questo tipo l'utente finisce per avere più autorizzazioni del necessario.
 
 Per ulteriori informazioni sull'integrazione di Azure AD e sul controllo degli accessi in base al ruolo, vedere [procedure consigliate per l'autenticazione e l'autorizzazione][aks-best-practices-identity]
 
@@ -57,9 +57,9 @@ Per un controllo più granulare delle azioni dei contenitori, è anche possibile
 
 ### <a name="app-armor"></a>AppArmor
 
-Per limitare le azioni che possono essere eseguite dai contenitori, è possibile usare il modulo di sicurezza kernel di [AppArmor][k8s-apparmor] Linux. Il modulo è disponibile come parte del sistema operativo del nodo AKS sottostante ed è abilitato per impostazione predefinita. Occorre creare profili di AppArmor che limitano azioni come la lettura, la scrittura o l'esecuzione oppure funzioni di sistema come il montaggio dei file system. I profili AppArmor predefiniti limitano l'accesso a vari percorsi `/proc` e `/sys` e consentono di isolare logicamente i contenitori dal nodo sottostante. AppArmor funziona non solo per i pod Kubernetes ma per qualsiasi applicazione in esecuzione su Linux.
+Per limitare le azioni che possono essere eseguite dai contenitori, è possibile usare il modulo di sicurezza kernel di [AppArmor][k8s-apparmor] Linux. Il modulo è disponibile come parte del sistema operativo del nodo del servizio Azure Kubernetes sottostante ed è abilitato per impostazione predefinita. Occorre creare profili di AppArmor che limitano azioni come la lettura, la scrittura o l'esecuzione oppure funzioni di sistema come il montaggio dei file system. I profili AppArmor predefiniti limitano l'accesso a vari percorsi `/proc` e `/sys` e consentono di isolare logicamente i contenitori dal nodo sottostante. AppArmor funziona non solo per i pod Kubernetes ma per qualsiasi applicazione in esecuzione su Linux.
 
-![Profili AppArmor in uso in un cluster AKS per limitare le azioni dei contenitori](media/operator-best-practices-container-security/apparmor.png)
+![Profili AppArmor in uso in un cluster del servizio Azure Kubernetes per limitare le azioni dei contenitori](media/operator-best-practices-container-security/apparmor.png)
 
 Per una dimostrazione di AppArmor in azione, l'esempio seguente crea un profilo che impedisce la scrittura nei file. Connettersi tramite [SSH][aks-ssh] a un nodo AKS, quindi creare un file denominato *Deny-Write. profile* e incollare il contenuto seguente:
 
@@ -117,7 +117,7 @@ Per altre informazioni su AppArmor, vedere [Profili apparmor in Kubernetes][k8s-
 
 ### <a name="secure-computing"></a>seccomp
 
-Mentre AppArmor funziona per qualsiasi applicazione Linux, [seccomp (*sec*Ure *comp*UTING)][seccomp] funziona a livello di processo. Anche seccomp è un modulo di protezione del kernel di Linux ed è supportato in modo nativo dal runtime Docker usato dai nodi AKS. seccomp limita le chiamate ai processi che possono essere eseguite dai contenitori. Occorre creare dei filtri che definiscano le azioni da consentire o negare e quindi usare annotazioni all'interno di un manifesto YAML pod da associare al filtro seccomp. Questo approccio rispecchia la procedura consigliata che indica di concedere al contenitore solo le autorizzazioni minime necessarie per l'esecuzione.
+Mentre AppArmor funziona per qualsiasi applicazione Linux, [seccomp (*sec*Ure *comp*UTING)][seccomp] funziona a livello di processo. Anche seccomp è un modulo di protezione del kernel di Linux ed è supportato in modo nativo dal runtime Docker usato dai nodi del servizio Azure Kubernetes. seccomp limita le chiamate ai processi che possono essere eseguite dai contenitori. Occorre creare dei filtri che definiscano le azioni da consentire o negare e quindi usare annotazioni all'interno di un manifesto YAML pod da associare al filtro seccomp. Questo approccio rispecchia la procedura consigliata che indica di concedere al contenitore solo le autorizzazioni minime necessarie per l'esecuzione.
 
 Per una dimostrazione di seccomp in azione, creare un filtro che impedisce di cambiare le autorizzazioni su un file. Connettersi tramite [SSH][aks-ssh] a un nodo AKS, quindi creare un filtro seccomp denominato */var/lib/kubelet/seccomp/prevent-chmod* e incollare il contenuto seguente:
 
@@ -197,11 +197,11 @@ Per altre informazioni sugli aggiornamenti in AKS, vedere [versioni supportate d
 
 **Indicazioni sulle procedure consigliate** : AKS Scarica e installa automaticamente le correzioni di sicurezza in ogni nodo Linux, ma non viene riavviato automaticamente, se necessario. Usare `kured` per controllare i riavvii in sospeso, quindi isolare e svuotare il nodo per consentirne il riavvio e applicare gli aggiornamenti in modo che sia il più possibile protetto relativamente al sistema operativo. Per i nodi di Windows Server (attualmente in anteprima in AKS), eseguire regolarmente un'operazione di aggiornamento di AKS per limitare e svuotare in modo sicuro i pod e distribuire i nodi aggiornati.
 
-Ogni sera, i nodi Linux in AKS ottengono patch di sicurezza disponibili tramite il canale di aggiornamento della distribuzione. Questo comportamento viene configurato automaticamente quando i nodi vengono distribuiti in un cluster AKS. Per ridurre al minimo le interruzioni del servizio e l'impatto sui carichi di lavoro in esecuzione, i nodi non vengono riavviati automaticamente se una patch di protezione o un aggiornamento del kernel lo richiede.
+Ogni sera, i nodi Linux in AKS ottengono patch di sicurezza disponibili tramite il canale di aggiornamento della distribuzione. Questo comportamento viene configurato automaticamente quando i nodi vengono distribuiti in un cluster del servizio Azure Kubernetes. Per ridurre al minimo le interruzioni del servizio e l'impatto sui carichi di lavoro in esecuzione, i nodi non vengono riavviati automaticamente se una patch di protezione o un aggiornamento del kernel lo richiede.
 
 Il progetto open source [KURED (KUbernetes reboot daemon)][kured] di Weaveworks controlla i riavvii dei nodi in sospeso. Quando un nodo Linux applica gli aggiornamenti che richiedono un riavvio, il nodo viene protetto in modo sicuro e svuotato per spostare e pianificare i pod in altri nodi del cluster. Dopo il riavvio, il nodo viene reinserito nel cluster e Kubernetes riprende la pianificazione dei pod su di esso. Per ridurre al minimo le interruzioni del servizio, a `kured` è consentito riavviare un solo nodo alla volta.
 
-![Processo di riavvio dei nodi AKS tramite kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
+![Processo di riavvio dei nodi del servizio Azure Kubernetes tramite kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 
 Se si vuole un controllo più dettagliato sull'esecuzione dei riavvi, è possibile integrare `kured` con Prometheus per impedire i riavvii quando sono in corso altri eventi di manutenzione o sono presenti problemi nel cluster. Questa integrazione riduce al minimo le ulteriori complicazioni riavviando i nodi mentre si stanno attivamente risolvendo altri problemi.
 

@@ -26,7 +26,7 @@ Attualmente, l'uso di pool di nodi abilitati per GPU è disponibile solo per i p
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente con nodi che supportano GPU. Il cluster servizio Azure Kubernetes deve eseguire Kubernetes 1.10 o versioni successive. Se occorre un cluster servizio Azure Kubernetes che soddisfi questi requisiti, vedere la prima sezione di questo articolo per [creare un cluster servizio Azure Kubernetes](#create-an-aks-cluster).
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente con nodi che supportano GPU. Il cluster servizio Azure Kubernetes deve eseguire Kubernetes 1.10 o versioni successive. Se occorre un cluster servizio Azure Kubernetes che soddisfi questi requisiti, vedere la prima sezione di questo articolo per [creare un cluster servizio Azure Kubernetes](#create-an-aks-cluster).
 
 È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [installare l'interfaccia][install-azure-cli]della riga di comando di Azure.
 

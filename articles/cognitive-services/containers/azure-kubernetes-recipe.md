@@ -206,7 +206,7 @@ I passaggi seguenti servono per ottenere le informazioni necessarie per la conne
 
     Salvare il valore completo per il passaggio 3 di questa sezione.
 
-1. Per concedere l'accesso corretto al cluster AKS per l'uso delle immagini archiviate nel registro contenitori, creare un'assegnazione di ruolo. Sostituire `<appId>` e `<acrId>` con i valori raccolti nei due passaggi precedenti.
+1. Per concedere l'accesso corretto al cluster del servizio Azure Kubernetes per l'uso delle immagini archiviate nel registro contenitori, creare un'assegnazione di ruolo. Sostituire `<appId>` e `<acrId>` con i valori raccolti nei due passaggi precedenti.
 
     ```azurecli-interactive
     az role assignment create --assignee <appId> --scope <acrId> --role Reader

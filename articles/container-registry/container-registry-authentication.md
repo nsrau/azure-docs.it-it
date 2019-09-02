@@ -1,6 +1,6 @@
 ---
-title: Eseguire l'autenticazione con un registro contenitori di Azure
-description: Opzioni di autenticazione per un registro contenitori di Azure, inclusi l'accesso con un'identità di Azure Active Directory, l'uso di entità servizio e l'uso di credenziali di amministratore facoltative.
+title: Eseguire l'autenticazione con un Registro Azure Container
+description: Opzioni di autenticazione per un Registro Azure Container, inclusi l'accesso con un'identità di Azure Active Directory, l'uso di entità servizio e l'uso di credenziali di amministratore facoltative.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -18,7 +18,7 @@ ms.locfileid: "70032379"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Eseguire l'autenticazione con un registro contenitori Docker privato
 
-Esistono diversi modi per eseguire l'autenticazione con un registro contenitori di Azure, ognuno dei quali è applicabile a uno o più scenari di utilizzo del registro.
+Esistono diversi modi per eseguire l'autenticazione con un Registro Azure Container, ognuno dei quali è applicabile a uno o più scenari di utilizzo del registro.
 
 Le modalità consigliate includono l'autenticazione a un registro direttamente tramite [singoli account di accesso](#individual-login-with-azure-ad), oppure le applicazioni e gli agenti di orchestrazione dei contenitori possono eseguire l'autenticazione automatica o "senza test" tramite un [servizio di Azure Active Directory (Azure ad) entità](#service-principal).
 

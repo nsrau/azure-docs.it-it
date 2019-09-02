@@ -127,7 +127,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Quando si usa il comando `az acs create` per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file `~/.azure/acsServicePrincipal.json` nel computer usato per eseguire il comando.
 
-* Quando si usa il comando `az acs create` per generare automaticamente l'entità servizio, questa può anche eseguire l'autenticazione con un [registro contenitori di Azure](../../container-registry/container-registry-intro.md) creato nella stessa sottoscrizione.
+* Quando si usa il comando `az acs create` per generare automaticamente l'entità servizio, questa può anche eseguire l'autenticazione con un [Registro Azure Container](../../container-registry/container-registry-intro.md) creato nella stessa sottoscrizione.
 
 * Le credenziali dell'entità servizio possono scadere e in questo caso i nodi del cluster passano a uno stato **Non pronto**. Per informazioni sulle opzioni di mitigazione, vedere la sezione [Scadenza delle credenziali](#credential-expiration).
 

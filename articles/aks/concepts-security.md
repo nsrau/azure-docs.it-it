@@ -48,7 +48,7 @@ Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, attualmente no
 
 ## <a name="cluster-upgrades"></a>Aggiornamenti dei cluster
 
-Per la sicurezza e la conformità o per usare le funzionalità più recenti, Azure offre strumenti per orchestrare l'aggiornamento di un cluster e dei componenti del servizio Kubernetes di Azure. Questa orchestrazione dell'aggiornamento include sia il master che i componenti agente di Kubernetes. È possibile visualizzare un [elenco delle versioni di Kubernetes disponibili](supported-kubernetes-versions.md) per il cluster del servizio Azure Kubernetes. Per avviare il processo di aggiornamento, si specifica una di queste versioni disponibili. Azure quindi blocca e svuota in modo sicuro ogni nodo del servizio Azure Kubernetes ed esegue l'aggiornamento.
+Per la sicurezza e la conformità o per usare le funzionalità più recenti, Azure offre strumenti per orchestrare l'aggiornamento di un cluster e dei componenti del servizio Azure Kubernetes. Questa orchestrazione dell'aggiornamento include sia il master che i componenti agente di Kubernetes. È possibile visualizzare un [elenco delle versioni di Kubernetes disponibili](supported-kubernetes-versions.md) per il cluster del servizio Azure Kubernetes. Per avviare il processo di aggiornamento, si specifica una di queste versioni disponibili. Azure quindi blocca e svuota in modo sicuro ogni nodo del servizio Azure Kubernetes ed esegue l'aggiornamento.
 
 ### <a name="cordon-and-drain"></a>Blocco e svuotamento
 
@@ -63,7 +63,7 @@ Per altre informazioni, vedere [aggiornare un cluster AKS][aks-upgrade-cluster].
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-Per la connettività e sicurezza con le reti locali, è possibile distribuire il cluster del servizio Kubernetes di Azure nelle subnet di rete virtuale di Azure esistenti. Queste reti virtuali possono avere una connessione ExpressRoute o VPN da sito a sito di Azure con la rete locale. È possibile definire controller in ingresso di Kubernetes con indirizzi IP privati interni in modo che i servizi siano accessibili solo tramite questa connessione di rete interna.
+Per la connettività e sicurezza con le reti locali, è possibile distribuire il cluster del servizio Azure Kubernetes nelle subnet di rete virtuale di Azure esistenti. Queste reti virtuali possono avere una connessione ExpressRoute o VPN da sito a sito di Azure con la rete locale. È possibile definire controller in ingresso di Kubernetes con indirizzi IP privati interni in modo che i servizi siano accessibili solo tramite questa connessione di rete interna.
 
 ### <a name="azure-network-security-groups"></a>Gruppi di sicurezza di rete di Azure
 

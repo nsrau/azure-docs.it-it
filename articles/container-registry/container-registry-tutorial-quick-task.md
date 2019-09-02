@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Compilare immagini dei contenitori nel cloud - Attività del Registro Azure Container'
-description: Questa esercitazione illustra come compilare un'immagine del contenitore Docker in Azure con ACR Tasks e quindi distribuire tale immagine in Istanze di Azure Container.
+description: Questa esercitazione illustra come compilare un'immagine del contenitore Docker in Azure con Attività del Registro Azure Container e quindi distribuire tale immagine in Istanze di Azure Container.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -73,7 +73,7 @@ I comandi in questa serie di esercitazioni sono presentati nel formato per la sh
 
 ## <a name="build-in-azure-with-acr-tasks"></a>Compilare in Azure con ACR Tasks
 
-Dopo aver eseguito il pull del codice sorgente nel computer in uso, seguire questa procedura per creare un registro contenitori e compilare l'immagine del contenitore con ACR Tasks.
+Dopo aver eseguito il pull del codice sorgente nel computer in uso, seguire questa procedura per creare un registro contenitori e compilare l'immagine del contenitore con Attività del Registro Azure Container.
 
 Per semplificare l'esecuzione dei comandi di esempio, nelle esercitazioni di questa serie vengono usate variabili di ambiente della shell. Eseguire il comando seguente per impostare la variabile `ACR_NAME`. Sostituire **\<registry-name\>** con un nome univoco per il nuovo registro contenitori. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Dato che le altre risorse create in questa esercitazione sono basate su questo nome, sarà necessario modificare solo questa prima variabile.
 
@@ -90,7 +90,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Ora che è disponibile un registro, usare ACR Tasks per compilare un'immagine del contenitore dal codice di esempio. Eseguire il comando [az acr build][az-acr-build] per eseguire un'*attività rapida*:
+Ora che è disponibile un registro, usare Attività del Registro Azure Container per compilare un'immagine del contenitore dal codice di esempio. Eseguire il comando [az acr build][az-acr-build] per eseguire un'*attività rapida*:
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .

@@ -16,7 +16,7 @@ ms.locfileid: "67615116"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
-Per interagire con le API di Azure, un cluster servizio contenitore di AZURE richiede un [entità servizio di Azure Active Directory (AD)][aad-service-principal]. L'entità servizio è necessaria per creare e gestire in modo dinamico altre risorse quali il bilanciamento del carico o un registro contenitori di Azure.
+Per interagire con le API di Azure, un cluster servizio contenitore di AZURE richiede un [entità servizio di Azure Active Directory (AD)][aad-service-principal]. L'entità servizio è necessaria per creare e gestire in modo dinamico altre risorse quali il bilanciamento del carico o un Registro Azure Container.
 
 Questo articolo illustra come creare e usare un'entità servizio per i cluster servizio Azure Kubernetes.
 
@@ -119,7 +119,7 @@ Potrebbe essere necessario accedere alle risorse esistenti del disco in un altro
 
 ### <a name="azure-container-instances"></a>Istanze di Azure Container
 
-Se si usa Virtual Kubelet per l’integrazione con il servizio AKS e si sceglie di eseguire le istanze di Azure Container (ACI) nel gruppo di risorse separato dal cluster AKS, è necessario concedere all'entità AKS le autorizzazioni da *collaboratore* per il gruppo di risorse ACI.
+Se si usa Virtual Kubelet per l’integrazione con il servizio Azure Kubernetes e si sceglie di eseguire Istanze di Azure Container nel gruppo di risorse separato dal cluster del servizio Azure Kubernetes, è necessario concedere all'entità servizio Azure Kubernetes le autorizzazioni da *collaboratore* per il gruppo di risorse di Istanze di Azure Container.
 
 ## <a name="additional-considerations"></a>Ulteriori considerazioni
 

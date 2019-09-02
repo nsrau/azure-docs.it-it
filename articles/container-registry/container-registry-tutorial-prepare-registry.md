@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Creare un registro con replica geografica di Docker in Azure'
-description: Creare un registro contenitori di Azure, configurare la replica geografica, preparare un'immagine Docker e distribuirla nel registro. Prima parte di una serie in tre parti.
+description: Creare un Registro Azure Container, configurare la replica geografica, preparare un'immagine Docker e distribuirla nel registro. Prima parte di una serie in tre parti.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -16,14 +16,14 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309576"
 ---
-# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un registro contenitori di Azure con replica geografica
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un Registro Azure Container con replica geografica
 
-Un registro contenitori di Azure è un registro Docker privato distribuito in Azure che è possibile mantenere in una posizione di rete vicina alle distribuzioni. In questa serie di tre esercitazioni vengono fornite istruzioni su come usare la replica geografica per distribuire un'applicazione Web ASP.NET Core in esecuzione in un contenitore Linux in due istanze di [app Web per i contenitori](../app-service/containers/index.yml). Verrà descritto come in Azure l'immagine viene distribuita automaticamente in ciascuna istanza dell'app Web dal repository con replica geografica più vicina.
+Un Registro Azure Container è un registro Docker privato distribuito in Azure che è possibile mantenere in una posizione di rete vicina alle distribuzioni. In questa serie di tre esercitazioni vengono fornite istruzioni su come usare la replica geografica per distribuire un'applicazione Web ASP.NET Core in esecuzione in un contenitore Linux in due istanze di [app Web per i contenitori](../app-service/containers/index.yml). Verrà descritto come in Azure l'immagine viene distribuita automaticamente in ciascuna istanza dell'app Web dal repository con replica geografica più vicina.
 
 In questa esercitazione, che è la prima di una serie in tre parti, viene descritto come eseguire le attività seguenti:
 
 > [!div class="checklist"]
-> * Creare un registro contenitori di Azure con replica geografica
+> * Creare un Registro Azure Container con replica geografica
 > * Clonare il codice sorgente dell'applicazione da GitHub
 > * Compilare un'immagine del contenitore Docker dall'origine applicazione
 > * Eseguire il push dell'immagine del contenitore nel registro

@@ -1,6 +1,6 @@
 ---
 title: Esercitazione - Eseguire il push dell'immagine del contenitore aggiornata nelle distribuzioni di app Azure a livello di area
-description: Eseguire il push di un'immagine Docker modificata nel registro contenitori di Azure con replica geografica e quindi visualizzare le modifiche distribuite automaticamente alle app Web in esecuzione in più aree. Terza parte di una serie in tre parti.
+description: Eseguire il push di un'immagine Docker modificata nel Registro Azure Container con replica geografica e quindi visualizzare le modifiche distribuite automaticamente alle app Web in esecuzione in più aree. Terza parte di una serie in tre parti.
 services: container-registry
 author: dlepow
 manager: gwallace

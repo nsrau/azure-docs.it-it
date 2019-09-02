@@ -95,7 +95,7 @@ Usare **npm** per creare un modello di soluzione Node.js a partire dalla quale e
 Il file dell'ambiente archivia le credenziali per il repository di contenitori e le condivide con il runtime IoT Edge. Queste credenziali sono necessarie al runtime per eseguire il pull delle immagini private nel dispositivo IoT Edge. 
 
 1. Nello strumento di esplorazione di VS Code aprire il file con estensione **env**. 
-2. Aggiornare i campi con i valori di **nome utente** e **password** copiati dal registro contenitori di Azure. 
+2. Aggiornare i campi con i valori di **nome utente** e **password** copiati dal Registro Azure Container. 
 3. Salvare questo file. 
 
 ### <a name="select-your-target-architecture"></a>Selezionare l'architettura di destinazione
@@ -188,7 +188,7 @@ Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggi
 
 1. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale**.
 
-1. Accedere a Docker immettendo il comando seguente nel terminale. Accedere con il nome utente, la password e il server di accesso del registro contenitori di Azure. È possibile recuperare questi valori dalla sezione **Chiavi di accesso** del registro nel portale di Azure.
+1. Accedere a Docker immettendo il comando seguente nel terminale. Accedere con il nome utente, la password e il server di accesso del Registro Azure Container. È possibile recuperare questi valori dalla sezione **Chiavi di accesso** del registro nel portale di Azure.
      
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>

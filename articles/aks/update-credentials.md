@@ -16,7 +16,7 @@ ms.locfileid: "67614119"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Aggiornare o alternare le credenziali per un'entità servizio in servizio Azure Kubernetes (AKS)
 
-Per impostazione predefinita, i cluster AKS vengono creati con un'entità servizio che dispone di una data di scadenza di un anno. Se la data di scadenza è prossima, è possibile reimpostare le credenziali per estendere l'entità servizio per un ulteriore periodo di tempo. È anche possibile aggiornare, o alternare, le credenziali come parte di criteri di sicurezza definiti. Questo articolo illustra come aggiornare le credenziali per un cluster AKS.
+Per impostazione predefinita, i cluster del servizio Azure Kubernetes vengono creati con un'entità servizio che dispone di una data di scadenza di un anno. Se la data di scadenza è prossima, è possibile reimpostare le credenziali per estendere l'entità servizio per un ulteriore periodo di tempo. È anche possibile aggiornare, o alternare, le credenziali come parte di criteri di sicurezza definiti. Questo articolo illustra come aggiornare le credenziali per un cluster del servizio Azure Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -24,12 +24,12 @@ Per impostazione predefinita, i cluster AKS vengono creati con un'entità serviz
 
 ## <a name="choose-to-update-or-create-a-service-principal"></a>Scegliere di aggiornare o creare un'entità servizio
 
-Quando si desidera aggiornare le credenziali per un cluster AKS, è possibile scegliere di:
+Quando si desidera aggiornare le credenziali per un cluster del servizio Azure Kubernetes, è possibile scegliere di:
 
 * aggiornare le credenziali per l'entità servizio esistente usata dal cluster o
 * creare un'entità servizio e aggiornare il cluster per usare le nuove credenziali.
 
-Se si vuole creare un'entità servizio e quindi aggiornare il cluster AKS, ignorare il resto dei passaggi in questa sezione e passare a [create a service principal](#create-a-service-principal) (creare un'entità servizio). Se si vuole aggiornare le credenziali per l'entità servizio esistente usata dal cluster AKS, eseguire i passaggi descritti in questa sezione.
+Se si vuole creare un'entità servizio e quindi aggiornare il cluster del servizio Azure Kubernetes, ignorare il resto dei passaggi in questa sezione e passare a [create a service principal](#create-a-service-principal) (creare un'entità servizio). Se si vuole aggiornare le credenziali per l'entità servizio esistente usata dal cluster del servizio Azure Kubernetes, eseguire i passaggi descritti in questa sezione.
 
 ### <a name="get-the-service-principal-id"></a>Ottenere l'ID dell'entità servizio
 
@@ -48,11 +48,11 @@ Con un set variabile che contiene l'ID dell'entità servizio, ora reimpostare le
 SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
-Passare ora a [update AKS cluster with new credentials](#update-aks-cluster-with-new-credentials) (aggiornare un cluster AKS con nuove credenziali).
+Passare ora a [update AKS cluster with new credentials](#update-aks-cluster-with-new-credentials) (aggiornare un cluster del servizio Azure Kubernetes con nuove credenziali).
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-Se si sceglie di aggiornare le credenziali dell'entità servizio esistente nella sezione precedente, ignorare questo passaggio. Continuare con [update AKS cluster with new credentials](#update-aks-cluster-with-new-credentials) (aggiornare un cluster AKS con nuove credenziali).
+Se si sceglie di aggiornare le credenziali dell'entità servizio esistente nella sezione precedente, ignorare questo passaggio. Continuare con [update AKS cluster with new credentials](#update-aks-cluster-with-new-credentials) (aggiornare un cluster del servizio Azure Kubernetes con nuove credenziali).
 
 Per creare un'entità servizio e quindi aggiornare il cluster servizio contenitore di AZURE per usare le nuove credenziali, usare il [az ad sp create-for-rbac][az-ad-sp-create] comando. Nell'esempio seguente il parametro `--skip-assignment` impedisce il completamento di qualsiasi assegnazione predefinita aggiuntiva:
 
@@ -78,7 +78,7 @@ SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
 
-## <a name="update-aks-cluster-with-new-credentials"></a>Aggiornare il cluster AKS con nuove credenziali
+## <a name="update-aks-cluster-with-new-credentials"></a>Aggiornare il cluster del servizio Azure Kubernetes con nuove credenziali
 
 Indipendentemente dal fatto che si è scelto di aggiornare le credenziali per l'entità servizio esistente o creare un'entità servizio, è ora aggiornare il cluster AKS con le nuove credenziali usando il [credenziali con az aks aggiornamento][az-aks-update-credentials] comando. Vengono usate le variabili per *--service-principal* e *--client-secret*:
 
@@ -95,7 +95,7 @@ Sono necessari alcuni istanti affinché le credenziali dell'entità servizio ven
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato come aggiornare l'entità servizio per il cluster AKS. Per altre informazioni su come gestire le identità per i carichi di lavoro all'interno di un cluster, vedere [procedure consigliate per l'autenticazione e autorizzazione nel servizio contenitore di AZURE][best-practices-identity].
+Questo articolo ha illustrato come aggiornare l'entità servizio per il cluster del servizio Azure Kubernetes. Per altre informazioni su come gestire le identità per i carichi di lavoro all'interno di un cluster, vedere [procedure consigliate per l'autenticazione e autorizzazione nel servizio contenitore di AZURE][best-practices-identity].
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

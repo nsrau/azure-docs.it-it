@@ -157,7 +157,7 @@ Sono necessari due passaggi di Docker per ogni immagine, uno per compilare l'imm
 
     ![Azure DevOps - Esecuzione del push di Docker](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-push.png)
 
-    Per l'operazione di push, selezionare il registro contenitori di Azure, l'azione **Push an image** (Push immagine), immettere il **nome dell'immagine** compilato nel passaggio precedente e selezionare **Include Latest Tag** (Includi tag più recente).
+    Per l'operazione di push, selezionare il Registro Azure Container, l'azione **Push an image** (Push immagine), immettere il **nome dell'immagine** compilato nel passaggio precedente e selezionare **Include Latest Tag** (Includi tag più recente).
 
 4. Dopo aver configurato i passaggi di compilazione e push per ognuna delle cinque immagini, aggiungere altri tre passaggi al flusso di lavoro di compilazione.
 
@@ -235,7 +235,7 @@ Il flusso di lavoro di rilascio è composto da due attività che vengono aggiunt
 
     Il comando eseguito nel nodo principale usa l'interfaccia della riga di comando di Docker e Docker-Compose per eseguire queste attività:
 
-   - Accedere al registro contenitori di Azure, con tre variabili di compilazione definite nella scheda **Variabili**
+   - Accedere al Registro Azure Container, con tre variabili di compilazione definite nella scheda **Variabili**
    - Definire la variabile **DOCKER_HOST** in modo che sia compatibile con l'endpoint Swarm (:2375)
    - Accedere alla cartella di *distribuzione* che è stata creata dall'attività di copia sicura precedente e che contiene il file docker-compose.yml 
    - Eseguire comandi `docker stack deploy`, che effettuano il pull di nuove immagini e creano i contenitori.

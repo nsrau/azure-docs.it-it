@@ -19,7 +19,7 @@ Questa esercitazione presuppone che siano già state completate le procedure del
 
 ### <a name="container-registry"></a>Registro contenitori
 
-Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un registro contenitori di Azure. Se occorre un registro, vedere l'[esercitazione precedente](../articles/container-registry/container-registry-tutorial-quick-task.md), o la [Guida introduttiva: Create a Registro Container using the Azure CLI](../articles/container-registry/container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure).
+Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un Registro Azure Container. Se occorre un registro, vedere l'[esercitazione precedente](../articles/container-registry/container-registry-tutorial-quick-task.md), o la [Guida introduttiva: Create a Registro Container using the Azure CLI](../articles/container-registry/container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure).
 
 ## <a name="create-a-github-personal-access-token"></a>Creare un token di accesso personale GitHub
 

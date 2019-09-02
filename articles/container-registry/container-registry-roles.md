@@ -1,6 +1,6 @@
 ---
 title: Registro Azure Container - ruoli e autorizzazioni
-description: Usare il controllo degli accessi in base al ruolo di Azure (RBAC) e gestione delle identità e degli accessi (IAM) per concedere autorizzazioni con granularità fine alle risorse in un registro contenitori di Azure.
+description: Usare il controllo degli accessi in base al ruolo di Azure e gestione delle identità e degli accessi per concedere autorizzazioni con granularità fine alle risorse in un Registro Azure Container.
 services: container-registry
 author: dlepow
 manager: gwallace

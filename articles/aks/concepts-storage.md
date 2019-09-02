@@ -20,7 +20,7 @@ Le applicazioni eseguite nel servizio Azure Kubernetes potrebbero richiedere l'a
 
 ![Opzioni di archiviazione per le applicazioni in un cluster del servizio Azure Kubernetes](media/concepts-storage/aks-storage-options.png)
 
-Questo articolo introduce i concetti di base per rendere disponibili risorse di archiviazione per le applicazioni nel servizio Kubernetes di Azure:
+Questo articolo introduce i concetti di base per rendere disponibili risorse di archiviazione per le applicazioni nel servizio Azure Kubernetes:
 
 - [Volumi](#volumes)
 - [Volumi permanenti](#persistent-volumes)

@@ -1,6 +1,6 @@
 ---
 title: Distribuire un'applicazione .NET in un contenitore in Azure Service Fabric | Microsoft Docs
-description: Informazioni su come aggiungere un'applicazione .NET esistente a contenitori con Visual Studio ed eseguire il debug dei contenitori in Service Fabric in locale. L'applicazione aggiunta a contenitori viene inviata tramite push a un registro contenitori di Azure e distribuita in un cluster di Service Fabric. Quando viene distribuita in Azure, l'applicazione usa database SQL di Azure per salvare in modo permanente i dati.
+description: Informazioni su come aggiungere un'applicazione .NET esistente a contenitori con Visual Studio ed eseguire il debug dei contenitori in Service Fabric in locale. L'applicazione aggiunta a contenitori viene inviata tramite push a un Registro Azure Container e distribuita in un cluster di Service Fabric. Quando viene distribuita in Azure, l'applicazione usa database SQL di Azure per salvare in modo permanente i dati.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
 > * Aggiungere un'applicazione esistente in un contenitore con Visual Studio
 > * Creare un database SQL di Azure
-> * Creare un registro contenitori di Azure
+> * Creare un Registro Azure Container
 > * Distribuire un'applicazione di Service Fabric in Azure
 
 
@@ -130,7 +130,7 @@ Tornare al progetto **FabrikamFiber.Web** e aggiornare la stringa di connessione
 Premere **F5** per eseguire l'applicazione ed eseguirne il debug in un contenitore nel cluster di sviluppo locale di Service Fabric. Fare clic su **Sì** se viene visualizzata una finestra di messaggio che richiede di concedere al gruppo "ServiceFabricAllowedUsers" le autorizzazioni di lettura ed esecuzione per la directory del progetto di Visual Studio.
 
 ## <a name="create-a-container-registry"></a>Creare un registro contenitori
-Ora che l'applicazione viene eseguita in locale, iniziare a preparare la distribuzione in Azure.  Le immagini dei contenitori devono essere archiviate in un registro contenitori.  Creare un [registro contenitori di Azure](/azure/container-registry/container-registry-intro) usando lo script seguente. Il nome del registro contenitori è visibile per le altre sottoscrizioni di Azure, pertanto deve essere univoco.
+Ora che l'applicazione viene eseguita in locale, iniziare a preparare la distribuzione in Azure.  Le immagini dei contenitori devono essere archiviate in un registro contenitori.  Creare un [Registro Azure Container](/azure/container-registry/container-registry-intro) usando lo script seguente. Il nome del registro contenitori è visibile per le altre sottoscrizioni di Azure, pertanto deve essere univoco.
 Prima di distribuire l'applicazione in Azure, eseguire il push dell'immagine del contenitore in questo registro.  Quando l'applicazione viene distribuita nel cluster in Azure, l'immagine del contenitore viene recuperata tramite pull da questo registro.
 
 ```powershell
@@ -266,7 +266,7 @@ Questa esercitazione illustra come:
 > [!div class="checklist"]
 > * Aggiungere un'applicazione esistente in un contenitore con Visual Studio
 > * Creare un database SQL di Azure
-> * Creare un registro contenitori di Azure
+> * Creare un Registro Azure Container
 > * Distribuire un'applicazione di Service Fabric in Azure
 
 Nella parte successiva dell'esercitazione, apprendere come [distribuire un'applicazione contenitore con CI/CD in un cluster di Service Fabric](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).

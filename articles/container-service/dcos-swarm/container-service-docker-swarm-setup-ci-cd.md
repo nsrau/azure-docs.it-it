@@ -97,7 +97,7 @@ Gli ultimi passaggi prima di approfondire la pipeline CI/CD consistono nel confi
 
 1. Nelle impostazioni **Servizi** del progetto di Azure DevOps Services, aggiungere un endpoint di servizio di tipo **registro Docker**. 
 
-1. Nel popup che viene visualizzato immettere l'URL e le credenziali del registro contenitori di Azure.
+1. Nel popup che viene visualizzato immettere l'URL e le credenziali del Registro Azure Container.
 
     ![Azure DevOps Services - Registro Docker](./media/container-service-docker-swarm-setup-ci-cd/vsts-registry.png)
 
@@ -140,7 +140,7 @@ Nei passaggi successivi viene definito il flusso di lavoro di compilazione. Esis
 * RecommendationsApi
 * ShopFront
 
-È necessario aggiungere due passaggi di Docker per ogni immagine, uno per compilare l'immagine, l'altro per effettuare il push dell'immagine nel registro contenitori di Azure. 
+È necessario aggiungere due passaggi di Docker per ogni immagine, uno per compilare l'immagine, l'altro per effettuare il push dell'immagine nel Registro Azure Container. 
 
 1. Per aggiungere un passaggio nel flusso di lavoro di compilazione fare clic su **+ Aggiungi istruzione di compilazione** e selezionare **Docker**.
 
@@ -150,15 +150,15 @@ Nei passaggi successivi viene definito il flusso di lavoro di compilazione. Esis
 
     ![Azure DevOps Services - Registro Docker](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-build.png)
 
-    Per l'operazione di compilazione, selezionare il registro contenitori di Azure, l'azione **Build an image** (Compila un'immagine) e il file Docker che definisce ogni immagine. Impostare **Build context** (Contesto compilazione) come directory radice del file Docker e definire **Nome immagine**. 
+    Per l'operazione di compilazione, selezionare il Registro Azure Container, l'azione **Build an image** (Compila un'immagine) e il file Docker che definisce ogni immagine. Impostare **Build context** (Contesto compilazione) come directory radice del file Docker e definire **Nome immagine**. 
     
-    Come mostrato nella schermata precedente, il nome dell'immagine deve iniziare con l'URI del registro contenitori di Azure. È anche possibile usare una variabile di compilazione per assegnare parametri al tag dell'immagine, in questo esempio l'identificatore di compilazione.
+    Come mostrato nella schermata precedente, il nome dell'immagine deve iniziare con l'URI del Registro Azure Container. È anche possibile usare una variabile di compilazione per assegnare parametri al tag dell'immagine, in questo esempio l'identificatore di compilazione.
 
 1. Per ogni immagine, configurare un secondo passaggio che usi il comando `docker push`.
 
     ![Azure DevOps Services - Effettuazione del push di Docker](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-push.png)
 
-    Per l'operazione di push, selezionare il registro contenitori di Azure, l'azione **Push an image** (Push immagine) e immettere il **nome dell'immagine** compilato nel passaggio precedente.
+    Per l'operazione di push, selezionare il Registro Azure Container, l'azione **Push an image** (Push immagine) e immettere il **nome dell'immagine** compilato nel passaggio precedente.
 
 1. Dopo aver configurato i passaggi di compilazione e push per ognuna delle cinque immagini, aggiungere altri due passaggi nel flusso di lavoro di compilazione.
 
@@ -204,7 +204,7 @@ Il flusso di lavoro di rilascio è composto da due attività che vengono aggiunt
 
     Il comando eseguito nel nodo principale usa l'interfaccia della riga di comando di Docker e Docker-Compose per eseguire le attività seguenti:
 
-   - Accedere al registro contenitori di Azure (usa tre variabili di compilazione definite nella scheda **Variabili**)
+   - Accedere al Registro Azure Container (usa tre variabili di compilazione definite nella scheda **Variabili**)
    - Definire la variabile **DOCKER_HOST** in modo che sia compatibile con l'endpoint Swarm (:2375)
    - Accedere alla cartella di *distribuzione* che è stata creata dall'attività di copia sicura precedente e che contiene il file docker-compose.yml 
    - Eseguire i comandi `docker-compose` che effettuano il pull di nuove immagini, interrompono e rimuovono i servizi e creano i contenitori.

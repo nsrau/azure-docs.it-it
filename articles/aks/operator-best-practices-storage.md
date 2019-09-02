@@ -16,13 +16,13 @@ ms.locfileid: "67614584"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
 
-Quando si creano e si gestiscono cluster nel servizio Azure Kubernetes, spesso le applicazioni hanno bisogno di risorse di archiviazione. È importante comprendere le esigenze a livello di prestazioni e i metodi di accesso per i pod in modo da poter fornire le risorse di archiviazione appropriate alle applicazioni. Le dimensioni del nodo AKS possono influire su queste scelte di archiviazione. Occorre anche pianificare il backup e il test del processo di ripristino per le risorse di archiviazione associate.
+Quando si creano e si gestiscono cluster nel servizio Azure Kubernetes, spesso le applicazioni hanno bisogno di risorse di archiviazione. È importante comprendere le esigenze a livello di prestazioni e i metodi di accesso per i pod in modo da poter fornire le risorse di archiviazione appropriate alle applicazioni. Le dimensioni del nodo del servizio Azure Kubernetes possono influire su queste scelte di archiviazione. Occorre anche pianificare il backup e il test del processo di ripristino per le risorse di archiviazione associate.
 
 Questo articolo sulle procedure consigliate è incentrato sulle considerazioni relative all'archiviazione per gli operatori del cluster. Contenuto dell'articolo:
 
 > [!div class="checklist"]
 > * Tipi di archiviazione disponibili
-> * Come ridimensionare correttamente i nodi AKS per le prestazioni dell'archiviazione
+> * Come ridimensionare correttamente i nodi del servizio Azure Kubernetes per le prestazioni dell'archiviazione
 > * Differenze tra provisioning dinamico e statico dei volumi
 > * Modalità di backup e protezione dei volumi di dati
 
@@ -40,7 +40,7 @@ La tabella seguente descrive i tipi di archiviazione disponibili e le relative f
 | Dati di app strutturati        | Dischi di Azure   | Yes | No  | No  | Sì |
 | Dati non strutturati, operazioni sui file system | [BlobFuse (anteprima)][blobfuse] | Sì | Sì | Sì | No |
 
-I due principali tipi di archiviazione forniti per i volumi nel servizio Azure Kubernetes sono supportati da Dischi di Azure o File di Azure. Per migliorare la sicurezza, per impostazione predefinita entrambi i tipi di archiviazione usano la crittografia del servizio di archiviazione, che crittografa i dati inattivi. Attualmente i dischi non possono essere crittografati mediante Crittografia dischi di Azure a livello di nodo AKS.
+I due principali tipi di archiviazione forniti per i volumi nel servizio Azure Kubernetes sono supportati da Dischi di Azure o File di Azure. Per migliorare la sicurezza, per impostazione predefinita entrambi i tipi di archiviazione usano la crittografia del servizio di archiviazione, che crittografa i dati inattivi. Attualmente i dischi non possono essere crittografati mediante Crittografia dischi di Azure a livello di nodo del servizio Azure Kubernetes.
 
 File di Azure è attualmente disponibile nel livello di prestazioni Standard. Dischi di Azure è disponibile nei livelli di prestazioni Standard e Premium:
 
@@ -57,7 +57,7 @@ Il tipo di archiviazione usato viene definito tramite le *classi di archiviazion
 
 **Indicazioni sulle procedure consigliate** - Ogni dimensione di nodo supporta un numero massimo di dischi. Dimensioni diverse forniscono quantità diverse di spazio di archiviazione locale e larghezza di banda della rete. Pianificare le esigenze dell'applicazione per distribuire le dimensioni dei nodi appropriate.
 
-I nodi AKS vengono eseguiti come macchine virtuali di Azure. Sono disponibili diversi tipi e dimensioni di macchina virtuale. Ogni dimensione di macchina virtuale fornisce una quantità diversa di risorse di base, come la CPU e la memoria. A queste dimensioni di macchina virtuale può essere collegato un numero massimo di dischi. Le prestazioni dell'archiviazione variano anche tra le dimensioni di macchina virtuale per le operazioni di I/O al secondo massime nei dischi locali e collegati.
+I nodi del servizio Azure Kubernetes vengono eseguiti come macchine virtuali di Azure. Sono disponibili diversi tipi e dimensioni di macchina virtuale. Ogni dimensione di macchina virtuale fornisce una quantità diversa di risorse di base, come la CPU e la memoria. A queste dimensioni di macchina virtuale può essere collegato un numero massimo di dischi. Le prestazioni dell'archiviazione variano anche tra le dimensioni di macchina virtuale per le operazioni di I/O al secondo massime nei dischi locali e collegati.
 
 Se le applicazioni richiedono Dischi di Azure come soluzione di archiviazione, pianificare e scegliere una dimensione di macchina virtuale del nodo appropriata. La quantità di CPU e memoria non è l'unico fattore da considerare nella scelta di una dimensione di macchina virtuale. Anche le funzionalità di archiviazione sono importanti. Ad esempio, le dimensioni di macchina virtuale *Standard_B2ms* e *Standard_DS2_v2* offrono una quantità simile di risorse di CPU e memoria. Ma le potenziali prestazioni di archiviazione sono diverse, come illustrato nella tabella seguente:
 
@@ -66,7 +66,7 @@ Se le applicazioni richiedono Dischi di Azure come soluzione di archiviazione, p
 | Standard_B2ms      | 2    | 8            | 4              | 1\.920                  | 22,5                           |
 | Standard_DS2_v2    | 2    | 7            | 8              | 6\.400                  | 96                             |
 
-Qui la dimensione *Standard_DS2_v2* consente il doppio del numero di dischi collegati e fornisce da tre a quattro volte la quantità di operazioni di I/O al secondo e velocità effettiva del disco. Se si considerassero solo le risorse di calcolo di base e si confrontassero i costi, si potrebbe scegliere la dimensione di macchina virtuale *Standard_B2ms* e ottenere prestazioni di archiviazione insufficienti e limitazioni. È opportuno consultare il team di sviluppo delle applicazioni per comprendere le esigenze di capacità e prestazioni di archiviazione. Scegliere quindi la dimensione di macchina virtuale appropriata per i nodi AKS in modo da soddisfare o superare queste esigenze di prestazioni. Stabilire regolarmente una baseline delle applicazioni per modificare la dimensione di macchina virtuale in base alle necessità.
+Qui la dimensione *Standard_DS2_v2* consente il doppio del numero di dischi collegati e fornisce da tre a quattro volte la quantità di operazioni di I/O al secondo e velocità effettiva del disco. Se si considerassero solo le risorse di calcolo di base e si confrontassero i costi, si potrebbe scegliere la dimensione di macchina virtuale *Standard_B2ms* e ottenere prestazioni di archiviazione insufficienti e limitazioni. È opportuno consultare il team di sviluppo delle applicazioni per comprendere le esigenze di capacità e prestazioni di archiviazione. Scegliere quindi la dimensione di macchina virtuale appropriata per i nodi del servizio Azure Kubernetes in modo da soddisfare o superare queste esigenze di prestazioni. Stabilire regolarmente una baseline delle applicazioni per modificare la dimensione di macchina virtuale in base alle necessità.
 
 Per altre informazioni sulle dimensioni delle VM disponibili, vedere [dimensioni per le macchine virtuali Linux in Azure][vm-sizes].
 

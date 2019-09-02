@@ -43,7 +43,7 @@ Azure Container Registry può ospitare repository per i [grafici Helm](https://h
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggere le informazioni su come [eseguire il push e il pull](container-registry-get-started-docker-cli.md) delle immagini con Registro contenitori di Azure.
+* Leggere le informazioni su come [eseguire il push e il pull](container-registry-get-started-docker-cli.md) delle immagini con Registro Azure Container.
 
 * Usare [Attività di Registro Azure Container](container-registry-tasks-overview.md) per creare e testare immagini dei contenitori. 
 

@@ -27,14 +27,14 @@ Consultare la [guida ufficiale per la risoluzione dei problemi dei cluster di Ku
 
 È necessario [richiedere i core](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Qual è l'impostazione del numero massimo di pod per nodo per AKS?
+## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Qual è l'impostazione del numero massimo di pod per nodo per il servizio Azure Kubernetes?
 
-Il numero massimo di pod per nodo è 30 per impostazione predefinita se si distribuisce un cluster AKS nel portale di Azure.
-Il numero massimo di pod per nodo è 110 per impostazione predefinita se si distribuisce un cluster AKS nell’interfaccia della riga di comando di Azure. Assicurarsi di usare la versione più recente dell’interfaccia della riga di comando di Azure. Questa impostazione predefinita può essere modificata usando il flag `–-max-pods` nel comando `az aks create`.
+Il numero massimo di pod per nodo è 30 per impostazione predefinita se si distribuisce un cluster del servizio Azure Kubernetes nel portale di Azure.
+Il numero massimo di pod per nodo è 110 per impostazione predefinita se si distribuisce un cluster del servizio Azure Kubernetes nell’interfaccia della riga di comando di Azure. Assicurarsi di usare la versione più recente dell’interfaccia della riga di comando di Azure. Questa impostazione predefinita può essere modificata usando il flag `–-max-pods` nel comando `az aks create`.
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Viene visualizzato l'errore "insufficientSubnetSize" durante la distribuzione di un cluster AKS con funzionalità di rete avanzate. Cosa devo fare?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Viene visualizzato l'errore "insufficientSubnetSize" durante la distribuzione di un cluster del servizio Azure Kubernetes con funzionalità di rete avanzate. Cosa devo fare?
 
-Se si usa Azure CNI (funzionalità di rete avanzate), il servizio Azure Kubernetes prealloca gli indirizzi IP in base al valore "max-pods" per nodo configurato. Il numero di nodi in un cluster AKS può essere compreso tra 1 e 110. In base al numero massimo di pod per nodo configurato, le dimensioni della subnet devono essere maggiori del prodotto tra il numero di nodi e il numero massimo di pod per nodo. L'equazione di base seguente descrive questo requisito:
+Se si usa Azure CNI (funzionalità di rete avanzate), il servizio Azure Kubernetes prealloca gli indirizzi IP in base al valore "max-pods" per nodo configurato. Il numero di nodi in un cluster del servizio Azure Kubernetes può essere compreso tra 1 e 110. In base al numero massimo di pod per nodo configurato, le dimensioni della subnet devono essere maggiori del prodotto tra il numero di nodi e il numero massimo di pod per nodo. L'equazione di base seguente descrive questo requisito:
 
 Dimensioni della subnet > numero di nodi del cluster (prendendo in considerazione i requisiti di scalabilità futuri) * numero massimo di pod per nodo.
 
@@ -69,7 +69,7 @@ Verificare che il gruppo di sicurezza di rete predefinito non sia stato modifica
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Sto cercando di eseguire l'aggiornamento o il ridimensionamento e ricevo un "messaggio: La modifica della proprietà 'imageReference' non è consentita". Come si risolve il problema?
 
-È possibile che questo errore venga visualizzato in seguito alla modifica di tag nei nodi dell'agente all'interno del cluster AKS. La modifica e l'eliminazione di tag e altre proprietà delle risorse nel gruppo di risorse MC_* può causare risultati imprevisti. La modifica delle risorse nel gruppo MC_* del cluster del servizio Kubernetes di Azure è una violazione dell'obiettivo del livello di servizio (SLO).
+È possibile che questo errore venga visualizzato in seguito alla modifica di tag nei nodi dell'agente all'interno del cluster del servizio Azure Kubernetes. La modifica e l'eliminazione di tag e altre proprietà delle risorse nel gruppo di risorse MC_* può causare risultati imprevisti. La modifica delle risorse nel gruppo MC_* del cluster del servizio Kubernetes di Azure è una violazione dell'obiettivo del livello di servizio (SLO).
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Si ricevono errori che il cluster è in stato di errore e l'aggiornamento o il ridimensionamento non funziona finché non viene risolto
 

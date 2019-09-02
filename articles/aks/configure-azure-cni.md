@@ -182,7 +182,7 @@ Per altre informazioni sulla rete in servizio Azure Kubernetes, vedere gli artic
 - [Creare un controller di ingresso con un indirizzo IP pubblico dinamico e configurare la crittografia per la generazione automatica di certificati TLS][aks-ingress-tls]
 - [Creare un controller di ingresso con un IP pubblico statico e configurare la crittografia per la generazione automatica di certificati TLS][aks-ingress-static-tls]
 
-### <a name="aks-engine"></a>Motore AKS
+### <a name="aks-engine"></a>Azure Kubernetes Engine
 
 Il motore del [servizio Kubernetes di Azure (motore AKS)][aks-engine] è un progetto open source che genera modelli di Azure Resource Manager che è possibile usare per la distribuzione di cluster Kubernetes in Azure.
 

@@ -240,7 +240,7 @@ Nella home page del portale di Jenkins selezionare **New item** (Nuovo elemento)
 
      ![Associazioni di Jenkins](media/aks-jenkins/bindings.png)
 
-1. Aggiungere un'**istruzione di compilazione** di tipo **Execute shell** (Esegui shell) e usare il testo seguente. Questo script compila una nuova immagine del contenitore e la inserisce nel registro di ACR.
+1. Aggiungere un'**istruzione di compilazione** di tipo **Execute shell** (Esegui shell) e usare il testo seguente. Questo script compila una nuova immagine del contenitore e la inserisce nel Registro Azure Container.
 
     ```bash
     # Build new image and push to ACR.
@@ -270,7 +270,7 @@ Nel menu a sinistra del progetto selezionare **Build Now** (Compila).
 
 La prima compilazione richiede un minuto o due perché i livelli dell'immagine Docker vengono scaricati nel server Jenkins. Le compilazioni successive possono usare i livelli di immagine memorizzati nella cache per migliorare i tempi di compilazione.
 
-Durante questo processo, il repository di GitHub viene clonato nel server di compilazione di Jenkins. Viene compilata una nuova immagine del contenitore, che viene inserita nel registro di ACR. Infine l'applicazione di voto di Azure in esecuzione nel cluster di servizio Azure Kubernetes viene aggiornata per usare la nuova immagine. Poiché non sono state apportate modifiche al codice dell'applicazione, quest'ultima non viene modificata se si visualizza l'app di esempio in un Web browser.
+Durante questo processo, il repository di GitHub viene clonato nel server di compilazione di Jenkins. Viene compilata una nuova immagine del contenitore, che viene inserita nel Registro Azure Container. Infine l'applicazione di voto di Azure in esecuzione nel cluster di servizio Azure Kubernetes viene aggiornata per usare la nuova immagine. Poiché non sono state apportate modifiche al codice dell'applicazione, quest'ultima non viene modificata se si visualizza l'app di esempio in un Web browser.
 
 Dopo che il processo di compilazione è stato completato, fare clic su **build #1** (compilazione 1) nella cronologia delle compilazioni. Selezionare **Console output** (Output console) e visualizzare l'output del processo di compilazione. La riga finale deve indicare che la build ha avuto esito positivo.
 

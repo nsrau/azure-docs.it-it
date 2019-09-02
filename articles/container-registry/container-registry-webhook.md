@@ -17,13 +17,13 @@ ms.locfileid: "68311578"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Uso dei webhook di Registro Azure Container
 
-Un registro contenitori di Azure archivia e gestisce le immagini dei contenitori Docker private, in modo analogo a come Docker Hub archivia le immagini Docker pubbliche. Può anche ospitare repository per i [grafici Helm](container-registry-helm-repos.md) (anteprima), un formato di creazione di pacchetti per la distribuzione di applicazioni in Kubernetes. È possibile usare i webhook per attivare eventi specifici quando in uno dei repository del registro si verificano determinate azioni. I webhook possono rispondere agli eventi a livello di registro oppure possono essere limitati a un tag di repository specifico. Con un registro con [replica geografica](container-registry-geo-replication.md) , è possibile configurare ogni webhook per rispondere agli eventi in una replica regionale specifica.
+Un Registro Azure Container archivia e gestisce le immagini dei contenitori Docker private, in modo analogo a come Docker Hub archivia le immagini Docker pubbliche. Può anche ospitare repository per i [grafici Helm](container-registry-helm-repos.md) (anteprima), un formato di creazione di pacchetti per la distribuzione di applicazioni in Kubernetes. È possibile usare i webhook per attivare eventi specifici quando in uno dei repository del registro si verificano determinate azioni. I webhook possono rispondere agli eventi a livello di registro oppure possono essere limitati a un tag di repository specifico. Con un registro con [replica geografica](container-registry-geo-replication.md) , è possibile configurare ogni webhook per rispondere agli eventi in una replica regionale specifica.
 
 Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni di riferimento sullo schema del webhook di Registro Azure Container](container-registry-webhook-reference.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Registro contenitori di Azure: creare un registro contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md). Gli [SKU di Azure container Registry](container-registry-skus.md) hanno quote di Webhook differenti.
+* Registro Azure Container: creare un registro contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md). Gli [SKU di Azure container Registry](container-registry-skus.md) hanno quote di Webhook differenti.
 * Interfaccia della riga di comando di Docker: per configurare il computer locale come host Docker e accedere ai comandi della riga di comando di Docker, installare [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## <a name="create-webhook---azure-portal"></a>Crea webhook-portale di Azure

@@ -21,13 +21,13 @@ Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è nece
 
 È sufficiente configurare uno di questi metodi di autenticazione. L'approccio più comune consiste nel [concedere l'accesso tramite l'entità servizio AKS](#grant-aks-access-to-acr). Se si hanno esigenze specifiche, facoltativamente è possibile [concedere l'accesso usando i segreti Kubernetes](#access-with-kubernetes-secret).
 
-Questo articolo presuppone che sia già stato creato un cluster AKS e che si sia in grado di accedere al cluster con il client da riga di comando `kubectl`. Se invece si vuole creare un cluster e configurare l'accesso a un registro contenitori in fase di creazione del cluster [, vedere Esercitazione: Distribuire un cluster](../aks/tutorial-kubernetes-deploy-cluster.md) AKS o [eseguire l'autenticazione con container Registry di Azure dal servizio Azure Kubernetes (anteprima)](../aks/cluster-container-registry-integration.md).
+Questo articolo presuppone che sia già stato creato un cluster del servizio Azure Kubernetes e che si sia in grado di accedere al cluster con il client da riga di comando `kubectl`. Se invece si vuole creare un cluster e configurare l'accesso a un registro contenitori in fase di creazione del cluster [, vedere Esercitazione: Distribuire un cluster](../aks/tutorial-kubernetes-deploy-cluster.md) AKS o [eseguire l'autenticazione con container Registry di Azure dal servizio Azure Kubernetes (anteprima)](../aks/cluster-container-registry-integration.md).
 
 ## <a name="grant-aks-access-to-acr"></a>Concedere al servizio Azure Container l'accesso a Registro Azure Container
 
 Quando si crea un cluster servizio Azure Kubernetes, Azure crea anche un'entità servizio per supportare il funzionamento del cluster con altre risorse di Azure. Questa entità servizio generata automaticamente può essere usata anche per l'autenticazione con un record di controllo di accesso. A tale scopo, è necessario creare un'[assegnazione di ruolo](../role-based-access-control/overview.md#role-assignments) di Azure Active Directory che conceda all'entità servizio del cluster l'accesso al registro contenitori.
 
-Usare lo script seguente per concedere all'entità servizio generata da AKS l'accesso pull a un registro contenitori di Azure. Modificare le variabili `AKS_*` e `ACR_*` per l'ambiente prima di eseguire lo script.
+Usare lo script seguente per concedere all'entità servizio generata dal servizio Azure Kubernetes l'accesso pull a un Registro Azure Container. Modificare le variabili `AKS_*` e `ACR_*` per l'ambiente prima di eseguire lo script.
 
 ```bash
 #!/bin/bash

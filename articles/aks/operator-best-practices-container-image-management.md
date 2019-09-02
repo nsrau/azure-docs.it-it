@@ -28,7 +28,7 @@ Questo articolo illustra in particolare come proteggere i contenitori nel serviz
 
 ## <a name="secure-the-images-and-run-time"></a>Proteggere le immagini e il runtime
 
-**Indicazioni sulle procedure consigliate** - Analizzare le immagini del contenitore per verificare la presenza di vulnerabilità e distribuire solo le immagini che hanno superato la convalida. Aggiornare regolarmente le immagini di base e il runtime applicazione e ridistribuire i carichi di lavoro nel cluster AKS.
+**Indicazioni sulle procedure consigliate** - Analizzare le immagini del contenitore per verificare la presenza di vulnerabilità e distribuire solo le immagini che hanno superato la convalida. Aggiornare regolarmente le immagini di base e il runtime applicazione e ridistribuire i carichi di lavoro nel cluster del servizio Azure Kubernetes.
 
 Un aspetto delicato dell'adozione dei carichi di lavoro basati su contenitore è la verifica della sicurezza delle immagini e del runtime usati per compilare le applicazioni. Come ci si assicura di non introdurre vulnerabilità per la sicurezza nelle proprie distribuzioni? Il flusso di lavoro di distribuzione deve includere un processo per analizzare le immagini del contenitore usando strumenti come [Twistlock][twistlock] o [Aqua][aqua], quindi consentire la distribuzione solo delle immagini verificate.
 

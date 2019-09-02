@@ -23,15 +23,15 @@ L'API etcd in Azure Cosmos DB consente di usare Azure Cosmos DB come archivio ba
 * Soluzione protetta per impostazione predefinita e pronta per l'azienda.
 * Contratti di servizio completi leader del settore.
 
-Per altre informazioni sull'API etcd in Azure Cosmos DB, vedere l'articolo [Panoramica](etcd-api-introduction.md). Questo articolo illustra come usare [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md) (aks-engine) per il bootstrap in Azure di un cluster Kubernetes che usa [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) anziché un'API etcd installata e configurata localmente. 
+Per altre informazioni sull'API etcd in Azure Cosmos DB, vedere l'articolo [Panoramica](etcd-api-introduction.md). Questo articolo illustra come usare il [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md) (aks-engine) per il bootstrap in Azure di un cluster Kubernetes che usa [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) anziché un'API etcd installata e configurata localmente. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 1. Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). È possibile scaricare l'interfaccia della riga di comando di Azure specifica del sistema operativo in uso e installarla.
 
-1. Installare la [versione più recente](https://github.com/Azure/aks-engine/releases) di Azure Kubernetes Engine. Le istruzioni di installazione per diversi sistemi operativi sono disponibili nella pagina di [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). È sufficiente seguire la procedura nella sezione **Install AKS Engine** (Installazione di AKS Engine) del documento collegato. Al termine del download, estrarre il file ZIP.
+1. Installare la [versione più recente](https://github.com/Azure/aks-engine/releases) di Azure Kubernetes Engine. Le istruzioni di installazione per diversi sistemi operativi sono disponibili nella pagina di [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). È sufficiente seguire la procedura nella sezione **Install AKS Engine** (Installazione di Azure Kubernetes Engine) del documento collegato. Al termine del download, estrarre il file ZIP.
 
-   Il Azure Kubernetes Engine (**aks-engine**) genera i modelli di Azure Resource Manager per i cluster Kubernetes in Azure. L'input in aks-engine è un file di definizione del cluster che descrive il cluster desiderato, inclusi agente di orchestrazione, funzionalità e agenti. La struttura dei file di input è simile all'API pubblica per Azure Kubernetes Service.
+   Azure Kubernetes Engine (**aks-engine**) genera i modelli di Azure Resource Manager per i cluster Kubernetes in Azure. L'input in aks-engine è un file di definizione del cluster che descrive il cluster desiderato, inclusi agente di orchestrazione, funzionalità e agenti. La struttura dei file di input è simile all'API pubblica per Azure Kubernetes Service.
 
 1. L'API etcd in Azure Cosmos DB attualmente è in anteprima. Registrarsi per usare la versione di anteprima all'indirizzo: https://aka.ms/cosmosetcdapi-signup. Dopo aver inviato il modulo, la sottoscrizione verrà inclusa nella whitelist per usare l'API etcd di Cosmos Azure. 
 

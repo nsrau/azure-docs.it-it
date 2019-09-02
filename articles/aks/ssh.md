@@ -22,7 +22,7 @@ Questo articolo mostra come creare una connessione SSH con un nodo servizio Azur
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
 Per impostazione predefinita, le chiavi SSH vengono ottenute o generate, quindi aggiunte ai nodi quando si crea un cluster AKS. Questo articolo illustra come specificare chiavi SSH diverse dalle chiavi SSH usate durante la creazione del cluster AKS. Questo articolo illustra anche come determinare l'indirizzo IP privato del nodo e connetterlo tramite SSH. Se non è necessario specificare una chiave SSH diversa, è possibile ignorare il passaggio per aggiungere la chiave pubblica SSH al nodo.
 

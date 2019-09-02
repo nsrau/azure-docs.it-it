@@ -78,7 +78,7 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
 Il file dell'ambiente archivia le credenziali per il registro contenitori e le condivide con il runtime IoT Edge. Queste credenziali sono necessarie al runtime per eseguire il pull delle immagini private nel dispositivo IoT Edge.
 
 1. Nello strumento di esplorazione di Visual Studio Code aprire il file con estensione env.
-2. Aggiornare i campi con i valori di **nome utente** e **password** copiati dal registro contenitori di Azure.
+2. Aggiornare i campi con i valori di **nome utente** e **password** copiati dal Registro Azure Container.
 3. Salvare questo file.
 
 ### <a name="select-your-target-architecture"></a>Selezionare l'architettura di destinazione

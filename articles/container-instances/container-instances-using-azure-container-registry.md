@@ -1,6 +1,6 @@
 ---
 title: Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
-description: Informazioni su come distribuire i contenitori in Istanze di Azure Container usando le immagini contenitore in un registro contenitori di Azure.
+description: Informazioni su come distribuire i contenitori in Istanze di Azure Container usando le immagini contenitore in un Registro Azure Container.
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -18,7 +18,7 @@ ms.locfileid: "68325554"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
-[Registro Azure Container](../container-registry/container-registry-intro.md) è un servizio gestito di registro contenitori usato per archiviare immagini di un contenitore Docker privato. Questo articolo illustra come distribuire in Istanze di Azure Container immagini del contenitore archiviate in un registro contenitori di Azure.
+[Registro Azure Container](../container-registry/container-registry-intro.md) è un servizio gestito di registro contenitori usato per archiviare immagini di un contenitore Docker privato. Questo articolo illustra come distribuire in Istanze di Azure Container immagini del contenitore archiviate in un Registro Azure Container.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,7 +28,7 @@ ms.locfileid: "68325554"
 
 ## <a name="configure-registry-authentication"></a>Configurare l'autenticazione del registro
 
-In qualsiasi scenario di produzione l'accesso a un registro contenitori di Azure deve essere fornito tramite [entità servizio](../container-registry/container-registry-auth-service-principal.md). Le entità servizio consentono di fornire il [controllo degli accessi in base al ruolo](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
+In qualsiasi scenario di produzione l'accesso a un Registro Azure Container deve essere fornito tramite [entità servizio](../container-registry/container-registry-auth-service-principal.md). Le entità servizio consentono di fornire il [controllo degli accessi in base al ruolo](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
 
 Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e un'entità servizio di Azure e le credenziali dell'entità servizio vengono archiviate nell'insieme. 
 
@@ -135,7 +135,7 @@ Per informazioni dettagliate sul riferimento ai segreti di Azure Key Vault in un
 
 ## <a name="deploy-with-azure-portal"></a>Distribuire con il portale di Azure
 
-Se si conservano le immagini del contenitore in un registro contenitori di Azure, è possibile creare facilmente un contenitore in Istanze di Azure Container usando il portale di Azure. Quando si usa il portale per distribuire un'istanza di contenitore da un registro contenitori, è necessario abilitare l'[account amministratore](../container-registry/container-registry-authentication.md#admin-account) del registro. L'account amministratore è pensato per consentire l'accesso al registro a un singolo utente, principalmente a scopo di test. 
+Se si conservano le immagini del contenitore in un Registro Azure Container, è possibile creare facilmente un contenitore in Istanze di Azure Container usando il portale di Azure. Quando si usa il portale per distribuire un'istanza di contenitore da un registro contenitori, è necessario abilitare l'[account amministratore](../container-registry/container-registry-authentication.md#admin-account) del registro. L'account amministratore è pensato per consentire l'accesso al registro a un singolo utente, principalmente a scopo di test. 
 
 1. Nel portale di Azure passare al registro contenitori.
 

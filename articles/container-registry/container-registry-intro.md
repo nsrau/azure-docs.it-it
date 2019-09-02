@@ -26,7 +26,7 @@ Per altre informazioni sui concetti di Docker e registro, vedere la [panoramica 
 
 ## <a name="use-cases"></a>Casi d'uso
 
-Effettuare il pull di immagini da un registro contenitori di Azure a varie destinazioni di distribuzione:
+Effettuare il pull di immagini da un Registro Azure Container a varie destinazioni di distribuzione:
 
 * **Sistemi di orchestrazione scalabili** che gestiscono applicazioni in contenitori fra più cluster host, quali [Kubernetes](https://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/) e [Docker Swarm](https://docs.docker.com/swarm/).
 * **Servizi di Azure** che supportano la creazione e l'esecuzione di applicazioni su vasta scala, inclusi il [servizio Azure Kubernetes](../aks/index.yml), il [servizio app](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) e altri.

@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Preparare un registro contenitori per Istanze di Azure Container'
-description: Esercitazione di Istanze di Azure Container - Parte 2 di 3 - Preparare un registro contenitori di Azure ed eseguire il push di un'immagine
+description: Esercitazione di Istanze di Azure Container - Parte 2 di 3 - Preparare un Registro Azure Container ed eseguire il push di un'immagine
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 07/18/2019
 ms.locfileid: "68325614"
 ---
-# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Esercitazione: Distribuire un registro contenitori di Azure ed eseguire il push di un'immagine del contenitore
+# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Esercitazione: Distribuire un Registro Azure Container ed eseguire il push di un'immagine del contenitore
 
 Questa è la parte due di un'esercitazione in tre parti. Nella [prima parte](container-instances-tutorial-prepare-app.md) dell'esercitazione è stata creata un'immagine del contenitore Docker per un'applicazione Web Node.js. In questa esercitazione si esegue il push dell'immagine in Registro Azure Container. Se l'immagine del contenitore non è ancora stata creata, tornare all'esercitazione [1: Creare un'immagine del contenitore](container-instances-tutorial-prepare-app.md).
 
