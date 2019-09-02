@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1bba5e91e3edda41b75a96d8b55495ca5d1c092b
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644885"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209638"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze T-SQL tra istanze gestite, limitazioni e problemi noti
 
@@ -338,6 +338,10 @@ Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows, 
 - `CREATE ASSEMBLY FROM FILE` non è supportata. Vedere [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` non può fare riferimento a file. Vedere [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
+### <a name="database-mail-db_mail"></a>Posta elettronica database (db_mail)
+ - `sp_send_dbmail`Impossibile inviare atachments utilizzando @file_attachments il parametro. I file system locali e le condivisioni extent o l'archiviazione BLOB di Azure non sono accessibili da questa procedura.
+ - Vedere i problemi noti relativi al `@query` parametro e all'autenticazione.
+ 
 ### <a name="dbcc"></a>DBCC
 
 Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate nelle istanze gestite.
@@ -536,6 +540,14 @@ La dimensione massima del `tempdb` file non può essere maggiore di 24 GB per co
 Un'istanza gestita inserisce informazioni dettagliate nei log degli errori. Nel log degli errori di sono presenti molti eventi interni di sistema che vengono registrati. Utilizzare una procedura personalizzata per leggere i log degli errori che filtrano alcune voci irrilevanti. Per ulteriori informazioni, vedere [istanza gestita – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a>Problemi noti
+
+### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Impossibile eseguire a server di posta elettronica esterni tramite connessione protetta (SSL)
+
+**Data** 2019 agosto
+
+Posta elettronica database configurata [tramite connessione protetta (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) non è in grado di eseguire l'autenticazione in alcuni server di posta elettronica esterni ad Azure. Si tratta di un problema di configurazione della sicurezza che verrà risolto a breve.
+
+**Soluzione alternativa:** Rimuovere temporaneamente la connessione protetta (SSL) per la configurazione di posta elettronica database fino a quando il problema non viene risolto. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>È necessario inizializzare nuovamente le finestre di dialogo Service Broker tra database dopo l'aggiornamento del livello di servizio
 

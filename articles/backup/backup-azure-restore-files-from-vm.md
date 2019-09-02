@@ -7,14 +7,14 @@ manager: carmonm
 keywords: ripristino a livello di elemento; ripristino di file da un backup di VM di Azure; ripristinare file da VM di Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/01/2019
+ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5ff4f1ff8a3d6143285b2842c351e1d26bd356ea
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954616"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210362"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -68,7 +68,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
     - download.microsoft.com
     - URL di servizi di ripristino (il nome geografico si riferisce all'area in cui si trova l'insieme di credenziali di servizi di ripristino)
         - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.com (per GEOS pubblico di Azure)
-        - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.cn (per Azure Cina)
+        - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.cn (per Azure Cina 21ViaNet)
         - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.US (per il governo degli Stati Uniti di Azure)
         - https:\//pod01-rec2.Geo-Name.backup.WindowsAzure.de (per Azure Germania)
     - porta in uscita 3260
@@ -213,13 +213,13 @@ In Linux, il sistema operativo del computer usato per ripristinare i file deve s
 
 Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richiede anche componenti bash e Python.
 
-|Componente | Version  |
+|Componente | Versione  |
 | --------------- | ---- |
 | bash | 4 e versioni successive |
 | python | 2.6.6 e versioni successive  |
 | TLS | 1.2 dovrebbe essere supportata  |
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verificano problemi durante il ripristino di file dalle macchine virtuali, controllare la tabella seguente per informazioni aggiuntive.
 
@@ -247,7 +247,7 @@ Questa funzionalità è stata creata per accedere ai dati della macchina virtual
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Seleziona punto di ripristino (che può generare lo script)
 
-Lo script fornisce l'accesso ai dati della macchina virtuale, è importante definire chi può generarlo in primo luogo. È necessario eseguire l'accesso a portale di Azure e il controllo degli accessi in base al ruolo [autorizzato](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) a generare lo script.
+Lo script fornisce l'accesso ai dati della macchina virtuale, è importante definire chi può generarlo in primo luogo. È necessario accedere a portale di Azure e il controllo degli accessi in base al ruolo [autorizzato](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) a generare lo script.
 
 Il ripristino del file richiede lo stesso livello di autorizzazione necessario per il ripristino delle macchine virtuali e il ripristino dei dischi. In altre parole, solo gli utenti autorizzati possono visualizzare i dati della macchina virtuale possono generare lo script.
 

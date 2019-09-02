@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 11e83d0a245b2fba70926723edaf303032f90b8e
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2f645d290175db9692649d825323313fc207a014
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170594"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210275"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
 È possibile risolvere gli errori rilevati durante l'uso di backup di Azure con le informazioni elencate di seguito:
@@ -148,7 +148,7 @@ L'operazione di backup nella macchina virtuale non è riuscita a causa di un rit
 
 Da un prompt dei comandi elevato (amministratore) eseguire il comando seguente:
 
-```
+```text
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
 ```
@@ -243,7 +243,7 @@ Il backup delle macchine virtuali si basa sull'esecuzione dei comandi di snapsho
 - **L'accesso alla rete per l'archiviazione è bloccato mediante NSG**. Altre informazioni su come [stabilire l'accesso di rete](backup-azure-arm-vms-prepare.md#establish-network-connectivity) all'archiviazione usando un elenco di indirizzi IP consentiti o tramite un server proxy.
 - **Le macchine virtuali con il backup di SQL Server configurato possono causare ritardi nelle attività di snapshot**. Per impostazione predefinita, il backup delle macchine virtuali genera un backup completo Servizio Copia Shadow del volume nelle macchine virtuali Windows. Le macchine virtuali che eseguono SQL Server, con il backup di SQL Server configurato, possono sperimentare ritardi degli snapshot. Se i ritardi degli snapshot causano errori di backup, impostare la chiave del Registro di sistema seguente:
 
-   ```
+   ```text
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```

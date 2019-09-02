@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 065931140894478caee9d4ea49dac49f2415716b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 76b70c742289ac98e49338b267660a30abba9557
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128646"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210454"
 ---
 # <a name="algorithm--module-reference-overview"></a>Panoramica di riferimento al modulo & di algoritmi
 
@@ -33,7 +33,7 @@ I moduli sono organizzati per funzionalità:
 | --- |--- | ---- |
 | Conversioni dei formati di dati | Convertire i dati tra i diversi formati di file usati in Machine Learning, | [Converti in CSV](convert-to-csv.md) |
 | Input e output dei dati | Spostare i dati dalle origini cloud nell'esperimento. Scrivere i risultati o i dati intermedi in archiviazione di Azure, un database SQL o hive, durante l'esecuzione di un esperimento o usare l'archiviazione cloud per scambiare dati tra gli esperimenti.  | [Importazione dei dati](import-data.md)<br/>[Esportazione dei dati](export-data.md)<br/>[Immissione manuale dei dati](enter-data-manually.md) |
-| Trasformazione dati | Operazioni sui dati che sono univoche per Machine Learning, ad esempio la normalizzazione o la suddivisione in contenitori dei dati, la selezione delle funzioni e la riduzione della dimensionalità.| [Selezionare le colonne nel set di dati](select-columns-in-dataset.md) <br/> [Modificare i metadati](edit-metadata.md) <br/> [Pulisci i dati mancanti](clean-missing-data.md) <br/> [Aggiungi colonne](add-columns.md) <br/> [Aggiungi righe](add-rows.md) <br/> [Rimuovi righe duplicate](remove-duplicate-rows.md) <br/> [Unisci dati](join-data.md) <br/> [Suddividere i dati](split-data.md) <br/> [Normalizza i dati](normalize-data.md) <br/> [Partition ed Sample](partition-and-sample.md) |
+| Trasformazione dati | Operazioni sui dati che sono univoche per Machine Learning, ad esempio la normalizzazione o la suddivisione in contenitori dei dati, la selezione delle funzioni e la riduzione della dimensionalità.| [Selezionare le colonne nel set di dati](select-columns-in-dataset.md) <br/> [Modificare i metadati](edit-metadata.md) <br/> [Pulisci i dati mancanti](clean-missing-data.md) <br/>  [Hashing delle funzionalità](feature-hashing.md) <br/>  [Estrai le funzionalità di N grammi dal testo](extract-n-gram-features-from-text.md) <br/> [Aggiungi colonne](add-columns.md) <br/> [Aggiungi righe](add-rows.md) <br/> [Rimuovi righe duplicate](remove-duplicate-rows.md) <br/> [Pre-elabora testo](preprocess-text.md) <br/> [Unisci dati](join-data.md) <br/> [Suddividere i dati](split-data.md) <br/> [Normalizza i dati](normalize-data.md) <br/> [Partition ed Sample](partition-and-sample.md) |
 | Moduli Python e R | Scrivi codice e incorporalo in un modulo per integrare Python e R con l'esperimento. | [Esegui script Python](execute-python-script.md)   <br/> [Creare un modello Python](create-python-model.md) <br/> [Esegui script R](execute-r-script.md)
 |  | **Algoritmi di Machine Learning**: | |
 | classificazione | Stimare una classe.  Scegliere tra algoritmi binari (a due classi) o multiclasse.| [Foresta delle decisioni multiclasse](multiclass-decision-forest.md) <br/> [Albero delle decisioni con boosting multiclasse](multiclass-boosted-decision-tree.md) <br/> [Regressione logistica multiclasse](multiclass-logistic-regression.md)  <br/> [Rete neurale multiclasse](multiclass-neural-network.md)  <br/>  [Regressione logistica a due classi](two-class-logistic-regression.md)  <br/>[Perceptron media a due classi](two-class-averaged-perceptron.md) <br/> [Albero delle&nbsp;decisioni&nbsp;conboostingadueclassi&nbsp;](two-class-boosted-decision-tree.md)  <br/> [Foresta delle decisioni a due classi](two-class-decision-forest.md)  <br/> [Rete neurale a due classi](two-class-neural-network.md)  <br/> [Macchina&#8209;a&nbsp;vettori&nbsp;disupportoperdueclassi&nbsp;](two-class-support-vector-machine.md) 

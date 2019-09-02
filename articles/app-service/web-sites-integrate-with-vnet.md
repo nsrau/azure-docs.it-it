@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a96c02d1d7d2fae43e0a5915e9233bde842ce621
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3a014bab0252667c3c70e56399a72de4e5771a86
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066660"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210107"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione della rete virtuale del servizio app Azure e come configurarla con le app nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714). [Reti virtuali di Azure][VNETOverview] (Reti virtuali) consente di inserire molte delle risorse di Azure in una rete instradabile non Internet.  
@@ -110,7 +110,7 @@ Per disconnettere l'app dalla rete virtuale, selezionare **Disconnetti**. L'app 
 
 #### <a name="web-app-for-containers"></a>App Web per contenitori
 
-Se si usa il servizio app in Linux con le immagini predefinite, la funzionalità di integrazione VNet a livello di area funziona senza modifiche aggiuntive. Se si usa app Web per contenitori, è necessario modificare l'immagine Docker per usare l'integrazione VNet. Nell'immagine Docker usare la variabile di ambiente PORT come porta di ascolto del server Web principale, anziché usare un numero di porta hardcoded. La variabile di ambiente PORT viene impostata automaticamente dalla piattaforma del servizio app al momento dell'avvio del contenitore.
+Se si usa il servizio app in Linux con le immagini predefinite, la funzionalità di integrazione VNet a livello di area funziona senza modifiche aggiuntive. Se si usa app Web per contenitori, è necessario modificare l'immagine Docker per usare l'integrazione VNet. Nell'immagine Docker usare la variabile di ambiente PORT come porta di ascolto del server Web principale, anziché usare un numero di porta hardcoded. La variabile di ambiente PORT viene impostata automaticamente dalla piattaforma del servizio app al momento dell'avvio del contenitore. Se si usa SSH, il daemon SSH deve essere configurato in modo da restare in ascolto sul numero di porta specificato dalla variabile di ambiente SSH_PORT quando si usa l'integrazione VNet a livello di area.
 
 ### <a name="service-endpoints"></a>Endpoint di servizio
 

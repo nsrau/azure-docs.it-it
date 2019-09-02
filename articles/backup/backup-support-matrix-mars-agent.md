@@ -1,5 +1,5 @@
 ---
-title: Matrice di supporto per l'agente di Servizi di ripristino di Microsoft Azure (MARS)-backup di Azure
+title: Matrice di supporto per l'agente di Servizi di ripristino di Microsoft Azure (MARS)
 description: Questo articolo riepiloga il supporto di backup di Azure quando si esegue il backup dei computer che eseguono l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 599d3f97ea30b096999d754a995af2ba660c0bc3
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 1559bb096baaa8f19718bf0c3bcd6b2dc767235b
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186166"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210135"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -75,16 +75,16 @@ Limitazione della larghezza di banda della rete | Non disponibile per computer s
 **Sistema operativo** | **File/cartelle** | **Stato del sistema** | **Requisiti del software/modulo**
 --- | --- | --- | ---
 Windows 10 (Enterprise, Pro, Home) | Sì | No |  Controllare la versione del server corrispondente per i requisiti software/modulo
-Windows 8.1 (Enterprise, Pro)| Sì |No | Controllare la versione del server corrispondente per i requisiti software/modulo
+Windows 8.1 (Enterprise, Pro)| Yes |No | Controllare la versione del server corrispondente per i requisiti software/modulo
 Windows 8 (Enterprise, Pro) | Sì | No | Controllare la versione del server corrispondente per i requisiti software/modulo
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sì | No | Controllare la versione del server corrispondente per i requisiti software/modulo
-Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No | Controllare la versione del server corrispondente per i requisiti software/modulo
+Windows Server 2016 (Standard, Datacenter, Essentials) | Sì | Yes | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Sì | Sì |-.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe)
 Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sì | Sì | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Compatibile con Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe)
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sì | No | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Compatibile con Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe) <br> -Server virtuale 2005 base + KB KB948515
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Compatibile con Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe) <br> -Server virtuale 2005 base + KB KB948515
 Windows Storage Server 2016/2012 R2/2012 (standard, Workgroup) | Sì | No | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
-Windows Server 2019 (Standard, Datacenter, Essentials) | Sì | Yes | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
+Windows Server 2019 (Standard, Datacenter, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 
 Per ulteriori informazioni, vedere i [sistemi operativi supportati da MAB e DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 

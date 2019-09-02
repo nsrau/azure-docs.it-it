@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
 ms.openlocfilehash: 62115dd519336c728b679e4e698182a50660a464
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 09/02/2019
 ms.locfileid: "68949877"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
@@ -273,7 +273,7 @@ context.log(message)
 Permette di scrivere nei log della console di streaming nel livello di traccia predefinito. In `context.log` sono disponibili altri metodi di registrazione che permettono di scrivere log di funzioni in altri livelli di traccia:
 
 
-| Metodo                 | Descrizione                                |
+| Metodo                 | DESCRIZIONE                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
 | **warn(_message_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
@@ -365,7 +365,7 @@ L'oggetto (richiesta) `context.req` ha le proprietà seguenti:
 
 L'oggetto (risposta) `context.res` ha le proprietà seguenti:
 
-| Proprietà  | DESCRIZIONE                                               |
+| Proprietà  | Descrizione                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Oggetto che contiene il corpo della risposta.         |
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |

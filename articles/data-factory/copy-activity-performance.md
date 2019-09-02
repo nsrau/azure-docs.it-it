@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 05ecfdc4f082aaa44fe54e6b807a1c5faf84eb8d
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 22c83b1fe53a9209fd243fe807bb76718cbdcbbd
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996452"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211688"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guida alla scalabilità e alle prestazioni dell'attività di copia
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
@@ -181,6 +181,7 @@ Per ogni esecuzione dell'attività di copia, Azure Data Factory determina il num
 | Scenario di copia | Numero predefinito di copie parallele determinato dal servizio |
 | --- | --- |
 | Copiare dati tra archivi basati su file |Dipende dalle dimensioni dei file e dal numero di DIUs usati per copiare i dati tra due archivi dati cloud o la configurazione fisica del computer del runtime di integrazione self-hosted. |
+| Copiare da archivio dati relazionale con l'opzione di partizione abilitata (inclusi [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)e [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source))|4 |
 | Copiare i dati da qualsiasi archivio di origine ad archiviazione tabelle di Azure |4 |
 | Tutti gli altri scenari di copia |1 |
 

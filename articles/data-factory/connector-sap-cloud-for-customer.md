@@ -10,18 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 30025499ae3073a04863d711423bd9556e7fc6c4
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 3ad8eaaca719429a858a7d84156c616dd02d3c7c
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726029"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211649"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiare dati da SAP Cloud for Customer (C4C) usando Azure Data Factory
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da/in SAP Cloud for Customer (C4C). Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
+
+>[!TIP]
+>Per informazioni sul supporto generale di ADF sullo scenario di integrazione dei dati SAP, vedere l'articolo relativo all' [integrazione dei dati SAP con Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con informazioni dettagliate introduttive, comparsing e linee guida.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -41,9 +44,9 @@ Per il servizio collegato di SAP Cloud for Customer sono supportate le propriet�
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapCloudForCustomer**. | Yes |
+| type | La proprietà type deve essere impostata su: **SapCloudForCustomer**. | Sì |
 | url | URL del servizio SAP C4C OData. | Sì |
-| username | Specificare il nome utente per la connessione a SAP C4C. | Sì |
+| username | Specificare il nome utente per la connessione a SAP C4C. | Yes |
 | password | Specificare la password dell'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink |
 
@@ -81,8 +84,8 @@ Per copiare dati da SAP Cloud for Customer, impostare la proprietà type del set
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **SapCloudForCustomerResource** |Sì |
-| path | Specificare il percorso dell'entità SAP C4C OData. |Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **SapCloudForCustomerResource** |Yes |
+| path | Specificare il percorso dell'entità SAP C4C OData. |Sì |
 
 **Esempio:**
 
@@ -113,7 +116,7 @@ Per copiare dati da SAP Cloud for Customer, impostare il tipo di origine nell'at
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapCloudForCustomerSource**  | Yes |
+| type | La proprietà type deve essere impostata su: **SapCloudForCustomerSource**  | Sì |
 | query | Specificare la query OData personalizzata per leggere i dati. | No |
 
 Query di esempio per ottenere dati relativi a un giorno specifico:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`

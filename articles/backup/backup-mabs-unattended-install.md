@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 4bce7aeebee729ed253d39720ef520880c261a22
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639657"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210161"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Eseguire un'installazione automatica del server di Backup di Azure
 
@@ -26,7 +26,7 @@ Questa procedura non è applicabile se si installa il server di Backup di Azure 
 
 2. Incollare il codice seguente nel file MABSSetup.ini. Sostituire il testo all'interno delle parentesi (\< \>) con i valori dell'ambiente. Il testo seguente è un esempio:
 
-   ```
+   ```text
    [OPTIONS]
    UserName=administrator
    CompanyName=<Microsoft Corporation>
@@ -49,7 +49,7 @@ Questa procedura non è applicabile se si installa il server di Backup di Azure 
 
 3. Salvare il file. Quindi, a un prompt con privilegi elevati nel server di installazione, immettere questo comando:
 
-   ```
+   ```cmd
    start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
    ```
 

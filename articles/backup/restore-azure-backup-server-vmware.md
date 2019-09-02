@@ -1,18 +1,18 @@
 ---
-title: Ripristinare le macchine virtuali VMware con server di Backup di Azure
+title: Ripristinare macchine virtuali VMware con il server di Backup di Azure
 description: Usare server di Backup di Azure (MAB) per ripristinare le macchine virtuali VMware in esecuzione su un server VMware vCenter/ESXi.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/18/2019
+ms.date: 08/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: fd851822a7068928a2f332c240bc33b70b1e16f6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 7d267fcd27a96c5ee7820a5d9fb73c6bbdb80695
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642305"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210139"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Ripristinare macchine virtuali VMware
 

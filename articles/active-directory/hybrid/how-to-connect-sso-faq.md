@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: dcea3c1ab715a79ebecd913885fbf9bbee61606a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/02/2019
 ms.locfileid: "60242221"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: Domande frequenti
@@ -39,22 +39,22 @@ La funzionalità Accesso SSO facile è una funzionalità gratuita e non serve al
 
 No. L'accesso Single Sign-On facile è disponibile solo nell'istanza di Azure AD a livello mondiale.
 
-## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quali applicazioni possono sfruttare le capacità dei parametri `domain_hint` o `login_hint` dell'accesso SSO facile?
+## <a name="what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso"></a>Quali applicazioni possono sfruttare le capacità dei parametri `domain_hint` o `login_hint` dell'accesso SSO facile?
 
 Di seguito è riportato un elenco non completo delle applicazioni che possono inviare questi parametri ad Azure AD, consentendo agli utenti un'esperienza di accesso automatico tramite l'accesso Single Sign-On facile (ad esempio, senza che utenti debbano immettere il proprio nome utente o la password):
 
-| Nome dell'applicazione | URL applicazione da usare |
+| Nome applicazione | URL applicazione da usare |
 | -- | -- |
-| Pannello di accesso | https:\//myapps.microsoft.com/contoso.com |
+| Riquadro di accesso | https:\//MyApps.Microsoft.com/contoso.com |
 | Outlook nel Web | https:\//outlook.office365.com/contoso.com |
-| Portali di Office 365 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
+| Portali di Office 365 | https:\//Portal.Office.com? domain_hint = contoso. com, https:\//www.Office.com? domain_hint = contoso. com |
 
-Inoltre, gli utenti ottengono un'esperienza di accesso invisibile all'utente se un'applicazione invia le richieste di accesso agli endpoint di Azure AD impostato come tenant -, ovvero https:\//login.microsoftonline.com/contoso.com/ <... > o https:\//login.microsoftonline.com/ < tenant_ID > / <... >, anziché l'endpoint comune di Azure AD -, ovvero https:\//login.microsoftonline.com/common/ <... >. Di seguito viene fornito un elenco, non completo, di applicazioni che generano questi tipi di richieste di accesso.
+Inoltre, gli utenti ottengono un'esperienza di accesso invisibile all'utente se un'applicazione invia le richieste di accesso agli endpoint di Azure ad impostati come tenant, ovvero https:\//login.microsoftonline.com/contoso.com/<. > o https:\//login.microsoftonline.com/<tenant_ID>/<.. >, anziché l'endpoint comune di Azure ad, ovvero https:\//login.microsoftonline.com/common/<... >. Di seguito viene fornito un elenco, non completo, di applicazioni che generano questi tipi di richieste di accesso.
 
-| Nome dell'applicazione | URL applicazione da usare |
+| Nome applicazione | URL applicazione da usare |
 | -- | -- |
-| SharePoint Online | https:\//contoso.sharepoint.com |
-| Portale di Azure | https:\//portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.SharePoint.com |
+| Portale di Azure | https:\//Portal.Azure.com/contoso.com |
 
 Nelle tabelle precedenti sostituire "contoso.com" con il nome di dominio per ottenere gli URL dell'applicazione corretti per il tenant.
 

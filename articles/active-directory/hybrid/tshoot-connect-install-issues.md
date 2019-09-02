@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e75ad29c5b4a76de5317991995f132c6cb53bbe3
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60454792"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211836"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>Risoluzione dei problemi: problemi di installazione di Azure AD Connect
 
@@ -41,11 +41,11 @@ Se tuttavia non si soddisfano i criteri per l'installazione rapida ed è necessa
 
 ### <a name="common-issues"></a>**Problemi comuni**
 
-* [Problemi di connettività con Active Directory locale](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
+* [Problemi di connettività con Active Directory locali](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
 
 * [Problemi di connettività con Azure Active Directory online](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity).
 
-* [Problemi di autorizzazione con Active Directory locale](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
+* [Problemi di autorizzazione con Active Directory locali](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
 
 ## <a name="recommended-documents"></a>**Documenti consigliati**
 * [Prerequisiti di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
@@ -58,7 +58,7 @@ Se tuttavia non si soddisfano i criteri per l'installazione rapida ed è necessa
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md).
-- [Informazioni sull'identità ibrida](whatis-hybrid-identity.md).
+- [Informazioni sull'identità ibrida](whatis-hybrid-identity.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni di Azure o gruppi di risorse-backup di Azure
-description: Istruzioni per spostare l'insieme di credenziali di Servizi di ripristino tra gruppi di risorse e sottoscrizioni di Azure.
+title: Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni di Azure o gruppi di risorse
+description: Istruzioni per spostare l'insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure.
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6ca07a6ba96aa271241271dcba264c1ea2ceefbb
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 960ddcc2a082b247951b0f79d0c990acc5e557e1
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018814"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210377"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
