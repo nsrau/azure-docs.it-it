@@ -47,8 +47,10 @@
       href: storage-snapshots-files.md
     - name: Obiettivi di scalabilità e prestazioni
       href: storage-files-scale-targets.md
-    - name: Sicurezza
+    - name: Security
       items:
+        - name: Authorization
+          href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Sicurezza di Archiviazione di Azure
           href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Crittografia degli account di archiviazione

@@ -1,0 +1,61 @@
+### YamlMime:Landing
+title: Documentazione di Archiviazione code di Azure - Archiviazione di Azure
+summary: Archiviazione code di Azure è un servizio per l'archiviazione di un numero elevato di messaggi. È possibile accedere ai messaggi ovunque ci si trovi tramite HTTP o HTTPS.
+metadata:
+  title: Documentazione di Archiviazione code di Azure - Archiviazione di Azure
+  description: Archiviazione code di Azure è un servizio per l'archiviazione di un numero elevato di messaggi. È possibile accedere ai messaggi ovunque ci si trovi tramite HTTP o HTTPS.
+  services: storage
+  ms.service: storage
+  ms.subservice: queues
+  ms.topic: landing-page
+  ms.collection: collection
+  author: mhopkins-msft
+  ms.author: mhopkins
+  ms.date: 08/27/2019
+  ms.openlocfilehash: 5de22a49dcc985ca95ee97d9de77180e2c56765b
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70129415"
+landingContent:
+- title: Informazioni sulle code di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cosa sono le code di Azure?
+      url: storage-queues-introduction.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare una coda e aggiungere un messaggio con il portale di Azure
+      url: storage-quickstart-queues-portal.md
+    - text: Usare .NET per creare una coda in Archiviazione di Azure
+      url: storage-quickstart-queues-dotnet.md
+- title: Sviluppare con code
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Introduzione all'archiviazione code di Azure con .NET
+      url: storage-dotnet-how-to-use-queues.md
+    - text: Come usare l'archiviazione di accodamento da Java
+      url: storage-java-how-to-use-queue-storage.md
+    - text: Come usare l'archiviazione di accodamento da Node.js
+      url: storage-nodejs-how-to-use-queues.md
+    - text: Come usare l'archiviazione delle code da C++
+      url: storage-c-plus-plus-how-to-use-queues.md
+    - text: Come usare l'archiviazione di accodamento da Python
+      url: storage-python-how-to-use-queue-storage.md
+- title: Gestire le code
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Eseguire operazioni nell'archivio code di Azure con Azure PowerShell
+      url: storage-powershell-how-to-use-queues.md
+- title: Esercitazione
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Usare le code di archiviazione di Azure (.NET)
+      url: storage-tutorial-queues.md

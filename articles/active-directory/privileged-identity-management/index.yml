@@ -1,68 +1,75 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione di Privileged Identity Management
+summary: Azure Active Directory (Azure AD) Privileged Identity Management (PIM) consente di limitare l'accesso amministratore permanente ai ruoli con privilegi, determinare chi può accedere e modificare l'accesso con privilegi.
 metadata:
-  document_id: null
-  title: Documentazione di Azure Active Directory Privileged Identity Management | Microsoft Docs
-  description: 'Informazioni su Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per limitare l''accesso amministratore permanente ai ruoli con privilegi, determinare chi può accedere e modificare l''accesso con privilegi.'
+  title: Documentazione di Privileged Identity Management
+  description: Informazioni su Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per limitare l'accesso amministratore permanente ai ruoli con privilegi, determinare chi può accedere e modificare l'accesso con privilegi.
   services: active-directory
-  author: rolyon
-  manager: mtillman
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: pim
   ms.topic: landing-page
-  ms.date: 09/04/2018
-  ms.author: rolyon
-abstract:
-  description: 'Azure Active Directory (Azure AD) Privileged Identity Management (PIM) consente di limitare l''accesso amministratore permanente ai ruoli con privilegi, determinare chi può accedere e modificare l''accesso con privilegi.'
-  aside:
-    image:
-      alt: null
-      height: 112
-      src: media/index/video-thumb-pim.png
-      width: 200
-    title: 'Proteggere le chiavi dell''ambiente (42:45)'
-    href: 'https://www.youtube.com/embed/w7wTpZYJJeQ'
-    width: 200
-sections:
-  - title: Guide alle procedure per utenti con ruolo idoneo e attivo
-    items:
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/Azure Active Directory_COLOR.svg
-            title: Ruoli di Azure AD
-          - image:
-              src: media/index/Cubes.svg
-            title: Risorse di Azure
-        rows:
-          - title: Attivare i ruoli personali
-            values:
-              - href: /azure/active-directory/privileged-identity-management/pim-how-to-activate-role
-              - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
-  - title: Guide alle procedure per gli amministratori
-    items:
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/Azure Active Directory_COLOR.svg
-            title: Ruoli di Azure AD
-          - image:
-              src: media/index/Cubes.svg
-            title: Risorse di Azure
-        rows:
-          - title: Assegnare ruoli
-            values:
-              - href: /azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user
-              - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-assign-roles
-          - title: Approvare le richieste
-            values:
-              - href: /azure/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow
-              - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-approval-workflow
-          - title: Configurare le impostazioni dei ruoli
-            values:
-              - href: /azure/active-directory/privileged-identity-management/pim-how-to-change-default-settings
-              - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings
+  ms.collection: 
+  author: curtand
+  ms.author: curtand
+  ms.date: 08/28/2019
+  ms.openlocfilehash: b1782c41bce2de6a9da0858519dfeb87f6597df8
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70127413"
+landingContent:
+- title: Informazioni su Privileged Identity Management
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Azure AD PIM
+      url: pim-configure.md
+  - linkListType: concept
+    links:
+    - text: Requisiti relativi alle licenze
+      url: subscription-requirements.md
+  - linkListType: video
+    links:
+    - text: Proteggere le chiavi dell'ambiente
+      url: https://www.youtube.com/embed/w7wTpZYJJeQ
+- title: Attività iniziali
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuire PIM
+      url: pim-deployment-plan.md
+    - text: Iniziare a usare PIM
+      url: pim-getting-started.md
+- title: Attivare i ruoli personali (utenti del ruolo idonei e attivi)
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Attivare i ruoli personali di Azure AD
+      url: pim-how-to-activate-role.md
+    - text: Attivare i ruoli delle risorse di Azure personali
+      url: pim-resource-roles-activate-your-roles.md
+- title: Assegnare ruoli
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Assegnare i ruoli di Azure AD
+      url: pim-how-to-add-role-to-user.md
+    - text: Assegnare i ruoli delle risorse di Azure
+      url: pim-resource-roles-assign-roles.md
+- title: Approvare le richieste
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Approvare le richieste per i ruoli di Azure AD
+      url: azure-ad-pim-approval-workflow.md
+    - text: Approvare le richieste per i ruoli delle risorse di Azure
+      url: pim-resource-roles-approval-workflow.md
+- title: Configurare le impostazioni dei ruoli
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare le impostazioni dei ruoli di Azure AD
+      url: pim-how-to-change-default-settings.md
+    - text: Configurare le impostazioni dei ruoli delle risorse di Azure
+      url: pim-resource-roles-configure-role-settings.md

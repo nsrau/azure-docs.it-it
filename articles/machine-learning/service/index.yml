@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentazione del servizio Azure Machine Learning
 metadata:
   title: Documentazione del servizio Azure Machine Learning - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-  description: 'Il servizio Azure Machine Learning offre SDK e servizi per preparare i dati, eseguire il training e distribuire rapidamente i modelli di Machine Learning. Con il ridimensionamento automatico delle risorse di calcolo e le pipeline, è possibile migliorare la produttività e ridurre i costi. Usare queste funzionalità con framework Python open source, come PyTorch, TensorFlow e scikit-learn. Per iniziare, seguire queste guide introduttive ed esercitazioni.'
+  description: 'Il servizio Azure Machine Learning offre SDK e servizi per eseguire il training di modelli di Machine Learning e distribuirli rapidamente. Con il ridimensionamento automatico delle risorse di calcolo e le pipeline, è possibile migliorare la produttività e ridurre i costi. Usare queste funzionalità con framework Python open source, come PyTorch, TensorFlow e scikit-learn. Per iniziare, seguire queste guide introduttive ed esercitazioni.'
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -16,7 +16,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: 'Il servizio Azure Machine Learning offre SDK e servizi per preparare i dati, eseguire il training e distribuire rapidamente i modelli di Machine Learning. Con il ridimensionamento automatico delle risorse di calcolo e le pipeline, è possibile migliorare la produttività e ridurre i costi. Usare queste funzionalità con framework Python open source, come PyTorch, TensorFlow e scikit-learn. Per iniziare, seguire queste guide introduttive ed esercitazioni.'
+  description: 'Il servizio Azure Machine Learning offre SDK e servizi per eseguire il training di modelli di Machine Learning e distribuirli rapidamente. Con il ridimensionamento automatico delle risorse di calcolo e le pipeline, è possibile migliorare la produttività e ridurre i costi. Usare queste funzionalità con framework Python open source, come PyTorch, TensorFlow e scikit-learn. Per iniziare, seguire queste guide introduttive ed esercitazioni.'
   aside:
     image:
       alt: null
@@ -30,7 +30,7 @@ sections:
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
-        text: 'Informazioni su come preparare i dati, configurare esperimenti, eseguire il training e rendere operativi i modelli di Machine Learning.'
+        text: 'Informazioni su come configurare esperimenti, eseguire il training di modelli di Machine Learning e renderli operativi.'
       - type: paragraph
         text: '<b>Usare il portale di Azure</b>, un''interfaccia intuitiva e senza codice per Machine Learning:'
       - type: list

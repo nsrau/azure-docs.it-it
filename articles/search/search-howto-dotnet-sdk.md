@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: 42d3a4a0840e7241666f66a09e7e6b11342cbfbc
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 3f167ee082b751f6bd686c0543db6a262615e486
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182274"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208252"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Come utilizzare Ricerca di Azure da un'applicazione .NET
 
@@ -579,7 +579,7 @@ L'SDK usa JSON.NET per serializzare e deserializzare i documenti. Se necessario,
 * Eseguire il mapping tra i nomi di proprietà nel codice e i nomi di campo nell'indice.
 * Creare gli attributi personalizzati che possono essere utilizzati per il mapping di proprietà ai campi di documento.
 
-Esempi di implementazione della serializzazione personalizzata sono disponibili negli unit test per Azure Search .NET SDK in GitHub. È consigliabile iniziare da [questa cartella](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models), che contiene le classi usate dai test di serializzazione personalizzata.
+Esempi di implementazione della serializzazione personalizzata sono disponibili negli unit test per Azure Search .NET SDK in GitHub. È consigliabile iniziare da [questa cartella](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models), che contiene le classi usate dai test di serializzazione personalizzata.
 
 ### <a name="searching-for-documents-in-the-index"></a>Ricerca di documenti nell'indice
 L'ultimo passaggio nell'applicazione di esempio consiste nel cercare alcuni documenti nell'indice:

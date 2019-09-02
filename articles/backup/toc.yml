@@ -70,6 +70,8 @@
       href: backup-architecture.md
     - name: Controllo degli accessi in base al ruolo
       href: backup-rbac-rs-vault.md
+    - name: Sicurezza per i carichi di lavoro cloud
+      href: backup-azure-security-feature-cloud.md
     - name: Sicurezza per i backup ibridi
       href: backup-azure-security-feature.md
     - name: Configurare il backup offline

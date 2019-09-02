@@ -1,22 +1,20 @@
 ---
 title: Usare Strumenti di base di Funzioni di Azure | Microsoft Docs
 description: Informazioni su come scrivere codice per le funzioni di Azure dal prompt dei comandi o dal terminale e testarle nel computer locale prima di eseguirle in Funzioni di Azure.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 4bad9db6af6d368c943619bc2105f3fba0b7eb7b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fc77ef6786fbd16ecfeb34397ead11be8b107176
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096150"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207275"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -307,7 +305,7 @@ func host start
 
 `func start` supporta le opzioni seguenti:
 
-| Opzione     | Descrizione                            |
+| Opzione     | DESCRIZIONE                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Per il progetto corrente non viene creata una build prima dell'esecuzione. Solo per progetti dotnet. Il valore predefinito è false. Solo versione 2.x. |
 | **`--cert`** | Il percorso in un file con estensione pfx che contiene una chiave privata. Usato solo con `--useHttps`. Solo versione 2.x. |
@@ -397,7 +395,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 `func run` supporta le opzioni seguenti:
 
-| Opzione     | DESCRIZIONE                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | Contenuto inline. |
 | **`--debug -d`** | Associare un debugger al processo host prima di eseguire la funzione.|
@@ -414,6 +412,8 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ## <a name="publish"></a> Pubblicazione in Azure
 
 Il Azure Functions Core Tools supporta due tipi di distribuzione: la distribuzione di file di progetto di funzione direttamente nell'app per le funzioni tramite la distribuzione [zip](functions-deployment-technologies.md#zip-deploy) e [la distribuzione di un contenitore Docker personalizzato](functions-deployment-technologies.md#docker-container). È necessario avere già [creato un'app per le funzioni nella sottoscrizione di Azure](functions-cli-samples.md#create)in cui verrà distribuito il codice. I progetti che richiedono la compilazione devono essere compilati in modo che i file binari possano essere distribuiti.
+
+Una cartella di progetto può contenere file e directory specifici della lingua che non devono essere pubblicati. Gli elementi esclusi vengono elencati in un file con estensione funcignore nella cartella radice del progetto.     
 
 ### <a name="project-file-deployment"></a>Distribuzione (file di progetto)
 
@@ -461,7 +461,7 @@ func deploy
 
 Sono disponibili le opzioni di distribuzione del contenitore personalizzato seguenti:
 
-| Opzione     | Descrizione                            |
+| Opzione     | DESCRIZIONE                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | Il nome di un registro Docker a cui l'utente corrente ha eseguito l'accesso. |
 | **`--platform`** | Piattaforma di hosting per le app per le funzioni. Le opzioni valide sono `kubernetes` |

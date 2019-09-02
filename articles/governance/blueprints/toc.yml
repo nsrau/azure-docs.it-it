@@ -145,7 +145,7 @@
     - name: Ordine sequenziale della distribuzione del progetto
       displayName: customize
       href: ./concepts/sequencing-order.md
-    - name: Blocco delle risorse In Azure Blueprint
+    - name: Blocco delle risorse in Azure Blueprint
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
 - name: Guide alle procedure
@@ -156,6 +156,9 @@
     - name: Aggiornare le assegnazioni esistenti dal portale
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md
+    - name: Configurare l'ambiente per un operatore di Blueprint
+      displayName: 'rbac, user-assigned, managed, identity, management group'
+      href: ./how-to/configure-for-blueprint-operator.md
     - name: Gestire progetti come codice (community)
       href: 'https://github.com/Azure/azure-blueprints/blob/master/README.md'
 - name: Risolvere problemi

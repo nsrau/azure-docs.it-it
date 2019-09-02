@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: f5db715ecb7d5523f5f52a356198eb547f69d4f8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 661adb755d076b0cc6114a287855482165ccb817
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194291"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208100"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migrazione degli account da portale Cloud Partner al centro per i partner
 
@@ -26,13 +26,13 @@ Se si è un utente con il ruolo di proprietario in CPP per un determinato accoun
 
 Fare clic sul banner per avviare il processo di migrazione degli account. Si prevede di immettere gli elementi seguenti:
 
-### <a name="work-e-mail-address"></a>Indirizzo di posta elettronica di lavoro
+### <a name="work-email-address"></a>Indirizzo di posta elettronica dell'ufficio
 
 Nella maggior parte dei casi, accedere con l'indirizzo di posta elettronica usato per accedere a CPP. In alcuni casi, è necessario usare un indirizzo di posta elettronica diverso:
 
-* Account Microsoft: Se l'account CPP è un account Microsoft, è necessario immettere un indirizzo di posta elettronica di lavoro valido associato al tenant, per il quale l'ID MPN è registrato. 
+* Account Microsoft: Se l'account CPP è una account Microsoft, è necessario immettere un indirizzo di posta elettronica di lavoro valido associato al tenant, per il quale l'ID MPN è registrato.
 
-* Tenant non corrispondente: Se l'indirizzo di posta elettronica dell'ufficio non appartiene al tenant associato all'ID Microsoft Partner Network presente nell'account CPP, verrà visualizzato un errore. Per superare questo errore, immettere un indirizzo di posta elettronica associato al tenant. Un messaggio di errore fornirà il nome del tenant. 
+* Tenant non corrispondente: Se l'indirizzo di posta elettronica dell'ufficio non appartiene al tenant associato all'ID Microsoft Partner Network presente nell'account CPP, verrà visualizzato un errore. Per superare questo errore, immettere un indirizzo di posta elettronica associato al tenant. Un messaggio di errore fornirà il nome del tenant.
 
 ### <a name="sign-up-for-microsoft-partner-network-program"></a>Iscriversi al programma Microsoft Partner Network
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/25/2019
+ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 74e0539095701ec104495bf5a44dec668494d444
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033314"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207183"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Cos'è Azure AD Identity Governance?
 
@@ -69,6 +69,18 @@ In passato, l'accesso con privilegi è stato descritto da altri fornitori come f
 ![Ciclo di vita dell'accesso con privilegi](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 Azure AD Privileged Identity Management (PIM) fornisce controlli aggiuntivi mirati alla protezione dei diritti di accesso alle risorse in Azure AD, Azure e altri Microsoft Online Services.  Le funzionalità di accesso just-in-time e di avviso di modifica dei ruoli fornite da Azure AD PIM, oltre all'autenticazione a più fattori e all'accesso condizionale, offrono un set completo di controlli di governance per proteggere le risorse aziendali (directory, Office 365 e ruoli delle risorse di Azure. Come con altre forme di accesso, le organizzazioni possono usare le verifiche di accesso per configurare la ricertificazione ricorrente dell'accesso per tutti gli utenti con ruoli di amministratore.
+
+## <a name="least-privileged-roles"></a>Ruoli con privilegi minimi
+
+L'uso di PIM consente di limitare le autorizzazioni amministrative di un utente per una maggiore sicurezza. Di seguito sono riportati i ruoli della directory con privilegi minimi per la configurazione in Azure AD funzionalità di governance delle identità: 
+
+| Funzionalità | Ruolo con privilegi minimi |
+| ------- | --------------------- |
+| Gestione entitlement | Amministratore utente (ad eccezione dell'aggiunta di siti di SharePoint Online ai cataloghi, che richiede l'amministratore globale) |
+| Condizioni per l'utilizzo | Amministratore della sicurezza o amministratore dell'accesso condizionale |
+| Verifiche di accesso | Amministratore utente (ad eccezione delle verifiche di accesso dei ruoli di Azure o Azure AD, che richiedono l'amministratore del ruolo con privilegi) |
+|Privileged Identity Management | Amministratore ruolo con privilegi |
+
 
 ## <a name="getting-started"></a>Introduzione
 

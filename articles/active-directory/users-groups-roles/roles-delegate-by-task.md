@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62814bb1e2934c406dc5fb1eb3b3bc3f3d2ee3b7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135547"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207237"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -143,6 +143,11 @@ Aggiornare il provisioning di applicazioni aziendali | Proprietario dell'applica
 Aggiornare il self-service di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore applicazione cloud, amministratore dell'applicazione
 Aggiornare le proprietà del servizio Single Sign-On | Proprietario dell'applicazione aziendale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore applicazione cloud, amministratore dell'applicazione
 
+## <a name="entitlement-management"></a>Gestione entitlement
+Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
+---- | --------------------- | ----------------
+Aggiungere risorse a un catalogo | Amministratore utenti | Con la gestione dei diritti, è possibile delegare questa attività al proprietario del catalogo ([vedere la documentazione](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Aggiungere i siti di SharePoint Online al catalogo | Amministratore globale
 
 
 ## <a name="groups"></a>Gruppi

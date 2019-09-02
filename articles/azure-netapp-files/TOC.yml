@@ -63,7 +63,7 @@
       items:
         - name: REST
           href: azure-netapp-files-develop-with-rest-api.md
-        - name: SDK Azure NetApp Files
+        - name: SDK e strumenti dell'interfaccia della riga di comando di Azure NetApp Files
           href: azure-netapp-files-sdk-cli.md
         - name: Risolvere i problemi del provider di risorse di Azure NetApp Files
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md

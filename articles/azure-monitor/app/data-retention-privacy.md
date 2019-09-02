@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 18129c625630e7e21e2139ea3967ba5152bc0b30
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: df441a55ef4a9a40fe4defcabca5f667eeddbf29
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991172"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207303"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione di dati in Application Insights
 
@@ -100,7 +100,7 @@ Possono essere esportati dall'utente e dai membri del team e possono essere copi
 Microsoft usa i dati solo al fine di fornire il servizio all'utente.
 
 ## <a name="where-is-the-data-held"></a>Dove vengono archiviati i dati?
-* Stati Uniti, Europa o Asia sud-orientale. È possibile selezionare la località quando si crea una nuova risorsa di Application Insights. 
+* È possibile selezionare la località quando si crea una nuova risorsa di Application Insights. Per altre informazioni sulla disponibilità Application Insights per area, vedere [qui](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Significa che l'app deve essere ospitata negli Stati Uniti, in Europa o in Asia sud-orientale?
 * No. L'applicazione può essere eseguita ovunque, nel proprio host locale o nel cloud.
@@ -247,7 +247,7 @@ Gli SDK sono diversi a seconda delle piattaforme e sono disponibili vari compone
 | [Chiama TrackMetric][api] |Valori numerici<br/>**Proprietà** |
 | [Traccia di chiamata *][api] |Nome evento<br/>**Proprietà** |
 | [Chiama Trackexception][api] |**Eccezioni**<br/>Dump dello stack<br/>**Proprietà** |
-| SDK non riesce a raccogliere dati. Ad esempio: <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
+| SDK non riesce a raccogliere dati. Esempio: <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
 
 Per gli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 

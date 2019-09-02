@@ -4,18 +4,21 @@ ms.service: search
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: magottei
-ms.openlocfilehash: 1a375c438682c7afba2c65c049810d7d7234c808
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8fbdbf96106cdf2bd2990042c30d346dc830d398
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180560"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208263"
 ---
 * PDF
-* Formati di Microsoft Office: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (messaggi di posta elettronica Outlook)  
+* Formati Microsoft Office: DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (messaggi di posta elettronica di Outlook), XML (2003 e 2006 WORD XML)
+* Apri formati documento: ODT, ODS, ODP  
 * HTML
 * XML
 * ZIP
+* GZ
+* EPUB
 * EML
 * RTF
 * File di testo normale (vedere anche [Indicizzazione di testo normale](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))

@@ -1,21 +1,20 @@
 ---
-title: Gestione delle eccezioni e degli errori - App per la logica di Azure | Microsoft Docs
+title: Gestione degli errori e delle eccezioni-app per la logica di Azure
 description: Informazioni sui modelli per la gestione degli errori e delle eccezioni in App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: dereklee
 ms.author: deli
-manager: jeconnoc
+ms.reviewer: klam, estfan, LADocs
 ms.date: 01/31/2018
 ms.topic: article
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 828bea50a66b90f35843901ae2d7c703ffa58f2d
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60996597"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208184"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
@@ -29,7 +28,7 @@ Il metodo di base per gestire eccezioni ed errori consiste nell'usare *criteri d
 
 Ecco i tipi di criteri di ripetizione: 
 
-| Type | Descrizione | 
+| Type | DESCRIZIONE | 
 |------|-------------| 
 | **Default** | Questi criteri inviano fino a quattro richieste di ripetizione a intervalli con *crescita esponenziale* di 7,5 secondi ma con un limite massimo compreso tra 5 e 45 secondi. | 
 | **Intervallo esponenziale**  | Questi criteri attendono un intervallo casuale selezionato da un intervallo con crescita esponenziale prima di inviare la richiesta successiva. | 
@@ -71,7 +70,7 @@ In alternativa, è possibile specificare manualmente i criteri di ripetizione ne
 
 *Obbligatorio*
 
-| Value | Type | Descrizione |
+| Value | Type | DESCRIZIONE |
 |-------|------|-------------|
 | <*retry-policy-type*> | String | Il tipo di criteri di ripetizione da usare: `default`, `none`, `fixed` o `exponential` | 
 | <*retry-interval*> | String | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. | 
@@ -80,7 +79,7 @@ In alternativa, è possibile specificare manualmente i criteri di ripetizione ne
 
 *Facoltativo*
 
-| Value | Type | DESCRIZIONE |
+| Value | Type | Descrizione |
 |-------|------|-------------|
 | <*minimum-interval*> | String | Per i criteri a intervallo esponenziale, l'intervallo più piccolo per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <*maximum-interval*> | String | Per i criteri a intervallo esponenziale, l'intervallo più grande per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
@@ -219,13 +218,15 @@ Per rilevare le eccezioni in un ambito **Failed** ed eseguire le azioni che gest
 
 Per i limiti degli ambiti, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md).
 
+<a name="get-results-from-failures"></a>
+
 ### <a name="get-context-and-results-for-failures"></a>Ottenere il contesto e i risultati per gli errori
 
-Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto per comprendere esattamente quali azioni hanno avuto esito negativo e tutti gli errori o i codici di stato restituiti. L'espressione `@result()` offre il contesto relativo al risultato di tutte le azioni all'interno di un ambito.
+Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto per comprendere esattamente quali azioni hanno avuto esito negativo e tutti gli errori o i codici di stato restituiti.
 
-L'espressione `@result()` accetta un unico parametro (il nome dell'ambito) e restituisce una matrice dei risultati di tutte le azioni all'interno di tale ambito. Questi oggetti azione includono gli stessi attributi dell'  **\@** oggetto Actions (), ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID di correlazione e gli output dell'azione. Per inviare il contesto per qualsiasi azione non riuscita all'interno di un ambito, è possibile associare facilmente una  **\@funzione result ()** a una proprietà **runAfter** .
+La [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) funzione fornisce il contesto sui risultati di tutte le azioni in un ambito. La `result()` funzione accetta un solo parametro, ovvero il nome dell'ambito, e restituisce una matrice che contiene tutti i risultati dell'azione all'interno di tale ambito. Questi oggetti azione includono gli stessi attributi `@actions()` dell'oggetto, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID di correlazione e gli output dell'azione. Per inviare il `runAfter` contesto per qualsiasi azione non riuscita all'interno di un ambito, è possibile `@result()` associare facilmente un'espressione alla proprietà.
 
-Per eseguire un'azione per ogni azione in un ambito con un risultato **non riuscito** e per filtrare la matrice dei risultati fino alle azioni non riuscite, è possibile associare  **\@result ()** a un'azione di **[matrice di filtri](../connectors/connectors-native-query.md)** e a un ciclo [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . La matrice dei risultati filtrata può quindi essere usata per eseguire un'azione per ogni errore con il ciclo **For each**. 
+Per eseguire un'azione per ogni azione in un ambito con un risultato **non riuscito** e per filtrare la matrice dei risultati fino alle azioni non riuscite, è possibile associare un' `@result()` espressione a un'azione di [**matrice di filtro**](../connectors/connectors-native-query.md) e a un ciclo [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . La matrice dei risultati filtrata può quindi essere usata per eseguire un'azione per ogni errore con il ciclo **For each**.
 
 Di seguito è riportato un esempio, con una spiegazione dettagliata, che invia una richiesta HTTP POST con il corpo della risposta di qualsiasi azione non riuscita all'interno dell'ambito "My_Scope":
 

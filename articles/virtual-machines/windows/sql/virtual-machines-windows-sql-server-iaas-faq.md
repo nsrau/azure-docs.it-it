@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 9b87e6736d37d5b03630b642fee310269e8b080a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eeda78c69c21fafcbe64071422bf7d73a4737249
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100430"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208310"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure
 
@@ -171,7 +171,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **È possibile aggiornare l'istanza di SQL Server 2008/2008 R2 dopo averla registrata con il provider di risorse VM SQL Server?**
 
-   Sì. È possibile utilizzare qualsiasi supporto di installazione per aggiornare la versione e l'edizione di SQL Server, quindi è possibile aggiornare la [modalità di estensione IaaS di SQL](virtual-machines-windows-sql-server-agent-extension.md#change-management-modes) da _Nessun agente_ a _completo_. In questo modo si otterrà l'accesso a tutti i vantaggi dell'estensione IaaS di SQL, ad esempio la gestibilità del portale, i backup automatici e l'applicazione automatica delle patch. 
+   Sì. È possibile utilizzare qualsiasi supporto di installazione per aggiornare la versione e l'edizione di SQL Server, quindi è possibile aggiornare la [modalità di estensione IaaS di SQL](virtual-machines-windows-sql-register-with-resource-provider.md#change-management-modes) da _Nessun agente_ a _completo_. In questo modo si otterrà l'accesso a tutti i vantaggi dell'estensione IaaS di SQL, ad esempio la gestibilità del portale, i backup automatici e l'applicazione automatica delle patch. 
 
 ## <a name="general"></a>Generale
 

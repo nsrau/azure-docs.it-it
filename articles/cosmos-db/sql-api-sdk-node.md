@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 4292b2e83c55ce62db777d846206e5857bf81ca7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: de1c1b93b813f71b321da0625bc60e0762a859c7
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142567"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207951"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK per l'API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -414,7 +414,7 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
 
 > [!WARNING]
-> Tutte le versioni **1. x** di node SDK per l'API SQL verranno ritirate il **30 agosto 2020**.
+> Tutte le versioni **1. x** di node client SDK per l'API SQL verranno ritirate il **30 agosto 2020**. Questo influisce solo sull'SDK del nodo lato client e non influisce sugli script sul lato server (stored procedure, trigger e funzioni definite dall'utente).
 > 
 >
 <br/>

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc6e37b088c6bcbb2de4693eb50be661db869ecd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 92ebd34c20e3733971593344925dcb566a1bf912
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089195"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207362"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installare i driver GPU NVIDIA sulle macchine virtuali serie N eseguite in Windows 
 
@@ -40,6 +40,8 @@ Per conoscere le specifiche base, le capacità di archiviazione e i dettagli rel
 Dopo l'installazione del driver GRID su una macchina virtuale, è necessario eseguire il riavvio. Dopo l'installazione del driver CUDA, non è necessario eseguire il riavvio.
 
 ## <a name="verify-driver-installation"></a>Verificare l'installazione del driver
+
+Si noti che il pannello di controllo NVIDIA è accessibile solo con l'installazione del Driver GRID. Se sono stati installati driver CUDA, il pannello di controllo NVIDIA non sarà visibile.
 
 È possibile verificare l'installazione del driver in Gestione dispositivi. L'esempio seguente illustra la corretta configurazione della scheda Tesla K80 in una VM NC Azure.
 

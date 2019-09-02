@@ -4,9 +4,9 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Definizione di macchina virtuale di data science
+    - name: Che cos'è Data Science Virtual Machine?
       href: overview.md
-    - name: Definizione di macchina virtuale data science con intelligenza artificiale geografica
+    - name: Che cos'è la Data Science Virtual Machine con intelligenza artificiale geografica?
       href: geo-ai-dsvm-overview.md
 - name: Guide introduttive
   expanded: true
@@ -17,7 +17,7 @@
       href: dsvm-ubuntu-intro.md
     - name: Creare una Data Science Virtual Machine CentOS
       href: linux-dsvm-intro.md
-    - name: Creare una macchina virtuale data science con intelligenza artificiale geografica
+    - name: Creare una Data Science Virtual Machine con intelligenza artificiale geografica
       href: provision-geo-ai-dsvm.md
 - name: Concetti
   items:

@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 99f981698daf12bf7d493159fc7fd08a98a28104
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8c3b9523f6e6991723b0da721dbf7667ee340772
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194257"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207979"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire l'account del Marketplace commerciale nel centro per i partner 
 
@@ -151,7 +151,7 @@ Il centro per i partner utilizza [Azure Active Directory](https://docs.microsoft
 
 ## <a name="manage-users"></a>Gestisci utenti
 
-La sezione **utenti** del centro per i partner (in **Impostazioni account**) consente di usare Azure ad per gestire gli utenti, i gruppi e le applicazioni Azure ad che hanno accesso all'account del centro per i partner. Si noti che per gestire gli utenti, è necessario aver eseguito l'accesso con l' [account](./company-work-accounts.md) aziendale (il tenant Azure ad associato). Per gestire gli utenti all'interno di un account aziendale o tenant diverso, è necessario disconnettersi e quindi accedere di nuovo come utente con autorizzazioni di **gestione** per tale account di lavoro/tenant. 
+La sezione **utenti** del centro per i partner (in **Impostazioni account**) consente di usare Azure ad per gestire gli utenti, i gruppi e le applicazioni Azure ad che hanno accesso all'account del centro per i partner. Per gestire gli utenti, è necessario aver eseguito l'accesso con l' [account](./company-work-accounts.md) aziendale (il tenant Azure ad associato). Per gestire gli utenti all'interno di un account aziendale o tenant diverso, è necessario disconnettersi e quindi accedere di nuovo come utente con autorizzazioni di **gestione** per tale account di lavoro/tenant. 
 
 Dopo aver eseguito l'accesso con l'account aziendale (Azure AD tenant), è possibile:
 - [Aggiunta o rimozione di utenti](#add-or-remove-users)
@@ -300,20 +300,19 @@ Se l'applicazione Azure AD legge e scrive i dati in Microsoft Azure AD, sarà ne
 4.  Se si desidera creare più chiavi, selezionare **Aggiungi un'altra chiave**.
 
 
-### <a name="define-user-roles-and-permissions"></a>Definire i ruoli utente e le autorizzazioni
+## <a name="define-user-roles-and-permissions"></a>Definire i ruoli utente e le autorizzazioni
 
-Agli utenti della società è possibile assegnare i seguenti ruoli e autorizzazioni per il programma Commercial Marketplace nel centro per i partner. 
+Agli utenti della società è possibile assegnare i seguenti ruoli e autorizzazioni per il programma Commercial Marketplace nel centro per i partner:
 
-|**Ruolo**|**Autorizzazioni**|
-|----------------------------------|---------------------------------|
-|Supervisore|-Può accedere a tutte le funzionalità di account Microsoft ad eccezione delle impostazioni fiscali e di pagamento|
-|      |-Può gestire utenti, ruoli e account di lavoro (tenant)|
-|Sviluppatore|-È in grado di gestire e pubblicare le offerte|
-|      |-È possibile visualizzare alcuni report del server di pubblicazione|
-|Amministratore globale|-Non pertinente per il Marketplace commerciale|
-|Collaboratore aziendale|-Non pertinente per il Marketplace commerciale|
-|Collaboratore finanziario|-Non pertinente per il Marketplace commerciale|
-|Venditore|-Non pertinente per il Marketplace commerciale|
+- **Manager**
+  - Può accedere a tutte le funzionalità di account Microsoft ad eccezione delle impostazioni fiscali e di pagamento
+  - Può gestire utenti, ruoli e account di lavoro (tenant)
+- **Developer**
+  - Consente di gestire e pubblicare le offerte
+  - Consente di visualizzare alcuni report del server di pubblicazione
+
+> [!NOTE]
+> I ruoli amministratore globale, collaboratore aziendale, collaboratore finanziario e marketer non vengono usati nel programma commerciale Marketplace e non dispongono di autorizzazioni associate.
 
 Per ulteriori informazioni sulla gestione dei ruoli e delle autorizzazioni in altre aree del centro per i partner, ad esempio Azure Active Directory (AD), Cloud Solution Provider (CSP), pannello di controllo Fornitore (CPV), utenti guest o Microsoft Partner Network (MPN), vedere [assegnare ruoli agli utenti. e autorizzazioni nel centro per i partner](https://docs.microsoft.com/partner-center/permissions-overview).
 

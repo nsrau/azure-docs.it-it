@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 091fb7cb9e74166b1e01c00834c2346dd2f0fd8b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835531"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207197"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -59,7 +59,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
     ![Pagina Proprietà](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Aprire [Graph explorer di Azure AD](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra e completare questi passaggi:
+6. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra e seguire questa procedura:
 
     a. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 
@@ -186,7 +186,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
 Per aggiornare un ruolo esistente, completare questi passaggi:
 
-1. Aprire [Graph explorer di Azure AD](https://developer.microsoft.com/graph/graph-explorer).
+1. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 2. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 
@@ -224,7 +224,7 @@ Per aggiornare un ruolo esistente, completare questi passaggi:
 
 Per eliminare un ruolo esistente, completare questi passaggi:
 
-1. Aprire [Graph Explorer di Azure AD](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra.
+1. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra.
 
 2. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 

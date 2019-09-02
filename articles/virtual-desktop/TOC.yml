@@ -66,6 +66,8 @@
       href: fslogix-containers-azure-files.md
     - name: Integrazioni di partner
       href: partners.md
+    - name: Domande frequenti su Windows 10 Enterprise multisessione
+      href: windows-10-multisession-faq.md
 - name: Risolvere problemi
   items:
     - name: 'Panoramica della risoluzione dei problemi, feedback e supporto'

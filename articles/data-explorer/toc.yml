@@ -44,8 +44,12 @@
           href: ingest-data-event-hub.md
         - name: Griglia di eventi
           href: ingest-data-event-grid.md
+        - name: Hub IoT
+          href: ingest-data-iot-hub.md
         - name: Inserimento con un clic
           href: ingest-data-one-click.md
+        - name: Inserimento del flusso
+          href: ingest-data-streaming.md
         - name: Kafka
           href: ingest-data-kafka.md
         - name: Python
@@ -90,6 +94,12 @@
               href: power-bi-imported-query.md
             - name: Query SQL
               href: power-bi-sql-query.md
+        - name: Excel
+          items:
+            - name: connettore
+              href: excel-connector.md
+            - name: query vuota
+              href: excel-blank-query.md
         - name: Grafana
           href: grafana.md
         - name: Connettore ODBC
@@ -98,7 +108,7 @@
           href: tableau.md
         - name: Sisense
           href: sisense.md
-    - name: Gestisci
+    - name: Gestire
       items:
         - name: Controllare l'integrità del cluster
           href: check-cluster-health.md

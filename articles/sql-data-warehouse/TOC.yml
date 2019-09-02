@@ -165,7 +165,7 @@
               href: sql-data-warehouse-develop-stored-procedures.md
             - name: Transazioni
               href: sql-data-warehouse-develop-transactions.md
-            - name: Ottimizzazione delle transazioni per SQL Data Warehouse
+            - name: Procedure consigliate per le transazioni
               href: sql-data-warehouse-develop-best-practices-transactions.md
             - name: Schemi definiti dall'utente
               href: sql-data-warehouse-develop-user-defined-schemas.md

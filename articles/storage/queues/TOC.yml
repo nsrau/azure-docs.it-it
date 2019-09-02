@@ -1,9 +1,9 @@
-- name: Documentazione di Archiviazione di Azure
-  href: /azure/storage/
+- name: Documentazione dell'archiviazione code di Azure
+  href: /azure/storage/queues/
 - name: Panoramica
   expanded: true
   items:
-    - name: Informazioni sulle code di Azure
+    - name: Che cosa sono le code di Azure?
       href: storage-queues-introduction.md
 - name: Guide introduttive
   items:
