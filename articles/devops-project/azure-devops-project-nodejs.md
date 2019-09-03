@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: dadc394e9c9ddb152923095de10b8f727310d3f7
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: eeab0433310892f27b9cb2d2eb6f64e17e6f14ef
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164525"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991731"
 ---
 #  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Creare una pipeline CI/CD per Node.js con Azure DevOps Projects 
 
@@ -54,9 +54,9 @@ DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare 
 
 1. Creare una nuova organizzazione di Azure DevOps Services o scegliere un'organizzazione esistente. 
 
-    a. Scegliere un nome per il progetto. 
+    a. Immettere un nome per il progetto.
 
-    b. Selezionare la sottoscrizione di Azure e la posizione, scegliere un nome per l'applicazione, quindi selezionare **Fine**.  
+    b. Selezionare la sottoscrizione di Azure e la posizione, immettere un nome per l'applicazione, quindi selezionare **Fine**.  
     Dopo pochi minuti, il dashboard di DevOps Projects viene visualizzato nel portale di Azure. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.
      
 3. Selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
@@ -78,7 +78,7 @@ Questo collegamento apre una visualizzazione del repository Git appena creato.
 1. Sul lato sinistro del browser passare al file **views/index.pug**.
 
 1. Selezionare **Modifica** e quindi apportare una modifica al titolo h2.  
-    Ad esempio, digitare **Iniziare subito con il progetto DevOps di Azure** o apportare altre modifiche.
+    Ad esempio, immettere **Iniziare subito con Azure DevOps Projects** o apportare altre modifiche.
 
 1. Selezionare **Esegui commit** e quindi salvare le modifiche.
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 84f3e4d0314408b2f3a8417cebd355a842331286
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f085ca6de2c04caa90c34bc1293da1210d2883eb
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855132"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020165"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Creare un'applicazione Python usando l'account API SQL di Azure Cosmos DB
 
@@ -84,7 +84,7 @@ Clonare ora un'app per le API SQL da GitHub, impostare la stringa di connessione
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account Azure Cosmos nel [portale di Azure](https://portal.azure.com/) fare clic su **Chiavi** nel riquadro di spostamento sinistro. Usare i pulsanti di copia sul lato destro dello schermo per copiare **URI** e **Chiave primaria** nel file `CosmosGetStarted.py` nel passaggio seguente.
+1. Nell'account Azure Cosmos nel [portale di Azure](https://portal.azure.com/) selezionare **Chiavi** nel riquadro di spostamento sinistro. Usare i pulsanti di copia sul lato destro dello schermo per copiare **URI** e **Chiave primaria** nel file `CosmosGetStarted.py` nel passaggio seguente.
 
     ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-sql-api-dotnet/keys.png)
 
@@ -173,7 +173,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file `CosmosGetStarted.py`.
    
 ## <a name="run-the-app"></a>Esecuzione dell'app
 
-1. In Visual Studio Code selezionare **Visualizza**>**Riquadro comandi**. 
+1. In Visual Studio Code selezionare **Visualizza** > **Riquadro comandi**. 
 
 2. Al prompt immettere **Python: Select Interpreter** e quindi selezionare la versione di Python da usare.
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 530e37400881ace2de603aed6875ed236e45f2c7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2cc93ad9ae1d9d6d21064a2a80c3d62bf661dabc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847415"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992287"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Impostare autorizzazioni a livello di file e directory usando Azure Storage Explorer con Azure Data Lake Storage Gen2
 
@@ -28,11 +28,11 @@ In questo articolo viene illustrato come usare Azure Storage Explorer per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per illustrare meglio il processo, è necessario completare la [Guida introduttiva di Azure Storage Explorer](data-lake-storage-Explorer.md). In questo modo l'account di archiviazione sarà nello stato più appropriato (file system creato e dati caricati in esso).
+Per illustrare meglio il processo, è necessario completare la [Guida introduttiva di Azure Storage Explorer](data-lake-storage-Explorer.md). In questo modo l'account di archiviazione sarà nello stato più appropriato (contenitore creato e dati in esso caricati).
 
 ## <a name="managing-access"></a>Gestione dell'accesso
 
-È possibile impostare le autorizzazioni nella radice del file system. A questo scopo, è necessario accedere ad Azure Storage Explorer con l'account personale con diritti per eseguire questa operazione, anziché con una stringa di connessione. Fare clic con il pulsante destro del mouse sul file system e scegliere **Gestisci autorizzazioni**: si aprirà la finestra di dialogo **Gestisci autorizzazioni**.
+È possibile impostare le autorizzazioni nella radice del contenitore. A questo scopo, è necessario accedere ad Azure Storage Explorer con l'account personale con diritti per eseguire questa operazione, anziché con una stringa di connessione. Fare clic con il tasto destro sul contenitore e scegliere **Gestisci autorizzazioni**, si aprirà la finestra di dialogo **Gestisci autorizzazioni**.
 
 ![Microsoft Azure Storage Explorer - Gestire l’accesso alle directory](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

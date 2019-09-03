@@ -16,17 +16,17 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 540bc8a4dbfda83ff6e0480bc216a38742bbef2b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1513dba19221e64d40551ffb13a5e9f33fd9858f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988090"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127247"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Guida introduttiva: Configurare località denominate in Azure Active Directory
 
 Con le località denominate è possibile etichettare gli intervalli di indirizzi IP attendibili all'interno dell'organizzazione. Azure AD usa le località denominate per:
-- Rilevare i falsi positivi negli [eventi di rischio](concept-risk-events.md). L'accesso da una posizione attendibile riduce il rischio di accesso dell'utente.   
+- Rilevare i falsi positivi nei [rilevamenti dei rischi](concept-risk-events.md). L'accesso da una posizione attendibile riduce il rischio di accesso dell'utente.   
 - Configurare l'[Accesso condizionale basato sulla località](../conditional-access/location-condition.md).
 
 In questa guida introduttiva si apprenderà come configurare le località denominate nell'ambiente in uso.

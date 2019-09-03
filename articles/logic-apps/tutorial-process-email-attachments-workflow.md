@@ -3,19 +3,20 @@ title: Esercitazione - Automatizzare l'elaborazione di messaggi di posta elettro
 description: Esercitazione - Creare flussi di lavoro automatizzati per la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure, Archiviazione di Azure e Funzioni di Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
-manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: e7c27d284ef93d15c5ac9a6228205e79518f2ffa
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312655"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051783"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Esercitazione: automatizzare la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure
 
@@ -61,9 +62,9 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
    | Impostazione | Valore | DESCRIZIONE |
    |---------|-------|-------------|
    | **Sottoscrizione** | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure |  
-   | **Gruppo di risorse** | LA-Tutorial-RG | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare e gestire le risorse correlate. <p>**Nota:** un gruppo di risorse si trova in un'area specifica. Anche se gli elementi in questa esercitazione potrebbero non essere disponibili in tutte le aree, provare a usare la stessa area, se possibile. |
-   | **Nome account di archiviazione** | attachmentstorageacct | Nome per l'account di archiviazione |
-   | **Posizione** | Stati Uniti occidentali | Area in cui archiviare le informazioni sull'account di archiviazione |
+   | **Gruppo di risorse** | <*Azure-resource-group*> | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare e gestire le risorse correlate. Questo esempio usa "LA-Tutorial-RG". <p>**Nota:** un gruppo di risorse si trova in un'area specifica. Anche se gli elementi in questa esercitazione potrebbero non essere disponibili in tutte le aree, provare a usare la stessa area, se possibile. |
+   | **Nome account di archiviazione** | <*Azure-storage-account-name*> | Il nome dell'account di archiviazione, che deve essere composto da 3 a 24 caratteri e può contenere solo lettere minuscole e numeri. Questo esempio usa "attachmentstorageacct". |
+   | **Posizione** | <*Area di Azure*> | Area in cui archiviare le informazioni sull'account di archiviazione. Questo esempio usa "Stati Uniti occidentali". |
    | **Prestazioni** | Standard | Questa impostazione specifica i tipi di dati supportati e il supporto per l'archiviazione dei dati. Vedere [Tipi di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Tipo di account** | Scopo generico | [Tipo di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **Replica** | Archiviazione con ridondanza locale (LRS) | Questa impostazione specifica come vengono copiati, archiviati, gestiti e sincronizzati i dati. Vedere [Archiviazione con ridondanza locale (LRS): ridondanza dei dati a basso costo per Archiviazione di Azure](../storage/common/storage-redundancy-lrs.md). |

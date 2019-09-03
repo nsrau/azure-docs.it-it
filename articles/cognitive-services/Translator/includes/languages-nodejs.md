@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6b1fff913defce20aff41f685c5b96f0547faaca
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: fd8b4ae06018de1d03ca60e836534a535c8f5df8
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968216"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906983"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
-Questa guida introduttiva richiede:
-
-* [Node 8.12.x o versione successiva](https://nodejs.org/en/)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
@@ -31,6 +29,14 @@ const uuidv4 = require('uuid/v4');
 
 Questi moduli sono necessari per costruire la richiesta HTTP e creare un identificatore univoco per l'intestazione `'X-ClientTraceId'`.
 
+## <a name="set-the-endpoint"></a>Impostare l'endpoint
+
+Questo esempio proverà a leggere la chiave della sottoscrizione di Traduzione testuale dalla variabile di ambiente `TRANSLATOR_TEXT_ENDPOINT`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `endpoint` come stringa e l'istruzione condizionale come commento.
+
+```javascript
+lorum ipsum
+```
+
 ## <a name="configure-the-request"></a>Configurare la richiesta
 
 Il metodo `request()`, reso disponibile tramite il modulo di richiesta, consente di passare il metodo HTTP, l'URL, i parametri di richiesta, le intestazioni e il corpo JSON come oggetto `options`. In questo frammento di codice verrà configurata la richiesta:
@@ -41,7 +47,7 @@ Il metodo `request()`, reso disponibile tramite il modulo di richiesta, consente
 ```javascript
 let options = {
     method: 'GET',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: endpoint,
     url: 'languages',
     qs: {
       'api-version': '3.0',

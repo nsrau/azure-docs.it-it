@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 3a283f6cbcf4dc345a8c55192507c461f33244d6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 66394600963cf154b3cb1fe661968f4ded2ec225
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855436"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992273"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati di Data Lake Storage Gen2 con Azure Databricks usando Spark
 
@@ -124,18 +124,18 @@ Usare AzCopy per copiare i dati dal file con estensione *csv* all'account Data L
 2. Per copiare dati dal file con estensione *csv* all'account, immettere il comando seguente.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
    * Sostituire il valore segnaposto `<csv-folder-path>` con il percorso del file *CSV*.
 
    * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
-   * Sostituire il segnaposto `<file-system-name>` con il nome che si vuole assegnare al file system.
+   * Sostituire il segnaposto `<container-name>` con il nome che si vuole assegnare al contenitore.
 
-## <a name="create-a-file-system-and-mount-it"></a>Creare e montare un file system
+## <a name="create-a-container-and-mount-it"></a>Creare un contenitore e montarlo
 
-In questa sezione si creeranno un file system e una cartella nell'account di archiviazione.
+In questa sezione si creeranno un contenitore e una cartella nell'account di archiviazione.
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al servizio Azure Databricks creato e selezionare **Launch Workspace** (Avvia l'area di lavoro).
 
@@ -158,12 +158,12 @@ In questa sezione si creeranno un file system e una cartella nell'account di arc
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
     dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    source = "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/folder1",
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
 
-18. In questo blocco di codice sostituire i valori segnaposto `appId`, `password`, `tenant` e `storage-account-name` con i valori raccolti completando i prerequisiti di questa esercitazione. Sostituire il valore segnaposto `file-system-name` con il nome assegnato al file system ADLS nel passaggio precedente.
+18. In questo blocco di codice sostituire i valori segnaposto `appId`, `password`, `tenant` e `storage-account-name` con i valori raccolti completando i prerequisiti di questa esercitazione. Sostituire il valore segnaposto `container-name` con il nome assegnato al contenitore nel passaggio precedente.
 
 Usare questi valori per sostituire i segnaposto menzionati.
 
@@ -173,7 +173,7 @@ Usare questi valori per sostituire i segnaposto menzionati.
 
    * `storage-account-name` è il nome dell'account di archiviazione Azure Data Lake Storage Gen2.
 
-   * Sostituire il segnaposto `file-system-name` con il nome che si vuole assegnare al file system.
+   * Sostituire il segnaposto `container-name` con il nome che si vuole assegnare al contenitore.
 
    > [!NOTE]
    > In un ambiente di produzione è consigliabile archiviare la password in Azure Databricks. Aggiungere quindi una chiave di ricerca al blocco di codice invece della password. Per alcuni esempi di questo approccio, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) nel sito Web di Azure Databricks.

@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 62a90e30b281a7a9b0d1369893cf58fb12086a0b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 7f14a12d5de64206f64e8c7205beb2c59c4f1f2a
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968184"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906926"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-Questa guida introduttiva richiede:
-
-* Python 2.7.x o 3.x
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
@@ -23,10 +21,7 @@ Creare un nuovo progetto Python tramite l'editor o l'IDE preferito. Copiare quin
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -34,17 +29,25 @@ import json
 
 Il primo commento indica all'interprete Python di usare la codifica UTF-8. I moduli necessari vengono quindi importati per leggere la chiave di sottoscrizione da una variabile di ambiente, costruire la richiesta http, creare un identificatore univoco e gestire la risposta JSON restituita dall'API Traduzione testuale.
 
-## <a name="set-the-base-url-and-path"></a>Impostare l'URL di base e il percorso
+## <a name="set-the-endpoint-and-path"></a>Impostare l'endpoint e il percorso
 
-L'endpoint globale di Traduzione testuale viene impostato come `base_url`. `path` imposta la route `languages` e identifica che si vuole usare la versione 3 dell'API.
+Questo esempio proverà a leggere la chiave della sottoscrizione di Traduzione testuale dalla variabile di ambiente `TRANSLATOR_TEXT_ENDPOINT`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `endpoint` come stringa e l'istruzione condizionale come commento.
+
+```python
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
+```
+
+L'endpoint globale di Traduzione testuale viene impostato come `endpoint`. `path` imposta la route `languages` e identifica che si vuole usare la versione 3 dell'API.
 
 >[!NOTE]
 > Per altre informazioni su endpoint, route e parametri della richiesta, vedere [API Traduzione testuale 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/languages?api-version=3.0'
-constructed_url = base_url + path
+constructed_url = endpoint + path
 ```
 
 ## <a name="add-headers"></a>Aggiungere le intestazioni

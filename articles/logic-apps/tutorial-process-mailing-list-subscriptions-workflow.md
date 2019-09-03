@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 016d004a538a1313ca31f36b46e961098051785c
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260603"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051718"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gestire le richieste di sottoscrizione di una lista di distribuzione con App per la logica di Azure
 
@@ -37,17 +38,17 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 ![App per la logica completata](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
 
-Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account di Azure gratuito</a> prima di iniziare.
+Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un account MailChimp. Creare una lista denominata "test-members-ML", in cui l'app per la logica può aggiungere gli indirizzi di posta elettronica per i membri approvati. Se non si ha un account, [registrarsi per ottenerne uno gratuito](https://login.mailchimp.com/signup/) e vedere [How to create a list](https://us17.admin.mailchimp.com/lists/#) (Come creare una lista di distribuzione). 
 
-* Una account di posta elettronica con Outlook per Office 365 o Outlook.com, che supportano i flussi di lavoro di approvazione. Questo articolo usa Outlook per Office 365. Se si usa un account di posta elettronica diverso, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
+* Una account di posta elettronica con Outlook per Office 365 o Outlook.com, che supporta i flussi di lavoro di approvazione. Questo articolo usa Outlook per Office 365. Se si usa un account di posta elettronica diverso, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> con le credenziali dell'account Azure.
+Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
 
 ## <a name="create-your-logic-app"></a>Creare l'app per la logica
 
@@ -196,7 +197,7 @@ Cercare "mailchimp" e selezionare questa azione: **MailChimp - Aggiungi membro a
    | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
    | **ID elenco** | test-members-ML | Nome della lista di distribuzione MailChimp | 
-   | **Status** | subscribed | Stato della sottoscrizione per il nuovo membro. Per altre informazioni, vedere <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">Manage subscribers with the MailChimp API</a> (Gestire le sottoscrizioni con l'API MailChimp). | 
+   | **Status** | subscribed | Stato della sottoscrizione per il nuovo membro. Per altre informazioni, vedere [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Gestire le sottoscrizioni con l'API MailChimp). | 
    | **Indirizzo di posta elettronica** | <*indirizzo-posta-elettronica-nuovo-membro*> | Nell'elenco di parametri o nell'elenco di contenuto dinamico selezionare **Da** in **All'arrivo di un nuovo messaggio di posta elettronica**, che passa l'indirizzo di posta elettronica per il nuovo membro. 
    |  |  |  | 
 

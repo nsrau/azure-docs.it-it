@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: cd3907231ce3963d43fa8279039a736b63fc2043
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989716"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127266"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Che cosa sono i report di Azure Active Directory?
 
@@ -54,9 +54,9 @@ Tutte le edizioni di Azure Active Directory offrono report sugli utenti contrass
 
 - Nelle edizioni **Azure Active Directory Free e Basic**  è incluso un elenco degli utenti contrassegnati per il rischio e degli accessi a rischio. 
 
-- Nell'edizione **Azure Active Directory Premium 1** questo modello consente anche di esaminare alcuni degli eventi di rischio sottostanti che sono stati rilevati per ogni report. 
+- Nell'edizione **Azure Active Directory Premium 1** questo modello consente anche di esaminare alcuni rilevamenti dei rischi sottostanti che sono stati riscontrati per ogni report. 
 
-- L'edizione **Azure Active Directory Premium 2** offre informazioni più dettagliate sugli eventi di rischio sottostanti e permette anche di configurare criteri di sicurezza che rispondono automaticamente a livelli di rischio configurati.
+- L'edizione **Azure Active Directory Premium 2** offre informazioni più dettagliate sui rilevamenti dei rischi sottostanti e permette anche di configurare criteri di sicurezza che rispondono automaticamente a livelli di rischio configurati.
 
 
 ## <a name="activity-reports"></a>Report sull’attività

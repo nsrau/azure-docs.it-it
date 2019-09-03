@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 7f43507566109a52b914f27e37e5392345ec2eaf
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6e3bf7b4fb60d81ff8883c2592de3739572bf2fa
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946156"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997802"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Node.js
 
@@ -26,20 +26,19 @@ Questo articolo fornisce informazioni e il codice di esempio utili per iniziare 
 - [Node.js 8](https://www.nodejs.org/en/download/) o versioni successive installato.
 - [npm](https://www.npmjs.com/) installato.
 
+[!INCLUDE [get-keys](includes/get-keys.md)]
+
+[!INCLUDE [node-get-images](includes/node-get-images.md)]
+
+
 ## <a name="install-the-custom-vision-sdk"></a>Installare Custom Vision SDK
 
-Per installare gli SDK del servizio Visione personalizzata per Node.js, eseguire i comandi seguenti:
+Per installare gli SDK del servizio Visione personalizzata per Node.js nel progetto, eseguire i comandi seguenti:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
 npm install @azure/cognitiveservices-customvision-prediction
 ```
-
-È possibile scaricare le immagini con gli [esempi per Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples).
-
-[!INCLUDE [get-keys](includes/get-keys.md)]
-
-[!INCLUDE [node-get-images](includes/node-get-images.md)]
 
 ## <a name="add-the-code"></a>Aggiungere il codice
 
@@ -47,9 +46,10 @@ Creare un nuovo file denominato *sample.js* nella directory del progetto preferi
 
 ### <a name="create-the-custom-vision-service-project"></a>Creare il progetto di Servizio visione artificiale personalizzato
 
-Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate. Tenere presente che la differenza tra la creazione di un progetto di rilevamento di oggetti e uno di classificazione di immagini è data dal dominio specificato per la chiamata a **create_project**.
+Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi della sottoscrizione nelle definizioni appropriate e impostare il valore del percorso sampleDataRoot sul percorso della cartella di immagini. Verificare che il valore dell'endpoint corrisponda agli endpoint di training e di stima creati in [Customvision.ai](https://www.customvision.ai/). Tenere presente che la differenza tra la creazione di un progetto di rilevamento di oggetti e uno di classificazione di immagini è data dal dominio specificato per la chiamata a **create_project**.
 
 ```javascript
+const fs = require('fs');
 const util = require('util');
 const TrainingApi = require("@azure/cognitiveservices-customvision-training");
 const PredictionApi = require("@azure/cognitiveservices-customvision-prediction");

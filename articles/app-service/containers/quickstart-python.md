@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/29/2019
+ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: 163876d63ba2127dd3f3444e95b284918e60e368
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952003"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070965"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Creare un'app Python nel Servizio app di Azure in Linux
 
@@ -82,7 +81,7 @@ In Cloud Shell creare una directory quickstart e passare ad essa.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Eseguire quindi il comando seguente per clonare il repository dell'app di esempio nella directory quickstart.
@@ -158,7 +157,7 @@ Il codice di esempio Python è in esecuzione nel servizio app in Linux con un'im
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice in locale
 
-In Cloud Shell digitare `code application.py` per aprire l'editor di Cloud Shell.
+In Cloud Shell immettere `code application.py` per aprire l'editor di Cloud Shell.
 
 ![Code application.py](media/quickstart-python/code-applicationpy.png)
 
@@ -184,7 +183,7 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
 Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app creata.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
+Nel menu a sinistra scegliere **Servizi app** e quindi selezionare il nome dell'app Azure.
 
 ![Passaggio all'app di Azure nel portale](./media/quickstart-python/app-service-list.png)
 

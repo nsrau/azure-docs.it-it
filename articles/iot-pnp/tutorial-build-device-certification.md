@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: bfa611eba8e7a990626fbace8b930962615e0594
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 151f6609375063a68a848f4c799af0b459124f23
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878752"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047899"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Compilare un dispositivo di anteprima Plug and Play IoT pronto per la certificazione
 
@@ -124,7 +124,7 @@ Per certificare il dispositivo è necessario abilitare il provisioning attravers
 
 #### <a name="implement-the-model-information-and-sdk-information-interfaces"></a>Implementare le interfacce Model Information e SDK Information
 
-Azure IoT SDK per dispositivi Implementa le interfacce Model Information e SDK Information. Se si usa la funzione di generazione del codice in VS Code, il codice del dispositivo usa Azure Plug and Play IoT SDK per dispositivi.
+Azure IoT SDK per dispositivi Implementa le interfacce Model Information e SDK Information. Se si usa la funzione di generazione del codice in VS Code, il codice del dispositivo usa Plug and Play IoT SDK per dispositivi.
 
 Se si sceglie di non usare Azure IoT SDK per dispositivi, è possibile usare il codice sorgente dell'SDK come riferimento per la propria implementazione.
 

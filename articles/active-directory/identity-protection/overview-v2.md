@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 08/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2987f8fb116bfcbb1698335c3aca6f1fd8eb633e
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 3129027da0f28d9c89f7afe75d9531df9bae499e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717281"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125644"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Cos'è Azure Active Directory Identity Protection (aggiornato)?
 
@@ -42,17 +42,17 @@ Azure AD Identity Protection è una funzionalità di Azure Active Directory Prem
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
-## <a name="risk-events"></a>Eventi di rischio
+## <a name="risk-detections"></a>Rilevamenti dei rischi
 
-Azure AD Identity Protection rileva gli eventi di rischio seguenti: 
+Azure AD Identity Protection esegue i rilevamenti dei rischi seguenti: 
 
-| Tipo di evento di rischio | DESCRIZIONE | Tipo di rilevamento |
+| Tipo di rilevamento dei rischi | DESCRIZIONE | Tipo di rilevamento |
 | --- | --- | --- |
 | Trasferimento atipico | Accesso da una posizione insolita in base agli accessi recenti dell'utente. | Offline |
 | Indirizzo IP anonimo | Accesso da indirizzo IP anonimo (ad esempio Tor Browser, VPN per navigazione in anonimato). | Tempo reale |
 | Proprietà di accesso insolite | Accesso con proprietà non osservate di recente per l'utente specificato. | Tempo reale |
 | Indirizzo IP collegato a malware | Accesso da indirizzo IP collegato a malware | Offline |
-| Credenziali perse | Questo evento di rischio indica che le credenziali valide dell'utente sono andate perse | Offline |
+| Credenziali perse | Questo rilevamento dei rischi indica che le credenziali valide dell'utente sono andate perse | Offline |
 
 ## <a name="types-of-risk"></a>Tipi di rischio 
 
@@ -80,7 +80,7 @@ Un rischio utente rappresenta la probabilità che un'identità specificata sia c
 Il rischio utente viene calcolato considerando tutti i rischi associati all'utente:
 
 - Tutti gli accessi a rischio
-- Tutti gli eventi di rischio non collegati a un accesso
+- Tutti i rilevamenti dei rischi non collegati a un accesso
 - Il rischio utente corrente
 - Eventuali azioni di correzione o rimozione dei rischi eseguite per l'utente fino alla data corrente
 
@@ -88,7 +88,7 @@ Il rischio utente viene calcolato considerando tutti i rischi associati all'uten
 
 Azure AD usa l'apprendimento automatico per rilevare anomalie ed eventuali attività sospette, sfruttando sia i segnali rilevati in tempo reale durante gli accessi, sia quelli non in tempo reale correlati agli utenti e alle relative attività di accesso. Usando questi dati, Identity Protection calcola un rischio di accesso in tempo reale ogni volta che un utente esegue l'autenticazione, oltre a determinare un livello di rischio utente complessivo per ogni utente. Identity Protection consente di eseguire azioni automatiche sui rilevamenti di rischio tramite la configurazione dei criteri per rischi utente e rischi di accesso.  
 
-Per capire come Identity Protection rileva i rischi, è necessario spiegare due concetti importanti: rischio utente e rischio di accesso. Un rischio di accesso rappresenta la probabilità che una richiesta di autenticazione specificata non sia stata autorizzata dal proprietario dell'identità. Esistono due tipi di rischi di accesso: in tempo reale e totale. Il rischio di accesso in tempo reale viene rilevato durante il tentativo di accesso specificato (ad esempio, accessi da indirizzi IP anonimi). Il rischio di accesso totale è dato dall'aggregazione dei rischi di accesso in tempo reale rilevati, nonché da eventuali eventi di rischio non in tempo reale successivi associati agli accessi dell'utente (ad esempio impossibilità di comunicare). Il rischio utente rappresenta la probabilità complessiva che una determinata identità sia stata compromessa da un utente malintenzionato. Il rischio utente contiene tutte le attività di rischio per un determinato utente, tra cui:
+Per capire come Identity Protection rileva i rischi, è necessario spiegare due concetti importanti: rischio utente e rischio di accesso. Un rischio di accesso rappresenta la probabilità che una richiesta di autenticazione specificata non sia stata autorizzata dal proprietario dell'identità. Esistono due tipi di rischi di accesso: in tempo reale e totale. Il rischio di accesso in tempo reale viene rilevato durante il tentativo di accesso specificato (ad esempio, accessi da indirizzi IP anonimi). Il rischio di accesso totale è dato dall'aggregazione dei rischi di accesso in tempo reale rilevati, nonché da eventuali rilevamenti di rischi non in tempo reale successivi associati agli accessi dell'utente (ad esempio impossibilità di comunicare). Il rischio utente rappresenta la probabilità complessiva che una determinata identità sia stata compromessa da un utente malintenzionato. Il rischio utente contiene tutte le attività di rischio per un determinato utente, tra cui:
 
 - Rischio di accesso in tempo reale
 - Rischi di accesso successivi
@@ -102,7 +102,7 @@ Il flusso di base per il rilevamento dei rischi e la risposta di Identity Protec
 
 Esaminiamo l'esempio di un dipendente di Contoso. 
 
-1. Un dipendente prova ad accedere a Exchange Online da Tor Browser. Al momento dell'accesso, Azure AD rileva gli eventi di rischio in tempo reale. 
+1. Un dipendente prova ad accedere a Exchange Online da Tor Browser. Al momento dell'accesso, Azure AD esegue i rilevamenti dei rischi in tempo reale. 
 2. Azure AD rileva che il dipendente esegue l'accesso da un indirizzo IP anonimo, attivando un livello di rischio di accesso medio. 
 3. Il dipendente visualizza una richiesta di verifica tramite autenticazione a più fattori, perché l'amministratore IT di Contoso ha configurato i criteri di accesso condizionale per il rischio di accesso di Identity Protection. I criteri richiedono l'autenticazione a più fattori per un rischio di accesso di livello medio o superiore. 
 4. Il dipendente completa l'autenticazione a più fattori e accede a Exchange Online, con un livello di rischio utente inalterato. 
@@ -115,20 +115,20 @@ Ma cosa sarebbe successo se il dipendente non fosse stato l'utente che effettua 
 2. Azure AD rileva che il tentativo di accesso avviene da un indirizzo IP anonimo, attivando un rischio di accesso in tempo reale. 
 3. L’utente malintenzionato visualizza una richiesta di verifica tramite prompt di autenticazione a più fattori (MFA), perché l’amministratore IT di Contoso ha configurato i criteri di accesso condizionale per il rischio di accesso di Identity Protection in modo richiedere l’autenticazione a più fattori quando il rischio di accesso è medio o superiore. 
 4. L'utente malintenzionato non riesce a completare l'autenticazione a più fattori e non può accedere all'account Exchange Online del dipendente. 
-5. Il mancato completamento dell'autenticazione a più fattori ha attivato la registrazione di un evento di rischio, aumentando il rischio utente per gli accessi futuri. 
+5. Una richiesta di Multi-Factor Authentication non completata ha attivato la registrazione di un rilevamento di rischio, aumentando il rischio utente per gli accessi futuri. 
 
 Ora che un utente malintenzionato ha provato ad accedere all'account del dipendente, vediamo cosa accade al tentativo di accesso successivo. 
 
-1. Il dipendente prova ad accedere a Exchange Online da Outlook. Al momento dell'accesso, Azure AD rileva gli eventi di rischio in tempo reale, nonché qualsiasi rischio utente precedente. 
+1. Il dipendente prova ad accedere a Exchange Online da Outlook. Al momento dell'accesso, Azure AD esegue i rilevamenti dei rischi in tempo reale, nonché di qualsiasi rischio utente precedente. 
 2. Azure AD non rileva alcun rischio di accesso in tempo reale, ma un rischio utente più elevato dovuto all’attività rischiosa degli scenari precedenti.  
 3. Il dipendente visualizza una richiesta di verifica tramite prompt di reimpostazione della password, perché l'amministratore IT di Contoso ha configurato i criteri di rischio utente di Identity Protection affinché sia richiesta la modifica della password all'accesso di un utente ad alto rischio. 
 4. Dal momento che il dipendente ha effettuato la registrazione per la reimpostazione della password self-service e l'autenticazione a più fattori, può reimpostare correttamente la propria password. 
 5. Reimpostando la password, le credenziali del dipendente non sono più compromesse e la sua identità risulta nuovamente sicura. 
-6. Gli eventi di rischio precedenti del dipendente vengono risolti e il suo livello di rischio utente viene reimpostato automaticamente in risposta alla mitigazione del rischio di compromissione delle credenziali. 
+6. I rilevamenti dei rischi precedenti del dipendente vengono risolti e il suo livello di rischio utente viene reimpostato automaticamente in risposta alla mitigazione del rischio di compromissione delle credenziali. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Come si configura Identity Protection? 
 
-Per iniziare a usare Identity Protection, per prima cosa è necessario configurare i criteri di rischio utente e di rischio di accesso. Una volta configurati questi criteri e applicati a un gruppo di test, è possibile simulare eventi di rischio per comprendere la risposta di Identity Protection nell'ambiente in uso. Le guide di avvio rapido seguenti offrono una procedura dettagliata su come configurare i criteri indicati in precedenza ed effettuarne il test nel proprio ambiente. 
+Per iniziare a usare Identity Protection, per prima cosa è necessario configurare i criteri di rischio utente e di rischio di accesso. Una volta configurati questi criteri e applicati a un gruppo di test, è possibile simulare rilevamenti dei rischi per capire come risponderà Identity Protection nell'ambiente in uso. Le guide di avvio rapido seguenti offrono una procedura dettagliata su come configurare i criteri indicati in precedenza ed effettuarne il test nel proprio ambiente. 
 
 Identity Protection supporta tre ruoli in Azure AD per bilanciare le attività di gestione nella distribuzione: 
 
@@ -145,13 +145,17 @@ Per altre informazioni, vedere [Assegnazione dei ruoli di amministratore in Azur
 >[!NOTE]
 > Durante l'anteprima pubblica di Identity Protection (aggiornato), solo i clienti di Azure AD Premium P2 avranno accesso ai report degli utenti a rischio e degli accessi a rischio.
 
-| Funzionalità | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Gratuito |
-| --- | --- | --- | --- |
-| Criteri di rischio utente | Sì | No | No |
-| Criteri di rischio di accesso | Sì | No | No |
-| Report utenti a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
-| Report sugli accessi a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
-| Criteri di registrazione MFA | Sì | No | No |
+| Funzionalità | Dettagli | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Gratuito |
+| --- | --- | --- | --- | --- |
+| Criteri di rischio | Criteri di rischio utente (tramite Identity Protection) | Sì | No | No |
+| Criteri di rischio | Criteri di rischio di accesso (tramite Identity Protection o accesso condizionale) | Sì | No | No |
+| Report sulla sicurezza | Panoramica | Sì | No | No |
+| Report sulla sicurezza | Utenti a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
+| Report sulla sicurezza | Accessi a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
+| Report sulla sicurezza | Rilevamenti dei rischi | Accesso completo | Informazioni limitate | No |
+| Notifiche | Avvisi relativi a utenti a rischio rilevati | Sì | No | No |
+| Notifiche | Digest settimanale | Sì | No | No |
+| | Criteri di registrazione MFA | Sì | No | No |
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

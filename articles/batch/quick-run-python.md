@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a2420f98bb07686b548dc6641df77dd0fdf7028b
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 8b35d2441db654278f9d66f3cbb4e7a79d70e835
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562803"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128037"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Guida introduttiva: Eseguire il primo processo Batch con l'API Python
 

@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e820ed25cae23a2dad37c807eb3e188161eaecbf
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 2063dd22e3253b0707f6920f3a5c0c7a6bb01126
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617704"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992311"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Creare un account di archiviazione di Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 [supporta uno spazio dei nomi gerarchico](data-lake-storage-introduction.md) che fornisce un file system nativo basato su directory da usare con Hadoop Distributed File System (HDFS). L'accesso ai dati di Data Lake Storage Gen2 da HDFS è disponibile tramite il [driver ABFS](data-lake-storage-abfs-driver.md).
+Azure Data Lake Storage Gen2 [supporta uno spazio dei nomi gerarchico](data-lake-storage-introduction.md) che fornisce un contenitore nativo basato su directory personalizzato per l'uso con HDFS (Hadoop Distributed File System). L'accesso ai dati di Data Lake Storage Gen2 da HDFS è disponibile tramite il [driver ABFS](data-lake-storage-abfs-driver.md).
 
 Questa guida introduttiva illustra come creare un account tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 

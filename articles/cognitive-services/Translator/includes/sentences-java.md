@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a6c12a2fdc8616dd6f7107d11e8f6c77401811fb
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8a567dbbd8c5e752b8d9294623a5f4d3f37e5a05
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968008"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906850"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 o versione successiva](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
-* Una chiave di sottoscrizione di Azure per Traduzione testuale
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="initialize-a-project-with-gradle"></a>Inizializzare un progetto con Gradle
 
@@ -44,7 +42,7 @@ plugins {
     application
 }
 application {
-    mainClassName = "LengthSentence"
+    mainClassName = "BreakSentence"
 }
 repositories {
     mavenCentral()
@@ -65,11 +63,11 @@ Tenere presente che questo esempio ha dipendenze da OkHttp per le richieste HTTP
 mkdir -p src/main/java
 ```
 
-Successivamente, in questa cartella creare un file denominato `LengthSentence.java`.
+Successivamente, in questa cartella creare un file denominato `BreakSentence.java`.
 
 ## <a name="import-required-libraries"></a>Importare le librerie obbligatorie
 
-Aprire `LengthSentence.java` e aggiungere queste istruzioni import:
+Aprire `BreakSentence.java` e aggiungere queste istruzioni import:
 
 ```java
 import java.io.*;
@@ -85,22 +83,23 @@ import com.squareup.okhttp.*;
 In primo luogo, è necessario creare una classe pubblica per il progetto:
 
 ```java
-public class LengthSentence {
+public class BreakSentence {
   // All project code goes here...
 }
 ```
 
-Aggiungere le righe seguenti alla classe `LengthSentence`. Si noterà che, oltre a `api-version`, è possibile definire la lingua di input. In questo esempio la lingua impostata è quella inglese.
+Aggiungere le righe seguenti alla classe `BreakSentence`. Prima di tutto, si noterà che la chiave e l'endpoint della sottoscrizione vengono letti dalle variabili di ambiente. Quindi, si noterà che, oltre a `api-version`, è possibile definire la lingua di input. In questo esempio la lingua impostata è quella inglese.
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0&language=en";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/breaksentence?api-version=3.0&language=en";
 ```
 Se si usa una sottoscrizione multiservizio di Servizi cognitivi, è necessario includere anche `Ocp-Apim-Subscription-Region` nei parametri della richiesta. [Informazioni sull'autenticazione con la sottoscrizione multiservizio](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-client-and-build-a-request"></a>Creare un client e compilare una richiesta
 
-Aggiungere questa riga alla classe `LengthSentence` per creare un'istanza di `OkHttpClient`:
+Aggiungere questa riga alla classe `BreakSentence` per creare un'istanza di `OkHttpClient`:
 
 ```java
 // Instantiates the OkHttpClient.
@@ -145,8 +144,8 @@ L'ultimo passaggio consiste nell'effettuare una richiesta e ottenere una rispost
 ```java
 public static void main(String[] args) {
     try {
-        LengthSentence lengthSentenceRequest = new LengthSentence();
-        String response = lengthSentenceRequest.Post();
+        BreakSentence breakSentenceRequest = new BreakSentence();
+        String response = BreakSentenceRequest.Post();
         System.out.println(prettify(response));
     } catch (Exception e) {
         System.out.println(e);

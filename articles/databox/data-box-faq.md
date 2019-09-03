@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: f1a1a8a6b32567a1571c70e76a4ae6c570d27ca5
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
-ms.translationtype: HT
+ms.openlocfilehash: f9afd3ae1d1d5d6235cf8bd0a6350a782ea6afbe
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900576"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142936"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -24,8 +24,8 @@ Le domande e le risposte sono suddivise nelle categorie seguenti:
 - Informazioni sul servizio
 - Ordinare il dispositivo
 - Configurazione e connessione 
-- Monitoraggio dello stato
-- Copiare i dati 
+- Verifica stato
+- Copia dati 
 - Spedire il dispositivo
 - Verifica e caricamento dei dati 
 - Supporto per la catena di custodia
@@ -124,7 +124,7 @@ R. Se non si è in grado di accedere alla password di sblocco nel portale di Azu
 ### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>D: La configurazione del canale delle porte è supportata in Data Box? E MPIO?
 R. In Data Box le configurazioni del canale delle porte, di MPIO (Multipath IO) o della vLAN non sono supportate.
 
-## <a name="track-status"></a>Monitoraggio dello stato
+## <a name="track-status"></a>Verifica stato
 
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>D: Come è possibile monitorare Data Box dal momento dell'inserimento dell'ordine alla spedizione del dispositivo? 
 R.  È possibile monitorare lo stato dell'ordine di Data Box nel portale di Azure. Quando si crea l'ordine, viene richiesto anche di fornire un indirizzo di posta elettronica per le notifiche. Se ne è stato specificato uno, si riceverà una notifica tramite posta elettronica per tutte le modifiche di stato dell'ordine. Altre informazioni su come [configurare i messaggi di posta elettronica di notifica](data-box-portal-ui-admin.md#edit-notification-details).
@@ -135,7 +135,7 @@ R.  Microsoft consente di visualizzare un'etichetta di spedizione sullo schermo 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>D: Ho ricevuto una notifica di posta elettronica che indica che il dispositivo è arrivato al data center di Azure. Come posso scoprire se il caricamento dei dati è in corso?
 R. È possibile accedere all'ordine nel portale di Azure e andare a **Panoramica**. Se il caricamento dei dati in Azure è stato avviato, l'avanzamento della copia viene visualizzato nel riquadro a destra. 
 
-## <a name="migrate-data"></a>Eseguire la migrazione dei dati
+## <a name="migrate-data"></a>Esegui la migrazione dei dati
 
 ### <a name="q-what-is-the-maximum-data-size-that-can-be-used-with-data-box"></a>D: Quali sono le dimensioni massime dei dati che possono essere usate con Data Box?  
 R.  Data Box ha una capacità di archiviazione usabile di 80 TB. È possibile usare un singolo dispositivo Data Box per una quantità di dati compresa tra 40 e 80 TB. Per dimensioni di dati maggiori, fino a 500 TB, è possibile ordinare più dispositivi Data Box. Per dimensioni dei dati superiori a 500 TB, iscriversi a Data Box Heavy.  
@@ -159,7 +159,7 @@ R.  Per velocizzare il processo di copia:
 - Usare più flussi di copia dei dati. Con Robocopy, ad esempio, usare l'opzione a thread multipli. Per altre informazioni sul comando esatto da usare, vedere [Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-deploy-copy-data.md).
 - Usare più sessioni.
 - È opportuno non eseguire la copia tramite una condivisione di rete (operazione che potrebbe essere limitata dalle velocità di rete), ma assicurarsi che i dati si trovino in locale nel computer a cui è collegato il dispositivo Data Box.
-- Valutare le prestazioni del computer usato per copiare i dati. Scaricare e usare lo [strumento Bluestop FIO](https://bluestop.org/fio/) per ottenere un benchmark delle prestazioni dell'hardware del server.
+- Valutare le prestazioni del computer usato per copiare i dati. Scaricare e usare lo [strumento Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) per ottenere un benchmark delle prestazioni dell'hardware del server. Selezionare la build x86 o x64 più recente, selezionare la scheda **Artefatti** e scaricare il file MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:

@@ -8,23 +8,16 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
-ms.openlocfilehash: 67e4874fcca93633140b7630ceadd273d1646f86
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 86bbff167a2653fd8d89b566b551c4c53dd3614e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721163"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124557"
 ---
-# <a name="what-are-azure-queues"></a>Informazioni sulle code di Azure
+# <a name="what-are-azure-queues"></a>Che cosa sono le code di Azure?
 
-Archiviazione code di Azure è un servizio per l'archiviazione di un numero elevato di messaggi. È possibile accedere ai messaggi ovunque ci si trovi con chiamate autenticate tramite HTTP o HTTPS. Un messaggio in coda avere dimensioni fino a 64 KB. Una coda può contenere milioni di messaggi, fino al limite di capacità totale dell'account di archiviazione.
-
-## <a name="common-uses"></a>Utilizzi comuni
-
-Di seguito sono riportati gli utilizzi più comuni per il servizio di archiviazione di accodamento.
-
-* Creazione di un backlog di lavoro da elaborare in modo asincrono
-* Passaggio di messaggi da un ruolo Web di Azure a un ruolo di lavoro di Azure
+Archiviazione code di Azure è un servizio per l'archiviazione di un numero elevato di messaggi. È possibile accedere ai messaggi ovunque ci si trovi con chiamate autenticate tramite HTTP o HTTPS. Un messaggio in coda avere dimensioni fino a 64 KB. Una coda può contenere milioni di messaggi, fino al limite di capacità totale dell'account di archiviazione. Le code vengono in genere usate per creare un backlog di lavoro da elaborare in modo asincrono.
 
 ## <a name="queue-service-concepts"></a>Concetti del servizio di accodamento
 

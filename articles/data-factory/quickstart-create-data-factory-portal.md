@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d5213ff21d92bf811b05802e4cb2ffab9b9a29c6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648440"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077055"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Guida introduttiva: Creare una data factory usando l'interfaccia utente di Azure Data Factory
 
@@ -71,7 +71,7 @@ Questo video contiene informazioni utili sull'interfaccia utente di Data Factory
 ## <a name="create-a-linked-service"></a>Creare un servizio collegato
 In questa procedura viene creato un servizio collegato per collegare l'account di archiviazione di Azure alla data factory. Il servizio collegato ha le informazioni di connessione usate dal servizio Data Factory in fase di esecuzione per la connessione.
 
-1. Selezionare **Connessioni** e quindi il pulsante **Nuovo** sulla barra degli strumenti. 
+1. Selezionare **Connessioni** e quindi fare clic sul pulsante **Nuovo** sulla barra degli strumenti. Il pulsante **Connessioni** si trova nella parte inferiore della colonna sinistra, in **Factory Resources** (Risorse factory). 
 
 1. Nella pagina **New Linked Service** (Nuovo servizio collegato) selezionare **Archiviazione BLOB di Azure** e quindi **Continua**. 
 

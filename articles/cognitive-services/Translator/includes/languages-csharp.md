@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 34ecbf8b326972f76767648e6a162b57667484f8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a7715577936b0e95392f2d561e4b492b20c9dbf5
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968264"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906991"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Pacchetto NuGet di Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-net-core-project"></a>Creare un progetto .NET Core
 
@@ -45,6 +43,23 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
+## <a name="get-endpoint-information-from-an-environment-variable"></a>Ottenere le informazioni sull'endpoint da una variabile di ambiente
+
+Aggiungere le righe seguenti alla classe `Program`. Queste righe leggono la chiave e l'endpoint della sottoscrizione dalle variabili di ambiente e generano un errore se si verificano problemi.
+
+```csharp
+private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
+{
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
+    }
+}
+```
+
 ## <a name="create-a-function-to-get-a-list-of-languages"></a>Creare una funzione per ottenere un elenco di lingue
 
 Nella classe `Program` creare una funzione denominata `GetLanguages`. Questa classe incapsula il codice usato per chiamare la risorsa Languages e stampa i risultati nella console.
@@ -59,12 +74,11 @@ static void GetLanguages()
 }
 ```
 
-## <a name="set-the-host-name-and-path"></a>Impostare il nome host e il percorso
+## <a name="set-the-route"></a>Impostare la route
 
 Aggiungere le righe seguenti alla funzione `GetLanguages`.
 
 ```csharp
-string host = "https://api.cognitive.microsofttranslator.com";
 string route = "/languages?api-version=3.0";
 ```
 
@@ -96,7 +110,7 @@ Aggiungere questo codice a `HttpRequestMessage`:
 // Set the method to GET
 request.Method = HttpMethod.Get;
 // Construct the full URI
-request.RequestUri = new Uri(host + route);
+request.RequestUri = new Uri(endpoint + route);
 // Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
@@ -108,7 +122,8 @@ Console.WriteLine("Press any key to continue.");
 Se si usa una sottoscrizione multiservizio di Servizi cognitivi, è necessario includere anche `Ocp-Apim-Subscription-Region` nei parametri della richiesta. [Informazioni sull'autenticazione con la sottoscrizione multiservizio](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 Per stampare la risposta con "Pretty Print" (formattazione per la risposta), aggiungere questa funzione alla classe Program:
-```
+
+```csharp
 static string PrettyPrint(string s)
 {
     return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);

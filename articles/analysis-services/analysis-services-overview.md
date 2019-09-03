@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 08/27/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 260d2774eecb42d0234c33e40b4f10680a4fbfbd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ebb6c05645a991d22ac30ee013e5a51007994eb6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932226"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073858"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -67,6 +67,8 @@ Questo livello è ottimale per applicazioni di produzione cruciali, che necessit
 |S4    |    400     |    100     |
 |S8*    |    320     |    200     |
 |S9*    |    640    |    400     |
+|S8v2*    |    640     |    200     |
+|S9v2*    |    1280    |    400     |
 
 \* Non disponibile in tutte le aree.  
 
@@ -82,34 +84,35 @@ Azure Analysis Services è supportato in aree di tutto il mondo. La disponibilit
 |Canada centrale    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Stati Uniti orientali     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |Stati Uniti orientali 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Stati Uniti orientali 2     |     S8, S9   |    1    |
+|Stati Uniti orientali 2     |     S8, S9, S8v2, S9v2   |    1    |
 |Stati Uniti centro-settentrionali     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Stati Uniti centrali     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Stati Uniti centro-meridionali     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Stati Uniti centro-occidentali   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Stati Uniti occidentali     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|Stati Uniti occidentali     |    S8, S9   |    2  |
+|Stati Uniti occidentali     |    S8, S9, S8v2, S9v2   |    2  |
 |Stati Uniti occidentali 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|Stati Uniti occidentali 2    |    S8, S9  |    1     |
+|Stati Uniti occidentali 2    |    S8, S9, S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europa
 
 |Region  | Piani supportati | Repliche delle query (solo piani Standard) |
 |---------|---------|:---------:|
 |Europa settentrionale     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|Europa settentrionale     |    S8v2, S9v2      |    3     |
 |Regno Unito meridionale     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa occidentale     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europa occidentale    |   S8, S9  |  1  |
+|Europa occidentale    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Asia/Pacifico 
 
 |Region  | Piani supportati | Repliche delle query (solo piani Standard) |
 |---------|---------|:---------:|
 |Australia orientale     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Australia orientale     |    S8, S9    |    1     |
+|Australia orientale     |    S8, S9, S8v2, S9v2    |    1     |
 |Australia sud-orientale     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Giappone orientale     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Asia sud-orientale     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
+|Asia sud-orientale     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |India occidentale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Ridimensionare in base alle esigenze specifiche
@@ -246,7 +249,7 @@ La documentazione di Azure Analysis Services usa anche i [problemi di GitHub](ht
 
 ## <a name="blogs"></a>Blog
 
-Per rimanere sempre aggiornati sulle continue modifiche, consultare il [blog del team di Azure Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/) e il [blog di Azure](https://azure.microsoft.com/blog/).
+Per rimanere sempre aggiornati sulle continue modifiche, consultare il [blog di Power BI](https://powerbi.microsoft.com/blog/category/analysis-services/) e il [blog di Azure](https://azure.microsoft.com/blog/).
 
 ## <a name="community"></a>Community
 

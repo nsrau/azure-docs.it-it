@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 8987a22d4546fe887d1dda9adff8f46afe667618
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: a7d1249d68ddd4a161d1c0476e5f56e80c4d32f9
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644995"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032006"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Come accedere a un lab per le classi in Azure Lab Services
 Questo articolo descrive come registrarsi a un lab per la classe, visualizzare tutti i lab a cui è possibile accedere, avviare e arrestare una macchina virtuale nel lab e connettersi alla macchina virtuale. 
@@ -55,6 +55,30 @@ Questo articolo descrive come registrarsi a un lab per la classe, visualizzare t
 2. Eseguire uno dei passaggi seguenti: 
     1. Per le macchine virtuali **Windows**, salvare il file **RDP** nel disco rigido. Aprire il file RDP per connettersi alla macchina virtuale. Usare il **nome utente** e la **password** forniti dal docente per accedere alla macchina virtuale. 
     3. Per connettersi alle macchine virtuali **Linux**, è possibile usare **SSH** o **RDP** (se è abilitato). Per altre informazioni, vedere [Abilitare una connessione Desktop remoto per i computer Linux](how-to-enable-remote-desktop-linux.md). 
+    1. Se si usa un **Mac** per connettersi alla macchina virtuale lab, seguire le istruzioni riportate nella sezione successiva. 
+
+## <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Connettersi a una macchina virtuale usando RDP in un Mac
+Questa sezione illustra come uno studente può connettersi a una macchina virtuale da un Mac usando RDP.
+
+### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>Passaggio 1: Installare Desktop remoto Microsoft in un Mac
+1. Aprire l'App Store nel Mac e cercare **Desktop remoto Microsoft.**
+
+    ![Desktop remoto Microsoft](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
+1. Installare la versione più recente di Desktop remoto Microsoft. 
+
+### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>Passaggio 2: Accedere alla macchina virtuale dal Mac usando RDP
+1. Aprire il file **RDP** scaricato nel computer in cui è installato **Desktop remoto Microsoft**. Dovrebbe iniziare a connettersi alla macchina virtuale. 
+
+    ![Connettersi alla macchina virtuale](../media/how-to-use-classroom-lab/connect-linux-vm.png)
+1. Selezionare **Continua** se viene visualizzato il seguente avviso. 
+
+    ![Avviso del certificato](../media/how-to-use-classroom-lab/certificate-error.png)
+1. Verrà visualizzata la macchina virtuale. 
+
+    > [!NOTE]
+    > L'esempio seguente è relativo a una VM Linux CentOS. 
+
+    ![VM](../media/how-to-use-classroom-lab/vm-ui.png)
 
 ## <a name="progress-bar"></a>Indicatore di stato 
 L'indicatore di stato nel riquadro indica il numero di ore usate rispetto al numero di [ore della quota](how-to-configure-student-usage.md#set-quotas-for-users) assegnate all'utente. Questo intervallo di tempo è il tempo aggiuntivo assegnato all'utente oltre al tempo pianificato per il lab. Il colore dell'indicatore di stato e il testo sotto di esso variano in base agli scenari seguenti:

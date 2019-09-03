@@ -9,17 +9,16 @@ ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 48b053b6520bff2ac83cd02af31194f81413e92c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 5c668d1d0783300333e4d0b78c93fe5e7a9d0dd0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598755"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069229"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduzione agli ambienti del servizio app #
  
@@ -63,7 +62,7 @@ I ruoli di lavoro ospitano app di clienti e sono disponibili in tre dimensioni f
 
 I clienti non sono tenuti a gestire i front-end e i ruoli di lavoro. Tutta l'infrastruttura viene aggiunta automaticamente nel momento in cui i clienti aumentano il numero di istanze nei rispettivi piani di servizio app. Man mano che i piani di servizio app vengono aggiunti o ridimensionati in un ambiente del servizio app, l'infrastruttura necessaria viene aggiunta o rimossa in base alle esigenze.
 
-Per gli ambienti del servizio app è prevista una tariffa fissa mensile che copre l'infrastruttura e non varia a seconda delle dimensioni dell'ambiente del servizio app. A questa si aggiunge il costo previsto per ogni vCPU del piano di servizio app. Tutte le app ospitate in un ambiente del servizio app fanno parte di uno SKU di prezzi isolato. Per informazioni sui prezzi di un ambiente del servizio app, vedere la pagina [Prezzi del servizio app][Pricing] ed esaminare le opzioni disponibili per gli ambienti del servizio app.
+Per gli ambienti del servizio app è prevista una tariffa fissa mensile che copre l'infrastruttura e non varia a seconda delle dimensioni dell'ambiente del servizio app. A questa si aggiunge il costo previsto per ogni vCPU del piano di servizio app. Tutte le app ospitate in un ambiente del servizio app fanno parte di uno SKU di prezzi isolato. Per informazioni sui prezzi di un ambiente del servizio app, vedere la pagina [Prezzi del servizio app][Pricing] ed esaminare le opzioni disponibili.
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale ##
 
@@ -85,7 +84,7 @@ Esistono due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. Le informaz
 
 In ASEv1 è necessario gestire manualmente tutte le risorse, inclusi front-end, ruoli di lavoro e indirizzi IP usati per la connessione SSL basata su IP. Per poter aumentare il numero di istanze di un piano di servizio app, è necessario aumentare il numero di istanze del pool di lavoro in cui si vuole ospitare il piano.
 
-ASEv1 usa un modello tariffario diverso rispetto a ASEv2. Nella versione ASEv1, in particolare, si paga per tutti i vCPU allocati, inclusi i vCPU usati per i front-end o i ruoli di lavoro in cui non sono ospitati carichi di lavoro. In ASEv1 la dimensione massima predefinita di un ambiente del servizio app è di 55 host complessivi, inclusi ruoli di lavoro e front-end. Un vantaggio di ASEv1 è quello di poter essere distribuito in una rete virtuale classica e in una rete virtuale di Resource Manager. Per altre informazioni sull'ambiente del servizio app 1, vedere [Introduzione all'ambiente del servizio app 1][ASEv1Intro].
+ASEv1 usa un modello tariffario diverso rispetto a ASEv2. Nella versione ASEv1, in particolare, si paga per tutti i vCPU allocati, inclusi i vCPU usati per i front-end o i ruoli di lavoro in cui non sono ospitati carichi di lavoro. In ASEv1 la dimensione massima predefinita di un ambiente del servizio app è di 55 host complessivi, inclusi ruoli di lavoro e front-end. Un vantaggio di ASEv1 è quello di poter essere distribuito in una rete virtuale classica e in una rete virtuale di Resource Manager. Per altre informazioni sull'ambiente del servizio app v1, vedere [Introduzione all'ambiente del servizio app v1][ASEv1Intro].
 
 <!--Links-->
 [App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment

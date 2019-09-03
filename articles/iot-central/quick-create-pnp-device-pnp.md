@@ -1,5 +1,5 @@
 ---
-title: Connettere un dispositivo Plug and Play IoT (anteprima) di Azure a IoT Central | Microsoft Docs
+title: Connettere un dispositivo Plug and Play IoT (anteprima) ad Azure IoT Central | Microsoft Docs
 description: Usare un modello di funzionalità di dispositivo per generare il codice del dispositivo. Eseguire quindi il codice del dispositivo. Il dispositivo si connetterà all'applicazione IoT Central e sarà possibile usare le visualizzazioni generate automaticamente.
 author: dominicbetts
 ms.author: dobett
@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 152e373f3a340a8abe3d8bc54d6515296d95efba
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2f1ee5caf89af718d91abeac01730700c131ab41
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881690"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048951"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Guida introduttiva: Usare un modello di funzionalità di dispositivo per creare un dispositivo Plug and Play IoT e connetterlo all'applicazione IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-Un _modello di funzionalità di dispositivo_ descrive le funzionalità di un dispositivo [Plug and Play IoT](https://aka.ms/iot-pnp-docs). IoT Central può usare un modello di funzionalità di dispositivo per creare un modello e le visualizzazioni per un dispositivo alla prima connessione del dispositivo. Questa guida introduttiva illustra come effettuare le operazioni seguenti:
+Un _modello di funzionalità di dispositivo_ descrive le funzionalità di un dispositivo [Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md). IoT Central può usare un modello di funzionalità di dispositivo per creare un modello e le visualizzazioni per un dispositivo alla prima connessione del dispositivo. Questa guida introduttiva illustra come effettuare le operazioni seguenti:
 
 * Usare Visual Studio Code per creare un dispositivo Plug and Play IoT usando un modello di funzionalità di dispositivo.
 * Eseguire il codice del dispositivo in Windows per connetterlo all'applicazione IoT Central.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: ee863b6003444ec099753a6488f3fe4078338e60
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 5e53a671c866b9482296622d19d4ad6bec46829d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384130"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905297"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Introduzione ad Azure Cosmos DB
 
@@ -23,6 +23,11 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 > [!div class="nextstepaction"]
 > [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
+
+È anche possibile usare il [programma bootstrap Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) per accelerare la compilazione o la migrazione delle applicazioni in Azure Cosmos DB. Quando ci si iscrive a questo programma, i tecnici di Azure Cosmos DB vengono assegnati per supportare il progetto e aiutano a eseguire la migrazione dei dati ad Azure Cosmos DB o a creare nuove app in Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Iscriversi al programma bootstrap Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ![Azure Cosmos DB è il servizio di database Microsoft distribuito a livello globale con scalabilità orizzontale elastica, bassa latenza garantita, cinque modelli di coerenza e contratti di servizio completi garantiti.](./media/introduction/azure-cosmos-db.png)
 

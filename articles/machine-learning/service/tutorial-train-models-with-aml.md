@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/08/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 90f745d3ef5fd4442a184a51d82cd61b12828e15
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534794"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036202"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Esercitazione: Eseguire il training di modelli di classificazione delle immagini con dati MNIST e scikit-learn usando Azure Machine Learning
 
@@ -96,11 +96,11 @@ experiment_name = 'sklearn-mnist'
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-compute-resource"></a>Creare una risorsa di calcolo o collegarne una esistente
+### <a name="create-or-attach-an-existing-compute-target"></a>Creare una destinazione di calcolo o collegarne una esistente
 
 Con l'ambiente di calcolo di Azure Machine Learning, un servizio gestito, i data scientist possono eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure, ad esempio le macchine virtuali con supporto per GPU. In questa esercitazione verrà creato l'ambiente di calcolo di Azure Machine Learning come ambiente di training. Il codice seguente crea automaticamente i cluster di calcolo se non esistono già nell'area di lavoro.
 
- **Per la creazione dell'ambiente di calcolo sono necessari circa cinque minuti.** Se l'ambiente di calcolo è già presente nell'area di lavoro, il codice usa tale ambiente e ignora il processo di creazione.
+ **Per la creazione della destinazione di calcolo sono necessari circa cinque minuti.** Se la risorsa di calcolo è già presente nell'area di lavoro, il codice usa tale ambiente e ignora il processo di creazione.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -211,9 +211,9 @@ Questo è l'aspetto delle immagini e dei risultati di stima previsti.
 
 ### <a name="upload-data-to-the-cloud"></a>Caricare dati nel cloud
 
-A questo punto, è necessario rendere accessibili i dati in remoto, caricandoli dal computer locale in Azure, in modo che siano accessibili per il training remoto. L'archivio dati è un costrutto pratico associato all'area di lavoro per il caricamento e il download dei dati. È possibile interagire con l'archivio dati anche da destinazioni di calcolo remote. È supportato da un account di archiviazione BLOB di Azure.
+Sono stati scaricati e usati i dati di training nel computer in cui è in esecuzione il notebook.  Nella sezione successiva si eseguirà il training di un modello nell'ambiente di calcolo di Azure Machine Learning.  Anche la risorsa di calcolo remoto dovrà accedere ai dati. Per fornire l'accesso, caricare i dati in un archivio dati centralizzato associato all'area di lavoro. Questo archivio dati consente di accedere rapidamente ai dati quando si usano destinazioni di calcolo remote nel cloud, come avviene nel data center di Azure.
 
-I file MNIST vengono caricati in una directory denominata `mnist` alla radice dell'archivio dati:
+Caricare i file MNIST in una directory denominata `mnist` alla radice dell'archivio dati. Per altre informazioni, vedere come [accedere ai dati dagli archivi dati](how-to-access-data.md).
 
 ```python
 ds = ws.get_default_datastore()

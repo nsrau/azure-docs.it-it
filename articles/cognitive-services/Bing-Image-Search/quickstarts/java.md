@@ -11,15 +11,15 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: a4a8535aa204cbad76d4da4c466c0f4aba99db9a
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 3cd7af766b3881eb1abe054105423aaa3d0591de
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489648"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124080"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e Java
+# <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>Guida introduttiva: Cercare immagini con l'API Ricerca immagini Bing, un servizio cognitivo di Azure 
 
 Usare questa guida introduttiva per iniziare a inviare richieste di ricerca all'API Ricerca immagini Bing. Questa applicazione Java invia una query di ricerca all'API e visualizza l'URL della prima immagine inclusa nei risultati. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 

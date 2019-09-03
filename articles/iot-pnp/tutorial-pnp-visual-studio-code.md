@@ -1,5 +1,5 @@
 ---
-title: Creare e testare un dispositivo di anteprima di Azure Plug and Play IoT | Microsoft Docs
+title: Creare e testare un dispositivo di anteprima di Plug and Play IoT | Microsoft Docs
 description: Uno sviluppatore di dispositivi può apprendere come usare VS Code per creare e testare un nuovo modello di funzionalità di dispositivo per un dispositivo di anteprima Plug and Play IoT.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 5a03eea84d0d68f06b432014fc4374e799914d67
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 10eb9655371177a52d1c1a5a9118665015076b35
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878722"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047990"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Esercitazione: Creare e testare un modello di funzionalità di dispositivo usando Visual Studio Code
 

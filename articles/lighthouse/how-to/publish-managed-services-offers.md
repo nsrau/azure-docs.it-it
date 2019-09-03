@@ -4,26 +4,26 @@ description: Informazioni su come pubblicare un'offerta di servizio gestito che 
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: bb2f26a170bbd60eb927bd00f6def7d033fafee9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f9d3fad2a98647bcd10d54c03a76e95bc3e05227
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810835"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011852"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizi gestiti in Azure Marketplace
 
-In questo articolo verrà illustrato come pubblicare un'offerta di servizi gestiti pubblica o privata in [Azure Marketplace](https://azuremarketplace.microsoft.com) usando il [portale Cloud Partner](https://cloudpartner.azure.com/), per poter eseguire l'onboarding di un cliente che acquista l'offerta per la gestione risorse delegate di Azure. 
+In questo articolo verrà illustrato come pubblicare un'offerta di servizi gestiti pubblica o privata in [Azure Marketplace](https://azuremarketplace.microsoft.com) usando il [portale Cloud Partner](https://cloudpartner.azure.com/), per poter eseguire l'onboarding di un cliente che acquista l'offerta per la gestione risorse delegate di Azure.
 
 > [!NOTE]
 > È necessario avere un [account valido nel Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per creare e pubblicare queste offerte. Se non si ha già un account, il [processo di iscrizione](https://aka.ms/joinmarketplace) avvierà la procedura per creare un account nel Centro per i partner ed eseguire la registrazione nel programma Commercial Marketplace. L'ID MPN (Microsoft Partner Network) verrà [associato automaticamente](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) alle offerte pubblicate per tenere traccia dell'impatto sugli engagement dei clienti.
 >
 > Se non si vuole pubblicare un'offerta in Azure Marketplace, è possibile eseguire l'onboarding dei clienti manualmente usando i modelli di Azure Resource Manager. Per altre informazioni, vedere [Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure](onboard-customer.md).
 
-La pubblicazione di un'offerta di servizi gestiti è simile alla pubblicazione di qualsiasi altro tipo di offerta in Azure Marketplace. Per informazioni su tale processo, vedere [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) e [Gestire le offerte di Azure Marketplace e del marketplace di AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
+La pubblicazione di un'offerta di servizi gestiti è simile alla pubblicazione di qualsiasi altro tipo di offerta in Azure Marketplace. Per informazioni su tale processo, vedere [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) e [Gestire le offerte di Azure Marketplace e del marketplace di AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers). È anche necessario esaminare i [criteri di certificazione del Marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies), in particolare la sezione [Servizi gestiti](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
 
 > [!IMPORTANT]
 > Ogni piano in un'offerta di servizi gestiti include una sezione **Manifest Details** (Dettagli del manifesto), in cui si definiscono le entità di Azure Active Directory (Azure AD) del tenant che avranno accesso ai gruppi di risorse e/o alle sottoscrizioni delegate per i clienti che acquistano il piano. È importante tenere presente che qualsiasi gruppo (o utente o entità servizio) incluso qui avrà le stesse autorizzazioni per ogni cliente che acquista il piano. Per assegnare gruppi diversi per lavorare con ogni cliente, è necessario pubblicare un piano privato separato che sia esclusivo per ogni cliente.
@@ -89,7 +89,7 @@ Fornire informazioni per i campi seguenti nella sezione **Panoramica**:
 |**Titolo**     |  Titolo dell'offerta, spesso corrispondente alla forma estesa e formale del nome. Questo titolo verrà visualizzato in una posizione di estremo rilievo nel marketplace. La lunghezza massima consentita è di 50 caratteri. Nella maggior parte dei casi, corrisponderà al **nome** immesso nella sezione **Impostazioni dell'offerta**.       |
 |**Summary**     | Descrizione breve dello scopo o della funzione dell'offerta. Viene in genere visualizzata sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
 |**Long Summary** (Riepilogo lungo)     | Riepilogo più lungo dello scopo o della funzione dell'offerta. La lunghezza massima consentita è di 256 caratteri.        |
-|**Descrizione**     | Altre informazioni sull'offerta. Questo campo ha una lunghezza massima consentita di 3000 caratteri e supporta la formattazione HTML semplice.        |
+|**Descrizione**     | Altre informazioni sull'offerta. Questo campo ha una lunghezza massima consentita di 3000 caratteri e supporta la formattazione HTML semplice. È necessario includere le parole "servizio gestito" o "servizi gestiti" in un punto qualsiasi della descrizione.       |
 |**Marketing Identifier** (Identificatore di marketing)     | Identificatore univoco descrittivo per gli URL. Verrà usato negli URL del marketplace per l'offerta. Se ad esempio l'ID editore è *contoso* e l'identificatore di marketing è *sampleApp*, l'URL per l'offerta in Azure Marketplace sarà *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp* .        |
 |**Preview Subscription IDs** (ID sottoscrizione di anteprima)     | Aggiungere da uno a 100 identificatori di sottoscrizione. I clienti associati a queste sottoscrizioni potranno visualizzare l'offerta in Azure Marketplace prima che diventi disponibile. È consigliabile includere qui le sottoscrizioni per poter visualizzare in anteprima come viene visualizzata l'offerta in Azure Marketplace prima di renderla disponibile per i clienti.  Anche i team di supporto tecnico e di progettazione Microsoft potranno visualizzare l'offerta durante questo periodo di anteprima.   |
 |**Collegamenti utili**     | URL correlati all'offerta, ad esempio la documentazione, le note sulla versione, le domande frequenti e così via.        |
@@ -112,7 +112,7 @@ Il logo **Banner (815x290)** è facoltativo, ma consigliato. Se si include un lo
 - Lo sfondo del logo banner non può essere nero, bianco o trasparente. Assicurarsi che il colore di sfondo non sia troppo chiaro, perché il testo incorporato verrà visualizzato in bianco.
 - Dopo aver pubblicato l'offerta con un'icona banner, non è possibile rimuoverla (anche se è possibile aggiornarla con una versione diversa, se necessario).
 
-Nella sezione **Gestione dei lead** è possibile selezionare il sistema CRM in cui i lead verranno archiviati, se necessario. 
+Nella sezione **Gestione dei lead** è possibile selezionare il sistema CRM in cui verranno archiviati i lead. Si noti che in base ai [criteri di certificazione dei servizi gestiti](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), è necessaria una **destinazione del lead**.
 
 Specificare infine l'**URL dell'Informativa sulla privacy** e le **Condizioni per l'utilizzo** nella sezione **Note legali**. È anche possibile specificare qui se usare o meno il [contratto standard](https://docs.microsoft.com/azure/marketplace/standard-contract) per questa offerta.
 

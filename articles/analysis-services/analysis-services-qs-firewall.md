@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e78dd093c4bbf0cf1bdbd5280ffaa63286e585d4
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 52ccaa17b9994751bb9dfd54848e20aef90146c3
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537134"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905890"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Guida introduttiva: Configurare il firewall del server - Portale
 
@@ -23,6 +23,7 @@ Questa guida introduttiva consente di configurare un firewall per il server di A
 
 - Un server di Analysis Services nella sottoscrizione. Per altre informazioni, vedere [Guida introduttiva: Creare un server - Portale](analysis-services-create-server.md) o [Guida introduttiva: Creare un server - PowerShell](analysis-services-create-powershell.md)
 - Uno o più intervalli di indirizzi IP per i computer client (se necessario).
+- Si noti che lo scenario di importazione da Power BI Premium attualmente non è supportato.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure 
 

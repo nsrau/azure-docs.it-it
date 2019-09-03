@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bb1e29735a860f5dc3b6ce8996af9fcd4962871
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: ed5e5e26a27e13ba09ffcc97e0b2b0f1b37bc8bd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335310"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127705"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Guida introduttiva: bloccare l'accesso quando viene rilevato un rischio per la sessione con Azure Active Directory Identity Protection  
 
@@ -34,7 +34,7 @@ Per completare lo scenario in questa esercitazione, sono necessari gli elementi 
 
 - **Accesso a un'edizione di Azure AD Premium P2**: Azure AD Identity Protection è una funzionalità di Azure AD Premium P2. 
 - **Identity Protection**: lo scenario in questa guida introduttiva richiede l'abilitazione di Identity Protection. Per scoprire come abilitare Identity Protection, vedere [Abilitazione di Azure Active Directory Identity Protection](../identity-protection/enable.md).
-- **Tor Browser**: [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) è progettato per salvaguardare la privacy online. Identity Protection rileva un accesso da un Tor Browser come **accesso da indirizzi IP anonimi**, con un livello di rischio medio. Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
+- **Tor Browser**: [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) è progettato per salvaguardare la privacy online. Identity Protection rileva un accesso da un Tor Browser come **accesso da indirizzi IP anonimi**, con un livello di rischio medio. Per altre informazioni, vedere [Rilevamenti dei rischi in Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
 - **Account di test denominato Alain Charon**: se non si conosce la procedura per creare un account di test, vedere [Aggiungere un nuovo utente](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Verificare il proprio accesso 
@@ -48,7 +48,7 @@ L'obiettivo di questo passaggio è assicurarsi che l'account di test possa acced
 
 ## <a name="create-your-conditional-access-policy"></a>Creare i criteri di accesso condizionale 
 
-Lo scenario di questa guida introduttiva sfrutta un accesso da un Tor Browser per generare un evento di rischio rilevato da **accessi provenienti da indirizzi IP anonimi**. Il livello di rischio di questo evento di rischio è medio. Per rispondere a questo evento di rischio, impostare la condizione di rischio di accesso su medio. 
+Lo scenario di questo argomento di avvio rapido usa l'accesso da un Tor Browser per generare un rilevamento del rischio di tipo **accessi provenienti da indirizzi IP anonimi**. Il livello di rischio di questo rilevamento è medio. Per rispondere a questo rilevamento, impostare la condizione di rischio di accesso su medio. 
 
 Questa sezione illustra come creare i criteri di accesso condizionale richiesti per il rischio di accesso. Nei criteri, impostare:
 

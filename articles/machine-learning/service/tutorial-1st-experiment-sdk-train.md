@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 17fee1f01bf883aa2a9845fe4f2817fb806056dd
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516234"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051622"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
 
@@ -31,14 +31,18 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'unico prerequisito consiste nell'eseguire l'esercitazione precedente, [Configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
+L'unico prerequisito consiste nell'eseguire la prima parte di questa esercitazione, [Configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
+
+In questa parte dell'esercitazione si eseguirà il codice nel notebook di Jupyter `tutorials/tutorial-1st-experiment-sdk-train.ipynb` di esempio aperto alla fine della prima parte. Questo articolo illustra lo stesso codice presente nel notebook.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Connettere l'area di lavoro e creare un esperimento
 
-Importare la classe `Workspace` e caricare le informazioni sulla sottoscrizione dal file `config.json` con la funzione `from_config().`. Per impostazione predefinita, questa funzione cerca il file JSON nella directory corrente, ma è possibile anche specificare un parametro del percorso che punti al file usando `from_config(path="your/file/path")`. Se il notebook viene eseguito in un server notebook cloud nell'area di lavoro, il file si trova automaticamente nella directory radice.
+Importare la classe `Workspace` e caricare le informazioni sulla sottoscrizione dal file `config.json` con la funzione `from_config().`. Per impostazione predefinita, questa funzione cerca il file JSON nella directory corrente, ma è possibile anche specificare un parametro del percorso che punti al file usando `from_config(path="your/file/path")`. In un server notebook cloud, il file si trova automaticamente nella directory radice.
 
 Se il codice seguente richiede un'autenticazione aggiuntiva, incollare semplicemente il collegamento in un browser e immettere il token di autenticazione.
 
+> [!TIP]
+> Se non si ha familiarità con i notebook di Jupyter, eseguire il codice facendo clic su una cella di codice e premendo **MAIUSC + INVIO** per eseguire le celle una alla volta. In alternativa, per eseguire l'intero notebook contemporaneamente, fare clic su **Cella** nella barra dei menu superiore e quindi fare clic su **Esegui tutto**.
 
 ```python
 from azureml.core import Workspace

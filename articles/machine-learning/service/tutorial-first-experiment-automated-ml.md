@@ -10,26 +10,25 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 08/14/2019
-ms.openlocfilehash: e53cd92a9dfd8f823918fb38e14c2b73c2ce071f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 01228dc01b8006a0a2476ddbbd6fa8ff430e280a
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534409"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982750"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Esercitazione: Creare il primo modello di classificazione con apprendimento automatico
 
 In questa esercitazione viene descritto come creare il primo esperimento automatizzato di apprendimento automatico nel portale di Azure (anteprima) senza scrivere una sola riga di codice. Questo esempio crea un modello di classificazione per stimare se un cliente sottoscriverà un deposito a termine fisso presso un istituto finanziario.
 
-Usando le funzionalità automatizzate di apprendimento automatico del servizio Azure Machine Learning e il portale di Azure, è possibile avviare il processo automatizzato di apprendimento automatico. La selezione dell'algoritmo e l'ottimizzazione degli iperparametri vengono svolte automaticamente. La tecnica automatizzata di apprendimento automatico esegue l'iterazione su numerose combinazioni di algoritmi e iperparametri fino a trovare il modello migliore in base ai criteri definiti.
+Con l'apprendimento automatico automatizzato, è possibile automatizzare le attività a elevato utilizzo di tempo. L'apprendimento automatico automatizzato esegue rapidamente l'iterazione su numerose combinazioni di algoritmi e iperparametri per aiutare a trovare il modello migliore in base a una metrica di riuscita di propria scelta.
 
-In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
+In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * Creare un'area di lavoro del servizio Azure Machine Learning.
-> * Creare un esperimento.
-> * Eseguire il training automatico di un modello di classificazione.
-> * Visualizzare i dettagli relativi all'esecuzione del training.
+> * Eseguire un esperimento di Machine Learning automatizzato.
+> * Visualizzare i dettagli sull'esperimento.
 > * Distribuire il modello.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -42,7 +41,7 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-an-experiment"></a>Creare un esperimento
+## <a name="create-and-run-the-experiment"></a>Creare ed eseguire l'esperimento
 
 Questi passaggi descrivono la configurazione dell'esperimento, dalla selezione dei dati alla scelta della metrica principale e del tipo di modello. 
 
@@ -50,8 +49,6 @@ Questi passaggi descrivono la configurazione dell'esperimento, dalla selezione d
 Verrà visualizzata la schermata di benvenuto di **Machine Learning automatizzato**, in quanto si tratta del primo esperimento con questo servizio.
 
     ![Riquadro di spostamento del portale di Azure](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
-
-
 
 1. Selezionare **Create experiment** (Crea esperimento). Immettere quindi **my-1st-automl-experiment** come nome dell'esperimento.
 
@@ -72,14 +69,11 @@ Verrà visualizzata la schermata di benvenuto di **Machine Learning automatizzat
 
 1. Selezionare **Carica** e scegliere il file **bankmarketing_train.csv** dal computer locale per caricarlo nel contenitore predefinito. L'anteprima pubblica supporta solo i caricamenti di file locali e gli account di archiviazione BLOB di Azure. Al termine del caricamento, selezionare il file dall'elenco. 
 
-    [![Selezionare il file di dati](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
-
 1. La scheda **Anteprima** permette di configurare ulteriormente i dati per questo esperimento.
 
     Nella scheda **Anteprima** indicare che i dati includono intestazioni. Per impostazione predefinita, il servizio include tutte le funzionalità (colonne) per il training. Per questo esempio, scorrere verso destra e scegliere **Ignora** per la funzionalità **day_of_week**.
 
     ![Configurazione della scheda Anteprima](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
-
 
     >[!NOTE]
     > La profilatura dei dati non è disponibile con contesti di calcolo che includono zero nodi minimi.
@@ -103,9 +97,7 @@ Verrà visualizzata la schermata di benvenuto di **Machine Learning automatizzat
 
 1. Selezionare **Avvia** per eseguire l'esperimento.
 
-   All'avvio dell'esperimento, viene visualizzata una schermata **Dettagli esecuzione** vuota con lo stato seguente nella parte superiore. 
-
-      ![Preparazione dell'esecuzione](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
+   All'avvio dell'esperimento, viene visualizzata una schermata **Dettagli esecuzione** vuota con lo stato seguente nella parte superiore.
       
 Il processo di preparazione dell'esperimento richiede un paio di minuti. Al termine del processo, il messaggio di stato diventa **Run is Running** (Esecuzione in corso).
 
@@ -137,11 +129,9 @@ Nel contesto di questo esperimento **VotingEnsemble** viene considerato il model
     
 1. Selezionare **Distribuisci**.
 
-    Al termine della distribuzione, viene visualizzato il messaggio seguente:
-
-    ![Distribuzione completata](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
+    Al termine della distribuzione, viene visualizzato un messaggio di completamento della distribuzione.
     
-    A questo punto, è disponibile un servizio Web operativo per generare stime.
+A questo punto, è disponibile un servizio Web operativo per generare stime.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -167,7 +157,6 @@ In questa esercitazione di apprendimento automatico con automazione è stato usa
 
 > [!div class="nextstepaction"]
 > [Utilizzare un servizio Web](how-to-consume-web-service.md)
-
 
 + Altre informazioni sulla [pre-elaborazione](how-to-create-portal-experiments.md#preprocess).
 + Altre informazioni sulla [profilatura dei dati](how-to-create-portal-experiments.md#profile).

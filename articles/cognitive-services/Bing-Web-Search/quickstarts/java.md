@@ -10,15 +10,15 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: 42cb270955846f1333b79389c3ca979dc4808f05
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 24197cc708789381e0f160268bea96b25457ba8f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489638"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70123713"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Guida introduttiva: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e Java
+# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Guida introduttiva: Usare Java per eseguire ricerche nel Web con l'API REST di Ricerca Web Bing, un servizio cognitivo di Azure
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Java invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 

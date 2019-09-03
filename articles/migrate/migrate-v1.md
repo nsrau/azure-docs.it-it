@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7cf87c3a146f51666a2c24c7cd0d6e9425159225
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228405"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905239"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utilizzare la versione precedente di Azure Migrate
 
@@ -246,7 +246,6 @@ Per installare l'agente in un computer Linux:
 
 Per i computer monitorati da System Center Operations Manager 2012 R2 o versioni successive, non è necessario installare l'agente MMA. La soluzione Mapping dei servizi si integra con MMA di Operations Manager per raccogliere i dati necessari sulle dipendenze. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) È necessario installare Dependency Agent.
 
-
 ### <a name="install-the-dependency-agent"></a>Installare Dependency Agent
 
 1. Per installare Dependency Agent in un computer Windows, fare doppio clic sul file di installazione e seguire la procedura guidata.
@@ -254,9 +253,11 @@ Per i computer monitorati da System Center Operations Manager 2012 R2 o versioni
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- Altre informazioni sul supporto di Dependency Agent per sistemi operativi [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) e [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).
-- [Altre informazioni](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sul modo in cui è possibile usare gli script per installare l'agente di dipendenza.
+- Altre informazioni sul [supporto di Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) per sistemi operativi Windows e Linux.
+- [Altre informazioni](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sul modo in cui è possibile usare gli script per installare l'agente di dipendenza.
 
+>[!NOTE]
+> L'articolo sul Monitoraggio di Azure per le macchine virtuali a cui si fa riferimento per fornire una panoramica dei prerequisiti di sistema e dei metodi per la distribuzione di Dependency Agent è applicabile anche alla soluzione Mapping dei servizi.
 
 ### <a name="create-a-group-with-dependency-mapping"></a>Creare un gruppo con il mapping delle dipendenze
 

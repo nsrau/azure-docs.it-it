@@ -9,17 +9,16 @@ ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: e80c0e4e57f8af067c17d0dcfefd26ce7ce8255f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389294"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069458"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare Ambiente del servizio app con il tunneling forzato
 
@@ -67,7 +66,7 @@ Puoi configurare la subnet dell'ambiente del servizio app per ignorare tutte le 
 Per configurare la subnet dell'ambiente del servizio app al fine di ignorare le route BGP:
 
 * crea una route definita dall'utente e assegnala alla subnet dell'ambiente del servizio app se non ne disponi già.
-* Nel portale di Azure, apri l'interfaccia utente per la tabella di route assegnata alla subnet dell'ambiente del servizio app.  Seleziona Configurazione.  Imposta la propagazione della route BGP su Disabilitata.  Fare clic su Save. La documentazione sulla disabilitazione è consultabile in [Creare una tabella di route][routetable].
+* Nel portale di Azure, apri l'interfaccia utente per la tabella di route assegnata alla subnet dell'ambiente del servizio app.  Seleziona Configurazione.  Imposta la propagazione della route BGP su Disabilitata.  Fare clic su Save. La documentazione sulla disattivazione è consultabile nell'articolo [Creare una tabella di route][routetable].
 
 Dopo aver configurato la subnet dell'ambiente del servizio app di Azure in modo da ignorare tutte le route BGP, le app non riusciranno più a raggiungere l'ambiente locale. Per abilitare le app ad accedere alle risorse in locale, modificare la route definita dall'utente assegnata alla subnet dell'ambiente del servizio app e aggiungere le route per gli intervalli degli indirizzi locali. Il tipo di hop successivo deve essere impostato su Gateway di rete virtuale. 
 
@@ -82,7 +81,7 @@ Per instradare tutto il traffico in uscita dall'ambiente del servizio app, ad ec
 
 Per creare un ambiente del servizio app in una rete virtuale già configurata per l'indirizzamento di tutto il traffico in locale, è necessario creare l'ambiente del servizio app usando un modello di Resource Manager.  Non è possibile creare un ambiente del servizio app con il portale in una subnet già esistente.  Quando si distribuisce l'ambiente del servizio app in una rete virtuale già configurata per l'indirizzamento del traffico in uscita in locale, è necessario creare l'ambiente del servizio app usando un modello di Resource Manager che consente di specificare una subnet già esistente. Per informazioni dettagliate sulla distribuzione di un ambiente del servizio app con un modello, vedere [Creare un ambiente del servizio app usando un modello][template].
 
-Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint servizio di rete virtuale][serviceendpoints] della documentazione. 
+Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint servizio di rete virtuale][serviceendpoints]. 
 
 Quando si abilitano gli endpoint del servizio su una risorsa, alcune route sono create con una priorità maggiore rispetto a tutte le altre route. Se si usano gli endpoint servizio con un ambiente del servizio app con tunneling forzato, il tunneling del traffico di gestione di SQL di Azure e Archiviazione di Azure non viene forzato. L'altro traffico dell'ambiente del servizio app relativo alle dipendenze viene sottoposto a tunneling forzato e non può andare perso. In caso contrario, l'ambiente del servizio app non funzionerà correttamente.
 
@@ -108,7 +107,7 @@ Per il tunneling di tutto il traffico in uscita dall'ambiente del servizio app, 
 
    Selezionare **PUT** nella parte superiore. Questa opzione attiva un'operazione di ridimensionamento in Ambiente del servizio app e modifica il firewall.
 
-_Per creare l'ambiente del servizio app con gli indirizzi in uscita_: seguire le indicazioni in [Creare un ambiente del servizio app con un modello][template] e scaricare il modello appropriato.  Modificare la sezione "resources" nel file azuredeploy.json, ma non nel blocco "properties", e includere una riga per **userWhitelistedIpRanges** con i propri valori.
+_Per creare l'ambiente del servizio app con gli indirizzi in uscita_: seguire le indicazioni riportate in [Creare un ambiente del servizio app con un modello][template] e scaricare il modello appropriato.  Modificare la sezione "resources" nel file azuredeploy.json, ma non nel blocco "properties", e includere una riga per **userWhitelistedIpRanges** con i propri valori.
 
     "resources": [
       {

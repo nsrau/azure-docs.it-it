@@ -1,5 +1,5 @@
 ---
-title: Raccogliere dati sulle macchine virtuali di Azure | Microsoft Docs
+title: Raccogliere dati da una macchina virtuale di Azure con Monitoraggio di Azure | Microsoft Docs
 description: Informazioni su come abilitare l'estensione VM dell'agente di Log Analytics e la raccolta di dati dalle VM di Azure con Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 1a61c0f96f62712bbd2500b2e80fd08565990bbe
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8e44908baea506efa488899c90e9022acc6e30b8
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874896"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992140"
 ---
-# <a name="collect-data-about-azure-virtual-machines"></a>Raccogliere dati sulle macchine virtuali di Azure
+# <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Raccogliere dati da una macchina virtuale di Azure con Monitoraggio di Azure
 
-[Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) può raccogliere i dati direttamente dalle macchine virtuali di Azure e da altre risorse dell'ambiente in un unico archivio per analisi dettagliate e per la correlazione. Questa guida introduttiva illustra come configurare e raccogliere dati dalle VM Linux o Windows di Azure in pochi semplici passaggi.  
+[Monitoraggio di Azure](../overview.md) può raccogliere dati direttamente dalle macchine virtuali di Azure in un'area di lavoro di Log Analytics per l'analisi dettagliata e la correlazione. L'installazione dell'estensione Log Analytics VM per [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) consente a Monitoraggio di Azure di raccogliere i dati dalle VM di Azure. Questa guida di avvio rapido illustra come configurare e raccogliere dati dalle VM Linux o Windows di Azure in pochi semplici passaggi tramite l'estensione VM.  
  
 Questa guida introduttiva presuppone che esista già una macchina virtuale di Azure. In caso contrario, è possibile [creare una VM Windows](../../virtual-machines/windows/quick-create-portal.md) o [creare una VM Linux](../../virtual-machines/linux/quick-create-cli.md) seguendo le guide introduttive sulle VM.
 
@@ -33,7 +33,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
-1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
+1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
 
     ![Portale di Azure](media/quick-collect-azurevm/azure-portal-01.png)<br>  
 
@@ -55,7 +55,7 @@ Per tenere traccia dello stato di avanzamento della verifica delle informazioni 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Per le macchine virtuali Windows e Linux già distribuite in Azure, si installa l'agente di Log Analytics con l'estensione VM di Log Analytics. L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti. Prima di procedere, verificare che la macchina virtuale sia in esecuzione, in caso contrario il processo non verrà completato correttamente.  
+Per le macchine virtuali Windows e Linux già distribuite in Azure, si installa l'agente di Log Analytics con l'estensione VM di Log Analytics. L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro Log Analytics specificata. L'agente viene anche aggiornato automaticamente quando viene rilasciata una nuova versione, assicurando la presenza delle funzionalità e delle correzioni più recenti. Prima di procedere, verificare che la macchina virtuale sia in esecuzione, in caso contrario il processo non verrà completato correttamente.  
 
 >[!NOTE]
 >L'agente di Log Analytics per Linux non può essere configurato per inviare report a più di un'area di lavoro Log Analytics. 
@@ -74,7 +74,7 @@ Per le macchine virtuali Windows e Linux già distribuite in Azure, si installa 
 
 ## <a name="collect-event-and-performance-data"></a>Raccogliere dati su eventi e prestazioni
 
-Log Analytics può raccogliere gli eventi dai registri eventi di Windows o da Syslog Linux e i contatori delle prestazioni specificati per l'analisi a lungo termine e la creazione di report e intervenire quando viene rilevata una particolare condizione. Seguire questi passaggi per configurare la raccolta di eventi dal registro di sistema di Windows e da Syslog Linux e di diversi comuni contatori delle prestazioni con cui iniziare.  
+Monitoraggio di Azure può raccogliere gli eventi dai registri eventi di Windows o da Syslog Linux e i contatori delle prestazioni specificati per l'analisi più a lungo termine e la creazione di report, nonché intervenire quando viene rilevata una particolare condizione. Seguire questi passaggi per configurare la raccolta di eventi dal registro di sistema di Windows e da Syslog Linux e di diversi comuni contatori delle prestazioni con cui iniziare.  
 
 ### <a name="data-collection-from-windows-vm"></a>Raccolta di dati da una VM Windows
 
@@ -124,15 +124,15 @@ Log Analytics può raccogliere gli eventi dai registri eventi di Windows o da Sy
 
 Ora che la raccolta di dati è stata abilitata, verrà eseguito un semplice esempio di ricerca log per visualizzare alcuni dati dalle VM di destinazione.  
 
-1. Nel portale di Azure passare a Log Analytics e selezionare l'area di lavoro creata prima.
+1. Nel riquadro sinistro dell'area di lavoro selezionata scegliere **Log**.
 
-2. Selezionare il riquadro **Ricerca log**, nel riquadro Ricerca log digitare `Perf` nel campo della query e quindi premere INVIO o selezionare il pulsante di ricerca a destra del campo della query.
+2. Nella pagina di query di Log digitare `Perf` nell'editor di query e selezionare **Esegui**.
 
-    ![Esempio di query di ricerca log di Log Analytics](./media/quick-collect-azurevm/log-analytics-portal-perf-query.png) 
+    ![Esempio di query di ricerca log di Log Analytics](./media/quick-collect-windows-computer/log-analytics-portal-queryexample.png) 
 
-La query nella figura seguente, ad esempio, ha restituito 735 record relativi alle prestazioni.  I risultati effettivi saranno molti di meno.
+    La query nella figura seguente, ad esempio, ha restituito 10.000 record relativi alle prestazioni. I risultati effettivi saranno molti di meno.
 
-![Risultato della ricerca log di Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
+    ![Risultato della ricerca log di Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -4,15 +4,15 @@ description: Informazioni su come eseguire l'onboarding di un cliente nella gest
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: d1876977d819b50569b6f07242af91fb1d6832ee
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 35cf61897d012690f0a0f752a7cb36270e11e10e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934325"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012071"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 
@@ -20,7 +20,7 @@ Questo articolo illustra come un provider di servizi può eseguire l'onboarding 
 
 È possibile ripetere questo processo se si gestiscono risorse per più clienti. Quando un utente autorizzato accede al tenant, tale utente può quindi essere autorizzato negli ambiti di tenancy dei clienti a eseguire operazioni di gestione senza dover accedere al tenant di ogni singolo cliente.
 
-È possibile associare l'ID MPN (Microsoft Partner Network) alle sottoscrizioni caricate per tenere traccia dell'impatto sugli engagement dei clienti. Per altre informazioni, vedere [Collegare un ID partner agli account Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
+È possibile associare l'ID MPN (Microsoft Partner Network) alle sottoscrizioni caricate per tenere traccia dell'impatto sugli engagement dei clienti e ricevere riconoscimento. Per altre informazioni, vedere [Collegare un ID partner agli account Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Si noti che è necessario eseguire questa associazione separatamente per ogni tenant del cliente in cui vengono gestite le risorse. 
 
 > [!NOTE]
 > È possibile eseguire l'onboarding automatico dei clienti quando acquistano un'offerta di servizi gestiti (pubblica o privata) pubblicata in Azure Marketplace. Per altre informazioni, vedere [Pubblicare offerte di servizi gestiti in Azure Marketplace](publish-managed-services-offers.md). È anche possibile usare il processo di onboarding descritto qui con un'offerta pubblicata in Azure Marketplace.

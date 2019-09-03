@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: fd1be6e2354a87bfb0de87b85fe46a1feb42100c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 56a73449c69010bc97122023f7dcbc9e3a9df154
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881600"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047997"
 ---
-# <a name="what-is-azure-iot-plug-and-play-preview"></a>Informazioni su Plug and Play IoT (anteprima) di Azure
+# <a name="what-is-iot-plug-and-play-preview"></a>Informazioni su Plug and Play IoT (anteprima)
 
 Plug and Play IoT (anteprima) consente agli sviluppatori di soluzioni di integrare nei dispositivi le proprie soluzioni senza scrivere codice incorporato. La parte centrale di Plug and Play IoT Internet è costituita da uno schema del _modello di funzionalità di dispositivo_ che descrive le funzionalità dei dispositivi. Questo schema è un documento JSON strutturato come un set di interfacce che includono definizioni di:
 

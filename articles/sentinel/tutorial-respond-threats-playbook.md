@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/25/2019
+ms.date: 8/21/2019
 ms.author: rkarlin
-ms.openlocfilehash: cd3288e308308729cf9b97e3c699d489857840a8
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 08c88df2f8ccc69f213687209d1d003f3bb1c7b8
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780382"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018792"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Esercitazione: Configurare le risposte automatiche alle minacce nell'anteprima di Azure Sentinel
 
@@ -104,9 +104,7 @@ Molti di questi avvisi, se non la maggior parte, seguono modelli ricorrenti che 
 
 Per automatizzare le risposte:
 
-1. Scegliere l'avviso per cui si vuole automatizzare la risposta.
-1. Nel menu di spostamento dell'area di lavoro di Azure Sentinel selezionare **Analisi**.
-1. Selezionare l'avviso da automatizzare. 
+1. Selezionare l'avviso per cui si vuole automatizzare la risposta.
 1. Nella pagina **Modifica la regola di avviso**, in **Playbook attivati** della sezione **Automazione in tempo reale**, scegliere il playbook che si vuole eseguire quando viene trovata una corrispondenza con la regola di avviso.
 1. Selezionare **Salva**.
 

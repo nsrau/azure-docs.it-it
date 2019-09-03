@@ -4,21 +4,21 @@ description: Quando si usa la gestione delle risorse delegata di Azure, è impor
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 09552c66d2dc841cff8b5cb52e26dc657568e08f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 399d2cb829c0425e3c9ee70a61cafde8568f903b
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810995"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012102"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse e programma Cloud Solution Provider
 
-I partner [CSP (Cloud Solution Provider)](https://docs.microsoft.com/partner-center/csp-overview) possono accedere alle sottoscrizioni di Azure create per i clienti tramite il programma CSP usando la funzionalità [Amministra per conto terzi](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO). Questo accesso consente di supportare, configurare e gestire le sottoscrizioni dei clienti direttamente.
+I partner [CSP (Cloud Solution Provider)](https://docs.microsoft.com/partner-center/csp-overview) possono già accedere alle sottoscrizioni di Azure create per i clienti tramite il programma CSP usando la funzionalità [Amministra per conto terzi](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO). Questo accesso consente di supportare, configurare e gestire le sottoscrizioni dei clienti direttamente.
 
-Il meccanismo Amministra per conto terzi concede l'accesso completo agli ambienti dei clienti. L'uso della gestione delle risorse delegate di Azure insieme alla funzionalità Amministra per conto terzi consente di migliorare la sicurezza, permettendo di ridurre gli accessi non necessari abilitando autorizzazioni più granulari per gli utenti. 
+Con Azure Lighthouse è possibile usare la gestione risorse delegate di Azure insieme ad Amministra per conto terzi. In questo modo è possibile migliorare la sicurezza e ridurre l'accesso non necessario abilitando autorizzazioni più granulari per gli utenti. È inoltre possibile aumentare l'efficienza e la scalabilità, in quanto gli utenti possono lavorare con più sottoscrizioni dei clienti usando un unico account di accesso nel tenant.
 
 ## <a name="administer-on-behalf-of-aobo"></a>Funzionalità Amministra per conto terzi
 
@@ -32,19 +32,10 @@ Usando la gestione delle risorse delegate di Azure, è possibile assegnare grupp
 
 Per eseguire l'onboarding di una sottoscrizione creata tramite il programma CSP, seguire la procedura descritta in [Eseguire l'onboarding di una sottoscrizione nella gestione risorse delegate di Azure](../how-to/onboard-customer.md). Tutti gli utenti che hanno il ruolo Agente amministratore nel tenant possono eseguire questa operazione di onboarding.
 
-Si noti che per le sottoscrizioni create tramite i programmi CSP, le richieste di supporto possono essere generate solo dagli utenti con il ruolo Agente amministratore nel tenant del provider di servizi. Gli utenti aggiunti tramite la gestione risorse delegate di Azure non potranno aprire richieste di supporto per le risorse delegate in queste sottoscrizioni.
-
 ![Gestione dei tenant tramite la funzionalità Amministra per conto terzi e la gestione risorse delegate di Azure](../media/csp-2.jpg)
-
-## <a name="partner-admin-link"></a>Collegamento amministrazione partner
-
-È possibile associare l'ID MPN (Microsoft Partner Network) alle sottoscrizioni caricate per tenere traccia dell'impatto sugli engagement dei clienti.
-
-Se si [pubblica un'offerta di servizio gestito in Azure Marketplace](../how-to/publish-managed-services-offers.md), l'ID MPN viene associato al profilo di pubblicazione e automaticamente associato all'offerta. I ricavi generati dalle risorse di Azure tramite questa offerta verranno quindi attribuiti all'organizzazione. Nei sistemi per la creazione di report dei partner, ad esempio Centro per i partner o MPN, l'attribuzione verrà visualizzata come Collegamento amministratore partner.
-
-Se si [esegue l'onboarding dei clienti per la gestione risorse delegate di Azure usando i modelli di Azure Resource Manager](../how-to/onboard-customer.md), è comunque possibile associare l'ID MPN per ricevere il riconoscimento per l'impatto sugli engagement dei clienti, ma sarà necessario effettuare questa operazione manualmente. Per altre informazioni, vedere [Collegare un ID partner agli account Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sulle [esperienze di gestione tra tenant](cross-tenant-management-experience.md).
+- Informazioni su come [eseguire l'onboarding di una sottoscrizione di un cliente nella gestione risorse delegate di Azure](../how-to/onboard-customer.md).
 - Informazioni sul [programma Cloud Solution Provider](https://docs.microsoft.com/partner-center/csp-overview).

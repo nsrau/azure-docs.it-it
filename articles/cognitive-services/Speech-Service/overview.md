@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: da88c6d0195236a6f93f81d3296e4624228125f2
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624270"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068836"
 ---
 # <a name="what-are-the-speech-services"></a>Informazioni sui servizi Voce
 
@@ -84,12 +84,10 @@ Il codice di esempio è disponibile in GitHub per ognuno dei servizi Voce di Azu
 
 I servizi Voce di Azure funzionano bene con i modelli predefiniti, tuttavia, è possibile personalizzare e ottimizzare l'esperienza per un prodotto o ambiente. Le opzioni di personalizzazione spaziano dall'ottimizzazione del modello acustico ai caratteri voce univoci per il proprio marchio. Dopo aver creato un modello personalizzato, è possibile usarlo con uno qualsiasi dei servizi Voce di Azure.
 
-| Servizio di riconoscimento vocale | Modello | DESCRIZIONE |
-|----------------|-------|-------------|
-| Riconoscimento vocale | [Modello acustico](how-to-customize-acoustic-models.md) | Creazione di un modello acustico personalizzato per applicazioni, strumenti o dispositivi usati in ambienti particolari, ad esempio in un'automobile o in fabbrica, ognuno con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
-| | [Modello linguistico](how-to-customize-language-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |
-| | [Modello di pronuncia](how-to-customize-pronunciation.md) | Con un modello di pronuncia personalizzato è possibile definire la forma fonetica e visualizzare una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Tutto ciò che serve è un file di pronunce, un semplice file con estensione TXT. |
-| Sintesi vocale | [Carattere voce](how-to-customize-voice-font.md) | I caratteri voce personalizzati consentono di creare una voce distintiva e unica per il proprio marchio. Per iniziare è necessaria solo una piccola quantità di dati. Più dati si forniscono, più naturale e umano risulterà il carattere voce. |
+| Servizio di riconoscimento vocale | Piattaforma | DESCRIZIONE |
+|----------------|-------------|-------------|
+| Riconoscimento vocale | [Riconoscimento vocale personalizzato](https://aka.ms/customspeech) | Personalizzare i modelli di riconoscimento vocale in base alle esigenze e ai dati disponibili. Superare gli ostacoli al riconoscimento vocale, come il modo di parlare, il vocabolario e il rumore di fondo. |
+| Sintesi vocale | [Voce personalizzata](https://aka.ms/customvoice) | Creare un'unica voce riconoscibile per le app di sintesi vocale con i dati della lingua disponibili. È possibile ottimizzare ulteriormente gli output vocali regolando un set di parametri vocali. |
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 

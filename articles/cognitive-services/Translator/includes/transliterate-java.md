@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 14c8bf746df5a9423c6c29306addb7a7be2251b4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ad5c51b3d373947e8a09762b0cb27afff990e6da
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968032"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906522"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 o versione successiva](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
-* Una chiave di sottoscrizione di Azure per Traduzione testuale
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="initialize-a-project-with-gradle"></a>Inizializzare un progetto con Gradle
 
@@ -90,11 +88,12 @@ public class Transliterate {
 }
 ```
 
-Aggiungere le righe seguenti alla classe `Transliterate`. Si noterà che oltre a `api-version`, sono stati aggiunti altri due parametri a `url`. Questi parametri vengono usati per impostare la lingua di input e gli script per la traslitterazione. In questo esempio sono impostati sulla lingua giapponese (`jpan`) e sulla lingua latina (`latn`). Assicurarsi di aggiornare il valore della chiave di sottoscrizione.
+Aggiungere le righe seguenti alla classe `Transliterate`. Prima di tutto, si noterà che la chiave e l'endpoint della sottoscrizione vengono letti dalle variabili di ambiente. Quindi, si noterà che oltre a `api-version`, sono stati aggiunti altri due parametri a `url`. Questi parametri vengono usati per impostare la lingua di input e gli script per la traslitterazione. In questo esempio sono impostati sulla lingua giapponese (`jpan`) e sulla lingua latina (`latn`). 
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
 ```
 Se si usa una sottoscrizione multiservizio di Servizi cognitivi, è necessario includere anche `Ocp-Apim-Subscription-Region` nei parametri della richiesta. [Informazioni sull'autenticazione con la sottoscrizione multiservizio](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

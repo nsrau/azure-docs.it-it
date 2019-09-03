@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 12ea21a3f61404c2e031909adda28f8e1e768cd0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081991"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992075"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Esercitazione: Rispondere agli eventi imprevisti per la sicurezza
 Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence delle minacce per segnalare attività dannose. È anche possibile integrare nel Centro sicurezza gli avvisi generati da altri servizi e prodotti per la sicurezza e creare avvisi personalizzati in base a indicatori o origini di intelligence dell'utente. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione. In questa esercitazione si apprenderà come:
@@ -34,6 +34,28 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per esaminare le funzionalità descritte in questa esercitazione è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). La [Guida introduttiva per il Centro sicurezza di Azure ](security-center-get-started.md) illustra come eseguire l'aggiornamento al livello Standard.
+
+## <a name="scenario"></a>Scenario
+Contoso ha recentemente eseguito la migrazione di alcune delle risorse locali in Azure, inclusi alcuni carichi di lavoro e database SQL di linea di business basati sulle macchine virtuali. Il team di risposta agli eventi imprevisti della sicurezza di Contoso ha attualmente difficoltà nell'analisi dei problemi di sicurezza, data la mancanza di una intelligence di sicurezza integrata con gli attuali strumenti di risposta agli eventi imprevisti. Questa mancata integrazione costituisce un problema durante la fase di rilevamento (troppi falsi positivi) e durante le fasi di valutazione e diagnosi. Nell'ambito di questa migrazione, il team ha deciso di ricorrere al Centro sicurezza per risolvere questo problema.
+
+La prima fase della migrazione è stata completata dopo l'onboarding di tutte le risorse e l'adozione di tutte le raccomandazioni del Centro sicurezza. Il team di risposta agli eventi imprevisti della sicurezza di Contoso è il punto focale per la gestione degli eventi imprevisti della sicurezza relativi ai computer. Il team è costituito da un gruppo di persone responsabili della gestione di eventuali eventi imprevisti della sicurezza. I membri del team hanno mansioni chiaramente definite per garantire che vengano coperte tutte le aree della risposta.
+
+Ai fini di questo scenario verranno presi in esame i ruoli degli utenti seguenti che appartengono al team di risposta agli eventi imprevisti della sicurezza di Contoso:
+
+![Ciclo di vita della risposta agli eventi imprevisti](./media/tutorial-security-incident/security-center-incident-response.png)
+
+Alice si occupa delle attività di sicurezza. Le sue responsabilità includono:
+
+* Monitoraggio e risposta alle minacce per la sicurezza 24 ore su 24.
+* Escalation al proprietario dei carichi di lavoro nel cloud o all'analista della sicurezza in base alle esigenze.
+
+Guido è un analista della sicurezza e le sue responsabilità includono:
+
+* Analisi degli attacchi.
+* Risoluzione degli avvisi.
+* Collaborazione con i proprietari dei carichi di lavoro per determinare e applicare soluzioni di mitigazione.
+
+Come si può notare, Alice e Guido hanno responsabilità diverse e devono interagire tra loro per condividere le informazioni del Centro sicurezza.
 
 ## <a name="triage-security-alerts"></a>Valutare gli avvisi di sicurezza
 Il Centro sicurezza offre una vista centralizzata di tutti gli avvisi di sicurezza. Gli avvisi di sicurezza vengono classificati in base alla gravità e gli avvisi correlati vengono riuniti in un unico evento imprevisto, quando possibile. Nella valutazione di avvisi ed eventi imprevisti è necessario:

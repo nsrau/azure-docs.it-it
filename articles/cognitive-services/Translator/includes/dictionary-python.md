@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 3d4711a6fb8230ab7dd382ec548d7b211fe8c6ee
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 6c72cd270e634ca0aebff7c17d5663241428e182
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968048"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907036"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-Questa guida introduttiva richiede:
-
-* Python 2.7.x o 3.x
-* Una chiave di sottoscrizione di Azure per Traduzione testuale
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
@@ -24,10 +21,7 @@ Creare un nuovo progetto Python usando l'IDE o l'editor preferito oppure creare 
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -35,27 +29,25 @@ import json
 
 Il primo commento indica all'interprete Python di usare la codifica UTF-8. I moduli necessari vengono quindi importati per leggere la chiave di sottoscrizione da una variabile di ambiente, costruire la richiesta http, creare un identificatore univoco e gestire la risposta JSON restituita dall'API Traduzione testuale.
 
-## <a name="set-the-subscription-key-base-url-and-path"></a>Impostare la chiave di sottoscrizione, l'URL di base e il percorso
+## <a name="set-the-subscription-key-endpoint-and-path"></a>Impostare la chiave, l'endpoint e il percorso della sottoscrizione
 
-Questo esempio proverà a leggere la chiave di sottoscrizione di Traduzione testuale dalla variabile di ambiente `TRANSLATOR_TEXT_KEY`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `subscriptionKey` come stringa e l'istruzione condizionale come commento.
+Questo esempio proverà a leggere la chiave e l'endpoint della sottoscrizione di Traduzione testuale dalle variabili di ambiente `TRANSLATOR_TEXT_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `subscription_key` e `endpoint` come stringhe e le istruzioni condizionali come commenti.
 
 Copiare questo codice nel progetto:
 
 ```python
-# Checks to see if the Translator Text subscription key is available
-# as an environment variable. If you are setting your subscription key as a
-# string, then comment these lines out.
-if 'TRANSLATOR_TEXT_KEY' in os.environ:
-    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
-else:
-    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
-    exit()
-# If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key. Then, be sure to delete your "os" import.
-# subscriptionKey = 'put_your_key_here'
+key_var_name = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
-L'endpoint globale di Traduzione testuale viene impostato come `base_url`. `path` imposta la route `dictionary/lookup` e identifica che si vuole usare la versione 3 dell'API.
+L'endpoint globale di Traduzione testuale viene impostato come `endpoint`. `path` imposta la route `dictionary/lookup` e identifica che si vuole usare la versione 3 dell'API.
 
 `params` viene usato per impostare le lingue di origine e di output. In questo esempio vengono usate le lingue inglese e spagnolo: `en` e `es`.
 
@@ -63,10 +55,9 @@ L'endpoint globale di Traduzione testuale viene impostato come `base_url`. `path
 > Per altre informazioni su endpoint, route e parametri della richiesta, consultare [API Traduzione testuale 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/dictionary/lookup?api-version=3.0'
 params = '&from=en&to=es'
-constructed_url = base_url + path + params
+constructed_url = endpoint + path + params
 ```
 
 ## <a name="add-headers"></a>Aggiungere le intestazioni
@@ -77,7 +68,7 @@ Copiare questo frammento di codice nel progetto:
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Key': subscription_key,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }

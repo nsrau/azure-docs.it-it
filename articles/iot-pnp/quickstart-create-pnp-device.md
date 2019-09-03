@@ -1,5 +1,5 @@
 ---
-title: Creare un dispositivo Plug and Play IoT (anteprima) di Azure | Microsoft Docs
+title: Creare un dispositivo Plug and Play IoT (anteprima) | Microsoft Docs
 description: Usare un modello di funzionalità di dispositivo per generare il codice del dispositivo. Eseguire quindi il codice del dispositivo per connetterlo all'hub IoT.
 author: miagdp
 ms.author: miag
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 7cfa6e63f74233e9a3fab8f235584fdbe01e67d9
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 386c2fa23e8d01f696ef3cf6078bac5fcec58f05
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881540"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050126"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device"></a>Guida introduttiva: Usare un modello di funzionalità di dispositivo per creare un dispositivo Plug and Play IoT
 

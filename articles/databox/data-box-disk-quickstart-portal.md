@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 02/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 65bf4e973ce33b2898abf585fe306a8bc85c64a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cbc55433517174c8080b941ca8526e5a4fd3427d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477790"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126021"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "67477790"
 
 ::: zone target="chromeless"
 
-# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Introduzione ad Azure Data Box Disk con il portale di Azure
+## <a name="get-started-with-azure-data-box-disk"></a>Introduzione ad Azure Data Box Disk 
 
 ::: zone-end
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ::: zone target="chromeless"
 
-Questa guida introduttiva descrive come distribuire Azure Data Box Disk tramite il portale di Azure. I passaggi includono la revisione dei prerequisiti, lo sblocco dei dischi, la connessione e la copia dei dati sui dischi in modo che vengano caricati in Azure.
+Questa guida descrive come distribuire Azure Data Box Disk nel portale di Azure. I passaggi includono la revisione dei prerequisiti, lo sblocco dei dischi, la connessione e la copia dei dati nei dischi in modo che vengano caricati in Azure.
 
 ::: zone-end
 
@@ -60,10 +60,11 @@ Accedere al portale di Azure all'indirizzo [https://aka.ms/azuredataboxfromdiskd
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 - L'ordine per Data Box Disk è stato effettuato usando l'[Esercitazione: Ordinare Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 - Sono stati ricevuti i dischi e lo stato del processo nel portale viene aggiornato a **Recapitato**.
+- È stato verificato il numero di dischi ricevuti ed è disponibile un cavo di connessione per ogni disco.
 - Sia disponibile un computer client da cui è possibile copiare i dati. Il computer client deve:
 
     - Eseguire un [sistema operativo supportato](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).

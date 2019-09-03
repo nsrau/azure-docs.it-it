@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: aahi
-ms.openlocfilehash: ee4551f6a31436ef2322fcea3a0c479b45036993
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 8c5df8461c74d48c0712ab1947e29813e7e1ea3f
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697625"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032671"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -81,7 +81,7 @@ Questa sezione è stata spostata in un articolo separato per una migliore rintra
 
 ## <a name="data-limits"></a>Limiti dei dati
 
-Tutti gli endpoint dell'API Analisi del testo accettano dati di testo non elaborati. Il limite corrente è di 5.120 caratteri per ogni documento. Se è necessario analizzare documenti di dimensioni maggiori, è possibile suddividerli in blocchi più piccoli. Se si richiede comunque un limite maggiore [contattare Microsoft](https://azure.microsoft.com/overview/sales-number/) in modo da poter discutere dei requisiti.
+Tutti gli endpoint dell'API Analisi del testo accettano dati di testo non elaborati. Il limite corrente è di 5.120 caratteri per ogni documento. Se è necessario analizzare documenti di dimensioni maggiori, è possibile suddividerli in blocchi più piccoli.
 
 | Limite | Valore |
 |------------------------|---------------|
@@ -93,7 +93,7 @@ Il limite di frequenza varia con il piano tariffario.
 
 | Livello          | Richieste al secondo | Richieste al minuto |
 |---------------|---------------------|---------------------|
-| Multi-servizio | 1000                | 1000                |
+| S/multiservizio | 1000                | 1000                |
 | S0/F0         | 100                 | 300                 |
 | S1            | 200                 | 300                 |
 | S2            | 300                 | 300                 |

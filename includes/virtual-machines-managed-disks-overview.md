@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 444e64488b185b1ff2aa7cc63fbeffafc591dbfe
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: 69c63d4eb2e0bfd04bb232cb0cf39965a5b77193
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68319999"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104262"
 ---
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -77,7 +77,9 @@ Ogni macchina virtuale contiene un disco temporaneo che non è un disco gestito.
 
 ## <a name="managed-disk-snapshots"></a>Snapshot dei dischi gestiti
 
-Uno snapshot del disco gestito è una copia completa di sola lettura coerente con l'arresto anomalo del sistema di un disco gestito che viene archiviata come disco gestito Standard per impostazione predefinita. Gli snapshot permettono di eseguire il backup dei dischi gestiti in qualsiasi momento. Questi snapshot esistono indipendentemente dal disco di origine e possono essere usati per creare nuove istanze di dischi gestiti. Vengano addebitati in funzione della dimensione usata. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GiB e una dimensione di dati effettivamente usata di 10 GiB, viene addebitato solo lo snapshot relativo alla dimensione di dati usata di 10 GiB.  
+Uno snapshot del disco gestito è una copia completa di sola lettura coerente con l'arresto anomalo del sistema di un disco gestito che viene archiviata come disco gestito Standard per impostazione predefinita. Gli snapshot permettono di eseguire il backup dei dischi gestiti in qualsiasi momento. Questi snapshot esistono indipendentemente dal disco di origine e possono essere usati per creare nuove istanze di dischi gestiti. 
+
+Gli snapshot vengono fatturati in base alle dimensioni usate. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GiB e una dimensione di dati effettivamente usata di 10 GiB, viene addebitato solo lo snapshot relativo alla dimensione di dati usata di 10 GiB. È possibile visualizzare le dimensioni usate degli snapshot esaminando il [report sull'utilizzo di Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Se ad esempio le dimensioni dei dati usati di uno snapshot sono 10 GiB, il report sull'utilizzo visualizzerà 10 GiB/(31 giorni x 24 ore) = 0,013441 GiB come quantità utilizzata.
 
 Per altre informazioni su come creare snapshot con dischi gestiti, vedere le risorse seguenti:
 
