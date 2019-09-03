@@ -6,15 +6,15 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 08/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 23b0990be7f215d9cc443c5549ae38de86826d17
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68310510"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114607"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine in Registro Azure Container 
 
@@ -72,7 +72,16 @@ Quando viene aggiornata un'immagine di base, diventa necessario ricompilare tutt
 
 ### <a name="tasks-triggered-by-a-base-image-update"></a>Attività attivate da un aggiornamento di un'immagine di base
 
-* Attualmente, per la creazione di immagini da un documento Dockerfile, un'attività di Registro Azure Container rileva le dipendenze da immagini di base nella stessa istanza di Registro Azure Container, in un repository Docker Hub pubblico o in un repository pubblico nel registro contenitori di Microsoft. Se l'immagine di base specificata nell'istruzione `FROM` si trova in una di queste posizioni, l'attività di Registro Azure Container aggiunge un hook per garantire la ricompilazione dell'immagine ogni volta che viene aggiornata la relativa immagine di base.
+* Per la creazione di immagini da un documento Dockerfile, un'attività di Registro Azure Container rileva le dipendenze da immagini di base nelle posizioni seguenti:
+
+  * La stessa istanza di Registro Azure Container in cui viene eseguita l'attività
+  * Un'altra istanza di Registro Azure Container nella stessa area 
+  * Un repository pubblico in Docker Hub 
+  * Un repository pubblico in Registro contenitori di Microsoft
+
+   Se l'immagine di base specificata nell'istruzione `FROM` si trova in una di queste posizioni, l'attività di Registro Azure Container aggiunge un hook per garantire la ricompilazione dell'immagine ogni volta che viene aggiornata la relativa immagine di base.
+
+* Attualmente un'attività di Registro Azure Container tiene traccia solo degli aggiornamenti delle immagini di base per le immagini dell'applicazione (*runtime*). Non tiene traccia degli aggiornamenti delle immagini di base per le immagini intermedie (*buildtime*) usate in Dockerfile in più fasi.  
 
 * Quando si crea un'attività di Registro Azure Container con il comando [az acr task create][az-acr-task-create], per impostazione predefinita l'attività è impostata come *enabled* per essere attivata in caso di aggiornamento dell'immagine di base. Ciò significa che la proprietà `base-image-trigger-enabled` è impostata su True. Se si vuole disabilitare questo comportamento in un'attività, aggiornare la proprietà impostandola su False. Eseguire ad esempio il comando [az acr task update][az-acr-task-update] seguente:
 
@@ -82,7 +91,7 @@ Quando viene aggiornata un'immagine di base, diventa necessario ricompilare tutt
 
 * Per consentire all'attività del Registro Azure Container di determinare le dipendenze di un'immagine del contenitore, tra cui l'immagine di base, e tenerne traccia, è prima di tutto necessario attivare l'attività **almeno una volta**. Attivare ad esempio l'attività manualmente usando il comando [az acr task run][az-acr-task-run].
 
-* Per attivare un'attività in caso di aggiornamento di un'immagine di base, l'immagine di base deve avere un tag *stabile*, ad esempio `node:9-alpine`. Questo tag è tipico per un'immagine di base che viene aggiornata con le patch di sistema operativo e framework all'ultima versione stabile. Se l'immagine di base viene aggiornata con un nuovo tag di versione, l'attività non viene attivata. Per altre informazioni sull'uso di tag per le immagini, vedere le [procedure consigliate](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
+* Per attivare un'attività in caso di aggiornamento di un'immagine di base, l'immagine di base deve avere un tag *stabile*, ad esempio `node:9-alpine`. Questo tag è tipico per un'immagine di base che viene aggiornata con le patch di sistema operativo e framework all'ultima versione stabile. Se l'immagine di base viene aggiornata con un nuovo tag di versione, l'attività non viene attivata. Per altre informazioni sull'uso di tag per le immagini, vedere le [procedure consigliate](container-registry-image-tag-version.md). 
 
 ### <a name="base-image-update-scenario"></a>Scenario di aggiornamento dell'immagine di base
 
@@ -217,7 +226,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 L'output è simile al seguente. Il valore di TRIGGER per l'ultima compilazione eseguita sarà "Image Update", che indica che l'attività è stata avviata dall'attività rapida dell'immagine di base.
 
 ```console
-$ az acr task list-builds --registry $ACR_NAME --output table
+$ az acr task list-runs --registry $ACR_NAME --output table
 
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------

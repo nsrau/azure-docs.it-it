@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: cc062f830facb0d617dc649ecd17acfff0a740af
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69618931"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125213"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services
 
@@ -43,6 +43,9 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
 * Per abilitare Azure AD DS, sono necessari privilegi di *amministratore globale* nel tenant di Azure AD.
 * Per creare le risorse di Azure AD DS richieste, sono necessari privilegi di *collaboratore* nella sottoscrizione di Azure.
 * Il tenant di Azure AD deve essere [configurato per la reimpostazione delle password self-service][configure-sspr].
+
+> [!IMPORTANT]
+> Dopo aver creato un dominio gestito Azure Active Directory Domain Services, non è possibile spostare l'istanza in un gruppo di risorse, una rete virtuale o una sottoscrizione diversa. Quando si distribuisce l'istanza di Azure Active Directory Domain Services, prestare attenzione a selezionare la sottoscrizione, il gruppo di risorse, l'area e la rete virtuale più appropriati.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -222,6 +225,6 @@ Per vedere il dominio gestito in azione, creare e aggiungere una macchina virtua
 [network-considerations]: network-considerations.md
 [create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
-[on-prem-sync]: active-directory-ds-getting-started-password-sync-synced-tenant.md
+[on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services

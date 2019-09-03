@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 08/28/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f22273a28d5e4207712bdba71ef788629d51916e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1f7c212b7bb850816557feb53099973986bab587
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321660"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114501"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure
 
@@ -130,7 +130,7 @@ Concedere alla rete CDN di Azure l'autorizzazione ad accedere ai certificati (se
 
     ![Impostazioni del criterio di accesso](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. In **Autorizzazioni segrete** selezionare **Recupera** per consentire alla rete CDN di usare queste autorizzazioni per recuperare ed elencare i certificati. 
+3. Selezionare **Recupera > Autorizzazioni dei segreti** e quindi ottenere ed elencare le **Autorizzazioni del certificato** per consentire alla rete CDN di eseguire queste autorizzazioni per ottenere ed elencare i certificati. 
 
 4. Selezionare **OK**. 
 
@@ -312,6 +312,9 @@ La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazion
 
     Se Microsoft rileva che all'applicazione vengono effettuate esclusivamente richieste client SNI, i domini esistenti verranno gradualmente migrati al certificato unico nei prossimi mesi. Se Microsoft rileva invece che all'applicazione vengono effettuate alcune richieste client non SNI, i domini rimarranno nel certificato SAN con configurazione TLS/SSL basata su IP. In ogni caso, non vi sarà alcuna interruzione del servizio o del supporto per le richieste client, sia che si tratti di richieste SNI o non SNI.
 
+7. *Come funzionano i rinnovi di certificati con il programma Bring Your Own Certificate?*
+
+    Per assicurarsi che nell'infrastruttura PoP venga distribuito un certificato più recente, caricare semplicemente il nuovo certificato in Azure Key Vault, quindi nelle impostazioni SSL della rete CDN di Azure scegliere la versione più recente del certificato e fare clic su Salva. La rete CDN di Azure propagherà quindi il nuovo certificato aggiornato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

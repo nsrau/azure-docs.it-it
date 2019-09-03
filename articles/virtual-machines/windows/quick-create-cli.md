@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva - Creare una macchina virtuale Windows con Azure PowerShell | Microsoft Docs
-description: In questa guida introduttiva si apprenderà come usare Azure PowerShell per creare una macchina virtuale Windows
+title: "Guida di avvio rapido: Creare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure | Microsoft Docs"
+description: Questa guida di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d50c3cc59bffba1c9124c59bbd6ed197025dabc8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: e6709a6efff80df01d7504db8b39f8ff5c2c5e49
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723007"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088849"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Guida introduttiva: Creare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure
 

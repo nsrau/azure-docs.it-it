@@ -113,7 +113,7 @@ Ad esempio, in una singola macchina virtuale creata in Azure possono essere crea
 
 Quando viene creata la macchina virtuale, ogni contatore inizia a emettere i record di utilizzo. L'utilizzo e il costo indicato dal contantore vengono registrati nel sistema di misurazione di Azure.
 
-## <a name="payment">Pagare la fattura</a>
+## <a name="payment"></a>Pagare la fattura
 
 Se si imposta una carta di credito come metodo di pagamento, il pagamento viene addebitato automaticamente entro 10 giorni dalla fine del periodo di fatturazione. Nell'estratto conto della carta di credito la voce sarà **MSFT Azure**.
 

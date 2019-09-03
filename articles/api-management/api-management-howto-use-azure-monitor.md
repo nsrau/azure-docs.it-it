@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680240"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072349"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -64,8 +63,9 @@ Per accedere alle metriche:
 
     ![Metriche](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Dall'elenco a discesa selezionare le metriche desiderate. Ad esempio, **Richieste gateway riuscite**. È anche possibile aggiungere più metriche al grafico.
-3. Il grafico mostra il numero totale di chiamate API con esito positivo.
+1. Dall'elenco a discesa selezionare le metriche desiderate. Ad esempio, **Richieste**. 
+1. Il grafico mostra il numero totale di chiamate API.
+1. È possibile filtrare il grafico usando le dimensioni della metrica **Richieste**. Ad esempio, fare clic su **Aggiungi filtro**, scegliere **Backend Response Code** (Codice di risposta back-end) e immettere 500 come valore. Il grafico mostra ora il numero di richieste non riuscite nel back-end dell'API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurare una regola di avviso per le richieste non autorizzate
 

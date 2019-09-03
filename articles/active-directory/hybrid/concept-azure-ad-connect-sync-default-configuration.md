@@ -80,11 +80,11 @@ Un oggetto contatto deve soddisfare i seguenti requisiti per essere sincronizzat
   * `IsPresent([proxyAddresses]) = True)`. L'attributo proxyAddresses deve essere compilato.
   * Un indirizzo di posta elettronica principale è disponibile nell'attributo proxyAddresses o nell'attributo mail. La presenza di un simbolo \@ consente di verificare che il contenuto sia un indirizzo di posta elettronica. Una di queste due regole deve restituire True.
     * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. È presente una voce con "SMTP:" e, in caso affermativo, è presente un simbolo \@ nella stringa?
-    * [https://login.microsoftonline.com/common/](`(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`). L'attributo mail è compilato e, in tal caso, è presente un simbolo \@ nella stringa?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. L'attributo mail è compilato e, in tal caso, è presente un simbolo \@ nella stringa?
 
 Gli oggetti contatto seguenti **non** vengono sincronizzati con Azure AD:
 
-* [https://login.microsoftonline.com/consumers/](`IsPresent([isCriticalSystemObject])`). Verificare che nessun oggetto contatto contrassegnato come critico venga sincronizzato. Non devono essere presenti oggetti contatto con una configurazione predefinita.
+* `IsPresent([isCriticalSystemObject])`). Verificare che nessun oggetto contatto contrassegnato come critico venga sincronizzato. Non devono essere presenti oggetti contatto con una configurazione predefinita.
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
 * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Questi oggetti non funzionerebbero in Exchange Online.
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Non sincronizzare oggetti generati dalla replica.
@@ -100,10 +100,10 @@ Un oggetto gruppo deve soddisfare i seguenti requisiti per essere sincronizzato:
 
 Gli oggetti di gruppo seguenti **non** vengono sincronizzati con Azure AD:
 
-* [https://login.microsoftonline.com/consumers/](`IsPresent([isCriticalSystemObject])`). Assicurarsi di non sincronizzare molti oggetti predefiniti in Active Directory, ad il gruppo predefinito Administrators.
+* `IsPresent([isCriticalSystemObject])`). Assicurarsi di non sincronizzare molti oggetti predefiniti in Active Directory, ad il gruppo predefinito Administrators.
 * `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Gruppo legacy usato da DirSync.
 * `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Gruppo di ruoli.
-* [https://login.microsoftonline.com/consumers/](`CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`). Non sincronizzare oggetti generati dalla replica.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Non sincronizzare oggetti generati dalla replica.
 
 ### <a name="foreignsecurityprincipal-out-of-box-rules"></a>Regole predefinite di ForeignSecurityPrincipal
 Le entità di protezione esterne vengono aggiunte a qualsiasi oggetto (\*) nel metaverse. Questa unione si verifica in realtà solo per gli utenti e i gruppi di sicurezza. Questa configurazione assicura che l'appartenenza a più foreste venga risolta e rappresentata correttamente in Azure AD.

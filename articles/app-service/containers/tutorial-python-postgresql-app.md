@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1cb9cd72908dc88ef2890764bc8d3fad88a82707
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: b5a21bd144558459ac60ae2da405f9ea57ca2fd1
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951914"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020193"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Creare un'app Web Python (Django) con PostgreSQL in Servizio app di Azure
 
@@ -140,9 +140,9 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-Andare a `http://localhost:8000` in un browser. Dovrebbe essere visualizzato il messaggio `No polls are available.`. 
+Passare a `http://localhost:8000` in un browser. Dovrebbe essere visualizzato il messaggio `No polls are available.`. 
 
-Passare a `http://localhost:8000/admin` e accedere con l'account di utente amministratore creato nel passaggio precedente. Fare clic su **Add** (Aggiungi) accanto a **Questions** (Domande) e creare una domanda di sondaggio con alcune scelte.
+Passare a `http://localhost:8000/admin` e accedere con l'account di utente amministratore creato nel passaggio precedente. Selezionare **Add** (Aggiungi) accanto a **Questions** (Domande) e creare una domanda di sondaggio con alcune scelte.
 
 ![Applicazione Python Django in esecuzione in locale](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
@@ -400,7 +400,7 @@ Passare a `<app-name>.azurewebsites.net` e accedere con l'account di utente ammi
 
 Passare al [portale di Azure](https://portal.azure.com) per visualizzare l'app creata.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
+Nel menu a sinistra scegliere **Servizi app** e quindi selezionare il nome dell'app Azure.
 
 ![Passaggio all'app di Azure nel portale](./media/tutorial-python-postgresql-app/app-resource.png)
 

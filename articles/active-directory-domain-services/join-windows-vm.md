@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: c3c3252ec2fd850a763bbbf089d470df5173843f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612491"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073900"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Esercitazione: Aggiungere una macchina virtuale Windows Server a un dominio gestito
 
@@ -153,15 +153,23 @@ Una volta creata la macchina virtuale e stabilita una connessione RDP, si aggiun
 1. Per completare la procedura di aggiunta al dominio gestito di Azure Active Directory Domain Services, riavviare la macchina virtuale.
 
 > [!TIP]
-> È anche possibile aggiungere una macchina virtuale a un dominio usando PowerShell con il cmdlet [Add-Computer][add-computer]. Nell'esempio seguente la macchina virtuale viene aggiunta al dominio *CONTOSO* e quindi riavviata. Quando richiesto, immettere le credenziali relative a un utente appartenente al gruppo di *amministratori dei controller di dominio di Azure AD*:
+> È possibile aggiungere una macchina virtuale a un dominio usando PowerShell con il cmdlet [Add-Computer][add-computer]. Nell'esempio seguente la macchina virtuale viene aggiunta al dominio *CONTOSO* e quindi riavviata. Quando richiesto, immettere le credenziali relative a un utente appartenente al gruppo di *amministratori dei controller di dominio di Azure AD*:
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
+>
+> Per aggiungere al dominio una macchina virtuale senza connetterla e configurare manualmente la connessione, è anche possibile provare a usare il cmdlet [Set-AzVmAdDomainExtension][set-azvmaddomainextension] di Azure PowerShell.
 
 Dopo il riavvio della macchina virtuale Windows Server, i criteri applicati nel dominio gestito di Azure Active Directory Domain Services verranno inseriti tramite push nella macchina virtuale. È ora possibile accedere alla macchina virtuale Windows Server VM anche usando le credenziali di dominio appropriate.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Nell'esercitazione successiva si userà questa macchina virtuale Windows Server per installare gli strumenti di gestione che consentono di amministrare il dominio gestito di Azure Active Directory Domain Services. Se non si vuole proseguire con questa serie di esercitazioni, vedere la procedura di pulizia descritta di seguito per [disabilitare RDP](#disable-rdp) o [eliminare la macchina virtuale](#delete-the-vm). In caso contrario, [continuare con l'esercitazione successiva](#next-steps).
+
+### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>Rimuovere la macchina virtuale dal dominio gestito di Azure Active Directory Domain Services
+
+Per rimuovere la macchina virtuale dal dominio gestito di Azure Active Directory Domain Services, eseguire di nuovo la procedura per [aggiungere la macchina virtuale a un dominio](#join-the-vm-to-the-azure-ad-ds-managed-domain). Invece di aggiungere la macchina virtuale al dominio gestito di Azure Active Directory Domain Services, scegliere di aggiungere un gruppo di lavoro, ad esempio il gruppo di lavoro predefinito *WORKGROUP*. Dopo il riavvio della macchina virtuale, l'oggetto computer viene rimosso dal dominio gestito di Active Directory Domain Services.
+
+Se si [elimina la macchina virtuale](#delete-the-vm) senza rimuoverla dal dominio, in Azure Active Directory Domain Services rimarrà un oggetto computer orfano.
 
 ### <a name="disable-rdp"></a>Disabilitare RDP
 
@@ -231,3 +239,4 @@ Per amministrare il dominio gestito di Azure Active Directory Domain Services, c
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
 [jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
+[set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

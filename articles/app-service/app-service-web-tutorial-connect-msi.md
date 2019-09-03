@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 2cf5e0f6da52670d383a1d1508dc7bcc7847831f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 8a0b974e9b64d477e53c37757b4f2fa952befba2
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824558"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061872"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
@@ -58,9 +58,11 @@ Per eseguire il debug dell'app usando il database SQL come back-end, assicurarsi
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="grant-azure-ad-user-access-to-database"></a>Concedere l'accesso al database agli utenti di Azure AD
+## <a name="grant-database-access-to-azure-ad-user"></a>Concedere l'accesso al database all'utente di Azure AD
 
-Abilitare prima di tutto l'autenticazione di Azure AD nel database SQL assegnando un utente di Azure AD come amministratore di Active Directory del server di database SQL. Questo utente è diverso dall'account Microsoft usato per effettuare l'iscrizione alla sottoscrizione di Azure. Deve essere un utente creato, importato, sincronizzato o invitato in Azure AD. Per altre informazioni sugli utenti di Azure AD consentiti, vedere [Funzionalità e limitazioni di Azure AD nel database SQL](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). 
+Abilitare prima di tutto l'autenticazione di Azure AD nel database SQL assegnando un utente di Azure AD come amministratore di Active Directory del server di database SQL. Questo utente è diverso dall'account Microsoft usato per effettuare l'iscrizione alla sottoscrizione di Azure. Deve essere un utente creato, importato, sincronizzato o invitato in Azure AD. Per altre informazioni sugli utenti di Azure AD consentiti, vedere [Funzionalità e limitazioni di Azure AD nel database SQL](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations).
+
+Se il tenant di Azure AD non contiene ancora utenti, crearne uno seguendo la procedura descritta in [Aggiungere o eliminare utenti con Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 Trovare l'ID oggetto dell'utente di Azure AD tramite [`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) e sostituire *\<user-principal-name>* . Il risultato viene salvato in una variabile.
 
@@ -71,7 +73,7 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > Per visualizzare l'elenco di tutti i nomi delle entità utente in Azure AD, eseguire `az ad user list --query [].userPrincipalName`.
 >
 
-Aggiungere questo utente di Azure AD come amministratore di Active Directory usando il comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) in Cloud Shell. Nel comando seguente sostituire *\<server-name>* .
+Aggiungere questo utente di Azure AD come amministratore di Active Directory usando il comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) in Cloud Shell. Nel comando seguente sostituire *\<server-name>* con il nome del server di database SQL (senza il suffisso `.database.windows.net`).
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -170,7 +172,10 @@ var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
 conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
-Per connettersi al database SQL non sono necessarie altre modifiche. Quando si esegue il debug in Visual Studio, il codice usa l'utente di Azure AD configurato in [Configurare Visual Studio](#set-up-visual-studio). Il server di database SQL verrà configurato in un secondo momento per consentire la connessione dall'identità gestita dell'app del servizio app.
+> [!TIP]
+> Questo codice dimostrativo è sincrono per maggiore chiarezza. Per altre informazioni, vedere la [guida asincrona per i costruttori](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#constructors).
+
+Per connettersi al database SQL non sono necessarie altre modifiche. Quando si esegue il debug in Visual Studio, il codice usa l'utente di Azure AD configurato in [Configurare Visual Studio](#set-up-visual-studio). Il server di database SQL verrà configurato in un secondo momento per consentire la connessione dall'identità gestita dell'app del servizio app. La classe `AzureServiceTokenProvider` memorizza nella cache il token e lo recupera da Azure AD appena prima della scadenza. Per aggiornare il token, non è necessario specificare codice personalizzato.
 
 Digitare `Ctrl+F5` per eseguire di nuovo l'app. La stessa app CRUD nel browser si connette ora al database SQL di Azure direttamente, usando l'autenticazione di Azure AD. Questa configurazione consente di eseguire migrazioni del database da Visual Studio.
 

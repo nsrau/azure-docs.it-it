@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 6656c374ae0ff4aae7f99fd340e9e25e5cbc67d1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f80efbac256871af073354f23317c447d6a85f1e
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854171"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020158"
 ---
 È ora possibile aggiungere dati al nuovo contenitore usando Esplora dati.
 
-1. In **Esplora dati** espandere il database **Tasks** e quindi il contenitore **Elementi**. Selezionare **Elementi** e quindi fare clic su **Nuovo elemento**.
+1. In **Esplora dati** espandere il database **Tasks** e quindi il contenitore **Elementi**. Selezionare **Elementi** e quindi **Nuovo elemento**.
 
    ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   

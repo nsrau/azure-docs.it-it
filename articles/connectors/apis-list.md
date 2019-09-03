@@ -29,7 +29,7 @@ I connettori sono disponibili come trigger e azioni predefiniti oppure come conn
 
 <a name="built-in"></a>
 
-* Componenti [**predefiniti**](#built-ins): Questi trigger e azioni predefiniti sono "nativi" per le app per la logica di Azure e consentono di creare app per la logica che vengono eseguite in pianificazioni personalizzate, comunicano con altri endpoint, ricevono e rispondono alle richieste e chiamano funzioni di Azure, app per le API di Azure (app Web), API personalizzate gestito e pubblicato con gestione API di Azure e app per la logica annidate che possono ricevere richieste. È inoltre possibile utilizzare azioni predefinite che consentono di organizzare e controllare il flusso di lavoro dell'applicazione logica e anche di lavorare con i dati.
+* Componenti [**predefiniti**](#built-ins): Questi trigger e azioni predefiniti sono 'nativi' per le app per la logica di Azure e consentono di creare app per la logica che vengono eseguite in pianificazioni personalizzate, comunicano con altri endpoint, ricevono e rispondono alle richieste e chiamano funzioni di Azure, app per le API di Azure (app Web), API personalizzate gestito e pubblicato con gestione API di Azure e app per la logica annidate che possono ricevere richieste. È inoltre possibile utilizzare azioni predefinite che consentono di organizzare e controllare il flusso di lavoro dell'applicazione logica e anche di lavorare con i dati.
 
   > [!NOTE]
   > Le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) possono accedere direttamente alle risorse in una rete virtuale di Azure.
@@ -160,8 +160,8 @@ App per la logica fornisce questi connettori aziendali per l'accesso ai sistemi 
 
 ## <a name="triggers-and-actions---more-info"></a>Trigger e azioni-altre informazioni
 
-I connettori possono fornire *trigger*, *azioni*o entrambi. Un *trigger* è il primo passaggio di qualsiasi app per la logica, in genere specificando l'evento che attiva il trigger e avvia l'esecuzione dell'app per la logica. Ad esempio, il connettore FTP ha un trigger che avvia l'app per la logica "quando viene aggiunto o modificato un file". Alcuni trigger verificano periodicamente l'evento o i dati specificati e quindi vengono generati quando rilevano l'evento o i dati specificati. Altri trigger attendono ma vengono generati immediatamente quando si verifica un evento specifico o quando sono disponibili nuovi dati. I trigger passano anche tutti i dati necessari all'app per la logica. L'app per la logica può leggere e usare i dati in tutto il flusso di lavoro.
-Ad esempio, il connettore Twitter ha un trigger "quando viene pubblicato un nuovo Tweet", che passa il contenuto del Tweet al flusso di lavoro dell'app per la logica. 
+I connettori possono fornire *trigger*, *azioni*o entrambi. Un *trigger* è il primo passaggio di qualsiasi app per la logica, in genere specificando l'evento che attiva il trigger e avvia l'esecuzione dell'app per la logica. Ad esempio, il connettore FTP ha un trigger che avvia l'app per la logica 'quando viene aggiunto o modificato un file'. Alcuni trigger verificano periodicamente l'evento o i dati specificati e quindi vengono generati quando rilevano l'evento o i dati specificati. Altri trigger attendono ma vengono generati immediatamente quando si verifica un evento specifico o quando sono disponibili nuovi dati. I trigger passano anche tutti i dati necessari all'app per la logica. L'app per la logica può leggere e usare i dati in tutto il flusso di lavoro.
+Ad esempio, il connettore Twitter ha un trigger 'quando viene pubblicato un nuovo Tweet', che passa il contenuto del Tweet al flusso di lavoro dell'app per la logica. 
 
 Quando viene attivato un trigger, app per la logica di Azure crea un'istanza dell'app per la logica e inizia a eseguire le *azioni* nel flusso di lavoro dell'app per la logica. Le azioni sono i passaggi che seguono il trigger ed eseguono attività nel flusso di lavoro dell'app per la logica. Ad esempio, è possibile creare un'app per la logica che ottiene i dati del cliente da un database SQL ed elabora tali dati in azioni successive. 
 
@@ -209,7 +209,7 @@ Per rendere pubblici i connettori o le app per le API personalizzate da utilizza
 [gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "Connettersi a origini dati in locale da app per la logica con il gateway dati locale"
 
 <!--Built-ins doc links-->
-[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions" (Integrazione delle app per la logica con Funzioni di Azure)
+[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrazione delle app per la logica con Funzioni di Azure"
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Creare un'istanza del servizio Gestione API di Azure per gestire e pubblicare le proprie API"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrare le app per la logica con le app per le API del servizio app"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Inviare messaggi da code e argomenti del bus di servizio e ricevere messaggi da code e sottoscrizioni del bus di servizio"
@@ -243,7 +243,7 @@ Per rendere pubblici i connettori o le app per le API personalizzate da utilizza
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Connettersi a un file system locale"
 [ftp-doc]: ./connectors-create-api-ftp.md "Connettersi a un server FTP/FTPS ed eseguire diverse attività FTP, come caricare, recuperare ed eliminare file e altro ancora"
 [github-doc]: ./connectors-create-api-github.md "Connettersi a GitHub e tenere traccia dei problemi"
-[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Connects to Google Calendar and can manage calendar" (Connettersi a Google Calendar e gestire il calendario)
+[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Connettersi a Google Calendar e gestire il calendario"
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Connettersi a Google Drive per poter usare i dati"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Connettersi a Fogli Google per modificare i fogli di lavoro"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Connettersi a Google Tasks per poter gestire le attività"
@@ -282,18 +282,18 @@ Per rendere pubblici i connettori o le app per le API personalizzate da utilizza
 [youtube-doc]: ./connectors-create-api-youtube.md "Connettersi a YouTube. Gestire video e canali"
 
 <!--Enterprise Intregation Pack doc links-->
-[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Learn about enterprise integration AS2" (Informazioni su Enterprise Integration: AS2)
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode" (Informazioni su Enterprise Integration: decodifica EDIFACT)
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode" (Informazioni su Enterprise Integration: codifica EDIFACT)
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file" (Informazioni su Enterprise Integration: Flat File)
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file" (Informazioni su Enterprise Integration: Flat File)
+[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Informazioni su Enterprise Integration: AS2"
+[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Informazioni su Enterprise Integration: decodifica EDIFACT"
+[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Informazioni su Enterprise Integration: codifica EDIFACT"
+[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Informazioni su Enterprise Integration: Flat File"
+[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Informazioni su Enterprise Integration: Flat File"
 [integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Cercare schemi, mappe, partner e altro ancora nell'account di integrazione"
 [json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Informazioni sulle trasformazioni JSON con Liquid"
-[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Learn about enterprise integration X12" (Informazioni su Enterprise Integration: X12)
-[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Learn about enterprise integration X12 decode" (Informazioni su Enterprise Integration: decodifica X12)
-[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Learn about enterprise integration X12 encode" (Informazioni su Enterprise Integration: codifica X12)
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Learn about enterprise integration transforms" (Informazioni su Enterprise Integration: trasformazioni)
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Learn about enterprise integration XML validation" (Informazioni su Enterprise Integration: convalida XML)
+[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Informazioni su Enterprise Integration: X12"
+[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Informazioni su Enterprise Integration: decodifica X12"
+[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Informazioni su Enterprise Integration: codifica X12"
+[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Informazioni su Enterprise Integration: trasformazioni"
+[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Informazioni su Enterprise Integration: convalida XML"
 
 <!-- Built-ins icons -->
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png

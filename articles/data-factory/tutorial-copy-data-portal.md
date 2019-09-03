@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 5174b46bae5bbcc18f5a2575fb68cce1305507a3
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a1a97e7521e9772b1d13049d42e67d7ac318fffc
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826678"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907370"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con Azure Data Factory
 In questa esercitazione viene creata una data factory con l'interfaccia utente di Azure Data Factory. La pipeline in questa data factory copia i dati da un archivio BLOB di Azure a un database SQL. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -172,6 +172,9 @@ In questa esercitazione si crea inizialmente la pipeline, quindi si creano i ser
 1. Passare alla scheda con la pipeline e verificare che in **Sink Dataset** (Set di dati sink) sia selezionato **OutputSqlDataset**.
 
     ![Scheda con la pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+
+Facoltativamente, è possibile eseguire il mapping dello schema dell'origine allo schema corrispondente della destinazione seguendo le indicazioni riportate in [Mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md).
+    
 ## <a name="validate-the-pipeline"></a>Convalidare la pipeline
 Per convalidare la pipeline, selezionare **Convalida** dalla barra degli strumenti.
  

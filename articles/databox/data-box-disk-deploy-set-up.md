@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 49f3f608ff34847905b219047af843db00da78c4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 15960c39878e0c8ae22f94197ed1937597f1ee02
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480057"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126138"
 ---
 ::: zone target="docs"
 
@@ -29,6 +29,16 @@ In questa esercitazione si apprenderà come:
 > * Connettersi ai dischi e ottenere la passkey
 > * Sbloccare i dischi nel client Windows
 > * Sbloccare i dischi nel client Linux
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>Disimballare, connettere e sbloccare Azure Data Box Disk
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -282,7 +292,7 @@ Se si verificano problemi durante lo sblocco dei dischi, vedere come [risolvere 
         ``` 
         .\DataBoxDiskUnlock.exe
         ```
-    -  Fornire la passkey ottenuta da **Generale > Dettagli dispositivo** nel portale di Azure. Viene visualizzata la lettera di unità assegnata al disco. 
+    -  Specificare qui la passkey ottenuta da **Generale > Dettagli dispositivo** nel portale di Azure. Viene visualizzata la lettera di unità assegnata al disco. 
 4. Per sbloccare i dischi in un client Linux, aprire un terminale. Passare alla cartella in cui è stato scaricato il software. Digitare i comandi seguenti per cambiare le autorizzazioni per i file in modo da poterli eseguire: 
 
     ```
@@ -294,7 +304,7 @@ Se si verificano problemi durante lo sblocco dei dischi, vedere come [risolvere 
     ```
     sudo ./DataBoxDiskUnlock_Prep.sh
     ```
-    Eseguire lo strumento di sblocco di Data Box Disk. Fornire la passkey ottenuta da **Generale > Dettagli dispositivo** nel portale di Azure. Facoltativamente, specificare un elenco di volumi racchiusi tra virgolette singole crittografati con BitLocker da sbloccare.
+    Eseguire lo strumento di sblocco di Data Box Disk. Specificare qui la passkey ottenuta da **Generale > Dettagli dispositivo** nel portale di Azure. Facoltativamente, specificare un elenco di volumi racchiusi tra virgolette singole crittografati con BitLocker da sbloccare.
 
     ```
     sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
@@ -303,7 +313,9 @@ Se si verificano problemi durante lo sblocco dei dischi, vedere come [risolvere 
 
 Dopo avere sbloccato il disco è possibile visualizzarne il contenuto.
 
-Per altre informazioni su come configurare e sbloccare i dischi, vedere [Esercitazione: Disimballare, collegare e sbloccare Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+Per altre informazioni su come configurare i dischi, vedere [Disimballare il Data Box Disk](data-box-disk-deploy-set-up.md#unpack-your-disks).
+
+Per altre informazioni su come sbloccare i dischi, vedere [Sbloccare il Data Box Disk nel client Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client).
 
 ::: zone-end
 

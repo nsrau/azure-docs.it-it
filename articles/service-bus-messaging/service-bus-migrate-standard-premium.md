@@ -179,8 +179,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Portale di Azure
 
-![Abort Flow-Abort Sync][]
-![Abort Flow-Abort complete][]
+![Abort Flow-Interrompi sincronizzazione][]
+![Interrompi flusso-terminazione completata][]
 
 Quando il processo di migrazione viene interrotto, interrompe il processo di copia delle entità (argomenti, sottoscrizioni e filtri) dallo spazio dei nomi standard allo spazio dei nomi premium e interrompe l'associazione.
 

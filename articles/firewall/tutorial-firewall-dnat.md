@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f0a58382b9825a7b32aee69c00b9801d1c77251a
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531165"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114624"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Esercitazione: Filtrare il traffico in ingresso con DNAT di Firewall di Azure tramite il portale di Azure
 
@@ -62,8 +62,9 @@ Creare innanzitutto le reti virtuali e quindi eseguire il peering.
 
      Il firewall si troverà in questa subnet e il nome della subnet **deve** essere AzureFirewallSubnet.
      > [!NOTE]
-     > La dimensione minima della subnet AzureFirewallSubnet è /26.
-10. In **Intervallo indirizzi** immettere **10.0.1.0/24**.
+     > La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
+10. In **Intervallo indirizzi** digitare **10.0.1.0/26**.
 11. Usare le altre impostazioni predefinite e quindi fare clic su **Crea**.
 
 ### <a name="create-a-spoke-vnet"></a>Creare un rete virtuale spoke
@@ -151,9 +152,9 @@ Al termine della distribuzione, prendere nota dell'indirizzo IP privato della ma
    |Impostazione  |Valore  |
    |---------|---------|
    |NOME     |FW-DNAT-test|
-   |Sottoscrizione     |\<sottoscrizione in uso\>|
-   |Gruppo di risorse     |**Use existing** (Usa esistente): RG-DNAT-Test |
-   |Località     |Selezionare la stessa località usata in precedenza|
+   |Subscription     |\<sottoscrizione in uso\>|
+   |Resource group     |**Use existing** (Usa esistente): RG-DNAT-Test |
+   |Location     |Selezionare la stessa località usata in precedenza|
    |Scegliere una rete virtuale     |**Use existing** (Usa esistente): VN-Hub|
    |Indirizzo IP pubblico     |**Creare un nuovo gruppo di risorse**. L'indirizzo IP pubblico deve essere di tipo SKU Standard.|
 

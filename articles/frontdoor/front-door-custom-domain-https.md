@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450186"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907850"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
 
@@ -81,11 +81,17 @@ Per abilitare la funzionalità HTTPS, è possibile usare un certificato personal
 > [!WARNING]
 > Il servizio Frontdoor di Azure attualmente supporta solo account Key Vault nella stessa sottoscrizione della configurazione della frontdoor. La scelta di un insieme di credenziali delle chiavi in una sottoscrizione diversa da quella della frontdoor genererà un errore.
 
-2. Certificati di Azure Key Vault: è possibile caricare direttamente nell'account Azure Key Vault un certificato già esistente oppure creare un nuovo certificato direttamente tramite Azure Key Vault presso una delle autorità di certificazione (CA) partner con cui Azure Key Vault è integrato.
+2. Certificati di Azure Key Vault: è possibile caricare direttamente nell'account Azure Key Vault un certificato già esistente oppure creare un nuovo certificato direttamente tramite Azure Key Vault presso una delle autorità di certificazione (CA) partner con cui Azure Key Vault è integrato. Caricare il certificato come oggetto **certificato**, anziché come **segreto**.
+
+> [!IMPORTANT]
+> È necessario caricare il certificato in formato PFX **senza** la protezione con password.
 
 #### <a name="register-azure-front-door-service"></a>Registrare il servizio Frontdoor di Azure
 
 Registrare l'entità servizio per il servizio Frontdoor di Azure come app in Azure Active Directory tramite PowerShell.
+
+> [!NOTE]
+> Questa azione deve essere eseguita **una sola volta** per ogni tenant.
 
 1. Se necessario, installare [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell nel computer locale.
 
@@ -95,18 +101,19 @@ Registrare l'entità servizio per il servizio Frontdoor di Azure come app in Azu
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Concedere al servizio Frontdoor di Azure l'accesso all'insieme di credenziali delle chiavi
  
-Concedere al servizio Frontdoor di Azure l'autorizzazione ad accedere ai certificati nella sezione dei segreti nell'account Azure Key Vault.
+Concedere al servizio Frontdoor di Azure l'autorizzazione ad accedere ai certificati nell'account Azure Key Vault.
 
 1. Nell'account Key Vault selezionare **Criteri di accesso** in IMPOSTAZIONI e quindi **Aggiungi nuovo** per creare un nuovo criterio.
 
 2. In **Selezionare un'entità** cercare **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** e scegliere **Microsoft.Azure.Frontdoor**. Fare clic su **Seleziona**.
 
+3. In **Autorizzazioni dei segreti** selezionare **Recupera** per consentire a Frontdoor di recuperare il certificato.
 
-3. In **Autorizzazioni segrete** selezionare **Recupera** per consentire a Frontdoor di usare queste autorizzazioni per recuperare ed elencare i certificati. 
+4. In **Autorizzazioni del certificato** selezionare **Recupera** per consentire a Frontdoor di recuperare il certificato.
 
-4. Selezionare **OK**. 
+5. Selezionare **OK**. 
 
-    Il servizio Frontdoor di Azure può ora accedere a questo insieme di credenziali delle chiavi e ai certificati (segreti) in esso archiviati.
+    Il servizio Frontdoor di Azure può ora accedere a questo Key Vault e ai certificati in esso archiviati.
  
 #### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Selezionare il certificato per il servizio Frontdoor di Azure da distribuire
  

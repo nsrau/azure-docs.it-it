@@ -6,26 +6,33 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/12/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 9e3159a083d21e4a7a81df2fcf7a7d5db882b757
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 1104c017541b8124366a6121763318f199f3aad5
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976925"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126079"
 ---
+::: zone target="chromeless"
+
+## <a name="return-azure-data-box-disk"></a>Restituire Azure Data Box Disk 
+
+::: zone-end
+
 ::: zone target="docs"
 
-# <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Esercitazione: Restituire Azure Data Box Disk e verificare il caricamento dei dati in Azure
+# <a name="tutorial-return-azure-data-box-disk"></a>Esercitazione: Restituire Azure Data Box Disk 
 
-Questa è l'ultima esercitazione della serie: Distribuire Azure Data Box Disk. In questa esercitazione si apprenderà come:
+In questa esercitazione viene descritto come pianificare un ritiro per restituire il dispositivo Azure Data Box Disk. Le istruzioni per il ritiro dipendono dalla località da cui viene restituito il dispositivo. 
+
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Spedire i dischi di Data Box a Microsoft
-> * Verificare il caricamento dei dati in Azure
-> * Cancellazione dei dati dai dischi di Data Box
+> * Ritirare Data Box Disk in aree diverse
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,26 +41,33 @@ Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i da
 
 ## <a name="ship-data-box-disk-back"></a>Restituire i dischi di Data Box
 
+::: zone-end
+
 1. Dopo aver completato la convalida dei dati, scollegare i dischi. Rimuovere i cavi di collegamento.
 2. Avvolgere i dischi e i cavi di collegamento nel pluriball e inserirli nella scatola per la spedizione. In caso di accessori mancanti, potrebbero essere addebitate spese aggiuntive.
     - Riutilizzare l'imballaggio della spedizione iniziale.  
     - È consigliabile imballare i dischi avvolgendoli con cura in una pellicola a bolle d'aria.
     - Assicurarsi di riempire i vuoti per ridurre i movimenti all'interno della scatola.
 
-I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo.
+I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo. Le istruzioni sono diverse per Stati Uniti, Canada, Australia o i paesi asiatici.
+
+- [Pianificare un ritiro con UPS per la restituzione negli Stati Uniti e in Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+- [Pianificare un ritiro con DHL per l'Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) visitando il relativo sito Web e specificando il numero di lettera di trasporto aereo.
+- [Pianificare un ritiro in Australia](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up#pick-up-in-australia).
+- [Pianificare un ritiro per i paesi asiatici](data-box-disk-deploy-picked-up.md#pick-up-in-asia), come Giappone, Corea e Singapore.
+
+::: zone target="chromeless"
+
+Dopo il ritiro dei dischi da parte del vettore, lo stato dell'ordine nel portale viene aggiornato e viene visualizzato un ID di tracciabilità.
+
+::: zone-end
 
 ### <a name="pick-up-in-us-canada"></a>Ritiro negli Stati Uniti e in Canada
 
 Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Uniti o in Canada.
 
 1. Usare l'etichetta per la spedizione di ritorno nella busta in plastica trasparente applicata sulla scatola. Se l'etichetta è danneggiata o è stata smarrita:
-    - Passare a **Panoramica > Scarica etichetta di spedizione**.
-
-        ![Scaricare l'etichetta di spedizione](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
-        Questa azione scarica un'etichetta per la spedizione di ritorno, come illustrato di seguito.
-
-        ![Esempio di etichetta di spedizione](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Passare a **Panoramica > Scarica etichetta di spedizione** e scaricare un'etichetta di spedizione per reso.
     - Applicare l'etichetta sul dispositivo.
 
 2. Sigillare la scatola e assicurarsi che l'etichetta per la spedizione di ritorno sia visibile.
@@ -64,36 +78,20 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
     - Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
     - Anziché pianificare il ritiro, è anche possibile consegnare Data Box Disk al più vicino punto di consegna.
 
-
 ### <a name="pick-up-in-europe"></a>Ritiro in Europa
 
 Eseguire la procedura seguente se si restituisce il dispositivo in Europa.
 
 1. Usare l'etichetta per la spedizione di ritorno nella busta in plastica trasparente applicata sulla scatola. Se l'etichetta è danneggiata o è stata smarrita:
-    - Passare a **Panoramica > Scarica etichetta di spedizione**.
-
-        ![Scaricare l'etichetta di spedizione](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
-        Questa azione scarica un'etichetta per la spedizione di ritorno, come illustrato di seguito.
-
-        ![Esempio di etichetta di spedizione](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Passare a **Panoramica > Scarica etichetta di spedizione** e scaricare un'etichetta di spedizione per reso.
     - Applicare l'etichetta sul dispositivo.
 
 2. Sigillare la scatola e assicurarsi che l'etichetta per la spedizione di ritorno sia visibile.
 3. Se i dischi vengono rispediti in Europa con DHL, richiedere un ritiro a DHL, visitando il sito Web e specificando il numero di lettera di vettura.
-4. Passare al sito Web di DHL Express del paese o area e scegliere **Prenota il ritiro di un reso > Richiedere ritiro**.
-
-    ![Spedizione di ritorno DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
-    
+4. Passare al sito Web di DHL Express del paese o area e scegliere **Prenota il ritiro di un reso > Richiedere ritiro**.    
 3. Specificare il numero di lettera di vettura e fare clic su **Schedule Pickup** (Pianifica ritiro) per organizzare il ritiro.
 
-      ![Pianificare il ritiro](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
-
-### <a name="pick-up-in-asia-pacific-region"></a>Ritiro nell'area Asia Pacifico
-
-Quest'area include le istruzioni per il ritiro in Giappone, Corea, Australia e Singapore.
-
-#### <a name="pick-up-in-australia"></a>Ritiro in Australia
+### <a name="pick-up-in-australia"></a>Ritiro in Australia
 
 I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiuntiva. Tutte le spedizioni in ingresso devono prevedere una notifica anticipata. Seguire questa procedura per il ritiro in Australia.
 
@@ -103,6 +101,10 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
     - Nome ordine
     - Indirizzo
     - Nome del contatto
+
+### <a name="pick-up-in-asia"></a>Ritiro in Asia
+
+Le istruzioni di ritiro sono diverse per Giappone, Corea e Singapore.
 
 #### <a name="pick-up-in-japan"></a>Ritiro in Giappone
 
@@ -145,16 +147,13 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
     3. Qualora il corriere non si presenti, chiamare *Quantium Solutions International* per accordarsi in merito a un ritiro alternativo. 
     4. Se la richiesta viene eseguita tramite telefono, si riceverà una conferma verbale.
 
-### <a name="pick-up-in-singapore"></a>Prelievo a Singapore
+#### <a name="pick-up-in-singapore"></a>Prelievo a Singapore
 
 1. Stampare l'etichetta indirizzo e applicarla alla scatola. Se l'etichetta è danneggiata o è stata smarrita:
-    - Passare a **Panoramica > Scarica etichetta di spedizione**.
+    - Passare a **Panoramica > Scarica etichetta di spedizione** e ottenere un'etichetta di spedizione per reso.
 
         ![Scaricare l'etichetta di spedizione](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
-        Questa azione scarica un'etichetta per la spedizione di ritorno, come illustrato di seguito.
-
-        ![Esempio di etichetta di spedizione](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
     - Applicare l'etichetta sul dispositivo. Assicurarsi che l'etichetta sia visibile.
 
 2. Per richiedere il ritiro:
@@ -165,58 +164,7 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 3. Consegnare la scatola al corriere. 
 
 
-## <a name="verify-data-upload-to-azure"></a>Verificare il caricamento dei dati in Azure
-
-Dopo il ritiro dei dischi da parte del vettore, lo stato dell'ordine nel portale diventa **Ritirato**. Viene visualizzato anche un ID di traccia.
-
-![Dischi prelevati](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
-
-Quando Microsoft riceve e analizza i dischi, lo stato del processo diventa **Ricevuto**. 
-
-![Dischi ricevuti](media/data-box-disk-deploy-picked-up/data-box-portal-received.png)
-
-I dati vengono copiati automaticamente quando i dischi vengono collegati a un server nel data center di Azure. A seconda delle dimensioni dei dati, l'operazione di copia potrebbe richiedere da alcune ore a giorni per il completamento. È possibile monitorare lo stato di avanzamento del processo di copia nel portale.
-
-Al termine della copia, lo stato dell'ordine diventa **Completato**.
-
-![Copia dei dati completata](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
-
-Se la copia viene completata con errori, vedere [Risolvere gli errori di caricamento](data-box-disk-troubleshoot-upload.md).
-
-Verificare la presenza dei dati negli account di archiviazione prima di eliminarli dall'origine. I dati possono trovarsi in:
-
-- Account di archiviazione di Azure. Quando si copiano i dati in Data Box, a seconda del tipo, i dati vengono caricati in uno dei percorsi seguenti nell'account di archiviazione di Azure.
-
-  - Per i BLOB in blocchi e i BLOB di pagine: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-  - Per File di Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
-
-    In alternativa, è possibile passare all'account di archiviazione di Azure nel portale di Azure e procedere da questa posizione.
-
-- Gruppi di risorse di dischi gestiti. Quando si creano dischi gestiti, i dischi rigidi virtuali vengono caricati come BLOB di pagine e quindi convertiti in dischi gestiti. I dischi gestiti vengono associati ai gruppi di risorse specificati al momento della creazione dell'ordine.
-
-  - Se la copia nei dischi gestiti in Azure ha avuto esito positivo, è possibile passare a **Dettagli ordine** nel portale di Azure e prendere nota del gruppo di risorse specificato per i dischi gestiti.
-
-      ![Visualizzare i dettagli dell'ordine](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
-
-    Passare al gruppo di risorse annotato e individuare i dischi gestiti.
-
-      ![Gruppo di risorse per i dischi gestiti](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
-
-  - Se è stato copiato un file VHDX oppure un disco rigido virtuale differenze o dinamico, questo verrà caricato nell'account di archiviazione di staging come BLOB in blocchi. Passare all'**account di archiviazione di staging > BLOB** e quindi selezionare il contenitore appropriato (StandardSSD, StandardHDD o PremiumSSD). I file VHDX o i dischi rigidi virtuali verranno visualizzati come BLOB in blocchi nell'account di archiviazione di staging.
-
-Per verificare che i dati siano stati caricati in Azure, seguire questa procedura:
-
-1. Passare all'account di archiviazione associato all'ordine del disco.
-2. Passare a **Servizio Blob > Esplora BLOB**. Viene presentato l'elenco di contenitori. In modo corrispondente alla sottocartella creata nelle cartelle *BlockBlob* e *PageBlob*, contenitori con lo stesso nome vengono creati nell'account di archiviazione.
-    Se i nomi delle cartelle non sono conformi alle convenzioni di denominazione di Azure, il caricamento dei dati in Azure avrà esito negativo.
-
-4. Per verificare che sia stato caricato l'intero set di dati, usare Microsoft Azure Storage Explorer. Collegare l'account di archiviazione corrispondente all'ordine di noleggio del disco e quindi esaminare l'elenco dei contenitori BLOB. Selezionare un contenitore, fare clic su **Altro** e quindi fare clic su **Statistiche cartella**. Nel riquadro **Attività** vengono visualizzate le statistiche per la cartella, inclusi il numero di BLOB e le dimensioni totali dei BLOB. Le dimensioni totali dei BLOB devono corrispondere alle dimensioni del set di dati.
-
-    ![Statistiche delle cartelle in Storage Explorer](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
-
-## <a name="erasure-of-data-from-data-box-disk"></a>Cancellazione dei dati dai dischi di Data Box
-
-Dopo aver completato la copia e aver verificato che i dati siano disponibili nell'account di archiviazione di Azure, i dischi vengono cancellati in modo sicuro come da standard NIST.
+::: zone target="docs"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -224,49 +172,15 @@ In questa esercitazione sono stati illustrati argomenti relativi ad Azure Data B
 
 > [!div class="checklist"]
 > * Spedire i dischi di Data Box a Microsoft
-> * Verificare il caricamento dei dati in Azure
-> * Cancellazione dei dati dai dischi di Data Box
+> * Ritirare Data Box Disk in aree diverse
 
-
-Passare alla guida pratica successiva per scoprire come gestire i dischi di Data Box tramite il portale di Azure.
+Passare alla guida pratica successiva per informazioni su come verificare il caricamento dei dati da Data Box Disk all'account di archiviazione di Azure.
 
 > [!div class="nextstepaction"]
-> [Usare il portale di Azure per amministrare Azure Data Box Disk](./data-box-portal-ui-admin.md)
+> [Verificare il caricamento dei dati da Azure Data Box Disk](./data-box-disk-deploy-picked-up.md)
 
 ::: zone-end
 
 
-::: zone target="chromeless"
-
-# <a name="return-the-disk-and-verify-upload-to-azure"></a>Restituire il disco e verificare il caricamento in Azure
-
-## <a name="ship-to-azure"></a>Spedire ad Azure
-
-1. Dopo aver completato la convalida dei dati, scollegare i dischi. Rimuovere i cavi di collegamento.
-2. Avvolgere i dischi e i cavi di collegamento nel pluriball e inserirli nella scatola per la spedizione. In caso di accessori mancanti, potrebbero essere addebitate spese aggiuntive.
-    - Riutilizzare l'imballaggio della spedizione iniziale.  
-    - È consigliabile imballare i dischi avvolgendoli con cura in una pellicola a bolle d'aria.
-    - Assicurarsi di riempire i vuoti per ridurre i movimenti all'interno della scatola.
-3. I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo.
-    - [Pianificare un ritiro con UPS per la restituzione negli Stati Uniti e in Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-    - [Pianificare un ritiro con DHL per l'Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) visitando il relativo sito Web e specificando il numero di lettera di trasporto aereo.
-    - [Pianificare un ritiro per i paesi nell'area Australia-Pacifico](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region), come Australia, Giappone, Corea e Singapore.
-4. Dopo il ritiro dei dischi da parte del vettore, lo stato dell'ordine nel portale viene aggiornato e viene visualizzato un ID di tracciabilità.
-
-## <a name="verify-upload-to-azure"></a>Verificare il caricamento in Azure
-
-Dopo il caricamento in Azure, verificare che i dati si trovino nell'account o negli account di archiviazione prima di eliminarli dall'origine. I dati possono trovarsi in:
-
-- Account di archiviazione di Azure. Quando si copiano i dati in Data Box, a seconda del tipo, i dati vengono caricati in uno dei percorsi seguenti nell'account di archiviazione di Azure.
-
-    - **Per i BLOB in blocchi e i BLOB di pagine**: https://<nome_account_archiviazione>.blob.core.windows.net/<containername>/files/a.txt
-
-    - **Per File di Azure**: https://<nome_account_archiviazione>.file.core.windows.net/<sharename>/files/a.txt
-
-    In alternativa, è possibile passare all'account di archiviazione di Azure nel portale di Azure e procedere da questa posizione.
-
-- Gruppi di risorse di dischi gestiti. Quando si creano dischi gestiti, i dischi rigidi virtuali vengono caricati come BLOB di pagine e quindi convertiti in dischi gestiti. I dischi gestiti vengono associati ai gruppi di risorse specificati al momento della creazione dell'ordine.
-
-::: zone-end
 
 
