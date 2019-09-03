@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cebd6e5c120bdaa5e7dd5b681366e07087cd3498
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d2c3b09277963781b90f65705e03f936f81b14ee
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069184"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232356"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Ridimensionare un'app nel servizio app Azure
 
@@ -85,11 +85,8 @@ Per una tabella dei limiti, delle quote e dei vincoli del servizio e per le funz
 
 ## <a name="more-resources"></a>Altre risorse
 
-Per i video sul ridimensionamento delle app del servizio app, vedere le risorse seguenti:
- 
-* [Quando è necessario ridimensionare i siti Web di Azure - con Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
-* [Scalabilità automatica per i siti Web di Azure, pianificata o in base alla CPU - con Stefan Schackow](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
-* [Che cosa accade durante il ridimensionamento dei siti Web di Azure - con Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
+[Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md)  
+[Configurare il livello PremiumV2 per il servizio app](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

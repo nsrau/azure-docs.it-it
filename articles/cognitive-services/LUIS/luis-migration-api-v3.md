@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: 82285b27822b6c93f8efc24579bb99c308649ac0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5b0516f3d610c0a518d6afc461dddebfb68a7c5d
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932664"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213523"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Anteprima: Eseguire la migrazione all'API versione 3. x per le app LUIS
 
@@ -80,7 +80,7 @@ Le modifiche all'oggetto della risposta V3 includono le [entità predefinite](lu
 
 L'API V3 ha parametri di stringa di query diversi.
 
-|Nome param|Type|Version|Predefinito|Scopo|
+|Nome param|Type|Versione|Predefinito|Scopo|
 |--|--|--|--|--|
 |`log`|boolean|V2 & V3|false|Archivia query nel file di log.| 
 |`query`|string|Solo V3|Nessun valore predefinito: è obbligatorio nella richiesta GET|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
@@ -108,7 +108,7 @@ L'API V3 ha parametri di stringa di query diversi.
 }
 ```
 
-|Proprietà|Type|Version|Predefinito|Scopo|
+|Proprietà|Type|Versione|Predefinito|Scopo|
 |--|--|--|--|--|
 |`dynamicLists`|array|Solo V3|Non obbligatorio.|Gli [elenchi dinamici](#dynamic-lists-passed-in-at-prediction-time) consentono di estendere un'entità di elenco con training e pubblicato esistente, già nell'app Luis.|
 |`externalEntities`|array|Solo V3|Non obbligatorio.|Le [entità esterne](#external-entities-passed-in-at-prediction-time) offrono all'app Luis la possibilità di identificare ed etichettare entità durante il runtime, che possono essere usate come funzionalità per le entità esistenti. |
@@ -164,7 +164,7 @@ const score = intents[topIntentName];
 Le modifiche dello schema JSON della risposta consentono:
 
 * Distinzione netta tra espressione originale `query`, e stima restituita, `prediction`.
-* Accesso programmatico più semplice ai dati stimati. Anziché eseguire l'enumerazione tramite una matrice nella versione V2, è possibile accedere ai valori denominati sia per gli Intent che per le entità. Per i ruoli di entità stimati, viene restituito il nome del ruolo perché è univoco nell'intera app.
+* Accesso programmatico più semplice ai dati stimati. Anziché eseguire l'enumerazione tramite una matrice nella versione V2, è possibile accedere ai valori in base al **nome** sia per gli Intent che per le entità. Per i ruoli di entità stimati, viene restituito il nome del ruolo perché è univoco nell'intera app.
 * I tipi di dati, se determinati, vengono rispettati. I numeri non vengono più restituiti come stringhe.
 * Distinzione tra le prime informazioni di stima di priorità e i `$instance` metadati aggiuntivi restituiti nell'oggetto. 
 
@@ -223,7 +223,7 @@ Nella versione V2 l'entità viene identificata dal _nome dell'entità_ con il ru
 ]
 ```
 
-In V3, all'entità viene fatto riferimento dal _ruolo entità_ , se la stima è per il ruolo:
+In V3, all'entità viene fatto riferimento dal _ruolo entità_, se la stima è per il ruolo:
 
 ```JSON
 "entities":{
@@ -418,7 +418,7 @@ Inviare il corpo JSON seguente per aggiungere un nuovo sottoelenco con sinonimi 
     },
     "dynamicLists": [
         {
-            "listEntityName":"ProductList",
+            "listEntity*":"ProductList",
             "requestLists":[
                 {
                     "name": "Azure Cognitive Services",

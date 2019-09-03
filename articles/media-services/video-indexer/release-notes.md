@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/29/2019
 ms.author: juliako
-ms.openlocfilehash: b627a78edef1c0b0fe6b3ed011678145aea397ae
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a7d178972a8c8b413e3c6336c403348f1eb78abb
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845891"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232606"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -27,6 +27,43 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="august-2019"></a>Agosto 2019
+ 
+### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer distribuita in Regno Unito meridionale
+
+È ora possibile creare un account a pagamento Video Indexer nell'area Regno Unito meridionale.
+
+### <a name="new-editorial-shot-type-insights-available"></a>Sono disponibili nuove informazioni dettagliate sul tipo di articolo
+
+I nuovi tag aggiunti a video Shots forniscono i "tipi di colpo" editoriali per identificarli con frasi editoriali comuni usate nel flusso di lavoro di creazione del contenuto, ad esempio Extreme closeup, closeup, Wide, medium, two shot, outdoor, indoor, Left Face e Right Face (disponibile nella JSON).
+
+### <a name="new-people-and-locations-entities-extraction-available"></a>Estrazione delle entità nuove persone e posizioni disponibili
+
+Video Indexer identifica le località e le persone denominate tramite l'elaborazione del linguaggio naturale (PNL) dall'OCR e dalla trascrizione del video. Video Indexer usa l'algoritmo di machine learning per riconoscere quando vengono richiamate posizioni specifiche, ad esempio la Torre Eiffel, o persone, ad esempio John Doe, in un video.
+
+### <a name="keyframes-extraction-in-native-resolution"></a>Estrazione fotogrammi chiave nella risoluzione nativa
+
+I fotogrammi chiave estratti da Video Indexer sono disponibili nella risoluzione originale del video.
+ 
+### <a name="ga-for-training-custom-face-models-from-images"></a>GA per il training dei modelli viso personalizzati dalle immagini
+
+I visi di training dalle immagini sono passati dalla modalità di anteprima alla versione GA (disponibile tramite l'API e nel portale).
+
+> [!NOTE]
+> Non vi è alcun effetto sui prezzi correlato alla transizione "da anteprima a GA".
+
+### <a name="hide-gallery-toggle-option"></a>Opzione Nascondi raccolta
+
+L'utente può scegliere di nascondere la scheda della raccolta dal portale (simile alla scheda esempi).
+ 
+### <a name="maximum-url-size-increased"></a>Dimensioni massime URL aumentate
+
+Supporto per la stringa di query dell'URL 4096 (anziché 2048) nell'indicizzazione di un video.
+ 
+### <a name="support-for-multi-lingual-projects"></a>Supporto per progetti multilingue
+
+I progetti possono ora essere creati in base ai video indicizzati in lingue diverse (solo API).
 
 ## <a name="july-2019"></a>2019 luglio
 

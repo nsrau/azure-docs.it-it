@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 22c83b1fe53a9209fd243fe807bb76718cbdcbbd
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: f760917ae8f4ab11902799e36973ae896c4a2b43
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211688"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232341"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guida alla scalabilità e alle prestazioni dell'attività di copia
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
@@ -181,7 +181,7 @@ Per ogni esecuzione dell'attività di copia, Azure Data Factory determina il num
 | Scenario di copia | Numero predefinito di copie parallele determinato dal servizio |
 | --- | --- |
 | Copiare dati tra archivi basati su file |Dipende dalle dimensioni dei file e dal numero di DIUs usati per copiare i dati tra due archivi dati cloud o la configurazione fisica del computer del runtime di integrazione self-hosted. |
-| Copiare da archivio dati relazionale con l'opzione di partizione abilitata (inclusi [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)e [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source))|4 |
+| Copiare da archivio dati relazionale con l'opzione di partizione abilitata (inclusi [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)e [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source))|4 |
 | Copiare i dati da qualsiasi archivio di origine ad archiviazione tabelle di Azure |4 |
 | Tutti gli altri scenari di copia |1 |
 
@@ -193,7 +193,7 @@ Per controllare il carico sui computer che ospitano gli archivi dati o per ottim
 **Punti da notare:**
 
 - Quando si copiano dati tra archivi basati su file, **parallelCopies** determina il parallelismo a livello di file. La suddivisione in blocchi all'interno di un singolo file avviene in modo automatico e trasparente. È progettato per usare le dimensioni del blocco più adatte per un determinato tipo di archivio dati di origine per caricare i dati in parallelo e ortogonali a **parallelCopies**. Il numero effettivo di copie parallele usate dal servizio di spostamento dati per l'operazione di copia in fase di esecuzione non è maggiore del numero di file disponibili. Se il comportamento di copia è **mergeFile**, l'attività di copia non può sfruttare il parallelismo a livello di file.
-- Quando si copiano dati da archivi che non sono basati su file (ad eccezione di [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)e [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) Connector come origine con il partizionamento dei dati abilitato) per gli archivi basati su file, il servizio di spostamento dei dati Ignora la proprietà **parallelCopies** . Anche se viene specificato, in questo caso il parallelismo non viene applicato.
+- Quando si copiano dati da archivi non basati su file (ad eccezione di [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)e [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) Connector come origine con il partizionamento dei dati abilitato) per gli archivi basati su file, i dati il servizio di spostamento ignora la proprietà **parallelCopies** . Anche se viene specificato, in questo caso il parallelismo non viene applicato.
 - La proprietà **parallelCopies** è ortogonale a **dataIntegrationUnits**. La prima viene conteggiata su tutte le unità di integrazione dati.
 - Quando si specifica un valore per la proprietà **parallelCopies** , prendere in considerazione l'aumento del carico per gli archivi dati di origine e sink. Prendere in considerazione anche l'aumento del carico per il runtime di integrazione self-hosted se l'attività di copia è abilitata, ad esempio per la copia ibrida. Questo aumento del carico si verifica soprattutto quando si hanno più attività o esecuzioni simultanee delle stesse attività eseguite nello stesso archivio dati. Se si nota che l'archivio dati o il runtime di integrazione self-hosted è sovraccarico del carico, ridurre il valore di **parallelCopies** per alleggerire il carico.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9bc9d64d7f21498acd5cb0c23447e7ff77de629
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195567"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231092"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 
@@ -422,6 +422,19 @@ az ml folder attach
 ```
 
 Questo comando crea una sottocartella `.azureml` che contiene i file di configurazione dell'esecuzione del modello per diverse destinazioni di calcolo. È possibile copiare e modificare questi file per personalizzare la configurazione, ad esempio per aggiungere pacchetti Python o modificare le impostazioni di Docker.  
+
+### <a name="structure-of-run-configuration-file"></a>Struttura del file di configurazione di esecuzione
+
+Il file di configurazione di esecuzione è YAML formattato, con le sezioni seguenti
+ * Script da eseguire e relativi argomenti
+ * Nome di destinazione di calcolo, ovvero "locale" o nome di un calcolo nell'area di lavoro.
+ * Parametri per l'esecuzione dell'esecuzione: Framework, Communicator per le esecuzioni distribuite, durata massima e numero di nodi di calcolo.
+ * Sezione Environment. Per informazioni dettagliate sui campi in questa sezione, vedere [creare e gestire gli ambienti per il training e la distribuzione](how-to-use-environments.md) .
+   * Per specificare i pacchetti Python da installare per l'esecuzione, creare un [file di ambiente conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)e impostare il campo __condaDependenciesFile__ .
+ * Dettagli della cronologia di esecuzione per specificare la cartella del file di log e per abilitare o disabilitare gli snapshot della raccolta di output e della cronologia di esecuzione.
+ * Dettagli di configurazione specifici del framework selezionato.
+ * Informazioni di riferimento sui dati e archivio dati.
+ * Dettagli di configurazione specifici per ambiente di calcolo di Machine Learning per la creazione di un nuovo cluster.
 
 ### <a name="create-an-experiment"></a>Creare un esperimento
 

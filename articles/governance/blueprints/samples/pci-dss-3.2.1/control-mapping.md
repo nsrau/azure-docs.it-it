@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c2dbfa5f6c9d679582a1834f2ff645c5ff79c51e
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: d7d62770bc0e2683fc7bc1554493954c0e98758b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515697"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232681"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapping di controllo dell'esempio di progetto PCI-DSS v 3.2.1
 
@@ -25,7 +25,7 @@ I mapping seguenti sono ai controlli **PCI-DSS v 3.2.1:2018** . Usare la barra d
 
 Questo progetto consente di gestire e controllare le reti assegnando definizioni di [criteri di Azure](../../../policy/overview.md) che monitorano i gruppi di sicurezza di rete con regole permissive. Le regole troppo permissive potrebbero consentire l'accesso non autorizzato alla rete e dovranno essere riviste. Questo progetto assegna una definizione di criteri di Azure che monitora gli endpoint, le applicazioni e gli account di archiviazione non protetti. Gli endpoint e le applicazioni non protetti da un firewall e gli account di archiviazione con accesso illimitato possono consentire l'accesso non autorizzato alle informazioni contenute nel sistema informativo.
 
-- Controlla l'acceso di rete senza restrizioni agli account di archiviazione
+- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 - L'accesso tramite endpoint con connessione Internet deve essere limitato
 
 ## <a name="34a-41-41g-41h-and-653-cryptographic-protection"></a>3.4. a, 4,1, 4.1. g, 4.1. h e 6.5.3 Cryptography Protection
@@ -37,7 +37,7 @@ Questo progetto consente di applicare i criteri con l'uso dei controlli di critt
 - L'app per le API deve essere accessibile solo tramite HTTPS
 - Transparent Data Encryption deve essere abilitata nei database SQL
 - La crittografia del disco deve essere applicata nelle macchine virtuali
-- Le variabili dell'account di Automazione devono essere crittografate
+- Le variabili dell'account di automazione devono essere crittografate
 - Devono essere abilitate solo connessioni sicure alla Cache Redis
 - Il trasferimento sicuro negli account di archiviazione deve essere abilitato
 - Per i cluster Service Fabric la proprietà ClusterProtectionLevel deve essere impostata su EncryptAndSign
@@ -48,11 +48,11 @@ Questo progetto consente di applicare i criteri con l'uso dei controlli di critt
 
 Questo progetto consente di gestire le vulnerabilità del sistema informativo assegnando definizioni di [criteri di Azure](../../../policy/overview.md) che monitorano gli aggiornamenti del sistema mancanti, le vulnerabilità del sistema operativo, le vulnerabilità SQL e le vulnerabilità delle macchine virtuali in Azure Centro sicurezza. Centro sicurezza di Azure fornisce funzionalità di report che consentono di ricevere informazioni dettagliate in tempo reale sullo stato di sicurezza delle risorse di Azure distribuite.
 
-- Monitora server senza Endpoint Protection nel Centro sicurezza di Azure
+- Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure
 - Distribuisci estensione IaaSAntimalware Microsoft predefinita per Windows Server
 - Distribuzione del rilevamento delle minacce nei server SQL
-- Installare gli aggiornamenti di sistema nei computer
-- È necessario correggere le vulnerabilità nella configurazione della sicurezza nei computer
+- Gli aggiornamenti di sistema devono essere installati nelle macchine
+- Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
 - Le vulnerabilità dei database SQL devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 
@@ -110,7 +110,7 @@ Questo progetto consente di applicare password complesse assegnando definizioni 
 Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le impostazioni dei log nelle risorse di Azure.
 I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite nelle risorse di Azure. I log di Azure si basano sulla sincronizzazione degli orologi interni per creare un record correlato al tempo degli eventi nelle risorse.
 
-- Il controllo deve essere abilitato in impostazioni avanzate di sicurezza dei dati in SQL Server
+- È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
 - Controlla impostazione di diagnostica
 - Controlla le impostazioni di controllo a livello del server SQL
 - Distribuisci il controllo nei server SQL

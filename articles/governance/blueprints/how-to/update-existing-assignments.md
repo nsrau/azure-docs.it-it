@@ -1,19 +1,18 @@
 ---
 title: Come aggiornare un'assegnazione esistente dal portale
-description: Scopri il meccanismo per l'aggiornamento di un'assegnazione esistente dal portale nelle linee guida di Azure.
+description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione esistente dal portale nei progetti di Azure.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c75bd8c3831bad0c8217f16315843cbe3824fe4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5697d00c2b0a869667d74e93c3ccae593bf200b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63766624"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231939"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -29,27 +28,27 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 1. Selezionare **Progetti assegnati** nella pagina a sinistra.
 
-1. Nell'elenco dei progetti fare clic sull'assegnazione del progetto Scegliere il **aggiornare l'assegnazione** pulsante o l'assegnazione di progetto e scegliere **aggiornare l'assegnazione**.
+1. Nell'elenco dei progetti fare clic sull'assegnazione del progetto Fare quindi clic sul pulsante **Aggiorna assegnazione** oppure fare clic con il pulsante destro del mouse sull'assegnazione del progetto e selezionare **Aggiorna assegnazione**.
 
    ![Aggiornare un'assegnazione di progetto esistente](../media/update-existing-assignments/update-assignment.png)
 
-1. Il **Assign blueprint** pagina caricherà precompilato con tutti i valori dall'assegnazione originale. È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, fare clic su **Assegna**.
+1. La pagina **assegna progetto** caricherà precompilata con tutti i valori dall'assegnazione originale. È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, fare clic su **Assegna**.
 
 1. Nella pagina dei dettagli dell'assegnazione aggiornata, vedere il nuovo stato. In questo esempio, è stato aggiunto il parametro **Blocco** all'assegnazione.
 
-   ![Aggiornata un'assegnazione di progetto esistente - modificare la modalità di blocco](../media/update-existing-assignments/updated-assignment.png)
+   ![È stata aggiornata una modalità di blocco assegnazione progetto esistente modificata](../media/update-existing-assignments/updated-assignment.png)
 
-1. Esplorare i dettagli sulle altre **gli operatori di assegnazione** usando l'elenco a discesa. La tabella di **le risorse gestite** aggiornamenti dall'operazione di assegnazione selezionato.
+1. Esplorare i dettagli relativi ad altre **operazioni di assegnazione** usando l'elenco a discesa. La tabella di **risorse gestite** viene aggiornata dall'operazione di assegnazione selezionata.
 
-   ![Operatori di assegnazione di un'assegnazione progetto](../media/update-existing-assignments/assignment-operations.png)
+   ![Operazioni di assegnazione di un'assegnazione di progetto](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>Regole per l'aggiornamento delle assegnazioni
 
 La distribuzione delle assegnazioni aggiornate segue alcune regole importanti. Queste regole definiscono che cosa accade alle risorse già distribuite. La modifica richiesta e il tipo di risorsa dell'artefatto distribuito o aggiornato determinano le azioni che vengono eseguite.
 
-- Assegnazioni di ruoli
+- Assegnazioni di ruolo
   - Se cambia il ruolo o l'assegnatario del ruolo (utente, gruppo o app), viene creata una nuova assegnazione di ruolo. Le assegnazioni di ruolo distribuite in precedenza vengono mantenute.
-- Assegnazioni di criteri
+- Assegnazioni dei criteri
   - Se vengono modificati i parametri dell'assegnazione dei criteri, l'assegnazione esistente viene aggiornata.
   - Se viene modificata la definizione dell'assegnazione dei criteri, viene creata una nuova assegnazione di criteri. Le assegnazioni di criteri distribuite in precedenza vengono mantenute.
   - Se l'artefatto dell'assegnazione dei criteri viene rimosso dal progetto, l'assegnazione di criteri distribuita viene mantenuta.

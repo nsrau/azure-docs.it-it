@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a2702abd39ecdf506d58b6bd8884f12607e29e8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d8a9963edd689a32ae0642ac6fa4a622c248bc5b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615295"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232371"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registrazione diagnostica in Azure Cosmos DB 
 
@@ -436,7 +436,7 @@ Per informazioni sul significato dei dati restituiti da ogni ricerca log, vedere
 * Per eseguire una query per le operazioni che richiedono più di 3 millisecondi:
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * Per eseguire una query per l'agente che esegue le operazioni:
@@ -448,7 +448,7 @@ Per informazioni sul significato dei dati restituiti da ogni ricerca log, vedere
 * Per eseguire una query per il momento in cui sono state eseguite le operazioni con esecuzione prolungata:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
     ```
 
 Per altre informazioni su come usare il nuovo linguaggio di ricerca log, vedere informazioni sulle [ricerche nei log nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-search-new.md). 
@@ -459,7 +459,7 @@ I dati di diagnostica archiviati in archiviazione di Azure e nei log di monitora
 
 La tabella seguente descrive il contenuto di ogni voce di log.
 
-| Proprietà o campo di Archiviazione di Azure | Proprietà dei log di monitoraggio di Azure | Descrizione |
+| Proprietà o campo di Archiviazione di Azure | Proprietà dei log di monitoraggio di Azure | DESCRIZIONE |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | Data e ora (UTC) in cui si è verificata l'operazione. |
 | **resourceId** | **Risorsa** | Account Azure Cosmos DB per cui vengono abilitati i log.|
@@ -474,7 +474,7 @@ La tabella seguente descrive il contenuto di ogni voce di log.
 | **clientIpAddress** | **clientIpAddress_s** | Indirizzo IP del client. |
 | **requestCharge** | **requestCharge_s** | Numero di unità riservate usate dall'operazione. |
 | **collectionRid** | **collectionId_s** | ID univoco per la raccolta.|
-| **duration** | **duration_s** | Durata dell'operazione in tick. |
+| **duration** | **duration_s** | Durata dell'operazione, in millisecondi. |
 | **requestLength** | **requestLength_s** | Lunghezza della richiesta in byte. |
 | **responseLength** | **responseLength_s** | Lunghezza della risposta in byte.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Questo valore è non vuoto quando vengono usati [token di risorsa](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) per l'autenticazione. Il valore punta all'ID risorsa dell'utente. |

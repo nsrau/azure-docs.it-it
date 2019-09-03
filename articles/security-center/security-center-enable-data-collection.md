@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2019
+ms.date: 06/10/2019
 ms.author: v-mohabe
-ms.openlocfilehash: e87ea5f6d8a92f18fc1b289ebf9ffd1cc0326812
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12739bf230eb7a2d5afa4edd57dbc2761907ec4e
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845905"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231341"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali (VM) di Azure, dai set di scalabilità di macchine virtuali, dai contenitori IaaS e dai computer non Azure (inclusi quelli locali) per monitorare le vulnerabilità e le minacce per la sicurezza. I dati vengono raccolti utilizzando l'agente di Log Analytics, che legge diverse configurazioni correlate alla sicurezza e registri eventi dal computer e copia i dati nell'area di lavoro per l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. L'agente Log Analytics inoltre copia i file di dump di arresto anomalo del sistema nell'area di lavoro
@@ -41,7 +41,7 @@ Per raccogliere i dati dai computer, è necessario che sia installato l'agente L
 > Il provisioning automatico è disattivato per impostazione predefinita. Per fare in modo che il Centro sicurezza usi il provisioning automatico per impostazione predefinita, impostarlo su **Attivato**.
 >
 
-Quando il provisioning automatico è attivo, il Centro sicurezza effettua il provisioning dell'agente di Log Analytics in tutte le VM di Azure supportate e in quelle nuove che vengono create. Il provisioning automatico è fortemente consigliato, ma è disponibile anche l'installazione manuale dell'agente. [Informazioni su come installare l'estensione dell'agente log Analytics](#manualagent).
+Quando il provisioning automatico è attivo, il Centro sicurezza effettua il provisioning dell'agente di Log Analytics in tutte le VM di Azure supportate e in quelle nuove che vengono create. Il provisioning automatico è fortemente consigliato, ma è disponibile anche l'installazione manuale dell'agente. [Informazioni su come installare l'estensione dell'agente log Analytics](#manual-agent).
 
 
 
@@ -59,7 +59,7 @@ Per abilitare il provisioning automatico dell'agente di Log Analytics:
 
 >[!NOTE]
 > - Per istruzioni su come effettuare il provisioning di un'installazione pre-esistente, vedere [Provisioning automatico nel caso di installazione di un agente preesistente](#preexisting).
-> - Per istruzioni sul provisioning manuale, vedere [Install the log Analytics Agent Extension manually](#manualagent).
+> - Per istruzioni sul provisioning manuale, vedere [Install the log Analytics Agent Extension manually](#manual-agent).
 > - Per istruzioni su come disattivare il provisioning automatico, vedere [Disattivare il provisioning automatico](#offprovisioning).
 > - Per istruzioni su come caricare il Centro sicurezza usando PowerShell, vedere [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md) (Automatizzare l'onboarding del Centro sicurezza di Azure usando PowerShell).
 >
@@ -240,7 +240,7 @@ Se si disattiva il provisioning automatico precedentemente attivato:
 >  La disabilitazione del provisioning automatico non comporta la rimozione dell'agente di Log Analytics dalle macchine virtuali di Azure in cui è stato effettuato il provisioning dell'agente. Per informazioni sulla rimozione dell'estensione OMS, vedere [How do I remove OMS extensions installed by Security Center](security-center-faq.md#remove-oms) (Come si rimuovono le estensioni OMS installate dal Centro sicurezza).
 >
     
-## Provisioning manuale dell'agente <a name="manualagent"></a>
+## Provisioning manuale dell'agente <a name="manual-agent"></a>
  
 Esistono diversi modi per installare manualmente l'agente di Log Analytics. Quando si esegue l'installazione manualmente, assicurarsi di disabilitare il provisioning automatico.
 

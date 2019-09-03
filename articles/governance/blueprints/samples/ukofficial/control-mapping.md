@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7da31e09157b8877db4d36d0f061f29433d02d11
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: b53f293f6289377d85f4346933f7edb7369065cf
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515620"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231624"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Controllo del mapping degli esempi di progetto ufficiale UK e del SSN UK
 
@@ -35,7 +35,7 @@ Identificando le risorse di Azure le cui configurazioni di crittografia potrebbe
 
 - Transparent Data Encryption deve essere abilitata nei database SQL
 - La crittografia del disco deve essere applicata nelle macchine virtuali
-- Le variabili dell'account di Automazione devono essere crittografate
+- Le variabili dell'account di automazione devono essere crittografate
 - Il trasferimento sicuro negli account di archiviazione deve essere abilitato
 - Per i cluster Service Fabric la proprietà ClusterProtectionLevel deve essere impostata su EncryptAndSign
 - Transparent Data Encryption deve essere abilitata nei database SQL
@@ -48,9 +48,9 @@ Identificando le risorse di Azure le cui configurazioni di crittografia potrebbe
 
 Questo progetto consente di gestire le vulnerabilità del sistema informativo assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) che monitorano la protezione degli endpoint mancanti, gli aggiornamenti del sistema mancanti, le vulnerabilità del sistema operativo, le vulnerabilità SQL e virtuali vulnerabilità del computer. Queste informazioni dettagliate forniscono dati in tempo reale sullo stato di sicurezza delle risorse distribuite e consentono di assegnare priorità alle azioni correttive.
 
-- Monitora server senza Endpoint Protection nel Centro sicurezza di Azure
-- Installare gli aggiornamenti di sistema nei computer
-- È necessario correggere le vulnerabilità nella configurazione della sicurezza nei computer
+- Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure
+- Gli aggiornamenti di sistema devono essere installati nelle macchine
+- Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
 - Le vulnerabilità dei database SQL devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 
@@ -58,7 +58,7 @@ Questo progetto consente di gestire le vulnerabilità del sistema informativo as
 
 Questo progetto consente di proteggere le risorse del sistema informativo assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) che forniscono il monitoraggio protetto su accesso illimitato, attività whitelist e minacce.
 
-- Controlla l'acceso di rete senza restrizioni agli account di archiviazione
+- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
 - Distribuisci Rilevamento minacce nelle istanze di SQL Server
 - Distribuire l'estensione anti-malware Microsoft IaaS predefinita per Windows Server
@@ -117,7 +117,7 @@ Questo progetto consente anche di controllare l'accesso alle risorse di Azure as
 
 Oltre a usare più di 25 criteri per una gestione sicura degli utenti appropriata, questo progetto consente di proteggere le interfacce di servizio da accessi non autorizzati assegnando una definizione di [criteri di Azure](../../../policy/overview.md) che monitora gli account di archiviazione senza restrizioni. Gli account di archiviazione con accesso illimitato possono consentire l'accesso non intenzionale alle informazioni contenute all'interno del sistema informativo. Questo progetto assegna anche un criterio che Abilita i controlli delle applicazioni adattivi nelle macchine virtuali.
 
-- Controlla l'acceso di rete senza restrizioni agli account di archiviazione
+- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
 
 ## <a name="12-secure-service-administration"></a>12 amministrazione sicura del servizio
@@ -151,7 +151,7 @@ Questo progetto assegna anche una definizione di criteri di Azure che controlla 
 
 Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le impostazioni dei log nelle risorse di Azure. Un criterio assegnato controlla inoltre se le macchine virtuali non inviano i log a un'area di lavoro di analisi dei log specificata.
 
-- Il controllo deve essere abilitato in impostazioni avanzate di sicurezza dei dati in SQL Server
+- È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
 - Controlla impostazione di diagnostica
 - Controlla le impostazioni di controllo a livello del server SQL
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux

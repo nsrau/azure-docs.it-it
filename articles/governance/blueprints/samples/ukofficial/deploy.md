@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d720f220b8903d960e7bba2a75aa5a86bd0391ce
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 10d1e2fc607df205ea8922a81a1322d4121f30f7
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225988"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232287"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuire gli esempi ufficiali del Regno Unito e del piano NHS UK
 
@@ -67,7 +67,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 1. Specificare i valori dei parametri per l'assegnazione del progetto:
 
-   - Nozioni di base
+   - Generale
 
      - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
      - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
@@ -98,9 +98,9 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|Progetto Initiative per il Regno Unito ufficiale o il NHS UK|Assegnazione di criteri |Tipi di risorse per controllare i log di diagnostica (criterio: Progetto Initiative per il Regno Unito ufficiale o il NHS UK |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica è nota abilitata.  Per i valori accettabili, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: Elenco di immagini di macchina virtuale con sistema operativo Linux supportato da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Linux) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: Elenco di immagini di VM che hanno supportato il sistema operativo Windows da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Windows) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Progetto Initiative per il Regno Unito ufficiale o il NHS UK|Assegnazione criteri |Tipi di risorse per controllare i log di diagnostica (criterio: Progetto Initiative per il Regno Unito ufficiale o il NHS UK |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica è nota abilitata.  Per i valori accettabili, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione criteri |Facoltativo: Elenco di immagini di macchina virtuale con sistema operativo Linux supportato da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Linux) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione criteri |Facoltativo: Elenco di immagini di VM che hanno supportato il sistema operativo Windows da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Windows) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

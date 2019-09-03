@@ -7,17 +7,16 @@ ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d3cee73d8614c4aea2d2883cdcf2f049b1b8f67
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719738"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232938"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
-La creazione di ambienti coerenti su larga scala è davvero efficace solo se esiste un meccanismo che mantenga tale coerenza. Questo articolo spiega il funzionamento del blocco risorse di Azure Blueprint. Per vedere un esempio di blocco delle risorse e applicazione dei _negare le assegnazioni_, vedere la [proteggono le risorse nuove](../tutorials/protect-new-resources.md) esercitazione.
+La creazione di ambienti coerenti su larga scala è davvero efficace solo se esiste un meccanismo che mantenga tale coerenza. Questo articolo spiega il funzionamento del blocco risorse di Azure Blueprint. Per un esempio di blocco delle risorse e dell'applicazione delle assegnazioni di _rifiuto_, vedere l'esercitazione [protezione di nuove risorse](../tutorials/protect-new-resources.md) .
 
 ## <a name="locking-modes-and-states"></a>Modalità di blocco e stati
 
@@ -52,22 +51,22 @@ Quando viene rimossa l'assegnazione, vengono rimossi i blocchi creati da Bluepri
 
 In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto viene applicata un'azione di [negazione assegnazioni](../../../role-based-access-control/deny-assignments.md) durante l'assegnazione di un progetto se per l'assegnazione è stata selezionata l'opzione **Sola lettura** o **Non eliminare**. L'azione di negazione viene aggiunta dall'identità gestita dell'assegnazione del progetto e può essere rimossa dalle risorse artefatto solo dalla stessa identità gestita. Questa misura di sicurezza consente di applicare il meccanismo di blocco e impedisce di eliminare il blocco di progetto al di fuori di Blueprint.
 
-![Linee guida per la negazione assegnazione nel gruppo di risorse](../media/resource-locking/blueprint-deny-assignment.png)
+![Assegnazione di negazione progetto per il gruppo di risorse](../media/resource-locking/blueprint-deny-assignment.png)
 
-Il [negare le proprietà di assegnazione](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) di ogni modalità è come segue:
+Le [proprietà di assegnazione Deny](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) di ogni modalità sono le seguenti:
 
-|Modalità |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|Modalità |Autorizzazioni. azioni |Permissions. notacts |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Sola lettura |**\*** |**\*/read** |SystemDefined (Everyone) |assegnazione del progetto e definite dall'utente **excludedPrincipals** |Gruppo di risorse - _true_; Risorse - _false_ |
-|Non eliminare |**\*/Delete** | |SystemDefined (Everyone) |assegnazione del progetto e definite dall'utente **excludedPrincipals** |Gruppo di risorse - _true_; Risorse - _false_ |
+|Sola lettura |**\*** |**\*/read** |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
+|Non eliminare |**\*/Delete** | |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager memorizza nella cache i dettagli di assegnazione di ruolo per un massimo di 30 minuti. Di conseguenza, le azioni di negazione assegnazioni per le risorse del progetto potrebbero non essere completamente attive con effetto immediato. Durante questo periodo di tempo, potrebbe essere possibile eliminare una risorsa che deve essere protetta da blocchi di progetto.
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>Escludere un'entità da un'assegnazione di negazione
 
-In alcuni scenari di progettazione e la protezione, potrebbe essere necessario escludere un'entità dal [Nega assegnazione](../../../role-based-access-control/deny-assignments.md) crea l'assegnazione di progetto. Questa operazione viene eseguita nell'API REST mediante l'aggiunta di un massimo di cinque valori per il **excludedPrincipals** matrici nel **blocchi** proprietà quando [creando l'assegnazione](/rest/api/blueprints/assignments/createorupdate).
-Questo è un esempio di un corpo della richiesta che include **excludedPrincipals**:
+In alcuni scenari di progettazione o di sicurezza, potrebbe essere necessario escludere un'entità dall' [assegnazione di negazione](../../../role-based-access-control/deny-assignments.md) creata dall'assegnazione del progetto. Questa operazione viene eseguita nell'API REST aggiungendo fino a cinque valori alla matrice **excludedPrincipals** nella proprietà **Locks** durante la [creazione dell'assegnazione](/rest/api/blueprints/assignments/createorupdate).
+Questo è un esempio di corpo della richiesta che include **excludedPrincipals**:
 
 ```json
 {
@@ -111,7 +110,7 @@ Questo è un esempio di un corpo della richiesta che include **excludedPrincipal
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Seguire le [proteggere le nuove risorse](../tutorials/protect-new-resources.md) esercitazione.
+- Segui l'esercitazione [Proteggi nuove risorse](../tutorials/protect-new-resources.md) .
 - Informazioni sul [ciclo di vita del progetto](lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](parameters.md).
 - Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4274b3684a2e9e79385a561b1cad426b4ffd954e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 58a220192d6a02c6ad66094e8421405578a82a01
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609951"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231312"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gestire i problemi di protezione degli endpoint con il Centro sicurezza di Azure
 Il Centro sicurezza di Azure monitora lo stato della protezione antimalware e lo segnala nel pannello dei problemi di protezione endpoint. Il Centro sicurezza evidenzia i problemi, quali minacce rilevate e protezione insufficiente, che può rendere i computer e le macchine virtuali vulnerabili ai rischi antimalware. Usando le informazioni in **Problemi di protezione degli endpoint**, è possibile sviluppare un piano per risolvere eventuali problemi identificati.
@@ -31,12 +31,12 @@ Il Centro sicurezza segnala i problemi di protezione endpoint seguenti:
 - Integrità della protezione endpoint:
 
   - Firma non aggiornata: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non dispone delle firme antimalware più recenti.
-  - Protezione non in tempo reale: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non è configurata per la protezione in tempo reale.   È possibile che il servizio sia disattivato o che il Centro sicurezza non riesca a ottenere lo stato perché la soluzione non è supportata. Vedere l'[integrazione dei partner](security-center-os-coverage.md#supported-endpoint-protection-solutions) per un elenco delle soluzioni supportate.
+  - Protezione non in tempo reale: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non è configurata per la protezione in tempo reale.   È possibile che il servizio sia disattivato o che il Centro sicurezza non riesca a ottenere lo stato perché la soluzione non è supportata. Vedere l'[integrazione dei partner](security-center-services.md#endpoint-supported) per un elenco delle soluzioni supportate.
   - Segnalazioni non inviate: è installata una soluzione antimalware che non invia le segnalazioni dei dati.
   - Sconosciuto: è installata una soluzione antimalware il cui stato è stato è sconosciuto o segnala un errore sconosciuto.
 
     > [!NOTE]
-    > Vedere [Integrare soluzioni di sicurezza](security-center-os-coverage.md#supported-endpoint-protection-solutions) per un elenco delle soluzioni di sicurezza di Endpoint Protection integrate nel Centro sicurezza.
+    > Vedere [Integrare soluzioni di sicurezza](security-center-services.md#endpoint-supported) per un elenco delle soluzioni di sicurezza di Endpoint Protection integrate nel Centro sicurezza.
     >
     >
 

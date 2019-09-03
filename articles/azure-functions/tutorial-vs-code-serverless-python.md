@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 4f5c10536992f51ac61815507a3869e521520299
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 43fee2ce25e358bbcff915d2fbef96bf4b7c1a0c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170701"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233110"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Distribuisci Python in funzioni di Azure con Visual Studio Code
 
@@ -207,7 +207,7 @@ Di seguito sono riportate le parti importanti del codice:
 
 ## <a name="debug-locally"></a>Esegui debug localmente
 
-1. Quando si crea il progetto di funzioni, l'estensione Visual Studio Code crea anche una configurazione di `.vscode/launch.json` avvio in che contiene una singola configurazione denominata **Connetti alle funzioni di Python**. Questa configurazione significa che è sufficiente premere F5 o utilizzare Esplora debug per avviare il progetto:
+1. Quando si crea il progetto di funzioni, l'estensione Visual Studio Code crea anche una configurazione di `.vscode/launch.json` avvio in che contiene una singola configurazione denominata **Connetti alle funzioni di Python**. Questa configurazione significa che è possibile selezionare **F5** o utilizzare Esplora debug per avviare il progetto:
 
     ![Debug Explorer che mostra la configurazione di avvio delle funzioni](media/tutorial-vs-code-serverless-python/launch-configuration.png)
 
@@ -393,7 +393,7 @@ Dopo la prima distribuzione, è possibile apportare modifiche al codice, ad esem
     }
     ```
 
-1. Avviare il debugger premendo F5 o selezionando il comando di menu **debug** > **Avvia debug** . La finestra di **output** dovrebbe ora visualizzare entrambi gli endpoint nel progetto:
+1. Avviare il debugger selezionando **F5** o selezionando il comando di menu **debug** > **Avvia debug** . La finestra di **output** dovrebbe ora visualizzare entrambi gli endpoint nel progetto:
 
     ```output
     Http Functions:
@@ -479,15 +479,15 @@ In questa sezione viene aggiunta un'associazione di archiviazione alla funzione 
             )
     ```
 
-1. Per testare queste modifiche localmente, avviare di nuovo il debugger in Visual Studio Code premendo F5 o selezionando il comando di menu **debug** > **Avvia debug** . Come prima che la finestra di **output** visualizzi gli endpoint nel progetto.
+1. Per testare queste modifiche localmente, avviare di nuovo il debugger in Visual Studio Code selezionando **F5** o selezionando il comando di menu **debug** > **Avvia debug** . Come prima che la finestra di **output** visualizzi gli endpoint nel progetto.
 
 1. In un browser visitare l'URL `http://localhost:7071/api/HttpExample?name=VS%20Code` per creare una richiesta all'endpoint HttpExample, che dovrebbe anche scrivere un messaggio nella coda.
 
 1. Per verificare che il messaggio sia stato scritto nella coda "outqueue" (come indicato nell'associazione), è possibile utilizzare uno dei tre metodi seguenti:
 
-    1. Accedere al [portale di Azure](https://portal.azure.com)e passare al gruppo di risorse contenente il progetto Functions. All'interno di tale gruppo di risorse, locale e passare all'account di archiviazione per il progetto, quindi spostarsi nelle **Code**. In questa pagina passare a "outqueue", che dovrebbe visualizzare tutti i messaggi registrati.
+    1. Accedere al [portale di Azure](https://portal.azure.com)e passare al gruppo di risorse contenente il progetto di funzioni. All'interno di tale gruppo di risorse individuare e aprire l'account di archiviazione per il progetto, quindi passare a **Code**. In questa pagina, passare a "outqueue", che dovrebbe visualizzare tutti i messaggi registrati.
 
-    1. Esplorare ed esaminare la coda con l'Azure Storage Explorer, che si integra con Visual Studio, come descritto in [connettere le funzioni ad archiviazione di Azure usando Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), in particolare la sezione [esaminare la coda di output](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) .
+    1. Aprire ed esaminare la coda con l'Azure Storage Explorer, che si integra con Visual Studio, come descritto in [connettere le funzioni ad archiviazione di Azure usando Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), in particolare la sezione [esaminare la coda di output](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) .
 
     1. Usare l'interfaccia della riga di comando di Azure per eseguire una query sulla coda di archiviazione, come descritto in [eseguire query sulla coda di archiviazione](functions-add-output-binding-storage-queue-python.md#query-the-storage-queue)
     

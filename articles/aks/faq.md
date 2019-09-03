@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 0e3a29e6e8f21658f03fb7fc059b54aa167496d4
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 6d122b3ac1504db0a2d22fea749c6c94174e4ff9
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147171"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233153"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -66,7 +66,7 @@ Ogni distribuzione servizio Azure Kubernetes si estende a due gruppi di risorse:
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>È possibile specificare un nome personalizzato per il gruppo di risorse del nodo AKS?
 
-Sì. Per impostazione predefinita, AKS assegna un nome al gruppo di risorse del nodo *MC_clustername_resourcegroupname_location*, ma è anche possibile specificare un nome personalizzato.
+Sì. Per impostazione predefinita, AKS assegna un nome al gruppo di risorse del nodo *MC_resourcegroupname_clustername_location*, ma è anche possibile specificare un nome personalizzato.
 
 Per specificare il nome del gruppo di risorse, installare la versione dell'estensione dell'interfaccia della riga di comando di Azure [AKS-Preview][aks-preview-cli] *0.3.2* o versioni successive. Quando si crea un cluster AKS usando il comando [AZ AKS create][az-aks-create] , usare il parametro *--node-Resource-Group* e specificare un nome per il gruppo di risorse. Se si [Usa un modello di Azure Resource Manager][aks-rm-template] per distribuire un cluster AKS, è possibile definire il nome del gruppo di risorse usando la proprietà *nodeResourceGroup* .
 
@@ -110,7 +110,7 @@ AKS attualmente non è integrato in modo nativo con Azure Key Vault. Tuttavia, i
 
 Sì, i contenitori di Windows Server sono disponibili in anteprima. Per eseguire i contenitori di Windows Server in AKS, è possibile creare un pool di nodi che esegue Windows Server come sistema operativo guest. I contenitori di Windows Server possono usare solo Windows Server 2019. Per iniziare, vedere [creare un cluster AKS con un pool di nodi di Windows Server][aks-windows-cli].
 
-Il supporto di Window Server per il pool di nodi include alcune limitazioni che fanno parte dell'upstream Windows Server nel progetto Kubernetes. Per ulteriori informazioni su queste limitazioni, vedere la pagina relativa ai [contenitori di Windows Server nelle limitazioni di AKS][aks-windows-limitations].
+Il supporto di Windows Server per il pool di nodi include alcune limitazioni che fanno parte di Windows Server upstream nel progetto Kubernetes. Per ulteriori informazioni su queste limitazioni, vedere la pagina relativa ai [contenitori di Windows Server nelle limitazioni di AKS][aks-windows-limitations].
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS offre un contratto di servizio?
 

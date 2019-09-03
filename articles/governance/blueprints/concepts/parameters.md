@@ -7,13 +7,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9670433284ae963783b655322c4b18f748df52c5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356989"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231946"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -27,7 +26,7 @@ Un esempio semplice è l'artefatto gruppo di risorse. Quando si crea un gruppo d
 
 La soluzione a questo problema è rappresentata dai parametri. I progetti consentono di definire il valore per ogni proprietà dell'artefatto durante l'assegnazione a una sottoscrizione. Questo parametro rende possibile riutilizzare un progetto che crea un gruppo di risorse e altre risorse all'interno di una singola sottoscrizione senza conflitti.
 
-## <a name="blueprint-parameters"></a>Parametri di progetto
+## <a name="blueprint-parameters"></a>Parametri del progetto
 
 I parametri possono essere creati nel progetto stesso tramite l'API REST. Questi parametri sono diversi da quelli presenti in ciascuno degli elementi supportati. Quando nel progetto viene creato un parametro, questo può essere usato dagli artefatti in tale progetto. Un esempio può essere il prefisso per la denominazione del gruppo di risorse. L'artefatto può usare il parametro del progetto per crearne uno "principalmente dinamico". Poiché il parametro può essere definito anche durante l'assegnazione, questo modello consente una coerenza che può essere conforme alle regole di denominazione. Per la procedura, vedere [Impostazione di parametri statici - Parametro a livello di progetto](#blueprint-level-parameter).
 
@@ -40,12 +39,12 @@ Questa misura di sicurezza impedisce la rischiosa prassi di archiviare i segreti
 - Nome del segreto dell'insieme di credenziali delle chiavi
 - Versione del segreto dell'insieme di credenziali delle chiavi
 
-Se l'assegnazione di progetto usa un **identità assegnata dal sistema gestito**, il riferimento Key Vault _deve_ esiste nella stessa sottoscrizione la definizione di progetto viene assegnata a.
+Se l'assegnazione del progetto usa un' **identità gestita assegnata dal sistema**, la Key Vault a cui viene fatto riferimento _deve_ esistere nella stessa sottoscrizione a cui è assegnata la definizione del progetto.
 
-Se l'assegnazione di progetto usa un **identità assegnata dall'utente gestito**, il riferimento Key Vault _potrebbe_ esistenti in una sottoscrizione centralizzata. L'identità gestita deve disporre dei diritti appropriati in Key Vault prima dell'assegnazione progetto.
+Se l'assegnazione del progetto usa un' **identità gestita assegnata dall'utente**, è possibile che la Key Vault a cui si fa riferimento _sia_ presente in una sottoscrizione centralizzata. È necessario concedere all'identità gestita i diritti appropriati per la Key Vault prima dell'assegnazione del progetto.
 
 > [!IMPORTANT]
-> In entrambi i casi, è necessario disporre di Key Vault **abilitare l'accesso ad Azure Resource Manager per la distribuzione dei modelli** configurato nel **criteri di accesso** pagina. Per istruzioni su come abilitare questa funzionalità, vedere [Key Vault - Abilitare la distribuzione di modelli](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> In entrambi i casi, il Key Vault deve disporre dell'abilitazione dell' **accesso a Azure Resource Manager per la distribuzione dei modelli** configurata nella pagina **criteri di accesso** . Per istruzioni su come abilitare questa funzionalità, vedere [Key Vault - Abilitare la distribuzione di modelli](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 Per altre informazioni sull'insieme di credenziali di Azure, vedere [Panoramica di Key Vault](../../../key-vault/key-vault-overview.md).
 
@@ -61,7 +60,7 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 
-1. Fare clic su un progetto esistente e quindi fare clic su **linee guida per la modifica** oppure fare clic su **+ crea blueprint** e immettere le informazioni sul **nozioni di base** scheda.
+1. Fare clic su un progetto esistente e quindi fare clic su **modifica progetto** oppure su **+ Crea progetto** e compilare le informazioni nella scheda nozioni di **base** .
 
 1. Fare clic su **Avanti: Artefatti** oppure fare clic sulla scheda **Artefatti**.
 
@@ -71,7 +70,7 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 1. La pagina **Modifica artefatto** mostra le opzioni del valore appropriate per l'artefatto selezionato. Ogni parametro dell'artefatto ha un titolo, una casella del valore e una casella di controllo. Deselezionare la casella di controllo per renderlo un **parametro statico**. Nell'esempio seguente, solo _Località_ è un **parametro statico** perché la casella è deselezionata, mentre è selezionata in _Nome gruppo di risorse_.
 
-   ![Parametri statici del progetto in un elemento di progetto](../media/parameters/static-parameter.png)
+   ![Parametri statici del progetto su un elemento del progetto](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Impostazione dei parametri statici dall'API REST
 
@@ -170,7 +169,7 @@ La creazione di **parametri statici** su un artefatto è simile, ma accetta un v
 
 ### <a name="dynamic-parameters"></a>Parametri dinamici
 
-L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro non viene definito nel progetto, bensì durante ogni assegnazione del progetto. Nell'esempio del gruppo di risorse, l'uso di un **parametro dinamico** ha senso per il nome del gruppo di risorse. Questo fornisce un nome diverso per ogni assegnazione del progetto. Per un elenco di funzioni di progetto, vedere la [blueprint funzioni](../reference/blueprint-functions.md) riferimento.
+L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro non viene definito nel progetto, bensì durante ogni assegnazione del progetto. Nell'esempio del gruppo di risorse, l'uso di un **parametro dinamico** ha senso per il nome del gruppo di risorse. Questo fornisce un nome diverso per ogni assegnazione del progetto. Per un elenco delle funzioni del progetto, vedere le informazioni di riferimento sulle [funzioni del progetto](../reference/blueprint-functions.md) .
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Impostazione dei parametri dinamici nel portale
 
@@ -178,15 +177,15 @@ L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 
-1. Fare clic con il tasto destro del mouse sul progetto che si desidera assegnare. Selezionare **blueprint assegnare** o fa clic sul progetto che si desidera assegnare e quindi il **Assign blueprint** pulsante.
+1. Fare clic con il tasto destro del mouse sul progetto che si desidera assegnare. Selezionare **assegna progetto** oppure fare clic sul progetto che si vuole assegnare, quindi fare clic sul pulsante **assegna progetto** .
 
-1. Nel **Assign blueprint** pagina, trovare il **parametri dell'elemento** sezione. Ogni artefatto con almeno un **parametro dinamico** mostra l'artefatto e le opzioni di configurazione. Immettere i valori richiesti per i parametri prima di assegnare il progetto. Nell'esempio seguente, _Nome_ è un **parametro dinamico** che deve essere definito per completare l'assegnazione del progetto.
+1. Nella pagina **assegna progetto** individuare la sezione **parametri artefatto** . Ogni artefatto con almeno un **parametro dinamico** mostra l'artefatto e le opzioni di configurazione. Immettere i valori richiesti per i parametri prima di assegnare il progetto. Nell'esempio seguente, _Nome_ è un **parametro dinamico** che deve essere definito per completare l'assegnazione del progetto.
 
-   ![Parametro dinamico del progetto durante l'assegnazione progetto](../media/parameters/dynamic-parameter.png)
+   ![Parametro dinamico progetto durante l'assegnazione del progetto](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Impostazione dei parametri dinamici dall'API REST
 
-L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inserendo direttamente il valore. Invece di usare una funzione, ad esempio [parameters()](../reference/blueprint-functions.md#parameters), il valore fornito è una stringa appropriata. Gli artefatti per un gruppo di risorse sono definiti con un nome di modello e le proprietà **name** e **location**. Tutti gli altri parametri per ogni artefatto incluso sono definiti in **parameters** con una coppia di chiavi **\<name\>** e **value**. Se il progetto è configurato per un parametro dinamico non fornito durante l'assegnazione, l'assegnazione avrà esito negativo.
+L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inserendo direttamente il valore. Anziché usare una funzione, ad esempio [Parameters ()](../reference/blueprint-functions.md#parameters), il valore specificato è una stringa appropriata. Gli artefatti per un gruppo di risorse sono definiti con un nome di modello e le proprietà **name** e **location**. Tutti gli altri parametri per ogni artefatto incluso sono definiti in **parameters** con una coppia di chiavi **\<name\>** e **value**. Se il progetto è configurato per un parametro dinamico non fornito durante l'assegnazione, l'assegnazione avrà esito negativo.
 
 - URI DELL'API REST
 
@@ -239,7 +238,7 @@ L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inser
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Visualizzare l'elenco delle [blueprint funzioni](../reference/blueprint-functions.md).
+- Vedere l'elenco delle [funzioni di progetto](../reference/blueprint-functions.md).
 - Informazioni sul [ciclo di vita del progetto](lifecycle.md).
 - Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).
 - Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md).

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 05289b8e3aa0e083dd948a2d43f3af92418bc5d2
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 078a29fc1ab66151aa41c3901bb6a3af6479a0ba
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052000"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233263"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creare un contenitore di profili FSLogix per un pool host usando Azure NetApp Files
 
@@ -218,7 +218,7 @@ Questa sezione è basata sulla [creazione di un contenitore di profili per un po
 
 6. Connettersi direttamente a qualsiasi parte della macchina virtuale del pool host usando Desktop remoto e aprire **Esplora file.** Passare quindi al **percorso di montaggio** (nell'esempio seguente il percorso di montaggio \\è \\ANF-SMB-3863.gt1107.onmicrosoft.com\\e-vol).
 
-   All'interno di questa cartella dovrebbe essere presente un disco rigido virtuale del profilo come quello nell'esempio seguente.
+   All'interno di questa cartella deve essere presente un file VHD (o VHDX) del profilo come quello nell'esempio seguente.
 
    ![Screenshot del contenuto della cartella nel percorso di montaggio. Interno è un singolo file VHD denominato "Profile_ssbb".](media/mount-path-folder.png)
 

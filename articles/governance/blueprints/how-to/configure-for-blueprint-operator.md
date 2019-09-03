@@ -1,5 +1,5 @@
 ---
-title: Configurare l'ambiente per un operatore di progetto
+title: Configurare l'ambiente per un operatore di Blueprint
 description: Informazioni su come configurare l'ambiente Azure per l'uso con il ruolo predefinito di controllo degli accessi in base al ruolo (RBAC).
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,14 +7,14 @@ ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8c39eadc6f1448e19ffee6d741cc50a7b6e09475
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 27f7c747dfd39fed7a67924da71b9293979e0f94
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70148609"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231888"
 ---
-# <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurare l'ambiente per un operatore di progetto
+# <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurare l'ambiente per un operatore di Blueprint
 
 La gestione delle definizioni dei progetti e delle assegnazioni di progetto può essere assegnata a team diversi. È comune che un progettista o un team di governance sia responsabile della gestione del ciclo di vita delle definizioni del progetto, mentre un team operativo è responsabile della gestione delle assegnazioni di tali definizioni di progetto controllate centralmente.
 

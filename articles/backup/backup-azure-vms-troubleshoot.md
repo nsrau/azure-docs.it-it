@@ -8,18 +8,40 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2f645d290175db9692649d825323313fc207a014
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 69d75f9050560eb4a9e394241316c0474fffe7cc
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210275"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232476"
 ---
-# <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
+# <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
+
 È possibile risolvere gli errori rilevati durante l'uso di backup di Azure con le informazioni elencate di seguito:
 
 ## <a name="backup"></a>Backup
+
 Questa sezione descrive l'errore dell'operazione di backup della macchina virtuale di Azure.
+
+### <a name="basic-troubleshooting"></a>Risoluzione dei problemi di base
+
+* Verificare che l'agente di macchine virtuali (WA Agent) sia la [versione più recente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Verificare che la versione del sistema operativo della VM Windows o Linux sia supportata. vedere la matrice di supporto per il [backup delle VM IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
+* Verificare che un altro servizio di backup non sia in esecuzione.
+   * Per assicurarsi che non ci siano problemi di estensione dello snapshot, [disinstallare le estensioni per forzare il ricaricamento e quindi ripetere il backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+* Verificare che la macchina virtuale abbia la connettività Internet.
+   * Verificare che un altro servizio di backup non sia in esecuzione.
+* Da `Services.msc`verificare che il servizio **agente guest di Microsoft Azure** sia **in esecuzione**. Se il servizio **agente guest di Azure** non è presente, installarlo dal [backup di macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* È possibile che nel **registro eventi** vengano visualizzati errori di backup provenienti da altri prodotti di backup, ad esempio Windows Server backup, e che non siano dovuti a backup di Azure. Usare la procedura seguente per determinare se il problema si verifica con backup di Azure:
+   * Se si verifica un errore con un **backup** delle voci nell'origine o nel messaggio dell'evento, controllare se i backup di backup delle macchine virtuali IaaS di Azure siano stati completati e se è stato creato un punto di ripristino con il tipo di snapshot desiderato.
+    * Se backup di Azure funziona, il problema è probabilmente con un'altra soluzione di backup. 
+    * Di seguito è riportato un esempio di errore del Visualizzatore eventi in cui backup di Azure funzionava correttamente, ma "Windows Server Backup" ha avuto esito negativo:<br>
+    ![Errore Windows Server Backup](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+    * Se backup di Azure ha esito negativo, cercare il codice di errore corrispondente nella sezione Errori comuni di backup delle VM in questo articolo. 
+
+## <a name="common-issues"></a>Problemi comuni
+
+Di seguito sono riportati i problemi comuni relativi agli errori di backup nelle macchine virtuali di Azure.
 
 ## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime: si è verificato un timeout durante la copia dei dati di backup dall'insieme di credenziali
 
@@ -36,7 +58,7 @@ Messaggio di errore: Lo stato della macchina virtuale non consente i backup.<br/
 L'operazione di backup non è riuscita perché la macchina virtuale è in stato di errore. Per eseguire correttamente il backup, lo stato della macchina virtuale deve essere in esecuzione, arrestato o arrestato (deallocato).
 
 * Se la macchina virtuale si trova in uno stato temporaneo tra **In esecuzione** e **Arresto**, attendere che lo stato cambi. Quindi attivare il processo di backup.
-*  Se la macchina virtuale è Linux e usa il modulo del kernel Security Enhanced Linux, escludere il percorso dell'agente Linux di Azure **/var/lib/waagent** dai criteri di sicurezza e assicurarsi che l'estensione di backup sia installata.
+* Se la macchina virtuale è Linux e usa il modulo del kernel Security Enhanced Linux, escludere il percorso dell'agente Linux di Azure **/var/lib/waagent** dai criteri di sicurezza e assicurarsi che l'estensione di backup sia installata.
 
 ## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed: non è stato possibile bloccare uno o più punti di montaggio della macchina virtuale per eseguire uno snapshot coerente con il file System
 

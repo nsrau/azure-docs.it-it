@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 18297410842b432af0093a71406df71f7e03db9d
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 311db544a119d4b9bee7d31cfdfac33aa3c4ed79
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602045"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233205"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Informazioni sull'integrità delle macchine virtuali di Azure
 
@@ -285,7 +285,7 @@ Per visualizzare uno stato di integrità aggiornato, è possibile aggiornare la 
 
 Monitoraggio di Azure per le macchine virtuali integrità si integra con gli [avvisi di Azure](../../azure-monitor/platform/alerts-overview.md). Genera un avviso quando i criteri predefiniti, quando vengono rilevati, cambiano da uno stato integro a uno stato non integro. Gli avvisi sono suddivisi in categorie per gravità, da gravità 0 a SEV 4, con gravità 0 come livello più alto.
 
-Gli avvisi non sono associati a un gruppo di azioni per notificare l'attivazione dell'avviso. Il proprietario della sottoscrizione deve configurare le notifiche attenendosi alla procedura descritta nella sezione [configurare gli avvisi](#configure-alerts) .
+Gli avvisi non sono associati a un gruppo di azioni per notificare l'attivazione dell'avviso. Un utente con ruolo proprietario nell'ambito della sottoscrizione deve configurare le notifiche attenendosi alla procedura descritta nella sezione [configurare gli avvisi](#configure-alerts) .
 
 Il numero totale di avvisi di integrità della macchina virtuale classificati in base alla gravità è disponibile nel dashboard di **integrità** nella sezione **avvisi** . Quando si seleziona il numero totale di avvisi o il numero corrispondente a un livello di gravità, si apre la pagina **Avvisi** in cui sono elencati tutti gli avvisi corrispondenti alla selezione.
 

@@ -1,5 +1,5 @@
 ---
-title: Gli asset in servizi multimediali di Azure | Microsoft Docs
+title: Asset in servizi multimediali di Azure | Microsoft Docs
 description: Questo articolo descrive le caratteristiche degli asset e come vengono usati da Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -9,30 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d0a81d5d7ce8e7569b77007b6ad9c322cf626f16
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2f2dea922b7a3ba45ad6493ce94f0c52649dfa68
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670707"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230987"
 ---
 # <a name="assets"></a>Asset
 
-In servizi multimediali di Azure, un' [Asset](https://docs.microsoft.com/rest/api/media/assets) contiene informazioni sui file digitali archiviati in archiviazione di Azure (tra cui video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi). 
+In servizi multimediali di Azure, un [Asset](https://docs.microsoft.com/rest/api/media/assets) contiene informazioni sui file digitali archiviati in archiviazione di Azure (inclusi video, audio, immagini, raccolte di anteprime, tracce di testo e file di didascalia chiusi). 
 
 Un asset viene mappato a un contenitore BLOB nell'[account di archiviazione di Azure](storage-account-concept.md) e i file contenuti nell'asset vengono archiviati come BLOB in blocchi in tale contenitore. Servizi multimediali supporta i livelli BLOB quando l'account usa l'archiviazione Utilizzo generico v2 (GPv2). Con GPv2, è possibile spostare i file in uno [spazio di archiviazione ad accesso sporadico o archivio](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). L'archiviazione **archivio** è adatta all'archiviazione di file di origine quando non sono più necessari (ad esempio, dopo la codifica).
 
 Il livello di archiviazione **archivio** è consigliato solo per file di origine di dimensioni molto estese già codificati e con l'output del processo di codifica inserito in un contenitore BLOB di output. I BLOB nel contenitore di output che si vuole associare a un asset e usare per trasmettere o analizzare il contenuto, devono esistere in un livello di archiviazione ad **accesso frequente** o ad **accesso sporadico**.
 
+### <a name="naming-blobs"></a>Denominazione di BLOB
+
+I nomi di file/BLOB all'interno di un asset devono rispettare i requisiti del [nome del BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) e i [requisiti del nome NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Il motivo di questi requisiti è che i file possono essere copiati dall'archiviazione BLOB a un disco NTFS locale per l'elaborazione.
+
 ## <a name="upload-digital-files-into-assets"></a>Caricare i file digitali negli asset
 
-Dopo che i file digitali vengono caricati nell'archiviazione e associati a un Asset, possono essere utilizzati in servizi multimediali di codifica, streaming, l'analisi dei flussi di lavoro del contenuto. Uno dei flussi di lavoro comuni di Servizi multimediali consiste nel caricare, codificare e trasmettere un file. Questa sezione descrive i passaggi generali.
+Dopo che i file digitali sono stati caricati nell'archiviazione e associati a un asset, possono essere usati nella codifica, nello streaming e nell'analisi dei flussi di lavoro del contenuto di servizi multimediali. Uno dei flussi di lavoro comuni di Servizi multimediali consiste nel caricare, codificare e trasmettere un file. Questa sezione descrive i passaggi generali.
 
 > [!TIP]
-> Prima di iniziare lo sviluppo, esaminare [lo sviluppo con le API di servizi multimediali v3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, le convenzioni di denominazione e così via).
+> Prima di iniziare lo sviluppo, vedere [sviluppo con le API di servizi multimediali V3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, alle convenzioni di denominazione e così via).
 
 1. Usare l'API Servizi multimediali v3 per creare un nuovo asset "input". Questa operazione crea un contenitore nell'account di archiviazione associato all'account di Servizi multimediali. L'API restituisce il nome del contenitore (ad esempio, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    
@@ -87,18 +91,18 @@ curl -X PUT \
 
 Per un esempio completo, vedere [Creare un input del processo da un file locale](job-input-from-local-file-how-to.md). In Servizi multimediali v3 l'input di un processo può essere creato anche da URL HTTPS. Vedere [Creare un input del processo da un URL HTTPS](job-input-from-http-how-to.md).
 
-## <a name="map-v3-asset-properties-to-v2"></a>Eseguire il mapping delle proprietà degli asset v3 a v2
+## <a name="map-v3-asset-properties-to-v2"></a>Mappare le proprietà Asset V3 alla versione V2
 
-La tabella seguente illustra come il [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)della proprietà in v3 sono mappate alle proprietà dell'Asset nella versione 2.
+La tabella seguente illustra in che modo le proprietà dell' [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)in V3 sono mappate alle proprietà dell'asset nella versione V2.
 
-|proprietà v3|proprietà v2|
+|Proprietà V3|V2 (proprietà)|
 |---|---|
-|ID - (univoci) il percorso completo di Azure Resource Manager, vedere alcuni esempi in [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
-|nome: (univoci) vedere [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions) ||
+|ID-(univoco) il percorso di Azure Resource Manager completo, vedere esempi nell' [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|nome-(univoco) vedere [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions) ||
 |alternateId|AlternateId|
-|assetId|ID - valore (univoci) inizia con la `nb:cid:UUID:` prefisso.|
-|created|Data di creazione|
-|description|NOME|
+|assetId|Il valore ID-(Unique) inizia con `nb:cid:UUID:` il prefisso.|
+|creato|Data creazione|
+|description|Name|
 |LastModified|LastModified|
 |storageAccountName|StorageAccountName|
 |storageEncryptionFormat| Opzioni (opzioni di creazione)|

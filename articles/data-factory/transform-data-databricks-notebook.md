@@ -6,18 +6,18 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-author: djpmsft
-ms.author: daperlov
+author: nabhishek
+ms.author: abnarain
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: db437c7699c7fddc2b04175537446f53c4c4bc85
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140821"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233070"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Trasformare i dati eseguendo un notebook di Databricks
 
@@ -59,9 +59,9 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella de
 
 |Proprietà|Descrizione|Obbligatorio|
 |---|---|---|
-|name|Nome dell'attività nella pipeline.|Yes|
+|name|Nome dell'attività nella pipeline.|Sì|
 |description|Testo che descrive l'attività.|No|
-|type|Per l'attività dei notebook di Databricks il tipo di attività è DatabricksNotebook.|Sì|
+|type|Per l'attività dei notebook di Databricks il tipo di attività è DatabricksNotebook.|Yes|
 |linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione il notebook di Databricks. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Sì|
 |notebookPath|Percorso assoluto del notebook da eseguire nell'area di lavoro di Databricks. Questo percorso deve iniziare con una barra.|Yes|
 |baseParameters|Matrice di coppie chiave-valore. I parametri base possono essere usati per ogni esecuzione attività. Se il notebook accetta un parametro non specificato, verrà usato il valore predefinito del notebook. Per altre informazioni sui parametri, vedere [Notebook di Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
@@ -111,6 +111,19 @@ Nella definizione di attività databricks precedente specificare questi tipi di 
 ```
 
 Per altre informazioni, consultare la [documentazione di Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) per i tipi di libreria.
+
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Passaggio di parametri tra notebook e Data Factory
+
+È possibile passare data factory parametri ai notebook usando la proprietà *baseParameters* nell'attività databricks. 
+
+In alcuni casi potrebbe essere necessario passare di nuovo alcuni valori dal notebook al data factory, che può essere usato per il flusso di controllo (controlli condizionali) in data factory o essere utilizzato dalle attività downstream (il limite di dimensioni è 2MB). 
+
+1. Nel notebook è possibile chiamare [dbutils. notebook. Exit ("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) e il corrispondente "returnValue" verrà restituito data factory.
+
+2. È possibile utilizzare l'output in data factory utilizzando un'espressione, ad `'@activity('databricks notebook activity name').output.runOutput'`esempio. 
+
+   > [!IMPORTANT]
+   > Se si passa un oggetto JSON, è possibile recuperare i valori accodando i nomi di proprietà. Esempio: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Come caricare una libreria in Databricks
 

@@ -7,31 +7,30 @@ ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c2bf19a2599d59b9ff2b3d189b26134f1528a878
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1ac0e70700b4b093fad09b4d10c6bdcf2e06adac
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448561"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231536"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
 Ogni definizione di criteri in Criteri di Azure ha un effetto. Questo effetto determina cosa accade quando viene valutata la corrispondenza della regola dei criteri. Il comportamento degli effetti varia a seconda che riguardino una nuova risorsa, una risorsa aggiornata o una risorsa esistente.
 
-Questi effetti sono attualmente supportati in una definizione di criteri:
+Questi effetti sono attualmente supportati in una definizione dei criteri:
 
-- [Append](#append)
+- [Aggiungere](#append)
 - [Controllo](#audit)
 - [AuditIfNotExists](#auditifnotexists)
-- [Deny](#deny)
+- [Negare](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabilitato](#disabled)
-- [EnforceRegoPolicy](#enforceregopolicy) (preview)
+- [EnforceRegoPolicy](#enforceregopolicy) anteprima
 
 ## <a name="order-of-evaluation"></a>Ordine di valutazione
 
-Criteri di Azure, le richieste per creare o aggiornare una risorsa tramite Azure Resource Manager vengono valutate per prime. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Alcuni degli effetti di elaborazione dei criteri di Azure prima di passare la richiesta al Provider di risorse appropriato. Tale operazione impedirà l'elaborazione non necessario da un Provider di risorse quando una risorsa non soddisfa i controlli di governance progettato di criteri di Azure.
+Le richieste di creazione o aggiornamento di una risorsa tramite Azure Resource Manager vengono valutate prima in base ai criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi effetti prima di passare la richiesta al provider di risorse appropriato. Questa operazione impedisce l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance designati di criteri di Azure.
 
 - **Disabled** viene verificato per primo, per determinare se valutare la regola dei criteri.
 - Successivamente viene valutato **Append**. Dal momento che Append può alterare la richiesta, una modifica apportata da Append potrebbe impedire l'attivazione di un effetto Audit o Deny.
@@ -40,13 +39,13 @@ Criteri di Azure, le richieste per creare o aggiornare una risorsa tramite Azure
 
 Dopo che il provider di risorse restituisce un codice di riuscita, vengono valutati **AuditIfNotExists** e **DeployIfNotExists** per determinare se è necessaria un'ulteriore registrazione della conformità o un'altra azione.
 
-Attualmente non c'è alcun ordine di valutazione per il **EnforceRegoPolicy** effetto.
+Attualmente non è presente alcun ordine di valutazione per l'effetto **EnforceRegoPolicy** .
 
-## <a name="disabled"></a>Disabled
+## <a name="disabled"></a>Disabilitata
 
 Questo effetto è utile per gli scenari di test o quando la definizione dei criteri ha parametrizzato l'effetto. Grazie a questa flessibilità è possibile disabilitare una singola assegnazione invece di disabilitare tutte le assegnazioni di quei criteri.
 
-## <a name="append"></a>Append
+## <a name="append"></a>Aggiungi
 
 Append viene usato per aggiungere altri campi alla risorsa richiesta durante la creazione o l'aggiornamento. Un esempio comune è l'aggiunta di tag a risorse come costCenter o la specifica di indirizzi IP consentiti per una risorsa di archiviazione.
 
@@ -91,7 +90,7 @@ Esempio 2 due coppie **campo/valore** per accodare un set di tag.
 }
 ```
 
-Esempio 3: Singolo **/valore del campo** abbinare usando non **[\*]** [alias](definition-structure.md#aliases) con una matrice **valore** per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
+Esempio 3: Coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) non **\*[]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
 
 ```json
 "then": {
@@ -151,7 +150,7 @@ Audit viene usato per creare un evento di avviso nel log attività quando viene 
 
 ### <a name="audit-evaluation"></a>Valutazione di Audit
 
-Il controllo è l'ultimo effetto durante la creazione o aggiornamento di una risorsa controllata da criteri di Azure. Criteri di Azure invia quindi la risorsa del Provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge un `Microsoft.Authorization/policies/audit/action` dell'operazione del log attività e contrassegna la risorsa come non conforme.
+Il controllo è l'ultimo effetto controllato dai criteri di Azure durante la creazione o l'aggiornamento di una risorsa. I criteri di Azure inviano quindi la risorsa al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge `Microsoft.Authorization/policies/audit/action` un'operazione al log attività e contrassegna la risorsa come non conforme.
 
 ### <a name="audit-properties"></a>Proprietà di Audit
 
@@ -173,7 +172,7 @@ AuditIfNotExists consente il controllo sulle risorse che corrispondono alla cond
 
 ### <a name="auditifnotexists-evaluation"></a>Valutazione di AuditIfNotExists
 
-AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge un `Microsoft.Authorization/policies/audit/action` operazione per l'attività di accedere allo stesso modo come l'effetto di controllo. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
+AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge `Microsoft.Authorization/policies/audit/action` un'operazione al log attività in modo analogo all'effetto di controllo. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Proprietà di AuditIfNotExists
 
@@ -181,10 +180,10 @@ La proprietà **details** degli effetti AuditIfNotExists ha tutte le sottopropri
 
 - **Type** [obbligatorio]
   - Specifica il tipo della risorsa correlata a cui corrispondere.
-  - Se **details.type** è un tipo di risorsa di sotto il **se** condizione di risorse, i criteri di query per le risorse di questo **tipo** all'interno dell'ambito della risorsa valutata. In caso contrario, query di criteri nello stesso gruppo di risorse della risorsa valutata.
+  - Se **Details. Type** è un tipo di risorsa sotto la risorsa **if** condition, il criterio esegue una query per le risorse di questo **tipo** nell'ambito della risorsa valutata. In caso contrario, le query dei criteri si trovano nello stesso gruppo di risorse della risorsa valutata.
 - **Name** (facoltativo)
   - Specifica il nome esatto della risorsa a cui corrispondere e fa sì che il criterio recuperi una risorsa specifica invece di tutte le risorse del tipo specificato.
-  - Quando la condizione di valori per **if.field.type** e **then.details.type** corrispondono, quindi **Name** diventa _obbligatorio_ e deve essere `[field('name')]`. Tuttavia, un' [audit](#audit) effettive devono essere considerate invece.
+  - Quando i valori della condizione per **if. Field. Type** e **then. Details. Type** corrispondono, il **nome** diventa _obbligatorio_ e deve essere `[field('name')]`. Tuttavia, deve essere considerato un effetto di [controllo](#audit) .
 - **ResourceGroupName** (facoltativo)
   - Consente che la corrispondenza della risorsa correlata provenga da un gruppo di risorse diverso.
   - Non è applicabile se **type** è una risorsa sottostante la risorsa della condizione **if**.
@@ -255,7 +254,7 @@ La proprietà **details** degli effetti DeployIfNotExists ha tutte le sottopropr
   - Inizia cercando di recuperare una risorsa sottostante la risorsa della condizione **if**, quindi esegue una query all'interno dello stesso gruppo di risorse come risorsa della condizione **if**.
 - **Name** (facoltativo)
   - Specifica il nome esatto della risorsa a cui corrispondere e fa sì che il criterio recuperi una risorsa specifica invece di tutte le risorse del tipo specificato.
-  - Quando la condizione di valori per **if.field.type** e **then.details.type** corrispondono, quindi **Name** diventa _obbligatorio_ e deve essere `[field('name')]`.
+  - Quando i valori della condizione per **if. Field. Type** e **then. Details. Type** corrispondono, il **nome** diventa _obbligatorio_ e deve essere `[field('name')]`.
 - **ResourceGroupName** (facoltativo)
   - Consente che la corrispondenza della risorsa correlata provenga da un gruppo di risorse diverso.
   - Non è applicabile se **type** è una risorsa sottostante la risorsa della condizione **if**.
@@ -342,30 +341,30 @@ Esempio: valuta i database SQL Server per determinare se transparentDataEncrypti
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-Questo effetto viene usato con una definizione di criterio *modalità* di `Microsoft.ContainerService.Data`. Viene usato per passare le regole di controllo di ammissione definite con [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) al [Agente criteri Open](https://www.openpolicyagent.org/) (Op) in [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+Questo effetto viene utilizzato con la *modalità* di definizione dei `Microsoft.ContainerService.Data`criteri. Viene usato per passare le regole di controllo dell'ammissione definite con [rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Criteri di Azure per Kubernetes](rego-for-aks.md) è disponibile in anteprima pubblica e supporta solo definizioni di criteri predefiniti.
+> [Criteri di Azure per Kubernetes](rego-for-aks.md) è in anteprima pubblica e supporta solo le definizioni di criteri predefinite.
 
 ### <a name="enforceregopolicy-evaluation"></a>Valutazione EnforceRegoPolicy
 
-Il controller di ammissione Open Agente criteri valuta qualsiasi nuova richiesta nel cluster in tempo reale.
-Ogni 5 minuti, viene completata un'analisi completa del cluster e i risultati segnalati a criteri di Azure.
+Il controller di ammissione dell'agente criteri aperto valuta tutte le nuove richieste nel cluster in tempo reale.
+Ogni 5 minuti, viene completata un'analisi completa del cluster e i risultati vengono segnalati ai criteri di Azure.
 
-### <a name="enforceregopolicy-properties"></a>Proprietà EnforceRegoPolicy
+### <a name="enforceregopolicy-properties"></a>Proprietà di EnforceRegoPolicy
 
-Il **dettagli** dispone di proprietà dell'effetto EnforceRegoPolicy di sottoproprietà che descrivono la regola di controllo di ammissione Rego.
+La proprietà Details dell'effetto EnforceRegoPolicy include le sottoproprietà che descrivono la regola di controllo dell'ammissione di rego.
 
-- **policyId** [required]
-  - Un nome univoco passato come parametro per la regola di controllo di ammissione Rego.
-- **criteri** [obbligatorio]
-  - Specifica l'URI della regola di controllo di ammissione Rego.
-- **policyParameters** [facoltativo]
-  - Consente di definire eventuali parametri e valori da passare al criterio rego.
+- **policyId** necessaria
+  - Un nome univoco passato come parametro alla regola di controllo dell'ammissione rego.
+- **criteri** di necessaria
+  - Specifica l'URI della regola di controllo dell'ammissione rego.
+- **policyParameters** opzionale
+  - Definisce tutti i parametri e i valori da passare al criterio rego.
 
-### <a name="enforceregopolicy-example"></a>Esempio EnforceRegoPolicy
+### <a name="enforceregopolicy-example"></a>Esempio di EnforceRegoPolicy
 
-Esempio: Rego regola di controllo di ammissione per consentire solo le immagini del contenitore specificato nel servizio contenitore di AZURE.
+Esempio: Regola di controllo dell'ammissione di rego per consentire solo le immagini del contenitore specificate in AKS.
 
 ```json
 "if": {
@@ -394,7 +393,7 @@ Esempio: Rego regola di controllo di ammissione per consentire solo le immagini 
 
 ## <a name="layering-policies"></a>Livelli dei criteri
 
-Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Ad esempio:
+Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Esempio:
 
 - Criterio 1
   - Limita la posizione delle risorse a "westus"
@@ -423,9 +422,9 @@ Ogni assegnazione viene valutata singolarmente. Di conseguenza, non c'è alcuna 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
+- Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
 - Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
-- Comprendere come [a livello di codice, creare criteri](../how-to/programmatically-create.md).
+- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come [monitora e aggiorna le risorse non conformi](../how-to/remediate-resources.md).
+- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

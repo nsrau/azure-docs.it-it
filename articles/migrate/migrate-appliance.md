@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e2faa47a58283623747ae569de22e1c57df1a51f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827330"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231136"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -72,6 +72,9 @@ Velocità effettiva scrittura NIC (MB al secondo) | net.transmitted.average  |Ca
 
 ## <a name="collected-metadata-vmware"></a>Metadati raccolti-VMware
 
+> [!NOTE]
+> I metadati individuati dal dispositivo Azure Migrate vengono usati per semplificare le operazioni di ridimensionamento delle applicazioni durante la migrazione in Azure, l'analisi dell'idoneità di Azure, l'analisi delle dipendenze delle applicazioni e la pianificazione dei costi. Microsoft non utilizza questi dati in relazione a qualsiasi controllo di conformità delle licenze.
+
 Di seguito è riportato l'elenco completo dei metadati delle macchine virtuali VMware che l'appliance raccoglie e Invia ad Azure.
 
 **Dati** | **Contatore**
@@ -122,6 +125,9 @@ Dettagli host per macchina virtuale | ((HostSystem)container).VM
 
 
 ## <a name="collected-performance-data-hyper-v"></a>Dati sulle prestazioni raccolti-Hyper-V
+
+> [!NOTE]
+> I metadati individuati dal dispositivo Azure Migrate vengono usati per semplificare le operazioni di ridimensionamento delle applicazioni durante la migrazione in Azure, l'analisi dell'idoneità di Azure, l'analisi delle dipendenze delle applicazioni e la pianificazione dei costi. Microsoft non utilizza questi dati in relazione a qualsiasi controllo di conformità delle licenze.
 
 Ecco i dati sulle prestazioni delle macchine virtuali VMware che l'appliance raccoglie e Invia ad Azure.
 

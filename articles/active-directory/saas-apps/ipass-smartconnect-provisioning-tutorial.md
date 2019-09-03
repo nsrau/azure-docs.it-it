@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 09ef80742c931c9b7e8f8c2e2cf0b9e373ad6184
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 3141a32437e56bcefe830bc94109e93208e0258d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015741"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232165"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Esercitazione: Configurare iPass SmartConnect per il provisioning utenti automatico
 
@@ -57,7 +57,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 Prima di configurare iPass SmartConnect per il provisioning utenti automatico con Azure AD, sarà necessario recuperare le informazioni di configurazione dalla console di amministrazione di SmartConnect di iPass:
 
 1. Per recuperare la bearer token necessaria per l'autenticazione nell'endpoint SCIM SmartConnect iPass, vedere la prima volta che si configura iPass SmartConnect perché questo valore viene fornito solo in questo caso. 
-2. Se non si ha la Bearer token, contattare il team di supporto di [iPass SmartConnect] (mailto:help@ipass.com) per recuperarne uno nuovo.
+2. Se non si ha il bearer token, contattare il team di [supporto di IPass SmartConnect](mailto:help@ipass.com) per recuperarne uno nuovo.
 
 ## <a name="add-ipass-smartconnect-from-the-gallery"></a>Aggiungere iPass SmartConnect dalla raccolta
 
@@ -86,7 +86,7 @@ Per configurare iPass SmartConnect per il provisioning utenti automatico con Azu
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in iPass SmartConnect in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
->  È anche possibile scegliere di abilitare l'accesso Single Sign-on basato su SAML per BitaBIZ, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di IPass SmartConnect](ipasssmartconnect-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+>  È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per BitaBIZ, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di IPass SmartConnect](ipasssmartconnect-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-ipass-smartconnect-in-azure-ad"></a>Per configurare il provisioning utenti automatico per iPass SmartConnect in Azure AD:
 

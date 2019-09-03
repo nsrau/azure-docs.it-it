@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 09/03/2019
 ms.author: raynew
-ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491749"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232196"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
 
@@ -35,27 +35,27 @@ Site Recovery contribuisce alla protezione e al ripristino a livello di applicaz
 * Indipendente dall'app, fornendo la replica per carichi di lavoro in esecuzione in una macchina supportata.
 * Replica quasi sincrona con RPO di 30 secondi per soddisfare le esigenze delle app aziendali più critiche.
 * Snapshot coerenti con l'app per le applicazioni a uno o più livelli.
-* Integrazione con SQL Server AlwaysOn e interazione con altre tecnologie di replica a livello di applicazione, inclusi gruppi di disponibilità del Database Exchange SQL AlwaysOn, replica AD (DAG).
+* Integrazione con SQL Server AlwaysOn e collaborazione con altre tecnologie di replica a livello di applicazione, tra cui la replica di Active Directory, SQL AlwaysOn, i gruppi di disponibilità dei database di Exchange (DAG).
 * Piani di ripristino flessibili che consentono di ripristinare un intero stack di applicazioni con un solo clic e includono script esterni o azioni manuali.
 * Gestione di rete avanzata in Site Recovery e in Azure per semplificare i requisiti di rete per le app, incluse la prenotazione di indirizzi IP, la configurazione del servizio di bilanciamento del carico o l'integrazione di Gestione traffico di Azure per transizioni di rete con RTO ridotto.
 * Una libreria di automazione avanzata che fornisce script pronti per la produzione e specifici per ogni applicazione, che possono essere scaricati e integrati nei piani di ripristino.
 
 ## <a name="workload-summary"></a>Riepilogo dei carichi di lavoro
-Site Recovery può replicare qualsiasi app in esecuzione in una macchina supportata. Grazie anche alla collaborazione con i team di prodotto sono stati eseguiti test aggiuntivi specifici per le app.
+Site Recovery può replicare qualsiasi app in esecuzione in una macchina supportata. Abbiamo inoltre collaborato con i team di prodotto per eseguire ulteriori test per le app specificate nella tabella.
 
 | **Carico di lavoro** |**Replicare le VM di Azure in Azure** |**Replicare le VM Hyper-V in un sito secondario** | **Replicare VM Hyper-V in Azure** | **Replicare VM VMware in un sito secondario** | **Replicare VM VMware in Azure** |
 | --- | --- | --- | --- | --- |---|
-| Active Directory, DNS |S |S |S |S |S|
-| App Web (IIS, SQL) |S |S |S |S |S|
-| System Center Operations Manager |S |S |S |S |S|
-| SharePoint |S |S |S |S |S|
+| Active Directory, DNS |Y |Y |Y |Y |Y|
+| App Web (IIS, SQL) |Y |Y |Y |Y |Y|
+| System Center Operations Manager |Y |Y |Y |Y |Y|
+| SharePoint |Y |Y |Y |Y |Y|
 | SAP<br/><br/>Replicare il sito SAP in Azure per non cluster |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft)|
-| Exchange (non DAG) |S |S |S |S |S|
-| Desktop remoto/VDI |S |S |S |S |S|
+| Exchange (non DAG) |Y |Y |Y |Y |Y|
+| Desktop remoto/VDI |Y |Y |Y |Y |Y|
 | Linux (sistema operativo e app) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft)|
-| Dynamics AX |S |S |S |S |S|
-| File Server Windows |S |S |S |S |S|
-| Citrix XenApp e XenDesktop |S|N/D |S |N/D |S |
+| Dynamics AX |Y |Y |Y |Y |Y|
+| File Server Windows |Y |Y |Y |Y |Y|
+| Citrix XenApp e XenDesktop |Y|N/D |Y |N/D |Y |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replicare Active Directory e DNS
 Un'infrastruttura DNS e Active Directory sono essenziali per la maggior parte delle applicazioni aziendali. Durante il ripristino di emergenza è necessario proteggere e ripristinare questi componenti di infrastruttura prima di eseguire il ripristino di carichi di lavoro e applicazioni.
