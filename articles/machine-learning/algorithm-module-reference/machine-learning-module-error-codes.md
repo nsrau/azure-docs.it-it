@@ -2081,7 +2081,7 @@ Risoluzione:
 |Messaggi di eccezione|  
 |------------------------|  
 |Errore di accesso a GitHub.|  
-|Errore di accesso a GitHub. [https://doi.org/10.13012/J8PN93H8]({0})|  
+|Errore di accesso a GitHub. {0}|  
   
 
 ## <a name="error-0148"></a>Errore 0148  
