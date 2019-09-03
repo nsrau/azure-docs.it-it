@@ -97,8 +97,9 @@
 - name: Riavvio o ridimensionamento di una VM
   href: restart-resize-error-troubleshooting.md
 - name: Console seriale
-  href: serial-console-overview.md
   items:
+    - name: Panoramica della console seriale
+      href: serial-console-overview.md
     - name: Console seriale per Linux
       href: serial-console-linux.md
       items:

@@ -37,7 +37,7 @@ Creare una trasformazione alter Row e specificare un criterio di `true()`riga co
 
 Attivare la modalità di debug del flusso di dati per visualizzare i risultati dei criteri alter Row nel riquadro di anteprima dei dati. L'esecuzione di un'istruzione ALTER Row nella modalità di debug del flusso di dati non produrrà azioni DDL o DML sulla destinazione. Per eseguire tali azioni, eseguire il flusso di dati all'interno di un'attività Esegui flusso di dati all'interno di una pipeline.
 
-![ALTER Row (criteri] ) (media/data-flow/alter-row3.png "ALTER Row (criteri") )
+![ALTER Row (criteri)](media/data-flow/alter-row3.png "ALTER Row (criteri)")
 
 Ciò consentirà di verificare e visualizzare lo stato di ogni riga in base alle condizioni. L'icona rappresenta per ogni azione di inserimento, aggiornamento, eliminazione e Upsert che si verificherà nel flusso di dati, che indica l'azione che verrà eseguita quando si esegue il flusso di dati all'interno di una pipeline.
 

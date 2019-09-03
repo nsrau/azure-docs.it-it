@@ -9,22 +9,26 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
-ms.openlocfilehash: 507a6d998f83f5a399f78566967067d0ed92f8b0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: dee813cbe1da6a6300f65b7005bf4a4b0226112a
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534411"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208611"
 ---
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando le credenziali della propria sottoscrizione di Azure. 
 
 1. Nell'angolo in alto a sinistra del portale di Azure selezionare **+ Crea una risorsa**.
+
+      ![Creare una nuova risorsa](media/aml-create-in-portal/portal-create-resource.png)
 
 1. Usare la barra di ricerca per trovare **Area di lavoro del servizio Machine Learning**.
 
 1. Selezionare **Area di lavoro del servizio Machine Learning**.
 
 1. Nel riquadro **Area di lavoro del servizio Machine Learning** selezionare **Crea** per iniziare.
+
+  
 
 1. Configurare la nuova area di lavoro specificandone il nome, la sottoscrizione, il gruppo di risorse e la località.
 
@@ -37,7 +41,10 @@ ms.locfileid: "69534411"
 
 1. Dopo aver completato la configurazione dell'area di lavoro, selezionare **Crea**. 
 
-   La creazione dell'area di lavoro può richiedere alcuni istanti.
+   > [!Warning] 
+   > La creazione dell'area di lavoro nel cloud può richiedere alcuni minuti.
 
-   Al termine del processo verrà visualizzato un messaggio di conferma del completamento della distribuzione, Per visualizzare la nuova area di lavoro, selezionare **Vai alla risorsa**.
+   Al termine del processo verrà visualizzato un messaggio di conferma del completamento della distribuzione, 
+ 
+ 1. Per visualizzare la nuova area di lavoro, selezionare **Vai alla risorsa**.
 

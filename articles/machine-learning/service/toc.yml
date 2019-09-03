@@ -33,10 +33,10 @@
               href: tutorial-auto-train-models.md
     - name: Interfaccia visiva
       items:
-        - name: Eseguire il training del modello di regressione
+        - name: 1. Eseguire il training del modello di regressione
           displayName: studio
           href: ui-tutorial-automobile-price-train-score.md
-        - name: Distribuire il modello di regressione
+        - name: 2. Distribuire il modello di regressione
           displayName: studio
           href: ui-tutorial-automobile-price-deploy.md
     - name: Funzionalità automatizzate di Machine Learning

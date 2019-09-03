@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a0cf557cec0f20d257c3c70290e2d74f077d881a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593847"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70197148"
 ---
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 
@@ -25,7 +25,7 @@ ms.locfileid: "68593847"
     | ------------ |  -------------------------------------------------- |
     | **Piano di consumo di Funzioni di Azure** |   Quando si pubblica il progetto in un'app per le funzioni eseguita in un [piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan), vengono addebitati solo i costi relativi alle esecuzioni dell'app per le funzioni. Altri piani di hosting comportano costi più elevati. Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](../articles/azure-functions/functions-scale.md). | 
     | **Crea nuovo** | Viene creata in Azure una nuova app per le funzioni, con le risorse correlate. Se si sceglie **Seleziona esistente**, tutti i file nell'app per le funzioni esistente in Azure vengono sovrascritti da file del progetto locale. Usare questa opzione solo quando si ripubblicano gli aggiornamenti a un'app per le funzioni esistente. |
-    | **Esegui da file di pacchetto** | L'app per le funzioni viene distribuita usando la [distribuzione ZIP](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) con la modalità [esecuzione da pacchetto](../articles/azure-functions/run-functions-from-deployment-package.md) abilitata. È la modalità consigliata per eseguire le funzioni, perché garantisce prestazioni migliori. |
+    | **Esegui da file di pacchetto** | L'app per le funzioni viene distribuita usando la [distribuzione ZIP](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) con la modalità [esecuzione da pacchetto](../articles/azure-functions/run-functions-from-deployment-package.md) abilitata. È la modalità consigliata per eseguire le funzioni, perché garantisce prestazioni migliori. Quando non si usa questa opzione, assicurarsi di arrestare l'esecuzione in locale del progetto di app per le funzioni prima della pubblicazione in Azure. |
 
 
 3. Selezionare **Pubblica**. Se non è già stato effettuato l'accesso all'account Azure da Visual Studio, selezionare **Accedi**. È anche possibile creare un account Azure gratuito.

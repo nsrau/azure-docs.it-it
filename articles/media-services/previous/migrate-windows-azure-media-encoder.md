@@ -64,7 +64,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>Scenari avanzati 
 
-Se è stato creato un set di impostazioni di codifica personalizzato per BIAIGI usando il relativo schema, esiste uno [schema equivalente per Media Encoder standard](media-services-mes-schema.md). Per domande su come eseguire il mapping delle impostazioni precedenti al nuovo codificatore, contattare Microsoft tramitemailto:amshelp@microsoft.com  
+Se è stato creato un set di impostazioni di codifica personalizzato per BIAIGI usando il relativo schema, esiste uno [schema equivalente per Media Encoder standard](media-services-mes-schema.md). Per domande su come eseguire il mapping delle impostazioni precedenti al nuovo codificatore, contattare Microsoft tramite mailto:amshelp@microsoft.com  
 
 ## <a name="known-differences"></a>Differenze note 
 
