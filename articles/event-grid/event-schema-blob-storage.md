@@ -312,7 +312,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | requestId | string | ID di richiesta generato dal servizio per l'operazione API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
 | eTag | string | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
 | contentType | string | Il tipo di contenuto specificato per il BLOB. |
-| contentLength | numero intero | La dimensione del BLOB in byte. |
+| contentLength | integer | La dimensione del BLOB in byte. |
 | blobType | string | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
 | contentOffset | number | Offset in byte di un'operazione di scrittura eseguite in corrispondenza del punto in cui l'applicazione di attivazione di eventi completato la scrittura del file. <br>Viene visualizzata solo per gli eventi generati per gli account di archiviazione blob con uno spazio dei nomi gerarchico.|
 | destinationUrl |string | L'url del file che sarà disponibili dopo il completamento dell'operazione. Ad esempio, se un file viene rinominato, il `destinationUrl` proprietà contiene l'url del nome del nuovo file. <br>Viene visualizzata solo per gli eventi generati per gli account di archiviazione blob con uno spazio dei nomi gerarchico.|
