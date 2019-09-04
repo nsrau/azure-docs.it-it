@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
-ms.openlocfilehash: dee813cbe1da6a6300f65b7005bf4a4b0226112a
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 11287ee5ca0df3e51bca20b39c35eb5ce33b88bd
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208611"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231056"
 ---
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando le credenziali della propria sottoscrizione di Azure. 
 
@@ -28,9 +28,7 @@ ms.locfileid: "70208611"
 
 1. Nel riquadro **Area di lavoro del servizio Machine Learning** selezionare **Crea** per iniziare.
 
-  
-
-1. Configurare la nuova area di lavoro specificandone il nome, la sottoscrizione, il gruppo di risorse e la località.
+1. Specificare le informazioni seguenti per configurare la nuova area di lavoro:
 
    Campo|DESCRIZIONE 
    ---|---
