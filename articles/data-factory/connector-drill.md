@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a52d85e39da280b182eccb009d8df413f43f9c80
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 69848f1c43265ecfdb512a6fca143db5a4953b8b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967517"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275464"
 ---
 # <a name="copy-data-from-drill-using-azure-data-factory-preview"></a>Copiare dati da Drill tramite Azure Data Factory (anteprima)
 
@@ -112,7 +112,9 @@ Per copiare dati da Drill, impostare la proprietà type del set di dati su **Dri
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **DrillTable** | Yes |
-| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
+| schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
+| table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -121,11 +123,12 @@ Per copiare dati da Drill, impostare la proprietà type del set di dati su **Dri
     "name": "DrillDataset",
     "properties": {
         "type": "DrillTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Drill linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 404b33b948fc2b39082f6cdac8699dfd78e5d143
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 267c21087042904ef04a7bc930d5f31439217e17
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966421"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276646"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiare dati da Spark usando Azure Data Factory 
 
@@ -50,7 +50,7 @@ Per il servizio collegato di Spark sono supportate le proprietà seguenti:
 | port | Porta TCP che il server Spark usa per l'ascolto delle connessioni client. Se ci si connette a Azure HDInsights, specificare la porta come 443. | Yes |
 | serverType | Tipo del server Spark. <br/>I valori consentiti sono i seguenti: **SharkServer**, **SharkServer2**, **SparkThriftServer** | No |
 | thriftTransportProtocol | Protocollo di trasporto da usare nel livello Thrift. <br/>I valori consentiti sono i seguenti: **Binary**, **SASL**, **HTTP** | No |
-| authenticationType | Metodo di autenticazione usato per accedere al server Spark. <br/>I valori consentiti sono i seguenti: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sì |
+| authenticationType | Metodo di autenticazione usato per accedere al server Spark. <br/>I valori consentiti sono i seguenti: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | userName | Nome utente usato per accedere al server Spark.  | No |
 | password | Password corrispondente all'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | URL parziale corrispondente al server Spark.  | No |
@@ -91,7 +91,9 @@ Per copiare dati da Spark, impostare la proprietà type del set di dati su **Spa
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **SparkObject** | Sì |
-| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
+| schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
+| table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -100,11 +102,12 @@ Per copiare dati da Spark, impostare la proprietà type del set di dati su **Spa
     "name": "SparkDataset",
     "properties": {
         "type": "SparkObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Spark linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

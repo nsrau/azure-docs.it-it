@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 00f222472a9b41c7f95ae90bdca57f13175b2b5d
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 26b7f185a05bcf50db3af6bd3b75d5e61d6ec84b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952135"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279564"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di Hyper-V
 
@@ -37,7 +37,7 @@ La migrazione dei server Hyper-V gestiti con System Center Virtual Machine Manag
 --- | ---
 Autorizzazioni di Azure | Per creare un progetto di Azure Migrate, è necessario disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
 VM Hyper-V | Valutazione di un massimo di 35.000 macchine virtuali Hyper-V in un singolo progetto. È possibile avere più progetti in una sottoscrizione di Azure. Un progetto può includere sia macchine virtuali VMware che macchine virtuali Hyper-V, fino ai limiti di valutazione.
-Geografia | È possibile creare progetti Azure Migrate in diverse aree geografiche. Sebbene sia possibile creare progetti in ographies specifici, è possibile valutare o migrare i computer per altri percorsi di destinazione. L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
+Geografia | È possibile creare progetti Azure Migrate in diverse aree geografiche. Sebbene sia possibile creare progetti in aree geografiche specifiche, è possibile valutare o migrare i computer per altri percorsi di destinazione. L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
 
   **Area geografica** | **Posizione di archiviazione dei metadati**
   --- | ---
@@ -82,8 +82,13 @@ Per la valutazione, Azure Migrate esegue un appliance leggero per individuare le
 
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
-| **Progetto Azure Migrate**  |  Un appliance può essere associato a un singolo progetto.<br/> È possibile individuare fino a 5000 VM Hyper-V con un unico dispositivo.
-| **Hyper-V**    |  Si distribuisce l'appliance come macchina virtuale Hyper-V.<br/> La macchina virtuale dell'appliance fornita è la macchina virtuale Hyper-V versione 5,0.<br/> L'host della macchina virtuale deve eseguire Windows Server 2012 R2 o versione successiva.<br/> Richiede spazio sufficiente per allocare 16 GB di RAM, 8 vCPU e 1 compartitore esterno per la macchina virtuale dell'appliance.<br/> Il dispositivo richiede un indirizzo IP statico o dinamico e l'accesso a Internet.
+| **Distribuzione dell'appliance**   |  Si distribuisce l'appliance come macchina virtuale Hyper-V.<br/> La macchina virtuale dell'appliance fornita da Azure Migrate è la macchina virtuale Hyper-V 5,0.<br/> L'host Hyper-V deve eseguire Windows Server 2012 R2 o versione successiva.<br/> L'host necessita di spazio sufficiente per allocare 16 GB di RAM, 8 vCPU e 1 compartitore esterno per la macchina virtuale dell'appliance.<br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
+| **Progetto Azure Migrate**  |  Un appliance può essere associato a un singolo progetto.<br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> È possibile valutare fino a 35.000 VM in un progetto.
+| **Host Hyper-V**          | Un appliance può connettersi a un massimo di 300 host Hyper-V.
+| **Individuazione**              | Un singolo dispositivo può individuare fino a 5000 VM.
+| **Gruppo di valutazione**       | È possibile aggiungere fino a 35.000 computer in un singolo gruppo.
+| **Valutazione**             | È possibile valutare fino a 35.000 VM in un'unica valutazione.
+
 
 
 ## <a name="assessment-appliance-url-access"></a>Valutazione-accesso con URL dell'appliance
@@ -116,6 +121,9 @@ Nella tabella seguente sono riepilogati i requisiti di porta per la valutazione.
 --- | ---
 **Appliance** | Connessioni in ingresso sulla porta TCP 3389 per consentire le connessioni Desktop remoto al dispositivo.<br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione Appliance usando l'URL:``` https://<appliance-ip-or-name>:44368 ```<br/> Connessioni in uscita sulle porte 443, 5671 e 5672 per inviare i metadati di individuazione e prestazioni a Azure Migrate.
 **Host/cluster Hyper-V** | Connessioni in ingresso sulle porte WinRM 5985 (HTTP) e 5986 (HTTPS) per eseguire il pull dei metadati di configurazione e delle prestazioni delle VM Hyper-V usando una sessione di Common Information Model (CIM).
+
+## <a name="migration-limitations"></a>Migrazione: limitazioni
+È possibile selezionare fino a 10 macchine virtuali contemporaneamente per la replica. Se si desidera eseguire la migrazione di più computer, eseguire la replica in gruppi di 10.
 
 ## <a name="migration-hyper-v-host-requirements"></a>Migrazione: requisiti dell'host Hyper-V
 

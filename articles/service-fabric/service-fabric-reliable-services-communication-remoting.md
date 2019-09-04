@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: f9cd6e2fee738d2d42c790b4eb7b9a876a44b01d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772976"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258698"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicazione remota nei servizi C# con Reliable Services
 
@@ -319,7 +319,12 @@ A tale scopo, seguire questa procedura:
 
 ## <a name="upgrade-from-remoting-v1-to-remoting-v2-interface-compatible"></a>Aggiornamento dal servizio di comunicazione remota V1 a V2 (compatibile con l'interfaccia)
 
-Per eseguire l'aggiornamento da V1 a V2 (compatibile con l'interfaccia e noto anche come V2_1), sono necessari due passaggi di aggiornamento. Seguire la procedura descritta in questa sequenza.
+Per eseguire l'aggiornamento da V1 a V2 (compatibile con l'interfaccia e noto anche come V2_1), sono necessari due passaggi di aggiornamento. Seguire i passaggi descritti in questa sequenza.
+
+> [!NOTE]
+> Quando si esegue l'aggiornamento da V1 a v2 `Remoting` , assicurarsi che lo spazio dei nomi venga aggiornato in modo da usare V2. Esempio: ' Microsoft. ServiceFabric. Services. Remoting. v2. FabricTransport. client '
+>
+>
 
 1. Aggiornare il servizio da V1 a V2_1 mediante il seguente attributo.
 Questa modifica assicura che il servizio sia in ascolto sui listener V1 e V2_1.

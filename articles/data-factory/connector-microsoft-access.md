@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 79a960b106cc9de4116e8e59b2fa17f48c896221
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 796d2a4730f5de8d2f294fb2b30a0616b81f3e59
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061464"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276226"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Copiare dati da e in archivi dati di Microsoft Access usando Azure Data Factory
 
@@ -49,9 +49,9 @@ Per il servizio collegato di Microsoft Access sono supportate le proprietà segu
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **MicrosoftAccess** | Sì |
+| type | La proprietà type deve essere impostata su: **MicrosoftAccess** | Yes |
 | connectionString | Stringa di connessione ODBC che esclude la parte delle credenziali. È possibile specificare la stringa di connessione o usare il DSN di sistema (nome dell'origine dati) configurato nel computer Integration Runtime (è necessario comunque specificare la parte delle credenziali nel servizio collegato di conseguenza).<br>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md).| Sì |
-| authenticationType | Tipo di autenticazione usato per la connessione all'archivio dati di Microsoft Access.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. | Sì |
+| authenticationType | Tipo di autenticazione usato per la connessione all'archivio dati di Microsoft Access.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. | Yes |
 | userName | Specificare il nome utente se si usa l'autenticazione di base. | N. |
 | password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credential | La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver. Contrassegnare questo campo come SecureString. | No |
@@ -86,13 +86,13 @@ Per il servizio collegato di Microsoft Access sono supportate le proprietà segu
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati di Microsoft Access.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati di Microsoft Access.
 
 Per copiare dati da Microsoft Access, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **MicrosoftAccessTable** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **MicrosoftAccessTable** | Sì |
 | tableName | Nome della tabella in Microsoft Access. | No per l'origine (se nell'origine dell'attività è specificato "query");<br/>sì per il sink |
 
 **Esempio**

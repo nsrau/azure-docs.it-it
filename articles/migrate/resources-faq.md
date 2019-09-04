@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 03651ecb073d02a373c434b8cb55bdafec6d142a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142209"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279491"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Domande frequenti
 
@@ -27,7 +27,7 @@ Vedere l' [elenco per VMware](https://docs.microsoft.com/azure/migrate/migrate-s
 
 Azure Migrate offre un hub centralizzato per avviare la migrazione, eseguire e monitorare l'individuazione e la valutazione di computer e carichi di lavoro e per eseguire e tenere traccia della migrazione di computer e carichi di lavoro in Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) è una soluzione di ripristino di emergenza. Azure Migrate migrazione del server utilizza Azure Site Recovery sul back-end per abilitare gli scenari di migrazione per la migrazione in modalità Lift-and-Shift dei computer locali.
 
-## <a name="azure-migrate-appliance-vmwarephysical-servers"></a>Appliance Azure Migrate (server VMware/fisici)
+## <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
 ### <a name="how-does-the-azure-migrate-appliance-connect-to-azure"></a>In che modo la Azure Migrate Appliance si connette ad Azure?
 
@@ -53,7 +53,7 @@ L'appliance Azure Migrate profilare i computer locali in modo continuo per misur
 
 I dati raccolti dal dispositivo Azure Migrate vengono archiviati nel percorso di Azure scelto durante la creazione del progetto di migrazione. I dati vengono archiviati in modo sicuro in una sottoscrizione Microsoft e vengono eliminati quando si elimina il progetto Azure Migrate.
 
-Per la visualizzazione delle dipendenze, se si installano gli agenti nelle macchine virtuali, i dati raccolti dagli agenti di dipendenza vengono archiviati negli Stati Uniti, in un'area di lavoro di Log Analytics creata nella sottoscrizione di Azure. Tali dati vengono eliminati quando si elimina l'area di lavoro Log Analytics nella sottoscrizione. Per altre informazioni, vedere [visualizzazione](concepts-dependency-visualization.md)delle dipendenze.
+Per la visualizzazione delle dipendenze, se si installano gli agenti nelle macchine virtuali, i dati raccolti dagli agenti di dipendenza vengono archiviati negli Stati Uniti, in un'area di lavoro di Log Analytics creata nella sottoscrizione di Azure. Tali dati vengono eliminati quando si elimina l'area di lavoro Log Analytics nella sottoscrizione. Per altre informazioni, vedere [visualizzazione delle dipendenze](concepts-dependency-visualization.md).
 
 ### <a name="what-volume-of-data-is-uploaded-by-the-azure-migrate-appliance-during-continuous-profiling"></a>Quale volume di dati viene caricato dal dispositivo Azure Migrate durante la profilatura continua?
 
@@ -87,6 +87,9 @@ Per Hyper-V, l'individuazione usa le credenziali dell'host Hyper-V. Se le VM con
 ### <a name="how-many-vms-can-i-discover-with-a-single-migration-appliance"></a>Quante VM è possibile individuare con una singola appliance di migrazione?
 
 È possibile individuare fino a 10.000 VM VMware e fino a 5.000 macchine virtuali Hyper-V con una singola appliance di migrazione. Se si dispone di più computer nell'ambiente locale, informazioni su come ridimensionare [Hyper-V](scale-hyper-v-assessment.md) e [VMware](scale-vmware-assessment.md) assessment.
+
+### <a name="can-i-delete-the-azure-migrate-appliance-from-the-project"></a>È possibile eliminare l'appliance Azure Migrate dal progetto?
+L'eliminazione del dispositivo dal progetto non è attualmente supportata. L'unico modo per eliminare l'appliance consiste nell'eliminare il gruppo di risorse che contiene il progetto Azure Migrate, associato all'appliance, ma che eliminerà anche altre appliance registrate, l'inventario individuato, le valutazioni e tutti gli altri elementi di Azure associato al progetto nel gruppo di risorse.
 
 ## <a name="azure-migrate-server-assessment"></a>Valutazione server di Azure Migrate
 
@@ -164,7 +167,7 @@ Questi agenti non sono necessari a meno che non si usi la visualizzazione delle 
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>È possibile usare un'area di lavoro per la visualizzazione delle dipendenze?
 
-Sì, è possibile aggiungere un'area di lavoro esistente al progetto di migrazione e usarla per la visualizzazione delle dipendenze. Per ulteriori informazioni, vedere "come funziona" nell'articolo relativo alla [visualizzazione](concepts-dependency-visualization.md#how-does-it-work) delle dipendenze.
+Sì, è possibile aggiungere un'area di lavoro esistente al progetto di migrazione e usarla per la visualizzazione delle dipendenze. Per ulteriori informazioni, vedere "come funziona" nell'articolo relativo alla [visualizzazione delle dipendenze](concepts-dependency-visualization.md#how-does-it-work) .
 
 ### <a name="can-i-export-the-dependency-visualization-report"></a>È possibile esportare il report di visualizzazione delle dipendenze?
 
@@ -186,7 +189,7 @@ Oltre agli script, è inoltre possibile utilizzare strumenti di distribuzione co
 Visualizzare l'elenco dei [sistemi operativi Windows e Linux supportati da monitoraggio di Azure per le macchine virtuali](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-an-hour"></a>È possibile visualizzare le dipendenze in Azure Migrate per più di un'ora?
-No. È possibile visualizzare le dipendenze per un massimo di un'ora. È possibile tornare a una data specifica nella cronologia, fino a un mese, ma la durata massima per la visualizzazione è di un'ora. Ad esempio, è possibile usare la durata dell'intervallo di tempo nella mappa delle dipendenze per visualizzare le dipendenze di ieri, ma è possibile visualizzarle solo per una finestra di un'ora. È tuttavia possibile usare i log di monitoraggio di Azure per [eseguire query sui dati](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) delle dipendenze per un periodo di tempo più lungo.
+No. È possibile visualizzare le dipendenze per un massimo di un'ora. È possibile tornare a una data specifica nella cronologia, fino a un mese, ma la durata massima per la visualizzazione è di un'ora. Ad esempio, è possibile usare la durata dell'intervallo di tempo nella mappa delle dipendenze per visualizzare le dipendenze di ieri, ma è possibile visualizzarle solo per una finestra di un'ora. È tuttavia possibile usare i log di monitoraggio di Azure per [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) per un periodo di tempo più lungo.
 
 ### <a name="can-i-use-dependency-visualization-for-groups-that-contain-more-than-10-vms"></a>È possibile usare la visualizzazione delle dipendenze per i gruppi che contengono più di 10 VM?
 È possibile [visualizzare le dipendenze per i gruppi](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) che contengono fino a 10 macchine virtuali. Se si dispone di un gruppo con più di 10 macchine virtuali, è consigliabile suddividere il gruppo in gruppi più piccoli e quindi visualizzare le dipendenze.

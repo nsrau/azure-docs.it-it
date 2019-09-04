@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b9d853cc0de08b64f2e0f5530e153724d9eeddda
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840260"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277087"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -35,7 +35,7 @@ Per **copiare i file così come sono** tra archivi basati su file (copia binaria
 ## <a name="text-format"></a>Formato testo
 
 >[!NOTE]
->Data Factory introdotto un nuovo formato di testo delimitato insieme alle, vedere l'articolo [formato testo delimitato](format-delimited-text.md) con i dettagli. Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
+>Data Factory introdotto un nuovo set di dati in formato testo delimitato, vedere l'articolo [formato testo delimitato](format-delimited-text.md) con i dettagli. Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
 
 Se si vuole leggere da un file di testo o scrivere in un file di testo, impostare la proprietà `type` nella sezione `format` del set di dati **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
@@ -413,7 +413,7 @@ Il set di dati di output con il tipo **JsonFormat** è definito come segue (defi
 ## <a name="parquet-format"></a>Formato Parquet
 
 >[!NOTE]
->Data Factory introdotto un nuovo formato parquet insieme alle, vedere l'articolo relativo al [formato parquet](format-parquet.md) con i dettagli. Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
+>Data Factory introdotto un nuovo set di dati in formato parquet, vedere l'articolo relativo al [formato parquet](format-parquet.md) con i dettagli. Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
 
 Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la proprietà `format` `type` su **ParquetFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
@@ -520,6 +520,9 @@ Per la copia in esecuzione nel runtime di integrazione self-hosted con la serial
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>Formato AVRO
+
+>[!NOTE]
+>Data Factory introdotto un nuovo set di dati in formato Avro, vedere l'articolo relativo al [formato avri](format-avro.md) con i dettagli. Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
 
 Per analizzare i file Avro o scrivere i dati in formato Avro, impostare la proprietà `format` `type` su **AvroFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 

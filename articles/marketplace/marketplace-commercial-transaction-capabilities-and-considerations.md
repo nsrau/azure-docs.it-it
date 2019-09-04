@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535050"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279749"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funzionalità e considerazioni sulle transazioni del Marketplace commerciale
 
@@ -75,7 +75,7 @@ Quando si pubblica un'offerta di transazione gratuita o Bring Your Own License, 
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Prezzi con pagamento a consumo e delle sottoscrizioni (basati sul sito)
 
-Prezzi per le sottoscrizioni e WPay durante la pubblicazione di un'offerta di transazione con pagamento in base al consumo o di sottoscrizione, Microsoft fornisce la tecnologia e i servizi per elaborare gli acquisti, i ritorni e i chargeback delle licenze software. In questo scenario l'editore autorizza Microsoft ad agire in veste di agente per questi scopi. L'editore consente a Microsoft di agevolare le transazioni delle licenze software, mantenendone la designazione di venditore, provider, distributore e licenziante.
+Quando si pubblica un'offerta di transazione di sottoscrizione o con pagamento in base al consumo, Microsoft fornisce la tecnologia e i servizi per elaborare gli acquisti, i resi e i chargeback di licenza software. In questo scenario l'editore autorizza Microsoft ad agire in veste di agente per questi scopi. L'editore consente a Microsoft di agevolare le transazioni delle licenze software, mantenendone la designazione di venditore, provider, distributore e licenziante.
 
 Microsoft consente ai clienti di ordinare, concedere in licenza e utilizzare il software di pubblicazione, in base alle condizioni del Marketplace commerciale di Microsoft e del contratto di licenza con l'utente finale dell'editore. Gli editori devono fornire il proprio contratto di licenza con l'utente finale o selezionare il [contratto standard](https://docs.microsoft.com/azure/marketplace/standard-contract) durante la creazione dell'offerta.
 
@@ -162,7 +162,7 @@ I clienti possono anche pagare con una carta di credito e una fattura mensile. I
 
 Se ad esempio il cliente effettua un acquisto con la carta di credito:
 
-|DESCRIZIONE    |    Date  |
+|Descrizione    |    Date  |
 |----------|----------|
 |Periodo dell'ordine   | 15 ago 2018 - 30 ago 2018 |
 |Fine periodo (mese)   | 30 ago 2018 |
@@ -176,7 +176,7 @@ Se ad esempio il cliente effettua un acquisto con la carta di credito:
 
 Se il cliente effettua un acquisto con un contratto Enterprise Agreement:
 
-| DESCRIZIONE |    Date  |
+| Descrizione |    Date  |
 |----------|----------|
 |Periodo dell'ordine | 15 ago 2018 - 30 ago 2018 |
 |Fine periodo (trimestre) | 30 set 2018 |

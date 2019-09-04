@@ -7,12 +7,12 @@ ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 988fc124a68ef07981c0f36334778be326fff3a2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 1999a47d18fd3ce6388d6177be85c7debd3c1e97
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232284"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239178"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -67,8 +67,6 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 
 Tutti gli esempi di criteri di Azure sono disponibili in [esempi di criteri di Azure](../samples/index.md).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## <a name="mode"></a>Modalità
 
 La **modalità** viene configurata in base al fatto che i criteri siano destinati a una proprietà Azure Resource Manager o a una proprietà del provider di risorse.
@@ -104,7 +102,7 @@ I parametri funzionano nello stesso modo durante la creazione di criteri. L'incl
 Un parametro presenta le proprietà seguenti, usate nella definizione di criteri:
 
 - **name**: nome del parametro. Usato dalla funzione di distribuzione `parameters` all'interno della regola dei criteri. Per altre informazioni, vedere [Usare un valore di parametro](#using-a-parameter-value).
-- `type`: Determina se il parametro è una **stringa**, **una matrice**, un **oggetto**, un valore **booleano**, un Integer, un **valore** **float**o **DateTime**.
+- `type`: Determina se il parametro è una **stringa**, una **matrice**, un **oggetto**, un valore **booleano**, un Integer, un **valore** **float**o **DateTime**.
 - `metadata`: definisce le sottoproprietà usate principalmente dal portale di Azure per visualizzare informazioni di tipo descrittivo:
   - `description`: la spiegazione di ciò per cui viene usato il parametro. Può essere usata per fornire esempi di valori accettabili.
   - `displayName`: il nome descrittivo visualizzato per il parametro nel portale.
@@ -509,7 +507,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]** . Esempio:
+Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]** . Ad esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
@@ -624,5 +622,5 @@ L'esempio seguente illustra come creare un'iniziativa per la gestione di due tag
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

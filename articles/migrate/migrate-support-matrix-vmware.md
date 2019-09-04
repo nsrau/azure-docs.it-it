@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: c351ee8290b60c81add173bb927b0c12e37f5c7c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7fe2c39871f1cd512da7f9a2c5146e79abbe74a6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018136"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279591"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di VMware
 
@@ -35,8 +35,7 @@ Nella tabella sono riepilogati gli scenari supportati per le macchine virtuali V
 **Supporto** | **Dettagli**
 --- | ---
 **Autorizzazioni di Azure** | Per creare un progetto di Azure Migrate, è necessario disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
-**Limitazioni di VMware**  | Consente di valutare fino a 35.000 VM VMware in un singolo progetto. È possibile creare più progetti in una sottoscrizione di Azure.
-**Limiti del progetto** | Un progetto può includere sia macchine virtuali VMware che macchine virtuali Hyper-V, fino ai limiti di valutazione.
+**Limitazioni di VMware**  | Consente di valutare fino a 35.000 VM VMware in un singolo progetto. È possibile creare più progetti in una sottoscrizione di Azure. Un progetto può includere sia macchine virtuali VMware che macchine virtuali Hyper-V, fino ai limiti di valutazione.
 **Area geografica** | È possibile creare un progetto Azure Migrate in diverse aree geografiche. Sebbene sia possibile creare progetti solo in queste aree geografiche, è possibile valutare o migrare i computer per altri percorsi di destinazione. L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
 
 **Area geografica** | **Posizione di archiviazione dei metadati**
@@ -70,14 +69,15 @@ Per la valutazione, è necessario un account di sola lettura per la server vCent
 
 ## <a name="assessment-appliance-requirements"></a>Valutazione-requisiti del dispositivo
 
-Il Azure Migrate Appliance per VMware viene distribuito usando un modello OVA importato in server vCenter.
+Azure Migrate esegue un'appliance Lightweight per individuare le macchine virtuali VMware e inviare i metadati della macchina virtuale e i dati sulle prestazioni ai Azure Migrate. Appliance per VMware viene distribuito usando un modello OVA importato in server vCenter. La tabella seguente riepiloga i requisiti del dispositivo.
 
 **Supporto** | **Dettagli**
 --- | ---
-**server vCenter** | È necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale con 32 GB di RAM, 8 vCPU e un Commuter virtuale esterno.<br/><br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.
-**ESXi** | La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva.
-**Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto.
-**server vCenter** | Un dispositivo può individuare fino a 10.000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a una server vCenter.
+**Distribuzione dell'appliance** | Si distribuisce l'appliance come macchina virtuale VMware. È necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale con 32 GB di RAM, 8 vCPU e un Commuter virtuale esterno.<br/><br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.<br/> La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva. 
+**Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> È possibile valutare fino a 35.000 VM in un progetto.
+**Individuazione** | Un dispositivo può individuare fino a 10.000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a una singola server vCenter.
+**Gruppo di valutazione** | È possibile aggiungere fino a 35.000 computer in un singolo gruppo.
+**Valutazione** | È possibile valutare fino a 35.000 VM in un'unica valutazione.
 
 
 ## <a name="assessment-url-access-requirements"></a>Valutazione-requisiti di accesso agli URL
@@ -107,6 +107,8 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 Appliance | Connessioni in ingresso sulla porta TCP 3389 per consentire le connessioni Desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione Appliance usando l'URL:```https://<appliance-ip-or-name>:44368``` <br/><br/>Connessioni in uscita sulla porta 443, 5671 e 5672 per inviare i metadati di individuazione e prestazioni a Azure Migrate.
 Server vCenter | Connessioni in ingresso sulla porta TCP 443 per consentire all'appliance di raccogliere i metadati di configurazione e prestazioni per le valutazioni. <br/><br/> Per impostazione predefinita, l'appliance si connette a vCenter sulla porta 443. Se il server vCenter è in ascolto su una porta diversa, è possibile modificare la porta quando si configura l'individuazione.
 
+## <a name="migration---limitations"></a>Migrazione: limitazioni
+È possibile selezionare fino a 10 macchine virtuali contemporaneamente per la replica. Se si desidera eseguire la migrazione di più computer, eseguire la replica in gruppi di 10. Per la migrazione senza agenti VMware, è possibile eseguire contemporaneamente fino a 100 repliche.
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>Migrazione senza agente-requisiti del server VMware
 
@@ -345,7 +347,7 @@ VHD condiviso | Non supportati. | Il controllo ha esito negativo se non supporta
 Disco FC | Non supportati. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportati. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
-Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **app e funzionalità** consentite per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal. [Altre informazioni](https://support.microsoft.com/kb/3031135) |
+Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **app e funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](https://support.microsoft.com/kb/3031135) |
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
 
 

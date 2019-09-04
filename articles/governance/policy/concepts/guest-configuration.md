@@ -7,30 +7,28 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 054f9ed21ee0d7ef725c2b7eee8174c53374b5bc
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 06a767af71f457273e0e20d1248d64c22b3563e7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232267"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274939"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
 Oltre a controllare e [correggere](../how-to/remediate-resources.md) le risorse di Azure, i criteri di Azure possono controllare le impostazioni all'interno di un computer. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione tramite il client convalida le impostazioni quali la configurazione del sistema operativo, la configurazione o la presenza dell'applicazione, le impostazioni di ambiente e altro ancora.
 
-A questo punto, la configurazione Guest di criteri di Azure consente di eseguire solo un controllo delle impostazioni nel computer.
+A questo punto, la configurazione Guest di criteri di Azure esegue solo un controllo delle impostazioni all'interno della macchina.
 Non è ancora possibile applicare le configurazioni.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="extension-and-client"></a>Estensione e client
 
 Per controllare le impostazioni all'interno di un computer, è abilitata un' [estensione della macchina virtuale](../../../virtual-machines/extensions/overview.md) . L'estensione scarica l'assegnazione dei criteri applicabile e la configurazione corrispondente.
 
-### <a name="limits-set-on-the-exension"></a>Limiti impostati per exension
+### <a name="limits-set-on-the-extension"></a>Limiti impostati per l'estensione
 
 Per limitare l'estensione dall'effetto sulle applicazioni in esecuzione all'interno del computer, la configurazione Guest non può superare il 5% di utilizzo della CPU.
-Questo è il vero boh per le configurazioni fornite da Microsoft come "predefinite" e per le configurazioni personalizzate create dai clienti.
+Questo vale sia per le configurazioni fornite da Microsoft come "predefinite" sia per le configurazioni personalizzate create dai clienti.
 
 ## <a name="register-guest-configuration-resource-provider"></a>Registrare il provider di risorse della configurazione guest
 
@@ -76,7 +74,7 @@ Il client della configurazione guest verifica la presenza di nuovi contenuti ogn
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
-|Pubblicato da|NOME|Versioni|
+|Pubblicato da|Name|Versioni|
 |-|-|-|
 |Canonico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
@@ -145,6 +143,32 @@ Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<ver
 
 Dove `<version>` si riferisce al numero di versione corrente.
 
+### <a name="collecting-logs-remotely"></a>Raccolta di log in modalità remota
+
+Il primo passaggio per la risoluzione dei problemi relativi alle configurazioni o ai moduli di configurazione `Test-GuestConfigurationPackage` Guest consiste nell'usare il cmdlet seguendo la procedura descritta in [testare un pacchetto di configurazione Guest](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).  In caso contrario, la raccolta dei log del client può aiutare a diagnosticare i problemi.
+
+#### <a name="windows"></a>Windows
+
+Se si vuole usare la funzionalità di esecuzione dei comandi della macchina virtuale di Azure per acquisire informazioni dai file di log nei computer Windows, è possibile usare lo script di PowerShell di esempio seguente. Per informazioni dettagliate sull'esecuzione dello script dal portale di Azure o sull'uso di Azure PowerShell, vedere [eseguire script di PowerShell nella macchina virtuale Windows con il comando Esegui](../../../virtual-machines/windows/run-command.md).
+
+```powershell
+$linesToIncludeBeforeMatch = 0
+$linesToIncludeAfterMatch = 10
+$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object {$_.FullName} | Sort-Object -Descending | Select-Object -First 1
+Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+```
+
+#### <a name="linux"></a>Linux
+
+Se si vuole usare la funzionalità di esecuzione dei comandi della macchina virtuale di Azure per acquisire informazioni dai file di log nei computer Linux, è possibile usare lo script bash di esempio seguente. Per informazioni dettagliate sull'esecuzione dello script dal portale di Azure o tramite l'interfaccia della riga di comando di Azure, vedere [eseguire script della shell nella VM Linux con il comando Run](../../../virtual-machines/linux/run-command.md)
+
+```Bash
+linesToIncludeBeforeMatch=0
+linesToIncludeAfterMatch=10
+latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
+```
+
 ## <a name="guest-configuration-samples"></a>Esempi di configurazione Guest
 
 Gli esempi per la configurazione Guest per i criteri sono disponibili nei percorsi seguenti:
@@ -159,5 +183,5 @@ Gli esempi per la configurazione Guest per i criteri sono disponibili nei percor
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/index.md).

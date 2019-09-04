@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: b80c32fea0d62bb5800a677ff30cb0787e83afa2
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7874a2bad63a4c5b47545c06a91228e64d523849
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945832"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258800"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -68,7 +68,7 @@ Le app Cortana predefinite sono state deprecate nel 2017. Non sono più supporta
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Come si trasferisce la proprietà di un'app LUIS?
 Per trasferire un'app LUIS in un'altra sottoscrizione di Azure, esportare l'app LUIS e importarla usando un nuovo account. Aggiornare l'ID dell'app LUIS nell'applicazione client che la chiama. La nuova app può restituire punteggi LUIS leggermente diversi rispetto all'app originale.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Un'entità predefinita è contrassegnata con un enunciato di esempio invece che con l'entità personalizzata. Come si risolve il problema? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Un'entità predefinita è contrassegnata con un enunciato di esempio invece che con l'entità personalizzata. Ricerca per categorie risolvere questo problema? 
 
 Vedere [risoluzione dei problemi relativi alle entità predefinite](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
 
@@ -78,7 +78,7 @@ Altre informazioni sugli errori di [importazione della versione](luis-how-to-man
 
 <a name="luis-collaborating"></a>
 
-## <a name="collaborating"></a>Collaborazione
+## <a name="collaborating-and-contributing"></a>Collaborazione e contributo
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Come si concede ai collaboratori l'accesso a LUIS con Azure Active Directory (Azure AD) o il controllo degli accessi in base al ruolo (RBAC)?
 
@@ -87,6 +87,31 @@ Per informazioni su come concedere l'accesso ai collaboratori, vedere [Risorse d
 <a name="luis-endpoint"></a>
 
 ## <a name="endpoint"></a>Endpoint
+
+### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>È stato ricevuto un codice di stato di errore HTTP 403. Risoluzione
+
+Si ottengono i codici di stato di errore 403 e 429 quando si superano le transazioni al secondo o le transazioni al mese per il piano tariffario. Aumentare il piano tariffario o usare Language Understanding [contenitori](luis-container-howto.md).
+
+Quando si usano tutte le query di endpoint 1000 gratuite o si supera la quota di transazioni mensili del piano tariffario, si riceve un codice di stato di errore HTTP 403. 
+
+Per correggere l'errore, è necessario [modificare il piano tariffario](luis-how-to-azure-subscription.md#change-pricing-tier) a un livello superiore o [creare una nuova risorsa](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [assegnarla all'app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Le soluzioni per questo errore includono:
+
+* Nel [portale di Azure](https://portal.azure.com), sulla risorsa Language Understanding, nel piano **tariffario di gestione delle risorse->** modificare il piano tariffario in un livello di TPS superiore. Non è necessario eseguire alcuna operazione nel portale di Language Understanding se la risorsa è già stata assegnata all'app Language Understanding.
+*  Se l'utilizzo supera il piano tariffario più elevato, aggiungere altre Language Understanding risorse con un servizio di bilanciamento del carico. Il [contenitore Language Understanding](luis-container-howto.md) con Kubernetes o Docker compose può essere utile per questa operazione.
+
+### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>È stato ricevuto un codice di stato di errore HTTP 429. Risoluzione
+
+Si ottengono i codici di stato di errore 403 e 429 quando si superano le transazioni al secondo o le transazioni al mese per il piano tariffario. Aumentare il piano tariffario o usare Language Understanding [contenitori](luis-container-howto.md).
+
+Questo codice di stato viene restituito quando le transazioni al secondo superano il piano tariffario.  
+
+Le soluzioni includono:
+
+* Se non si è al livello più elevato, è possibile [aumentare il piano tariffario](luis-how-to-azure-subscription.md#change-pricing-tier).
+* Se l'utilizzo supera il piano tariffario più elevato, aggiungere altre Language Understanding risorse con un servizio di bilanciamento del carico. Il [contenitore Language Understanding](luis-container-howto.md) con Kubernetes o Docker compose può essere utile per questa operazione.
+* È possibile controllare le richieste dell'applicazione client con i [criteri di ripetizione](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) implementati quando si ottiene questo codice di stato. 
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>La query dell'endpoint ha restituito risultati imprevisti. Cosa devo fare?
 
@@ -102,7 +127,7 @@ Per altri suggerimenti, rivedere le [procedure consigliate](luis-concept-best-pr
 LUIS [suddivide in token](luis-glossary.md#token) l'espressione in base alle [impostazioni cultura](luis-language-support.md#tokenization). Il valore originale e il valore in formato token sono entrambi disponibili per l'[estrazione dei dati](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Come è possibile creare e assegnare una chiave di endpoint di LUIS?
-[Creare la chiave di endpoint](luis-how-to-azure-subscription.md) in Azure per il livello di [servizio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Assegnare la chiave](luis-how-to-azure-subscription.md) nella pagina **[Keys and endpoints](luis-how-to-azure-subscription.md)** (Chiavi ed endpoint). Non vi è alcuna API corrispondente per questa azione. È necessario quindi modificare la richiesta HTTP all'endpoint per fare in modo che [usi la nuova chiave dell'endpoint](luis-concept-keys.md#use-endpoint-key-in-query).
+[Creare la chiave di endpoint](luis-how-to-azure-subscription.md) in Azure per il livello di [servizio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Assegnare la chiave](luis-how-to-azure-subscription.md) nella pagina **[delle risorse di Azure](luis-how-to-azure-subscription.md)** . Non vi è alcuna API corrispondente per questa azione. È necessario quindi modificare la richiesta HTTP all'endpoint per fare in modo che [usi la nuova chiave dell'endpoint](luis-concept-keys.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Come si interpretano i punteggi di LUIS?
 Il sistema deve usare la finalità di punteggio più elevata, indipendentemente dal relativo valore. Ad esempio, un punteggio al di sotto di 0,5 (inferiore al 50%) non significa necessariamente che LUIS disponga di una confidenza bassa. Fornendo più dati di training sarà possibile aumentare il [punteggio](luis-concept-prediction-score.md) della finalità più probabile.
@@ -123,10 +148,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Ieri l'app LUIS funzionava, mentre oggi si ricevono errori 403. L'app non è stata modificata. Risoluzione
-Seguire queste [istruzioni](#how-do-i-create-and-assign-a-luis-endpoint-key) per creare una chiave dell'endpoint Luis e assegnarla all'app. Quindi è necessario modificare la richiesta HTTP dell'applicazione client all'endpoint per [usare la nuova chiave dell'endpoint](luis-concept-keys.md#use-endpoint-key-in-query). Se è stata creata una nuova risorsa in un'area diversa, modificare anche l'area della richiesta del client HTTP.
+Seguire queste [istruzioni](#how-do-i-create-and-assign-a-luis-endpoint-key) per creare una chiave dell'endpoint Luis e assegnarla all'app. Quindi è necessario modificare la richiesta HTTP dell'applicazione client all'endpoint per [usare la nuova chiave dell'endpoint](luis-concept-keys.md). Se è stata creata una nuova risorsa in un'area diversa, modificare anche l'area della richiesta del client HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Come si protegge l'endpoint LUIS?
-Vedere [Protezione dell'endpoint](luis-concept-security.md#securing-the-endpoint).
+Vedere [Protezione dell'endpoint](luis-concept-keys.md#securing-the-endpoint).
 
 ## <a name="working-within-luis-limits"></a>Uso entro i limiti LUIS
 
@@ -185,17 +210,15 @@ Se l'app esisteva prima che LUIS fosse disponibile a livello generale (GA), le c
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Come si fa a sapere quale chiave è necessaria, dove si trova e cosa farne? 
 
-Per altre informazioni sulle differenze tra la [chiave di creazione](luis-how-to-account-settings.md) e la [chiave di endpoint per la stima](luis-how-to-azure-subscription.md), vedere [Chiavi di creazione e di endpoint per query di stima in LUIS](luis-concept-keys.md). 
+Per informazioni sulle differenze tra la chiave di creazione e la chiave del runtime di stima, vedere [creazione e modifica delle chiavi degli endpoint di stima in Luis](luis-concept-keys.md) . 
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>È stato restituito un errore per segnalare il superamento della quota. Risoluzione 
 
-Per altre informazioni, vedere [correggere il codice di stato HTTP 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) .
+Per altre informazioni, vedere correggere il codice di stato HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) .
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>È necessario gestire più query di endpoint. Come procedere? 
 
-Per altre informazioni, vedere [correggere il codice di stato HTTP 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) .
-
-
+Per altre informazioni, vedere correggere il codice di stato HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) .
 
 ## <a name="app-management"></a>Gestione app
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 116ffa31fb540897f9a769b73c3a6474dda45b88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101927"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70280166"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
 
@@ -111,9 +111,9 @@ Bringing Your Own License per SQL Server attraverso Mobilità delle licenze è c
 
 Per usare l'opzione BYOL con una macchina virtuale SQL Server è necessario avere una licenza di SQL Server Standard o Enterprise e [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), che è un'opzione obbligatoria per alcuni programmi multilicenza e facoltativa per altri. I livelli di prezzi forniti tramite i programmi multilicenza variano in base al tipo di contratto e alla quantità e/o all'impegno con SQL Server. Ma, come regola generale, l'opzione Bringing Your Own License per i carichi di lavoro di produzione continui presenta i seguenti vantaggi:
 
-| Vantaggio dell'opzione BYOL | DESCRIZIONE |
+| Vantaggio dell'opzione BYOL | Descrizione |
 |-----|-----|
-| **Risparmi sui costi** | Il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) offre risparmi fino al 55%. Per ulteriori informazioni, vedere [modello di licenza switch] (Virtual-Machines-Windows-SQL-ahb.md |
+| **Risparmi sui costi** | Il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) offre risparmi fino al 55%. Per ulteriori informazioni, vedere [Switch licensing model](virtual-machines-windows-sql-ahb.md) |
 | **Replica secondaria passiva gratuita** | Un altro vantaggio dell'opzione Bring Your Own License è la [licenza gratuita per una replica secondaria passiva](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server per scopi di disponibilità elevata. Questo dimezza il costo della licenza di una distribuzione di SQL Server a disponibilità elevata, ad esempio con gruppi di disponibilità Always On. I diritti per eseguire la replica secondaria passiva sono forniti attraverso i vantaggi di Software Assurance per i server di failover. |
 
 Per creare una VM di Azure con SQL Server 2017 con una di queste immagini Bring Your Own License, vedere le VM con il prefisso "{BYOL}":

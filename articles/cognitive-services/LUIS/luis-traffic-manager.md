@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 85f6be7a897908ef9198ac71ada809efb7c033bc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: c4ea9c5663755a4feb1693dd925d99b10c466140
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650547"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256600"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
 Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi). 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Screenshot del portale di Azure con due chiavi LUIS nel gruppo di risorse luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. Nella sezione Gestisci del sito Web [Luis][LUIS] , nella pagina **chiavi ed endpoint** , assegnare chiavi all'app e ripubblicare l'app selezionando il pulsante **pubblica** nel menu in alto a destra. 
+2. Nella sezione **Gestisci** del sito Web [Luis][LUIS] , nella pagina **risorse di Azure** assegnare chiavi all'app e ripubblicare l'app selezionando il pulsante **pubblica** nel menu in alto a destra. 
 
     L'URL di esempio nella colonna **endpoint** usa una richiesta GET con la chiave endpoint come parametro di query. Copiare gli URL degli endpoint delle due nuove chiavi. Verranno usati come parte della configurazione di Gestione traffico più avanti in questo articolo.
 

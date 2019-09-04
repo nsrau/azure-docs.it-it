@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 6cd88a58df4334180174fae9f0e651b5281e320e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 677f3cbb6416086843ceb530abd07d412c8b38f0
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966542"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275416"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiare dati da e in un file system usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -99,12 +99,12 @@ Per il servizio collegato del file system sono supportate le proprietà seguenti
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
-- Per **parquet, testo delimitato e formato binario**, fare riferimento alla sezione [set di dati in formato parquet, testo delimitato e formato binario](#format-based-dataset) .
-- Per altri formati come il **formato ORC/avro/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
+- Per **parquet, delimitato testo, avro e formato binario**, vedere la sezione [parquet, delimitato testo, avro e formato binario set di dati](#format-based-dataset) .
+- Per altri formati come il **formato ORC/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Set di dati in formato testo e binario delimitato in parquet
+### <a name="format-based-dataset"></a>Set di dati in parquet, delimitato di testo, avro e formato binario
 
-Per copiare dati da e verso **parquet, formato testo o binario delimitato**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) su set di dati basato su formato e impostazioni supportate. Per file System `location` in impostazioni nel set di dati basato su formato, sono supportate le proprietà seguenti:
+Per copiare dati da e verso **parquet, testo delimitato, avro o formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) su DataSet basato su formato e impostazioni supportate. Per file System `location` in impostazioni nel set di dati basato su formato, sono supportate le proprietà seguenti:
 
 | Proprietà   | Descrizione                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -113,7 +113,7 @@ Per copiare dati da e verso **parquet, formato testo o binario delimitato**, ved
 | fileName   | Nome del file sotto il folderPath specificato. Se si vuole usare il carattere jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
 
 > [!NOTE]
-> Il set di dati di tipo FileShare con formato parquet/testo indicato nella sezione successiva è ancora supportato così com'è per l'attività copia/ricerca/GetMetadata per la compatibilità con le versioni precedenti, ma non funziona con il flusso di dati di mapping. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
+> Il set di dati di tipo **FileShare** con formato parquet/testo indicato nella sezione successiva è ancora supportato così com'è per l'attività copia/ricerca/GetMetadata per la compatibilità con le versioni precedenti, ma non funziona con il flusso di dati di mapping. Si consiglia di usare questo nuovo modello in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione di questi nuovi tipi.
 
 **Esempio:**
 
@@ -143,7 +143,7 @@ Per copiare dati da e verso **parquet, formato testo o binario delimitato**, ved
 
 ### <a name="other-format-dataset"></a>Set di dati di altri formati
 
-Per copiare dati da e verso file system in **formato ORC/avro/JSON**, sono supportate le proprietà seguenti:
+Per copiare dati da e verso file system nel **formato ORC/JSON**, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -197,12 +197,12 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="file-system-as-source"></a>File system come origine
 
-- Per eseguire la copia da **parquet, testo delimitato e formato binario**, vedere la sezione relativa all' [origine del formato binario e del testo delimitato in parquet](#format-based-source) .
-- Per eseguire la copia da altri formati, ad esempio il **formato ORC/avro/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
+- Per eseguire la copia da **parquet, testo delimitato, formato Avro e binario**, vedere la sezione [parquet, testo delimitato, avro e origine del formato binario](#format-based-source) .
+- Per eseguire la copia da altri formati come il **formato ORC/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, testo delimitato e origine del formato binario
+#### <a name="format-based-source"></a>Parquet, delimitato testo, avro e origine formato binario
 
-Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e impostazioni supportate. Le proprietà seguenti sono supportate per file System `storeSettings` in impostazioni in origine copia basata sul formato:
+Per copiare dati da **parquet, testo delimitato, avro o formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e impostazioni supportate . Le proprietà seguenti sono supportate per file System `storeSettings` in impostazioni in origine copia basata sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -260,7 +260,7 @@ Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'ar
 
 #### <a name="other-format-source"></a>Altra origine del formato
 
-Per copiare dati da file system in **formato ORC/avro/JSON**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da file system in **formato ORC/JSON**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -302,12 +302,12 @@ Per copiare dati da file system in **formato ORC/avro/JSON**, nella sezione **or
 
 ### <a name="file-system-as-sink"></a>File system come sink
 
-- Per la copia in **parquet, testo delimitato o formato binario**, vedere la sezione relativa a [parquet, testo delimitato e sink di formato binario](#format-based-sink) .
-- Per eseguire la copia in altri formati come il **formato ORC/avro/JSON**, vedere la sezione [altro sink di formato](#other-format-sink) .
+- Per la copia in **parquet, in formato testo delimitato, avro o binario**, vedere la sezione [parquet, testo delimitato, avro e sink di formato binario](#format-based-sink) .
+- Per eseguire la copia in altri formati come il **formato ORC/JSON**, vedere la sezione [altro sink di formato](#other-format-sink) .
 
-#### <a name="format-based-sink"></a>Parquet, testo delimitato e sink di formato binario
+#### <a name="format-based-sink"></a>Parquet, testo delimitato, avro e sink di formato binario
 
-Per copiare i dati in **formato parquet, testo delimitato o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) in sink dell'attività di copia basata su formato e impostazioni supportate. Le proprietà seguenti sono supportate per file System `storeSettings` in impostazioni in sink di copia basato sul formato:
+Per copiare dati in **parquet, testo delimitato, avro o formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) in sink dell'attività di copia basata su formato e impostazioni supportate. Le proprietà seguenti sono supportate per file System `storeSettings` in impostazioni in sink di copia basato sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -355,7 +355,7 @@ Per copiare i dati in **formato parquet, testo delimitato o binario**, vedere l'
 
 #### <a name="other-format-sink"></a>Altro sink di formato
 
-Per copiare i dati in un file system in **formato ORC/avro/JSON**, nella sezione **sink** sono supportate le proprietà seguenti:
+Per copiare i dati in file system nel **formato ORC/JSON**, nella sezione **sink** sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |

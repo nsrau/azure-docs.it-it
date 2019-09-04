@@ -12,12 +12,12 @@ ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 3d60e5e4aae3457ae04cd7e4ecfe4f9253a04751
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 976121e2fd7af280ccc959ba2a93aceb4ae2bdea
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085393"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276839"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -195,16 +195,22 @@ Non è necessario definire un piano a consumo. Una verrà creata o selezionata a
 Il piano a consumo è un tipo speciale di risorsa "server farm". Per Windows, è possibile specificarla usando il `Dynamic` valore per le `computeMode` proprietà e `sku` :
 
 ```json
-{
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2015-04-01",
-    "name": "[variables('hostingPlanName')]",
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "computeMode": "Dynamic",
-        "sku": "Dynamic"
-    }
+{  
+   "type":"Microsoft.Web/serverfarms",
+   "apiVersion":"2016-09-01",
+   "name":"[variables('hostingPlanName')]",
+   "location":"[resourceGroup().location]",
+   "properties":{  
+      "name":"[variables('hostingPlanName')]",
+      "computeMode":"Dynamic"
+   },
+   "sku":{  
+      "name":"Y1",
+      "tier":"Dynamic",
+      "size":"Y1",
+      "family":"Y",
+      "capacity":0
+   }
 }
 ```
 

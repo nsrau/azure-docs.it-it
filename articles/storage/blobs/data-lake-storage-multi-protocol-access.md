@@ -1,5 +1,5 @@
 ---
-title: Accesso a più protocolli su Azure Data Lake Storage | Microsoft Docs
+title: Accesso a più protocolli su Azure Data Lake Storage (anteprima) | Microsoft Docs
 description: Usare le API BLOB e le applicazioni che usano le API BLOB con Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cc0191a9484a09ed12e0ca0cde4d51681e44ec5f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 471e3008c25ddef83dd9b502dd8f677ae31cc71b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855547"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259366"
 ---
-# <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Accesso a più protocolli su Azure Data Lake Storage
+# <a name="multi-protocol-access-on-azure-data-lake-storage-preview"></a>Accesso a più protocolli su Azure Data Lake Storage (anteprima)
 
 Le API blob ora funzionano con gli account che hanno uno spazio dei nomi gerarchico. Questo sblocca l'intero ecosistema di strumenti, applicazioni e servizi, nonché tutte le funzionalità di archiviazione BLOB per gli account che hanno uno spazio dei nomi gerarchico.
 
 Fino a poco tempo fa, potrebbe essere necessario mantenere soluzioni di archiviazione separate per l'archiviazione di oggetti e l'archiviazione di analisi. Questo perché Azure Data Lake Storage Gen2 aveva un supporto limitato per l'ecosistema. Ha anche accesso limitato alle funzionalità del servizio BLOB, ad esempio la registrazione diagnostica. Una soluzione di archiviazione frammentata è difficile da gestire perché è necessario spostare i dati tra gli account per realizzare diversi scenari. Questa operazione non è più necessario.
 
 > [!NOTE]
-> L'accesso a più protocolli su Data Lake Storage è disponibile in anteprima pubblica ed è disponibile solo nelle aree **Stati Uniti occidentali 2** e **Stati Uniti centro-occidentali** . Per esaminare le limitazioni, vedere l'articolo relativo ai [problemi noti](data-lake-storage-known-issues.md) . Per eseguire la registrazione nell'anteprima, vedere [Questa pagina](https://aka.ms/blobinteropsignup).
+> L'accesso a più protocolli su Data Lake Storage è disponibile in anteprima pubblica ed è disponibile nelle [aree geografiche](#region-availability). Per esaminare le limitazioni, vedere l'articolo relativo ai [problemi noti](data-lake-storage-known-issues.md) . Per eseguire la registrazione nell'anteprima, vedere [Questa pagina](https://aka.ms/blobinteropsignup).
 
 ## <a name="use-the-entire-ecosystem-of-applications-tools-and-services"></a>Usare l'intero ecosistema di applicazioni, strumenti e servizi
 
@@ -46,7 +46,21 @@ Le API BLOB e le API Data Lake Storage Gen2 possono operare sugli stessi dati ne
 
 ![Accesso a più protocolli su Data Lake Storage concettuale](./media/data-lake-storage-interop/interop-concept.png) 
 
-Gli strumenti e le applicazioni esistenti che usano l'API blob ottengono automaticamente questi vantaggi. Gli sviluppatori non dovranno modificarli. Data Lake Storage Gen2 applica in modo coerente le directory e gli ACL a livello di file indipendentemente dal protocollo usato da strumenti e applicazioni per accedere ai dati.   
+Gli strumenti e le applicazioni esistenti che usano l'API blob ottengono automaticamente questi vantaggi. Gli sviluppatori non dovranno modificarli. Data Lake Storage Gen2 applica in modo coerente le directory e gli ACL a livello di file indipendentemente dal protocollo usato da strumenti e applicazioni per accedere ai dati. 
+
+<a id="region-availability" />
+
+## <a name="region-availability"></a>Disponibilità a livello di area
+
+L'accesso a più protocolli su Azure Data Lake Storage (anteprima) è disponibile nelle aree geografiche seguenti:
+
+|||||
+|-|-|-|-|
+|Stati Uniti centrali|Stati Uniti centro-occidentali|Canada centrale|
+|East US|Asia orientale|Europa settentrionale|
+|Stati Uniti orientali 2|Asia sud-orientale|Europa occidentale|
+|Stati Uniti occidentali|Australia orientale|Giappone orientale|
+|Stati Uniti occidentali 2|Brasile meridionale||
 
 ## <a name="next-steps"></a>Passaggi successivi
 

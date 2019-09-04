@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 79cb276f121c351a9954994038d9d826819edf5d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e6d3b78887c9d195fdf0137553860c141bdaaba
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087462"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241050"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Checkpoint e riesecuzione in Funzioni permanenti (Funzioni di Azure)
 
@@ -145,6 +145,9 @@ Questo comportamento di riesecuzione crea vincoli sul tipo di codice che è poss
   Se l'agente di orchestrazione deve essere ritardato, è possibile usare l'API [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) o `createTimer` (JavaScript).
 
 * Il codice dell'agente di orchestrazione **non deve mai avviare un'operazione asincrona**, a meno che non usi l'API [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) o l'API dell'oggetto `context.df`. Ad esempio, nessun `Task.Run`, `Task.Delay` o `HttpClient.SendAsync` in .NET o `setTimeout()` e `setInterval()` in JavaScript. Il framework di attività permanenti esegue il codice dell'agente di orchestrazione in un singolo thread e non può interagire con alcun altro thread che possa essere pianificato da altre API asincrone. Se si verifica questa `InvalidOperationException` situazione, viene generata un'eccezione.
+
+> [!NOTE]
+> L'API [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) esegue l'i/O asincrono, che non è consentito in una funzione dell'agente di orchestrazione e può essere usato solo nelle funzioni di orchestrazione non.
 
 * Nel codice dell'agente di orchestrazione **devono essere evitati i cicli infiniti**. Poiché il framework di attività permanenti salva la cronologia di esecuzione durante l'avanzamento della funzione di orchestrazione, un ciclo infinito potrebbe causare un problema di memoria insufficiente per un'istanza dell'agente di orchestrazione. Per scenari che prevedono la presenza di cicli infiniti, usare API come [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) o `continueAsNew` (JavaScript) per riavviare l'esecuzione della funzione e rimuovere la cronologia di esecuzione precedente.
 

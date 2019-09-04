@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a344c94561c43652e360f7da02c16877e4d70529
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 01712508b15be947f4c3d7df401ad431d9f25455
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966974"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276374"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copiare dati da Impala tramite Azure Data Factory (anteprima)
 
@@ -48,8 +48,8 @@ Per il servizio collegato Impala sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **Impala**. | Sì |
-| host | Indirizzo IP o nome host del server Impala (ovvero, 192.168.222.160).  | Sì |
+| type | La proprietà type deve essere impostata su **Impala**. | Yes |
+| host | Indirizzo IP o nome host del server Impala (ovvero, 192.168.222.160).  | Yes |
 | port | Porta TCP che il server Impala usa per l'ascolto delle connessioni client. Il valore predefinito è 21050.  | No |
 | authenticationType | Tipo di autenticazione da usare. <br/>I valori consentiti sono **Anonymous**, **SASLUsername** e **UsernameAndPassword**. | Sì |
 | userName | Nome utente usato per accedere al server Impala. Quando si usa SASLUsername, il valore predefinito è Anonymous.  | No |
@@ -95,7 +95,9 @@ Per copiare dati da Impala, impostare la proprietà type del set di dati su **Im
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **ImpalaObject** | Yes |
-| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
+| schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
+| table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -104,11 +106,12 @@ Per copiare dati da Impala, impostare la proprietà type del set di dati su **Im
     "name": "ImpalaDataset",
     "properties": {
         "type": "ImpalaObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Impala linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

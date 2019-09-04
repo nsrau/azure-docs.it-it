@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 6d122b3ac1504db0a2d22fea749c6c94174e4ff9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233153"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241786"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -25,7 +25,7 @@ Per un elenco completo delle aree disponibili, vedere la pagina relativa alla [d
 
 ## <a name="does-aks-support-node-autoscaling"></a>servizio Azure Kubernetes supporta la scalabilità automatica dei nodi?
 
-Sì, la possibilità di ridimensionare automaticamente i nodi agente orizzontalmente in AKS è attualmente disponibile in anteprima. Per istruzioni, vedere [ridimensionare automaticamente un cluster per soddisfare le richieste dell'applicazione in AKS][aks-cluster-autoscaler] . La scalabilità automatica AKS si basa su [Kubernetes][auto-scaler]AutoScaler.
+Sì, la possibilità di ridimensionare automaticamente i nodi agente orizzontalmente in AKS è attualmente disponibile in anteprima. Per istruzioni, vedere [ridimensionare automaticamente un cluster per soddisfare le richieste dell'applicazione in AKS][aks-cluster-autoscaler] . La scalabilità automatica AKS si basa su [Kubernetes AutoScaler][auto-scaler].
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>È possibile distribuire servizio Azure Kubernetes nella rete virtuale esistente?
 
@@ -116,6 +116,8 @@ Il supporto di Windows Server per il pool di nodi include alcune limitazioni che
 
 In un contratto di servizio (SLA), il provider accetta di rimborsare il costo del servizio del cliente se il livello di servizio pubblicato non è soddisfatto. Poiché AKS è gratuito, non è disponibile alcun costo per il rimborso, quindi AKS non ha un contratto di servizio formale. Tuttavia, AKS cerca di mantenere la disponibilità di almeno il 99,5% per il server API Kubernetes.
 
+È importante riconoscere la distinzione tra la disponibilità del servizio AKS, che fa riferimento al tempo di esecuzione del piano di controllo Kubernetes e alla disponibilità del carico di lavoro specifico in esecuzione nelle macchine virtuali di Azure. Sebbene il piano di controllo non sia disponibile se il piano di controllo non è pronto, i carichi di lavoro del cluster in esecuzione in macchine virtuali di Azure possono comunque funzionare. Le macchine virtuali di Azure sono risorse a pagamento supportate da un contratto di contratto finanziario. Leggere [qui per altre informazioni](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) sul contratto di contratto per le VM di Azure e su come aumentare la disponibilità con funzionalità come [zone di disponibilità][availability-zones].
+
 ## <a name="why-cant-i-set-maxpods-below-30"></a>Perché non è possibile impostare maxPods sotto 30?
 
 In AKS è possibile impostare il `maxPods` valore durante la creazione del cluster usando l'interfaccia della riga di comando di Azure e i modelli Azure Resource Manager. Tuttavia, sia Kubenet che Azure CNI richiedono un *valore minimo* (convalidato al momento della creazione):
@@ -204,6 +206,7 @@ Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è s
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
+[availability-zones]: ./availability-zones.md
 
 <!-- LINKS - external -->
 

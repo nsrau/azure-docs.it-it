@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 30bad3dd519d622d7e224da7bd53e7c6625014f6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a31f0618f7e9dc8fdb0e9b2988d3d3c32fefcf64
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966470"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277659"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiare dati da un'origine OData tramite Azure Data Factory
 
@@ -52,7 +52,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** deve essere impostata su **OData**. |Yes |
+| type | La proprietà **type** deve essere impostata su **OData**. |Sì |
 | url | URL radice del servizio OData. |Sì |
 | authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonima**, **Di base** e **Windows**, **entità servizio AAD**e **identità del servizio gestita**. L'autenticazione OAuth basata su utente non è supportata. | Yes |
 | userName | Specificare **userName** se si usa l'autenticazione di base o di Windows. | No |
@@ -202,7 +202,7 @@ Per copiare dati da OData, impostare la proprietà**type** del set di dati su **
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del set di dati deve essere impostata su **ODataResource**. | Yes |
-| path | Percorso della risorsa OData. | Sì |
+| path | Percorso della risorsa OData. | Yes |
 
 **Esempio**
 
@@ -212,6 +212,7 @@ Per copiare dati da OData, impostare la proprietà**type** del set di dati su **
     "properties":
     {
         "type": "ODataResource",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<OData linked service name>",
             "type": "LinkedServiceReference"
@@ -232,11 +233,11 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="odata-as-source"></a>OData come origine
 
-Per copiare dati da OData, impostare il tipo **source** nell'attività di copia su **RelationalSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da OData, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **RelationalSource**. | Sì |
+| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **ODataSource**. | Sì |
 | query | Opzioni di query OData per filtrare i dati. Esempio: `"$select=Name,Description&$top=5"`.<br/><br/>**Nota**: il connettore OData copia dati dall'URL combinato: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Per altre informazioni, vedere [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) (Componenti dell'URL di OData). | No |
 
 **Esempio**
@@ -260,7 +261,7 @@ Per copiare dati da OData, impostare il tipo **source** nell'attività di copia 
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "ODataSource",
                 "query": "$select=Name,Description&$top=5"
             },
             "sink": {
@@ -270,6 +271,8 @@ Per copiare dati da OData, impostare il tipo **source** nell'attività di copia 
     }
 ]
 ```
+
+Se si usa `RelationalSource` l'origine tipizzata, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
 
 ## <a name="data-type-mapping-for-odata"></a>Mapping dei tipi di dati per OData
 

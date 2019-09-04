@@ -10,19 +10,67 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 01ee8e5b9d7ab1e8ab4086e559ce8dd8df76252f
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 0880b5706f2621971a4e5c82a6db03cdd22ce4d6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182696"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278301"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
-Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://aka.ms/aml-sdk) . 
+Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) . 
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
 
+## <a name="2019-09-03"></a>2019-09-03
+### <a name="azure-machine-learning-sdk-for-python-v1060"></a>SDK di Azure Machine Learning per Python v 1.0.60
+
++ **Nuove funzionalità**
+  + È stato introdotto filedataset, che fa riferimento a uno o più file negli archivi dati o negli URL pubblici. I file possono essere di qualsiasi formato. Filedataset offre la possibilità di scaricare o montare i file nel calcolo. Per ulteriori informazioni su filedataset, visitare https://aka.ms/file-dataset il.
+  + Aggiunta del supporto YAML della pipeline per il passaggio PythonScript, Anna Step, databrick Step, DataTransferStep e AzureBatch Step
+
++ **Correzioni di bug e miglioramenti**
+  + **azureml-automl-Core**
+    + Autoarima è ora una pipeline consigliata solo per l'anteprima.
+    + Segnalazione errori migliorata per la previsione.
+    + Miglioramento della registrazione usando eccezioni personalizzate anziché generiche nelle attività di previsione.
+    + Il controllo in max_concurrent_iterations è stato rimosso in modo che sia inferiore al numero totale di iterazioni.
+    + I modelli AutoML ora restituiscono AutoMLExceptions
+    + Questa versione migliora le prestazioni di esecuzione delle esecuzioni locali automatiche di machine learning.
+  + **azureml-core**
+    + Introduce `Dataset.get_all()` che restituisce un dizionario di `TabularDataset` oggetti `FileDataset` e con chiave in base al nome di registrazione. 
+    
+    ```py 
+    workspace = Workspace.from_config() 
+    all_datasets = Dataset.get_all(workspace) 
+    mydata = all_datasets['my-data'] 
+    ```
+    
+    + Introdurre `parition_format` come argomento per `Dataset.Tabular.from_delimited_files` e `Dataset.Tabular.from_parquet.files`. Le informazioni sulla partizione di ogni percorso dati verranno estratte in colonne in base al formato specificato. ' {column_name}' crea una colonna stringa è {column_name: AAAA/MM/GG/HH/mm/SS}' crea una colonna DateTime, dove ' aaaa ',' MM ',' dd ',' HH ',' mm ' è SS ' vengono utilizzati per estrarre anno, mese, giorno, ora, minuto e secondo per il tipo DateTime. Il partition_format deve iniziare dalla posizione della prima chiave di partizione fino alla fine del percorso del file. Ad esempio, dato il percorso '. /USA/2019/01/01/data.csv "dove la partizione è per paese e ora, partition_format ="/{Country}/{PartitionDate: AAAA/MM/gg}/data. csv "crea la colonna di stringa" Country "con valore" USA "e colonna DateTime" PartitionDate "con valore" 2019-01-01 ".
+    + `to_csv_files`i `to_parquet_files` metodi e sono stati aggiunti `TabularDataset`a. Questi metodi consentono la conversione tra `TabularDataset` un oggetto `FileDataset` e un convertendo i dati in file del formato specificato.
+    + Accedere automaticamente al registro immagini di base quando si salva un Dockerfile generato da Model. Package ().
+    + ' gpu_support ' non è più necessario. AzureML ora rileva e usa automaticamente l'estensione Docker NVIDIA quando è disponibile. Verrà rimosso in una versione futura.
+    + Aggiunta del supporto per la creazione, l'aggiornamento e l'uso di PipelineDrafts.
+    + Questa versione migliora le prestazioni di esecuzione delle esecuzioni locali automatiche di machine learning.
+    + Gli utenti possono eseguire query sulle metriche dalla cronologia di esecuzione in base al nome.
+    + Miglioramento della registrazione usando eccezioni personalizzate anziché generiche nelle attività di previsione.
+  + **azureml-explain-model**
+    + Il parametro feature_maps è stato aggiunto al nuovo MimicWrapper, consentendo agli utenti di ottenere spiegazioni sulle funzionalità non elaborate.
+    + Per impostazione predefinita, i caricamenti del set di dati sono disattivati per la spiegazione e possono essere riabilitati con upload_datasets = true
+    + Aggiunta dei parametri di filtro "is_law" all'elenco di spiegazione e alle funzioni di download.
+    + Aggiunge il `get_raw_explanation(feature_maps)` metodo agli oggetti spiegazione globale e locale.
+    + Aggiunta del controllo della versione a lightgbm con avviso stampato se la versione supportata è la seguente
+    + Utilizzo di memoria ottimizzato durante l'invio in batch di spiegazioni
+    + I modelli AutoML ora restituiscono AutoMLExceptions
+  + **azureml-pipeline-core**
+    + Aggiunta del supporto per la creazione, l'aggiornamento e l'uso di PipelineDrafts: può essere usato per gestire le definizioni di pipeline modificabili e utilizzarle in modo interattivo per l'esecuzione
+  + **azureml-train-automl**
+    + Creazione della funzionalità per l'installazione di versioni specifiche di pytorch v 1.1.0, CUDA Toolkit 9,0, pytorch-Transformator che è necessario per abilitare BERT/XLNet nell'ambiente di runtime Python remoto.
+  + **azureml-train-core**
+    + Errore iniziale di alcuni errori di definizione di spazio degli iperparametri direttamente nell'SDK anziché sul lato server.
+
+  
 ## <a name="2019-08-19"></a>2019-08-19
 
 ### <a name="azure-machine-learning-sdk-for-python-v1057"></a>SDK di Azure Machine Learning per Python v 1.0.57
@@ -381,7 +429,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 ### <a name="azure-machine-learning-sdk-for-python-v1043"></a>SDK di Azure Machine Learning per Python v 1.0.43
 
 + **Nuove funzionalità**
-  + Azure Machine Learning offre ora il supporto di prima classe per l'apprendimento automatico e il Framework di analisi dei dati più diffusi Scikit-learn. Usando Estimator, gli utenti possono eseguire facilmente il training e la distribuzione di modelli Scikit-learn. [ `SKLearn` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)
+  + Azure Machine Learning offre ora il supporto di prima classe per l'apprendimento automatico e il Framework di analisi dei dati più diffusi Scikit-learn. [ Usando`SKLearn` Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py), gli utenti possono eseguire facilmente il training e la distribuzione di modelli Scikit-learn.
     + Informazioni su come [eseguire l'ottimizzazione di iperparametri con Scikit-learn usando](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb)iperguida.
   + Aggiunto il supporto per la creazione di ModuleStep nelle pipeline insieme alle classi Module e ModuleVersion per gestire le unità di calcolo riutilizzabili.
   + I servizi WebService di ACI supportano ora scoring_uri permanenti tramite aggiornamenti. Il scoring_uri cambierà da IP a FQDN. L'etichetta del nome DNS per FQDN può essere configurata impostando dns_name_label in deploy_configuration. 

@@ -7,12 +7,12 @@ ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8cbefcbadc14c1249d2783f1539e40c99c3be66c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 14e957986df7a114b8c865ee82e2ac447683dc2c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231560"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257185"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione errori con Azure Blueprint
 
@@ -63,7 +63,7 @@ Il passaggio di un parametro del progetto che usa una funzione, ad esempio `[res
 
 #### <a name="resolution"></a>Risoluzione
 
-Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto. Per altre informazioni, vedere [template file Structure-Syntax](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
+Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto. Per altre informazioni, vedere [sintassi ed espressioni nei modelli Azure Resource Manager](../../../azure-resource-manager/template-expressions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: df5362028a38a86ba8df46efae2e3c3109856463
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fc6fdde4daa2d671b9d93673c2a78c2d9d85963c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194370"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275731"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -32,7 +32,7 @@ Se si stanno cercando informazioni su un codice di errore e tali informazioni no
 | AllocationFailed | Il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni di macchina virtuale richieste. Ripetere la richiesta in un secondo momento oppure richiedere una dimensione di macchina virtuale diversa. | [Problemi di provisioning e allocazione per Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problemi di provisioning e allocazione per Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [Risolvere i problemi relativi agli errori di allocazione](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Attendere il completamento dell'operazione simultanea. | |
 | AuthorizationFailed | L'account o l'entità servizio non dispone dell'accesso sufficiente per completare la distribuzione. Selezionare il ruolo a cui appartiene l'account e il relativo accesso per l'ambito della distribuzione.<br><br>Questo errore può essere visualizzato quando un provider di risorse richiesto non è registrato. | [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
-| BadRequest | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-group-authoring-templates.md#resource-location) |
+| BadRequest | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-location.md) |
 | Conflitto | Si sta richiedendo un'operazione non consentita nello stato corrente della risorsa. Il ridimensionamento del disco, ad esempio, è consentito solo quando viene creata o deallocata una macchina virtuale. | |
 | DeploymentActive | Attendere il completamento della distribuzione simultanea al gruppo di risorse. | |
 | DeploymentFailed | DeploymentFailed è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Nei dettagli cercare un codice di errore che fornisca maggiori informazioni. | [Trovare il codice di errore](#find-error-code) |
@@ -53,7 +53,7 @@ Se si stanno cercando informazioni su un codice di errore e tali informazioni no
 | InvalidTemplateCircularDependency | Rimuovere le dipendenze non necessarie. | [Risolvere le dipendenze circolari](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Controllare se l'account appartiene allo stesso tenant del gruppo di risorse in cui si sta eseguendo la distribuzione. | |
 | LinkedInvalidPropertyId | La risoluzione dell'ID risorsa per una risorsa non è stato eseguito correttamente. Verificare di avere fornito tutti i valori necessari per l'ID risorsa, incluso l'ID sottoscrizione, il nome del gruppo di risorse, il tipo di risorsa, il nome della risorsa padre (se necessario) e il nome della risorsa. | |
-| LocationRequired | Specificare un percorso per la risorsa. | [Impostare la posizione](resource-group-authoring-templates.md#resource-location) |
+| LocationRequired | Specificare un percorso per la risorsa. | [Impostare la posizione](resource-location.md) |
 | MismatchingResourceSegments | Assicurarsi che la risorsa nidificata abbia il numero corretto di segmenti nel nome e nel tipo. | [Risolvere i segmenti di risorse](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Verificare lo stato di registrazione del provider di risorse e i percorsi supportati. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registrare la sottoscrizione con il provider di risorse. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |

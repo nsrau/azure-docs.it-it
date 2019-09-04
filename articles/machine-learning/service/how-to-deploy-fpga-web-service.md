@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4259c438fec448ba510e4c248de6f4acc184ab
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c3d1d211f85c50a482e1dd9c482cb75477942de7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990496"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278191"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Informazioni su FPGA (Field-Programmable Gate Array) e su come eseguire la distribuzione
 
@@ -133,7 +133,7 @@ Seguire le istruzioni per:
 * Utilizzare il modello distribuito
 * Eliminare i servizi distribuiti
 
-Usare [Azure Machine Learning SDK per Python](https://aka.ms/aml-sdk) per creare una definizione del servizio. Una definizione del servizio è un file che descrive una pipeline di grafici (input, utilità di funzioni e classificatore) basata su TensorFlow. Il comando di distribuzione comprime automaticamente la definizione e i grafici in un file ZIP e carica il file zip in Archiviazione BLOB di Azure. Il DNN è già distribuito per l'esecuzione nell'FPGA.
+Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) per creare una definizione del servizio. Una definizione del servizio è un file che descrive una pipeline di grafici (input, utilità di funzioni e classificatore) basata su TensorFlow. Il comando di distribuzione comprime automaticamente la definizione e i grafici in un file ZIP e carica il file zip in Archiviazione BLOB di Azure. Il DNN è già distribuito per l'esecuzione nell'FPGA.
 
 ### <a name="load-azure-ml-workspace"></a>Caricare l'area di lavoro di Azure ML
 

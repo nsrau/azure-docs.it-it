@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 01f764d96eacdc94fd90b4f695c4b774a6ded5c5
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 891fff203fbec8433793d3f3873e985dfebc31b0
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967439"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277615"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiare dati da Phoenix usando Azure Data Factory 
 
@@ -45,7 +45,7 @@ Per il servizio collegato di Phoenix sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Phoenix** | Yes |
+| type | La proprietà type deve essere impostata su: **Phoenix** | Sì |
 | host | Indirizzo IP o nome host del server Phoenix, ovvero 192.168.222.160.  | Yes |
 | port | Porta TCP che il server Phoenix usa per l'ascolto delle connessioni client. Il valore predefinito è 8765. Se ci si connette a Azure HDInsights, specificare la porta come 443. | No |
 | httpPath | URL parziale corrispondente al server Phoenix, ovvero /gateway/sandbox/phoenix/version. Se si usa il cluster HDInsights, specificare `/hbasephoenix0`.  | No |
@@ -92,8 +92,10 @@ Per copiare dati da Phoenix, impostare la proprietà type del set di dati su **P
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **PhoenixObject** | Sì |
-| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
+| type | La proprietà type del set di dati deve essere impostata su: **PhoenixObject** | Yes |
+| schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
+| table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -102,11 +104,12 @@ Per copiare dati da Phoenix, impostare la proprietà type del set di dati su **P
     "name": "PhoenixDataset",
     "properties": {
         "type": "PhoenixObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Phoenix linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -121,7 +124,7 @@ Per copiare dati da Phoenix, impostare il tipo di origine nell'attività di copi
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **PhoenixSource** | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **PhoenixSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

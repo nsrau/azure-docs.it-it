@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: d03c5f66f760a2bea9f99501cec478831a347c5d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 31243b5e9da55aafbc376fa416c1b00a4499c116
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668724"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242422"
 ---
 # <a name="feature-evaluation"></a>Valutazione delle funzionalità
 
@@ -32,9 +32,9 @@ Le funzionalità più importanti hanno un peso maggiore nel modello. Poiché que
 
 ## <a name="getting-feature-importance-evaluation"></a>Recupero della valutazione dell'importanza della funzionalità
 
-Per visualizzare i risultati dell'importanza della funzionalità, è necessario eseguire una valutazione. Le informazioni risultanti sull'importanza della funzionalità rappresentano il modello online di personalizzazione corrente. La valutazione analizza l'importanza della funzionalità del modello salvato alla data di fine del periodo di valutazione. 
+Per visualizzare i risultati dell'importanza della funzionalità, è necessario eseguire una valutazione. La valutazione crea etichette di funzionalità leggibili in base ai nomi delle funzionalità osservate durante il periodo di valutazione.
 
-La valutazione crea etichette di funzionalità leggibili in base ai nomi delle funzionalità osservate durante il periodo di valutazione.
+Le informazioni risultanti sull'importanza della funzionalità rappresentano il modello online di personalizzazione corrente. La valutazione analizza l'importanza della funzionalità del modello salvato alla data di fine del periodo di valutazione, dopo il completamento di tutte le attività di training eseguite durante la valutazione, con i criteri di apprendimento online correnti. 
 
 I risultati dell'importanza della funzionalità non rappresentano altri criteri e modelli testati o creati durante la valutazione.  La valutazione non includerà le funzionalità inviate al personalizzatore dopo la fine del periodo di valutazione.
 

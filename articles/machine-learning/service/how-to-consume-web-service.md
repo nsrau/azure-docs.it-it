@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03579d75ad9cbaceca1a5d42913ff546088f6cfe
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 5f57be9a1fc5d260ce580b969c8f92c87aea17a8
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982783"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279120"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
 Quando si distribuisce un modello di Azure Machine Learning come servizio Web, viene creata un’API REST. È possibile inviare dati a questa API per ottenere la stima restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
 
-Si crea un servizio Web quando si distribuisce un'immagine in istanze di contenitore di Azure, servizio Azure Kubernetes o FPGA (Field-Programmable Gate Array). Le immagini vengono create a partire dai modelli registrati e dai file di assegnazione di punteggio. L'URI usato per accedere a un servizio Web viene recuperato tramite l'[SDK di Azure Machine Learning](https://aka.ms/aml-sdk). Se l'autenticazione è abilitata, è anche possibile usare l'SDK per ottenere le chiavi di autenticazione o i token.
+Si crea un servizio Web quando si distribuisce un'immagine in istanze di contenitore di Azure, servizio Azure Kubernetes o FPGA (Field-Programmable Gate Array). Le immagini vengono create a partire dai modelli registrati e dai file di assegnazione di punteggio. L'URI usato per accedere a un servizio Web viene recuperato tramite l'[SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se l'autenticazione è abilitata, è anche possibile usare l'SDK per ottenere le chiavi di autenticazione o i token.
 
 Il flusso di lavoro generale per creare un client che usa un servizio Web di Machine Learning è il seguente:
 

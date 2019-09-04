@@ -7,20 +7,18 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d158950749a9704276a666b58101bb5ad9dcbc42
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
-ms.translationtype: HT
+ms.openlocfilehash: 1039073aaaf9d1a6b7bd9ac21a95c73871ce3ba3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232631"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239034"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creare criteri a livello di codice e visualizzare i dati di conformità
 
 Questo articolo illustra la creazione a livello di codice e la gestione dei criteri. Le definizioni di criteri di Azure applicano regole e effetti differenti sulle risorse. L'imposizione consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio.
 
 Per informazioni sulla conformità, vedere [Ottenere dati sulla conformità](getting-compliance-data.md).
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 

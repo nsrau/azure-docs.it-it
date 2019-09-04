@@ -10,29 +10,30 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d823eb615f983190ee6974ee3012f069309ca753
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f97412bc3f8d8b046df1324c7e1a0ad568f5db52
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195633"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278773"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Strumenti di machine learning e data science sulle macchine virtuali di Data Science di Azure
 Data Science Virtual Machine offre un ampio set di strumenti e librerie per machine learning (ML) disponibili nei linguaggi più diffusi, ad esempio Python, R, Julia. 
 
 Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine. 
 
-## <a name="azure-machine-learning-sdk-for-python"></a>SDK di Azure Machine Learning per Python
+## <a name="azure-machine-learning-sdk-for-python"></a>Azure Machine Learning SDK per Python
 Vedere le informazioni di riferimento complete per [Azure Machine Learning SDK per Python](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml).
+
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   |   Azure Machine Learning è un servizio cloud usato per sviluppare e distribuire modelli di Machine Learning. È possibile tenere traccia dei modelli durante la compilazione, il training, il ridimensionamento e la gestione con Python SDK. Distribuire modelli come contenitori ed eseguirli nel cloud, in locale o in Azure IoT Edge.   |
-| Edizioni supportate     | Windows (ambiente conda: Azure ML), Linux (ambiente conda: py36)    |
-| Usi tipici      | Piattaforma Machine Learning generale      |
-| Come viene configurata o installata?      |  Installata con supporto GPU   |
-| Come usarla o eseguirla      | Come Python SDK e interfaccia della riga di comando di Azure. Attivare per l'ambiente Conda `AzureML` nell'edizione per Windows *o* per `py36` nell'edizione per Linux.      |
-| Collegamenti agli esempi      | I notebook di Jupyter di esempio sono inclusi nella directory `AzureML` in notebook.  |
-| Strumenti correlati      | Visual Studio Code, Jupyter   |
+| Che cos'è? |   Azure Machine Learning è un servizio cloud usato per sviluppare e distribuire modelli di Machine Learning. È possibile tenere traccia dei modelli durante la compilazione, il training, il ridimensionamento e la gestione con Python SDK. Distribuire modelli come contenitori ed eseguirli nel cloud, in locale o in Azure IoT Edge. |
+| Edizioni supportate  | Windows (ambiente conda: Azure ML), Linux (ambiente conda: py36) |
+| Usi tipici      | Piattaforma Machine Learning generale  |
+| Come viene configurata o installata? |  Installata con supporto GPU |
+| Come usarla o eseguirla | Come Python SDK e interfaccia della riga di comando di Azure. Attivare per l'ambiente Conda `AzureML` nell'edizione per Windows *o* per `py36` nell'edizione per Linux.  |
+| Collegamenti agli esempi | I notebook di Jupyter di esempio sono inclusi nella directory `AzureML` in notebook.  |
+| Strumenti correlati  | Visual Studio Code, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |

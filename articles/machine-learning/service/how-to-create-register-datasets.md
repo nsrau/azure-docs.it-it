@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: e5d5d36e82914f1d6d03299db0ed1427ac5a389a
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 2ce64df5eeb8aa44ef714d6b465b7f2e1819635d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147580"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259285"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creare e accedere ai set di impostazioni (anteprima) in Azure Machine Learning
 
@@ -47,7 +47,7 @@ Per creare e usare i set di impostazioni, è necessario:
 
 I set di impostazioni sono suddivisi in vari tipi in base al modo in cui gli utenti li utilizzano nel training. Elenco dei tipi di set di dati:
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. Questo consente di materializzare i dati in un frame di dati Pandas. Un `TabularDataset` oggetto può essere creato da file CSV, TSV, parquet, risultati della query SQL e così via. Per un elenco completo, consultare la [documentazione](https://aka.ms/tabulardataset-api-reference).
-* Filedataset fa riferimento a uno o più file negli archivi dati o negli URL pubblici. Questo consente di scaricare o montare i file nel calcolo. I file possono avere qualsiasi formato, che consente una gamma più ampia di scenari di apprendimento automatico, tra cui l'apprendimento avanzato.
+* [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fa riferimento a uno o più file negli archivi dati o negli URL pubblici. Questo consente di scaricare o montare i file nel calcolo. I file possono avere qualsiasi formato, che consente una gamma più ampia di scenari di apprendimento automatico, tra cui l'apprendimento avanzato.
 
 Per ulteriori informazioni sulle modifiche future dell'API, vedere [qui](https://aka.ms/tabular-dataset).
 

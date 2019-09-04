@@ -7,18 +7,16 @@ ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f88ecb782598cabacc29f97ee3225a5abf280a84
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 40658412f19c444cfa06f5663f567a78453c7e9a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232321"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241145"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
 Le risorse che non sono conformi ai criteri **deployIfNotExists** possono essere messe in stato di conformità attraverso una **correzione**. La correzione viene eseguita indicando a criteri di Azure di eseguire l'effetto **deployIfNotExists** del criterio assegnato alle risorse esistenti. Questo articolo illustra i passaggi necessari per comprendere ed eseguire la correzione con criteri di Azure.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Funzionamento della sicurezza della correzione
 

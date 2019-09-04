@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 668d686f296763f5ed51dc6361691352d22e0738
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 965c1181399b76523b624d53dc47e59de0208ecb
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094723"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258273"
 ---
 # <a name="pool-resize-start-event"></a>Evento di avvio ridimensionamento pool
 
@@ -26,10 +26,12 @@ ms.locfileid: "70094723"
 
 ```
 {
-    "poolId": "myPool1",
-    "nodeDeallocationOption": "invalid",
-    "currentDedicated": 0,
-    "targetDedicated": 2,
+    "id": "myPool1",
+    "nodeDeallocationOption": "Invalid",
+    "currentDedicatedNodes": 0,
+    "targetDedicatedNodes": 2,
+    "currentLowPriorityNodes": 0,
+    "targetLowPriorityNodes": 2,
     "enableAutoScale": false,
     "isAutoPool": false
 }
@@ -37,9 +39,11 @@ ms.locfileid: "70094723"
 
 |Elemento|Tipo|Note|
 |-------------|----------|-----------|
-|poolId|String|ID del pool.|
-|nodeDeallocationOption|String|Specifica quando è possibile rimuovere nodi dal pool, in caso di riduzione delle dimensioni del pool.<br /><br /> I valori possibili sono:<br /><br /> **requeue**: termina le attività in esecuzione e le reinserisce nella coda. Le attività verranno eseguite di nuovo quando il processo viene abilitato. I nodi vengono rimossi non appena le attività sono state terminate.<br /><br /> **terminate**: termina le attività in esecuzione. Le attività non verranno più eseguite. I nodi vengono rimossi non appena le attività sono state terminate.<br /><br /> **taskcompletion**: consente il completamento delle attività attualmente in esecuzione. Non viene pianificata alcuna nuova attività durante l'attesa. I nodi vengono rimossi al completamento di tutte le attività.<br /><br /> **Retaineddata**: consente il completamento delle attività attualmente in esecuzione e quindi attende che scadano tutti i periodi di conservazione dei dati delle attività. Non viene pianificata alcuna nuova attività durante l'attesa. I nodi vengono rimossi alla scadenza di tutti i periodi di conservazione dati delle attività.<br /><br /> Il valore predefinito è requeue.<br /><br /> In caso di aumento delle dimensioni del pool, il valore è impostato su **invalid**.|
-|currentDedicated|Int32|Numero di nodi di calcolo attualmente assegnati al pool.|
-|targetDedicated|Int32|Numero di nodi di calcolo richiesti per il pool.|
-|enableAutoScale|Bool|Specifica se le dimensioni del pool vengono regolate automaticamente nel tempo.|
-|isAutoPool|Bool|Specifica se il pool è stato creato tramite il meccanismo di pool automatico di un processo.|
+|`id`|String|ID del pool.|
+|`nodeDeallocationOption`|String|Specifica quando è possibile rimuovere nodi dal pool, in caso di riduzione delle dimensioni del pool.<br /><br /> I valori possibili sono:<br /><br /> **requeue**: termina le attività in esecuzione e le reinserisce nella coda. Le attività verranno eseguite di nuovo quando il processo viene abilitato. I nodi vengono rimossi non appena le attività sono state terminate.<br /><br /> **terminate**: termina le attività in esecuzione. Le attività non verranno più eseguite. I nodi vengono rimossi non appena le attività sono state terminate.<br /><br /> **taskcompletion**: consente il completamento delle attività attualmente in esecuzione. Non viene pianificata alcuna nuova attività durante l'attesa. I nodi vengono rimossi al completamento di tutte le attività.<br /><br /> **Retaineddata**: consente il completamento delle attività attualmente in esecuzione e quindi attende che scadano tutti i periodi di conservazione dei dati delle attività. Non viene pianificata alcuna nuova attività durante l'attesa. I nodi vengono rimossi alla scadenza di tutti i periodi di conservazione dati delle attività.<br /><br /> Il valore predefinito è requeue.<br /><br /> In caso di aumento delle dimensioni del pool, il valore è impostato su **invalid**.|
+|`currentDedicatedNodes`|Int32|Numero di nodi di calcolo attualmente assegnati al pool.|
+|`targetDedicatedNodes`|Int32|Numero di nodi di calcolo richiesti per il pool.|
+|`currentLowPriorityNodes`|Int32|Numero di nodi di calcolo attualmente assegnati al pool.|
+|`targetLowPriorityNodes`|Int32|Numero di nodi di calcolo richiesti per il pool.|
+|`enableAutoScale`|Bool|Specifica se le dimensioni del pool vengono regolate automaticamente nel tempo.|
+|`isAutoPool`|Bool|Specifica se il pool è stato creato tramite il meccanismo di pool automatico di un processo.|

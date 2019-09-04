@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 01238885e68a39ff713bd346a9206668e16e7ee4
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2d7532c51e2963c0dc9f8d02e7a0e32864e80f92
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195292"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278424"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Uso della macchina virtuale di data science con intelligenza artificiale geografica
 
@@ -49,4 +49,3 @@ Oltre agli esempi basati su Framework di apprendimento automatico e di apprendim
 Per altri esempi che usano la VM di data science, vedere qui:
 
 * [Esempi](dsvm-samples-and-walkthroughs.md)
-

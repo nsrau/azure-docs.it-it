@@ -8,18 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ee359b76072da3caee9ae1f5fab3d0fc28d25c0e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972695"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240721"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Connettersi da locale a CloudSimple usando ExpressRoute
 
 Se si dispone già di una connessione Azure ExpressRoute da una posizione esterna, ad esempio locale, ad Azure, è possibile connetterla all'ambiente CloudSimple. Questa operazione può essere eseguita tramite una funzionalità di Azure che consente la connessione tra due circuiti ExpressRoute. Questo metodo stabilisce una connessione protetta, privata, a bassa latenza tra i due ambienti.
 
 [![Connessione ExpressRoute locale-Copertura globale](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
+
+## <a name="before-you-begin"></a>Prima di iniziare
+
+Per stabilire la connessione Copertura globale dall'ambiente locale è necessario un blocco di indirizzi di rete **/29** .  Lo spazio degli indirizzi/29 viene usato per la rete di transito tra circuiti ExpressRoute.  La rete di transito non dovrebbe sovrapporsi ad alcuna rete virtuale di Azure, reti locali o reti cloud private CloudSimple.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -63,5 +67,10 @@ Per stabilire la connessione ExpressRoute, è necessario creare un'autorizzazion
     * Sottoscrizione: **Sottoscrizione in cui è distribuito il servizio CloudSimple**
     * Servizio: **Soluzione VMware per CloudSimple**
     * Tipo di problema: **Richiesta di servizio**
-    * Sottotipo di problema: **Creare una connessione ExpressRoute in locale**
+    * Sottotipo del problema: **Creare una connessione ExpressRoute in locale**
     * Specificare l'ID risorsa e la chiave di autorizzazione copiati e salvati nel riquadro dettagli.
+    * Specificare uno spazio degli indirizzi di rete/29 per la rete di transito.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Altre informazioni sulle connessioni di rete di Azure](cloudsimple-azure-network-connection.md)  

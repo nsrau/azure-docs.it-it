@@ -12,19 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: f3d7edf21edf116732eceb332cb8725a0dee85dc
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: acdf52022d8498a186ed4cff90284cd6e299d6c0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742023"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240851"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Panoramica di Azure Cloud Shell
-Azure Cloud Shell è una shell interattiva accessibile dal browser per la gestione delle risorse di Azure.
-Offre la flessibilità necessaria per scegliere l'esperienza shell più adatta al proprio modo di lavorare.
-Gli utenti Linux possono scegliere un'esperienza Bash, mentre gli utenti Windows possono scegliere PowerShell.
+Azure Cloud Shell è una shell interattiva, autenticata e accessibile dal browser per la gestione delle risorse di Azure.
+Offre la flessibilità di scegliere l'esperienza Shell più adatta al proprio modo di lavorare, ovvero bash o PowerShell.
 
 Provare dal sito Web shell.azure.com facendo clic sul pulsante seguente.
 

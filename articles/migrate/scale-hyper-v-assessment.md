@@ -1,87 +1,88 @@
 ---
-title: Valutare un elevato numero di macchine virtuali Hyper-V per la migrazione ad Azure con Azure Migrate | Microsoft Docs
-description: Viene descritto come valutare un elevato numero di macchine virtuali Hyper-V per la migrazione ad Azure tramite il servizio Azure Migrate.
+title: Valutare un numero elevato di macchine virtuali Hyper-V per la migrazione ad Azure con Azure Migrate | Microsoft Docs
+description: Viene descritto come valutare un numero elevato di macchine virtuali Hyper-V per la migrazione ad Azure usando il servizio Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: 95704f2694892b349d0967fca2160dabd990b472
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811544"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279446"
 ---
-# <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Valutare un elevato numero di macchine virtuali Hyper-V per la migrazione ad Azure
+# <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali Hyper-V per la migrazione ad Azure
 
-Questo articolo descrive come valutare un numero elevato (> 1000) delle macchine virtuali Hyper-V in locale per la migrazione ad Azure usando lo strumento di valutazione di Azure Migrate Server.
+Questo articolo descrive come valutare un numero elevato di macchine virtuali Hyper-V locali per la migrazione ad Azure, usando lo strumento di valutazione di Azure Migrate server.
 
-[Azure Migrate](migrate-services-overview.md) fornisce un hub di strumenti che consentono di individuare, valutare e la migrazione di App, infrastruttura e i carichi di lavoro in Microsoft Azure. L'hub include strumenti di Azure Migrate e le offerte di fornitori di software indipendenti di terze parti. 
+[Azure Migrate](migrate-services-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti. 
 
 
 In questo articolo viene spiegato come:
 > [!div class="checklist"]
-> * Piano per la valutazione su larga scala.
-> * Configurare le autorizzazioni di Azure, quindi preparare Hyper-V per la valutazione.
+> * Pianificare la valutazione su larga scala.
+> * Configurare le autorizzazioni di Azure e preparare Hyper-V per la valutazione.
 > * Creare un progetto Azure Migrate e creare una valutazione.
-> * Quando si pianifica la migrazione, rivedere la valutazione.
+> * Esaminare la valutazione durante la pianificazione della migrazione.
 
 
 > [!NOTE]
-> Se si vuole provare un proof-of-concept per valutare un paio di macchine virtuali di prima fase di valutazione su larga scala, seguire la [serie di esercitazioni](tutorial-prepare-hyper-v.md)
+> Se si vuole provare un modello di prova per valutare un paio di macchine virtuali prima di valutare la scalabilità, seguire la serie di [esercitazioni](tutorial-prepare-hyper-v.md)
 
-## <a name="plan-for-assessment"></a>Piano per la valutazione di
+## <a name="plan-for-assessment"></a>Pianificare la valutazione
 
-Durante la pianificazione per la valutazione del numero elevato di macchine virtuali Hyper-V, esistono un paio di aspetti da considerare:
+Quando si pianifica la valutazione di un numero elevato di macchine virtuali Hyper-V, è necessario considerare alcuni aspetti:
 
-- **Pianificare i progetti Azure Migrate**: Scoprire come distribuire i progetti Azure Migrate. Ad esempio, se è necessario archiviare il rilevamento, valutazione o i metadati correlati alla migrazione in una diversa area geografica dei data center sono in aree geografiche diverse oppure potrebbe essere più progetti.
-- **Pianificare Appliance**: Azure Migrate Usa una Azure Migrate appliance locale, distribuita come macchina virtuale Hyper-V, per individuare continuamente le macchine virtuali per la valutazione e migrazione. L'appliance consente di monitorare le modifiche dell'ambiente, ad esempio l'aggiunta di macchine virtuali, dischi o schede di rete. Anche invia i dati dei metadati e le prestazioni riguardo ad Azure. È necessario stabilire quanti dispositivi per la distribuzione.
+- **Pianificare Azure migrate progetti**: Scopri come distribuire i progetti Azure Migrate. Se, ad esempio, i Data Center si trovano in aree geografiche diverse oppure è necessario archiviare i metadati relativi a individuazione, valutazione o migrazione in un'altra area geografica, potrebbero essere necessari più progetti.
+- **Pianificare le appliance**: Azure Migrate usa un'appliance Azure Migrate locale, distribuita come macchina virtuale Hyper-V, per individuare continuamente le VM per la valutazione e la migrazione. Il dispositivo monitora le modifiche apportate all'ambiente, ad esempio l'aggiunta di VM, dischi o schede di rete. Invia inoltre i metadati e i dati sulle prestazioni relativi ad Azure. È necessario determinare il numero di Appliance da distribuire.
 
 
-## <a name="planning-limits"></a>Pianificazione di limiti
+## <a name="planning-limits"></a>Limiti di pianificazione
  
-Usare i limiti riepilogati nella tabella seguente per la pianificazione.
+Usare i limiti riepilogati in questa tabella per la pianificazione.
 
 **Pianificazione** | **Limiti**
 --- | --- 
-**Progetti di Azure Migrate** | Consente di valutare fino a 10.000 macchine virtuali in un progetto.
-**Appliance Azure Migrate** | Un'appliance può individuare le macchine virtuali fino a 5000.<br/> Un'appliance può connettersi agli host Hyper-V fino a 300.<br/> Può essere associata a un singolo progetto Azure Migrate solo un'appliance.<br/><br/> 
-**Valutazione di Azure Migrate** | È possibile valutare fino a 10.000 macchine virtuali in una singola valutazione.
+**Progetti Azure Migrate** | Consente di valutare fino a 35.000 VM in un progetto.
+**Appliance Azure Migrate** | Un'appliance può individuare fino a 5000 VM.<br/> Un appliance può connettersi a un massimo di 300 host Hyper-V.<br/> Un appliance può essere associato solo a un singolo progetto Azure Migrate.<br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto di Azure Migrate. <br/><br/> 
+**Gruppo** | È possibile aggiungere fino a 35.000 VM in un singolo gruppo.
+**Valutazione Azure Migrate** | È possibile valutare fino a 35.000 VM in un'unica valutazione.
 
 
 
 ## <a name="other-planning-considerations"></a>Altre considerazioni sulla pianificazione
 
-- Per avviare l'individuazione dall'appliance, è necessario selezionare ogni host Hyper-V. 
-- Se si esegue un ambiente multi-tenant, è attualmente non è possibile individuare solo le macchine virtuali che appartengono a un tenant specifico. 
+- Per avviare l'individuazione dal dispositivo, è necessario selezionare ogni host Hyper-V. 
+- Se si sta eseguendo un ambiente multi-tenant, attualmente non è possibile individuare solo le macchine virtuali che appartengono a un tenant specifico. 
 
-## <a name="prepare-for-assessment"></a>Preparare per la valutazione di
+## <a name="prepare-for-assessment"></a>Prepararsi per la valutazione
 
-Preparare Hyper-V e Azure per la valutazione di server. 
+Preparare Azure e Hyper-V per la valutazione del server. 
 
-1. Verificare [limitazioni e requisiti di supporto di Hyper-V](migrate-support-matrix-hyper-v.md).
-2. Impostare le autorizzazioni per l'account di Azure interagire con Azure Migrate
-3. Preparare gli host Hyper-V e macchine virtuali
+1. Verificare i [requisiti e le limitazioni del supporto di Hyper-V](migrate-support-matrix-hyper-v.md).
+2. Configurare le autorizzazioni per l'account di Azure per interagire con Azure Migrate
+3. Preparare gli host e le macchine virtuali Hyper-V
 
-Seguire le istruzioni in [in questa esercitazione](tutorial-prepare-hyper-v.md) configurare queste impostazioni.
+Per configurare queste impostazioni, seguire le istruzioni riportate in [questa esercitazione](tutorial-prepare-hyper-v.md) .
 
 ## <a name="create-a-project"></a>Creare un progetto
 
-In base alle necessità di pianificazione, eseguire le operazioni seguenti:
+In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
 
-1. Creare progetti di Azure Migrate.
-2. Aggiungere lo strumento di valutazione di Azure Migrate Server per i progetti.
+1. Creare un progetto Azure Migrate.
+2. Aggiungere lo strumento Azure Migrate server assessment ai progetti.
 
 [Altre informazioni](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>Creare ed esaminare una valutazione
 
-1. Per creare le valutazioni per le macchine virtuali Hyper-V.
+1. Creare valutazioni per le macchine virtuali Hyper-V.
 1. Esaminare le valutazioni in preparazione per la pianificazione della migrazione.
 
-[Altre informazioni](tutorial-assess-hyper-v.md) sulla creazione e verifica le valutazioni.
+[Altre](tutorial-assess-hyper-v.md) informazioni sulla creazione e la revisione delle valutazioni.
     
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -89,9 +90,9 @@ In base alle necessità di pianificazione, eseguire le operazioni seguenti:
 In questo articolo si apprenderà come:
  
 > [!div class="checklist"] 
-> * Pianificato per la scalabilità di Azure Migrate valutazioni per le macchine virtuali Hyper-V
-> * Preparazione di Azure e Hyper-V per la valutazione di
-> * Creazione di un progetto Azure Migrate ed esecuzione delle valutazioni
-> * Rivedere le valutazioni in preparazione per la migrazione.
+> * Pianificazione della scalabilità di Azure Migrate valutazioni per le VM Hyper-V
+> * Azure e Hyper-V preparati per la valutazione
+> * Creazione di un progetto Azure Migrate ed esecuzione di valutazioni
+> * Revisione delle valutazioni in preparazione alla migrazione.
 
-A questo punto [informazioni su come](concepts-assessment-calculation.md) vengono calcolate le valutazioni e come [modificare valutazioni](how-to-modify-assessment.md)
+A questo punto, [informazioni su come](concepts-assessment-calculation.md) vengono calcolate le valutazioni e su come [modificare le valutazioni](how-to-modify-assessment.md)

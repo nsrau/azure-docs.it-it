@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 793474495f3ab3ef06a17b48d15c2f91d0677365
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2a037a495a1e1ed211bd9a535891ccf75fdb140b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848171"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278188"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
 
@@ -112,7 +112,7 @@ time_series_settings = {
 ```
 
 > [!NOTE]
-> I passaggi di pre-elaborazione automatizzati di Machine Learning, ovvero la normalizzazione delle funzionalità, la gestione dei dati mancanti, la conversione di testo in numeri e così via, diventano parte del modello sottostante. Quando si usa il modello per le stime, le stesse fasi di pre-elaborazione applicate durante il training vengono applicate automaticamente ai dati di input.
+> I passaggi di pre-elaborazione di Machine Learning automatizzati (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione di valori di testo nel formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di pre-elaborazione applicati durante il training vengono automaticamente applicati ai dati di input.
 
 A questo punto, `AutoMLConfig` creare un oggetto standard `forecasting` , specificando il tipo di attività e inviare l'esperimento. Al termine del modello, recuperare l'iterazione di esecuzione migliore.
 
@@ -199,4 +199,4 @@ Ripetere i passaggi necessari per caricare i dati futuri in un dataframe, quindi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Seguire l' [esercitazione](tutorial-auto-train-models.md) per imparare a creare esperimenti con Machine Learning automatizzato.
-* Visualizzare la documentazione [di riferimento di Azure Machine Learning SDK per Python](https://aka.ms/aml-sdk) .
+* Visualizzare la documentazione [di riferimento di Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) .

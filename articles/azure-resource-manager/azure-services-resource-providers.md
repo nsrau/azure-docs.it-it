@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: b500a7b2c74acbd4e035e710f7e25f1aacd86126
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 3df481245db8d737032d1abf5906a2ffe949a2fe
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194856"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275699"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -102,9 +102,9 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.LogAnalytics | [Monitoraggio di Azure](../azure-monitor/index.yml) |
 | Microsoft.Logic | [App per la logica](../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../machine-learning/studio/index.yml) |
-| Microsoft.MachineLearningCompute | [Servizio Machine Learning](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningModelManagement | [Servizio Machine Learning](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningServices | [Servizio Machine Learning](../machine-learning/service/index.yml) |
+| Microsoft.MachineLearningCompute | [Servizio Machine Learning](../machine-learning/index.yml) |
+| Microsoft.MachineLearningModelManagement | [Servizio Machine Learning](../machine-learning/index.yml) |
+| Microsoft.MachineLearningServices | [Servizio Machine Learning](../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [Identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.Management | [Gruppi di gestione](/azure/governance/management-groups/) |

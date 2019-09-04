@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 110040592474ec432912e7f545abad19ca3ae1ff
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: bc0455b34ebdcb080e0cd702e58d8163228b60ff
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991986"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278058"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gestire e richiedere quote per risorse di Azure
 
@@ -78,7 +78,7 @@ Risorse disponibili:
 ### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning Pipelines
 Per Azure Machine Learning pipeline, esiste un limite di quota per il numero di passaggi in una pipeline e per il numero di esecuzioni basate su pianificazione di pipeline pubblicate per area in una sottoscrizione.
 - Il numero massimo di passaggi consentiti in una pipeline è 30.000
-- Il numero massimo di esecuzioni basate su pianificazione di pipeline pubblicate per ogni sottoscrizione al mese è 100.000
+- Il numero massimo della somma delle esecuzioni basate su pianificazione e dei pull di BLOB per le pianificazioni attivate da Blog di pipeline pubblicate per ogni sottoscrizione al mese è 100.000
 
 > [!NOTE]
 > Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).

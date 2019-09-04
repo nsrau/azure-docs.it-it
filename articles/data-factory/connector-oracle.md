@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 90adacffd947be38b447117bfe64242bed3a90af
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 28c7ca6470e15f4ff1f5e80df2ab63fa19da1544
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231367"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277801"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -170,7 +170,9 @@ Per copiare dati da e in Oracle, impostare la proprietà Type del set di dati `O
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type del set di dati deve essere impostata `OracleTable`su. | Sì |
-| tableName |Nome della tabella nel database Oracle a cui fa riferimento il servizio collegato. | Sì |
+| schema | Nome dello schema. |No per l'origine, Sì per il sink  |
+| table | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
+| tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di `schema` lavoro `table`, utilizzare e. | No per l'origine, Sì per il sink |
 
 **Esempio:**
 
@@ -180,12 +182,14 @@ Per copiare dati da e in Oracle, impostare la proprietà Type del set di dati `O
     "properties":
     {
         "type": "OracleTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "<schema_name>",
+            "table": "<table_name>"
+        },
         "linkedServiceName": {
             "referenceName": "<Oracle linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }

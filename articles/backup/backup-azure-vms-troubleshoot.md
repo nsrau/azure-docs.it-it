@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 69d75f9050560eb4a9e394241316c0474fffe7cc
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f053cc9bf6b08b9cf76b6e992c3d8cbdf5f759da
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232476"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258975"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -34,10 +34,10 @@ Questa sezione descrive l'errore dell'operazione di backup della macchina virtua
 * Da `Services.msc`verificare che il servizio **agente guest di Microsoft Azure** sia **in esecuzione**. Se il servizio **agente guest di Azure** non è presente, installarlo dal [backup di macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * È possibile che nel **registro eventi** vengano visualizzati errori di backup provenienti da altri prodotti di backup, ad esempio Windows Server backup, e che non siano dovuti a backup di Azure. Usare la procedura seguente per determinare se il problema si verifica con backup di Azure:
    * Se si verifica un errore con un **backup** delle voci nell'origine o nel messaggio dell'evento, controllare se i backup di backup delle macchine virtuali IaaS di Azure siano stati completati e se è stato creato un punto di ripristino con il tipo di snapshot desiderato.
-    * Se backup di Azure funziona, il problema è probabilmente con un'altra soluzione di backup. 
+    * Se backup di Azure funziona, il problema è probabilmente con un'altra soluzione di backup.
     * Di seguito è riportato un esempio di errore del Visualizzatore eventi in cui backup di Azure funzionava correttamente, ma "Windows Server Backup" ha avuto esito negativo:<br>
     ![Errore Windows Server Backup](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-    * Se backup di Azure ha esito negativo, cercare il codice di errore corrispondente nella sezione Errori comuni di backup delle VM in questo articolo. 
+    * Se backup di Azure ha esito negativo, cercare il codice di errore corrispondente nella sezione Errori comuni di backup delle VM in questo articolo.
 
 ## <a name="common-issues"></a>Problemi comuni
 
@@ -109,7 +109,7 @@ Codice errore: ExtensionConfigParsingFailure<br/>
 Messaggio di errore: Si è verificato un errore durante l'analisi della configurazione per l'estensione del backup.
 
 Questo errore si verifica a causa della modifica delle autorizzazioni nella directory **MachineKeys**: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
-Eseguire il comando seguente e verificare che le autorizzazioni per la directory MachineKeys siano quelle predefinite:**icacls%SystemDrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
+Eseguire il comando seguente e verificare che le autorizzazioni per la directory **MachineKeys** siano quelle predefinite:**icacls%SystemDrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
 
 Le autorizzazioni predefinite sono:
 * Everyone: (R,W)
@@ -193,7 +193,7 @@ Questo garantirà che gli snapshot vengano creati tramite host invece che guest.
 | **Codice errore**: VmNotInDesirableState <br/> **Messaggio di errore**:  Lo stato della macchina virtuale non consente i backup. |<ul><li>Se la macchina virtuale si trova in uno stato temporaneo tra **In esecuzione** e **Arresto**, attendere che lo stato cambi. Quindi attivare il processo di backup. <li> Se la macchina virtuale è Linux e usa il modulo del kernel Security Enhanced Linux, escludere il percorso dell'agente Linux di Azure **/var/lib/waagent** dai criteri di sicurezza e assicurarsi che l'estensione di backup sia installata.  |
 | L'agente di macchine virtuali non è presente nella macchina virtuale. <br>Installare i prerequisiti necessari e l'agente di macchine virtuali. Quindi ripetere l'operazione. |Altre informazioni sull'[installazione dell'agente di macchine virtuali e su come convalidarla](#vm-agent). |
 | **Codice errore**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Messaggio di errore**: L'operazione di creazione snapshot non è riuscita a causa di un errore durante la creazione del canale di comunicazione di rete protetta. | <ol><li> Aprire l'editor del Registro di sistema eseguendo **regedit.exe** con privilegi elevati. <li> Identificare tutte le versioni di .NET Framework presenti nel sistema, disponibili nella gerarchia della chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Per ogni versione di .NET Framework presente nella chiave del Registro di sistema, aggiungere la chiave seguente: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| **Codice errore**: ExtensionVCRedistInstallationFailure <br/> **Messaggio di errore**: L'operazione di creazione snapshot non è riuscita a causa di un errore durante l'installazione di Visual C++ Redistributable per Visual Studio 2012. | Andare a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e installare vcredist2012_x64.<br/>Verificare che il valore della chiave del registro di sistema che consente l'installazione del servizio sia impostato sul valore corretto. Ovvero, impostare il valore **iniziale** in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** su **3** e non su **4**. <br><br>Se i problemi di installazione persistono, riavviare il servizio di installazione eseguendo **MSIEXEC /UNREGISTER** e quindi **MSIEXEC /REGISTER** da un prompt dei comandi con privilegi elevati.  |
+| **Codice errore**: ExtensionVCRedistInstallationFailure <br/> **Messaggio di errore**: L'operazione di creazione snapshot non è riuscita a causa di un errore durante l'installazione di Visual C++ Redistributable per Visual Studio 2012. | Passare a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e installare vcredist2013_x64.<br/>Verificare che il valore della chiave del registro di sistema che consente l'installazione del servizio sia impostato sul valore corretto. Ovvero, impostare il valore **iniziale** in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** su **3** e non su **4**. <br><br>Se i problemi di installazione persistono, riavviare il servizio di installazione eseguendo **MSIEXEC /UNREGISTER** e quindi **MSIEXEC /REGISTER** da un prompt dei comandi con privilegi elevati.  |
 
 
 ## <a name="jobs"></a>Processi

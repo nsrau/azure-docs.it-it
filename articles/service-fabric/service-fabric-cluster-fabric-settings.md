@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 096b6a13c85d04ebeb4f2ffae72acdd8629ae886
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: cdbb545e981e50e23bbbb011dc54577acf7974f7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191756"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241760"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -311,7 +311,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, valore predefinito: false |statico|Criteri di valutazione dell'integrità del cluster: abilitare il parametro per la valutazione dell'integrità del tipo di applicazione. |
-|MaxSuggestedNumberOfEntityHealthReports|Int, valore predefinito: 500 |Dynamic|Numero massimo di report sull'integrità che un'entità può avere prima di generare problemi relativi alla logica di segnalazione dell'integrità del watchdog. Ogni entità di integrità dovrebbe avere un numero relativamente ridotto di report sull'integrità. Se il conteggio dei report supera questo numero; è possibile che si verifichino problemi con l'implementazione del watchdog. Quando viene valutata l'entità, un'entità con un numero eccessivo di report viene contrassegnata tramite un rapporto di stato di avviso. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, valore predefinito: 100 |Dynamic|Numero massimo di report sull'integrità che un'entità può avere prima di generare problemi relativi alla logica di segnalazione dell'integrità del watchdog. Ogni entità di integrità dovrebbe avere un numero relativamente ridotto di report sull'integrità. Se il conteggio dei report supera questo numero; è possibile che si verifichino problemi con l'implementazione del watchdog. Quando viene valutata l'entità, un'entità con un numero eccessivo di report viene contrassegnata tramite un rapporto di stato di avviso. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 

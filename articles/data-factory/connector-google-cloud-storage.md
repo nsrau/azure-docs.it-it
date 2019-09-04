@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: fba6feb035e47cfdfbe830ea628fc91cb483a907
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ef47426d80011b1c3e5f65675e4206a2afb98ef8
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840272"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275173"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copiare dati da Google Cloud Storage usando Azure Data Factory
 
@@ -56,7 +56,7 @@ Per il servizio collegato Google Cloud Storage sono supportate le proprietà seg
 | type | La proprietà type deve essere impostata su **AmazonS3**. | Sì |
 | accessKeyId | ID della chiave di accesso segreta. Per trovare la chiave e il segreto di accesso, passare a **Google Cloud Storage** > **Impostazioni** > **Interoperabilità**. |Sì |
 | secretAccessKey | La stessa chiave di accesso segreta. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
-| serviceUrl | Specificare l'endpoint S3 personalizzato come **`https://storage.googleapis.com`** . | Sì |
+| serviceUrl | Specificare l'endpoint S3 personalizzato come **`https://storage.googleapis.com`** . | Yes |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 Di seguito è fornito un esempio:
@@ -84,12 +84,12 @@ Di seguito è fornito un esempio:
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-- Per **parquet, testo delimitato e formato binario**, fare riferimento alla sezione [set di dati in formato parquet, testo delimitato e formato binario](#format-based-dataset) .
-- Per altri formati come il **formato ORC/avro/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
+- Per **parquet, delimitato testo, avro e formato binario**, vedere la sezione [parquet, delimitato testo, avro e formato binario set di dati](#format-based-dataset) .
+- Per altri formati come il **formato ORC/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Set di dati in formato testo e binario delimitato in parquet
+### <a name="format-based-dataset"></a>Set di dati in parquet, delimitato di testo, avro e formato binario
 
-Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) nel set di dati basato su formato e impostazioni supportate. Le proprietà seguenti sono supportate per Google Cloud Storage `location` in impostazioni nel set di dati basato sul formato:
+Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) nel set di dati basato su formato e impostazioni supportate. Le proprietà seguenti sono supportate per Google Cloud Storage `location` in impostazioni nel set di dati basato sul formato:
 
 | Proprietà   | Descrizione                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -130,7 +130,7 @@ Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'ar
 
 ### <a name="other-format-dataset"></a>Set di dati di altri formati
 
-Per copiare dati da Google Cloud storage in **formato ORC/avro/JSON**, sono supportate le proprietà seguenti:
+Per copiare dati da Google Cloud storage in **formato ORC/JSON**, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -183,12 +183,12 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="google-cloud-storage-as-source"></a>Google Cloud Storage come origine
 
-- Per eseguire la copia da **parquet, testo delimitato e formato binario**, vedere la sezione relativa all' [origine del formato binario e del testo delimitato in parquet](#format-based-source) .
-- Per eseguire la copia da altri formati, ad esempio il **formato ORC/avro/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
+- Per eseguire la copia da **parquet, testo delimitato, formato Avro e binario**, vedere la sezione [parquet, testo delimitato, avro e origine del formato binario](#format-based-source) .
+- Per eseguire la copia da altri formati come il **formato ORC/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, testo delimitato e origine del formato binario
+#### <a name="format-based-source"></a>Parquet, delimitato testo, avro e origine formato binario
 
-Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e impostazioni supportate. Le proprietà seguenti sono supportate per Google Cloud Storage `storeSettings` in impostazioni in origine copia basata sul formato:
+Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e impostazioni supportate. Le proprietà seguenti sono supportate per Google Cloud Storage `storeSettings` in impostazioni in origine copia basata sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
@@ -247,7 +247,7 @@ Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'ar
 
 #### <a name="other-format-source"></a>Altra origine del formato
 
-Per copiare dati da Google Cloud storage in **formato ORC/avro/JSON**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da Google Cloud storage in **formato ORC/JSON**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |

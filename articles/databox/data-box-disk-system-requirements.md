@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 20c27a3e4e9a96a19b347e5ef57ab9fb3c047140
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f054d0665c49ee048451681a7cc34d2a648a6e9e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194436"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240231"
 ---
 ::: zone target="docs"
 
@@ -30,7 +30,7 @@ I requisiti di sistema includono le piattaforme supportate per i client che si c
 
 # <a name="review-prerequisites"></a>Esaminare i prerequisiti
 
-1. È necessario avere ordinato il Data Box Disk usando l'esercitazione: Ordinare il Azure Data Box Disk. Sono stati ricevuti i dischi e un cavo di connessione per disco.
+1. È necessario avere ordinato il data box disk usando l' [esercitazione: Ordinare il Azure Data Box Disk](data-box-disk-deploy-ordered.md). Sono stati ricevuti i dischi e un cavo di connessione per disco.
 2. Sia disponibile un computer client da cui è possibile copiare i dati. Il computer client deve:
 
     - Eseguire un sistema operativo supportato.

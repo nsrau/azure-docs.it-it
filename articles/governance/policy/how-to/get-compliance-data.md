@@ -7,12 +7,12 @@ ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 869be11639fd4e957a991cadb44f2714875ddf7e
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d9aadc477c3f39cfbb108d2f3eece0c9e0b06264
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232712"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239153"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -27,8 +27,6 @@ Prima di esaminare i metodi disponibili per creare report sulla conformità, è 
 
 > [!WARNING]
 > Se lo stato di conformità viene segnalato come **non registrato**, verificare che il provider di risorse **Microsoft. PolicyInsights** sia registrato e che l'utente disponga delle autorizzazioni appropriate per il controllo degli accessi in base al ruolo (RBAC), come descritto in [RBAC in Criteri di Azure](../overview.md#rbac-permissions-in-azure-policy).
-
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Trigger di valutazione
 
@@ -144,7 +142,7 @@ Fare clic con il pulsante destro del mouse sulla riga dell'evento per cui si vog
 
 <a name="change-history-preview"></a>
 
-Quando una risorsa viene determinata come **non conforme**, esistono diversi motivi possibili. Per determinare il motivo per cui una risorsa **non** è conforme o per trovare la modifica responsabile, vedere [determinare la non conformità](./determine-non-compliance.md).
+Quando una risorsa viene determinata come **non conforme**, esistono diversi motivi possibili. Per determinare il motivo per cui una risorsa **non è conforme** o per trovare la modifica responsabile, vedere [determinare la non conformità](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Riga di comando
 
@@ -426,5 +424,5 @@ Se si dispone di un'area di `AzureActivity` [lavoro log Analytics](../../../log-
 - Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Informazioni su come [creare criteri a livello di codice](programmatically-create.md).
-- Informazioni su come monitorare e [aggiornare le risorse non](remediate-resources.md)conformi.
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

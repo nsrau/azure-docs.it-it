@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 5163aa0a9195aa712fa333667b3f7ccf227469be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c27605d2f9b87a9d4ba3d2326c0ce7ad437d3441
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938394"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240990"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Creare certificati per Azure Key Vault
 
@@ -201,7 +201,7 @@ Copiare il contenuto del [modello di distribuzione dell'insieme di credenziali d
     "dataType" :"pfx",
     "password": "$certpassword"
     }
-    "@
+"@
             echo $certpassword
             $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
             $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)

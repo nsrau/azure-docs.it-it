@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: fcf56e8088af25c14c022039bf8862f2dc21c77a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d76b51aa5117e662e9ff17bb91516c758de3071c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172559"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277718"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiare i dati da MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -55,13 +55,13 @@ Per il servizio collegato di MySQL sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **MySql** | Sì |
+| type | La proprietà type deve essere impostata su: **MySql** | Yes |
 | connectionString | Specifica le informazioni necessarie per connettersi all'istanza del database di Azure per MySQL.<br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `password` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Altre proprietà che è possibile impostare per il case:
 
-| Proprietà | Descrizione | Opzioni | Obbligatoria |
+| Proprietà | DESCRIZIONE | Opzioni | Obbligatoria |
 |:--- |:--- |:--- |:--- |
 | SSLMode | Questa opzione specifica se il driver usa la crittografia SSL e verifica la connessione a MySQL. ad esempio `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
 | UseSystemTrustStore | Questa opzione specifica se usare o meno un certificato CA dall'archivio di attendibilità di sistema o da un file PEM specificato. ad esempio `UseSystemTrustStore=<0/1>;`| Abilitato (1) / Disabilitato (0) **(impostazione predefinita)** | No |
@@ -144,13 +144,13 @@ Il servizio collegato MySQL con il payload seguente è ancora supportato senza m
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati di MySQL.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati di MySQL.
 
-Per copiare dati da MySQL, impostare la proprietà type del set di dati su **RelationalTable**. Sono supportate le proprietà seguenti:
+Per copiare dati da MySQL, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **MySqlTable** | Yes |
 | tableName | Nome della tabella nel database MySQL. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -160,15 +160,18 @@ Per copiare dati da MySQL, impostare la proprietà type del set di dati su **Rel
     "name": "MySQLDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "MySqlTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<MySQL linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+Se si usa `RelationalTable` un set di dati tipizzato, è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
@@ -176,11 +179,11 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="mysql-as-source"></a>MySQL come origine
 
-Per copiare dati da MySQL, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da MySQL, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **MySqlSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
@@ -204,7 +207,7 @@ Per copiare dati da MySQL, impostare il tipo di origine nell'attività di copia 
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "MySqlSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -214,6 +217,8 @@ Per copiare dati da MySQL, impostare il tipo di origine nell'attività di copia 
     }
 ]
 ```
+
+Se si usa `RelationalSource` l'origine tipizzata, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
 
 ## <a name="data-type-mapping-for-mysql"></a>Mapping del tipo di dati per MySQL
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 66ae9fa1ff4038a77ecc0b7046434d4d606f5015
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4c9d4e84be59ab50174350c20e505f34919d5041
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842569"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276313"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>Copiare dati da e in archivi dati IBM Informix usando Azure Data Factory
 
@@ -46,9 +46,9 @@ Per il servizio collegato Informix sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Informix** | Yes |
+| type | La proprietà type deve essere impostata su: **Informix** | Sì |
 | connectionString | Stringa di connessione ODBC che esclude la parte delle credenziali. È possibile specificare la stringa di connessione o usare il DSN di sistema (nome dell'origine dati) configurato nel computer Integration Runtime (è necessario comunque specificare la parte delle credenziali nel servizio collegato di conseguenza).<br>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md).| Sì |
-| authenticationType | Tipo di autenticazione usato per la connessione all'archivio dati Informix.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. | Sì |
+| authenticationType | Tipo di autenticazione usato per la connessione all'archivio dati Informix.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. | Yes |
 | userName | Specificare il nome utente se si usa l'autenticazione di base. | N. |
 | password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credential | La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver. Contrassegnare questo campo come SecureString. | No |
@@ -83,7 +83,7 @@ Per il servizio collegato Informix sono supportate le proprietà seguenti:
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati Informix.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Informix.
 
 Per copiare dati da Informix, sono supportate le proprietà seguenti:
 
@@ -120,7 +120,7 @@ Per copiare dati da Informix, nella sezione **origine** dell'attività di copia 
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **InformixSource** | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **InformixSource** | Yes |
 | query | Usare la query personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

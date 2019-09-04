@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 8c3b9523f6e6991723b0da721dbf7667ee340772
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207979"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259183"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire l'account del Marketplace commerciale nel centro per i partner 
 
@@ -117,7 +117,7 @@ Per impostazione predefinita, Microsoft invia i pagamenti su base mensile. Tutta
 
 Per inserire i pagamenti in attesa, passare a **Impostazioni account**. In **dettagli finanziari**, nella sezione **stato di attesa dei pagamenti** , impostare il dispositivo di scorrimento **su**attivato. È possibile modificare lo stato di mantenimento dei pagamenti in qualsiasi momento, ma tenere presente che la decisione avrà un effetto sui prossimi pagamenti mensili. Se ad esempio si desidera mantenere il pagamento di aprile, assicurarsi di impostare lo stato di mantenimento dei pagamenti **su on** prima della fine di marzo.
 
-Dopo aver impostato lo stato di mantenimento dei pagamenti **su on**, tutti i pagamenti saranno in attesa fino a quando il dispositivo di scorrimento nonviene disattivato. Quando si esegue questa operazione, si verrà inclusi durante il successivo ciclo di pagamento mensile (purché siano state soddisfatte le soglie di pagamento applicabili). Se, ad esempio, sono stati rilevati i pagamenti in attesa, ma si vuole che venga generato un pagamento in giugno, assicurarsi di impostare lo stato di mantenimento dei pagamenti su **off** prima della fine di maggio.
+Dopo aver impostato lo stato di mantenimento dei pagamenti **su on**, tutti i pagamenti saranno in attesa **fino a quando**il dispositivo di scorrimento non viene disattivato. Quando si esegue questa operazione, si verrà inclusi durante il successivo ciclo di pagamento mensile (purché siano state soddisfatte le soglie di pagamento applicabili). Se, ad esempio, sono stati **rilevati** i pagamenti in attesa, ma si vuole che venga generato un pagamento in giugno, assicurarsi di impostare lo stato di mantenimento dei pagamenti su OFF prima della fine di maggio.
 
 > [!NOTE]
 > La selezione **dello stato di mantenimento dei pagamenti** si applica a **tutte le** origini dei ricavi pagate tramite il centro per i partner Microsoft, tra cui Azure Marketplace, AppSource, Microsoft Store, pubblicità e così via. Non è possibile selezionare Stati di attesa diversi per ogni origine dei ricavi.
@@ -312,7 +312,7 @@ Agli utenti della società è possibile assegnare i seguenti ruoli e autorizzazi
   - Consente di visualizzare alcuni report del server di pubblicazione
 
 > [!NOTE]
-> I ruoli amministratore globale, collaboratore aziendale, collaboratore finanziario e marketer non vengono usati nel programma commerciale Marketplace e non dispongono di autorizzazioni associate.
+> Per il programma Commercial Marketplace, i ruoli amministratore globale, collaboratore aziendale, collaboratore finanziario e marketer non vengono usati. L'assegnazione di questi ruoli agli utenti non ha alcun effetto. Solo i ruoli Manager e Developer concedono le autorizzazioni agli utenti.
 
 Per ulteriori informazioni sulla gestione dei ruoli e delle autorizzazioni in altre aree del centro per i partner, ad esempio Azure Active Directory (AD), Cloud Solution Provider (CSP), pannello di controllo Fornitore (CPV), utenti guest o Microsoft Partner Network (MPN), vedere [assegnare ruoli agli utenti. e autorizzazioni nel centro per i partner](https://docs.microsoft.com/partner-center/permissions-overview).
 

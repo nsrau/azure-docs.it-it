@@ -8,15 +8,15 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 30bd7c68ae1c88aba288b515d0ec32581f90b868
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b33f0dec9e6ec685b19e01ce82cfe4adec88b575
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088179"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258607"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Usare i riferimenti a Key Vault per Servizio app e Funzioni di Azure (anteprima)
 
@@ -184,3 +184,27 @@ Uno pseudo-modello di esempio per un'app per le funzioni potrebbe essere simile 
 
 > [!NOTE] 
 > In questo esempio, la distribuzione del controllo del codice sorgente dipende dalle impostazioni dell'applicazione. Si tratta in genere di un comportamento non sicuro, dato che l'aggiornamento delle impostazioni dell'applicazione ha un comportamento asincrono. Tuttavia, dato che è stata inclusa l'impostazione dell'applicazione `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, l'aggiornamento è sincrono. Questo significa che la distribuzione del controllo del codice sorgente inizierà solo dopo l'aggiornamento completo delle impostazioni dell'applicazione.
+
+## <a name="troubleshooting-key-vault-references"></a>Risoluzione dei problemi relativi ai riferimenti a Key Vault
+
+Se un riferimento non viene risolto correttamente, verrà utilizzato il valore di riferimento. Ciò significa che, per le impostazioni dell'applicazione, viene creata una variabile di ambiente il `@Microsoft.KeyVault(...)` cui valore ha la sintassi. Questa operazione può causare la generazione di errori da parte dell'applicazione, perché era previsto un segreto di una determinata struttura.
+
+In genere, ciò è dovuto a un errore di configurazione dei [criteri di accesso key Vault](#granting-your-app-access-to-key-vault). Tuttavia, potrebbe anche essere dovuto a un segreto non più esistente o a un errore di sintassi nel riferimento stesso.
+
+Se la sintassi è corretta, è possibile visualizzare altre cause per l'errore controllando lo stato di risoluzione corrente usando un rilevatore incorporato.
+
+### <a name="using-the-detector-for-app-service"></a>Uso del detector per il servizio app
+
+1. Nel portale passare all'app.
+2. Selezionare **diagnostica e risolvi prolems**.
+3. Scegliere **disponibilità e prestazioni** e selezionare **app Web in basso.**
+4. Individuare **Key Vault Application Settings Diagnostics** e fare clic su **altre informazioni**.
+
+
+### <a name="using-the-detector-for-azure-functions"></a>Uso del detector per funzioni di Azure
+
+1. Nel portale passare all'app.
+2. Passare a **funzionalità della piattaforma.**
+3. Selezionare **diagnostica e risolvi prolems**.
+4. Scegliere **disponibilità e prestazioni** e selezionare l'app per le **funzioni inattiva o segnalazione errori.**
+5. Fare clic su **Key Vault impostazioni applicazione diagnostica.**

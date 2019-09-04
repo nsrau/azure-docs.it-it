@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 64bd71d89446a19d2afe56a32b0c7124e897cb48
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8d7346bb61fad09e3f7c9098809463285ef57e93
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072405"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242488"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Indirizzi IP di gestione API di Azure
 
@@ -27,7 +27,9 @@ Questo articolo descrive come recuperare gli indirizzi IP del servizio gestione 
 
 ## <a name="ip-addresses-of-api-management-service"></a>Indirizzi IP del servizio gestione API
 
-Se il servizio gestione API è un servizio di livello Developer, Basic, standard o Premium, è possibile recuperare gli indirizzi IP dal dashboard di panoramica della risorsa nel portale di Azure.
+Ogni istanza del servizio gestione API nel livello Developer, Basic, standard o Premium ha indirizzi IP pubblici, che sono esclusivi solo per tale istanza del servizio (non sono condivisi con altre risorse). 
+
+È possibile recuperare gli indirizzi IP dal dashboard di panoramica della risorsa nel portale di Azure.
 
 ![Indirizzo IP di gestione API](media/api-management-howto-ip-addresses/public-ip.png)
 

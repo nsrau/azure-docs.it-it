@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a47bb70ef87783d9b275329452c94526c67a2c3
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: d82f843cb5cdd7b910c734f26a93144374061b74
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211743"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274506"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
 
@@ -145,11 +145,8 @@ Per copiare dati da e in SAP BW Open Hub, impostare la proprietà type del set d
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **SapOpenHubTable**.  | Sì |
 | openHubDestinationName | Il nome di Open Hub Destination da cui copiare i dati. | Sì |
-| excludeLastRequest | Se escludere i record dell'ultima richiesta. | No (il valore predefinito è **true**) |
-| baseRequestId | L'ID della richiesta per il caricamento differenziale. Una volta impostata questa proprietà, verranno recuperati solo i dati con requestId **maggiore** del valore di questa proprietà.  | No |
 
->[!TIP]
->Se ad esempio la tabella Open Hub contiene solo dati generati in base a ID di richiesta singola, si esegue sempre il caricamento completo e si sovrascrivono i dati esistenti nella tabella oppure si esegue DTP una sola volta per il test, ricordarsi di deselezionare l'opzione "excludeLastRequest" per la copia dei dati.
+Se è stato impostato `excludeLastRequest` e `baseRequestId` nel set di dati, è ancora supportato così com'è, mentre si consiglia di usare il nuovo modello in origine attività in futuro.
 
 **Esempio:**
 
@@ -158,12 +155,13 @@ Per copiare dati da e in SAP BW Open Hub, impostare la proprietà type del set d
     "name": "SAPBWOpenHubDataset",
     "properties": {
         "type": "SapOpenHubTable",
+        "typeProperties": {
+            "openHubDestinationName": "<open hub destination name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW Open Hub linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "openHubDestinationName": "<open hub destination name>"
         }
     }
 }
@@ -175,7 +173,16 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub come origine
 
-Per copiare dati da SAP BW Open Hub, impostare il tipo di origine nell'attività di copia su **SapOpenHubSource**. Non sono necessarie ulteriori proprietà specifiche del tipo nella sezione **origine** dell'attività di copia.
+Per copiare dati da SAP BW Hub aperto, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+
+| Proprietà | Descrizione | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **SapOpenHubSource**. | Yes |
+| excludeLastRequest | Se escludere i record dell'ultima richiesta. | No (il valore predefinito è **true**) |
+| baseRequestId | L'ID della richiesta per il caricamento differenziale. Una volta impostata questa proprietà, verranno recuperati solo i dati con requestId **maggiore** del valore di questa proprietà.  | No |
+
+>[!TIP]
+>Se ad esempio la tabella Open Hub contiene solo dati generati in base a ID di richiesta singola, si esegue sempre il caricamento completo e si sovrascrivono i dati esistenti nella tabella oppure si esegue DTP una sola volta per il test, ricordarsi di deselezionare l'opzione "excludeLastRequest" per la copia dei dati.
 
 Per velocizzare il caricamento dei dati, è possibile [`parallelCopies`](copy-activity-performance.md#parallel-copy) impostare l'attività di copia in modo da caricare i dati da SAP BW Hub aperto in parallelo. Se, ad esempio, si `parallelCopies` imposta su quattro, Data Factory esegue contemporaneamente quattro chiamate RFC e ogni chiamata RFC recupera una parte di dati dalla SAP BW tabella Hub aperta partizionata in base all'ID richiesta e all'ID pacchetto. Questa condizione si applica quando il numero di ID richiesta di DTP univoco + ID pacchetto è maggiore del `parallelCopies`valore di. Quando si copiano dati in un archivio dati basato su file, viene anche riordinato di scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
 
@@ -200,7 +207,8 @@ Per velocizzare il caricamento dei dati, è possibile [`parallelCopies`](copy-ac
         ],
         "typeProperties": {
             "source": {
-                "type": "SapOpenHubSource"
+                "type": "SapOpenHubSource",
+                "excludeLastRequest": true
             },
             "sink": {
                 "type": "<sink type>"

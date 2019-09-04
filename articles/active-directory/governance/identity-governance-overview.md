@@ -16,12 +16,12 @@ ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e0539095701ec104495bf5a44dec668494d444
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: a17b64cbfffbe9cabd909bccb16d55c07bba8bb0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207183"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241441"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Cos'è Azure AD Identity Governance?
 
@@ -72,7 +72,7 @@ Azure AD Privileged Identity Management (PIM) fornisce controlli aggiuntivi mira
 
 ## <a name="least-privileged-roles"></a>Ruoli con privilegi minimi
 
-L'uso di PIM consente di limitare le autorizzazioni amministrative di un utente per una maggiore sicurezza. Di seguito sono riportati i ruoli della directory con privilegi minimi per la configurazione in Azure AD funzionalità di governance delle identità: 
+È consigliabile usare il ruolo con privilegi minimi per eseguire attività amministrative nella governance delle identità. Si consiglia di usare Azure AD PIM per attivare un ruolo in base alle esigenze per eseguire queste attività. Di seguito sono riportati i ruoli della directory con privilegi minimi per configurare le funzionalità di governance delle identità: 
 
 | Funzionalità | Ruolo con privilegi minimi |
 | ------- | --------------------- |
@@ -89,7 +89,7 @@ Sebbene non esistano soluzioni o raccomandazioni perfette per ogni cliente, le s
 - [Configurazioni di identità e accesso dei dispositivi](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Protezione dell'accesso con privilegi](../users-groups-roles/directory-admin-roles-secure.md)
 
-Per iniziare a usare la gestione dei diritti, le verifiche di accesso, Privileged Identity Management e Condizioni per l'utilizzo, è anche possibile consultare la scheda Introduzione di governance delle **identità** nel portale di Azure.
+Per iniziare a usare la gestione dei diritti, le verifiche di accesso, Privileged Identity Management e Condizioni per l'utilizzo, è anche possibile consultare la scheda Introduzione di **governance delle identità** nel portale di Azure.
 
 ![Guida introduttiva alla governance delle identità](./media/identity-governance-overview/getting-started.png)
 

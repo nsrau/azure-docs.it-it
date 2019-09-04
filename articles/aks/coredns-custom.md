@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: 5a69882f6bb38ac8e005ce5552fe57383a58cc63
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 40c170575e0b6e6264eed8a464ac73012cbe8627
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542569"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276514"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizzare CoreDNS con il servizio Azure Kubernetes
 
 Azure Kubernetes Service (AKS) usa il progetto [CoreDNS][coredns] per la gestione e la risoluzione del DNS del cluster con tutti i cluster *1.12. x* e versioni successive. In precedenza è stato usato il progetto Kube-DNS. Questo progetto Kube-DNS è ora deprecato. Per ulteriori informazioni sulla personalizzazione di CoreDNS e Kubernetes, vedere la [documentazione ufficiale upstream][corednsk8s].
 
-Poiché AKS è un servizio gestito, non è possibile modificare la configurazione principale per CoreDNS ( *CoreFile*). Usare invece un *ConfigMap* Kubernetes per eseguire l'override delle impostazioni predefinite. Per visualizzare il valore predefinito di AKS CoreDNS ConfigMaps, `kubectl get configmaps -namespace=kube-system coredns -o yaml` usare il comando.
+Poiché AKS è un servizio gestito, non è possibile modificare la configurazione principale per CoreDNS ( *CoreFile*). Usare invece un *ConfigMap* Kubernetes per eseguire l'override delle impostazioni predefinite. Per visualizzare il valore predefinito di AKS CoreDNS ConfigMaps, `kubectl get configmaps --namespace=kube-system coredns -o yaml` usare il comando.
 
 Questo articolo illustra come usare ConfigMaps per le opzioni di personalizzazione di base di CoreDNS in AKS.
 
@@ -27,7 +27,7 @@ Questo articolo illustra come usare ConfigMaps per le opzioni di personalizzazio
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
 ## <a name="what-is-supportedunsupported"></a>Elementi supportati/non supportati
 

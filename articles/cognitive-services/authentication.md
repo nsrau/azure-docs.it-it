@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: b69bd39e97cc97830142c8b1911f1116927643b2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: ae3530af7741b8ce48e08c2a85589ffae8a83f49
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467534"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276785"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticare le richieste a Servizi cognitivi di Azure
 
@@ -35,7 +35,7 @@ Per poter effettuare una richiesta, è necessario disporre di un account Azure e
 
 È opportuno esaminare rapidamente le intestazioni di autenticazione disponibili per l'uso con Servizi cognitivi di Azure.
 
-| Intestazione | Descrizione |
+| Intestazione | DESCRIZIONE |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Usare questa intestazione per eseguire l'autenticazione con una chiave di sottoscrizione per un servizio specifico o una chiave di sottoscrizione multiservizio. |
 | Ocp-Apim-Subscription-Region | Questa intestazione è richiesta solo quando si usa una chiave di sottoscrizione multiservizio con l'[API Traduzione testuale](./Translator/reference/v3-0-reference.md). Usare questa intestazione per specificare l'area di sottoscrizione. |
@@ -66,7 +66,7 @@ Il video seguente illustra l'uso di una chiave di Servizi cognitivi.
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Eseguire l'autenticazione con una chiave di sottoscrizione multiservizio
 
 >[!WARNING]
-> Questi servizi al momento **non** supportano le chiavi multiservizio: QnA Maker, servizi Voce e Visione personalizzata.
+> Attualmente questi servizi **non** supportano le chiavi multiservizio: QnA Maker, servizi vocali, Visione personalizzata e rilevamento anomalie.
 
 Questa opzione usa anche una chiave di sottoscrizione per autenticare le richieste. La differenza principale è che una chiave di sottoscrizione non è associata a un servizio specifico. Una singola chiave può infatti essere usata per autenticare le richieste per più servizi cognitivi. Per informazioni sulla disponibilità regionale, le funzionalità supportate e i prezzi, vedere [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/).
 

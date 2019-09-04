@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: a5fe77ace5f745911bb9085dd6996a8d21fe265f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879046"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274484"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Inviare dati input penna all'API Riconoscimento input penna 
 
@@ -82,7 +82,7 @@ Ottenendo i risultati di riconoscimento in anticipo si hanno informazioni sulle 
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrare l'API Riconoscimento input penna con Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornisce strumenti e tecnologie per abilitare esperienze di input penna digitale su una vasta gamma di dispositivi. È possibile combinare la piattaforma Windows Ink con l'API Riconoscimento input penna per creare applicazioni che visualizzano e interpretano i tratti input penna.
+[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornisce strumenti e tecnologie per abilitare esperienze di input penna digitale su una vasta gamma di dispositivi. È possibile combinare la piattaforma Windows Ink con l'API riconoscimento input penna per creare applicazioni che visualizzano e interpretano tratti di input penna digitali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/08/2019
-ms.openlocfilehash: 8851a4dfb7deafab7ad77ef80619dd49ca46ed71
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.date: 08/16/2019
+ms.openlocfilehash: c2f7575dca5432d90bf421afa5a39a4a4cd79744
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947851"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983051"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>Scenario: BindException-indirizzo già in uso in Azure HDInsight
 
@@ -31,21 +31,21 @@ Caused by: java.net.BindException: Address already in use
 
 ## <a name="cause"></a>Causa
 
-Riavvio dei server di area HBase durante un'intensa attività di carico di lavoro. Di seguito viene illustrata la situazione che si verifica quando un utente avvia l'operazione di riavvio sul server dell'area di HBase dall'interfaccia utente di Ambari:
+Riavvio dei server di area di Apache HBase durante un'intensa attività di carico di lavoro. Di seguito viene riportato il risultato che si verifica in background quando un utente avvia l'operazione di riavvio sul server dell'area di HBase dall'interfaccia utente di Apache Ambari:
 
 1. L'agente Ambari invia una richiesta di arresto al server di area.
 
-1. L'agente Ambari attende quindi 30 secondi per l'arresto normale del server di area.
+1. L'agente Ambari attende 30 secondi per l'arresto normale del server di area
 
-1. Se l'applicazione continua a connettersi al server di area, non verrà arrestata immediatamente e pertanto il timeout di 30 secondi scadrà prima.
+1. Se l'applicazione continua a connettersi al server di area, il server non viene arrestato immediatamente. Il timeout di 30 secondi scade prima dell'arresto.
 
-1. Dopo il termine di 30 secondi, l'agente Ambari invia un comando force kill (kill -9) al server di area.
+1. Dopo 30 secondi, l'agente Ambari invia un comando di terminazione forzata (`kill -9`) al server di area.
 
 1. A causa di questo arresto improvviso, anche se il processo del server di area viene terminato, la porta associata al processo potrebbe non essere rilasciata, che alla fine conduce a `AddressBindException`.
 
 ## <a name="resolution"></a>Risoluzione
 
-Ridurre il carico sui server di area di HBase prima di avviare un riavvio.
+Ridurre il carico sui server di area di HBase prima di avviare un riavvio. È anche opportuno scaricare prima tutte le tabelle. Per informazioni di riferimento su come scaricare le tabelle, vedere [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) (HBase di HDInsight: come migliorare il tempo di riavvio dei cluster Apache HBase scaricando le tabelle).
 
 In alternativa, provare a riavviare manualmente i server di area nei nodi di lavoro usando i comandi seguenti:
 

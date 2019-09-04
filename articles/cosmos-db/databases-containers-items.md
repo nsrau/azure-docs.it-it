@@ -4,15 +4,15 @@ description: Questo articolo descrive come creare e usare database, contenitori 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: de9b0a372d04b40a24b6dc0a8952722129f4a55f
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598491"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241203"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utilizzare database, contenitori ed elementi in Azure Cosmos DB
 
@@ -39,10 +39,10 @@ Nell'immagine seguente viene illustrata la gerarchia di entità diverse in un ac
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerare tutti i database| Sì | Sì | Sì (il database è mappato a un keyspace) | Yes | ND | ND |
-|Leggere il database| Yes | Yes | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
-|Crea nuovo database| Sì | Yes | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
-|Aggiornare il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Yes | ND | ND |
+|Enumerare tutti i database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Leggere il database| Sì | Yes | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Crea nuovo database| Yes | Yes | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Aggiornare il database| Yes | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
 
 
 ## <a name="azure-cosmos-containers"></a>Contenitori Azure Cosmos DB
@@ -51,16 +51,16 @@ Un contenitore di Azure Cosmos è l'unità di scalabilità per la velocità effe
 
 Quando si crea un contenitore di Azure Cosmos, la velocità effettiva viene configurata in una delle modalità seguenti:
 
-* **Modalità di velocità effettiva**con provisioning dedicato: La velocità effettiva di cui è stato effettuato il provisioning in un contenitore è riservata esclusivamente al contenitore ed è supportata dai contratti di contratto. Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
+* **Modalità di velocità effettiva con provisioning dedicato**: La velocità effettiva di cui è stato effettuato il provisioning in un contenitore è riservata esclusivamente al contenitore ed è supportata dai contratti di contratto. Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
 
-* **Modalità di velocità effettiva**con provisioning condiviso: Questi contenitori condividono la velocità effettiva con provisioning con gli altri contenitori nello stesso database, esclusi i contenitori che sono stati configurati con una velocità effettiva con provisioning dedicata. In altre parole, la velocità effettiva con provisioning nel database viene condivisa tra tutti i contenitori "velocità effettiva condivisa". Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md).
+* **Modalità di velocità effettiva con provisioning condiviso**: Questi contenitori condividono la velocità effettiva con provisioning con gli altri contenitori nello stesso database, esclusi i contenitori che sono stati configurati con una velocità effettiva con provisioning dedicata. In altre parole, la velocità effettiva con provisioning nel database viene condivisa tra tutti i contenitori "velocità effettiva condivisa". Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md).
 
 > [!NOTE]
 > È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. Per passare dalla modalità velocità effettiva dedicata alla modalità velocità effettiva condivisa (e viceversa) dopo la creazione del contenitore, è necessario creare un nuovo contenitore ed eseguire la migrazione dei dati nel nuovo contenitore. È possibile eseguire la migrazione dei dati tramite la funzionalità Azure Cosmos DB feed delle modifiche.
 
 Un contenitore Azure Cosmos può essere ridimensionato in modo elastico, indipendentemente dal fatto che i contenitori vengano creati usando modalità di velocità effettiva con provisioning dedicato o condiviso.
 
-Un contenitore Azure Cosmos DB è un contenitore di elementi completamente senza schema. Gli elementi in un contenitore possono avere schemi arbitrari. Ad esempio, un elemento che rappresenta una persona e un elemento che rappresenta un'automobile può essere inserito nello *stesso contenitore*. Per impostazione predefinita, tutti gli elementi aggiunti a un contenitore vengono indicizzati automaticamente senza richiedere la gestione esplicita di indici o schemi. È possibile personalizzare il comportamento di indicizzazione configurando i [criteri](index-overview.md) di indicizzazione in un contenitore. 
+Un contenitore Azure Cosmos DB è un contenitore di elementi completamente senza schema. Gli elementi in un contenitore possono avere schemi arbitrari. Ad esempio, un elemento che rappresenta una persona e un elemento che rappresenta un'automobile può essere inserito nello *stesso contenitore*. Per impostazione predefinita, tutti gli elementi aggiunti a un contenitore vengono indicizzati automaticamente senza richiedere la gestione esplicita di indici o schemi. È possibile personalizzare il comportamento di indicizzazione configurando i [criteri di indicizzazione](index-overview.md) in un contenitore. 
 
 È possibile impostare la [durata (TTL)](time-to-live.md) per gli elementi selezionati in un contenitore Azure Cosmos o per l'intero contenitore per eliminare normalmente tali elementi dal sistema. Azure Cosmos DB Elimina automaticamente gli elementi alla scadenza. Garantisce inoltre che una query eseguita sul contenitore non restituisca gli elementi scaduti in un limite fisso. Per altre informazioni, vedere [configurare la durata (TTL) nel contenitore](how-to-time-to-live.md).
 
@@ -74,7 +74,7 @@ Un contenitore di Azure Cosmos è specializzato in entità specifiche dell'API, 
 
 | Entità di Azure Cosmos | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- |
-|Contenitore Azure Cosmos DB | Collection | Tabella | Collection | Grafico | Tabella |
+|Contenitore Azure Cosmos DB | Contenitore | Tabella | Collection | Grafico | Tabella |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Proprietà di un contenitore Azure Cosmos DB
 
@@ -86,11 +86,11 @@ Un contenitore di Azure Cosmos dispone di un set di proprietà definite dal sist
 |\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No | No | No | No |
 |\_ts | Generato dal sistema | Ultimo timestamp aggiornato del contenitore | Yes | No | No | No | No |
 |\_auto | Generato dal sistema | URI indirizzabile del contenitore | Sì | No | No | No | No |
-|id | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | Sì | Sì | Sì | Sì | Yes |
-|indexingPolicy | Configurabile dall'utente | Consente di modificare il percorso dell'indice, il tipo di indice e la modalità di indice | Sì | No | No | No | Sì |
+|id | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | Yes | Sì | Sì | Sì | Yes |
+|indexingPolicy | Configurabile dall'utente | Consente di modificare il percorso dell'indice, il tipo di indice e la modalità di indice | Yes | No | No | No | Sì |
 |TimeToLive | Configurabile dall'utente | Consente di eliminare automaticamente gli elementi da un contenitore dopo un determinato periodo di tempo. Per informazioni dettagliate, vedere [durata (TTL](time-to-live.md)). | Sì | No | No | No | Sì |
-|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per informazioni dettagliate, vedere [feed di modifiche](change-feed.md). | Sì | No | No | No | Yes |
-|uniqueKeyPolicy | Configurabile dall'utente | Utilizzato per garantire l'univocità di uno o più valori in una partizione logica. Per altre informazioni, vedere [vincoli di chiave univoca](unique-keys.md). | Sì | No | No | No | Sì |
+|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per informazioni dettagliate, vedere [feed di modifiche](change-feed.md). | Yes | No | No | No | Sì |
+|uniqueKeyPolicy | Configurabile dall'utente | Utilizzato per garantire l'univocità di uno o più valori in una partizione logica. Per altre informazioni, vedere [vincoli di chiave univoca](unique-keys.md). | Yes | No | No | No | Yes |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Operazioni su un contenitore Azure Cosmos DB
 
@@ -98,11 +98,11 @@ Un contenitore di Azure Cosmos supporta le operazioni seguenti quando si usa una
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-| Enumerare i contenitori in un database | Sì | Sì | Sì | Yes | ND | ND |
-| Leggere un contenitore | Sì | Sì | Sì | Yes | ND | ND |
+| Enumerare i contenitori in un database | Sì | Sì | Sì | Sì | ND | ND |
+| Leggere un contenitore | Sì | Sì | Sì | Sì | ND | ND |
 | Crea un nuovo contenitore | Yes | Sì | Sì | Sì | ND | ND |
 | Aggiornare un contenitore | Sì | Sì | Sì | Yes | ND | ND |
-| Eliminare un contenitore | Sì | Sì | Sì | Sì | ND | ND |
+| Eliminare un contenitore | Yes | Sì | Sì | Yes | ND | ND |
 
 ## <a name="azure-cosmos-items"></a>Elementi Azure Cosmos DB
 
@@ -120,10 +120,10 @@ Ogni elemento di Azure Cosmos presenta le seguenti proprietà definite dal siste
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_id | Generato dal sistema | Identificatore univoco dell'elemento | Sì | No | No | No | No |
 |\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No | No | No | No |
-|\_ts | Generato dal sistema | Timestamp dell'ultimo aggiornamento dell'elemento | Sì | No | No | No | No |
+|\_ts | Generato dal sistema | Timestamp dell'ultimo aggiornamento dell'elemento | Yes | No | No | No | No |
 |\_auto | Generato dal sistema | URI indirizzabile dell'elemento | Yes | No | No | No | No |
 |id | È possibile usare il | Nome univoco definito dall'utente in una partizione logica. Se l'utente non specifica l'ID, il sistema ne genera automaticamente uno. | Sì | Sì | Sì | Sì | Sì |
-|Proprietà definite dall'utente arbitrarie | Definito dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (inclusi JSON, BSON e CQL) | Sì | Sì | Sì | Sì | Sì |
+|Proprietà definite dall'utente arbitrarie | Route definite dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (inclusi JSON, BSON e CQL) | Yes | Sì | Sì | Sì | Sì |
 
 > [!NOTE]
 > L' `id` univocità della proprietà viene applicata solo all'interno di ogni partizione logica. Più documenti possono avere la stessa `id` proprietà con valori di chiave di partizione diversi.

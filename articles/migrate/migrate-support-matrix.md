@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 99ef5c8a4a4291dd1b9d047da9006623dacd0b53
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 3fb36eb9b8507903d1aee00b82c375685a4dfa6c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147871"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279479"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto Azure Migrate
 
@@ -56,7 +56,7 @@ CorentTech | Migrazione | [Altre informazioni](https://www.corenttech.com/)
 Sottoscrizione | È possibile avere più progetti Azure Migrate in una sottoscrizione.
 Autorizzazioni di Azure | Per creare un progetto di Azure Migrate, è necessario disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
 VM VMware  | Consente di valutare fino a 35.000 VM VMware in un singolo progetto.
-VM Hyper-V | Valutazione di un massimo di 10.000 macchine virtuali Hyper-V in un singolo progetto.
+VM Hyper-V | Valutazione di un massimo di 35.000 macchine virtuali Hyper-V in un singolo progetto.
 
 Un progetto può includere sia macchine virtuali VMware che macchine virtuali Hyper-V, fino ai limiti di valutazione.
 

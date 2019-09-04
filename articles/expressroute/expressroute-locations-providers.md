@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 25741eebc305c18f789497ab0859adf22687eaa5
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 5469bd835b189df66c22a3fc13e91c435b4be73f
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186202"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257705"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -96,8 +96,8 @@ Le **aree di Azure locali** sono quelle che possono accedere a [ExpressRoute loc
 | **Copenaghen** | [CPH1 Interxion](https://www.interxion.com/Locations/copenhagen/) | n/d | Interxion |
 | **Dallas** | [DA3 Equinix](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | n/d | Aryaka Networks, AT & T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutronia Networks, Telmex uninet, Telia Carrier, transtelco, Verizon, Zayo|
 | **Denver** | [DE1 CoreSite](https://www.coresite.com/data-centers/locations/denver/de1) | Stati Uniti centro-occidentali | CoreSite, Megaport, Zayo |
-| **Dubai** | Etisalat UAE | Emirati Arabi Uniti settentrionali | Etisalat UAE |
-| **Dubai2** | du datamena | Emirati Arabi Uniti settentrionali | du datamena, Orixcom |
+| **Dubai** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | Emirati Arabi Uniti settentrionali | Etisalat UAE |
+| **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | Emirati Arabi Uniti settentrionali | du datamena, Orixcom |
 | **Dublino** | [DB3 Equinix](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | Europa settentrionale | Colt, eir, Equinix, Interxion, Megaport |
 | **Francoforte** | [FRA11 Interxion](https://www.interxion.com/Locations/frankfurt/) | n/d | DE-CIX, Interxion, arancione |
 | **RAS di Hong Kong** | [HK1 Equinix](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | Asia orientale | Reti Aryaka, British Telecom, CenturyLink Cloud Connect, Chief Telecom, Cina Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
@@ -118,7 +118,7 @@ Le **aree di Azure locali** sono quelle che possono accedere a [ExpressRoute loc
 | **Osaka** | [OS1 Equinix](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | Giappone occidentale | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Parigi** | [PAR5 Interxion](https://www.interxion.com/Locations/paris/) | Francia centrale | CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | n/d | Megaport, NextDC |
-| **Quebec City** | 4Degrees | Canada orientale | Bell Canada, Megaport |
+| **Quebec City** | [Privilegiati](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | Canada orientale | Bell Canada, Megaport |
 | **San Antonio** | [SA1 CyrusOne](https://cyrusone.com/locations/texas/san-antonio-texas/) | Stati Uniti centro-meridionali | CenturyLink Cloud Connect, Megaport |
 | **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | Brasile meridionale | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **Seattle** | [SE2 Equinix](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | Stati Uniti occidentali 2 | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |

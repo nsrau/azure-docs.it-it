@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33ee006a704cec1fb0d75a953629aec68461a4f4
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 8bf83f483bb7680b71bf928430858240deb3d603
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165197"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278816"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -289,17 +289,17 @@ Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Offre
 
 Funzionamento di Azure Databricks con il servizio Azure Machine Learning:
 + È possibile eseguire il training di un modello usando Spark MLlib e distribuire il modello in ACI/AKS dall'interno Azure Databricks.
-+ È anche possibile usare le funzionalità automatiche di [Machine Learning](concept-automated-ml.md) in un SDK di Azure ml speciale con Azure Databricks.
++ È anche possibile usare le funzionalità [automatiche di Machine Learning](concept-automated-ml.md) in un SDK di Azure ml speciale con Azure Databricks.
 + È possibile usare Azure Databricks come destinazione di calcolo da una [pipeline di Azure Machine Learning](concept-ml-pipelines.md).
 
 ### <a name="set-up-your-databricks-cluster"></a>Configurare il cluster databricks
 
-Creare un [cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)databricks. Alcune impostazioni si applicano solo se si installa l'SDK per Machine Learning automatico in databricks.
+Creare un [cluster databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Alcune impostazioni si applicano solo se si installa l'SDK per Machine Learning automatico in databricks.
 **La creazione del cluster potrebbe richiedere alcuni minuti.**
 
 Usare le impostazioni seguenti:
 
-| Impostazione |Si applica a| Value |
+| Impostazione |Si applica a| Valore |
 |----|---|---|
 | Nome cluster |sempre| nomecluster |
 | Databricks Runtime |sempre| Qualsiasi runtime non ML (non ML 4.x, 5.x) |
@@ -411,5 +411,4 @@ Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo cod
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Eseguire il training di un modello](tutorial-train-models-with-aml.md) in Azure Machine Learning con il set di dati MNIST
-- Vedere la documentazione di riferimento di [Azure Machine Learning SDK per Python](https://aka.ms/aml-sdk)
-- Informazioni sul [pacchetto di preparazione dei dati per Azure Machine Learning](https://aka.ms/data-prep-sdk)
+- Vedere la documentazione di riferimento di [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3ad8eaaca719429a858a7d84156c616dd02d3c7c
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: bf92a0b197efaf1d1f88903cfbe9a7c515eaed03
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211649"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259065"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiare dati da SAP Cloud for Customer (C4C) usando Azure Data Factory
 
@@ -44,8 +44,8 @@ Per il servizio collegato di SAP Cloud for Customer sono supportate le propriet�
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapCloudForCustomer**. | Sì |
-| url | URL del servizio SAP C4C OData. | Sì |
+| type | La proprietà type deve essere impostata su: **SapCloudForCustomer**. | Yes |
+| url | URL del servizio SAP C4C OData. | Yes |
 | username | Specificare il nome utente per la connessione a SAP C4C. | Yes |
 | password | Specificare la password dell'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink |
@@ -84,7 +84,7 @@ Per copiare dati da SAP Cloud for Customer, impostare la proprietà type del set
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **SapCloudForCustomerResource** |Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **SapCloudForCustomerResource** |Sì |
 | path | Specificare il percorso dell'entità SAP C4C OData. |Sì |
 
 **Esempio:**
@@ -159,7 +159,7 @@ Per copiare dati in SAP Cloud for Customer, impostare il tipo di sink nell'attiv
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapCloudForCustomerSink**  | Yes |
+| type | La proprietà type deve essere impostata su: **SapCloudForCustomerSink**  | Sì |
 | writebehavior | Comportamento dell'azione di scrittura dell'operazione. Può essere "Insert", "Update". | No. Il valore predefinito è "Insert". |
 | writeBatchSize | Dimensioni batch dell'operazione di scrittura. Le dimensioni batch per ottenere prestazioni ottimali possono essere diverse per tabelle o server differenti. | No. Il valore predefinito è 10. |
 

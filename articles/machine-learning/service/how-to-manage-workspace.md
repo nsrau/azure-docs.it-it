@@ -11,16 +11,16 @@ ms.author: shipatel
 author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81e1104d71706194ba1c54e42722b4508df09091
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f103bde99eb5b21d06988f11ac6f17fcf50ceb31
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534858"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278282"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Creare e gestire aree di lavoro del servizio Azure Machine Learning
 
-In questo articolo si procederà alla creazione, alla visualizzazione e all'eliminazione di [**aree di lavoro del servizio Azure Machine Learning**](concept-workspace.md) nel portale di Azure per il [servizio Azure Machine Learning](overview-what-is-azure-ml.md).  Il portale è il modo più semplice per iniziare a usare le aree di lavoro, ma in base alle esigenze modificate o ai requisiti per l'aumento dell'automazione è anche possibile creare ed eliminare aree di lavoro [tramite l'interfaccia della](reference-azure-machine-learning-cli.md)riga di comando, [con codice Python](https://aka.ms/aml-sdk) o [tramite l'estensione vs code](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
+In questo articolo si procederà alla creazione, alla visualizzazione e all'eliminazione di [**aree di lavoro del servizio Azure Machine Learning**](concept-workspace.md) nel portale di Azure per il [servizio Azure Machine Learning](overview-what-is-azure-ml.md).  Il portale è il modo più semplice per iniziare a usare le aree di lavoro, ma in base alle esigenze modificate o ai requisiti per l'aumento dell'automazione è anche possibile creare ed eliminare aree di lavoro [tramite l'interfaccia della](reference-azure-machine-learning-cli.md)riga di comando, [con codice Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o [tramite l'estensione vs code](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
@@ -32,11 +32,11 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 1. Se si vuole creare una [VM notebook](tutorial-1st-experiment-sdk-setup.md#azure), ignorare questo passaggio.
 
-1. Se si prevede di usare il codice nell'ambiente locale che fa riferimento a questa area di lavoro, selezionare **Scarica config. JSON** dalla sezione **Panoramica** dell'area di lavoro.  
+1. Se si prevede di usare codice nell'ambiente locale che fa riferimento a questa area di lavoro, selezionare **Scarica config json** dalla sezione **Panoramica** dell'area di lavoro.  
 
    ![Scarica config.json](./media/how-to-manage-workspace/configure.png)
    
-   Inserire il file nella struttura di directory con gli script Python o Jupyter notebook. Può trovarsi nella stessa directory, in una sottodirectory denominata *. azureml*o in una directory padre. Quando si crea una macchina virtuale notebook, questo file viene aggiunto alla directory corretta nella macchina virtuale.
+   Inserire il file nella struttura di directory che contiene gli script Python o i notebook di Jupyter. Può trattarsi della stessa directory, in una sottodirectory denominata *.azureml* o in una directory padre. Quando si crea una macchina virtuale notebook, questo file viene aggiunto alla directory corretta nella macchina virtuale.
 
 
 ## <a name="view"></a>Visualizzare un'area di lavoro

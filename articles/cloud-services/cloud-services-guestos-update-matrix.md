@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/26/2019
+ms.date: 9/4/2019
 ms.author: raiye
-ms.openlocfilehash: 63c0502cb7b5abf6b6005683cc97d3229ec90e47
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9e93cb6cf57a42463e631332fb4714457b9b675f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945437"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275482"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -41,6 +41,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [queste informazioni][cloud updates].
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+###### <a name="september-4-2019"></a>**4 settembre 2019**
+È stato rilasciato il sistema operativo guest di agosto.
 
 ###### <a name="july-26-2019"></a>**26 luglio 2019**
 È stato rilasciato il sistema operativo guest di luglio.
@@ -100,8 +103,9 @@ Versione .NET Framework installata: 3.5, 4.7.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-6.10 _201908-01 |  4 agosto 2019  |  Post 6,12  |  
 | WA-GUEST-OS-6.9 _201907-01 |26 luglio 2019 |Post 6,11 |
-| WA-GUEST-OS-6.8_201906-01 |8 luglio 2019 |Post 6,10 |
+|~~WA-GUEST-OS-6.8 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-6.7 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
 |~~WA-GUEST-OS-6.6_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
@@ -122,8 +126,9 @@ Versione .NET Framework installata: 3,5, 4,6
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-5.34 _201908-01  |  4 agosto 2019  |  Post 5,36  |  
 | WA-GUEST-OS-5.33 _201907-01 |26 luglio 2019 |Post 5,35 |  
-| WA-GUEST-OS-5.32_201906-01 |8 luglio 2019 |Post 5,34 |
+|~~WA-GUEST-OS-5.32 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-5.31 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
 |~~WA-GUEST-OS-5.30_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
@@ -141,8 +146,9 @@ Versione .NET Framework installata: 3.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-4.69 _201908-01 |  4 agosto 2019  |  Post 4,71  |  
 | WA-GUEST-OS-4.68 _201907-01 | 26 luglio 2019  |Post 4,70 |
-| WA-GUEST-OS-4.67_201906-01 |8 luglio 2019 |Post 4,69 |
+|~~WA-GUEST-OS-4.67 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-4.66 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
 |~~WA-GUEST-OS-4.65_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
@@ -160,8 +166,9 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-3.76 _201908-01 |  4 agosto 2019  |  Post 3,78  |  
 | WA-GUEST-OS-3,75 _201907-01 | 26 luglio 2019 |Post 3,77 |
-| WA-GUEST-OS-3.74_201906-01 |8 luglio 2019 |Post 3,76 |
+|~~WA-GUEST-OS-3.74 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-3.73 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
 |~~WA-GUEST-OS-3.72_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
@@ -179,8 +186,9 @@ Versione .NET Framework installata: 3,5 (include 2,0 e 3,0), 4,5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-2.89 _201908-01 |  4 agosto 2019  |  Post 2,91  |  
 | WA-GUEST-OS-2.88 _201907-01 | 26 luglio 2019 |Post 2,90 |
-| WA-GUEST-OS-2.87_201906-01 |8 luglio 2019 |Post 2,89 |
+|~~WA-GUEST-OS-2.87 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-2.86 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
 |~~WA-GUEST-OS-2.85_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
@@ -240,7 +248,7 @@ Gli aggiornamenti di Microsoft Azure vengono rilasciati costantemente. Il sistem
 
 Quando viene pubblicato un nuovo rilascio del sistema operativo guest, la propagazione completa in Azure può richiedere tempo. Man mano che i servizi vengono aggiornati al nuovo sistema operativo guest, vengono riavviati rispettando i domini di aggiornamento. Un rilascio sarà innanzitutto fornito ai servizi per cui sono stati impostati gli aggiornamenti automatici. Dopo l'aggiornamento, la nuova versione del sistema operativo guest sarà elencata per il servizio nel portale di Azure. Durante questo periodo possono essere introdotti dei nuovi rilasci. Alcune versioni potrebbero essere distribuite per periodi più lunghi ed è possibile che i riavvii di aggiornamenti automatici non si verifichino per molte settimane dopo la data di rilascio ufficiale. Quando un sistema operativo guest diventa disponibile, è possibile scegliere esplicitamente tale versione dal portale o nel file di configurazione.
 
-Per molte informazioni importanti sui riavvii e sui puntatori ad altre informazioni sui dettagli tecnici degli aggiornamenti del sistema operativo guest e host, vedere il post del Blog MSDN relativo ai riavvii dell' [istanza del ruolo a causa di aggiornamenti del sistema operativo][restarts].
+Per molte informazioni importanti sui riavvii e sui puntatori ad altre informazioni sui dettagli tecnici degli aggiornamenti del sistema operativo guest e host, vedere il post del Blog MSDN relativo [ai riavvii dell'istanza del ruolo a causa di aggiornamenti del sistema operativo][restarts].
 
 Se si aggiorna manualmente il sistema operativo guest, vedere i [criteri di ritiro del sistema operativo guest][retirepolicy] per ulteriori informazioni.
 

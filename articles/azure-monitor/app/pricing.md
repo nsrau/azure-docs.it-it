@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/29/2019
+ms.date: 09/04/2019
 ms.author: dalek
-ms.openlocfilehash: f2ea87f237fa5cca8a4b1f6773d2b47729cfb5b0
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147542"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277001"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -120,6 +120,8 @@ Per modificare il limite giornaliero, nella sezione **Configura** della risorsa 
 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-003.png)
 
+Per [modificare il limite giornaliero tramite Azure Resource Manager](../../azure-monitor/app/powershell.md), la proprietà da modificare è `dailyQuota`.  Tramite Azure Resource Manager è anche possibile impostare il `dailyQuotaResetTime` e il `warningThreshold`limite giornaliero. 
+
 ## <a name="sampling"></a>campionamento
 Il [campionamento](../../azure-monitor/app/sampling.md) è un metodo che consente di ridurre la velocità con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi.
 
@@ -157,7 +159,7 @@ Per modificare il periodo di conservazione, dalla risorsa Application Insights p
 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-005.png)
 
-Quando la fatturazione è abilitata per un periodo di conservazione più lungo, i dati conservati per più di 90 giorni verranno fatturati con la stessa tariffa attualmente addebitata per la conservazione dei dati di Azure Log Analytics. Per altre informazioni, vedere la [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Rimanere sempre aggiornati sullo stato di conservazione delle variabili votando [questo suggerimento](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+Quando la fatturazione è abilitata per un periodo di conservazione più lungo, i dati conservati per più di 90 giorni verranno fatturati con la stessa tariffa attualmente addebitata per la conservazione dei dati di Azure Log Analytics. Per altre informazioni, vedere la [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Rimanere sempre aggiornati sullo stato di conservazione [delle variabili votando questo suggerimento](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## <a name="limits-summary"></a>Riepilogo dei limiti
 

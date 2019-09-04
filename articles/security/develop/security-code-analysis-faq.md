@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sulla documentazione di analisi del codice di sicurezza Microsoft Azure
-description: Questo articolo contiene domande frequenti sull'estensione di analisi del codice di sicurezza
+title: Domande frequenti sulla documentazione di analisi del codice di sicurezza Microsoft
+description: Questo articolo contiene le domande frequenti sull'estensione di analisi del codice di sicurezza Microsoft
 author: vharindra
 manager: sukhans
 ms.author: terrylan
@@ -12,85 +12,100 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8038b7bd60ac771c798a1a8645022b0bf9e142a9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 846f0ecdd49fc1c501893209b60fa9acc8a32ed2
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934855"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242340"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
-Hai domande? Per ulteriori informazioni, consultare le domande frequenti riportate di seguito.
+Hai domande? Per ulteriori informazioni, vedere le domande frequenti seguenti.
 
-## <a name="general-faqs"></a>Domande frequenti generali
+## <a name="general-faq"></a>Domande frequenti generali
 
-### <a name="can-i-install-the-extension-on-my-tfs-not-azure-devops-server"></a>È possibile installare l'estensione nel server TFS (non Azure DevOps)? 
+### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>È possibile installare l'estensione nell'istanza di Visual Studio Team Foundation Server anziché in un'istanza di Azure DevOps?
 
-No, l'estensione non è disponibile per il download e l'installazione per TFS.
+No. L'estensione non è disponibile per il download e l'installazione di Visual Studio Team Foundation Server.
 
 ### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>È necessario eseguire l'analisi del codice di sicurezza Microsoft con la compilazione? 
 
-Sì e no. A seconda del tipo di strumento di analisi, il codice sorgente può essere l'unico elemento necessario o l'output della compilazione potrebbe essere necessario. Ad esempio, poiché Credential scanner analizza i file all'interno della struttura di cartelle del repository di codice, è possibile eseguire lo scanner delle credenziali e pubblicare le attività di compilazione dei log di analisi della sicurezza in una compilazione autonoma per recuperare i risultati.
-Per gli altri strumenti che analizzano gli elementi di post-compilazione, ad esempio BinSkim, la compilazione sarà obbligatoria per prima.
+È possibile. Dipende dal tipo di strumento di analisi. Il codice sorgente può essere l'unico elemento necessario o l'output di compilazione potrebbe essere necessario.
 
-### <a name="can-i-break-my-build-when-results-are-found"></a>È possibile interrompere la compilazione quando vengono trovati risultati? 
-Sì, è possibile introdurre un'interruzioni di compilazione quando uno strumento segnala un problema, una ricerca nel file di log. È sufficiente aggiungere l'attività di compilazione post-analisi e selezionare la casella di controllo per tutti gli strumenti per i quali si desidera interrompere la compilazione. È possibile scegliere di interrompere la compilazione quando uno strumento segnala errori o avvisi ed errori nell'interfaccia utente dell'attività post-analisi.
+Ad esempio, Credential scanner (CredScan) analizza i file all'interno della struttura di cartelle del repository di codice. A causa di questa analisi, è possibile eseguire il CredScan e pubblicare le attività di compilazione dei log di analisi della sicurezza in una compilazione autonoma per ottenere risultati.
 
-### <a name="how-are-the-command-line-arguments-different-in-azure-devops-than-they-are-in-the-standalone-desktop-tools"></a>In che modo gli argomenti della riga di comando sono diversi in Azure DevOps rispetto a quelli inclusi negli strumenti desktop autonomi? 
+Per altri strumenti come BinSkim che analizzano gli artefatti di post-compilazione, è necessario innanzitutto compilare la compilazione.
 
-Nella maggior parte dei casi, le attività di compilazione di Azure DevOps sono wrapper diretti intorno agli argomenti della riga di comando degli strumenti di sicurezza. Qualsiasi elemento normalmente passa allo strumento dalla riga di comando dal desktop, è possibile passare all'input degli argomenti dell'attività di compilazione.
-Di seguito è riportato un elenco di differenze evidenti:
- - Lo strumento verrà eseguito dalla cartella di origine dell'agente $ (Build. SourcesDirectory) o% BUILD_SOURCESDIRECTORY%. Esempio: Work\1\s\_C:\agent 
- - I percorsi negli argomenti possono essere relativi alla radice della directory di origine elencata sopra o Absolute eseguendo un agente locale con i percorsi di distribuzione noti delle risorse locali o usando le variabili di compilazione di Azure DevOps
- - Gli strumenti forniranno automaticamente un percorso o una cartella di file di output se viene specificato un percorso di output, che verrà rimosso e sostituito con un percorso del percorso dei log noti nell'agente di compilazione
- - Alcuni parametri della riga di comando aggiuntivi vengono purificati e rimossi in alcuni strumenti, ad esempio l'aggiunta o la rimozione di opzioni per assicurarsi che non venga avviata alcuna GUI.
+### <a name="can-i-break-my-build-when-results-are-found"></a>È possibile interrompere la compilazione quando vengono trovati risultati?
 
-### <a name="can-i-run-a-build-task-for-example-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>È possibile eseguire un'attività di compilazione (ad esempio, Credential scanner) in più repository in una build di Azure DevOps? 
+Sì. È possibile introdurre un'interruzioni di compilazione quando uno strumento segnala un problema o un problema nel file di log. È sufficiente aggiungere l'attività di compilazione post-analisi, quindi selezionare la casella di controllo per qualsiasi strumento per il quale si desidera interrompere la compilazione.
 
-No, non è attualmente supportata l'esecuzione di strumenti di sviluppo protetti su più repository in una singola pipeline.
+Nell'interfaccia utente dell'attività post-analisi è possibile scegliere di interrompere la compilazione quando uno strumento segnala solo gli errori o gli errori e gli avvisi.
 
-###  <a name="the-output-file-i-specified-is-not-being-created--i-cant-find-the-output-file-i-specified"></a>Il file di output specificato non viene creato/non è possibile trovare il file di output specificato 
+### <a name="how-do-the-command-line-arguments-in-azure-devops-differ-from-those-arguments-in-the-standalone-desktop-tools"></a>In che modo gli argomenti della riga di comando in Azure DevOps differiscono da quelli negli strumenti desktop autonomi? 
 
-Le attività di compilazione attualmente desterilizzano l'input dell'utente e aggiornano il percorso del file di output generato in un percorso comune nell'agente di compilazione. Per ulteriori informazioni su questo percorso, vedere le domande seguenti.
+Nella maggior parte dei casi, le attività di compilazione di Azure DevOps sono wrapper diretti intorno agli argomenti della riga di comando degli strumenti di sicurezza. È possibile passare come argomenti a un'attività di compilazione qualsiasi elemento che si passa normalmente a uno strumento da riga di comando.
+
+Differenze evidenti:
+
+- Gli strumenti vengono eseguiti dalla cartella di origine dell'agente $ (Build. SourcesDirectory) o da% BUILD_SOURCESDIRECTORY%. Un esempio è C:\agent\_work\1\s.
+- I percorsi negli argomenti possono essere relativi alla radice della directory di origine elencata in precedenza. I percorsi possono anche essere assoluti. È possibile ottenere percorsi assoluti usando le variabili di compilazione di Azure DevOps o eseguendo un agente locale con i percorsi di distribuzione noti delle risorse locali.
+- Gli strumenti forniscono automaticamente un percorso o una cartella di file di output. Se si fornisce un percorso di output per un'attività di compilazione, tale percorso viene sostituito con un percorso del percorso noto dei log nell'agente di compilazione
+- Alcuni argomenti aggiuntivi della riga di comando sono stati modificati per alcuni strumenti. Un esempio è l'aggiunta o la rimozione di opzioni che assicurano che non venga avviata alcuna GUI.
+
+### <a name="can-i-run-a-build-task-like-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>È possibile eseguire un'attività di compilazione, ad esempio Credential scanner, in più repository in una build di Azure DevOps?
+
+No. L'esecuzione degli strumenti di sviluppo sicuri in più repository in un'unica pipeline non è supportata.
+
+### <a name="the-output-file-i-specified-isnt-being-created-or-i-cant-find-the-output-file-i-specified"></a>Il file di output specificato non viene creato oppure non è possibile trovare il file di output specificato
+
+Le attività di compilazione filtrano l'input dell'utente. Per questa domanda, il percorso del file di output generato viene aggiornato in modo da essere un percorso comune nell'agente di compilazione. Per ulteriori informazioni su questo percorso, vedere le domande seguenti.
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Dove vengono salvati i file di output generati dagli strumenti? 
 
-Le attività di compilazione aggiungono automaticamente i percorsi di output al percorso noto seguente nell'agente di compilazione $ (Agent. BuildDirectory\_) sdt\logs. Grazie alla standardizzazione in questa posizione, è possibile garantire l'accesso ad altri team che producono log di analisi del codice o che li utilizzano.
+Le attività di compilazione aggiungono automaticamente i percorsi di output a questo percorso noto nell'agente di compilazione: $ (Agent.\_BuildDirectory) sdt\logs. Poiché si standardizza in questa posizione, tutti i team che producono o utilizzano log di analisi del codice hanno accesso all'output.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>È possibile accodare una compilazione per eseguire queste attività in un agente di compilazione ospitato? 
 
-Sì, tutte le attività e gli strumenti nell'estensione possono essere eseguiti in un agente di compilazione ospitato.
+Sì. Tutte le attività e gli strumenti nell'estensione possono essere eseguiti in un agente di compilazione ospitato.
 
 >[!NOTE]
-> Per l'attività di compilazione anti-malware è necessario un agente di compilazione con Windows Defender abilitato, che è true negli agenti di compilazione "Hosted VS2017" o versioni successive. Non verrà eseguito nell'agente "Hosted" Legacy/VS2015. Non è possibile aggiornare le firme su questi agenti, ma la firma deve essere sempre relativamente aggiornata, minore di 3 ore.
+> Per l'attività di compilazione dello scanner anti-malware è necessario un agente di compilazione con Windows Defender abilitato. Visual Studio 2017 ospitato e versioni successive forniscono un agente di questo tipo. L'attività di compilazione non verrà eseguita nell'agente di Visual Studio 2015 Hosted.
 >
+> Sebbene non sia possibile aggiornare le firme su questi agenti, le firme devono essere sempre minori di tre ore.
 
-### <a name="can-i-run-these-build-tasks-as-part-of-a-release-pipeline-as-opposed-to-a-build-pipeline"></a>È possibile eseguire queste attività di compilazione come parte di una pipeline di rilascio (in contrapposizione a una pipeline di compilazione)? 
-Nella maggior parte dei casi, sì. Tuttavia, le attività che pubblicano gli artefatti non sono supportate da Azure DevOps per l'esecuzione dall'interno delle pipeline di versione: "L'unica categoria di attività che non prevede l'utilizzo della versione sono quelle che pubblicano gli artefatti. Questo perché, al momento, non è disponibile il supporto per la pubblicazione di artefatti all'interno della versione ".
-Ciò impedisce l'esecuzione corretta dell'attività "pubblicazione dei log di analisi della sicurezza" da una pipeline di rilascio. non avrà esito positivo, con un messaggio di errore descrittivo.
+### <a name="can-i-run-these-build-tasks-as-part-of-a-release-pipeline-as-opposed-to-a-build-pipeline"></a>È possibile eseguire queste attività di compilazione come parte di una pipeline di rilascio anziché una pipeline di compilazione?
 
-### <a name="from-where-do-the-build-tasks-download-the-tools"></a>Da dove le attività di compilazione scaricano gli strumenti? 
-Le attività di compilazione a) scaricano i pacchetti NuGet per gli strumenti dal [feed di gestione pacchetti di Azure DevOps](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json) seguente o usando node Package Manager, che deve essere preinstallato nell'agente di compilazione (ad esempio: "NPM install tslint").
+Nella maggior parte dei casi, sì.
 
-### <a name="what-effect-will-installing-the-extension-have-on-my-azure-devops-organization"></a>Quale effetto avrà l'installazione dell'estensione nell'organizzazione DevOps di Azure? 
+Tuttavia, Azure DevOps non supporta l'esecuzione di attività nelle pipeline di rilascio quando tali attività pubblicano elementi. Questa mancanza di supporto impedisce che l'attività pubblica log di analisi della sicurezza venga eseguita correttamente in una pipeline di rilascio. L'attività ha invece esito negativo con un messaggio di errore descrittivo.
 
-Al momento dell'installazione, le attività di compilazione della sicurezza fornite dall'estensione diventeranno disponibili per l'uso da parte di tutti gli utenti dell'organizzazione. Quando si crea o si modifica una pipeline di Azure, queste attività saranno disponibili per l'aggiunta dall'elenco di raccolta delle attività di compilazione. In caso contrario, l'installazione dell'estensione nell'organizzazione di Azure DevOps non ha alcun effetto. Non modifica le pipeline o le impostazioni di un account o di progetto.
+### <a name="from-where-do-the-build-tasks-download-the-tools"></a>Da dove le attività di compilazione scaricano gli strumenti?
 
-### <a name="will-installing-the-extension-modify-my-existing-azure-pipelines"></a>Si installerà l'estensione per modificare la Azure Pipelines esistente? 
+Le attività di compilazione possono scaricare i pacchetti NuGet degli strumenti dal [feed di gestione pacchetti di Azure DevOps](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json). Le attività di compilazione possono inoltre utilizzare node Package Manager, che deve essere preinstallato nell'agente di compilazione. Un esempio di questa installazione è il comando **NPM install tslint**.
 
-No. L'installazione dell'estensione renderà disponibili le attività di compilazione di sicurezza da aggiungere all'Azure Pipelines. Gli utenti devono ancora aggiungere o aggiornare le definizioni di compilazione per integrare gli strumenti nel processo di compilazione.
+### <a name="what-effect-does-installing-the-extension-have-on-my-azure-devops-organization"></a>Quale effetto ha l'installazione dell'estensione nell'organizzazione DevOps di Azure? 
 
-## <a name="task-specific-faqs"></a>Domande frequenti specifiche per le attività
+Al momento dell'installazione, le attività di compilazione di sicurezza fornite dall'estensione diventano disponibili per tutti gli utenti dell'organizzazione. Quando si crea o si modifica una pipeline di Azure, queste attività sono disponibili nell'elenco di raccolta delle attività di compilazione. In caso contrario, l'installazione dell'estensione nell'organizzazione di Azure DevOps non ha alcun effetto. L'installazione non modifica le impostazioni dell'account, le impostazioni del progetto o le pipeline.
 
-In questa sezione vengono elencate le domande frequenti specifiche per le attività di compilazione.
+### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>L'installazione dell'estensione comporta la modifica delle pipeline di Azure esistenti? 
 
-### <a name="credential-scanner-faqs"></a>Domande frequenti su Credential scanner
+No. L'installazione dell'estensione rende disponibili le attività di compilazione della sicurezza per l'aggiunta alle pipeline. È ancora necessario aggiungere o aggiornare le definizioni di compilazione, in modo che gli strumenti possano funzionare con il processo di compilazione.
 
-#### <a name="what-are-common-suppressions-scenarios-and-examples"></a>Che cosa sono gli scenari e gli esempi di eliminazione comuni? 
-Di seguito sono descritti due degli scenari di eliminazione più comuni:
-##### <a name="suppress-all-occurrences-of-a-given-secret-within-the-specified-path"></a>Disattiva tutte le occorrenze di un determinato segreto nel percorso specificato 
-La chiave hash del segreto dal file di output dello scanner delle credenziali è obbligatoria come illustrato nell'esempio seguente
-   
+## <a name="task-specific-faq"></a>Domande frequenti specifiche per le attività
+
+In questa sezione sono elencate le domande specifiche per le attività di compilazione.
+
+### <a name="credential-scanner"></a>Scanner delle credenziali
+
+#### <a name="what-are-common-suppression-scenarios-and-examples"></a>Che cosa sono gli esempi e gli scenari di eliminazione comuni?
+
+Ecco i dettagli di due degli scenari di eliminazione più comuni.
+
+##### <a name="to-suppress-all-occurrences-of-a-given-secret-within-the-specified-path"></a>Per escludere tutte le occorrenze di un determinato segreto entro il percorso specificato
+
+La chiave hash del segreto dal file di output CredScan è obbligatoria come illustrato nell'esempio seguente.
+
         {
             "tool": "Credential Scanner",
             "suppressions": [
@@ -102,21 +117,21 @@ La chiave hash del segreto dal file di output dello scanner delle credenziali è
         }
 
 >[!WARNING]
-> La chiave hash viene generata da una parte del valore corrispondente o del contenuto del file. Qualsiasi revisione del codice sorgente potrebbe modificare la chiave hash e disabilitare la regola di eliminazione. 
+> La chiave hash viene generata da una parte del valore corrispondente o del contenuto del file. Qualsiasi revisione del codice sorgente può modificare la chiave hash e disabilitare la regola di eliminazione.
 
-##### <a name="to-suppress-all-secrets-in-a-specified-file-or-to-suppress-the-secrets-file-itself"></a>Per escludere tutti i segreti in un file specificato (o per non visualizzare il file Secrets) 
-L'espressione di file può essere un nome file o una parte suffissa del nome/percorso file completo. I caratteri jolly non sono supportati. 
+##### <a name="to-suppress-all-secrets-in-a-specified-file-or-to-suppress-the-secrets-file-itself"></a>Per escludere tutti i segreti in un file specificato o per escludere il file Secrets stesso
 
-**Esempio** 
+L'espressione di file può essere un nome di file. Può anche essere la parte baseName di un percorso di file completo o un nome di file. I caratteri jolly non sono supportati.
 
-File da visualizzare: [InputPath] \src\JS\lib\angular.js 
+Gli esempi seguenti illustrano come escludere il \<file inputPath > \src\JS\lib\angular.js
 
-Regole di eliminazione valide: 
-- [InputPath] \src\JS\lib\angular.js--disattiva il file nel percorso specificato
+Esempi di regole di eliminazione valide:
+
+- \<InputPath > \src\JS\lib\angular.js-disattiva il file nel percorso specificato
 - \src\JS\lib\angular.js
 - \JS\lib\angular.js
 - \lib\angular.js
-- angolare. js: consente di escludere qualsiasi file con lo stesso nome
+- angolare. js: Disattiva tutti i file con lo stesso nome
 
         {
             "tool": "Credential Scanner",
@@ -133,62 +148,86 @@ Regole di eliminazione valide:
         }      
 
 >[!WARNING] 
-> Anche tutti i segreti futuri aggiunti al file verranno eliminati automaticamente. 
+> Tutti i segreti futuri aggiunti al file verranno anche eliminati automaticamente.
 
-#### <a name="what-are-recommended-secrets-management-guidelines"></a>Informazioni sulle linee guida per la gestione dei segreti 
-Quando si rilevano i segreti hardcoded in modo tempestivo e si mitigano i rischi, è ancora meglio se è possibile impedire che i segreti vengano archiviati completamente. A questo proposito, Microsoft ha rilasciato CredScan Code Analyzer come parte dell' [estensione Microsoft DevLabs](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) per Visual Studio. Durante la fase di anteprima, fornisce agli sviluppatori un'esperienza inline per il rilevamento di potenziali segreti nel codice, offrendo loro la possibilità di risolvere questi problemi in tempo reale. Per ulteriori informazioni, fare riferimento a [questo](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/) Blog sulla gestione dei segreti in modo sicuro nel cloud. Di seguito sono riportate alcune risorse aggiuntive che consentono di gestire i segreti e di accedere a informazioni riservate dall'interno delle applicazioni in modo sicuro: 
+#### <a name="what-are-recommended-guidelines-for-managing-secrets"></a>Quali sono le linee guida consigliate per la gestione dei segreti?
+
+È utile rilevare rapidamente i segreti hardcoded e attenuare i rischi. Ma evitare che i segreti vengano archiviati è ancora meglio.
+
+A tale scopo, Microsoft ha rilasciato una prima anteprima di Credential Scanner Code Analyzer come parte dell' [estensione Microsoft DevLabs](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) per Visual Studio. L'analizzatore è una versione di anteprima anticipata. Offre agli sviluppatori un'esperienza inline per il rilevamento di potenziali segreti nel codice. In questo modo, l'analizzatore offre agli sviluppatori anche la possibilità di risolvere questi problemi in tempo reale.
+
+Per altre informazioni, vedere il post di Blog sulla [gestione dei segreti in modo sicuro nel cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
+
+Le risorse seguenti consentono di gestire in modo sicuro i segreti e accedere a informazioni sensibili dalle applicazioni:
+
  - [Insieme di credenziali chiave Azure](../../key-vault/index.yml)
- - [Azure Active Directory](../../sql-database/sql-database-aad-authentication.md)
- - [Azure AD identità del servizio gestita](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [Identità del servizio gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
- - [identità del servizio gestita di Azure](../../app-service/overview-managed-identity.md)
+ - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
+ - [Azure AD identità del servizio gestita (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
+ - [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Identità gestite nel servizio app Azure e funzioni di Azure](../../app-service/overview-managed-identity.md)
  - [Libreria AppAuthentication](../../key-vault/service-to-service-authentication.md)
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>È possibile scrivere ricerche personalizzate?
 
-Credential scanner si basa su un set di ricerche di contenuto comunemente definite nel file **buildsearchers. XML** . Il file contiene una matrice di oggetti serializzati XML che rappresentano un oggetto ContentSearcher. Il programma viene distribuito con un set di ricerca che è stato testato correttamente, ma consente anche di implementare ricerche personalizzate. 
+Credential scanner si basa su un set di ricerca di contenuto comunemente definito nel file buildsearchers. XML. Il file contiene una matrice di oggetti serializzati XML che rappresentano un oggetto **ContentSearcher** . Il programma viene distribuito con un set di ricerche ben collaudate. È anche possibile implementare ricerche personalizzate.
 
-Un ricercatore di contenuti viene definito come segue: 
+Un ricercatore di contenuti viene definito come segue:
 
-- **Nome** : il nome descrittivo del ricercatore da usare nel file di output dello scanner delle credenziali. È consigliabile usare la convenzione di denominazione Camel case per i nomi di ricerca. 
-- **RuleId** : ID opaco stabile del ricercatore. 
-    - I cercatori predefiniti dello scanner di credenziali vengono assegnati con RuleIds, ad esempio CSCAN0010, CSCAN0020, CSCAN0030 e così via. L'ultima cifra è riservata per l'Unione o la divisione del gruppo di espressioni regolari di ricerca.
-    - RuleId per i cercatori personalizzati deve avere il proprio spazio dei nomi nel formato: CSCAN-{namespace} 0010, CSCAN-{namespace} 0020, CSCAN-{namespace} 0030 e così via.
-    - Il nome completo del ricercatore è la combinazione di RuleId e il nome del ricercatore. Esempio di CSCAN0010. KeyStoreFiles, CSCAN0020. Base64EncodedCertificate e così via.
-- **ResourceMatchPattern** : Regex delle estensioni di file da controllare per il ricerca
-- **ContentSearchPatterns** : matrice di stringhe contenenti istruzioni Regex per la corrispondenza. Se non sono definiti criteri di ricerca, verranno restituiti tutti i file corrispondenti al criterio di corrispondenza delle risorse.
-- **ContentSearchFilters** : matrice di stringhe contenenti istruzioni Regex per filtrare i falsi positivi specifici del ricercatore.
-- **Matchdetails** : un messaggio descrittivo e/o istruzioni di mitigazione da aggiungere per ogni corrispondenza del ricercatore.
-- **Consiglio** : fornisce il contenuto del campo Suggerimenti per una corrispondenza usando il formato di report PREfast.
-- **Gravità** : valore intero per riflettere la gravità del problema (valore massimo = 1).
-![Installazione di Credential scanner](./media/security-tools/6-credscan-customsearchers.png)
+- **Nome**: Nome descrittivo del ricercatore da usare nei file di output dello scanner delle credenziali. Si consiglia di usare la convenzione di denominazione dei casi di cammello per i nomi di ricerca.
+- **RuleId**: ID opaco stabile del ricercatore:
+    - A un ricercatore predefinito di Credential scanner viene assegnato un valore **RuleId** come CSCAN0010, CSCAN0020 o CSCAN0030. L'ultima cifra è riservata per potenzialmente unire o dividere i gruppi di ricerca tramite espressioni regolari (Regex).
+    - Il valore **RuleId** per un ricercatore personalizzato deve avere il proprio spazio dei nomi. Gli esempi includono CsCAN\<-\>namespace 0010, CsCAN\<-\>namespace 0020 e CsCAN-\<Namespace\>0030.
+    - Un nome di ricerca completo è la combinazione di un valore **RuleId** e di un nome di ricerca. Gli esempi includono CSCAN0010. KeyStoreFiles e CSCAN0020. Base64EncodedCertificate.
+- **ResourceMatchPattern**: Espressione regolare delle estensioni di file da controllare rispetto al Cercatore.
+- **ContentSearchPatterns**: Matrice di stringhe contenente le istruzioni Regex per le quali trovare una corrispondenza. Se non sono definiti criteri di ricerca, vengono restituiti tutti i file corrispondenti al valore **ResourceMatchPattern** .
+- **ContentSearchFilters**: Matrice di stringhe contenente le istruzioni Regex per filtrare i falsi positivi specifici del Searcher.
+- **MatchDetails**: Un messaggio descrittivo, istruzioni di mitigazione o entrambi da aggiungere per ogni corrispondenza del ricercatore.
+- **Consiglio**: Il contenuto del campo Suggerimenti per una corrispondenza utilizzando il formato di report PREfast.
+- **Gravità**: Intero che riflette il livello di gravità di un problema. Il livello di gravità più alto ha il valore 1.
 
-### <a name="roslyn-analyzers-faqs"></a>Domande frequenti sugli analizzatori Roslyn
+  ![XML che mostra la configurazione dello scanner di credenziali](./media/security-tools/6-credscan-customsearchers.png)
 
-#### <a name="what-are-the-most-common-errors-when-using-the-roslyn-analyzers-task"></a>Quali sono gli errori più comuni quando si usa l'attività degli analizzatori Roslyn?
+### <a name="roslyn-analyzers"></a>Analizzatori Roslyn
 
-**Errore: Il progetto è stato ripristinato con Microsoft. NETCore. app versione x. x. x, ma con le impostazioni correnti, verrebbe invece usata la versione y. y. y. Per risolvere questo problema, assicurarsi che le stesse impostazioni vengano usate per il ripristino e per le operazioni successive, ad esempio la compilazione o la pubblicazione. Questo problema si verifica in genere se la proprietà RuntimeIdentifier viene impostata durante la compilazione o la pubblicazione ma non durante il ripristino:**
+#### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Quali sono gli errori comuni quando si usa l'attività degli analizzatori Roslyn?
 
-Gli analizzatori Roslyn vengono eseguiti come parte della compilazione, pertanto l'albero di origine nel computer di compilazione deve essere in uno stato compilabile. Un passaggio (probabilmente "DotNet. exe Publish") tra la build principale e gli analizzatori Roslyn potrebbe aver inserito l'albero di origine in uno stato non compilabile. Forse duplicando il passaggio che esegue un ripristino di NuGet, appena prima del passaggio di Roslyn Analyzers, riporterà la struttura di origine in uno stato compilabile.
+##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>Il progetto è stato ripristinato con una versione di Microsoft. NETCore. app non corretta
 
-**chiusura di "CSC. exe" con codice di errore 1. Impossibile creare un'istanza dell'analizzatore AAAA da C:\BBBB.dll: Impossibile caricare il file o l'assembly ' Microsoft. CodeAnalysis, Version = X.x. x. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. Il sistema non è in grado di trovare il file specificato.**
+Messaggio di errore completo:
 
-Verificare che il compilatore supporti gli analizzatori Roslyn. "CSC. exe/version" deve segnalare almeno la versione 2.6. x. In alcuni casi, i singoli file con estensione csproj possono eseguire l'override dell'installazione di Visual Studio del computer di compilazione, facendo riferimento a un pacchetto di Microsoft.Net. Compilers. Se l'uso di una versione specifica del compilatore non è intenzionale, rimuovere i riferimenti a Microsoft.Net. Compilers. In caso contrario, assicurarsi che anche il pacchetto a cui si fa riferimento sia almeno v 2.6. x. Provare a ottenere il log degli errori, che è possibile trovare nel parametro/ErrorLog: dalla riga di comando csc. exe (disponibile nel log dell'attività di compilazione Roslyn). Potrebbe avere un aspetto simile al seguente:/ErrorLog:\_f:\ts-Services-123 work\456\s\Some\Project\Code\Code.csproj.Sarif
+"Error: Il progetto è stato ripristinato con Microsoft. NETCore. app versione *x*. x. x, ma con le impostazioni correnti, verrebbe invece usata la versione *y. y. y* . Per risolvere questo problema, assicurarsi che le stesse impostazioni vengano usate per il ripristino e per le operazioni successive, ad esempio la compilazione o la pubblicazione. Questo problema si verifica in genere se la proprietà RuntimeIdentifier viene impostata durante la compilazione o la pubblicazione ma non durante il ripristino.
 
-**Il C# compilatore non è abbastanza recente (deve essere > = 2,6)**
+Poiché le attività di analizzatore Roslyn vengono eseguite come parte della compilazione, l'albero di origine nel computer di compilazione deve essere in uno stato compilabile.
 
-Le versioni più recenti del C# compilatore vengono rilasciate https://www.nuget.org/packages/Microsoft.Net.Compilers qui:. Per ottenere la versione installata in uso, eseguire `C:\>csc.exe /version` dal prompt dei comandi. Assicurarsi di non avere alcun riferimento a un pacchetto NuGet Microsoft.Net. Compilers < versione 2.6.
+Un passaggio tra i passaggi principali per la compilazione e l'analizzatore Roslyn potrebbe aver inserito l'albero di origine in uno stato che impedisce la compilazione. Questo passaggio aggiuntivo è probabilmente **dotnet. exe Publish**. Provare a duplicare il passaggio che esegue il ripristino di NuGet immediatamente prima del passaggio degli analizzatori Roslyn. Questo passaggio duplicato potrebbe riportare l'albero di origine in uno stato compilabile.
 
-**Log MSBuild/VSBuild non trovati**
+##### <a name="cscexe-cant-create-an-analyzer-instance"></a>CSC. exe non è in grado di creare un'istanza dell'analizzatore
 
-A causa del funzionamento dell'attività, questa attività deve eseguire una query su Azure DevOps per il log MSBuild dall'attività di compilazione di MSBuild. Se questa attività viene eseguita immediatamente dopo l'attività di compilazione MSBuild, il log non sarà ancora disponibile. Inserire altre attività di compilazione, incluse le attività di compilazione SecDevTools, ad esempio Binskim, l'analisi antimalware e altre ancora, tra l'attività di compilazione MSBuild e l'attività di compilazione analizzatori Roslyn. 
+Messaggio di errore completo:
+
+"' CSC. exe ' terminato con codice di errore 1. Impossibile creare un'istanza dell'analizzatore *aaaa* da C:\\*bbbb*. dll: Impossibile caricare il file o l'assembly ' Microsoft. CodeAnalysis, Version =*x.x.* x. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. The system cannot find the file specified" (Valore 'cwd' '/src' non valido. Impossibile trovare il file specificato)
+
+Verificare che il compilatore supporti gli analizzatori Roslyn. L'esecuzione del comando **csc. exe/version** dovrebbe indicare un valore di versione 2,6 o successiva.
+
+A volte un file con estensione csproj può sostituire l'installazione di Visual Studio del computer di compilazione facendo riferimento a un pacchetto di Microsoft.Net. Compilers. Se non si prevede di usare una versione specifica del compilatore, rimuovere i riferimenti a Microsoft.Net. Compilers. In caso contrario, verificare che anche la versione del pacchetto a cui si fa riferimento sia 2,6 o successiva.
+
+Provare a ottenere il percorso del log degli errori, specificato nell'opzione **/ErrorLog di CSC. exe** . L'opzione e il percorso vengono visualizzati nel log per l'attività di compilazione analizzatori Roslyn. Potrebbero avere un aspetto simile a **/ErrorLog: f:\ts-Services-\_123 work\456\s\Some\Project\Code\Code.csproj.Sarif**
+
+##### <a name="the-c-compiler-version-isnt-recent-enough"></a>La C# versione del compilatore non è abbastanza recente
+
+Per ottenere le versioni più recenti del C# compilatore, passare a [Microsoft.NET. Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Per ottenere la versione installata, eseguire **csc. exe/version** al prompt dei comandi. Assicurarsi di fare riferimento a un pacchetto NuGet Microsoft.Net. Compilers versione 2,6 o successiva.
+
+##### <a name="msbuild-and-vsbuild-logs-arent-found"></a>I registri MSBuild e VSBuild non sono stati trovati
+
+L'attività di compilazione degli analizzatori Roslyn deve eseguire una query su Azure DevOps per il log MSBuild dall'attività di compilazione di MSBuild. Se l'attività analizzatore viene eseguita immediatamente dopo l'attività MSBuild, il log non sarà ancora disponibile. Inserire altre attività tra l'attività MSBuild e l'attività analizzatori Roslyn. Esempi di altre attività includono BinSkim e anti-malware scanner.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se è necessaria assistenza aggiuntiva, il supporto per l'analisi del codice di sicurezza Microsoft è disponibile dal lunedì al venerdì 9:00 AM-5:00 PM (ora solare Pacifico)
+Se è necessaria assistenza aggiuntiva, il supporto per l'analisi del codice di sicurezza Microsoft è disponibile dal lunedì al venerdì dalle 9:00 alle 5:00 ora solare Pacifico.
 
-  - Onboarding: per iniziare, contattare i responsabili dell'account tecnico. 
+  - Onboarding: Per iniziare, contattare i responsabili dell'account tecnico.
+  
+  - Supporto Inviare un messaggio di posta elettronica al [supporto Microsoft Security Analysis code](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
+
   >[!NOTE] 
-  >Se non si ha già una relazione di supporto a pagamento con Microsoft o se si dispone di un'offerta di supporto che non consente di acquistare servizi dal catalogo Phoenix, visitare i [servizi di supporto Home page](https://www.microsoft.com/enterprise/services/support) per altre informazioni.
-
-  - Supporto-invia un messaggio di posta elettronica al team [Microsoft Security Analysis code](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)
+  >È possibile che non si disponga di una relazione di supporto a pagamento con Microsoft. In alternativa, è possibile che si disponga di un'offerta di supporto che impedisce di acquistare servizi dal catalogo Phoenix. Se una di queste condizioni è vera, visitare i [servizi di supporto Home page](https://www.microsoft.com/enterprise/services/support) per altre informazioni.

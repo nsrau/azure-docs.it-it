@@ -6,15 +6,15 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5333bfd8c7f7d24e497e4b7ba7da3543aee54da6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 968e55cc07d10a0d4b54d4a7e866417d18e98bb5
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194755"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258875"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funzioni del modello di Azure Resource Manager
-Questo articolo descrive tutte le funzioni disponibili in un modello di Azure Resource Manager. Per informazioni sull'uso delle funzioni nel modello, vedere [sintassi del modello](resource-group-authoring-templates.md#syntax).
+Questo articolo descrive tutte le funzioni disponibili in un modello di Azure Resource Manager. Per informazioni sull'uso delle funzioni nel modello, vedere [sintassi del modello](template-expressions.md).
 
 Per creare funzioni personalizzate, vedere [Funzioni definite dall'utente](resource-group-authoring-templates.md#functions).
 

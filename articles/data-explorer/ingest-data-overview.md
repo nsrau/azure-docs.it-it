@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be77ae932ec72239bea04fce298d7f1b84e5e4d8
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759321"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240640"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
 
@@ -52,7 +52,7 @@ Esplora dati di Azure attualmente supporta:
 
 ### <a name="ingestion-using-integration-services"></a>Inserimento tramite servizi di integrazione
 
-* Azure Data Factory (ADF), un servizio di integrazione dei dati completamente gestito per carichi di lavoro analitici in Azure, per copiare dati da e verso Azure Data Explorer utilizzando [archivi dati e formati supportati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Per altre informazioni, vedere [copiare dati da Azure Data Factory in Esplora dati di Azure](/azure/data-explorer/data-factory-load-data).
+* Azure Data Factory (ADF), un servizio di integrazione dei dati completamente gestito per i carichi di lavoro analitici in Azure, per copiare dati da e verso Azure Esplora dati usando [archivi dati e formati supportati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Per altre informazioni, vedere [copiare dati da Azure Data Factory ad Azure Esplora dati](/azure/data-explorer/data-factory-load-data).
 
 ### <a name="programmatic-ingestion"></a>Inserimento a livello di codice
 
@@ -80,7 +80,7 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 * Inserimento dei dati direttamente nel motore Esplora dati di Azure (il più appropriato per l'esplorazione e la creazione di prototipi):
 
-  * **L'inserimento di inline**: comando di controllo (.ingest inline) che contiene i dati in banda è destinato a scopo di test ad hoc.
+  * Inserimento **inline**: il comando di controllo (. inserimento inline) contenente dati in banda è destinato a scopi di test ad hoc.
 
   * **Inserimento da query**: il comando di controllo (.set, .set-or-append, .set-or-replace) che fa riferimento ai risultati della query viene usato per la generazione di report o di tabelle temporanee di piccole dimensioni.
 
@@ -88,7 +88,7 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 **Latenza dei diversi metodi**:
 
-| Metodo | Latenza |
+| Metodo | Latency |
 | --- | --- |
 | **Inserimento inline** | Immediato |
 | **Inserimento da query** | Tempo di query + tempo di elaborazione |
@@ -113,13 +113,13 @@ Prima di iniziare a inserire i dati, è consigliabile porsi le domande seguenti.
 * Quali sono i requisiti relativi alla latenza? 
 * È possibile usare una delle pipeline di inserimento gestite esistenti? 
 
-Per le organizzazioni con un'infrastruttura esistente basata su un servizio di messaggistica, ad esempio l'hub eventi, l'uso di un connettore è probabilmente la soluzione più appropriata. L'inserimento in coda è adatto per grandi volumi di dati.
+Per le organizzazioni con un'infrastruttura esistente basata su un servizio di messaggistica come hub eventi e hub Internet, l'uso di un connettore è probabilmente la soluzione più appropriata. L'inserimento in coda è adatto per grandi volumi di dati.
 
 ## <a name="supported-data-formats"></a>Formati di dati supportati
 
 Per tutti i metodi di inserimento diversi dall'inserimento da query, formattare i dati in modo che Esplora dati di Azure possa analizzarli. Sono supportati i formati di dati seguenti:
 
-* CSV, TSV, PSV, SCSV, SOH
+* CSV, TSV, TSVE, PSV, SCSV, RAPPORTO DI INTEGRITÀ
 * JSON (separato da righe, multiriga), Avro
 * ZIP e GZIP 
 

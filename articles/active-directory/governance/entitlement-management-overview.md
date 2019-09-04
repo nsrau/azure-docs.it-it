@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032551"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241703"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Cos'è Gestione entitlement di Azure AD? (anteprima)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Cos'è Gestione entitlement di Azure AD? (Anteprima)
 
 > [!IMPORTANT]
 > Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
@@ -139,6 +139,18 @@ Per comprendere meglio la gestione dei diritti e la relativa documentazione, è 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 I cloud specializzati, ad esempio Azure per enti pubblici, Azure Germania e Azure Cina 21Vianet, non sono attualmente disponibili per l'uso in questa versione di anteprima.
+
+### <a name="which-users-must-have-licenses"></a>Quali utenti devono avere le licenze?
+
+Il tenant deve avere almeno un numero di licenze Azure AD Premium P2 uguale a quello degli utenti membri attivi. Gli utenti membri attivi nella gestione dei diritti includono:
+
+- Utente che avvia o approva una richiesta di un pacchetto di accesso.
+- Utente a cui è stato assegnato un pacchetto di accesso. 
+- Utente che gestisce i pacchetti di accesso.
+
+Come parte delle licenze per gli utenti membri, è anche possibile consentire a diversi utenti guest di interagire con la gestione dei diritti. Per informazioni su come calcolare il numero di utenti guest che è possibile includere, vedere [Azure Active Directory linee guida sulle licenze di collaborazione B2B](../b2b/licensing-guidance.md).
+
+Per informazioni su come assegnare le licenze agli utenti, vedere [assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

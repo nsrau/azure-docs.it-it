@@ -1,7 +1,7 @@
 ---
 title: Apprendimento avanzato e Machine Learning
 titleSuffix: Azure Machine Learning service
-description: Informazioni sulla relazione tra Deep Learning e machine learning e sul modo in cui rientrano nella categoria di intelligenza artificiale. Questo articolo descrive il modo in cui l'apprendimento avanzato risolve scenari quali il rilevamento delle frodi, il riconoscimento vocale e facciale, l'analisi dei sentimenti e la previsione delle serie temporali.
+description: Informazioni sull'apprendimento avanzato e sull'apprendimento automatico e sul modo in cui entrambi i concetti sono correlati all'intelligenza artificiale. L'apprendimento avanzato può essere applicato in scenari come il rilevamento delle frodi, il riconoscimento vocale e facciale, l'analisi dei sentimenti e la previsione delle serie temporali.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,94 +9,106 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 5301be493ef22fc2d74cc337d88b04caf391fdaa
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 3b0546c42ddd5252b35d1a77d7b152733beec233
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982801"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240951"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Apprendimento avanzato e Machine Learning
 
-Questo articolo consente di comprendere la relazione tra Deep Learning e machine learning. Verranno illustrate le differenze tra i due concetti e il modo in cui rientrano nella categoria più ampia di intelligenza artificiale. Infine, l'articolo descrive il modo in cui l'apprendimento avanzato può essere applicato a scenari reali, ad esempio il rilevamento delle frodi, il riconoscimento vocale e facciale, l'analisi dei sentimenti e la previsione delle serie temporali.
+Questo articolo consente di confrontare apprendimento avanzato e machine learning. Verranno illustrate le differenze tra i due concetti e il modo in cui rientrano nella categoria più ampia di intelligenza artificiale. L'articolo descrive anche il modo in cui l'apprendimento avanzato può essere applicato a scenari reali come il rilevamento delle frodi, il riconoscimento vocale e facciale, l'analisi dei sentimenti e la previsione delle serie temporali.
 
-## <a name="how-do-deep-learning-machine-learning-and-ai-relate-to-one-another"></a>In che modo l'apprendimento avanzato, l'apprendimento automatico e l'intelligenza artificiale sono correlati tra loro?
+## <a name="deep-learning-machine-learning-and-ai"></a>Deep Learning, Machine Learning e intelligenza artificiale
 
 ![Diagramma delle relazioni: Confronto tra intelligenza artificiale e machine learning e apprendimento avanzato](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
 
-Per comprendere la differenza tra Deep Learning e machine learning rispetto a AI, informazioni su ciascuno di questi campi di Study:
+Prendere in considerazione le seguenti definizioni per comprendere l'apprendimento avanzato rispetto a Machine Learning e INTELLIGENZA ARTIFICIALE
 
-- **Deep Learning** è un subset di machine learning basato su reti neurali artificiali che consentono a un computer di eseguire il training autonomo. In questo caso, il _processo di apprendimento_ viene chiamato _Deep_, perché la struttura delle reti neurali artificiali è costituita da più livelli di input, output e Hidden. Ogni livello contiene unità che trasformano i dati di input in informazioni che il livello successivo può utilizzare per eseguire una determinata attività predittiva. Grazie a questa struttura, un computer è in grado di apprendere tramite la propria elaborazione dei dati.
+- **Deep Learning** è un subset di machine learning basato su reti neurali artificiali. Il _processo di apprendimento_ è _profondo_ perché la struttura delle reti neurali artificiali è costituita da più livelli di input, output e nascosto. Ogni livello contiene unità che trasformano i dati di input in informazioni che il livello successivo può utilizzare per una determinata attività predittiva. Grazie a questa struttura, un computer può apprendere tramite la propria elaborazione dei dati.
 
-- **Machine Learning** è un subset di intelligenza artificiale che include tecniche, ad esempio l'apprendimento avanzato, che consentono ai computer di migliorare le attività con esperienza. In questo caso, il _processo di apprendimento_ è basato sui passaggi seguenti:
+- **Machine Learning** è un subset di intelligenza artificiale che usa tecniche, ad esempio l'apprendimento avanzato, che consentono ai computer di usare l'esperienza per migliorare le attività. Il _processo di apprendimento_ è basato sui passaggi seguenti:
 
-    1. Inserire un algoritmo con i dati fornendogli altre informazioni, ad esempio eseguendo l'estrazione della funzionalità.
-    2. Usare questi dati per eseguire il training di un modello.
-    3. Testare e distribuire il modello.
-    4. Utilizzare il modello distribuito per eseguire una determinata attività predittiva automatica.
+   1. Inserire i dati in un algoritmo. In questo passaggio è possibile fornire ulteriori informazioni al modello, ad esempio eseguendo l'estrazione delle funzionalità.
+   1. Usare questi dati per eseguire il training di un modello.
+   1. Testare e distribuire il modello.
+   1. Utilizzare il modello distribuito per eseguire un'attività predittiva automatica. In altre parole, chiamare e utilizzare il modello distribuito per ricevere le stime restituite dal modello.
 
-- **Intelligenza artificiale (ai)** è una tecnica che consente ai computer di simulare l'intelligenza umana. Include machine learning. È importante comprendere la relazione tra _intelligenza artificiale e machine learning rispetto a Deep Learning_: Machine Learning è un modo per ottenere l'intelligenza artificiale, ovvero mediante l'uso di tecniche di apprendimento automatico e apprendimento avanzato è possibile creare sistemi di computer e applicazioni in grado di eseguire attività comunemente associate all'intelligence umana, ad esempio percezione visiva, riconoscimento vocale, processo decisionale e traduzione tra i linguaggi.
+- **Intelligenza artificiale (ai)** è una tecnica che consente ai computer di simulare l'intelligenza umana. Include machine learning. 
+ 
+È importante comprendere la relazione tra intelligenza artificiale, Machine Learning e apprendimento avanzato. Machine Learning è un modo per ottenere l'intelligenza artificiale. Grazie alle tecniche di apprendimento automatico e apprendimento avanzato, è possibile creare sistemi di computer e applicazioni che eseguono attività comunemente associate all'intelligence umana. Queste attività includono la percezione visiva, il riconoscimento vocale, il decisionale e la traduzione della lingua.
 
-## <a name="comparison-of-deep-learning-vs-machine-learning"></a>Confronto tra Deep Learning e Machine Learning
+## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Tecniche di apprendimento avanzato rispetto a Machine Learning 
 
-Ora che si dispone della Panoramica di machine learning e di Deep Learning, confrontare le due tecniche. Nel caso di Machine Learning, è necessario che nell'algoritmo venga indicato come eseguire una stima accurata fornendo ulteriori informazioni; mentre, nel caso dell'apprendimento avanzato, l'algoritmo è in grado di apprendere che tramite la propria elaborazione dei dati grazie alla struttura di rete neurale artificiale.
+Ora che si ha una panoramica di machine learning rispetto a Deep Learning, verranno confrontate le due tecniche. Nell'apprendimento automatico, è necessario che all'algoritmo venga indicato come eseguire una stima accurata utilizzando altre informazioni, ad esempio eseguendo l'estrazione delle funzionalità. Nell'apprendimento avanzato l'algoritmo può apprendere come eseguire una stima accurata tramite la propria elaborazione dei dati, grazie alla struttura di rete neurale artificiale.
 
 Nella tabella seguente vengono confrontate le due tecniche in modo più dettagliato:
 
 | |Tutti i computer Learning |Solo Deep Learning|
 |---|---|---|
-|  **Numero di punti dati** | Può utilizzare quantità di dati ridotte fornite dagli utenti | Richiede una grande quantità di dati di training per creare conclusioni concise |
-|  **Dipendenze hardware** | Può funzionare nei computer di fascia bassa. Non è necessaria una grande quantità di potenza di calcolo | Dipende da computer di fascia alta. Esegue intrinsecamente un numero elevato di operazioni di moltiplicazione di matrici. Queste operazioni possono essere ottimizzate in modo efficiente tramite una GPU |
-|  **Processo conteggi** | Richiede che le funzionalità siano identificate e create accuratamente dagli utenti | Apprende le funzionalità di alto livello dai dati e crea nuove funzionalità da solo |
-|  **Approccio alla formazione** | Divide le attività in piccole parti, quindi combina i risultati ricevuti in un'unica conclusione | Risolve il problema su base end-to-end |
-|  **Tempo di esecuzione** | Il training richiede meno tempo, compreso tra pochi secondi e alcune ore | Richiede un tempo insolitamente lungo per eseguire il training, perché sono presenti molti parametri in un algoritmo di apprendimento avanzato |
-|  **Output** | L'output è in genere un valore numerico, ad esempio un punteggio o una classificazione | L'output può essere qualsiasi elemento da un punteggio, un testo, un elemento o un suono |
+|  **Numero di punti dati** | Consente di utilizzare piccole quantità di dati fornite dagli utenti. | Richiede una grande quantità di dati di training per creare conclusioni concise. |
+|  **Dipendenze hardware** | Può funzionare nei computer di fascia bassa. Non è necessaria una grande quantità di potenza di calcolo. | Dipende da computer di fascia alta. Esegue intrinsecamente un numero elevato di operazioni di moltiplicazione di matrici. Una GPU può ottimizzare in modo efficiente queste operazioni. |
+|  **Processo conteggi** | Richiede che le funzionalità siano identificate e create accuratamente dagli utenti. | Impara le funzionalità di alto livello dai dati e crea nuove funzionalità da sola. |
+|  **Approccio alla formazione** | Divide le attività in piccole parti e quindi combina i risultati ricevuti in un'unica conclusione. | Risolve il problema su base end-to-end. |
+|  **Tempo di esecuzione** | Richiede tempo relativamente breve per eseguire il training, che varia da pochi secondi ad alcune ore. | Richiede un tempo insolitamente lungo per il training perché un algoritmo di apprendimento avanzato implica molti parametri. |
+|  **Output** | L'output è in genere un valore numerico, ad esempio un punteggio o una classificazione. | L'output può essere un testo, un punteggio, un elemento o un suono. |
 
-## <a name="deep-learning-use-cases-what-problems-does-it-solve"></a>Casi d'uso di Deep Learning: Quali problemi risolve?
+## <a name="deep-learning-use-cases"></a>Casi d'uso di Deep Learning
 
-Grazie alla struttura di rete neurale artificiale, l'apprendimento avanzato eccelle nell'identificare i modelli nei dati non strutturati, ad esempio immagini, audio, video e testo. Per questo motivo, trasforma rapidamente molti settori, tra cui Healthcare, energia, tecnofinanza, trasporto e altri, per ripensare ai processi aziendali tradizionali. Alcune delle applicazioni più comuni per l'apprendimento approfondito sono descritte nei paragrafi seguenti.
+Grazie alla struttura di rete neurale artificiale, l'apprendimento avanzato eccelle nell'identificare i modelli nei dati non strutturati, ad esempio immagini, audio, video e testo. Per questo motivo, l'apprendimento avanzato sta trasformando rapidamente molti settori, tra cui Healthcare, energia, finanza e trasporto. Questi settori ora ripensano i tradizionali processi aziendali. 
+
+Alcune delle applicazioni più comuni per l'apprendimento approfondito sono descritte nei paragrafi seguenti.
 
 ### <a name="named-entity-recognition"></a>Riconoscimento di entità denominate
 
-Un uso delle reti di formazione approfondita è il riconoscimento delle entità denominate, ovvero un modo per estrarre da dati non strutturati e senza etichetta determinati tipi di informazioni come persone, luoghi, aziende o cose. Tali informazioni possono quindi essere archiviate in uno schema strutturato per creare un elenco di indirizzi o fungere da benchmark per un motore di convalida delle identità.
+Un uso delle reti di formazione approfondita è il riconoscimento delle entità denominate, ovvero un modo per estrarre determinati tipi di informazioni da dati non strutturati e senza etichetta. Queste informazioni possono essere persone, luoghi, aziende o cose. Le informazioni possono quindi essere archiviate in uno schema strutturato per creare un elenco di indirizzi o fungere da benchmark per un motore di convalida delle identità.
 
 ### <a name="object-detection"></a>Rilevamento di oggetti
 
-L'apprendimento avanzato è stato applicato in molti casi d'uso di rilevamento oggetti. Il rilevamento degli oggetti è in realtà un processo in due parti: classificazione delle immagini e quindi localizzazione delle immagini. La classificazione delle immagini determina quali sono gli oggetti dell'immagine, ad esempio un'auto o una persona, mentre la localizzazione delle immagini fornisce la posizione specifica di questi oggetti. Il rilevamento degli oggetti è già in uso nei settori di giochi, vendite al dettaglio, turismo e auto-guida.
+L'apprendimento avanzato è stato applicato in molti casi d'uso di rilevamento oggetti. Il rilevamento degli oggetti è costituito da due parti: classificazione delle immagini e quindi localizzazione delle immagini. _Classificazione_ immagini identifica gli oggetti dell'immagine, ad esempio automobili o persone. La _localizzazione_ delle immagini fornisce la posizione specifica di questi oggetti. 
+
+Il rilevamento degli oggetti è già in uso in settori quali giochi, vendite al dettaglio, turismo e auto autoguidate.
 
 ### <a name="image-caption-generation"></a>Generazione didascalia immagine
 
-Analogamente all'attività di riconoscimento delle immagini, la didascalia delle immagini è l'attività in cui, per una determinata immagine, il sistema deve generare una didascalia che descrive il contenuto dell'immagine. Quando è possibile rilevare oggetti nelle fotografie e generare etichette per tali oggetti, è possibile notare che il passaggio successivo consiste nel trasformare tali etichette in una descrizione di frase coerente. In genere, i sistemi comportano l'utilizzo di reti neurali di convoluzione molto grandi per il rilevamento di oggetti nelle fotografie, quindi una rete neurale ricorrente (RNN) per trasformare le etichette in una frase coerente.
+Come il riconoscimento delle immagini, nel didascalia delle immagini, per una determinata immagine, il sistema deve generare una didascalia che descrive il contenuto dell'immagine. Quando è possibile rilevare ed etichettare oggetti nelle fotografie, il passaggio successivo consiste nel trasformare tali etichette in frasi coerenti e descrittive. In genere, i sistemi di didascalia delle immagini usano reti neurali di convoluzione molto grandi per rilevare gli oggetti nelle fotografie e quindi usano una rete neurale ricorrente (RNN) per trasformare le etichette in frasi coerenti.
 
 ### <a name="machine-translation"></a>Traduzione automatica
 
-La traduzione automatica accetta parole, frasi o frasi da una lingua e le converte automaticamente in un'altra lingua. La traduzione automatica del computer è rimasta da molto tempo, ma l'apprendimento avanzato sta ottenendo risultati ottimali in due aree specifiche, ovvero la traduzione automatica del testo (e il riconoscimento vocale) e la traduzione automatica delle immagini. Con la trasformazione dei dati appropriata, una rete approfondita è in grado di comprendere i segnali di testo, audio e visivi. La traduzione automatica può essere usata per identificare frammenti di suoni in file audio di dimensioni maggiori e per trascrivere la parola o l'immagine pronunciata come testo.
+La traduzione automatica accetta parole, frasi o frasi da una lingua e le converte automaticamente in un'altra lingua. La traduzione automatica del computer è rimasta da molto tempo, ma l'apprendimento avanzato raggiunge risultati impressionanti in due aree specifiche: la traduzione automatica del testo (e la traduzione di riconoscimento vocale) e la traduzione automatica delle immagini. 
+
+Con la trasformazione dei dati appropriata, una rete profonda può comprendere i segnali di testo, audio e visivi. La traduzione automatica può essere usata per identificare frammenti di suoni in file audio di dimensioni maggiori e per trascrivere la parola o l'immagine pronunciata come testo.
 
 ### <a name="text-analytics"></a>Analisi del testo
 
-Una delle attività più importanti che l'apprendimento avanzato può eseguire è l'e-Discovery. Le aziende usano l'analisi del testo basata sull'apprendimento avanzato per il rilevamento delle transazioni Insider e la conformità alle normative governative. Gli hedge fund usano analisi del testo per eseguire il drill-down in repository di documenti di grandi dimensioni per ottenere informazioni approfondite sulle prestazioni di investimento future e sui sentimenti del mercato. Il caso d'uso per analisi del testo basata sull'apprendimento avanzato è basato sulla possibilità di analizzare grandi quantità di dati di testo per eseguire analisi o produrre aggregazioni.
+Una delle attività più importanti di apprendimento avanzato è l'e-Discovery. Le aziende usano analisi del testo basate su Deep learning per rilevare il trading di insider e la conformità alle normative governative. Gli hedge fund usano analisi del testo per eseguire il drill-down in repository di documenti di grandi dimensioni per ottenere informazioni approfondite sulle prestazioni di investimento future e sui sentimenti del mercato. Il caso d'uso per analisi del testo basato sull'apprendimento avanzato è basato sulla possibilità di analizzare grandi quantità di dati di testo ed eseguire analisi o produrre aggregazioni.
 
-## <a name="what-are-artificial-neural-networks"></a>Che cosa sono le reti neurali artificiali?
+## <a name="artificial-neural-networks"></a>Reti neurali artificiali
 
-Le reti neurali artificiali sono costituite da livelli di nodi connessi. I modelli di apprendimento avanzato utilizzano reti neurali con un numero molto elevato di livelli. Le tipologie di rete neurale artificiali più diffuse sono illustrate di seguito.
+Le reti neurali artificiali sono costituite da livelli di nodi connessi. I modelli di apprendimento avanzato utilizzano reti neurali con un numero elevato di livelli. 
+
+Le sezioni seguenti illustrano le più diffuse tipologie di reti neurali artificiali.
 
 ### <a name="feedforward-neural-network"></a>Rete neurale feedforward
 
-La rete neurale feedforward è il tipo di base della rete neurale artificiale, in cui le informazioni passano in una sola direzione dal livello di input al livello di output. Feedforward neural network trasforma un input inserendolo in una serie di livelli nascosti. Ogni livello è costituito da un set di neuroni, in cui ogni livello è completamente connesso a tutti i neuroni nel livello precedente. Infine, è disponibile un ultimo livello completamente connesso, ovvero il livello di output, che rappresenta le stime generate.
+La rete neurale feedforward è il tipo di base della rete neurale artificiale. In una rete feedforward, le informazioni viaggiano in una sola direzione dal livello di input al livello di output. Feedforward neural network trasforma un input inserendolo in una serie di livelli nascosti. Ogni livello è costituito da un set di neuroni e ogni livello è completamente connesso a tutti i neuroni nel livello precedente. L'ultimo livello completamente connesso, ovvero il livello di output, rappresenta le stime generate.
 
 ### <a name="recurrent-neural-network"></a>Rete neurale ricorrente
 
-Le reti neurali ricorrenti sono un tipo più diffuso di rete neurale artificiale, che funziona in base al principio di salvataggio dell'output di un livello e di ritorno al livello di input per consentire la stima del risultato del livello. Queste reti neurali hanno maggiori capacità di apprendimento e sono ampiamente usate per attività più complesse, ad esempio per l'apprendimento della grafia o il riconoscimento della lingua.
+Le reti neurali ricorrenti sono una rete neurale artificiale ampiamente utilizzata. Queste reti salvano l'output di un livello e lo reinviano al livello di input per consentire la stima del risultato del livello. Le reti neurali ricorrenti hanno ottime capacità di apprendimento. Sono ampiamente usati per attività complesse come l'apprendimento della grafia e il riconoscimento del linguaggio.
 
 ### <a name="convolutional-neural-networks"></a>Reti neurali di convoluzione
 
-Una rete neurale di convoluzione è un tipo particolarmente efficace di rete neurale artificiale, che presenta un'architettura univoca. In primo luogo, i livelli sono organizzati in tre dimensioni: larghezza, altezza e profondità. I neuroni di un livello, inoltre, non si connettono a tutti i neuroni nel livello successivo, ma solo a una piccola area. Infine, l'output finale verrà ridotto a un singolo vettore di punteggi di probabilità, organizzati lungo la dimensione di profondità. Queste reti neurali sono state usate in aree quali il riconoscimento e la classificazione delle immagini.
+Una rete neurale di convoluzione è una rete neurale artificiale particolarmente efficace e presenta un'architettura univoca. I livelli sono organizzati in tre dimensioni: larghezza, altezza e profondità. I neuroni di un livello non si connettono a tutti i neuroni nel livello successivo, ma solo a una piccola area dei neuroni del livello. L'output finale viene ridotto a un singolo vettore di punteggi di probabilità, organizzati lungo la dimensione di profondità. 
+
+Le reti neurali di convoluzione sono state usate in aree quali il riconoscimento e la classificazione delle immagini.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli articoli seguenti illustrano come usare la tecnologia Deep learning nel [servizio Azure Machine Learning](/azure/machine-learning/service/):
+Gli articoli seguenti illustrano come usare la tecnologia Deep learning nel [servizio Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri):
 
-- [Classificare le cifre scritte a mano con un modello TensorFlow](how-to-train-tensorflow.md)
-- [Classificare le cifre scritte a mano con uno strumento di stima TensorFlow e keras](how-to-train-keras.md)
-- [Classificare le immagini con un modello Pytorch](how-to-train-pytorch.md)
-- [Classificare le cifre scritte a mano con un modello Chainer](how-to-train-pytorch.md)
+- [Classificare le cifre scritte a mano usando un modello TensorFlow](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+- [Classificare le cifre scritte a mano usando uno strumento di stima TensorFlow e keras](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [Classificare le immagini usando un modello Pytorch](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+- [Classificare le cifre scritte a mano usando un modello Chainer](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)

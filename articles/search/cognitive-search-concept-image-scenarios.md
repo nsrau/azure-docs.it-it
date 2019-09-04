@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 65b6eb07a866db405af3e5bc609a540c36f148a8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 84109cf04588a5de6fb3fd946a89b5dfee4baa1b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186436"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259160"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Come elaborare ed estrarre informazioni da immagini in scenari di ricerca cognitiva
 
@@ -31,19 +31,18 @@ Nell'ambito del processo di individuazione dei documenti, è disponibile un nuov
 
 Non è possibile disattivare la normalizzazione delle immagini. Le competenze che prevedono l'iterazione sulle immagini richiedono immagini normalizzate. Per abilitare la normalizzazione delle immagini in un indicizzatore, è necessario associare un skillt a tale indicizzatore.
 
-| Parametro di configurazione | DESCRIZIONE |
+| Parametro di configurazione | Descrizione |
 |--------------------|-------------|
 | imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate in cui, per i file PDF nell'origine dati, per ogni pagina viene eseguito il rendering in una sola immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, il primo 1000 verrà estratto e verrà generato un avviso. |
-|  normalizedImageMaxWidth | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000.|
-|  normalizedImageMaxHeight | L'altezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000.|
+|  normalizedImageMaxWidth | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000. Il valore massimo consentito è 10000. | 
+|  normalizedImageMaxHeight | L'altezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000. Il valore massimo consentito è 10000.|
 
 > [!NOTE]
 > Se si imposta la proprietà *imageAction* su un valore diverso da "none", non sarà possibile impostare la proprietà *parsingMode* su un valore diverso da "default".  Nella configurazione dell'indicizzatore è possibile impostare solo una di queste due proprietà su un valore non predefinito.
 
 Impostare il parametro **parsingMode** su `json`, per indicizzare ogni BLOB come un singolo documento, oppure su `jsonArray`, se i BLOB contengono matrici JSON ed è necessario trattare ogni elemento di una matrice come un documento separato.
 
-Il valore predefinito di 2000 pixel per i valori massimi di altezza e larghezza delle immagini normalizzate è basato sulle dimensioni massime supportate dalla [competenza OCR](cognitive-search-skill-ocr.md) e dalla [competenza di analisi delle immagini](cognitive-search-skill-image-analysis.md). Se si aumentano i limiti massimi, è possibile che l'elaborazione di immagini di dimensioni maggiori non riesca.
-
+Il valore predefinito di 2000 pixel per i valori massimi di altezza e larghezza delle immagini normalizzate è basato sulle dimensioni massime supportate dalla [competenza OCR](cognitive-search-skill-ocr.md) e dalla [competenza di analisi delle immagini](cognitive-search-skill-image-analysis.md). La [skill OCR](cognitive-search-skill-ocr.md) supporta una larghezza e un'altezza massime di 4200 per le lingue diverse dall'inglese e 10000 per la lingua inglese.  Se si aumentano i limiti massimi, l'elaborazione potrebbe avere esito negativo sulle immagini più grandi a seconda della definizione del suo competenze e della lingua dei documenti. 
 
 Specificare imageAction nella [definizione dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) come indicato di seguito:
 
@@ -63,7 +62,7 @@ Specificare imageAction nella [definizione dell'indicizzatore](https://docs.micr
 
 Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *normalized_images* conterrà una matrice di immagini. Ogni immagine è un tipo complesso che contiene i membri seguenti:
 
-| Membro immagine       | DESCRIZIONE                             |
+| Membro immagine       | Descrizione                             |
 |--------------------|-----------------------------------------|
 | data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
 | width              | Larghezza dell'immagine normalizzata in pixel. |

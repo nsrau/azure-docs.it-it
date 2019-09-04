@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6a5b07dd72c4e2364281b755e77e642f8fe167
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 161539aaec4d3b7162405f437b7fb3dd1f6a00e6
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542975"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258840"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedure consigliate per i modelli di Azure Resource Manager
 
@@ -175,7 +175,7 @@ Quando si decidono le [dipendenze](resource-group-define-dependencies.md) da imp
 
 * Impostare una risorsa figlio come dipendente dalla risorsa padre.
 
-* Le risorse con l'[elemento condition](resource-group-authoring-templates.md#condition) impostato su false vengono automaticamente rimosse dall'ordine di dipendenza. Impostare le dipendenze come se la risorsa venisse sempre distribuita.
+* Le risorse con l'[elemento condition](conditional-resource-deployment.md) impostato su false vengono automaticamente rimosse dall'ordine di dipendenza. Impostare le dipendenze come se la risorsa venisse sempre distribuita.
 
 * Consentire la propagazione a catena delle dipendenze senza impostarle esplicitamente. Ad esempio, una macchina virtuale dipende da un'interfaccia di rete virtuale e tale interfaccia dipende da una rete virtuale e indirizzi IP pubblici. La macchina virtuale viene quindi distribuita dopo tutte e tre le risorse, ma non deve essere impostata esplicitamente come dipendente da tutte e tre. Questo approccio offre chiarezza nell'ordine delle dipendenze e semplifica la successiva modifica del modello.
 

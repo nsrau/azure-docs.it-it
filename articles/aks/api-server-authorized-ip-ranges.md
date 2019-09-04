@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: fe0c9d7e870b56bf83b70845af9159ea0703c4ab
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 487940bfb5d6e7c5eebf99f804f57c3e17709377
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533620"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276492"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere l'accesso al server API usando gli intervalli di indirizzi IP autorizzati in Azure Kubernetes Service (AKS)
 
@@ -27,6 +27,8 @@ Questo articolo illustra come usare gli intervalli di indirizzi IP autorizzati d
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
+
+Questo articolo presuppone che si stiano lavorando con i cluster che usano [kubenet] [kubenet].  Con [CNI (Azure container Network Interface)] [CNI-networking] cluster basati su, non sarà necessaria la tabella di route necessaria per proteggere l'accesso.  Sarà necessario creare manualmente la tabella di route.  Per ulteriori informazioni, vedere [gestione delle tabelle di route](https://docs.microsoft.com/azure/virtual-network/manage-route-table) .
 
 Gli intervalli IP autorizzati del server API funzionano solo per i nuovi cluster AKS creati dall'utente. Questo articolo illustra come creare un cluster AKS usando l'interfaccia della riga di comando di Azure.
 
@@ -109,7 +111,7 @@ Per assicurarsi che i nodi in un cluster possano comunicare in modo affidabile c
 > [!WARNING]
 > L'uso del firewall di Azure può comportare costi significativi in un ciclo di fatturazione mensile. Il requisito di usare il firewall di Azure dovrebbe essere necessario solo in questo periodo di anteprima iniziale. Per altre informazioni e per la pianificazione dei costi, vedere [prezzi di Azure firewall][azure-firewall-costs].
 >
-> In alternativa, se il cluster usa il servizio di [bilanciamento del carico SKU standard][standard-sku-lb], non è necessario configurare il firewall di Azure come gateway in uscita. Usare il comando [AZ Network Public-IP list][az-network-public-ip-list] e specificare il gruppo di risorse del cluster AKS, che in genere inizia con *MC_* . Viene visualizzato l'indirizzo IP pubblico per il cluster, che è possibile inserire nell'elenco elementi consentiti. Esempio:
+> In alternativa, se il cluster usa il servizio di [bilanciamento del carico SKU standard][standard-sku-lb], non è necessario configurare il firewall di Azure come gateway in uscita. Usare il comando [AZ Network Public-IP list][az-network-public-ip-list] e specificare il gruppo di risorse del cluster AKS, che in genere inizia con *MC_* . Viene visualizzato l'indirizzo IP pubblico per il cluster, che è possibile inserire nell'elenco elementi consentiti. Ad esempio:
 >
 > ```azurecli-interactive
 > RG=$(az aks show --resource-group myResourceGroup --name myAKSClusterSLB --query nodeResourceGroup -o tsv)

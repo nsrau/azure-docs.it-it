@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494799"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258905"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Iterazione di risorse, proprietà o variabili nei modelli di Azure Resource Manager
 
@@ -43,13 +43,13 @@ Se usato con una variabile o una proprietà, l'oggetto Copy ha il formato seguen
 
 Entrambi gli usi sono descritti in modo più dettagliato in questo articolo. Per un'esercitazione, vedere [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Esercitazione: Creare più istanze di risorse usando i modelli di Resource Manager).
 
-Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](resource-group-authoring-templates.md#condition).
+Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](conditional-resource-deployment.md).
 
 ## <a name="copy-limits"></a>Limiti di copia
 
 Per specificare il numero di iterazioni, fornire un valore per la proprietà Count. Il conteggio non può essere maggiore di 800.
 
-Il conteggio non può essere un numero negativo. Se si distribuisce un modello con l'API REST versione **2019-05-10** o successiva, è possibile impostare Count su zero. Le versioni precedenti dell'API REST non supportano zero per Count. Attualmente, l'interfaccia della riga di comando di Azure o PowerShell non supporta zero per Count, ma tale supporto verrà aggiunto in una versione futura.
+Il conteggio non può essere un numero negativo. Se si distribuisce un modello con Azure PowerShell 2,6 o versioni successive oppure l'API REST versione **2019-05-10** o successiva, è possibile impostare Count su zero. Le versioni precedenti di PowerShell e l'API REST non supportano zero per Count. Attualmente, l'interfaccia della riga di comando di Azure non supporta zero per Count, ma tale supporto verrà aggiunto in una versione futura.
 
 Prestare attenzione quando si usa la [distribuzione in modalità completa](deployment-modes.md) con Copy. Se si esegue la ridistribuzione con la modalità completa in un gruppo di risorse, tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
 
@@ -517,7 +517,7 @@ Nell'esempio seguente viene descritta l'implementazione:
 
 Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più istanze di una risorsa o proprietà.
 
-|Modello  |Descrizione  |
+|Modello  |DESCRIZIONE  |
 |---------|---------|
 |[Copia risorsa di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuisce più account di archiviazione con un numero di indice nel nome. |
 |[Copia seriale risorse di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuisce più account di archiviazione uno alla volta. Il nome include il numero di indice. |

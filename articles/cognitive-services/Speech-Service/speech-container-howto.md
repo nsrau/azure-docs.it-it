@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 14a360e7dc672266e8445a5ae5eb2168ae766af8
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 7708133fcba0d594ecd420afd8da1b2881055aa7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741871"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241024"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi vocali
 
@@ -25,8 +25,8 @@ I due contenitori di riconoscimento vocale sono **sintesi vocale** e sintesi **v
 
 |Funzione|Funzionalità|Ultimo|
 |-|-|--|
-|Riconoscimento vocale| <li>Trascrive registrazioni audio continue in tempo reale o batch in testo con risultati intermedi.|1.1.3|
-|Sintesi vocale| <li>Converte il testo scritto in un audio che suona naturale. con input di testo normale o SSML (Speech Synthesis Markup Language). |1.1.0|
+|Riconoscimento vocale| <li>Trascrive registrazioni audio continue in tempo reale o batch in testo con risultati intermedi.|1.2.0|
+|Sintesi vocale| <li>Converte il testo scritto in un audio che suona naturale. con input di testo normale o SSML (Speech Synthesis Markup Language). |1.2.0|
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -101,10 +101,10 @@ Tutti i tag, ad `latest` eccezione di, sono nel formato seguente, `<culture>` do
 Il seguente tag è un esempio del formato:
 
 ```
-1.1.3-amd64-en-us-preview
+1.2.0-amd64-en-us-preview
 ```
 
-La tabella seguente elenca le impostazioni locali supportate per la **sintesi vocale** nella versione 1.1.3 del contenitore:
+La tabella seguente elenca le impostazioni locali supportate per la **sintesi vocale** nella versione 1.2.0 del contenitore:
 
 |Impostazioni locali della lingua|Tag|
 |--|--|
@@ -129,10 +129,10 @@ Tutti i tag, ad `latest` eccezione di, sono nel formato seguente, `<culture>` do
 Il seguente tag è un esempio del formato:
 
 ```
-1.1.0-amd64-en-us-jessarus-preview
+1.2.0-amd64-en-us-jessarus-preview
 ```
 
-La tabella seguente elenca le impostazioni locali supportate per la **sintesi vocale** nella versione 1.1.0 del contenitore:
+La tabella seguente elenca le impostazioni locali supportate per la **sintesi vocale** nella versione 1.2.0 del contenitore:
 
 |Impostazioni locali della lingua|Tag|Voci supportate|
 |--|--|--|
@@ -178,7 +178,7 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 **Durante l'anteprima**, le impostazioni di fatturazione devono essere valide per avviare il contenitore, ma non viene addebitato l'utilizzo.
 
-| Segnaposto | Valore |
+| Segnaposto | Value |
 |-------------|-------|
 |{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina relativa alle chiavi vocali del portale di Azure.  |
 |{ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica del discorso del portale di Azure.|
@@ -270,7 +270,7 @@ Il contenitore fornisce le API dell'endpoint REST disponibili [qui](https://docs
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Quando si esegue il contenitore, questo usa **stdout** e **stderr** per generare informazioni utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore.
 

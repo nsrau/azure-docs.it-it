@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 8174b2e8bc63db8954e596d831eb2f9cad2ba440
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 72019b3bf5c17525b9a0dd8afc126f1bfc248041
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211629"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274455"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -61,7 +61,7 @@ Per il servizio collegato di SAP HANA sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapHana** | Yes |
+| type | La proprietà type deve essere impostata su: **SapHana** | Sì |
 | connectionString | Specificare le informazioni necessarie per connettersi al SAP HANA usando l' **autenticazione di base** o **l'autenticazione di Windows**. Vedere gli esempi seguenti.<br>In stringa di connessione, il server/porta è obbligatorio (la porta predefinita è 30015) e il nome utente e la password sono obbligatori quando si usa l'autenticazione di base. Per altre impostazioni avanzate, vedere [SAP Hana proprietà di connessione ODBC](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>È anche possibile inserire la password in Azure Key Vault ed estrarre la configurazione della password dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) articolo. | Sì |
 | userName | Specificare il nome utente quando si utilizza l'autenticazione di Windows. Esempio: `user@domain.com` | No |
 | password | Specifica la password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
@@ -136,7 +136,7 @@ Se si usa SAP HANA servizio collegato con il payload seguente, è ancora support
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati SAP HANA.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati SAP HANA.
 
 Per copiare dati da SAP HANA, sono supportate le proprietà seguenti:
 

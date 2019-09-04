@@ -7,19 +7,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: c9c57a07100f2ea6db86408826bf74d05c8df5aa
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 0d279781cdc27dbf2140c0100d84de5128c6a3d5
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868672"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279417"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure
 
 
 Questo articolo descrive come valutare numeri elevati (1000-35.000) di macchine virtuali VMware locali per la migrazione ad Azure, usando lo strumento di valutazione di Azure Migrate server
 
-[Azure migrate](migrate-services-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub comprende Azure Migrate strumenti e offerte di fornitori di software indipendenti (ISV) di terze parti. 
+[Azure Migrate](migrate-services-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti. 
 
 In questo articolo viene spiegato come:
 > [!div class="checklist"]
@@ -48,7 +48,8 @@ Usare i limiti riepilogati in questa tabella per la pianificazione.
 **Pianificazione** | **Limiti**
 --- | --- 
 **Progetti Azure Migrate** | Consente di valutare fino a 35.000 VM in un progetto.
-**Appliance Azure Migrate** | Un appliance può connettersi solo a una singola server vCenter.<br/><br/> Un appliance può essere associato solo a un singolo progetto Azure Migrate.<br/> Un dispositivo può individuare fino a 10.000 VM in una server vCenter.
+**Appliance Azure Migrate** | Un dispositivo può individuare fino a 10.000 VM in una server vCenter.<br/> Un appliance può connettersi solo a una singola server vCenter.<br/> Un appliance può essere associato solo a un singolo progetto Azure Migrate.<br/>  Un numero qualsiasi di Appliance può essere associato a un singolo progetto di Azure Migrate. <br/><br/> 
+**Gruppo** | È possibile aggiungere fino a 35.000 VM in un singolo gruppo.
 **Valutazione Azure Migrate** | È possibile valutare fino a 35.000 VM in un'unica valutazione.
 
 Tenendo conto di questi limiti, di seguito sono riportate alcune distribuzioni di esempio:
@@ -58,8 +59,8 @@ Tenendo conto di questi limiti, di seguito sono riportate alcune distribuzioni d
 ---|---|---
 Uno | < 10.000 | Un progetto Azure Migrate.<br/> Un appliance.<br/> Un account vCenter per l'individuazione. | Configurare il dispositivo, connettersi a server vCenter con un account.
 Uno | > 10.000 | Un progetto Azure Migrate.<br/> Più appliance.<br/> Più account vCenter. | Configurare l'appliance per ogni VM 10.000.<br/><br/> Configurare gli account vCenter e dividere l'inventario per limitare l'accesso per un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
-Multipli | < 10.000 |  Un progetto Azure Migrate.<br/> Più appliance.<br/> Un account vCenter per l'individuazione. | Configurare le appliance, connettersi a server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
-Multipli | > 10.000 | Un progetto Azure Migrate.<br/> Più appliance.<br/> Più account vCenter. | Se server vCenter individuazione < VM 10.000, configurare un'appliance per ogni server vCenter.<br/><br/> Se server vCenter individuazione > VM 10.000, configurare un'appliance per ogni VM 10.000.<br/> Configurare gli account vCenter e dividere l'inventario per limitare l'accesso per un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
+Più posizioni | < 10.000 |  Un progetto Azure Migrate.<br/> Più appliance.<br/> Un account vCenter per l'individuazione. | Configurare le appliance, connettersi a server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
+Più posizioni | > 10.000 | Un progetto Azure Migrate.<br/> Più appliance.<br/> Più account vCenter. | Se server vCenter individuazione < VM 10.000, configurare un'appliance per ogni server vCenter.<br/><br/> Se server vCenter individuazione > VM 10.000, configurare un'appliance per ogni VM 10.000.<br/> Configurare gli account vCenter e dividere l'inventario per limitare l'accesso per un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
 
 
 ## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Pianificare l'individuazione in un ambiente multi-tenant
@@ -68,7 +69,7 @@ Se si sta pianificando un ambiente multi-tenant, è possibile definire l'ambito 
 
 - È possibile impostare l'ambito di individuazione dell'appliance su un server vCenter Data Center, cluster o cartella di cluster, host o cartella di host o singole macchine virtuali.
 - Se l'ambiente è condiviso tra i tenant e si vuole individuare separatamente ogni tenant, è possibile definire l'ambito di accesso all'account vCenter usato dall'appliance per l'individuazione. 
-    - Se i tenant condividono gli host, può essere utile definire l'ambito per cartelle VM. Azure Migrate non riesce a individuare le VM se l'account vCenter ha accesso concesso a livello di cartella della macchina virtuale vCenter. Se si sta cercando di definire l'ambito di individuazione per cartelle VM, è possibile farlo assicurando che all'account vCenter sia assegnato l'accesso in sola lettura a livello di macchina virtuale. Altre informazioni sull'individuazione dell'ambito sono disponibili [qui](tutorial-assess-vmware.md#scoping-discovery).
+    - Se i tenant condividono gli host, può essere utile definire l'ambito per cartelle VM. Azure Migrate non riesce a individuare le VM se l'account vCenter ha accesso concesso a livello di cartella della macchina virtuale vCenter. Se si vuole definire l'ambito dell'individuazione in base alle cartelle di VM, è possibile farlo verificando che all'account vCenter sia assegnato l'accesso di sola lettura a livello di VM. Altre informazioni sull'individuazione dell'ambito sono disponibili [qui](tutorial-assess-vmware.md#scoping-discovery).
 
 ## <a name="prepare-for-assessment"></a>Prepararsi per la valutazione
 

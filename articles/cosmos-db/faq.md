@@ -4,15 +4,15 @@ description: Risposte alle domande frequenti su Azure Cosmos DB, un servizio di 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cb2b3246264d04ce97c45dff58979079a731998e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 30530f445941747c659f584d279261148b08825e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066089"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240794"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Domande frequenti su diverse API in Azure Cosmos DB
 
@@ -87,9 +87,9 @@ Le sottoscrizioni di prova di Azure Cosmos DB vengono visualizzate nel portale d
 
 Le condizioni seguenti si applicano alle sottoscrizioni di prova di Azure Cosmos DB:
 
-* Un contenitore con provisioning della [velocità effettiva](./set-throughput.md#set-throughput-on-a-container) per ogni sottoscrizione per account SQL, API Gremlin e tabella.
-* Fino a tre raccolte con provisioning della [velocità effettiva](./set-throughput.md#set-throughput-on-a-container) per ogni sottoscrizione per gli account MongoDB.
-* Un database con provisioning della [velocità effettiva](./set-throughput.md#set-throughput-on-a-database) per ogni sottoscrizione. I database con provisioning della velocità effettiva possono contenere un numero qualsiasi di contenitori all'interno di.
+* Un [contenitore con provisioning della velocità effettiva](./set-throughput.md#set-throughput-on-a-container) per ogni sottoscrizione per account SQL, API Gremlin e tabella.
+* Fino a tre [raccolte con provisioning della velocità effettiva](./set-throughput.md#set-throughput-on-a-container) per ogni sottoscrizione per gli account MongoDB.
+* Un [database con provisioning della velocità effettiva](./set-throughput.md#set-throughput-on-a-database) per ogni sottoscrizione. I database con provisioning della velocità effettiva possono contenere un numero qualsiasi di contenitori all'interno di.
 * 10 GB di capacità di archiviazione.
 * La replica globale è attualmente disponibile nelle [aree di Azure](https://azure.microsoft.com/regions/) seguenti: Stati Uniti centrali, Europa settentrionale e Asia sud-orientale
 * Velocità effettiva massima di 5 UR/sec quando ne viene effettuato il provisioning a livello di contenitore.
@@ -119,7 +119,7 @@ Quando si imposta un'area, tenere presente che Azure Cosmos DB rispetta i cloud 
 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>È possibile passare dal provisioning della velocità effettiva a livello di contenitore al provisioning della velocità effettiva a livello di database? O viceversa
 
-Il provisioning della velocità effettiva a livello di contenitore e di database costituisce due offerte separate e il passaggio tra le due richiede la migrazione dei dati dall'origine alla destinazione. È quindi necessario creare un nuovo database o una nuova raccolta e quindi eseguire la migrazione dei dati tramite la [libreria dell'executor bulk](bulk-executor-overview.md) oppure [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+Il provisioning della velocità effettiva a livello di contenitore e di database costituisce due offerte separate e il passaggio tra le due richiede la migrazione dei dati dall'origine alla destinazione. Ciò significa che è necessario creare un nuovo database o un nuovo contenitore e quindi eseguire la migrazione dei dati tramite la [libreria dell'executor bulk](bulk-executor-overview.md) o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB supporta l'analisi delle serie temporali?
 
@@ -149,7 +149,8 @@ Sì. L'API SQL supporta le transazioni tra documenti espresse come trigger e sto
 
 Un contenitore è un gruppo di documenti con la logica dell'applicazione JavaScript associata. Un contenitore è un'entità fatturabile, in cui il [costo](performance-levels.md) è determinato dalla velocità effettiva e dallo spazio di archiviazione utilizzato. I contenitori possono estendersi su una o più partizioni o server e possono essere ridimensionati per gestire volumi praticamente illimitati di archiviazione o velocità effettiva.
 
-* Per gli account dell'API SQL e dell'API di Cosmos DB per MongoDB, si ha il mapping fra ogni contenitore e una raccolta.
+* Per l'API SQL, un contenitore viene mappato a un contenitore.
+* Per gli account dell'API Cosmos DB per MongoDB, viene eseguito il mapping di un contenitore a una raccolta.
 * Per gli account dell'API Table e Cassandra si ha il mapping fra ogni contenitore e una tabella.
 * Per gli account dell'API Gremlin si ha il mapping fra ogni contenitore e un grafico.
 
@@ -157,7 +158,7 @@ I contenitori sono anche le entità di fatturazione per Azure Cosmos DB. Ogni co
 
 ### <a name="how-do-i-create-a-database"></a>Come si crea un database?
 
-È possibile creare database usando il [portale di Azure](https://portal.azure.com), come descritto in [Aggiungere una raccolta](create-sql-api-java.md#add-a-container), uno degli [SDK di Azure Cosmos DB](sql-api-sdk-dotnet.md) o le [API REST](/rest/api/cosmos-db/).
+È possibile creare database usando il [portale di Azure](https://portal.azure.com), come descritto in [aggiungere un contenitore](create-sql-api-java.md#add-a-container), uno degli SDK di [Azure Cosmos DB](sql-api-sdk-dotnet.md)o le [API REST](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Come è possibile configurare gli utenti e le autorizzazioni?
 
@@ -179,7 +180,7 @@ Per applicare la concorrenza ottimistica in .NET, usare la classe [AccessConditi
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Come si eseguono le transazioni nell'API SQL?
 
-L'API SQL supporta le transazioni Language Integrated tramite trigger e stored procedure JavaScript. Tutte le operazioni su database negli script vengono eseguite con isolamento dello snapshot. In caso di raccolta con partizione singola, l'ambito dell'esecuzione è limitato alla raccolta. Se la raccolta è partizionata, l'ambito dell'esecuzione è limitato ai documenti con lo stesso valore di chiave di partizione all'interno della raccolta. Viene acquisito uno snapshot delle versioni (ETag) del documento all'inizio della transazione e il commit della transazione viene eseguito solo se lo script ha esito positivo. Se JavaScript genera un errore, viene eseguito il rollback della transazione. Per altre informazioni, vedere [Programmazione JavaScript lato server per Azure Cosmos DB](stored-procedures-triggers-udfs.md).
+L'API SQL supporta le transazioni Language Integrated tramite trigger e stored procedure JavaScript. Tutte le operazioni su database negli script vengono eseguite con isolamento dello snapshot. Se si tratta di un contenitore a partizione singola, l'ambito dell'esecuzione è quello del contenitore. Se il contenitore è partizionato, l'ambito dell'esecuzione è quello dei documenti con lo stesso valore della chiave di partizione all'interno del contenitore. Viene acquisito uno snapshot delle versioni (ETag) del documento all'inizio della transazione e il commit della transazione viene eseguito solo se lo script ha esito positivo. Se JavaScript genera un errore, viene eseguito il rollback della transazione. Per altre informazioni, vedere [Programmazione JavaScript lato server per Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Come è possibile eseguire inserimenti in blocco in Cosmos DB?
 
@@ -191,7 +192,7 @@ L'API SQL supporta le transazioni Language Integrated tramite trigger e stored p
 
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>L'API SQL supporta la memorizzazione nella cache dei collegamenti alle risorse?
 
-Sì. Dato che Azure Cosmos DB è un servizio RESTful, i collegamenti alle risorse sono immutabili e possono essere memorizzati nella cache. I client dell'API SQL possono specificare un'intestazione "If-None-Match" per le letture su qualsiasi raccolta o documento di tipo risorsa e quindi aggiornare le copie locali in seguito alla modifica della versione del server.
+Sì. Dato che Azure Cosmos DB è un servizio RESTful, i collegamenti alle risorse sono immutabili e possono essere memorizzati nella cache. I client dell'API SQL possono specificare un'intestazione "If-None-Match" per le letture su qualsiasi contenitore o documento di tipo risorsa, quindi aggiornare le copie locali in seguito alla modifica della versione del server.
 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>È disponibile un'istanza locale dell'API SQL?
 
@@ -225,7 +226,7 @@ Oltre ai codici di errore comuni di MongoDB, l'API di Azure Cosmos DB per MongoD
 
 | Errore               | Codice  | Descrizione  | Soluzione  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | Il numero totale di unità richiesta utilizzate è maggiore del livello di unità richiesta di cui è stato effettuato il provisioning per la raccolta ed è stata applicata la limitazione. | Valutare la possibilità di ridimensionare la velocità effettiva assegnata a un contenitore o a un set di contenitori dal portale di Azure oppure riprovare. |
+| TooManyRequests     | 16500 | Il numero totale di unità richiesta utilizzate è superiore al tasso di unità richiesta di cui è stato effettuato il provisioning per il contenitore ed è stato limitato. | Valutare la possibilità di ridimensionare la velocità effettiva assegnata a un contenitore o a un set di contenitori dal portale di Azure oppure riprovare. |
 | ExceededMemoryLimit | 16501 | In quanto servizio multi-tenant, l'operazione ha superato il limite di allocazione di memoria del client. | Ridurre l'ambito dell'operazione tramite criteri di query più restrittivi oppure contattare il supporto tecnico dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Esempio: <em> &nbsp; DB.&nbsp;GetCollection (' Users '). Aggregate ([ &nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {Nome: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {Age:-1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>Il driver Simba per MongoDB è supportato per l'uso con l'API di Azure Cosmos DB per MongoDB?
@@ -523,7 +524,7 @@ L'addebito per unità richiesta viene basato sul set di dati in uso dell'attrave
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Qual è la scala massima che un database a grafi può avere nell'API Gremlin di Azure Cosmos DB?
 
-Azure Cosmos DB usa il [partizionamento orizzontale](partition-data.md) per gestire automaticamente gli incrementi nei requisiti relativi a risorse di archiviazione e velocità effettiva. La velocità effettiva e la capacità di archiviazione massime di un carico di lavoro vengono determinate dal numero di partizioni associate a una raccolta specifica. Una raccolta dell'API Gremlin ha tuttavia un set specifico di indicazioni per assicurare un'esperienza appropriata a livello di prestazioni su larga scala. Per altre informazioni sul partizionamento e sulle procedure consigliate, vedere l'articolo relativo al [partizionamento in Azure Cosmos DB](partition-data.md).
+Azure Cosmos DB usa il [partizionamento orizzontale](partition-data.md) per gestire automaticamente gli incrementi nei requisiti relativi a risorse di archiviazione e velocità effettiva. La velocità effettiva massima e la capacità di archiviazione di un carico di lavoro sono determinate dal numero di partizioni associate a un determinato contenitore. Tuttavia, un contenitore dell'API Gremlin dispone di un set specifico di linee guida per garantire un'esperienza di prestazioni adeguata su larga scala. Per altre informazioni sul partizionamento e sulle procedure consigliate, vedere l'articolo relativo al [partizionamento in Azure Cosmos DB](partition-data.md).
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Come ci si può proteggere da attacchi di tipo injection con driver Gremlin?
 

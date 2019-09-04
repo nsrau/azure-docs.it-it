@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 2d0c8cfb5e146694304d32eca27836f49d82e887
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: d3365f0a893c80043c93091c3e4e91382bdcd67e
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618695"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275869"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
@@ -234,7 +234,9 @@ Per copiare dati da o in Azure SQL Data Warehouse, sono supportate le proprietà
 | Proprietà  | Descrizione                                                  | Obbligatoria                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Sì                         |
-| tableName | Nome della tabella o vista nell'istanza di Azure SQL Data Warehouse a cui fa riferimento il servizio collegato. | No per l'origine, Sì per il sink |
+| schema | Nome dello schema. |No per l'origine, Sì per il sink  |
+| table | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
+| tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di `schema` lavoro `table`, utilizzare e. | No per l'origine, Sì per il sink |
 
 #### <a name="dataset-properties-example"></a>Esempio di proprietà dei set di dati
 
@@ -250,7 +252,8 @@ Per copiare dati da o in Azure SQL Data Warehouse, sono supportate le proprietà
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -379,6 +382,7 @@ Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'att
 | writeBatchSize    | Numero di righe da inserire nella tabella SQL **per batch**. Si applica solo se non viene usato PolyBase.<br/><br/>Il valore consentito è **integer** (numero di righe). Per impostazione predefinita, Data Factory determinare in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. | No                                            |
 | writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout. Si applica solo se non viene usato PolyBase.<br/><br/>Il valore consentito è **timespan**. Esempio: "00:30:00" (30 minuti). | No                                            |
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Azure SQL Data Warehouse ad ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
+| disableMetricsCollection | Data Factory raccoglie le metriche, ad esempio SQL Data Warehouse DWU per l'ottimizzazione delle prestazioni di copia e consigli. Se si è interessati a questo comportamento, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Esempio di sink di SQL Data Warehouse
 
@@ -400,9 +404,9 @@ Per altre informazioni su come usare PolyBase per caricare in modo efficiente in
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Usare PolyBase per caricare dati in Azure SQL Data Warehouse
 
-[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) consente di caricare in modo efficiente grandi quantità di dati in Azure SQL Data Warehouse con una velocità effettiva elevata. L'uso di PolyBase consente un miglioramento significativo della velocità effettiva rispetto al meccanismo BULKINSERT predefinito. Vedere [Informazioni di riferimento sulle prestazioni](copy-activity-performance.md#performance-reference) per un confronto dettagliato. Per la procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md).
+[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) consente di caricare in modo efficiente grandi quantità di dati in Azure SQL Data Warehouse con una velocità effettiva elevata. L'uso di PolyBase consente un miglioramento significativo della velocità effettiva rispetto al meccanismo BULKINSERT predefinito. Per la procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md).
 
-* Se i dati di origine si trova in un **BLOB di Azure, Azure Data Lake storage Gen1 o Azure Data Lake storage Gen2**e il **formato è compatibile con**la polibase, è possibile usare l'attività di copia per richiamare direttamente la polibase per consentire Azure SQL data warehouse estrarre i dati dall'origine. Per maggiori dettagli, vedere **[Copia diretta tramite PolyBase](#direct-copy-by-using-polybase)** .
+* Se i dati di origine si trova in un **BLOB di Azure, Azure Data Lake storage Gen1 o Azure Data Lake storage Gen2**e il **formato è compatibile con la polibase**, è possibile usare l'attività di copia per richiamare direttamente la polibase per consentire Azure SQL data warehouse estrarre i dati dall'origine. Per maggiori dettagli, vedere **[Copia diretta tramite PolyBase](#direct-copy-by-using-polybase)** .
 * Se l'archivio e il formato dei dati di origine non sono supportati in origine da PolyBase, usare la funzionalità **[copia di staging tramite PolyBase](#staged-copy-by-using-polybase)** . La funzionalità copia di staging assicura inoltre una migliore velocità effettiva, converte automaticamente i dati nel formato compatibile con PolyBase e li archivia in Archiviazione BLOB di Azure. Vengono quindi caricati i dati in SQL Data Warehouse.
 
 >[!TIP]
@@ -431,12 +435,14 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
 2. Il **formato dei dati di origine** è di **parquet**, **ORC**o **testo delimitato**, con le configurazioni seguenti:
 
    1. Il percorso della cartella non contiene il filtro con caratteri jolly.
-   2. Il nome file fa riferimento a un singolo file `*` o `*.*`è o.
-   3. `rowDelimiter` deve essere **\n**.
-   4. `nullValue` è impostato su una **stringa vuota** ("") o sul valore predefinito e `treatEmptyAsNull` è impostato sul valore predefinito o su true.
-   5. `encodingName` è impostato su **utf-8**, ovvero il valore predefinito.
+   2. Il nome file è vuoto o punta a un singolo file. Se si specifica il nome del file con caratteri jolly nell'attività di copia `*` , `*.*`può essere solo o.
+   3. `rowDelimiter`il **valore predefinito**è **\n**, **\r\n**o **.**
+   4. `nullValue`viene lasciato come predefinito o è impostato su una **stringa vuota** ("") `treatEmptyAsNull` e viene lasciato come predefinito o impostato su true.
+   5. `encodingName`viene lasciato come predefinito o impostato su **UTF-8**.
    6. `quoteChar`, `escapeChar` e`skipLineCount` non sono specificati. Il supporto di PolyBase ignora la riga di intestazione che può essere configurata come `firstRowAsHeader` nella data factory di Azure.
    7. `compression` può essere **no compression**, **GZip** o **Deflate**.
+
+3. Se l'origine è una cartella, `recursive` l'attività di copia deve essere impostata su true.
 
 ```json
 "activities":[
@@ -445,7 +451,7 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "BlobDataset",
+                "referenceName": "ParquetDataset",
                 "type": "DatasetReference"
             }
         ],
@@ -457,7 +463,11 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
         ],
         "typeProperties": {
             "source": {
-                "type": "BlobSource",
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
             },
             "sink": {
                 "type": "SqlDWSink",
@@ -530,6 +540,10 @@ Quando i dati di origine hanno righe di dimensioni superiori a 1 MB, è consigli
 
 In alternativa, per i dati con colonne di questo tipo, è possibile usare l'opzione non di base per caricare i dati usando ADF, disattivando l'impostazione "Consenti polibase".
 
+### <a name="sql-data-warehouse-resource-class"></a>Classe di risorse di SQL Data Warehouse
+
+Per ottenere la migliore velocità effettiva possibile, assegnare una classe di risorse più ampia all'utente che carica i dati in SQL Data Warehouse tramite PolyBase.
+
 ### <a name="polybase-troubleshooting"></a>Risoluzione dei problemi di base
 
 **Caricamento in una colonna decimale**
@@ -543,13 +557,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 La soluzione consiste nell'deselezionare l'opzione "**Usa il tipo predefinito**" (false) nelle impostazioni di base del sink dell'attività di copia->. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )" è una configurazione nativa di base che specifica come gestire i valori mancanti in file di testo delimitati quando la polibase recupera i dati dal file di testo. 
 
-**Altro**
-
-### <a name="sql-data-warehouse-resource-class"></a>Classe di risorse di SQL Data Warehouse
-
-Per ottenere la migliore velocità effettiva possibile, assegnare una classe di risorse più ampia all'utente che carica i dati in SQL Data Warehouse tramite PolyBase.
-
-### <a name="tablename-in-azure-sql-data-warehouse"></a>**tableName** in Azure SQL Data Warehouse
+**`tableName`in Azure SQL Data Warehouse**
 
 La tabella seguente fornisce alcuni esempi di come specificare la proprietà **tableName** nel set di dati JSON, mostrando diverse combinazioni di nomi di schema e di tabella.
 
@@ -566,7 +574,7 @@ Se viene visualizzato l'errore seguente, il problema potrebbe essere costituito 
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 ```
 
-### <a name="columns-with-default-values"></a>Colonne con valori predefiniti
+**Colonne con valori predefiniti**
 
 Attualmente, la funzionalità PolyBase in Data Factory accetta solo lo stesso numero di colonne disponibili nella tabella di destinazione. Nel caso di una tabella con quattro colonne di cui una definita con un valore predefinito, ad esempio, i dati di input devono comunque contenere quattro colonne. Un set di dati di input con tre colonne restituisce un errore simile al messaggio seguente:
 
