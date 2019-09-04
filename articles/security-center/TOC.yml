@@ -4,8 +4,10 @@
   items:
     - name: Informazioni sul Centro sicurezza
       href: security-center-intro.md
-    - name: Piattaforme e funzionalità supportate dal Centro sicurezza
+    - name: Piattaforme supportate
       href: security-center-os-coverage.md
+    - name: Funzionalità supportate
+      href: security-center-services.md
 - name: Guide introduttive
   expanded: true
   items:
