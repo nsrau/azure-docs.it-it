@@ -254,7 +254,7 @@ Oltre a questi cmdlet, tutto ciò che viene scritto nella pipeline viene reindir
 
 ### <a name="configure-the-function-app-log-level"></a>Configurare il livello di registrazione dell'app per le funzioni
 
-Funzioni di Azure consente di definire il livello di soglia per facilitare il controllo del modo in cui le funzioni scrivono nei log. Per impostare la soglia per tutte le tracce scritte nella console, usare la `logging.logLevel.default` proprietà [`host.json`]nel[riferimento file host. JSON]. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni.
+Funzioni di Azure consente di definire il livello di soglia per facilitare il controllo del modo in cui le funzioni scrivono nei log. Per impostare la soglia per tutte le tracce scritte nella console, usare la `logging.logLevel.default` proprietà [`host.json`nel[riferimento file host. JSON]. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni.
 
 Nell'esempio seguente viene impostata la soglia per abilitare la registrazione dettagliata per tutte le funzioni, ma viene impostata la soglia per abilitare la registrazione di `MyFunction`debug per una funzione denominata:
 

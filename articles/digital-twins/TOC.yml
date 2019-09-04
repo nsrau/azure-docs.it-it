@@ -73,32 +73,6 @@
   items:
     - name: Libreria client di funzioni definite dall'utente
       href: reference-user-defined-functions-client-library.md
-- name: Risorse correlate
-  items:
-    - name: Soluzioni
-      items:
-        - name: Acceleratori di soluzioni IoT
-          href: /azure/iot-accelerators
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: Servizi della piattaforma
-      items:
-        - name: Hub IoT
-          href: /azure/iot-hub
-        - name: Servizio Device Provisioning in hub IoT
-          href: /azure/iot-dps
-        - name: IoT SDK per servizi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Mappe
-          href: /azure/azure-maps
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Microsoft Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: IoT SDK per dispositivi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Risorse
   items:
     - name: 'Esempi di Gemelli digitali di Azure per C# (.NET)'
