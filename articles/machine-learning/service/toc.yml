@@ -73,9 +73,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concetti
   items:
-    - name: Apprendimento avanzato
-      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
-      href: concept-deep-learning-vs-machine-learning.md
     - name: Area di lavoro
       href: concept-workspace.md
     - name: Destinazione del calcolo
@@ -111,6 +108,9 @@
           href: how-to-secure-web-service.md
         - name: Rigenerazione delle chiavi di accesso alle risorse di archiviazione
           href: how-to-change-storage-access-key.md
+    - name: Apprendimento avanzato
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
 - name: Guide alle procedure
   items:
     - name: Gestire le aree di lavoro

@@ -9,12 +9,8 @@
   items:
     - name: Uso dell'SDK client
       items:
-        - name: Rilevare i visi in un'immagine
-          items:
-            - name: 'C#'
-              href: QuickStarts/csharp-detect-sdk.md
-            - name: Python
-              href: Tutorials/FaceAPIinPythonTutorial.md
+        - name: .NET SDK
+          href: Quickstarts/csharp-sdk.md
         - name: Python SDK
           href: QuickStarts/python-sdk.md
     - name: Utilizzo dell'API REST
