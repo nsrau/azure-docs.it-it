@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: af01b6127a8a3e20edfac19ce3b54cecb9d561d1
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e50d88181a27dcc46da858f220404eb09ad9b4bd
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640576"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308961"
 ---
 # <a name="indexers-in-azure-search"></a>Indicizzatori in Ricerca di Azure
 
@@ -48,11 +48,7 @@ Gli indicizzatori eseguono ricerche per indicizzazione negli archivi dati in Azu
 * [SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
-* [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md) 
-
-> [!Note]
-> L'archiviazione tabelle di Azure non è supportata per la [ricerca cognitiva](cognitive-search-concept-intro.md).
->
+* [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 
 ## <a name="basic-configuration-steps"></a>Procedura di configurazione di base
 Gli indicizzatori possono offrire funzionalità univoche per l'origine dati. In questo senso, alcuni aspetti della configurazione dell'indicizzatore o dell'origine dati possono variare a seconda del tipo di indicizzatore. Tutti gli indicizzatori, tuttavia, condividono la stessa composizione e gli stessi requisiti di base. Le procedure comuni a tutti gli indicizzatori sono descritte sotto.

@@ -9,52 +9,48 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: c7db2b4d49e3b9297c32d2e11ffe7c7702c17544
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ae25ffdf3f819c30fdfb1d3110042579f0b197b9
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274594"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381738"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creare una risorsa di servizi cognitivi usando il portale di Azure
 
-Usare questa Guida introduttiva per creare una risorsa di servizi cognitivi di Azure usando il portale di Azure. Dopo aver creato una risorsa Servizi cognitivi, si otterrà un endpoint e una chiave che è possibile usare per autenticare le applicazioni.
+Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure. Dopo aver creato una risorsa di servizio cognitivo nella portale di Azure, si otterranno un endpoint e una chiave per autenticare le applicazioni.
+
+
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure valida- [crearne una gratuita](https://azure.microsoft.com/free/).
 
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
-
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Creare una nuova risorsa Servizi cognitivi di Azure
 
-Prima di creare una risorsa Servizi cognitivi, è necessario disporre di un gruppo di risorse di Azure per contenere la risorsa. Quando si crea una nuova risorsa, è possibile scegliere di creare un nuovo gruppo di risorse o utilizzarne uno esistente. Questo articolo illustra come creare un nuovo gruppo di risorse.
-
-1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **+Crea una risorsa**.
-
-    ![Selezionare API Servizi cognitivi](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
-
-2. Come spiegato in precedenza, è possibile creare una risorsa di servizi cognitivi in due modi, usando una risorsa multiservizio o una risorsa a servizio singolo.
+1. Crea una risorsa.
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[Risorsa multiservizio](#tab/multiservice)
 
-    Per creare una risorsa multiservizio, immettere **Servizi cognitivi** nella barra di ricerca.
-
-    ![Cercare Servizi cognitivi](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
-
-    Nella pagina Servizi cognitivi selezionare **Crea**.
-
-    ![Crea account servizi cognitivi](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png)
+    La risorsa multiservizio è denominata **Servizi cognitivi** nel portale. [Creare una risorsa Servizi cognitivi](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+    
+    A questo punto, questi servizi **non possono** essere chiamati usando chiavi multiservizio: QnA Maker, servizi vocali, Visione personalizzata e rilevamento anomalie.
+    
 
     #### <a name="single-service-resourcetabsingleservice"></a>[Risorsa a servizio singolo](#tab/singleservice)
 
-    Per visualizzare tutti i servizi cognitivi disponibili, selezionare **ai + Machine Learning**, in **Azure Marketplace**. Se il servizio a cui si è interessati non è visibile, fare clic su **Visualizza tutto** e scorrere fino a **Servizi cognitivi**. Fare clic su **Visualizza altro** per visualizzare l'intero catalogo di servizi cognitivi.
+    Usare i collegamenti seguenti per creare una risorsa per i servizi cognitivi disponibili:
 
-    Quando si è interessati al servizio, fare clic su **Crea**.
-    
-    ![Selezionare API Servizi cognitivi](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
+    | Visione                      | Riconoscimento vocale                  | Linguaggio                          | Decisione             | Cerca                 |
+    |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
+    | [Visione artificiale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Servizi Voce](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Lettore immersivo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Rilevamento anomalie](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [API Ricerca Bing V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
+    | [Servizio visione artificiale personalizzato](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Riconoscimento del parlante](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Ricerca personalizzata Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
+    | [Viso](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Ricerca entità Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
+    | [Riconoscimento input penna](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Analisi del testo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Controllo ortografico Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
+    |           |                         | [Traduzione testuale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Suggerimenti automatici Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
     ***
+
 3. Nella pagina **Crea** specificare le informazioni seguenti:
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[Risorsa multiservizio](#tab/multiservice)
@@ -89,32 +85,23 @@ Prima di creare una risorsa Servizi cognitivi, è necessario disporre di un grup
 
 ## <a name="get-the-keys-for-your-resource"></a>Ottenere le chiavi per la risorsa
 
-Dopo che la risorsa è stata creata correttamente, viene visualizzata una notifica popup nella parte superiore destra della schermata. Dalla notifica, fare clic su **Vai alla risorsa** per visualizzare la risorsa di servizi cognitivi creata. 
+Dopo che la risorsa è stata distribuita correttamente, fare clic su **Vai alla risorsa** in **passaggi successivi**.
 
-![Vai alla risorsa servizio cognitivo](media/cognitive-services-apis-create-account/cog-serv-go-to-resource.png)
+![Cercare Servizi cognitivi](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-Dal riquadro avvio rapido visualizzato è possibile accedere all'endpoint e alla chiave.
+Dal riquadro avvio rapido visualizzato è possibile accedere alla chiave e all'endpoint.
 
 ![Ottieni chiave ed endpoint](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-## <a name="pricing-tiers-and-billing"></a>Piani tariffari e fatturazione
-
-I piani tariffari (e l'importo fatturato) si basano sul numero di transazioni inviate usando le informazioni di autenticazione. Ogni piano tariffario specifica:
-* numero massimo di transazioni consentite al secondo (TPS).
-* funzionalità del servizio abilitate all'interno del piano tariffario.
-* Costo di un numero predefinito di transazioni. Il superamento di questo importo comporterà un addebito aggiuntivo come specificato nei dettagli relativi ai [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) per il servizio.
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse, vengono eliminate anche tutte le altre risorse contenute nel gruppo.
 
-Per rimuovere un gruppo di risorse usando il portale di Azure:
-
 1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Gruppi di risorse** per visualizzare l'elenco dei gruppi di risorse.
-2. Individuare il gruppo di risorse da eliminare e fare clic con il pulsante destro del mouse sul pulsante altro (...) sul lato destro dell'elenco.
-3. Scegliere **Elimina gruppo di risorse** e confermare.
+2. Individuare il gruppo di risorse che contiene la risorsa da eliminare
+3. Fare clic con il pulsante destro del mouse sull'elenco dei gruppi di risorse. Scegliere **Elimina gruppo di risorse** e confermare.
 
 ## <a name="see-also"></a>Vedere anche
 

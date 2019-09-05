@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a063891339a46366490447b7c7a7a1a14fd81be6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 316a523a6216354ae5b6166be55e183a4e050766
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828917"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305066"
 ---
 # <a name="enable-passwordless-security-key-sign-in-for-azure-ad-preview"></a>Abilitare l'accesso alla chiave di sicurezza senza password per Azure AD (anteprima)
 
@@ -54,7 +54,7 @@ Per specificare come destinazione gruppi di dispositivi specifici per abilitare 
    1. Nome: Chiavi di sicurezza per l'accesso a Windows
    1. Descrizione: Abilita le chiavi di sicurezza di FIDO da usare durante l'accesso a Windows
    1. Piattaforma: Windows 10 e versioni successive
-   1. Tipo piattaforma: Personalizzato
+   1. Tipo di profilo: Personalizzato
    1. Impostazioni URI OMA personalizzate:
       1. Nome: Attivare le chiavi di sicurezza di FIDO per l'accesso a Windows
       1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
@@ -72,18 +72,18 @@ Per i dispositivi non gestiti da Intune, è possibile installare un pacchetto di
 1. Selezionare **file** > **nuovo progetto**.
 1. Assegnare un nome al progetto e prendere nota del percorso in cui è stato creato il progetto.
 1. Selezionare **Avanti**.
-1. Lasciare il **pacchetto** di provisioning selezionato come **flusso di lavoro del progetto selezionato** e selezionare **Avanti**.
+1. Lasciare il **pacchetto di provisioning** selezionato come **flusso di lavoro del progetto selezionato** e selezionare **Avanti**.
 1. Selezionare **tutte le edizioni desktop di Windows** in **scegliere le impostazioni da visualizzare e configurare** e selezionare **Avanti**.
 1. Selezionare **Fine**.
 1. Nel progetto appena creato passare a **Impostazioni** > di runtime**WindowsHelloForBusiness** > **SecurityKeys** > **UseSecurityKeyForSignIn**.
 1. Impostare **UseSecurityKeyForSignIn** su **Enabled**.
-1. Selezionare **Esporta** > **pacchetto** di provisioning
-1. Lasciare le impostazioni predefinite nella finestra **Compila** in **descrivere il pacchetto** di provisioning e selezionare **Avanti**.
-1. Lasciare le impostazioni predefinite nella finestra **Compila** in **selezionare i dettagli di sicurezza per il pacchetto** di provisioning e fare clic su **Avanti**.
-1. Prendere nota di o modificare il percorso nelle finestre di **compilazione** in **selezionare dove salvare il pacchetto di** provisioning e selezionare **Avanti**.
-1. Selezionare **Compila** nella pagina **Compila il pacchetto** di provisioning.
+1. Selezionare **Esporta** > **pacchetto di provisioning**
+1. Lasciare le impostazioni predefinite nella finestra **Compila** in **descrivere il pacchetto di provisioning** e selezionare **Avanti**.
+1. Lasciare le impostazioni predefinite nella finestra **Compila** in **selezionare i dettagli di sicurezza per il pacchetto di provisioning e fare** clic su **Avanti**.
+1. Prendere nota di o modificare il percorso nelle finestre di **compilazione** in **selezionare dove salvare il pacchetto di provisioning** e selezionare **Avanti**.
+1. Selezionare **Compila** nella pagina **Compila il pacchetto di provisioning** .
 1. Salvare i due file creati (ppkg e cat) in un percorso in cui è possibile applicarli ai computer in un secondo momento.
-1. Per applicare il pacchetto di provisioning creato, seguire le istruzioni riportate nell'articolo [applicare un pacchetto](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package)di provisioning.
+1. Per applicare il pacchetto di provisioning creato, seguire le istruzioni riportate nell'articolo [applicare un pacchetto di provisioning](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 ## <a name="obtain-fido2-security-keys"></a>Ottenere le chiavi di sicurezza FIDO2
 
@@ -118,8 +118,8 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 1. Passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com)
 1. Accedi se non è già stato fatto
 1. Fare clic su **info di sicurezza**
-   1. Se l'utente ha già registrato almeno un metodo di autenticazione a più fattori di Azure, può registrare immediatamente una chiave di sicurezza FIDO2.
-   1. Se non è registrato almeno un metodo di Azure per l'autenticazione a più fattori, è necessario aggiungerne uno.
+   1. Se l'utente ha già registrato almeno un metodo di Multi-Factor Authentication di Azure, può registrare immediatamente una chiave di sicurezza FIDO2.
+   1. Se non hanno almeno un metodo di Multi-Factor Authentication di Azure registrato, è necessario aggiungerne uno.
 1. Aggiungere una chiave di sicurezza FIDO2 facendo clic su **Aggiungi metodo** e scegliendo **chiave di sicurezza**
 1. Scegliere un **dispositivo USB** o un **dispositivo NFC**
 1. Prepara la tua chiave e scegli **Avanti**

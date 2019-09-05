@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 343bbf5c84ce97feb7b7d170523845f5a2f7c10d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 323db6e7274db1a53e49b5bd7d33b2eb3700a62b
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668431"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376414"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informazioni sui dispositivi VPN e sui parametri IPsec/IKE per connessioni del Gateway VPN da sito a sito
 
@@ -49,7 +49,7 @@ Per agevolare la configurazione del dispositivo VPN, vedere i collegamenti corri
 | Cisco |Meraki |N/D |Non compatibile |Non compatibile |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 e versioni successive |[Guida alla configurazione](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Non compatibile |
 | F5 |Serie BIG-IP |12.0 |[Guida alla configurazione](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guida alla configurazione](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.6 |  |[Guida alla configurazione](https://docs.fortinet.com/document/fortigate/6.2.0/azure-cookbook/030680/connecting-a-local-fortigate-to-an-azure-fortigate-via-site-to-site-vpn) |
+| Fortinet |FortiGate |FortiOS 5.6 |  |[Guida alla configurazione](https://docs.fortinet.com/document/fortigate/6.2.0/azure-cookbook/989216/connecting-a-local-fortigate-to-an-azure-vnet-vpn) |
 | Internet Initiative Japan (IIJ) |Serie SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Guida alla configurazione](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Non compatibile |
 | Juniper |SRX |PolicyBased: JunOS 10.2<br>RouteBased: JunOS 11.4 |Supportato |[Script di configurazione](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |Serie J |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |Supportato |[Script di configurazione](vpn-gateway-download-vpndevicescript.md) |
@@ -150,7 +150,7 @@ La tabella seguente elenca le offerte per associazioni di sicurezza IPsec (IKE M
 
 #### <a name="azure-gateway-as-initiator"></a>Gateway Azure come iniziatore
 
-|-  |**Crittografia**|**autenticazione**|**Gruppo PFS**|
+|-  |**Crittografia**|**Autenticazione**|**Gruppo PFS**|
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Nessuna         |
 | 2 |AES256        |SHA1              |Nessuna         |
@@ -161,7 +161,7 @@ La tabella seguente elenca le offerte per associazioni di sicurezza IPsec (IKE M
 
 #### <a name="azure-gateway-as-responder"></a>Gateway Azure come risponditore
 
-|-  |**Crittografia**|**autenticazione**|**Gruppo PFS**|
+|-  |**Crittografia**|**Autenticazione**|**Gruppo PFS**|
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Nessuna         |
 | 2 |AES256        |SHA1              |Nessuna         |

@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 7fe2c39871f1cd512da7f9a2c5146e79abbe74a6
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ecceb1177d7b7015afc92f10284a9372d0cfb4a2
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279591"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375306"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di VMware
 
@@ -73,7 +73,7 @@ Azure Migrate esegue un'appliance Lightweight per individuare le macchine virtua
 
 **Supporto** | **Dettagli**
 --- | ---
-**Distribuzione dell'appliance** | Si distribuisce l'appliance come macchina virtuale VMware. È necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale con 32 GB di RAM, 8 vCPU e un Commuter virtuale esterno.<br/><br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.<br/> La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva. 
+**Distribuzione dell'appliance** | Si distribuisce l'appliance come macchina virtuale VMware. Per allocare una macchina virtuale con 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un compartitore virtuale esterno, è necessario disporre di risorse sufficienti nel server vCenter.<br/><br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.<br/> La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva. 
 **Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> È possibile valutare fino a 35.000 VM in un progetto.
 **Individuazione** | Un dispositivo può individuare fino a 10.000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a una singola server vCenter.
 **Gruppo di valutazione** | È possibile aggiungere fino a 35.000 computer in un singolo gruppo.

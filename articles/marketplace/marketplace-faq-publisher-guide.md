@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: ellacroi
-ms.openlocfilehash: b8d0759d96b0b2566934f117f5dea32ec4ad015c
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 209905eaf90e006ded232be73ab2a3a428568eda
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68000013"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309028"
 ---
 # <a name="marketplace-faqs"></a>Domande frequenti su Marketplace
 
@@ -36,7 +36,7 @@ Azure Marketplace offre soluzioni tecniche e servizi di Microsoft e dei partner 
 
 * sistemi operativi di base
 * database
-* security
+* sicurezza
 * identity
 * networking
 * blockchain
@@ -219,7 +219,7 @@ Sì. I crediti della sottoscrizione o i fondi dell'impegno monetario di Azure di
 
 Le informazioni di utilizzo stimate sono reperibili nella [portale di Azure]. Queste informazioni possono non includere le attività recenti e possono essere basate sulle proiezioni derivate da dati sull'uso relativi a periodi precedenti. Durante l'anteprima pubblica questa funzionalità potrebbe non essere disponibile per tutti gli acquisti e variare in base al tipo di prodotto.
 
-### <a name="customer-support"></a>Assistenza clienti
+### <a name="customer-support"></a>Supporto tecnico
 
 **Chi è possibile contattare per problemi di supporto generali relativi ad Azure Marketplace?**
 
@@ -263,7 +263,7 @@ Azure Marketplace si rivolge ai professionisti IT e agli sviluppatori cloud inte
 
 **Perché è utile pubblicare un'applicazione in Azure Marketplace e quali sono i vantaggi?**
 
-Azure Marketplace offre ai partner Microsoft un'area commerciale in cui promuovere e vendere i propri prodotti e servizi ai clienti di Azure. Gli editori possono accedere immediatamente ai mercati globali 140, ai nostri 300.000 e ai nostri partner e alla rete di clienti aziendali di Azure.  Il Marketplace include oltre il 90% delle società Fortune 500 e molti degli sviluppatori leader del mondo. Ai nuovi partner di Azure Marketplace viene automaticamente offerto un set di [vantaggi go-to-Market senza costi](gtm-your-marketplace-benefits.md#go-to-market-gtm-benefits-in-the-marketplace) che consentono di migliorare la conoscenza delle offerte nel Marketplace di Azure.
+Azure Marketplace offre ai partner Microsoft un'area commerciale in cui promuovere e vendere i propri prodotti e servizi ai clienti di Azure. Gli editori possono accedere immediatamente ai mercati globali 140, ai nostri 300.000 e ai nostri partner e alla rete di clienti aziendali di Azure.  Il Marketplace include oltre il 90% delle società Fortune 500 e molti degli sviluppatori leader del mondo. Ai nuovi partner di Azure Marketplace viene automaticamente offerto un set di [vantaggi go-to-Market senza costi](gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) che consentono di migliorare la conoscenza delle offerte nel Marketplace di Azure.
 
 **Qual è il fattore discriminante che differenzia Azure Marketplace da AppSource?**
 
@@ -283,7 +283,7 @@ Sì, per la pubblicazione in Azure Marketplace è necessario essere membri MPN. 
 
 **Quali sono i criteri per pubblicare una soluzione in Azure Marketplace?**
 
-Per pubblicare in Azure Marketplace, i partner devono dimostrare che l'applicazione viene eseguita in Azure o ne estende le funzionalità. Gli editori sono tenuti a offrire ai clienti una [contratto di servizio](https://azure.microsoft.com/support/legal/sla/), informativa [sulla privacy](https://privacy.microsoft.com/privacystatement)e il supporto telefonico e online. Diversi carichi di lavoro prevedono requisiti aggiuntivi. Per altre indicazioni, vedere [Azure Marketplace Participation Policies](./marketplace-participation-policy.md) (Criteri di partecipazione ad Azure Marketplace) e la [Guida alla pubblicazione](marketplace-publishers-guide.md).
+Per pubblicare in Azure Marketplace, i partner devono dimostrare che l'applicazione viene eseguita in Azure o ne estende le funzionalità. Gli editori sono tenuti a offrire ai clienti una [contratto di servizio](https://azure.microsoft.com/support/legal/sla/), [informativa sulla privacy](https://privacy.microsoft.com/privacystatement)e il supporto telefonico e online. Diversi carichi di lavoro prevedono requisiti aggiuntivi. Per altre indicazioni, vedere [Azure Marketplace Participation Policies](./marketplace-participation-policy.md) (Criteri di partecipazione ad Azure Marketplace) e la [Guida alla pubblicazione](marketplace-publishers-guide.md).
 
 **Sono previste tariffe per la pubblicazione in Azure Marketplace?**
 

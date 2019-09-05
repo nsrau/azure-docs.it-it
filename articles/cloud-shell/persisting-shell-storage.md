@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: f60125123d019cbfa93bfc1b06da7ac90b54e311
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b2823c935d11ae99ab1d87ae708945721820ad8c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742045"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306741"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -31,18 +31,35 @@ Cloud Shell rende persistenti i file tramite entrambe le modalità seguenti:
 > [!NOTE]
 > Tutti i file della directory `$Home`, come le chiavi SSH, vengono mantenuti nell'immagine del disco utente archiviata nella condivisione file montata. Applicare le procedure consigliate quando si rendono persistenti le informazioni nella directory `$Home` e nella condivisione file montata.
 
-## <a name="bash-specific-commands"></a>Comandi Bash specifici
+## <a name="clouddrive-commands"></a>comandi CloudDrive
 
 ### <a name="use-the-clouddrive-command"></a>Usare il comando `clouddrive`
-Con Bash in Cloud Shell è possibile eseguire un comando denominato `clouddrive`, che consente di aggiornare manualmente la condivisione file montata in Cloud Shell.
+In cloud Shell, è possibile eseguire un comando denominato `clouddrive`, che consente di aggiornare manualmente la condivisione file montata in cloud Shell.
 ![Esecuzione del comando "clouddrive"](media/persisting-shell-storage/clouddrive-h.png)
+
+### <a name="list-clouddrive"></a>Elenco `clouddrive`
+Per sapere quale condivisione file è montata come `clouddrive`, eseguire il comando `df`. 
+
+Il percorso file a clouddrive indica il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio: `//storageaccountname.file.core.windows.net/filesharename`
+
+```
+justin@Azure:~$ df
+Filesystem                                          1K-blocks   Used  Available Use% Mounted on
+overlay                                             29711408 5577940   24117084  19% /
+tmpfs                                                 986716       0     986716   0% /dev
+tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
+/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
+shm                                                    65536       0      65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
+justin@Azure:~$
+```
 
 ### <a name="mount-a-new-clouddrive"></a>Montare una nuova clouddrive
 
 #### <a name="prerequisites-for-manual-mounting"></a>Prerequisiti per il montaggio manuale
 È possibile aggiornare la condivisione file associata a Cloud Shell usando il comando `clouddrive mount`.
 
-Se si monta una condivisione file esistente, gli account di archiviazione devono essere posizionati nell'area Cloud Shell selezionata. Recuperare il percorso eseguendo `env` da Bash e controllando il `ACC_LOCATION`.
+Se si monta una condivisione file esistente, gli account di archiviazione devono essere posizionati nell'area Cloud Shell selezionata. Recuperare il percorso eseguendo `env` e `ACC_LOCATION`controllando.
 
 #### <a name="the-clouddrive-mount-command"></a>Comando `clouddrive mount`
 
@@ -71,23 +88,6 @@ La condivisione file continuerà a esistere a meno che non venga eliminata manua
 
 > [!WARNING]
 > Sebbene l'esecuzione di questo comando non elimini le risorse, l'eliminazione manuale di un gruppo di risorse, un account di archiviazione o una condivisione file di cui è stato eseguito il mapping a Cloud Shell cancellerà l'immagine del disco della directory `$Home` e tutti i file presenti nella condivisione file. Questa azione non può essere annullata.
-
-### <a name="list-clouddrive"></a>Elenco `clouddrive`
-Per sapere quale condivisione file è montata come `clouddrive`, eseguire il comando `df`. 
-
-Il percorso file a clouddrive indica il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio: `//storageaccountname.file.core.windows.net/filesharename`
-
-```
-justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
-```
 ## <a name="powershell-specific-commands"></a>PowerShell - Comandi specifici
 
 ### <a name="list-clouddrive-azure-file-shares"></a>Elencare le condivisioni file di Azure `clouddrive`
@@ -105,7 +105,6 @@ Il cmdlet `Dismount-CloudDrive` smonta una condivisione file di Azure dall'accou
 Nota: se è necessario definire una funzione in un file e chiamarla dai cmdlet di PowerShell, l'operatore punto deve essere incluso. Ad esempio: . .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Avvio rapido di Bash in Cloud Shell](quickstart.md) <br>
-[Avvio rapido di PowerShell in Cloud Shell](quickstart-powershell.md) <br>
+[Avvio rapido di Cloud Shell](quickstart.md) <br>
 [Informazioni sull'archiviazione di Microsoft Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [Informazioni sui tag di archiviazione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

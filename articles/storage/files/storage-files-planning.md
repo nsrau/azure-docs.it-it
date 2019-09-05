@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7591cefddd6e7217c885293a2f5c878d7a82e158
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: aa81f181c8d062e5fd68b0fbb2445f5c37540889
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015944"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309579"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -82,7 +82,7 @@ Le condivisioni file standard sono supportate da unità disco rigido (HDD). Le c
 Le condivisioni file standard con dimensioni fino a 5 TiB sono disponibili come offerta GA. Mentre le condivisioni file di dimensioni maggiori, ovvero qualsiasi condivisione con dimensioni maggiori di 5 TiB, fino a un massimo di 100 TiB, sono attualmente disponibili come offerta di anteprima.
 
 > [!IMPORTANT]
-> Vedere la sezione onboarding [to large file Shares (livello standard)](#onboard-to-larger-file-shares-standard-tier) per i passaggi da eseguire per l'onboarding, nonché l'ambito e le restrizioni dell'anteprima.
+> Vedere la sezione [onboarding to large file Shares (livello standard)](#onboard-to-larger-file-shares-standard-tier) per i passaggi da eseguire per l'onboarding, nonché l'ambito e le restrizioni dell'anteprima.
 
 ### <a name="premium-file-shares"></a>Condivisioni file Premium
 
@@ -114,7 +114,7 @@ In base ad approssimazioni ottimali, tutte le condivisioni possono essere potenz
 >
 > velocità in ingresso = 40 MiB/s + 0,04 * GiB con provisioning
 
-Le dimensioni della condivisione possono essere aumentate in qualsiasi momento, ma possono essere diminuite solo dopo 24 ore dall'ultimo aumento. Dopo aver atteso 24 ore senza aumentare le dimensioni, è possibile ridurre le dimensioni della condivisione tutte le volte che si desidera, fino a quando non si aumenta nuovamente. Le modifiche alla scalabilità IOPS/velocità effettiva saranno effettive entro pochi minuti dopo la modifica delle dimensioni.
+Le dimensioni della condivisione di cui è stato effettuato il provisioning sono specificate dalla quota di La quota di condivisione può essere aumentata in qualsiasi momento, ma può essere ridotta solo dopo 24 ore dall'ultimo aumento. Dopo aver atteso 24 ore senza un aumento della quota, è possibile ridurre la quota di condivisione tutte le volte che si desidera, fino a quando non si aumenta nuovamente. Le modifiche alla scalabilità IOPS/velocità effettiva saranno effettive entro pochi minuti dopo la modifica delle dimensioni.
 
 È possibile ridurre le dimensioni della condivisione di cui è stato effettuato il provisioning sotto il GiB usato. In tal caso, non si perderanno i dati, ma verranno comunque addebitate le dimensioni usate e si riceveranno le prestazioni (IOPS di base, velocità effettiva e IOPS di aumento) della condivisione di cui è stato effettuato il provisioning, non le dimensioni usate.
 
@@ -208,12 +208,12 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 
 |Region |Ridondanza supportata |Supporta gli account di archiviazione esistenti |Supporto del portale *   |
 |-------|---------|---------|---------|
-|Australia orientale  |Archiviazione con ridondanza locale     |No    |Sì|
+|Australia orientale  |Archiviazione con ridondanza locale     |No    |Yes|
 |Francia centrale  |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Francia meridionale    |Archiviazione con ridondanza locale     |No    |Non ancora|
-|Asia sudorientale  |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
+|Asia sudorientale  |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
 |Europa occidentale     |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
-|Stati Uniti occidentali 2       |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
+|Stati Uniti occidentali 2       |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
 
 \* Per le aree senza supporto per il portale, è comunque possibile usare PowerShell o l'interfaccia della riga di comando di Azure per creare più di 5 condivisioni TiB. In alternativa, creare una nuova condivisione tramite il portale senza specificare la quota. Verrà creata una condivisione con le dimensioni predefinite 100 TiB, che può essere aggiornata in un secondo momento tramite PowerShell o l'interfaccia della riga di comando di Azure.
 

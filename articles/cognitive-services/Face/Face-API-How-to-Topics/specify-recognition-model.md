@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: fd60923351970dfe5aa5705a0508dbd39941ef58
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 23c54a69f709ec97d895ed5965841e43ebdc560c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68254355"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306555"
 ---
 # <a name="specify-a-face-recognition-model"></a>Specificare un modello di riconoscimento volto
 
@@ -107,7 +107,8 @@ Se in genere si specifica una soglia di confidenza, ovvero un valore compreso tr
 
 In questo articolo si è appreso come specificare il modello di riconoscimento da usare con diverse API del servizio viso. Seguire quindi una guida introduttiva per iniziare a usare il rilevamento delle facce.
 
-* [Rilevare i visi in un'immagine](../quickstarts/csharp-detect-sdk.md)
+* [.NET SDK facet](../Quickstarts/csharp-sdk.md)
+* [Python SDK per visi](../Quickstarts/python-sdk.md)
 
 [Rilevamento viso]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Faccia-trova simile]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

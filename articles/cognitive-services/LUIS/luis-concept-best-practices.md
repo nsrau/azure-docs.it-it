@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 91ff99f674439580d369aad1490ded85d39d377c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639280"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382885"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedure consigliate per la creazione di un'app di riconoscimento vocale con Servizi cognitivi
 Usare il processo di creazione di app per compilare l'app LUIS: 
@@ -84,7 +84,7 @@ Dopo aver compreso come si comporta l'app senza queste caratteristiche, aggiunge
 
 Non è sbagliato aggiungerle all'inizio della progettazione del modello, ma è più facile vedere come ogni caratteristica influisce sui risultati dopo che il modello è stato testato con le espressioni. 
 
-È consigliabile eseguire i test tramite l'[endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance), per usufruire dell'ulteriore vantaggio dell'[apprendimento attivo](luis-concept-review-endpoint-utterances.md). Anche il [riquadro di test interattivo](luis-interactive-test.md) è una valida metodologia di test. 
+È consigliabile eseguire i test tramite l'[endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint), per usufruire dell'ulteriore vantaggio dell'[apprendimento attivo](luis-concept-review-endpoint-utterances.md). Anche il [riquadro di test interattivo](luis-interactive-test.md) è una valida metodologia di test. 
  
 
 ### <a name="phrase-lists"></a>Elenchi di frasi

@@ -170,9 +170,9 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| id | stringa | L'ID evento. |
-| timestamp | stringa | L'ora in cui si è verificato l'evento. |
-| action | stringa | L'azione che comprende l'evento specificato. |
+| id | string | L'ID evento. |
+| timestamp | string | L'ora in cui si è verificato l'evento. |
+| action | string | L'azione che comprende l'evento specificato. |
 | target | object | L'URL di destinazione dell'evento. |
 | request | object | La richiesta che ha generato l'evento. |
 
@@ -180,23 +180,23 @@ Di seguito sono elencate le proprietà dell'oggetto di destinazione:
 
 | Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| mediaType | stringa | Tipo MIME dell'oggetto di riferimento. |
+| mediaType | string | Tipo MIME dell'oggetto di riferimento. |
 | size | numero intero | Numero di byte del contenuto. Uguale al campo Length. |
-| digest | stringa | Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2. |
+| digest | string | Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2. |
 | length | numero intero | Numero di byte del contenuto. Uguale al campo Size. |
-| repository | stringa | Nome del repository. |
-| tag | stringa | Nome tag. |
-| name | stringa | Il nome del grafico. |
-| version | stringa | La versione del grafico. |
+| repository | string | Nome del repository. |
+| tag | string | Nome tag. |
+| name | string | Il nome del grafico. |
+| version | string | La versione del grafico. |
 
 Di seguito sono elencate le proprietà dell'oggetto della richiesta:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | id | string | ID della richiesta che ha avviato l'evento. |
-| addr | string | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |
+| indirizzo | string | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |
 | host | string | Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host http nelle richieste in ingresso. |
-| method | string | Metodo di richiesta che ha generato l'evento. |
+| statico | string | Metodo di richiesta che ha generato l'evento. |
 | useragent | string | Intestazione agente utente della richiesta. |
 
 ## <a name="next-steps"></a>Passaggi successivi

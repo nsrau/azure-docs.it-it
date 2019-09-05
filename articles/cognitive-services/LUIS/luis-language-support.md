@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: f46757b97fb2dd38be36459e5aafb70f5b5a3bf6
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 3b1b31da68d821ff27fa30e75ec1522b9d4875c8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932702"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307420"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -38,6 +38,7 @@ LUIS riconosce espressioni nelle lingue seguenti:
 | Francese (Francia) |`fr-FR` |-| ✔ |✔ |✔|
 | Francese (Canada) |`fr-CA` |-|   -   |-|✔|
 | Tedesco |`de-DE` |-| ✔ |✔ |✔|
+| Hindi | `hi-IN`|-|-|-|-|
 | Italiano |`it-IT` |-| ✔ |✔|✔|
 | *[Giapponese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Solo la frase chiave|
 | Coreano |`ko-KR` |-|   -   |-|Solo la frase chiave|
@@ -88,6 +89,7 @@ Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [tok
 |Francese (fr-FR)|✔||||
 |Francese (fr-CA)|✔||||
 |Tedesco|||✔|✔|
+| Hindi |✔|-|-|-|-|
 |Italiano|✔||||
 |Giapponese||||✔|
 |Coreano||✔||✔|
@@ -99,7 +101,7 @@ Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [tok
 
 Le impostazioni cultura seguenti includono versioni Tokenizer personalizzate:
 
-|Impostazioni cultura|Version|Scopo|
+|Impostazioni cultura|Versione|Scopo|
 |--|--|--|
 |Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come espressione, viene convertito in. `Ich fahre einen kranken wagen` Consentire il contrassegno di `kranken` e `wagen` in modo indipendente come entità diverse.|
 |Tedesco<br>`de-de`|1.0.2|Suddivide in token le parole suddividendo gli spazi in spazi.<br> Se un utente immette `Ich fahre einen krankenwagen` come espressione, rimane un singolo token. Pertanto `krankenwagen` è contrassegnato come una singola entità. |

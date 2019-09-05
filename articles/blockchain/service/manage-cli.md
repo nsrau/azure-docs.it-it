@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: ee7e529593960c3a7c62021225122370c122b3c4
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4dd58f2542674633f2d5e2a1724adc7934d7f030
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240978"
+ms.locfileid: "70307053"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gestire il servizio Azure blockchain usando l'interfaccia della riga di comando
 
@@ -86,7 +86,7 @@ Esempio modifica la password di un nodo di transazione.
 az resource update --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --set properties.password="<myStrongPassword>"
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |---------|-------------|
 | **resource-group** | Nome del gruppo di risorse in cui si trovano le risorse del servizio Azure blockchain. |
 | **name** | Nome del membro blockchain del servizio Azure blockchain che include anche il nome del nuovo nodo della transazione. |
@@ -112,7 +112,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules="[ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ]" --remove properties.consortiumManagementAccountAddress
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |---------|-------------|
 | **resource-group** | Nome del gruppo di risorse in cui si trovano le risorse del servizio Azure blockchain. |
 | **name** | Nome del membro blockchain del servizio Azure blockchain. |
@@ -156,7 +156,7 @@ Esempio elimina un nodo di transazione membro blockchain.
 az resource delete --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 |---------|-------------|
 | **resource-group** | Nome del gruppo di risorse in cui si trovano le risorse del servizio Azure blockchain. |
 | **name** | Nome del membro blockchain del servizio Azure blockchain che include anche il nome del nuovo nodo di transazione da eliminare. |
@@ -186,7 +186,7 @@ az role assignment create --role <role> --assignee <assignee> --scope /subscript
 |---------|-------------|
 | **role** | Nome del ruolo Azure AD. |
 | **assignee** | ID utente Azure AD. Ad esempio: `user@contoso.com` |
-| **scope** | Ambito dell'assegnazione di ruolo. Può essere un membro blockchain del nodo Transaction. |
+| **scope** | Ambito dell'assegnazione di ruolo. Può essere un membro blockchain o un nodo di transazione. |
 
 **Esempio:**
 
@@ -219,7 +219,7 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 |---------|-------------|
 | **role** | Nome del ruolo Azure AD. |
 | **assignee-object-id** | ID gruppo Azure AD o ID applicazione. |
-| **scope** | Ambito dell'assegnazione di ruolo. Può essere un membro blockchain del nodo Transaction. |
+| **scope** | Ambito dell'assegnazione di ruolo. Può essere un membro blockchain o un nodo di transazione. |
 
 **Esempio:**
 
@@ -242,7 +242,7 @@ az role assignment delete --role <myRole> --assignee <assignee> --scope /subscri
 |---------|-------------|
 | **role** | Nome del ruolo Azure AD. |
 | **assignee** | ID utente Azure AD. Ad esempio: `user@contoso.com` |
-| **scope** | Ambito dell'assegnazione di ruolo. Può essere un membro blockchain del nodo Transaction. |
+| **scope** | Ambito dell'assegnazione di ruolo. Può essere un membro blockchain o un nodo di transazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

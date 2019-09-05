@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: f79fffe2117de77e4e44dcbbaa782b2ade81e04b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b89f4d2264924983aac93fb266efd71e46bea6bf
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164180"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305220"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (reti virtuali) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -25,7 +25,7 @@ Le reti virtuali di Azure (reti virtuali) consentono di posizionare le risorse d
 Gestione API di Azure può essere distribuito all'interno della rete virtuale (VNET) in modo che possa accedere ai servizi di back-end all'interno della rete. Il portale per sviluppatori e il gateway dell'API possono essere configurati in modo che siano accessibili da Internet o solo all'interno della rete virtuale.
 
 > [!NOTE]
-> Gestione API di Azure supporta le reti virtuali classiche e Azure Resource Manager.
+> L'URL del documento di importazione API deve essere ospitato in un indirizzo Internet accessibile pubblicamente.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

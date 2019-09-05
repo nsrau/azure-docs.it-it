@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: c993e465bc439ff52cba3241dbff64b7655d1f12
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: f7d205920704ce8aedf3b2e3c07bd429b3c64964
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849166"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375336"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Domande frequenti su Azure web application firewall
 
@@ -53,12 +53,6 @@ La distribuzione di un criterio WAF a livello globale richiede in genere circa 5
 
 Quando integrato con il servizio front door, WAF è una risorsa globale. La stessa configurazione si applica a tutte le posizioni di sportello anteriore.
  
-## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Ricerca per categorie limitare l'accesso al back-end solo da sportello anteriore?
-
-È possibile configurare l'elenco di controllo di accesso IP nel back-end per consentire solo gli intervalli di indirizzi IP in uscita della porta anteriore e negare l'accesso diretto da Internet. I tag di servizio sono supportati per l'uso nella rete virtuale. Inoltre, è possibile verificare che il campo dell'intestazione HTTP X-Inoltred-host sia valido per l'applicazione Web.
-
-
-
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>Quali opzioni di Azure WAF scegliere?
 
@@ -72,6 +66,9 @@ Attualmente, le regole ModSec CRS 2.2.9 e CRS 3,0 sono supportate solo con WAF n
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>La protezione DDoS è integrata con la porta anteriore? 
 
 Distribuito a livello globale ai bordi della rete di Azure, l'area anteriore di Azure può assorbire e isolare geograficamente gli attacchi di volume elevato. È possibile creare criteri WAF personalizzati per bloccare e classificare automaticamente gli attacchi http (s) limite che hanno firme note. Altre informazioni, è possibile abilitare protezione DDoS standard nel VNet in cui vengono distribuiti i back-end. I clienti di protezione DDoS di Azure standard ricevono vantaggi aggiuntivi, tra cui la protezione dei costi, la garanzia del contratto di contratto e l'accesso agli esperti del team di risposta rapida DDoS per assistenza immediata durante un attacco. 
+
+È consigliabile bloccare i backend nell'ambiente di produzione per ridurre la superficie di attacco DDoS. Vedere [ricerca per categorie bloccare l'accesso al back-end solo per lo sportello anteriore di Azure?](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

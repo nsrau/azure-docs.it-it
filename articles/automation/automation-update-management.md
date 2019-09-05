@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6f23a1f8e60567e1c2ed89b27f0eb2bab4ca5912
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5d607809b6e0356c8807879962927e99f2bd12fd
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061805"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382731"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -77,7 +77,7 @@ La tabella seguente elenca i sistemi operativi supportati:
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supporta solo le valutazioni degli aggiornamenti.         |
 |Windows Server 2019 (Datacenter/datacenter core/standard)<br><br>Windows Server 2016 (Datacenter/datacenter core/standard)<br><br>Windows Server 2012 R2 (Datacenter/standard)<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)|È necessario .NET Framework 4.5.1 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> È necessario Windows PowerShell 4.0 o versioni successive. ([Scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 è consigliato per la sua maggiore affidabilità.  ([Scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
-|CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede "yum" per restituire i dati sulla sicurezza che non sono predefiniti in CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione su CentOS, vedere classificazioni degli [aggiornamenti in Linux](#linux-2)          |
+|CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede "yum" per restituire i dati sulla sicurezza che non sono predefiniti in CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione su CentOS, vedere [classificazioni degli aggiornamenti in Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
@@ -138,7 +138,7 @@ Se il gruppo di gestione di System Center Operations Manager è connesso all'are
 * Update Deployment MP
 
 > [!NOTE]
-> Se si dispone di un gruppo di gestione Operations Manager 1807 con agenti configurati a livello di gruppo di gestione da associare a un'area di lavoro, la soluzione corrente per visualizzarli è eseguire l'override di **IsAutoRegistrationEnabled** su **true** nel Regola **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
+> Se si dispone di un gruppo di gestione Operations Manager 1807 o 2019 con gli agenti configurati a livello di gruppo di gestione da associare a un'area di lavoro, la soluzione alternativa corrente per visualizzarli è eseguire l'override di **IsAutoRegistrationEnabled** su **true** in regola **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
 
 Per altre informazioni sulla modalità di aggiornamento dei Management Pack per le soluzioni, vedere [connettere Operations Manager ai log di monitoraggio di Azure](../azure-monitor/platform/om-agents.md).
 
@@ -187,7 +187,7 @@ Se l'agente non è in grado di comunicare con i log di monitoraggio di Azure e l
 
 Gli agenti Linux appena aggiunti visualizzano lo stato **Aggiornato** dopo l'esecuzione di una valutazione. Il processo può richiedere fino a 6 ore.
 
-Per verificare che un gruppo di gestione di Operations Manager comunichi con i log di monitoraggio di Azure, vedere convalidare [Operations Manager integrazione con i log di monitoraggio di Azure](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
+Per verificare che un gruppo di gestione di Operations Manager comunichi con i log di monitoraggio di Azure, vedere [Convalidare Operations Manager integrazione con i log di monitoraggio di Azure](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
 ## <a name="data-collection"></a>Raccolta dei dati
 

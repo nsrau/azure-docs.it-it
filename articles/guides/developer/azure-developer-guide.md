@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f04dd628ae0999edd202c98521526ae70e1ff0af
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 367027a48dd51dd88de63cb163e05e0e8503755d
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141208"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308577"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -234,7 +234,7 @@ Azure si basa su un set di API REST che supportano l'interfaccia utente del Port
 Oltre alle API REST, molti servizi di Azure consentono di gestire a livello di codice le risorse dalle applicazioni tramite Azure SDK specifici di ogni piattaforma, tra cui gli SDK per le piattaforme di sviluppo seguenti:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.JS](https://docs.microsoft.com/javascript/azure)
+-   [Node.JS](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](/azure/python/)

@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c5f7e45a1e1daa5d8504db2506a79e88c28bcc1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989606"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383181"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -153,6 +153,8 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |70018|Codice di verifica non valido a causa di un errore di digitazione del codice utente per il flusso di codice del dispositivo. L'autorizzazione non è stata approvata.|
 |70019|Il codice di verifica è scaduto. Chiedere all'utente di provare a ripetere l'accesso.|
 |70037|È stata fornita una risposta non corretta alla richiesta di verifica. Sessione di autorizzazione remota negata.|
+|70043|La gestione della sessione di accesso condizionale di Azure impone la scadenza della sessione|
+|70044|La gestione della sessione di accesso condizionale di Azure impone la scadenza della sessione|
 |75001|Si è verificato un errore durante l'associazione di messaggi SAML.|
 |75003|L'applicazione ha restituito un errore relativo a un'associazione non supportata (la risposta del protocollo SAML non può essere inviata tramite associazioni diverse da HTTP POST). Contattare il proprietario dell'applicazione.|
 |75005|Azure AD non supporta la richiesta di SAML inviata dall'applicazione per il Single Sign-On. Contattare il proprietario dell'applicazione.|

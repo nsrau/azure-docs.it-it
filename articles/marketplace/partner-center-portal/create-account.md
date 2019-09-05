@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: b1839316f8f11af7e4f365694fc017c262d00a86
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 71a74476bcec6cb2ab3dc5efabe1a550577f0107
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191736"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383234"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Marketplace commerciale nel centro per i partner
 
@@ -20,7 +20,7 @@ Per pubblicare le offerte in [Azure Marketplace](https://azuremarketplace.micros
 
 ## <a name="create-a-partner-center-account"></a>Creare un account del centro per i partner
 
-In questo articolo verrà illustrato come creare un account del centro per i partner, inclusa la procedura per: 
+In questo articolo verrà illustrato come creare un account del centro per i partner, inclusa la procedura per:
 
 - [Eseguire la registrazione tramite la pagina di registrazione del centro per i partner](#to-create-a-commercial-marketplace-account-in-partner-center)
 - [Accedere con un account aziendale](#sign-in-with-a-work-account)
@@ -56,11 +56,11 @@ In modo da poter collegare il dominio dell'account di posta elettronica aziendal
 
 #### <a name="provide-your-publisher-profile"></a>Specificare il profilo di pubblicazione
 
-Il profilo di pubblicazione include il nome della società e l'ID MPN. Se non è ancora stato fatto, sarà necessario partecipare al [Microsoft Partner Network](https://partner.microsoft.com/commercial). Dopo aver partecipato alla Microsoft Partner Network, verrà fornito un ID MPN. 
+Il profilo di pubblicazione include il nome della società e l'ID MPN. Se non è ancora stato fatto, sarà necessario partecipare al [Microsoft Partner Network](https://partner.microsoft.com/commercial). Dopo aver partecipato alla Microsoft Partner Network, verrà fornito un ID MPN.
 
-Creare un ID editore. L'ID dell'editore identifica in modo univoco la società e le offerte in Marketplace e AppSource. 
+Creare un ID editore. L'ID dell'editore identifica in modo univoco la società e le offerte in Marketplace e AppSource.
 
-Dopo aver confermato le informazioni sul profilo di pubblicazione, accettare i termini e le condizioni e creare l'account del centro per i partner selezionando **accetta e continua**. 
+Dopo aver confermato le informazioni sul profilo di pubblicazione, accettare i termini e le condizioni e creare l'account del centro per i partner selezionando **accetta e continua**.
 
 >[!Important]
 >*L'utente deve essere autorizzato a agire per conto dell'azienda per accettare le presenti condizioni.*

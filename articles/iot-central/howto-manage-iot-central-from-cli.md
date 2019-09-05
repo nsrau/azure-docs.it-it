@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 021341406f1a7269aadf18eb3a748e539cbb5bf5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 421d41f95eff0ba0fdbca02c588d4a9a0c461a84
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086969"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381053"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gestire IoT Central dall'interfaccia della riga di comando di Azure
 
@@ -31,7 +31,7 @@ Se si preferisce eseguire l'interfaccia della riga di comando di Azure nel compu
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
-Usare il comando [AZ iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create) per creare un'applicazione IoT Central nella sottoscrizione di Azure. Ad esempio:
+Usare il comando [AZ iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create) per creare un'applicazione IoT Central nella sottoscrizione di Azure. Esempio:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -62,11 +62,14 @@ Questi comandi creano prima di tutto un gruppo di risorse nell'area Stati Uniti 
 
 **Modelli di applicazione**
 
-| Nome modello            | DESCRIZIONE |
+| Nome modello            | Descrizione |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
 | iotc-demo@1.0.0          | Crea un'applicazione che include un modello di dispositivo già creato per un distributore automatico refrigerato. Usare questo modello per iniziare a esplorare Azure IoT Central. |
 | iotc-devkit-sample@1.0.0 | Crea un'applicazione con modelli di dispositivo pronti per la connessione a un dispositivo MXChip o Raspberry Pi. Si consiglia di usare questo modello agli sviluppatori di dispositivi che vogliono fare pratica con questi tipi di dispositivi. |
+
+> [!NOTE]
+> Il modello di **applicazione di anteprima** è attualmente disponibile solo nelle aree **Europa settentrionale** e **Stati Uniti centrali** .
 
 ## <a name="view-your-applications"></a>Visualizzare le proprie applicazioni
 
@@ -84,7 +87,7 @@ az iotcentral app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>Rimuovere un'applicazione
 
-Usare il comando [AZ iotcentral app Delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) per eliminare un'applicazione IoT Central. Ad esempio:
+Usare il comando [AZ iotcentral app Delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) per eliminare un'applicazione IoT Central. Esempio:
 
 ```azurecli-interactive
 az iotcentral app delete --name myiotcentralapp \

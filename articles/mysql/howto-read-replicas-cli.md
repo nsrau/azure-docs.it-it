@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 1a799823a71fcbc4aebf4b869a3fd0dd9fc66de1
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/04/2019
+ms.openlocfilehash: 8a9366005ceef5a99fd66f0ec0cd53c98b481ee1
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907866"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309324"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra come creare e gestire le repliche in lettura nella stessa area di Azure del master nel servizio Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure.
-
-> [!IMPORTANT]
-> È possibile creare una replica di lettura nella stessa area del server master o in qualsiasi altra area di Azure di propria scelta. La replica tra aree è attualmente disponibile in anteprima pubblica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -69,7 +66,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 Il comando `az mysql server replica stop` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | DESCRIZIONE  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui si trova il server di replica.  |
 | name | mydemoreplicaserver | Nome del server di replica su cui si vuole arrestare la replica. |

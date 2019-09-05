@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: 8f3d30866ac6db0cdece9af8144fcfa266871172
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e57bb55f5bbeba9cb476672723511a4d19c46165
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697897"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383265"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creare una risorsa di servizi cognitivi usando l'interfaccia della riga di comando di Azure
 
@@ -23,12 +23,12 @@ Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure 
 
 In questa Guida introduttiva si apprenderà come iscriversi ai servizi cognitivi di Azure e creare un account con una sottoscrizione a servizio singolo o multiservizio usando l' [interfaccia della riga di comando (CLI) di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Questi servizi sono rappresentati da [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)di Azure, che consentono di connettersi a una o più API servizi cognitivi di Azure.
 
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure valida- [crearne una](https://azure.microsoft.com/free/) gratuita.
 * [Interfaccia della riga di comando di Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Installare l'interfaccia della riga di comando di Azure e accedere 
 

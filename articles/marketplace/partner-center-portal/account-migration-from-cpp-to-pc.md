@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 661adb755d076b0cc6114a287855482165ccb817
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 8c7680896507cd3738fa3bce0d30a516d08509c4
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208100"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383295"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migrazione degli account da portale Cloud Partner al centro per i partner
 
@@ -43,22 +43,22 @@ Nel caso in cui l'account CPP non disponga di un ID Microsoft Partner Network o 
 La migrazione deve essere eseguita solo una volta per un determinato account. Una volta che un determinato partner ha completato la migrazione per l'account, tutti i proprietari vedranno questo comportamento nella pagina del profilo di pubblicazione:
 
 1. Verrà visualizzata la pagina Impostazioni partner in Microsoft Partner Network, in cui è ora possibile gestire le impostazioni dell'account. 
-2. Un banner giallo nella pagina del profilo di pubblicazione in CPP verrà visualizzato agli utenti che hanno il ruolo di proprietario, chiedendo loro di gestire le impostazioni dell'account nel centro per i partner. 
-3. La pagina delle impostazioni dell'account in CPP viene convertita in modalità di sola lettura. 
+2. Un banner giallo nella pagina del profilo di pubblicazione in CPP verrà visualizzato agli utenti che hanno il ruolo di proprietario, chiedendo loro di gestire le impostazioni dell'account nel centro per i partner.
+3. La pagina delle impostazioni dell'account in CPP viene convertita in modalità di sola lettura.
 
 ## <a name="move-dynamics-365-based-solutions-to-partner-center"></a>Spostare soluzioni basate su Dynamics 365 nel centro per i partner
 
 Se è stato creato Dynamics 365 per Customer Engagement o Dynamics 365 per le soluzioni Finance e Operations nel portale GTM di un partner commerciale, **queste soluzioni verranno ora gestite nel centro per i partner**.
 
-**Se non sono state spostate le soluzioni entro il 31 agosto 2019**, completare i passaggi seguenti appena possibile. Fino a quando non si esegue questa operazione: 
+**Se non sono state spostate le soluzioni entro il 31 agosto 2019**, completare i passaggi seguenti appena possibile. Fino a quando non si esegue questa operazione:
 - Gli ISV non avranno accesso ai vantaggi di marketing
 - La co-selling con priorità perderà il proprio stato
-- Quelli che richiedono l'incorporamento del cloud non saranno conformi
+- I requisiti di incorporamento del cloud non saranno conformi dopo il 15 ottobre 2019
 
 > [!NOTE]
 > Se l'account di appartenenza MPN è stato originariamente creato in partner Membership Center (PMC), accedere a [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) per confermare che l'account è stato migrato prima di completare i passaggi seguenti. Se viene visualizzata una schermata del profilo con l'ID MPN, si è pronti per continuare. In caso contrario, è necessario avviare la migrazione dell'account seguendo le istruzioni riportate nel [centro di appartenenza partner](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Per assistenza, visitare il [supporto tecnico](https://partner.microsoft.com/support?issueid=100-0077).
 
-1. Visitare la [pagina panoramica sul Marketplace commerciale nel centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Se nel riquadro di spostamento a sinistra viene visualizzato "Marketplace commerciale", l'utente viene registrato ed è necessario procedere al passaggio successivo. In caso contrario, iscriversi subito al [Marketplace commerciale](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) .
+1. Visitare la [pagina panoramica sul Marketplace commerciale nel centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Se nel riquadro di spostamento a sinistra viene visualizzato "Marketplace commerciale", l'utente viene registrato ed è necessario procedere al passaggio successivo. In caso contrario, [iscriversi subito al Marketplace commerciale](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) .
 2. Verificare che le offerte siano in AppSource [cercando le offerte](https://appsource.microsoft.com/). Se le offerte sono già presenti in AppSource, procedere al passaggio successivo. Per qualsiasi offerta non disponibile in AppSource, creare una [nuova offerta dynamics 365 for Customer Engagement](create-new-customer-engagement-offer.md) o una [nuova offerta Dynamics 365 for Operations](create-new-operations-offer.md).
 3. Verificare la registrazione nel programma di Business Applications ISV Connect:
   

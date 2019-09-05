@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 1fc6c054b32c62fbebaa2af738e25ef0dec362ac
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 2e578c6bfdfb25eaba3d0c692ff33aa5b0572669
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981296"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306006"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migrazione del traffico del database SQL di Azure ai gateway più recenti
 
@@ -41,11 +41,11 @@ Il primo ciclo di migrazione del traffico ai gateway più recenti è pianificato
 - Asia orientale
 
 La migrazione del traffico cambierà l'indirizzo IP pubblico risolto da DNS per il database SQL.
-Se si dispone di
+L'utente sarà interessato da quanto segue:
 - Hardcoded l'indirizzo IP per un determinato gateway nel firewall locale
 - Tutte le subnet che usano Microsoft. SQL come endpoint del servizio ma non possono comunicare con gli indirizzi IP del gateway
 
-L'utente non avrà alcun effetto su 
+L'utente non avrà alcun effetto sui seguenti effetti:
 - Reindirizzamento come criterio di connessione
 - Connessioni al database SQL dall'interno di Azure e uso dei tag del servizio
 - Le connessioni eseguite utilizzando le versioni supportate del driver JDBC per SQL Server non vedranno alcun effetto. Per le versioni JDBC supportate, vedere [scaricare Microsoft JDBC driver per SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).

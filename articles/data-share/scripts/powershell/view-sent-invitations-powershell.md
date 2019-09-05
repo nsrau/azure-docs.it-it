@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 1304b478bd07ed61293b668badee56338a9cab5a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 157b844afd9d59b6c03c7ae8585bc2182370d3a3
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242905"
+ms.locfileid: "70307142"
 ---
 # <a name="use-powershell-to-get-a-data-share-invitation"></a>Usare PowerShell per ottenere un invito alla condivisione dati
 
@@ -40,7 +40,7 @@ Questo script usa i comandi seguenti:
 
 | Comando | Note |
 |---|---|
-| [Get-AzDataShareInvitation](/powershell/module/az.resources/get-azdatashareinvitation) | Ottenere ed elencare gli inviti di condivisione dati inviati. |
+| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Ottenere ed elencare gli inviti di condivisione dati inviati. |
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi

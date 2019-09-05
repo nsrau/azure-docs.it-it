@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 9cc7cbe8a1f523a50c91125802804e564b48a164
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0a4084d309dd0160970f1c03540705b310eb8e75
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242957"
+ms.locfileid: "70307197"
 ---
 # <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Usare PowerShell per monitorare l'uso di una condivisione dati inviata
 
@@ -44,8 +44,8 @@ Questo script usa i comandi seguenti:
 
 | Comando | Note |
 |---|---|
-| [Get-AzDataShareSynchronization](/powershell/module/az.resources/get-azdatasharesynchronizationdetails) | Elencare le sincronizzazioni in una condivisione. |
-| [Get-AzDataShareSynchronizationDetails](/powershell/module/az.resources/get-azdatasharesynchronizationdetails) | Ottiene i dettagli della sincronizzazione di una sincronizzazione della condivisione. |
+| [Get-AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronization?view=azps-2.6.0) | Elencare le sincronizzazioni in una condivisione. |
+| [Get-AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail?view=azps-2.6.0) | Ottiene i dettagli della sincronizzazione di una sincronizzazione della condivisione. |
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi

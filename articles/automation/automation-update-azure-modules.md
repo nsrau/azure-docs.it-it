@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a71eb00ce4d4ace6ccc17e050946b39debed929c
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 23475fb77210eeea0568bb996529c81458db9c6c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034892"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382769"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Come aggiornare i moduli di Azure PowerShell in Automazione di Azure
 
@@ -48,10 +48,6 @@ Di seguito sono riportate alcune considerazioni di cui tenere conto quando si us
 
 * Per usare una versione specifica del modulo Azure PowerShell invece di quella più recente disponibile in PowerShell Gallery, inviare queste versioni al parametro `ModuleVersionOverrides` facoltativo del runbook **Update-AutomationAzureModulesForAccount**. Per avere esempi, vedere il runbook [Update-AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1
 ). I moduli di Azure PowerShell non indicati nel parametro `ModuleVersionOverrides` vengono aggiornati con le versioni più recenti dei moduli in PowerShell Gallery. Se non si passa nulla al parametro `ModuleVersionOverrides`, tutti i moduli vengono aggiornati con le ultime versioni dei moduli in PowerShell Gallery. Questo comportamento è lo stesso del pulsante **Aggiorna moduli di Azure**.
-
-## <a name="known-issues"></a>Problemi noti
-
-Si è verificato un problema noto relativo all'aggiornamento dei moduli AzureRM in un account di automazione che si trova in un gruppo di risorse con un nome numerico che inizia con 0. Per aggiornare i moduli di Azure nell'account di automazione, è necessario che si trovi in un gruppo di risorse con un nome alfanumerico. I gruppi di risorse con nomi numerici che iniziano con 0 non sono in grado di aggiornare i moduli AzureRM in questo momento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 40eaabb149e2e897ecd4e1109e0db7c42b990925
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 31137bba8c9b6b88c6a8b9569c02ae887e73e8d0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101553"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309594"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementare Oracle Golden Gate in una VM Linux di Azure 
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida descrive nei dettagli come usare l'interfaccia della riga di comando di Azure per distribuire un database Oracle 12c dall'immagine della raccolta di Azure Marketplace. 
 
-Questo documento descrive dettagliatamente come creare, installare e configurare Oracle Golden Gate in una VM Azure.
+Questo documento descrive dettagliatamente come creare, installare e configurare Oracle Golden Gate in una VM Azure. In questa esercitazione due macchine virtuali sono configurate in un set di disponibilità in una singola area. La stessa esercitazione può essere usata per configurare OracleGolden Gate per le macchine virtuali in zone di disponibilità diversi in una singola area di Azure o per la configurazione delle VM in due aree diverse.
 
 Prima di iniziare, verificare che l'interfaccia della riga di comando di Azure sia stata installata. Per altre informazioni, vedere [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli) (Guida all'installazione dell'interfaccia della riga di comando di Azure).
 

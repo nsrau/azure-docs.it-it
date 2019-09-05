@@ -16,12 +16,12 @@ ms.date: 08/02/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48d2ef0de9ae59e63cd9957200c46c788e2d785f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9277e35fceb382fbccd009e5bbfe63ce57b8361
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387308"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305183"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
 Il documento seguente è un riferimento tecnico per fornire informazioni sulle porte e i protocolli necessari per l'implementazione di una soluzione ibrida di gestione delle identità. Usare la figura riportata di seguito e vedere la tabella corrispondente.
@@ -40,11 +40,13 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 | SMB | 445 (TCP/UDP) |Usato dall'accesso Single Sign-On facile per creare un account computer nella foresta di Active Directory. |
 | LDAP/SSL |636 (TCP/UDP) |Usato per l'importazione di dati da Active Directory. Il trasferimento dati è firmato e crittografato. Usato solo se si utilizza SSL. |
 | RPC |49152- 65535 (porta RPC elevata casuale)(TCP/UDP) |Usato durante la configurazione iniziale di Azure AD Connect quando si esegue l'associazione alla foresta Active Directory e durante la sincronizzazione della password. Per altre informazioni, vedere gli articoli [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) e [KB224196](https://support.microsoft.com/kb/224196). |
+|WinRM  | 5985 (TCP/UDP) |Usato solo se si sta installando AD FS con gMSA by Azure AD Connect procedura guidata|
+|Servizi Web di servizi di dominio Active Directory | 9389 (TCP/UDP) |Usato solo se si sta installando AD FS con gMSA by Azure AD Connect procedura guidata |
 
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>Tabella 2 - Azure AD Connect e AD locale
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e Azure AD.
 
-| Protocol | Porte | Descrizione |
+| Protocol | Porte | DESCRIZIONE |
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Usato per il download di CRL (Certificate Revocation List) per verificare i certificati SSL. |
 | HTTPS |443 (TCP/UDP) |Usato per la sincronizzazione con Azure AD. |
@@ -79,7 +81,7 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 La tabella seguente descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e Azure AD.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabella 6a - Autenticazione pass-through con SSO
-|Protocol|Numero della porta|Descrizione
+|Protocol|Numero della porta|DESCRIZIONE
 | --- | --- | ---
 |HTTP|80|Abilitare il traffico HTTP in uscita per la convalida di sicurezza quale SSL. Serve anche per il funzionamento corretto dell'aggiornamento automatico del connettore.
 |HTTPS|443| Consentire il traffico HTTPS in uscita per operazioni quali l'abilitazione e disabilitazione della funzionalità, la registrazione di connettori, il download degli aggiornamenti del connettore e la gestione di tutte le richieste di accesso degli utenti.
@@ -100,10 +102,12 @@ Le tabelle seguenti descrivono gli endpoint, le porte e i protocolli necessari p
 ### <a name="table-7a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabella 7a - Porte e protocolli per l'agente di Azure AD Connect Health (AD FS/sincronizzazione) e Azure AD
 Questa tabella descrive le porte in uscita seguenti e i protocolli necessari per la comunicazione tra gli agenti di Azure AD Connect Health e Azure AD.  
 
-| Protocol | Porte | Descrizione |
+| Protocol | Porte | DESCRIZIONE |
 | --- | --- | --- |
-| HTTPS |443 (TCP/UDP) |In uscita |
-| Bus di servizio di Azure |5671 (TCP/UDP) |In uscita |
+| HTTPS |443 (TCP) |In uscita |
+| Bus di servizio di Azure |5671 (TCP) |In uscita |
+
+La porta 5671 del bus di servizio di Azure non è più necessaria per la versione più recente dell'agente. La versione più recente dell'agente Azure AD Connect Health richiesta solo la porta 443.
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b - Endpoint per l'agente di Azure AD Connect Health (AD FS/sincronizzazione) e Azure AD
 Per un elenco di endpoint vedere la sezione [Requisiti in Installazione dell'agente di Azure AD Connect Health](how-to-connect-health-agent-install.md#requirements).

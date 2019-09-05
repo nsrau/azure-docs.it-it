@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: bf2b83725f8ce8e712974c182c9a11e8ed0d04f0
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: df9a7325d3ffc2362ff14b9a618ca0db7928b337
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013232"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376326"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le analogie e le differenze tra i due tipi di code offerti attualmente da Microsoft Azure: Code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.
@@ -85,7 +85,6 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 * In genere i messaggi nelle code di archiviazione sono ordinati in base al principio FIFO (First-In-First-Out), ma in alcuni casi possono risultare non in ordine, ad esempio quando la durata del timeout di visibilità di un messaggio scade a seguito dell'arresto anomalo di un'applicazione client durante l'elaborazione. Quando il timeout di visibilità scade, il messaggio risulta nuovamente visibile nella coda in modo che un altro utente possa rimuoverlo. A questo punto, il messaggio reso nuovamente visibile può essere posizionato nella coda (per poter essere rimosso di nuovo) dopo un messaggio originariamente accodato dopo quest'ultimo.
 * Il modello FIFO garantito nelle code del bus di servizio richiede l'uso di sessioni di messaggistica. Se l'applicazione termina di funzionare in maniera anomala durante l'elaborazione di un messaggio ricevuto nella modalità **Visualizzazione e blocco**, la prossima volta che un ricevitore di code accetta una sessione di messaggistica, l'applicazione verrà avviata con il messaggio non recapitato dopo la scadenza della relativa durata (TTL).
 * Le code di archiviazione sono progettate per supportare scenari di accodamento standard, ad esempio il disaccoppiamento di componenti dell'applicazione per aumentare la scalabilità e la tolleranza di errore, il livellamento del carico e la creazione di flussi di lavoro di elaborazione.
-* Le code del bus di servizio supportano la garanzia di recapito *At-Least-Once*. 
 * Le incoerenze relative alla gestione dei messaggi nel contesto delle sessioni del bus di servizio possono essere evitate usando lo stato della sessione per archiviare lo stato dell'applicazione in relazione allo stato di avanzamento della gestione della sequenza di messaggi della sessione e alle transazioni risoluzione dei messaggi ricevuti e aggiornamento dello stato della sessione. Questo tipo di funzionalità di coerenza viene talvolta etichettato come elaborazione di tipo *exactly-once* nei prodotti di altri fornitori, ma gli errori di transazione causano ovviamente il recapito dei messaggi e pertanto il termine non è esattamente appropriato.
 * Le code di archiviazione offrono un modello di programmazione uniforme e coerente tra code, tabelle e BLOB, sia per i team di sviluppo che per i team operativi.
 * Le code del bus di servizio offrono supporto per le transazioni locali nel contesto di una singola coda.

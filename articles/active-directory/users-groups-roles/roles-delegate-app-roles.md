@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837887"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382497"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegare le autorizzazioni di registrazione all'app in Azure Active Directory
 
-Questo articolo descrive come usare le autorizzazioni dell'app nei ruoli personalizzati in Azure Active Directory (Azure AD) per soddisfare le esigenze di gestione delle applicazioni. Azure Active Directory (Azure AD) consente di delegare le autorizzazioni per la creazione e la gestione delle applicazioni nei modi seguenti:
+Questo articolo descrive come usare le autorizzazioni concesse dai ruoli personalizzati in Azure Active Directory (Azure AD) per soddisfare le esigenze di gestione delle applicazioni. In Azure AD è possibile delegare le autorizzazioni per la creazione e la gestione delle applicazioni nei modi seguenti:
 
 - [Limitazione degli utenti che possono creare applicazioni](#restrict-who-can-create-applications) e gestire le applicazioni create. Per impostazione predefinita, in Azure AD, tutti gli utenti possono registrare le registrazioni dell'applicazione e gestire tutti gli aspetti delle applicazioni che creano. Questo può essere limitato in modo da consentire solo a utenti selezionati tale autorizzazione.
 - [Assegnazione di uno o più proprietari a un'applicazione](#assign-application-owners). Si tratta di un modo semplice per concedere a un utente la possibilità di gestire tutti gli aspetti della configurazione Azure AD per un'applicazione specifica.
@@ -40,7 +40,7 @@ Per impostazione predefinita, in Azure AD, tutti gli utenti possono registrare l
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Per disabilitare la capacità predefinita di creare registrazioni di applicazioni o il consenso alle applicazioni
 
 1. Accedere all'organizzazione Azure AD con un account idoneo per il ruolo di amministratore globale nell'organizzazione Azure AD.
-1. Una volta ottenute autorizzazioni sufficienti, impostare una o entrambe le opzioni seguenti:
+1. Impostare una o entrambe le opzioni seguenti:
 
     - Nella [pagina impostazioni utente per l'organizzazione](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)impostare l'impostazione **utenti può registrare le applicazioni** su No. In questo modo si disabilita la capacità predefinita per gli utenti di creare registrazioni di applicazioni.
     - Nelle [impostazioni utente per le applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)impostare gli utenti in modo **da consentire alle applicazioni che accedono ai dati aziendali per conto** dell'utente di impostare su No. Questa operazione Disabilita la capacità predefinita per gli utenti di fornire il consenso alle applicazioni che accedono ai dati aziendali per loro conto.
@@ -55,7 +55,7 @@ L'assegnazione dei proprietari è un modo semplice per garantire la possibilità
 
 ### <a name="enterprise-application-owners"></a>Proprietari di applicazioni aziendali
 
-In qualità di proprietario, un utente può gestire la configurazione specifica dell'organizzazione dell'applicazione aziendale, ad esempio la configurazione dell'accesso Single Sign-on, il provisioning e le assegnazioni degli utenti. Un proprietario può anche aggiungere o rimuovere altri proprietari. Diversamente dagli amministratori globali, i proprietari possono gestire solo le applicazioni aziendali di loro proprietà.
+In qualità di proprietario, un utente può gestire la configurazione specifica dell'organizzazione dell'applicazione aziendale, ad esempio la configurazione Single Sign-On, il provisioning e le assegnazioni utente. Un proprietario può anche aggiungere o rimuovere altri proprietari. Diversamente dagli amministratori globali, i proprietari possono gestire solo le applicazioni aziendali di loro proprietà.
 
 In alcuni casi, le applicazioni aziendali create dalla raccolta di applicazioni includono sia un'applicazione aziendale che la registrazione di un'applicazione. Quando è true, l'aggiunta di un proprietario all'applicazione aziendale aggiunge automaticamente il proprietario alla registrazione dell'applicazione corrispondente come proprietario.
 
@@ -90,7 +90,7 @@ Seguire le istruzioni riportate nella Guida per l' [assegnazione di ruoli agli u
 
 La creazione di ruoli personalizzati e l'assegnazione di ruoli personalizzati sono passaggi distinti:
 
-- [Creare una *definizione di ruolo* personalizzata](roles-create-custom.md) e aggiungervi le [autorizzazioni da un elenco di set di impostazioni](roles-custom-available-permissions.md). Si tratta delle stesse autorizzazioni utilizzate nei ruoli predefiniti.
+- [Creare una *definizione di ruolo* personalizzata](roles-create-custom.md) e [aggiungervi le autorizzazioni da un elenco di set di impostazioni](roles-custom-available-permissions.md). Si tratta delle stesse autorizzazioni utilizzate nei ruoli predefiniti.
 - [Creare un' *assegnazione di ruolo* ](roles-assign-powershell.md) per assegnare il ruolo personalizzato.
 
 Questa separazione consente di creare una singola definizione di ruolo e di assegnarla più volte in *ambiti*diversi. Un ruolo personalizzato può essere assegnato a livello di organizzazione oppure può essere assegnato all'ambito se un singolo oggetto Azure AD. Un esempio di ambito di un oggetto è costituito da una singola registrazione dell'app. Con ambiti diversi, la stessa definizione di ruolo può essere assegnata a Sally su tutte le registrazioni dell'app nell'organizzazione e quindi a Naver solo per la registrazione di app per la spesa di contoso.

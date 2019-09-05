@@ -1,5 +1,5 @@
 ---
-title: Eseguire un servizio di Azure Service Fabric in un account gMSA | Microsoft Docs
+title: Eseguire un servizio Service Fabric di Azure con un account gMSA | Microsoft Docs
 description: Informazioni su come eseguire un servizio come gMSA in un cluster autonomo Windows di Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
-ms.openlocfilehash: 5c3781c2111fff7483a7fb65bd7b2e69c2011d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d00eceffebb222196191a389058c0feb496e169a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837743"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307650"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Eseguire un servizio come account del servizio gestito del gruppo
 In un cluster autonomo di Windows Server è possibile eseguire un servizio come account del servizio gestito del gruppo usando criteri RunAs.  Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite con lo stesso account con cui viene eseguito il processo Fabric.exe. L'esecuzione di applicazioni con account diversi, anche in ambienti ospitati condivisi, aumenta la sicurezza reciproca. Si noti che è in uso Active Directory in locale nel dominio e non Microsoft Azure Active Directory (Azure AD). Se si usa un account del servizio gestito del gruppo, nel manifesto dell'applicazione non viene archiviata alcuna password o password crittografata.  È anche possibile eseguire un servizio come [utente o gruppo di Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
@@ -28,7 +28,7 @@ L'esempio seguente mostra come creare un account gMSA denominato *svc-Test$* , c
 
 Prerequisiti:
 - Il dominio richiede una chiave radice del Servizio distribuzione chiavi.
-- Il dominio deve essere a livello funzionale di Windows Server 2012 o versione successiva.
+- È necessario che nel dominio sia presente almeno un controller di dominio Windows Server 2012 (o R2).
 
 1. Chiedere a un amministratore di dominio di Active Directory di creare un account di servizio gestito del gruppo usando il commandlet `New-ADServiceAccount` e di assicurarsi che `PrincipalsAllowedToRetrieveManagedPassword` includa tutti i nodi del cluster di Service Fabric. `AccountName`, `DnsHostName` e `ServicePrincipalName` devono essere univoci.
 

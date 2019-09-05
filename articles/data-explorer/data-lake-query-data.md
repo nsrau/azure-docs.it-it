@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: b0056df16dccaf1dc7e94aad1a2c6c262ffd89ee
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950147"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383368"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Eseguire query sui dati in Azure Data Lake usando Esplora dati di Azure (anteprima)
 
@@ -50,6 +50,7 @@ Azure Esplora dati si integra con l'archiviazione BLOB di Azure e Azure Data Lak
     > * È previsto un miglioramento delle prestazioni con il partizionamento più granulare. Ad esempio, le query su tabelle esterne con partizioni giornaliere avranno prestazioni migliori rispetto alle query con tabelle partizionate mensili.
     > * Quando si definisce una tabella esterna con partizioni, la struttura di archiviazione dovrebbe essere identica.
 Se, ad esempio, la tabella è definita con una partizione DateTime nel formato AAAA/MM/GG (impostazione predefinita), il percorso del file di archiviazione URI deve essere *container1/aaaa/mm/gg/all_exported_blobs*. 
+    > * Se la tabella esterna è partizionata in base a una colonna DateTime, includere sempre un filtro temporale per un intervallo chiuso nella query (ad esempio, la query `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` deve avere prestazioni migliori rispetto a questo (intervallo aperto) uno `ArchivedProducts | where Timestamp > ago(1h)` -). 
 
 1. La tabella esterna è visibile nel riquadro sinistro dell'interfaccia utente Web
 
@@ -76,7 +77,7 @@ Se, ad esempio, la tabella è definita con una partizione DateTime nel formato A
     ) 
     ```
  
-1. Il formato JSON richiede un secondo passaggio della creazione del mapping alle colonne, come illustrato di seguito. Nella query seguente creare un mapping JSON specifico denominato MappingName:
+1. Il formato JSON richiede un secondo passaggio della creazione del mapping alle colonne, come illustrato di seguito. Nella query seguente creare un mapping JSON specifico denominato *MappingName*:
 
     ```kusto
     .create external table ExternalTableJson json mapping "mappingName" '[{ "column" : "rownumber", "datatype" : "int", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]' 

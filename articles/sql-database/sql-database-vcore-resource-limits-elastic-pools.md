@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: aa35cb1ae0ad035bdef6ff8e19cf115188ba7f3a
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2a5190cada0ca834cada4e02bfe7549dc43da4b8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640848"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309507"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limiti delle risorse per i pool elastici secondo il modello di acquisto basato su vCore
 
@@ -140,8 +140,8 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Target IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
 |Limiti di velocità del log (MBps)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
-|Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|1680|1890|2100|2520|33600|4200|8400|
-|Numero massimo di accessi simultanei per pool (richieste) *|1680|1890|2100|2520|33600|4200|8400|
+|Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|1680|1890|2100|2520|3360|4200|8400|
+|Numero massimo di accessi simultanei per pool (richieste) *|1680|1890|2100|2520|3360|4200|8400|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...16|0, 0,25, 0,5, 1...18|0, 0,25, 0,5, 1...20|0, 0,25, 0,5, 1...20, 24|0, 0,25, 0,5, 1...20, 24, 32|0, 0,25, 0,5, 1...16, 24, 32, 40|0, 0,25, 0,5, 1...16, 24, 32, 40, 80|
 |Numero di repliche|1|1|1|1|1|1|1|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|

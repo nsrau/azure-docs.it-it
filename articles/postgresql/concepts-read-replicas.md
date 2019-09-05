@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 82c286ce60751775308d0f2c197d86785c4f0a14
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/04/2019
+ms.openlocfilehash: 75fcbdc20c1caf191d4a22672fc9641b36c263c5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991590"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309352"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche nel database di Azure per PostgreSQL-server singolo
 
@@ -33,8 +33,6 @@ Questa funzionalità di replica in lettura si avvale della replica asincrona di 
 ## <a name="cross-region-replication"></a>Replica tra aree
 È possibile creare una replica di lettura in un'area diversa dal server master. La replica tra aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.
 
-> [!IMPORTANT]
-> La replica tra aree è attualmente disponibile in anteprima pubblica.
 
 È possibile avere un server master in qualsiasi [area di database di Azure per PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql).  Un server master può avere una replica nell'area abbinata o nelle aree di replica universale.
 
@@ -73,7 +71,7 @@ Quando si crea una replica, questa non eredita le regole del firewall o l'endpoi
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
-È possibile connettersi alla replica usando il relativo nome host e un account utente valido, come si farebbe per un normale server di Database di Azure per PostgreSQL. Per un server denominato **My replica** con il nome utenteamministratore amministratore, è possibile connettersi alla replica usando PSQL:
+È possibile connettersi alla replica usando il relativo nome host e un account utente valido, come si farebbe per un normale server di Database di Azure per PostgreSQL. Per un server denominato **My replica** con il **nome utente amministratore amministratore,** è possibile connettersi alla replica usando PSQL:
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -84,7 +82,7 @@ Quando richiesto, immettere la password per l'account dell'utente.
 ## <a name="monitor-replication"></a>Monitorare la replica
 Database di Azure per PostgreSQL offre due metriche per il monitoraggio della replica. Le due metriche sono il **ritardo massimo tra repliche** e **ritardo di replica**. Per informazioni su come visualizzare queste metriche, vedere la sezione **monitorare una replica** dell'articolo sulle [procedure di lettura della replica](howto-read-replicas-portal.md).
 
-La metrica **Max lag** tra repliche indica il ritardo in byte tra il master e la replica più in ritardo. Questa metrica è disponibile solo nel server master.
+La metrica **Max lag tra repliche** indica il ritardo in byte tra il master e la replica più in ritardo. Questa metrica è disponibile solo nel server master.
 
 La metrica **ritardo di replica** indica il tempo trascorso dall'ultima transazione rieseguita. Se non sono presenti transazioni sul server master, la metrica riflette questo intervallo di tempo. Questa metrica è disponibile solo per i server di replica. Il `pg_stat_wal_receiver` ritardo di replica viene calcolato dalla visualizzazione:
 

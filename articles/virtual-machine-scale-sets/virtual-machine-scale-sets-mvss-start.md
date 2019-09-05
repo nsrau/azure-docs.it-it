@@ -1,6 +1,6 @@
 ---
 title: Informazioni sui modelli di set di scalabilità di macchine virtuali | Microsoft Docs
-description: Informazioni su come creare un modello di set di scalabilità di base per il set di scalabilità di macchine virtuali
+description: Informazioni su come creare un modello di set di scalabilità di base per set di scalabilità di macchine virtuali
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 267c715de67df57abd30ac18966b8b3b8440810c
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868916"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376117"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Informazioni sui modelli di set di scalabilità di macchine virtuali
-I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa serie di esercitazioni illustra come creare un modello di set di scalabilità di base e su come modificare questo modello per adattarsi a vari scenari. Tutti gli esempi provengono da questo [archivio GitHub](https://github.com/gatneil/mvss).
+I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa serie di esercitazioni illustra come creare un modello di set di scalabilità di base e come modificare questo modello per adattarsi a diversi scenari. Tutti gli esempi provengono da questo [archivio GitHub](https://github.com/gatneil/mvss).
 
 Questo modello è progettato per essere semplice. Per esempi più completi di modelli di set di scalabilità, vedere [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates) (Archivio GitHub Modelli di avvio rapido di Azure) e cercare le cartelle contenenti la stringa `vmss`.
 
@@ -131,7 +131,7 @@ Il set di scalabilità deve conoscere le dimensioni della macchina virtuale da c
 ```
 
 ### <a name="choose-type-of-updates"></a>Scegliere un tipo di aggiornamenti
-Il set di scalabilità deve inoltre sapere come gestire gli aggiornamenti: Attualmente, sono disponibili tre opzioni, `Manual`, `Rolling` e `Automatic`. Per ulteriori informazioni sulle differenze tra le due opzioni, vedere la documentazione su [come aggiornare un set di scalabilità](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+Il set di scalabilità deve inoltre sapere come gestire gli aggiornamenti: Attualmente sono disponibili tre opzioni, `Manual`, `Rolling` e `Automatic`. Per ulteriori informazioni sulle differenze tra le due opzioni, vedere la documentazione su [come aggiornare un set di scalabilità](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

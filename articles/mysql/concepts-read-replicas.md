@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 9907bf49b99f3e8a09f2924c386c1f76891a8c15
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.date: 09/04/2019
+ms.openlocfilehash: f567eefee84cf6a01afad4e5245337dd92b8cc48
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232542"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309421"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
 La funzionalità relativa alle repliche in lettura consente di replicare i dati dal server del Database di Azure per MySQL a un server di sola lettura. È possibile creare fino a un massimo di cinque repliche da un server master. Le repliche vengono aggiornate in modo asincrono tramite la tecnologia di replica basata su posizione del file di registro binario nativo, o binlog, del motore MySQL. Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
-
-> [!IMPORTANT]
-> È possibile creare una replica di lettura nella stessa area del server master o in qualsiasi altra area di Azure di propria scelta. La replica tra aree è attualmente disponibile in anteprima pubblica.
 
 Le repliche sono nuovi server gestiti in modo analogo al normale database di Azure per i server MySQL. Per ogni replica in lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, espresse rispettivamente in vCore e GB/mese.
 
@@ -36,9 +33,6 @@ La funzionalità di lettura della replica usa la replica asincrona di MySQL. La 
 
 ## <a name="cross-region-replication"></a>Replica tra aree
 È possibile creare una replica di lettura in un'area diversa dal server master. La replica tra aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.
-
-> [!IMPORTANT]
-> La replica tra aree è attualmente disponibile in anteprima pubblica.
 
 È possibile avere un server master in qualsiasi [area di database di Azure per MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Un server master può avere una replica nell'area abbinata o nelle aree di replica universale.
 
@@ -77,7 +71,7 @@ Quando si crea una replica, questa non eredita le regole del firewall o l'endpoi
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
-È possibile connettersi alla replica usando il nome host e un account utente valido, come si farebbe con un normale database di Azure per il server MySQL. Per un server denominato la **replica** con il nome utenteamministratore amministratore, è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
+È possibile connettersi alla replica usando il nome host e un account utente valido, come si farebbe con un normale database di Azure per il server MySQL. Per un server denominato la **replica** con il **nome utente amministratore amministratore,** è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p

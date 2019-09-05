@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: d9b0c551cdfb92b380a967aaa5bdce7c278fd39e
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 6df78a46e6bc8055f8cce89e199d01ad631e178e
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183580"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306199"
 ---
-# <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integrità back-end, log di diagnostica e metriche per il gateway applicazione
+# <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Log di diagnostica e integrità back-end per il gateway applicazione
 
 Il gateway applicazione di Azure consente di monitorare le risorse nei modi seguenti:
 
@@ -22,7 +22,7 @@ Il gateway applicazione di Azure consente di monitorare le risorse nei modi segu
 
 * [Log](#diagnostic-logging): i log consentono di salvare o usare i dati delle prestazioni, di accesso e di altro tipo relativi a una risorsa per scopi di monitoraggio.
 
-* [Metriche](#metrics): il gateway applicazione dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
+* [Metriche](application-gateway-metrics.md): Il gateway applicazione include diverse metriche che consentono di verificare che il sistema funzioni come previsto.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -157,7 +157,7 @@ Azure genera il log attività per impostazione predefinita. I log vengono conser
 
 Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente per V1:
 
-|Valore  |DESCRIZIONE  |
+|Value  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
 |clientIP     | IP di origine della richiesta.        |
@@ -172,7 +172,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 |sentBytes| Dimensione del pacchetto inviato, espressa in byte.|
 |timeTaken| Periodo di tempo in millisecondi impiegato per l'elaborazione di una richiesta e l'invio della risposta. Questo valore corrisponde all'intervallo di tempo intercorso dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al termine dell'operazione di invio della risposta. È importante notare che il campo Tempo impiegato include in genere il tempo della trasmissione in rete dei pacchetti di richiesta e risposta. |
 |sslEnabled| Indica se la comunicazione con i pool back-end ha usato SSL. I valori validi sono on e off.|
-|host| Nome host a cui è stata inviata la richiesta al server back-end. Se il nome host del back-end viene sottoposto a override, il nome lo rifletterà.|
+|host| Nome host a cui è stata inviata la richiesta al server back-end. Se viene eseguito l'override del nome host back-end, questo nome rifletterà tale nome.|
 |originalHost| Nome host con cui la richiesta è stata ricevuta dal gateway applicazione dal client.|
 ```json
 {
@@ -201,7 +201,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 ```
 Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 
-|Value  |Descrizione  |
+|Valore  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
 |clientIP     | IP di origine della richiesta.        |
@@ -255,7 +255,7 @@ Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 Il log delle prestazioni viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. I dati del log delle prestazioni vengono generati a intervalli di un minuto. Vengono registrati i dati seguenti:
 
 
-|Valore  |Descrizione  |
+|Value  |Descrizione  |
 |---------|---------|
 |instanceId     |  Istanza del gateway applicazione per cui vengono generati i dati delle prestazioni. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.        |
 |healthyHostCount     | Numero di host integri nel pool back-end.        |
@@ -292,7 +292,7 @@ Il log delle prestazioni viene generato solo se è stato abilitato in ogni istan
 Il log del firewall viene generato solo se è stato abilitato in ogni gateway applicazione, come descritto nei passaggi precedenti. Questo log richiede anche che il web application firewall sia configurato in un gateway applicazione. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
 
 
-|Value  |Descrizione  |
+|Valore  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione per cui vengono generati i dati del firewall. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.         |
 |clientIp     |   IP di origine della richiesta.      |
@@ -359,67 +359,6 @@ I [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-anal
 #### <a name="analyzing-access-logs-through-goaccess"></a>Analisi dei log di accesso con GoAccess
 
 È stato pubblicato un modello di Resource Manager che installa ed esegue il diffuso analizzatore di log [GoAccess](https://goaccess.io/) per i log di accesso del gateway applicazione. GoAccess offre utili statistiche sul traffico HTTP, come ad esempio visitatori univoci, file richiesti, host, sistemi operativi, browser, codici di stato HTTP e altro ancora. Per altre informazioni, vedere il [file Readme nella cartella del modello di Resource Manager in GitHub](https://aka.ms/appgwgoaccessreadme).
-
-## <a name="metrics"></a>metrics
-
-Le metriche sono una funzionalità di alcune risorse di Azure che consente di visualizzare i contatori delle prestazioni nel portale. Per il gateway applicazione sono disponibili le metriche seguenti:
-
-- **Connessioni correnti**
-- **Richieste non riuscite**
-- **Numero di host integri**
-
-   È possibile filtrare per pool back-end per visualizzare gli host integri o non integri in un pool back-end specifico.
-
-
-- **Stato della risposta**
-
-   La distribuzione del codice di stato della risposta può essere ulteriormente classificata per visualizzare le risposte nelle categorie 2xx, 3xx, 4xx e 5xx.
-
-- **Velocità effettiva**
-- **Richieste totali**
-- **Numero di host non integri**
-
-   È possibile filtrare in base al pool back-end per visualizzare gli host integri o non integri in un pool back-end specifico.
-
-Passare a un gateway applicazione, in **monitoraggio** selezionare **metriche**. Per visualizzare i valori disponibili, selezionare l'elenco a discesa **METRICA**.
-
-Nella figura seguente è illustrato un esempio con tre metriche visualizzate per gli ultimi 30 minuti:
-
-[![](media/application-gateway-diagnostics/figure5.png "Visualizzazione delle metriche")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
-
-Per un elenco delle metriche correnti, vedere [Metriche supportate con il monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md).
-
-### <a name="alert-rules"></a>Regole di avviso
-
-È possibile avviare le regole di avviso in base alle metriche per una risorsa. Ad esempio, un avviso può chiamare un webhook o inviare un messaggio di posta elettronica a un amministratore se la velocità effettiva del gateway applicazione è al di sopra, al di sotto o corrisponde alla soglia per un periodo di tempo specificato.
-
-L'esempio seguente illustra la creazione di una regola di avviso per l'invio di un messaggio di posta elettronica a un amministratore al superamento della soglia della velocità effettiva:
-
-1. Selezionare **Aggiungi avviso metrica** per aprire la pagina **Aggiungi regola** . È anche possibile accedere a questa pagina dalla pagina metrica.
-
-   ![Pulsante "Aggiungi avviso per la metrica"][6]
-
-2. Nella pagina **Aggiungi regola** , compilare le sezioni nome, condizione e notifica, quindi selezionare **OK**.
-
-   * Nel selettore **Condizione** selezionare uno dei quattro valori seguenti: **Maggiore di**, **Maggiore di o uguale a**, **Minore di** o **Minore o uguale a**.
-
-   * Nel selettore **Periodo** selezionare un periodo compreso tra cinque minuti e sei ore.
-
-   * Se si seleziona **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**, il messaggio di posta elettronica può essere dinamico basato sugli utenti che hanno accesso alla risorsa. In alternativa, è possibile inserire un elenco di utenti separato da virgole nella casella **Indirizzi di posta elettronica aggiuntivi dell'amministratore**.
-
-   ![Pagina Aggiungi regola][7]
-
-Se la soglia viene superata, l'utente riceve un messaggio di posta elettronica simile al seguente:
-
-![Messaggio di posta elettronica per il superamento della soglia][8]
-
-Dopo aver creato un avviso per la metrica, viene visualizzato un elenco di avvisi. L'elenco offre una panoramica di tutte le regole di avviso.
-
-![Elenco di avvisi e regole][9]
-
-Per altre informazioni sulle notifiche di avviso, vedere [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
-
-Per altre informazioni sui webhook e su come usarli con gli avvisi, vedere [Configurare un webhook in un avviso relativo alle metriche di Azure](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

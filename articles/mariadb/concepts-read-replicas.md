@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 8cfda202e57dcee4f7a783de893fb712501dfd26
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/04/2019
+ms.openlocfilehash: db2457cc3e320ac413cb245f51810b654c63aa22
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992175"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308985"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Leggere le repliche nel database di Azure per MariaDB
 
 La funzionalità di lettura della replica consente di replicare i dati da un database di Azure per il server MariaDB a un server di sola lettura. È possibile creare fino a un massimo di cinque repliche da un server master. Le repliche vengono aggiornate in modo asincrono utilizzando la tecnologia di replica basata su posizione del file binlog (binary log) del motore MariaDB con l'ID di transazione globale (GTID). Per altre informazioni su questo tipo di replica, vedere [binlog replication overview](https://mariadb.com/kb/en/library/replication-overview/) (Panoramica della replica basata su binlog).
-
-> [!IMPORTANT]
-> È possibile creare una replica di lettura nella stessa area del server master o in qualsiasi altra area di Azure di propria scelta. Le repliche di lettura (stessa area e tra più aree) sono attualmente in anteprima pubblica.
 
 Le repliche sono nuovi server gestiti in modo analogo al normale database di Azure per i server MariaDB. Per ogni replica in lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, espresse rispettivamente in vCore e GB/mese.
 
@@ -37,9 +34,6 @@ La funzionalità di lettura della replica utilizza la replica asincrona. La funz
 
 ## <a name="cross-region-replication"></a>Replica tra aree
 È possibile creare una replica di lettura in un'area diversa dal server master. La replica tra aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.
-
-> [!IMPORTANT]
-> La replica tra aree è attualmente disponibile in anteprima pubblica.
 
 È possibile avere un server master in qualsiasi [database di Azure per l'area MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un server master può avere una replica nell'area abbinata o nelle aree di replica universale.
 
@@ -79,7 +73,7 @@ Quando si crea una replica, questa non eredita le regole del firewall o l'endpoi
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
-È possibile connettersi alla replica usando il nome host e un account utente valido, come per un normale database di Azure per il server MariaDB. Per un server denominato la **replica** con il nome utenteamministratore amministratore, è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
+È possibile connettersi alla replica usando il nome host e un account utente valido, come per un normale database di Azure per il server MariaDB. Per un server denominato la **replica** con il **nome utente amministratore amministratore,** è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p

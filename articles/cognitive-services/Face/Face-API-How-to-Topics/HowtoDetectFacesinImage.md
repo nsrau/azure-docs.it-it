@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 36cd9b560bd149fd837db09cba33ce6bb2199a20
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 07089def3290d6d64919ad2551de7584646cc681
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827733"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306626"
 ---
 # <a name="get-face-detection-data"></a>Ottenere i dati di rilevamento viso
 
@@ -29,7 +29,7 @@ Questa guida illustra come:
 
 ## <a name="setup"></a>Configurazione
 
-In questa guida si presuppone che sia già stato creato un oggetto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet), denominato `faceClient`, con una chiave di sottoscrizione della faccia e un URL dell'endpoint. Da qui è possibile usare la funzionalità di rilevamento viso chiamando [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), che viene usato in questa guida oppure [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Per istruzioni su come configurare questa funzionalità, vedere la [Guida introduttiva rilevare visi per C# ](../quickstarts/csharp-detect-sdk.md).
+In questa guida si presuppone che sia già stato creato un oggetto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet), denominato `faceClient`, con una chiave di sottoscrizione della faccia e un URL dell'endpoint. Da qui è possibile usare la funzionalità di rilevamento viso chiamando [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), che viene usato in questa guida oppure [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Per istruzioni su come configurare questa funzionalità, seguire una delle guide introduttive.
 
 Questa guida è incentrata sulle specifiche della chiamata di rilevamento, ad esempio sugli argomenti che è possibile passare e sulle operazioni che è possibile eseguire con i dati restituiti. Si consiglia di eseguire una query solo per le funzionalità necessarie. Ogni operazione richiede ulteriore tempo per il completamento.
 

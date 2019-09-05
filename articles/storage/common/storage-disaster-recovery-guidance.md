@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7785c6b5c575bf862b1ba0edccc75fc1c6031b08
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: b2cd7232bce674dfa5aa2c6f4b6d9386fa7a189b
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015650"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376460"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure
 
@@ -139,7 +139,7 @@ Potrebbero essere necessari 1-2 giorni per ricevere l'approvazione per l'antepri
 Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
-### <a name="additional-considerations"></a>Ulteriori considerazioni 
+### <a name="additional-considerations"></a>Considerazioni aggiuntive 
 
 Leggere le considerazioni aggiuntive esposte in questa sezione per comprendere come le applicazioni e i servizi potrebbero essere interessati quando si forza un failover durante il periodo di anteprima.
 
@@ -168,7 +168,6 @@ Tenere presente che i dati archiviati in un disco temporaneo vanno persi quando 
 Le funzionalità o i servizi seguenti non sono supportati per il failover dell'account per la versione in anteprima:
 
 - Sincronizzazione file di Azure non supporta il failover dell'account di archiviazione. È consigliabile non effettuare il failover degli account di archiviazione contenenti condivisioni file di Azure che vengono usate come endpoint cloud in Sincronizzazione file di Azure. Il failover causerebbe l'arresto della sincronizzazione e potrebbe causare inoltre una perdita di dati imprevista nel caso di file appena disposti su livelli.  
-- Non è possibile effettuare il failover degli account di archiviazione che usano gli spazi dei nomi gerarchici di Azure Data Lake Storage Gen2.
 - Non è possibile effettuare il failover di un account di archiviazione contenente BLOB archiviati. Mantenere i BLOB archiviati in un account di archiviazione separato di cui non si intende effettuare il failover.
 - Non è possibile effettuare il failover di un account di archiviazione contenente BLOB in blocchi Premium. Gli account di archiviazione che supportano i BLOB in blocchi Premium non supportano attualmente la ridondanza geografica.
 - Al termine del failover, le funzionalità seguenti smetteranno di funzionare se originariamente abilitate: [Sottoscrizioni di eventi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [criteri del ciclo](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)di vita, [analisi archiviazione registrazione](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).

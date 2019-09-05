@@ -3,23 +3,26 @@ title: Informazioni su come controllare il contenuto di un computer
 description: Informazioni su come i criteri di Azure usano la configurazione Guest per controllare le impostazioni all'interno di una macchina di Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/18/2019
+ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 06a767af71f457273e0e20d1248d64c22b3563e7
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: bfa7f7486a9fa5ef62e8bf9e01dbe39d675d8d27
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274939"
+ms.locfileid: "70308562"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
-Oltre a controllare e [correggere](../how-to/remediate-resources.md) le risorse di Azure, i criteri di Azure possono controllare le impostazioni all'interno di un computer. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione tramite il client convalida le impostazioni quali la configurazione del sistema operativo, la configurazione o la presenza dell'applicazione, le impostazioni di ambiente e altro ancora.
+Oltre al controllo e alla [correzione](../how-to/remediate-resources.md) delle risorse di Azure, i criteri di Azure possono controllare le impostazioni all'interno di un computer. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione, tramite il client, convalida le impostazioni come:
 
-A questo punto, la configurazione Guest di criteri di Azure esegue solo un controllo delle impostazioni all'interno della macchina.
-Non è ancora possibile applicare le configurazioni.
+- Configurazione del sistema operativo
+- Configurazione o presenza di applicazioni
+- Impostazioni ambiente
+
+A questo punto, la configurazione Guest di criteri di Azure controlla solo le impostazioni all'interno della macchina. Non applica le configurazioni.
 
 ## <a name="extension-and-client"></a>Estensione e client
 
@@ -27,8 +30,7 @@ Per controllare le impostazioni all'interno di un computer, è abilitata un' [es
 
 ### <a name="limits-set-on-the-extension"></a>Limiti impostati per l'estensione
 
-Per limitare l'estensione dall'effetto sulle applicazioni in esecuzione all'interno del computer, la configurazione Guest non può superare il 5% di utilizzo della CPU.
-Questo vale sia per le configurazioni fornite da Microsoft come "predefinite" sia per le configurazioni personalizzate create dai clienti.
+Per limitare l'estensione da applicazioni in esecuzione all'interno del computer, la configurazione Guest non può superare il 5% di utilizzo della CPU. Questa limitazione è disponibile sia per le definizioni predefinite sia per quelle personalizzate.
 
 ## <a name="register-guest-configuration-resource-provider"></a>Registrare il provider di risorse della configurazione guest
 
@@ -68,7 +70,7 @@ La tabella seguente elenca gli strumenti locali usati on ciascun sistema operati
 
 ### <a name="validation-frequency"></a>Frequenza di convalida
 
-Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer. In questo modo, Criteri di Azure può valutare le proprietà di Azure Resource Manager. Una valutazione di criteri di Azure su richiesta Recupera il valore più recente dal provider di risorse di configurazione Guest. Tuttavia, non attiva un nuovo controllo della configurazione all'interno del computer.
+Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer. Questo aggiornamento fa in modo che i criteri di Azure valutino le proprietà del Azure Resource Manager. Una valutazione di criteri di Azure su richiesta Recupera il valore più recente dal provider di risorse di configurazione Guest. Tuttavia, non attiva un nuovo controllo della configurazione all'interno del computer.
 
 ## <a name="supported-client-types"></a>Tipi di client supportati
 
@@ -93,7 +95,7 @@ Windows Server nano server non è supportato in alcuna versione.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Requisiti di rete dell'estensione di configurazione Guest
 
-Per comunicare con il provider di risorse di configurazione Guest in Azure, i computer richiedono l'accesso in uscita ai Data Center di Azure sulla porta **443**. Se si usa una rete virtuale privata in Azure e non si consente il traffico in uscita, è necessario configurare le eccezioni usando le regole del [gruppo di sicurezza di rete](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . Al momento non esiste un tag di servizio per la configurazione Guest di criteri di Azure.
+Per comunicare con il provider di risorse di configurazione Guest in Azure, i computer richiedono l'accesso in uscita ai Data Center di Azure sulla porta **443**. Se si usa una rete virtuale privata in Azure che non consente il traffico in uscita, configurare le eccezioni con le regole del [gruppo di sicurezza di rete](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . Un tag di servizio non esiste attualmente per la configurazione Guest di criteri di Azure.
 
 Per gli elenchi di indirizzi IP è possibile scaricare [Microsoft Azure intervalli IP del Data Center](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. È sufficiente consentire l'accesso in uscita agli indirizzi IP nelle aree in cui vengono distribuite le macchine virtuali.
 
@@ -113,16 +115,14 @@ La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elemen
 
 Se l'assegnazione **DeployIfNotExists** non è conforme, è possibile utilizzare un' [attività di correzione](../how-to/remediate-resources.md#create-a-remediation-task) .
 
-Quando l'assegnazione **DeployIfNotExists** è conforme, l'assegnazione dei criteri **AuditIfNotExists** usa gli strumenti di convalida locali per determinare se l'assegnazione di configurazione è conforme o non conforme.
-Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
+Quando l'assegnazione **DeployIfNotExists** è conforme, l'assegnazione dei criteri **AuditIfNotExists** usa gli strumenti di convalida locali per determinare se l'assegnazione di configurazione è conforme o non conforme. Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
 
 Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse della configurazione guest per segnalare la conformità nel nodo **Conformità**. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> Il criterio **DeployIfNotExists** è necessario affinché i criteri **AuditIfNotExists** restituiscano i risultati.
-> Senza **DeployIfNotExists**, il criterio **AuditIfNotExists** Mostra le risorse "0 di 0" come stato.
+> Il criterio **DeployIfNotExists** è necessario affinché i criteri **AuditIfNotExists** restituiscano i risultati. Senza **DeployIfNotExists**, il criterio **AuditIfNotExists** Mostra le risorse "0 di 0" come stato.
 
-Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Anteprima]: Controllare le impostazioni di sicurezza delle password nei computer* Linux e Windows contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. In ogni caso, la logica all'interno della definizione convalida solo che il sistema operativo di destinazione venga valutato in base alla definizione di [regola dei criteri](definition-structure.md#policy-rule).
+Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Anteprima]: Controllare le impostazioni di sicurezza delle password nei computer* Linux e Windows contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. La logica di [definizione dei criteri](definition-structure.md#policy-rule) convalida che viene valutato solo il sistema operativo di destinazione.
 
 ### <a name="multiple-assignments"></a>Più assegnazioni
 
@@ -145,11 +145,12 @@ Dove `<version>` si riferisce al numero di versione corrente.
 
 ### <a name="collecting-logs-remotely"></a>Raccolta di log in modalità remota
 
-Il primo passaggio per la risoluzione dei problemi relativi alle configurazioni o ai moduli di configurazione `Test-GuestConfigurationPackage` Guest consiste nell'usare il cmdlet seguendo la procedura descritta in [testare un pacchetto di configurazione Guest](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).  In caso contrario, la raccolta dei log del client può aiutare a diagnosticare i problemi.
+Il primo passaggio per la risoluzione dei problemi relativi alle configurazioni o ai moduli di configurazione `Test-GuestConfigurationPackage` Guest consiste nell'usare il cmdlet seguendo la procedura descritta in [testare un pacchetto di configurazione Guest](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+Se l'operazione non riesce, la raccolta dei log del client può aiutare a diagnosticare i problemi.
 
 #### <a name="windows"></a>Windows
 
-Se si vuole usare la funzionalità di esecuzione dei comandi della macchina virtuale di Azure per acquisire informazioni dai file di log nei computer Windows, è possibile usare lo script di PowerShell di esempio seguente. Per informazioni dettagliate sull'esecuzione dello script dal portale di Azure o sull'uso di Azure PowerShell, vedere [eseguire script di PowerShell nella macchina virtuale Windows con il comando Esegui](../../../virtual-machines/windows/run-command.md).
+Per usare la funzionalità di esecuzione dei comandi della macchina virtuale di Azure per acquisire informazioni dai file di log nei computer Windows, è possibile usare lo script di PowerShell di esempio seguente. Per altre informazioni, vedere [eseguire script di PowerShell nella macchina virtuale Windows con il comando Esegui](../../../virtual-machines/windows/run-command.md).
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -160,7 +161,7 @@ Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCM
 
 #### <a name="linux"></a>Linux
 
-Se si vuole usare la funzionalità di esecuzione dei comandi della macchina virtuale di Azure per acquisire informazioni dai file di log nei computer Linux, è possibile usare lo script bash di esempio seguente. Per informazioni dettagliate sull'esecuzione dello script dal portale di Azure o tramite l'interfaccia della riga di comando di Azure, vedere [eseguire script della shell nella VM Linux con il comando Run](../../../virtual-machines/linux/run-command.md)
+Per usare la funzionalità di esecuzione dei comandi della macchina virtuale di Azure per acquisire informazioni dai file di log nei computer Linux, è possibile usare lo script bash di esempio seguente. Per altre informazioni, vedere [eseguire script della shell nella VM Linux con il comando Run](../../../virtual-machines/linux/run-command.md)
 
 ```Bash
 linesToIncludeBeforeMatch=0

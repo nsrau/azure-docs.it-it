@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 7874a2bad63a4c5b47545c06a91228e64d523849
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 3907a244bc2d85e7225f94b15150298fd80a032f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258800"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382348"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -265,7 +265,7 @@ La chiave di creazione/avvio consente solo 1000 query di endpoint al mese. Crear
 La prima cosa da fare è determinare se il problema è correlato a LUIS o avviene al difuori del middleware LUIS. 
 
 #### <a name="resolve-issue-in-luis"></a>Risolvere il problema LUIS
-Passare la stessa espressione a LUIS dall'[endpoint LUIS](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Se si riceve un errore, risolvere il problema in LUIS finché l'errore non viene più restituito. Di seguito sono riportati gli errori più comuni.
+Passare la stessa espressione a LUIS dall'[endpoint LUIS](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Se si riceve un errore, risolvere il problema in LUIS finché l'errore non viene più restituito. Di seguito sono riportati gli errori più comuni.
 
 * `Out of call volume quota. Quota will be replenished in <time>.` - Questo problema indica che occorre passare da una chiave di creazione a una [chiave endpoint](luis-how-to-azure-subscription.md) oppure è necessario modificare i [livelli di servizio](luis-how-to-azure-subscription.md#change-pricing-tier). 
 

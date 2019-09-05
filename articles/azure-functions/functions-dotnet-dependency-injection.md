@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 05/28/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1dbbb6e7bd88e08520225515c422529dc260e1b2
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: e31f3dc166177ce36289b97d85d90a9582c9cae5
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377378"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375990"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in funzioni di Azure per .NET
 
@@ -71,7 +71,7 @@ namespace MyNamespace
 
 ## <a name="use-injected-dependencies"></a>Usa dipendenze inserite
 
-ASP.NET Core usa l'inserimento del costruttore per rendere disponibili le dipendenze alla funzione. Nell'esempio seguente viene illustrato come `IMyService` inserire `HttpClient` le dipendenze e in una funzione attivata tramite http.
+ASP.NET Core usa l'inserimento del costruttore per rendere disponibili le dipendenze alla funzione. Nell'esempio seguente viene illustrato come `IMyService` inserire `HttpClient` le dipendenze e in una funzione attivata tramite http. 
 
 ```csharp
 using System;
@@ -112,11 +112,11 @@ namespace MyNamespace
 }
 ```
 
-L'uso dell'inserimento del costruttore significa che non è consigliabile usare funzioni statiche se si vuole sfruttare i vantaggi dell'inserimento delle dipendenze.
+L'uso dell'inserimento del costruttore significa che non è consigliabile usare funzioni statiche se si vuole sfruttare i vantaggi dell'inserimento delle dipendenze. Per Cosmos client fare riferimento a [questa](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/CodeSamples/AzureFunctions/AzureFunctionsCosmosClient.cs).
 
 ## <a name="service-lifetimes"></a>Durate del servizio
 
-Le app di funzioni di Azure forniscono le stesse durate dei servizi dell'inserimento delle dipendenze di [ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): temporaneo, con ambito e Singleton.
+Le app di funzioni di Azure forniscono le stesse durate dei servizi dell' [inserimento delle dipendenze di ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes): temporaneo, con ambito e Singleton.
 
 In un'app per le funzioni, una durata del servizio con ambito corrisponde a una durata di esecuzione della funzione. I servizi con ambito vengono creati una volta per ogni esecuzione. Le richieste successive per quel servizio durante l'esecuzione riutilizzeranno l'istanza del servizio esistente. Una durata del servizio singleton corrisponde alla durata dell'host e viene riutilizzata tra le esecuzioni di funzioni su tale istanza.
 
@@ -135,7 +135,7 @@ Se è necessario un provider di registrazione personalizzato, il metodo consigli
 
 L'host funzione registra molti servizi. I servizi seguenti possono essere considerati sicuri come una dipendenza nell'applicazione:
 
-|Tipo di servizio|Durata|Descrizione|
+|Tipo di servizio|Durata|DESCRIZIONE|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Configurazione Runtime|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsabile per fornire l'ID dell'istanza host|

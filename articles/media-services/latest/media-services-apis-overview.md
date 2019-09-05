@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 26fea4322df625b2e38028a3b7121fb41f2acf81
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 5558eeb4012ac563388ad47df61114534e9859ed
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311855"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308331"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Sviluppo con le API di servizi multimediali V3
 
@@ -32,13 +32,13 @@ Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimedial
 * **Autenticazione basata su entità servizio** : usata per autenticare un servizio (ad esempio, app Web, app per le funzioni, app per la logica, API e microservizi). Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Per le applicazioni Web, ad esempio, deve essere sempre presente un livello intermedio che si connette a servizi multimediali con un'entità servizio.
 * **Autenticazione utente** : consente di autenticare una persona che usa l'app per interagire con le risorse di servizi multimediali. L'applicazione interattiva deve prima richiedere all'utente le credenziali. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live.
 
-L'API di servizi multimediali richiede che l'utente o l'applicazione che effettua le richieste API REST abbia accesso alla risorsa account di servizi multimediali  e usi un ruolo Collaboratore o **proprietario** . È possibile accedere all'API con il ruolo **Reader** , ma saranno disponibili solo le operazioni **Get** o **List**   . Per altre informazioni, vedere [controllo degli accessi in base al ruolo per gli account di servizi multimediali](rbac-overview.md).
+L'API di servizi multimediali richiede che l'utente o l'applicazione che effettua le richieste API REST abbia accesso alla risorsa account di servizi multimediali e usi un ruolo **collaboratore** o **proprietario** . È possibile accedere all'API con il ruolo **Reader** , ma saranno disponibili solo le operazioni **Get** o **List**   . Per altre informazioni, vedere [controllo degli accessi in base al ruolo per gli account di servizi multimediali](rbac-overview.md).
 
 Anziché creare un'entità servizio, è consigliabile usare identità gestite per le risorse di Azure per accedere all'API di servizi multimediali tramite Azure Resource Manager. Per altre informazioni sulle identità gestite per le risorse di Azure, vedere informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="azure-ad-service-principal"></a>Entità servizio Azure AD 
 
-Se si sta creando un'applicazione Azure AD e un'entità servizio, l'applicazione deve trovarsi nel proprio tenant. Dopo aver creato l'applicazione, concedere al ruolo  di collaboratore o **proprietario** dell'app l'accesso all'account di servizi multimediali. 
+Se si sta creando un'applicazione Azure AD e un'entità servizio, l'applicazione deve trovarsi nel proprio tenant. Dopo aver creato l'applicazione, concedere al ruolo di **collaboratore** o **proprietario** dell'app l'accesso all'account di servizi multimediali. 
 
 Se non si è certi che si disponga delle autorizzazioni per creare un'applicazione Azure AD, vedere [autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
@@ -76,6 +76,10 @@ I nomi delle risorse di Servizi multimediali di Azure v3 (ad esempio, asset, pro
 I nomi delle risorse di Servizi multimediali non possono includere "<", ">", "%", "&", ":", "&#92;", "?", "/", "*", "+", ".", virgolette singole o caratteri di controllo. Sono consentiti tutti gli altri caratteri. La lunghezza massima di un nome di risorsa è di 260 caratteri. 
 
 Per altre informazioni sulla denominazione di Azure Resource Manager, vedere: [Requisiti di denominazione](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenzioni di denominazione](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
+### <a name="names-of-filesblobs-within-an-asset"></a>Nomi di file/BLOB all'interno di un asset
+
+I nomi di file/BLOB all'interno di un asset devono rispettare i requisiti del [nome del BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) e i [requisiti del nome NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Il motivo di questi requisiti è che i file possono essere copiati dall'archiviazione BLOB a un disco NTFS locale per l'elaborazione.
 
 ## <a name="long-running-operations"></a>Operazioni con esecuzione prolungata
 

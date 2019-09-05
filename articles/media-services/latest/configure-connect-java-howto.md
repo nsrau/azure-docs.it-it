@@ -1,6 +1,6 @@
 ---
-title: Connettersi all'API v3 di servizi multimediali di Azure - Java
-description: Informazioni su come connettersi all'API di servizi multimediali v3 con Java.
+title: Connettersi all'API di servizi multimediali di Azure V3-Java
+description: Informazioni su come connettersi all'API di servizi multimediali V3 con Java.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,49 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: juliako
-ms.openlocfilehash: b7ee54c852ce3332415b69ca6105b472dab0ab8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f89e5cc434403e4edc3501d24ce2e94664d13ae9
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480266"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307852"
 ---
-# <a name="connect-to-media-services-v3-api---java"></a>Connettersi all'API servizi multimediali di v3 - Java
+# <a name="connect-to-media-services-v3-api---java"></a>Connettersi all'API di servizi multimediali V3-Java
 
-Questo articolo illustra come connettersi a servizi multimediali di Azure v3 Java SDK con il segno dell'entità servizio nel metodo.
+Questo articolo illustra come connettersi a servizi multimediali di Azure V3 Java SDK usando il metodo di accesso dell'entità servizio.
 
-In questo articolo viene usato Visual Studio Code per sviluppare app di esempio.
+In questo articolo viene usato il Visual Studio Code per sviluppare l'app di esempio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Seguire [Writing Java con Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial) installare:
+- Seguire [la scrittura di Java con Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial) per installare:
 
    - JDK
    - Apache Maven
-   - Java Extension Pack
-- Verificare di aver impostato `JAVA_HOME` e `PATH` variabili di ambiente.
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account servizi multimediali.
-- Seguire i passaggi nel [accesso API](access-api-cli-how-to.md) argomento. Registrare l'ID sottoscrizione, ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant è necessario in un passaggio successivo.
+   - Pacchetto di estensione Java
+- Assicurarsi di impostare `JAVA_HOME` le variabili `PATH` di ambiente e.
+- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
+- Seguire i passaggi nell'argomento [Access Apis (API di accesso](access-api-cli-how-to.md) ). Registrare l'ID sottoscrizione, l'ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant necessari in un passaggio successivo.
 
 Vedere anche:
 
 - [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java)
-- [Gestione dei progetti Java in Visual Studio Code](https://code.visualstudio.com/docs/java/java-project)
+- [Gestione dei progetti Java in VS Code](https://code.visualstudio.com/docs/java/java-project)
+
+> [!IMPORTANT]
+> Esaminare le [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="create-a-maven-project"></a>Creare un progetto Maven
 
-Aprire uno strumento da riga di comando e `cd` in una directory in cui si desidera creare il progetto.
+Aprire uno strumento da riga di comando `cd` e una directory in cui si desidera creare il progetto.
     
 ```
 mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-Quando si esegue il comando, il `pom.xml`, `App.java`, e vengono creati altri file. 
+Quando si esegue il comando, vengono `pom.xml`creati `App.java`gli altri file, e. 
 
 ## <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-1. In Visual Studio Code, aprire la cartella in cui il progetto è
-1. Trovare e aprire la `pom.xml`
+1. In Visual Studio Code aprire la cartella in cui si trova il progetto
+1. Trovare e aprire il`pom.xml`
 1. Aggiungere le dipendenze necessarie
 
     ```xml
@@ -76,9 +79,9 @@ Quando si esegue il comando, il `pom.xml`, `App.java`, e vengono creati altri fi
    </dependency>
     ```
 
-## <a name="connect-to-the-java-client"></a>Connettersi a Java client
+## <a name="connect-to-the-java-client"></a>Connettersi al client Java
 
-1. Aprire il `App.java` del file in `src\main\java\com\azure\ams` e assicurarsi che il pacchetto è incluso nella parte superiore:
+1. Aprire il `App.java` file in `src\main\java\com\azure\ams` e verificare che il pacchetto sia incluso nella parte superiore:
 
     ```java
     package com.azure.ams;
@@ -91,7 +94,7 @@ Quando si esegue il comando, il `pom.xml`, `App.java`, e vengono creati altri fi
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-1. Per creare le credenziali di Active Directory che è necessario per effettuare richieste, aggiungere il codice seguente al metodo main della classe App e impostare i valori che è stato ottenuto da [accesso API](access-api-cli-how-to.md):
+1. Per creare le credenziali di Active Directory necessarie per effettuare richieste, aggiungere il codice seguente al metodo Main della classe App e impostare i valori ottenuti dalle [API di accesso](access-api-cli-how-to.md):
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -125,4 +128,4 @@ Quando si esegue il comando, il `pom.xml`, `App.java`, e vengono creati altri fi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile includere `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` e avviare la modifica delle entità.
+È ora possibile includere `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` e iniziare a modificare le entità.

@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: b938d55749373711ddf2a19df12b987276b224ca
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019105"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376304"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Avviare, monitorare e annullare le esecuzioni di training in Python
 
@@ -226,7 +226,7 @@ Per creare molte esecuzioni figlio in modo efficiente [`create_children()`](http
 
 Le esecuzioni figlio possono essere inviate anche da un'esecuzione padre. In questo modo è possibile creare gerarchie di esecuzioni padre e figlio, ciascuna in esecuzione su destinazioni di calcolo diverse, connesse mediante l'ID di esecuzione padre comune.
 
-Usare il metodo [' submit_child ()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) per inviare un'esecuzione figlio dall'interno di un'esecuzione padre. Per eseguire questa operazione nello script di esecuzione padre, ottenere il contesto di esecuzione e inviare l'esecuzione figlio usando il metodo '' submit_child ''' dell'istanza del contesto.
+Usare il metodo [' submit_child ()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) per inviare un'esecuzione figlio dall'interno di un'esecuzione padre. Per eseguire questa operazione nello script di esecuzione padre, ottenere il contesto di esecuzione e inviare l'esecuzione figlio usando il metodo '' submit_child ''' dell'istanza del contesto.
 
 ```python
 ## In parent run script
@@ -341,4 +341,4 @@ I notebook seguenti illustrano i concetti in questo articolo:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come registrare le metriche per gli esperimenti, vedere [metriche di log durante](how-to-track-experiments.md)le esecuzioni di training.
+* Per informazioni su come registrare le metriche per gli esperimenti, vedere [metriche di log durante le esecuzioni di training](how-to-track-experiments.md).

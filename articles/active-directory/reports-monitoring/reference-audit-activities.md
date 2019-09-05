@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127135"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306019"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
 
@@ -408,6 +408,14 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione directory|Ottenere i provider di identità per un flusso di amministrazione specifico|
 |Gestione directory|Ottenere l'elenco di tutti i flussi di amministrazione|
 |Gestione directory|Ottenere l'elenco di tag per tutti i flussi di amministratore per tutti gli utenti|
+|Gestione gruppo|Membri del gruppo di download bulk-avviato|
+|Gestione gruppo|Membri del gruppo di download bulk-completato|
+|Gestione gruppo|Membri del gruppo di importazione bulk-avviato|
+|Gestione gruppo|Importazione bulk dei membri del gruppo completata|
+|Gestione gruppo|Rimuovere in blocco i membri del gruppo-avviato|
+|Gestione gruppo|Rimozione bulk dei membri del gruppo completata|
+|Gestione gruppo|Gruppi di download bulk-avviato|
+|Gestione gruppo|Gruppi di download bulk-operazione completata|
 |Gestione gruppo|Ottenere l'elenco di tenant per un utente|
 |Gestione gruppo|Ottenere le attestazioni autocertificate degli account locali|
 |Gestione gruppo|Ottenere JSON di risorse localizzate|
@@ -454,28 +462,42 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione dei ruoli|Eliminazione della configurazione del dispositivo|
 |Gestione dei ruoli|Dispositivo non più conforme|
 |Gestione dei ruoli|Dispositivo non più gestito|
-|Gestione utenti|Rimuovere il proprietario registrato da un dispositivo|
-|Gestione utenti|Rimuovere utenti registrati da un dispositivo|
-|Gestione utenti|Aggiorna dispositivo|
-|Gestione utenti|Aggiornare la configurazione di un dispositivo|
-|Gestione utenti|Aggiungere un membro idoneo al ruolo|
-|Gestione utenti|Aggiungere un membro a un ruolo|
-|Gestione utenti|Aggiungere l'assegnazione di ruolo alla definizione del ruolo|
-|Gestione utenti|Aggiungere un ruolo da un modello|
-|Gestione utenti|Aggiungere un membro con ambito a un ruolo|
-|Gestione utenti|Rimuovere un membro idoneo da un ruolo|
-|Gestione utenti|Rimuovi il membro dal ruolo|
-|Gestione utenti|Rimuovere l'assegnazione di ruolo dalla definizione del ruolo|
-|Gestione utenti|Rimuovere un membro con ambito da un ruolo|
-|Gestione utenti|Aggiornare un ruolo|
 |Gestione utenti|AccessReview_Review|
 |Gestione utenti|AccessReview_Update|
 |Gestione utenti|ActivationAborted|
 |Gestione utenti|ActivationApproved|
 |Gestione utenti|ActivationCanceled|
 |Gestione utenti|ActivationRequested|
+|Gestione utenti|Aggiungere un membro idoneo al ruolo|
+|Gestione utenti|Aggiungere un membro a un ruolo|
+|Gestione utenti|Aggiungere l'assegnazione di ruolo alla definizione del ruolo|
+|Gestione utenti|Aggiungere un ruolo da un modello|
+|Gestione utenti|Aggiungere un membro con ambito a un ruolo|
 |Gestione utenti|Aggiunto|
 |Gestione utenti|Assegna|
+|Gestione utenti|Creazione bulk utenti-avviato|
+|Gestione utenti|Creazione bulk di utenti-operazione completata|
+|Gestione utenti|Eliminazione bulk utenti-avviato|
+|Gestione utenti|Eliminazione bulk degli utenti-operazione completata|
+|Gestione utenti|Utenti di download bulk-avviato|
+|Gestione utenti|Download Bulk utenti-operazione completata|
+|Gestione utenti|Ripristino Bulk utenti eliminati-avviato|
+|Gestione utenti|Ripristino Bulk utenti eliminati-operazione completata|
+|Gestione utenti|Utenti con invito bulk-avviato|
+|Gestione utenti|Utenti con invito bulk-operazione completata|
+|Gestione utenti|Rimuovere il proprietario registrato da un dispositivo|
+|Gestione utenti|Rimuovere utenti registrati da un dispositivo|
+|Gestione utenti|Rimuovere un membro idoneo da un ruolo|
+|Gestione utenti|Rimuovi il membro dal ruolo|
+|Gestione utenti|Rimuovere l'assegnazione di ruolo dalla definizione del ruolo|
+|Gestione utenti|Rimuovere un membro con ambito da un ruolo|
+|Gestione utenti|Aggiorna dispositivo|
+|Gestione utenti|Aggiornare la configurazione di un dispositivo|
+|Gestione utenti|Aggiornare un ruolo|
+
+
+
+
 
 
 ## <a name="identity-protection"></a>Identity Protection

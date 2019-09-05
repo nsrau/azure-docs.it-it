@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: cc4e157856a05290da82aca686e2268a5ed2b3ce
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: c3852dd5f1d3d3df8a982716ce5dab9426782869
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70243022"
+ms.locfileid: "70307262"
 ---
 # <a name="use-powershell-to-create-a-data-share-account-in-azure"></a>Usare PowerShell per creare un account di condivisione dati in Azure
 
@@ -38,7 +38,7 @@ Questo script usa i comandi seguenti:
 
 | Comando | Note |
 |---|---|
-| [New-AzDataShareAccount](/powershell/module/az.resources/new-azdatashareaccount) | Crea un account di condivisione dati. |
+| [New-AzDataShareAccount](/powershell/module/az.datashare/new-azdatashareaccount?view=azps-2.6.0) | Crea un account di condivisione dati. |
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi

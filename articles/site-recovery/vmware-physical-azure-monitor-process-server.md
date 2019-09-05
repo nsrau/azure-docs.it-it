@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 09/05/2019
 ms.author: raynew
-ms.openlocfilehash: 5d746385a034fdf742b8958b3d1fe51ea2a3c5cf
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 00b424672b505a5bb3d576c0ca4d8e334e2a1753
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972184"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383214"
 ---
 # <a name="monitor-the-process-server"></a>Monitorare il server di elaborazione
 
@@ -43,7 +43,7 @@ Tutti questi problemi possono influenzare l'obiettivo del punto di ripristino (R
 
 Per evitare problemi con il server di elaborazione, è importante:
 
-- Comprendere i requisiti specifici per i server di elaborazione utilizzando la [capacità e le linee guida](site-recovery-plan-capacity-vmware.md#capacity-considerations)per il ridimensionamento e assicurarsi che i server di elaborazione vengano distribuiti e in esecuzione secondo le raccomandazioni.
+- Comprendere i requisiti specifici per i server di elaborazione utilizzando la [capacità e le linee guida per il ridimensionamento](site-recovery-plan-capacity-vmware.md#capacity-considerations)e assicurarsi che i server di elaborazione vengano distribuiti e in esecuzione secondo le raccomandazioni.
 - Monitorare gli avvisi e risolvere i problemi non appena si verificano, per tenere i server di elaborazione in esecuzione in modo efficiente.
 
 
@@ -57,10 +57,12 @@ Il server di elaborazione genera un certo numero di avvisi di integrità, riepil
 ![Avviso][yellow] | Utilizzo CPU > 80% per gli ultimi 15 minuti
 ![Avviso][yellow] | Utilizzo memoria > 80% per gli ultimi 15 minuti
 ![Avviso][yellow] | Spazio disponibile cartella cache < 30% per gli ultimi 15 minuti
+![Avviso][yellow] | Site Recovery monitora i dati in sospeso/in uscita ogni cinque minuti e stima che i dati nella cache del server di elaborazione non possano essere caricati in Azure entro 30 minuti.
 ![Avviso][yellow] | I servizi del server di elaborazione non sono in esecuzione negli ultimi 15 minuti
 ![Critico][red] | Utilizzo CPU > 95% per gli ultimi 15 minuti
 ![Critico][red] | Utilizzo memoria > 95% per gli ultimi 15 minuti
 ![Critico][red] | Spazio disponibile cartella cache < il 25% per gli ultimi 15 minuti
+![Critico][red] | Site Recovery monitora i dati in sospeso/in uscita ogni cinque minuti e stima che i dati nella cache del server di elaborazione non possano essere caricati in Azure entro 45 minuti.
 ![Critico][red] | Nessun heartbeat dal server di elaborazione per 15 minuti.
 
 ![Chiave tabella](./media/vmware-physical-azure-monitor-process-server/table-key.png)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: e28478d31a674d742870344b33eac6b84c3ae584
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123832"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309250"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 
@@ -54,7 +54,7 @@ A seconda delle scelte effettuate, Azure esegue le seguenti attività di configu
 * Associa il pool di archiviazione a una nuova unità nella macchina virtuale.
 * Ottimizza la nuova unità in base al tipo di carico di lavoro specificato (data warehousing, elaborazione transazionale o generale).
 
-Per ulteriori dettagli su come vengono configurate le impostazioni dell'archiviazione da Azure, vedere la [sezione Configurazione dell'archiviazione](#storage-configuration). Per una procedura dettagliata completa su come creare una macchina virtuale SQL Server nella portale di Azure, vedere [l'esercitazione sul](virtual-machines-windows-portal-sql-server-provision.md)provisioning.
+Per ulteriori dettagli su come vengono configurate le impostazioni dell'archiviazione da Azure, vedere la [sezione Configurazione dell'archiviazione](#storage-configuration). Per una procedura dettagliata completa su come creare una macchina virtuale SQL Server nella portale di Azure, vedere [l'esercitazione sul provisioning](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="resource-manage-templates"></a>Modelli di Resource Manager
 
@@ -110,8 +110,7 @@ L'altra opzione per l'espansione dell'archiviazione prevede l'estensione dell'un
 
 Questa sezione fornisce un riferimento per le modifiche di configurazione dell'archiviazione eseguite automaticamente da Azure durante il provisioning o la configurazione di macchine virtuali SQL nel portale di Azure.
 
-* Se sono stati selezionati meno di due TB di spazio di archiviazione per la VM, Azure non crea un pool di archiviazione.
-* Se sono stati selezionati almeno due TB di spazio di archiviazione per la VM, Azure configura un pool di archiviazione. La sezione successiva di questo argomento fornisce i dettagli della configurazione del pool di archiviazione.
+* Azure configura un pool di archiviazione dallo spazio di archiviazione selezionato dalla VM. Nella sezione successiva di questo argomento vengono fornite informazioni dettagliate sulla configurazione del pool di archiviazione.
 * Per la configurazione automatica dell'archiviazione vengono sempre usati dischi dati P30 [SSD Premium](../disks-types.md). Esiste quindi una corrispondenza 1:1 tra il numero selezionato di terabyte e il numero di dischi dati collegati alla VM.
 
 Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage) nella scheda **Archiviazione su disco** .
@@ -120,7 +119,7 @@ Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://
 
 Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM di SQL.
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | --- | --- |
 | Dimensioni di striping |256 KB (data warehousing); 64 KB (transazionale) |
 | Dimensione disco |1 TB ciascuno |
@@ -140,7 +139,7 @@ Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM 
 
 La tabella seguente descrive le tre opzioni disponibili per il tipo di carico di lavoro e le ottimizzazioni corrispondenti:
 
-| Tipo di carico di lavoro | DESCRIZIONE | Ottimizzazioni |
+| Tipo di carico di lavoro | Descrizione | Ottimizzazioni |
 | --- | --- | --- |
 | **Generale** |Impostazione predefinita che supporta la maggior parte dei carichi di lavoro |Nessuna |
 | **Elaborazione transazionale** |Ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali |Flag di traccia 1117<br/>Flag di traccia 1118 |

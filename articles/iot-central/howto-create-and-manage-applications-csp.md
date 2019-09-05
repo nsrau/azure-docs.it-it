@@ -8,14 +8,14 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 4d20256381eab155d4b7532591cea85e43080ec0
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: d7c538bd98b3924b422a93bc67cac405a6e4b7af
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019806"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383114"
 ---
-# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Creare e gestire in qualità di CSP un'applicazione IoT Central di Azure per conto del cliente 
+# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Creare e gestire in qualità di CSP un'applicazione IoT Central di Azure per conto del cliente
 
 Il programma Microsoft Cloud Solution Provider (CSP) è un programma Microsoft Reseller. La finalità è quella di fornire ai partner di canale un programma centralizzato per rivendere tutti i servizi Online commerciali di Microsoft. Altre informazioni sul [programma Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider).
 
@@ -72,6 +72,9 @@ Per altre informazioni, vedere la documentazione sulle [sottoscrizioni di Azure]
 ## <a name="region"></a>Region
 
 Scegliere l'area in cui si vuole creare l'applicazione Azure IoT Central. In genere è consigliabile scegliere l'area più vicina fisicamente ai dispositivi per ottenere prestazioni ottimali.
+
+> [!NOTE]
+> Il modello di **applicazione di anteprima** è attualmente disponibile solo nelle aree **Europa settentrionale** e **Stati Uniti centrali** .
 
 Per altre informazioni, vedere la documentazione sulle [aree di Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
 

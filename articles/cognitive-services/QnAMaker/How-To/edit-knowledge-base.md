@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1342616a0d32d8ac68965bc04f1fd3ca60146369
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1450d6b41d9a193f8069509aacd3343ae646c6ac
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966758"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307028"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Modificare una knowledge base in QnA Maker
 
@@ -54,7 +54,7 @@ QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'espe
 
 ## <a name="add-a-qna-pair"></a>Aggiungere una coppia domanda/risposta
 
-Nella pagina **Impostazioni** selezionare **Aggiungi coppia QnA** per aggiungere una nuova riga alla tabella della Knowledge base.
+Nella pagina **modifica** selezionare **Aggiungi coppia QnA** per aggiungere una nuova riga alla tabella della Knowledge base.
 
 ![Add QnA pair (Aggiungi coppia domanda/risposta)](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 

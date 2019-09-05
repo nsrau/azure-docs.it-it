@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1bba5e91e3edda41b75a96d8b55495ca5d1c092b
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 9d99bb6db56a8db9d78952e4cf16465e386358cc
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209638"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383147"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze T-SQL tra istanze gestite, limitazioni e problemi noti
 
@@ -28,7 +28,7 @@ Esistono alcune limitazioni di PaaS introdotte in Istanza gestita e alcune modif
 
 - La [disponibilità](#availability) include le differenze tra [Always-on](#always-on-availability) e i [backup](#backup).
 - La [protezione](#security) include le differenze tra il [controllo](#auditing), i [certificati](#certificates), le [credenziali](#credential), i [provider di crittografia](#cryptographic-providers), [gli account di accesso e gli utenti](#logins-and-users)e la [chiave del servizio e la chiave master del servizio](#service-key-and-service-master-key).
-- La [configurazione](#configuration) include le differenze nell' [estensione del pool di buffer](#buffer-pool-extension), le regole di [confronto](#collation), i [livelli di compatibilità](#compatibility-levels), il mirroring del [database](#database-mirroring), le [Opzioni di database](#database-options), [SQL Server Agent](#sql-server-agent)e le [Opzioni di tabella](#tables).
+- La [configurazione](#configuration) include le differenze nell' [estensione del pool di buffer](#buffer-pool-extension), le regole di [confronto](#collation), i [livelli di compatibilità](#compatibility-levels), il [mirroring del database](#database-mirroring), le opzioni di [database](#database-options), [SQL Server Agent](#sql-server-agent)e le [Opzioni di tabella](#tables).
 - [Funzionalità](#functionalities) tra cui [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transazioni distribuite](#distributed-transactions), [Eventi estesi](#extended-events), [Librerie esterne](#external-libraries), [FileStream e FileTable](#filestream-and-filetable), [ricerca semantica full-text](#full-text-semantic-search), [server collegati](#linked-servers), [PolyBase](#polybase), [Replica](#replication), [RIPRISTINO](#restore-statement), [Service Broker](#service-broker), [stored procedure, funzioni e trigger](#stored-procedures-functions-and-triggers).
 - [Impostazioni dell'ambiente](#Environment) , ad esempio le configurazioni di reti virtuali e subnet.
 
@@ -352,7 +352,7 @@ Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate n
 
 ### <a name="distributed-transactions"></a>Transazioni distribuite
 
-Attualmente [le transazioni](sql-database-elastic-transactions-overview.md) MSDTC e elastiche non sono supportate nelle istanze gestite.
+Attualmente [le transazioni MSDTC e elastiche](sql-database-elastic-transactions-overview.md) non sono supportate nelle istanze gestite.
 
 ### <a name="extended-events"></a>Eventi estesi
 
@@ -407,7 +407,7 @@ Le tabelle esterne che fanno riferimento ai file in HDFS o nell'archiviazione BL
 ### <a name="replication"></a>Replica
 
 - Sono supportati i tipi di replica snapshot e bidirezionali. La replica di tipo merge, la replica peer-to-peer e le sottoscrizioni aggiornabili non sono supportate.
-- La [replica](sql-database-managed-instance-transactional-replication.md) transazionale è disponibile per l'anteprima pubblica in istanza gestita con alcuni vincoli:
+- La [replica transazionale](sql-database-managed-instance-transactional-replication.md) è disponibile per l'anteprima pubblica in istanza gestita con alcuni vincoli:
     - Tutti i tipi di partecipanti alla replica (server di pubblicazione, server di distribuzione, sottoscrittore pull e Sottoscrittore push) possono essere inseriti in istanze gestite, ma non è possibile inserire server di pubblicazione e server di distribuzione in istanze diverse
     - Le istanze gestite possono comunicare con le versioni recenti di SQL Server. Vedere le versioni supportate [qui](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
     - La replica transazionale presenta [requisiti di rete aggiuntivi](sql-database-managed-instance-transactional-replication.md#requirements).
@@ -541,11 +541,19 @@ Un'istanza gestita inserisce informazioni dettagliate nei log degli errori. Nel 
 
 ## <a name="Issues"></a>Problemi noti
 
+### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Potrebbe essere necessario riconfigurare Resource Governor business critical livello di servizio dopo il failover
+
+**Data** 2019 Sep
+
+[Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) funzionalità che consente di limitare le risorse assegnate al carico di lavoro utente potrebbe erroneamente classificare un carico di lavoro dell'utente dopo il failover o la modifica avviata dall'utente del livello di servizio, ad esempio la modifica dell'istanza max vCore o Max dimensioni di archiviazione).
+
+**Soluzione temporanea**: Eseguire `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente o come parte del processo di SQL Agent che esegue l'attività SQL quando l'istanza viene avviata se si utilizza [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor).
+
 ### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Impossibile eseguire a server di posta elettronica esterni tramite connessione protetta (SSL)
 
 **Data** 2019 agosto
 
-Posta elettronica database configurata [tramite connessione protetta (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) non è in grado di eseguire l'autenticazione in alcuni server di posta elettronica esterni ad Azure. Si tratta di un problema di configurazione della sicurezza che verrà risolto a breve.
+Posta elettronica database [configurata tramite connessione protetta (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) non è in grado di eseguire l'autenticazione in alcuni server di posta elettronica esterni ad Azure. Si tratta di un problema di configurazione della sicurezza che verrà risolto a breve.
 
 **Soluzione alternativa:** Rimuovere temporaneamente la connessione protetta (SSL) per la configurazione di posta elettronica database fino a quando il problema non viene risolto. 
 
@@ -553,7 +561,7 @@ Posta elettronica database configurata [tramite connessione protetta (SSL)](http
 
 **Data** 2019 agosto
 
-Le finestre di dialogo Service Broker tra database interromperanno il recapito dei messaggi ai servizi di altri database dopo l'operazione di modifica del livello di servizio. I messaggi **non vengono persi** ed è possibile trovarli nella coda del mittente. Qualsiasi modifica delle dimensioni di archiviazione dell'istanza o di Vcore in istanza gestita `service_broke_guid` , causerà la modifica del valore della vista [sys.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) databases per tutti i database. Eventuali `DIALOG` istruzioni create utilizzando [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) che fanno riferimento a broker di servizi in un altro database arresteranno il recapito dei messaggi al servizio di destinazione.
+Le finestre di dialogo Service Broker tra database interromperanno il recapito dei messaggi ai servizi di altri database dopo l'operazione di modifica del livello di servizio. I messaggi **non vengono persi** ed è possibile trovarli nella coda del mittente. Qualsiasi modifica delle dimensioni di archiviazione dell'istanza o di Vcore in istanza gestita `service_broke_guid` , causerà la modifica del valore della vista [sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) per tutti i database. Eventuali `DIALOG` istruzioni create utilizzando [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) che fanno riferimento a broker di servizi in un altro database arresteranno il recapito dei messaggi al servizio di destinazione.
 
 **Soluzione alternativa:** Arrestare tutte le attività che usano le conversazioni di dialogo Service Broker tra database prima di aggiornare il livello di servizio e reinizializzarle dopo. Se sono presenti messaggi rimanenti che non vengono recapitati dopo la modifica del livello di servizio, leggere i messaggi dalla coda di origine e inviarli nuovamente alla coda di destinazione.
 
@@ -584,6 +592,12 @@ Se la replica transazionale è abilitata in un database in un gruppo di failover
 SQL Server Management Studio e SQL Server Data Tools non fuly supportano gli account di accesso e gli utenti di Azure acctive directory.
 - L'uso di Azure AD entità server (account di accesso) e degli utenti (anteprima pubblica) con SQL Server Data Tools attualmente non è supportato.
 - La creazione di script per Azure AD entità server (account di accesso) e utenti (anteprima pubblica) non è supportata in SQL Server Management Studio.
+
+### <a name="temporary-database-is-used-during-restore-operation"></a>Il database temporaneo viene usato durante l'operazione di ripristino
+
+Quando un database viene ripristinato in Istanza gestita, il servizio di ripristino creerà prima di tutto un database vuoto con il nome desiderato per allocare il nome nell'istanza. Dopo un certo periodo di tempo, il database verrà eliminato e verrà avviato il ripristino del database effettivo. Il database in stato di *ripristino* creerà temporaneamente un valore GUID casuale anziché Name. Al termine del processo di ripristino, il nome temporaneo verrà modificato `RESTORE` con il nome desiderato specificato nell'istruzione. Nella fase iniziale, l'utente può accedere al database vuoto e persino creare tabelle o caricare dati in questo database. Questo database temporaneo verrà eliminato quando il servizio di ripristino avvierà la seconda fase.
+
+**Soluzione temporanea**: Non accedere al database che si sta ripristinando fino a quando non viene visualizzato il completamento del ripristino.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>La struttura e il contenuto di TEMPDB vengono ricreati
 

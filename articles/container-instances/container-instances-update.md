@@ -6,26 +6,29 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/03/2019
 ms.author: danlep
-ms.openlocfilehash: d555ba6b8c2b32fc6ec56d6c51dda9626b6f0cb0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3103fe7fbf7dcd587f43b673ef53f32893908ecb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325540"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307704"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aggiornare i contenitori in Istanze di Azure Container
 
-Durante il normale funzionamento delle istanze di contenitore, potrebbe essere necessario aggiornare i contenitori in un gruppo di contenitori. Ad esempio, è possibile aggiornare la versione dell'immagine, modificare un nome DNS, aggiornare le variabili di ambiente o aggiornare lo stato di un contenitore la cui applicazione si è arrestata in modo anomalo.
+Durante il normale funzionamento delle istanze di contenitore, può risultare necessario aggiornare i contenitori in esecuzione in un [gruppo di contenitori](container-instances-container-groups.md). Ad esempio, è possibile aggiornare la versione dell'immagine, modificare un nome DNS, aggiornare le variabili di ambiente o aggiornare lo stato di un contenitore la cui applicazione si è arrestata in modo anomalo.
+
+> [!NOTE]
+> Non è possibile aggiornare i gruppi di contenitori terminati o eliminati. Dopo che un gruppo di contenitori è stato terminato (si trova nello stato SUCCEEDED o Failed) o è stato eliminato, il gruppo deve essere distribuito come nuovo.
 
 ## <a name="update-a-container-group"></a>Aggiornare un gruppo di contenitori
 
-Aggiornare i contenitori in un gruppo di contenitori tramite la ridistribuzione di un gruppo esistente con almeno una proprietà modificata. Quando si aggiorna un gruppo di contenitori, tutti i contenitori in esecuzione nel gruppo vengono riavviati sul posto.
+Aggiornare i contenitori in un gruppo di contenitori in esecuzione ridistribuendo un gruppo esistente con almeno una proprietà modificata. Quando si aggiorna un gruppo di contenitori, tutti i contenitori in esecuzione nel gruppo vengono riavviati sul posto, in genere nello stesso host contenitore sottostante.
 
-Ridistribuire un gruppo di contenitori esistente eseguendo il comando Crea (o tramite il portale di Azure) e specificare il nome di un gruppo esistente. Quando si esegue il comando Crea per attivare la ridistribuzione, modificare almeno una proprietà del gruppo valida. Non tutte le proprietà del gruppo contenitore sono valide per la ridistribuzione. Per un elenco delle proprietà non supportate, vedere [Properties that require delete](#properties-that-require-container-delete) (Proprietà che richiedono l'eliminazione).
+Ridistribuire un gruppo di contenitori esistente eseguendo il comando Crea (o tramite il portale di Azure) e specificare il nome di un gruppo esistente. Modificare almeno una proprietà valida del gruppo quando si esegue il comando create per attivare la ridistribuzione e lasciare invariate le proprietà rimanenti oppure continuare a usare i valori predefiniti. Non tutte le proprietà del gruppo contenitore sono valide per la ridistribuzione. Per un elenco delle proprietà non supportate, vedere [Properties that require delete](#properties-that-require-container-delete) (Proprietà che richiedono l'eliminazione).
 
-L'esempio di interfaccia della riga di comando di Azure seguente aggiorna un gruppo di contenitori con una nuova etichetta del nome DNS. Poiché la proprietà di etichetta del nome DNS del gruppo viene modificata, il gruppo di contenitori viene ridistribuito e i relativi contenitori vengono riavviati.
+L'esempio di interfaccia della riga di comando di Azure seguente aggiorna un gruppo di contenitori con una nuova etichetta del nome DNS. Poiché la proprietà dell'etichetta del nome DNS del gruppo è una che può essere aggiornata, il gruppo di contenitori viene ridistribuito e i contenitori vengono riavviati.
 
 Distribuzione iniziale con l'etichetta del nome DNS *myapplication-staging*:
 
@@ -35,10 +38,10 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Aggiornare il gruppo di contenitori con una nuova etichetta del nome DNS, *myapplication*:
+Aggiornare il gruppo di contenitori con una nuova etichetta del nome DNS, *MyApplication*e lasciare invariate le proprietà rimanenti:
 
 ```azurecli-interactive
-# Update container group (restarts container)
+# Update DNS name label (restarts container), leave other properties unchanged
 az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication
 ```
@@ -68,7 +71,7 @@ Queste proprietà richiedono l'eliminazione del gruppo di contenitori prima dell
 * Tipo di sistema operativo
 * CPU
 * Memoria
-* Criterio di riavvio
+* Criteri di riavvio
 * Porte
 
 Quando si elimina un gruppo di contenitori e lo si ricrea, questo non viene "ridistribuito", ma creato nuovo. Il pull di tutti i livelli dell'immagine viene eseguito dai dati aggiornati del registro, non da quelli memorizzati nella cache da una distribuzione precedente. L'indirizzo IP del contenitore può cambiare anche a causa della distribuzione in un altro host sottostante.
@@ -81,10 +84,10 @@ In questo articolo è menzionato più volte il **gruppo di contenitori**. Ogni c
 
 [Distribuire gruppi multi-contenitore](container-instances-multi-container-group.md)
 
+[Arrestare o avviare manualmente i contenitori nelle istanze di contenitore di Azure](container-instances-stop-start.md)
+
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

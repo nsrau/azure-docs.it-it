@@ -16,12 +16,12 @@ ms.date: 08/19/2019
 ms.author: negoe
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 77a2e571b76044ff9114f6671b187118cf03c0ba
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: fe3ad29cfd113deba5824ce25721dc543c6267c0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135803"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305059"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Gestione di errori ed eccezioni tramite MSAL
 Le eccezioni in Microsoft Authentication Library (MSAL) sono destinate agli sviluppatori delle app per la risoluzione dei problemi, anziché per la visualizzazione agli utenti finali. I messaggi di eccezione non sono localizzati.
@@ -179,7 +179,7 @@ L'acquisizione del token in modalità interattiva visualizza una richiesta all'u
 
 Quando si chiama un'API che richiede l'Accesso Condizionale, è possibile ricevere una richiesta di attestazioni nell'errore dall'API. In questo caso, è possibile passare le attestazioni restituite nell'errore al `claimsRequest` campo `AuthenticationParameters.ts` della classe per soddisfare i criteri appropriati. 
 
-Per altri dettagli, vedere [richiesta di attestazioni aggiuntive]() .
+Per altri dettagli, vedere [richiesta di attestazioni aggiuntive](active-directory-optional-claims.md) .
 
 ## <a name="retrying-after-errors-and-exceptions"></a>Nuovi tentativi dopo errori ed eccezioni
 
