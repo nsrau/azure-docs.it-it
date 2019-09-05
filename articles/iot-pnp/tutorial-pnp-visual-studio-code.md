@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 10eb9655371177a52d1c1a5a9118665015076b35
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: baf694fbc3176732d43094c8d20ee112af927f16
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047990"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186468"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Esercitazione: Creare e testare un modello di funzionalità di dispositivo usando Visual Studio Code
 
@@ -341,7 +341,7 @@ Quando si esegue il codice, questo si connette all'hub IoT e inizia a inviare i 
 1. Per creare un hub IoT:
 
     ```azurecli-interactive
-    az group create --name environmentalsensorresources --location eastus
+    az group create --name environmentalsensorresources --location centralus
     az iot hub create --name {your iot hub name} \
       --resource-group environmentalsensorresources --sku F1
     ```

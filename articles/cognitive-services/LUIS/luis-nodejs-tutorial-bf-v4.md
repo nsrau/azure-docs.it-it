@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: a06bd5a1a061de82230e93b867ea88e333b3cc93
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8455a9c9ecff89643e090f1d763a44f97f5779f5
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442545"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70206892"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Esercitazione: Usare un bot app Web abilitato con Language Understanding in Node. js 
 
@@ -47,9 +47,9 @@ Usare Node.js per creare un chatbot integrato con Language Understanding (LUIS).
     |Impostazione|Scopo|Impostazione consigliata|
     |--|--|--|
     |Nome bot|Nome risorsa|`luis-nodejs-bot-` + `<your-name>`, ad esempio, `luis-nodejs-bot-johnsmith`|
-    |Sottoscrizione|Sottoscrizione in cui creare bot.|Chiave di sottoscrizione primaria.
-    |Gruppo di risorse|Gruppo logico di risorse di Azure|Creare un nuovo gruppo per archiviare tutte le risorse usate con questo bot, denominare il gruppo `luis-nodejs-bot-resource-group`.|
-    |Località|Area di Azure - non deve essere la stessa della creazione o dell'area di pubblicazione di LUIS.|`westus`|
+    |Subscription|Sottoscrizione in cui creare bot.|Chiave di sottoscrizione primaria.
+    |Resource group|Gruppo logico di risorse di Azure|Creare un nuovo gruppo per archiviare tutte le risorse usate con questo bot, denominare il gruppo `luis-nodejs-bot-resource-group`.|
+    |Location|Area di Azure - non deve essere la stessa della creazione o dell'area di pubblicazione di LUIS.|`westus`|
     |Piano tariffario|Utilizzato per la fatturazione e i limiti delle richieste di servizio.|`F0` è il livello gratuito.
     |Nome app|Il nome viene usato come sottodominio durante la distribuzione del bot nel cloud, (ad esempio humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, ad esempio, `luis-nodejs-bot-johnsmith`|
     |Modello del bot|Impostazioni di Bot framework - vedere la tabella seguente|
@@ -339,7 +339,7 @@ Per sviluppare il codice di bot app Web, scaricare il codice da usare sul comput
 
 1. Nell'emulatore del bot prenotare un volo specificando l'espressione seguente: 
 
-    ```bot
+    ```console
     Book a flight from Paris to Berlin on March 22, 2020
     ```
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1b6b5aff52673443fe19da684e85663a5ca8fe19
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4a0c9d16474ddf032ff88382bc240713bc734ff8
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881870"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211896"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Presentazione dell'interfaccia utente di Azure IoT Central (funzionalità di anteprima)
 
@@ -39,9 +39,31 @@ Gli _operatori_ usano l'interfaccia utente di Azure IoT Central per gestire la s
 
 Usare il menu di spostamento a sinistra per accedere alle diverse aree dell'applicazione. È possibile espandere o comprimere la barra di spostamento selezionando **<** o **>** :
 
-| Menu | DESCRIZIONE |
-| ---- | ----------- |
-| ![Menu di spostamento a sinistra](media/overview-iot-central-tour-pnp/navigationbar.png) | <ul><li>La pagina **Dashboard** consente di accedere al dashboard dell'applicazione. I creatori possono personalizzare il dashboard per gli operatori. Anche gli utenti possono creare dashboard personalizzati.</li><li>Nella pagina **Dispositivi** sono elencati i dispositivi simulati e reali associati a ogni modello di dispositivo nell'applicazione. Gli operatori usano **Dispositivi** per gestire i dispositivi connessi.</li><li>La pagina **Gruppi di dispositivi** consente di visualizzare e creare gruppi di dispositivi. Gli operatori possono creare gruppi di dispositivi sotto forma di raccolta logica di dispositivi specificati da una query.</li><li>La pagina **Regole** consente di modificare regole che vengono attivate in base ai dati di telemetria dei dispositivi e attivano azioni personalizzabili.</li><li>Nella pagina **Analisi** è visualizzata l'analisi derivata dai dati di telemetria dei dispositivi per dispositivi e gruppi di dispositivi. Gli operatori possono creare visualizzazioni personalizzate basate sui dati dei dispositivi per derivare informazioni dettagliate dall'applicazione.</li><li>La pagina **Processi** consente di gestire i dispositivi in blocco e di creare ed eseguire processi per aggiornare i dispositivi su vasta scala.</li><li>Nella pagina **Modelli di dispositivo** sono visualizzati gli strumenti usati da un generatore per creare e gestire modelli di dispositivo.</li><li>La pagina **Esportazione dati** consente a un amministratore di configurare un'esportazione continua in altri servizi di Azure, come archiviazione e code.</li><li>La pagina **Amministrazione** consente di visualizzare le pagine di amministrazione dell'applicazione in cui un amministratore può gestire impostazioni, utenti e ruoli.</li></ul> |
+:::row:::
+  :::column span="":::
+      ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png)
+  :::column-end:::
+  :::column span="2":::
+
+      **Dashboard** displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.
+    
+      **Devices** lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.
+    
+      **Device groups** lets you view and create device groups. As an operator, you can create device groups as a logical collections of devices specified by a query.
+
+      **Rules** lets you edit rules that fire based on device telemetry and trigger customizable actions.
+    
+      **Analytics** shows analytics derived from device telemetry for devices and device groups. As an operator, you can create custom views on top of device data to derive insights from your application.
+    
+      **Jobs** enables bulk device management by having you create and run jobs to update your devices at scale.
+    
+      **Device templates** shows the tools a builder uses to create and manage device templates.
+    
+      **Data export** enables an administrator to configure a continuous export to other Azure services such as storage and queues.
+    
+      **Administration** shows the application administration pages where an administrator can manage application settings, users, and roles.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="search-help-and-support"></a>Ricerca, guida e supporto tecnico
 

@@ -8,12 +8,13 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: c7fbd37ff8d40f27e0ca18a6f9816d3d96422ab9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592403"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241400"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Esercitazione: Ordinare Azure Data Box Heavy
 
@@ -80,7 +81,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     |Impostazione  |Valore  |
     |---------|---------|
-    |Sottoscrizione     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
+    |Subscription     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
     |Tipo di trasferimento     | Selezionare **Importa in Azure**.        |
     |Paese di origine     | Selezionare il paese/area in cui si trovano attualmente i dati.         |
     |Area di Azure di destinazione     | Selezionare l'area di Azure in cui si vogliono trasferire i dati.        |
@@ -96,7 +97,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |Impostazione  |Valore  |
     |---------|---------|
     |NOME     | Specificare un nome descrittivo per tenere traccia dell'ordine. <br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero.      |
-    |Gruppo di risorse     | Usare un gruppo esistente o crearne uno nuovo. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
+    |Resource group     | Usare un gruppo esistente o crearne uno nuovo. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
     |Area di Azure di destinazione     | Selezionare l'area per l'account di archiviazione. <br> Per altre informazioni, vedere [Disponibilità a livello di area](https://azure.microsoft.com/global-infrastructure/services/?products=databox).        |
     |Destinazione di archiviazione     | Scegliere tra account di archiviazione e/o dischi gestiti. <br> In base all'area di Azure specificata, selezionare uno o più account di archiviazione nell'elenco filtrato di un account di archiviazione esistente. <br>Data Box Heavy può essere collegato a un massimo di 10 account di archiviazione. <br> È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**. <br> Gli account di Azure Data Lake Storage Gen 2 non sono supportati. Vedere le [gli account di archiviazione supportati con il dispositivo](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Sono supportati gli account di archiviazione con reti virtuali. Per consentire al servizio Data Box di lavorare con gli account di archiviazione protetti, abilitare i servizi attendibili all'interno delle impostazioni del firewall di rete dell'account di archiviazione. Per altre informazioni, vedere come [Aggiungere il servizio Azure Data Box come servizio attendibile](../storage/common/storage-network-security.md#exceptions).|
 

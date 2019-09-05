@@ -3,21 +3,20 @@ title: Diramazione in una pipeline di Azure Data Factory | Microsoft Docs
 description: Informazioni su come controllare il flusso dei dati in Azure Data Factory con la diramazione e il concatenamento delle attività.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: shlo
-ms.openlocfilehash: f2a8983ae5306ec2ada7b4b537c2f17425b8717d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d8e4c17307b35295f37f1f84db912d04ca625b6a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449375"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140917"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, la pipeline invia i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, la pipeline invia i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
@@ -91,7 +90,7 @@ La richiesta nella finestra di progettazione dell'app per la logica avrà un asp
 
 ![Progettazione app per la logica: richiesta](media/tutorial-control-flow-portal/logic-app-designer-request.png)
 
-Per l'azione **Invia un messaggio di posta elettronica** personalizzare la formattazione del messaggio nel modo desiderato, utilizzando le proprietà passate nello schema JSON del corpo della richiesta. Di seguito è fornito un esempio: 
+Per l'azione **Invia un messaggio di posta elettronica** personalizzare la formattazione del messaggio nel modo desiderato, utilizzando le proprietà passate nello schema JSON del corpo della richiesta. Di seguito è fornito un esempio:
 
 ![Progettazione app per la logica: azione Invia un messaggio di posta elettronica](media/tutorial-control-flow-portal/send-email-action-2.png)
 
@@ -103,7 +102,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ### <a name="fail-email-workflow"></a>Flusso di lavoro del messaggio di posta elettronica di operazione non riuscita 
-Seguire la stessa procedura per creare un flusso di lavoro di App per la logica di **CopyFailEmail**. Nel trigger di richiesta, `Request Body JSON schema` è uguale. Modificare la formattazione del messaggio di posta elettronica, ad esempio `Subject`, per adattarlo a un messaggio di posta elettronica di operazione non riuscita. Di seguito è fornito un esempio: 
+Seguire la stessa procedura per creare un flusso di lavoro di App per la logica di **CopyFailEmail**. Nel trigger di richiesta, `Request Body JSON schema` è uguale. Modificare la formattazione del messaggio di posta elettronica, ad esempio `Subject`, per adattarlo a un messaggio di posta elettronica di operazione non riuscita. Di seguito è fornito un esempio:
 
 ![Progettazione app per la logica: flusso di lavoro del messaggio di posta elettronica di operazione non riuscita](media/tutorial-control-flow-portal/fail-email-workflow-2.png)
 
@@ -266,13 +265,13 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
         ```
 
         ![Impostazioni per la seconda attività Web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
-22. Selezionare l'attività **Copia** nella finestra di progettazione della pipeline e fare clic sul pulsante **+->**, quindi selezionare **Errore**.  
+22. Selezionare l'attività **Copia** nella finestra di progettazione della pipeline e fare clic sul pulsante **+->** , quindi selezionare **Errore**.  
 
     ![Impostazioni per la seconda attività Web](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Trascinare il pulsante **rosso** accanto all'attività Copia sulla seconda attività Web **SendFailureEmailActivity**. È possibile spostare le attività in modo che l'aspetto della pipeline sia simile all'immagine seguente: 
 
     ![Pipeline completa con tutte le attività](./media/tutorial-control-flow-portal/full-pipeline.png)
-24. Per convalidare la pipeline, fare clic sul pulsante **Convalida** sulla barra degli strumenti. Chiudere la finestra **Pipeline Validation Output** (Output di convalida della pipeline) facendo clic sul pulsante **>>**.
+24. Per convalidare la pipeline, fare clic sul pulsante **Convalida** sulla barra degli strumenti. Chiudere la finestra **Pipeline Validation Output** (Output di convalida della pipeline) facendo clic sul pulsante **>>** .
 
     ![Convalidare la pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
 24. Per pubblicare le entità (set di dati, pipeline e così via) nel servizio Data Factory, selezionare **Pubblica tutti**. Attendere fino alla visualizzazione del messaggio **Pubblicazione riuscita**.

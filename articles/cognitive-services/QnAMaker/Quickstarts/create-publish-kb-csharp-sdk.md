@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/06/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 2902e63f65db3883d6d8f442db273d19f60e82a8
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1724e2d81f1a18da5a200637cd25636166d5cb37
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012780"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70206743"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>Guida introduttiva: Libreria client di QnA Maker per .NET
 
@@ -182,7 +182,7 @@ Il _ciclo_ e _Task.Delay_ nel blocco di codice seguente vengono usati per simula
 
 Eseguire l'applicazione con il comando dotnet `run` dalla directory dell'applicazione.
 
-```dotnet
+```console
 dotnet run
 ```
 

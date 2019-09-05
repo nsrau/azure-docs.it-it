@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905239"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142090"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utilizzare la versione precedente di Azure Migrate
 
@@ -201,7 +201,7 @@ Per usare la visualizzazione delle dipendenze, è necessario associare un'area d
 1. Per associare un'area di lavoro Log Analytics a un progetto, in **Panoramica** passare a **Informazioni di base** e fare clic su **Configurazione richiesta**.
 2. È possibile creare una nuova area di lavoro o associarne una esistente:
   - Per creare una nuova area di lavoro, specificare un nome. L'area di lavoro viene creata in un'area nella stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) del progetto di migrazione.
-  - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione. Sono elencate solo le aree di lavoro create in un'[area di Mapping dei servizi supportata](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Per associare un'area di lavoro, assicurarsi di avere l'accesso in lettura all'area di lavoro.
+  - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione. Sono elencate solo le aree di lavoro create in un'[area di Mapping dei servizi supportata](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Per associare un'area di lavoro, assicurarsi di avere l'accesso in lettura all'area di lavoro.
 
 > [!NOTE]
 > Non è possibile modificare l'area di lavoro associata a un progetto di migrazione.

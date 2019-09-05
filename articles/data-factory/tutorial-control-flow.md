@@ -3,21 +3,20 @@ title: Diramazione in una pipeline di Azure Data Factory | Microsoft Docs
 description: Informazioni su come controllare il flusso dei dati in Azure Data Factory con la diramazione e il concatenamento delle attività.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
-ms.author: shlo
-ms.openlocfilehash: 9a03094683a973db16aa949f0610bc7f9914be45
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 264d8e049cc7b714e00aaa77441cdc81a1e0a0c9
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649221"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140742"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 
@@ -46,7 +45,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
 * **Database SQL di Azure**. Usare il database come archivio dati **sink**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md).
 * **Visual Studio** 2013, 2015 o 2017. Nella procedura guidata illustrata in questo articolo viene usato Visual Studio 2017.
-* **Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/)**.
+* **Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/)** .
 * **Creare un'applicazione in Azure Active Directory** seguendo [queste istruzioni](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Annotare i valori seguenti, da usare nei passaggi successivi: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo "**Collaboratore**" seguendo le istruzioni disponibili nello stesso articolo.
 
 ### <a name="create-blob-table"></a>Creare la tabella BLOB
@@ -66,7 +65,7 @@ Creare un'applicazione console .NET in C# con Visual Studio 2015 o 2017.
 
 1. Avviare **Visual Studio**.
 2. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**. È necessario .NET versione 4.5.2 o successiva.
-3. Selezionare **Visual C#** -> **App console (.NET Framework)** nell'elenco dei tipi di progetto a destra.
+3. Selezionare **Visual C#**  -> **App console (.NET Framework)** nell'elenco dei tipi di progetto a destra.
 4. Immettere **ADFv2BranchTutorial** come nome.
 5. Fare clic su **OK** per creare il progetto.
 
@@ -335,7 +334,7 @@ La richiesta in Progettazione app per la logica avrà un aspetto simile al segue
 
 ![Progettazione app per la logica: richiesta](media/tutorial-control-flow/logic-app-designer-request.png)
 
-Per l'azione **Invia un messaggio di posta elettronica** personalizzare la formattazione del messaggio nel modo desiderato, utilizzando le proprietà passate nello schema JSON del corpo della richiesta. Di seguito è fornito un esempio: 
+Per l'azione **Invia un messaggio di posta elettronica** personalizzare la formattazione del messaggio nel modo desiderato, utilizzando le proprietà passate nello schema JSON del corpo della richiesta. Di seguito è fornito un esempio:
 
 ![Progettazione app per la logica: azione Invia un messaggio di posta elettronica](media/tutorial-control-flow/send-email-action.png)
 
@@ -348,7 +347,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="fail-email-workflow"></a>Flusso di lavoro del messaggio di posta elettronica di operazione non riuscita 
 
-Clonare **CopySuccessEmail** e creare un altro flusso di lavoro di app per la logica per **CopyFailEmail**. Nel trigger di richiesta, `Request Body JSON schema` è uguale. Modificare semplicemente la formattazione del messaggio di posta elettronica, ad esempio `Subject`, per adattarlo a un messaggio di posta elettronica di operazione non riuscita. Di seguito è fornito un esempio: 
+Clonare **CopySuccessEmail** e creare un altro flusso di lavoro di app per la logica per **CopyFailEmail**. Nel trigger di richiesta, `Request Body JSON schema` è uguale. Modificare semplicemente la formattazione del messaggio di posta elettronica, ad esempio `Subject`, per adattarlo a un messaggio di posta elettronica di operazione non riuscita. Di seguito è fornito un esempio:
 
 ![Progettazione app per la logica: flusso di lavoro del messaggio di posta elettronica di operazione non riuscita](media/tutorial-control-flow/fail-email-workflow.png)
 

@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 08/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592307"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142910"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>Che cos'è Azure Data Box Heavy?
 
@@ -68,7 +68,7 @@ In questa versione il dispositivo Data Box Heavy include le caratteristiche segu
 | Potenza                                                    | 4 unità di alimentazione incorporate, condivise tra i nodi del dispositivo <br> Consumo energetico tipico di 1.200 watt|
 | Capacità di archiviazione                                        | Capacità nominale di circa 1 PB, 70 dischi da 14 TB ciascuno <br> Capacità utilizzabile di 770 TB|
 | Numero di nodi                                          | 2 nodi indipendenti per ogni dispositivo (500 TB ciascuno) |
-| Interfacce di rete per nodo                             | 4 interfacce di rete per ogni nodo <br><br> MGMT, DATA3 <ul><li> 2 interfacce da 1 GbE </li><li> MGMT è un'interfaccia per la gestione e la configurazione iniziale, non è configurabile dall'utente </li><li> DATA3 è un'interfaccia configurabile dall'utente e DHCP (Dynamic Host Configuration Protocol) per impostazione predefinita</li><li>Le interfacce di rete da 1 GbE possono essere configurate anche come interfacce da 10 GbE</li></ul>Interfacce dati DATA1 e DATA2 <ul><li>2 interfacce da 40 GbE </li><li> Configurabile dall'utente per DHCP (impostazione predefinita) o statici</li></ul>|
+| Interfacce di rete per nodo                             | 4 interfacce di rete per ogni nodo <br><br> MGMT, DATA3 <ul><li> 2 interfacce da 1 GbE </li><li> MGMT è un'interfaccia per la gestione e la configurazione iniziale, non è configurabile dall'utente </li><li> DATA3 è un'interfaccia configurabile dall'utente e DHCP (Dynamic Host Configuration Protocol) per impostazione predefinita</li></ul>Interfacce dati DATA1 e DATA2 <ul><li>2 interfacce da 40 GbE </li><li> Configurabile dall'utente per DHCP (impostazione predefinita) o statici</li></ul>|
 
 
 ## <a name="components"></a>Componenti

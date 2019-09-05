@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a71c83a190bd7e88edd5008edef670b32905add
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169217"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140814"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche 
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di **rilevamento delle modifiche** nel database SQL di Azure di origine in una risorsa di archiviazione BLOB di Azure.  
@@ -294,7 +293,7 @@ In questo passaggio viene creata una pipeline con un'attività di copia che copi
 5. Passare alla scheda **Sink** e selezionare **SinkDataset** nel campo **Sink Dataset** (Set di dati sink). 
 
     ![Attività di copia: sink](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
-6. Per convalidare la definizione della pipeline, fare clic su **Convalida** sulla barra degli strumenti. Verificare che non sia presente alcun errore di convalida. Chiudere il **report di convalida della pipeline** facendo clic su **>>**. 
+6. Per convalidare la definizione della pipeline, fare clic su **Convalida** sulla barra degli strumenti. Verificare che non sia presente alcun errore di convalida. Chiudere il **report di convalida della pipeline** facendo clic su **>>** . 
 
     ![Convalidare la pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Per pubblicare le entità (servizi collegati, set di dati e pipeline), fare clic su **Pubblica**. Attendere fino al completamento della pubblicazione. 
@@ -423,7 +422,7 @@ In questo passaggio viene creata una pipeline con le attività seguenti, eseguit
 14. **Connettere l'attività di copia all'attività stored procedure**. Trascinare il pulsante **verde** associato all'attività Copia sull'attività Stored procedure. 
 
     ![Connettere le attività di copia e stored procedure](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
-15. Fare clic su **Convalida** sulla barra degli strumenti. Verificare che non siano presenti errori di convalida. Chiudere la finestra del **report di convalida della pipeline** facendo clic su **>>**. 
+15. Fare clic su **Convalida** sulla barra degli strumenti. Verificare che non siano presenti errori di convalida. Chiudere la finestra del **report di convalida della pipeline** facendo clic su **>>** . 
 
     ![Pulsante Convalida](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Pubblicare le entità (servizi collegati, set di dati e pipeline) nel servizio Data Factory facendo clic sul pulsante **Pubblica tutti**. Attendere fino alla visualizzazione del messaggio **Pubblicazione riuscita**. 
