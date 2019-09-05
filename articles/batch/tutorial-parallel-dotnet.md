@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 53f8742df0a03327069da083e6cb46a7c03118c1
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 103d09da3fedf9c31d4e5255456e63cab34bc0ee
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68773072"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258591"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Esercitazione: Eseguire un carico di lavoro parallelo con Azure Batch usando l'API .NET
 
@@ -167,7 +167,7 @@ using (BatchClient batchClient = BatchClient.Open(sharedKeyCredentials))
 L'app passa l'oggetto `blobClient` al metodo `CreateContainerIfNotExistAsync` per creare un contenitore di archiviazione per i file di input (formato MP4) e un contenitore per l'output dell'attività.
 
 ```csharp
-CreateContainerIfNotExistAsync(blobClient, inputContainerName;
+CreateContainerIfNotExistAsync(blobClient, inputContainerName);
 CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
