@@ -145,7 +145,7 @@
     - name: Ordine sequenziale della distribuzione del progetto
       displayName: customize
       href: ./concepts/sequencing-order.md
-    - name: Blocco delle risorse in Azure Blueprint
+    - name: Blocco delle risorse In Azure Blueprint
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
 - name: Guide alle procedure
@@ -153,6 +153,9 @@
     - name: Gestire le assegnazioni con PowerShell
       displayName: 'create, update, remove'
       href: ./how-to/manage-assignments-ps.md
+    - name: Importare ed esportare con PowerShell
+      displayName: 'import, export, folders'
+      href: ./how-to/import-export-ps.md
     - name: Aggiornare le assegnazioni esistenti dal portale
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md

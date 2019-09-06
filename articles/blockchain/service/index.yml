@@ -1,57 +1,81 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione del servizio Azure Blockchain
+summary: Informazioni su come creare applicazioni blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come usare il servizio Azure Blockchain per creare, sviluppare e gestire applicazioni blockchain in Azure.
 metadata:
   title: Documentazione del servizio Azure Blockchain - Esercitazioni e informazioni di riferimento sulle API
-  description: 'Informazioni su come creare applicazioni blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come usare il servizio Azure Blockchain per creare, sviluppare e gestire applicazioni blockchain in Azure.'
+  description: Informazioni su come creare applicazioni blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come usare il servizio Azure Blockchain per creare, sviluppare e gestire applicazioni blockchain in Azure.
   services: azure-blockchain
-  author: patricka
-  manager: femila
   ms.service: azure-blockchain
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/13/2019
+  author: PatAltimore
   ms.author: patricka
-abstract:
-  description: 'Informazioni su come creare applicazioni blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come usare il servizio Azure Blockchain per creare, sviluppare e usare applicazioni blockchain in Azure.'
-sections:
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: Informazioni su come creare e connettersi a membri del consorzio in Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/deploy.svg
-            text: Creare un membro del consorzio
-            href: /azure/blockchain/service/create-member
-          - image:
-              src: ./media/index/multi-connect.svg
-            text: Connettersi con MetaMask
-            href: /azure/blockchain/service/connect-metamask
-          - image:
-              src: ./media/index/cligeneric.svg
-            text: Connettersi con geth
-            href: /azure/blockchain/service/connect-geth
-          - image:
-              src: ./media/index/code-blocks.svg
-            text: Connettersi con Truffle
-            href: /azure/blockchain/service/connect-truffle
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: 'Informazioni su come creare, configurare e sviluppare applicazioni blockchain in Azure.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/blockchain/service/send-transaction">Creare un membro del servizio Azure Blockchain e inviare una transazione</a>
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">API REST</a></p>'
+  ms.date: 08/29/2019
+  ms.openlocfilehash: c5816bb2278c138a8df07c5c289d53a818614d86
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70240828"
+landingContent:
+- title: Informazioni sul servizio Azure Blockchain
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il servizio Azure Blockchain?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Reti blockchain per consorzi privati
+      url: consortium.md
+    - text: Accesso ai dati e sicurezza
+      url: data-security.md
+    - text: Strumenti di sviluppo
+      url: develop.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Creare un membro della blockchain - Portale
+      url: create-member.md
+    - text: Creare un membro della blockchain - Interfaccia della riga di comando
+      url: create-member-cli.md
+  - linkListType: quickstart
+    links:
+    - text: Usare MetaMask per connettersi e Remix per distribuire un contratto intelligente
+      url: connect-metamask.md
+    - text: Usare Geth per connettersi a un nodo della transazione
+      url: connect-geth.md
+    - text: Usare Truffle per connettersi a un nodo della transazione
+      url: connect-truffle.md
+  - linkListType: tutorial
+    links:
+    - text: Usare i contratti intelligenti nel servizio Azure Blockchain
+      url: send-transaction.md
+  - linkListType: video
+    links:
+    - text: Distribuire e configurare la rete
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
+    - text: Scrivere e testare contratti intelligenti con VS Code
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
+    - text: Inviare dati al libro mastro
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-III-Send-data-to-the-ledger
+    - text: Pubblicare eventi e dati del libro mastro
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
+- title: Gestisci
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire i membri della blockchain - Interfaccia della riga di comando
+      url: manage-cli.md
+    - text: Gestire i membri del consorzio - PowerShell
+      url: manage-consortium-powershell.md
+    - text: Configurare nodi delle transazioni
+      url: configure-transaction-nodes.md
+    - text: Configurare l'accesso ad Active Directory
+      url: configure-aad.md
+- title: API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/blockchain

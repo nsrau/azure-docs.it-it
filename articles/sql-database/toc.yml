@@ -219,10 +219,16 @@
       items:
         - name: Documentazione sull'istanza gestita
           href: sql-database-managed-instance-index.yml
-        - name: Funzionalità dell'istanza gestita
+        - name: Panoramica sull'istanza gestita
           href: sql-database-managed-instance.md
         - name: Domande frequenti sulle istanze gestite
           href: sql-database-managed-instance-faq.md
+        - name: Pool di istanze
+          items:
+            - name: Panoramica sui pool di istanze
+              href: sql-database-instance-pools.md
+            - name: Guida pratica ai pool di istanze
+              href: sql-database-instance-pools-how-to.md
         - name: Informazioni di riferimento sull'API Gestione
           href: sql-database-managed-instance-create-manage.md
         - name: Limiti delle risorse

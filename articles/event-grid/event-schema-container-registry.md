@@ -196,7 +196,7 @@ Di seguito sono elencate le proprietà dell'oggetto della richiesta:
 | id | string | ID della richiesta che ha avviato l'evento. |
 | indirizzo | string | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |
 | host | string | Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host http nelle richieste in ingresso. |
-| statico | string | Metodo di richiesta che ha generato l'evento. |
+| method | string | Metodo di richiesta che ha generato l'evento. |
 | useragent | string | Intestazione agente utente della richiesta. |
 
 ## <a name="next-steps"></a>Passaggi successivi

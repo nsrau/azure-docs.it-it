@@ -1,57 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione di Machine Learning Studio
+### YamlMime:Landing
+title: Documentazione di Azure Machine Learning Studio
+summary: Machine Learning Studio è uno strumento basato sul trascinamento della selezione che consente di compilare, testare e distribuire soluzioni di analisi predittiva.
 metadata:
-  title: 'Documentazione di Azure Machine Learning Studio: esercitazioni e informazioni di riferimento | Microsoft Docs'
-  description: 'Machine Learning Studio è uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva sui dati. Esercitazioni, video e modelli di esempio in cui viene illustrato come usare Studio per creare e distribuire modelli di apprendimento automatico.'
+  title: Documentazione di Machine Learning Studio - Azure
+  description: Machine Learning Studio è uno strumento basato sul trascinamento della selezione che consente di compilare, testare e distribuire soluzioni di analisi predittiva.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: studio
   ms.topic: landing-page
+  ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.date: 02/24/2019
-abstract:
-  description: 'Azure Machine Learning Studio è uno strumento di trascinamento collaborativo per la compilazione, i test e la distribuzione di soluzioni di analisi predittiva sui dati. Esercitazioni, video e modelli di esempio in cui viene illustrato come usare Studio per creare e distribuire modelli di apprendimento automatico.'
-sections:
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: 'Seguire le esercitazioni dettagliate che illustrano la creazione e la distribuzione dei modelli:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="create-experiment">Creare la prima sperimentazione di Studio</a>
-          - html: <a href="tutorial-part1-credit-risk">Creare e distribuire una soluzione predittiva per il rischio di credito</a>
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="powershell-module">Moduli di PowerShell</a></p>
-          - title: Moduli
-            html: '<p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Informazioni di riferimento su algoritmi e moduli</a></p>'
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/machinelearning/">API di gestione REST</a></p><p><a href="web-service-error-codes">Codici di errore del servizio Web</a></p>'
-  - title: Altre tecnologie di Azure Machine Learning
-    items:
-      - type: paragraph
-        text: 'Altre tecnologie disponibili in Azure Machine Learning:'
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Servizio Azure Machine Learning
-            href: /azure/machine-learning/service/
-            image:
-              src: media/index/i_machine-learning.svg
-              href: /azure/machine-learning/service/
-          - title: Macchina virtuale di data science
-            href: /azure/machine-learning/data-science-virtual-machine/
-            image:
-              src: media/index/virtual-machines.svg
-              href: /azure/machine-learning/data-science-virtual-machine/
+  ms.date: 09/03/2019
+  ms.openlocfilehash: 774c63e1df815b509a88b9de25b8199b53bfafa1
+  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70278004"
+landingContent:
+- title: Informazioni su Azure Machine Learning Studio
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Studio?
+      url: what-is-ml-studio.md
+    - text: Confrontare i prodotti Machine Learning
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
+- title: Introduzione a Studio
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creare il primo esperimento di Machine Learning
+      url: create-experiment.md
+    - text: Creare una soluzione predittiva
+      url: tutorial-part1-credit-risk.md
+- title: Riferimenti
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Moduli di PowerShell da riga di comando
+      url: powershell-module.md
+    - text: Informazioni di riferimento su algoritmi e moduli
+      url: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index
+    - text: API di gestione REST
+      url: https://docs.microsoft.com/rest/api/machinelearning/
+    - text: Codici di errore del servizio Web
+      url: web-service-error-codes.md
+- title: Altre tecnologie di Azure Machine Learning
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Servizio Azure Machine Learning
+      url: /azure/machine-learning/
+    - text: Macchina virtuale di data science di Azure
+      url: /azure/machine-learning/data-science-virtual-machine

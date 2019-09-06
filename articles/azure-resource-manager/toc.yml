@@ -60,9 +60,6 @@
   items:
     - name: Distribuzioni di modelli
       href: template-deployment-overview.md
-    - name: Struttura del file modello
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: resource-group-authoring-templates.md
     - name: Procedure consigliate per i modelli
       href: template-best-practices.md
     - name: Modelli per la coerenza del cloud
@@ -85,26 +82,38 @@
   items:
     - name: Creare modelli
       items:
-        - name: Strumento di sviluppo - VS Code
+        - name: Usare VS Code
           href: resource-manager-tools-vs-code.md
-        - name: Creare il modello
-          href: how-to-create-template.md
-        - name: Nome e tipo della risorsa figlio
-          href: child-resource-name-type.md
-        - name: Creare gruppi di risorse e risorse nella sottoscrizione
-          displayName: subscription level deployment
-          href: deploy-to-subscription.md
-        - name: Definire le dipendenze delle risorse
-          href: resource-group-define-dependencies.md
+        - name: Scrivere espressioni di modello
+          href: template-expressions.md
+        - name: Parametri
+          href: template-parameters.md
+        - name: variables
+          href: template-variables.md
+        - name: Funzioni definite dall'utente
+          href: template-user-defined-functions.md
+        - name: Risorse
+          items:
+            - name: Nome e tipo della risorsa figlio
+              href: child-resource-name-type.md
+            - name: Distribuzione condizionale
+              href: conditional-resource-deployment.md
+            - name: Impostare le dipendenze delle risorse
+              href: resource-group-define-dependencies.md
+            - name: Impostare il percorso della risorsa
+              href: resource-location.md
+            - name: Usare le estensioni dei modelli
+              href: resource-manager-use-extensions.md
+        - name: Output
+          href: template-outputs.md
         - name: Modularizzare i modelli
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
         - name: Creare più istanze
           href: resource-group-create-multiple.md
-        - name: Usare le estensioni dei modelli
-          href: resource-manager-use-extensions.md
-        - name: Aggiornare le risorse
-          href: /azure/architecture/building-blocks/extending-templates/update-resource
+        - name: Creare gruppi di risorse e risorse nella sottoscrizione
+          displayName: subscription level deployment
+          href: deploy-to-subscription.md
     - name: Distribuire modelli
       items:
         - name: Distribuire - portale
@@ -164,7 +173,7 @@
           href: resource-group-using-tags.md
         - name: Supporto per i tag
           href: tag-support.md
-    - name: Gestire
+    - name: Gestisci
       items:
         - name: Gestire gruppi di risorse
           items:
@@ -244,6 +253,9 @@
       href: resource-manager-async-operations.md
 - name: riferimento
   items:
+    - name: Struttura del file modello
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: resource-group-authoring-templates.md
     - name: Informazioni di riferimento sul modello
       href: /azure/templates/
     - name: Funzioni di modello

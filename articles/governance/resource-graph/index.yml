@@ -1,53 +1,101 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione per il servizio Azure Resource Graph
+### YamlMime:Landing
+title: Documentazione di Azure Resource Graph
+summary: Esplorare tutte le risorse cloud e gestire l'inventario cloud con maggiore efficienza
 metadata:
-  title: Documentazione di Azure Resource Graph - Esercitazioni e informazioni di riferimento sulle API
-  description: Azure Resource Graph è un servizio disponibile in Azure che consente di eseguire query complesse sulle risorse su vasta scala.
-  author: DCtheGeek
-  manager: carmonm
+  title: Documentazione di Azure Resource Graph
+  description: Esplorare tutte le risorse cloud e gestire l'inventario cloud con maggiore efficienza
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.date: 08/25/2019
+  ms.collection: collection
+  author: DCtheGeek
   ms.author: dacoulte
-abstract:
-  description: La documentazione di Azure Resource Graph consente di configurare e apprendere il linguaggio di query per individuare ed esplorare le risorse su vasta scala.
-sections:
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: Configurare Resource Graph ed eseguire la prima query.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              alt: Azure Resource Graph Explorer
-              src: ./media/arg_explorer.svg
-            text: Resource Graph Explorer
-            href: first-query-portal.md
-          - image:
-              alt: Interfaccia della riga di comando di Azure
-              src: ./media/cli.svg
-            text: Interfaccia della riga di comando di Azure
-            href: first-query-azurecli.md
-          - image:
-              alt: Azure PowerShell
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: first-query-powershell.md
-  - title: Commenti e suggerimenti
-    items:
-      - type: paragraph
-        text: 'Per inviare commenti e suggerimenti su questa funzionalità o ricevere assistenza per le query, visitare la pagina <b>Resource Graph (anteprima)</b> accessibile da <b>Criteri di Azure</b> nel portale di Azure e fare clic su Commenti e suggerimenti. È possibile inviare suggerimenti anche in <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.'
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/cli/azure/ext/resource-graph/graph">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-          - title: Languages
-            html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK per .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/">Azure SDK per .NET (NuGet)</a></p><p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph">Azure SDK per Go</a></p><p><a href="/java/api/overview/azure/resourcegraph/management?view=azure-java-stable">Azure SDK per Java</a></p><p><a href="https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar">Azure SDK per Java (Maven)</a></p><p><a href="/javascript/api/@azure/arm-resourcegraph">Azure SDK for Node</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure SDK per Python</a></p><p><a href="https://rubygems.org/gems/azure_mgmt_resourcegraph">Azure SDK per Ruby (Gem)</a></p>'
-          - title: REST
-            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">Informazioni di riferimento sulle API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01">2019-04-01 (OpenAPI)</a></p>'
+  ms.date: 09/01/2019
+  ms.openlocfilehash: 1f23338b7e894b2ff58b1a5bf9565f842b273465
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70239045"
+landingContent:
+- title: Informazioni su Azure Resource Graph
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Azure Resource Graph?
+      url: ./overview.md
+  - linkListType: concept
+    links:
+    - text: Esaminare il linguaggio di query
+      url: ./concepts/query-language.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ottenere le modifiche delle risorse
+      url: ./how-to/get-resource-changes.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Prima query (portale)
+      url: ./first-query-portal.md
+    - text: Prima query (PowerShell)
+      url: ./first-query-powershell.md
+    - text: Prima query (interfaccia della riga di comando)
+      url: ./first-query-azurecli.md
+  - linkListType: concept
+    links:
+    - text: Esplorare con Resource Graph
+      url: ./concepts/explore-resources.md
+  - linkListType: deploy
+    links:
+    - text: Esempi di query di base
+      url: ./samples/starter.md
+    - text: Esempi di query avanzate
+      url: ./samples/advanced.md
+- title: Usare su vasta scala
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Usare set di dati di grandi dimensioni
+      url: ./concepts/work-with-data.md
+    - text: Istruzioni per le richieste con limitazioni
+      url: ./concepts/guidance-for-throttled-requests.md
+- title: Interagire
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Canale dedicato alla governance di Azure su YouTube
+      url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - text: Richiedere funzionalità per il prodotto
+      url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345061
+    - text: Community tecnica per la governance di Azure
+      url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+- title: Informazioni di riferimento - Download
+  linkLists:
+  - linkListType: download
+    links:
+    - text: OpenAPI - 2019-04-01
+      url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
+    - text: SDK per .NET - NuGet
+      url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
+    - text: SDK per Java - Maven
+      url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
+    - text: SDK per Ruby - Gem
+      url: https://rubygems.org/gems/azure_mgmt_resourcegraph
+- title: Informazioni di riferimento - SDK
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: /powershell/module/az.resourcegraph/
+    - text: Interfaccia della riga di comando di Azure
+      url: /cli/azure/ext/resource-graph/graph
+    - text: .NET
+      url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+    - text: Go
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
+    - text: Java
+      url: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+    - text: Nodo
+      url: /javascript/api/@azure/arm-resourcegraph
+    - text: Python
+      url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph

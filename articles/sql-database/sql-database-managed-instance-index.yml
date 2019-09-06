@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Istanza gestita di Database SQL Azure
+title: Istanza gestita di Database SQL di Azure
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Documentazione di istanza gestita - esercitazioni e riferimento all'API
+  title: 'Documentazione dell''istanza gestita - Esercitazioni, informazioni di riferimento per l''API'
   meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
   author: jovanpop-msft
@@ -18,14 +18,14 @@ metadata:
   ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
-  description: 'Un''istanza gestita di Database SQL di Azure è completamente gestito Database di motore di istanza di SQL Server ospitato nel cloud Azure. Si tratta dell''opzione più efficiente per la migrazione del database SQL Server nel cloud. Le guide introduttive, le esercitazioni e gli esempi disponibili consentono di apprendere rapidamente come creare e usare Istanza gestita.'
+  description: 'Un''istanza gestita nel database SQL di Azure è un''istanza del motore di database SQL Server completamente gestita e ospitata nel cloud di Azure. Si tratta dell''opzione più efficiente per la migrazione del database SQL Server nel cloud. Le guide introduttive, le esercitazioni e gli esempi disponibili consentono di apprendere rapidamente come creare e usare Istanza gestita.'
   aside:
     image:
       alt: null
       height: 110
       src: media/sql-database-managed-instance-index/intro.png
       width: 250
-    title: 'Introduzione a istanza gestita di Database SQL di Azure (5:38)'
+    title: 'Introduzione all''istanza gestita nel database SQL di Azure (5:38)'
     href: 'https://www.youtube.com/watch?v=W8feSZXm2Ec'
     width: 250
 sections:
@@ -37,7 +37,7 @@ sections:
         items:
           - title: Panoramica
             href: /azure/sql-database/sql-database-managed-instance
-            html: <p>Scopri ulteriori informazioni su istanza gestita di Database SQL di Azure.</p>
+            html: <p>Altre informazioni sull'istanza gestita nel database SQL di Azure.</p>
           - title: Ampia superficie di attacco
             href: '/azure/sql-database/sql-database-managed-instance#sql-features-supported'
             html: <p>Quasi il 100% di compatibilità delle funzionalità SQL con la versione più recente del motore di database di SQL Server.</p>
@@ -65,18 +65,19 @@ sections:
   - title: Funzionalità nuove e di anteprima
     items:
       - type: paragraph
-        text: 'Stiamo migliorando continuamente istanza gestita con le nuove funzionalità:'
+        text: 'Microsoft è costantemente impegnata a migliorare l''istanza gestita con nuove funzionalità:'
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> 4 Vcore per utilizzo sulla generazione di hardware Gen5</a>'
-          - html: 'Supporto per le sottoscrizioni con <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > tuo credito Azure mensile per sottoscrittori di Visual Studio </a>'
-          - html: 'Supporto per <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>'
-          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configurare il fuso orario</a> durante la creazione dell''istanza.'
-          - html: 'Creare le istanze con <a href="https://aka.ms/managed-instance-collation">regole di confronto a livello di server di propria scelta</a>.'
-          - html: 'Funzionalità di ripristino geografico consente <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">ripristinare un database a un altro data center tramite PowerShell</a>.'
-          - html: '(Anteprima) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Ricreare eliminato i database con PowerShell</a>'
-          - html: Le istanze gestite sono protetti con <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall incorporato</a>.
+          - html: '(Anteprima) <a href="/azure/sql-database/sql-database-instance-pools">Pool di istanze</a>: costituiscono una soluzione comoda ed economica per eseguire la migrazione di istanze SQL di dimensioni ridotte nel cloud.'
+          - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCore in hardware di quinta generazione (Gen5)</a>'
+          - html: 'Supporto per le sottoscrizioni con <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > credito mensile di Azure per i sottoscrittori di Visual Studio </a>'
+          - html: 'Supporto per <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e per <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configurazione del fuso orario</a> durante la creazione dell''istanza.'
+          - html: 'Creazione di istanze con <a href="https://aka.ms/managed-instance-collation">regole di confronto a livello di server di propria scelta</a>.'
+          - html: 'Funzionalità di ripristino geografico per <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">ripristinare il database in un altro data center usando PowerShell</a>.'
+          - html: '(Anteprima) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Uso di PowerShell per ricreare i database eliminati</a>'
+          - html: Le istanze gestite sono protette con un <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall predefinito</a>.
           - html: '(Anteprima) È possibile <a href="https://aka.ms/managed-instance-tde-byok">trasferire le proprie chiavi di crittografia</a> durante la migrazione di database locali per i quali è già abilitata la tecnologia Transparent Data Encryption (TDE).'
           - html: '(Anteprima) È possibile usare <a href="https://aka.ms/managed-instance-failover-groups">gruppi di failover con distribuzione geografica</a> per mantenere una copia dell''istanza in un''altra area geografica e assicurare che i dati saranno disponibili anche in caso di emergenza a livello di area.'
           - html: 'È possibile <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurare un periodo di conservazione backup fino a 35 giorni</a> per il ripristino temporizzato. Si noti che la conservazione backup a lungo termine (fino a 10 anni) non è ancora abilitata ed è quindi possibile usare <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backup di sola copia</a> come opzione alternativa.'
@@ -84,7 +85,7 @@ sections:
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph
-        text: 'Istanza gestita consente di eseguire facilmente le attività di gestione di base usando il portale di Azure, della riga di comando di Azure e Azure PowerShell. Informazioni su come eseguire attività di gestione di base usando i seguenti esempi introduttivi:'
+        text: 'L''istanza gestita consente di eseguire facilmente attività di gestione di base tramite il portale di Azure, l''interfaccia della riga di comando di Azure e Azure PowerShell. Informazioni su come eseguire attività di gestione di base usando i seguenti esempi introduttivi:'
       - type: table
         style: dataMatrix
         columns:
@@ -125,7 +126,7 @@ sections:
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: '/powershell/module/az.sql/restore-azsqlinstancedatabase#examples'
               - href: null
-          - title: Ripristinare i database in un'altra istanza
+          - title: Ripristinare il database in un'altra istanza
             values:
               - href: null
               - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/'
@@ -137,13 +138,13 @@ sections:
               - href: null
               - href: 'https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Recreate-dropped-database-on-Azure-SQL-Managed-Instance/ba-p/386285'
               - href: null
-          - title: Ripristino geografico del database
+          - title: Eseguire il ripristino geografico del database
             values:
               - href: null
               - href: null
               - href: /azure/sql-database/scripts/sql-managed-instance-restore-geo-backup
               - href: null
-          - title: Set di endpoint IP pubblico
+          - title: Impostare l'endpoint IP pubblico
             values:
               - href: 'sql-database-managed-instance-public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal'
               - href: null
@@ -156,18 +157,18 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: Informazioni su come rapidamente <a href="sql-database-managed-instance-quickstart-guide.md">Introduzione a istanza gestita</a> usando le guide di avvio rapido.
-          - html: 'Scopri <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">caratteristiche hardware e le limitazioni</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">differenze di Transact-SQL language</a>, e <a href="/azure/sql-database/sql-database-managed-instance-create-manage">Transact-SQL, PowerShell, API di CLI di Azure per la configurazione dell''istanzagestita<a/>.'
-          - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configurare</a> rete virtuale di Azure in cui verrà distribuita l''istanza gestita.'
-          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Convalidare</a> rete virtuale di Azure esistente può essere utilizzata per distribuire le istanze gestite.'
-          - html: 'Connettersi usando l''istanza <a href="sql-database-managed-instance-public-endpoint-securely">endpoint IP pubblico</a>, <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">macchina virtuale di Azure</a> o <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">connessionePoint-to-site</a>, oppure <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">applicazioni</a>.'
+          - html: 'Per informazioni su come <a href="sql-database-managed-instance-quickstart-guide.md">iniziare a usare l''istanza gestita</a>, consultare le guide di avvio rapido.'
+          - html: 'Informazioni su <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">limitazioni e caratteristiche hardware</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">differenze di linguaggio Transact-SQL</a> e <a href="/azure/sql-database/sql-database-managed-instance-create-manage">Transact-SQL, PowerShell e API dell''interfaccia della riga di comando di Azure per la configurazione dell''istanza gestita<a/>.'
+          - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configurare</a> la rete virtuale di Azure in cui verrà distribuita l''istanza gestita.'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Verificare</a> che la rete virtuale di Azure esistente possa essere usata per la distribuzione di istanze gestite.'
+          - html: 'Connettersi all''istanza usando <a href="sql-database-managed-instance-public-endpoint-securely">endpoint IP pubblico</a>, <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Macchina virtuale di Azure</a> o <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">connessione da punto a sito</a> o <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">applicazioni</a>.'
           - html: 'Verificare che sia possibile eseguire la migrazione del database tramite <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> o <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">Database Experimentation Assistant</a>.'
-          - html: Portare i database a istanza gestita usando <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">ripristino nativo</a> oppure <a href="/azure/dms/tutorial-sql-server-managed-instance-online">servizio migrazione del database</a>.
+          - html: Trasferire i database nell'istanza gestita tramite il <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">ripristino nativo</a> o il <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Servizio Migrazione del database</a>.
           - html: 'Spostare i pacchetti SSIS in <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, i modelli tabulari SSAS in <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Services</a> e i report SSRS in <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.'
           - html: 'Per altre informazioni sul livello di archiviazione consultare <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">General Purpose tier</a> (Livello Utilizzo generico) e applicare quanto illustrato nell''articolo <a href="https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525">Storage performance best practices and considerations for General Purpose service tier</a> (Procedure consigliate e considerazioni sulle prestazioni di archiviazione per il livello di servizio Utilizzo generico).'
           - html: 'Scoprire procedure consigliate e consigli per <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">proteggere l''istanza</a>.'
-          - html: Altre informazioni <a href="sql-database-howto-managed-instance.md">Guide alle procedure</a> che consentono di configurare l'istanza gestita.
-  - title: Riferimenti
+          - html: Scoprire altre <a href="sql-database-howto-managed-instance.md">guide pratiche</a> che consentono di configurare l'istanza gestita.
+  - title: riferimento
     items:
       - type: list
         style: cards
@@ -178,6 +179,6 @@ sections:
           - title: Domande frequenti
             html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>'
           - title: Canale della community
-            html: '<p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">Community di SQL (istanza gestita)</a></p>'
+            html: '<p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">Community SQL (istanza gestita)</a></p>'
           - title: Materiale didattico
             html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Esercitazioni pratiche</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Esercitazioni con docente</a></p>'

@@ -1,5 +1,5 @@
-- name: Documentazione di Archiviazione di Azure
-  href: /azure/storage/
+- name: Documentazione di File di Azure
+  href: index.yml
 - name: Panoramica
   expanded: true
   items:

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: f054d0665c49ee048451681a7cc34d2a648a6e9e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240231"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70307689"
 ---
 ::: zone target="docs"
 
@@ -28,13 +28,13 @@ I requisiti di sistema includono le piattaforme supportate per i client che si c
 
 ::: zone target="chromeless"
 
-# <a name="review-prerequisites"></a>Esaminare i prerequisiti
+## <a name="review-prerequisites"></a>Esaminare i prerequisiti
 
-1. È necessario avere ordinato il data box disk usando l' [esercitazione: Ordinare il Azure Data Box Disk](data-box-disk-deploy-ordered.md). Sono stati ricevuti i dischi e un cavo di connessione per disco.
+1. È necessario aver ordinato Data Box Disk seguendo le indicazioni dell'[Esercitazione: ](data-box-disk-deploy-ordered.md)Ordinare Azure Data Box Disk. Oltre ai dischi è stato ricevuto un cavo di collegamento per ogni disco.
 2. Sia disponibile un computer client da cui è possibile copiare i dati. Il computer client deve:
 
     - Eseguire un sistema operativo supportato.
-    - Installare altri software necessari.
+    - Includere eventuale altro software richiesto.
 
 ::: zone-end
 
@@ -45,7 +45,7 @@ Di seguito è riportato l'elenco dei sistemi operativi supportati per lo sblocco
 | **Sistema operativo** | **Versioni testate** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows (64 bit) |7, 8, 10 |
+| Windows (a 64 bit) |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Altri software obbligatori per i client Windows
@@ -66,8 +66,6 @@ Per client Linux, il set di strumenti di Data Box Disk installa il seguente soft
 - dislocker
 - OpenSSL
 
-::: zone target="docs"
-
 ## <a name="supported-connection"></a>Connessione supportata
 
 Il computer client che contiene i dati deve avere una porta USB 3.0 o versioni successive. I dischi sono connessi al cliente tramite il cavo fornito.
@@ -78,7 +76,7 @@ Di seguito è riportato un elenco dei tipi di archiviazione supportati per Data 
 
 | **Account di archiviazione** | **Note** |
 | --- | --- |
-| Classica | Standard |
+| Classico | Standard |
 | Utilizzo generico  |Standard; sono supportati sia V1 che V2. Sono supportati livelli ad accesso frequente e sporadico. |
 | Account di archiviazione BLOB | |
 
@@ -88,7 +86,7 @@ Di seguito è riportato un elenco dei tipi di archiviazione supportati per Data 
 
 ## <a name="supported-storage-types-for-upload"></a>Tipi di archiviazione supportati per il caricamento
 
-Di seguito è riportato un elenco dei tipi di archiviazione supportati per il caricamento in Azure con Data Box Disk.
+Ecco un elenco dei tipi di archiviazione supportati per il caricamento in Azure con Data Box Disk.
 
 | **Formato file** | **Note** |
 | --- | --- |
@@ -97,6 +95,7 @@ Di seguito è riportato un elenco dei tipi di archiviazione supportati per il ca
 | File di Azure  | |
 | Managed Disks | |
 
+::: zone target="docs"
 
 ## <a name="next-step"></a>Passaggio successivo
 
