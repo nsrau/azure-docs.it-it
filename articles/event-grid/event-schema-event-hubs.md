@@ -75,10 +75,10 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | fileUrl | string | Percorso del file di acquisizione. |
 | fileType | string | Tipo di file del file di acquisizione. |
 | partitionId | string | ID della partizione. |
-| sizeInBytes | numero intero | Dimensioni del file. |
-| eventCount | numero intero | Numero di eventi nel file. |
-| firstSequenceNumber | numero intero | Numero di sequenza minore nella coda. |
-| lastSequenceNumber | numero intero | Ultimo numero di sequenza nella coda. |
+| sizeInBytes | integer | Dimensioni del file. |
+| eventCount | integer | Numero di eventi nel file. |
+| firstSequenceNumber | integer | Numero di sequenza minore nella coda. |
+| lastSequenceNumber | integer | Ultimo numero di sequenza nella coda. |
 | firstEnqueueTime | string | Primo orario nella coda. |
 | lastEnqueueTime | string | Ultimo orario nella coda. |
 
