@@ -1,19 +1,19 @@
 ---
-title: Usare il Server cronologia Spark esteso per eseguire il debug e la diagnosi di applicazioni Spark - Azure HDInsight
+title: Server cronologia Spark esteso per il debug di applicazioni Spark-Azure HDInsight
 description: Usare il Server cronologia Spark esteso per il debug e la diagnosi di applicazioni Spark - Azure HDInsight.
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 641fc41c25746a67b4b1fe3d5316df17f14f113c
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.date: 09/04/2019
+ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377255"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736461"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Apache Spark
 
@@ -300,7 +300,7 @@ Se si vuole eseguire l'aggiornamento tramite hotfix, usare lo script seguente pe
 
 **Per usare il file Bash dal portale di Azure**
 
-1. Avviare il [Portale di Azure](https://ms.portal.azure.com) e selezionare il cluster.
+1. Avviare [portale di Azure](https://ms.portal.azure.com)e selezionare il cluster.
 2. Fare clic su **Azioni script**, quindi su **Invia nuova**. Completare il modulo **Invia azione script**, quindi fare clic sul pulsante **Crea**.
     
     + **Tipo di script**: selezionare **Personalizzato**.

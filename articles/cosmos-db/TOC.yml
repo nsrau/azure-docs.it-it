@@ -455,6 +455,10 @@
           items:
             - name: 1 - Eseguire query sui dati
               href: tutorial-query-graph.md
+        - name: riferimento
+          items:
+            - name: Intestazioni della risposta
+              href: gremlin-headers.md
         - name: Guide alle procedure
           items:
             - name: Modellazione di dati del grafico

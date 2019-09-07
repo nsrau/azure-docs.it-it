@@ -1,17 +1,17 @@
 ---
 title: L'interfaccia utente di Apache Ambari Mostra gli host e i servizi in Azure HDInsight
-description: L'interfaccia utente di Apache Ambari Mostra gli host e i servizi in Azure HDInsight
+description: Risoluzione dei problemi relativi a un problema dell'interfaccia utente di Apache Ambari quando vengono visualizzati gli host e i servizi in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/02/2019
-ms.openlocfilehash: 1227635a193fdf1b55e2c1cc141a837a250ee08c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: bc65387252fd425256684474f38ec5d783bb45e7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842517"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734843"
 ---
 # <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>Scenario: L'interfaccia utente di Apache Ambari Mostra gli host e i servizi in Azure HDInsight
 

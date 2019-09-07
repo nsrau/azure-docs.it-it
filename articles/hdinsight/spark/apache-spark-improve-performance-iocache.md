@@ -1,17 +1,17 @@
 ---
-title: Migliorare le prestazioni dei carichi di lavoro di Apache Spark usando Azure HDInsight IO Cache (anteprima)
+title: Apache Spark le prestazioni dei carichi di lavoro con cache IO di Azure HDInsight (anteprima)
 description: Informazioni su Azure HDInsight IO Cache e su come usare questa funzionalità per migliorare le prestazioni di Apache Spark.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: b77e7e9d5a68439e7f336ecb26e91031d80a7606
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a078fc205403983f4f6484f6a7ccde7f99c4dd58
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695213"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734537"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Migliorare le prestazioni dei carichi di lavoro di Apache Spark usando Azure HDInsight IO Cache (anteprima)
 
@@ -47,7 +47,7 @@ Nell'anteprima Azure HDInsight IO Cache è disattivato per impostazione predefin
 >[!NOTE]  
 > Anche se dall'indicatore di stato risulta attivato, IO Cache non è effettivamente abilitato fino a quando non vengono riavviati gli altri servizi interessati.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
   
 È possibile che vengano visualizzati errori di spazio su disco durante l'esecuzione di processi Spark dopo l'abilitazione di IO Cache. Questi errori si verificano perché Spark usa anche il disco locale per archiviare i dati durante le operazioni di riproduzione casuale. Dopo che IO Cache è stato abilitato e lo spazio di archiviazione di Spark viene ridotto, Spark può esaurire lo spazio disponibile sulle unità SSD. La quantità di spazio usata da IO Cache assume come valore predefinito la metà dello spazio totale disponibile sulle unità SSD. L'utilizzo di spazio su disco per IO Cache può essere configurato in Ambari. Se si verificano errori di spazio su disco, ridurre la quantità di spazio sulle unità SSD per IO Cache e riavviare il servizio. Per modificare lo spazio impostato per IO Cache, seguire questa procedura:
 

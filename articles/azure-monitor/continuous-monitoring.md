@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: ab633ca47f684688019b1313de61571252760a20
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f101a8885d9bf67e8bd589d7cf932b0d35cdfe32
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967757"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744492"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoraggio continuo con Monitoraggio di Azure
 
@@ -56,7 +56,7 @@ Le applicazioni sono solo affidabili come la relativa infrastruttura sottostante
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Combinare le risorse nei gruppi di risorse di Azure
 Una tipica applicazione in Azure oggi include più risorse, ad esempio le macchine virtuali e servizi App o i microservizi ospitati in servizi Cloud, i cluster del servizio Azure Kubernetes o Service Fabric. Queste applicazioni usano spesso le dipendenze, ad esempio hub eventi, archiviazione, SQL e bus di servizio.
 
-- Combinare le risorse nei gruppi di risorse di Azure per ottenere visibilità completa in tutte le risorse che costituiscono le diverse applicazioni. [Monitoraggio di Azure per i gruppi di risorse](../azure-monitor/insights/resource-group-insights.md) fornisce un modo semplice per tenere traccia dell'integrità e delle prestazioni dell'intera applicazione dello stack completo e abilita il drill-down nei rispettivi componenti per eventuali analisi o debug.
+- Combina le risorse nei gruppi di risorse di Azure per ottenere visibilità completa su tutte le tue risorse che compongono le tue applicazioni diverse. [Monitoraggio di Azure per i gruppi di risorse](../azure-monitor/insights/resource-group-insights.md) fornisce un modo semplice per tenere traccia dell'integrità e delle prestazioni dell'intera applicazione dello stack completo e abilita il drill-down nei rispettivi componenti per eventuali analisi o debug.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>Garantire la qualità tramite la distribuzione continua
 Integrazione continua/distribuzione continua consente di integrare automaticamente e distribuire le modifiche del codice nell'applicazione in base ai risultati dei test automatizzati. Semplifica il processo di distribuzione e assicura la qualità di tutte le modifiche prima di passare alla produzione.

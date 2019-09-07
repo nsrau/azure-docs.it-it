@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a84c587a2666982e862f0640b30d2d6bef3b9a42
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446820"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744602"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Effettuare il provisioning e la gestione di Anteprima di Azure Time Series Insights
 
@@ -33,7 +33,7 @@ Quando si effettua il provisioning di un ambiente Anteprima di Azure Time Series
 Vedere [come pianificare l'ambiente](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> Per l'anteprima, assicurarsi che si usa un servizio di archiviazione Azure utilizzo generico v1 (GPv1) account.
+> Per l'anteprima, assicurarsi di usare un account di archiviazione di Azure per utilizzo generico V1 (utilizzo generico V1).
 
 È possibile associare facoltativamente ogni ambiente Anteprima di Azure Time Series Insights a un'origine evento. Per altre informazioni, leggere [Aggiungere un'origine di un hub eventi](./time-series-insights-how-to-add-an-event-source-eventhub.md) e [Aggiungere un'origine di un hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md). Durante questo passaggio si specificano un gruppo di consumer univoco e una proprietà ID timestamp. Questo assicura che l'ambiente abbia accesso agli eventi appropriati.
 
@@ -71,7 +71,7 @@ I passaggi seguenti descrivono come creare un ambiente Anteprima di Azure Time S
 
 1. Verificare che il provisioning dell'ambiente sia stato effettuato con le impostazioni desiderate.
 
-    [![Rivedi e Crea scheda](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
+    [![Verifica + scheda Crea](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>Gestire l'ambiente
 
@@ -88,7 +88,7 @@ I passaggi seguenti descrivono come creare un ambiente Anteprima di Azure Time S
 
 * Il pannello **Dati di riferimento** del portale di Azure è stato rimosso in Anteprima di Azure Time Series Insights, in quanto i dati di riferimento non sono un componente degli ambienti con pagamento in base al consumo.
 
-[![Ambiente di Time Series Insights anteprima nel portale di Azure](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
+[![Time Series Insights ambiente di anteprima nella portale di Azure](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -96,4 +96,4 @@ I passaggi seguenti descrivono come creare un ambiente Anteprima di Azure Time S
 
 - Informazioni su come [aggiungere un'origine di hub eventi](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-- Configurare [un'origine di hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
+- Configurare [un'origine Hub](./time-series-insights-how-to-add-an-event-source-iothub.md)Internet delle cose.

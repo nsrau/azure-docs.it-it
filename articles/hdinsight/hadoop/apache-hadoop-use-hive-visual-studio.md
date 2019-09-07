@@ -1,5 +1,5 @@
 ---
-title: Apache Hive con strumenti Data Lake (Apache Hadoop) per Visual Studio - Azure HDInsight
+title: Apache Hive con Data Lake Tools per Visual Studio-Azure HDInsight
 description: Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query Apache Hive con Apache Hadoop in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7480dafe435e555bfba81ebd9242bb5724c0bf3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bded3ac97732a7cd18411cc9f4ef1707dbdf68e3
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861589"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735824"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Apache Hive usando gli strumenti Data Lake per Visual Studio
 
@@ -39,13 +39,13 @@ Per la creazione e l'esecuzione di query Hive sono disponibili due opzioni:
 
 ### <a name="ad-hoc"></a>Ad hoc
 
-È possibile eseguire query ad hoc in uno **Batch** oppure **Interactive** modalità.
+Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva** .
 
 1. Aprire **Visual Studio**.
 
-2. Dal **Esplora Server**, passare alla **Azure** > **HDInsight**.
+2. Da **Esplora server**passare ad **Azure** > **HDInsight**.
 
-3. Espandere **HDInsight**e fare doppio clic su cluster in cui si desidera eseguire la query e quindi selezionare **Scrivi una Query Hive**.
+3. Espandere **HDInsight**, fare clic con il pulsante destro del mouse sul cluster in cui si vuole eseguire la query e quindi selezionare **Write an hive query**.
 
 4. Immettere la query hive seguente:
 
@@ -53,15 +53,15 @@ Per la creazione e l'esecuzione di query Hive sono disponibili due opzioni:
     SELECT * FROM hivesampletable;
     ```
 
-5. Scegliere **Execute**(Esegui). Si noti che la modalità di esecuzione viene impostato sul valore predefinita **Interactive**.
+5. Scegliere **Execute**(Esegui). Si noti che per impostazione predefinita la modalità di esecuzione è **interattiva**.
 
     ![Screenshot dell'esecuzione di query Interactive Hive](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
-6. Per eseguire la stessa query in **Batch** modalità, Attiva/Disattiva elenco a discesa elenco dal **Interactive** al **Batch**. Si noti che il pulsante di esecuzione viene modificato da **Execute** al **Submit**.
+6. Per eseguire la stessa query in modalità **batch** , impostare l'elenco a discesa da **interattivo** a **batch**. Si noti che il pulsante di esecuzione passa da **Execute** a **Submit**.
 
     ![Screenshot del processo di invio di una query Hive](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
 
-    L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Ad esempio, se si digita `SELECT * FROM`, IntelliSense Elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive. IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
+    L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se, ad esempio, si `SELECT * FROM`digita, IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive. IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
 
     ![Screenshot 1 di un esempio di IntelliSense in Strumenti di Visual Studio in HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "IntelliSense in U-SQL")
    
@@ -73,15 +73,15 @@ Per la creazione e l'esecuzione di query Hive sono disponibili due opzioni:
 
     ![Screenshot di una query Hive Hadoop HDInsight](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Inviare query")
 
-### <a name="hive-application"></a>Applicazione di hive
+### <a name="hive-application"></a>Applicazione hive
 
 1. Aprire **Visual Studio**.
 
-2. Dalla barra dei menu, passare a **File** > **New** > **progetto**.
+2. Dalla barra dei menu passare a **file** > **nuovo** > **progetto**.
 
-3. Dal **nuovo progetto** finestra, passare alla **modelli** > **Azure Data Lake** > **HIVE (HDInsight)**  >  **Hive Application**. 
+3. Dalla finestra **nuovo progetto** passare a **modelli** > **Azure Data Lake** > **applicazione hive** **hive (HDInsight)**  > . 
 
-4. Specificare un nome per questo progetto e quindi selezionare **OK**.
+4. Specificare un nome per il progetto e quindi fare clic su **OK**.
 
 5. Aprire il file **Script.hql** creato con il progetto e incollarvi le seguenti istruzioni HiveQL:
 
@@ -125,9 +125,9 @@ Per la creazione e l'esecuzione di query Hive sono disponibili due opzioni:
 
 ### <a name="additional-example"></a>Altro esempio
 
-In questo esempio si basa sul `log4jLogs` tabella creata nel passaggio precedente.
+Questo esempio si basa sulla `log4jLogs` tabella creata nel passaggio precedente.
 
-1. Dal **Esplora Server**, fare clic sul cluster e selezionare **Scrivi una Query Hive**.
+1. Da **Esplora server**, fare clic con il pulsante destro del mouse sul cluster e selezionare **Scrivi una query hive**.
 
 2. Immettere la query hive seguente:
 
@@ -148,7 +148,7 @@ In questo esempio si basa sul `log4jLogs` tabella creata nel passaggio precedent
     
     * `INSERT OVERWRITE ... SELECT`: Seleziona le righe della tabella `log4jLogs` contenenti `[ERROR]`, quindi inserisce i dati nella tabella `errorLogs`.
 
-3. Esecuzione della query nella **Batch** modalità.
+3. Eseguire la query in modalità **batch** .
 
 4. Per verificare che il processo abbia creato la tabella, usare **Esplora server** ed espandere **Azure** > **HDInsight** > il proprio cluster HDInsight > **Database Hive** > **Predefinito**. Vengono elencate la tabella **errorLogs** e la tabella **log4jLogs**.
 

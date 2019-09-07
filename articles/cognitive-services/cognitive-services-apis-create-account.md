@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: ae25ffdf3f819c30fdfb1d3110042579f0b197b9
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d0b2c9c7450b8a44ca93a9d9fa8770b7ab3d9282
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70381738"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743860"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creare una risorsa di servizi cognitivi usando il portale di Azure
 
@@ -32,12 +32,17 @@ Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure.
 1. Crea una risorsa.
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[Risorsa multiservizio](#tab/multiservice)
-
+    
     La risorsa multiservizio è denominata **Servizi cognitivi** nel portale. [Creare una risorsa Servizi cognitivi](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
-    A questo punto, questi servizi **non possono** essere chiamati usando chiavi multiservizio: QnA Maker, servizi vocali, Visione personalizzata e rilevamento anomalie.
+    A questo punto, la risorsa multiservizio consente l'accesso ai servizi cognitivi seguenti:
     
-
+    |                  |                                                      |                    |                               |                  |
+    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
+    | Visione artificiale  | Content Moderator                                    | Viso               | Language Understanding (LUIS) | Analisi del testo   |
+    | Traduzione testuale  | Ricerca Bing v7 <br>(Web, immagini, notizie, video, oggetti visivi) | Ricerca personalizzata Bing | Ricerca entità Bing            | Suggerimenti automatici Bing |
+    | Controllo ortografico Bing |                                                      |                    |                               |                  |
+    
     #### <a name="single-service-resourcetabsingleservice"></a>[Risorsa a servizio singolo](#tab/singleservice)
 
     Usare i collegamenti seguenti per creare una risorsa per i servizi cognitivi disponibili:
@@ -85,13 +90,13 @@ Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure.
 
 ## <a name="get-the-keys-for-your-resource"></a>Ottenere le chiavi per la risorsa
 
-Dopo che la risorsa è stata distribuita correttamente, fare clic su **Vai alla risorsa** in **passaggi successivi**.
+1. Dopo che la risorsa è stata distribuita correttamente, fare clic su **Vai alla risorsa** in **passaggi successivi**.
 
-![Cercare Servizi cognitivi](media/cognitive-services-apis-create-account/resource-next-steps.png)
+    ![Cercare Servizi cognitivi](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-Dal riquadro avvio rapido visualizzato è possibile accedere alla chiave e all'endpoint.
+2. Dal riquadro avvio rapido visualizzato è possibile accedere alla chiave e all'endpoint.
 
-![Ottieni chiave ed endpoint](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
+    ![Ottieni chiave ed endpoint](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 

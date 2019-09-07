@@ -1,17 +1,17 @@
 ---
-title: 'InvalidNetworkSecurityGroupSecurityRules: la creazione del cluster non riesce in Azure HDInsight'
+title: InvalidNetworkSecurityGroupSecurityRules-errore del cluster in Azure HDInsight
 description: La creazione del cluster non riesce con il codice ErrorCode InvalidNetworkSecurityGroupSecurityRules
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/31/2019
-ms.openlocfilehash: 35e583fa31ee99c9d6307c01287c2c0fde021280
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: a534ae54b6cb9ce20d0a1bc970ef575f88a09827
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700613"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735757"
 ---
 # <a name="scenario-invalidnetworksecuritygroupsecurityrules---cluster-creation-fails-in-azure-hdinsight"></a>Scenario: InvalidNetworkSecurityGroupSecurityRules: la creazione del cluster non riesce in Azure HDInsight
 

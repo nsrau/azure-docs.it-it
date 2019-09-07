@@ -1,17 +1,17 @@
 ---
-title: Apache Hive non riesce a stabilire una connessione ad Apache Zookeeper in Azure HDInsight
+title: Apache Hive non riesce a stabilire la connessione ad Apache Zookeeper-Azure HDInsight
 description: Visualizzazione hive inaccessibile a causa di problemi Zookeeper
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/30/2019
-ms.openlocfilehash: d8e94627cefccc0be4cbe35ae09104fb104034f6
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b5822e69f2e16e5fb24064862a64764e7516dbd7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817095"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733115"
 ---
 # <a name="scenario-apache-hive-fails-to-establish-a-connection-to-apache-zookeeper-in-azure-hdinsight"></a>Scenario: Apache Hive non riesce a stabilire una connessione ad Apache Zookeeper in Azure HDInsight
 

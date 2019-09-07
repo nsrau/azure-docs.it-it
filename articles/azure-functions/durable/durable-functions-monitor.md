@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ae6c2bd27e9192966ecffb4d4296063201fca970
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 992e3f7aa53fdd006d29c06113cd30b07a406f3b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098010"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734342"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
 
@@ -67,7 +67,7 @@ La funzione **E3_Monitor** usa il codice *function.json* standard per le funzion
 
 Di seguito è riportato il codice che implementa la funzione:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>Script C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
@@ -103,7 +103,7 @@ In modo analogo agli altri esempi, le funzioni di attività helper sono normali 
 
 Di seguito ne viene riportata l'implementazione. Come gli oggetti POCO usati per il trasferimento dei dati, la logica per gestire la chiamata API e analizzare il codice JSON della risposta viene astratta in una classe condivisa in C#. È possibile trovarla nel [codice di esempio Visual Studio](#run-the-sample).
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>Script C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
@@ -117,7 +117,7 @@ La funzione **E3_SendGoodWeatherAlert** usa l'associazione di Twilio per inviare
 
 Di seguito è disponibile il codice che invia l'SMS:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>Script C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 

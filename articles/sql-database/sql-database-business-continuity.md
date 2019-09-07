@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: e57427fbb7e0d3c67fc4fcbab1a50f14ef8c9501
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5cc033787e1045926ff4fece6826e41f430d48fd
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569340"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744459"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -63,13 +63,13 @@ I [gruppi di failover automatico](sql-database-auto-failover-group.md#auto-failo
 
 |                                              | Replica geografica | Gruppi di failover  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Failover automatico                           |     No          |      Sì         |
-| Eseguire contemporaneamente il failover di più database  |     No          |      Yes         |
+| Failover automatico                           |     No          |      Yes         |
+| Eseguire contemporaneamente il failover di più database  |     No          |      Sì         |
 | Aggiornare la stringa di connessione dopo il failover      |     Sì         |      No          |
-| Istanza gestita supportata                   |     No          |      Sì         |
-| Può trovarsi nella stessa area del database primario             |     Yes         |      No          |
-| Più repliche                            |     Yes         |      No          |
-| Supporta la scalabilità in lettura                          |     Yes         |      Yes         |
+| Istanza gestita supportata                   |     No          |      Yes         |
+| Può trovarsi nella stessa area del database primario             |     Sì         |      No          |
+| Più repliche                            |     Sì         |      No          |
+| Supporta la scalabilità in lettura                          |     Yes         |      Sì         |
 | &nbsp; | &nbsp; | &nbsp; |
 
 
@@ -92,7 +92,7 @@ Metodi di ripristino diversi offrono livelli diversi di RPO e RTO. È possibile 
 | Failover manuale del database | 30 s | 5 s |
 
 > [!NOTE]
-> Il *failover manuale del database* si riferisce al failover di un singolo database con la replica geografica secondaria usando la [modalità](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)non pianificata.
+> Il *failover manuale del database* si riferisce al failover di un singolo database con la replica geografica secondaria usando la [modalità non pianificata](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
 Per informazioni dettagliate su RTO e RPO del failover automatico, vedere la tabella riportata in precedenza in questo articolo.
 
 
@@ -123,7 +123,7 @@ Se non ci si prepara adeguatamente al ripristino, riportare online le applicazio
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Failover a un database secondario con replica geografica
 
-Se si usa la replica geografica attiva o i gruppi di failover automatico come meccanismo di ripristino, è possibile configurare un criterio di failover automatico o usare il [failover manuale](sql-database-active-geo-replication-portal.md#initiate-a-failover)non pianificato. Una volta avviato, il failover fa sì che il database secondario venga alzato di livello come nuovo database primario e sia pronto per registrare nuove transazioni e rispondere a tutte le query, con una perdita di dati minima per i dati non ancora replicati. Per informazioni su come progettare il processo di failover, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Se si usa la replica geografica attiva o i gruppi di failover automatico come meccanismo di ripristino, è possibile configurare un criterio di failover automatico o usare il [failover manuale non pianificato](sql-database-active-geo-replication-portal.md#initiate-a-failover). Una volta avviato, il failover fa sì che il database secondario venga alzato di livello come nuovo database primario e sia pronto per registrare nuove transazioni e rispondere a tutte le query, con una perdita di dati minima per i dati non ancora replicati. Per informazioni su come progettare il processo di failover, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Quando il data center ritorna in linea, i database primari precedenti si ricollegano automaticamente al nuovo database primario e diventano database secondari. Se si desidera spostare di nuovo il database primario nell'area originale è possibile avviare manualmente un failover pianificato (failback).
@@ -140,7 +140,7 @@ Se si usano i backup automatici con l'archiviazione con ridondanza geografica (a
 Dopo il ripristino da un meccanismo di ripristino, è necessario eseguire le seguenti attività aggiuntive prima che utenti e applicazioni siano nuovamente attivi e in esecuzione:
 
 - Reindirizzare i client e le applicazioni client verso il nuovo server e il database ripristinato
-- Verificare che siano disponibili regole del firewall IP a livello di server appropriate per consentire agli utenti di connettersi o usare i [firewall a livello di database](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) per abilitare regole appropriate.
+- Verificare che siano disponibili regole del firewall IP a livello di server appropriate per consentire agli utenti di connettersi o usare i [firewall a livello di database](sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) per abilitare regole appropriate.
 - Verificare che siano presenti gli account di accesso appropriato e le autorizzazioni a livello di database master o usare gli [utenti contenuti](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)
 - Configurare il controllo in base alle proprie esigenze.
 - Configurare gli avvisi in base alle proprie esigenze.

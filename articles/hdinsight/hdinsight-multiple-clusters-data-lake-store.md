@@ -1,5 +1,5 @@
 ---
-title: Usare più cluster HDInsight con un account Azure Data Lake Storage - Azure
+title: Usare più cluster HDInsight con un account Azure Data Lake Storage
 description: Informazioni su come usare più cluster HDInsight con un singolo account Data Lake Storage
 keywords: archiviazione hdinsight, hdfs, dati strutturati, dati non strutturati, data lake store
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 776d8f31a5353604ff1c887bdfa214d07b2bfb48
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64700297"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733190"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Usare più cluster HDInsight con un account Azure Data Lake Storage
 
@@ -29,7 +29,7 @@ Questo articolo offre all'amministratore di Data Lake Storage le informazioni ne
 La parte rimanente di questo articolo presuppone una buona conoscenza degli elenchi di controllo di accesso a livello di file e cartella in Azure Data Lake Storage, descritti in dettaglio in [Controllo di accesso in Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Configurazione di Data Lake Storage per più cluster HDInsight
-Si consideri una gerarchia di cartelle a due livelli per spiegare i suggerimenti per l'uso di più cluster HDInsight con un account Data Lake Store. Si consideri, ad esempio, di avere un account Data Lake Storage con la struttura di cartelle **/clusters/finance**. Con questa struttura, tutti i cluster necessari all'organizzazione Finanza possono usare /clusters/finance come percorso di archiviazione. Se un'altra organizzazione, ad esempio Marketing, vorrà creare in futuro cluster HDInsight usando lo stesso account Data Lake Storage, potrà creare il percorso cluster/marketing. Per il momento si userà solo **/clusters/finance**.
+Si prenda una gerarchia di cartelle a due livelli per spiegare i consigli per l'uso di più cluster HDInsight con un account Data Lake Storage. Si consideri, ad esempio, di avere un account Data Lake Storage con la struttura di cartelle **/clusters/finance**. Con questa struttura, tutti i cluster necessari all'organizzazione Finanza possono usare /clusters/finance come percorso di archiviazione. Se un'altra organizzazione, ad esempio Marketing, vorrà creare in futuro cluster HDInsight usando lo stesso account Data Lake Storage, potrà creare il percorso cluster/marketing. Per il momento si userà solo **/clusters/finance**.
 
 Per far sì che questa struttura di cartelle venga usata dai cluster HDInsight in modo efficace, l'amministratore di Data Lake Storage deve assegnare le autorizzazioni appropriate, come descritto nella tabella. Le autorizzazioni illustrate nella tabella corrispondono ad ACL di accesso, non ad ACL predefiniti. 
 
@@ -53,7 +53,7 @@ Alcuni punti chiave di cui tener conto.
 - La struttura di cartelle a due livelli ( **/cluster/finance/** ) deve essere creata e configurata con le autorizzazioni appropriate dall'amministratore di Data Lake Storage **prima** di usare l'account di archiviazione per i cluster. Questa struttura non viene creata automaticamente durante la creazione dei cluster.
 - Nell'esempio precedente si consiglia di impostare il gruppo proprietario di **/cluster/finance** come **FINGRP** e di fornire a FINGRP l'autorizzazione **r-x** per accedere all'intera gerarchia di cartelle, a partire dalla radice. In questo modo, i membri di FINGRP possono esplorare la struttura di cartelle a partire dalla radice.
 - Nel caso in cui più entità servizio AAD possano creare cluster in **/cluster/finance**, lo sticky bit (se impostato sulla cartella **finance**) garantisce che le cartelle create da un'entità servizio non possano essere eliminate da altre entità servizio.
-- Una volta la struttura di cartelle e le autorizzazioni siano abilitate, processo di creazione di cluster HDInsight crea un percorso di archiviazione specifiche per i cluster in **/Clusters/finance/** . La risorsa di archiviazione per un cluster con nome fincluster01, ad esempio, può essere **/clusters/finance/fincluster01**. La tabella seguente elenca la proprietà e le autorizzazioni relative alle cartelle create dal cluster HDInsight.
+- Una volta posizionate la struttura di cartelle e le autorizzazioni, il processo di creazione del cluster HDInsight crea un percorso di archiviazione specifico del cluster in **/Clusters/Finance/** . La risorsa di archiviazione per un cluster con nome fincluster01, ad esempio, può essere **/clusters/finance/fincluster01**. La tabella seguente elenca la proprietà e le autorizzazioni relative alle cartelle create dal cluster HDInsight.
 
     |Cartella  |Autorizzazioni  |utente proprietario  |gruppo proprietario  | Utente non anonimo | Autorizzazioni utente non anonimo | Gruppo non anonimo | Autorizzazioni gruppo non anonimo |
     |---------|---------|---------|---------|---------|---------|---------|---------|

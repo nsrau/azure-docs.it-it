@@ -1,6 +1,6 @@
 ---
 title: Rendere operativo ML Services in HDInsight - Azure
-description: Informazioni su come rendere operativo ML Services in Azure HDInsight.
+description: Informazioni su come rendere operativo il modello di dati per eseguire stime con i servizi ML in Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 36d2ebe00f735089633240914421e2259181e63e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 91407fc76d0a7555a87a8a3dcd1b3ad04ee2af80
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448975"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736229"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
@@ -21,7 +21,7 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster di servizi di Machine Learning in HDInsight. Visualizzare [creare Apache cluster Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **servizi ML** per **tipo di Cluster**.
+* Un cluster ML Services in HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
 
 * Un client Secure Shell (SSH): il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

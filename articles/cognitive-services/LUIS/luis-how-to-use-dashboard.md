@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a5c60a4c7d4f1b441ec5e8444b10594a1e67d7db
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932725"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735061"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Come usare il dashboard per migliorare l'app
 
@@ -78,9 +78,9 @@ Il metodo principale per correggere l'app consiste nell'aggiungere o modificare 
 
 L'aggiunta di espressioni di esempio deve essere eseguita da un utente che:
 
-* ha un livello elevato di comprensione delle espressioni presenti nei diversi Intent
-* sa come le espressioni possono essere confuse con un altro scopo
-* è in grado di decidere se due Intent, che sono spesso confusi tra loro, devono essere compressi in un unico scopo e i diversi dati estratti con le entità
+* ha un livello elevato di comprensione degli enunciati nelle diverse finalità.
+* sa come le espressioni possono essere confuse con un altro scopo.
+* è in grado di decidere se due Intent, che sono spesso confusi tra loro, devono essere compressi in un unico scopo. In tal caso, è necessario estrarre i dati diversi con le entità.
 
 ### <a name="patterns-and-phrase-lists"></a>Elenchi di modelli ed frasi
 
@@ -113,7 +113,7 @@ L'elenco di finalità di **stima non corrette** Mostra gli Intent con espression
 
 ### <a name="review-unclear-predictions"></a>Verifica le stime non chiare
 
-L'elenco di finalità di **stima non chiare** Mostra gli Intent con i punteggi di stima che non sono sufficientemente lontani dalla rivalità più vicina, che lo scopo principale dell'espressione può variare al training successivo, a causa del campionamento [negativo](luis-how-to-train.md#train-with-all-data).
+L'elenco di finalità di **stima non chiare** Mostra gli Intent con i punteggi di stima che non sono sufficientemente lontani dalla rivalità più vicina, che lo scopo principale dell'espressione può variare al training successivo, a causa del [campionamento negativo](luis-how-to-train.md#train-with-all-data).
 
 **Per risolvere il problema**:
 

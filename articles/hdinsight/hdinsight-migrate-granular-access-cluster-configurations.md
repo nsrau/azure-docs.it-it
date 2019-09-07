@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione a un accesso granulare basato sui ruoli per le configurazioni cluster-Azure HDInsight
+title: 'Eseguire la migrazione a un accesso granulare basato sui ruoli: configurazioni del cluster di Azure HDInsight'
 description: Informazioni sulle modifiche necessarie nell'ambito della migrazione a un accesso granulare basato sui ruoli per le configurazioni del cluster HDInsight.
 author: tylerfox
 ms.author: tyfox
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 03bea7b9df929914e25ca97b382dc5c120b5a769
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9eb77b3e4066712aecebee4660d50baf45957cb8
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983025"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733229"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -28,7 +28,7 @@ Viene inoltre introdotto un nuovo ruolo [operatore cluster HDInsight](https://do
 
 | Role                                  | Precedentemente                                                                                       | In futuro       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Reader                                | -Accesso in lettura, inclusi i segreti                                                                   | -Accesso in lettura , esclusi i segreti |           |   |   |
+| Reader                                | -Accesso in lettura, inclusi i segreti                                                                   | -Accesso in lettura, **esclusi** i segreti |           |   |   |
 | Operatore cluster HDInsight<br>(Nuovo ruolo) | N/D                                                                                              | -Accesso in lettura/scrittura, inclusi i segreti         |   |   |
 | Collaboratore                           | -Accesso in lettura/scrittura, inclusi i segreti<br>-Creare e gestire tutti i tipi di risorse di Azure.     | Nessuna modifica |
 | Proprietario                                 | -Accesso in lettura/scrittura, inclusi i segreti<br>-Accesso completo a tutte le risorse<br>-Delegare l'accesso ad altri utenti | Nessuna modifica |

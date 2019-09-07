@@ -1,17 +1,17 @@
 ---
-title: NativeAzureFileSystem ... RequestBodyTooLarge viene visualizzato nel log per Apache Spark app di streaming in Azure HDInsight
+title: RequestBodyTooLarge nei log per l'app Apache Spark streaming in Azure HDInsight
 description: NativeAzureFileSystem ... RequestBodyTooLarge viene visualizzato nel log per Apache Spark app di streaming in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: 571e02e79714d2e713d4173936120e78e4b067de
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 92e9e41d5829e10bc0130d209249301d78f1b5d3
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700496"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736325"
 ---
 # <a name="scenario-nativeazurefilesystem--requestbodytoolarge-appears-in-log-for-apache-spark-streaming-app-in-azure-hdinsight"></a>Scenario: "NativeAzureFileSystem ... RequestBodyTooLarge "viene visualizzato nel log per l'app Apache Spark streaming in Azure HDInsight
 

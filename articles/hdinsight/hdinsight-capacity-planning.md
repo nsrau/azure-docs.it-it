@@ -1,6 +1,6 @@
 ---
 title: Pianificazione della capacità dei cluster in Azure HDInsight
-description: Come specificare un cluster HDInsight per capacità e prestazioni.
+description: Identificare le domande chiave per la pianificazione della capacità e delle prestazioni di un cluster HDInsight di Azure.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3d82846c02754f23b4a2e86a7881c952e503b36f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 608d097f1ebad9e4e1092c7ec54a573ccb58ad81
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207166"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734655"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -82,7 +82,7 @@ La scalabilità di un cluster è determinata dalla quantità di nodi della macch
 
 In base al tipo di cluster, aumentando il numero di nodi di lavoro si introduce capacità di calcolo aggiuntiva (ad esempio, più core), ma si aumenta anche la quantità totale di memoria necessaria all'intero cluster per supportare l'archiviazione in memoria dei dati in elaborazione. Come per la scelta del tipo e della dimensione della macchina virtuale, anche la scelta del grado di scalabilità del cluster viene eseguita in modo empirico usando carichi di lavoro simulati o query canary.
 
-È possibile aumentare le istanze del cluster per soddisfare richieste di picchi di carico e ridurle quando non sono più necessari nodi aggiuntivi. La [funzionalità](hdinsight-autoscale-clusters.md) di scalabilità automatica consente di ridimensionare automaticamente il cluster in base alle metriche e agli intervalli predeterminati. Per altre informazioni sul ridimensionamento manuale dei cluster, vedere [ridimensionare i cluster HDInsight](hdinsight-scaling-best-practices.md).
+È possibile aumentare le istanze del cluster per soddisfare richieste di picchi di carico e ridurle quando non sono più necessari nodi aggiuntivi. La [funzionalità di scalabilità](hdinsight-autoscale-clusters.md) automatica consente di ridimensionare automaticamente il cluster in base alle metriche e agli intervalli predeterminati. Per altre informazioni sul ridimensionamento manuale dei cluster, vedere [ridimensionare i cluster HDInsight](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Ciclo di vita del cluster
 

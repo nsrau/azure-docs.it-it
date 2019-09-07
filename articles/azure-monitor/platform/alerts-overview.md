@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 67318fee540195fc913739d78e80649100c54e70
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
-ms.translationtype: MT
+ms.openlocfilehash: defc317618dfffd0e2b28c75b6168ec1dbda36b7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034823"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735118"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -53,6 +53,7 @@ Gli attributi chiave di una regola di avviso sono:
 **Descrizione avviso**: descrizione specifica per la regola di avviso configurata dall'utente
 
 **Gravità**: gravità dell'avviso dopo che sono stati soddisfatti i criteri specificati nella regola di avviso. La gravità è compresa tra 0 e 4.
+SEV 0 = Critical SEV 1 = errore SEV 2 = Warning SEV 3 = informative SEV 4 = verbose
 
 **Azione**: un'azione specifica eseguita quando viene attivato l'avviso. Per altre informazioni, vedere [Gruppi di azioni](../../azure-monitor/platform/action-groups.md).
 
@@ -77,7 +78,7 @@ Nelle versioni precedenti, per le metriche di Monitoraggio di Azure, Application
 
 Sono supportati i tipi di avviso seguenti.
 
-| Stato | Descrizione |
+| Stato | DESCRIZIONE |
 |:---|:---|
 | Nuovo | Il problema è appena stato rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato l'avviso e ha iniziato a lavorare a esso. |
@@ -105,7 +106,7 @@ Non vengono visualizzati o monitorati gli [avvisi classici](#classic-alerts) del
 
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 
-| Colonna | DESCRIZIONE |
+| Colonna | Descrizione |
 |:---|:---|
 | Sottoscrizione | Selezionare le sottoscrizioni di Azure per le quali si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
@@ -113,7 +114,7 @@ Non vengono visualizzati o monitorati gli [avvisi classici](#classic-alerts) del
 
 Selezionare i valori seguenti nella parte superiore della pagina Avvisi per aprire un'altra pagina.
 
-| Value | DESCRIZIONE |
+| Valore | Descrizione |
 |:---|:---|
 | Totale avvisi | Numero totale di avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire la visualizzazione Tutti gli avvisi senza filtri. |
 | Gruppi intelligenti | Numero totale di gruppi intelligenti creati dagli avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire l'elenco dei gruppi intelligenti nella visualizzazione Tutti gli avvisi.

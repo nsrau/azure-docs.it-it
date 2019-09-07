@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Motivazione e vantaggi
+title: 'Eseguire la migrazione di Apache Hadoop locali ad Azure HDInsight: motivazione e vantaggi'
 description: Motivazione e vantaggi per eseguire la migrazione di cluster Hadoop locali ad Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f886cb71d4dbc191dae317e8ea72d8c896f37c03
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 3c122a68e9f28772be4e3a17a21e5457aa187ce6
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442084"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736105"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Motivazione e vantaggi
 
@@ -168,7 +168,7 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |**Domanda**|**Esempio**|**Risposta**|
 | Area preferita|Stati Uniti orientali||
 |Rete virtuale preferita?|Sì||
-|Disponibilità elevata/ripristino di emergenza necessari?|Yes||
+|Disponibilità elevata/ripristino di emergenza necessari?|Sì||
 |Integrazione con altri servizi cloud?|File di definizione dell'applicazione (ADF), CosmosDB||
 |**Argomento**:   **Spostamento dei dati**  |||
 |Preferenza di caricamento iniziale|DistCp, Data Box, ADF, WANDisco||
@@ -177,16 +177,16 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |**Argomento**:   **monitoraggio e invio di avvisi** |||
 |Uso di Monitoraggio di Azure e invio di avvisi/integrazione del monitoraggio di terze parti|Uso di Monitoraggio di Azure e invio di avvisi||
 |**Argomento**:   **preferenze relative alla sicurezza** |||
-|Pipeline di dati privata e protetta?|Yes||
+|Pipeline di dati privata e protetta?|Sì||
 |Cluster aggiunto a un dominio (ESP)?|     Sì||
 |Sincronizzazione da AD locale al cloud?|     Sì||
 |No. di utenti di Active Directory da sincronizzare?|          100||
-|OK sincronizzare le password nel cloud?|    Yes||
+|OK sincronizzare le password nel cloud?|    Sì||
 |Utenti solo cloud?|                 Yes||
 |MFA necessaria?|                       No|| 
-|Requisiti di autorizzazione dei dati?|  Sì||
+|Requisiti di autorizzazione dei dati?|  Yes||
 |Controllo degli accessi in base al ruolo?|        Sì||
-|Controllo necessario?|                  Yes||
+|Controllo necessario?|                  Sì||
 |Crittografia dei dati inattivi?|          Sì||
 |Crittografia dei dati in movimento?|       Sì||
 |**Argomento**:   **preferenze di riprogettazione** |||

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eeabb4547e3c02ebf540e6d156df97954e612fbc
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: edda6dffa04bfc0492b7336893c5b167ccc42ca5
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208329"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743923"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL
 
@@ -338,7 +338,7 @@ Sì. L'aggiornamento della modalità di gestibilità da Lightweight a Full è su
 
 No. Il downgrade del SQL Server modalità di gestione dell'estensione IaaS non è supportato. Non è possibile effettuare il downgrade della modalità di gestibilità dalla modalità completa alla modalità lightweight o senza agente e non è possibile effettuare il downgrade dalla modalità Lightweight alla modalità senza agente. 
 
-Per modificare la modalità di gestibilità dalla gestione completa, rimuovere l'SQL Server estensione IaaS. Quindi, eliminare la risorsa tratti. SqlVirtualMachine e registrare di nuovo la macchina virtuale di SQL Server con il provider di risorse della macchina virtuale SQL.
+Per modificare la modalità di gestibilità dalla gestione completa, rimuovere l'SQL Server estensione IaaS. Quindi, eliminare la risorsa Microsoft. SqlVirtualMachine e registrare di nuovo la macchina virtuale di SQL Server con il provider di risorse della macchina virtuale SQL.
 
 **È possibile eseguire la registrazione con il provider di risorse VM SQL dalla portale di Azure?**
 

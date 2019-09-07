@@ -1,6 +1,6 @@
 ---
 title: Porte usate dai servizi Hadoop su HDInsight - Azure
-description: Un elenco di porte usate dai servizi Hadoop in esecuzione su HDInsight.
+description: Viene fornito un elenco di porte usate dai servizi Apache Hadoop in esecuzione in Azure HDInsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 34ab49378f9237a42bed869a6f6d67249b5238f9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 1fe66c1c171e779f48f4cc7c6767307feaafbd5f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464700"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733417"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Porte usate dai servizi Apache Hadoop su HDInsight
 
@@ -34,7 +34,7 @@ Per aggiungere altre macchine alla rete virtuale, creare innanzitutto la rete vi
 
 Tutti i nodi di un cluster HDInsight si trovano all'interno di una rete virtuale Azure e non sono accessibile direttamente da Internet. Un gateway pubblico fornisce accesso a Internet per le porte seguenti, comuni a tutti i tipi di cluster HDInsight.
 
-| Service | Port | Protocol | DESCRIZIONE |
+| Service | Port | Protocol | Descrizione |
 | --- | --- | --- | --- |
 | sshd |22 |SSH |Connette i client a SSHD sul nodo head primario. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |Connette i client a sshd sul nodo perimetrale. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
@@ -84,7 +84,7 @@ Esempi:
 
 ### <a name="hdfs-ports"></a>Porte HDFS
 
-| Service | Nodi | Port | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | Interfaccia utente Web NameNode |Nodi head |30070 |HTTPS |Interfaccia utente Web per visualizzare lo stato |
 | Servizio metadati NameNode |Nodi head |8020 |IPC |Metadati del file system |
@@ -109,7 +109,7 @@ Esempi:
 
 ### <a name="hive-ports"></a>Porte Hive
 
-| Service | Nodi | Port | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Nodi head |10001 |Thrift |Servizio per la connessione ad Hive (Thrift/JDBC) |
 | Metastore Hive |Nodi head |9083 |Thrift |Servizio per la connessione ai metadati Hive (Thrift/JDBC) |
@@ -122,7 +122,7 @@ Esempi:
 
 ### <a name="mapreduce-ports"></a>Porte MapReduce
 
-| Service | Nodi | Port | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | JobHistory |Nodi head |19888 |HTTP |Interfaccia utente Web di MapReduce JobHistory |
 | JobHistory |Nodi head |10020 |&nbsp; |Server di MapReduce JobHistory |
@@ -153,7 +153,7 @@ Esempi:
 
 ### <a name="kafka-ports"></a>Porte Kafka
 
-| Service | Nodi | Port | Protocol | Descrizione |
+| Service | Nodi | Port | Protocol | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | Gestore |Nodi di lavoro |9092 |[Protocollo di trasmissione Kafka](https://kafka.apache.org/protocol.html) |Usato per la comunicazione di client |
 | &nbsp; |Nodi Zookeeper |2181 |&nbsp; |La porta usata dai client per connettersi a ZooKeeper |

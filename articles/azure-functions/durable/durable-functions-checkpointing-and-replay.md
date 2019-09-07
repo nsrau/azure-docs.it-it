@@ -3,18 +3,17 @@ title: Checkpoint e riesecuzione in Funzioni permanenti - Azure
 description: Informazioni sul funzionamento dei checkpoint e della riesecuzione nell'estensione Funzioni permanenti di Funzioni di Azure.
 services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1e6d3b78887c9d195fdf0137553860c141bdaaba
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 5d0527de556c25a1d369d7b22c3f62579bc508f0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241050"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735254"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Checkpoint e riesecuzione in Funzioni permanenti (Funzioni di Azure)
 
@@ -128,17 +127,9 @@ Questo comportamento di riesecuzione crea vincoli sul tipo di codice che è poss
 
   Se il codice dell'agente di orchestrazione deve ottenere la data e l'ora correnti, deve usare l'API [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.NET) o `currentUtcDateTime` (JavaScript), che consente una riesecuzione sicura.
 
-  Se il codice dell'agente di orchestrazione deve generare un GUID casuale, dovrà usare l'API [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.NET), che consente una riesecuzione sicura o delegare la generazione del GUID a una funzione di attività (JavaScript), come in questo esempio:
+  Se il codice dell'agente di orchestrazione deve generare un GUID casuale, deve usare l'API [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.NET `newGuid` ) o (JavaScript), che è sicura per la riproduzione.
 
-  ```javascript
-  const uuid = require("uuid/v1");
-
-  module.exports = async function(context) {
-    return uuid();
-  }
-  ```
-
-  Le operazioni non deterministiche devono essere eseguite nelle funzioni di attività. Sono incluse anche tutte le interazioni con altre associazioni di input oppure output. In questo modo i valori non deterministici vengono generati una volta alla prima esecuzione e salvati nella cronologia di esecuzione. Nelle esecuzioni successive verrà quindi usato automaticamente il valore salvato.
+   Oltre a questi casi particolari, le operazioni non deterministiche devono essere eseguite nelle funzioni di attività. Sono incluse anche tutte le interazioni con altre associazioni di input oppure output. In questo modo i valori non deterministici vengono generati una volta alla prima esecuzione e salvati nella cronologia di esecuzione. Nelle esecuzioni successive verrà quindi usato automaticamente il valore salvato.
 
 * Il codice dell'agente di orchestrazione deve essere **non bloccante**. Ciò significa ad esempio nessun I/O e nessuna chiamata a `Thread.Sleep` (.NET) o alle API equivalenti.
 
@@ -165,7 +156,7 @@ Sebbene questi vincoli possano sembrare stringenti, non sono difficili da usare.
 
 Le attività che possono essere messe in attesa in modo sicuro nelle funzioni dell'agente di orchestrazione vengono talvolta definite come *attività permanenti*. Si tratta di attività create e gestite dal framework di attività permanenti. Esempi di tali l'attività sono quelle restituite da `CallActivityAsync`, `WaitForExternalEvent` e `CreateTimer`.
 
-Tali *attività permanenti* vengono gestite internamente tramite un elenco di oggetti `TaskCompletionSource`. Durante la riesecuzione queste attività vengono create come parte dell'esecuzione di codice dell'agente di orchestrazione e vengono completate quando il dispatcher enumera gli eventi di cronologia corrispondenti. Questa operazione viene eseguita in modo sincrono usando un singolo thread fino a quando tutta la cronologia non viene riprodotta. Tutte le attività permanenti non completate entro la fine della riesecuzione della cronologia sono associate ad azioni appropriate. Un messaggio ad esempio può essere accodata per chiamare una funzione di attività.
+Tali *attività permanenti* vengono gestite internamente tramite un elenco di oggetti `TaskCompletionSource`. Durante la riesecuzione queste attività vengono create come parte dell'esecuzione di codice dell'agente di orchestrazione e vengono completate quando il dispatcher enumera gli eventi di cronologia corrispondenti. Questa operazione viene eseguita in modo sincrono usando un singolo thread fino a quando tutta la cronologia non viene riprodotta. Tutte le attività durevoli che non sono state completate alla fine della riproduzione della cronologia eseguono azioni appropriate. Un messaggio ad esempio può essere accodata per chiamare una funzione di attività.
 
 Il comportamento di esecuzione descritto consente di comprendere i motivi per cui il codice della funzione dell'agente di orchestrazione non deve mai eseguire un'istruzione `await` per un'attività permanente. Il thread del dispatcher infatti non può attendere il completamento e i callback eseguiti da tale attività potrebbero danneggiare lo stato di rilevamento stato della funzione dell'agente di orchestrazione. Per tentare di evitare questo problema, sono disponibili alcuni controlli di runtime.
 

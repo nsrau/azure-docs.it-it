@@ -1,6 +1,6 @@
 ---
 title: Usare Apache Hive con PowerShell in HDInsight - Azure
-description: Usare PowerShell per eseguire query Hive in Apache Hadoop in HDInsight.
+description: Usare PowerShell per eseguire query Apache Hive in Apache Hadoop in Azure HDInsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 243713d7961c911cdda93d3d680a952d424da22b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89fa7976b922ba0e40e97b72de5d4eb9a02f0dfd
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078383"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736074"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Eseguire query Apache Hive usando PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -57,7 +57,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
         .\hivejob.ps1
 
-    Quando viene eseguito lo script, viene richiesto di immettere il nome cluster e le credenziali dell'account HTTPS/Amministratore del cluster. Può anche essere chiesto di accedere alla sottoscrizione di Azure.
+    Quando viene eseguito lo script, viene richiesto di immettere il nome cluster e le credenziali dell'account HTTPS/Amministratore del cluster. Potrebbe anche essere richiesto di accedere alla sottoscrizione di Azure.
 
 3. Al termine, il processo restituisce informazioni simili al testo seguente:
 
@@ -83,7 +83,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
    >
    > Per altre informazioni su **Here-Strings**, vedere <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell "Here-Strings"</a> (Uso di Here-Strings di Windows PowerShell).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se al termine del processo non viene restituita alcuna informazione, visualizzare i log degli errori. Per visualizzare le informazioni sugli errori relative a questo processo, aggiungere il codice seguente alla fine del file `hivejob.ps1`, salvare il file e quindi eseguirlo nuovamente.
 

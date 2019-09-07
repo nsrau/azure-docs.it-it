@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/20/2018
+ms.date: 09/04/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60527306"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735080"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure
 Questa pagina rappresenta l'indice delle versioni degli schemi di estensione di Diagnostica di Azure forniti con Microsoft Azure SDK.  
@@ -54,13 +54,7 @@ L'estensione Diagnostica di Azure viene usata con altri prodotti di diagnostica 
  A partire dall'SDK 2.5 (diagnostica versione 1.2) lo strumento Diagnostica di Azure è passata a un modello di estensione. Gli strumenti per usare le nuove funzionalità erano disponibili solo nei pacchetti Azure SDK più recenti, ma qualsiasi servizio che usava Diagnostica di Azure prelevava la versione più recente direttamente da Azure. Gli utenti che ancora usano SDK 2.5 caricano la versione più recente indicata nella tabella precedente, a prescindere dalla circostanza che usino o meno le funzionalità più recenti.  
 
 ## <a name="schemas-index"></a>Indice degli schemi  
-Versioni diverse di Diagnostica di Azure usano schemi di configurazione diversi.
-
-[Schema di configurazione di Diagnostica 1.0](diagnostics-extension-schema-1dot0.md)  
-
-[Schema di configurazione di Diagnostica 1.2](diagnostics-extension-schema-1dot2.md)  
-
-[Schema di configurazione di Diagnostica 1.3 e versioni successive](diagnostics-extension-schema-1dot3.md)  
+Versioni diverse di Diagnostica di Azure usano schemi di configurazione diversi. Gli schemi 1,0 e 1,2 sono stati deprecati. Per ulteriori informazioni sulla versione 1,3 e successive, vedere la pagina relativa [allo schema di configurazione di diagnostica 1,3 e versioni successive](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Cronologia delle versioni
 

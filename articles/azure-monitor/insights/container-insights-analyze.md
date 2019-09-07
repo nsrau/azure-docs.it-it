@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 09/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 154848c33960cb78b10c58e7a39ddec669d4fae0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872981"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744583"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
 Con monitoraggio di Azure per i contenitori, è possibile usare i grafici delle prestazioni e lo stato di integrità per monitorare il carico di lavoro dei cluster di Azure Kubernetes Service (AKS) da due prospettive. È possibile monitorare direttamente da un cluster AKS oppure è possibile monitorare tutti i cluster AKS in una sottoscrizione da monitoraggio di Azure. La visualizzazione di istanze di contenitore di Azure è anche possibile quando si monitora un cluster AKS specifico.
@@ -63,7 +63,7 @@ Gli stati di integrità inclusi sono:
 * **Non trovato**: L'area di lavoro, il gruppo di risorse o la sottoscrizione che contiene l'area di lavoro per questa soluzione è stata eliminata.
 * **Non autorizzato**: L'utente non ha le autorizzazioni necessarie per leggere i dati nell'area di lavoro.
 * **Errore**: Si è verificato un errore durante il tentativo di leggere i dati dall'area di lavoro.
-* **Configurazione**non configurata correttamente: Il monitoraggio di Azure per i contenitori non è stato configurato correttamente nell'area di lavoro specificata.
+* **Configurazione non configurata correttamente**: Il monitoraggio di Azure per i contenitori non è stato configurato correttamente nell'area di lavoro specificata.
 * **Nessun dato**: I dati non sono stati segnalati all'area di lavoro per gli ultimi 30 minuti.
 
 Lo stato di integrità calcola lo stato complessivo del cluster come il *peggiore dei* tre stati con un'eccezione. Se uno dei tre stati è sconosciuto, lo stato complessivo del cluster indica **Unknown**. 
@@ -92,14 +92,14 @@ Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **c
 
 ## <a name="view-performance-directly-from-an-aks-cluster"></a>Visualizzare le prestazioni direttamente da un cluster di servizio Azure Kubernetes
 
-L'accesso a monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando Insights nel riquadro sinistro. Le informazioni sul cluster AKS sono organizzate in quattro prospettive:
+L'accesso a monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando **Insights** nel riquadro sinistro. Le informazioni sul cluster AKS sono organizzate in quattro prospettive:
 
 - Cluster
 - Nodi 
 - Controller 
 - Contenitori
 
-Viene visualizzata la pagina predefinita quando si > seleziona il**cluster**Insights. I grafici delle prestazioni a quattro linee visualizzano le metriche delle prestazioni chiave del cluster. 
+Viene visualizzata la pagina predefinita quando si seleziona il**cluster** **Insights** > . I grafici delle prestazioni a quattro linee visualizzano le metriche delle prestazioni chiave del cluster. 
 
 ![Grafici delle prestazioni di esempio nella scheda Cluster](./media/container-insights-analyze/containers-cluster-perfview.png)
 
@@ -118,18 +118,18 @@ Il monitoraggio di Azure per i contenitori supporta anche [Esplora metriche](../
 
 In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e dei Pod aggregati da monitoraggio di Azure per i contenitori. La tabella seguente riepiloga i dettagli che consentono di comprendere come usare i grafici delle metriche per visualizzare le metriche dei contenitori.
 
-|Spazio dei nomi | Metrica |
-|----------|--------|
+|Spazio dei nomi | Metrica | Descrizione | 
+|----------|--------|-------------|
 | insights.container/nodes | |
-| | cpuUsageMillicores |
-| | cpuUsagePercentage |
-| | memoryRssBytes |
-| | memoryRssPercentage |
-| | memoryWorkingSetBytes |
-| | memoryWorkingSetPercentage |
-| | nodesCount |
+| | cpuUsageMillicores | Misurazione aggregata dell'utilizzo della CPU nel cluster. Si tratta di un core CPU suddiviso in unità 1000 (Milli = 1000). Usato per determinare l'utilizzo dei core in un contenitore in cui molte applicazioni potrebbero usare un core.| 
+| | cpuUsagePercentage | Utilizzo medio della CPU aggregato misurato in percentuale nel cluster.|
+| | memoryRssBytes | Memoria RSS del contenitore utilizzata in byte.| 
+| | memoryRssPercentage | Memoria RSS del contenitore utilizzata nella percentuale.|
+| | memoryWorkingSetBytes | Contenitore working set memoria utilizzata.| 
+| | memoryWorkingSetPercentage | Contenitore working set memoria utilizzata nella percentuale. | 
+| | nodesCount | Numero di nodi di Kubernetes.|
 | Insights. container/Pod | |
-| | PodCount |
+| | PodCount | Numero di pod da Kubernetes.|
 
 È possibile [suddividere](../platform/metrics-charts.md#apply-splitting-to-a-chart) una metrica per visualizzarla in base alla dimensione e visualizzare il modo in cui i diversi segmenti si confrontano tra loro. Per un nodo è possibile segmentare il grafico in base alla dimensione *host* . Da un pod è possibile segmentarlo per le dimensioni seguenti:
 
@@ -170,11 +170,11 @@ Da un nodo espanso è possibile eseguire il drill-down dal Pod o dal contenitore
 
 Selezionare i controller o i contenitori nella parte superiore della pagina per esaminare lo stato e l'utilizzo delle risorse per tali oggetti. Per esaminare l'utilizzo della memoria, nell'elenco a discesa **metrica** selezionare **memoria RSS** o **memoria working set**. L'opzione **Memoria RSS** è supportata solo per Kubernetes versione 1.8 e successive. Se si usa un'altra versione, per i valori di **Min&nbsp;%** verrà visualizzato *NaN&nbsp;%* , ovvero un valore di tipo di dati numerico che indica un valore non definito o non rappresentabile.
 
-**Memoria working set** Mostra sia la memoria residente che la memoria virtuale (cache) inclusa ed è un totale delle operazioni utilizzate dall'applicazione. **RSS memoria** Mostra solo la memoria principale, ovvero la memoria residente. Questa metrica Mostra la capacità effettiva della memoria disponibile.
+**Memoria working set** Mostra sia la memoria residente che la memoria virtuale (cache) inclusa ed è un totale delle operazioni utilizzate dall'applicazione. **RSS memoria** Mostra solo la memoria principale (che non è nient'altro che la memoria residente in altre parole). Questa metrica Mostra la capacità effettiva della memoria disponibile.
 
 ![Visualizzazione delle prestazioni dei nodi del contenitore](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
-Per impostazione predefinita, i dati sulle prestazioni si basano sulle ultime sei ore, ma è possibile modificare la finestra utilizzando l'opzione **TimeRange** in alto a sinistra. È anche possibile filtrare i risultati all'interno dell'intervallo di tempo selezionando **min**, **AVG**, cinquantesimo, **90**, **95**e **Max** nel selettore percentile. 
+Per impostazione predefinita, i dati sulle prestazioni si basano sulle ultime sei ore, ma è possibile modificare la finestra utilizzando l'opzione **TimeRange** in alto a sinistra. È anche possibile filtrare i risultati all'interno dell'intervallo di tempo selezionando **min**, **AVG**, **cinquantesimo**, **90**, **95**e **Max** nel selettore percentile. 
 
 ![Selezione del percentile per filtrare i dati](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
@@ -190,7 +190,7 @@ Queste informazioni consentono di identificare rapidamente se si dispone di un g
 
 Le informazioni presentate quando si visualizza la scheda **nodi** sono descritte nella tabella seguente.
 
-| Colonna | DESCRIZIONE | 
+| Colonna | Descrizione | 
 |--------|-------------|
 | NOME | Nome dell'host. |
 | Stato | Visualizzazione Kubernetes dello stato del nodo. |
@@ -221,7 +221,7 @@ Le informazioni visualizzate quando si visualizzano i controller sono descritte 
 
 | Colonna | DESCRIZIONE | 
 |--------|-------------|
-| Name | Nome del controller.|
+| NOME | Nome del controller.|
 | Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%,&nbsp;90%,&nbsp;95%, max&nbsp;%| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
@@ -256,9 +256,9 @@ Da un contenitore è possibile eseguire il drill-down in un pod o nodo per visua
 
 Le informazioni visualizzate quando si visualizzano i contenitori sono descritte nella tabella seguente.
 
-| Colonna | DESCRIZIONE | 
+| Colonna | Descrizione | 
 |--------|-------------|
-| Name | Nome del controller.|
+| NOME | Nome del controller.|
 | Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%,&nbsp;90%,&nbsp;95%, max&nbsp;% | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |

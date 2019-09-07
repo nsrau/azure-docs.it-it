@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7033c7bd3e783157280709b2c7e889473166ac84
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879218"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743234"
 ---
-# <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuire Azure AD la reimpostazione della password self-service
+# <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuire la reimpostazione della password self-service di Azure AD
 
 La reimpostazione della password self-service (SSPR) è una funzionalità Azure Active Directory che consente ai dipendenti di reimpostare le proprie password senza dover contattare il personale IT. Prima di usare il servizio, i dipendenti devono registrarsi per la reimpostazione della password self-service o essere registrati. Durante la registrazione, il dipendente sceglie uno o più metodi di autenticazione abilitati dall'organizzazione.
 
@@ -37,7 +37,7 @@ Prima di distribuire SSPR, è possibile che le organizzazioni desiderino determi
 
 ## <a name="licensing-considerations"></a>Considerazioni sulle licenze
 
-Azure Active Directory è la licenza per utente, ovvero ogni utente deve disporre di una licenza appropriata per le funzionalità che usano.
+Azure Active Directory viene concesso in licenza per ogni utente, il che significa che ogni utente deve disporre di una licenza appropriata per le funzionalità che usano.
 
 Ulteriori informazioni sulle licenze sono disponibili nella pagina relativa ai [prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 
@@ -47,7 +47,7 @@ Microsoft consiglia alle organizzazioni di abilitare l'esperienza di registrazio
 
 ![Registrazione di informazioni di sicurezza combinate](./media/howto-sspr-deployment/combined-security-info.png)
 
-L'esperienza di registrazione combinata non richiede che le organizzazioni consentano l'uso di SSPR e di Azure a più fattori. L'esperienza di registrazione combinata fornisce alle organizzazioni un'esperienza utente migliore rispetto ai singoli componenti tradizionali. Altre informazioni sulla registrazione combinata e su come abilitarle sono disponibili nell'articolo [registrazione di informazioni di sicurezza combinate (anteprima)](concept-registration-mfa-sspr-combined.md)
+L'esperienza di registrazione combinata non richiede che le organizzazioni consentano l'uso di SSPR e Azure Multi-Factor Authentication. L'esperienza di registrazione combinata fornisce alle organizzazioni un'esperienza utente migliore rispetto ai singoli componenti tradizionali. Altre informazioni sulla registrazione combinata e su come abilitarle sono disponibili nell'articolo [registrazione di informazioni di sicurezza combinate (anteprima)](concept-registration-mfa-sspr-combined.md)
 
 ## <a name="plan-the-configuration"></a>Pianificare la configurazione
 
@@ -62,7 +62,7 @@ Le impostazioni seguenti sono necessarie per abilitare SSPR insieme ai valori co
 |   | Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione | 90 – 180 giorni |
 | **Notifications** | Inviare notifiche agli utenti al momento della reimpostazione della password | Sì |
 |   | Inviare una notifica a tutti gli amministratori quando altri amministratori reimpostano le proprie password | Sì |
-| **Personalizzazione** | Personalizza collegamento al supporto tecnico | Yes |
+| **Personalizzazione** | Personalizza collegamento al supporto tecnico | Sì |
 |   | Indirizzo di posta elettronica o URL del supporto tecnico | Sito di supporto o indirizzo di posta elettronica |
 | **Integrazione locale** | Eseguire il writeback delle password in Active Directory locale | Yes |
 |   | Consenti agli utenti di sbloccare l'account senza reimpostare la password | Sì |
@@ -77,7 +77,7 @@ Quando si prevede di avviare il servizio in modo più ampio, è consigliabile us
 
 Impostare i metodi di autenticazione necessari per la registrazione ad almeno un numero maggiore del numero necessario per la reimpostazione. Consentire a più utenti di fornire flessibilità quando è necessario reimpostarli.
 
-Impostare il **numero di metodi necessari per** la reimpostazione a un livello appropriato per l'organizzazione. Uno richiede il minor attrito, mentre due può aumentare il comportamento di sicurezza.
+Impostare il **numero di metodi necessari per la reimpostazione** a un livello appropriato per l'organizzazione. Uno richiede il minor attrito, mentre due può aumentare il comportamento di sicurezza.
 
 Vedere [che cosa sono i metodi di autenticazione](concept-authentication-methods.md) per informazioni dettagliate sui metodi di autenticazione disponibili per SSPR, domande di sicurezza predefinite e su come creare domande di sicurezza personalizzate.
 
@@ -222,7 +222,7 @@ Ruoli necessari per gestire le funzionalità associate alla reimpostazione della
 
 Per consentire al team di supporto di avere esito positivo, è possibile creare domande frequenti in base alle domande ricevute dagli utenti. La tabella seguente contiene scenari di supporto comuni.
 
-| Scenari | DESCRIZIONE |
+| Scenari | Descrizione |
 | --- | --- |
 | Nessun metodo di autenticazione registrato disponibile per l'utente | Un utente sta tentando di reimpostare la password, ma non dispone di alcun metodo di autenticazione registrato disponibile (ad esempio, ha lasciato il telefono cellulare a casa e non può accedere alla posta elettronica) |
 | L'utente non riceve un SMS o una chiamata sul proprio ufficio o telefono cellulare | Un utente sta provando a verificare la propria identità tramite il testo o la chiamata ma non riceve un testo/chiamata. |

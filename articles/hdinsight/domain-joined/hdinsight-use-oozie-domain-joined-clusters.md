@@ -1,5 +1,5 @@
 ---
-title: Proteggere i flussi di lavoro di Apache Oozie con Enterprise Security Package - Azure HDInsight
+title: Flussi di lavoro Apache oozie con Enterprise Security Package-Azure HDInsight
 description: Proteggere i flussi di lavoro di Apache Oozie con Enterprise Security Package di Azure HDInsight. Informazioni su come definire un flusso di lavoro Oozie e inviare un processo Oozie.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 7d7fbf5d72654c26edf09ab27f024eaf39f8c387
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea724a9bc8ddd92f04a781d5c3ce9bc08a35312e
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708991"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734870"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package
 

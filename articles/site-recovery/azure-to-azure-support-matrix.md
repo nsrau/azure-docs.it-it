@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: 92bd53fd0426f896eff8dc63b690167db3ee700b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dc98a0ab47e269aa99f21d3f10952cdabe2c897f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884112"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736031"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice di supporto per la replica di macchine virtuali di Azure da un'area a un'altra
 
@@ -53,6 +53,7 @@ Australia   | Australia orientale, Australia sud-orientale, Australia centrale, 
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central 
 Germania | Germania centrale, Germania nord-orientale
 Cina | Cina orientale, Cina settentrionale, Cina settentrionale2, Cina orientale 2
+Aree limitate riservate per il ripristino di emergenza in un paese |Germania settentrionale riservato per Germania centro-occidentale, Svizzera occidentale riservato per Svizzera settentrionale, Francia meridionale riservata ai clienti della Francia centrale 
 
 >[!NOTE]
 >
@@ -210,7 +211,7 @@ RA-GRS | Supportato |
 ZRS | Non supportate |
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, abilitare [Consenti servizi Microsoft attendibili](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Sì | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
+Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Yes | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di seguire gli obiettivi di scalabilità e prestazioni del disco della macchina virtuale per macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md) . Se si usano le impostazioni predefinite, Site Recovery crea i dischi e gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni personalizzate, seguire gli obiettivi di scalabilità e prestazioni del disco per le macchine virtuali di origine.

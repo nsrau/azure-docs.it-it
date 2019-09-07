@@ -1,19 +1,19 @@
 ---
-title: Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
+title: Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight-infrastruttura
 description: Informazioni sulle procedure consigliate per l'infrastruttura relative alla migrazione di cluster Hadoop locali ad Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0707f08d7c1447ff9aaae919cabfe1a668b25e3d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: dbd4cc987883c959ad9b13b60491dd2288bd5643
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404380"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735725"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
 
@@ -86,7 +86,7 @@ HDInsight include script predefiniti per installare i componenti seguenti nei cl
 - Installare Presto
 - Installare Solr
 - Installare Giraph
-- Precarica librerie Hive
+- Precaricare le librerie Hive
 - Installa e aggiorna Mono
 
 > [!Note]  

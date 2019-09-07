@@ -8,18 +8,18 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 7ba85d74f9126f4586313dc4e2b365d1e11f3798
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 251a7c21b671052a23f6ee18cb4278737464b25c
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934187"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744878"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Gestire chiavi dell'account di archiviazione con Azure Key Vault e l'interfaccia della riga di comando di Azure 
 
 Azure Key Vault gestisce le chiavi per gli account di archiviazione di Azure e gli account di archiviazione classici. Per completare diverse funzioni di gestione delle chiavi, è possibile usare la funzionalità dell'account di archiviazione gestito Key Vault.
 
-Un'[account di Archiviazione Azure](/azure/storage/storage-create-storage-account) usa credenziali costituite da un nome account e una chiave. La chiave viene generata automaticamente e funge da password, anziché come chiave crittografica. Key Vault gestisce le chiavi degli account di archiviazione archiviando tali chiavi come [Key Vault segreti](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). Le chiavi sono elencate (sincronizzate) con un account di archiviazione di Azure e vengono periodicamenterigenerate o ruotate. 
+Un'[account di Archiviazione Azure](/azure/storage/storage-create-storage-account) usa credenziali costituite da un nome account e una chiave. La chiave viene generata automaticamente e funge da password, anziché come chiave crittografica. Key Vault gestisce le chiavi degli account di archiviazione archiviando tali chiavi come [Key Vault segreti](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). Le chiavi sono elencate (sincronizzate) con un account di archiviazione di Azure e vengono periodicamente rigenerate o _ruotate_. 
 
 Quando si usa la funzionalità chiave dell'account di archiviazione gestita, prendere in considerazione i punti seguenti:
 
@@ -67,7 +67,7 @@ Per gestire le chiavi degli account di archiviazione, è necessario eseguire qua
 
 1. Ottenere un account di archiviazione esistente.
 1. Recuperare un insieme di credenziali delle chiavi esistente.
-1. Aggiungere un Key Vault account di archiviazione gestito all'insieme di credenziali. Imposta `key1` come chiave attiva con un periodo di rigenerazione di 180 giorni.
+1. Aggiungere un Key Vault account di archiviazione gestito all'insieme di credenziali. Imposta `key1` come chiave attiva con un periodo di rigenerazione di 90 giorni.
 1. Usare `key1` per impostare un contesto di archiviazione per l'account di archiviazione specificato.
 
 > [!NOTE]

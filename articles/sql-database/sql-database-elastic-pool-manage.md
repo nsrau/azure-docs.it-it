@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 6b2a2029dec917672d6f4ee8db24aed60e4f5bc5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ca00326d5704d3dd26027d90a3e48bfc52ec5653
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568667"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744452"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gestire i pool elastici nel database SQL di Azure
 
@@ -42,7 +42,7 @@ Da qui è possibile eseguire una combinazione qualsiasi di modifiche tra quelle 
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
-Per creare e gestire i pool elastici e i database in pool del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). Per creare e gestire i server di database SQL di Azure per un pool elastico, vedere [Creare e gestire server di database SQL di Azure](sql-database-servers.md). Per creare e gestire regole del firewall, vedere [Creare e gestire le regole del firewall con PowerShell](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
+Per creare e gestire i pool elastici e i database in pool del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). Per creare e gestire i server di database SQL di Azure per un pool elastico, vedere [Creare e gestire server di database SQL di Azure](sql-database-servers.md). Per creare e gestire regole del firewall, vedere [Creare e gestire le regole del firewall con PowerShell](sql-database-firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
 
 > [!TIP]
 > Per gli script di esempio di PowerShell, vedere [Creare pool elastici e spostare i database tra i pool e al loro esterno usando PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) e [Usare PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -82,7 +82,7 @@ Per creare e gestire pool elastici del database SQL con l'[interfaccia della rig
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: gestire i database in pool
 
-Per creare e spostare i database all'interno dei pool elastici esistenti o per restituire informazioni su un pool elastico del database SQL con Transact-SQL, usare i comandi T-SQL seguenti. È possibile eseguire questi comandi usando il portale di Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) o qualsiasi altro programma che può connettersi a un server di database SQL di Azure e passare comandi Transact-SQL. Per creare e gestire regole del firewall con T-SQL, vedere [Gestire le regole del firewall con Transact-SQL](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-transact-sql).
+Per creare e spostare i database all'interno dei pool elastici esistenti o per restituire informazioni su un pool elastico del database SQL con Transact-SQL, usare i comandi T-SQL seguenti. È possibile eseguire questi comandi usando il portale di Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) o qualsiasi altro programma che può connettersi a un server di database SQL di Azure e passare comandi Transact-SQL. Per creare e gestire regole del firewall con T-SQL, vedere [Gestire le regole del firewall con Transact-SQL](sql-database-firewall-configure.md#use-transact-sql-to-manage-ip-firewall-rules).
 
 > [!IMPORTANT]
 > Non è possibile creare, aggiornare o eliminare un pool elastico del database SQL di Azure con Transact-SQL. È possibile aggiungere o rimuovere i database da un pool elastico ed è possibile usare le DMV per restituire informazioni sui pool elastici esistenti.
@@ -100,7 +100,7 @@ Per creare e spostare i database all'interno dei pool elastici esistenti o per r
 
 Per creare e gestire i pool elastici e i database in pool del database SQL, usare queste richieste API REST.
 
-| Comando | DESCRIZIONE |
+| Comando | Descrizione |
 | --- | --- |
 |[Pool elastici - Creazione o aggiornamento](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Crea un nuovo pool elastico o aggiorna un pool elastico esistente.|
 |[Pool elastici: Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Consente di eliminare un pool elastico.|

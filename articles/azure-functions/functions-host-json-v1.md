@@ -1,20 +1,18 @@
 ---
 title: Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v1.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: c169d9cc774a2c6264ba1520240005f13ba9d2da
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b373afc9b5a60abee7a587fc405320fe3c583369
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096446"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735148"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 
@@ -46,6 +44,13 @@ I file di esempio *host.json* seguenti hanno tutte le possibili opzioni specific
         "sampling": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 5
+        }
+    },
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix"
         }
     },
     "eventHub": {
@@ -86,6 +91,9 @@ I file di esempio *host.json* seguenti hanno tutte le possibili opzioni specific
       "maxDequeueCount": 5,
       "newBatchThreshold": 8
     },
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    },
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
@@ -115,6 +123,28 @@ Le sezioni seguenti di questo articolo illustrano ogni proprietà di livello sup
 ## <a name="applicationinsights"></a>applicationInsights
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+
+## <a name="documentdb"></a>DocumentDB
+
+Impostazioni di configurazione per il [trigger e le associazioni Azure Cosmos DB](functions-bindings-cosmosdb.md).
+
+```json
+{
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix1"
+        }
+    }
+}
+```
+
+|Proprietà  |Predefinito | DESCRIZIONE |
+|---------|---------|---------|
+|GatewayMode|Gateway|La modalità di connessione usata dalla funzione durante la connessione al servizio di Azure Cosmos DB. Le opzioni sono `Direct` e `Gateway`|
+|Protocol|Https|Il protocollo di connessione usato dalla funzione durante la connessione al servizio di Azure Cosmos DB.  Leggere [qui per una spiegazione di entrambe le modalità](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|n/d|Prefisso di lease da usare in tutte le funzioni in un'app.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -162,7 +192,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
@@ -231,13 +261,28 @@ Impostazione di configurazione per i [trigger e le associazioni per code di arch
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |maxPollingInterval|60000|L'intervallo massimo, in millisecondi, tra i polling di coda.| 
 |visibilityTimeout|0|L'intervallo di tempo tra i tentativi se l'elaborazione di un messaggio ha esito negativo.| 
 |batchSize|16|Il numero di messaggi in coda che il runtime di Funzioni recupera simultaneamente e di processi in parallelo. Quando il numero elaborato viene ridotto a `newBatchThreshold`, il runtime ottiene un altro batch e inizia l'elaborazione dei messaggi. Di conseguenza, il numero massimo di messaggi simultanei elaborati per ogni funzione è `batchSize` più `newBatchThreshold`. Questo limite si applica separatamente a ogni funzione attivata dalla coda. <br><br>Se si vuole evitare l'esecuzione in parallelo per i messaggi ricevuti su una coda, è possibile impostare `batchSize` su 1. Tuttavia, questa impostazione elimina solo la concorrenza se l'app per le funzioni viene eseguita su una singola macchina virtuale (VM). Se l'app per le funzioni scala orizzontalmente più macchine virtuali, ogni macchina virtuale potrebbe eseguire un'istanza di ogni funzione attivata dalla coda.<br><br>Il valore massimo per `batchSize` è 32. | 
 |maxDequeueCount|5|Il numero di volte per provare l'elaborazione di un messaggio prima di essere spostato nella coda non elaborabile.| 
 |newBatchThreshold|batchSize/2|Ogni volta che il numero di messaggi elaborati simultaneamente viene ridotto a questo numero, il runtime recupera un altro batch.| 
+
+## <a name="sendgrid"></a>SendGrid
+
+Impostazione di configurazione per l' [associazione di output SendGrind](functions-bindings-sendgrid.md)
+
+```json
+{
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    }
+```
+
+|Proprietà  |Predefinito | DESCRIZIONE |
+|---------|---------|---------| 
+|from|n/d|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -253,7 +298,7 @@ Impostazione di configurazione per i [trigger e le associazioni dei bus di servi
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. | 
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.| 
@@ -298,7 +343,7 @@ Le impostazioni di configurazione per i log creati usando un oggetto `TraceWrite
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |consoleLevel|info|Il livello di traccia per la registrazione della console. Le opzioni sono: `off`, `error`, `warning`, `info` e `verbose`.|
 |fileLoggingMode|debugOnly|Il livello di traccia per la registrazione di file. Le opzioni sono `never`, `always`, `debugOnly`.| 

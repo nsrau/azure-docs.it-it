@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e303fe5ca1869249d57373aab9c60a5f92b7ea9c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60238059"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735109"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Schema di configurazione di Diagnostica di Azure 1.3 e versioni successive
 > [!NOTE]
@@ -27,13 +27,11 @@ ms.locfileid: "60238059"
 >
 > Questa pagina è utile solo se si usa uno di questi servizi.
 
-Questa pagina è valida per le versioni 1.3 e più recenti (Azure SDK 2.4 e versioni più recenti). Le sezioni di configurazione più recenti hanno commenti per indicare in quale versione sono state aggiunte.  
+Questa pagina è valida per le versioni 1.3 e più recenti (Azure SDK 2.4 e versioni più recenti). Le sezioni di configurazione più recenti hanno commenti per indicare in quale versione sono state aggiunte. La versione 1,0 e la versione 1,2 dello schema sono state archiviate e non sono più disponibili. 
 
 Il file di configurazione descritto qui viene usato per definire le impostazioni di configurazione della diagnostica all'avvio del monitor di diagnostica.  
 
 L'estensione viene usata insieme ad altri prodotti di diagnostica Microsoft, come monitoraggio di Azure, che include Application Insights e Log Analytics.
-
-
 
 Scaricare la definizione dello schema del file di configurazione pubblico eseguendo il comando PowerShell seguente:  
 
@@ -429,7 +427,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Descrive la configurazione della diagnostica pubblica.  
 
-|Elementi figlio|DESCRIZIONE|  
+|Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
 |**WadCfg**|Richiesto. Vedere la descrizione altrove in questa pagina.|  
 |**StorageAccount**|Nome dell'account di archiviazione di Azure in cui archiviare i dati. Può anche essere specificato come parametro quando si esegue il cmdlet Set-AzureServiceDiagnosticsExtension.|  
@@ -447,7 +445,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Obbligatoria
 
-|Attributi|DESCRIZIONE|  
+|Attributi|Descrizione|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | Spazio massimo sul disco locale che può essere usato dai vari tipi di dati di diagnostica raccolti da Diagnostica di Azure. L'impostazione predefinita è 4096 MB.<br />
 |**useProxyServer** | Configurare Diagnostica di Azure per l'uso delle impostazioni del server proxy definite nelle impostazioni di Internet Explorer.|
@@ -474,7 +472,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Abilitare la raccolta di dump di arresto anomalo del sistema.  
 
-|Attributi|DESCRIZIONE|  
+|Attributi|Descrizione|  
 |----------------|-----------------|  
 |**containerName**|facoltativo. Nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i dump di arresto anomalo del sistema.|  
 |**crashDumpType**|facoltativo.  Configura Diagnostica di Azure per la raccolta di dump di arresto anomalo del sistema completi o mini.|  
@@ -505,7 +503,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Elenco di directory da monitorare.  
 
-|Elementi figlio|Descrizione|  
+|Elementi figlio|DESCRIZIONE|  
 |--------------------|-----------------|  
 |**DirectoryConfiguration**|Richiesto. Attributo obbligatorio:<br /><br /> **containerName**: nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i file log.|  
 
@@ -542,7 +540,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Configura la raccolta di eventi generati dalla [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
-|Elementi figlio|Descrizione|  
+|Elementi figlio|DESCRIZIONE|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Attributo facoltativo:<br/><br/> **eventDestination**: nome della tabella nella quale archiviare gli eventi|  
 |**Event**|Attributo obbligatorio:<br /><br /> **id**: ID dell'evento.<br /><br /> Attributo facoltativo:<br /><br /> **eventDestination**: nome della tabella nella quale archiviare gli eventi|  
@@ -552,7 +550,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etwmanifestproviderconfiguration-element"></a>Elemento EtwManifestProviderConfiguration  
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
-|Elementi figlio|DESCRIZIONE|  
+|Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Attributo facoltativo:<br /><br /> **eventDestination**: nome della tabella nella quale archiviare gli eventi|  
 |**Event**|Attributo obbligatorio:<br /><br /> **id**: ID dell'evento.<br /><br /> Attributo facoltativo:<br /><br /> **eventDestination**: nome della tabella nella quale archiviare gli eventi|  
@@ -566,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  L'attributo **resourceId** è obbligatorio.  L'ID risorsa della macchina virtuale o del set di scalabilità di macchine virtuali in cui si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Esplora** -> **Gruppi di risorse** ->  **<Nome\>** . Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.  
 
-|Elementi figlio|DESCRIZIONE|  
+|Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
 |**MetricAggregation**|Attributo obbligatorio:<br /><br /> **scheduledTransferPeriod**: intervallo tra trasferimenti pianificati per l'archivio, arrotondato per eccesso al minuto più vicino. Il valore è un ["Tipo di dati di durata" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp). |  
 
@@ -581,7 +579,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Attributo **scheduledTransferPeriod** facoltativo. Vedere la spiegazione indicata in precedenza.
 
-|Elemento figlio|Descrizione|  
+|Elemento figlio|DESCRIZIONE|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Gli attributi seguenti sono obbligatori:<br /><br /> - **counterSpecifier**: nome del contatore delle prestazioni. Ad esempio: `\Processor(_Total)\% Processor Time`. Per ottenere un elenco di contatori delle prestazioni nell'host eseguire il comando `typeperf`.<br /><br /> - **sampleRate**: frequenza di campionamento del contatore.<br /><br /> Attributo facoltativo:<br /><br /> **unit**: unità di misura del contatore.|
 |**sinks** | Aggiunto nella versione 1.5. facoltativo. Punta a una posizione di sink per l'invio di dati di diagnostica, Ad esempio, Monitoraggio di Azure o Hub eventi.|    
@@ -622,7 +620,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Elementi aggiunti nella versione 1.9.
 
-|Nome dell'elemento|DESCRIZIONE|  
+|Nome dell'elemento|Descrizione|  
 |------------------|-----------------|  
 |**Stats**|Indica al sistema di raccogliere statistiche per i contenitori Docker|  
 
@@ -631,7 +629,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Elenco di posizioni a cui inviare i dati di diagnostica e la configurazione associata a tali posizioni.  
 
-|Nome dell'elemento|DESCRIZIONE|  
+|Nome dell'elemento|Descrizione|  
 |------------------|-----------------|  
 |**Sink**|Vedere la descrizione altrove in questa pagina.|  
 
@@ -646,7 +644,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |---------------|----------|-----------------|  
 |**name**|string|Stringa che identifica il nome del sink.|  
 
-|Elemento|Type|Descrizione|  
+|Elemento|Type|DESCRIZIONE|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Usato solo per inviare dati ad Application Insights. Contiene la chiave di strumentazione per un account di Application Insights attivo a cui è possibile accedere.|  
 |**Channels**|string|Uno per ogni filtro aggiuntivo per i flussi|  
@@ -684,7 +682,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Archivia le informazioni private dell'account di archiviazione, ovvero nome, chiave ed endpoint. Queste informazioni vengono inviate alla macchina virtuale, ma non possono essere recuperate dalla macchina virtuale stessa.  
 
-|Elementi figlio|Descrizione|  
+|Elementi figlio|DESCRIZIONE|  
 |--------------------|-----------------|  
 |**StorageAccount**|Account di archiviazione da usare. Gli attributi seguenti sono obbligatori:<br /><br /> - **name**: nome dell'account di archiviazione.<br /><br /> - **key**: chiave dell'account di archiviazione.<br /><br /> - **endpoint**: endpoint per accedere all'account di archiviazione. <br /><br /> -**sasToken** (elemento aggiunto alla versione 1.8.1): è possibile specificare un token di firma di accesso condiviso anziché una chiave dell'account di archiviazione in PrivateConfig. Se viene fornito, la chiave dell'account di archiviazione viene ignorata. <br />Requisiti per il token di firma di accesso condiviso: <br />- Supporta solo il token di firma di accesso condiviso dell'account <br />Sono obbligatori i tipi di servizio - *b* e *t*. <br /> Sono obbligatorie le autorizzazioni - *a*, *c*, *u*, *w*. <br /> Sono obbligatori i tipi di risorse - *c*, *o*. <br /> - Supporta solo il protocollo HTTPS <br /> -I valori dell'ora di inizio e di scadenza devono essere validi.|  
 

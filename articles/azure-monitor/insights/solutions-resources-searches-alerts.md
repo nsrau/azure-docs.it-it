@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
-ms.translationtype: MT
+ms.openlocfilehash: 7ec30e2445a5ed6008256f7abcef496247922968
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662897"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744487"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
 
@@ -169,30 +169,30 @@ Le azioni di avviso hanno la struttura seguente. Nella struttura sono inclusi pa
 
 Le proprietà delle risorse azione di avviso sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatorio | descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| type | Yes | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
-| name | Yes | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
-| descrizione | No | Descrizione facoltativa dell'avviso. |
-| severity | Yes | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
+| `Type` | Yes | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
+| `Name` | Yes | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
+| `Description` | No | Descrizione facoltativa dell'avviso. |
+| `Severity` | Sì | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Soglia
 Questa sezione è obbligatoria e definisce le proprietà della soglia dell'avviso.
 
-| Nome dell'elemento | Obbligatorio | descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| Operator | Yes | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| Value | Yes | Valore per il confronto dei risultati. |
+| `Operator` | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| `Value` | Yes | Valore per il confronto dei risultati. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Questa sezione è facoltativa. Includere la sezione per un avviso di misurazione delle metriche.
 
-| Nome dell'elemento | Obbligatorio | descrizione |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| TriggerCondition | Yes | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
-| Operator | Yes | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| Value | Yes | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
+| `TriggerCondition` | Sì | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
+| `Operator` | Yes | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| `Value` | Yes | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
 
 
 #### <a name="throttling"></a>Limitazione

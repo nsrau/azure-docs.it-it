@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: b549e8bf53ca7728b18e04542c7291f0ce720cb0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876448"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736403"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
@@ -113,7 +113,11 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Cina settentrionale 2 | 40.73.35.193 | 40.73.33.230
    Cina orientale | 42.159.205.45 | 42.159.132.40
    Cina orientale 2 | 40.73.118.52| 40.73.100.125
-  
+   Germania settentrionale| 51.116.208.58| 51.116.58.128
+   Germania centro-occidentale | 51.116.156.176 | 51.116.154.192
+   Svizzera occidentale | 51.107.231.223| 51.107.154.128
+   Svizzera settentrionale | 51.107.68.31| 51.107.58.128
+
 ## <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete
 
 In questo esempio viene illustrato come configurare le regole NSG per una macchina virtuale da replicare.

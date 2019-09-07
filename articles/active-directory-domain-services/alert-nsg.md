@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Risoluzione dei problemi della configurazione dei gruppi di sicurezza di rete | Microsoft Docs'
-description: Risoluzione dei problemi relativi alla configurazione del gruppo di sicurezza di rete di Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Risolvere i problemi dei gruppi di sicurezza di rete | Microsoft Docs'
+description: Risoluzione dei problemi relativi alla configurazione del gruppo di sicurezza di rete per Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 08875ec23740eab7787c4a919566df521deba9a5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 450ee5635b378ed7c4d4e4bedc1c4245f6b52d70
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473915"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "70743440"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Risolvere i problemi di configurazione di rete non valida per il dominio gestito
 Questo articolo consente di individuare e risolvere gli errori di configurazione relativi alla rete che causano il messaggio di avviso seguente:
@@ -28,14 +28,14 @@ Questo articolo consente di individuare e risolvere gli errori di configurazione
 ## <a name="alert-aadds104-network-error"></a>Avviso AADDS104: Errore di rete
 **Messaggio di avviso:** *Microsoft non riesce a raggiungere i controller di dominio per questo dominio gestito. È possibile che questo problema si verifichi se un gruppo di sicurezza di rete configurato sulla rete virtuale impedisce l'accesso al dominio gestito oppure se è presente una route definita dall'utente che blocca il traffico in ingresso da Internet.*
 
-Le configurazioni di NSG non validi sono la causa più comune degli errori di rete per Azure AD Domain Services. Il gruppo di sicurezza di rete (NSG) configurato per la rete virtuale deve consentire l'accesso a [porte specifiche](network-considerations.md#ports-required-for-azure-ad-domain-services). Se queste porte sono bloccate, Microsoft non può monitorare o aggiornare il dominio gestito. Inoltre, si verificano ripercussioni sulla sincronizzazione tra la directory Azure AD e il dominio gestito. Durante la creazione dell'NSG, tenere aperte queste porte per evitare possibili interruzioni del servizio.
+Le configurazioni di NSG non validi sono la causa più comune degli errori di rete per Azure AD Domain Services. Il gruppo di sicurezza di rete (NSG) configurato per la rete virtuale deve consentire l'accesso a [porte specifiche](network-considerations.md#network-security-groups-and-required-ports). Se queste porte sono bloccate, Microsoft non può monitorare o aggiornare il dominio gestito. Inoltre, si verificano ripercussioni sulla sincronizzazione tra la directory Azure AD e il dominio gestito. Durante la creazione dell'NSG, tenere aperte queste porte per evitare possibili interruzioni del servizio.
 
 ### <a name="checking-your-nsg-for-compliance"></a>Controllo della conformità del gruppo di sicurezza di rete
 
 1. Passare alla pagina [Gruppi di sicurezza di rete](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) nel portale di Azure
 2. Dalla tabella scegliere l'NSG associato alla subnet in cui è abilitato il dominio gestito.
 3. In **Impostazioni** nel pannello a sinistra, fare clic su **Regole di sicurezza in ingresso**
-4. Esaminare le regole applicate e identificare quali regole bloccano l'accesso a [queste porte](network-considerations.md#ports-required-for-azure-ad-domain-services)
+4. Esaminare le regole applicate e identificare quali regole bloccano l'accesso a [queste porte](network-considerations.md#network-security-groups-and-required-ports)
 5. Modificare il gruppo di sicurezza di rete per garantire la conformità eliminando la regola, aggiungendo una regola o creando un gruppo di sicurezza di rete completamente nuovo. La procedura per [aggiungere una regola](#add-a-rule-to-a-network-security-group-using-the-azure-portal) o creare un nuovo gruppo sicurezza di rete conforme è riportata di seguito
 
 ## <a name="sample-nsg"></a>Esempio di NSG

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2cc60ee2c73aa6858f68d6b13a895a0188bb5735
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7c02d4dfde7869da7985817b06f6de398bbef38d
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098143"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734500"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostica in Durable Functions in Azure
 
@@ -158,9 +158,26 @@ Il risultato è un elenco di ID istanza e dello stato di runtime corrente.
 
 È importante tenere presente il comportamento di riesecuzione dell'agente di orchestrazione quando si scrivono i log direttamente da una funzione dell'agente di orchestrazione. Ad esempio, si consideri la seguente funzione dell'agente di orchestrazione:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>C# precompilato
 
-```cs
+```csharp
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context,
+    ILogger log)
+{
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+### <a name="c-script"></a>Script C#
+
+```csharp
 public static async Task Run(
     DurableOrchestrationContext context,
     ILogger log)
@@ -211,6 +228,23 @@ Done!
 
 Se si vuole eseguire la registrazione solo con l'esecuzione senza riesecuzione, è possibile scrivere un'espressione condizionale per eseguire la registrazione solo se `IsReplaying` è `false`. Si consideri l'esempio precedente, ma questa volta con i controlli di riesecuzione.
 
+#### <a name="precompiled-c"></a>C# precompilato
+
+```csharp
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context,
+    ILogger log)
+{
+    if (!context.IsReplaying) log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    if (!context.IsReplaying) log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    if (!context.IsReplaying) log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
 #### <a name="c"></a>C#
 
 ```cs
@@ -257,7 +291,7 @@ Done!
 
 Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite l'API della query sullo stato HTTP o l'API `DurableOrchestrationClient.GetStatusAsync`. Lo stato di un'orchestrazione personalizzato consente di eseguire il monitoraggio in modo più completo per le funzioni dell'agente di orchestrazione. Il codice della funzione dell'agente di orchestrazione, ad esempio, può includere chiamate `DurableOrchestrationContext.SetCustomStatus` per aggiornare lo stato di avanzamento per un'operazione con esecuzione prolungata. Un client, ad esempio una pagina Web o un sistema esterno, può eseguire una query periodicamente sulle API di query dello stato HTTP per ottenere informazioni più dettagliate. Un esempio che usa `DurableOrchestrationContext.SetCustomStatus` viene indicato di seguito:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>C# precompilato
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)
@@ -272,7 +306,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");

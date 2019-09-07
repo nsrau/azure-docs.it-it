@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 08/06/2019
-ms.openlocfilehash: 0b1632ab943026578eb753014575ab53d151c33f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 56758e2962adb41c9876171c89b37263a70ed0e4
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855008"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743548"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemi noti e limitazioni per le migrazioni online a Database di Azure per PostgreSQL
 
@@ -83,11 +83,13 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
 - **Limitazione**: Se è presente un tipo di dati ENUM nel database PostgreSQL di origine, la migrazione ha esito negativo durante la sincronizzazione continua.
 
-    **Soluzione alternativa**: Modificare il tipo di dati ENUM nella variante carattere nell'istanza di Database di Azure per PostgreSQL.
+    **Soluzione temporanea**: Modificare il tipo di dati ENUM nella variante carattere nell'istanza di Database di Azure per PostgreSQL.
 
 - **Limitazione**: Se non è presente alcuna chiave primaria nelle tabelle, la sincronizzazione continua ha esito negativo.
 
-    **Soluzione alternativa**: impostare temporaneamente una chiave primaria per la tabella per consentire alla migrazione di continuare. Al termine della migrazione dei dati, è possibile rimuovere la chiave primaria.
+    **Soluzione temporanea**: impostare temporaneamente una chiave primaria per la tabella per consentire alla migrazione di continuare. Al termine della migrazione dei dati, è possibile rimuovere la chiave primaria.
+
+- **Limitazione**: Il tipo di dati JSONB non è supportato per la migrazione.
 
 ## <a name="lob-limitations"></a>Limitazioni relative ai tipi di dati LOB
 
@@ -95,7 +97,7 @@ Le colonne LOB (Large Object) sono colonne che possono raggiungere dimensioni el
 
 - **Limitazione**: Se come chiavi primarie vengono usati tipi di dati LOB, la migrazione ha esito negativo.
 
-    **Soluzione alternativa**: sostituire la chiave primaria con altri tipi di dati o colonne non LOB.
+    **Soluzione temporanea**: sostituire la chiave primaria con altri tipi di dati o colonne non LOB.
 
 - **Limitazione**: Se la lunghezza della colonna LOB (Large Object) è maggiore a 32 kB, è possibile che i dati vengano troncati nella destinazione. È possibile controllare la lunghezza della colonna LOB usando questa query:
 
@@ -103,11 +105,11 @@ Le colonne LOB (Large Object) sono colonne che possono raggiungere dimensioni el
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Soluzione alternativa**: Se si dispone di un oggetto LOB di dimensioni maggiori di 32 KB, contattare il team di progettazione di per [chiedere alle migrazioni del database di Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Soluzione temporanea**: Se si dispone di un oggetto LOB di dimensioni maggiori di 32 KB, contattare il team di progettazione di per [chiedere alle migrazioni del database di Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Limitazione**: Se nella tabella sono presenti colonne LOB e non viene impostata una chiave primaria per la tabella, è possibile che la migrazione dei dati non venga eseguita per questa tabella.
 
-    **Soluzione alternativa**: Impostare temporaneamente una chiave primaria per la tabella per consentire alla migrazione di procedere. Al termine della migrazione dei dati, è possibile rimuovere la chiave primaria.
+    **Soluzione temporanea**: Impostare temporaneamente una chiave primaria per la tabella per consentire alla migrazione di procedere. Al termine della migrazione dei dati, è possibile rimuovere la chiave primaria.
 
 ## <a name="postgresql10-workaround"></a>Soluzione alternativa per PostgreSQL10
 
@@ -158,22 +160,22 @@ Quando si tenta di eseguire una migrazione in linea da AWS Servizi Desktop remot
 - **Errore**: Il valore predefinito della colonna "{column}" nella tabella "{table}" del database "{database}" è diverso nei server di origine e di destinazione. È "{value on source}" nell'origine e "{value on target}" nella destinazione.
 
   **Limitazione**: Questo errore si verifica quando il valore predefinito in uno schema di colonna è diverso tra i database di origine e di destinazione.
-  **Soluzione alternativa**: Verificare che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Soluzione temporanea**: Verificare che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 - **Errore**: Il database di destinazione "{database}" ha "{number of tables}" tabelle, mentre il database di origine "{database}" ha "{number of tables}" tabelle. Il numero di tabelle nei database di origine e di destinazione deve corrispondere.
 
   **Limitazione**: Questo errore si verifica quando il numero di tabelle è diverso tra i database di origine e di destinazione.
-  **Soluzione alternativa**: Verificare che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Soluzione temporanea**: Verificare che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 - **Errore:** Il database di origine {database} è vuoto.
 
   **Limitazione**: Questo errore si verifica quando il database di origine è vuoto. Ciò è probabilmente dovuto al fatto che è stato selezionato il database errato come origine.
-  **Soluzione alternativa**: Controllare il database di origine selezionato per la migrazione, quindi riprovare.
+  **Soluzione temporanea**: Controllare il database di origine selezionato per la migrazione, quindi riprovare.
 
 - **Errore:** Il database di destinazione {database} è vuoto. Eseguire la migrazione dello schema.
 
   **Limitazione**: Questo errore si verifica quando non è presente alcuno schema nel database di destinazione. Verificare che lo schema nella destinazione corrisponda allo schema nell'origine.
-  **Soluzione alternativa**: Verificare che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Soluzione temporanea**: Verificare che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Altre limitazioni
 

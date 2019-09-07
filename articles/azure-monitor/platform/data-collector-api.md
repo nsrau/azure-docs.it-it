@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 11c3ded45e87e815b6c694f0a3f9c0ccb96f8750
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a34faeb42fce0a1ee7960f71ffce176492495f9c
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813917"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744519"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -59,7 +59,7 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 | Intestazione | DESCRIZIONE |
 |:--- |:--- |
 | Authorization |Firma di autorizzazione. Più avanti nell'articolo sono disponibili informazioni sulla creazione di un'intestazione HMAC-SHA256. |
-| Log-Type |Specificare il tipo di record dei dati inviati. Il limite di dimensione per questo parametro è di 100 caratteri. |
+| Log-Type |Specificare il tipo di record dei dati inviati. Può contenere solo lettere, numeri e caratteri di sottolineatura (_) e non può superare i 100 caratteri. |
 | x-ms-date |Data di elaborazione della richiesta, in formato RFC 1123. |
 | x-ms-AzureResourceId | ID risorsa della risorsa di Azure a cui devono essere associati i dati. Questa operazione consente di popolare la proprietà [_ResourceId](log-standard-properties.md#_resourceid) e di includere i dati nelle query del [contesto delle risorse](design-logs-deployment.md#access-mode) . Se questo campo non è specificato, i dati non verranno inclusi nelle query del contesto delle risorse. |
 | time-generated-field | Nome di un campo nei dati che contiene il timestamp dell'elemento di dati. Se si specifica un campo, il relativo contenuto verrà usato per **TimeGenerated**. Se questo campo non è specificato, il valore predefinito di **TimeGenerated** sarà la data/ora di inserimento del messaggio. Il contenuto del campo del messaggio deve seguire il formato ISO 8601 AAAA-MM-GGThh:mm:ssZ. |
@@ -100,7 +100,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 Gli esempi nelle sezioni successive indicano il codice di esempio per creare l'intestazione dell'autorizzazione.
 
 ## <a name="request-body"></a>Corpo della richiesta
-Il corpo del messaggio deve essere in formato JSON. Deve includere uno o più record con coppie di nome e valore di proprietà nel formato seguente:
+Il corpo del messaggio deve essere in formato JSON. Deve includere uno o più record con le coppie nome e valore della proprietà nel formato seguente. Il nome della proprietà può contenere solo lettere, numeri e caratteri di sottolineatura (_).
 
 ```json
 [

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6548b84f9599116aaa5055324bfa4625ea621ec3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3db0cd3dd01e3f5f6af6b4b668d1ccac094624a2
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087255"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735164"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gestire le istanze in Durable Functions in Azure
 
@@ -43,7 +43,9 @@ I parametri per [StartNewAsync](https://azure.github.io/azure-functions-durable-
 * **Input**: dati serializzabili in JSON che devono essere passati come input alla funzione dell'agente di orchestrazione.
 * **InstanceId**: (facoltativo) ID univoco dell'istanza. Se non si specifica questo parametro, il metodo usa un ID casuale.
 
-Di seguito è riportato un semplice esempio in C#:
+Ecco alcuni esempi:
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -532,14 +534,14 @@ modules.exports = async function(context, ctx) {
 
 ## <a name="rewind-instances-preview"></a>Riavvolgi istanze (anteprima)
 
-Se si verifica un errore dell'orchestrazione per un motivo imprevisto , è possibile riavvolgere l'istanza in uno stato integro in precedenza usando un'API compilata a tale scopo.
+Se si verifica un errore dell'orchestrazione per un motivo imprevisto, è possibile *riavvolgere* l'istanza in uno stato integro in precedenza usando un'API compilata a tale scopo.
 
 > [!NOTE]
 > Questa API non deve sostituire una corretta gestione degli errori e i criteri di ripetizione dei tentativi, ma deve essere usata solo nei casi in cui le istanze di orchestrazione hanno esito negativo per motivi non previsti. Per ulteriori informazioni sulla gestione degli errori e sui criteri di ripetizione dei tentativi, vedere l'argomento relativo alla [gestione degli errori](durable-functions-error-handling.md) .
 
 Usare l'API [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.NET) `rewindAsync` o (JavaScript) per ripristinare lo stato di *esecuzione* dell'orchestrazione. Eseguire nuovamente gli errori di esecuzione dell'attività o della sottoorchestrazione che hanno causato l'errore dell'orchestrazione.
 
-Si immagini, ad esempio, di avere un flusso di lavoro che interessa una serie di approvazioni [umane](durable-functions-concepts.md#human). Si supponga che esista una serie di funzioni di attività che notificano a un utente che è necessaria l'approvazione e attendono la risposta in tempo reale. Una volta ricevute le risposte o si è verificato un timeout per tutte le attività di approvazione, si supponga che un'altra attività non riesca a causa di una configurazione errata dell'applicazione, ad esempio una stringa di connessione al database non Ne consegue un errore di orchestrazione nel flusso di lavoro. Con l' `RewindAsync` API (.NET) `rewindAsync` o (JavaScript), un amministratore dell'applicazione può correggere l'errore di configurazione e riavvolgere l'orchestrazione non riuscita allo stato immediatamente prima dell'errore. Nessuno dei passaggi di interazione umana deve essere riapprovato e l'orchestrazione può essere completata correttamente.
+Si immagini, ad esempio, di avere un flusso di lavoro che interessa una serie di [approvazioni umane](durable-functions-concepts.md#human). Si supponga che esista una serie di funzioni di attività che notificano a un utente che è necessaria l'approvazione e attendono la risposta in tempo reale. Una volta ricevute le risposte o si è verificato un timeout per tutte le attività di approvazione, si supponga che un'altra attività non riesca a causa di una configurazione errata dell'applicazione, ad esempio una stringa di connessione al database non Ne consegue un errore di orchestrazione nel flusso di lavoro. Con l' `RewindAsync` API (.NET) `rewindAsync` o (JavaScript), un amministratore dell'applicazione può correggere l'errore di configurazione e riavvolgere l'orchestrazione non riuscita allo stato immediatamente prima dell'errore. Nessuno dei passaggi di interazione umana deve essere riapprovato e l'orchestrazione può essere completata correttamente.
 
 > [!NOTE]
 > La funzionalità *Rewind* non supporta la rimozione di istanze di orchestrazione che usano timer durevoli.
@@ -592,6 +594,8 @@ Per rimuovere tutti i dati associati a un'orchestrazione, è possibile eliminare
 
  Il metodo presenta due overload. Il primo elimina la cronologia in base all'ID dell'istanza di orchestrazione:
 
+### <a name="c"></a>C#
+
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -603,6 +607,8 @@ public static Task Run(
 ```
 
 Nel secondo esempio viene illustrata una funzione attivata tramite timer che ripulisce la cronologia per tutte le istanze di orchestrazione completate dopo l'intervallo di tempo specificato. In questo caso, rimuove i dati per tutte le istanze completate 30 o più giorni fa. Viene pianificata per essere eseguita una volta al giorno, alle 12.00:
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]

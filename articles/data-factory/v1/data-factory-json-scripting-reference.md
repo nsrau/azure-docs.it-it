@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f94d3cdbbd1683b20dbe1d370bcac43817458f44
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139373"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735998"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Informazioni di riferimento sugli script JSON
 > [!NOTE]
@@ -1823,7 +1823,7 @@ Per definire un servizio collegato di MySQL, impostare il **tipo** di servizio c
 | server |Nome del server MySQL. |Sì |
 | database |Nome del database MySQL. |Sì |
 | schema |Nome dello schema nel database. |No |
-| authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |Yes |
+| authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |Sì |
 | userName |Specificare nome utente per la connessione al database MySQL. |Sì |
 | password |Specificare la password per l'account utente specificato. |Sì |
 | gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database MySQL locale. |Sì |
@@ -4826,7 +4826,7 @@ La tabella seguente elenca gli ambienti di calcolo supportati da Data Factory e 
 | [Azure Batch](#azure-batch) |[Attività personalizzata .NET](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Attività di esecuzione batch di Machine Learning](#machine-learning-batch-execution-activity), [Attività della risorsa di aggiornamento di Machine Learning](#machine-learning-update-resource-activity) |
 | [Azure Data Lake Analytics.](#azure-data-lake-analytics) |[Attività U-SQL di Data Lake Analytics](#data-lake-analytics-u-sql-activity) |
-| [Database SQL di Azure](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Stored procedure](#stored-procedure-activity) |
+| [Database SQL di Azure](#azure-sql-database), [Azure SQL Data Warehouse](#azure-sql-data-warehouse), [SQL Server](#sql-server-1) |[Stored procedure](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>Cluster HDInsight di Azure su richiesta
 Il servizio Data factory di Azure può creare automaticamente un cluster HDInsight su richiesta basato su Windows o Linux per elaborare i dati. La creazione del cluster avviene nella stessa area dell'account di archiviazione (proprietà linkedServiceName in JSON) associato al cluster. Su questo servizio collegato è possibile eseguire le attività di trasformazione seguenti: [attività personalizzata .NET](#net-custom-activity), [attività Hive](#hdinsight-hive-activity), [attività Pig](#hdinsight-pig-activity), [attività MapReduce](#hdinsight-mapreduce-activity), attività di Hadoop Streaming, [attività Spark](#hdinsight-spark-activity).
@@ -4995,58 +4995,6 @@ Nell'esempio seguente viene fornita la definizione JSON per un servizio collegat
     }
 }
 ```
-
-## <a name="azure-sql-database"></a>Database SQL di Azure
-Si crea un servizio collegato di Azure SQL e lo si utilizza con l’ [Attività di stored procedure](#stored-procedure-activity) per richiamare una procedura stored da una pipeline Data Factory.
-
-### <a name="linked-service"></a>Servizio collegato
-Per definire un servizio collegato di Database SQL di Azure, impostare il **tipo** di servizio collegato su **AzureSqlDatabase**e specificare le proprietà seguenti nella sezione **typeProperties**:
-
-| Proprietà | Descrizione | Obbligatorio |
-| --- | --- | --- |
-| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. |Sì |
-
-#### <a name="json-example"></a>Esempio di JSON
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) per informazioni dettagliate su questo servizio collegato.
-
-## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Si crea un servizio collegato di Azure SQL Data Warehouse e lo si usa con l' [attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una stored procedure da una pipeline Data Factory.
-
-### <a name="linked-service"></a>Servizio collegato
-Per definire un servizio collegato di Azure SQL Data Warehouse, impostare il **tipo** di servizio collegato su **AzureSqlDW**e specificare le proprietà seguenti nella sezione **typeProperties**:
-
-| Proprietà | Descrizione | Obbligatorio |
-| --- | --- | --- |
-| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. |Sì |
-
-#### <a name="json-example"></a>Esempio di JSON
-
-```json
-{
-    "name": "AzureSqlDWLinkedService",
-    "properties": {
-        "type": "AzureSqlDW",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-Per altre informazioni, vedere [Connettore Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
 
 ## <a name="sql-server"></a>SQL Server
 Si crea un servizio collegato di SQL Server e lo si usa con l' [attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una stored procedure da una pipeline Data Factory.

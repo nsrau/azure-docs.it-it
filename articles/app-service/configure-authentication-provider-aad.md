@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 8b4b6549f9553773cc44c311f49befbb3eec9dc9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8de464a00867dd397f28de1dc35cf264244f6905
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233090"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743263"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurare l'app del servizio app per l'uso dell'accesso di Azure Active Directory
 
@@ -81,6 +81,9 @@ Quando si crea manualmente una registrazione dell'app, prendere nota di tre info
     |ID autorità emittente| Usare `https://login.microsoftonline.com/<tenant-id>`e  *sostituire\<Tenant-ID >* con l' **ID di directory (tenant)** della registrazione dell'app. |
     |Segreto client (facoltativo)| Usare il segreto client generato nella registrazione dell'app.|
     |Destinatari token consentiti| Se si tratta di un'app *back-end* e si desidera consentire i token di autenticazione da un'app front-end, aggiungere qui l' **URI dell'ID applicazione** del *front* -end. |
+
+    > [!NOTE]
+    > L' **ID client** configurato viene *sempre* considerato in modo implicito come destinatari consentiti, indipendentemente dal modo in cui sono stati configurati i **destinatari dei token consentiti**.
 1. Selezionare **OK**, quindi fare clic su **Salva**.
 
 È ora possibile usare Azure Active Directory per l'autenticazione nell'applicazione dei servizi app.

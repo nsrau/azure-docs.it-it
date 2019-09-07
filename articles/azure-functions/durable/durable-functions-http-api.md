@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 11ae418ddbe007c6fd5aa44ef22ed7fddec9c702
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b34fd30b8e43e674b0b346672366d680d99ebd5c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087259"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734279"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP in Funzioni permanenti (Funzioni di Azure)
 
@@ -33,7 +33,11 @@ Ognuna di queste API HTTP è un'operazione webhook gestita direttamente dall'est
 
 La classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) espone un'API [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) che può essere usata per generare un payload di risposta HTTP contenente collegamenti a tutte le operazioni supportate. Di seguito è riportato un esempio di funzione trigger HTTP che illustra come usare questa API:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>C# precompilato
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
+
+### <a name="c-script"></a>Script C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
@@ -91,7 +95,7 @@ Questo protocollo consente di coordinare processi a esecuzione prolungata con cl
 
 Tutte le API HTTP implementate dall'estensione richiedono i parametri seguenti. Il tipo di dati di tutti i parametri è `string`.
 
-| Parametro        | Tipo parametro  | Descrizione |
+| Parametro        | Tipo parametro  | DESCRIZIONE |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Stringa di query    | Nome dell'[hub attività](durable-functions-task-hubs.md). Se non specificato, viene usato il nome dell'hub attività dell'app per le funzioni corrente. |
 | **`connection`** | Stringa di query    | **Nome** della stringa di connessione per l'account di archiviazione. Se non specificato, viene usata la stringa di connessione predefinita dell'app per le funzioni. |
@@ -133,7 +137,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo                   | Tipo di parametro  | Descrizione |
+| Campo                   | Tipo di parametro  | DESCRIZIONE |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | ID dell'istanza di orchestrazione. |
 | **`showInput`**         | Stringa di query    | Parametro facoltativo. Se impostato su `false`, l'input della funzione non verrà incluso nel payload della risposta.|
@@ -155,7 +159,7 @@ Possono essere restituiti diversi valori di codice di stato.
 
 Il payload di risposta per i casi **HTTP 200** e **HTTP 202** è un oggetto JSON con i campi seguenti:
 
-| Campo                 | Tipo di dati | DESCRIZIONE |
+| Campo                 | Tipo di dati | Descrizione |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | string    | Stato di runtime dell'istanza. I valori includono *In esecuzione*, *In sospeso*, *Non riuscito*, *Annullato*, *Terminato*, *Completato*. |
 | **`input`**           | JSON      | Dati JSON usati per inizializzare l'istanza. Questo campo è `null` quando il parametro della stringa di query `showInput` è impostato su `false`.|
@@ -416,7 +420,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo                 | Tipo di parametro  | Descrizione |
+| Campo                 | Tipo di parametro  | DESCRIZIONE |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | Stringa di query    | Filtra l'elenco delle istanze eliminate create in corrispondenza o dopo il timestamp ISO8601 specificato.|
 | **`createdTimeTo`**   | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze eliminate che sono state create in corrispondenza o prima del timestamp ISO8601 specificato.|
@@ -434,7 +438,7 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 Il payload di risposta per il case **HTTP 200** è un oggetto JSON con il campo seguente:
 
-| Campo                   | Tipo di dati | DESCRIZIONE |
+| Campo                   | Tipo di dati | Descrizione |
 |-------------------------|-----------|-------------|
 | **`instancesDeleted`**  | integer   | Numero di istanze eliminate. |
 
@@ -527,7 +531,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti.
 
-| Campo             | Tipo parametro  | Descrizione |
+| Campo             | Tipo parametro  | DESCRIZIONE |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 | **`reason`**      | Stringa di query    | facoltativo. Motivo dell'interruzione dell'istanza di orchestrazione. |
@@ -615,7 +619,7 @@ POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo             | Tipo di parametro  | DESCRIZIONE |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`entityType`**  | URL             | Tipo dell'entità. |
 | **`entityKey`**   | URL             | Nome univoco dell'entità. |

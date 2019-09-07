@@ -1,6 +1,6 @@
 ---
 title: Monitorare le prestazioni di un cluster - Azure HDInsight
-description: Come monitorare un cluster HDInsight in termini di capacità e prestazioni.
+description: Come monitorare l'integrità e le prestazioni dei cluster Apache Hadoop in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 591fd2e0f5c6d36ad6b84b1f3ec035488fa02614
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393422"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733255"
 ---
 # <a name="monitor-cluster-performance"></a>Monitorare le prestazioni di un cluster
 
@@ -30,7 +30,7 @@ Per una panoramica sui nodi del cluster e sul rispettivo caricamento, accedere a
 | Colore | Descrizione |
 | --- | --- |
 | Rosso | Almeno un componente master dell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
-| Arancione | Almeno un componente secondario dell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
+| Arancione | Almeno un componente secondario nell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
 | Giallo | Il server Ambari non riceve un heartbeat dall'host da più di 3 minuti. |
 | Verde | Stato di esecuzione normale. |
 

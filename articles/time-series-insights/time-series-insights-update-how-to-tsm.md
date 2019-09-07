@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05faf77d22f77da87e7c22d47473e6debf0f77c8
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 245a69f5e5834e68bbbd17a96859a93bc16eacbe
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461042"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744169"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modellazione dei dati in Anteprima di Azure Time Series Insights
 
@@ -29,9 +29,9 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 
 1. Passare al pannello di selezione dei modelli di serie temporali e scegliere **Tipi** dal menu. Comprimere il pannello per esaminare i tipi di modelli di serie temporali.
 
-    [![Creare un singolo tipo](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
+    [![Creazione di un singolo tipo](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
-1. Selezionare **Aggiungi**.
+1. Selezionare **+ Aggiungi**.
 1. Immettere tutti i dettagli relativi ai tipi e selezionare **Crea**. Questa azione crea i tipi nell'ambiente.
 
     [![Aggiungere un tipo](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
@@ -64,19 +64,19 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 
 1. Passare al pannello di selezione dei modelli di serie temporali e scegliere **Gerarchie** dal menu. Comprimere il pannello per esaminare i tipi di gerarchie di serie temporali.
 
-    [![Selezionare le gerarchie](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
+    [![Selezione gerarchie](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
-1. Selezionare **Aggiungi**.
+1. Selezionare **+ Aggiungi**.
 
     [![Aggiungere una gerarchia](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
-1. Selezionare **Aggiungi livello** nel riquadro a destra.
+1. Selezionare **+ Aggiungi livello** nel riquadro di destra.
 
-    [![Aggiungere un livello](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
+    [![Aggiungi un livello](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. Immettere i dettagli della gerarchia e selezionare **Crea**.
 
-    [![Creare un livello](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
+    [![Creazione di un livello](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Caricamento in blocco di una o più gerarchie
 
@@ -84,7 +84,7 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 1. Selezionare il file che contiene il payload della gerarchia.
 1. Selezionare **Carica**.
 
-    [![Gerarchie di caricamento BULK](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
+    [![Gerarchie di caricamento bulk](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Modificare una singola gerarchia
 
@@ -119,7 +119,7 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 1. Selezionare **Carica JSON**.
 1. Selezionare il file che contiene il payload delle istanze.
 
-    [![Una o più istanze il caricamento in blocco](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
+    [![Caricamento bulk di una o più istanze](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. Selezionare **Carica**.
 
