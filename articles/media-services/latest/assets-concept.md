@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2f2dea922b7a3ba45ad6493ce94f0c52649dfa68
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 3dc1866a3c0339bca0c27fb53894a14581e88490
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70230987"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390487"
 ---
 # <a name="assets"></a>Asset
 
@@ -48,7 +48,7 @@ Dopo che i file digitali sono stati caricati nell'archiviazione e associati a un
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
 2. Ottenere un URL di firma di accesso condiviso con autorizzazioni di lettura/scrittura che verranno usate per caricare i file digitali nel contenitore di asset. È possibile usare l'API Servizi multimediali per [elencare gli URL dei contenitori di asset](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Usare le API o gli SDK di Archiviazione di Azure (ad esempio, l'[API REST di Archiviazione](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) per caricare i file nel contenitore di asset. 
+3. Usare le API di archiviazione di Azure o gli SDK (ad esempio, l' [API REST di archiviazione](../../storage/common/storage-rest-api-auth.md) o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) per caricare i file nel contenitore di asset. 
 4. Usare le API di Servizi multimediali v3 per creare una trasformazione e un processo per elaborare l'asset "input". Per altre informazioni, vedere [Trasformazioni e processi](transform-concept.md).
 5. Trasmettere il contenuto dall'asset "output".
 
@@ -102,7 +102,7 @@ La tabella seguente illustra in che modo le proprietà dell' [Asset](https://doc
 |alternateId|AlternateId|
 |assetId|Il valore ID-(Unique) inizia con `nb:cid:UUID:` il prefisso.|
 |creato|Data creazione|
-|description|Name|
+|description|NOME|
 |LastModified|LastModified|
 |storageAccountName|StorageAccountName|
 |storageEncryptionFormat| Opzioni (opzioni di creazione)|

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 675d3e2f0dc27e70af497284ce273e87d005a2e1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2a18362546ae3c31b06fc5294495d8f5ac5f0be3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241079"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389931"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Anteprima: creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -47,14 +47,13 @@ az extension update --name aks-preview
 
 ### <a name="register-multiple-node-pool-feature-provider"></a>Registrare il provider di funzionalità del pool di più nodi
 
-Per creare un cluster AKS che può usare più pool di nodi, abilitare prima due flag funzionalità per la sottoscrizione. I cluster di pool multinodo usano un set di scalabilità di macchine virtuali (VMSS) per gestire la distribuzione e la configurazione dei nodi Kubernetes. Registrare i flag della funzionalità *MultiAgentpoolPreview* e *VMSSPreview* usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
+Per creare un cluster AKS in grado di usare più pool di nodi, abilitare prima di tutto un flag funzionalità per la sottoscrizione. Registrare il flag della funzionalità *MultiAgentpoolPreview* usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
 > [!CAUTION]
 > Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione di tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, è possibile usare i valori predefiniti per tutti i cluster AKS, quindi creati nella sottoscrizione. Non abilitare le funzionalità di anteprima nelle sottoscrizioni di produzione. Usare una sottoscrizione separata per testare le funzionalità di anteprima e raccogliere commenti e suggerimenti.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 > [!NOTE]
@@ -64,7 +63,6 @@ Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibil
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
@@ -77,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, si applicano le limitazioni seguenti:
 
-* Più pool di nodi sono disponibili solo per i cluster creati dopo aver registrato correttamente le funzionalità *MultiAgentpoolPreview* e *VMSSPreview* per la sottoscrizione. Non è possibile aggiungere o gestire pool di nodi con un cluster AKS esistente creato prima che queste funzionalità siano state registrate correttamente.
+* Più pool di nodi sono disponibili solo per i cluster creati dopo aver registrato correttamente la funzionalità *MultiAgentpoolPreview* per la sottoscrizione. Non è possibile aggiungere o gestire pool di nodi con un cluster AKS esistente creato prima che questa funzionalità sia stata registrata correttamente.
 * Non è possibile eliminare il primo pool di nodi.
 * Non è possibile usare il componente aggiuntivo routing applicazione HTTP.
 * Non è possibile aggiungere, aggiornare o eliminare pool di nodi usando un modello di Gestione risorse esistente come per la maggior parte delle operazioni. Usare invece [un modello di gestione risorse separato](#manage-node-pools-using-a-resource-manager-template) per apportare modifiche ai pool di nodi in un cluster AKS.
@@ -86,7 +84,7 @@ Quando questa funzionalità è in anteprima, si applicano le seguenti limitazion
 
 * Il cluster AKS può avere un massimo di otto pool di nodi.
 * Il cluster AKS può avere un massimo di 400 nodi tra questi otto pool di nodi.
-* Tutti i pool di nodi devono trovarsi nella stessa subnet
+* Tutti i pool di nodi devono trovarsi nella stessa subnet.
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 

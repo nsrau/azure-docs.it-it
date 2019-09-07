@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 93b3c7671a5beb4b3a451fe0efd13b9f48e00436
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6e0c1419e5656f184d27dce8d185a86bea71d173
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941811"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389959"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurare una raccolta immagini condivisa in Azure DevTest Labs
 DevTest Labs supporta ora la funzionalità [raccolta immagini condivise](../virtual-machines/windows/shared-image-galleries.md) . Consente agli utenti dei lab di accedere a immagini da una posizione condivisa durante la creazione di risorse del lab. Permette anche di creare la struttura e l'organizzazione per le immagini di macchine virtuali gestite e personalizzate. La funzionalità raccolta immagini condivise supporta:
@@ -32,6 +32,9 @@ DevTest Labs supporta ora la funzionalità [raccolta immagini condivise](../virt
 Per ulteriori informazioni, vedere la [documentazione relativa alla raccolta di immagini condivise](../virtual-machines/windows/shared-image-galleries.md). 
  
 Se si dispone di un numero elevato di immagini gestite da mantenere e si desidera renderle disponibili in tutta l'azienda, è possibile usare una raccolta di immagini condivise come repository che semplifica l'aggiornamento e la condivisione delle immagini. In quanto proprietario di lab, puoi associare una raccolta immagini condivisa esistente al tuo lab. Dopo l'associazione della raccolta, gli utenti del lab possono creare computer usando le immagini più recenti. Un vantaggio essenziale di questa funzionalità consiste nel fatto che DevTest Labs può ora approfittare della condivisione di immagini tra lab, sottoscrizioni e aree geografiche. 
+
+> [!NOTE]
+> Per informazioni sui costi associati al servizio raccolta immagini condivise, vedere [fatturazione per la raccolta di immagini condivise](../virtual-machines/windows/shared-image-galleries.md#billing).
 
 ## <a name="considerations"></a>Considerazioni
 - È possibile alleghi solo una raccolta di immagini condivise a un Lab alla volta. Se si vuole allontanare un'altra raccolta, sarà necessario scollegare quella esistente e alleghirne un'altra. 
@@ -53,7 +56,7 @@ Se si dispone di un numero elevato di immagini gestite da mantenere e si desider
     ![Collega](./media/configure-shared-image-gallery/attach-options.png)
 1. Passare alla raccolta collegata e configurare la raccolta per **abilitare o disabilitare** le immagini condivise per la creazione di macchine virtuali. Selezionare una raccolta di immagini dall'elenco per configurarla. 
 
-    Per impostazione predefinita, **Consenti l'uso di tutte le immagini come basi della macchina virtuale** è impostato su **Sì**. Ciò significa che tutte le immagini disponibili nella raccolta di immagini condivise collegate saranno disponibili per un utente del Lab quando si crea una nuova macchina virtuale Lab. Se è necessario limitare l'accesso a determinate immagini, modificare **Consenti l'uso di tutte le immagini come basi della macchina virtuale** e selezionare le immagini che si desidera consentire durante la creazione di macchine virtuali, quindi selezionare il pulsante **Salva** .
+    Per impostazione predefinita, **Consenti l'uso di tutte le immagini come basi della macchina virtuale** è impostato su **Sì**. Ciò significa che tutte le immagini disponibili nella raccolta di immagini condivise collegate saranno disponibili per un utente del Lab quando si crea una nuova macchina virtuale Lab. Se è necessario limitare l'accesso a determinate immagini, modificare **Consenti l'uso di tutte le immagini come basi della macchina virtuale** e selezionare le immagini che si desidera consentire durante la **creazione di macchine**virtuali, quindi selezionare il pulsante **Salva** .
 
     ![Abilita o Disabilita](./media/configure-shared-image-gallery/enable-disable.png)
 1. Gli utenti del Lab possono quindi creare una macchina virtuale usando le immagini abilitate facendo clic su **+ Aggiungi** e individuando l'immagine nella pagina **Scegli la base** .

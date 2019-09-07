@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 192c5c7a2d4c671aec0dcf72bef78abd1845b1ea
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: HT
+ms.openlocfilehash: 1bee26dc57fd844703e2c9c97b38b9a433227fbf
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946086"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387947"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilare un'app LUIS a livello di codice con Node.js
 
@@ -26,11 +26,11 @@ LUIS fornisce un'API a livello di codice che esegue le stesse operazioni del sit
 
 * Accedere al sito Web [LUIS](luis-reference-regions.md) e individuare la [chiave di creazione](luis-concept-keys.md#authoring-key) in Impostazioni account. Questa chiave viene usata per chiamare l'API di creazione.
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-* Questa esercitazione inizia con un CSV per un file di log di richieste degli utenti di un'ipotetica azienda. Scaricarla [qui](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* Questo articolo inizia con un volume CSV per i file di log di una società ipotetica di richieste utente. Il download è disponibile [qui](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installare la versione più recente di Node.js con NPM. Scaricarla [qui](https://nodejs.org/en/download/).
 * **[Consigliato]** Visual Studio Code per IntelliSense e debug. Scaricarlo [qui](https://code.visualstudio.com/) gratuitamente.
 
-Tutto il codice di questa esercitazione è disponibile nel [repository GitHub Azure-Samples Language Understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv). 
+Tutto il codice in questo articolo è disponibile in [Azure-samples Language Understanding repository GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv). 
 
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>Eseguire il mapping dei dati preesistenti a finalità ed entità
 Anche se si dispone di un sistema che non è stato creato considerando LUIS, se contiene dati testuali mappati a cose diverse che gli utenti intendono realizzare, è possibile che si riesca a eseguire il mapping delle categorie di input utente esistenti alle finalità in LUIS. Se è possibile identificare parole o frasi importanti in ciò che gli utenti hanno detto, è possibile eseguire il mapping di queste parole a delle entità.

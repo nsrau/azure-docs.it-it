@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0b15c9730f7e469fde8fabd1bc4cbcd28efa66c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5949f57a87f324dc2e6651611574f4b66215c8a8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953004"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389769"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -38,7 +38,7 @@ Durante la fase di controllo, molte organizzazioni scoprono che:
 * [La promozione della replica del controller di dominio non riesce a causa di una password della modalità ripristino servizi directory debole](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [L'abbassamento di livello del controller di dominio non riesce a causa di una password amministratore locale](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
-Dopo che la funzionalità è stata eseguita in modalità di controllo per un periodo di tempo ragionevole, è possibile cambiare la configurazione da *controllo* a Imponi per richiedere password più sicure. Il monitoraggio con lo stato attivo in questa fase è una scelta valida.
+Dopo che la funzionalità è stata eseguita in modalità di controllo per un periodo di tempo ragionevole, è possibile cambiare la configurazione da *controllo* a *Imponi* per richiedere password più sicure. Il monitoraggio con lo stato attivo in questa fase è una scelta valida.
 
 ## <a name="deployment-requirements"></a>Requisiti di distribuzione
 
@@ -103,7 +103,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
    * Per verificare che il servizio sia in esecuzione, usare il comando di PowerShell seguente:
 
-      [https://login.microsoftonline.com/common/](`Get-Service AzureADPasswordProtectionProxy | fl`).
+      [https://login.microsoftonline.com/consumers/](`Get-Service AzureADPasswordProtectionProxy | fl`).
 
      Il risultato dovrebbe mostrare **lo stato** "Running".
 
@@ -142,7 +142,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
         ```
 
         > [!NOTE]
-        > Questa modalità ha esito negativo se per l'account è richiesta l'autenticazione a più fattori di Azure. In tal caso, usare una delle due modalità di autenticazione precedenti o usare invece un account diverso che non richiede l'autenticazione a più fattori.
+        > Questa modalità ha esito negativo se per l'account è necessario Azure Multi-Factor Authentication. In tal caso, usare una delle due modalità di autenticazione precedenti o usare invece un account diverso che non richiede l'autenticazione a più fattori.
         >
         > È anche possibile vedere l'autenticazione a più fattori necessaria se la registrazione del dispositivo di Azure, che viene usata dietro le quinte da Azure AD la protezione delle password, è stata configurata in modo da richiedere a livello globale Per risolvere questo problema, è possibile usare un account diverso che supporta l'autenticazione a più fattori con una delle due modalità di autenticazione precedenti oppure è possibile anche disattivare temporaneamente il requisito di autenticazione a più fattori per la registrazione dei dispositivi di Azure. A tale scopo, passare al portale di gestione di Azure, passare a Azure Active Directory, quindi dispositivi, impostazioni dispositivo, quindi impostare "Richiedi autenticazione a più fattori per aggiungere dispositivi" a No. Assicurarsi di riconfigurare nuovamente questa impostazione su Sì al termine della registrazione.
         >
@@ -186,7 +186,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
         ```
 
         > [!NOTE]
-        > Questa modalità ha esito negativo se per l'account è richiesta l'autenticazione a più fattori di Azure. In tal caso, usare una delle due modalità di autenticazione precedenti o usare invece un account diverso che non richiede l'autenticazione a più fattori.
+        > Questa modalità ha esito negativo se per l'account è necessario Azure Multi-Factor Authentication. In tal caso, usare una delle due modalità di autenticazione precedenti o usare invece un account diverso che non richiede l'autenticazione a più fattori.
         >
         > È anche possibile vedere l'autenticazione a più fattori necessaria se la registrazione del dispositivo di Azure, che viene usata dietro le quinte da Azure AD la protezione delle password, è stata configurata in modo da richiedere a livello globale Per risolvere questo problema, è possibile usare un account diverso che supporta l'autenticazione a più fattori con una delle due modalità di autenticazione precedenti oppure è possibile anche disattivare temporaneamente il requisito di autenticazione a più fattori per la registrazione dei dispositivi di Azure. A tale scopo, passare al portale di gestione di Azure, passare a Azure Active Directory, quindi dispositivi, impostazioni dispositivo, quindi impostare "Richiedi autenticazione a più fattori per aggiungere dispositivi" a No. Assicurarsi di riconfigurare nuovamente questa impostazione su Sì al termine della registrazione.
         >
@@ -295,7 +295,7 @@ Quando è disponibile una versione più recente del software proxy Azure ad Pass
 
 Non è necessario disinstallare la versione corrente del software proxy. il programma di installazione eseguirà un aggiornamento sul posto. Quando si aggiorna il software proxy, non è necessario riavviare il computer. È possibile automatizzare l'aggiornamento del software utilizzando le procedure MSI standard, `AzureADPasswordProtectionProxySetup.exe /quiet`ad esempio:.
 
-L'agente proxy supporta l'aggiornamento automatico. L'aggiornamento automatico usa il servizio Microsoft Azure AD Connect Agent Updater, installato side-by-side con il servizio proxy. L'aggiornamento automatico è attivato per impostazione predefinita e può essere abilitato o disabilitato usando il cmdlet Set-AzureADPasswordProtectionProxyConfiguration. È possibile eseguire query sull'impostazione corrente usando il cmdlet Get-AzureADPasswordProtectionProxyConfiguration. Microsoft consiglia di lasciare abilitata l'aggiornamento automatico.
+L'agente proxy supporta l'aggiornamento automatico. L'aggiornamento automatico usa il servizio Microsoft Azure AD Connect Agent Updater, installato side-by-side con il servizio proxy. L'aggiornamento automatico è attivato per impostazione predefinita e può essere abilitato o disabilitato `Set-AzureADPasswordProtectionProxyConfiguration` usando il cmdlet. È possibile eseguire query sull'impostazione corrente usando il `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet. Microsoft consiglia di lasciare abilitata l'aggiornamento automatico.
 
 Il `Get-AzureADPasswordProtectionProxy` cmdlet può essere utilizzato per eseguire una query sulla versione software di tutti gli agenti proxy attualmente installati in una foresta.
 

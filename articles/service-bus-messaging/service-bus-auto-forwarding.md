@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d7b76a58a427b687d0dc36d13cfc00f32196853
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686146"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390142"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Concatenamento di entità del bus di servizio con l'inoltro automatico
 
@@ -27,7 +27,7 @@ La funzionalità di *inoltro automatico* del bus di servizio consente di concate
 
 ## <a name="using-autoforwarding"></a>Uso dell'inoltro automatico
 
-Per abilitare l'inoltro automatico, è possibile impostare la proprietà [QueueDescription.ForwardTo][QueueDescription.ForwardTo] o [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] nell'oggetto [QueueDescription][QueueDescription] o [SubscriptionDescription][SubscriptionDescription] per l'origine, come illustrato nell'esempio seguente:
+È possibile abilitare l'autoinoltring impostando le proprietà [QueueDescription. ForwardTo][QueueDescription.ForwardTo] o [SubscriptionDescription. ForwardTo][SubscriptionDescription.ForwardTo] sugli oggetti [QueueDescription][QueueDescription] o [SubscriptionDescription][SubscriptionDescription] per l'origine, come nel esempio seguente:
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -48,8 +48,10 @@ L'entità di destinazione deve essere presente al momento della creazione dell'e
 Se uno dei rappresentanti si assenta, viene riempita la coda personale, ma non l'argomento ERP. In questo scenario, poiché un rappresentante di vendita non ha ricevuto alcun messaggio, nessuno degli argomenti ERP raggiunge la quota.
 
 > [!NOTE]
-> All'impostazione di inoltro automatico, il valore per AutoDeleteOnIdle nella destinazione viene impostato automaticamente sul valore massimo del tipo di dati.
-> Questa operazione viene eseguita per verificare che sia sempre presente una destinazione per inoltrare il messaggio.
+> Quando si configura l'autoinoltring, il valore di AutoDeleteOnIdle **sia per l'origine che per la destinazione** viene impostato automaticamente sul valore massimo del tipo di dati.
+> 
+>   - Sul lato di origine, l'autoinoltring funge da operazione di ricezione. Pertanto, l'origine che ha l'installazione dell'autoinoltring non è mai effettivamente "inattiva".
+>   - Sul lato destinazione, questa operazione viene eseguita per garantire che sia sempre disponibile una destinazione a cui inviare il messaggio.
 
 ## <a name="autoforwarding-considerations"></a>Considerazioni sull'inoltro automatico
 

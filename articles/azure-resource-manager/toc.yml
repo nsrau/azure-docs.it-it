@@ -4,6 +4,8 @@
   items:
     - name: Informazioni su Resource Manager
       href: resource-group-overview.md
+    - name: Panoramica dei modelli
+      href: template-deployment-overview.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -58,8 +60,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager'
 - name: Concetti
   items:
-    - name: Distribuzioni di modelli
-      href: template-deployment-overview.md
     - name: Procedure consigliate per i modelli
       href: template-best-practices.md
     - name: Modelli per la coerenza del cloud

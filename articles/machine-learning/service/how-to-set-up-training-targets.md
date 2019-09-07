@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 27361017241ba6529b93c24ce7fb95b2c1b22a62
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231092"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389905"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 
@@ -403,11 +403,20 @@ Eseguire lo stesso esperimento in una destinazione di calcolo diversa tramite un
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> Questo esempio usa per impostazione predefinita solo un nodo della destinazione di calcolo per il training. Per usare più di un nodo, impostare la `node_count` della configurazione di esecuzione sul numero desiderato di nodi. Il codice seguente, ad esempio, imposta il numero di nodi utilizzati per il training su quattro:
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 In alternativa, è possibile:
 
 * Inviare l'esperimento con un oggetto `Estimator` come illustrato in [Eseguire il training di modelli di Machine Learning con oggetti Estimator](how-to-train-ml-models.md).
 * Inviare un'esecuzione iperguida per l' [ottimizzazione iperparametri](how-to-tune-hyperparameters.md).
 * Inviare un esperimento tramite l' [estensione vs code](how-to-vscode-tools.md#train-and-tune-models).
+
+Per ulteriori informazioni, vedere la documentazione di [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) e [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) .
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Creare una configurazione di esecuzione e inviare l'esecuzione usando Azure Machine Learning interfaccia della riga di comando
 
@@ -501,7 +510,7 @@ Consultare questi notebook per esempi di training con varie destinazioni di calc
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Esercitazione: Eseguire il training di un modello](tutorial-train-models-with-aml.md) usa una destinazione di calcolo gestita per il training del modello.
-* Informazioni su come [ottimizzare in modo efficiente](how-to-tune-hyperparameters.md) gli iperparametri per creare modelli migliori.
+* Informazioni su come [ottimizzare in modo efficiente gli iperparametri](how-to-tune-hyperparameters.md) per creare modelli migliori.
 * Dopo aver creato un modello con training, consultare le informazioni su [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 * Consultare le informazioni sull'SDK di [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
 * [Usare il servizio Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)

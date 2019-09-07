@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: a173272600bab71264ed3b85ce5141814c0a6aed
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: ee798ba624aaf9f21886edab36185fb1b6ae67f2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147213"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387326"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima: creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
 
@@ -79,7 +79,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, si applicano le limitazioni seguenti:
 
-* Sono disponibili più pool di nodi per i cluster creati dopo aver registrato correttamente il *WindowsPreview*. Se si registrano le funzionalità *MultiAgentpoolPreview* e *VMSSPreview* per la sottoscrizione, sono disponibili anche più pool di nodi. Non è possibile aggiungere o gestire pool di nodi con un cluster AKS esistente creato prima che queste funzionalità siano state registrate correttamente.
+* Sono disponibili più pool di nodi per i cluster creati dopo aver registrato correttamente il *WindowsPreview*. Se si registra la funzionalità *MultiAgentpoolPreview* per la sottoscrizione, sono disponibili anche più pool di nodi. Non è possibile aggiungere o gestire pool di nodi con un cluster AKS esistente creato prima che questa funzionalità sia stata registrata correttamente.
 * Non è possibile eliminare il primo pool di nodi.
 
 Quando questa funzionalità è in anteprima, si applicano le seguenti limitazioni aggiuntive:
@@ -199,7 +199,7 @@ aksnpwin987654                      Ready    agent   108s   v1.14.6
 
 Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, ad esempio le immagini del contenitore da eseguire. In questo articolo viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione di esempio ASP.NET in un contenitore di Windows Server. Questo manifesto include una [distribuzione Kubernetes][kubernetes-deployment] per l'applicazione di esempio ASP.NET e un [servizio Kubernetes][kubernetes-service] esterno per accedere all'applicazione da Internet.
 
-L'applicazione di esempio ASP.NET viene fornita come parte dell' [.NET Framework esempi][dotnet-samples] ed è in esecuzione in un contenitore di Windows Server. AKS richiede che i contenitori di Windows Server siano basati su immagini di *Windows server 2019* o versione successiva. Il file manifesto Kubernetes deve anche definire un selettore di [nodo][node-selector] per indicare al cluster AKS di eseguire il Pod dell'applicazione di esempio ASP.NET in un nodo che può eseguire i contenitori di Windows Server.
+L'applicazione di esempio ASP.NET viene fornita come parte dell' [.NET Framework esempi][dotnet-samples] ed è in esecuzione in un contenitore di Windows Server. AKS richiede che i contenitori di Windows Server siano basati su immagini di *Windows server 2019* o versione successiva. Il file manifesto Kubernetes deve anche definire un [selettore di nodo][node-selector] per indicare al cluster AKS di eseguire il Pod dell'applicazione di esempio ASP.NET in un nodo che può eseguire i contenitori di Windows Server.
 
 Creare un file denominato `sample.yaml` e copiarlo nella definizione YAML seguente. Se si usa Azure Cloud Shell, questo file può essere creato usando `vi` o `nano` come se si usasse un sistema virtuale o fisico:
 

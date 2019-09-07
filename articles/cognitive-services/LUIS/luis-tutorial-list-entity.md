@@ -7,20 +7,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 979cbe16653c09ea1b019310d820b070be4a5a91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: HT
+ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946057"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390279"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usare un'entità elenco per migliorare il rilevamento di entità 
-Questa esercitazione illustra l'uso di una [entità elenco](luis-concept-entity-types.md) per migliorare il rilevamento di entità. Non è necessario etichettare le entità elenco, in quanto rappresentano una corrispondenza esatta di termini.  
+Questo articolo illustra l'uso di un' [entità elenco](luis-concept-entity-types.md) per aumentare il rilevamento delle entità. Non è necessario etichettare le entità elenco, in quanto rappresentano una corrispondenza esatta di termini.  
 
-In questa esercitazione si apprenderà come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Creare un'entità elenco 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 > [!Tip]
 > Se non si ha già una sottoscrizione, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-Tutto il codice di questa esercitazione è disponibile nel [repository GitHub Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
+Tutto il codice in questo articolo è disponibile nel [repository GitHub Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Usare l'app HomeAutomation
 L'app HomeAutomation consente di controllare i dispositivi, ad esempio luci, sistemi di intrattenimento e controlli dell'ambiente, come riscaldamento e aria condizionata. Questi sistemi hanno numerosi nomi diversi che possono includere nomi di produttori, nomi alternativi, acronimi e parole gergali. 
@@ -59,7 +59,7 @@ L'entità HomeAutomation.Device è ideale per un numero ridotto di dispositivi o
 
 Un'**entità elenco** è una buona scelta per questo scenario, perché il set di termini per un dispositivo in un palazzo o in un campus è un set noto, anche se ha dimensioni molto grandi. Usando un'entità elenco, LUIS può ricevere tutti i valori possibili del set per il termostato e risolverli nel singolo dispositivo termostato. 
 
-In questa esercitazione verrà creato un elenco di entità con il termostato. I nomi alternativi per il termostato (thermostat) in questa esercitazione sono: 
+In questo articolo verrà creato un elenco di entità con il termostato. I nomi alternativi per un termostato in questo articolo sono i seguenti: 
 
 |Nomi alternativi per thermostat|
 |--|
@@ -212,7 +212,7 @@ Il dispositivo specifico **Thermostat** viene identificato con una query orienta
 
 Provare le altre due espressioni per vedere che anche per esse viene restituito il valore thermostat. 
 
-|#|Espressione|Entità|Tipo|value|
+|#|Espressione|entità|type|value|
 |--|--|--|--|--|
 |1|turn on the ac| ac | DevicesList | Thermostat|
 |2|turn up the heat|heat| DevicesList |Thermostat|

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/02/2018
-ms.openlocfilehash: e79c83ecb17c4dcd11f7ccbecded59e7d1d13dfd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2a879ed677b981adcd50aea0468e0c5976c2a8a
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525795"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390552"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Eseguire la migrazione del database MySQL nel database di Azure mediante dump e ripristino
 Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MySQL
@@ -49,6 +49,7 @@ Per ottimizzare le prestazioni, tenere presenti le considerazioni seguenti duran
 -   Usare le tabelle partizionate quando appropriato.
 -   Caricare i dati in parallelo. Evitare un eccessivo parallelismo che comporterebbe il raggiungimento del limite di risorse e monitorare le risorse con le metriche offerta nel portale di Azure. 
 -   Usare l'opzione `defer-table-indexes` in mysqlpump durante il dump dei database, in modo che la creazione dell'indice venga eseguita dopo il caricamento dei dati delle tabelle.
+-   Utilizzare l' `skip-definer` opzione in mysqlpump per omettere le clausole definitive e di sicurezza SQL dalle istruzioni create per le viste e le stored procedure.  Quando si ricarica il file di dump, vengono creati oggetti che utilizzano i valori predefiniti di sicurezza di SQL e del delimitatore.
 -   Copiare i file di backup in un archivio/BLOB di Azure ed eseguire il ripristino da tale posizione. In questo modo, l'operazione dovrebbe essere eseguita in modo molto più veloce rispetto al ripristino attraverso Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Creare un file di backup dalla riga di comando tramite mysqldump
@@ -76,10 +77,6 @@ $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 Per eseguire il backup di più database contemporaneamente, usare lo switch -database ed elencare i nomi dei database separati da spazi. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
-```
-Per eseguire il backup di tutti i database del server contemporaneamente è necessario usare l'opzione --all-databases (tutti i database).
-```bash
-$ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Creare un database sul database di Azure per il server MySQL di destinazione

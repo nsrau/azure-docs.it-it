@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703886"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389810"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Caricare file in un account di Servizi multimediali mediante REST
 
 In Servizi multimediali è possibile caricare i file digitali in un contenitore BLOB associato a un asset. L'entità [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file. Dopo il caricamento dei file nel contenitore dell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 
-Questo articolo illustra come caricare un file locale tramite REST.
+Questo articolo illustra come caricare un file locale con REST.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,13 +53,13 @@ Questa sezione illustra come ottenere un URL di firma di accesso condiviso gener
 1. Selezionare **Assets (Asset)**  -> **List the Asset URLs (Elenca gli URL degli asset)** .
 2. Fare clic su **Invia**.
 
-    ![Caricare un file](./media/upload-files/postman-create-sas-locator.png)
+    ![Carica un file](./media/upload-files/postman-create-sas-locator.png)
 
 Viene visualizzata la **risposta** con le informazioni sugli URL dell'asset. Copiare il primo URL e usarlo per caricare il file.
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Caricare un file nell'archiviazione BLOB usando l'URL di caricamento
 
-Usare le API o gli SDK di Archiviazione di Azure (ad esempio, l'[API REST di Archiviazione](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+Usare le API o gli SDK di archiviazione di Azure, ad esempio l' [API REST di archiviazione](../../storage/common/storage-rest-api-auth.md) o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

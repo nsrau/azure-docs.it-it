@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 690d22eadf37a24b4679ce10838074533ac65fcb
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033146"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390077"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Anteprima: creare un cluster Azure Kubernetes Service (AKS) che usa zone di disponibilità
 
@@ -34,7 +34,7 @@ Questo articolo illustra come creare un cluster AKS e distribuire i componenti d
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-Per creare cluster AKS che usano le zone di disponibilità, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* versione 0.4.1 o successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] ::
+Per creare cluster AKS che usano le zone di disponibilità, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* versione 0.4.1 o successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la disponibilità di eventuali aggiornamenti tramite il comando [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -44,25 +44,21 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-feature-flags-for-your-subscription"></a>Registrare i flag delle funzionalità per la sottoscrizione
+### <a name="register-the-availabilityzonepreview-feature-flag-for-your-subscription"></a>Registrare il flag della funzionalità AvailabilityZonePreview per la sottoscrizione
 
-Per creare un cluster AKS con le zone di disponibilità, abilitare prima alcuni flag funzionalità per la sottoscrizione. I cluster usano un set di scalabilità di macchine virtuali per gestire la distribuzione e la configurazione dei nodi Kubernetes. Lo SKU *standard* del servizio di bilanciamento del carico di Azure è necessario anche per fornire resilienza ai componenti di rete per instradare il traffico al cluster. Registrare i flag delle funzionalità *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*e *VMSSPreview* usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
+Per creare un cluster AKS con le zone di disponibilità, abilitare prima il flag della funzionalità *AvailabilityZonePreview* per la sottoscrizione. Registrare il flag della funzionalità *AvailabilityZonePreview* usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
 > [!CAUTION]
 > Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione di tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, è possibile usare i valori predefiniti per tutti i cluster AKS, quindi creati nella sottoscrizione. Non abilitare le funzionalità di anteprima nelle sottoscrizioni di produzione. Usare una sottoscrizione separata per testare le funzionalità di anteprima e raccogliere commenti e suggerimenti.
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato della registrazione usando il comando [AZ feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
@@ -90,7 +86,7 @@ Quando si crea un cluster AKS usando le zone di disponibilità, si applicano le 
 * I cluster con le zone di disponibilità abilitate richiedono l'uso dei bilanciamento del carico standard di Azure per la distribuzione tra le zone.
 * Per distribuire i servizio di bilanciamento del carico standard, è necessario usare Kubernetes versione 1.13.5 o successiva.
 
-I cluster AKS che usano le zone di disponibilità devono usare lo SKU *standard* di Azure Load Balancer. Lo SKU *Basic* predefinito del servizio di bilanciamento del carico di Azure non supporta la distribuzione tra le zone di disponibilità. Per altre informazioni e per le limitazioni del servizio di bilanciamento del carico standard, vedere [limitazioni dell'anteprima dello SKU standard di Azure Load Balancer][standard-lb-limitations].
+I cluster AKS che usano le zone di disponibilità devono usare lo SKU *standard* di Azure Load Balancer. Lo SKU *Basic* predefinito del servizio di bilanciamento del carico di Azure non supporta la distribuzione tra le zone di disponibilità. Per altre informazioni e per le limitazioni del servizio di bilanciamento del carico standard, vedere [limitazioni dello SKU standard di Azure Load Balancer][standard-lb-limitations].
 
 ### <a name="azure-disks-limitations"></a>Limitazioni per i dischi di Azure
 

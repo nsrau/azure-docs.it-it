@@ -10,17 +10,17 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 8712af60df2454b29c0691602260c8b826eae75c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 98e6b515d5e9d60f95873016ad1cb06a13799bb2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164971"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390114"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
 > [!IMPORTANT]
-> Il server applicazioni SAP e i connettori del server di messaggistica SAP precedenti sono pianificati per la deprecazione. Il connettore SAP corrente consolida questi connettori SAP precedenti, in modo che non sia necessario modificare il tipo di connessione, sia completamente compatibile con i connettori precedenti, fornisca molte funzionalità aggiuntive e continui a usare la libreria del connettore SAP .NET ( NCo SAP).
+> Il server applicazioni SAP e i connettori server dei messaggi SAP precedenti sono stati pianificati per la deprecazione il 30 novembre 2019. Il connettore SAP corrente consolida questi connettori SAP precedenti, in modo che non sia necessario modificare il tipo di connessione, sia completamente compatibile con i connettori precedenti, fornisca molte funzionalità aggiuntive e continui a usare la libreria del connettore SAP .NET ( NCo SAP).
 >
 > Per le app per la logica che usano i connettori precedenti, [eseguire la migrazione al connettore più recente](#migrate) prima della data di deprecazione. In caso contrario, queste app per la logica si verificheranno errori di esecuzione e non saranno in grado di inviare messaggi al sistema SAP.
 
@@ -142,7 +142,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
    1. Nella casella **azione SAP** selezionare l'icona della cartella. Dall'elenco file, individuare e selezionare il messaggio SAP che si desidera usare. Per spostarsi nell'elenco, usare le frecce.
 
-      Questo esempio Mostra come selezionare un IDoc con il tipo Orders.
+      Questo esempio Mostra come selezionare un IDoc con il tipo **Orders** .
 
       ![Trovare e selezionare l'azione IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
 
@@ -272,7 +272,7 @@ App per la logica è ora pronta per ricevere messaggi dal sistema SAP.
 
 1. Per attivare l'app per la logica, inviare un messaggio dal sistema SAP.
 
-1. Scegliere **Panoramica**dal menu dell'app per la logica. Esaminare la **cronologia** delle esecuzioni per le nuove esecuzioni per l'app per la logica.
+1. Scegliere **Panoramica**dal menu dell'app per la logica. Esaminare la **cronologia delle esecuzioni** per le nuove esecuzioni per l'app per la logica.
 
 1. Aprire l'esecuzione più recente, che mostra il messaggio inviato dal sistema SAP nella sezione output di trigger.
 
@@ -284,7 +284,7 @@ Di seguito è riportato un esempio che illustra come estrarre singoli IDOCs da u
 
 1. Prima di iniziare, è necessaria un'app per la logica con un trigger SAP. Se non si dispone già di questa app per la logica, seguire i passaggi precedenti in questo argomento per configurare un'app per la [logica con un trigger SAP](#receive-from-sap).
 
-   Ad esempio:
+   Esempio:
 
    ![Trigger SAP](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -444,7 +444,7 @@ Prima di iniziare, verificare di aver soddisfatto i [prerequisiti](#pre-reqs)ele
 
    ![Configurare SAP SNC nella connessione](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | Proprietà | Descrizione |
+   | Proprietà | DESCRIZIONE |
    |----------| ------------|
    | **Percorso della libreria SNC** | Nome o percorso della libreria SNC relativo al percorso di installazione di NCo o al percorso assoluto. Gli esempi `sapsnc.dll` sono `.\security\sapsnc.dll` o `c:\security\sapsnc.dll`o. |
    | **SNC SSO** | Quando ci si connette tramite SNC, l'identità SNC viene in genere usata per l'autenticazione del chiamante. Un'altra opzione consiste nell'eseguire l'override di in modo che sia possibile usare le informazioni relative all'utente e alla password per l'autenticazione del chiamante, ma la riga è ancora crittografata. |
@@ -506,7 +506,7 @@ Quando i messaggi vengono inviati con la **tipizzazione sicura** abilitata, la r
 
 ### <a name="confirm-transaction-explicitly"></a>Conferma transazione in modo esplicito
 
-Quando si inviano transazioni a SAP da app per la logica, questo scambio si verifica in due passaggi, come descritto nel documento SAP relativo ai [programmi server RFC](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true)transazionali. Per impostazione predefinita, l'azione **Invia a SAP** gestisce sia i passaggi per il trasferimento della funzione che la conferma della transazione in un'unica chiamata. Il connettore SAP offre la possibilità di separare questi passaggi. È possibile inviare un IDOC e, anziché confermare automaticamente la transazione, è possibile usare l'azione di **conferma dell'ID di transazione** esplicita.
+Quando si inviano transazioni a SAP da app per la logica, questo scambio si verifica in due passaggi, come descritto nel documento SAP relativo ai [programmi server RFC transazionali](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). Per impostazione predefinita, l'azione **Invia a SAP** gestisce sia i passaggi per il trasferimento della funzione che la conferma della transazione in un'unica chiamata. Il connettore SAP offre la possibilità di separare questi passaggi. È possibile inviare un IDOC e, anziché confermare automaticamente la transazione, è possibile usare l'azione di **conferma dell'ID di transazione** esplicita.
 
 Questa funzionalità di separazione della conferma dell'ID transazione è utile quando non si desidera duplicare le transazioni in SAP, ad esempio negli scenari in cui potrebbero verificarsi errori a causa di cause quali problemi di rete. Confermando separatamente l'ID della transazione, la transazione viene completata una sola volta nel sistema SAP.
 

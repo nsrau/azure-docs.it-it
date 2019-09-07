@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: 76b3807727f4b5c9ab0a2c2bc21c45af1f713b83
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 3b51215e0cf48df2d3cd9df85a3d4c5641a17215
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242455"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390795"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Aggiungere ed eseguire frammenti di codice usando il codice inline in app per la logica di Azure
 
@@ -23,6 +23,7 @@ Quando si vuole eseguire una parte di codice all'interno dell'app per la logica,
 * Viene eseguito in JavaScript. Più lingue saranno presto disponibili.
 * Termina l'esecuzione in meno di cinque secondi.
 * Gestisce i dati con dimensioni massime di 50 MB.
+* Non richiede l'utilizzo delle [azioni **variabili** ](../logic-apps/logic-apps-create-variables-store-values.md), che non sono ancora supportate.
 * USA node. js versione 8.11.1. Per ulteriori informazioni, vedere [oggetti incorporati standard](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 
   > [!NOTE]
@@ -130,7 +131,7 @@ L' `workflowContext` oggetto ha questa struttura, che include le `actions`sottop
 
 Questa tabella contiene ulteriori informazioni su queste sottoproprietà:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 |----------|------|-------|
 | `actions` | Raccolta di oggetti | Oggetti risultato da azioni eseguite prima dell'esecuzione del frammento di codice. Ogni oggetto ha una coppia *chiave-valore* in cui la chiave è il nome di un'azione e il valore equivale a chiamare la [funzione Actions ()](../logic-apps/workflow-definition-language-functions-reference.md#actions) con `@actions('<action-name>')`. Il nome dell'azione usa lo stesso nome di azione usato nella definizione del flusso di lavoro sottostante, che sostituisce gli spazi ("") nel nome dell'azione con caratteri di sottolineatura (_). Questo oggetto fornisce l'accesso ai valori delle proprietà dell'azione dall'esecuzione dell'istanza del flusso di lavoro corrente. |
 | `trigger` | Object | Oggetto risultato dal trigger e equivalente alla chiamata della [funzione trigger ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Questo oggetto fornisce l'accesso ai valori delle proprietà trigger dall'esecuzione dell'istanza del flusso di lavoro corrente. |
