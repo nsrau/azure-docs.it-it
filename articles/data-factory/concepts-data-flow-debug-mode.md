@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/06/2019
+ms.openlocfilehash: 7d1023f6c46c15b6f982193350923f5c91cdc4b9
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991930"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801693"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modalità di debug dei flussi di dati di mapping
 
@@ -20,16 +20,17 @@ ms.locfileid: "69991930"
 
 ## <a name="overview"></a>Panoramica
 
-È possibile attivare la modalità di debug del flusso di dati del mapping di Azure Data Factory con il pulsante "debug flusso di dati" nella parte superiore dell'area di progettazione. Quando si progettano i flussi di dati, l'attivazione della modalità di debug consente di controllare in modo interattivo la trasformazione della forma dei dati durante la compilazione e il debug dei flussi di dati. La sessione di debug può essere usata sia nelle sessioni di progettazione del flusso di dati che durante l'esecuzione del debug di pipeline di flussi di dati.
+Azure Data Factory modalità di debug del flusso di dati di mapping consente di controllare in modo interattivo la trasformazione della forma dei dati durante la compilazione e il debug dei flussi di dati. La sessione di debug può essere usata sia nelle sessioni di progettazione del flusso di dati che durante l'esecuzione del debug di pipeline di flussi di dati. Per attivare la modalità di debug, utilizzare il pulsante "debug flusso di dati" nella parte superiore dell'area di progettazione.
 
-![Pulsante debug](media/data-flow/debugbutton.png "Pulsante debug")
+![Dispositivo di scorrimento debug](media/data-flow/debugbutton.png "Dispositivo di scorrimento debug")
+
+Una volta acceso il dispositivo di scorrimento, verrà richiesto di selezionare la configurazione del runtime di integrazione che si desidera utilizzare. Se si sceglie AutoResolveIntegrationRuntime, viene attivato un cluster con otto core di calcolo generale con una durata di 60 minuti. Per ulteriori informazioni sui runtime di integrazione del flusso di dati, vedere [prestazioni del flusso di dati](concepts-data-flow-performance.md#increase-size-of-your-compute-engine-in-azure-integration-runtime).
+
+![Esegui debug selezione IR](media/data-flow/debugbutton2.png "Esegui debug selezione IR")
 
 Quando la modalità di debug è attivata, il flusso di dati verrà compilato in modo interattivo con un cluster Spark attivo. La sessione verrà chiusa quando si disattiva il debug in Azure Data Factory. È bene tenere conto dei costi orari addebitati da Azure Databricks durante il periodo in cui è attivata la sessione di debug.
 
 Nella maggior parte dei casi, è consigliabile compilare i flussi di dati in modalità di debug, in modo da poter convalidare la logica di business e visualizzare le trasformazioni dei dati prima di pubblicare il lavoro in Azure Data Factory. Usare il pulsante "debug" nel pannello della pipeline per testare il flusso di dati in una pipeline.
-
-> [!NOTE]
-> Sebbene la luce della modalità di debug sia verde sulla barra degli strumenti Data Factory, verrà addebitata la velocità di debug del flusso di dati di 8 core/HR del calcolo generale con una durata di 60 minuti 
 
 ## <a name="cluster-status"></a>Stato cluster
 
@@ -81,7 +82,7 @@ Dopo aver selezionato una modifica, l'anteprima dei dati viene aggiornata immedi
 
 ### <a name="data-profiling"></a>Profiling dati
 
-Selezionando una colonna nella scheda Anteprima dati e facendo clic su **statistiche** nella barra degli strumenti di anteprima dati, viene visualizzato un grafico all'estrema destra della griglia dati con statistiche dettagliate su ogni campo. Azure Data Factory determina quale tipo di grafico visualizzare in base al campionamento dei dati. I campi con cardinalità elevata verranno predefiniti per i grafici null/NOT NULL, mentre i dati categorici e numerici con cardinalità bassa visualizzeranno grafici a barre che mostrano la frequenza del valore dei dati. Verrà inoltre visualizzata la lunghezza massima/Len dei campi stringa, i valori min/max in campi numerici, lo sviluppo standard, i percentile, i conteggi e la media.
+Se si seleziona una colonna nella scheda Anteprima dati e si fa clic su **statistiche** nella barra degli strumenti di anteprima dati, viene visualizzato un grafico all'estrema destra della griglia dei dati con statistiche dettagliate su ogni campo. Azure Data Factory determina quale tipo di grafico visualizzare in base al campionamento dei dati. I campi con cardinalità elevata verranno predefiniti per i grafici null/NOT NULL, mentre i dati categorici e numerici con cardinalità bassa visualizzeranno grafici a barre che mostrano la frequenza del valore dei dati. Verrà inoltre visualizzata la lunghezza massima/Len dei campi stringa, i valori min/max in campi numerici, lo sviluppo standard, i percentile, i conteggi e la media.
 
 ![Statistiche colonne](media/data-flow/stats.png "Statistiche colonne")
 

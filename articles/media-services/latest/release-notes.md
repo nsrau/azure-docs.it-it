@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: f4a859f1e63866a50167031569dca05de3e9af27
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 618aa58fe8553789c831ca933ae6be73843b93dd
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856300"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801399"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -34,7 +34,11 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 
 Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md#known-issues).
 
-## <a name="august-2019"></a>2019 agosto
+## <a name="september-2019"></a>2019 settembre
+
+Media Services V3 annuncia l'anteprima di 24 ore x 365 giorni di Live Linear encoding of Live Events.
+ 
+## <a name="august-2019"></a>Agosto 2019
 
 ### <a name="south-africa-regional-pair-is-open-for-media-services"></a>La coppia di aree di Sudafrica è aperta per servizi multimediali 
 
@@ -98,7 +102,7 @@ Sono stati aggiunti aggiornamenti che includono miglioramenti delle prestazioni 
 * [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) è stato aggiunto ai set di impostazioni predefiniti dell'analizzatore.
 * [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) è stato aggiunto ai set di impostazioni predefiniti del codificatore. Per altre informazioni, vedere [codifica compatibile](cae-experimental.md)con i contenuti. 
 
-## <a name="march-2019"></a>2019 marzo
+## <a name="march-2019"></a>Marzo 2019
 
 La creazione dinamica dei pacchetti ora supporta Dolby Atmos. Per altre informazioni, vedere [codec audio supportati dalla creazione dinamica dei pacchetti](dynamic-packaging-overview.md#audio-codecs).
 

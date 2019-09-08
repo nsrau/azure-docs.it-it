@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: e9e37c54668ec0343cbfd45e51e90216955b46c4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d8fed68d9b830df359f8129d55f1b9911f69e8f1
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100016"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802242"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Panoramica delle applicazioni e delle soluzioni Oracle in Azure
 
@@ -26,13 +26,13 @@ Questo articolo presenta le funzionalità per eseguire soluzioni Oracle usando l
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Database Oracle nell'infrastruttura di Azure
 
-Eseguire i database Oracle nell'infrastruttura di Azure usando immagini Linux disponibili in Azure Marketplace:
+Eseguire database Oracle nell'infrastruttura di Azure usando Oracle Database su immagini Oracle Linux disponibili in Azure Marketplace:
 
 * Oracle Database 12,1, 12,2 e 18,3 Enterprise Edition 
 
 * Oracle Database 12,1, 12,2 e 18,3 Standard Edition 
 
-È anche possibile scegliere di basare una soluzione su un'immagine personalizzata creata da zero in Azure o caricare un'immagine personalizzata dall'ambiente locale.
+È anche possibile scegliere di configurare Oracle Database in un'immagine non Oracle Linux disponibile in Azure, basare una soluzione su un'immagine personalizzata creata da zero in Azure o caricare un'immagine personalizzata dall'ambiente locale.
 
 Facoltativamente, configurare con più dischi collegati e migliorare le prestazioni del database installando Oracle Automated Storage Management (ASM).
 
@@ -46,11 +46,17 @@ Eseguire applicazioni aziendali in Azure nei sistemi operativi Oracle supportati
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Opzioni di disponibilità elevata e ripristino di emergenza
 
-* Configurare Oracle Data Guard, Active Data Guard o GoldenGate nell'infrastruttura di Azure insieme a [zone di disponibilità](../../../availability-zones/az-overview.md) per la disponibilità elevata.
+* Configurare [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [Active Data Guard con FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [partizionamento orizzontale](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) o [Golden Gate](https://www.oracle.com/middleware/technologies/goldengate.html) nell'infrastruttura di Azure insieme a [zone di disponibilità](../../../availability-zones/az-overview.md) per la disponibilità elevata in-Region. È anche possibile configurare queste configurazioni in più aree di Azure per la disponibilità e il ripristino di emergenza aggiunti.
 
 * Usare [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) per orchestrare e gestire il ripristino di emergenza per le macchine virtuali Oracle Linux in Azure e i server fisici o locali. 
 
-* Abilitare Oracle Real Application Clusters (RAC) in Azure con [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Abilitare Oracle Real Application Clusters (RAC) in Azure usando la [soluzione VMware di Azure](https://docs.azure.cloudsimple.com/oracle-rac/) o [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+
+## <a name="backup-oracle-workloads"></a>Eseguire il backup di carichi di lavoro Oracle
+
+* Eseguire il backup delle macchine virtuali Oracle con [backup di Azure](https://docs.microsoft.com/en-us/azure/backup/backup-overview)
+
+* Eseguire il backup del Oracle Database usando Oracle RMAN e, facoltativamente, usare il [fusibile BLOB di Azure](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) per montare un [account di archiviazione BLOB di Azure a redudant elevato](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) e scrivere i backup RMAN per la resilienza aggiuntiva.
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Integrazione di Azure con OCI (anteprima)
 

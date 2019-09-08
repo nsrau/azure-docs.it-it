@@ -11,16 +11,16 @@ manager: carmonm
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 55843f9acaafa0c5963cfac735fdb92eeeacdc02
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: be0f534e6770cde561f18bfcb310524a7c506416
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982920"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801296"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>Creare e gestire gli account di integrazione per le soluzioni B2B usando app per la logica di Azure
 
-Prima di poter creare [soluzioni di integrazione aziendale e B2B](../logic-apps/logic-apps-enterprise-integration-overview.md) usando [app](../logic-apps/logic-apps-overview.md)per la logica di Azure, è necessario creare un account di integrazione, ovvero una risorsa di Azure separata che fornisca un contenitore sicuro, scalabile e gestibile per il elementi di integrazione definiti e usati con i flussi di lavoro delle app per la logica.
+Prima di poter creare [soluzioni di integrazione aziendale e B2B](../logic-apps/logic-apps-enterprise-integration-overview.md) tramite [App per la logica di Azure](../logic-apps/logic-apps-overview.md) è necessario creare un account di integrazione, ovvero una risorsa di Azure separata che fornisca un contenitore sicuro, scalabile e gestibile per gli artefatti di integrazione definiti e usati con i flussi di lavoro di app per la logica.
 
 È ad esempio possibile creare, archiviare e gestire artefatti B2B, ad esempio partner commerciali, contratti, mappe, schemi, certificati e configurazioni batch. Inoltre, prima che l'app per la logica possa funzionare con questi artefatti e usare i connettori di App per la logica B2B, è necessario [collegare l'account di integrazione](#link-account) all'app per la logica. L'account di integrazione e l'app per la logica devono essere presenti nella *stessa* posizione o area.
 
@@ -62,9 +62,9 @@ Per questa attività, è possibile usare l'portale di Azure seguendo la procedur
    |----------|----------|-------|-------------|
    | **Nome** | Sì | <*integration-account-name*> | Nome dell'account di integrazione, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi`(`( `)`,) e punti (`.`). In questo esempio viene usato "Fabrikam-Integration". |
    | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure |
-   | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Nome del gruppo di [risorse di Azure](../azure-resource-manager/resource-group-overview.md) da usare per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome "FabrikamIntegration-RG". |
+   | **Gruppo di risorse** | Yes | <*Azure-resource-group-name*> | Nome del gruppo di [risorse di Azure](../azure-resource-manager/resource-group-overview.md) da usare per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome "FabrikamIntegration-RG". |
    | **Piano tariffario** | Sì | <*livello di prezzo*> | Il piano tariffario per l'account di integrazione, che può essere modificato in un secondo momento. Per questo esempio, selezionare **Free**. Per altre informazioni, vedere gli argomenti seguenti: <p>- [Modello di determinazione prezzi di app per la logica](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Limiti e configurazione delle app per la logica](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Prezzi di app per la logica](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Location** | Yes | <*Azure-area*> | Area in cui archiviare i metadati dell'account di integrazione. Selezionare lo stesso percorso dell'app per la logica o creare le app per la logica nella stessa posizione dell'account di integrazione. Per questo esempio, usare "Stati Uniti occidentali". <p>**Nota**: Per creare un account di integrazione all'interno di un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selezionare ISE come percorso. Per altre informazioni, vedere [creare account di integrazione in un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Location** | Yes | <*Area di Azure*> | Area in cui archiviare i metadati dell'account di integrazione. Selezionare lo stesso percorso dell'app per la logica o creare le app per la logica nella stessa posizione dell'account di integrazione. Per questo esempio, usare "Stati Uniti occidentali". <p>**Nota**: Per creare un account di integrazione all'interno di un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selezionare ISE come percorso. Per altre informazioni, vedere [creare account di integrazione in un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Log Analytics** | No | Disattivato, acceso | Per questo esempio, lasciare l'impostazione **off** . |
    |||||
 
@@ -80,7 +80,7 @@ Per questa attività, è possibile usare l'portale di Azure seguendo la procedur
 
 ## <a name="link-to-logic-app"></a>Collegare all'app per la logica
 
-Per consentire alle app per la logica di accedere a un account di integrazione che contiene gli artefatti B2B, è innanzitutto necessario collegare l'account di integrazione all'app per la logica. L'account di integrazione e l'app per la logica devono esistere nella stessa area. Per questa attività, è possibile usare la portale di Azure eseguendo i passaggi descritti in questa sezione.
+Per consentire alle app per la logica di accedere a un account di integrazione che contiene gli artefatti B2B, è innanzitutto necessario collegare l'account di integrazione all'app per la logica. L'account di integrazione e l'app per la logica devono esistere nella stessa area. Per completare questa attività, è possibile utilizzare il portale di Azure. Se si usa Visual Studio e l'app per la logica si trova in un [progetto di gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), è possibile [collegare l'app per la logica a un account di integrazione usando Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. Nel portale di Azure trovare e aprire l'app per la logica.
 

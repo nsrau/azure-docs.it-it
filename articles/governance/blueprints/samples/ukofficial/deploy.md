@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 10d1e2fc607df205ea8922a81a1322d4121f30f7
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 21c5ad69a5e2b09e973b7b348690f554fca5dbe2
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232287"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802324"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuire gli esempi ufficiali del Regno Unito e del piano NHS UK
 
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nell'ambiente basato sull'esempio.
 
-1. Selezionare **Tutti i servizi**, quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** selezionare **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
 1. Nella pagina **Getting started** (Introduzione) a sinistra selezionare il pulsante **Crea** in _Creare un progetto_.
 
@@ -49,7 +49,7 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 
 La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle esigenze, ma tale modifica potrebbe allontanarsi dallo standard.
 
-1. Selezionare **Tutti i servizi**, quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** selezionare **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
 1. Selezionare la pagina **Definizioni di progetto** a sinistra. Usare i filtri per trovare la copia dell'esempio di progetto e quindi selezionarla.
 
@@ -59,7 +59,7 @@ La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è s
 
 Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente, è possibile assegnarla a una sottoscrizione all'interno del gruppo di gestione in cui è stata salvata. In questo passaggio vengono specificati i parametri che rendono univoca ogni distribuzione della copia dell'esempio di progetto.
 
-1. Selezionare **Tutti i servizi**, quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** selezionare **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
 1. Selezionare la pagina **Definizioni di progetto** a sinistra. Usare i filtri per trovare la copia dell'esempio di progetto e quindi selezionarla.
 
@@ -96,7 +96,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
+Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
 |-|-|-|-|
 |Progetto Initiative per il Regno Unito ufficiale o il NHS UK|Assegnazione criteri |Tipi di risorse per controllare i log di diagnostica (criterio: Progetto Initiative per il Regno Unito ufficiale o il NHS UK |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica è nota abilitata.  Per i valori accettabili, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione criteri |Facoltativo: Elenco di immagini di macchina virtuale con sistema operativo Linux supportato da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Linux) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
