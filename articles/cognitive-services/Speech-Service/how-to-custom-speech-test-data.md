@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663593"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802508"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -27,7 +27,7 @@ In questa tabella sono elencati i tipi di dati accettati, quando è necessario u
 
 | Tipo di dati | Usato per il test | Quantità | Usato per il training | Quantità |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Yes<br>Usato per l'ispezione visiva | 5 + file audio | No | N/a |
+| [Audio](#audio-data-for-testing) | Sì<br>Usato per l'ispezione visiva | 5 + file audio | No | N/a |
 | [Trascrizioni audio + con etichetta umana](#audio--human-labeled-transcript-data-for-testingtraining) | Sì<br>Utilizzato per valutare l'accuratezza | 0,5-5 ore di audio | Yes | da 1 a 1.000 ore di audio |
 | [Testo correlato](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB di testo correlato |
 
@@ -35,7 +35,7 @@ I file devono essere raggruppati per tipo in un set di dati e caricati come file
 
 ## <a name="upload-data"></a>Caricare dati
 
-Quando si è pronti per caricare i dati, fare clic su **Carica dati** per avviare la procedura guidata e creare il primo set di dati. Prima di poter caricare i dati, verrà richiesto di selezionare un tipo di dati vocale per il set di dati.
+Quando si è pronti per caricare i dati, passare al [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), quindi fare clic su **Carica dati** per avviare la procedura guidata e creare il primo set di dati. Prima di poter caricare i dati, verrà richiesto di selezionare un tipo di dati vocale per il set di dati.
 
 ![Selezionare audio dal portale vocale](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -73,7 +73,7 @@ Se l'audio non soddisfa queste proprietà o se si vuole verificarlo, è consigli
 
 Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microsoft durante l'elaborazione dei file audio, è necessario fornire le trascrizioni con etichetta umana (Word-by-Word) per il confronto. Sebbene la trascrizione con etichetta umana sia spesso dispendiosa in termini di tempo, è necessario valutare l'accuratezza e per eseguire il training del modello per i casi d'uso. Tenere presente che i miglioramenti apportati al riconoscimento saranno validi solo per i dati forniti. Per questo motivo, è importante che vengano caricate solo le trascrizioni di alta qualità.  
 
-| Proprietà | Value |
+| Proprietà | Valore |
 |----------|-------|
 | Formato file | RIFF (WAV) |
 | Frequenza di campionamento | 8\.000 Hz o 16.000 Hz |
@@ -96,7 +96,7 @@ Per risolvere problemi come l'eliminazione o la sostituzione di parole, per migl
 
 Alle trascrizioni viene applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune importanti normalizzazioni da effettuare _prima_ di caricare i dati nel servizio di riconoscimento vocale personalizzato. Per il linguaggio appropriato da usare quando si preparano le trascrizioni, vedere [come creare una trascrizione con etichetta umana](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Dopo aver raccolto i file audio e le trascrizioni corrispondenti, è necessario imballarli come un unico file zip prima di caricarli nel portale di Riconoscimento vocale personalizzato. Si tratta di un set di dati di esempio con tre file audio e un file di trascrizione con etichetta umana:
+Dopo aver raccolto i file audio e le trascrizioni corrispondenti, è necessario imballarli come un unico file zip prima di caricarli nel [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Si tratta di un set di dati di esempio con tre file audio e un file di trascrizione con etichetta umana:
 
 ![Selezionare audio dal portale vocale](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
@@ -109,7 +109,7 @@ Se sono presenti nomi di prodotto o funzionalità univoche e si desidera assicur
 | Espressioni e/o frasi | Questi possono migliorare l'accuratezza quando riconoscono i nomi dei prodotti o il vocabolario specifico del settore all'interno del contesto di una frase. |
 | Pronunce | Questi possono migliorare la pronuncia di termini non comuni, acronimi o altre parole con pronunce non definite. |
 
-Le espressioni possono essere fornite come uno o più file di testo. Più si avvicinano i dati di testo a quello che verrà pronunciato, maggiore è la probabilità che la precisione venga migliorata. Le pronunce devono essere fornite come un singolo file di testo. Tutto può essere incluso in un unico file zip e caricato nel portale di Riconoscimento vocale personalizzato.
+Le espressioni possono essere fornite come uno o più file di testo. Più si avvicinano i dati di testo a quello che verrà pronunciato, maggiore è la probabilità che la precisione venga migliorata. Le pronunce devono essere fornite come un singolo file di testo. Tutto può essere incluso in un unico file zip e caricato nel portale di [riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech).
 
 ### <a name="guidelines-to-create-an-utterances-file"></a>Linee guida per la creazione di un file enunciato
 

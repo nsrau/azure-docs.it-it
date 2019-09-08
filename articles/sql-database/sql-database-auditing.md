@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b145b341a4db503a00d517decf6406e26f23c3cd
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065983"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802466"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -201,8 +201,6 @@ Con i database con replica geografica, quando si abilita il controllo nel databa
 
     >[!IMPORTANT]
     >In caso di controllo a livello di database, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario, e causano traffico tra le aree. È consigliabile abilitare solo il controllo a livello di server e lasciare disabilitato il controllo a livello di database per tutti i database.
-    > [!WARNING]
-    > L'uso di hub eventi o di log di monitoraggio di Azure come destinazioni per i log di controllo a livello di server non è attualmente supportato per i database secondari con replica geografica.
 
 ### <a id="subheading-6">Rigenerazione delle chiavi di archiviazione</a>
 
@@ -266,7 +264,7 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 - [Crea o aggiorna i criteri di controllo *esteso* del database](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
 - [Crea o aggiorna i criteri di controllo *esteso* del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [Ottenere i criteri di controllo *esteso* del database](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Ottenere i criteri di controllo estesi del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Ottenere i criteri di controllo *estesi* del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-10"></a>Gestire il controllo del database SQL tramite modelli di Azure Resource Manager
 

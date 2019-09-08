@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: bd8bbc28247ecd924db25cb4b916d1d466065606
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562859"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801537"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Valuta Riconoscimento vocale personalizzato accuratezza
 
@@ -51,11 +51,12 @@ Se si vuole testare la qualità del modello di base di sintesi vocale di Microso
 
 Per valutare i modelli side-by-Side:
 
-1. Passare a **riconoscimento vocale > Riconoscimento vocale personalizzato > test**.
-2. Fare clic su **Aggiungi test**.
-3. Selezionare **valuta accuratezza**. Assegnare al test un nome, una descrizione e selezionare il set di dati di trascrizione audio + con etichetta umana.
-4. Selezionare fino a due modelli che si desidera testare.
-5. Fare clic su **Create**(Crea).
+1. Accedere al portale di [riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech).
+2. Passare a **riconoscimento vocale > Riconoscimento vocale personalizzato > test**.
+3. Fare clic su **Aggiungi test**.
+4. Selezionare **valuta accuratezza**. Assegnare al test un nome, una descrizione e selezionare il set di dati di trascrizione audio + con etichetta umana.
+5. Selezionare fino a due modelli che si desidera testare.
+6. Fare clic su **Create**(Crea).
 
 Una volta creato correttamente il test, è possibile confrontare i risultati affiancati.
 

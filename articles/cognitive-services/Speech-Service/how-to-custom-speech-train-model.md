@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b5893b4f07444b07bf142971a5df4776e549d307
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 21a0cd5e257f57a9371a30c6fe57afb88e174b53
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562807"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801492"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Eseguire il training di un modello per Riconoscimento vocale personalizzato
 
@@ -37,13 +37,14 @@ Se si riscontrano problemi di riconoscimento con il modello, l'uso di trascrizio
 
 Il primo passaggio per eseguire il training di un modello consiste nel caricare i dati di training. Usare [preparare e testare i dati](how-to-custom-speech-test-data.md) per istruzioni dettagliate per preparare le trascrizioni con etichetta umana e il testo correlato (espressioni e pronunce). Dopo aver caricato i dati di training, seguire queste istruzioni per avviare il training del modello:
 
-1. Passare a **riconoscimento vocale > Riconoscimento vocale personalizzato > Training**.
-2. Fare clic su **Train Model**.
-3. Successivamente, assegnare un **nome** e una **Descrizione**al training.
-4. Dal menu a discesa **scenario e modello di base** selezionare lo scenario più adatto al dominio. Se non si è certi dello scenario da scegliere, selezionare **generale**. Il modello di base è il punto di partenza per il training. Se non si ha una preferenza, è possibile usare la versione più recente.
-5. Dalla pagina **selezione dati di training** scegliere uno o più set di dati di trascrizione audio + con etichetta umana che si vuole usare per il training.
-6. Una volta completato il training, è possibile scegliere di eseguire test di accuratezza sul modello appena sottoposto a training. Questo passaggio è facoltativo.
-7. Selezionare **Crea** per compilare il modello personalizzato.
+1. Accedere al portale di [riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech).
+2. Passare a **riconoscimento vocale > Riconoscimento vocale personalizzato > Training**.
+3. Fare clic su **Train Model**.
+4. Successivamente, assegnare un **nome** e una **Descrizione**al training.
+5. Dal menu a discesa **scenario e modello di base** selezionare lo scenario più adatto al dominio. Se non si è certi dello scenario da scegliere, selezionare **generale**. Il modello di base è il punto di partenza per il training. Se non si ha una preferenza, è possibile usare la versione più recente.
+6. Dalla pagina **selezione dati di training** scegliere uno o più set di dati di trascrizione audio + con etichetta umana che si vuole usare per il training.
+7. Una volta completato il training, è possibile scegliere di eseguire test di accuratezza sul modello appena sottoposto a training. Questo passaggio è facoltativo.
+8. Selezionare **Crea** per compilare il modello personalizzato.
 
 Nella tabella training viene visualizzata una nuova voce che corrisponde al modello appena creato. La tabella Visualizza anche lo stato:  Elaborazione, riuscita, non riuscita.
 

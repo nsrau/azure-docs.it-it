@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: f628be48039df63700f8e786821f29ba55cfd943
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: dd6cd16302c69266a954816868c04c8507762717
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164883"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801236"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
@@ -70,7 +70,7 @@ In Visual Studio è possibile trovare tutte le app per la logica associate a una
 
 1. Aprire Visual Studio. Dal menu **Visualizza** scegliere **Cloud Explorer**.
 
-1. In Cloud Explorer scegliere **Gestione account**. Selezionare la sottoscrizione di Azure associata alle app per la logica e quindi scegliere **Applica**. Ad esempio:
+1. In Cloud Explorer scegliere **Gestione account**. Selezionare la sottoscrizione di Azure associata alle app per la logica e quindi scegliere **Applica**. Esempio:
 
    ![Scegliere "Gestione account"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -83,9 +83,9 @@ In Visual Studio è possibile trovare tutte le app per la logica associate a una
 
 <a name="open-designer"></a>
 
-## <a name="open-in-visual-studio"></a>Aprire in Visual Studio
+## <a name="open-in-visual-studio"></a>Apri in Visual Studio
 
-In Visual Studio è possibile aprire le app per la logica precedentemente create e distribuite direttamente nel portale di Azure o come progetti di Azure Resource Manager con Visual Studio.
+In Visual Studio è possibile aprire app per la logica create in precedenza e distribuite direttamente tramite il portale di Azure o come progetti di gruppi di risorse di Azure con Visual Studio.
 
 1. Aprire Cloud Explorer e trovare l'app per la logica. 
 
@@ -123,7 +123,34 @@ In Visual Studio è possibile aprire le app per la logica precedentemente create
 
 4. Quando viene chiesto di immettere un percorso, selezionare quello desiderato e salvare il modello di Resource Manager per la definizione dell'app per la logica nel formato file JSON (con estensione json). 
 
-La definizione dell'app per la logica viene visualizzata nella sottosezione `resources` all'interno del modello di Resource Manager. È ora possibile modificare la definizione dell'app per la logica e il modello di Resource Manager con Visual Studio. È anche possibile aggiungere il modello come progetto di Azure Resource Manager a una soluzione di Visual Studio. Informazioni sui [progetti di Resource Manager per le app per la logica in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+La definizione dell'app per la logica viene visualizzata nella sottosezione `resources` all'interno del modello di Resource Manager. È ora possibile modificare la definizione dell'app per la logica e il modello di Resource Manager con Visual Studio. È anche possibile aggiungere il modello come [progetto del gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) a una soluzione di Visual Studio. Informazioni sui [progetti gruppo di risorse di Azure per app per la logica in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+
+<a name="link-integration-account"></a>
+
+## <a name="link-to-integration-account"></a>Collegamento all'account di integrazione
+
+Per creare app per la logica per scenari di integrazione aziendale B2B (business to business), è possibile collegare l'app per la logica a un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) creato in precedenza esistente nella stessa area dell'app per la logica. Un account di integrazione contiene elementi B2B, quali partner commerciali, contratti, schemi e mappe, e consente all'app per la logica di usare i connettori B2B per la convalida XML e la codifica o la decodifica dei file flat. Sebbene sia possibile [creare questo collegamento usando il portale di Azure](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), è anche possibile usare Visual Studio dopo aver soddisfatto i [prerequisiti](#requirements)e l'app per la logica esiste come file JSON (. Json) all'interno di un [progetto di gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Informazioni sui [progetti gruppo di risorse di Azure per app per la logica in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
+
+1. In Visual Studio aprire il progetto gruppo di risorse di Azure che contiene l'app per la logica.
+
+1. In Esplora soluzioni aprire il menu di scelta rapida **< nome-app-logica >. JSON** e selezionare **Apri con progettazione app per la logica**. (Tastiera: CTRL+L).
+
+   ![Apri il file con estensione JSON dell'app per la logica con progettazione app per la logica](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Se non si dispone di questo comando in Visual Studio 2019, verificare di aver installato gli aggiornamenti più recenti per Visual Studio.
+
+1. Per assicurarsi che la finestra di progettazione dell'app per la logica abbia lo stato attivo, selezionare la scheda o la superficie della finestra di progettazione in modo che il riquadro Proprietà mostri la proprietà dell' **account di integrazione** per l'app per la logica
+
+   ![Riquadro proprietà Mostra la proprietà "account di integrazione"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+
+1. Aprire l'elenco **account di integrazione** e selezionare l'account di integrazione da collegare all'app per la logica, ad esempio:
+
+   ![Aprire l'elenco delle proprietà "account di integrazione"](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
+
+1. Al termine, ricordarsi di salvare la soluzione di Visual Studio.
+
+Quando si imposta la proprietà dell' **account di integrazione** in Visual Studio e si salva l'app per la logica come modello di Azure Resource Manager, tale modello include anche una dichiarazione di parametro per l'account di integrazione selezionato. Per altre informazioni sui parametri del modello e sulle app per [la logica, vedere Panoramica: Automatizzare la distribuzione](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)delle app per la logica.
 
 <a name="refresh"></a>
 
@@ -159,7 +186,7 @@ Per controllare lo stato e diagnosticare i problemi relativi alle esecuzioni del
 
    ![Apri cronologia di esecuzione](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-1. Per visualizzare i dettagli per un'esecuzione specifica, fare doppio clic su di essa. Esempio:
+1. Per visualizzare i dettagli per un'esecuzione specifica, fare doppio clic su di essa. Ad esempio:
 
    ![Cronologia di esecuzione dettagliata](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: a107689796c58b17c445e7a9cf7c6f0402ef6005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3904c6390cfe8de197bae470c4ae32d22605ae6a
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440149"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801421"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Rilevare e risolvere i problemi di disconnessione per l'hub IoT di Azure
 
@@ -43,9 +43,9 @@ Per registrare gli eventi e gli errori di connessione dei dispositivi, attivare 
 
 Per altre informazioni, vedere [Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi](iot-hub-monitor-resource-health.md).
 
-### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Impostare avvisi per la metrica di conteggio dei _dispositivi connessi_
+### <a name="set-up-alerts-for-the-_connected-devices_-count-metric"></a>Impostare avvisi per la metrica di conteggio dei _dispositivi connessi_
 
-Per ottenere avvisi quando disconnettere i dispositivi, configurare avvisi per i **connessi dispositivi (anteprima)** metrica.
+Per ottenere gli avvisi quando i dispositivi si disconnettono, configurare gli avvisi per la metrica **dispositivi connessi (anteprima)** .
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -55,15 +55,15 @@ Per ottenere avvisi quando disconnettere i dispositivi, configurare avvisi per i
 
 4. Selezionare **nuova regola di avviso**.
 
-5. Selezionare **Aggiungi condizione**, quindi selezionare "Connesso i dispositivi (anteprima)".
+5. Selezionare **Aggiungi condizione**, quindi selezionare "dispositivi connessi (anteprima)".
 
-6. Completare l'impostazione di soglie desiderate e opzioni di avviso da richieste seguenti.
+6. Completare la configurazione delle soglie desiderate e delle opzioni di avviso seguendo le istruzioni.
 
 Per altre informazioni, vedere [Cosa sono gli avvisi classici in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 
 ## <a name="resolve-connectivity-errors"></a>Risolvere gli errori di connettività
 
-Quando si attivano i log di diagnostica e gli avvisi per i dispositivi connessi, si ricevono avvisi in caso di problemi. In questa sezione viene descritto come risolvere i problemi comuni quando si riceve un avviso. La procedura seguente presuppone di che aver configurato i log di monitoraggio di Azure per i log di diagnostica.
+Quando si attivano i log di diagnostica e gli avvisi per i dispositivi connessi, si ricevono avvisi in caso di problemi. In questa sezione viene descritto come risolvere i problemi comuni quando si riceve un avviso. La procedura seguente presuppone che siano stati configurati i log di monitoraggio di Azure per i log di diagnostica.
 
 1. Passare all'area di lavoro di **Log Analytics** nel portale di Azure.
 
@@ -71,7 +71,7 @@ Quando si attivano i log di diagnostica e gli avvisi per i dispositivi connessi,
 
 3. Per isolare i log degli errori di connettività per l'hub IoT, immettere la query seguente e selezionare **Esegui**:
 
-    ```
+    ```kusto
     search *
     | where ( Type == "AzureDiagnostics" and ResourceType == "IOTHUBS")
     | where ( Category == "Connections" and Level == "Error")
@@ -83,7 +83,7 @@ Quando si attivano i log di diagnostica e gli avvisi per i dispositivi connessi,
 
 2. Usare questa tabella per comprendere e risolvere gli errori comuni.
 
-    | Tipi di errore | Causa radice | Risoluzione |
+    | Errore | Causa radice | Risoluzione |
     |-------|------------|------------|
     | 404104 DeviceConnectionClosedRemotely | La connessione è stata chiusa dal dispositivo, ma l'hub IoT non è in grado di determinare il motivo. Le cause più comuni includono il timeout MQTT/AMQP e la perdita di connettività Internet. | Assicurarsi che il dispositivo possa connettersi all'hub IoT [eseguendo il test della connessione](tutorial-connectivity.md). Se la connessione viene stabilita ma il dispositivo si disconnette in modo intermittente, assicurarsi di implementare per i dispositivi la logica keep-alive appropriata per il protocollo scelto (MQTT/AMPQ). |
     | 401003 IoTHubUnauthorized | L'hub IoT non è riuscito ad autenticare la connessione. | Assicurarsi che la firma di accesso condiviso o altri token di sicurezza in uso non siano scaduti. Gli [Azure IoT SDK](iot-hub-devguide-sdks.md) generano automaticamente i token senza richiedere una configurazione speciale. |

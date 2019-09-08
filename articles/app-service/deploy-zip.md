@@ -14,12 +14,12 @@ ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: b69488c971d6ab10e0a95e3825be097f8713016d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 83951f6408094b8d1e04d19650a5f2ef596be988
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070434"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801157"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuire l'app in Servizio app di Azure con un file ZIP o WAR
 
@@ -66,6 +66,7 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 ``` 
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
+L'endpoint precedente non funziona in questo momento per i servizi app Linux. In alternativa, è consigliabile usare FTP o l' [API di distribuzione zip](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) .
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Distribuire il file ZIP con l'interfaccia della riga di comando di Azure
 

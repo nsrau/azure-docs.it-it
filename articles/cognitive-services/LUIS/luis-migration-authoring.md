@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: 7fe35edfbfc8f50aa9428e41e7d807a0838417ec
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: bfd11254ffccd5085701071fcdb2116ca368bc82
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259662"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801434"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Eseguire la migrazione a una chiave di creazione delle risorse di Azure
 
@@ -43,7 +43,7 @@ Il proprietario non può scegliere un subset di app da migrare e il processo non
 La migrazione non è: 
 
 * Processo che raccoglie collaboratori e si sposta o aggiunge automaticamente alla risorsa di creazione di Azure. Il proprietario dell'app deve completare questo passaggio. Questo passaggio richiede le autorizzazioni per la risorsa appropriata.
-* Processo per la creazione e l'assegnazione di una risorsa di runtime di stima. Se è necessaria una risorsa di runtime di stima, si tratta [di un processo separato](/luis-how-to-azure-subscription.md#create-runtime-resource-in-the-azure-portal) che è invariato. 
+* Processo per la creazione e l'assegnazione di una risorsa di runtime di stima. Se è necessaria una risorsa di runtime di stima, si tratta [di un processo separato](luis-how-to-azure-subscription.md##create-resources-in-the-azure-portal) che è invariato. 
 
 ## <a name="how-are-the-apps-migrating"></a>In che modo vengono migrate le app?
 
