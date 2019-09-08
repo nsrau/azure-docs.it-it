@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: accc59ee31ddb7371774da3235cc9ccff24ad641
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309219"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764312"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Immagini Red Hat Enterprise Linux in Azure
 Questo articolo illustra le immagini Red Hat Enterprise Linux (RHEL) disponibili in Azure Marketplace con i criteri per la denominazione e conservazione.
@@ -114,18 +114,19 @@ Le offerte seguenti sono SKU attualmente disponibili per l'uso generale:
 
 Offerta| SKU | Partizionamento | Provisioning | Note
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 7-RAW    | RAW    | Agente Linux | Famiglia di immagini RHEL 7. <br> Per impostazione predefinita, non è collegato ai repository EUS.
-|             | 7-LVM    | LVM    | Agente Linux | Famiglia di immagini RHEL 7. <br> Per impostazione predefinita, non è collegato ai repository EUS.
-|             | 7-RAW-CI | RAW-CI | cloud-init  | Famiglia di immagini RHEL 7. <br> Per impostazione predefinita, non è collegato ai repository EUS.
-|             | 6.7      | RAW    | Agente Linux | Immagini RHEL 6.7, convenzione di denominazione precedente
-|             | 6.8      | RAW    | Agente Linux | Come sopra per RHEL 6.8
-|             | 6.9      | RAW    | Agente Linux | Come sopra per RHEL 6.9
-|             | 6.10     | RAW    | Agente Linux | Come sopra per RHEL 6.10
-|             | 7.2      | RAW    | Agente Linux | Come sopra per RHEL 7.2
-|             | 7.3      | RAW    | Agente Linux | Come sopra per RHEL 7.3
-|             | 7.4      | RAW    | Agente Linux | Come descritto in precedenza per RHEL 7,4. <br> Allegato ai repository EUS per impostazione predefinita a partire dal 2019 aprile
-|             | 7.5      | RAW    | Agente Linux | Come descritto in precedenza per RHEL 7,5. <br> Allegato ai repository EUS per impostazione predefinita a partire dal 2019 giugno
-|             | 7.6      | RAW    | Agente Linux | Come descritto in precedenza per RHEL 7,6. <br> Allegato ai repository EUS per impostazione predefinita a partire dal 2019 maggio
+RHEL          | 7-RAW    | RAW    | Agente Linux | Famiglia di immagini RHEL 7. x. <br> Per impostazione predefinita, non è collegato ai repository EUS.
+|             | 7-LVM    | LVM    | Agente Linux | Famiglia di immagini RHEL 7. x. <br> Per impostazione predefinita, non è collegato ai repository EUS.
+|             | 7-RAW-CI | RAW-CI | cloud-init  | Famiglia di immagini RHEL 7. x. <br> Per impostazione predefinita, non è collegato ai repository EUS.
+|             | 6.7      | RAW    | Agente Linux |
+|             | 6.8      | RAW    | Agente Linux |
+|             | 6.9      | RAW    | Agente Linux |
+|             | 6.10     | RAW    | Agente Linux |
+|             | 7.2      | RAW    | Agente Linux |
+|             | 7.3      | RAW    | Agente Linux |
+|             | 7.4      | RAW    | Agente Linux | Allegato ai repository EUS per impostazione predefinita, a partire dal 2019 aprile.
+|             | 7.5      | RAW    | Agente Linux | Allegato ai repository EUS per impostazione predefinita a partire dal 2019 giugno.
+|             | 7.6      | RAW    | Agente Linux | Collegato ai repository EUS per impostazione predefinita a partire dal 2019 maggio.
+|             | 7,7      | LVM    | Agente Linux | Allegato ai repository EUS per impostazione predefinita.
 RHEL-SAP      | 7.4      | LVM    | Agente Linux | RHEL 7.4 per SAP HANA e app aziendali
 |             | 7.5      | LVM    | Agente Linux | RHEL 7.5 per SAP HANA e app aziendali
 RHEL-SAP-HANA | 6.7      | RAW    | Agente Linux | RHEL 6.7 per SAP HANA

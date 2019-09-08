@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 333eecb11f0bd20c747bc44419fea26765f886c5
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f7e34d2bbad5f5d8e6b063269b7e87c314fdce90
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509115"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70770707"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Ridimensionare automaticamente i cluster Azure HDInsight (anteprima)
 
@@ -29,9 +29,9 @@ La tabella seguente descrive i tipi di cluster e le versioni compatibili con la 
 | Versione | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 senza ESP | Sì | Sì | No | No | No | No | No |
-| HDInsight 4,0 senza ESP | Yes | Sì | No | No | No | No | No |
+| HDInsight 4,0 senza ESP | Sì | Sì | No | No | No | No | No |
 | HDInsight 3,6 con ESP | Sì | Sì | No | No | No | No | No |
-| HDInsight 3,6 con ESP | Sì | Sì | No | No | No | No | No |
+| HDInsight 4,0 con ESP | Yes | Sì | No | No | No | No | No |
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -77,7 +77,7 @@ In base al numero di contenitori AM per nodo e ai requisiti di memoria e CPU cor
 Per abilitare la funzionalità di scalabilità automatica con il ridimensionamento basato sul carico, completare i passaggi seguenti come parte del normale processo di creazione del cluster:
 
 1. Selezionare **Custom (size, settings, apps)** (Impostazioni personalizzate (dimensione, impostazioni, app)) invece di **Quick create** (Creazione rapida).
-1. In passaggio **personalizzato** 5 (**dimensioni cluster**) selezionare la casella di controllo ridimensionamento automatico del **nodo di lavoro** .
+1. In passaggio **personalizzato** 5 (**dimensioni cluster**) selezionare la casella di controllo **ridimensionamento** automatico del nodo di lavoro.
 1. Selezionare l'opzione in **base al carico** in tipo di **scalabilità**automatica.
 1. Immettere i valori desiderati per le proprietà seguenti:  
 
@@ -94,9 +94,9 @@ Il numero iniziale di nodi del ruolo di lavoro deve essere compreso tra il numer
 Per abilitare la funzionalità di scalabilità automatica con scalabilità basata sulla pianificazione, completare i passaggi seguenti come parte del normale processo di creazione del cluster:
 
 1. Selezionare **Custom (size, settings, apps)** (Impostazioni personalizzate (dimensione, impostazioni, app)) invece di **Quick create** (Creazione rapida).
-1. In passaggio **personalizzato** 5 (**dimensioni cluster**) selezionare la casella di controllo ridimensionamento automatico del **nodo di lavoro** .
+1. In passaggio **personalizzato** 5 (**dimensioni cluster**) selezionare la casella di controllo **ridimensionamento** automatico del nodo di lavoro.
 1. Immettere il **numero di nodi del ruolo di lavoro**, che controlla il limite per la scalabilità verticale del cluster.
-1. Selezionare l'opzione **pianificazione-in base** al **tipo**di scalabilità automatica.
+1. Selezionare l'opzione **pianificazione-in base** al **tipo di scalabilità**automatica.
 1. Fare clic su **Configura** per aprire la finestra **configurazione ridimensionamento** automatico.
 1. Selezionare il fuso orario e quindi fare clic su **+ Aggiungi condizione** .
 1. Consente di selezionare i giorni della settimana a cui deve essere applicata la nuova condizione.
@@ -204,7 +204,7 @@ Usare i parametri appropriati nel payload della richiesta. Il payload JSON segue
 { autoscale: { capacity: { minInstanceCount: 1, maxInstanceCount: 2 } } }
 ```
 
-Vedere la sezione precedente sull'abilitazione della scalabilità automatica [basata sul carico](#load-based-autoscaling) per una descrizione completa di tutti i parametri del payload.
+Vedere la sezione precedente sull' [Abilitazione della scalabilità automatica basata sul carico](#load-based-autoscaling) per una descrizione completa di tutti i parametri del payload.
 
 ## <a name="best-practices"></a>Procedure consigliate
 

@@ -1,18 +1,27 @@
 ---
-ms.openlocfilehash: fe9879f9574fe1496ebdf20ac76fe5b759d4ea6a
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+title: Repository e immagini del contenitore
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+description: Due tabelle che rappresentano i registri dei contenitori, i repository e i nomi delle immagini per tutte le offerte di servizi cognitivi.
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 09/06/2019
+ms.author: dapine
+ms.openlocfilehash: 600c01fc2a273141b06996369231c2389c5d6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051226"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775864"
 ---
 ### <a name="container-repositories-and-images"></a>Repository e immagini del contenitore
 
 Le tabelle seguenti sono un elenco completo delle immagini del contenitore disponibili offerte da servizi cognitivi di Azure.
 
-#### <a name="public-container-registry-mcrmicrosoftcom"></a>Public (registro contenitori: `mcr.microsoft.com`)
+#### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>Pubblico "non gated" (registro contenitori: `mcr.microsoft.com`)
 
-Il Container Registry Microsoft ospita tutti i contenitori di disponibilità generale (GA) per servizi cognitivi.
+Il Container Registry Microsoft ospita tutti i contenitori "ungated" disponibili pubblicamente per servizi cognitivi.
 
 | Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|
@@ -21,9 +30,9 @@ Il Container Registry Microsoft ospita tutti i contenitori di disponibilità gen
 | [Analisi del testo](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Rilevamento lingua | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [Analisi del testo](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Analisi del sentiment | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-#### <a name="public-preview-container-registry-containerpreviewazurecrio"></a>Anteprima pubblica (registro contenitori: `containerpreview.azurecr.io`)
+#### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Anteprima pubblica "gestita" (registro contenitori: `containerpreview.azurecr.io`)
 
-Il registro di anteprima del contenitore ospita tutti i contenitori "anteprima pubblica" per servizi cognitivi che non sono stati ancora passati alla disponibilità generale. Questi contenitori richiedono una richiesta formale di accesso per poterli utilizzare.
+Il registro di anteprima del contenitore ospita tutti i contenitori "controllati" disponibili pubblicamente per servizi cognitivi. Questi contenitori richiedono una richiesta formale di accesso per poterli utilizzare.
 
 | Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|

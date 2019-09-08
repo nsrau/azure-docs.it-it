@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 07/16/2019
 ms.author: shvija
-ms.openlocfilehash: 013200295f3a6a48d6d96663f98bce506808cd70
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 312800482405530d57ce7b0b1e77b91c2ad069ce
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277367"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772149"
 ---
 # <a name="event-processor-host"></a>Host processore di eventi
 
@@ -121,7 +121,7 @@ La proprietà di una partizione di un'istanza EPH (o un consumer) viene rilevata
 
 In questo caso, ogni host acquisisce la proprietà di una partizione per un determinato periodo di tempo (la durata del lease). Se un host ha esito negativo (la macchina virtuale si arresta), il lease scade. Altri host tentano di ottenere la proprietà della partizione e un host ha esito positivo. Questo processo ripristina il lease per la partizione con un nuovo proprietario. In questo modo, solo un unico lettore per volta può leggere in qualsiasi partizione specificata all'interno di un gruppo di consumer.
 
-## <a name="receive-messages"></a>Ricevere messaggi
+## <a name="receive-messages"></a>Ricevi messaggi
 
 Ogni chiamata a [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) prevede una raccolta di eventi. L'utente è responsabile di tali eventi. Se si vuole avere la certezza che l'host del processore elabori ogni messaggio almeno una volta, è necessario scrivere il proprio codice di ripetizione dei tentativi. Fare attenzione, tuttavia, a inserire messaggi non elaborabili.
 
@@ -184,6 +184,10 @@ Non si consiglia l'utilizzo dell'applicazione in cui si crea un ricevitore con E
 - Se è già stato creato un ricevitore con Epoch E1 ed è in corso la ricezione di eventi e viene creato un nuovo ricevitore senza Epoch, la creazione di un nuovo destinatario avrà esito negativo. I ricevitori Epoch hanno sempre la precedenza nel sistema.
 - Se è già stato creato un ricevitore con Epoch E1 ed è stato disconnesso e viene creato un nuovo ricevitore senza Epoch in un nuovo MessagingFactory, la creazione di un nuovo destinatario avrà esito positivo. Si tenga presente che il sistema rileverà la "disconnessione del ricevitore" dopo ~ 10 minuti.
 - Se sono presenti uno o più ricevitori creati senza Epoch e viene creato un nuovo ricevitore con Epoch E1, tutti i vecchi ricevitori vengono disconnessi.
+
+
+> [!NOTE]
+> È consigliabile usare diversi gruppi di consumer per le applicazioni che usano le epoche e per quelle che non usano epoche per evitare errori. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

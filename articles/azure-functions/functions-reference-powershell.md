@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 8c6f13f85b692d2405928fe06605d8b2ac0ec8e7
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 36d24e798e73ef336324eedadee1ba3fec4c0e1d
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012720"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773038"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per gli sviluppatori di PowerShell per funzioni di Azure
 
@@ -254,7 +254,7 @@ Oltre a questi cmdlet, tutto ciò che viene scritto nella pipeline viene reindir
 
 ### <a name="configure-the-function-app-log-level"></a>Configurare il livello di registrazione dell'app per le funzioni
 
-Funzioni di Azure consente di definire il livello di soglia per facilitare il controllo del modo in cui le funzioni scrivono nei log. Per impostare la soglia per tutte le tracce scritte nella console, usare la `logging.logLevel.default` proprietà [`host.json`nel[riferimento file host. JSON]. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni.
+Funzioni di Azure consente di definire il livello di soglia per facilitare il controllo del modo in cui le funzioni scrivono nei log. Per impostare la soglia per tutte le tracce scritte nella console, usare la `logging.logLevel.default` proprietà [`host.json`nel][informazioni di riferimento su host. json]. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni.
 
 Nell'esempio seguente viene impostata la soglia per abilitare la registrazione dettagliata per tutte le funzioni, ma viene impostata la soglia per abilitare la registrazione di `MyFunction`debug per una funzione denominata:
 
@@ -381,7 +381,7 @@ param([string] $myBlob)
 
 ## <a name="powershell-profile"></a>Profilo di PowerShell
 
-In PowerShell è presente il concetto di profilo di PowerShell. Se non si ha familiarità con i profili di PowerShell, vedere [About](/powershell/module/microsoft.powershell.core/about/about_profiles)Profiles.
+In PowerShell è presente il concetto di profilo di PowerShell. Se non si ha familiarità con i profili di PowerShell, vedere [About Profiles](/powershell/module/microsoft.powershell.core/about/about_profiles).
 
 Nelle funzioni di PowerShell, lo script del profilo viene eseguito all'avvio dell'app per le funzioni. Le app per le funzioni vengono avviate alla prima distribuzione e dopo essere state inattive ([avvio a freddo](#cold-start)).
 
@@ -403,14 +403,18 @@ La tabella seguente illustra la versione di PowerShell usata da ogni versione pr
 
 ## <a name="dependency-management"></a>Gestione delle dipendenze
 
-Le funzioni di PowerShell supportano la gestione dei moduli di Azure da parte del servizio. Modificando il file host. JSON e impostando la proprietà Enabled di managedDependency su true, il file requirements. psd1 verrà elaborato. I moduli di Azure più recenti verranno scaricati e resi disponibili automaticamente alla funzione.
+Le funzioni di PowerShell supportano il download e la gestione dei moduli della [raccolta di PowerShell](https://www.powershellgallery.com) da parte del servizio. Modificando il file host. JSON e impostando la proprietà Enabled di managedDependency su true, il file requirements. psd1 verrà elaborato. I moduli specificati verranno scaricati e resi disponibili automaticamente alla funzione. 
+
+Il numero massimo di moduli attualmente supportati è 10. La sintassi supportata è MajorNumber. * o la versione esatta del modulo, come illustrato di seguito. Il modulo AZ di Azure è incluso per impostazione predefinita quando viene creata una nuova app per le funzioni di PowerShell.
+
+Il ruolo di lavoro del linguaggio rileverà tutti i moduli aggiornati al riavvio.
 
 host.json
 ```json
 {
-    "managedDependency": {
-        "enabled": true
-    }
+  "managedDependency": {
+          "enabled": true
+       }
 }
 ```
 
@@ -419,10 +423,11 @@ requirements.psd1
 ```powershell
 @{
     Az = '1.*'
+    SqlServer = '21.1.18147'
 }
 ```
 
-Usare moduli o moduli personalizzati dall' [PowerShell Gallery](https://powershellgallery.com) è leggermente diverso rispetto a come si farebbe normalmente.
+Usare i moduli personalizzati è leggermente diverso da quello che si farebbe normalmente.
 
 Quando si installa il modulo nel computer locale, questo viene inserito in una delle cartelle disponibili a livello globale nel `$env:PSModulePath`. Poiché la funzione viene eseguita in Azure, non sarà possibile accedere ai moduli installati nel computer. A tale scopo, `$env:PSModulePath` è necessario che l'per un'app per `$env:PSModulePath` le funzioni di PowerShell sia diversa da in uno script di PowerShell normale.
 
@@ -433,16 +438,19 @@ In funzioni `PSModulePath` contiene due percorsi:
 
 ### <a name="function-app-level-modules-folder"></a>Cartella a livello `Modules` di app per le funzioni
 
-Per usare moduli personalizzati o moduli di PowerShell dal PowerShell Gallery, è possibile inserire i moduli da cui dipendono le funzioni `Modules` in una cartella. Da questa cartella, i moduli sono automaticamente disponibili per il runtime di funzioni. Qualsiasi funzione nell'app per le funzioni può usare questi moduli.
+Per usare i moduli personalizzati, è possibile inserire i moduli da cui dipendono le `Modules` funzioni in una cartella. Da questa cartella, i moduli sono automaticamente disponibili per il runtime di funzioni. Qualsiasi funzione nell'app per le funzioni può usare questi moduli. 
 
-Per sfruttare i vantaggi di questa funzionalità, creare `Modules` una cartella nella radice dell'app per le funzioni. Salvare i moduli che si vuole usare nelle funzioni in questa posizione.
+> [!NOTE]
+> I moduli specificati nel file requirements. psd1 vengono scaricati e inclusi automaticamente nel percorso, quindi non è necessario includerli nella cartella modules. Questi vengono archiviati localmente nella cartella $env: LOCALAPPDATA/AzureFunctions e nella cartella/data/ManagedDependencies quando vengono eseguiti nel cloud.
+
+Per sfruttare i vantaggi della funzionalità del modulo personalizzato, creare `Modules` una cartella nella radice dell'app per le funzioni. Copiare i moduli che si vuole usare nelle funzioni in questa posizione.
 
 ```powershell
 mkdir ./Modules
-Save-Module MyGalleryModule -Path ./Modules
+Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
 ```
 
-Usare `Save-Module` per salvare tutti i moduli usati dalle funzioni oppure copiare i moduli `Modules` personalizzati nella cartella. Con una cartella dei moduli, l'app per le funzioni deve avere la struttura di cartelle seguente:
+Con una cartella dei moduli, l'app per le funzioni deve avere la struttura di cartelle seguente:
 
 ```
 PSFunctionApp
@@ -450,11 +458,12 @@ PSFunctionApp
  | | - run.ps1
  | | - function.json
  | - Modules
- | | - MyGalleryModule
- | | - MyOtherGalleryModule
- | | - MyCustomModule.psm1
+ | | - MyCustomModule
+ | | - MyOtherCustomModule
+ | | - MySpecialModule.psm1
  | - local.settings.json
  | - host.json
+ | - requirements.psd1
 ```
 
 Quando si avvia l'app `Modules` `$env:PSModulePath` per le funzioni, il ruolo di lavoro del linguaggio di PowerShell aggiunge questa cartella al in modo che sia possibile basarsi sul caricamento automatico del modulo come in uno script di PowerShell normale.
@@ -503,17 +512,7 @@ Questa variabile di ambiente viene impostata nelle [impostazioni dell'app](funct
 
 ### <a name="considerations-for-using-concurrency"></a>Considerazioni sull'utilizzo della concorrenza
 
-PowerShell è un linguaggio di scripting a _thread singolo_ per impostazione predefinita. Tuttavia, è possibile aggiungere la concorrenza usando più Runspaces di PowerShell nello stesso processo. Questa funzionalità è la modalità di funzionamento del runtime di PowerShell per funzioni di Azure.
-
-Questo approccio presenta alcuni svantaggi.
-
-#### <a name="concurrency-is-only-as-good-as-the-machine-its-running-on"></a>La concorrenza è solo la qualità del computer in cui è in esecuzione
-
-Se l'app per le funzioni è in esecuzione in un [piano di servizio app](functions-scale.md#app-service-plan) che supporta solo un singolo core, la concorrenza non sarà molto utile. Ciò è dovuto al fatto che non sono presenti Core aggiuntivi per consentire il bilanciamento del carico. In questo caso, le prestazioni possono variare quando il singolo core deve cambiare il contesto tra Runspaces.
-
-Il [piano a consumo](functions-scale.md#consumption-plan) viene eseguito usando un solo core, quindi non è possibile sfruttare la concorrenza. Per sfruttare tutti i vantaggi della concorrenza, distribuire invece le funzioni in un'app per le funzioni in esecuzione in un piano di servizio App dedicato con core sufficienti.
-
-#### <a name="azure-powershell-state"></a>Stato Azure PowerShell
+PowerShell è un linguaggio di scripting a _thread singolo_ per impostazione predefinita. Tuttavia, è possibile aggiungere la concorrenza usando più Runspaces di PowerShell nello stesso processo. La quantità di Runspaces creata corrisponderà all'impostazione dell'applicazione PSWorkerInProcConcurrencyUpperBound. La velocità effettiva avrà un effetto sulla quantità di CPU e memoria disponibile nel piano selezionato.
 
 Azure PowerShell usa alcuni contesti a _livello di processo_ e lo stato per facilitare il salvataggio dalla digitazione in eccesso. Tuttavia, se si attiva la concorrenza nell'app per le funzioni e si richiamano azioni che modificano lo stato, è possibile che si verifichino race condition. Queste race condition sono difficili da sottomettere a debug perché una chiamata si basa su un determinato stato e l'altra chiamata ha modificato lo stato.
 

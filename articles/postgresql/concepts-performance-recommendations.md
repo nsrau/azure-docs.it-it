@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: e1e9e998c2ac4695d955a546d0f02fbc2b517d5e
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5f1b64753d19158b17d4de1b3fbbe50d30ea0254
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907487"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764676"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Suggerimenti sulle prestazioni in database di Azure per PostgreSQL-server singolo
 
-**Si applica a:** Database di Azure per PostgreSQL-server singolo 9,6 e 10
+**Si applica a:** Database di Azure per PostgreSQL: versioni a server singolo 9,6, 10, 11
 
 La funzionalità raccomandazioni per le prestazioni analizza i database per creare suggerimenti personalizzati per migliorare le prestazioni. Per produrre le raccomandazioni, l'analisi esamina le varie caratteristiche del database, incluso lo schema. Abilitare [query Store](concepts-query-store.md) sul server per usare completamente la funzionalità delle raccomandazioni per le prestazioni. Una volta implementate le indicazioni sulle prestazioni, è consigliabile testare le prestazioni per valutare l'effetto di tali modifiche. 
 
@@ -48,7 +48,7 @@ I suggerimenti per la *creazione* di indici suggeriscono nuovi indici per veloci
 Oltre a rilevare gli indici mancanti, database di Azure per PostgreSQL analizza le prestazioni degli indici esistenti. Se un indice viene usato raramente o ridondante, l'analizzatore consiglia di eliminarlo.
 
 ## <a name="considerations"></a>Considerazioni
-* Le raccomandazioni sulle prestazioni non sono disponibili per le repliche di [lettura](concepts-read-replicas.md).
+* Le raccomandazioni sulle prestazioni non sono disponibili per le [repliche di lettura](concepts-read-replicas.md).
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su [monitoraggio e ottimizzazione](concepts-monitoring.md) nel Database di Azure per PostgreSQL.
 

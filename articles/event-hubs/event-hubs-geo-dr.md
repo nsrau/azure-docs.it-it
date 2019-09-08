@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611709"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773243"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
@@ -110,13 +110,19 @@ L'[esempio su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 Tenere presente le considerazioni seguenti per questa versione:
 
-1. Quando si pianifica il failover, è consigliabile considerare anche il fattore tempo. Ad esempio, se si perde la connettività per più di 15-20 minuti, è possibile decidere di avviare il failover. 
+1. Per impostazione predefinita, il ripristino di emergenza geografico di hub eventi non replica i dati e pertanto non è possibile riusare il valore di offset precedente dell'hub eventi primario nell'hub eventi secondario. Si consiglia di riavviare il ricevitore di eventi con uno dei seguenti elementi:
+
+- *EventPosition. FromStart ()* : se si desidera leggere tutti i dati nell'hub eventi secondario.
+- *EventPosition. FromEnd ()* : se si vogliono leggere tutti i nuovi dati dal momento della connessione all'hub eventi secondario.
+- *EventPosition. FromEnqueuedTime (DateTime)* : se si vuole leggere tutti i dati ricevuti nell'hub eventi secondario a partire da una data e un'ora specificate.
+
+2. Quando si pianifica il failover, è consigliabile considerare anche il fattore tempo. Ad esempio, se si perde la connettività per più di 15-20 minuti, è possibile decidere di avviare il failover. 
  
-2. Il fatto che non vengano replicati dati significa che le sessioni attive non vengono replicate. Il rilevamento dei duplicati e i messaggi pianificati potrebbero inoltre non funzionare. Le nuove sessioni, i messaggi pianificati e i nuovi duplicati funzioneranno. 
+3. Il fatto che non vengano replicati dati significa che le sessioni attive non vengono replicate. Il rilevamento dei duplicati e i messaggi pianificati potrebbero inoltre non funzionare. Le nuove sessioni, i messaggi pianificati e i nuovi duplicati funzioneranno. 
 
-3. È necessario [provare a eseguire](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) il failover di un'infrastruttura distribuita complessa almeno una volta. 
+4. È necessario [provare a eseguire](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) il failover di un'infrastruttura distribuita complessa almeno una volta. 
 
-4. La sincronizzazione delle entità può richiedere tempo, circa un minuto per 50-100 entità.
+5. La sincronizzazione delle entità può richiedere tempo, circa un minuto per 50-100 entità.
 
 ## <a name="availability-zones"></a>Zone di disponibilità 
 

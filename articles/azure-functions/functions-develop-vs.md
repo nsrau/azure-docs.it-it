@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ebc900735dfbb25206c4b22e3d20da62d85c61df
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905689"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773152"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Sviluppare Funzioni di Azure con Visual Studio  
 
@@ -41,6 +41,8 @@ Altre risorse necessarie, ad esempio un account di archiviazione di Azure, vengo
 
 > [!NOTE]
 > In Visual Studio 2017, il carico di lavoro sviluppo di Azure installa gli strumenti di funzioni di Azure come estensione separata. Quando si aggiorna Visual Studio 2017, assicurarsi anche di usare la [versione più recente](#check-your-tools-version) degli strumenti di funzioni di Azure. Le sezioni seguenti illustrano come controllare e (se necessario) aggiornare l'estensione degli strumenti di funzioni di Azure in Visual Studio 2017. 
+>
+> Quando si usa Visual Studio 2019, ignorare questa sezione.
 
 ### <a name="check-your-tools-version"></a>Controllare la versione degli strumenti in Visual Studio 2017
 
@@ -146,7 +148,7 @@ Nelle C# funzioni della libreria di classi, le associazioni usate dalla funzione
 
 Come nel caso dei trigger, le associazioni di input e output vengono aggiunte alla funzione come attributi di associazione. Per aggiungere associazioni a una funzione, procedere come segue:
 
-1. Assicurarsi di avere [configurato il progetto per lo sviluppo locale](#configure-the-project-for-local-development).
+1. Assicurarsi [di aver configurato il progetto per lo sviluppo locale](#configure-the-project-for-local-development).
 
 2. Aggiungere il pacchetto di estensione NuGet appropriato per l'associazione specifica. Per altre informazioni, vedere [Sviluppo in C# a livello locale con Visual Studio](./functions-bindings-register.md#local-csharp) nell'articolo relativo a trigger e associazioni. I requisiti del pacchetto NuGet specifico dell'associazione sono indicati nell'articolo di riferimento per l'associazione. I requisiti del pacchetto per il trigger di Hub eventi sono ad esempio disponibili nell'[articolo di riferimento sulle associazioni di Hub eventi](functions-bindings-event-hubs.md).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e59a28ce1fb3c562bf76420a5e62e347230e964
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c3a7fb14dbd22730d95a5aaed146b59ad790ce6b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669701"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775862"
 ---
 I dischi del sistema operativo temporaneo vengono creati nell'archivio della macchina virtuale (VM) locale e non vengono salvati nell'archiviazione di Azure remota. I dischi del sistema operativo temporaneo funzionano bene per i carichi di lavoro senza stato, in cui le applicazioni sono a tolleranza di singoli errori delle macchine virtuali, ma sono più interessate dal tempo di distribuzione delle VM o dalla ricreazione dell'immagine delle singole istanze Con il disco del sistema operativo temporaneo si ottiene una latenza di lettura/scrittura più bassa per il disco del sistema operativo e una ricreazione più veloce della macchina virtuale 
  
@@ -38,7 +38,7 @@ Differenze principali tra dischi del sistema operativo permanenti e temporanei:
 | Supporto di area              | Tutte le aree                                                                                  | Tutte le aree                              |
 | Persistenza dei dati            | I dati del disco del sistema operativo scritti nel disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti nel disco del sistema operativo vengono archiviati nella risorsa di archiviazione locale della macchina virtuale e non vengono salvati in modo permanente in archiviazione di Azure. |
 | Arresta-stato deallocato      | Le macchine virtuali e le istanze del set di scalabilità possono essere arrestate e riavviate dallo stato stop-deallocato | Non è possibile arrestare la deallocazione delle VM e delle istanze del set di scalabilità                                  |
-| Supporto del disco del sistema operativo specializzato | Yes                                                                                          | No                                                                                 |
+| Supporto del disco del sistema operativo specializzato | Sì                                                                                          | No                                                                                 |
 | Ridimensionamento del disco del sistema operativo              | Supportato durante la creazione della macchina virtuale e dopo la deallocazione della macchina virtuale                                | Supportato solo durante la creazione della macchina virtuale                                                  |
 | Ridimensionamento in una nuova dimensione della macchina virtuale   | I dati del disco del sistema operativo vengono conservati                                                                    | I dati nel disco del sistema operativo vengono eliminati, viene effettuato di nuovo il provisioning del sistema operativo                                      |
 
@@ -86,7 +86,7 @@ Nella portale di Azure è possibile scegliere di usare dischi temporanei quando 
 
 ![Screenshot che mostra il pulsante di opzione per scegliere di usare un disco del sistema operativo temporaneo](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
 
-Se l'opzione per l'uso di un disco temporaneo è disattivata, è possibile che sia stata selezionata una dimensione della macchina virtuale che non dispone di una dimensione della cache superiore a quella dell'immagine del sistema operativo o che non supporta l'archiviazione Premium. Tornare alla pagina Nozioni di **base** e provare a scegliere le altre dimensioni della macchina virtuale.
+Se l'opzione per l'uso di un disco temporaneo è disattivata, è possibile che sia stata selezionata una dimensione della macchina virtuale che non dispone di una dimensione della cache superiore a quella dell'immagine del sistema operativo o che non supporta l'archiviazione Premium. Tornare alla pagina **nozioni di base** e provare a scegliere le altre dimensioni della macchina virtuale.
 
 È anche possibile creare set di scalabilità con dischi del sistema operativo temporanei usando il portale. Assicurarsi di selezionare una dimensione di macchina virtuale con dimensioni della cache sufficienti e quindi in **Usa disco del sistema operativo temporaneo** selezionare **Sì**.
 
@@ -175,7 +175,7 @@ Il processo per creare un set di scalabilità che usa un disco del sistema opera
 
 
 ## <a name="reimage-a-vm-using-rest"></a>Ricreare l'immagine di una VM con REST
-Attualmente, l'unico metodo per ricreare l'immagine di un'istanza di macchina virtuale con un disco del sistema operativo temporaneo consiste nell'usare l'API REST. Per i set di scalabilità la ricreazione dell'immagine è già disponibile tramite PowerShell, l'interfaccia della riga di comando e il portale.
+È possibile ricreare l'immagine di un'istanza di macchina virtuale con un disco del sistema operativo temporaneo usando l'API REST, come descritto di seguito e tramite il portale di Azure passando al riquadro Panoramica della macchina virtuale. Per i set di scalabilità la ricreazione dell'immagine è già disponibile tramite PowerShell, l'interfaccia della riga di comando e il portale.
 
 ```
 POST https://management.azure.com/subscriptions/{sub-

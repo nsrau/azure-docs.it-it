@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 5ddbff62421d97b1105a997bd084e1fe5b44cf12
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907409"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764407"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
 
-**Si applica a:** Database di Azure per PostgreSQL-server singolo 9,6 e 10
+**Si applica a:** Database di Azure per PostgreSQL: versioni a server singolo 9,6, 10, 11
 
 La funzionalità Query Store di Database di Azure per PostgreSQL offre la possibilità di tenere traccia delle prestazioni delle query nel tempo. Query Store semplifica la risoluzione dei problemi di prestazioni consentendo di trovare rapidamente le query con il tempo di esecuzione più lungo e il più elevato utilizzo di risorse. Query Store acquisisce automaticamente una cronologia delle query e le statistiche di runtime e le conserva a scopo di verifica. I dati vengono separati per intervalli di tempo per consentire l'individuazione dei modelli di utilizzo dei database. I dati relativi a tutti gli utenti, tutti i database e tutte le query vengono archiviati in un database denominato **azure_sys** nell'istanza di Database di Azure per PostgreSQL.
 
@@ -175,7 +175,7 @@ Query_store.staging_data_reset() restituisce void
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 - Se un server PostgreSQL ha il parametro default_transaction_read_only on, Query Store non può acquisire i dati.
 - La funzionalità Query Store può essere interrotta se si verificano query Unicode lunghe (> = 6000 byte).
-- Le repliche di [lettura](concepts-read-replicas.md) replicano query Store dati dal server master. Ciò significa che la Query Store di una replica di lettura non fornisce statistiche sulle query eseguite nella replica di lettura.
+- Le [repliche di lettura](concepts-read-replicas.md) replicano query Store dati dal server master. Ciò significa che la Query Store di una replica di lettura non fornisce statistiche sulle query eseguite nella replica di lettura.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

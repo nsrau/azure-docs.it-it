@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: ad619ad965cf4b7d94b781818c658152f71250a7
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cb5a3b8572cebfd6c0731a9e572e966fda280be6
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594996"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772792"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -41,7 +41,7 @@ Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsof
 
 Per forzare la gestione della richiesta da parte di una specifica area geografica di Azure, impostare l'endpoint globale nella richiesta dell'API sull'endpoint di area desiderato:
 
-|DESCRIZIONE|Geografia di Azure|URL di base|
+|Descrizione|Geografia di Azure|URL di base|
 |:--|:--|:--|
 |Azure|Globale (non a livello di area)|   api.cognitive.microsofttranslator.com|
 |Azure|Stati Uniti|   api-nam.cognitive.microsofttranslator.com|
@@ -51,11 +51,11 @@ Per forzare la gestione della richiesta da parte di una specifica area geografic
 
 ## <a name="authentication"></a>Authentication
 
-Sottoscrivere la funzionalità multiservizio di API Traduzione testuale o [Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/) in Servizi cognitivi Microsoft e usare la chiave di sottoscrizione (disponibile nella portale di Azure) per l'autenticazione. 
+Sottoscrivere la [funzionalità multiservizio di API traduzione testuale o servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/) in Servizi cognitivi Microsoft e usare la chiave di sottoscrizione (disponibile nella portale di Azure) per l'autenticazione. 
 
 Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella spiega come usare ogni intestazione:
 
-|Intestazioni|Descrizione|
+|Intestazioni|DESCRIZIONE|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
 |Authorization|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
@@ -99,7 +99,7 @@ Quando si usa una chiave privata a più servizi, è necessario includere due int
 
 L'area è obbligatoria per la sottoscrizione dell'API del testo multiservizio. L'area selezionata è l'unica area che è possibile usare per la traduzione di testo quando si usa la chiave di sottoscrizione multiservizio e deve essere la stessa area selezionata al momento dell'iscrizione per la sottoscrizione multiservizio tramite il portale di Azure.
 
-Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` e `westus2`.
+Le aree disponibili `australiaeast`sono `brazilsouth` `centralindia` ,,`centraluseuap` ,,`eastus2`,, ,`eastus`,, ,,`japaneast`, `eastasia` `canadacentral` `centralus` `francecentral` `japanwest` `koreacentral`, ,`northcentralus` ,`southcentralus`, ,`uksouth`,,,, e`westus2`. `westeurope` `westcentralus` `southeastasia` `northeurope` `westus` `southafricanorth`
 
 Se si passa la chiave privata nella stringa di query con il parametro `Subscription-Key`, è necessario specificare l'area con il parametro di query `Subscription-Region`.
 
