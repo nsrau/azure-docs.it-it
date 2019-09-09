@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentazione di Cache HPC di Azure (anteprima)
+summary: Usare Cache HPC di Azure per velocizzare l'accesso ai file per carichi di lavoro HPC (High Performance Computing) a uso intensivo di operazioni di lettura
+metadata:
+  title: Cache HPC di Microsoft Azure
+  description: Informazioni su come creare e usare Cache HPC di Azure per risolvere il problema della latenza tra risorse di calcolo e archiviazione. Cache HPC di Azure è un servizio dedicato a carichi di lavoro a uso intensivo di operazioni di lettura e consente di creare un file system virtuale aggregato che incorpora Archiviazione BLOB di Azure e sistemi di archiviazione hardware locali.
+  ms.service: hpc-cache
+  ms.topic: landing-page
+  ms.collection: collection
+  author: ekpgh
+  ms.author: v-erkell
+  ms.date: 08/30/2019
+  ms.openlocfilehash: 4d5935646c3266624395b3b29a34d9cf8d446de7
+  ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70774556"
+landingContent:
+- title: Informazioni su Cache HPC di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Cache HPC di Azure?
+      url: hpc-cache-overview.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare i prerequisiti per Cache HPC di Azure
+      url: hpc-cache-prereqs.md
+    - text: Creare la cache
+      url: hpc-cache-create.md
+    - text: Aggiungere le risorse di archiviazione
+      url: hpc-cache-add-storage.md
+    - text: Montare i client
+      url: hpc-cache-mount.md
+  - linkListType: concept
+    links:
+    - text: Configurare lo spazio dei nomi aggregato
+      url: hpc-cache-namespace.md
+    - text: Popolare una nuova archiviazione BLOB
+      url: hpc-cache-ingest.md
+- title: Risolvere problemi
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Aprire un ticket di supporto
+      url: hpc-cache-support-ticket.md

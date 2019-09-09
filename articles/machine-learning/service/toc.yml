@@ -113,11 +113,13 @@
       href: concept-deep-learning-vs-machine-learning.md
 - name: Guide alle procedure
   items:
-    - name: Gestire le aree di lavoro
+    - name: Creare e gestire aree di lavoro
       items:
-        - name: Usare il portale per le aree di lavoro
+        - name: Usare il portale di Azure
           href: how-to-manage-workspace.md
-        - name: Usare il modello di Resource Manager
+        - name: Utilizzare l'interfaccia della riga di comando di Azure
+          href: how-to-manage-workspace-cli.md
+        - name: Usare i modelli di Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
     - name: "Configurare l'ambiente di sviluppo\_"

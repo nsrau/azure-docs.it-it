@@ -3,18 +3,18 @@ title: Indicizzare un set di dati di grandi dimensioni usando gli indicizzatori 
 description: Informazioni sulle strategie per l'indicizzazione di grandi quantità di dati o l'indicizzazione con un utilizzo elevato di risorse di calcolo mediante la modalità batch, l'allocazione delle risorse e tecniche di indicizzazione pianificata, parallela e distribuita.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: search
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8c067b6e238fab2970e5e40f0660a5c7555a8f2e
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: a98d716562f53488e9adb5d485a1dbf7fafc3102
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302222"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648167"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Come indicizzare set di dati di grandi dimensioni in Ricerca di Azure
 
@@ -54,7 +54,7 @@ La pianificazione degli indicizzatori è un meccanismo importante per l'elaboraz
 
 Per impostazione predefinita, l'indicizzazione pianificata viene avviata a intervalli specifici, in cui un processo viene in genere completato prima di riprendere nell'intervallo pianificato successivo. Tuttavia, se l'elaborazione non viene completata entro l'intervallo, l'indicizzatore si arresta perché il tempo a disposizione è terminato. All'intervallo successivo l'elaborazione riprende da dove si è interrotta perché il sistema tiene traccia del punto in cui si è verificata l'interruzione. 
 
-In pratica per i caricamenti di indici che richiedono più giorni, è possibile inserire l'indicizzatore in una pianificazione di 24 ore. Quando l'indicizzazione riprende per il ciclo di 24 ore successivo, riparte dall'ultimo documento valido noto. In questo modo un indicizzatore può continuare a funzionare tramite un backlog del documento per più giorni fino a quando non vengono elaborati tutti i documenti non elaborati. Per altre informazioni su questo approccio, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Per altre informazioni sull'impostazione delle pianificazioni in generale, vedere [API REST di creazione dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) oppure vedere [come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
+In pratica per i caricamenti di indici che richiedono più giorni, è possibile inserire l'indicizzatore in una pianificazione di 24 ore. Quando l'indicizzazione riprende per il ciclo di 24 ore successivo, riparte dall'ultimo documento valido noto. In questo modo un indicizzatore può continuare a funzionare tramite un backlog del documento per più giorni fino a quando non vengono elaborati tutti i documenti non elaborati. Per altre informazioni su questo approccio, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Per altre informazioni sull'impostazione delle pianificazioni in generale, vedere [creare un'API REST dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) o vedere [come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -67,7 +67,7 @@ Per requisiti di indicizzazione non comuni e con elevati livelli di calcolo, ad 
 L'elaborazione parallela prevede le operazioni seguenti:
 
 + Suddividere i dati di origine in più contenitori o in più cartelle virtuali all'interno dello stesso contenitore. 
-+ Eseguire il mapping di ogni set di dati di formattazione rapida per il proprio [zdroj dat](https://docs.microsoft.com/rest/api/searchservice/create-data-source), associata al proprio [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Eseguire il mapping di ogni mini set di dati alla propria [origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source), abbinato al proprio [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + Per la ricerca cognitiva, fare riferimento allo stesso [set di competenze](https://docs.microsoft.com/rest/api/searchservice/create-skillset) in ogni definizione dell'indicizzatore.
 + Scrivere nello stesso indice di ricerca di destinazione. 
 + Pianificare l'esecuzione di tutti gli indicizzatori nello stesso momento.

@@ -1,5 +1,5 @@
 ---
-title: Replica geografica di un registro contenitori di Azure
+title: Replica geografica di un Registro Azure Container
 description: Introduzione alla creazione e gestione dei registri contenitori di Azure con replica geografica
 services: container-registry
 author: stevelas
@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 50ab3fc92fc980638547bb090c5d0d78aa20ab5f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172281"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208013"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 
-Le aziende con esigenze di presenza online locale o di backup a caldo scelgono di eseguire i servizi da più aree di Azure. Come procedura consigliata, l'inserimento di un registro contenitori in ogni area in cui vengono eseguite le immagini consente l'esecuzione di operazioni in posizioni di rete vicine e quindi di trasferimenti di livelli di immagine più veloci e affidabili. La replica geografica consente a un registro contenitori di Azure di fungere da singolo registro in modo da servire più aree con registri regionali multimaster. 
+Le aziende con esigenze di presenza online locale o di backup a caldo scelgono di eseguire i servizi da più aree di Azure. Come procedura consigliata, l'inserimento di un registro contenitori in ogni area in cui vengono eseguite le immagini consente l'esecuzione di operazioni in posizioni di rete vicine e quindi di trasferimenti di livelli di immagine più veloci e affidabili. La replica geografica consente a un Registro Azure Container di fungere da singolo registro in modo da servire più aree con registri regionali multimaster. 
 
 Un registro con replica geografica è caratterizzato dai vantaggi seguenti:
 
@@ -97,8 +97,19 @@ Il servizio Registro Azure Container inizia a sincronizzare le immagine tra le r
 * Una volta configurata, ogni area in un registro con replica geografica è indipendente. I contratti di servizio del Registro Azure Container si applicano a ogni area con replica geografica.
 * Quando si esegue il push o il pull di immagini da un registro con replica geografica, Gestione traffico di Azure invia in background la richiesta al registro di sistema che si trova nell'area più vicina.
 * Una volta eseguito il push dell'aggiornamento di un'immagine o un tag nell'area più vicina, il Registro Azure Container impiega del tempo per replicare i livelli e i manifesti nelle rimanenti aree scelte. La replica delle immagini di grandi dimensioni richiede più tempo rispetto alla replica delle immagini più piccole. Immagini e tag vengono sincronizzati tra le aree di replica con un modello di coerenza finale.
-* Per gestire i flussi di lavoro che dipendono da aggiornamenti push a un registro con replica geografica, è consigliabile configurare [webhook](container-registry-webhook.md) per rispondere agli eventi push. È possibile configurare webhook regionali all'interno di un registro con replica geografica per tenere traccia degli eventi push man mano che vengono completati tra le aree con replica geografica.
+* Per gestire i flussi di lavoro che dipendono da aggiornamenti push a una replica geografica, è consigliabile configurare i [webhook](container-registry-webhook.md) per rispondere agli eventi di push. È possibile configurare webhook regionali all'interno di un registro con replica geografica per tenere traccia degli eventi push man mano che vengono completati tra le aree con replica geografica.
 
+## <a name="delete-a-replica"></a>Eliminare una replica
+
+Dopo aver configurato una replica per il registro, è possibile eliminarla in qualsiasi momento, se non è più necessaria. Eliminare una replica usando il portale di Azure o altri strumenti, ad esempio il comando [AZ ACR Replication Delete](/cli/azure/acr/replication#az-acr-replication-delete) nell'interfaccia della riga di comando di Azure.
+
+Per eliminare una replica nel portale di Azure:
+
+1. Passare al Container Registry di Azure e selezionare **repliche**.
+1. Selezionare il nome di una replica e selezionare **Elimina**. Confermare che si desidera eliminare la replica.
+
+> [!NOTE]
+> Non è possibile eliminare la replica del registro di sistema nell' *area principale* del registro di sistema, ovvero il percorso in cui è stato creato il registro di sistema. È possibile eliminare la replica Home solo eliminando il registro di sistema.
 
 ## <a name="geo-replication-pricing"></a>Prezzi della replica geografica
 

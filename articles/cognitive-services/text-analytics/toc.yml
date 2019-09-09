@@ -12,7 +12,7 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Client
+    - name: Libreria client
       items:
         - name: 'C#'
           href: quickstarts/csharp.md
@@ -54,13 +54,13 @@
   items:
     - name: Chiamare l'API Analisi del testo
       href: How-tos/text-analytics-how-to-call-api.md
-    - name: Rileva lingua
+    - name: Rilevamento della lingua
       href: How-tos/text-analytics-how-to-language-detection.md
-    - name: Analizzare la valutazione
+    - name: Analisi del sentiment
       href: How-tos/text-analytics-how-to-sentiment-analysis.md
-    - name: Estrarre le frasi chiave
+    - name: Estrazione di frasi chiave
       href: How-tos/text-analytics-how-to-keyword-extraction.md
-    - name: Chiamare il riconoscimento di entità denominate
+    - name: Riconoscimento di entità denominate
       href: How-tos/text-analytics-how-to-entity-linking.md
     - name: Usare i contenitori
       items:

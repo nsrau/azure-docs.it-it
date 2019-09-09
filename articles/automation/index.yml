@@ -1,61 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione dell'utente di Automazione di Azure
+### YamlMime:Landing
+title: Documentazione di Automazione di Azure
 metadata:
-  document_id: null
-  title: Documentazione di Automazione di Azure - Esercitazioni e informazioni di riferimento sulle API
-  description: Informazioni su come usare Automazione di Azure
+  document_id: 
+  title: Documentazione di Automazione di Azure
+  description: Informazioni su come usare Automazione per configurare e automatizzare le attività operative in un ambiente ibrido.
   services: automation
-  author: georgewallace
+  author: bobbytreed
   manager: carmonm
   ms.service: automation
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 12/13/2017
-  ms.author: gwallace
-abstract:
-  description: 'Informazioni su come usare Automazione per configurare e automatizzare le attività operative in un ambiente ibrido. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come automatizzare i processi, gestire gli aggiornamenti, fornire la configurazione dello stato desiderato, rilevare le modifiche e raccogliere l''inventario.'
-sections:
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: 'Informazioni su come automatizzare e configurare l''ambiente ibrido e di Azure con Automazione:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/automation/media/index/automation.svg
-            text: Creare un account di Automazione
-            href: /azure/automation/automation-quickstart-create-account
-          - image:
-              src: /azure/automation/media/index/runbook.svg
-            text: Creare un runbook
-            href: /azure/automation/automation-quickstart-create-runbook
-          - image:
-              src: /azure/automation/media/index/dscconfig.svg
-            text: Creare una configurazione DSC
-            href: /azure/automation/automation-quickstart-dsc-configuration
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: 'Informazioni su come integrare, distribuire e gestire l''ambiente ibrido e di Azure.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/automation/automation-watchers-tutorial">Configurare le attività watcher</a>
-          - html: <a href="/azure/automation/automation-tutorial-update-management">Gestire gli aggiornamenti nella VM</a>
-          - html: <a href="/azure/automation/automation-onboard-solutions">Eseguire l'onboarding su vasta scala</a>
-          - html: <a href="/azure/automation/automation-tutorial-installed-software">Identificare il software installato in una macchina virtuale</a>
-          - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Risolvere i problemi delle modifiche di una VM</a>
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
-          - title: Languages
-            html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/automation">Automation REST API</a> (API REST di Automazione)</p>
+  ms.date: 09/06/2019
+  ms.author: robreed
+  ms.openlocfilehash: 3242e2c699e0f99164d6c5ecd2cf61441648b8e8
+  ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70743727"
+landingContent:
+- title: Introduzione ad Automazione di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Automazione
+      url: automation-intro.md
+  - linkListType: get-started
+    links:
+    - text: Creare un account di Automazione
+      url: automation-quickstart-create-account.md
+  - linkListType: quickstart
+    links:
+    - text: Creare un runbook
+      url: automation-quickstart-create-runbook.md
+- title: Gestire gli aggiornamenti per le VM
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Panoramica di Gestione aggiornamenti
+      url: automation-update-management.md
+  - linkListType: get-started
+    links:
+    - text: Gestire gli aggiornamenti per più macchine virtuali
+      url: manage-update-multi.md
+  - linkListType: deploy
+    links:
+    - text: Aggiornamento, inventario e rilevamento delle modifiche nelle VM di Azure
+      url: automation-onboard-solutions.md
+- title: Configurare le VM con Desired State Configuration
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Panoramica della configurazione dello stato
+      url: automation-dsc-overview.md
+  - linkListType: concept
+    links:
+    - text: PowerShell DSC
+      url: /powershell/dsc/overview/overview
+  - linkListType: quickstart
+    links:
+    - text: Creare una configurazione DSC da Criteri di gruppo
+      url: /powershell/dsc/quickstarts/gpo-quickstart
+  - linkListType: tutorial
+    links:
+    - text: Configurare i server e gestire la deviazione con State Configuration
+      url: tutorial-configure-servers-desired-state.md
+- title: Usare ambienti ibridi
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Panoramica di Hybrid Runbook Workers
+      url: automation-hybrid-runbook-worker.md
+  - linkListType: deploy
+    links:
+    - text: Distribuire un ruolo di lavoro ibrido per runbook in Windows
+      url: automation-windows-hrw-install.md
+    - text: Distribuire un ruolo di lavoro ibrido per runbook in Linux
+      url: automation-linux-hrw-install.md
+    - text: Avviare runbook in un ruolo di lavoro ibrido per runbook
+      url: automation-hrw-run-runbooks.md
+- title: Automazione di più servizi
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Inviare un messaggio di posta elettronica da un runbook con SendGrid
+      url: automation-send-email.md
+  - linkListType: get-started
+    links:
+    - text: Avviare un runbook da avvisi di Azure
+      url: automation-create-alert-triggered-runbook.md
+  - linkListType: deploy
+    links:
+    - text: Distribuire un modello di Resource Manager in un runbook PowerShell di Automazione
+      url: automation-deploy-template-runbook.md

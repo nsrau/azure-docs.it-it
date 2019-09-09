@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 05/02/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a82a44127a470b6366eeffc60c73f762d5a8f525
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6c5068512f8ba26f7710bca7c0fccb98e0a5be33
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348576"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996739"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Usare l'estensione dell'interfaccia della riga di comando per il servizio Azure Machine Learning
 
@@ -49,7 +49,7 @@ az extension add -n azure-cli-ml
 ```
 
 > [!TIP]
-> È possibile trovare i file di esempio che è possibile usare con i comandi riportati di [seguito.](https://aka.ms/azml-deploy-cloud)
+> È possibile trovare i file di esempio che è possibile usare con i [comandi riportati di seguito.](https://aka.ms/azml-deploy-cloud)
 
 Quando richiesto, selezionare `y` per installare l'estensione.
 
@@ -76,7 +76,7 @@ Per rimuovere l'estensione dell'interfaccia della riga di comando, usare il coma
 az extension remove -n azure-cli-ml
 ```
 
-## <a name="resource-management"></a>Gestione risorse
+## <a name="resource-management"></a>Resource management
 
 I comandi seguenti illustrano come usare l'interfaccia della riga di comando per gestire le risorse usate da Azure Machine Learning.
 
@@ -112,7 +112,14 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
 
     Per altre informazioni, vedere [AZ ml datastore allegato-BLOB](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob).
 
-    
++ Caricare i file in un archivio dati.
+
+    ```azurecli-interactive
+    az ml datastore upload  -n datastorename -p sourcepath
+    ```
+
+    Per altre informazioni, vedere [AZ ml datastore upload](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-upload).
+
 + Alleghi un cluster AKS come destinazione di calcolo.
 
     ```azurecli-interactive
@@ -154,6 +161,42 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
 
     Per altre informazioni, vedere [AZ ml Experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
 
+## <a name="environment-management"></a>Gestione dell'ambiente
+
+I comandi seguenti illustrano come creare, registrare ed elencare Azure Machine Learning [ambienti](how-to-configure-environment.md) del servizio per l'area di lavoro:
+
++ Creare file di impalcatura per un ambiente:
+
+    ```azurecli-interactive
+    az ml environment scaffold -n myenv -d myenvdirectory
+    ```
+
+    Per altre informazioni, vedere [AZ ml Environment patibolo](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-scaffold).
+
++ Registrare un ambiente:
+
+    ```azurecli-interactive
+    az ml environment register -d myenvdirectory
+    ```
+
+    Per ulteriori informazioni, vedere [AZ ml Environment Register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-register).
+
++ Elencare gli ambienti registrati:
+
+    ```azurecli-interactive
+    az ml environment list
+    ```
+
+    Per ulteriori informazioni, vedere [AZ ml Environment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-list).
+
++ Scaricare un ambiente registrato:
+
+    ```azurecli-interactive
+    az ml environment download -n myenv -d downloaddirectory
+    ```
+
+    Per altre informazioni, vedere [AZ ml Environment download](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download).
+
 ## <a name="model-registration-profiling-deployment"></a>Registrazione del modello, profilatura, distribuzione
 
 I comandi seguenti illustrano come registrare un modello con training e quindi distribuirlo come servizio di produzione:
@@ -178,7 +221,7 @@ I comandi seguenti illustrano come registrare un modello con training e quindi d
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
     
-    Per altre informazioni sullo schema del file di configurazione dell'inferenza, vedere [schema di configurazione](#inferenceconfig)di inferenza.
+    Per altre informazioni sullo schema del file di configurazione dell'inferenza, vedere [schema di configurazione di inferenza](#inferenceconfig).
     
     Per ulteriori informazioni sullo schema del file di configurazione della distribuzione, vedere [schema di configurazione della distribuzione](#deploymentconfig).
 

@@ -1,0 +1,34 @@
+- name: Documentazione di Cache HPC di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Che cos'è Cache HPC di Azure?
+      href: hpc-cache-overview.md
+- name: Concetti
+  items:
+    - name: Usare lo spazio dei nomi aggregato
+      href: hpc-cache-namespace.md
+    - name: Popolare una nuova archiviazione BLOB
+      href: hpc-cache-ingest.md
+    - name: Metodi di inserimento dati alternativi
+      items:
+        - name: Popolare la cache con la copia parallela
+          href: hpc-cache-ingest-parallelcp.md
+        - name: Popolare la cache con msrsync
+          href: hpc-cache-ingest-msrsync.md
+        - name: Popolare la cache tramite copia manuale dei file
+          href: hpc-cache-ingest-manual.md
+- name: Guide alle procedure
+  items:
+    - name: Prerequisiti
+      href: hpc-cache-prereqs.md
+    - name: Creare la cache
+      href: hpc-cache-create.md
+    - name: Aggiungere le risorse di archiviazione
+      href: hpc-cache-add-storage.md
+    - name: Connettersi alla cache
+      href: hpc-cache-mount.md
+- name: Risorse
+  items:
+    - name: Aprire un ticket di supporto
+      href: hpc-cache-support-ticket.md

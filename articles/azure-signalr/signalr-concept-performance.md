@@ -6,83 +6,83 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: zhshang
-ms.openlocfilehash: f7cc05c8c2a299d809c4386d119fef58fa2548d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 027f9f99161a0e4f76a39a15780bc840380a61ba
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61269442"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232527"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guida alle prestazioni per il servizio Azure SignalR
 
-Uno dei principali vantaggi dell'uso di servizio Azure SignalR è la facilità di scalabilità di applicazioni SignalR. In uno scenario su larga scala, le prestazioni sono un fattore importante. 
+Uno dei principali vantaggi dell'uso del servizio Azure SignalR è la facilità di ridimensionamento delle applicazioni SignalR. In uno scenario su larga scala, le prestazioni sono un fattore importante. 
 
-In questa Guida, verrà presentato i fattori che influiscono sulle prestazioni di applicazioni SignalR. Che descriveremo tipico delle prestazioni in diversi scenari di casi d'uso. Al termine, verrà presentato l'ambiente e gli strumenti che è possibile usare per generare un rapporto di prestazioni.
+In questa guida verranno introdotti i fattori che influiscono sulle prestazioni dell'applicazione SignalR. Verranno descritte le prestazioni tipiche in scenari con diversi casi d'uso. Alla fine, verranno introdotti l'ambiente e gli strumenti che è possibile usare per generare un report di prestazioni.
 
 ## <a name="term-definitions"></a>Definizioni dei termini
 
-*Connessioni in entrata*: Il messaggio in arrivo al servizio Azure SignalR.
+In *ingresso*: Messaggio in arrivo al servizio Azure SignalR.
 
-*Outbound*: Il messaggio in uscita dal servizio Azure SignalR.
+In *uscita*: Messaggio in uscita dal servizio Azure SignalR.
 
-*Bandwidth*: Le dimensioni totali di tutti i messaggi di 1 secondo.
+*Bandwidth*: Dimensioni totali di tutti i messaggi in un secondo.
 
-*Modalità predefinita*: La modalità di utilizzo predefinita quando è stata creata un'istanza di servizio Azure SignalR. Azure SignalR Service prevede che il server di app per stabilire una connessione con esso prima che accetta connessioni client.
+*Modalità predefinita*: Modalità di lavoro predefinita quando è stata creata un'istanza del servizio Azure SignalR. Il servizio Azure SignalR prevede che il server app stabilisca una connessione prima di accettare le connessioni client.
 
-*Modalità senza server*: Modalità in cui servizio Azure SignalR accetta solo connessioni client. Non è consentita alcuna connessione al server.
+*Modalità senza server*: Modalità in cui il servizio Azure SignalR accetta solo le connessioni client. Non è consentita alcuna connessione al server.
 
 ## <a name="overview"></a>Panoramica
 
-Azure SignalR Service definisce sette livelli Standard per le capacità di prestazioni diverso. Questa Guida risponde alle domande seguenti:
+Il servizio Azure SignalR definisce sette livelli standard per capacità di prestazioni diverse. Questa guida risponde alle domande seguenti:
 
--   Che cos'è la tipica delle prestazioni servizio Azure SignalR per ogni livello?
+-   Quali sono le prestazioni tipiche del servizio SignalR di Azure per ogni livello?
 
--   Servizio Azure SignalR soddisfa i requisiti per la velocità effettiva dei messaggi (ad esempio, l'invio 100.000 di messaggi al secondo)?
+-   Il servizio Azure SignalR soddisfa i requisiti per la velocità effettiva dei messaggi, ad esempio l'invio di 100.000 messaggi al secondo?
 
--   Per il mio scenario specifico, quale livello è adatto per me? O come è possibile selezionare il livello corretto?
+-   Per lo scenario specifico, qual è il livello adatto per me? O come è possibile selezionare il livello appropriato?
 
--   Il tipo di server app (dimensioni della macchina virtuale) è adatto per me? Quanti di essi è necessario distribuire?
+-   Quale tipo di server app (dimensione VM) è adatto per me? Quanti di essi è necessario distribuire?
 
-Per rispondere a queste domande, questa guida offre prima di tutto una spiegazione di alto livello dei fattori che influiscono sulle prestazioni. Viene quindi illustrato come numero massimo di messaggi in ingresso e in uscita per ogni livello di casi d'uso tipici: **echo**, **broadcast**, **trasmissione al gruppo**, e **Invia a connessione** (peer-to-peer in una chat).
+Per rispondere a queste domande, in questa guida viene fornita una spiegazione di alto livello dei fattori che influiscono sulle prestazioni. Vengono quindi illustrati i messaggi in ingresso e in uscita massimi per ogni livello per i casi d'uso tipici: **echo**, **broadcast**, **Send to Group**e **Send to connection** (chat peer-to-peer).
 
-Questa Guida non è possibile coprire tutti gli scenari e casi d'uso diversi, le dimensioni dei messaggi, i modelli di invio messaggi e così via. Ma offre alcuni metodi che consentono di:
+Questa guida non può coprire tutti gli scenari (e diversi casi d'uso, dimensioni dei messaggi, modelli di invio dei messaggi e così via). Fornisce tuttavia alcuni metodi che consentono di:
 
-- Valutare i requisiti approssimativi per i messaggi in ingresso o in uscita.
-- Trovare i livelli corretti controllando la tabella di prestazioni.
+- Valutare il requisito approssimativo per i messaggi in ingresso o in uscita.
+- Individuare i livelli appropriati controllando la tabella delle prestazioni.
 
 ## <a name="performance-insight"></a>Informazioni dettagliate sulle prestazioni
 
-In questa sezione vengono descritte le metodologie di valutazione delle prestazioni e quindi Elenca tutti i fattori che influiscono sulle prestazioni. Infine, fornisce metodi che consentono di valutare i requisiti di prestazioni.
+In questa sezione vengono descritte le metodologie di valutazione delle prestazioni, quindi vengono elencati tutti i fattori che influiscono sulle prestazioni. Alla fine, fornisce metodi che consentono di valutare i requisiti di prestazioni.
 
 ### <a name="methodology"></a>Metodologia
 
-*Velocità effettiva* e *latenza* sono due aspetti tipici della verifica delle prestazioni. Per il servizio Azure SignalR, ogni livello di SKU ha una proprio velocità effettiva dei criteri di limitazione. I criteri definiscono *velocità effettiva (in ingresso e in uscita larghezza di banda) massima* come la massima velocità effettiva ottenuta quando il 99% dei messaggi hanno una latenza che è minore di 1 secondo.
+La *velocità effettiva* e la *latenza* sono due aspetti tipici del controllo delle prestazioni. Per il servizio Azure SignalR, a ogni livello SKU sono configurati criteri di limitazione della velocità effettiva. Il criterio definisce *la velocità effettiva massima consentita (larghezza di banda in ingresso e in uscita)* come massima velocità effettiva ottenibile quando il 99% dei messaggi presenta una latenza inferiore a 1 secondo.
 
-La latenza è l'intervallo di tempo di connessione che invia il messaggio di ricezione del messaggio di risposta dal servizio Azure SignalR. Diamo **echo** come esempio. Tutte le connessioni client aggiunge un timestamp nel messaggio. L'hub del server app invia il messaggio originale al client. Pertanto, il ritardo nella propagazione viene calcolato facilmente tutte le connessioni client. Il timestamp è collegato per tutti i messaggi **broadcast**, **trasmissione al gruppo**, e **inviare alla connessione**.
+La latenza è l'intervallo di tempo dalla connessione che invia il messaggio alla ricezione del messaggio di risposta dal servizio Azure SignalR. Prendiamo **echo** come esempio. Ogni connessione client aggiunge un timestamp nel messaggio. L'hub del server app invia nuovamente il messaggio originale al client. Pertanto, il ritardo di propagazione viene calcolato facilmente da ogni connessione client. Il timestamp è allegato per ogni messaggio in **broadcast**, **invio al gruppo**e **INVIO alla connessione**.
 
-Per simulare migliaia di connessioni client simultanee, vengono create più macchine virtuali in una rete privata virtuale in Azure. Tutte queste macchine virtuali di connettersi alla stessa istanza del servizio Azure SignalR.
+Per simulare migliaia di connessioni client simultanee, vengono create più macchine virtuali in una rete privata virtuale in Azure. Tutte queste VM si connettono alla stessa istanza del servizio Azure SignalR.
 
-Nella modalità predefinita del servizio Azure SignalR, le macchine virtuali del server app vengono distribuiti nella stessa rete privata virtuale come client di macchine virtuali. Tutte le VM di client e server dell'app le macchine virtuali vengono distribuite nella stessa rete della stessa area per evitare la latenza tra più aree.
+Nella modalità predefinita del servizio Azure SignalR le VM del server app vengono distribuite nella stessa rete privata virtuale delle macchine virtuali client. Tutte le VM client e le macchine virtuali del server app vengono distribuite nella stessa rete della stessa area per evitare la latenza tra aree.
 
 ### <a name="performance-factors"></a>Fattori relativi alle prestazioni
 
-In teoria, la capacità di servizio Azure SignalR è limitata dalle risorse di calcolo: CPU, memoria e rete. Ad esempio, le altre connessioni al servizio Azure SignalR che il servizio di utilizzare più memoria. Per il traffico dei messaggi di dimensioni maggiori (ad esempio, ogni messaggio è maggiore di 2048 byte), servizio Azure SignalR deve dedicare più cicli della CPU per elaborare il traffico. Nel frattempo, la larghezza di banda di rete di Azure impone anche un limite per il traffico massimo.
+In teoria, la capacità del servizio Azure SignalR è limitata dalle risorse di calcolo: CPU, memoria e rete. Ad esempio, un numero maggiore di connessioni al servizio Azure SignalR comporta l'utilizzo di più memoria da parte del servizio. Per il traffico di messaggi di dimensioni maggiori (ad esempio, ogni messaggio è più grande di 2.048 byte), il servizio Azure SignalR deve spendere più cicli di CPU per elaborare il traffico. Nel frattempo, la larghezza di banda di rete di Azure impone anche un limite per il traffico massimo.
 
-Il tipo di trasporto è un altro fattore che influisce sulle prestazioni. I tre tipi sono [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [evento inviato Server](https://en.wikipedia.org/wiki/Server-sent_events), e [Polling prolungato](https://en.wikipedia.org/wiki/Push_technology). 
+Il tipo di trasporto è un altro fattore che influiscono sulle prestazioni. I tre tipi sono [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [server inviato-evento](https://en.wikipedia.org/wiki/Server-sent_events)e [polling prolungato](https://en.wikipedia.org/wiki/Push_technology). 
 
-WebSocket è un protocollo di comunicazione full duplex e bidirezionale su una singola connessione TCP. Evento inviato server è un protocollo unidirezionale per i messaggi push dal server al client. Polling prolungato richiede ai client di eseguire periodicamente il polling delle informazioni dal server tramite una richiesta HTTP. Per la stessa API nelle stesse condizioni, WebSocket ha le migliori prestazioni, eventi inviati Server sono più lento e Polling prolungato è il più lento. Per impostazione predefinita, Azure SignalR Service consiglia WebSocket.
+WebSocket è un protocollo di comunicazione bidirezionale e full-duplex su una singola connessione TCP. Server-Sent-Event è un protocollo unidirezionale per eseguire il push dei messaggi dal server al client. Il polling prolungato richiede che i client eseguano periodicamente il polling delle informazioni dal server tramite una richiesta HTTP. Per la stessa API nelle stesse condizioni, WebSocket offre le migliori prestazioni, il server inviato-evento è più lento e il polling prolungato è il più lento. Per impostazione predefinita, il servizio Azure SignalR consiglia WebSocket.
 
-Il costo di routing del messaggio limita anche le prestazioni. Azure SignalR Service svolge un ruolo come router dei messaggi, che indirizza i messaggi da un set di client o server ad altri client o server. Uno scenario diverso o l'API richiede un criterio di routing diversi. 
+Il costo di routing del messaggio limita anche le prestazioni. Il servizio Azure SignalR svolge un ruolo di router di messaggi, che instrada il messaggio da un set di client o server ad altri client o server. Uno scenario o un'API diversa richiede un criterio di routing diverso. 
 
-Per la **echo**, il client invia un messaggio a se stesso e la destinazione di routing è anche se stesso. Questo modello è il costo più basso di routing. Ma per **broadcast**, **trasmissione al gruppo**, e **inviare alla connessione**, servizio Azure SignalR deve cercare le connessioni di destinazione tramite i dati interni distribuiti struttura. Questa elaborazione aggiuntiva Usa più CPU, memoria e larghezza di banda di rete. Di conseguenza, le prestazioni sono più lente.
+Per **echo**, il client invia un messaggio a se stesso e anche la destinazione di routing è la stessa. Questo modello ha il costo di routing più basso. Tuttavia, per la **trasmissione**, l' **invio al gruppo**e l' **INVIO alla connessione**, il servizio Azure SignalR deve cercare le connessioni di destinazione tramite la struttura dei dati distribuiti interna. Questa elaborazione aggiuntiva usa più CPU, memoria e larghezza di banda di rete. Di conseguenza, le prestazioni sono più lente.
 
-Nella modalità predefinita, del server app potrebbe anche diventare un collo di bottiglia per determinati scenari. il SDK di SignalR Azure ha richiamare l'hub, mentre mantiene una connessione in tempo reale con tutti i client tramite segnali di heartbeat.
+Nella modalità predefinita, anche il server applicazioni potrebbe diventare un collo di bottiglia per determinati scenari. Azure SignalR SDK deve richiamare l'hub, mentre mantiene una connessione dinamica a ogni client tramite segnali di heartbeat.
 
-In modalità senza server, il client invia un messaggio dalla richiesta HTTP post, che non è efficiente quanto WebSocket.
+In modalità senza server, il client invia un messaggio tramite HTTP post, che non è efficiente come WebSocket.
 
-Un altro fattore è protocollo: JSON e [MessagePack](https://msgpack.org/index.html). MessagePack è di dimensioni inferiori e viene recapitato più velocemente rispetto a JSON. MessagePack potrebbero non migliorare le prestazioni, tuttavia. Le prestazioni del servizio Azure SignalR sono sensibile ai protocolli non perché non non decodificare il payload del messaggio durante l'inoltro dei messaggi dai client ai server o viceversa.
+Un altro fattore è il protocollo: JSON e [MessagePack](https://msgpack.org/index.html). Le dimensioni di MessagePack sono inferiori e vengono recapitate più velocemente di JSON. Tuttavia, MessagePack potrebbe non migliorare le prestazioni. Le prestazioni del servizio Azure SignalR non sono sensibili ai protocolli perché non decodificano il payload del messaggio durante l'invio dei messaggi da client a server o viceversa.
 
-In sintesi, i seguenti fattori influenzano la capacità in ingresso e in uscita:
+In sintesi, i fattori seguenti influiscono sulla capacità in ingresso e in uscita:
 
 -   Livello SKU (CPU/memoria)
 
@@ -90,134 +90,134 @@ In sintesi, i seguenti fattori influenzano la capacità in ingresso e in uscita:
 
 -   Dimensioni dei messaggi
 
--   velocità di invio messaggio
+-   Velocità di invio messaggi
 
--   Tipo di trasporto (WebSocket, Server-invio-Event o Polling prolungato)
+-   Tipo di trasporto (WebSocket, server-sent-Event o con polling prolungato)
 
--   Scenario di caso d'uso (costo routing)
+-   Scenario dei casi d'uso (costo di routing)
 
--   connessioni server e il servizio App (in modalità server)
+-   Server App e connessioni al servizio (in modalità server)
 
 
-### <a name="finding-a-proper-sku"></a>Ricerca di uno SKU appropriato
+### <a name="finding-a-proper-sku"></a>Ricerca di uno SKU corretto
 
-Come può valutare la capacità in ingresso/uscita o trovare quale livello è adatti per un caso d'uso specifico?
+Come è possibile valutare la capacità in ingresso/in uscita o individuare il livello adatto a un caso d'uso specifico?
 
-Si supponga che il server di app è abbastanza potente e non è un collo di bottiglia. Controllare quindi in ingresso e in uscita larghezza di banda massima per ogni livello.
+Si supponga che il server dell'app sia sufficientemente potente e non sia il collo di bottiglia delle prestazioni. Quindi, controllare la larghezza di banda massima in ingresso e in uscita per ogni livello.
 
 #### <a name="quick-evaluation"></a>Valutazione rapida
 
-È possibile semplificare la valutazione prima di tutto, presupponendo alcune impostazioni predefinite: 
+Si semplifica prima di tutto la valutazione presumendo alcune impostazioni predefinite: 
 
 - Il tipo di trasporto è WebSocket.
-- La dimensione del messaggio è 2.048 byte.
-- Un messaggio viene inviato un secondo.
-- Azure SignalR Service è nella modalità predefinita.
+- Le dimensioni del messaggio sono pari a 2.048 byte.
+- Un messaggio viene inviato ogni secondo.
+- Il servizio Azure SignalR è in modalità predefinita.
 
-Ogni livello ha un proprio massimo della larghezza di banda in ingresso e della larghezza di banda in uscita. Dopo la connessione in ingresso o in uscita supera il limite, un'esperienza utente uniforme non è garantita.
+Ogni livello ha una larghezza di banda massima in ingresso e in uscita. Una semplice esperienza utente non è garantita dopo che la connessione in ingresso o in uscita supera il limite.
 
-**Echo** offre la massima larghezza di banda in ingresso perché contiene il costo più basso di routing. **Broadcast** definisce la larghezza di banda massima dei messaggi in uscita.
+**Echo** fornisce la larghezza di banda massima in ingresso perché ha il costo di routing più basso. **Broadcast** definisce la larghezza di banda massima dei messaggi in uscita.
 
-Effettuare *non* superino i valori evidenziati in due tabelle seguenti.
+*Non* superare i valori evidenziati nelle due tabelle seguenti.
 
-|       Echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|       Echo                        | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| connessioni                       | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
+| connessioni                       | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
 | **Larghezza di banda in ingresso** | **2 MBps**    | **4 MBps**    | **10 MBps**   | **20 MBps**    | **40 MBps**    | **100 MBps**   | **200 MBps**    |
 | Larghezza di banda in uscita | 2 MBps   | 4 MBps   | 10 MBps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
 
 
-|     Trasmissione             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|     Trasmissione             | Commutazione1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20\.000 | 50,000  | 100,000 |
+| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20.000 | 50,000  | 100,000 |
 | Larghezza di banda in ingresso  | 4 KBps   | 4 KBps   | 4 KBps    | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps    |
 | **Larghezza di banda in uscita** | **4 MBps**    | **8 MBps**    | **20 MBps**    | **40 MBps**    | **80 MBps**    | **200 MBps**    | **400 MBps**   |
 
-*Connessioni in entrata della larghezza di banda* e *larghezza di banda in uscita* la dimensione totale dei messaggi al secondo.  Di seguito sono le formule per essi:
+La larghezza di banda in *ingresso* e la *larghezza di banda* in uscita sono le dimensioni totali del messaggio al secondo.  Ecco le formule seguenti:
 ```
   inboundBandwidth = inboundConnections * messageSize / sendInterval
   outboundBandwidth = outboundConnections * messageSize / sendInterval
 ```
 
-- *inboundConnections*: Il numero di connessioni l'invio del messaggio.
+- *inboundConnections*: Numero di connessioni che inviano il messaggio.
 
-- *outboundConnections*: Il numero di connessioni di ricezione del messaggio.
+- *outboundConnections*: Numero di connessioni che ricevono il messaggio.
 
-- *messageSize*: Le dimensioni di un singolo messaggio (valore medio). Un piccolo messaggio di minore di 1024 byte ha un impatto sulle prestazioni che è simile a un messaggio di 1.024 byte.
+- *messageSize*: Dimensioni di un singolo messaggio (valore medio). Un messaggio di piccole dimensioni inferiore a 1.024 byte ha un effetto sulle prestazioni simile a quello di un messaggio di 1.024 byte.
 
-- *sendInterval*: Ora di invio di un messaggio. È in genere 1 secondo per ogni messaggio, ovvero l'invio di un messaggio ogni secondo. Un intervallo inferiore indica l'invio di più messaggi in un periodo di tempo. Ad esempio 0,5 secondi per ogni messaggio significa che l'invio di due messaggi ogni secondo.
+- *sendInterval*: Ora di invio di un messaggio. Si tratta in genere di un secondo per messaggio, ovvero l'invio di un messaggio ogni secondo. Un intervallo più piccolo significa inviare più messaggi in un periodo di tempo. Ad esempio, 0,5 secondi per messaggio significa inviare due messaggi ogni secondo.
 
-- *Connessioni*: Soglia massima eseguito il commit per il servizio Azure SignalR per ogni livello. Se il numero di connessione viene aumentato ulteriormente, subirà dalla limitazione delle richieste di connessione.
+- *Connessioni*: Soglia massima di cui è stato eseguito il commit per il servizio Azure SignalR per ogni livello. Se il numero di connessione viene aumentato ulteriormente, la limitazione della connessione risentirà.
 
-#### <a name="evaluation-for-complex-use-cases"></a>Versione di valutazione per casi d'uso complessi
+#### <a name="evaluation-for-complex-use-cases"></a>Valutazione per casi di utilizzo complessi
 
-##### <a name="bigger-message-size-or-different-sending-rate"></a>Dimensione del messaggio più grande o diverse velocità di invio
+##### <a name="bigger-message-size-or-different-sending-rate"></a>Dimensioni del messaggio maggiori o velocità di invio diversa
 
-Il caso d'uso reale è più complicato. Potrebbe inviare un messaggio di dimensioni superiori a 2048 byte o la velocità di invio messaggio è non un messaggio al secondo. Diamo trasmissione dell'Unit100 come esempio per scoprire come valutarne le prestazioni.
+Il caso d'uso reale è più complesso. È possibile che invii un messaggio di dimensioni superiori a 2.048 byte oppure che la frequenza dei messaggi di invio non sia un messaggio al secondo. Unit100's broadcast come esempio per scoprire come valutarne le prestazioni.
 
-La tabella seguente illustra un caso d'uso reale di **broadcast**. Ma la dimensione dei messaggi, numero di connessioni e velocità di invio messaggi sono diversi da ciò che si presuppone che nella sezione precedente. La domanda è come è possibile dedurre uno di questi elementi (dimensione dei messaggi, numero di connessioni o velocità di invio di messaggi) se si conosce solo due di essi.
+Nella tabella seguente viene illustrato un caso d'uso reale della **trasmissione**. Tuttavia, le dimensioni del messaggio, il numero di connessioni e la velocità di invio dei messaggi sono diverse da quelle assunte nella sezione precedente. La domanda è il modo in cui è possibile dedurre qualsiasi elemento (dimensione del messaggio, numero di connessioni o frequenza di invio dei messaggi) se ne sono note solo due.
 
-| Trasmissione  | Dimensioni dei messaggi | Messaggi in ingresso al secondo | connessioni | Inviare gli intervalli |
+| Trasmissione  | Dimensioni dei messaggi | Messaggi in ingresso al secondo | connessioni | Intervalli di invio |
 |---|---------------------|--------------------------|-------------|-------------------------|
 | 1 | 20 KB                | 1                        | 100,000     | 5 secondi                      |
 | 2 | 256 KB               | 1                        | 8\.000       | 5 secondi                      |
 
-La formula seguente è semplice dedurre in base alla formula precedente:
+La formula seguente è facile da dedurre in base alla formula precedente:
 
 ```
 outboundConnections = outboundBandwidth * sendInterval / messageSize
 ```
 
-Per Unit100, la massima larghezza di banda in uscita è 400 MB dalla tabella precedente. Per una dimensione di 20 KB del messaggio, il numero massimo di connessioni in uscita deve essere di 400 MB \* 5 / 20 KB = 100.000, che corrisponde al valore reale.
+Per Unit100, la larghezza di banda massima in uscita è 400 MB rispetto alla tabella precedente. Per le dimensioni del messaggio da 20 KB, il numero massimo di connessioni in uscita deve \* essere 400 MB 5/20 KB = 100.000, che corrisponde al valore reale.
 
-##### <a name="mixed-use-cases"></a>Casi d'uso misto
+##### <a name="mixed-use-cases"></a>Casi di utilizzo misti
 
-Il caso d'uso reale in genere una combinazione di quattro casi di uso di base tra loro: **echo**, **broadcast**, **trasmissione al gruppo**, e **inviare alla connessione**. La metodologia che consente di valutare la capacità è:
+Il caso d'uso reale combina in genere i quattro casi d'uso di base: **echo**, **broadcast**, **Send to Group**e **Send to connection**. La metodologia utilizzata per valutare la capacità è:
 
-1. Dividere i casi di utilizzo misto in quattro casi di uso di base.
-1. Calcolare la larghezza di banda massima dei messaggi in ingresso e in uscita tramite le formule precedenti separatamente.
-1. Sommare i calcoli della larghezza di banda per ottenere il totale in ingresso/uscita larghezza di banda massima. 
+1. Dividere i casi di utilizzo misti in quattro casi d'uso di base.
+1. Calcolare la larghezza di banda massima dei messaggi in ingresso e in uscita usando le formule precedenti separatamente.
+1. Sommare i calcoli della larghezza di banda per ottenere la larghezza di banda totale massima in ingresso/uscita. 
 
-Selezionare il livello corretto dalle tabelle di larghezza di banda in ingresso/uscita massima.
+Quindi, selezionare il livello appropriato dalle tabelle della larghezza di banda massima in ingresso/in uscita.
 
 > [!NOTE]
-> Per inviare un messaggio a centinaia o migliaia di piccoli gruppi, o per migliaia di client che inviano un messaggio tra loro, il costo di routing diventerà dominante. Prendere in considerazione tale impatto.
+> Per inviare un messaggio a centinaia o migliaia di piccoli gruppi o per migliaia di client che inviano un messaggio tra loro, il costo di routing diventerà dominante. Prendere in considerazione questo effetto.
 
-Per il caso d'uso di inviare un messaggio al client, assicurarsi che il server di app sia *non* il collo di bottiglia. La sezione "Case study" seguente vengono fornite indicazioni sul numero di server app è necessario e il numero di connessioni server è necessario configurare.
+Per il caso d'uso dell'invio di un messaggio ai client, assicurarsi che il server dell'app *non* sia il collo di bottiglia. La sezione "Case Study" seguente fornisce linee guida sul numero di server applicazioni necessari e sul numero di connessioni server da configurare.
 
 ## <a name="case-study"></a>Case study
 
-Le sezioni seguenti attraversano quattro casi d'uso tipici per il trasporto WebSocket: **echo**, **broadcast**, **trasmissione al gruppo**, e **inviare alla connessione**. Per ogni scenario, la sezione elenca la capacità in ingresso e in uscita corrente per il servizio Azure SignalR. Vengono inoltre illustrati i principali fattori che influiscono sulle prestazioni.
+Nelle sezioni seguenti vengono illustrati quattro casi d'uso tipici per il trasporto WebSocket: **echo**, **broadcast**, **Send to Group**e **Send to connection**. Per ogni scenario, la sezione elenca la capacità in ingresso e in uscita corrente per il servizio Azure SignalR. Vengono inoltre illustrati i principali fattori che influiscono sulle prestazioni.
 
-Nella modalità predefinita, il server di applicazione crea cinque connessioni al server con il servizio Azure SignalR. Il server di app Usa il SDK del servizio Azure SignalR per impostazione predefinita. Nei risultati del test delle prestazioni seguenti, le connessioni al server vengano aumentate a 15 (o più opzioni per la trasmissione e l'invio di un messaggio a un gruppo di grandi dimensione).
+Nella modalità predefinita, il server app crea cinque connessioni server con il servizio Azure SignalR. Per impostazione predefinita, il server applicazioni usa Azure SignalR Service SDK. Nei risultati dei test delle prestazioni seguenti le connessioni server vengono aumentate a 15 (o più per la trasmissione e l'invio di un messaggio a un gruppo grande).
 
-Diversi casi d'uso presentano requisiti diversi per i server di app. **Broadcast** deve numero ridotto di server app. **Echo** oppure **inviare alla connessione** richiede molti server di app.
+Diversi casi d'uso hanno requisiti diversi per i server app. **Broadcast** richiede un numero ridotto di server app. **Echo** o **Send to connection necessita di** molti server app.
 
-In tutti i casi d'uso, la dimensione dei messaggi predefinita è 2048 byte e l'intervallo di invio del messaggio è di 1 secondo.
+In tutti i casi d'uso, le dimensioni predefinite del messaggio sono pari a 2.048 byte e l'intervallo di invio del messaggio è di 1 secondo.
 
 ### <a name="default-mode"></a>Modalità predefinita
 
-I client, server di app web e servizio Azure SignalR sono coinvolte nella modalità predefinita. Tutti i client è l'acronimo di una singola connessione.
+I client, i server dell'app Web e il servizio Azure SignalR sono interessati dalla modalità predefinita. Ogni client sta per una singola connessione.
 
 #### <a name="echo"></a>Echo
 
-Prima di tutto un'app web si connette al servizio Azure SignalR. In secondo luogo, molti client di connettersi all'app web, che reindirizza i client al servizio Azure SignalR con il token di accesso e l'endpoint. Quindi, i client di stabiliscono connessioni WebSocket con il servizio Azure SignalR.
+Prima di tutto, un'app Web si connette al servizio Azure SignalR. In secondo luogo, molti client si connettono all'app Web, che reindirizza i client al servizio Azure SignalR con il token di accesso e l'endpoint. I client stabiliscono quindi le connessioni WebSocket con il servizio Azure SignalR.
 
-Dopo che tutti i client di stabiliscono connessioni, all'avvio l'invio di un messaggio che contiene un timestamp per l'hub specifico ogni secondo. L'hub restituisce il messaggio al relativo client originale. Tutti i client consente di calcolare la latenza quando riceve nuovamente il messaggio echo.
+Dopo che tutti i client hanno stabilito le connessioni, iniziano a inviare un messaggio contenente un timestamp all'hub specifico ogni secondo. L'hub restituisce il messaggio al client originale. Ogni client calcola la latenza quando riceve il messaggio echo.
 
-Nel diagramma seguente, da 5 a 8 (traffico evidenziato rosso) sono in un ciclo. Il ciclo viene eseguito per una durata predefinita (5 minuti) e ottiene le statistiche di latenza di tutti i messaggi.
+Nel diagramma seguente, da 5 a 8 (traffico evidenziato in rosso) si trovano in un ciclo. Il ciclo viene eseguito per una durata predefinita (5 minuti) e ottiene la statistica della latenza di tutti i messaggi.
 
-![Traffico per il caso d'uso echo](./media/signalr-concept-performance/echo.png)
+![Traffico per il caso d'uso Echo](./media/signalr-concept-performance/echo.png)
 
-Il comportamento delle **echo** determina che la massima larghezza di banda in ingresso è uguale alla larghezza di banda massima in uscita. Per informazioni dettagliate, vedere la tabella seguente.
+Il comportamento di **echo** determina che la larghezza di banda in ingresso massima è uguale alla larghezza di banda massima in uscita. Per informazioni dettagliate, vedere la tabella seguente.
 
-|       Echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|       Echo                        | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| connessioni                       | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
-| Messaggi in ingresso/in uscita al secondo | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
-| Larghezza di banda in ingresso/uscita | 2 MBps   | 4 MBps   | 10 MBps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
+| connessioni                       | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
+| Messaggi in ingresso/in uscita al secondo | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
+| Larghezza di banda in ingresso/in uscita | 2 MBps   | 4 MBps   | 10 MBps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
 
-In questo caso d'uso, tutti i client richiama l'hub definito nel server dell'app. L'hub chiama semplicemente il metodo definito sul lato client originale. Questo hub è l'hub più semplice per **echo**.
+In questo caso di utilizzo, ogni client richiama l'hub definito nel server applicazioni. L'hub chiama semplicemente il metodo definito nel lato client originale. Questo hub è l'hub più leggero per **echo**.
 
 ```
         public void Echo(IDictionary<string, object> data)
@@ -226,213 +226,213 @@ In questo caso d'uso, tutti i client richiama l'hub definito nel server dell'app
         }
 ```
 
-Anche per questo hub semplice, la pressione di traffico nel server dell'app è evidente come la **echo** connessioni in entrata messaggio aumento del carico. Questo utilizzo elevato di traffico richiede molti server di app per i livelli di grandi dimensioni dello SKU. La tabella seguente elenca il numero di server di app per ogni livello.
+Anche per questo hub semplice, la pressione del traffico sul server app è evidente quando aumenta il carico del messaggio in ingresso **echo** . Questa pressione del traffico richiede molti server app per i livelli SKU di grandi dimensioni. La tabella seguente elenca il numero di server app per ogni livello.
 
 
-|    Echo          | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|    Echo          | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
-| Numero di server app | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
+| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
+| Numero di server applicazioni | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
-> Il client connessione numerica, dimensione del messaggio messaggio l'invio di velocità, il livello SKU e CPU/memoria del server app compromettere le prestazioni complessive del **echo**.
+> Il numero di connessione del client, la dimensione del messaggio, la velocità di invio dei messaggi, il livello SKU e la CPU/memoria del server applicazioni influiscono sulle prestazioni complessive di **echo**.
 
 #### <a name="broadcast"></a>Trasmissione
 
-Per la **broadcast**, quando l'app web riceve il messaggio, lo trasmette a tutti i client. I client più vi sono per la trasmissione, il traffico di messaggi più c'è da tutti i client. Vedere il diagramma seguente.
+Per la **trasmissione**, quando l'app Web riceve il messaggio, trasmette a tutti i client. Maggiore è il numero di client da trasmettere, maggiore sarà il traffico dei messaggi per tutti i client. Vedere il diagramma seguente.
 
 ![Traffico per il caso d'uso broadcast](./media/signalr-concept-performance/broadcast.png)
 
-Un numero limitato di client trasmettono. La larghezza di banda di messaggio in ingresso è piccolo, ma la larghezza di banda in uscita è enorme. Consente di aumentare la larghezza di banda di messaggio in uscita della connessione client o aumenta la frequenza di broadcast.
+Un numero ridotto di client trasmette. La larghezza di banda dei messaggi in ingresso è ridotta, ma la larghezza di banda in uscita è enorme. La larghezza di banda dei messaggi in uscita aumenta con l'aumento della velocità di connessione o trasmissione del client.
 
-Nella tabella seguente sono riepilogate le connessioni client massimo, conteggio dei messaggi in ingresso/uscita e la larghezza di banda.
+Nella tabella seguente vengono riepilogate le connessioni client massime, il numero di messaggi in ingresso/in uscita e la larghezza di banda.
 
-|     Trasmissione             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|     Trasmissione             | Commutazione1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20\.000 | 50,000  | 100,000 |
+| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20.000 | 50,000  | 100,000 |
 | Messaggi in ingresso al secondo  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Messaggi in uscita al secondo | 2\.000 | 4\.000 | 10,000 | 20\.000 | 40\.000 | 100,000 | 200,000 |
+| Messaggi in uscita al secondo | 2\.000 | 4\.000 | 10,000 | 20.000 | 40.000 | 100,000 | 200,000 |
 | Larghezza di banda in ingresso  | 4 KBps   | 4 KBps   | 4 KBps    | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps     |
 | Larghezza di banda in uscita | 4 MBps   | 8 MBps   | 20 MBps   | 40 MBps   | 80 MBps   | 200 MBps   | 400 MBps   |
 
-I client di broadcast che registra i messaggi disponibili non più di quattro. Necessitano di server app inferiore rispetto a **echo** poiché la quantità di messaggi in ingresso è limitata. Due server di app sono sufficienti per i contratti di servizio e considerazioni sulle prestazioni. Ma è necessario aumentare le connessioni del server predefinito per evitare lo sbilanciamento delle classi, in particolare per Unit50 e Unit100.
+I client broadcast che inviano messaggi non sono più di quattro. Sono necessari meno server app rispetto a **echo** perché la quantità di messaggi in ingresso è ridotta. Due server app sono sufficienti per considerazioni su contratti di contratto e prestazioni. Tuttavia, è necessario aumentare le connessioni server predefinite per evitare squilibri, soprattutto per Unit50 e Unit100.
 
-|   Trasmissione      | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|   Trasmissione      | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
-| Numero di server app | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
+| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
+| Numero di server applicazioni | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
-> Aumentare le connessioni del server predefinite da 5 a 40 in ogni server di app per evitare possibili sbilanciata server connessioni al servizio Azure SignalR.
+> Aumentare le connessioni server predefinite da 5 a 40 in ogni server app per evitare possibili connessioni server non bilanciate al servizio Azure SignalR.
 >
-> Il numero della connessione client, dimensione del messaggio, velocità di invio di messaggi e il livello SKU compromettere le prestazioni complessive per **broadcast**.
+> Il numero di connessione client, le dimensioni del messaggio, la velocità di invio dei messaggi e il livello SKU influiscono sulle prestazioni complessive per la **trasmissione**.
 
-#### <a name="send-to-group"></a>Trasmissione al gruppo
+#### <a name="send-to-group"></a>Invia al gruppo
 
-Il **trasmissione al gruppo** caso d'uso è un modello di traffico simile ai **broadcast**. La differenza è che dopo che i client stabiliscono connessioni WebSocket con il servizio Azure SignalR, devono aggiungere gruppi prima possono inviare un messaggio a un gruppo specifico. Il diagramma seguente illustra il flusso del traffico.
+Il caso d'uso **Invia al gruppo** ha un modello di traffico simile per la **trasmissione**. La differenza è che, dopo che i client stabiliscono le connessioni WebSocket con il servizio Azure SignalR, devono partecipare ai gruppi prima di poter inviare un messaggio a un gruppo specifico. Il diagramma seguente illustra il flusso del traffico.
 
-![Traffico per il caso d'uso per gruppo di trasmissione](./media/signalr-concept-performance/sendtogroup.png)
+![Traffico per il caso d'uso di invio al gruppo](./media/signalr-concept-performance/sendtogroup.png)
 
-Membro del gruppo e conteggio dei gruppi sono due fattori che influiscono sulle prestazioni. Per semplificare l'analisi, si definiscono due tipi di gruppi:
+I membri del gruppo e il conteggio gruppo sono due fattori che influiscono sulle prestazioni. Per semplificare l'analisi, vengono definiti due tipi di gruppi:
 
-- **Piccoli gruppi**: Ogni gruppo ha 10 connessioni. Il numero di gruppo è uguale a (numero massimo di connessione) / 10. Ad esempio, per Unit1, se sono presenti 1.000 conteggi di connessione, quindi abbiamo 1000 / 10 = 100 gruppi.
+- **Gruppo piccolo**: Ogni gruppo dispone di 10 connessioni. Il numero di gruppo è uguale a (numero massimo di connessioni)/10. Ad esempio, per Commutazione1, se ci sono 1.000 conteggi di connessione, sono disponibili 1000/10 = 100 gruppi.
 
-- **Gruppo grande**: Il numero di gruppo è sempre 10. Il numero di membri di gruppo è uguale a (numero massimo di connessione) / 10. Ad esempio, per Unit1, se sono presenti 1.000 conteggi di connessione, quindi ogni gruppo ha 1000 / 10 = 100 membri.
+- **Gruppo grande**: Il numero del gruppo è sempre 10. Il numero di membri del gruppo è uguale a (numero massimo di connessioni)/10. Per Commutazione1, ad esempio, se sono presenti 1.000 conteggi delle connessioni, ogni gruppo ha 1000/10 = 100 membri.
 
-**Trasmissione al gruppo** offre un routing costo per il servizio Azure SignalR perché contiene trovare le connessioni di destinazione tramite una struttura di dati distribuiti. Come aumentare le connessioni mittente, il costo aumenta.
+**Invia al gruppo** comporta un costo di routing per il servizio Azure SignalR perché deve trovare le connessioni di destinazione tramite una struttura di dati distribuita. Man mano che le connessioni di invio aumentano, il costo aumenta.
 
-##### <a name="small-group"></a>Gruppo di piccole dimensioni
+##### <a name="small-group"></a>Gruppo piccolo
 
-Il costo di routing è significativo per l'invio di messaggi a molti piccoli gruppi. Attualmente, l'implementazione del servizio Azure SignalR raggiunge il limite di costo di routing in Unit50. Aggiunta di più CPU e memoria problema persiste, in modo che non è possibile migliorare Unit100 ulteriormente per impostazione predefinita. Se è necessaria larghezza di banda in ingresso, contattare il supporto tecnico.
+Il costo di routing è significativo per l'invio di messaggi a molti gruppi di piccole dimensioni. Attualmente, l'implementazione del servizio Azure SignalR raggiunge il limite di costo del routing in Unit50. L'aggiunta di più CPU e memoria non è utile, quindi Unit100 non può migliorare ulteriormente in base alla progettazione. Se è necessaria una maggiore larghezza di banda in ingresso, contattare il supporto tecnico.
 
-|   Inviare a piccoli gruppi     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50 | Unit100 |
+|   Invia a un piccolo gruppo     | Commutazione1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50 | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|--------|---------|
-| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20\.000 | 50,000 | 100,000
-| Numero di membri gruppo        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
+| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20.000 | 50,000 | 100,000
+| Conteggio membri gruppo        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
 | Conteggio gruppo               | 100   | 200   | 500    | 1\.000  | 2\.000  | 5\.000  | 10,000 
 | Messaggi in ingresso al secondo  | 200   | 400   | 1\.000  | 2\.500  | 4\.000  | 7\.000  | 7\.000   |
 | Larghezza di banda in ingresso  | 400 KBps  | 800 KBps  | 2 MBps     | 5 MBps     | 8 MBps     | 14 MBps    | 14 MBps     |
-| Messaggi in uscita al secondo | 2\.000 | 4\.000 | 10,000 | 25\.000 | 40\.000 | 70,000 | 70,000  |
+| Messaggi in uscita al secondo | 2\.000 | 4\.000 | 10,000 | 25.000 | 40.000 | 70.000 | 70.000  |
 | Larghezza di banda in uscita | 4 MBps    | 8 MBps    | 20 MBps    | 50 MBps     | 80 MBps    | 140 MBps   | 140 MBps    |
 
-Numero di connessioni client chiama l'hub, in modo che anche il numero di server app è critico per le prestazioni. La tabella seguente elenca il numero di server app suggerite.
+Molte connessioni client chiamano l'hub, quindi anche il numero del server applicazioni è critico per le prestazioni. La tabella seguente elenca i conteggi dei server app suggeriti.
 
-|  Inviare a piccoli gruppi   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|  Invia a un piccolo gruppo   | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
-| Numero di server app | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
+| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
+| Numero di server applicazioni | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
-> Il client connessione numerica, dimensione del messaggio messaggio inviato al tasso, routing costo, il livello SKU e CPU/memoria del server app compromettere le prestazioni complessive del **inviare piccoli gruppi**.
+> Il numero di connessione del client, la dimensione del messaggio, la velocità di invio dei messaggi, il costo di routing, il livello di SKU e la CPU/memoria del server applicazioni influiscono sulle prestazioni complessive del **gruppo Invia a small**.
 
-##### <a name="big-group"></a>Gruppo di big Data
+##### <a name="big-group"></a>Gruppo grande
 
-Per la **invia al gruppo di big data**, la larghezza di banda in uscita diventa il collo di bottiglia prima di raggiungere il routing limite di costo. La tabella seguente elenca il numero massimo in uscita larghezza di banda che è quasi uguale a quello utilizzato per **broadcast**.
+Per l' **invio al gruppo di grandi dimensioni**, la larghezza di banda in uscita diventa il collo di bottiglia prima di raggiungere il limite di costo di routing. La tabella seguente elenca la larghezza di banda massima in uscita, che è quasi identica a quella per la **trasmissione**.
 
-|    Inviare al gruppo di big Data      | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|    Invia a Big Group      | Commutazione1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20\.000 | 50,000  | 100,000
-| Numero di membri gruppo        | 100   | 200   | 500    | 1\.000  | 2\.000  | 5\.000   | 10,000 
+| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20.000 | 50,000  | 100,000
+| Conteggio membri gruppo        | 100   | 200   | 500    | 1\.000  | 2\.000  | 5\.000   | 10,000 
 | Conteggio gruppo               | 10    | 10    | 10     | 10     | 10     | 10      | 10
 | Messaggi in ingresso al secondo  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
 | Larghezza di banda in ingresso  | 80 KBps   | 40 KBps   | 40 KBps    | 20 KBps    | 40 KBps    | 40 KBps     | 40 KBps     |
-| Messaggi in uscita al secondo | 2\.000 | 4\.000 | 10,000 | 20\.000 | 40\.000 | 100,000 | 200,000 |
+| Messaggi in uscita al secondo | 2\.000 | 4\.000 | 10,000 | 20.000 | 40.000 | 100,000 | 200,000 |
 | Larghezza di banda in uscita | 8 MBps    | 8 MBps    | 20 MBps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
 
-Il numero di connessioni mittente è non più di 40. Il carico di lavoro nel server dell'app è piccolo, in modo che il numero consigliato di App web è ridotto.
+Il numero di connessioni di invio non è superiore a 40. Il carico del server app è ridotto, quindi il numero suggerito di app Web è ridotto.
 
-|  Inviare al gruppo di big Data  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|  Invia a Big Group  | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
-| Numero di server app | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
+| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
+| Numero di server applicazioni | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
-> Aumentare le connessioni del server predefinite da 5 a 40 in ogni server di app per evitare possibili sbilanciata server connessioni al servizio Azure SignalR.
+> Aumentare le connessioni server predefinite da 5 a 40 in ogni server app per evitare possibili connessioni server non bilanciate al servizio Azure SignalR.
 > 
-> Il numero della connessione client, dimensione del messaggio, velocità di invio di messaggi, costo di routing e livello SKU influiscono sulle prestazioni complessive del **invia al gruppo di big data**.
+> Il numero di connessione del client, la dimensione del messaggio, la velocità di invio dei messaggi, il costo di routing e il livello SKU influiscono sulle prestazioni complessive di **invio al gruppo Big**.
 
-#### <a name="send-to-connection"></a>Invia alla connessione
+#### <a name="send-to-connection"></a>Invia a connessione
 
-Nel **inviare alla connessione** caso d'uso, quando i client stabiliscono le connessioni al servizio Azure SignalR, tutti i client chiama un hub speciale per ottenere i propri ID connessione. Il benchmark delle prestazioni raccoglie tutti gli ID di connessione, li sposta e viene riassegnato a tutti i client come destinazione di invio. I client di continuare a inviare il messaggio per la connessione di destinazione fino al termine del test delle prestazioni.
+Nel caso di utilizzo **di Invia alla connessione** , quando i client stabiliscono le connessioni al servizio Azure SignalR, ogni client chiama un hub speciale per ottenere il proprio ID connessione. Il benchmark delle prestazioni raccoglie tutti gli ID connessione, li mischia e li riassegna a tutti i client come destinazione di invio. I client continuano a inviare il messaggio alla connessione di destinazione fino al termine del test delle prestazioni.
 
-![Traffico per il caso d'uso di trasmissione-client](./media/signalr-concept-performance/sendtoclient.png)
+![Traffico per il caso d'uso da inviare a client](./media/signalr-concept-performance/sendtoclient.png)
 
-Per il routing dei costi **inviare alla connessione** è simile al costo per **inviare piccoli gruppi**.
+Il costo di routing per l' **INVIO alla connessione** è simile al costo per l' **invio a un piccolo gruppo**.
 
-Man mano che aumenta il numero di connessioni, il costo di routing consente di limitare le prestazioni complessive. Unit50 ha raggiunto il limite. Di conseguenza, Unit100 non è possibile migliorare ulteriormente.
+Man mano che aumenta il numero di connessioni, il costo del routing limita le prestazioni complessive. Unit50 ha raggiunto il limite. Di conseguenza, Unit100 non può migliorare ulteriormente.
 
-Nella tabella seguente è riportato un riepilogo statistico dopo molti cicli di esecuzione la **inviare alla connessione** benchmark.
+La tabella seguente è un riepilogo statistico dopo molti cicli di esecuzione del benchmark **Send to connection** .
 
-|   Invia alla connessione   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50          | Unit100         |
+|   Invia a connessione   | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50          | Unit100         |
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
-| connessioni                        | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000          | 100,000         |
-| Messaggi in ingresso/in uscita al secondo | 1\.000 | 2\.000 | 5\.000 | 8\.000  | 9000  | 20\.000 | 20\.000 |
-| Larghezza di banda in ingresso/uscita | 2 MBps    | 4 MBps    | 10 MBps   | 16 MBps    | 18 MBps    | 40 MBps       | 40 MBps       |
+| connessioni                        | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000          | 100,000         |
+| Messaggi in ingresso/in uscita al secondo | 1\.000 | 2\.000 | 5\.000 | 8\.000  | 9000  | 20.000 | 20.000 |
+| Larghezza di banda in ingresso/in uscita | 2 MBps    | 4 MBps    | 10 MBps   | 16 MBps    | 18 MBps    | 40 MBps       | 40 MBps       |
 
-In questo caso d'uso richiede un carico elevato sul lato server app. Visualizzare il server app suggerite count nella tabella seguente.
+Questo caso d'uso richiede un carico elevato sul lato server dell'app. Vedere il numero consigliato di server applicazioni nella tabella seguente.
 
-|  Invia alla connessione  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|  Invia a connessione  | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
-| Numero di server app | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
+| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
+| Numero di server applicazioni | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
-> Il client connessione numerica, dimensione del messaggio messaggio l'invio di velocità, routing costo, il livello SKU e CPU/memoria per il server app compromettere le prestazioni complessive del **inviare alla connessione**.
+> Il numero di connessione del client, la dimensione del messaggio, la velocità di invio dei messaggi, il costo di routing, il livello SKU e la CPU/memoria per il server applicazioni influiscono sulle prestazioni complessive della **trasmissione alla connessione**.
 
-#### <a name="aspnet-signalr-echo-broadcast-and-send-to-small-group"></a>ASP.NET SignalR echo, trasmettere e inviarlo al gruppo di piccole dimensioni
+#### <a name="aspnet-signalr-echo-broadcast-and-send-to-small-group"></a>Echo, broadcast e Send di ASP.NET SignalR a Small Group
 
-Azure SignalR Service fornisce la stessa capacità di prestazioni per ASP.NET SignalR. 
+Il servizio Azure SignalR offre la stessa capacità di prestazioni per ASP.NET SignalR. 
 
-Il test delle prestazioni utilizza le app Web di Azure dalle [S3 piano di servizio Standard](https://azure.microsoft.com/pricing/details/app-service/windows/) ASP.NET SignalR.
+Il test delle prestazioni USA app Web di Azure dal [piano di servizio standard S3](https://azure.microsoft.com/pricing/details/app-service/windows/) per ASP.NET SignalR.
 
-Nella tabella seguente fornisce il numero di app web suggerita per ASP.NET SignalR **echo**.
+La tabella seguente fornisce il numero di app Web suggerite per ASP.NET SignalR **echo**.
 
-|   Echo           | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|   Echo           | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
-| Numero di server app | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
+| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
+| Numero di server applicazioni | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
-Nella tabella seguente fornisce il numero di app web suggerita per ASP.NET SignalR **broadcast**.
+La tabella seguente indica il numero di app Web suggerite per la **trasmissione**di ASP.NET SignalR.
 
-|  Trasmissione       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|  Trasmissione       | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
-| Numero di server app | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
+| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
+| Numero di server applicazioni | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
-Nella tabella seguente fornisce il numero di app web suggerita per ASP.NET SignalR **inviare piccoli gruppi**.
+La tabella seguente indica il numero di app Web suggerite per l' **invio di**ASP.NET SignalR a un piccolo gruppo.
 
-|  Inviare a piccoli gruppi     | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|  Invia a un piccolo gruppo     | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20\.000 | 50,000 | 100,000 |
-| Numero di server app | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
+| connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50,000 | 100,000 |
+| Numero di server applicazioni | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 ### <a name="serverless-mode"></a>Modalità senza server
 
-I client e servizio Azure SignalR sono coinvolti in modalità senza server. Tutti i client è l'acronimo di una singola connessione. Il client invia messaggi tramite l'API REST a un altro client o trasmettere messaggi a tutti.
+I client e il servizio Azure SignalR sono interessati dalla modalità senza server. Ogni client sta per una singola connessione. Il client invia messaggi tramite l'API REST a un altro client o trasmette messaggi a tutti.
 
-L'invio di messaggi ad alta densità tramite l'API REST non è più efficiente usando WebSocket. È possibile creare una nuova connessione HTTP ogni volta che richiede e che è in modalità senza server costi aggiuntivi.
+L'invio di messaggi ad alta densità tramite l'API REST non è efficiente quanto l'uso di WebSocket. È necessario creare una nuova connessione HTTP ogni volta ed è un costo aggiuntivo in modalità senza server.
 
-#### <a name="broadcast-through-rest-api"></a>Trasmettere tramite l'API REST
-Tutti i client di stabiliscono connessioni WebSocket con il servizio Azure SignalR. Quindi alcuni client avvio la trasmissione tramite l'API REST. Messaggio inviato (in ingresso) è tutto tramite HTTP Post, che non è efficiente rispetto a WebSocket.
+#### <a name="broadcast-through-rest-api"></a>Trasmissione tramite l'API REST
+Tutti i client stabiliscono connessioni WebSocket con il servizio Azure SignalR. Alcuni client iniziano quindi a trasmettere tramite l'API REST. Il messaggio inviato (in ingresso) è tutto tramite HTTP post, che non è efficiente rispetto a WebSocket.
 
-|   Trasmettere tramite l'API REST     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|   Trasmissione tramite l'API REST     | Commutazione1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20\.000 | 50,000  | 100,000 |
+| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20.000 | 50,000  | 100,000 |
 | Messaggi in ingresso al secondo  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Messaggi in uscita al secondo | 2\.000 | 4\.000 | 10,000 | 20\.000 | 40\.000 | 100,000 | 200,000 |
+| Messaggi in uscita al secondo | 2\.000 | 4\.000 | 10,000 | 20.000 | 40.000 | 100,000 | 200,000 |
 | Larghezza di banda in ingresso  | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps     | 4 KBps     | 4 KBps      | 4 KBps      |
 | Larghezza di banda in uscita | 4 MBps    | 8 MBps    | 20 MBps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
 
-#### <a name="send-to-user-through-rest-api"></a>Invia all'utente tramite l'API REST
-Il benchmark assegna i nomi utente per tutti i client prima di avviare la connessione al servizio Azure SignalR. Dopo che i client di stabiliscono una connessione WebSocket con il servizio Azure SignalR, all'avvio l'invio di messaggi ad altri utenti tramite HTTP Post.
+#### <a name="send-to-user-through-rest-api"></a>Inviare all'utente tramite l'API REST
+Il benchmark assegna i nomi utente a tutti i client prima di iniziare la connessione al servizio Azure SignalR. Dopo che i client hanno stabilito le connessioni WebSocket con il servizio Azure SignalR, iniziano a inviare messaggi ad altri tramite HTTP post.
 
-|   Invia all'utente tramite l'API REST | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|   Inviare all'utente tramite l'API REST | Commutazione1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20\.000 | 50,000  | 100,000 |
-| Messaggi in ingresso al secondo  | 300   | 600   | 900    | 1,300  | 2\.000  | 10,000  | 18,000  |
-| Messaggi in uscita al secondo | 300   | 600   | 900    | 1,300  | 2\.000  | 10,000  | 18,000 |
-| Larghezza di banda in ingresso  | 600 KBps  | 1.2 MBps  | 1.8 MBps   | 2.6 MBps   | 4 MBps     | 10 MBps     | 36 MBps    |
-| Larghezza di banda in uscita | 600 KBps  | 1.2 MBps  | 1.8 MBps   | 2.6 MBps   | 4 MBps     | 10 MBps     | 36 MBps    |
+| connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20.000 | 50,000  | 100,000 |
+| Messaggi in ingresso al secondo  | 300   | 600   | 900    | 1\.300  | 2\.000  | 10,000  | 18.000  |
+| Messaggi in uscita al secondo | 300   | 600   | 900    | 1\.300  | 2\.000  | 10,000  | 18.000 |
+| Larghezza di banda in ingresso  | 600 KBps  | 1,2 MBps  | 1,8 MBps   | 2,6 MBps   | 4 MBps     | 10 MBps     | 36 MBps    |
+| Larghezza di banda in uscita | 600 KBps  | 1,2 MBps  | 1,8 MBps   | 2,6 MBps   | 4 MBps     | 10 MBps     | 36 MBps    |
 
 ## <a name="performance-test-environments"></a>Ambienti di test delle prestazioni
 
-Per tutti i casi elencati in precedenza di utilizzo, ha condotto dei test delle prestazioni in un ambiente Azure. Abbiamo utilizzato al massimo 50 macchine virtuali client e server dell'app 20 macchine virtuali. Ecco alcuni dettagli:
+Per tutti i casi d'uso elencati in precedenza, sono stati eseguiti i test delle prestazioni in un ambiente Azure. Sono state usate al massimo 50 VM client e 20 VM del server app. Ecco alcuni dettagli:
 
-- Dimensioni di macchina virtuale client: StandardDS2V2 (2 vCPU, memoria 7G)
+- Dimensioni macchina virtuale client: StandardDS2V2 (2 vCPU, 7G memoria)
 
-- Dimensioni della macchina virtuale del server App: StandardF4sV2 (4 vCPU, memoria di 8G)
+- Dimensioni VM del server app: StandardF4sV2 (4 vCPU, 8G memoria)
 
-- Connessioni al server SignalR SDK Azure: 15
+- Connessioni del server Azure SignalR SDK: 15
 
 ## <a name="performance-tools"></a>Strumenti per le prestazioni
 
-È possibile trovare strumenti per le prestazioni per il servizio Azure SignalR sul [GitHub](https://github.com/Azure/azure-signalr-bench/tree/master/SignalRServiceBenchmarkPlugin).
+È possibile trovare gli strumenti per le prestazioni per il servizio Azure SignalR su [GitHub](https://github.com/Azure/azure-signalr-bench/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo, sarà possibile ottenere una panoramica delle prestazioni servizio Azure SignalR in scenari di casi d'uso tipici.
+In questo articolo è stata illustrata una panoramica delle prestazioni del servizio SignalR di Azure negli scenari con casi d'uso tipici.
 
-Per informazioni sugli elementi interni del servizio e la scalabilità, leggere le guide seguenti:
+Per ottenere informazioni dettagliate sugli elementi interni del servizio e sulla relativa scalabilità, vedere le guide seguenti:
 
 * [Elementi interni del Servizio Azure SignalR](signalr-concept-internals.md)
-* [Azure SignalR Service ridimensionamento](signalr-howto-scale-multi-instances.md)
+* [Scalabilità del servizio Azure SignalR](signalr-howto-scale-multi-instances.md)

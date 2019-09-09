@@ -1,9 +1,9 @@
 ---
-title: Creare un'istanza di un'app client riservato con le opzioni (Microsoft Authentication Library per .NET) | Azure
-description: Informazioni su come creare un'istanza di un'applicazione client riservata con opzioni di configurazione usando Microsoft Authentication Library per .NET (MSAL.NET).
+title: Creare un'istanza di un'app client riservata con opzioni (Microsoft Authentication Library per .NET) | Azure
+description: Informazioni su come creare un'istanza di un'applicazione client riservata con le opzioni di configurazione utilizzando Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,33 +13,33 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7814ff6b7575fedc19e63676ce3353c2a62a62b4
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 47a05959311b7f62f88a7b474b907982e005b98b
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154437"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532622"
 ---
-# <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Creare un'istanza di un'applicazione client riservata con opzioni di configurazione tramite MSAL.NET
+# <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Creare un'istanza di un'applicazione client riservata con le opzioni di configurazione usando MSAL.NET
 
-Questo articolo descrive come creare un'istanza di un [applicazione client riservata](msal-client-applications.md) usando Microsoft Authentication Library per .NET (MSAL.NET).  L'applicazione viene creata un'istanza con le opzioni di configurazione definite in un file di impostazioni.
+Questo articolo descrive come creare un'istanza di un' [applicazione client riservata](msal-client-applications.md) utilizzando Microsoft Authentication Library per .net (MSAL.NET).  Viene creata un'istanza dell'applicazione con le opzioni di configurazione definite in un file di impostazioni.
 
-Prima di inizializzare un'applicazione, è necessario innanzitutto [registrare](quickstart-register-app.md) , in modo che l'app può essere integrato con la piattaforma delle identità Microsoft. Dopo la registrazione, potrebbe essere necessario le informazioni seguenti (che sono reperibile nel portale di Azure):
+Prima di inizializzare un'applicazione, è prima necessario [registrarla](quickstart-register-app.md) in modo che l'app possa essere integrata con la piattaforma di identità Microsoft. Dopo la registrazione, è possibile che siano necessarie le informazioni seguenti (disponibili nella portale di Azure):
 
-- L'ID client (una stringa che rappresenta un GUID)
-- URL di provider di identità (l'istanza denominata) e i destinatari di accesso per l'applicazione. Questi due parametri sono noti collettivamente come autorità.
-- L'ID tenant se si sta scrivendo un'applicazione line of business esclusivamente per l'organizzazione (anche denominati applicazione a tenant singolo).
-- Il segreto dell'applicazione (stringa segreto client) o il certificato (di tipo X509Certificate2) se si tratta di un'app client riservato.
-- Per le app web e talvolta per le app client pubblico (in particolare quando l'app deve usare un broker), verranno inoltre impostate l'URI di reindirizzamento in cui il provider di identità contatterà back dell'applicazione con i token di sicurezza.
+- ID client (una stringa che rappresenta un GUID)
+- URL del provider di identità (denominato istanza) e destinatari dell'accesso per l'applicazione. Questi due parametri sono collettivamente noti come autorità.
+- ID tenant se si sta scrivendo un'applicazione line-of-business esclusivamente per l'organizzazione (denominata anche applicazione a tenant singolo).
+- Il segreto dell'applicazione (stringa del segreto client) o il certificato (di tipo X509Certificate2) se si tratta di un'app client riservata.
+- Per le app Web e talvolta per le app client pubbliche (in particolare quando l'app deve usare un broker), è anche possibile impostare il redirectUri in cui il provider di identità contatterà l'applicazione con i token di sicurezza.
 
 ## <a name="configure-the-application-from-the-config-file"></a>Configurare l'applicazione dal file di configurazione
-Il nome delle proprietà delle opzioni in MSAL.NET corrisponde al nome delle proprietà del `AzureADOptions` in ASP.NET Core, pertanto, non devi scrivere codice glue.
+Il nome delle proprietà delle opzioni in MSAL.NET corrisponde al nome delle proprietà del `AzureADOptions` in ASP.NET Core, quindi non è necessario scrivere codice Glue.
 
-Configurazione di un'applicazione ASP.NET Core è descritta in un *appSettings. JSON* file:
+Una configurazione dell'applicazione ASP.NET Core viene descritta in un file *appSettings. JSON* :
 
 ```json
 {
@@ -62,9 +62,9 @@ Configurazione di un'applicazione ASP.NET Core è descritta in un *appSettings. 
 }
 ```
 
-A partire da MSAL.NET v3.x, è possibile configurare l'applicazione client riservato dal file config.
+A partire da MSAL.NET V3. x, è possibile configurare l'applicazione client riservata dal file di configurazione.
 
-Nella classe in cui si desidera configurare e creare istanze dell'applicazione, è necessario dichiarare un `ConfidentialClientApplicationOptions` oggetto.  Associare la configurazione letta dall'origine (incluso il file appconfig.json) per l'istanza delle opzioni di applicazione, usando il `IConfigurationRoot.Bind()` metodo dal [pacchetto nuget Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+Nella classe in cui si desidera configurare e creare un'istanza dell'applicazione, è necessario dichiarare un `ConfidentialClientApplicationOptions` oggetto.  Associare la configurazione letta dall'origine (incluso il file AppConfig. Json) all'istanza delle opzioni dell'applicazione, usando il `IConfigurationRoot.Bind()` metodo dal [pacchetto NuGet Microsoft. Extensions. Configuration. Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -74,7 +74,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-In questo modo il contenuto della sezione "AzureAD" del *appSettings. JSON* file da associare alla proprietà corrispondenti del `ConfidentialClientApplicationOptions` oggetto.  Successivamente, compilare un `ConfidentialClientApplication` oggetto:
+Ciò consente di associare il contenuto della sezione "AzureAD" del file *appSettings. JSON* alle proprietà corrispondenti dell' `ConfidentialClientApplicationOptions` oggetto.  Successivamente, compilare un `ConfidentialClientApplication` oggetto:
 
 ```csharp
 IConfidentialClientApplication app;
@@ -83,7 +83,7 @@ app = ConfidentialClientApplicationBuilder.CreateWithApplicationOptions(_applica
 ```
 
 ## <a name="add-runtime-configuration"></a>Aggiungere la configurazione di runtime
-In un'applicazione client riservata, in genere è una cache per ogni utente. È pertanto necessario ottenere la cache associata all'utente e informare il compilatore di applicazioni che si desidera utilizzarla. Nello stesso modo, potrebbe essere un URI di reindirizzamento calcolato in modo dinamico. In questo caso il codice è il seguente:
+In un'applicazione client riservata, in genere è presente una cache per utente. Pertanto, sarà necessario ottenere la cache associata all'utente e informare il generatore di applicazioni che si desidera utilizzarla. Allo stesso modo, è possibile che si disponga di un URI di reindirizzamento calcolato dinamicamente. In questo caso il codice è il seguente:
 
 ```csharp
 IConfidentialClientApplication app;

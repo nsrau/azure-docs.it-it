@@ -450,8 +450,6 @@
           href: control-flow-webhook-activity.md
     - name: Trasformazioni del flusso di dati
       items:
-        - name: File a larghezza fissa
-          href: how-to-fixed-width.md
         - name: Aggregazione
           href: data-flow-aggregate.md
         - name: Alter Row
@@ -610,6 +608,10 @@
           href: data-migration-guidance-hdfs-azure-storage.md
         - name: Eseguire la migrazione dei dati da un server Netezza locale ad Azure
           href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: Trasformazione con flusso di dati di mapping
+      items:
+        - name: Elaborare file di testo a larghezza fissa
+          href: how-to-fixed-width.md
 - name: riferimento
   items:
     - name: .NET
