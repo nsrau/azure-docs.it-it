@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/9/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3fd593ff199ff87b1c69e1097852a81a21adc1dd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ff267a524001802f8bcd0903fcb7119bab16ef11
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883950"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813321"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -29,6 +29,7 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 |Area|Limite|
 |--|:--|
 | [Nome app][luis-get-started-create-app] | *Numero max predefinito di caratteri |
+| Applicazioni| 500 applicazioni per ogni risorsa di Azure |
 | [Test batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
 | Elenco esplicito | 50 per applicazione|
 | Entità esterne | Nessun limite |
@@ -44,7 +45,7 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 | [Ruoli](luis-concept-roles.md)|300 ruoli per ogni applicazione. 10 per entità|
 | [Espressione][utterances] | 500 caratteri|
 | [Espressioni][utterances] | 15.000 per applicazione: non esiste alcun limite al numero di enunciati per finalità|
-| [Versioni](luis-concept-version.md)| nessun limite |
+| [Versioni](luis-concept-version.md)| 100 versioni per applicazione |
 | [Nome versione][luis-how-to-manage-versions] | 10 caratteri limitati a caratteri alfanumerici e punto (.) |
 
 *Il numero max predefinito di caratteri è 50. 
@@ -68,6 +69,8 @@ Language Understanding ha chiavi separate, un tipo per la creazione e un tipo pe
 
 La chiave di creazione presenta diversi limiti per creazione e endpoint. La chiave endpoint del servizio LUIS è valida solo per le query di endpoint.
 
+* 500 applicazioni per ogni risorsa di Azure 
+* 100 versioni per applicazione
 
 |Chiave|Creazione|Endpoint|Scopo|
 |--|--|--|--|
@@ -80,7 +83,7 @@ La chiave di creazione presenta diversi limiti per creazione e endpoint. La chia
 
 ## <a name="keyboard-controls"></a>Controlli tastiera
 
-|Input tastiera | Descrizione | 
+|Input da tastiera | Descrizione | 
 |--|--|
 |Controllo + E|passa dai token alle entità nell'elenco delle espressioni|
 

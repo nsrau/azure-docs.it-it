@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/08/2019
 ms.author: diberry
-ms.openlocfilehash: bfd11254ffccd5085701071fcdb2116ca368bc82
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: ee185ca5d2e2cdda89945f0fc1e7aae32030c1be
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801434"
+ms.locfileid: "70803904"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Eseguire la migrazione a una chiave di creazione delle risorse di Azure
 
@@ -91,7 +91,7 @@ Al termine del processo di migrazione, tutte le app LUIS sono ora assegnate a un
 
 ### <a name="after-the-app-is-migrated"></a>Dopo la migrazione dell'app
 
-Dopo il processo di migrazione, è necessario essere aggiunti alla risorsa di creazione di Azure dal proprietario dell'app.  
+Dopo il processo di migrazione, se è necessario accedere all'app originale, è necessario essere aggiunti alla risorsa di creazione di Azure come collaboratore dal proprietario dell'app.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
