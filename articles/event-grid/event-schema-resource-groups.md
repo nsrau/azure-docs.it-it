@@ -258,7 +258,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | operationName | string | Operazione eseguita. |
 | status | string | Lo stato dell'operazione. |
 | subscriptionId | string | L'ID sottoscrizione della risorsa. |
-| TenantId | string | L'ID tenant della risorsa. |
+| tenantId | string | L'ID tenant della risorsa. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
