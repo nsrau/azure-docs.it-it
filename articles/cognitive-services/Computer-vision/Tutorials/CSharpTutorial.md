@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004024"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141280"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Esempio: Esplorare un'app di elaborazione delle immagini con C#
 
@@ -33,7 +33,7 @@ Esaminare un'applicazione Windows di base che usa Visione artificiale per esegui
 Prima di esplorare l'app di esempio, verificare che i prerequisiti seguenti siano soddisfatti:
 
 * È necessario disporre di [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o versioni successive.
-* È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave.
+* È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Prendere nota anche dell'URL dell'endpoint servizio.
 
 ## <a name="get-the-sample-app"></a>Ottenere l'app di esempio
 
@@ -79,8 +79,9 @@ Prima di poter eseguire o esplorare l'app di esempio, è necessario compilarla i
 1. Quando viene visualizzata l'app di esempio, scegliere **Subscription Key Management** (Gestione chiavi di sottoscrizione) dal riquadro di spostamento per visualizzare la pagina di gestione delle chiavi di sottoscrizione.
    ![Pagina di gestione delle chiavi di sottoscrizione](../Images/Vision_UI_Subscription.PNG)  
 1. Immettere la chiave di sottoscrizione in **Subscription Key** (Chiave di sottoscrizione).
-1. Immettere l'URL dell'endpoint, omettendo `/vision/v1.0`, della risorsa Visione artificiale per la chiave di sottoscrizione in **Endpoint**.  
-   Se ad esempio si usa la chiave di sottoscrizione della versione di valutazione gratuita di Visione artificiale, immettere l'URL dell'endpoint seguente per l'area di Azure Stati Uniti centro-occidentali: `https://westcentralus.api.cognitive.microsoft.com`
+1. Immettere l'URL dell'endpoint in **Endpoint**.  
+   Se ad esempio si usa la chiave di sottoscrizione della versione di valutazione gratuita di Visione artificiale, immettere l'URL dell'endpoint seguente: `https://westcentralus.api.cognitive.microsoft.com`
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Per evitare di immettere nuovamente la chiave di sottoscrizione e l'URL dell'endpoint alla successiva esecuzione dell'app di esempio, scegliere **Save Setting** (Salva impostazione) per salvare la chiave di sottoscrizione e l'URL dell'endpoint nel computer. Se si vuole eliminare la chiave di sottoscrizione e l'URL dell'endpoint salvati in precedenza, scegliere **Delete Setting** (Elimina impostazione).
 
    > [!NOTE]

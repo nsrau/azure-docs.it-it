@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con People | Microsoft Docs'
+title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con People | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e People.
 services: active-directory
 documentationCenter: na
@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 334241683f95496ce9ea0629247bb8fd53364ee9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3a9b8f08a54c978d81a8d33c61ab3d5f5fc7271f
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826093"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164224"
 ---
-# <a name="tutorial-integrate-people-with-azure-active-directory"></a>Esercitazione: Integrare People con Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con People
 
 Questa esercitazione descrive come integrare People con Azure Active Directory (Azure AD). Integrando People con Azure AD è possibile:
 
 * Controllare in Azure AD chi può accedere a People.
-* Consentire agli utenti l'accesso automatico a People con i rispettivi account Azure AD.
+* Consentire agli utenti l'accesso automatico a People con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -47,9 +47,12 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 * People supporta l'accesso SSO avviato da **SP**
 * È ora possibile configurare l'applicazione per dispositivi mobili People con Azure AD per abilitare l'accesso SSO. In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
+>[!NOTE]
+>Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
+
 ## <a name="adding-people-from-the-gallery"></a>Aggiunta di People dalla raccolta
 
-Per configurare l'integrazione di People in Azure AD, è necessario aggiungere People dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di People in Azure AD, è necessario aggiungere People dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -58,25 +61,24 @@ Per configurare l'integrazione di People in Azure AD, è necessario aggiungere P
 1. Nella sezione **Aggiungi dalla raccolta** digitare **People** nella casella di ricerca.
 1. Selezionare **People** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
+## <a name="configure-and-test-azure-ad-single-sign-on-for-people"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per People
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
-
-Configurare e testare l'accesso SSO di Azure AD con People usando un utente di test di nome **B.Simon**. Per il funzionamento dell'accesso SSO, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in People.
+Configurare e testare l'accesso SSO di Azure AD con People usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in People.
 
 Per configurare e testare l'accesso SSO di Azure AD con People, completare le procedure di base seguenti.
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso SSO di People](#configure-people-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di People](#create-people-test-user)** : per avere una controparte di B.Simon in People collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+2. **[Configurare l'accesso Single Sign-On di People](#configure-people-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare l'utente di test di People](#create-people-test-user)** : per avere una controparte di B.Simon in People collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **People** del [portale di Azure](https://portal.azure.com/) trovare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **People** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
@@ -93,7 +95,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di accesso e l'URL di risposta effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di People](mailto:customerservices@peoplehr.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML metadati federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
+4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -101,23 +103,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-### <a name="configure-people-sso"></a>Configurare l'accesso SSO di People
-
-1. Per configurare l'accesso SSO sull'applicazione, è necessario accedere al tenant di People come amministratore.
-   
-2. Nella barra di spostamento sul lato sinistro fare clic su **Settings (Impostazioni)** .
-
-    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_001.png)
-
-3. Fare clic su **Azienda**.
-
-    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_002.png)
-
-4. In **Upload 'Single Sign On' SAML meta-data file** (Carica il file dei metadati SAML "Single Sign-On") fare clic su **Browse** (Sfoglia) per caricare il file di metadati scaricato.
-
-    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_003.png)
-
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -127,14 +113,14 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a People.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni, selezionare **People**.
+1. Nell'elenco delle applicazioni selezionare **People**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -147,15 +133,39 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
+## <a name="configure-people-sso"></a>Configurare l'accesso Single Sign-On di People
+
+1. Per automatizzare la configurazione all'interno di People, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
+
+    ![Estensione per App personali](common/install-myappssecure-extension.png)
+
+2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura People** per passare direttamente all'applicazione People. Nell'applicazione fornire le credenziali di amministratore per accedere a People. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 6.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Se si vuole configurare manualmente People, aprire una nuova finestra del Web browser, accedere al sito aziendale di People come amministratore e seguire questa procedura:
+   
+4. Nella barra di spostamento sul lato sinistro fare clic su **Settings (Impostazioni)** .
+
+    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_001.png)
+
+5. Fare clic su **Azienda**.
+
+    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_002.png)
+
+6. In **Upload 'Single Sign On' SAML meta-data file** (Carica il file dei metadati SAML "Single Sign-On") fare clic su **Browse** (Sfoglia) per caricare il file di metadati scaricato.
+
+    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_003.png)
+
 ### <a name="create-people-test-user"></a>Creare l'utente di test di People
 
-In questa sezione si crea un utente di nome B.Simon in People. Collaborare con il [team di supporto client di People](mailto:customerservices@peoplehr.com) per aggiungere gli utenti alla piattaforma People. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B.Simon in People. Collaborare con il [team di supporto clienti di People](mailto:customerservices@peoplehr.com) per aggiungere gli utenti alla piattaforma People. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
-### <a name="test-sso"></a>Testare l'accesso SSO 
+## <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di People nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione People per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di People nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di People per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="test-sso-for-people-mobile"></a>Testare l'accesso SSO per People (dispositivi mobili)
 
@@ -179,3 +189,4 @@ Quando si fa clic sul riquadro di People nel pannello di accesso, si dovrebbe ac
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Provare People con Azure AD](https://aad.portal.azure.com)

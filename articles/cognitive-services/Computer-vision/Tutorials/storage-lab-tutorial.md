@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 00cca0cbf500ea4e884a9f9334896a18fe7b0978
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c125941414c73b14138f2b2fc15e470d9ed2d905
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597862"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137550"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Esercitazione: Usare Visione artificiale per generare i metadati delle immagini in Archiviazione di Azure
 
@@ -46,7 +46,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Passare quindi al menu del gruppo di risorse e fare clic sulla sottoscrizione API Visione artificiale appena creata. Copiare l'URL sotto **Endpoint** in qualsiasi punto sia possibile recuperarlo facilmente in seguito. Quindi fare clic su **Mostra chiavi di accesso**.
 
-    ![Pagina del portale di Azure con l'URL endpoint e il collegamento delle chiavi di accesso evidenziato](../Images/copy-vision-endpoint.png)
+    ![Pagina del portale di Azure con l'URL endpoint e il collegamento delle chiavi di accesso evidenziato](../Images/copy-vision-endpoint.png) [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 
 1. Nella finestra successiva, copiare il valore della **CHIAVE 1** negli Appunti.
 
