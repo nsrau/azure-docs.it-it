@@ -180,7 +180,7 @@ Per la **telemetria del dispositivo** evento dell'IoT Hub, l'oggetto dati contie
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| Corpo | string | Il contenuto del messaggio dal dispositivo. |
+| body | string | Il contenuto del messaggio dal dispositivo. |
 | properties | string | Le proprietà dell'applicazione sono stringhe definite dall'utente che è possibile aggiungere al messaggio. Questi campi sono facoltativi. |
 | Proprietà di sistema | string | [Le proprietà di sistema](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) identificare contenuto e l'origine dei messaggi. Messaggio di telemetria dispositivo deve essere in formato JSON valido con contentType impostato su JSON e contentEncoding impostato su UTF-8 in proprietà del sistema del messaggio. Se non è impostato, l'IoT Hub scriverà i messaggi in formato di codifica base 64.  |
 
