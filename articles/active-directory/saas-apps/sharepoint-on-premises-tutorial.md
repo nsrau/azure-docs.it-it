@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 9c956f89d890f93a887d2412c74c906095acf4db
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143929"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Esercitazione: Integrazione di Azure Active Directory con SharePoint locale
 
@@ -111,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SharePoint locale, segu
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
-    b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `urn:sharepoint:federation`
+    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `urn:sharepoint:federation`
 
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -183,9 +183,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con SharePoint locale, segu
     > [!NOTE]
     > Alcuni degli utenti esterni non potranno usare questa integrazione single sign-on poiché il loro UPN avrà valori alterati simili a `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. A breve si consentirà ai clienti di configurare l'app per gestire l'UPN in base al tipo di utente. In seguito tutti gli utenti guest dovrebbero essere in grado di usare l'accesso SSO senza problemi come i dipendenti dell'organizzazione.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -233,7 +233,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pannello delle applicazioni aziendali](./media/sharepoint-on-premises-tutorial/appregistrations.png)
 
-2. Nella casella di ricerca delle applicazioni digitare e selezionare **SharePoint locale**.
+2. Nella casella di ricerca digitare e selezionare **SharePoint locale**.
 
     ![SharePoint locale nell'elenco risultati](./media/sharepoint-on-premises-tutorial/appsearch.png)
 
@@ -357,15 +357,15 @@ Per assistenza in questo scenario, esiste una soluzione open source denominata [
     > [!NOTE]
     > Controllare le notifiche nella barra dei menu per ricevere una notifica in cui si specifica che il gruppo è stato assegnato correttamente all'applicazione aziendale nel portale di Azure.
 
-### <a name="create-sharepoint-on-premises-test-user"></a>Creare un utente di test di SharePoint locale
+### <a name="create-sharepoint-on-premises-test-user"></a>Creare l'utente di test di SharePoint locale
 
-In questa sezione viene creato un utente di nome Britta Simon in SharePoint locale. Collaborare con il  [team di supporto di SharePoint locale](https://support.office.com/) per aggiungere gli utenti nella piattaforma di SharePoint locale. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in SharePoint locale. Collaborare con il  [team di supporto di SharePoint locale](https://support.office.com/) per aggiungere gli utenti alla piattaforma SharePoint locale. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di SharePoint locale nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SharePoint locale per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di SharePoint locale nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di SharePoint locale per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

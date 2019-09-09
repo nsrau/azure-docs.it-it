@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af98633e1dfdbe6392199ade282a918c6134a033
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c0b1471abd7e057af919ed274547daf94d356c2b
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347395"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213598"
 ---
 # <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>Esercitazione: Integrare The Cloud Security Fabric con Azure Active Directory
 
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-the-cloud-security-fabric-from-the-gallery"></a>Aggiunta di The Cloud Security Fabric dalla raccolta
 
-Per configurare l'integrazione di The Cloud Security Fabric in Azure AD, è necessario aggiungere The Cloud Security Fabric dalla raccolta all'elenco delle app SaaS gestite.
+Per configurare l'integrazione di The Cloud Security Fabric in Azure AD, è necessario aggiungere The Cloud Security Fabric dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -66,8 +66,8 @@ Per configurare e testare l'accesso SSO di Azure AD con The Cloud Security Fabri
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di The Cloud Security Fabric](#configure-the-cloud-security-fabric-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di The Cloud Security Fabric](#create-the-cloud-security-fabric-test-user)** : per avere una controparte di B.Simon in The Cloud Security Fabric collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
@@ -75,7 +75,7 @@ Per configurare e testare l'accesso SSO di Azure AD con The Cloud Security Fabri
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **The Cloud Security Fabric** del [portale di Azure](https://portal.azure.com/) trovare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **The Cloud Security Fabric** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
@@ -100,11 +100,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Il valore dell'identificatore non è reale. È necessario aggiornare questo valore con l'ID effettivo. Per ottenere il valore, contattare il [team di supporto clienti di The Cloud Security Fabric](mailto:support@cloudlock.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML metadati federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
+4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-5. Per modificare le opzioni di **Firma**  in base alle esigenze, fare clic sul pulsante **Modifica** per aprire la finestra di dialogo  **Certificato di firma SAML**. 
+5. Per modificare le opzioni di **Firma** in base alle esigenze, fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Certificato di firma SAML**.
 
     ![Risposta SAML](./media/ciscocloudlock-tutorial/saml.png)
 
@@ -120,8 +120,8 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 ### <a name="configure-the-cloud-security-fabric-sso"></a>Configurare l'accesso Single Sign-On di The Cloud Security Fabric
 
-Per configurare l'accesso Single Sign-On sul lato **The Cloud Security Fabric**, è necessario inviare il file **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di The Cloud Security Fabric](mailto:support@cloudlock.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+Per configurare l'accesso Single Sign-On sul lato **The Cloud Security Fabric**, è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di The Cloud Security Fabric](mailto:support@cloudlock.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -133,12 +133,12 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a The Cloud Security Fabric.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco di applicazioni selezionare **The Cloud Security Fabric**.
+1. Nell'elenco delle applicazioni selezionare **The Cloud Security Fabric**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -153,13 +153,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="create-the-cloud-security-fabric-test-user"></a>Creare l'utente di test di The Cloud Security Fabric
 
-In questa sezione viene creato un utente di nome B.Simon in The Cloud Security Fabric. Collaborare con il  [team di supporto di The Cloud Security Fabric](mailto:support@cloudlock.com) per aggiungere gli utenti alla piattaforma di The Cloud Security Fabric. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B.Simon in The Cloud Security Fabric. Collaborare con il [team di supporto di The Cloud Security Fabric](mailto:support@cloudlock.com) per aggiungere gli utenti alla piattaforma The Cloud Security Fabric. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro The Cloud Security Fabric nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione The Cloud Security Fabric per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro The Cloud Security Fabric nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di The Cloud Security Fabric per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

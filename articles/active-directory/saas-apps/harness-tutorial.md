@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37a527e8cd83d292d8af8af5acd0c903c63081f2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013846"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305935"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Harness
 
@@ -64,8 +64,8 @@ Configurare e testare l'accesso SSO di Azure AD con Harness usando un utente di 
 Per configurare e testare l'accesso SSO di Azure AD con Harness, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Harness](#configure-harness-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Harness](#create-harness-test-user)** : per avere una controparte di B.Simon in Harness collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -99,7 +99,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -111,7 +111,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Harness.
 
@@ -131,17 +131,25 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-harness-sso"></a>Configurare l'accesso Single Sign-On di Harness
 
-1. Aprire una nuova finestra del Web browser e accedere al sito aziendale di Harness come amministratore.
+1. Per automatizzare la configurazione all'interno di Harness, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-1. In alto a destra della pagina fare clic su  **Continuous Security** (Sicurezza continua) > **Access Management** (Gestione accesso)  > **Authentication Settings** (Impostazioni di autenticazione).
+    ![Estensione per App personali](common/install-myappssecure-extension.png)
+
+2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Harness** per passare direttamente all'applicazione Harness. Nell'applicazione fornire le credenziali di amministratore per accedere ad Harness. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 6.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Se si vuole configurare manualmente Harness, aprire una nuova finestra del Web browser, accedere al sito aziendale di Harness come amministratore e seguire questa procedura:
+
+4. In alto a destra della pagina fare clic su  **Continuous Security** (Sicurezza continua) > **Access Management** (Gestione accesso)  > **Authentication Settings** (Impostazioni di autenticazione).
 
     ![Configurazione di Harness](./media/harness-tutorial/configure01.png)
 
-1. Nella sezione **SSO Providers** (Provider SSO) fare clic su  **+ Add SSO Providers** (+ Aggiungi provider SSO) > **SAML**.
+5. Nella sezione **SSO Providers** (Provider SSO) fare clic su  **+ Add SSO Providers** (+ Aggiungi provider SSO) > **SAML**.
 
     ![Configurazione di Harness](./media/harness-tutorial/configure03.png)
 
-1. Nel popup **SAML Provider** (Provider SAML) seguire questa procedura:
+6. Nel popup **SAML Provider** (Provider SAML) seguire questa procedura:
 
     ![Configurazione di Harness](./media/harness-tutorial/configure02.png)
 
@@ -177,7 +185,7 @@ Per consentire agli utenti di Azure AD di accedere a Harness, è necessario effe
 
     b. Selezionare i **gruppi utente**.
 
-    c. Fare clic su **Submit**.
+    c. Fare clic su **Submit** (Invia).
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

@@ -109,7 +109,7 @@ Per configurare il DNS:
 - creare una zona per *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net*
 - creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB 
 - creare una zona in *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net* denominata SCM
-- creare un record A nella zona che punti * all'indirizzo IP del servizio ILB
+- creare un record A nella zona che punti all'indirizzo IP del servizio ILB
 
 ## <a name="publish-with-an-ilb-ase"></a>Pubblicare con un ambiente del servizio app ILB
 
