@@ -1,21 +1,21 @@
 ---
-title: Pagamento in anticipo per il timbro del servizio app Azure con capacità riservata
-description: Scopri in che modo puoi pagare in anticipo la tariffa per il timbro isolato del servizio app Azure con capacità riservata per risparmiare denaro.
+title: Risparmiare sui costi per app Azure tassa di timbro isolato del servizio con capacità riservata
+description: Informazioni su come è possibile risparmiare sui costi per app Azure costo di timbro isolato del servizio con capacità riservata.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 5161f18499c082b7064eec2be612557ba09eec97
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780016"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806368"
 ---
-# <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Pagamento in anticipo per il timbro del servizio app Azure con capacità riservata
+# <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Risparmiare sui costi per app Azure tassa di timbro isolato del servizio con capacità riservata
 
 Per una durata di tre anni, è possibile risparmiare sui costi del timbro isolato del servizio app Azure. Per acquistare la capacità riservata dei timbri isolati, è necessario scegliere l'area di Azure in cui verrà distribuito il timbro e il numero di timbri da acquistare.
 
@@ -25,7 +25,7 @@ Quando la capacità riservata scade, gli indicatori isolati continuano a funzion
 
 ## <a name="determine-the-right-reservation-to-purchase"></a>Determinare la prenotazione corretta da acquistare
 
-Con l'acquisto di una prenotazione, si paga in anticipo per usare le quantità riservate sempre nei prossimi tre anni. Controllare i dati di utilizzo per determinare il numero di timbri servizio app Isolato che si utilizza in modo coerente e che potrebbero essere utilizzati in futuro.
+Con l'acquisto di una prenotazione, si sta eseguendo il commit delle quantità riservate nei tre anni successivi. Controllare i dati di utilizzo per determinare il numero di timbri servizio app Isolato che si sta utilizzando in modo coerente e che potrebbero essere utilizzati in futuro.
 
 Inoltre, assicurarsi di comprendere il modo in cui il timbro isolato emette il contatore Linux o Windows.
 
@@ -39,7 +39,7 @@ Acquistare le prenotazioni di Windows Stamp se uno o più ruoli di lavoro di Win
 
 ## <a name="buy-isolated-stamp-reserved-capacity"></a>Acquistare la capacità riservata di un timbro isolato
 
-È possibile acquistare capacità riservata con timbri isolati nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Per acquistare capacità riservata, è necessario avere il ruolo proprietario per almeno una sottoscrizione Enterprise o una sottoscrizione singola con tariffe con pagamento in base al consumo.
+È possibile acquistare capacità riservata con timbri isolati nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pagare per la prenotazione [prima o con pagamenti mensili](billing-monthly-payments-reservations.md). Per acquistare capacità riservata, è necessario avere il ruolo proprietario per almeno una sottoscrizione Enterprise o una sottoscrizione singola con tariffe con pagamento in base al consumo.
 
 - Per le sottoscrizioni aziendali, l'opzione **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com/). In alternativa, se l'impostazione è disabilitata, è necessario essere un amministratore EA.
 - Per il programma Cloud Solution Provider (CSP), solo gli agenti di amministrazione o gli agenti di vendita possono acquistare SQL Data Warehouse capacità riservata.
@@ -47,7 +47,7 @@ Acquistare le prenotazioni di Windows Stamp se uno o più ruoli di lavoro di Win
 **Per acquistare:**
 
 1. Passare alla [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D).
-1. Selezionare una sottoscrizione. Usare l'elenco **sottoscrizione** per scegliere la sottoscrizione usata per pagare la capacità riservata. Il metodo di pagamento della sottoscrizione viene addebitato ai costi iniziali per la capacità riservata. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P) o una sottoscrizione CSP.
+1. Selezionare una sottoscrizione. Usare l'elenco **sottoscrizione** per scegliere la sottoscrizione usata per pagare la capacità riservata. Al metodo di pagamento della sottoscrizione vengono addebitati i costi per la capacità riservata. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P) o una sottoscrizione CSP.
     - Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto.
     - Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.
 1. Selezionare un **ambito** per scegliere un ambito di sottoscrizione.

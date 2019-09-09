@@ -6,12 +6,12 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: 096a8f221313b9dfa3e0fe804a10fc12246177ff
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 6c0dc61cac96037406b165d7ebee693bfe709c5d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575714"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811740"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Risolvere i problemi usando Azure HDInsight
 
@@ -32,3 +32,13 @@ ms.locfileid: "69575714"
 | Log e dump | - [Accedere ai log applicazioni di Apache Hadoop YARN in Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Abilitare i dump dell'heap per i servizi Apache Hadoop in Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Analizzare i log di HDInsight](hdinsight-debug-jobs.md)|
 | Errors | - [Comprendere e risolvere gli errori di WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Impostazioni di Apache Hive per la risoluzione dell'errore OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Strumenti | - [Ottimizzare le query Apache Hive](hdinsight-hadoop-optimize-hive-query.md)<br>- [Strumento IntelliJ per HDInsight](./spark/apache-spark-intellij-tool-plugin.md)<br>- [Strumento Eclipse per HDInsight](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [Strumento VSCode per HDInsight](hdinsight-for-vscode.md)<br>- [Strumento Visual Studio per HDInsight](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
+
+* Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
+
+* Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+
+* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

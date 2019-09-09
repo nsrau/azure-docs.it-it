@@ -1,23 +1,22 @@
 ---
-title: Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V di cloud VMM in un sito secondario con Azure Site Recovery | Microsoft Docs
+title: Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V in cloud VMM in un sito secondario con Azure Site Recovery
 description: Offre un riepilogo del supporto per la replica delle macchine virtuali Hyper-V di cloud VMM in un sito secondario con Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c3a19d44a4ac0fba37f4815b65b17c26d257dbc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399358"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813614"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
 
-Questo articolo riepiloga ciò che è supportato quando si usa la [Azure Site Recovery](site-recovery-overview.md) gestita dal servizio per la replica di VM Hyper-V nei cloud System Center Virtual Machine Manager (VMM) in un sito secondario. Per replicare macchine virtuali Hyper-V in Azure, vedere [questa matrice di supporto](hyper-v-azure-support-matrix.md).
+Questo articolo riepiloga gli elementi supportati quando si usa il servizio [Azure Site Recovery](site-recovery-overview.md) per replicare le VM Hyper-V gestite in Cloud System Center Virtual Machine Manager (VMM) in un sito secondario. Per replicare macchine virtuali Hyper-V in Azure, vedere [questa matrice di supporto](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
 > È possibile eseguire la replica in un sito secondario solo quando gli host Hyper-V sono gestiti nei cloud VMM.
@@ -55,14 +54,14 @@ Windows Server 2012 R2 | Qualsiasi sistema operativo guest [supportato da Hyper-
 
 **Configurazione** | **Supportato**  
 --- | --- 
-Host - Gruppo NIC | Yes 
-Host - VLAN | Yes 
-Host - IPv4 | Yes 
+Host - Gruppo NIC | Sì 
+Host - VLAN | Sì 
+Host - IPv4 | Sì 
 Host - IPv6 | No 
 VM guest - Gruppo NIC | No
-VM guest - IPv4 | Yes
+VM guest - IPv4 | Sì
 VM guest - IPv6 | No
-VM guest - Windows/Linux - Indirizzo IP statico | Yes
+VM guest - Windows/Linux - Indirizzo IP statico | Sì
 VM guest - Più NIC | Yes
 
 
@@ -73,9 +72,9 @@ VM guest - Più NIC | Yes
 **Archiviazione (host)** | **Supportato**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  Yes
-SAN (iSCSI) | Yes
-Percorsi multipli (MPIO) | Yes
+SMB 3.0 |  Sì
+SAN (iSCSI) | Sì
+Percorsi multipli (MPIO) | Sì
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
@@ -90,11 +89,11 @@ UEFI| N/D
 NFS | No
 SMB 3.0 | No
 RDM | N/D
-Disco superiore a 1 TB | Yes
-Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Yes
+Disco superiore a 1 TB | Sì
+Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì
 Spazi di archiviazione | Yes
 Aggiunta/rimozione a caldo disco | No
-Esclusione disco | Yes
+Esclusione disco | Sì
 Percorsi multipli (MPIO) | Yes
 
 ## <a name="vaults"></a>Insiemi di credenziali

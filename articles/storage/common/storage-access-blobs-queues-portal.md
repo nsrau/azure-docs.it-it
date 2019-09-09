@@ -9,12 +9,12 @@ ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: abbd436e5d1c88c53af95fd8ba9add20fa67c8e4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 8d19724883e6c2b3630de6100b1b4ca9fd9250a1
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640886"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813360"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usare la portale di Azure per accedere ai dati di BLOB o di Accodamento
 
@@ -22,7 +22,7 @@ Quando si accede ai dati di BLOB o di Accodamento usando il [portale di Azure](h
 
 ## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Autorizzazioni necessarie per accedere ai dati BLOB o di Accodamento
 
-A seconda di come si vuole autorizzare l'accesso ai dati di BLOB o di Accodamento nella portale di Azure, sono necessarie autorizzazioni specifiche. Nella maggior parte dei casi, queste autorizzazioni vengono fornite tramite il controllo degli accessi in base al ruolo (RBAC). Per ulteriori informazioni su RBAC, vedere [che cos'è il controllo degli accessi in base al ruolo (RBAC)?](../../role-based-access-control/overview.md).
+A seconda di come si vuole autorizzare l'accesso ai dati BLOB o di Accodamento nella portale di Azure, sono necessarie autorizzazioni specifiche. Nella maggior parte dei casi, queste autorizzazioni vengono fornite tramite il controllo degli accessi in base al ruolo (RBAC). Per ulteriori informazioni su RBAC, vedere [che cos'è il controllo degli accessi in base al ruolo (RBAC)?](../../role-based-access-control/overview.md).
 
 ### <a name="account-access-key"></a>Chiave di accesso dell'account
 
@@ -57,7 +57,7 @@ I ruoli predefiniti che supportano l'accesso ai dati BLOB o della coda includono
 I ruoli personalizzati possono supportare diverse combinazioni delle stesse autorizzazioni fornite dai ruoli predefiniti. Per altre informazioni sulla creazione di ruoli RBAC personalizzati, vedere [ruoli personalizzati per le risorse di Azure](../../role-based-access-control/custom-roles.md) e informazioni sulle [definizioni di ruolo per le risorse di Azure](../../role-based-access-control/role-definitions.md).
 
 > [!NOTE]
-> L'elenco delle code con un ruolo di amministratore della sottoscrizione classico non è supportato. Per elencare le code, è necessario che un utente abbia assegnato loro il ruolo di **lettore** di Azure Resource Manager, il ruolo di **lettore dati della coda di archiviazione** o il ruolo di collaboratore dati della coda di **archiviazione** .
+> L'elenco delle code con un ruolo di amministratore della sottoscrizione classico non è supportato. Per elencare le code, è necessario che un utente abbia assegnato loro il ruolo di **lettore** di Azure Resource Manager, il ruolo di **lettore dati della coda di archiviazione** o il ruolo di **collaboratore dati della coda di archiviazione** .
 
 ## <a name="navigate-to-blobs-or-queues-in-the-portal"></a>Passare a BLOB o code nel portale
 

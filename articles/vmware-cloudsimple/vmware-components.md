@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 51a19d867b4906aacfe58cb4fdfd08f32a16e5f3
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: bd83cff243c94ed62014ff95f6ca7c4e878f6af7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972350"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814575"
 ---
 # <a name="private-cloud-vmware-components"></a>Componenti VMware del cloud privato
 
@@ -30,10 +30,10 @@ Un cloud privato VMware stack viene distribuito con la versione del software seg
 
 | Componente | Versione | Versione con licenza |
 |-----------|---------|------------------|
-| ESXi | 6.7 U1 | Enterprise Plus |
-| vCenter | 6.7 U1 | Standard vCenter |
+| ESXi | 6.7 U2 | Enterprise Plus |
+| vCenter | 6.7 U2 | Standard vCenter |
 | vSAN | 6.7 | Enterprise |
-| Data Center NSX | 2.3 | Avanzate |
+| Data Center NSX | 2.4.1 | Avanzate |
 
 ## <a name="esxi"></a>ESXi
 
@@ -45,7 +45,7 @@ Scopri di più su VMware ESXi
 
 vCenter Server Appliance (VCSA) fornisce le funzioni di autenticazione, gestione e orchestrazione per la soluzione VMware di CloudSimple. VCSA con Embedded Platform Services controller (PSC) viene distribuito quando si crea il cloud privato.  VCSA viene distribuito nel cluster vSphere creato quando si distribuisce il cloud privato.  Ogni cloud privato ha il proprio VCSA.  L'espansione di un cloud privato aggiunge i nodi a VCSA nel cloud privato.
 
-### <a name="vcenter-single-sign-on"></a>Single Sign-on vCenter
+### <a name="vcenter-single-sign-on"></a>Single Sign-On vCenter
 
 Il controller Embedded Platform Services in VCSA è associato a un **dominio Single Sign-on di vCenter**.  Il nome di dominio è **cloudsimple. local**.  Per accedere a **CloudOwner@cloudsimple.com** vCenter viene creato un utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](set-vcenter-identity.md).
 

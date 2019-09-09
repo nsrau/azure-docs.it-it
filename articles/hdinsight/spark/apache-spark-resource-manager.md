@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: dfd926f3e091f4516685fd73f3a6b87949330afb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d97ca91466516b8722ecca77d19078399a258f7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706360"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814086"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gestire le risorse del cluster Apache Spark in Azure HDInsight 
 
@@ -69,10 +69,11 @@ I tre parametri di configurazione possono essere configurati a livello di cluste
 ### <a name="change-the-parameters-using-ambari-ui"></a>Modificare i parametri con l'interfaccia utente di Ambari
 1. Nell'interfaccia utente di Ambari fare clic su **Spark**, **Configs** (Configurazioni) e quindi espandere **Custom spark-defaults**.
 
-    ![Impostare parametri con Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
+    ![Impostare i parametri usando Ambari Custom](./media/apache-spark-resource-manager/set-parameters-using-ambari.png "Impostare i parametri usando Ambari Custom")
 2. I valori predefiniti sono appropriati per quattro applicazioni Spark in esecuzione contemporaneamente nel cluster. È possibile modificare questi valori nell'interfaccia utente, come illustrato nello screenshot seguente:
 
-    ![Impostare parametri con Ambari](./media/apache-spark-resource-manager/set-executor-parameters.png)
+    ![Impostare i parametri usando Ambari](./media/apache-spark-resource-manager/set-executor-parameters.png "Impostare i parametri usando Ambari")
+
 3. Per salvare la configurazione, fare clic su **Save** . Nella parte superiore della pagina verrà richiesto di riavviare tutti i servizi interessati. Fare clic su **Restart**.
 
     ![Riavviare i servizi](./media/apache-spark-resource-manager/restart-services.png)
@@ -104,10 +105,10 @@ Il server Spark Thrift usa l'allocazione di executor dinamica di Spark e quindi 
 
 * Espandere la categoria **Advanced spark-thrift-sparkconf** per aggiornare i parametri `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors` e `spark.executor.memory`.
 
-    ![Configurare il server Spark Thrift](./media/apache-spark-resource-manager/spark-thrift-server-1.png)    
+    ![Configurare il server di risparmio Spark](./media/apache-spark-resource-manager/spark-thrift-server-1.png "Configurare il server di risparmio Spark")
 * Espandere la categoria **Custom spark-thrift-sparkconf** per aggiornare il parametro `spark.executor.cores`.
 
-    ![Configurare il server Spark Thrift](./media/apache-spark-resource-manager/spark-thrift-server-2.png)
+    ![Configurare il parametro del server] per la proprietà Spark (./media/apache-spark-resource-manager/spark-thrift-server-2.png "Configurare il parametro del server") per la proprietà Spark
 
 ### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Modificare la memoria del driver del server Spark Thrift
 La memoria del driver del server Spark Thrift è configurata al 25% delle dimensioni della RAM nodo head, a condizione che le dimensioni totali della RAM del nodo head siano maggiori di 14 GB. Per modificare la configurazione della memoria del driver, è possibile usare l'interfaccia utente di Ambari, come illustrato nello screenshot seguente:
@@ -122,13 +123,13 @@ Grazie all'allocazione dinamica di Spark le uniche risorse usate dal server Thri
 1. Nel riquadro sinistro dell'interfaccia utente di Ambari fare clic su **Spark**.
 2. Nella pagina successiva fare clic su **Server Spark Thrift**.
 
-    ![Riavviare il server Thrift](./media/apache-spark-resource-manager/restart-thrift-server-1.png)
+    ![Riavviare la parsimonia Server1](./media/apache-spark-resource-manager/restart-thrift-server-1.png "Riavviare la parsimonia Server1")
 3. Verranno visualizzati due nodi head in cui è in esecuzione il server Spark Thrift. Fare clic su uno dei nodi head.
 
-    ![Riavviare il server Thrift](./media/apache-spark-resource-manager/restart-thrift-server-2.png)
+    ![Riavviare l'Thrifty](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Riavviare l'Thrifty")
 4. Nella pagina successiva sono elencati tutti i servizi in esecuzione in quel nodo head. Nell'elenco fare clic sul pulsante dell'elenco a discesa accanto al server Spark Thrift e quindi fare clic su **Stop**.
 
-    ![Riavviare il server Thrift](./media/apache-spark-resource-manager/restart-thrift-server-3.png)
+    ![Riavvia Server3 di risparmio](./media/apache-spark-resource-manager/restart-thrift-server-3.png "Riavvia Server3 di risparmio")
 5. Ripetere questi passaggi anche per l'altro nodo head.
 
 ## <a name="restart-the-jupyter-service"></a>Riavviare il servizio Jupyter

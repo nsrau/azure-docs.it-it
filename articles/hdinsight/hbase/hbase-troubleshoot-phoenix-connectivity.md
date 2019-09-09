@@ -1,17 +1,17 @@
 ---
 title: Problemi di connettività Apache Phoenix in Azure HDInsight
-description: Problemi di connettività Apache Phoenix in Azure HDInsight
+description: Problemi di connettività tra Apache HBase e Apache Phoenix in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/14/2019
-ms.openlocfilehash: 66077416dca4048fc99047f7d6b967e55aab0a23
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 03b861ecff492518db338df06af8882bb70417ef
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575732"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810290"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Scenario: Problemi di connettività Apache Phoenix in Azure HDInsight
 
@@ -27,7 +27,7 @@ L'IP del nodo Zookeeper attivo non è corretto.
 
 ### <a name="resolution"></a>Risoluzione
 
-L'IP del nodo Zookeeper attivo può essere identificato dall'interfaccia utente di Ambari seguendo i collegamenti a **HBase** > **collegamenti** > rapidi**ZK (attiva)**  > **Zookeeper info**. Correggere l'indirizzo IP in base alle esigenze.
+L'IP del nodo Zookeeper attivo può essere identificato dall'interfaccia utente di Ambari seguendo i collegamenti a **HBase** >  > **collegamenti rapidi** **ZK (attiva)**  > **Zookeeper info**. Correggere l'indirizzo IP in base alle esigenze.
 
 ---
 

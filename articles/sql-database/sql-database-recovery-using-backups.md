@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6f1a0485dbae3234d476ba5df62126f05d52f435
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103109"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813354"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 
@@ -127,10 +127,7 @@ Il ripristino temporizzato in un database di replica geografica secondaria non Ã
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Eseguire il ripristino geografico tramite il portale di Azure
 
-Per eseguire il ripristino geografico di un database usando il portale di Azure, aprire la pagina database SQL e quindi fare clic su **Aggiungi**. Nel casella di testo **Seleziona origine** selezionare **Backup**. Specificare il backup da cui eseguire il ripristino nell'area e nel server di propria scelta.
-
-> [!Note]
-> Il ripristino geografico tramite il portale di Azure non Ã¨ disponibile in Istanza gestita. Usare invece PowerShell.
+Per eseguire il ripristino geografico di un database usando il portale di Azure, aprire la pagina database SQL e quindi fare clic su **Aggiungi**. Nel casella di testo **Seleziona origine** selezionare **Backup**. Specificare il backup da cui eseguire il ripristino nell'area e nel server di propria scelta. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Esecuzione a livello di codice del ripristino tramite backup automatici
 

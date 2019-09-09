@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5946180c161a38a30f44e235ce0b626fd70a5400
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723565"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735133"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing dei dati GeoJSON
 
@@ -38,7 +38,7 @@ I dati per recinto virtuale o set di recinti virtuali sono rappresentati dall'og
 | businessDayOnly | Boolean | false |  Indica se i dati sono validi solo durante i giorni lavorativi. Il valore predefinito è `false`.|
 
 
-* Tutti i valori delle coordinate sono rappresentati come [latitudine, longitudine] definiti in `WGS84`.
+* Tutti i valori delle coordinate sono rappresentati come [Longitudine, latitudine `WGS84`] definito in.
 * Per ciascuna funzionalità, che contiene `MultiPoint`, `MultiLineString`, `MultiPolygon` o `GeometryCollection`, le proprietà vengono applicate a tutti gli elementi. ad esempio: Tutti i punti in `MultiPoint` useranno lo stesso raggio in modo da formare più recinti virtuali.
 * In uno scenario punto-cerchio, una geometria circolare può essere rappresentata usando un oggetto di geometria `Point` con proprietà elaborate nell'[Estensione delle geometrie GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 

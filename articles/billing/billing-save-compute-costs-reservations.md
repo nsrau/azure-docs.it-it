@@ -5,18 +5,20 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 2122b6bd5fbd6b15bd5a2e411898d957708bf4c9
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558881"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806355"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
-Le prenotazioni di Azure consentono di risparmiare effettuando il pagamento anticipato della capacità di calcolo delle macchine virtuali o dei database SQL, la velocità effettiva di Azure Cosmos DB o altre risorse di Azure per un periodo di uno o tre anni. Il pagamento anticipato consente di ottenere uno sconto sulle risorse usate. Le prenotazioni possono ridurre notevolmente i costi di macchina virtuale, calcolo dei database SQL, Azure Cosmos DB o altre risorse fino al 72% sui prezzi con pagamento a consumo. Le prenotazioni offrono uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle risorse.
+Le prenotazioni di Azure ti aiutano a risparmiare denaro grazie al commit di un anno o di tre anni di macchine virtuali, alla capacità di calcolo del database SQL, alla velocità effettiva Azure Cosmos DB o ad altre risorse di Azure. Il commit consente di ottenere uno sconto sulle risorse utilizzate. Le prenotazioni possono ridurre notevolmente i costi di macchina virtuale, calcolo dei database SQL, Azure Cosmos DB o altre risorse fino al 72% sui prezzi con pagamento a consumo. Le prenotazioni offrono uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle risorse.
+
+È possibile pagare per una prenotazione in anticipo o mensili. Il costo totale di prenotazioni anticipate e mensili è lo stesso e non vengono addebitate spese aggiuntive quando si sceglie di pagare mensilmente. Il pagamento mensile è disponibile per le prenotazioni di Azure, non per i prodotti di terze parti.
 
 È possibile acquistare una prenotazione nel [portale di Azure](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
@@ -31,6 +33,8 @@ Piani di servizio:
 - **Istanza di macchina virtuale riservata** : una prenotazione copre solo i costi di calcolo della macchina virtuale. e non i costi aggiuntivi relativi a software, rete o archiviazione.
 - **Azure Cosmos DB capacità riservata** : una prenotazione copre la velocità effettiva di cui è stato effettuato il provisioning per le risorse. Non copre i costi di archiviazione e rete.
 - **VCore riservato database SQL** : solo i costi di calcolo sono inclusi in una prenotazione. I costi della licenza vengono fatturati separatamente.
+- **SQL data warehouse** : una prenotazione riguarda l'uso di DWU. Non copre i prezzi di archiviazione o di rete associati all'utilizzo del SQL Data Warehouse.
+- **Tariffa di timbro del servizio app** : una prenotazione riguarda l'utilizzo del timbro. Non si applica ai thread di lavoro, quindi qualsiasi altra risorsa associata al timbro viene addebitata separatamente.
 
 Per le macchine virtuali Windows e il database SQL, i costi delle licenze possono essere coperti con le offerte di [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -92,17 +96,17 @@ Un ambito di prenotazione non viene aggiornato automaticamente se si sposta il g
 
 ## <a name="discounted-subscription-and-offer-types"></a>Sottoscrizione scontata e tipi di offerta
 
-Gli sconti di prenotazione si applicano alle sottoscrizioni idonee e ai tipi di offerta seguenti.
+Gli sconti Prenotazione si applicano alle sottoscrizioni idonee e ai tipi di offerte seguenti.
 
-- Enterprise Agreement (numero di offerte: MS-AZR-0017P o MS-AZR-0148P)
-- Singoli piani con tariffe con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P)
-- Sottoscrizioni CSP
+- Contratto Enterprise (numeri offerte: MS-AZR-0017P o MS-AZR-0148P)
+- Piani individuali con tariffe con pagamento in base al consumo (numeri offerte: MS-AZR-0003P o MS-AZR-0023P)
+- Sottoscrizioni provider di servizi cloud
 
 Le risorse eseguite in una sottoscrizione con altri tipi di offerta non prevedono questo tipo di sconto.
 
 ## <a name="how-is-a-reservation-billed"></a>Come viene fatturata una prenotazione?
 
-La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Quando il saldo dell'impegno monetario non copre il costo della prenotazione, l'eccedenza viene addebitata. Se si ha una sottoscrizione di un singolo piano con tariffe con pagamento in base al consumo, la carta di credito per l'account viene addebitata immediatamente. Quando la fatturazione viene addebitata in base alla fattura, verranno visualizzati gli addebiti per la fattura successiva.
+La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Quando il saldo dell'impegno monetario non copre il costo della prenotazione, l'eccedenza viene addebitata. Se si dispone di una sottoscrizione di un singolo piano con tariffe con pagamento in base al consumo, la carta di credito per l'account viene addebitata immediatamente per gli acquisti iniziali. I pagamenti mensili vengono visualizzati nella fattura e la carta di credito viene addebitata mensilmente. Quando la fatturazione viene addebitata in base alla fattura, verranno visualizzati gli addebiti per la fattura successiva.
 
 ## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto della prenotazione
 

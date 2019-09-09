@@ -7,19 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da871a1fed0663c5654ebcfd61f4189bf2267026
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574651"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814056"
 ---
-# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usare Azioni script per installare pacchetti Python esterni per notebook di Jupyter in cluster Apache Spark in HDInsight
+# <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>Azione script per installare pacchetti Python esterni per notebook di Jupyter in Apache Spark in HDInsight
+
 > [!div class="op_single_selector"]
 > * [Uso di comandi Magic nelle celle](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Uso di azioni script](apache-spark-python-package-installation.md)
 
-Informazioni su come usare azioni Script per configurare un [Apache Spark](https://spark.apache.org/) cluster in HDInsight per l'utilizzo esterno, creati dalla community **python** pacchetti che non sono inclusi out-of-the-box nel cluster.
+Informazioni su come usare le azioni script per configurare un cluster [Apache Spark](https://spark.apache.org/) in HDInsight per l'uso di pacchetti **Python** esterni creati dalla community che non sono inclusi nel cluster.
 
 > [!NOTE]  
 > È anche possibile configurare un notebook di Jupyter con il comando Magic `%%configure` per usare pacchetti esterni. Per istruzioni, vedere [Usare pacchetti esterni con notebook di Jupyter nei cluster Apache Spark in HDInsight](apache-spark-jupyter-notebook-use-external-packages.md).
@@ -54,23 +55,23 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Usare pacchetti esterni con i notebook Jupyter
 
-1. Dal [portale di Azure](https://portal.azure.com/), passare al cluster.  
+1. Dal [portale di Azure](https://portal.azure.com/)passare al cluster.  
 
-2. Con il cluster selezionato, nel riquadro sinistro, in **le impostazioni**, selezionare **azioni Script**.
+2. Con il cluster selezionato, nel riquadro sinistro in **Impostazioni**selezionare **azioni script**.
 
-3. Selezionare **+ Invia nuova**.
+3. Selezionare **+ Invia nuovo**.
 
-4. Immettere i valori seguenti per il **invia azione script** finestra:  
+4. Immettere i valori seguenti per la finestra **Invia azione script** :  
 
 
-    |Parametro | Value |
+    |Parametro | Valore |
     |---|---|
     |Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
     |Name |Immettere `tensorflow` nella casella di testo.|
     |URI script Bash |Immettere `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh` nella casella di testo. |
-    |Tipi di nodo | Selezionare il **Head**, e **lavoro** caselle di controllo. |
+    |Tipo/i di nodo | Selezionare le caselle di controllo **Head**e **Worker** . |
 
-    `tensorflowinstall.sh` contiene i comandi seguenti:
+    `tensorflowinstall.sh`contiene i comandi seguenti:
 
     ```bash
     #!/usr/bin/env bash
@@ -79,9 +80,9 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
 5. Selezionare **Create**.  Vedere la documentazione su [come usare azioni script personalizzate](../hdinsight-hadoop-customize-cluster-linux.md).
 
-6. Attendere il completamento dello script.  Il **azioni Script** riquadro verrà segnalato **nuove azioni script possono essere inviate al termine dell'operazione del cluster corrente** durante l'esecuzione di script.  È possibile visualizzare un indicatore di stato dalla UI Ambari **operazioni in Background** finestra.
+6. Attendere il completamento dello script.  Il riquadro **azioni script** determinerà l' **invio di nuove azioni script al termine dell'operazione del cluster corrente** durante l'esecuzione dello script.  È possibile visualizzare un indicatore di stato dalla finestra **delle operazioni in background** dell'interfaccia utente di Ambari.
 
-7. Aprire un notebook di PySpark Jupyter.  Visualizzare [creare un notebook di Jupyter in Spark HDInsight](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight) per questa procedura.
+7. Aprire un notebook di Jupyter PySpark.  Per la procedura, vedere [creare un notebook di Jupyter in Spark HDInsight](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight) .
 
     ![Creare un nuovo notebook Jupyter](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "Creare un nuovo notebook Jupyter")
 

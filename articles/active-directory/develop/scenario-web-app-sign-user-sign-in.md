@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7801515355452306cd5e7afa709a0681c7c314
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9766b530b4d795d0f35f097de20155cdd17687ca
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562204"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812387"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>App Web che consente agli utenti di accedere
 
@@ -28,7 +28,8 @@ Informazioni su come aggiungere l'accesso al codice per l'app Web che accede agl
 
 ## <a name="sign-in"></a>Accesso
 
-Il codice presente nella configurazione del codice dell' [app](scenario-web-app-sign-user-app-configuration.md) precedente è tutto quello che serve per implementare la disconnessione. Dopo che l'utente ha eseguito l'accesso all'app, è probabile che si voglia abilitarne la disconnessione. ASP.NET Core gestisce automaticamente la disconnessione.
+Il codice esaminato nella [configurazione del codice dell'app](scenario-web-app-sign-user-app-configuration.md) precedente è sufficiente per implementare l'accesso.
+Dopo che l'utente ha eseguito l'accesso all'app, è probabile che si voglia abilitarne la disconnessione. ASP.NET Core gestisce automaticamente la disconnessione.
 
 ## <a name="what-sign-out-involves"></a>Cosa implica la disconnessione
 
@@ -39,7 +40,7 @@ Per altre informazioni, vedere la sezione [inviare una richiesta](v2-protocols-o
 
 ## <a name="application-registration"></a>Registrazione dell'applicazione
 
-Durante la registrazione dell'applicazione, è stato registrato un **URI di post**-disconnessione. In questa esercitazione è stata eseguita `https://localhost:44321/signout-oidc` la registrazione nel campo **URL** di disconnessione della sezione **Impostazioni avanzate** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [registrare l'app webapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp)
+Durante la registrazione dell'applicazione, è stato registrato un **URI di post-disconnessione**. In questa esercitazione è stata eseguita `https://localhost:44321/signout-oidc` la registrazione nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [registrare l'app webapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp)
 
 ## <a name="aspnet-core-code"></a>Codice ASP.NET Core
 
@@ -66,7 +67,7 @@ else
 
 ### <a name="signout-action-of-the-accountcontroller"></a>`Signout()`azione del`AccountController`
 
-Quando si preme il pulsante di disconnessione nell'app Web `SignOut` , l'azione `Account` sul controller viene attivata. Nelle versioni precedenti dei modelli di ASP.NET Core, il `Account` controller era incorporato con l'app Web, ma questo non è più il caso che fa ora parte del framework ASP.NET Core stesso. 
+Quando si preme il pulsante di **disconnessione** nell'app Web `SignOut` , l'azione `Account` sul controller viene attivata. Nelle versioni precedenti dei modelli di ASP.NET Core, il `Account` controller era incorporato con l'app Web, ma questo non è più il caso che fa ora parte del framework ASP.NET Core stesso. 
 
 Il codice per `AccountController` è disponibile dal repository ASP.NET Core in da [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). Il controllo dell'account:
 

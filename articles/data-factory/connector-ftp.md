@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: a20c6e90f38e6443597fdf50edd3d4766dc71096
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 98c13287e6e549f1fbcab710adc12cdf5416e814
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275283"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813179"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiare dati da un server FTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -122,12 +122,12 @@ Per il servizio collegato di FTP sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
-- Per **parquet, delimitato testo, avro e formato binario**, vedere la sezione [parquet, delimitato testo, avro e formato binario set di dati](#format-based-dataset) .
-- Per altri formati come il **formato ORC/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
+- Per **parquet, delimitato testo, JSON, avro e formato binario**, vedere la sezione [parquet, delimitato testo, JSON, avro e formato binario set di dati](#format-based-dataset) .
+- Per altri formati come il **formato ORC**, vedere la sezione [altro set di dati del formato](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Set di dati in parquet, delimitato di testo, avro e formato binario
+### <a name="format-based-dataset"></a>Set di dati parquet, delimitato di testo, JSON, avro e Binary Format
 
-Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) nel set di dati basato su formato e impostazioni supportate. Le proprietà seguenti sono supportate per FTP `location` in impostazioni nel set di dati basato su formato:
+Per copiare dati da **parquet, testo delimitato, JSON, avro e formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) su DataSet basato su formato e impostazioni supportate. Le proprietà seguenti sono supportate per FTP `location` in impostazioni nel set di dati basato su formato:
 
 | Proprietà   | Descrizione                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -166,7 +166,7 @@ Per copiare dati da **parquet, formato testo delimitato o binario**, vedere l'ar
 
 ### <a name="other-format-dataset"></a>Set di dati di altri formati
 
-Per copiare dati da FTP in **formato ORC/JSON**, sono supportate le proprietà seguenti:
+Per copiare dati da FTP nel **formato ORC**, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -217,16 +217,16 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="ftp-as-source"></a>FTP come origine
 
-- Per eseguire la copia da **parquet, testo delimitato, formato Avro e binario**, vedere la sezione [parquet, testo delimitato, avro e origine del formato binario](#format-based-source) .
-- Per eseguire la copia da altri formati come il **formato ORC/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
+- Per eseguire la copia da **parquet, testo delimitato, JSON, avro e formato binario**, vedere la sezione [parquet, delimitato testo, JSON, avro e formato binario](#format-based-source) .
+- Per eseguire la copia da altri formati come il **formato ORC**, vedere la sezione [altra origine del formato](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, delimitato testo, avro e origine formato binario
+#### <a name="format-based-source"></a>Parquet, delimitato testo, JSON, avro e origine del formato binario
 
-Per copiare dati da **parquet, testo delimitato, avro o formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e impostazioni supportate . Le proprietà seguenti sono supportate per FTP `storeSettings` in impostazioni in origine copia basata sul formato:
+Per copiare dati da **parquet, testo delimitato, JSON, avro e formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e supportato Impostazioni. Le proprietà seguenti sono supportate per FTP `storeSettings` in impostazioni in origine copia basata sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **FtpReadSetting**. | Sì                                           |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **FtpReadSetting**. | Yes                                           |
 | recursive                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                            |
 | wildcardFolderPath       | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | Nome file con caratteri jolly sotto il folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel DataSet |
@@ -281,7 +281,7 @@ Per copiare dati da **parquet, testo delimitato, avro o formato binario**, veder
 
 #### <a name="other-format-source"></a>Altra origine del formato
 
-Per copiare dati da FTP in **formato ORC/JSON**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da FTP nel **formato ORC**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |

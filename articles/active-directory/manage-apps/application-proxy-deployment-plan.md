@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: cd19d1e0cdfa1b160734b23d7f50310948ded80d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879906"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812844"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Pianificare una distribuzione del proxy di applicazione Azure AD
 
@@ -62,7 +62,7 @@ Prima di iniziare l'implementazione, è necessario soddisfare i prerequisiti seg
 
 Per configurare e implementare Azure AD proxy di applicazione, è necessario soddisfare i requisiti di base seguenti.
 
-*  Onboarding di **Azure**: Prima di distribuire il proxy di applicazione, le identità utente devono essere sincronizzate da una directory locale o create direttamente all'interno dei tenant Azure AD. La sincronizzazione delle identità consente ad Azure AD di preautenticare gli utenti prima di concedere loro l'accesso alle applicazioni pubblicate tramite proxy di applicazione e di ottenere le informazioni degli ID utente necessarie per eseguire l'accesso Single Sign-On (SSO).
+*  **Onboarding di Azure**: Prima di distribuire il proxy di applicazione, le identità utente devono essere sincronizzate da una directory locale o create direttamente all'interno dei tenant Azure AD. La sincronizzazione delle identità consente ad Azure AD di preautenticare gli utenti prima di concedere loro l'accesso alle applicazioni pubblicate tramite proxy di applicazione e di ottenere le informazioni degli ID utente necessarie per eseguire l'accesso Single Sign-On (SSO).
 
 * **Requisiti di accesso condizionale**: Non è consigliabile usare il proxy di applicazione per l'accesso alla Intranet perché questa operazione aggiunge una latenza che avrà un effetto sugli utenti. Si consiglia di usare il proxy di applicazione con i criteri di pre-autenticazione e di accesso condizionale per l'accesso remoto da Internet.  Un approccio per fornire l'accesso condizionale per l'uso della Intranet consiste nel modernizzare le applicazioni in modo che possano diretly l'autenticazione con AAD. Per altre informazioni, vedere [risorse per la migrazione di applicazioni ad Aad](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
 
@@ -71,7 +71,7 @@ Per configurare e implementare Azure AD proxy di applicazione, è necessario sod
 * **Certificato pubblico**: Se si utilizzano nomi di dominio personalizzati, è necessario ottenere un certificato pubblico rilasciato da un'autorità di certificazione non Microsoft attendibile. A seconda dei requisiti dell'organizzazione, l'ottenimento di un certificato può richiedere del tempo ed è consigliabile iniziare il processo il prima possibile. Applicazione Azure proxy supporta certificati standard, con [caratteri jolly](application-proxy-wildcard.md)o San.
 
 * **Requisiti di dominio**: L'accesso Single Sign-on alle applicazioni pubblicate mediante la delega vincolata Kerberos (delega vincolata Kerberos) richiede che il server che esegue il connettore e il server che esegue l'app siano aggiunti a un dominio e facciano parte dello stesso dominio o domini trusting.
-Per informazioni dettagliate sull'argomento, vedere [delega vincolata Kerberos per l'accesso Single Sign-on](application-proxy-configure-single-sign-on-with-kcd.md) con il proxy di applicazione. Il servizio del connettore viene eseguito nel contesto del sistema locale e non deve essere configurato per l'uso di un'identità personalizzata.
+Per informazioni dettagliate sull'argomento, vedere [delega vincolata Kerberos per Single Sign-on](application-proxy-configure-single-sign-on-with-kcd.md) con il proxy di applicazione. Il servizio del connettore viene eseguito nel contesto del sistema locale e non deve essere configurato per l'uso di un'identità personalizzata.
 
 * **Record DNS per gli URL**
 
@@ -85,7 +85,7 @@ Per informazioni dettagliate sull'argomento, vedere [delega vincolata Kerberos p
 
    * **Per la pubblicazione e l'amministrazione delle applicazioni** è necessario il ruolo di *amministratore dell'applicazione* . Gli amministratori di applicazioni possono gestire tutte le applicazioni nella directory, incluse le registrazioni, le impostazioni SSO, le assegnazioni di utenti e gruppi e le licenze, le impostazioni del proxy di applicazione e il consenso. Non consente tuttavia di gestire l'accesso condizionale. Il ruolo di *amministratore dell'applicazione cloud* ha tutte le capacità dell'amministratore dell'applicazione, ad eccezione del fatto che non consente la gestione delle impostazioni del proxy di applicazione.
 
-* **Licenze**: Il proxy di applicazione è disponibile tramite la sottoscrizione Azure AD Basic. Per un elenco completo delle opzioni e delle funzionalità di licenza, fare riferimento alla [pagina dei prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) .  
+* **Licenze**: Il proxy di applicazione è disponibile tramite una sottoscrizione Azure AD Premium. Per un elenco completo delle opzioni e delle funzionalità di licenza, fare riferimento alla [pagina dei prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) .  
 
 ### <a name="application-discovery"></a>Individuazione di applicazioni
 
@@ -94,7 +94,7 @@ Compilare un inventario di tutte le applicazioni nell'ambito pubblicate tramite 
 | Tipo di informazioni| Informazioni da raccogliere |
 |---|---|
 | Tipo di servizio| Ad esempio:  SharePoint, SAP, CRM, applicazione Web personalizzata, API |
-| Piattaforma applicativa | Ad esempio:  Windows IIS, Apache in Linux, Tomcat, NGINX |
+| Piattaforma applicativa | Esempio: Windows IIS, Apache in Linux, Tomcat, NGINX |
 | Appartenenza al dominio| Nome di dominio completo (FQDN) del server Web |
 | Percorso applicazione | Posizione in cui si trova la farm o il server Web nell'infrastruttura |
 | Accesso interno | URL esatto utilizzato per accedere all'applicazione internamente. <br> Se una farm, quale tipo di bilanciamento del carico è in uso? <br> Indica se l'applicazione crea contenuto da origini diverse da se stesso.<br> Determinare se l'applicazione funziona su WebSocket. |
@@ -113,7 +113,7 @@ Di seguito sono elencate le aree per le quali è necessario definire i requisiti
 
  **Accedere**
 
-* Utenti remoti con i dispositivi aggiunti a un dominio o Azure AD aggiunti utenti possono accedere in modo sicuro alle applicazioni pubblicate con accesso Single Sign-on (SSO) semplice.
+* Utenti remoti con i dispositivi aggiunti a un dominio o Azure AD aggiunti utenti possono accedere alle applicazioni pubblicate in modo sicuro con Single Sign-On trasparente (SSO).
 
 * Gli utenti remoti con dispositivi personali approvati possono accedere in modo sicuro alle applicazioni pubblicate purché siano registrati in multi-factor authentication e hanno registrato l'app Microsoft Authenticator sul telefono cellulare come metodo di autenticazione.
 
@@ -239,7 +239,7 @@ Verificare che l'applicazione sia accessibile tramite il proxy di applicazione c
 
 3. Nel campo **pre-autenticazione** usare l'elenco a discesa per selezionare **Azure Active Directory**e selezionare **Salva**.
 
-Con la pre-autenticazione abilitata, Azure AD consentirà agli utenti di eseguire prima l'autenticazione e, se l'accesso Single Sign-on è configued, l'applicazione back-end verificherà anche l'utente prima che venga concesso l'accesso all'applicazione. Se si modifica la modalità di pre-autenticazione da Passthrough a Azure AD configura anche l'URL esterno con HTTPS, tutte le applicazioni inizialmente configurate per HTTP verranno ora protette con HTTPS.
+Con la pre-autenticazione abilitata, Azure AD consentirà agli utenti di eseguire prima l'autenticazione e, se Single Sign-On è configued, l'applicazione back-end verificherà anche l'utente prima che venga concesso l'accesso all'applicazione. Se si modifica la modalità di pre-autenticazione da Passthrough a Azure AD configura anche l'URL esterno con HTTPS, tutte le applicazioni inizialmente configurate per HTTP verranno ora protette con HTTPS.
 
 ### <a name="enable-single-sign-on"></a>Abilitazione dell'accesso Single Sign-On
 
@@ -255,7 +255,7 @@ Leggere l' [accesso Single Sign-on alle applicazioni in Azure ad](what-is-single
 
 Azure AD proxy di applicazione può inoltre supportare le applicazioni sviluppate per l'utilizzo della libreria di Autenticazione di Azure AD ([adal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)) o Microsoft Authentication Library ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). Supporta le app client native utilizzando Azure AD token emessi ricevuti nelle informazioni di intestazione della richiesta client per eseguire la pre-autenticazione per conto degli utenti.
 
-Per informazioni sulle configurazioni disponibili del proxy di applicazione, vedere [pubblicazione di app client native e per dispositivi mobili](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) e [applicazioni basate](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) su attestazioni.
+Per informazioni sulle configurazioni disponibili del proxy di applicazione, vedere [pubblicazione di app client native e per dispositivi mobili](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) e [applicazioni basate su attestazioni](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) .
 
 ### <a name="use-conditional-access-to-strengthen-security"></a>Usare l'accesso condizionale per rafforzare la sicurezza
 

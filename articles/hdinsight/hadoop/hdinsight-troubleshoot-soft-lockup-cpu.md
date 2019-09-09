@@ -1,17 +1,17 @@
 ---
 title: errore di utilizzo della CPU per il blocco molle del BUG di watchdog da un cluster Azure HDInsight
-description: la CPU del blocco flessibile del BUG Watchdog viene visualizzata nei syslog del kernel
+description: La CPU del blocco software del Watchdog viene visualizzata nei syslog del kernel dal cluster HDInsight di Azure
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/05/2019
-ms.openlocfilehash: 9278c174d96cb6b1823c8dbfdcba197b7a3c05cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 618a871bee762900d4c99700cde42d759506b4b9
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829177"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810588"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scenario: "watchdog: BUG: errore di blocco software-CPU da un cluster Azure HDInsight
 
@@ -35,7 +35,7 @@ Applica patch del kernel. Lo script seguente aggiorna il kernel Linux e riavvia 
 
 1. Selezionare **Invia nuovo** e immettere l'input come indicato di seguito
 
-    | Proprietà | Valore |
+    | Proprietà | Value |
     | --- | --- |
     | Tipo di script | -Personalizzato |
     | Name |Correzione per il problema di blocco soft kernel |

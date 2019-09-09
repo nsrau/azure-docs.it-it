@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 354a68d7d4d07657baa7044566dde8b7ed77ca63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5d3dfe6457c4b70f0b23c2d8aa7ac5e58e68dc7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400079"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814461"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da server fisici ad Azure
 
@@ -25,7 +25,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 **Componente** | **Requisito** | **Dettagli**
 --- | --- | ---
-**Azure** | Una sottoscrizione di Azure e una rete di Azure. | I dati replicati in locale le macchine fisiche viene archiviata in Azure i dischi gestiti. Le macchine virtuali di Azure vengono create con i dati replicati durante l'esecuzione di un failover dal sito locale ad Azure. Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
+**Azure** | Una sottoscrizione di Azure e una rete di Azure. | I dati replicati da computer fisici locali vengono archiviati in Azure Managed Disks. Le macchine virtuali di Azure vengono create con i dati replicati durante l'esecuzione di un failover dal sito locale ad Azure. Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
 **Server di configurazione** | Viene distribuito un solo computer fisico locale o una macchina virtuale VMware per eseguire tutti i componenti di Site Recovery. La macchina virtuale esegue il server di configurazione, il server di elaborazione e il server di destinazione master. | Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
  **Server di elaborazione**  | Installato per impostazione predefinita insieme al server di configurazione. | Agisce come un gateway di replica. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia all'archiviazione di Azure.<br/><br/> Il server di elaborazione installa anche il servizio Mobility nei server di cui si vuole eseguire la replica.<br/><br/> Con l'aumentare delle dimensioni della distribuzione, è possibile aggiungere altri server di elaborazione separati per gestire volumi più elevati di traffico di replica.
  **Server master di destinazione** | Installato per impostazione predefinita insieme al server di configurazione. | Gestisce i dati di replica durante il failback da Azure.<br/><br/> Per distribuzioni di grandi dimensioni, è possibile aggiungere un altro server di destinazione master separato per il failback.

@@ -1,9 +1,9 @@
 ---
-title: Requisiti per l'uso di PIM - Azure Active Directory di licenza | Microsoft Docs
+title: Requisiti di licenza per l'uso di PIM-Azure Active Directory | Microsoft Docs
 description: Illustra i requisiti della licenza per l'uso di Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: markwahl-msft
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 01/16/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 83c31c2731a8e872dfd2750fced8b91d283d0892
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437457"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804068"
 ---
 # <a name="license-requirements-to-use-pim"></a>Requisiti della licenza per usare PIM
 
@@ -40,12 +40,12 @@ Per altre informazioni, vedere [Informazioni su Azure Active Directory](../funda
 
 ## <a name="which-users-must-have-licenses"></a>Quali utenti devono avere le licenze?
 
-Ogni amministratore o utente che interagisce con o riceve un vantaggio da PIM deve avere una licenza. Tra gli esempi sono inclusi:
+Ogni amministratore o utente che interagisce con o riceve un vantaggio da PIM deve avere una licenza. Ecco alcuni esempi:
 
 - Amministratori con ruoli di Azure AD gestiti tramite PIM
 - Amministratori con ruoli di risorse di Azure gestiti tramite PIM
 - Amministratori assegnati al ruolo Amministratore dei ruoli con privilegi
-- Gli utenti assegnati come idonei ai ruoli di Azure AD gestiti tramite PIM
+- Utenti assegnati come idonei ai ruoli di Azure AD gestiti mediante PIM
 - Utenti in grado di approvare o rifiutare le richieste in PIM
 - Utenti assegnati a un ruolo di risorse di Azure con assegnazioni Just-In-Time o dirette (basate sul tempo)  
 - Utenti assegnati a una verifica di accesso

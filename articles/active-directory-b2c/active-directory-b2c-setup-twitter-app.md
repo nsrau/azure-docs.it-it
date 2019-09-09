@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ff795bbbd3cf136735499b571367cf5b8a6ec170
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5cb5c5813bff8c0df5b119ea1cadf4f2e7c1696a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622162"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811386"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Twitter tramite Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Per usare Twitter come provider di identità in Azure AD B2C, è necessario crea
 1. Selezionare **Crea un'app**.
 1. Immettere un  **Nome app** e una **Descrizione applicazione**.
 1. In **URL del sito Web**, immettere `https://your-tenant.b2clogin.com`. Sostituire `your-tenant` con il nome del tenant. Ad esempio https://contosob2c.b2clogin.com.
-1. Per **URL callback** immettere `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Sostituire `your-tenant` con il nome del nome tenant e `your-user-flow-Id` con l'identificatore del flusso utente. Ad esempio `b2c_1A_signup_signin_twitter`. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
+1. Per **URL callback** immettere `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Sostituire `your-tenant` con il nome del nome tenant e `your-user-flow-Id` con l'identificatore del flusso utente. Ad esempio `b2c_1A_signup_signin_twitter`. È necessario usare tutte le lettere minuscole quando si immette il nome del tenant e l'ID del flusso utente anche se sono definiti con lettere maiuscole in Azure AD B2C.
 1. Nella parte inferiore della pagina leggere e accettare le condizioni, quindi fare clic su **Crea**.
 1. Nella pagina **Dettagli app**, selezionare **Modifica > Modifica dettagli**, selezionare la casella **Enable Sign in with Twitter** (Consenti accesso con Twitter) e quindi selezionare **Salva**.
 1. Selezionare **Keys and tokens** (Chiavi e token) e registrare i valori **Chiave API Consumer** e **Consumer API secret key** (Chiave segreto API Consumer) da usare in un secondo momento.

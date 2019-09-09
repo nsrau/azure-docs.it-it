@@ -1,6 +1,6 @@
 ---
-title: Creare cluster Apache Hadoop tramite la CLI di Azure - Azure HDInsight
-description: Informazioni su come creare cluster HDInsight tramite la CLI di Azure multi-piattaforma.
+title: Creare cluster di Apache Hadoop usando l'interfaccia della riga di comando di Azure-Azure HDInsight
+description: Informazioni su come creare cluster Azure HDInsight usando l'interfaccia della riga di comando di Azure multipiattaforma.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0a278cd98b0dd6c6d8f0fe9bfee81e5bafd4f543
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c26c0b16331ae01f7505e44cef3fe91b3282750b
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597696"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809854"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-I passaggi descritti in questa procedura dettagliata documento crea un cluster HDInsight 3.6 con la CLI di Azure.
+La procedura illustrata in questo documento illustra come creare un cluster HDInsight 3,6 usando l'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -33,7 +33,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
 
 ## <a name="create-a-cluster"></a>Creare un cluster
 
-1. Account di accesso alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, è sufficiente fare clic su **Prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
+1. Accedere alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, è sufficiente fare clic su **Prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
 
     ```azurecli-interactive
     az login
@@ -42,16 +42,16 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Impostare le variabili di ambiente. L'uso di variabili in questo articolo si basa su Bash. Per altri ambienti saranno necessarie piccole modifiche. Visualizzare [az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) per un elenco completo delle possibili parametri per la creazione del cluster.
+2. Impostare le variabili di ambiente. L'uso delle variabili in questo articolo si basa su bash. Per altri ambienti saranno necessarie piccole modifiche. Vedere [AZ-HDInsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) per un elenco completo dei parametri possibili per la creazione del cluster.
 
     |Parametro | Descrizione |
     |---|---|
-    |`--size`| Il numero di nodi di lavoro nel cluster. Questo articolo usa la variabile `clusterSizeInNodes` uguale al valore passato a `--size`. |
-    |`--version`| versione del cluster HDInsight. Questo articolo usa la variabile `clusterVersion` uguale al valore passato a `--version`. Vedere anche la pagina relativa alla [Le versioni di HDInsight supportate](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
-    |`--type`| Tipo di cluster HDInsight, ad esempio: hadoop, interactivehive, hbase, kafka, storm, spark, rserver, mlservices.  Questo articolo usa la variabile `clusterType` uguale al valore passato a `--type`. Vedere anche la pagina relativa alla [Tipi e la configurazione del cluster](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).|
-    |`--component-version`|Le versioni di vari componenti di Hadoop, nelle versioni separati da spazi in ' componente = version' formato. Questo articolo usa la variabile `componentVersion` uguale al valore passato a `--component-version`. Vedere anche la pagina relativa alla [Componenti Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
+    |`--size`| Numero di nodi del ruolo di lavoro nel cluster. Questo articolo usa la variabile `clusterSizeInNodes` come valore passato a. `--size` |
+    |`--version`| versione del cluster HDInsight. Questo articolo usa la variabile `clusterVersion` come valore passato a. `--version` Vedere anche la pagina relativa alla [Versioni di HDInsight supportate](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
+    |`--type`| Tipo di cluster HDInsight, ad esempio: Hadoop, interactivehive, HBase, Kafka, Storm, Spark, RServer, mlservices.  Questo articolo usa la variabile `clusterType` come valore passato a. `--type` Vedere anche la pagina relativa alla [Tipi di cluster e configurazione](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).|
+    |`--component-version`|Versioni di vari componenti di Hadoop, in versioni separate da spazi nel formato ' Component = version '. Questo articolo usa la variabile `componentVersion` come valore passato a. `--component-version` Vedere anche la pagina relativa alla [Componenti di Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
 
-    Sostituire `RESOURCEGROUPNAME`, `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME`, e `PASSWORD` con i valori desiderati. Modificare i valori per le altre variabili in base alle esigenze. Immettere quindi i comandi dell'interfaccia della riga.
+    Sostituire `RESOURCEGROUPNAME` ,`LOCATION` ,,`PASSWORD` e con i valori desiderati. `CLUSTERNAME` `STORAGEACCOUNTNAME` Modificare i valori per le altre variabili nel modo desiderato. Quindi, immettere i comandi dell'interfaccia della riga di comando.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -76,9 +76,9 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
         --name $resourceGroupName
     ```
 
-    Per un elenco di località valide, usare il `az account list-locations` comando e quindi usare una delle posizioni dal `name` valore.
+    Per un elenco di percorsi validi, utilizzare il `az account list-locations` comando, quindi utilizzare uno dei percorsi `name` del valore.
 
-4. [Creare un account di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) immettendo il comando seguente:
+4. Per [creare un account di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) , immettere il comando seguente:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +91,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
         --sku Standard_LRS
     ```
 
-5. [Estrarre la chiave primaria dell'account di archiviazione Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) e archiviarlo in una variabile immettendo il comando seguente:
+5. [Estrarre la chiave primaria dall'account di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) e archiviarla in una variabile immettendo il comando seguente:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -100,7 +100,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
         --query [0].value -o tsv)
     ```
 
-6. [Creare un contenitore di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) immettendo il comando seguente:
+6. Per [creare un contenitore di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) , immettere il comando seguente:
 
     ```azurecli-interactive
     az storage container create \

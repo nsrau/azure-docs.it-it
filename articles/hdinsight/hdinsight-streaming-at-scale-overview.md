@@ -1,22 +1,22 @@
 ---
 title: Flussi scalabili in Azure HDInsight
-description: Come usare i flussi di dati con cluster HDInsight scalabili.
+description: Come usare il flusso di dati con cluster Apache scalabili in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 97bc2e585ccce250dd83dc855c3eda5f958186a7
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 18f1c15f12295228dab971f2abfa612d2061ab5d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484065"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811922"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming su larga scala in HDInsight
 
-Soluzioni per big data in tempo reale agiscono su dati in movimento. In genere, questi dati hanno il maggior valore al momento dell'arrivo. Se il flusso di dati in ingresso diventa più grande delle dimensioni gestibili in quel momento, potrebbe risultare necessario limitare le risorse. Un cluster HDInsight offre in alternativa funzioni di scalabilità verticale, consentendo di soddisfare le esigenze della soluzione con l'aggiunta di nodi su richiesta.
+Le soluzioni Big Data in tempo reale agiscono sui dati in movimento. In genere, questi dati hanno il maggior valore al momento dell'arrivo. Se il flusso di dati in ingresso diventa più grande delle dimensioni gestibili in quel momento, potrebbe risultare necessario limitare le risorse. Un cluster HDInsight offre in alternativa funzioni di scalabilità verticale, consentendo di soddisfare le esigenze della soluzione con l'aggiunta di nodi su richiesta.
 
 
 In un'applicazione per l'uso dei flussi, una o più origini dati generano eventi (talvolta milioni al secondo) che devono essere elaborati rapidamente senza eliminare le informazioni utili. Gli eventi in entrata vengono gestiti tramite la *memorizzazione nel buffer del flusso*, tecnica nota anche come *accodamento degli eventi*, eseguita da un servizio come [Apache Kafka](kafka/apache-kafka-introduction.md) o [Hub eventi](https://azure.microsoft.com/services/event-hubs/). Dopo aver raccolto gli eventi, è quindi possibile analizzare i dati tramite un sistema di analisi in tempo reale all'interno del livello di *elaborazione dei flussi*, come [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). I dati elaborati possono essere archiviati in sistemi di archiviazione a lungo termine, come [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) e visualizzati in tempo reale in un dashboard di business intelligence, come [Power BI](https://powerbi.microsoft.com), Tableau o una pagina Web personalizzata.
@@ -64,7 +64,7 @@ Questi tre parametri possono essere configurati a livello di cluster, per tutte 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare e monitorare una topologia Apache Storm in HDInsight di Azure](storm/apache-storm-quickstart.md)
+* [Creare e monitorare una topologia Apache Storm in Azure HDInsight](storm/apache-storm-quickstart.md)
 * [Topologie di esempio per Apache Storm in HDInsight](storm/apache-storm-example-topology.md)
 * [Introduzione ad Apache Spark in HDInsight](spark/apache-spark-overview.md)
 * [Iniziare a usare Apache Kafka in HDInsight](kafka/apache-kafka-get-started.md)

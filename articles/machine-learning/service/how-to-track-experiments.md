@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0630ca28652b48b3632dbae94c5e16d6adb462c4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946376"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812295"
 ---
-# <a name="log-metrics-during-training-runs"></a>Metriche di log durante le esecuzioni di training
+# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Tenere traccia delle metriche di training di Machine Learning con Azure Machine Learning
 
-Migliorare il processo di creazione del modello monitorando gli esperimenti e monitorando le metriche. Questo articolo illustra come aggiungere la registrazione allo script di training, inviare un'esecuzione dell'esperimento, monitorare l'esecuzione e visualizzare i risultati di un'esecuzione nel servizio Azure Machine Learning.
+Migliorare il processo di creazione del modello monitorando gli esperimenti e monitorando le metriche. In questo articolo si apprenderà come aggiungere codice di registrazione allo script di training, inviare un'esecuzione dell'esperimento, monitorare l'esecuzione e controllare i risultati in Azure Machine Learning servizio.
 
 > [!NOTE]
-> Azure Machine Learning servizio può anche registrare le informazioni provenienti da altre origini durante il training, ad esempio AutoML o il contenitore Docker che esegue il processo di training. Questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.
+> Azure Machine Learning servizio può anche registrare le informazioni provenienti da altre origini durante il training, ad esempio le esecuzioni automatiche di Machine Learning o il contenitore Docker che esegue il processo di training. Questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.
 
-## <a name="list-of-training-metrics"></a>Elenco delle metriche di training 
+## <a name="available-metrics-to-track"></a>Metriche disponibili per il rilevamento
 
 Le metriche seguenti possono essere aggiunte a un'esecuzione durante il training di un esperimento. Per visualizzare un elenco più dettagliato di cosa è possibile monitorare in un'esecuzione, vedere la [documentazione di riferimento della classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
@@ -43,7 +43,7 @@ Le metriche seguenti possono essere aggiunte a un'esecuzione durante il training
 > [!NOTE]
 > Le metriche per valori scalari, elenchi, righe e tabelle possono essere di tipo float, integer o string.
 
-## <a name="start-logging-metrics"></a>Avviare la registrazione delle metriche
+## <a name="choose-a-logging-option"></a>Scegliere un'opzione di registrazione
 
 Se si vuole tenere traccia dell'esperimento o monitorarlo, è necessario aggiungere codice per avviare la registrazione quando si invia l'esecuzione. Di seguito sono elencati diversi modi per attivare l'invio dell'esecuzione:
 * __Run.start_logging__: aggiungere funzioni di registrazione allo script di training e avviare una sessione di registrazione interattiva nell'esperimento specificato. **start_logging** crea un'esecuzione interattiva per l'uso in scenari come i notebook. Le metriche registrate durante la sessione vengono aggiunte al record esecuzione nell'esperimento.
@@ -224,7 +224,7 @@ Questo esempio si espande a partire dal modello sklearn Ridge di base dell'esemp
 
 ## <a name="manage-a-run"></a>Gestire un'esecuzione
 
-L'articolo [avviare, monitorare e annullare](how-to-manage-runs.md) le esecuzioni di Training evidenzia i flussi di lavoro Azure Machine Learning specifici per la gestione degli esperimenti.
+L'articolo [avviare, monitorare e annullare le esecuzioni di training](how-to-manage-runs.md) evidenzia i flussi di lavoro Azure Machine Learning specifici per la gestione degli esperimenti.
 
 ## <a name="view-run-details"></a>Visualizzare i dettagli dell'esecuzione
 

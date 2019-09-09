@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: d64a8431cb0331b58afc635bf8cf9d0fe0f1f225
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 4bb57190a310e1ea4b8e5c511f1acd90f53b8f09
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276054"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813471"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiare dati da o verso Azure Data Lake Storage Gen1 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
@@ -163,12 +163,12 @@ In Azure Data Factory non è necessario specificare alcuna proprietà oltre alle
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
-- Per **parquet, delimitato testo, avro e formato binario**, vedere la sezione [parquet, delimitato testo, avro e formato binario set di dati](#format-based-dataset) .
-- Per altri formati come il **formato ORC/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
+- Per **parquet, delimitato testo, JSON, avro e formato binario**, vedere la sezione [parquet, delimitato testo, JSON, avro e formato binario set di dati](#format-based-dataset) .
+- Per altri formati come il **formato ORC**, vedere la sezione [altro set di dati del formato](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Set di dati in parquet, delimitato di testo, avro e formato binario
+### <a name="format-based-dataset"></a>Set di dati parquet, delimitato di testo, JSON, avro e Binary Format
 
-Per copiare dati da e verso **parquet, testo delimitato, avro o formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) su DataSet basato su formato e impostazioni supportate.
+Per copiare dati da e verso **parquet, testo delimitato, JSON, avro e formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) nel set di dati basato su formato e impostazioni supportate .
 Per Azure Data Lake Store Gen1 `location` in impostazioni nel set di dati basato su formato, sono supportate le proprietà seguenti:
 
 | Proprietà   | Descrizione                                                  | Obbligatoria |
@@ -209,11 +209,11 @@ Per Azure Data Lake Store Gen1 `location` in impostazioni nel set di dati basato
 
 ### <a name="other-format-dataset"></a>Set di dati di altri formati
 
-Per copiare dati da e verso Azure Data Lake Store Gen1 nel **formato ORC/JSON**, sono supportate le proprietà seguenti:
+Per copiare dati da e verso Azure Data Lake Store Gen1 nel **formato ORC**, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su **AzureDataLakeStoreFile**. |Sì |
+| type | La proprietà Type del set di dati deve essere impostata su **AzureDataLakeStoreFile**. |Yes |
 | folderPath | Percorso della cartella in Data Lake Store. Se il valore non è specificato, punta alla radice. <br/><br/>Il filtro con caratteri jolly è supportato. I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e (corrisponde a `?` zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo ha un carattere jolly o questo carattere di escape all'interno di. <br/><br/>Ad esempio: RootFolder/sottocartella/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |No |
 | fileName | Nome o filtro con caratteri jolly per i file sotto il "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i file nella cartella. <br/><br/>Per il filtro, i caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per eseguire l'escape se il nome del file effettivo ha un carattere jolly o questo carattere di escape all'interno di.<br/><br/>Se non si specifica fileName per un set di dati di output e non si specifica **preserveHierarchy** nel sink dell'attività, l'attività di copia genera automaticamente il nome del file con il criterio seguente: "*Dati. [GUID ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurato]. [compressione se configurata]* ", ad esempio" Data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt. gz ". Se si copia da un'origine tabulare usando un nome di tabella anziché una query, il modello del nome è " *[nome tabella]. [ formato]. [compressione se configurata]* ", ad esempio" MyTable. csv ". |No |
 | modifiedDatetimeStart | Filtro file basato sull'Ultima modifica dell'attributo. I file vengono selezionati se l'ora dell'Ultima modifica rientra nell'intervallo di tempo `modifiedDatetimeStart` compreso `modifiedDatetimeEnd`tra e. L'ora viene applicata al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br/><br/> Le prestazioni complessive dello spostamento dei dati sono interessate dall'abilitazione di questa impostazione quando si desidera eseguire un filtro di file con grandi quantità di file. <br/><br/> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file. Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è null, significa che i file il cui ultimo attributo modificato è maggiore o uguale al valore DateTime sono selezionati. Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è null, significa che i file il cui attributo Last modified è minore del valore DateTime sono selezionati.| No |
@@ -261,12 +261,12 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store come origine
 
-- Per eseguire la copia da **parquet, testo delimitato, formato Avro e binario**, vedere la sezione [parquet, testo delimitato, avro e origine del formato binario](#format-based-source) .
-- Per eseguire la copia da altri formati come il **formato ORC/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
+- Per eseguire la copia da **parquet, testo delimitato, JSON, avro e formato binario**, vedere la sezione [parquet, delimitato testo, JSON, avro e formato binario](#format-based-source) .
+- Per eseguire la copia da altri formati come il **formato ORC**, vedere la sezione [altra origine del formato](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, delimitato testo, avro e origine formato binario
+#### <a name="format-based-source"></a>Parquet, delimitato testo, JSON, avro e origine del formato binario
 
-Per copiare dati da **parquet, testo delimitato, avro o formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e impostazioni supportate .  Per Azure Data Lake Store Gen1 `storeSettings` in impostazioni nell'origine copia basata sul formato sono supportate le proprietà seguenti:
+Per copiare dati da **parquet, testo delimitato, JSON, avro e formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) in origine dell'attività di copia basata su formato e supportato Impostazioni.  Per Azure Data Lake Store Gen1 `storeSettings` in impostazioni nell'origine copia basata sul formato sono supportate le proprietà seguenti:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -324,7 +324,7 @@ Per copiare dati da **parquet, testo delimitato, avro o formato binario**, veder
 
 #### <a name="other-format-source"></a>Altra origine del formato
 
-Per copiare dati da Azure Data Lake Store Gen1 in **formato ORC o JSON**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da Azure Data Lake Store Gen1 nel **formato ORC**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -366,12 +366,12 @@ Per copiare dati da Azure Data Lake Store Gen1 in **formato ORC o JSON**, nella 
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store come sink
 
-- Per la copia in **parquet, in formato testo delimitato, avro o binario**, vedere la sezione [parquet, testo delimitato, avro e sink di formato binario](#format-based-sink) .
+- Per la copia in **parquet, testo delimitato, JSON, avro e formato binario**, vedere la sezione [parquet, delimitato testo, JSON, avro e il sink di formato binario](#format-based-sink) .
 - Per eseguire la copia in altri formati come il **formato ORC/JSON**, vedere la sezione [altro sink di formato](#other-format-sink) .
 
-#### <a name="format-based-sink"></a>Parquet, testo delimitato, avro e sink di formato binario
+#### <a name="format-based-sink"></a>Parquet, testo delimitato, JSON, avro e sink di formato binario
 
-Per copiare dati in **parquet, testo delimitato, avro o formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) in sink dell'attività di copia basata su formato e impostazioni supportate.  Per Azure Data Lake Store Gen1 `storeSettings` in impostazioni nel sink di copia basato sul formato sono supportate le proprietà seguenti:
+Per copiare dati in **parquet, testo delimitato, JSON, avro e formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) in sink dell'attività di copia basata su formato e supportato Impostazioni.  Per Azure Data Lake Store Gen1 `storeSettings` in impostazioni nel sink di copia basato sul formato sono supportate le proprietà seguenti:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -419,7 +419,7 @@ Per copiare dati in **parquet, testo delimitato, avro o formato binario**, veder
 
 #### <a name="other-format-sink"></a>Altro sink di formato
 
-Per copiare i dati in Azure Data Lake Store Gen1 in **formato ORC o JSON**, nella sezione **sink** sono supportate le proprietà seguenti:
+Per copiare dati in Azure Data Lake Store Gen1 nel **formato ORC**, nella sezione **sink** sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |

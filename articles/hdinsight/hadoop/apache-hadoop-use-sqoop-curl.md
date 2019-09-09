@@ -1,31 +1,31 @@
 ---
-title: Usare Curl per esportare i dati con Apache Sqoop in HDInsight di Azure
-description: Informazioni su come inviare in modalità remota processi Apache Sqoop a HDInsight mediante Curl.
+title: Usare curl per esportare i dati con Apache Sqoop in Azure HDInsight
+description: Informazioni su come inviare in modalità remota i processi di Apache Sqoop ad Azure HDInsight usando curl.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: ede0538e90e9f35797546f34bfed757c2727b194
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: f70c0a0b68e24e3d61a6c0cef238d1f60911e271
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508869"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810723"
 ---
-# <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Eseguire processi Apache Sqoop in HDInsight mediante Curl
+# <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Eseguire processi Apache Sqoop in HDInsight con curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Informazioni su come usare Curl per l'esecuzione di processi Apache Sqoop in un cluster Apache Hadoop in HDInsight. Questo articolo illustra come esportare i dati da archiviazione di Azure e importarlo in un database di SQL Server mediante Curl. Questo articolo è una continuazione del [usare Apache Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+Informazioni su come usare Curl per l'esecuzione di processi Apache Sqoop in un cluster Apache Hadoop in HDInsight. Questo articolo illustra come esportare i dati da archiviazione di Azure e importarli in un database di SQL Server usando curl. Questo articolo è una continuazione dell' [uso di Apache Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 Curl viene usato per illustrare come è possibile interagire con HDInsight tramite richieste HTTP non elaborate per eseguire, monitorare e recuperare i risultati di processi Sqoop. Ciò avviene mediante l'API REST WebHCat, nota in precedenza come Templeton, fornita dal cluster HDInsight.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completamento della [configurare l'ambiente di testing](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) dalla [usare Apache Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+* Il completamento della [configurazione dell'ambiente di test](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) da [usare Apache Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
-* Un client di eseguire query sul database SQL di Azure. È consigliabile usare [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md) oppure [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
+* Un client per eseguire una query sul database SQL di Azure. Prendere in considerazione l'uso di [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md) o [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
 
 * [Curl](https://curl.haxx.se/). Curl è uno strumento per il trasferimento di dati da o verso un cluster HDInsight.
 
@@ -33,7 +33,7 @@ Curl viene usato per illustrare come è possibile interagire con HDInsight trami
 
 ## <a name="submit-apache-sqoop-jobs-by-using-curl"></a>Inviare processi Apache Sqoop mediante Curl
 
-Usare Curl per esportare i dati usando i processi Apache Sqoop da archiviazione di Azure a SQL Server.
+Usare curl per esportare i dati usando i processi Apache Sqoop da archiviazione di Azure a SQL Server.
 
 > [!NOTE]  
 > Quando si usa Curl o qualsiasi altra forma di comunicazione REST con WebHCat, è necessario autenticare le richieste fornendo il nome utente e la password dell'amministratore cluster HDInsight. È inoltre necessario specificare il nome del cluster come parte dell'URI (Uniform Resource Identifier) usato per inviare le richieste al server.
@@ -54,7 +54,7 @@ L'API REST viene protetta tramite l' [autenticazione di base](https://en.wikiped
     {"status":"ok","version":"v1"}
     ```
 
-2. Sostituire `SQLDATABASESERVERNAME`, `USERNAME@SQLDATABASESERVERNAME`, `PASSWORD`, `SQLDATABASENAME` con i valori appropriati di prerequisiti. Usare quanto segue per inviare un processo sqoop:
+2. Sostituire `SQLDATABASESERVERNAME`, `USERNAME@SQLDATABASESERVERNAME`, `PASSWORD`, conivaloriappropriatideiprerequisiti.`SQLDATABASENAME` Usare quanto segue per inviare un processo sqoop:
 
     ```cmd
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /example/data/sample.log --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/data/sqoop/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
@@ -76,7 +76,7 @@ L'API REST viene protetta tramite l' [autenticazione di base](https://en.wikiped
        {"id":"job_1415651640909_0026"}
        ```
 
-3. Per verificare lo stato del processo, usare il seguente comando. Sostituire `JOBID` con il valore restituito nel passaggio precedente. Ad esempio, se il valore restituito è stata `{"id":"job_1415651640909_0026"}`, quindi `JOBID` sarebbe `job_1415651640909_0026`.
+3. Per verificare lo stato del processo, usare il seguente comando. Sostituire `JOBID` con il valore restituito nel passaggio precedente. Se, ad esempio, il valore restituito `{"id":"job_1415651640909_0026"}`è `JOBID` , sarà `job_1415651640909_0026`.
 
     ```cmd
     curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
@@ -87,11 +87,11 @@ L'API REST viene protetta tramite l' [autenticazione di base](https://en.wikiped
    > [!NOTE]  
    > Questa richiesta curl restituisce un documento JSON (JavaScript Object Notation) con informazioni sul processo. jq viene usato per recuperare il valore di stato.
 
-4. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output; in questo caso `wasb:///example/data/sqoop/curl`. Questo indirizzo archivia l'output del processo nel `example/data/sqoop/curl` directory nel contenitore di archiviazione predefinito usato dal cluster HDInsight.
+4. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output; in questo caso `wasb:///example/data/sqoop/curl`. Questo indirizzo archivia l'output del processo nella `example/data/sqoop/curl` directory del contenitore di archiviazione predefinito usato dal cluster HDInsight.
 
     È possibile usare il portale di Azure per accedere ai BLOB stderr e stdout.
 
-5. Per verificare che siano stati esportati i dati, usare le query seguenti dal client SQL per visualizzare i dati esportati:
+5. Per verificare che i dati siano stati esportati, usare le query seguenti del client SQL per visualizzare i dati esportati:
 
     ```sql
     SELECT COUNT(*) FROM [dbo].[log4jlogs] WITH (NOLOCK);

@@ -1,17 +1,17 @@
 ---
 title: Eccezioni OutOfMemoryError per Apache Spark in Azure HDInsight
-description: Varie eccezioni OutOfMemoryError per Apache Spark in Azure HDInsight
+description: Varie eccezioni OutOfMemoryError per il cluster Apache Spark in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/15/2019
-ms.openlocfilehash: f6ff654b8e51dfaf2697df69c7f220d41346c2bc
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 6e7157f4e40dbc585d19affaf0c12af2e6ba60c1
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543471"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813907"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Eccezioni OutOfMemoryError per Apache Spark in Azure HDInsight
 

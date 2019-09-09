@@ -1,9 +1,9 @@
 ---
-title: Usare ruoli personalizzati per le risorse di Azure in PIM - Azure Active Directory | Microsoft Docs
+title: Usare i ruoli personalizzati per le risorse di Azure in PIM-Azure Active Directory | Microsoft Docs
 description: Informazioni su come usare ruoli personalizzati per le risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 03/30/2018
-ms.author: rolyon
+ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e814cde49374b52266f725b4d57657a507874ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d36514c97cf1f45ee0a435d3b716019d2762e5a
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602048"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804186"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>Usare ruoli personalizzati per le risorse di Azure in PIM
 
-Potrebbe essere necessario applicare le impostazioni di Azure Active Directory (Azure AD) Privileged Identity Management (PIM) strict ad alcuni membri di un ruolo, offrendo maggiore autonomia per altri utenti. Si consideri uno scenario in cui l'organizzazione assume diversi collaboratori a tempo determinato che contribuiscano allo sviluppo di un'applicazione che verrà eseguita in una sottoscrizione di Azure.
+Potrebbe essere necessario applicare le impostazioni di Strict Azure Active Directory (Azure AD) Privileged Identity Management (PIM) ad alcuni membri di un ruolo, garantendo al tempo stesso una maggiore autonomia per altri. Si consideri uno scenario in cui l'organizzazione assume diversi collaboratori a tempo determinato che contribuiscano allo sviluppo di un'applicazione che verrà eseguita in una sottoscrizione di Azure.
 
 Come amministratore delle risorse, si vuole consentire ai dipendenti di accedere senza che sia necessaria l'approvazione. Tutti i collaboratori a tempo determinato devono invece essere approvati quando richiedono l'accesso alle risorse dell'organizzazione.
 

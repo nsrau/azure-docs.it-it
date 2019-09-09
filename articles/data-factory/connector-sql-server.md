@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 136f7e290947066e6d4ea4e9bb89d06fe9b2cac7
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 37e6a3ee9f793a475cf9d775e99da989e82957dc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274525"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813477"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copiare dati da e verso SQL Server tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
@@ -184,7 +184,7 @@ Per copiare dati da un database SQL Server, impostare il tipo di origine nell'at
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SqlSource**. | Yes |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SqlSource**. | Sì |
 | sqlReaderQuery |Usare la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Questa proprietà definisce il nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
 | storedProcedureParameters |Questi parametri sono relativi alla stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri stored procedure. |No |
@@ -290,7 +290,7 @@ Per copiare dati da SQL Server, impostare il tipo di sink nell'attività di copi
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su **SqlSink**. | Yes |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su **SqlSink**. | Sì |
 | writeBatchSize |Numero di righe da inserire nella tabella SQL *per batch*.<br/>I valori consentiti sono integer per il numero di righe. Per impostazione predefinita, Azure Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. |No |
 | writeBatchTimeout |Questa proprietà specifica il tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono per l'intervallo di tempo. Un esempio è "00:30:00" per 30 minuti. |No |
 | preCopyScript |Questa proprietà specifica una query SQL per l'attività di copia da eseguire prima di scrivere i dati in SQL Server. Viene richiamata solo una volta per ogni esecuzione della copia. È possibile usare questa proprietà per pulire i dati precaricati. |No |
@@ -298,6 +298,7 @@ Per copiare dati da SQL Server, impostare il tipo di sink nell'attività di copi
 | storedProcedureTableTypeParameterName |Nome del parametro del tipo di tabella specificato nell'stored procedure.  |No |
 | sqlWriterTableType |Nome del tipo di tabella da utilizzare nel stored procedure. Nel corso dell'attività di copia, i dati spostati vengono resi disponibili in una tabella temporanea di questo tipo. Il codice della stored procedure può quindi unire i dati di cui è in corso la copia con i dati esistenti. |No |
 | storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No |
+| tableOption | Specifica se creare automaticamente la tabella di sink se non esiste in base allo schema di origine. La creazione automatica della tabella non è supportata quando il sink specifica stored procedure o la copia temporanea è configurata nell'attività di copia. I valori consentiti sono: `none` (impostazione predefinita),. `autoCreate` |No |
 
 **Esempio 1: Accodare dati**
 
@@ -324,7 +325,8 @@ Per copiare dati da SQL Server, impostare il tipo di sink nell'attività di copi
             },
             "sink": {
                 "type": "SqlSink",
-                "writeBatchSize": 100000
+                "writeBatchSize": 100000,
+                "tableOption": "autoCreate"
             }
         }
     }

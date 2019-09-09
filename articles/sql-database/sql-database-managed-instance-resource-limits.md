@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 921a14243bc50651358f0df42b88857ab227916d
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: c0bfbbd8b85f0b3eadf468cdd1261f52bff26abe
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060642"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813376"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -54,18 +54,20 @@ Istanza gestita ha due livelli di servizio: Per utilizzo generico e business cri
 | Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24 <br/> Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 |
 | Memoria massima | Quarta generazione: 56 GB-168 GB (7 GB/vCore)<br/>Quinta generazione: 40,8 GB-408 GB (5.1 GB/vCore)<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. | Quarta generazione: 56 GB-168 GB (7 GB/vCore)<br/>Quinta generazione: 40,8 GB-408 GB (5.1 GB/vCore)<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. |
 | Dimensioni massime archiviazione riservata istanza | -2 TB per 4 Vcore (solo quinta generazione)<br/>-8 TB per altre dimensioni | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>-1 TB per 4, 8, 16 vcore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
-| Dimensioni massime del database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
+| Dimensioni massime del database | 8 TB | 4 TB |
 | Numero massimo di database per istanza | 100 | 100 |
 | Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |
 | Dimensioni massime file | 8 TB | 4 TB |
-| Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[Aumentare le dimensioni del file per ottenere più IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 k-110 K (1375/vCore)<br/>Aggiungere altri Vcore per ottenere prestazioni di i/o migliori. |
+| Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[Aumentare le dimensioni del file per ottenere più IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375/vCore)<br/>Aggiungere altri Vcore per ottenere prestazioni di i/o migliori. |
 | Limite velocità effettiva scrittura log | 3 MB/s per ogni vCore<br/>Massimo 22 MB/s per istanza | 4 MB/s per vCore<br/>Massimo 48 MB/s per istanza|
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[Aumentare le dimensioni del file per ottenere prestazioni di i/o migliori](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/D |
 | Latenza IO di archiviazione (approssimativa) | 5-10 ms | 1-2 ms |
 | Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore)<br/>Aggiungere altri Vcore per ottenere ulteriore spazio in TempDB. | Limitato dalle dimensioni massime di archiviazione dell'istanza. Le dimensioni del file di log TempDB sono attualmente limitate a 24 GB/vCore. |
 | OLTP in memoria | Non supportate | Disponibile |
 | Numero massimo di sessioni | 30000 | 30000 |
-| Repliche leggibili | 0 | 1 |
+| Repliche leggibili | 0 | 1 (incluso nel prezzo) |
+| Prezzi/fatturazione | vCore, archiviazione riservata  <br/> IOPS non addebitato, l'archivio di backup non è ancora addebitato. | vCore, archiviazione riservata  <br/> IOPS non addebitato, l'archivio di backup non è ancora addebitato. | 
+| Modelli di sconto | [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test) | [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test)|
 
 > [!NOTE]
 > - La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include la dimensione dei dati e dei file di log presenti sia nel database utenti che in quello di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
@@ -97,7 +99,7 @@ I tipi di sottoscrizioni supportati possono contenere un numero limitato di riso
 > [!Note]
 > Questi limiti sono impostazioni predefinite e non limitazioni tecniche. I limiti possono essere aumentati su richiesta creando una richiesta di [supporto speciale nel portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se sono necessarie più istanze gestite nell'area corrente. In alternativa, è possibile creare nuove istanze gestite in un'altra area di Azure senza inviare richieste di supporto.
 
-La tabella seguente illustra i limiti internazionali predefiniti per le sottoscrizioni supportate:
+La tabella seguente illustra i **limiti internazionali predefiniti** per i tipi di sottoscrizione supportati (i limiti predefiniti possono essere estesi usando la richiesta di supporto descritta di seguito):
 
 |Tipo di sottoscrizione| Numero massimo di subnet istanza gestite | Numero massimo di unità vCore * |
 | :---| :--- | :--- |

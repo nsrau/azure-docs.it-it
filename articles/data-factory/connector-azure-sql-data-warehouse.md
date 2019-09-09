@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: d3365f0a893c80043c93091c3e4e91382bdcd67e
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 0c8c2f2adb11a30b438fb41dca07519b2f74baf7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275869"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813580"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
@@ -382,6 +382,7 @@ Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'att
 | writeBatchSize    | Numero di righe da inserire nella tabella SQL **per batch**. Si applica solo se non viene usato PolyBase.<br/><br/>Il valore consentito è **integer** (numero di righe). Per impostazione predefinita, Data Factory determinare in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. | No                                            |
 | writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout. Si applica solo se non viene usato PolyBase.<br/><br/>Il valore consentito è **timespan**. Esempio: "00:30:00" (30 minuti). | No                                            |
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Azure SQL Data Warehouse ad ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
+| tableOption | Specifica se creare automaticamente la tabella di sink se non esiste in base allo schema di origine. La creazione automatica della tabella non è supportata quando la copia di gestione temporanea è configurata nell'attività di copia. I valori consentiti sono: `none` (impostazione predefinita),. `autoCreate` |No |
 | disableMetricsCollection | Data Factory raccoglie le metriche, ad esempio SQL Data Warehouse DWU per l'ottimizzazione delle prestazioni di copia e consigli. Se si è interessati a questo comportamento, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Esempio di sink di SQL Data Warehouse

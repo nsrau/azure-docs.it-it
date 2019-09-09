@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: a535510ce56147f708f1cd8219cf898e6e0df36b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 42819749b019b4b1db77942e22e09ea31a137fe7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483781"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813862"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Esempi di topologie e componenti Apache Storm per Apache Storm in HDInsight
 
@@ -24,14 +24,13 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
 | [Scrivere in Azure Data Lake Storage da Apache Storm](apache-storm-write-data-lake-store.md) |Scrittura in Azure Data Lake Storage |Java |
 | [Origine per Spout e Bolt dell'hub eventi](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Origine per Spout e Bolt dell'hub eventi |Java |
 | [Sviluppare topologie basate su Java per Apache Storm in HDInsight][5797064f] |Maven |Java |
-| [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio][16fce2d1] |HDInsight Tools per Visual Studio |C#, Java |
+| [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio][16fce2d1] |Strumenti HDInsight per Visual Studio |C#, Java |
 | [Elaborare eventi di Hub eventi di Azure con Apache Storm in HDInsight (C#)][844d1d81] |Hub eventi |C# e Java |
 | [Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Hub eventi |Java |
 | [Elaborare i dati del sensore veicolo da Hub eventi di Azure usando Apache Storm in HDInsight][246ee964] |Hub eventi, Cosmos DB, BLOB del servizio di archiviazione di Azure (WASB) |C#, Java |
-| [Estrazione, trasformazione e caricamento (ETL) da hub eventi di Azure ad Apache HBase, usando Apache Storm in HDInsight][b4b68194] |Hub eventi, HBase |C# |
-| [Modello C# progetto di topologia Storm per l'utilizzo di servizi di Azure da Apache Storm in HDInsight][ce0c02a2] |Hub eventi, Cosmos DB, database SQL, HBase, SignalR |C#, Java |
-| [Benchmark di scalabilità per la lettura da hub eventi di Azure usando Apache Storm in HDInsight][d6c540e3] |Velocità effettiva dei messaggi, hub di eventi, database SQL |C#, Java |
-| [Introduzione a Python con Apache Storm in HDInsight](apache-storm-develop-python-topology.md) |Componenti Python con una topologia Flux |Python |
+| [Estrarre, trasformare e caricare (ETL) da Hub eventi di Azure ad Apache HBase usando Apache Storm in HDInsight][b4b68194] |Hub eventi, HBase |C# |
+| [Progetto C# di topologia Storm modello per l'uso dei servizi di Azure da Apache Storm in HDInsight][ce0c02a2] |Hub eventi, Cosmos DB, database SQL, HBase, SignalR |C#, Java |
+| [Benchmark di scalabilità per la lettura da Hub eventi di Azure usando Apache Storm in HDInsight][d6c540e3] |Velocità effettiva dei messaggi, hub di eventi, database SQL |C#, Java |
 | [Usare Apache Kafka con Apache Storm in HDInsight](../hdinsight-apache-storm-with-kafka.md) | Lettura e scrittura di Apache Storm in Apache Kafka | Java |
 
 > [!WARNING]  
@@ -39,10 +38,14 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
 >
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva.
 
-### <a name="next-steps"></a>Fasi successive
+## <a name="python-only"></a>Solo Python
 
-* [Creare e monitorare una topologia Apache Storm in HDInsight di Azure](./apache-storm-quickstart.md)
-* [Informazioni su come distribuire e gestire topologie Apache Storm con Apache Storm in HDInsight][6eb0d3b8]
+Vedere [usare Python con Apache Storm in HDInsight](apache-storm-develop-python-topology.md) per un esempio di componenti Python con una topologia Flux.
+
+## <a name="next-steps"></a>Fasi successive
+
+* [Creare e monitorare una topologia Apache Storm in Azure HDInsight](./apache-storm-quickstart.md)
+* [Informazioni su come distribuire e gestire topologie di Apache Storm con Apache Storm in HDInsight][6eb0d3b8]
 
 
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "Informazioni su come distribuire e gestire topologie usando il Dashboard di Apache Storm basato su Web e l'interfaccia utente di Storm oppure gli strumenti di HDInsight per Visual Studio."

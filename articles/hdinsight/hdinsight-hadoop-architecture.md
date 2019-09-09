@@ -1,6 +1,6 @@
 ---
 title: Architettura di Apache Hadoop - Azure HDInsight
-description: Descrive le funzionalità di archiviazione ed elaborazione di Apache Hadoop nei cluster HDInsight.
+description: Descrive Apache Hadoop archiviazione e l'elaborazione nei cluster HDInsight di Azure.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 3fd85232ff7044c699a3e68ce34b267bf50c4dc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d41d671cf773bdab20c3f105c7d1abb6c7bde840
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257869"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810242"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architettura di Apache Hadoop in Azure HDInsight
 

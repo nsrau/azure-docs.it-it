@@ -6,14 +6,14 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: 86ebfe14936f4cfbc6fc5f674ee691341eacfd47
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f17574e5d8d129df43a195c40928b3cce4014548
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736315"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813937"
 ---
-# <a name="scenario-apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Scenario: Apache Spark processo ha esito negativo con InvalidClassException, versione della classe non corrispondente, in Azure HDInsight
+# <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Apache Spark processo ha esito negativo con InvalidClassException, versione della classe non corrispondente, in Azure HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi relativi all'uso di Apache Spark componenti nei cluster HDInsight di Azure.
 

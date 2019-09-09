@@ -1,19 +1,18 @@
 ---
-title: Creare e personalizzare piani per il ripristino di emergenza con Azure Site Recovery | Microsoft Docs
+title: Creare e personalizzare piani di ripristino per il ripristino di emergenza usando Azure Site Recovery
 description: Informazioni su come creare e personalizzare piani per il ripristino di emergenza usando il servizio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ca44ffd26e1b87dd201ed6f274791eadfeb0737
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400010"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814395"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creare e personalizzare piani di ripristino
 
@@ -65,12 +64,12 @@ Questo articolo illustra come creare e personalizzare un piano di ripristino in 
     **Scenario** | **Failover** | **Failback**
     --- | --- | --- 
     Da Azure ad Azure  | Runbook | Runbook
-    Da VMware ad Azure | Runbook | NA 
+    Da VMware ad Azure | Runbook | ND 
     Da Hyper-V con VMM ad Azure | Runbook | Script
-    Da sito Hyper-V ad Azure | Runbook | NA
+    Da sito Hyper-V ad Azure | Runbook | ND
     Da VMM a VMM secondario | Script | Script
 
-1. Nel piano di ripristino, fare clic sul passaggio a cui deve essere aggiunta l'azione e specificare quando deve verificarsi l'azione:
+1. Nel piano di ripristino fare clic sul passaggio a cui deve essere aggiunta l'azione e specificare quando deve verificarsi l'azione:
     1. Se si vuole che l'azione venga eseguita prima dell'avvio dei computer del gruppo dopo il failover, selezionare **Aggiungi pre-azione**.
     1. Se si vuole che l'azione venga eseguita dopo l'avvio dei computer del gruppo dopo il failover, selezionare **Aggiungi post-azione**. Per spostare l'azione verso l'alto o verso il basso, usare i pulsanti **Sposta su** e **Sposta giù**.
 2. In **Inserisci azione** selezionare **Script** o **Azione manuale**.
@@ -78,7 +77,7 @@ Questo articolo illustra come creare e personalizzare un piano di ripristino in 
     1. Digitare un nome per l'azione e le istruzioni per l'azione stessa. Queste istruzioni verranno visualizzate dalla persona che esegue il failover.
     1. Specificare se si vuole aggiungere l'azione manuale per tutti i tipi di failover (test, failover, failover pianificato), se pertinente. Fare quindi clic su **OK**.
 4. Se si desidera aggiungere uno script, eseguire le operazioni seguenti:
-    1. Se si aggiunge uno script VMM, selezionare l'opzione **Failover to VMM script** (Failover nello script VMM) e in **Percorso script** digitare il percorso relativo della condivisione. Ad esempio, se la condivisione si trova in \\ \<VMMServerName > \MSSCVMMLibrary\RPScripts, specificare il percorso: \RPScripts\RPScript.PS1.
+    1. Se si aggiunge uno script VMM, selezionare l'opzione **Failover to VMM script** (Failover nello script VMM) e in **Percorso script** digitare il percorso relativo della condivisione. Ad esempio, se la condivisione si trova in \\ \<VMMServerName > \MSSCVMMLibrary\RPScripts, specificare il percorso: \RPScripts\RPScript.ps1.
     1. Se si aggiunge un runbook di automazione di Azure, specificare l'**account di Automazione di Azure** in cui si trova il runbook e selezionare lo **script di runbook di Azure** appropriato.
 5. Per verificare che lo script funzioni come previsto, eseguire un failover di test del piano di ripristino.
 

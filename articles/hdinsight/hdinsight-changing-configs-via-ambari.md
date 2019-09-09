@@ -1,6 +1,6 @@
 ---
 title: Ottimizzare le configurazioni cluster con Apache Ambari - Azure HDInsight
-description: Usare l'interfaccia utente Web Apache Ambari per configurare e ottimizzare i cluster HDInsight.
+description: Usare l'interfaccia utente Web di Apache Ambari per configurare e ottimizzare i cluster HDInsight di Azure.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57e5eef8563bca0e27024d6ff5a46b983273df07
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60698825"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810654"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Apache Ambari per ottimizzare le configurazioni cluster HDInsight
 
@@ -49,15 +49,15 @@ Per modificare le dimensioni dell'heap Java NameNode:
 
 1. Digitare il nuovo valore nella casella di testo, quindi premere **INVIO** per salvare la modifica.
 
-    ![Modificare le dimensioni dell'heap Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![Modifica Size1 heap Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. Le dimensioni dell'heap NameNode Java viene modificata a 1 GB da 2 GB.
+1. Le dimensioni dell'heap Java NameNode sono state modificate in 1 GB da 2 GB.
 
-    ![Dimensioni dell'heap Java NameNode modificate](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
+    ![Modificato NameNode heap Java size2](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
 1. Salvare le modifiche facendo clic sul pulsante verde **Save** (Salva) nella parte superiore della schermata di configurazione.
 
-    ![Salvare le modifiche](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
+    ![Salva le modifiche](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
 ## <a name="apache-hive-optimization"></a>Ottimizzazione di Apache Hive
 
@@ -125,7 +125,7 @@ Una query Hive viene eseguita in una o più fasi. Se le fasi indipendenti posson
 
 1.  Per abilitare l'esecuzione della query parallela, passare alla scheda **Config** (Configurazioni) di Hive e cercare la proprietà `hive.exec.parallel`. Il valore predefinito è False. Impostare il valore su true e quindi premere **INVIO** per salvare il valore.
  
-1.  Per limitare il numero di processi da eseguire in parallelo, modificare il `hive.exec.parallel.thread.number` proprietà. Il valore predefinito è 8.
+1.  Per limitare il numero di processi da eseguire in parallelo, modificare la `hive.exec.parallel.thread.number` proprietà. Il valore predefinito è 8.
 
     ![Esecuzione parallela di Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -176,10 +176,10 @@ I processi Hadoop presentano in genere colli di bottiglia a causa dell'I/O. La c
 
 I tipi di compressione disponibili sono:
 
-| Format | Strumento | Algoritmo | Estensione file | Divisibile |
+| Formato | Strumento | Algoritmo | Estensione file | Divisibile |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | gz | No |
-| Bzip2 | Bzip2 | Bzip2 |bz2 | Yes |
+| Bzip2 | Bzip2 | Bzip2 |bz2 | Sì |
 | LZO | Lzop | LZO | lzo | Sì, se indicizzato |
 | Snappy | N/D | Snappy | Snappy | No |
 
@@ -269,7 +269,7 @@ Le sezioni seguenti descrivono altre ottimizzazioni relative a Hive che è possi
 
 Il tipo di join predefinito in Hive è un *join casuale*. In Hive speciali mapper leggono l'input e generano una coppia chiave/valore di join per un file intermedio. Hadoop ordina e unisce queste coppie in una fase casuale. Questa fase casuale è costosa. La scelta del join appropriato in base ai dati può migliorare considerevolmente le prestazioni.
 
-| Tipo di join | Se | Come | Settings di Hive | Commenti |
+| Tipo di aggiunta | Ora | Come | Settings di Hive | Commenti |
 | -- | -- | -- | -- | -- |
 | Join casuale | <ul><li>Scelta predefinita</li><li>È sempre valido</li></ul> | <ul><li>Legge da parte di una delle tabelle</li><li>Raggruppa e ordina nella chiave di join</li><li>Invia un bucket a ogni elemento reduce</li><li>Il join viene eseguito sul lato Reduce</li></ul> | Non sono necessarie impostazioni di Hive significative | Funziona sempre |
 | Map Join | <ul><li>La memoria disponibile è sufficiente per una tabella</li></ul> | <ul><li>Legge una tabella di piccole dimensioni nella tabella hash della memoria</li><li>Passa attraverso parte del file di grandi dimensioni</li><li>Crea un join con ogni record della tabella hash</li><li>I join vengono eseguiti tramite il solo mapper</li></ul> | `hive.auto.confvert.join=true` | Molto veloce, ma limitato |
@@ -282,7 +282,7 @@ Raccomandazioni aggiuntive per ottimizzare il motore di esecuzione Hive:
 | Impostazione | Consigliato | Impostazione predefinita di HDInsight |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = più sicuro, più lento; false = più veloce | false |
-| `tez.am.resource.memory.mb` | Limite superiore di 4 GB per la maggior parte | Ottimizzazione automatica |
+| `tez.am.resource.memory.mb` | limite superiore di 4 GB per la maggior parte | Ottimizzazione automatica |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -295,7 +295,7 @@ Le proprietà di [Apache Pig](https://pig.apache.org/) possono essere modificate
 
 1. Trovare, rimuovere il commento e cambiare il valore della proprietà che si vuole modificare.
 
-1. Selezionare **salvare** sul lato superiore destro della finestra per salvare il nuovo valore. Alcune proprietà possono richiedere un riavvio del servizio.
+1. Selezionare **Salva** nel lato superiore destro della finestra per salvare il nuovo valore. Alcune proprietà possono richiedere un riavvio del servizio.
 
     ![Proprietà Pig avanzate](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -365,7 +365,7 @@ Il numero di riduttori viene calcolato in base al parametro `pig.exec.reducers.b
 
 La configurazione di [Apache HBase](https://hbase.apache.org/) viene modificata nella scheda **HBase Configs** (Configurazioni HBase). Le sezioni seguenti descrivono alcune importanti impostazioni di configurazione che influiscono sulle prestazioni di HBase.
 
-### <a name="set-hbaseheapsize"></a>Impostare HBASE_HEAPSIZE
+### <a name="set-hbase_heapsize"></a>Impostare HBASE_HEAPSIZE
 
 Le dimensioni dell'heap HBase specificano, in megabyte, la quantità massima di heap che devono essere usati dai server di *area* e *master*. Il valore predefinito è 1.000 MB. Questo valore deve essere ottimizzato per il carico di lavoro del cluster.
 

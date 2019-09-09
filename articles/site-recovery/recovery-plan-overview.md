@@ -1,25 +1,25 @@
 ---
-title: Uso di piani per il ripristino di emergenza con Azure Site Recovery | Microsoft Docs
+title: Uso dei piani di ripristino nel ripristino di emergenza con Azure Site Recovery
 description: Informazioni su come usare piani per il ripristino di emergenza con il servizio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514560"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814434"
 ---
 # <a name="about-recovery-plans"></a>Informazioni sui piani di ripristino
 
 Questo articolo descrive i piani di ripristino in [Azure Site Recovery](site-recovery-overview.md).
 
-Un piano di ripristino raccoglie i computer in gruppi di ripristino. È possibile personalizzare un piano aggiungendovi un ordine, istruzioni e attività. Dopo aver definito un piano, è possibile eseguire un failover per esso.  Le macchine possono farvi riferimento in più piani di ripristino, in cui i piani di successive ignorerà di distribuzione o avvio del computer se è stata distribuita in precedenza tramite un altro piano di ripristino.
+Un piano di ripristino raccoglie i computer in gruppi di ripristino. È possibile personalizzare un piano aggiungendovi un ordine, istruzioni e attività. Dopo aver definito un piano, è possibile eseguire un failover per esso.  È possibile fare riferimento ai computer in più piani di ripristino, in cui i piani successivi ignoreranno la distribuzione o l'avvio del computer se in precedenza è stato distribuito tramite un altro piano di ripristino.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Vantaggi dell'uso di un piano di ripristino
@@ -83,7 +83,7 @@ Il ripristino di applicazioni di grandi dimensioni può essere un'attività comp
 
 ## <a name="watch-the-video"></a>Video
 
-Guardare un video rapido esempio che mostra un failover tramite clic per un'app di WordPress a due livelli.
+Guarda un breve video di esempio che mostra un failover su un clic per un'app WordPress a due livelli.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 

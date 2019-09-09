@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/30/2019
-ms.openlocfilehash: 65a75bc3a2e7ab2361ee8ae53d11ba1604c1d1ef
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 09/06/2019
+ms.openlocfilehash: a80e1d0e4aa243d46efa79173af3fc5d774eb46f
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208353"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806598"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -122,7 +122,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
   > Istanza gestita non supporta più gruppi di failover.
   
 ## <a name="permissions"></a>Autorizzazioni
-Le autorizzazioni per un gruppo di failover vengono gestite tramite il controllo degli accessi in [base al ruolo (RBAC)](../role-based-access-control/overview.md). Il ruolo [collaboratore SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) dispone di tutte le autorizzazioni necessarie per gestire i gruppi di failover. 
+Le autorizzazioni per un gruppo di failover vengono gestite tramite il [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/overview.md). Il ruolo [collaboratore SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) dispone di tutte le autorizzazioni necessarie per gestire i gruppi di failover. 
 
 ### <a name="create-failover-group"></a>Crea gruppo di failover
 Per creare un gruppo di failover, è necessario l'accesso in scrittura RBAC ai server primari e secondari e a tutti i database nel gruppo di failover. Per un'istanza gestita, è necessario l'accesso in scrittura RBAC all'istanza gestita primaria e secondaria, ma le autorizzazioni per i singoli database non sono rilevanti perché i singoli database dell'istanza gestita non possono essere aggiunti o rimossi da un gruppo di failover. 
@@ -191,6 +191,9 @@ Se l'applicazione usa l'istanza gestita come livello dati, seguire queste linee 
 
   Per garantire connettività ininterrotta all'istanza primaria dopo il failover, l'istanza primaria e l'istanza secondaria devono essere nella stessa zona DNS. Garantisce che lo stesso certificato di multidominio (SAN) possa essere utilizzato per autenticare le connessioni client a una delle due istanze del gruppo di failover. Quando l'applicazione è pronta per la distribuzione in produzione, creare un'istanza secondaria in un'area diversa e assicurarsi che condivida la zona DNS con l'istanza primaria. È possibile eseguire questa operazione specificando `DNS Zone Partner` un parametro facoltativo usando il portale di Azure, PowerShell o l'API REST. 
 
+> [!IMPORTANT]
+> La prima istanza creata nella subnet determina la zona DNS per tutte le istanze successive nella stessa subnet. Ciò significa che due istanze della stessa subnet non possono appartenere a zone DNS diverse.   
+
   Per ulteriori informazioni sulla creazione dell'istanza secondaria nella stessa zona DNS dell'istanza primaria, vedere [creare un'istanza gestita secondaria](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
 - **Consentire il traffico di replica tra due istanze**
@@ -237,6 +240,10 @@ Se l'applicazione usa l'istanza gestita come livello dati, seguire queste linee 
 
   > [!IMPORTANT]
   > Usare il failover manuale dei gruppi per ripristinare i database primari nella posizione originale. Quando viene risolta l'interruzione del servizio che ha determinato il failover, sarà possibile spostare i database primari nel percorso originale. A tale scopo è necessario avviare il failover manuale del gruppo.
+
+- **Confermare le limitazioni note dei gruppi di failover**
+
+  La ridenominazione del database e il ridimensionamento dell'istanza non sono supportati per le istanze nel gruppo di failover. Sarà necessario eliminare temporaneamente il gruppo di failover per poter eseguire queste operazioni.
 
 ## <a name="failover-groups-and-network-security"></a>Gruppi di failover e sicurezza di rete
 
@@ -336,7 +343,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell: Gestione dei gruppi di failover del database SQL con istanze gestite 
 
-| Cmdlet | DESCRIZIONE |
+| Cmdlet | Descrizione |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
 | [Set-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifica la configurazione del gruppo di failover|
@@ -347,7 +354,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gestire gruppi di failover del database SQL con database singoli e in pool
 
-| API | Descrizione |
+| API | DESCRIZIONE |
 | --- | --- |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Crea o aggiorna un gruppo di failover. |
 | [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Rimuove il gruppo di failover dal server |
@@ -360,7 +367,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>API REST: Gestire gruppi di failover con istanze gestite (anteprima)
 
-| API | Descrizione |
+| API | DESCRIZIONE |
 | --- | --- |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Crea o aggiorna un gruppo di failover. |
 | [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Rimuove il gruppo di failover dal server |

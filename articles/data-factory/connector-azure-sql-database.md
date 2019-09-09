@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: c9192a6d6b8cf122092963f2352af8bb6e5a6c21
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 5399c79645be0ac774dc74603f26f092497262bf
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275915"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813214"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
@@ -233,7 +233,7 @@ Per copiare dati da o nel database SQL di Azure, sono supportate le proprietà s
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **AzureSqlTable**. | Sì |
+| type | La proprietà **type** del set di dati deve essere impostata su **AzureSqlTable**. | Yes |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
 | table | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
 | tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di `schema` lavoro `table`, utilizzare e. | No per l'origine, Sì per il sink |
@@ -383,6 +383,7 @@ Per copiare i dati nel database SQL di Azure, nella sezione **sink** dell'attivi
 | storedProcedureTableTypeParameterName |Nome del parametro del tipo di tabella specificato nell'stored procedure.  |No |
 | sqlWriterTableType |Nome del tipo di tabella da utilizzare nel stored procedure. Nel corso dell'attività di copia, i dati spostati vengono resi disponibili in una tabella temporanea di questo tipo. Il codice della stored procedure può quindi unire i dati di cui è in corso la copia con i dati esistenti. |No |
 | storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No |
+| tableOption | Specifica se creare automaticamente la tabella di sink se non esiste in base allo schema di origine. La creazione automatica della tabella non è supportata quando il sink specifica stored procedure o la copia temporanea è configurata nell'attività di copia. I valori consentiti sono: `none` (impostazione predefinita),. `autoCreate` |No |
 | disableMetricsCollection | Data Factory raccoglie le metriche, ad esempio il database SQL di Azure DTU per l'ottimizzazione delle prestazioni di copia e le raccomandazioni. Se si è interessati a questo comportamento, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
 
 **Esempio 1: Accodare dati**
@@ -410,7 +411,8 @@ Per copiare i dati nel database SQL di Azure, nella sezione **sink** dell'attivi
             },
             "sink": {
                 "type": "AzureSqlSink",
-                "writeBatchSize": 100000
+                "writeBatchSize": 100000,
+                "tableOption": "autoCreate"
             }
         }
     }

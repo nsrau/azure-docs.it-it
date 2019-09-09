@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: eb6df3bfda131f00c04499dc80c47482229195a5
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: b21847d27dc7f444afaf1b73efa19b0b0087cfe4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623909"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811685"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux
 
@@ -482,7 +482,7 @@ Con l'API REST di Oozie, è possibile compilare strumenti personalizzati che fun
 
 * **URI**: è possibile accedere all'API REST all'esterno del cluster in `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autenticazione**: per eseguire l'autenticazione, usare l'API, l'account (admin) e la password HTTP del cluster. Ad esempio:
+* **Autenticazione**: per eseguire l'autenticazione, usare l'API, l'account (admin) e la password HTTP del cluster. Esempio:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -643,7 +643,7 @@ Per accedere all'interfaccia utente Web di Oozie, completare la procedura seguen
     > [!NOTE]  
     > Questa immagine visualizza solo le esecuzioni riuscite del processo, non le singole azioni nel flusso di lavoro pianificato. Per visualizzare le singole azioni, selezionare una delle voci relative alle **azioni**.
 
-    ![Informazioni sull'azione](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![Informazioni sull'azione coordinatore](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

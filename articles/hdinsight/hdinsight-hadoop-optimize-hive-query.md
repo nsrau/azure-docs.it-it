@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 218085d8d3969218be1a0557fdc477c730879cbe
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 60c725e084a18326cc4bc9cc05d02d103261f5a4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543698"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809263"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Ottimizzare le query Apache Hive in Azure HDInsight
 
 In Azure HDInsight esistono molti tipi di cluster e tecnologie in grado di eseguire query Apache Hive. Quando si crea il cluster HDInsight, scegliere il tipo di cluster appropriato alle esigenze del carico di lavoro per aiutare a ottimizzare le prestazioni.
 
-Ad esempio, scegliere **Interactive Query** tipo per ottimizzare le query ad hoc e interattiva di cluster. Scegliere il tipo di cluster Apache **Hadoop** per ottimizzare le query Hive usate come processo batch. Anche i tipi di cluster **Spark** e **HBase** possono eseguire le query Hive. Per altre informazioni sull'esecuzione di query Hive in vari tipi di cluster HDInsight, vedere [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md) (Che cosa sono Apache Hive e HiveQL in Azure HDInsight?).
+Scegliere, ad esempio, tipo di cluster **Interactive query** per ottimizzare le query interattive ad hoc. Scegliere il tipo di cluster Apache **Hadoop** per ottimizzare le query Hive usate come processo batch. Anche i tipi di cluster **Spark** e **HBase** possono eseguire le query Hive. Per altre informazioni sull'esecuzione di query Hive in vari tipi di cluster HDInsight, vedere [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md) (Che cosa sono Apache Hive e HiveQL in Azure HDInsight?).
 
 Per impostazione predefinita, i cluster HDInsight di tipo Hadoop non sono ottimizzati per le prestazioni. Questo articolo descrive alcuni dei modi più comuni di ottimizzare le prestazioni Hive che è possibile applicare alle query.
 
@@ -29,11 +29,11 @@ Se si aumenta il numero di nodi del ruolo di lavoro in un cluster HDInsight, si 
 
 * Durante la creazione del cluster, è possibile specificare il numero di nodi del ruolo di lavoro usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando.  Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La schermata seguente mostra la configurazione dei nodi del ruolo di lavoro nel portale di Azure:
   
-    ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
+    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png "scaleout_1")
     
 * Dopo avere creato il cluster, è possibile anche modificare il numero di nodi del ruolo di lavoro per scalare orizzontalmente il cluster senza ricrearne uno:
 
-    ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png "scaleout_2")
 
 Per altre informazioni sulla scalabilità di HDInsight, vedere [Scale HDInsight clusters](hdinsight-scaling-best-practices.md) (Scalare i cluster HDInsight)
 
@@ -195,10 +195,9 @@ Esistono altri metodi di ottimizzazione che è possibile considerare, ad esempio
 In questo articolo sono stati illustrati vari metodi di ottimizzazione delle query comuni di Hive. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Usare Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analizzare i dati sui ritardi dei voli usando Interactive Query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analizzare i dati sui ritardi dei voli usando Interactive query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [Analizzare i dati Twitter mediante Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
 
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
-[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
+
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png

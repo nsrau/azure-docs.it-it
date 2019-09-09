@@ -1,18 +1,18 @@
 ---
 title: Eseguire l'aggiornamento del cluster HDInsight a una versione più recente - Azure
-description: Informazioni su come eseguire l'aggiornamento del cluster HDInsight a una versione più recente
+description: Informazioni sulle linee guida per aggiornare il cluster Azure HDInsight a una versione più recente.
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 4d391c095495a3d0e34a2111d7b4564e6f4f2b8d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f4458b33edb9d55c30de8c5168668743abb33161
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072001"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811636"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Eseguire l'aggiornamento del cluster HDInsight a una versione più recente
 Per poter sfruttare le funzionalità più recenti di HDInsight, è consigliabile che i cluster HDInsight siano aggiornati alla versione più recente. Seguire le linee guida per aggiornare le versioni dei cluster HDInsight.

@@ -1,9 +1,9 @@
 ---
-title: Iniziare a usare PIM - Azure Active Directory | Microsoft Docs
+title: Iniziare a usare PIM-Azure Active Directory | Microsoft Docs
 description: Informazioni su come iniziare a usare Azure AD Privileged Identity Management (PIM) nel portale di Azure.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 408991ffc3922986234f7d40e1cd589b1d126ba1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 018cc54a770a0d18fa9af3d93fec2f5f720ce17b
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476478"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804523"
 ---
 # <a name="start-using-pim"></a>Iniziare a usare PIM
 
@@ -38,7 +38,7 @@ Per altre informazioni, vedere [Requisiti della licenza per usare PIM](subscript
 
 ## <a name="first-person-to-use-pim"></a>Prima persona a usare PIM
 
-Alla prima persona che usa PIM nella directory vengono assegnati automaticamente i ruoli di [Amministratore della sicurezza](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) e [Amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) nella directory. Solo gli amministratori dei ruoli con privilegi possono gestire le assegnazioni di ruolo di Azure AD degli utenti. È inoltre possibile scegliere di eseguire la [procedura guidata relativa alla sicurezza](pim-security-wizard.md) che guida nei passaggi inziali di individuazione e assegnazione.
+Alla prima persona che usa PIM nella directory vengono assegnati automaticamente i ruoli di [Amministratore della sicurezza](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) e [Amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) nella directory. Solo gli amministratori dei ruoli con privilegi possono gestire Azure AD assegnazioni di ruolo degli utenti. È inoltre possibile scegliere di eseguire la [procedura guidata relativa alla sicurezza](pim-security-wizard.md) che guida nei passaggi inziali di individuazione e assegnazione.
 
 ## <a name="enable-pim"></a>Abilitare PIM
 
@@ -56,25 +56,25 @@ Per iniziare a usare PIM nella directory, è prima di tutto necessario abilitare
 
 1. Nell'elenco fare clic su **Concedi consenso per PIM**.
 
-    ![Fornire il consenso ad Privileged Identity Management per abilitare PIM](./media/pim-getting-started/consent-pim.png)
+    ![Consenso a PIM per abilitare PIM](./media/pim-getting-started/consent-pim.png)
 
 1. Fare clic su **Verifica l'identità dell'utente** per verificare l'identità con Azure MFA. Verrà chiesto di scegliere un account.
 
-    ![Selezionare una finestra di account per verificare la tua identità](./media/pim-getting-started/pick-account.png)
+    ![Selezionare una finestra dell'account per verificare la propria identità](./media/pim-getting-started/pick-account.png)
 
 1. Se sono necessarie altre informazioni per la verifica, si verrà guidati nel processo. Per altre informazioni, vedere [Informazioni sulla verifica in due passaggi](https://go.microsoft.com/fwlink/p/?LinkId=708614).
 
-    ![Necessarie ulteriori informazioni finestra se l'organizzazione necessita di ulteriori informazioni](./media/pim-getting-started/more-information-required.png)
+    ![Altre informazioni richiedono la finestra se l'organizzazione necessita di ulteriori informazioni](./media/pim-getting-started/more-information-required.png)
 
     Ad esempio, potrebbe venire chiesto di fornire la verifica telefonica.
 
-    ![Pagina verifica aggiuntiva di sicurezza che chiede come contattarti](./media/pim-getting-started/additional-security-verification.png)
+    ![Pagina di verifica aggiuntiva di sicurezza che chiede come contattare l'utente](./media/pim-getting-started/additional-security-verification.png)
 
 1. Dopo aver completato il processo di verifica, fare clic sul pulsante **Consenso**.
 
 1. Nel messaggio visualizzato fare clic su **Sì** per fornire il consenso per il servizio PIM.
 
-    ![Fornire il consenso al messaggio PIM per completare il processo di consenso](./media/pim-getting-started/consent-pim-message.png)
+    ![Consenso al messaggio PIM per completare il processo di consenso](./media/pim-getting-started/consent-pim-message.png)
 
 ## <a name="sign-up-pim-for-azure-ad-roles"></a>Iscrivere PIM ai ruoli di Azure AD
 
@@ -100,15 +100,15 @@ Dopo aver abilitato PIM per la directory, è necessario effettuare l'iscrizione 
 
 Dopo aver configurato PIM, è possibile eseguire le attività di gestione delle identità.
 
-![Le attività e gestire le opzioni di finestra di navigazione nella visualizzazione di PIM](./media/pim-getting-started/pim-quickstart-tasks.png)
+![Finestra di navigazione in PIM che mostra le attività e Gestisci le opzioni](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| Attività e gestione | Descrizione |
+| Attività e gestione | DESCRIZIONE |
 | --- | --- |
 | **Ruoli personali**  | Visualizza un elenco di ruoli idonei e attivi assegnati all'utente. Qui è possibile attivare tutti i ruoli idonei assegnati. |
 | **Richieste personali** | Visualizza le richieste in sospeso per attivare le assegnazioni di ruolo idonee. |
 | **Approvare le richieste** | Visualizza un elenco di richieste per attivare i ruoli idonei per gli utenti della directory che possono essere approvati. |
 | **Verificare l'accesso** | Elenca le verifiche di accesso attive assegnate all'utente per essere completate, sia per se stesso che per altri utenti. |
-| **Ruoli di Azure AD** | Consente di visualizzare un dashboard e le impostazioni per gli amministratori dei ruoli con privilegi gestire le assegnazioni di ruolo di Azure AD. Per gli utenti che non sono amministratori dei ruoli con privilegi, questo dashboard è disabilitato. Questi utenti possono accedere a un dashboard speciale denominato My view (Visualizzazione personalizzata). Il dashboard My view (Visualizzazione personalizzata) visualizza solo informazioni relative all'accesso dell'utente al dashboard, non l'intero tenant. |
+| **Ruoli di Azure AD** | Visualizza un dashboard e le impostazioni per gli amministratori dei ruoli con privilegi per gestire le assegnazioni di ruolo Azure AD. Per gli utenti che non sono amministratori dei ruoli con privilegi, questo dashboard è disabilitato. Questi utenti possono accedere a un dashboard speciale denominato My view (Visualizzazione personalizzata). Il dashboard My view (Visualizzazione personalizzata) visualizza solo informazioni relative all'accesso dell'utente al dashboard, non l'intero tenant. |
 | **Risorse di Azure** | Visualizza un dashboard e le impostazioni per gli amministratori dei ruoli con privilegi per gestire le assegnazioni dei ruoli della risorsa di Azure AD. Per gli utenti che non sono amministratori dei ruoli con privilegi, questo dashboard è disabilitato. Questi utenti possono accedere a un dashboard speciale denominato My view (Visualizzazione personalizzata). Il dashboard My view (Visualizzazione personalizzata) visualizza solo informazioni relative all'accesso dell'utente al dashboard, non l'intero tenant. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Aggiungere un riquadro PIM al dashboard
@@ -125,13 +125,13 @@ Per semplificare l'apertura di PIM, è necessario aggiungere un riquadro PIM al 
 
 1. Selezionare **Pin blade to dashboard** (Aggiungi pannello al dashboard) per aggiungere il pannello di avvio rapido di PIM al dashboard.
 
-    ![Icona puntina da disegno per Aggiungi pannello PIM al dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Icona a puntina da disegno per aggiungere il pannello PIM al dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     Nel dashboard di Azure viene visualizzato un riquadro simile al seguente:
 
-    ![Guida introduttiva di PIM riquadro nel dashboard](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Riquadro avvio rapido PIM nel dashboard](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Assegnare i ruoli di Azure AD in PIM](pim-how-to-add-role-to-user.md)
+- [Assegnare ruoli Azure AD in PIM](pim-how-to-add-role-to-user.md)
 - [Individuare le risorse di Azure per la gestione in PIM](pim-resource-roles-discover-resources.md)

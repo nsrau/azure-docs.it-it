@@ -1,6 +1,6 @@
 ---
 title: Architettura di Azure HDInsight con Enterprise Security Package
-description: Informazioni su come pianificare la sicurezza di HDInsight con Enterprise Security Package.
+description: Informazioni su come pianificare la sicurezza di Azure HDInsight con Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 8b8c200979b70e145fca64746547b37dee558848
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: e7983c4da4803965dabaa6a471fbea8a2fba5229
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720440"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810953"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso di Enterprise Security Package in HDInsight
 
@@ -37,7 +37,7 @@ Gli elementi seguenti vengono creati automaticamente:
 
 In sintesi, è necessario configurare un ambiente con gli elementi seguenti:
 
-- Un dominio Active Directory (gestito tramite Azure Active Directory Domain Services). **Il nome di dominio deve essere 39 caratteri o meno per lavorare con Azure HDInsight.**
+- Un dominio Active Directory (gestito tramite Azure Active Directory Domain Services). **Il nome di dominio deve contenere 39 caratteri o meno per lavorare con Azure HDInsight.**
 - Secure LDAP (LDAPS) abilitato in Azure Active Directory Domain Services.
 - Connettività di rete adeguata dalla rete virtuale HDInsight alla rete virtuale di Azure Active Directory Domain Services, se si scelgono reti virtuali separate. Una macchina virtuale all'interno della rete virtuale HDInsight dovrebbe avere una linea visiva verso Azure Active Directory Domain Services attraverso il peering di rete virtuale. Se HDInsight e Azure Active Directory Domain Services sono distribuiti nella stessa rete virtuale, la connettività viene stabilita automaticamente e non sono necessarie altre operazioni.
 
@@ -63,13 +63,13 @@ L'uso di Active Directory locale o di Active Directory sulle sole macchine virtu
 
 Se è in uso la federazione e gli hash delle password vengono sincronizzati correttamente ma si ricevono errori di autenticazione, verificare che l'autenticazione della password cloud sia abilitata per l'entità servizio PowerShell. In caso negativo, sarà necessario impostare [criteri di individuazione dell'area di autenticazione principale](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) per il tenant di Azure AD. Per verificare e impostare i criteri di individuazione dell'area di autenticazione principale:
 
-1. Installare l'anteprima [modulo di Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+1. Installare il modulo di anteprima [Azure ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
    ```powershell
    Install-Module AzureAD
    ```
 
-2. Connettersi usando le credenziali di amministratore globale (amministratore tenant).
+2. Connettersi utilizzando le credenziali di amministratore globale (amministratore tenant).
    
    ```powershell
    Connect-AzureAD
@@ -81,7 +81,7 @@ Se è in uso la federazione e gli hash delle password vengono sincronizzati corr
    Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
    ```
 
-4. Se non esiste, quindi creare l'entità servizio.
+4. Se non esiste, creare l'entità servizio.
 
    ```powershell
    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2

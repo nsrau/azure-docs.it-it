@@ -1,6 +1,6 @@
 ---
 title: Usare Apache Spark per analizzare i dati in Azure Data Lake Storage Gen1
-description: Eseguire processi Spark per analizzare i dati archiviati in Azure Data Lake Storage Gen1
+description: Eseguire processi Apache Spark per analizzare i dati archiviati in Azure Data Lake Storage Gen1
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 5a98cb2356c25329e091514dd1d6181dfc2690be
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f57d054134b9f2c8b327fe157e7a5b5e3d5ff183
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448652"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813931"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Usare il cluster HDInsight Spark per analizzare i dati in Azure Data Lake Storage Gen1
 
-In questo articolo, userà [Notebook di Jupyter](https://jupyter.org/) disponibili con i cluster HDInsight Spark per eseguire un processo che legge dati da un account Data Lake Store.
+In questo articolo si usa [Jupyter notebook](https://jupyter.org/) disponibile con i cluster HDInsight Spark per eseguire un processo che legge i dati da un account di data Lake storage.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

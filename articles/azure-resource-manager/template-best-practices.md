@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 161539aaec4d3b7162405f437b7fb3dd1f6a00e6
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 361fcc6b60e863ee43d348cedd6b1571f3f563a2
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258840"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812897"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedure consigliate per i modelli di Azure Resource Manager
 
@@ -192,7 +192,7 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](resou
      {
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
+         "apiVersion": "2019-06-01",
          "location": "[resourceGroup().location]",
          "comments": "This storage account is used to store the VM disks.",
          ...
@@ -203,43 +203,32 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](resou
 * Se si usa un *endpoint pubblico* nel modello, come ad esempio un endpoint pubblico di archiviazione BLOB di Azure, *non impostare come hardcoded* lo spazio dei nomi. Usare la funzione **reference** per recuperare lo spazio dei nomi in modo dinamico. Questo approccio consente di distribuire il modello in ambienti diversi dello spazio dei nomi pubblico senza dover modificare manualmente l'endpoint nel modello. Impostare la versione dell'API sulla stessa versione in uso per l'account di archiviazione nel modello:
    
    ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```
    
-   Se l'account di archiviazione viene distribuito nello stesso modello creato, non è necessario specificare lo spazio dei nomi del provider quando si fa riferimento alla risorsa. L'esempio seguente viene descritta la sintassi semplificata:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   Se nel modello sono presenti altri valori configurati per usare uno spazio dei nomi pubblico, modificarli in modo da riflettere la stessa funzione **reference**. Ad esempio, è possibile impostare la proprietà **storageUri** del profilo di diagnostica della macchina virtuale:
+   Se l'account di archiviazione viene distribuito nello stesso modello che si sta creando e il nome dell'account di archiviazione non è condiviso con un'altra risorsa nel modello, non è necessario specificare lo spazio dei nomi del provider o apiVersion quando si fa riferimento alla risorsa. L'esempio seguente viene descritta la sintassi semplificata:
    
    ```json
    "diagnosticsProfile": {
        "bootDiagnostics": {
            "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+           "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
        }
    }
    ```
-   
+     
    È anche possibile fare riferimento a un account di archiviazione in un gruppo di risorse diverso:
 
    ```json
-   "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```

@@ -1,17 +1,17 @@
 ---
 title: Non è possibile aggiungere nodi al cluster Azure HDInsight
-description: Non è possibile aggiungere nodi al cluster Azure HDInsight
+description: Risolvere i problemi perché non è possibile aggiungere nodi a Apache Hadoop cluster in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/31/2019
-ms.openlocfilehash: 6c2e2c7395fcc45fe74c50beb3624eabb1d395c9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 0c8fdf11f435cc459dfb8475f8983b29dfbc5d9f
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828020"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810563"
 ---
 # <a name="scenario-unable-to-add-nodes-to-azure-hdinsight-cluster"></a>Scenario: Non è possibile aggiungere nodi al cluster Azure HDInsight
 

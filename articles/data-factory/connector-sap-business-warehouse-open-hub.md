@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: d82f843cb5cdd7b910c734f26a93144374061b74
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: cfe2767b3725378bc88fe97203c7f1622558aa39
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274506"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813543"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
 
@@ -177,7 +177,7 @@ Per copiare dati da SAP BW Hub aperto, nella sezione **origine** dell'attività 
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **SapOpenHubSource**. | Yes |
+| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **SapOpenHubSource**. | Sì |
 | excludeLastRequest | Se escludere i record dell'ultima richiesta. | No (il valore predefinito è **true**) |
 | baseRequestId | L'ID della richiesta per il caricamento differenziale. Una volta impostata questa proprietà, verranno recuperati solo i dati con requestId **maggiore** del valore di questa proprietà.  | No |
 

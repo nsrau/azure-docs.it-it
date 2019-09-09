@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 7664c2f4fd08e06b51734b5508871b67d1a1b7c9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 20e5e23e2000095a95913964673ce90a72b87e59
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231398"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813536"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiare dati da Netezza usando Azure Data Factory
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Netezza. L'articolo è basato su [Attività di copia in Azure Data Factory](copy-activity-overview.md), dove viene presentata una panoramica generale dell'attività di copia.
+
+>[!TIP]
+>Per lo scenario di migrazione dei dati da Netezza ad Azure, vedere l'articolo relativo [all'uso di Azure Data Factory per eseguire la migrazione dei dati dal server Netezza locale ad Azure](data-migration-guidance-netezza-azure-sqldw.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -47,7 +50,7 @@ Per il servizio collegato Netezza sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** deve essere impostata su **Netezza**. | Sì |
+| type | La proprietà **type** deve essere impostata su **Netezza**. | Yes |
 | connectionString | Stringa di connessione ODBC per la connessione a Netezza. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `pwd` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
@@ -118,7 +121,7 @@ Per copiare dati da Netezza, impostare la proprietà **type** del set di dati su
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **NetezzaTable** | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **NetezzaTable** | Yes |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
 | tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
@@ -154,9 +157,9 @@ Per copiare dati da Netezza, impostare il tipo di **origine** nell'attività di 
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **NetezzaSource**. | Yes |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **NetezzaSource**. | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Esempio: `"SELECT * FROM MyTable"` | No (se nel set di dati è specificato "tableName") |
-| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Netezza. <br>Consenti valori: **Nessuna** (impostazione predefinita) , dataslice e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None`), il grado di parallelismo per caricare simultaneamente i dati da un database Netezza viene controllato impostando [`parallelCopies`](copy-activity-performance.md#parallel-copy) sull'attività di copia. | No |
+| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Netezza. <br>Consenti valori: **Nessuna** (impostazione predefinita), **dataslice** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None`), il grado di parallelismo per caricare simultaneamente i dati da un database Netezza viene controllato impostando [`parallelCopies`](copy-activity-performance.md#parallel-copy) sull'attività di copia. | No |
 | partitionSettings | Consente di specificare il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition `None`non è. | No |
 | partitionColumnName | Specificare il nome della colonna di origine **nel tipo Integer** che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, la chiave primaria della tabella viene rilevata automaticamente e utilizzata come colonna della partizione. <br>Applicare quando l'opzione di partizione `DynamicRange`è. Se si utilizza una query per recuperare i dati di origine, `?AdfRangePartitionColumnName` associare la clausola WHERE. Vedere l'esempio nella sezione [copia parallela da Netezza](#parallel-copy-from-netezza) . | No |
 | partitionUpperBound | Valore massimo della colonna di partizione in cui copiare i dati. <br>Applica quando l'opzione di `DynamicRange`partizione è. Se si utilizza query per recuperare i dati di origine `?AdfRangePartitionUpbound` , associare la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Netezza](#parallel-copy-from-netezza) . | No |

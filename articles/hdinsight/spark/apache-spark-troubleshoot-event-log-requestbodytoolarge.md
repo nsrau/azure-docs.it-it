@@ -6,14 +6,14 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: 92e9e41d5829e10bc0130d209249301d78f1b5d3
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 081131a0e0eca63f7cefb8c784c43cc54d2ac3e6
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736325"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813965"
 ---
-# <a name="scenario-nativeazurefilesystem--requestbodytoolarge-appears-in-log-for-apache-spark-streaming-app-in-azure-hdinsight"></a>Scenario: "NativeAzureFileSystem ... RequestBodyTooLarge "viene visualizzato nel log per l'app Apache Spark streaming in Azure HDInsight
+# <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem... RequestBodyTooLarge "viene visualizzato nel registro applicazioni di Apache Spark streaming in HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi relativi all'uso di Apache Spark componenti nei cluster HDInsight di Azure.
 

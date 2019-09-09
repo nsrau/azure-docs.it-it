@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: b9d853cc0de08b64f2e0f5530e153724d9eeddda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2c8983b5d6a44834d0c9659877c857fd73805ce6
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277087"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812316"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -87,6 +87,9 @@ Per usare `escapeChar` invece di `quoteChar`, sostituire la riga con `quoteChar`
 * Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non contengono né dati né un'intestazione. Specificare `skipLineCount` per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è anche possibile specificare `firstRowAsHeader`. Se sono specificati sia `skipLineCount` che `firstRowAsHeader`, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input.
 
 ## <a name="json-format"></a>Formato JSON
+
+>[!NOTE]
+>Data Factory introdotto un nuovo set di dati in formato JSON, vedere l'articolo [JSON](format-json.md) con i dettagli. Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
 
 Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB**, vedere la sezione relativa all'importazione/esportazione di documenti JSON nell'articolo [Move data to/from Azure Cosmos DB (Spostare dati da e verso Azure Cosmos DB)](connector-azure-cosmos-db.md).
 

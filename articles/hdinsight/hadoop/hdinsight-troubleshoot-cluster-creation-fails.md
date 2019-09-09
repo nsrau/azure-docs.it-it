@@ -1,6 +1,6 @@
 ---
 title: Risolvere gli errori di creazione del cluster con Azure HDInsight
-description: Informazioni su come risolvere i problemi di creazione del cluster per Azure HDInsight.
+description: Informazioni su come risolvere i problemi di creazione del cluster Apache per Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
-ms.openlocfilehash: 84dc0115edcab07036b43d5fa19310918f7a2408
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 607eacc531166d9d770f31cc64825e8ffea9ca76
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035974"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810669"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Risolvere gli errori di creazione del cluster con Azure HDInsight
 
@@ -29,7 +29,7 @@ I problemi seguenti sono le cause principali più comuni per gli errori di creaz
 
 ## <a name="permissions-issues"></a>Problemi con le autorizzazioni
 
-Se si usa Azure Data Lake storage Gen2 e si riceve l'errore ```AmbariClusterCreationFailedErrorCode```, ```Internal server error occurred while processing the request. Please retry the request or contact support.```aprire il portale di Azure, passare all'account di archiviazione e in controllo di accesso (IAM) assicurarsi che il collaboratore **dati BLOB di archiviazione** o il BLOB di **archiviazione Il ruolo proprietario dati** ha assegnato l'accesso all' **identità gestita assegnata dall'utente** per la sottoscrizione. Per istruzioni dettagliate, vedere [configurare le autorizzazioni per l'identità gestita nell'account data Lake storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) .
+Se si usa Azure Data Lake storage Gen2 e si riceve l'errore ```AmbariClusterCreationFailedErrorCode```, ```Internal server error occurred while processing the request. Please retry the request or contact support.```aprire il portale di Azure, passare all'account di archiviazione e in controllo di accesso (IAM) assicurarsi che il **collaboratore dati BLOB di archiviazione** o il BLOB di **archiviazione Il ruolo proprietario dati** ha assegnato l'accesso all' **identità gestita assegnata dall'utente** per la sottoscrizione. Per istruzioni dettagliate, vedere come [Configurare le autorizzazioni per l'identità gestita nell'account Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
 
 Se si usa Azure Data Lake Storage Gen1, vedere le istruzioni per l'installazione e la configurazione [qui](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen1 non è supportato per i cluster HBase e non è supportato nella versione 4,0 di HDInsight.
 

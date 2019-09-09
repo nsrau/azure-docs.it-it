@@ -1,9 +1,9 @@
 ---
-title: Verificare l'accesso ai ruoli di Azure AD PIM - Azure Active Directory | Microsoft Docs
+title: Verificare l'accesso ai ruoli di Azure AD in PIM-Azure Active Directory | Microsoft Docs
 description: Informazioni su come verificare l'accesso dei ruoli di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 06/21/2018
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3850af026ea13e1920aea65e18358ebb04ef0d25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3bd548041b086eef8d788a696497163c756fd5b7
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65140975"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804416"
 ---
-# <a name="review-access-to-azure-ad-roles-in-pim"></a>Verificare l'accesso ai ruoli di Azure AD PIM
+# <a name="review-access-to-azure-ad-roles-in-pim"></a>Verificare l'accesso ai ruoli Azure AD in PIM
 
-Azure Active Directory (AD) Privileged Identity Management (PIM) semplifica come le aziende gestiscono l'accesso con privilegi alle risorse di Azure AD e altri Microsoft online services come Office 365 o Microsoft Intune.  
+Azure Active Directory (AD) Privileged Identity Management (PIM) semplifica il modo in cui le aziende gestiscono l'accesso con privilegi alle risorse in Azure AD e in altri Servizi online Microsoft, ad esempio Office 365 o Microsoft Intune.  
 
 Se si è stati assegnati a un ruolo amministrativo, è possibile che l'amministratore dei ruoli con privilegi dell'organizzazione richieda di confermare a intervalli regolari che il ruolo sia ancora necessario. È possibile che si riceva un messaggio di posta elettronica contenente un collegamento oppure accedere direttamente al [portale di Azure](https://portal.azure.com). Per eseguire una verifica automatica dei ruoli assegnati, seguire la procedura descritta in questo articolo.
 

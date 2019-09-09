@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: f864384dd5b86420fd9edf446b2573421a05f807
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 84dff3c4948109654cf08fa1390ac4e6bf2717dc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801516"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812151"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -133,7 +133,7 @@ Le **aree di Azure locali** sono quelle che possono accedere a [ExpressRoute loc
 | **Tokyo** | [TY4 Equinix](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | Giappone orientale | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | Canada centrale | AL & T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX REACH Megaport, Telus, Verizon, Zayo |
 | **Washington DC** | [DC2 Equinix](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | Stati Uniti orientali, Stati Uniti orientali 2 | Aryaka Networks, AT & T NetBond, British Telecom, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Equinix, Internet2, intercloud, Level 3 Communications, Megaport, Neutronia Networks, NTT Communications, Orange, PacketFabric, SES, Sprint, tata Comunicazioni, Telia Carrier, Verizon, Zayo |
-| **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | Stati Uniti orientali, Stati Uniti orientali 2 |Coresite, Viasat | 
+| **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | Stati Uniti orientali, Stati Uniti orientali 2 |Coresite, Viasat, Zayo | 
 | **Zurigo** | [ZUR2 Interxion](https://www.interxion.com/Locations/zurich/) | n/d | Intercloud, Interxion |
 
  **+** indica disponibile a breve
@@ -184,6 +184,13 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
   * Assicurarsi che il provider di connettività estenda la connettività con disponibilità elevata, in modo che non siano presenti singoli punti di errore.
 * Ordinare a un circuito ExpressRoute con scambio come provider di connettività di connettersi a Microsoft.
   * Per configurare la connettività, eseguire la procedura illustrata in [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) .
+
+## <a name="connectivity-through-satellite-operators"></a>Connettività tramite operatori satellite
+Se si è in modalità remota e non si dispone di connettività Fiber o si desidera esplorare altre opzioni di connettività, è possibile controllare gli operatori satellite seguenti. 
+
+* Intelsat
+* SES
+* Viasat
 
 ## <a name="c1partners"></a>Connettività tramite provider di servizi aggiuntivi
 | **Location** | **Exchange** | **Provider di connettività** |

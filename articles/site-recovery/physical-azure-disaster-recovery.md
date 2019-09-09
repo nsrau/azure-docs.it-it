@@ -1,25 +1,25 @@
 ---
-title: Configurare il ripristino di emergenza in Azure per server fisici locali con Azure Site Recovery | Microsoft Docs
+title: Configurare il ripristino di emergenza in Azure per server fisici locali con Azure Site Recovery
 description: Informazioni su come configurare il ripristino di emergenza in Azure per server Windows e Linux locali con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: c3b9aa6fcf5cf96e3ef1f3bdd76e9f1d19be5c5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55b375c1e98518a6c3bc2926030cfe072963216c
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400111"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814547"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
 
-In questa esercitazione viene illustrato come configurare il ripristino di emergenza per server Windows e Linux fisici locali in Azure. In questa esercitazione si apprenderà come:
+In questa esercitazione viene illustrato come configurare il ripristino di emergenza per server Windows e Linux fisici locali in Azure. In questa esercitazione si imparerà a:
 
 > [!div class="checklist"]
 > * Configurare i prerequisiti locali e di Azure
@@ -163,7 +163,7 @@ Selezionare e verificare le risorse di destinazione.
 
 I criteri vengono automaticamente associati al server di configurazione. Per impostazione predefinita vengono creati automaticamente criteri corrispondenti per il failback. Se, ad esempio, il criterio di replica è **rep-policy**, il criterio di failback creato sarà **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.
 
-## <a name="enable-replication"></a>Abilitare la replica
+## <a name="enable-replication"></a>Abilita replica
 
 Abilitare la replica per ogni server.
 

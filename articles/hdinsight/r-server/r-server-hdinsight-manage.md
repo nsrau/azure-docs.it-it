@@ -1,6 +1,6 @@
 ---
 title: Gestire cluster ML Services in Azure HDInsight - Azure
-description: Informazioni su come gestire un cluster ML Services in Azure HDInsight.
+description: Informazioni su come gestire varie attività nel cluster di servizi ML in Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,20 +8,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: fa838f371607f3c0b0f76f81d6755c842a5901f7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 568c4324f3b542e2b913596c1d93ffb72bbbaec7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448967"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814254"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gestire cluster ML Services in Azure HDInsight
 
-In questo articolo descrive come gestire un cluster esistente di servizi di Machine Learning in Azure HDInsight per eseguire attività quali l'aggiunta di più utenti simultanei, la connessione remota a un cluster di servizi di Machine Learning, la modifica di contesto di calcolo e così via.
+Questo articolo illustra come gestire un cluster di servizi di gestione delle risorse di Azure esistente in Azure HDInsight per eseguire attività quali l'aggiunta di più utenti simultanei, la connessione remota a un cluster di ML Services, la modifica del contesto di calcolo e così via.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster di servizi di Machine Learning in HDInsight. Visualizzare [creare Apache cluster Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **servizi ML** per **tipo di Cluster**.
+* Un cluster ML Services in HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
 
 
 * Un client Secure Shell (SSH): il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -108,7 +108,7 @@ Per altre informazioni, vedere la sezione "Using Microsoft Machine Learning Serv
 
 ## <a name="use-a-compute-context"></a>Usare un contesto di calcolo
 
-Un contesto di calcolo consente di controllare se il calcolo viene eseguito localmente sul nodo perimetrale o distribuito sui nodi del cluster HDInsight.  Per un esempio di impostazione di un contesto di calcolo con RStudio Server, vedere [eseguire uno script R in un cluster di servizi di Machine Learning in Azure HDInsight usando RStudio Server](machine-learning-services-quickstart-job-rstudio.md).
+Un contesto di calcolo consente di controllare se il calcolo viene eseguito localmente sul nodo perimetrale o distribuito sui nodi del cluster HDInsight.  Per un esempio di impostazione di un contesto di calcolo con il server RStudio, vedere [eseguire uno script R in un cluster di servizi ml in Azure HDInsight usando rstudio server](machine-learning-services-quickstart-job-rstudio.md).
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuire il codice R su più nodi
 

@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 98b97abf9fe0d8e71f93022dcbfeff0a5339d5a1
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 068dc76112db39ad8db118062656013e20cfc2ab
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983074"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811665"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrare Apache Spark e Apache Hive con il connettore del warehouse di hive
 
@@ -229,10 +229,10 @@ Attenersi alla procedura seguente per creare un esempio di connettore del wareho
 1. Applicare un criterio di mascheramento delle colonne che mostra solo gli ultimi quattro caratteri della colonna.  
     1. Passare all'interfaccia utente di amministrazione di `https://CLUSTERNAME.azurehdinsight.net/ranger/`Ranger all'indirizzo.
     1. Fare clic sul servizio Hive per il cluster in **hive**.
-        ![tabella demo prima di applicare i criteri Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. Fare clic sulla scheda **maschera** e quindi su **Aggiungi** ![nuovo elenco criteri criteri](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+        ![gestore del servizio Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+    1. Fare clic sulla scheda **maschera** e quindi su **Aggiungi nuovo** ![elenco criteri Hive criteri](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
     1. Specificare un nome di criterio desiderato. Selezione database: **Predefinita**, tabella hive: **demo**, colonna hive: **nome**, utente: **rsadmin2**, tipi di accesso: **selezione**e **maschera parziale: Mostra ultimi 4** dal menu **Opzioni di selezione maschera** . Fare clic su **Aggiungi**.
-                ![elenco criteri](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                ![Crea criterio](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Visualizzare di nuovo il contenuto della tabella. Dopo aver applicato i criteri Ranger, è possibile visualizzare solo gli ultimi quattro caratteri della colonna.
 
     ![tabella demo dopo l'applicazione dei criteri Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

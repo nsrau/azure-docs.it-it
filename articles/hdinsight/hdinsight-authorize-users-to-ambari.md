@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: hrasheed
-ms.openlocfilehash: 28f30270ab0a6c057ee583ccebc2a8540980c6cc
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f5052d7e35c3d1c81a3d958bd6e340b9a6a5a244
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442182"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810689"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizzare gli utenti per le visualizzazioni di Apache Ambari
 
@@ -97,7 +97,7 @@ Per gestire i ruoli, andare alla **pagina di gestione di Ambari** e quindi selez
 
 Per visualizzare l'elenco delle autorizzazioni assegnate a ogni ruolo, fare clic sul punto interrogativo blu accanto all'intestazione di tabella **Roles** (Ruoli) nella pagina relativa.
 
-![Collegamento nel menu dei ruoli](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
+![Autorizzazioni collegamento menu ruoli](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png "Autorizzazioni collegamento menu ruoli")
 
 In questa pagina sono disponibili due viste diverse che consentono di gestire i ruoli per gli utenti e gruppi, ovvero Block (Blocco) e List (Elenco).
 

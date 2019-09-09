@@ -1,6 +1,6 @@
 ---
 title: Spark Streaming in Azure HDInsight
-description: Come usare applicazioni Spark Streaming in cluster HDInsight Spark.
+description: Come usare Apache Spark lo streaming di applicazioni in cluster HDInsight Spark.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 19d77d4aa49008232a01cd3ac2761a796505a35c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f990e5eb2761f1743c2731f499ecc341990edf53
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712004"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813986"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Panoramica di Apache Spark Streaming
 
@@ -89,7 +89,7 @@ Eseguire il push dei risultati delle trasformazioni nei sistemi di destinazione 
 wordCounts.print()
 ```
 
-### <a name="run-the-application"></a>Eseguire l'applicazione
+### <a name="run-the-application"></a>Esecuzione dell'applicazione
 
 Avviare l'applicazione di streaming e proseguire l'esecuzione fino a quando non si riceve un segnale di arresto.
 
@@ -145,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-Attendere circa 30 secondi dopo l'avvio dell'applicazione precedente.  Quindi, è possibile recuperare il DataFrame periodicamente per visualizzare il set corrente di valori presenti nel batch, ad esempio usando questa query SQL:
+Attendere circa 30 secondi dopo l'avvio dell'applicazione.  Quindi, è possibile eseguire periodicamente una query sul frame di dataframe per visualizzare il set di valori corrente presente nel batch, ad esempio usando questa query SQL:
 
 ```sql
 %%sql

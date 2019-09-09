@@ -1,19 +1,18 @@
 ---
-title: Eseguire un'esercitazione sul ripristino di emergenza in Azure con Azure Site Recovery | Microsoft Docs
+title: Eseguire un'esercitazione sul ripristino di emergenza in Azure usando Azure Site Recovery
 description: Informazioni su come eseguire un'esercitazione sul ripristino di emergenza dall'ambiente locale ad Azure usando il servizio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 67cbd37becb1fe87a7f4f554f574b6e5219c9243
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8342f60d8a0f91cc4807d25307510c1cbe7ee5c8
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399943"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814364"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure 
 
@@ -42,7 +41,7 @@ Questa procedura descrive come eseguire un failover di test per un piano di ripr
     - Site Recovery tenta di creare le macchine virtuali di test in una subnet con lo stesso nome e con lo stesso indirizzo IP specificati nelle impostazioni **Calcolo e rete** della macchina virtuale.
     - Se nella rete virtuale di Azure specificata per il failover di test non è disponibile una subnet con lo stesso nome, la macchina virtuale di test verrà creata nella prima subnet in ordine alfabetico.
     - Se nella subnet non è disponibile lo stesso indirizzo IP, la macchina virtuale ottiene un altro indirizzo IP disponibile nella subnet. [Altre informazioni](#create-a-network-for-test-failover)
-4. Se si esegue il failover in Azure ed è abilitata la crittografia dei dati, in **Chiave di crittografia** selezionare il certificato rilasciato quando è stata abilitata la crittografia durante l'installazione del provider. È possibile ignorare questo passaggio se non è abilitata la crittografia.
+4. Se si esegue il failover in Azure ed è abilitata la crittografia dei dati, in **Chiave di crittografia** selezionare il certificato rilasciato quando è stata abilitata la crittografia durante l'installazione del provider. Se la crittografia non è abilitata, è possibile ignorare questo passaggio.
 5. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi** . Nel portale di Azure dovrebbe anche essere possibile vedere la macchina di replica di test.
 6. Per avviare una connessione RDP nella macchina virtuale di Azure, è necessario [aggiungere un indirizzo IP pubblico](https://aka.ms/addpublicip) nell'interfaccia di rete della macchina virtuale sottoposta a failover.
 7. Quando tutto funziona come previsto, fare clic su **Pulisci failover di test**. Verranno eliminate le VM create durante il failover di test.

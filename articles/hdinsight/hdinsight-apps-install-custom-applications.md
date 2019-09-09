@@ -1,6 +1,6 @@
 ---
 title: Installare applicazioni Apache Hadoop personalizzate in Azure HDInsight
-description: Informazioni su come installare applicazioni HDInsight in applicazioni HDInsight.
+description: Informazioni su come installare applicazioni HDInsight per cluster Apache Hadoop in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5fbee86f09246684a0e553114e367907ddabfa16
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 22a2eddcd94f6082d248450d825c5ba12b31571e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445493"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810353"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop personalizzate in Azure HDInsight
 
@@ -107,7 +107,7 @@ Le applicazioni HDInsight possono essere rimosse in diversi modi.
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Cluster HDInsight** nel menu a sinistra.  Se non è visualizzato, fare clic su **Esplora** e quindi su **Cluster HDInsight**.
 3. Fare clic sul cluster in cui è stata installata l'applicazione.
-4. Nel pannello **Impostazioni** fare clic su **Applicazioni** nella categoria **Generale**. Verrà visualizzato un elenco di applicazioni installate. In questo articolo **hue** elencati nel **App installate** pannello.
+4. Nel pannello **Impostazioni** fare clic su **Applicazioni** nella categoria **Generale**. Verrà visualizzato un elenco di applicazioni installate. Per questo articolo, **Hue** è elencato nel pannello **app installate** .
 5. Fare clic con il pulsante destro del mouse sull'applicazione da rimuovere e quindi scegliere **Elimina**.
 6. Fare clic su **Sì** per confermare.
 

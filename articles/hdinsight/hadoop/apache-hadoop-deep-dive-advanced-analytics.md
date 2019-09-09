@@ -1,6 +1,6 @@
 ---
 title: Approfondimento - Analisi avanzata - Azure HDInsight
-description: Informazioni sull'uso degli algoritmi da parte dell'analisi avanzata per elaborare i Big Data.
+description: Informazioni su come Advanced Analytics usa gli algoritmi per elaborare Big Data in Azure HDInsight.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ac0edf2de4337154b665b8f3898134a7c2fd1f4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 973ac928900cc02f176931ffa3865c2997e552f2
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712405"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810841"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondimento - Analisi avanzata
 
@@ -43,7 +43,7 @@ Insieme alla selezione degli algoritmi più adatti, è necessario considerare se
 * Rinforzo: l'algoritmo usa agenti software per determinare il comportamento ideale in un contesto specifico (tecnica spesso usata in robotica)
 
 
-| Categoria algoritmo| Uso | Tipo di apprendimento | Algoritmi |
+| Categoria algoritmo| Utilizzo | Tipo di apprendimento | Algoritmi |
 | --- | --- | --- | -- |
 | classificazione | Classificare oggetti o persone in gruppi | Supervisionato | Alberi delle decisioni, regressione logistica, reti neurali |
 | Clustering | Dividere un set di esempi in gruppi omogenei | Non supervisionato | Clustering K-Means |

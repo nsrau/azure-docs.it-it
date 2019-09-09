@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: e35e86bee4dfee21d0a98867c3e0d1d7850ed0ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1255296854fd28cca4427b6cac04de7dc7919d8
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762000"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810907"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Connettere Excel ad Apache Hadoop mediante Power Query
 Una funzionalità chiave della soluzione Big Data di Microsoft è l'integrazione dei componenti di business intelligence (BI) Microsoft con i cluster Apache Hadoop in Azure HDInsight. Un esempio importante è la possibilità di connettere Excel all'account di Archiviazione di Azure che contiene i dati associati al cluster Hadoop usando il componente aggiuntivo Microsoft Power Query per Excel. Questo articolo illustra come configurare e usare Power Query per eseguire una query sui dati associati a un cluster Hadoop gestito con HDInsight.
@@ -28,7 +28,7 @@ Per eseguire le procedure descritte nell'articolo sono necessari gli elementi se
 ## <a name="install-power-query"></a>Installare Power Query
 Power Query consente di importare dati derivati o generati da un processo Hadoop in esecuzione su un cluster HDInsight.
 
-In Excel 2016, Power Query è stata integrata nella barra multifunzione Dati nella sezione Get & Transform (Recupera e trasforma). Per le versioni meno recenti di Excel, scaricare Microsoft Power Query per Excel dall'[Area download Microsoft][powerquery-download] e installarlo.
+In Excel 2016, Power Query è stata integrata nella barra multifunzione Dati nella sezione Get & Transform (Recupera e trasforma). Per le versioni precedenti di Excel, scaricare Microsoft Power Query per Excel dall' [area download Microsoft][powerquery-download] e installarlo.
 
 ## <a name="import-hdinsight-data-into-excel"></a>Importare dati di HDInsight in Excel
 Il componente aggiuntivo Power Query per Excel consente di importare facilmente dati dal cluster HDInsight in Excel dove strumenti BI quali PowerPivot e Power Map possono essere usati per esaminare, analizzare e presentare i dati.
@@ -43,7 +43,7 @@ Il componente aggiuntivo Power Query per Excel consente di importare facilmente 
 
      - Fare clic sul menu **Dati**, fare clic su **Ottieni dati** della barra multifunzione **Get & Transform Data** (Recupera e trasforma i dati), quindi su **From Azure** (Da Azure) e quindi fare clic su **From Azure HDInsight(HDFS)** (Da Azure HDInsight (HDFS)).
 
-       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+       ![HDI. PowerQuery. SelectHdiSource. 2016](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
    - Excel 2013/2010
 
@@ -51,7 +51,7 @@ Il componente aggiuntivo Power Query per Excel consente di importare facilmente 
    
        ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-       **Nota:** Se non viene visualizzato il **Power Query** menu, passa alla **File** > **opzioni** > **Add-ins**e selezionare  **Componenti aggiuntivi COM** dall'elenco a discesa **Gestisci** nella parte inferiore della pagina. Fare clic sul pulsante **Vai** e verificare che la casella per il componente aggiuntivo Power Query per Excel sia selezionata.
+       **Nota:** Se non viene visualizzato il menu **Power query** , passare a **file** > **Opzioni** > **componenti**aggiuntivi e selezionare componenti aggiuntivi **com** dalla casella di riepilogo a **discesa nella parte** inferiore della pagina. Fare clic sul pulsante **Vai** e verificare che la casella per il componente aggiuntivo Power Query per Excel sia selezionata.
        
        **Nota:** Power Query consente inoltre di importare dati da HDFS facendo clic su **Da altre origini**.
 4. Per **Nome account** immettere il nome dell'account di archiviazione BLOB di Azure associato al cluster, quindi fare clic su **OK**. Questo account può essere l'account di archiviazione predefinito o un account di archiviazione collegato.  Il formato è *https://&lt;StorageAccountName>.blob.core.windows.net/* .

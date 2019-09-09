@@ -1,17 +1,17 @@
 ---
 title: Il HDFS locale è bloccato in modalità provvisoria nel cluster Azure HDInsight
-description: Il HDFS locale è bloccato in modalità provvisoria nel cluster Azure HDInsight
+description: Risolvere i problemi di Apache HDFS bloccati in modalità provvisoria nel cluster Apache in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/14/2019
-ms.openlocfilehash: e0fbb93e11c170f80620ac9b1e895650752ad638
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 4c97700fa69c2f2ae235308063ee431a8dbfcbfd
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511366"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810708"
 ---
 # <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Scenario: Il HDFS locale è bloccato in modalità provvisoria nel cluster Azure HDInsight
 

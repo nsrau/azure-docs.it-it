@@ -1,6 +1,6 @@
 ---
 title: 'Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima) '
-description: Istruzioni dettagliate su come usare gli strumenti HDInsight in Azure Toolkit for IntelliJ per eseguire il debug remoto di applicazioni in cluster di HDInsight tramite SSH
+description: Indicazioni sull'uso degli strumenti HDInsight in Azure Toolkit for IntelliJ per eseguire il debug delle applicazioni
 keywords: eseguire debug remoto di intellij, debug remoto di intellij, ssh, intellij, hdinsight, debug di intellij, debug
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: aff9f0f70377ebc6e741618b22ff82bc06251521
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a07dcd58263674aa6fd360e138c0b9c999ea644e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295903"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814137"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima)
 
@@ -83,7 +83,7 @@ Creare un'applicazione Spark scala/Java, quindi eseguire l'applicazione in un cl
 
 6. È possibile controllare l'ID applicazione dalla finestra output.
    
-   ![Pulsante di esecuzione remota](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)   
+   ![Risultato dell'esecuzione remota](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)   
 
 ## <a name="download-failed-job-profile"></a>Download profilo processo non riuscito
 
@@ -91,9 +91,9 @@ Se l'invio del processo ha esito negativo, è possibile scaricare il profilo del
 
 1. Aprire **Microsoft Azure Storage Explorer**, individuare l'account HDInsight del cluster per il processo non riuscito, scaricare le risorse del processo non riuscite dal percorso corrispondente: **\hdp\spark2-Events\\. Spark\\ -erroriID\<applicazione >** a una cartella locale. La finestra **attività** indicherà lo stato del download.
 
-   ![Scarica file non riuscito](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
+   ![errore di download file1](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
-   ![Scarica file non riuscito](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)   
+   ![errore di download file2](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)   
 
 ## <a name="configure-local-debugging-environment-and-debug-on-failure"></a>Configurare l'ambiente di debug locale ed eseguire il debug in caso di errore
 
@@ -101,13 +101,13 @@ Se l'invio del processo ha esito negativo, è possibile scaricare il profilo del
 
 2. In IntelliJ IDEA creare un file di configurazione di **debug di errore Spark** , selezionare il file FTD dal campo risorse processo non riuscito scaricato in precedenza per il campo **percorso del contesto di errore del processo Spark** .
    
-   ![Pulsante di esecuzione remota](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
+   ![configurazione degli errori di Crete](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
 
 4. Fare clic sul pulsante Esegui locale sulla barra degli strumenti. l'errore verrà visualizzato nella finestra Esegui.
    
-   ![Pulsante di esecuzione remota](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
+   ![esecuzione-errore-Configuration1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
 
-   ![Pulsante di esecuzione remota](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
+   ![esecuzione-errore-Configuration2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
 
 5. Impostare punto di rottura come indicato nel log, quindi fare clic sul pulsante debug locale per eseguire il debug locale esattamente come i normali progetti scala/Java in IntelliJ.
 

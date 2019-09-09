@@ -1,18 +1,18 @@
 ---
 title: Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
-description: Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
+description: Usare caffe in Apache Spark per l'apprendimento avanzato distribuito in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: d0d68263485c5ab6e57a349317b1975862470cc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31911c6c2456ab8b4949bab6ef8e541b91fc8a2c
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721508"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814189"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito
 
@@ -175,7 +175,7 @@ Poiché in questo esempio si usa la CPU invece della GPU, è consigliabile modif
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Configurazione di Caffe](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Caffe config1](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
 
 È possibile modificare le altre righe in base alle esigenze.
 
@@ -184,7 +184,7 @@ Il secondo file (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) defini
 - Modificare "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" in "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb".
 - Modificare "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" in "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb".
 
-![Configurazione di Caffe](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Caffe config2](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
 Per altre informazioni su come definire la rete, consultare la [documentazione di Caffe sul set di dati MNIST](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
@@ -284,7 +284,7 @@ I risultati avranno un aspetto simile al seguente:
 SampleID rappresenta l'ID nel set di dati MNIST e l'etichetta è il numero identificato dal modello.
 
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Questo documento ha illustrato come installare CaffeOnSpark tramite l'esecuzione di un semplice esempio. HDInsight è una piattaforma cloud di calcolo distribuito completamente gestita. È la soluzione ideale per l'esecuzione di carichi di lavoro di apprendimento automatico e analisi avanzata in set di dati di grandi dimensioni, nonché per l'apprendimento avanzato distribuito. Per l'esecuzione di attività di apprendimento avanzato è possibile usare Caffe in HDInsight Spark.
 

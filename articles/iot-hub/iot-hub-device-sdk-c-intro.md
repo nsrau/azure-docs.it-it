@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
-ms.openlocfilehash: 1c1921391048fc59f03070d4753f422d9cfc5237
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dd12f974b9b02d919752dcb932c9ce1709d7315b
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883472"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813784"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT SDK per dispositivi per C
 
@@ -137,7 +137,7 @@ Questa soluzione contiene un singolo progetto. In questa soluzione sono installa
 
 Il pacchetto **Microsoft.Azure.C.SharedUtility** è sempre necessario quando si usa l'SDK. Questo esempio usa il protocollo MQTT, quindi è necessario includere i pacchetti **Microsoft.Azure.umqtt** e **Microsoft.Azure.IoTHub.MqttTransport**. Sono disponibili pacchetti equivalenti per AMQP e HTTPS. L'esempio usa la libreria **IoTHubClient**, quindi è necessario includere il pacchetto **Microsoft.Azure.IoTHub.IoTHubClient** nella soluzione.
 
-È possibile trovare l'implementazione per l'applicazione di esempio nel file di origine **\_iothub_convenience_sample di iothub_client Samples.\_**
+È possibile trovare l'implementazione per l'applicazione di esempio nel file di origine **iothub_convenience_sample di\_iothub_client Samples\_** .
 
 I passaggi seguenti usano questa applicazione di esempio per illustrare i requisiti per l'uso della libreria **IoTHubClient**.
 
@@ -217,7 +217,7 @@ Ogni volta che si invia un messaggio, si specifica un riferimento a una funzione
 static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
 {
     EVENT_INSTANCE* eventInstance = (EVENT_INSTANCE*)userContextCallback;
-    (void)printf("Confirmation[%d] received for message tracking id = %zu with result = %s\r\n", callbackCounter, eventInstance->messageTrackingId, ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
+    (void)printf("Confirmation[%d] received for message tracking id = %zu with result = %s\r\n", callbackCounter, eventInstance->messageTrackingId, MU_ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
     /* Some device specific action code goes here... */
     callbackCounter++;
     IoTHubMessage_Destroy(eventInstance->messageHandle);
@@ -392,7 +392,7 @@ Chiamare infine la funzione **CREATE\_MODEL\_INSTANCE**. **WeatherStation** è l
 
 ### <a name="define-the-model"></a>Definire il modello
 
-Un modello nella libreria **serializer** definisce i messaggi che il dispositivo può inviare all'hub IoT e i messaggi, chiamati *azioni* nel linguaggio di modellazione, che può ricevere. Per definire un modello, usare un set di macro C come nell'applicazione di esempio **\_iothub_client Samples\_iothub_convenience_sample** :
+Un modello nella libreria **serializer** definisce i messaggi che il dispositivo può inviare all'hub IoT e i messaggi, chiamati *azioni* nel linguaggio di modellazione, che può ricevere. Per definire un modello, usare un set di macro C come nell'applicazione di esempio **iothub_client\_Samples\_iothub_convenience_sample** :
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -475,7 +475,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 
     (void)printf("Message Id: %u Received.\r\n", messageTrackingId);
 
-    (void)printf("Result Call Back Called! Result is: %s \r\n", ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
+    (void)printf("Result Call Back Called! Result is: %s \r\n", MU_ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
 }
 ```
 

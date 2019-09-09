@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 580712c4d1815b1c994fd62be78e8d7f3f1c9a01
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605445"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809436"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usare gli strumenti Azure Data Lake per Visual Studio con Sandbox di Hortonworks
 
@@ -45,13 +45,13 @@ Assicurarsi che l'ambiente Hortonworks Sandbox sia in esecuzione. Seguire la pro
 
 3. Nella finestra di dialogo **Connect to HDInsight Emulator** (Connetti a HDInsight Emulator) immettere la password configurata per Ambari.
 
-    ![Schermata della finestra di dialogo, con casella di testo della password evidenziata](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
+    ![Screenshot della finestra di dialogo con la casella di testo password Ambari evidenziata](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
     Selezionare **Avanti** per continuare.
 
 4. Usare il campo **Password** per immettere la password configurata per l'account `root`. Mantenere i valori predefiniti per gli altri campi.
 
-    ![Schermata della finestra di dialogo, con casella di testo della password evidenziata](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
+    ![Screenshot della finestra di dialogo con la casella di testo password radice evidenziata](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
     Selezionare **Avanti** per continuare.
 
@@ -90,7 +90,7 @@ Hive fornisce un linguaggio di query simile a SQL (HiveQL) per la gestione dei d
 
     È anche possibile usare il menu a discesa accanto a **Invia** per selezionare **Avanzate**. In questo modo è possibile specificare opzioni aggiuntive durante l'invio del processo.
 
-    ![Schermata della finestra di dialogo Invia Script](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
+    ![Screenshot della finestra di dialogo Invia script hive](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
 3. Dopo aver inviato la query viene visualizzato lo stato del processo, che fornisce informazioni sul processo mentre viene elaborato da Hadoop. La voce **Stato processo** indica lo stato del processo. Anche se lo stato viene aggiornato periodicamente, è possibile usare l'icona di aggiornamento per eseguire l'operazione manualmente.
 
@@ -149,7 +149,7 @@ Mentre Hive offre un linguaggio simile a SQL per la gestione dei dati strutturat
 
     Nonostante Pig usi un linguaggio diverso rispetto a Hive, la modalità di esecuzione dei processi si mantiene coerente tra entrambi i linguaggi tramite il pulsante **Invia**. Selezionando l'elenco a discesa accanto a **Invia** viene visualizzata una finestra di dialogo di invio avanzato per Pig.
 
-    ![Schermata della finestra di dialogo Invia Script](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
+    ![Screenshot della finestra di dialogo Invia script Pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
 
 3. Anche lo stato del processo e l'output vengono visualizzati allo stesso modo di una query Hive.
 

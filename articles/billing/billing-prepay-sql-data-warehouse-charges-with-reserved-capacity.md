@@ -1,33 +1,33 @@
 ---
-title: Pagamento anticipato per addebiti SQL Data Warehouse con la capacità riservata di Azure
-description: Scopri in che modo puoi pagare in anticipo SQL Data Warehouse addebiti con capacità riservata per risparmiare denaro.
+title: Risparmio sui costi per SQL Data Warehouse addebiti con la capacità riservata di Azure
+description: Scopri come risparmiare sui costi per SQL Data Warehouse addebiti con capacità riservata per risparmiare denaro.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 381a709c74f5fcf6bb1f89f07ad84d5e3af0c5e0
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779975"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806273"
 ---
-# <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Pagamento anticipato per addebiti SQL Data Warehouse con capacità riservata
+# <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Risparmio sui costi per SQL Data Warehouse addebiti con capacità riservata
 
-È possibile risparmiare denaro con Azure SQL Data Warehouse prepagando l'utilizzo di DWU per una durata di uno o tre anni. Per acquistare SQL Data Warehouse capacità riservata, è necessario scegliere l'area di Azure e il termine. Quindi, aggiungere lo SKU di SQL Data Warehouse al carrello e scegliere la quantità di unità DWU che si desidera acquistare.
+È possibile risparmiare denaro con Azure SQL Data Warehouse eseguendo il commit di una prenotazione per l'utilizzo di DWU per una durata di uno o tre anni. Per acquistare SQL Data Warehouse capacità riservata, è necessario scegliere l'area di Azure e il termine. Aggiungi quindi lo SKU di SQL Data Warehouse al carrello e scegli la quantità di unità DWU a elevato utilizzo di calcolo da acquistare.
 
-Quando si acquista una prenotazione, l'utilizzo SQL Data Warehouse corrispondente agli attributi di prenotazione non viene più addebitato in base alle tariffe con pagamento in base al consumo.
+Quando acquisti una prenotazione, l'utilizzo di SQL Data Warehouse corrispondente agli attributi della prenotazione non viene più addebitato in base alle tariffe con pagamento in base al consumo.
 
-Una prenotazione non copre i prezzi di archiviazione o di rete associati all'utilizzo del SQL Data Warehouse.
+Una prenotazione non copre gli addebiti per risorse di archiviazione o di rete associate all'utilizzo di SQL Data Warehouse.
 
-Quando la capacità riservata scade, le istanze di SQL Data Warehouse continuano a essere eseguite, ma vengono fatturate in base alla tariffa con pagamento in base al consumo. Le prenotazioni non vengono rinnovate automaticamente.
+Allo scadere della capacità riservata, l'esecuzione delle istanze di SQL Data Warehouse continua, ma le istanze vengono addebitate in base alla tariffa con pagamento in base al consumo. Le prenotazioni non vengono rinnovate automaticamente.
 
 Per informazioni sui prezzi, vedere la [SQL data warehouse offerta di capacità riservata](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
 
-È possibile acquistare Azure SQL Data Warehouse capacità riservata nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Per acquistare capacità riservata:
+È possibile acquistare Azure SQL Data Warehouse capacità riservata nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pagare per la prenotazione [prima o con pagamenti mensili](billing-monthly-payments-reservations.md). Per acquistare capacità riservata:
 
 - È necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise o con pagamento in base al consumo.
 - Per le sottoscrizioni aziendali, l'opzione **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com/). Se l'impostazione è disabilitata, è necessario essere un amministratore EA.
@@ -45,7 +45,7 @@ Si supponga, ad esempio, che il consumo totale di SQL Data Warehouse sia DW3000c
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Selezionare **Tutti i servizi** > **Prenotazioni**.
-3. Selezionare una sottoscrizione. Usare l'elenco sottoscrizione per scegliere la sottoscrizione usata per pagare la capacità riservata. Il metodo di pagamento della sottoscrizione viene addebitato ai costi iniziali per la capacità riservata. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P).
+3. Selezionare una sottoscrizione. Usare l'elenco sottoscrizione per scegliere la sottoscrizione usata per pagare la capacità riservata. Al metodo di pagamento della sottoscrizione vengono addebitati i costi per la capacità riservata. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P).
    - Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto.
    - Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.
 4. Selezionare un ambito. Usare l'elenco ambito per scegliere un ambito di sottoscrizione.

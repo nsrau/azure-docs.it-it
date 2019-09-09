@@ -1,6 +1,6 @@
 ---
 title: Panoramica dell'apprendimento automatico - Azure HDInsight
-description: Descrive le opzioni di apprendimento automatico disponibili in HDInsight.
+description: Panoramica delle opzioni di Big Data Machine Learning per i cluster in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: ca69424ecbddc068fdaf8bb5839a647701ee27fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17615c0005a3cbc5b20cea697b4c75b5ed06ae0a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686598"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812007"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning in HDInsight
 
@@ -62,6 +62,6 @@ A sostegno del proprio impegno nel campo dell'apprendimento avanzato, Microsoft 
 
 ### <a name="deep-learning-resources"></a>Risorse sull'apprendimento avanzato
 
-* [Usare Microsoft Cognitive Toolkit modello con cluster Azure HDInsight Spark per l'apprendimento avanzato](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [Usare Microsoft Cognitive Toolkit modello di apprendimento avanzato con Azure HDInsight Spark cluster](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito](spark/apache-spark-deep-learning-caffe.md)
-* [Framework per Deep Learning e intelligenza artificiale nella macchina virtuale Data Science (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Apprendimento avanzato e Framework di intelligenza artificiale nella Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

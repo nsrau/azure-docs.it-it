@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 31738c43756da14ba6c2c92afbcb2882561c8001
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c05e72cd28c78b26b7c23a123b133d10147a4421
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722882"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810777"
 ---
-# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Usare le funzioni definite dall'utente C# con lo streaming Apache Hive e Apache Pig in Apache Hadoop in HDInsight
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Usare C# funzioni definite dall'utente con Apache hive e Apache Pig in Apache Hadoop in HDInsight
 
 Informazioni su come usare le funzioni definite dall'utente C# con Apache Hive e Apache Pig in HDInsight.
 
@@ -213,7 +213,7 @@ Per altre informazioni sulla versione del framework .NET e di Mono compresa nell
 
 ## <a name="run-an-apache-pig-job"></a>Eseguire un processo Apache Pig
 
-1. Connettersi al cluster HDInsight usando SSH. Ad esempio: `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Connettersi al cluster HDInsight usando SSH. Ad esempio `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Usare uno dei comandi seguenti per avviare la riga di comando di Pig:
 

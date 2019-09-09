@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: aebcefadf4dfdb9301a01b0b4117e8aa2e429898
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e11c6d23e93701e1608e1c444deb47c80543789e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276529"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813288"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiare dati da Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -25,7 +25,8 @@ ms.locfileid: "70276529"
 
 Questo articolo illustra come copiare dati da Amazon Simple Storage Service (Amazon S3). Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 
-Per lo scenario di migrazione dei dati da Amazon S3 ad archiviazione di Azure, vedere l'articolo relativo [all'uso di Azure Data Factory per la migrazione dei dati da Amazon S3 ad archiviazione di Azure](data-migration-guidance-s3-azure-storage.md).
+>[!TIP]
+>Per lo scenario di migrazione dei dati da Amazon S3 ad archiviazione di Azure, vedere l'articolo relativo [all'uso di Azure Data Factory per la migrazione dei dati da Amazon S3 ad archiviazione di Azure](data-migration-guidance-s3-azure-storage.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -100,12 +101,12 @@ Di seguito è fornito un esempio:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
-- Per **parquet, formato testo delimitato, avro e formato binario**, vedere la sezione [set di dati in formato binario e di testo delimitato in parquet](#format-based-dataset) .
-- Per altri formati come il **formato ORC/JSON**, vedere la sezione [altro set di dati di formato](#other-format-dataset) .
+- Per **parquet, delimitato testo, JSON, avro e formato binario**, vedere la sezione [parquet, delimitato testo, JSON, avro e formato binario set di dati](#format-based-dataset) .
+- Per altri formati come il **formato ORC**, vedere la sezione [altro set di dati del formato](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Set di dati in parquet, delimitato di testo, avro e formato binario
+### <a name="format-based-dataset"></a>Set di dati parquet, delimitato di testo, JSON, avro e Binary Format
 
-Per copiare dati da Amazon S3 in **parquet, formato testo delimitato, avro o binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) su set di dati basato su formato e impostazioni supportate. Le proprietà seguenti sono supportate per Amazon S3 in `location` impostazioni nel set di dati basato sul formato:
+Per copiare dati da Amazon S3 in **parquet, testo delimitato, JSON, avro e formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) nel set di dati basato su formato e supportato Impostazioni. Le proprietà seguenti sono supportate per Amazon S3 in `location` impostazioni nel set di dati basato sul formato:
 
 | Proprietà   | Descrizione                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -147,7 +148,7 @@ Per copiare dati da Amazon S3 in **parquet, formato testo delimitato, avro o bin
 
 ### <a name="other-format-dataset"></a>Set di dati di altri formati
 
-Per copiare dati da Amazon S3 in **formato ORC/JSON**, sono supportate le proprietà seguenti:
+Per copiare dati da Amazon S3 in **formato ORC**, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -229,12 +230,12 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 come origine
 
-- Per la copia da **parquet, testo delimitato, avro e formato binario**, vedere la sezione [parquet, testo delimitato e origine del formato binario](#format-based-source) .
-- Per eseguire la copia da altri formati come il **formato ORC/JSON**, vedere la sezione [altra origine del formato](#other-format-source) .
+- Per eseguire la copia da **parquet, testo delimitato, JSON, avro e formato binario**, vedere la sezione [parquet, delimitato testo, JSON, avro e formato binario](#format-based-source) .
+- Per eseguire la copia da altri formati come il **formato ORC**, vedere la sezione [altra origine del formato](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, delimitato testo, avro e origine formato binario
+#### <a name="format-based-source"></a>Parquet, delimitato testo, JSON, avro e origine del formato binario
 
-Per copiare i dati da Amazon S3 in **parquet, testo delimitato, avro o formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) nell'origine dell'attività di copia basata sul formato e impostazioni supportate. Le proprietà seguenti sono supportate per Amazon S3 in `storeSettings` impostazioni in origine copia basata sul formato:
+Per copiare dati da Amazon S3 in **parquet, testo delimitato, JSON, avro e formato binario**, vedere l'articolo formato [parquet](format-parquet.md), [formato testo delimitato](format-delimited-text.md), formato [avro](format-avro.md) e [formato binario](format-binary.md) nell'origine dell'attività di copia basata sul formato e impostazioni supportate. Le proprietà seguenti sono supportate per Amazon S3 in `storeSettings` impostazioni in origine copia basata sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
@@ -293,7 +294,7 @@ Per copiare i dati da Amazon S3 in **parquet, testo delimitato, avro o formato b
 
 #### <a name="other-format-source"></a>Altra origine del formato
 
-Per copiare dati da Amazon S3 in **formato ORC/JSON**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da Amazon S3 in **formato ORC**, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |

@@ -3,17 +3,17 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 08/02/2019
-ms.openlocfilehash: 5c300cb7d5416ada435811872e2cea8865e3c657
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/29/2019
+ms.openlocfilehash: 99263b7c7efee54381c9a7f624429b343dba49d0
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781252"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806076"
 ---
-# <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Pagamento anticipato per le macchine virtuali con istanze di VM riservate di Azure
+# <a name="save-costs-with-azure-reserved-vm-instances"></a>Risparmiare sui costi con le istanze di VM riservate di Azure
 
-Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istanze di macchina virtuale riservate di Azure. Lo sconto della prenotazione si applica automaticamente alle macchine virtuali in esecuzione corrispondenti all'ambito di prenotazione e agli attributi. Non è necessario assegnare una prenotazione a una macchina virtuale per ottenere gli sconti. Un acquisto di istanze riservate copre solo la parte di calcolo dell'utilizzo della VM. Per le macchine virtuali Windows, il contatore utilizzo è suddiviso in due contatori distinti. È disponibile un contatore di calcolo, che corrisponde al contatore Linux e a un contatore IP di Windows. Gli addebiti visualizzati quando si effettua l'acquisto sono solo per i costi di calcolo. Gli addebiti non includono i costi del software Windows. Per altre informazioni sui costi del software, vedere [costi software non inclusi nelle istanze di VM riservate di Azure](../articles/billing/billing-reserved-instance-windows-software-costs.md).
+Quando si esegue il commit in un'istanza di VM riservata di Azure, è possibile risparmiare denaro. Lo sconto della prenotazione si applica automaticamente alle macchine virtuali in esecuzione corrispondenti all'ambito di prenotazione e agli attributi. Non è necessario assegnare una prenotazione a una macchina virtuale per ottenere gli sconti. Un acquisto di istanze riservate copre solo la parte di calcolo dell'utilizzo della VM. Per le macchine virtuali Windows, il contatore utilizzo è suddiviso in due contatori distinti. È disponibile un contatore di calcolo, che corrisponde al contatore Linux e a un contatore IP di Windows. Gli addebiti visualizzati quando si effettua l'acquisto sono solo per i costi di calcolo. Gli addebiti non includono i costi del software Windows. Per altre informazioni sui costi del software, vedere [costi software non inclusi nelle istanze di VM riservate di Azure](../articles/billing/billing-reserved-instance-windows-software-costs.md).
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>Determinare le dimensioni corrette delle macchine virtuali prima dell'acquisto
 
@@ -80,7 +80,7 @@ Le istanze di VM riservate sono disponibili per la maggior parte delle dimension
 
 ## <a name="buy-a-reserved-vm-instance"></a>Acquistare un'istanza di macchina virtuale riservata
 
-È possibile acquistare un'istanza di macchina virtuale riservata nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
+È possibile acquistare un'istanza di macchina virtuale riservata nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pagare per la prenotazione [prima o con pagamenti mensili](../articles/billing/billing-monthly-payments-reservations.md).
 
 Questi requisiti si applicano all'acquisto di un'istanza di macchina virtuale riservata:
 
@@ -97,7 +97,7 @@ Per acquistare un'istanza:
 
 | Campo      | Descrizione|
 |------------|--------------|
-|Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o una singola sottoscrizione con tariffe con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.|    
+|Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. Al metodo di pagamento per la sottoscrizione vengono addebitati i costi per la prenotazione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o una singola sottoscrizione con tariffe con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.|    
 |Ambito       |L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>**Ambito del gruppo di risorse singolo** : applica lo sconto di prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li>**Singolo ambito di sottoscrizione** : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li>**Ambito condiviso** : applica lo sconto di prenotazione alle risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni con tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>|
 |Region    |L'area di Azure coperta dalla prenotazione.|    
 |Dimensioni macchina virtuale     |Le dimensioni delle istanze della macchina virtuale.|

@@ -1,5 +1,5 @@
 ---
-title: Usare Machine Learning per compilare e distribuire modelli di apprendimento automatico
+title: Usare l'interfaccia ML automatizzata di Azure per eseguire il training dei modelli di distribuzione &
 titleSuffix: Azure Machine Learning service
 description: Crea, Gestisci e Distribuisci esperimenti di Machine Learning automatici nel portale di Azure
 services: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: 2f6d45613120d02dd96a9fe0a14ce388d20cf0c6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0286c82c0b4378e24fa46d0327bd6a5b26037496
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990576"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813652"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici nel portale di Azure (anteprima)
 
@@ -34,7 +34,7 @@ ms.locfileid: "68990576"
 
 Passare al riquadro sinistro dell'area di lavoro. Selezionare Machine Learning automatizzati nella sezione Creazione e modifica (anteprima).
 
-![Riquadro di spostamento portale di Azure](media/how-to-create-portal-experiments/nav-pane.png)
+![Riquadro di spostamento del portale di Azure](media/how-to-create-portal-experiments/nav-pane.png)
 
  Se questa è la prima volta che si esegue un esperimento, verrà visualizzata la schermata **di benvenuto Machine Learning automatizzata** . 
 
@@ -50,16 +50,16 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
 
 1. Selezionare **Crea nuovo calcolo** per configurare il contesto di calcolo per questo esperimento.
 
-    Campo|Descrizione
+    Campo|DESCRIZIONE
     ---|---
     Nome dell'ambiente di calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
-    Dimensioni delle macchine virtuali| Selezionare le dimensioni della macchina virtuale per il calcolo.
-    Impostazioni aggiuntive| *Nodo minimo*: Immettere il numero minimo di nodi per il calcolo. Il numero minimo di nodi per il calcolo di AML è 0. Per abilitare la profilatura dei dati, è necessario disporre di uno o più nodi. <br> *Nodo massimo*: Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
+    Dimensioni delle macchine virtuali| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.
+    Impostazioni aggiuntive| *Min node* (Nodi minimi): Immettere il numero minimo di nodi per il calcolo. Il numero minimo di nodi per il calcolo di AML è 0. Per abilitare la profilatura dei dati, è necessario disporre di uno o più nodi. <br> *Max node* (Nodi max): Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
 
       Selezionare **Create**. La creazione di un nuovo calcolo può richiedere alcuni minuti.
 
       >[!NOTE]
-      > Il nome di calcolo indicherà se la profilatura del calcolo selezionato/creato è abilitata. (Per altre informazioni sul profiling dei dati, vedere 7B).
+      > Il nome di calcolo indicherà se la *profilatura*del calcolo selezionato/creato è abilitata. (Per altre informazioni sul profiling dei dati, vedere 7B).
 
 1. Selezionare un account di archiviazione per i dati. 
 
@@ -71,7 +71,7 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
     >* I dati devono essere in formato tabulare.
     >* Il valore che si desidera stimare (colonna di destinazione) deve essere presente nei dati.
 
-    [![Seleziona file di dati](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
+    [![Selezionare il file di dati](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
 1. Usare le schede anteprima e profilo per configurare ulteriormente i dati per questo esperimento.
 
@@ -95,10 +95,10 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
 
     Impostazioni avanzate|Descrizione
     ------|------
-    Metrica primaria| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche del modello](how-to-configure-auto-train.md#explore-model-metrics).
-    Criteri di uscita| Quando uno di questi criteri viene soddisfatto, il processo di training termina prima del completamento completo. <br> *Tempo del processo di training (minuti)* : Per quanto tempo consentire l'esecuzione del processo di training.  <br> *Numero massimo di iterazioni*: Numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più del numero specificato di iterazioni. <br> *Soglia Punteggio metrica*:  Punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo al processo di training del necessario.
-    Preelaborazione| Selezionare questa impostazione per abilitare o disabilitare la pre-elaborazione eseguita da Automatic Machine Learning. La pre-elaborazione include la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche. [Altre informazioni sulla pre-elaborazione](#preprocess).
-    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida](how-to-configure-auto-train.md)incrociata.
+    Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche del modello](how-to-configure-auto-train.md#explore-model-metrics).
+    Criteri uscita| Quando uno di questi criteri viene soddisfatto, il processo di training termina prima del completamento completo. <br> *Training job time (minutes)* (Durata processo di training - minuti): Per quanto tempo consentire l'esecuzione del processo di training.  <br> *Max number of iterations* (Numero max di iterazioni): Numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più del numero specificato di iterazioni. <br> *Soglia Punteggio metrica*:  Punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo al processo di training del necessario.
+    Pre-elaborazione| Selezionare questa impostazione per abilitare o disabilitare la pre-elaborazione eseguita da Automatic Machine Learning. La pre-elaborazione include la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche. [Altre informazioni sulla pre-elaborazione](#preprocess).
+    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-auto-train.md).
     Concorrenza| Selezionare i limiti multicore da usare quando si usa il calcolo multicore.
     Algoritmo bloccato| Selezionare gli algoritmi che si desidera escludere dal processo di training.
 
@@ -111,7 +111,7 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
 >[!NOTE]
 > Vengono visualizzate voci vuote per le funzionalità con tipi irrilevanti.
 
-Statistica|Descrizione
+Statistica|DESCRIZIONE
 ------|------
 Funzionalità| Nome della colonna riepilogata.
 Profilo| Visualizzazione inline basata sul tipo dedotto. Ad esempio, le stringhe, i valori booleani e le date avranno conteggi dei valori, mentre i decimali (numerici) hanno istogrammi approssimati. In questo modo è possibile acquisire una rapida conoscenza della distribuzione dei dati.
@@ -134,7 +134,7 @@ Curtosi| Misura della quantità di dati di questa colonna rispetto a una distrib
 
 Quando si configurano gli esperimenti, è possibile abilitare `Preprocess`l'impostazione avanzate. In questo modo, vengono eseguiti automaticamente i passaggi di pre-elaborazione e di conteggi dei dati seguenti.
 
-|&nbsp;Passaggi di pre-elaborazione| Descrizione |
+|&nbsp;Passaggi di pre-elaborazione| DESCRIZIONE |
 | ------------- | ------------- |
 |Eliminazione delle caratteristiche con elevata cardinalità o senza varianza|Eliminarli dai set di training e di convalida, incluse le funzionalità con tutti i valori mancanti, lo stesso valore in tutte le righe o con cardinalità estremamente elevata (ad esempio, hash, ID o GUID).|
 |Attribuire i valori mancanti|Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
@@ -150,13 +150,13 @@ Quando si configurano gli esperimenti, è possibile abilitare `Preprocess`l'impo
 
 Selezionare **Start (avvia** ) per eseguire l'esperimento. L'esperimento di preparazione del processo richiede alcuni minuti.
 
-### <a name="view-experiment-details"></a>Visualizza i dettagli dell'esperimento
+### <a name="view-experiment-details"></a>Visualizzare i dettagli sull'esperimento
 
 Al termine della fase di preparazione dell'esperimento, si noterà che la schermata dei dettagli di esecuzione inizia a popolare. Questa schermata fornisce un elenco completo dei modelli creati. Per impostazione predefinita, il modello che assegna un punteggio al più alto in base alla metrica scelta si trova nella parte superiore dell'elenco. Quando il processo di training tenta un maggior numero di modelli, questi vengono aggiunti all'elenco di iterazioni e al grafico. Usare il grafico di iterazione per ottenere un rapido confronto delle metriche per i modelli prodotti finora.
 
 Per completare l'esecuzione di ogni pipeline, i processi di training possono richiedere tempo.
 
-[![Dashboard Dettagli esecuzione](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
+[![Dashboard dei dettagli di esecuzione](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### <a name="view-training-run-details"></a>Visualizza i dettagli dell'esecuzione di training
 
@@ -177,12 +177,12 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
     + Opzione 2: Per distribuire un'iterazione del modello specifica da questo esperimento, eseguire il drill-down sul modello per aprire la pagina dei dettagli dell'esecuzione e selezionare Distribuisci modello.
 1. Popolare il riquadro **Distribuisci modello** ,
 
-    Campo| Value
+    Campo| Valore
     ----|----
     Nome distribuzione| Immettere un nome univoco per la distribuzione.
     Descrizione della distribuzione| Immettere una descrizione per identificare meglio le finalità della distribuzione.
-    Script di assegnazione dei punteggi| Generare automaticamente o caricare il proprio file di assegnazione dei punteggi. [Scopri di più sullo script di assegnazione dei punteggi](how-to-deploy-and-where.md#script)
-    Script dell'ambiente| Generare automaticamente o caricare il file dell'ambiente.
+    Scoring script (Script di assegnazione punteggi)| Generare automaticamente o caricare il proprio file di assegnazione dei punteggi. [Scopri di più sullo script di assegnazione dei punteggi](how-to-deploy-and-where.md#script)
+    Environment script (Script ambiente)| Generare automaticamente o caricare il file dell'ambiente.
     >[!Important]
     > Il nome file deve essere inferiore a 32 caratteri e deve iniziare e terminare con caratteri alfanumerici. Può includere trattini, caratteri di sottolineatura, punti e caratteri alfanumerici tra. Gli spazi non sono consentiti.
 
@@ -196,7 +196,7 @@ A questo punto si dispone di un servizio Web operativo per generare stime.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Provare l'esercitazione end-to-end [per creare il primo esperimento](tutorial-first-experiment-automated-ml.md)di Machine Learning automatizzato con Azure Machine Learning. 
-* [Scopri di più su Machine Learning](concept-automated-ml.md) e Azure Machine Learning automatizzati.
+* Provare l'esercitazione end-to-end [per creare il primo esperimento di Machine Learning automatizzato con Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
+* [Scopri di più su Machine Learning e Azure Machine Learning automatizzati](concept-automated-ml.md) .
 * [Informazioni sui risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
 * [Informazioni su come utilizzare un servizio Web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

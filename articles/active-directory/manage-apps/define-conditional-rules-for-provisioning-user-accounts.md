@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c831fc7ab1a646d41c0dc08d0e1a66380fe1232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824727"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812677"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -108,7 +108,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 13. Selezionare **Salva** nella schermata **Mapping attributi**. 
 
 >[!IMPORTANT] 
-> Il salvataggio di un nuovo filtro di ambito attiva una nuova sincronizzazione completa per l'applicazione, in cui tutti gli utenti del sistema di origine vengono nuovamente valutati rispetto al nuovo filtro di ambito. Se un utente nell'applicazione era precedentemente incluso nell'ambito per il provisioning, ma non rientra più nell'ambito, l'account verrà disabilitato o ne verrà eseguito il deprovisioning nell'applicazione.
+> Il salvataggio di un nuovo filtro di ambito attiva una nuova sincronizzazione completa per l'applicazione, in cui tutti gli utenti del sistema di origine vengono nuovamente valutati rispetto al nuovo filtro di ambito. Se un utente nell'applicazione era precedentemente incluso nell'ambito per il provisioning, ma non rientra più nell'ambito, l'account verrà disabilitato o ne verrà eseguito il deprovisioning nell'applicazione. Per eseguire l'override di questo comportamento predefinito, fare riferimento a [Ignora eliminazione per gli account utente che non rientrano nell'ambito](skip-out-of-scope-deletions.md).
 
 
 ## <a name="related-articles"></a>Articoli correlati

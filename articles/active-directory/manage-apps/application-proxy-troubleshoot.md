@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cf5b6d4cadf4592fbaa19c89a969b20e9eb69b6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 7be9a17bed2a39d16f813332c2d6effc03393264
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424274"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812721"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Risolvere i problemi e i messaggi di errore del proxy dell'applicazione
 
@@ -82,7 +82,7 @@ Questo elenco contiene gli errori che potrebbero verificarsi quando gli utenti f
 | Il sito Web non riesce a visualizzare la pagina. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se si tratta di un'applicazione OWA. Il problema può dipendere da uno dei motivi seguenti:<br><li>Il nome dell'entità servizio dell'applicazione definito non è corretto. Assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto.</li><li>L'utente che ha provato ad accedere all'applicazione sta usando un account Microsoft invece dell'account aziendale appropriato oppure si tratta di un utente guest. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata. Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows.</li><li>L'utente che ha tentato di accedere all'applicazione non è definito correttamente per l'applicazione sul lato locale. Verificare che l'utente disponga delle autorizzazioni appropriate definite per questa applicazione back-end nel computer locale. |
 | Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Assicurarsi di assegnare all'utente l'accesso a questa applicazione. | L'utente può ricevere questo errore quando tenta di accedere all'app pubblicata se Usa account Microsoft anziché il proprio account aziendale per accedere. Anche gli utenti guest possono visualizzare questo errore. Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata.<br><br>L'utente potrebbe non essere stato assegnato per l'applicazione. Passare alla scheda **Applicazione**, quindi in **Utenti e gruppi** assegnare l'utente o il gruppo di utenti all'applicazione. |
 | Non è possibile accedere a questa app aziendale in questo momento. Riprovare più tardi. Timeout del connettore. | L'utente può ricevere questo errore quando tenta di accedere all'app pubblicata se non sono definite correttamente per questa applicazione sul lato locale. Assicurarsi che gli utenti dispongano delle autorizzazioni appropriate come definito per questa applicazione back-end nel computer locale. |
-| Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Accertarsi che l'utente abbia una licenza per Azure Active Directory Premium o Basic. | L'utente può ricevere questo errore quando tenta di accedere all'app pubblicata se non è stata assegnata in modo esplicito con una licenza Premium/Basic dall'amministratore del Sottoscrittore. Accedere alla scheda **Licenze** di Active Directory del sottoscrittore e verificare che all'utente o al gruppo di utenti sia stata assegnata una licenza Premium o Basic. |
+| Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Verificare che l'utente disponga di una licenza per Azure Active Directory Premium. | L'utente può ricevere questo errore quando tenta di accedere all'app pubblicata se non è stata assegnata in modo esplicito con una licenza Premium dall'amministratore del Sottoscrittore. Passare alla scheda **licenze** Active Directory del Sottoscrittore e verificare che all'utente o al gruppo di utenti sia stata assegnata una licenza Premium. |
 | Impossibile trovare un server con il nome host specificato. | L'utente può ricevere questo errore quando tenta di accedere all'app pubblicata se il dominio personalizzato dell'applicazione non è configurato correttamente. Assicurarsi che sia stato caricato un certificato per il dominio e che il record DNS sia stato configurato correttamente seguendo la procedura descritta in [utilizzo di domini personalizzati nel proxy di applicazione Azure ad](application-proxy-configure-custom-domain.md) |
 
 ## <a name="my-error-wasnt-listed-here"></a>L'errore non è riportato in questi elenchi

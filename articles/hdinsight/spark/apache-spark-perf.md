@@ -1,6 +1,6 @@
 ---
 title: Ottimizzare i processi Spark per ottenere prestazioni ottimali - Azure HDInsight
-description: Illustra alcune strategie comuni per ottenere prestazioni ottimali dai cluster Spark.
+description: Mostra strategie comuni per ottenere prestazioni ottimali per i cluster Apache Spark in Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d058c55eab3d161e625d7d4ca3ef53b36497e00
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476095"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814070"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Ottimizzare i processi Apache Spark
 
@@ -23,7 +23,7 @@ Le sezioni seguenti descrivono alcune raccomandazioni e procedure di ottimizzazi
 
 ## <a name="choose-the-data-abstraction"></a>Scegliere l'astrazione dei dati
 
-Le versioni precedenti di Spark usano RDD per dati astratto, 1.3 di Spark, e 1.6 introdotti frame di dati e set di dati, rispettivamente. Valutare i seguenti vantaggi:
+Le versioni precedenti di Spark usano RDD per astrarre i dati, Spark 1,3 e 1,6 hanno introdotto rispettivamente i dataframe e i set di dati. Valutare i seguenti vantaggi:
 
 * **Frame di dati**
     * La soluzione ottimale nella maggior parte dei casi
@@ -57,10 +57,10 @@ Il formato migliore per le prestazioni è Parquet con *compressione Snappy*, ovv
 
 Quando si crea un nuovo cluster Spark, è possibile selezionare Archiviazione BLOB di Azure o Azure Data Lake Storage come spazio di archiviazione del cluster predefinito. Entrambe le opzioni offrono il vantaggio di una risorsa di archiviazione a lungo termine per i cluster temporanei; pertanto, i dati non vengono eliminati automaticamente quando si elimina il cluster. È possibile ricreare un cluster temporaneo e accedere comunque ai dati.
 
-| Tipo di store | File system | speed | Temporaneo | Casi d'uso |
+| Tipo di store | File system | Velocità | Temporaneo | Casi d'uso |
 | --- | --- | --- | --- | --- |
 | Archivio BLOB di Azure | **wasb:** //url/ | **Standard** | Yes | Cluster temporaneo |
-| Azure Data Lake Store generazione 2| **abfs[s]:** //url/ | **Più rapido** | Yes | Cluster temporaneo |
+| Azure Data Lake Storage generazione 2| **abfs[s]:** //url/ | **Più rapido** | Sì | Cluster temporaneo |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **Più rapido** | Yes | Cluster temporaneo |
 | Hadoop Distributed File System locale | **hdfs:** //url/ | **Il più rapido** | No | Cluster interattivo 24/7 |
 

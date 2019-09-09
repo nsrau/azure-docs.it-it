@@ -6,14 +6,14 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/31/2019
-ms.openlocfilehash: 09fcb963ed036dd56c5f9b501b9daf929c12c2ea
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 66796b2510e9d07ebfe78f6d083c935f498d7870
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735762"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810648"
 ---
-# <a name="scenario-converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-azure-hdinsight"></a>Scenario: Conversione del contenuto del certificato dell'entità servizio nel formato stringa con codifica base 64 in Azure HDInsight
+# <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Conversione del contenuto del certificato dell'entità servizio nel formato stringa con codifica base 64 in HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
 

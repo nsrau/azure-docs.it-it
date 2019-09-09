@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 8c931521e77123844817dff0e9209f8f95f7ad59
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: f7fc5b32fb18da60816056c72dde8c53d439befe
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279908"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812183"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
 
@@ -54,7 +54,7 @@ La scalabilità dinamica è diversa dalla scalabilità automatica. Con la scalab
 ### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Modelli di acquisto, livelli di servizio, dimensioni di calcolo e spazi di archiviazione
 
 Il database SQL offre due modelli di acquisto:
-- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per un risparmio in termini di costi. Per altre informazioni su Vantaggio Azure Hybrid, vedere le [domande frequenti](#sql-database-frequently-asked-questions-faq).
+- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di Vcore, la quantità di memoria e la quantità e la velocità di archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per un risparmio in termini di costi. Per altre informazioni su Vantaggio Azure Hybrid, vedere le [domande frequenti](#sql-database-frequently-asked-questions-faq).
 - Il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) offre un insieme di risorse di calcolo, memoria e risorse di I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti. Le dimensioni di calcolo di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
