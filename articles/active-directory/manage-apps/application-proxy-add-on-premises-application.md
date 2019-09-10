@@ -12,12 +12,12 @@ ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e13ab3378857bd0254d7cb2fb98249ccc24b1cb7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fe6da9b1557293ee9002681c6ce90c1c6c62a25b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125617"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231249"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -69,7 +69,7 @@ Per abilitare TLS 1.2:
 1. Riavviare il server.
 
 > [!IMPORTANT]
-> Per fornire ai nostri clienti la crittografia migliore della categoria, stiamo aggiornando il servizio Application Proxy per limitare l'accesso ai soli protocolli TLS 1.2. In base alla disponibilità dei clienti, le modifiche verranno implementate gradualmente per i clienti che usano solo i protocolli TLS 1.2 e non ne vedranno l'impatto. La deprecazione di TLS 1.0 e 1.1 verrà completata il 31 agosto 2019 e i clienti riceveranno un preavviso per prepararsi a questa modifica. Per prepararsi a questa modifica, assicurarsi che tutte le combinazioni client-server e browser-server siano aggiornate per usare TLS 1.2 per mantenere la connessione al servizio Application Proxy. Queste includono i client usati dagli utenti per accedere alle applicazioni pubblicate tramite Application Proxy. Vedere [Preparazione per l'uso di TLS 1.2 in Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) per riferimenti e risorse utili.
+> Per fornire ai nostri clienti la crittografia migliore della categoria, il servizio Application Proxy limita l'accesso ai soli protocolli TLS 1.2. Queste modifiche sono state implementate gradualmente e sono effettive a partire dal 31 agosto 2019. Per mantenere la connessione con il servizio Application Proxy, assicurarsi che tutte le combinazioni client-server e browser-server siano aggiornate per l'uso di TLS 1.2. Queste includono i client usati dagli utenti per accedere alle applicazioni pubblicate tramite Application Proxy. Vedere [Preparazione per l'uso di TLS 1.2 in Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) per riferimenti e risorse utili.
 
 ## <a name="prepare-your-on-premises-environment"></a>Preparare l'ambiente locale
 
@@ -94,7 +94,7 @@ Consentire l'accesso agli URL seguenti:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicazione tra il connettore e il servizio cloud proxy di applicazione |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure usa questi URL per verificare i certificati. |
-| login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | Il connettore usa questi URL durante il processo di registrazione. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | Il connettore usa questi URL durante il processo di registrazione. |
 
 È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP e ai tag di servizio di Azure - Cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
 

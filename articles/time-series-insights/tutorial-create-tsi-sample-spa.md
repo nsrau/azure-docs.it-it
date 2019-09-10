@@ -4,16 +4,16 @@ description: Informazioni su come creare un'applicazione Web a singola pagina ch
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/29/2019
+ms.date: 08/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 031e8074585426584d7ef63a103c9c2b4d90e6c3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720874"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194197"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Esercitazione: Creare un'app Web a singola pagina Azure Time Series Insights
 
@@ -127,6 +127,10 @@ Questa esercitazione usa anche i dati dall'ambiente Time Series Insights dell'ap
 
       [![Visual Studio - Riquadro Pubblica](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
 
+   1. Selezionare questa opzione per pubblicare una nuova istanza del Servizio app di Azure o usarne una esistente.
+
+      [![Selezionare un'istanza del Servizio app di Azure](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png#lightbox)
+
    1. Selezionare la sottoscrizione che si vuole usare per pubblicare l'applicazione. Selezionare il progetto **TsiSpaApp**. Quindi selezionare **OK**.
 
       [![Visual Studio - Riquadro Pubblica in Servizio app](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
@@ -137,12 +141,16 @@ Questa esercitazione usa anche i dati dall'ambiente Time Series Insights dell'ap
 
    1. Viene visualizzato un log di pubblicazione che indica che l'operazione è riuscita nel riquadro **Output** di Visual Studio. Al termine della distribuzione, Visual Studio apre l'applicazione Web in una scheda del browser e chiede di accedere. Dopo aver effettuato l'accesso, vengono immessi i dati nei controlli di Time Series Insights.
 
+   1. Passare all'app Web e accedere per visualizzare i dati visivi di Time Series Insights sottoposti a rendering.
+
+      [![Esaminare l'app Web ospitata](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png)](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png#lightbox)
+
 ## <a name="troubleshoot"></a>Risolvere problemi  
 
 Codice di errore/condizione | DESCRIZIONE
 ---------------------| -----------
-*AADSTS50011: Nessun indirizzo di risposta registrato per l'applicazione.* | Nella registrazione in Azure AD manca la proprietà **URL di risposta**. Passare a **Impostazioni** > **URL di risposta** per la registrazione dell'applicazione in Azure AD. Verificare che sia presente il valore **URI di reindirizzamento** che è stato possibile specificare nel **passaggio 2** o **passaggio 4** quando [è stata registrata l'applicazione per l'uso di Azure AD](#register-with-azure-ad).
-*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application (L'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione): "\<GUID ID applicazione>".* | Il valore di `postLogoutRedirectUri` specificato nel **passaggio 6.b** in [Compilare e pubblicare l'applicazione Web](#build-and-publish) deve corrispondere al valore specificato in **Impostazioni** > **URL di risposta** nella registrazione dell'applicazione in Azure AD. |
+*AADSTS50011: Nessun indirizzo di risposta registrato per l'applicazione.* | Nella registrazione in Azure AD manca la proprietà **URI di reindirizzamento**. Passare a **Autenticazione** > **URI di reindirizzamento** per la registrazione dell'applicazione in Azure AD. Verificare che sia presente il valore **URI di reindirizzamento** che è stato possibile specificare nel **passaggio 2** o **passaggio 4** quando [è stata registrata l'applicazione per l'uso di Azure AD](#register-with-azure-ad).
+*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application (L'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione): "\<GUID ID applicazione>".* | Il valore di `postLogoutRedirectUri` specificato nel **passaggio 6.b** in [Compilare e pubblicare l'applicazione Web](#build-and-publish) deve corrispondere al valore specificato in **Autenticazione** > **URI di reindirizzamento** nella registrazione dell'applicazione in Azure AD. |
 L'applicazione Web viene caricata, ma la pagina di accesso contiene solo testo senza stile, con uno sfondo bianco. | Verificare che i percorsi indicati nel **passaggio 6** in [Compilare e pubblicare l'applicazione Web](#build-and-publish) siano corretti. Se l'applicazione Web non trova i file CSS, non potrà applicare lo stile corretto alla pagina.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

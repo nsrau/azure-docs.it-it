@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
-ms.custom: mvc, seo-java-august2019
-ms.openlocfilehash: 3601bcfbb812dc9f8ee893cc1c88eb8eebce485f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.custom: mvc, seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 56a68f852e9eee3303540d6ebd180608935c6135
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963956"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172072"
 ---
-# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Esercitazione: Creare un'applicazione con un servizio front-end API Web Java e un servizio back-end con stato su Service Fabric
+# <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Esercitazione: Creare un'applicazione con un servizio front-end API Java e un servizio back-end con stato in Azure Service Fabric
 
 Questa è la prima di una serie di esercitazioni. Al termine sarà disponibile un'applicazione Voting con un front-end Web Java che salva i risultati delle votazioni in un servizio back-end con stato nel cluster. Questa serie di esercitazioni presuppone un computer di sviluppo con Mac OSX o Linux. Se non si vuole creare manualmente l'applicazione di voto, è possibile [scaricare il codice sorgente per l'applicazione completa](https://github.com/Azure-Samples/service-fabric-java-quickstart) e passare direttamente a [Descrizione dettagliata dell'applicazione di voto di esempio](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Considerare anche la possibilità di seguire la [guida introduttiva per Reliable Services Java.](service-fabric-quickstart-java-reliable-services.md)
 

@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/29/2017
-ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 08/28/2019
+ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002002"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138355"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Usare Terraform per creare un set di scalabilità di macchine virtuali di Azure da un'immagine di Packer personalizzata
 
@@ -124,7 +124,7 @@ resource "azurerm_public_ip" "vmss" {
   name                         = "vmss-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}"
 
   tags {
@@ -175,12 +175,12 @@ Seguire l'esercitazione per creare un'immagine di Ubuntu di cui è stato effettu
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>Modificare l'infrastruttura per aggiungere il set di scalabilità di macchine virtuali
 
 In questo passaggio si creano le risorse seguenti nella rete distribuita prima:
-- Azure Load Balancer per gestire l'applicazione e collegarla all'indirizzo IP pubblico distribuito nel passaggio 4
+- Azure Load Balancer per gestire l'applicazione e collegarla all'indirizzo IP pubblico distribuito in precedenza.
 - Un servizio di bilanciamento del carico di Azure e le regole per gestire l'applicazione e collegarla all'indirizzo IP pubblico configurato in precedenza.
-- Pool di indirizzi back-end di Azure da assegnare al servizio di bilanciamento del carico 
-- Una porta probe di integrità usata dall'applicazione e configurata nel servizio di bilanciamento del carico 
-- Un set di scalabilità di macchine virtuali posto dietro il servizio di bilanciamento del carico, in esecuzione nella rete virtuale distribuita in precedenza
-- [Nginx](https://nginx.org/) nei nodi del set di scalabilità di macchine virtuali installato dall'immagine personalizzata
+- Un pool di indirizzi back-end di Azure da assegnare al servizio di bilanciamento del carico.
+- Una porta probe di integrità usata dall'applicazione e configurata nel servizio di bilanciamento del carico.
+- Un set di scalabilità di macchine virtuali posto dietro al servizio di bilanciamento del carico, in esecuzione nella rete virtuale distribuita in precedenza.
+- [Nginx](https://nginx.org/) nei nodi del set di scalabilità di macchine virtuali installato dall'immagine personalizzata.
 
 
 Aggiungere il codice seguente alla fine del file `vmss.tf`.
@@ -290,6 +290,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
       name                                   = "IPConfiguration"
       subnet_id                              = "${azurerm_subnet.vmss.id}"
       load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+      primary = true
     }
   }
   
@@ -355,7 +356,7 @@ resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
 
   tags {

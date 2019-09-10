@@ -4,15 +4,15 @@ description: Informazioni su come eseguire l'onboarding di un cliente nella gest
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 35cf61897d012690f0a0f752a7cb36270e11e10e
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: dabee74dc757a8ccdc4384662f5c9bc09a1e5fbe
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012071"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165036"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 
@@ -61,63 +61,8 @@ az account set --subscription <subscriptionId/name>
 az account show
 ```
 
-
-## <a name="ensure-the-customers-subscription-is-registered-for-onboarding"></a>Assicurarsi che la sottoscrizione del cliente sia registrata per l'onboarding
-
-Ogni sottoscrizione deve essere autorizzata per l'onboarding registrando manualmente il provider di risorse **Microsoft.ManagedServices**. Il cliente può registrare una sottoscrizione seguendo i passaggi illustrati in [Provider e tipi di risorse di Azure](../../azure-resource-manager/resource-manager-supported-services.md).
-
-Il cliente può verificare che la sottoscrizione sia pronta per l'onboarding in uno dei modi seguenti.
-
-### <a name="azure-portal"></a>Portale di Azure
-
-1. Nel portale di Azure selezionare la sottoscrizione.
-1. Selezionare **Provider di risorse**.
-1. Verificare che **Microsoft.ManagedServices** sia contrassegnato come **Registrato**.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-Dovrebbe restituire risultati simili ai seguenti:
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-Dovrebbe restituire risultati simili ai seguenti:
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> Quando si esegue l'onboarding di una sottoscrizione (o di uno o più gruppi di risorse all'interno di una sottoscrizione) tramite il processo descritto in questo articolo, il provider di risorse **Microsoft.ManagedServices** verrà registrato per tale sottoscrizione.
 
 ## <a name="define-roles-and-permissions"></a>Definire ruoli e autorizzazioni
 
@@ -129,8 +74,6 @@ Per semplificare la gestione, è consigliabile usare i gruppi di utenti di Azure
 > Le assegnazione di ruolo devono usare i [ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) del controllo degli accessi in base al ruolo. Tutti i ruoli predefiniti sono attualmente supportati con la gestione risorse delegate di Azure tranne Proprietario e i ruoli predefiniti con l'autorizzazione [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). Il ruolo predefinito Amministratore Accesso utenti è supportato per un uso limitato, come descritto di seguito. Non sono supportati neppure i ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators).
 
 Per definire le autorizzazioni, è necessario essere a conoscenza dei valori degli ID per ogni utente, gruppo di utenti o entità servizio a cui si vuole concedere l'accesso. È anche necessario l'ID di definizione del ruolo per ogni ruolo predefinito che si vuole assegnare. Se non sono già disponibili, è possibile recuperarli in uno dei modi seguenti.
-
-
 
 ### <a name="powershell"></a>PowerShell
 

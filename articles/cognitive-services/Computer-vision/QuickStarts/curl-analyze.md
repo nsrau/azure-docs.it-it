@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2be6625fa2c21c3ece767f270746171c3928a774
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0c52bf9b62026caec54a09acd10a52f89ca98d52
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604445"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138016"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-curl"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST Visione artificiale e cURL
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario avere [cURL](https://curl.haxx.se/windows).
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave.
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. 
 
 ## <a name="create-and-run-the-sample-command"></a>Creare ed eseguire il comando di esempio
 
@@ -36,7 +36,8 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 1. Copiare il comando seguente in un editor di testo.
 1. Apportare le modifiche seguenti al comando, dove necessario:
     1. Sostituire il valore di `<subscriptionKey>` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire l'URL della richiesta (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) con l'URL endpoint per il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Sostituire la prima parte dell'URL della richiesta (`westcentralus`) con il testo dell'URL dell'endpoint.
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Facoltativamente, per usare un'altra lingua supportata, modificare il parametro di lingua dell'URL della richiesta (`language=en`).
     1. Facoltativamente, modificare l'URL dell'immagine nel corpo della richiesta (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) nell'URL di un'altra immagine da analizzare.
 1. Aprire una finestra del prompt dei comandi.

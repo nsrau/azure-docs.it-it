@@ -108,7 +108,7 @@
           href: tableau.md
         - name: Sisense
           href: sisense.md
-    - name: Gestire
+    - name: Gestisci
       items:
         - name: Controllare l'integrità del cluster
           href: check-cluster-health.md
@@ -132,6 +132,8 @@
           href: using-metrics.md
     - name: Integrazione con altri strumenti
       items:
+        - name: Eseguire la copia bulk dei dati con il modello di Azure Data Factory
+          href: data-factory-template.md
         - name: Connettore Apache Spark
           href: spark-connector.md
         - name: Connettersi da Databricks tramite Python

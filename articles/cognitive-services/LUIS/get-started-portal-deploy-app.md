@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 5c310c1943eaf23423be873c6172e27c621fe109
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e9ecdad0fb4d02f160977fa28a484b2a3a5bb30
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564072"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257087"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Guida introduttiva: Distribuire un'app nel portale LUIS
 
@@ -59,11 +59,11 @@ Ogni volta che si crea una nuova risorsa per LUIS, è necessario assegnarla all'
 
 1. Accedere al [portale LUIS](https://www.luis.ai) e scegliere l'app **myEnglishApp** dall'elenco.
 
-1. Scegliere **Manage** (Gestisci) dal menu in alto a destra e quindi **Keys and endpoints** (Chiavi ed endpoint).
+1. Scegliere **Manage** (Gestisci) dal menu in alto a destra e quindi selezionare **Azure Resources** (Risorse di Azure).
 
-1. Per aggiungere LUIS, selezionare **Assign Resource +** (Assegnare una risorsa +).
+1. Per aggiungere LUIS, selezionare **Add prediction resource** (Aggiungi risorsa di stima).
 
-   [![Assegnare una risorsa all'app](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
+    <!-- TBD: get screenshot-->
 
 1. Selezionare il tenant, la sottoscrizione e il nome della risorsa. Selezionare **Assign resource** (Assegnare una risorsa).
 

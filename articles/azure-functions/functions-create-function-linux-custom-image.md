@@ -1,22 +1,19 @@
 ---
 title: Creare funzioni di Azure in Linux tramite un'immagine personalizzata
 description: Informazioni su come creare Funzioni di Azure in esecuzione in un'immagine personalizzata di Linux.
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
-manager: jeconnoc
-ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+manager: gwallace
+ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562923"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210188"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creare una funzione in Linux tramite un'immagine personalizzata
 
@@ -56,7 +53,7 @@ Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
 ## <a name="create-the-local-function-app-project"></a>Creare un progetto di app per la funzione locale
 
-Eseguire il comando seguente dalla riga di comando per creare un progetto di app della funzione nella cartella `MyFunctionProj` della directory locale corrente.
+Eseguire il comando seguente dalla riga di comando per creare un progetto di app della funzione nella cartella `MyFunctionProj` della directory locale corrente. Per un progetto Python, è [necessario usare un ambiente virtuale](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
 
 ```bash
 func init MyFunctionProj --docker
@@ -68,7 +65,7 @@ Quando richiesto, scegliere un runtime del ruolo di lavoro tra i linguaggi segue
 
 * `dotnet`: crea un progetto libreria di classi .NET (.csproj).
 * `node`: crea un progetto JavaScript.
-* `python`: crea un progetto Python.
+* `python`: crea un progetto Python.  
 
 Quando viene eseguito il comando, viene visualizzato qualcosa di simile a quanto segue:
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7f913eebb2dd3926165a36c37dcb356aa05f2de4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125213"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172046"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services
 
@@ -202,7 +202,7 @@ Per cambiare la password, gli utenti solo cloud devono completare i passaggi seg
 1. Nella pagina **Cambia password** digitare la password esistente (precedente), quindi immetterne una nuova e confermarla.
 1. Selezionare **Submit** (Invia).
 
-Dopo la modifica, sono necessari alcuni minuti prima che la nuova password sia utilizzabile in Azure AD DS. Dopo circa 20 minuti, è possibile usare la nuova password per accedere ai computer aggiunti al dominio gestito.
+Dopo la modifica, sono necessari alcuni minuti prima che la nuova password sia utilizzabile in Azure AD DS e per l'accesso ai computer aggiunti al dominio gestito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

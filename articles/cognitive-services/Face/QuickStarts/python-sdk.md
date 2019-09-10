@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 011345cca1ed1c763a628c94401320862182c9cc
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f0bd4a49a35392c25b8985aa68ad4e4b66be026c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707350"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306527"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Guida introduttiva: Libreria client dell'API Viso per Python
 
@@ -109,6 +109,14 @@ Il codice seguente rileva un viso in un'immagine remota. Visualizza l'ID del vis
 
 Per altri scenari di rilevamento, vedere il codice di esempio su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).
 
+### <a name="display-and-frame-faces"></a>Visualizzare e incorniciare i visi
+
+Il codice seguente visualizza l'immagine specificata sullo schermo e disegna rettangoli attorno ai visi usando la proprietà DetectedFace.faceRectangle.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
+
+![Una giovane donna con un rettangolo rosso tracciato attorno al viso](../images/face-rectangle-result.png)
+
 ## <a name="find-similar-faces"></a>Individuazione di visi simili
 
 Il codice seguente cerca le corrispondenze di un singolo viso rilevato in un set di altri visi. Quando trova una corrispondenza, visualizza le coordinate del rettangolo del viso corrispondente nella console. 
@@ -161,7 +169,7 @@ Una volta assegnati i visi, è necessario eseguire il training di **PersonGroup*
 
 ## <a name="identify-a-face"></a>Identificare un viso
 
-Il codice seguente cerca di identificare l'identità di ogni persona in un'immagine con più visi. Confronta ogni viso rilevato con un **PersonGroup**, un database di oggetti **Person** diversi a ognuno dei quali sono associati diversi visi. 
+Il codice seguente cerca di identificare l'identità di ogni persona in un'immagine con più visi. Confronta ogni viso rilevato con un **PersonGroup**, un database di oggetti **Person** diversi le cui caratteristiche del viso sono note.
 
 > [!IMPORTANT]
 > Prima di eseguire questo esempio occorre eseguire il codice in [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group).
@@ -188,7 +196,7 @@ In questo esempio si eseguirà la migrazione del **PersonGroup** creato in [Crea
 
 Prima di tutto è necessario avere una seconda sottoscrizione di Azure con una risorsa Viso. A tale scopo, seguire la procedura descritta nella sezione [Configurazione](#setting-up). 
 
-Quindi, creare le variabili seguenti nella parte iniziale dello script. Sarà anche necessario creare nuove variabili di ambiente per l'ID sottoscrizione dell'account Azure, oltre alla chiave e all'ID sottoscrizione del nuovo account (di destinazione). 
+Quindi, creare le variabili seguenti nella parte iniziale dello script. Sarà anche necessario creare nuove variabili di ambiente per l'ID sottoscrizione dell'account Azure, oltre alla chiave, all'endpoint e all'ID sottoscrizione del nuovo account (di destinazione). 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
 

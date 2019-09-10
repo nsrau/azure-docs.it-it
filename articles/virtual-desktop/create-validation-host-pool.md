@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 732192e481f88c0cd3c78e9dac43970eb5be72e6
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 3843a03b3b6d41520b121e5088fb13eac956e6fa
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840527"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163585"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Esercitazione: Creare un pool di host per convalidare gli aggiornamenti dei servizi
 
@@ -25,7 +25,11 @@ Per garantire il funzionamento delle app con gli aggiornamenti più recenti, il 
 >[!NOTE]
 > È consigliabile conservare il pool di host di convalida per testare tutti gli aggiornamenti futuri.
 
-Prima di iniziare, [scaricare e importare il modulo PowerShell del Desktop virtuale Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), se non è già stato fatto.
+Prima di iniziare, [scaricare e importare il modulo PowerShell del Desktop virtuale Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), se non è già stato fatto. Successivamente, eseguire il cmdlet seguente per accedere al proprio account:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="create-your-host-pool"></a>Creare il pool di host
 

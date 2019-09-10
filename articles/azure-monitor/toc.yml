@@ -770,6 +770,8 @@
                   href: log-query/get-started-portal.md
                 - name: Esercitazione sulle query su log
                   href: log-query/get-started-queries.md
+                - name: Esperienza Log semplice
+                  href: log-query/simple-logs.md
             - name: Dati di log
               items:
                 - name: Struttura dei dati di log

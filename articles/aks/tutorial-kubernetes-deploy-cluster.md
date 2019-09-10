@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: e0dea5fcc7860e8653d542653e279010f8ede200
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: bd3f31f4247a9d80615634a64fee0c6eb3297fe5
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898859"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147238"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio Azure Kubernetes
 
@@ -83,13 +83,16 @@ Creare un cluster servizio Azure Kubernetes usando [az servizio Azure Kubernetes
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --service-principal <appId> \
     --client-secret <password> \
     --generate-ssh-keys
 ```
 
 Dopo alcuni minuti, la distribuzione viene completata e restituisce le informazioni in formato JSON sulla distribuzione del servizio Azure Kubernetes.
+
+> [!NOTE]
+> Per garantire il funzionamento affidabile del cluster, è consigliabile eseguire almeno 2 (due) nodi.
 
 ## <a name="install-the-kubernetes-cli"></a>Installare l'interfaccia della riga di comando di Kubernetes
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 99750971e11171c0b315cac38089c216d42c7ba6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 8c21878fc23f3880f6c6e66b1e304c7dd2e9177c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663656"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306955"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
@@ -65,4 +65,8 @@ Il servizio Personalizza esperienze è caratterizzato da due API:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Guida introduttiva: Creare un ciclo di feedback in C#](csharp-quickstart-commandline-feedback-loop.md)
+* [Guida introduttiva: Creare un ciclo di feedback in Node.js](quickstart-command-line-feedback-loop-nodejs-sdk.md)
+* [Guida introduttiva: Creare un ciclo di feedback in Python](python-quickstart-commandline-feedback-loop.md)
+* [Informazioni sulle funzionalità e le azioni per la richiesta di classificazione](concepts-features.md)
+* [Informazioni su come determinare il punteggio per la richiesta di ricompensa](concept-rewards.md)
 * [Usare la demo interattiva](https://personalizationdemo.azurewebsites.net/)

@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 30f9597e6a42b8bdd35a7d69594a2feb16edae30
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126192"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231368"
 ---
 ::: zone target="docs"
 
@@ -26,9 +27,11 @@ ms.locfileid: "70126192"
 
 ## <a name="copy-data-to-azure-data-box-disk-and-validate"></a>Copiare dati in Azure Data Box Disk ed eseguire la convalida
 
-Dopo che i dischi sono stati connessi e sbloccati, è possibile copiare i dati dal server dei dati di origine ai dischi. Al termine dell'operazione di copia dei dati, è necessario convalidare i dati copiati. La convalida garantisce che i dati verranno caricati correttamente in Azure in un secondo momento.
+Dopo che i dischi sono stati connessi e sbloccati, è possibile copiare i dati dal server dei dati di origine ai dischi. Al termine della copia dei dati, è necessario convalidare i dati per assicurarsi che vengano caricati correttamente in Azure.
 
 ::: zone-end
+
+::: zone target="docs"
 
 Questa esercitazione descrive come copiare dati dal computer host e quindi generare i checksum per la verifica dell'integrità.
 
@@ -333,6 +336,6 @@ Per verificare i dati, eseguire la procedura seguente.
 1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *DataBoxDiskImport* dell'unità.
 2. Usare l'opzione 2 per convalidare i file e generare i checksum. A seconda della dimensione dei dati, questo passaggio potrebbe richiedere del tempo. Se si verificano errori durante la convalida e la generazione dei checksum, si riceverà una notifica e anche un collegamento ai log degli errori.
 
-    Per altre informazioni sulla convalida dei dati, vedere [Convalidare i dati](data-box-disk-deploy-copy-data.md#validate-data). Se si riscontrano errori durante la convalida, vedere l'articolo sulla [risoluzione degli errori di convalida](data-box-disk-troubleshoot.md).
+    Per altre informazioni sulla convalida dei dati, vedere [Convalidare i dati](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Se si riscontrano errori durante la convalida, vedere l'articolo sulla [risoluzione degli errori di convalida](data-box-disk-troubleshoot.md).
 
 ::: zone-end

@@ -8,15 +8,15 @@ ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: seodec18, seo-java-july2019
-ms.openlocfilehash: 625e40b4dcb8ac558831508b292fd5cbcfb90b5b
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.custom: seodec18, seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 27b30bae80e2959698d71279efbfa2531498d8de
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489448"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171199"
 ---
-# <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Esercitazione: Creare un'app Web Java usando Spring e Azure Cosmos DB
+# <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Esercitazione: Creare un'app Web Java Spring Boot con il Servizio app di Azure in Linux e Azure Cosmos DB
 
 Questa esercitazione illustra il processo di creazione, configurazione, distribuzione e ridimensionamento di app Web Java in Azure. Al termine, si avrà un'applicazione [Spring Boot](https://projects.spring.io/spring-boot/) che memorizza i dati in [Azure Cosmos DB](/azure/cosmos-db) in esecuzione nel [servizio app di Azure in Linux](/azure/app-service/containers).
 

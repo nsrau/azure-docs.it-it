@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/03/2019
+ms.localizationpriority: high
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1104c017541b8124366a6121763318f199f3aad5
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126079"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240202"
 ---
 ::: zone target="chromeless"
 
@@ -49,18 +50,7 @@ Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i da
     - È consigliabile imballare i dischi avvolgendoli con cura in una pellicola a bolle d'aria.
     - Assicurarsi di riempire i vuoti per ridurre i movimenti all'interno della scatola.
 
-I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo. Le istruzioni sono diverse per Stati Uniti, Canada, Australia o i paesi asiatici.
-
-- [Pianificare un ritiro con UPS per la restituzione negli Stati Uniti e in Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-- [Pianificare un ritiro con DHL per l'Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) visitando il relativo sito Web e specificando il numero di lettera di trasporto aereo.
-- [Pianificare un ritiro in Australia](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up#pick-up-in-australia).
-- [Pianificare un ritiro per i paesi asiatici](data-box-disk-deploy-picked-up.md#pick-up-in-asia), come Giappone, Corea e Singapore.
-
-::: zone target="chromeless"
-
-Dopo il ritiro dei dischi da parte del vettore, lo stato dell'ordine nel portale viene aggiornato e viene visualizzato un ID di tracciabilità.
-
-::: zone-end
+I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo. Le istruzioni sono diverse per Stati Uniti, Canada, Unione Europea (UE), Australia o paesi asiatici.
 
 ### <a name="pick-up-in-us-canada"></a>Ritiro negli Stati Uniti e in Canada
 
@@ -151,9 +141,6 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 
 1. Stampare l'etichetta indirizzo e applicarla alla scatola. Se l'etichetta è danneggiata o è stata smarrita:
     - Passare a **Panoramica > Scarica etichetta di spedizione** e ottenere un'etichetta di spedizione per reso.
-
-        ![Scaricare l'etichetta di spedizione](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Applicare l'etichetta sul dispositivo. Assicurarsi che l'etichetta sia visibile.
 
 2. Per richiedere il ritiro:

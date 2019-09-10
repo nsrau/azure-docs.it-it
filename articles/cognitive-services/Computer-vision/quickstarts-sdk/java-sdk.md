@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 15baf5ee2418581056d571340ba6e8009c33e4ca
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fd8abf81589f3338f9e45c6c1d23681269ccc654
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829266"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164845"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Guida introduttiva: Libreria client di Visione artificiale per Java
 
@@ -42,7 +42,7 @@ I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si 
 * Ottenere un [codice di valutazione gratuito](https://azure.microsoft.com/try/cognitive-services/#decision) valido per 7 giorni. Dopo aver eseguito l'iscrizione, sarà disponibile sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Visualizzare questa risorsa nel [portale di Azure](https://portal.azure.com/).
 
-Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, [creare una variabile di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave, denominata `COMPUTER_VISION_SUBSCRIPTION_KEY`.
+Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ### <a name="create-a-new-gradle-project"></a>Creare un nuovo progetto Gradle
 
@@ -142,6 +142,9 @@ Prima di tutto, creare una cartella **resources/** nella cartella **src/main/** 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
 
+> [!NOTE]
+> È anche possibile analizzare un'immagine remota usando il relativo URL. Vedere il codice di esempio in [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) per gli scenari che coinvolgono immagini remote.
+
 ### <a name="specify-visual-features"></a>Specificare le caratteristiche visive
 
 Quindi, specificare le caratteristiche visive da estrarre nell'analisi. Per un elenco completo, vedere l'enumerazione [VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable).
@@ -149,17 +152,59 @@ Quindi, specificare le caratteristiche visive da estrarre nell'analisi. Per un e
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### <a name="analyze"></a>Analizzare
-Questo metodo stampa i risultati dettagliati nella console per ogni ambito dell'analisi di immagini. È consigliabile racchiudere questa chiamata al metodo in un blocco try/catch
+Questo metodo stampa i risultati dettagliati nella console per ogni ambito dell'analisi di immagini. È consigliabile racchiudere questa chiamata al metodo in un blocco try/catch. Il metodo **analyzeImageInStream** restituisce un oggetto **ImageAnalysis** che contiene tutte le informazioni estratte.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
 
-### <a name="display-results"></a>Visualizzare i risultati
+Le sezioni seguenti illustrano come analizzare queste informazioni in modo dettagliato.
 
-La chiamata al metodo precedente restituirà un oggetto ImageAnalysis che contiene tutte le informazioni estratte. Per stampare i dettagli di una determinata caratteristica, è possibile usare un blocco di codice simile al seguente.
+### <a name="get-image-description"></a>Ottenere la descrizione dell'immagine
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_display)]
+Il codice seguente ottiene l'elenco di didascalie generate per l'immagine. Per altre informazioni, vedere [Descrivere le immagini](../concept-describing-images.md).
 
-Per un set completo di opzioni di visualizzazione, vedere il codice di esempio in [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java).
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
+
+### <a name="get-image-category"></a>Ottenere la categoria dell'immagine
+
+Il codice seguente ottiene la categoria rilevata dell'immagine. Per altre informazioni, vedere [Categorizzare le immagini](../concept-categorizing-images.md).
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
+
+### <a name="get-image-tags"></a>Ottenere i tag delle immagini
+
+Il codice seguente ottiene il set di tag rilevati nell'immagine. Per altre informazioni, vedere [Tag di contenuto](../concept-tagging-images.md)
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
+
+### <a name="get-faces"></a>Ottenere i visi
+
+Il codice seguente restituisce i visi rilevati nell'immagine con le rispettive coordinate del rettangolo e determinati attributi del viso. Per altre informazioni, vedere [Rilevamento viso](../concept-detecting-faces.md).
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
+
+### <a name="get-adult-or-racy-content"></a>Ottenere contenuto per adulti o spinto
+
+Il codice seguente stampa la presenza rilevata di contenuto per adulti o spinto nell'immagine. Per altre informazioni, vedere [Contenuto per adulti o spinto](../concept-detecting-adult-content.md).
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
+
+### <a name="get-image-color-scheme"></a>Ottenere la combinazione di colori dell'immagine
+
+Il codice seguente stampa gli attributi di colore rilevati nell'immagine, ad esempio i colori dominanti e il colore principale. Per altre informazioni, vedere [Combinazioni di colori](../concept-detecting-color-schemes.md).
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
+
+### <a name="get-domain-specific-content"></a>Ottenere contenuto specifico del dominio
+
+Visione artificiale può usare un modello speciale per eseguire un'ulteriore analisi delle immagini. Per altre informazioni, vedere [Contenuto specifico del dominio](../concept-detecting-domain-content.md). 
+
+Il codice seguente analizza i dati sulle celebrità rilevate nell'immagine.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_celebrities)]
+
+Il codice seguente analizza i dati sui luoghi di interesse rilevati nell'immagine.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 

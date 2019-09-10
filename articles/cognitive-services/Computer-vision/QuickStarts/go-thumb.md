@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7c76715957737b2967c0312015fd122b58dd2d98
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 89c01fc4a48d9264b12e22c593cd9d68d0fd4ab4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605903"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137930"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>Guida introduttiva: Generare un'anteprima con l'API REST Visione artificiale e Go
 
@@ -27,17 +27,14 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario aver installato [Go](https://golang.org/dl/).
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave.
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
 Per creare ed eseguire l'esempio, seguire questa procedura:
 
 1. Copiare il codice seguente in un editor di testo.
-1. Apportare le modifiche seguenti al codice, dove necessario:
-    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
-    1. Facoltativamente, sostituire il valore di `imageUrl` con l'URL di un'altra immagine per la quale si vuole generare un'anteprima.
+1. Facoltativamente, sostituire il valore di `imageUrl` con l'URL di un'altra immagine per la quale si vuole generare un'anteprima.
 1. Salvare il codice in un file con estensione `.go`. Ad esempio: `get-thumbnail.go`.
 1. Aprire una finestra del prompt dei comandi.
 1. Al prompt, eseguire il comando `go build` per compilare il pacchetto dal file. Ad esempio: `go build get-thumbnail.go`.
@@ -56,19 +53,18 @@ import (
 )
 
 func main() {
-    // Replace <Subscription Key> with your valid subscription key.
-    const subscriptionKey = "<Subscription Key>"
+    // Add your Computer Vision subscription key and endpoint to your environment variables.
+    subscriptionKey := os.Getenv("COMPUTER_VISION_SUBSCRIPTION_KEY")
+    if (subscriptionKey == "") {
+        log.Fatal("\n\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n" +
+            "**Restart your shell or IDE for changes to take effect.**\n")
 
-    // You must use the same Azure region in your REST API method as you used to
-    // get your subscription keys. For example, if you got your subscription keys
-    // from the West US region, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the "westcentralus" region.
-    // If you use a free trial subscription key, you shouldn't need to change
-    // this region.
-    const uriBase =
-        "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail"
+    endpoint := os.Getenv("COMPUTER_VISION_ENDPOINT")
+    if ("" == endpoint) {
+        log.Fatal("\n\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n" +
+            "**Restart your shell or IDE for changes to take effect.**")
+    }
+    const uriBase = endpoint + "vision/v2.0/generateThumbnail"
     const imageUrl =
         "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 08/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: 15abbfd8892464f3a2c21a85c07bc5b8e94e47ad
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594700"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195213"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Informazioni sull'API Ricerca visiva Bing
 
-L'API Ricerca visiva Bing restituisce informazioni dettagliate relative a un'immagine. È possibile caricare un'immagine o specificarne l'URL. Le informazioni dettagliate sono immagini visivamente simili, luoghi di acquisto degli oggetti raffigurati nelle immagini, pagine Web che includono l'immagine e altro ancora. Le informazioni dettagliate restituite dall'API Ricerca visiva Bing sono simili a quelle visualizzate nel sito Bing.com/images.
+L'API Ricerca visiva Bing restituisce informazioni dettagliate relative a un'immagine. È possibile caricare un'immagine o specificarne l'URL. Le informazioni dettagliate sono immagini visivamente simili, luoghi di acquisto degli oggetti raffigurati nelle immagini, pagine Web che includono l'immagine e altro ancora. Le informazioni dettagliate restituite dall'API Ricerca visiva Bing sono simili a quelle visualizzate nel sito Bing.com/images. 
 
 Se si usa l'[API Ricerca immagini Bing](../bing-image-search/overview.md) è possibile usare i token di informazioni dettagliate restituiti dai risultati della ricerca dell'API per Ricerca visiva Bing invece di caricare un'immagine.
 
@@ -38,6 +38,7 @@ Ricerca visiva Bing consente di individuare le informazioni dettagliate seguenti
 | Ricerche correlate                     | Elenco di ricerche correlate eseguite da altri utenti o basate sul contenuto dell'immagine.            |
 | Pagine Web che includono l'immagine     | Pagine Web che includono l'immagine.            |
 | Ricette                              | Pagine Web contenenti ricette per preparare il piatto illustrato nell'immagine di input.            |
+| Entità                             | Persone famose, oggetti e località note. |
 
 Oltre alle informazioni dettagliate, Ricerca visiva Bing restituisce una varietà di termini (ovvero tag) derivati dall'immagine di input. I tag consentono agli utenti di esplorare i concetti trovati nell'immagine. Se ad esempio l'immagine di input è quella di un atleta famoso, uno dei tag potrebbe essere il nome dell'atleta e un altro tag potrebbe essere Sport. In alternativa, se l'immagine di input è una torta di mele, i tag possono essere Torta di mele, Torte e Dessert.
 

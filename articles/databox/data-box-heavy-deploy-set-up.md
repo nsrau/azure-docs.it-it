@@ -6,17 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: f5473ae7bd9ac1615d59d18c996e01902e1adbd6
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592380"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241420"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Esercitazione: Cablare e connettersi ad Azure Data Box Heavy
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="get-started-with-azure-data-box-heavy"></a>Introduzione ad Azure Data Box Disk Heavy
+
+::: zone-end
+
+::: zone target = "docs"
 
 Questa esercitazione descrive come cablare, connettere e accendere il dispositivo Azure Data Box Heavy.
 
@@ -25,6 +37,14 @@ In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
 > * Cablare Data Box Heavy
 > * Connettersi a Data Box Heavy
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+Questa guida fornisce istruzioni su come verificare i prerequisiti, cablare e connettere il dispositivo, copiare i dati, caricarli in Azure e quindi verificare i dati caricati.
+
+::: zone-end
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,6 +62,8 @@ Prima di iniziare, verificare che:
     - Scegliere cavi compatibili con l'interfaccia di rete [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html).
     - Per il cavo da 40 Gbps, l'estremità da collegare al dispositivo deve essere di tipo QSFP+.
     - Il cavo da 10 Gbps deve avere un connettore SFP+ sull'estremità da collegare a uno switch da 10 Gbps e un adattatore da QSFP+ a SFP+ (o l'adattatore QSA) sull'estremità da collegare al dispositivo.
+
+::: zone target = "docs"
 
 ## <a name="cable-your-device-for-power"></a>Cablare il dispositivo per l'alimentazione
 
@@ -138,3 +160,5 @@ Passare all'esercitazione successiva per informazioni su come copiare dati in Da
 
 > [!div class="nextstepaction"]
 > [Copiare i dati in Azure Data Box](./data-box-heavy-deploy-copy-data.md)
+
+::: zone-end

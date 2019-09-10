@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/22/2019
+ms.date: 09/03/2019
 ms.author: jgao
-ms.openlocfilehash: b27caa3d91d67ad63bfbf5e7c549d690980cdd7b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 13ac8b9f6d82cc8b0060f87237ef3140cb245379
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934447"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259196"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un modello di Resource Manager
 
@@ -101,7 +101,9 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Home page di Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-* [Documentazione su Azure Key Vault](index.yml)
-* [Azure SDK per Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
-* [Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/keyvault/)
+In questo argomento di avvio rapido sono stati creati un insieme di credenziali delle chiavi e un segreto usando un modello di Azure Resource Manager, quindi la distribuzione è stata convalidata. Per altre informazioni su Key Vault e Azure Resource Manager, continuare con gli articoli seguenti.
+
+- Leggere una [panoramica di Azure Key Vault](key-vault-overview.md)
+- Vedere altre informazioni su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- Leggere altri dettagli su [chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
+- Esaminare le [procedure consigliate per Azure Key Vault](key-vault-best-practices.md)

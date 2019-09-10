@@ -6,16 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 1c45e06159e4c2850efa2d3ab3290647961fb7e1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: 4267b8299e13f1705b218e65b268c45bd5a658e2
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592426"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240307"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>Esercitazione: Copiare i dati in Azure Data Box Heavy tramite SMB
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="copy-data-to-azure-data-box-heavy"></a>Copiare i dati in Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
 
 Questa esercitazione descrive come connettersi al computer host e copiarne i dati usando l'interfaccia utente Web locale.
 
@@ -25,6 +38,17 @@ In questa esercitazione si apprenderà come:
 > * Connettersi a Data Box Heavy
 > * Copiare i dati in Data Box Heavy
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+È possibile copiare i dati dal server di origine nel dispositivo Data Box tramite SMB, NFS, REST o il servizio copia dei dati oppure nei dischi gestiti.
+
+In ogni caso, assicurarsi che i nomi delle condivisioni e delle cartelle e le dimensioni dei dati siano conformi alle linee guida descritte nei [limiti dei servizi Archiviazione di Azure e Data Box Heavy](data-box-heavy-limits.md).
+
+::: zone-end
+
+::: zone target = "docs"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,6 +59,7 @@ Prima di iniziare, verificare che:
 3. Avere un computer host con i dati da copiare in Data Box Heavy. Il computer host deve:
     - Eseguire un [sistema operativo supportato](data-box-system-requirements.md).
     - Essere connesso a una rete ad alta velocità. Per una velocità di copia più veloce, è possibile utilizzare in parallelo due connessioni da 40 GbE (una per nodo). Se non si dispone di una connessione da 40 GbE, si consiglia di avere almeno due connessioni da 10 GbE (una per nodo).
+   
 
 ## <a name="connect-to-data-box-heavy-shares"></a>Connettersi alle condivisioni di Data Box Heavy
 
@@ -256,4 +281,60 @@ Passare all'esercitazione successiva per informazioni su come riconsegnare Data 
 
 > [!div class="nextstepaction"]
 > [Spedire Azure Data Box Heavy a Microsoft](./data-box-heavy-deploy-picked-up.md)
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+### <a name="copy-data-via-smb"></a>Copiare i dati tramite SMB
+
+1. Se si usa un host Windows, eseguire il comando seguente per connettersi alle condivisioni SMB:
+
+    `\\<IP address of your device>\ShareName`
+
+2. Per ottenere le credenziali di accesso alle condivisioni, passare alla pagina **Connetti e copia** nell'interfaccia utente Web locale di Data Box.
+
+3. Per copiare i dati nelle condivisioni, usare uno strumento di copia file compatibile con SMB, ad esempio Robocopy.
+
+Per le istruzioni dettagliate, vedere [Esercitazione: Copiare dati in Azure Data Box tramite SMB](data-box-heavy-deploy-copy-data.md).
+
+### <a name="copy-data-via-nfs"></a>Copiare i dati tramite NFS
+
+1. Se si usa un host NFS, eseguire il comando seguente per montare le condivisioni NFS:
+
+    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
+
+2. Per ottenere le credenziali di accesso alle condivisioni, passare alla pagina **Connetti e copia** nell'interfaccia utente Web locale di Data Box Heavy.
+3. Per copiare i dati, usare il comando `cp` o `rsync`. 
+4. Ripetere questi passaggi per connettersi e copiare i dati nel secondo nodo di Data Box Heavy.
+
+Per le istruzioni dettagliate, vedere [Esercitazione: Copiare dati in Azure Data Box tramite NFS](data-box-heavy-deploy-copy-data-via-nfs.md).
+
+### <a name="copy-data-via-rest"></a>Copiare dati tramite REST
+
+1. Per copiare i dati usando l'archivio BLOB di Data Box tramite API REST, è possibile connettersi tramite *http* o *https*.
+2. Per copiare dati nell'archivio BLOB di Data Box, è possibile usare AzCopy.
+3. Ripetere questi passaggi per connettersi e copiare i dati nel secondo nodo di Data Box Heavy.
+
+Per le istruzioni dettagliate, vedere [Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST](data-box-heavy-deploy-copy-data-via-rest.md).
+
+### <a name="copy-data-via-data-copy-service"></a>Copiare dati tramite il servizio di copia dei dati
+
+1. Per copiare i dati usando il servizio di copia dei dati è necessario creare un processo. Nell'interfaccia utente Web locale del dispositivo Data Box Heavy passare a **Gestisci > Copia dati > Crea**.
+2. Immettere i parametri e creare un processo.
+3. Ripetere questi passaggi per connettersi e copiare i dati nel secondo nodo di Data Box Heavy.
+
+Per le istruzioni dettagliate, vedere [Esercitazione: Usare il servizio di copia dei dati per copiare i dati in Azure Data Box Heavy](data-box-heavy-deploy-copy-data-via-copy-service.md).
+
+### <a name="copy-data-to-managed-disks"></a>Copiare i dati nei dischi gestiti
+
+1. Quando si ordina il dispositivo Data Box Heavy, è necessario aver selezionato i dischi gestiti come destinazione di archiviazione.
+2. È possibile connettersi a Data Box Heavy tramite condivisioni SMB o NFS.
+3. È quindi possibile copiare i dati tramite gli strumenti SMB o NFS.
+4. Ripetere questi passaggi per connettersi e copiare i dati nel secondo nodo di Data Box Heavy.
+
+Per le istruzioni dettagliate, vedere [Esercitazione: Usare Data Box Heavy per importare dati come dischi gestiti in Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
+
+::: zone-end
+
 

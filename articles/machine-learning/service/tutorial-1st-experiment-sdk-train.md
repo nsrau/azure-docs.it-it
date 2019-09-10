@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
-ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 09/03/2019
+ms.openlocfilehash: 989775916454b6710aef6c2c5be6792920622dab
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051622"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241302"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
 
@@ -35,14 +35,33 @@ L'unico prerequisito consiste nell'eseguire la prima parte di questa esercitazio
 
 In questa parte dell'esercitazione si eseguirà il codice nel notebook di Jupyter `tutorials/tutorial-1st-experiment-sdk-train.ipynb` di esempio aperto alla fine della prima parte. Questo articolo illustra lo stesso codice presente nel notebook.
 
+## <a name="launch-jupyter-web-interface"></a>Avviare l'interfaccia Web di Jupyter
+
+1. Nella pagina dell'area di lavoro nel portale di Azure, selezionare **Macchine virtuali per notebook** a sinistra.
+
+1. Selezionare **Jupyter** nella colonna **URI** per la macchina virtuale creata nella prima parte di questa esercitazione.
+
+    ![Avviare il server Jupyter Notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+
+   Il collegamento consente di avviare il server del notebook e di aprire la pagina Web del notebook Jupyter in una nuova scheda del browser.  Questo collegamento funziona solo per l'utente che crea la macchina virtuale. Ogni utente dell'area di lavoro deve creare la propria macchina virtuale.
+
+1. Nella pagina Web del notebook di Jupyter selezionare il nome cartella nella parte superiore, che include il nome utente.  
+
+   Questa cartella è disponibile nell'[account di archiviazione](concept-workspace.md#resources) dell'area di lavoro invece che nella VM del notebook stessa.  Se si elimina la VM del notebook, tutte le modifiche vengono comunque mantenute.  Quando in un secondo momento si creerà una nuova macchina virtuale per notebook, verrà caricata la stessa cartella. Se si condivide l'area di lavoro con altri utenti, questi potranno visualizzare la cartella e si potrà visualizzare i rispettivi elementi.
+
+1. Aprire la sottodirectory `samples-*`, quindi aprire il notebook di Jupyter `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **non** il file `.yml` con lo stesso nome. 
+
 ## <a name="connect-workspace-and-create-experiment"></a>Connettere l'area di lavoro e creare un esperimento
+
+> [!Important]
+> Il resto di questo articolo contiene lo stesso contenuto visualizzato nel notebook.  
+>
+> Passare ora al notebook di Jupyter se si desidera leggere durante l'esecuzione del codice. 
+> Per eseguire una singola cella di codice in un notebook, fare clic sulla cella di codice e premere **MAIUSC + INVIO**. In alternativa, eseguire l'intero notebook scegliendo **Cella > Esegui tutto** dal menu in alto.
 
 Importare la classe `Workspace` e caricare le informazioni sulla sottoscrizione dal file `config.json` con la funzione `from_config().`. Per impostazione predefinita, questa funzione cerca il file JSON nella directory corrente, ma è possibile anche specificare un parametro del percorso che punti al file usando `from_config(path="your/file/path")`. In un server notebook cloud, il file si trova automaticamente nella directory radice.
 
 Se il codice seguente richiede un'autenticazione aggiuntiva, incollare semplicemente il collegamento in un browser e immettere il token di autenticazione.
-
-> [!TIP]
-> Se non si ha familiarità con i notebook di Jupyter, eseguire il codice facendo clic su una cella di codice e premendo **MAIUSC + INVIO** per eseguire le celle una alla volta. In alternativa, per eseguire l'intero notebook contemporaneamente, fare clic su **Cella** nella barra dei menu superiore e quindi fare clic su **Esegui tutto**.
 
 ```python
 from azureml.core import Workspace

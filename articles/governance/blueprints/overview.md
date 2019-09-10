@@ -3,16 +3,16 @@ title: Panoramica di Azure Blueprint
 description: Informazioni sul servizio Azure Blueprints, che consente di creare, definire e distribuire artefatti nell'ambiente di Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848430"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146111"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Panoramica del servizio Azure Blueprints
 
@@ -106,14 +106,23 @@ Per assegnare o annullare l'assegnazione di un progetto l'account necessita dell
 > [!NOTE]
 > Dato che le assegnazioni di progetto vengono create in una sottoscrizione, le autorizzazioni per assegnare o annullare l'assegnazione devono essere concesse nell'ambito della sottoscrizione o essere ereditate nell'ambito della sottoscrizione.
 
-Tutte le autorizzazioni precedenti sono incluse nel ruolo **Proprietario**. Il ruolo **Collaboratore** dispone delle autorizzazioni per creare ed eliminare progetti, ma non delle autorizzazioni per l'assegnazione di progetti. Se questi ruoli predefiniti non soddisfano specifiche esigenze di sicurezza, provare a creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
+Sono disponibili i ruoli predefiniti seguenti:
+
+|Ruolo Controllo degli accessi in base al ruolo | DESCRIZIONE |
+|-|-|
+|[Proprietario](../../role-based-access-control/built-in-roles.md#owner) | Oltre ad altre autorizzazioni, include tutte le autorizzazioni correlate ad Azure Blueprint. |
+|[Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) | Oltre ad altre autorizzazioni, può creare ed eliminare definizioni di progetto, ma non ha le autorizzazioni per l'assegnazione di progetti. |
+|[Collaboratore di progetto](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Può gestire le definizioni di progetto, ma non assegnarle. |
+|[Operatore di progetto](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Può assegnare i progetti pubblicati esistenti, ma non può creare nuove definizioni di progetto. L'assegnazione di progetti funziona solo se viene eseguita con un'identità gestita assegnata dall'utente. |
+
+Se questi ruoli predefiniti non soddisfano specifiche esigenze di sicurezza, provare a creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > Se si utilizza un'identità gestita assegnata al sistema, per poter abilitare la distribuzione l'entità servizio per Azure Blueprint richiede il ruolo **proprietario** nella sottoscrizione assegnata. Se si usa il portale, questo ruolo viene automaticamente concesso e revocato per la distribuzione. Se si usa l'API REST, questo ruolo deve essere concesso manualmente, ma viene comunque revocato automaticamente al termine della distribuzione. Se si utilizza un'identità gestita assegnata dall'utente, solo l'utente che crea l'assegnazione del progetto ha bisogno delle autorizzazioni **proprietario**.
 
 ## <a name="naming-limits"></a>Limiti di denominazione
 
-Di seguito è riportato un elenco delle limitazioni previste per determinati campi:
+Per determinati campi, esistono le limitazioni seguenti:
 
 |Oggetto|Campo|Caratteri consentiti|Max. Length|
 |-|-|-|-|

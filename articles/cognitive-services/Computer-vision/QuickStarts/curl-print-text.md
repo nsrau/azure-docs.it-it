@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 10cab0a1b5bfea603de56a366473a68ca2fcb009
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6862c48493c2fdf3cbc4e4a9da70d6da70c723de
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604416"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141460"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-curl"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST Visione artificiale e cURL
 
@@ -36,7 +36,8 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 1. Copiare il comando seguente in un editor di testo.
 1. Apportare le modifiche seguenti al comando, dove necessario:
     1. Sostituire il valore di `<subscriptionKey>` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire l'URL della richiesta (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr`) con l'URL endpoint per il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Sostituire la prima parte dell'URL della richiesta (`westcentralus`) con il testo dell'URL dell'endpoint.
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Facoltativamente, modificare l'URL dell'immagine nel corpo della richiesta (`https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`) nell'URL di un'altra immagine da analizzare.
 1. Aprire una finestra del prompt dei comandi.
 1. Incollare il comando dall'editor di testo nella finestra del prompt dei comandi e quindi eseguire il comando.

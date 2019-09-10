@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione REST: Creare una pipeline di arricchimento con intelligenza artificiale usando la ricerca cognitiva - Ricerca di Azure'
 description: Procedura di esempio di estrazione del testo ed elaborazione del linguaggio naturale su contenuto in BLOB JSON con Postman e API REST di Ricerca di Azure.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: e647d3c66d339a60278fa7d0f078497157b3fff1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 726fdd6aeebac970142fa9225381af77114bfe42
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102774"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274123"
 ---
 # <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>Esercitazione: Definire la struttura di "contenuto non strutturato" con la ricerca cognitiva
 
@@ -22,10 +22,10 @@ Se si dispone di contenuto di testo o immagine non strutturato, è possibile sfr
 
 > [!div class="checklist"]
 > * Iniziare con documenti interi (testo non strutturato) come PDF, MD, DOCX e PPTX in Archiviazione BLOB di Azure.
-> * Creare una pipeline che estrae il testo, rileva la lingua, riconosce le entità e rileva le frasi chiave.
+> * Definire una pipeline che estrae il testo, rileva la lingua, riconosce le entità e rileva le frasi chiave.
 > * Definire un indice per archiviare l'output (contenuto non elaborato, nonché coppie nome-valore generate dalla pipeline).
-> * Eseguire la pipeline per creare e caricare l'indice.
-> * Esplorare il contenuto mediante la ricerca full-text e una sintassi di query avanzata.
+> * Eseguire la pipeline per avviare le trasformazioni e l'analisi, nonché per creare e caricare l'indice.
+> * Esplorare i risultati tramite un ricerca full-text e una sintassi di query avanzata.
 
 Per completare questa procedura dettagliata, sono necessari diversi servizi, oltre all'[app desktop Postman](https://www.getpostman.com/) o a un altro strumento di test Web per effettuare le chiamate all'API REST. 
 

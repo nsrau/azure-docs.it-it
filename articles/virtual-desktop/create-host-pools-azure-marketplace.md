@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f692303140db1441aa34aacef62523d7f596dba1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204728"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208376"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Esercitazione: Creare un pool di host con Azure Marketplace
 
@@ -26,7 +26,11 @@ Questa esercitazione descrive come creare un pool di host all'interno di un tena
 > * Aggiungere le macchine virtuali al dominio di Active Directory.
 > * Registrare le macchine virtuali con Desktop virtuale Windows.
 
-Prima di iniziare, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
+Prima di iniziare, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto. Successivamente, eseguire il cmdlet seguente per accedere al proprio account:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -40,7 +44,7 @@ Per eseguire l'offerta di Azure Marketplace ed effettuare il provisioning di un 
 2. Immettere **Desktop virtuale Windows** nella finestra di ricerca del Marketplace.
 3. Selezionare **Windows Virtual Desktop - Provision a host pool** (Desktop virtuale Windows - Provisioning di un pool di host) e quindi **Crea**.
 
-Seguire le istruzioni per immettere le informazioni nei pannelli appropriati.
+Successivamente, seguire le istruzioni riportate nella sezione successiva per immettere le informazioni per i pannelli appropriati.
 
 ### <a name="basics"></a>Nozioni di base
 
@@ -52,6 +56,9 @@ Nel pannello **Generale** procedere come segue:
 4. Selezionare **Crea nuovo** e specificare il nome del nuovo gruppo di risorse.
 5. Per **Località** selezionare la stessa località della macchina virtuale che ha connettività con il server Active Directory.
 6. Selezionare **OK**.
+
+>[!IMPORTANT]
+>Se si usa una soluzione Azure Active Directory Domain Services e Azure Active Directory pura, assicurarsi di distribuire il pool host nella stessa area di Azure Active Directory Domain Services per evitare errori di aggiunta al dominio e credenziali.
 
 ### <a name="configure-virtual-machines"></a>Configurare le macchine virtuali
 
@@ -66,7 +73,7 @@ Per il pannello **Configura le VM**:
 Per il pannello **Virtual machine settings** (Impostazioni macchina virtuale):
 
 >[!NOTE]
-> Se si intende aggiungere le macchine virtuali a un ambiente Azure AD Domain Services (Azure AD DS), assicurarsi che l'utente di aggiunta a un dominio sia anche membro del [gruppo AAD DC Administrators](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+> Se si intende aggiungere le macchine virtuali a un ambiente Azure AD Domain Services (Azure AD DS), assicurarsi che l'utente di aggiunta a un dominio sia anche membro del [gruppo AAD DC Administrators](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
 1. Per **Origine immagine** selezionare l'origine e immettere le informazioni appropriate per trovarla e archiviarla. Se si è scelto di non usare dischi gestiti, selezionare l'account di archiviazione contenente il file con estensione vhd.
 2. Immettere il nome dell'entità utente e la password per l'account di dominio che aggiungerà le VM al dominio di Active Directory. Gli stessi valori di nome utente e password verranno creati come account locali nelle macchine virtuali. È possibile reimpostare questi account locali in seguito.

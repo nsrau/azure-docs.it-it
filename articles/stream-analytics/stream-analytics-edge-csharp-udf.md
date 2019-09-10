@@ -1,5 +1,5 @@
 ---
-title: Scrivere una funzione C# definita dall'utente per un processo Edge di Analisi di flusso di Azure in Visual Studio (anteprima)
+title: Scrivere funzioni C# definite dall'utente per i processi Edge di Analisi di flusso di Azure in Visual Studio (anteprima)
 description: Informazioni su come scrivere funzioni C# definite dall'utente per i processi Edge di Analisi di flusso in Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cadc603a94d5d17ad2df419f8507c37f9e3272f8
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086905"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173318"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Esercitazione: scrivere una funzione C# definita dall'utente per un processo Edge di Analisi di flusso di Azure (anteprima)
 
@@ -63,7 +63,7 @@ Il contenitore creato verrà usato per archiviare il pacchetto C# compilato e di
     |---------|---------|
     |Origine assembly  |  Riferimento al progetto locale o CodeBehind   |
     |Risorsa  |  Scegliere i dati dall'account corrente   |
-    |Sottoscrizione  |  Scegliere la propria sottoscrizione.   |
+    |Subscription  |  Scegliere la propria sottoscrizione.   |
     |Account di archiviazione  |  Scegliere l'account di archiviazione.   |
     |Contenitore  |  Scegliere il contenitore creato nell'account di archiviazione.   |
 
