@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: 36d03e20c9a56d7b317b867f01c1c0b5767c802c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5c2e81cd11826a0325cd78384a22ec7eefb3a565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257026"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844876"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Uso delle chiavi di creazione e di risorsa di runtime
 
@@ -38,7 +38,7 @@ Quando si accede al portale LUIS, è possibile scegliere di continuare con:
 1. Accedere a [Luis Portal](https://www.luis.ai) e accettare le condizioni per l'utilizzo.
 1. Avviare l'app LUIS scegliendo il tipo di chiave di authoring LUIS da usare: chiave di valutazione gratuita o nuova chiave di creazione di Azure LUIS. 
 
-    ![Scegliere un tipo di Language Understanding risorsa di creazione](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+    ![Scegliere un tipo di risorsa di creazione Language Understanding](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
 1. Al termine del processo di selezione delle risorse, [creare una nuova app](luis-how-to-start-new-app.md#create-new-app-in-luis). 
 
@@ -61,7 +61,7 @@ Quando si è pronti per pubblicare l'endpoint di stima, creare e assegnare chiav
 
     ![Creare la risorsa di comprensione della lingua](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |Name|Scopo|
+    |NOME|Scopo|
     |--|--|
     |Nome risorsa| Nome personalizzato scelto, usato come parte dell'URL per le query dell'endpoint di creazione e di stima.|
     |Nome sottoscrizione| sottoscrizione che verrà fatturata per la risorsa.|
@@ -72,6 +72,38 @@ Quando si è pronti per pubblicare l'endpoint di stima, creare e assegnare chiav
     |Piano tariffario di runtime|Il piano tariffario determina il numero massimo di transazioni al secondo e al mese.|
 
     Una volta create entrambe le risorse, assegnare le risorse nel portale LUIS.
+
+## <a name="create-resources-in-azure-cli"></a>Creare risorse nell'interfaccia della riga di comando di Azure
+
+Usare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure per creare ogni risorsa singolarmente. 
+
+Risorsa `kind`:
+
+* Authoring`LUIS.Authoring`
+* Stima`LUIS` 
+
+1. Accedere all'interfaccia della riga di comando di Azure:
+
+    ```console
+    az login
+    ```
+
+    Verrà visualizzato un browser che consente di selezionare l'account corretto e di fornire l'autenticazione.
+
+1. Creare una **risorsa Luis authoring**, di tipo `LUIS.Authoring`, denominata `my-luis-authoring-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l' `westus` area. 
+
+    ```console
+    az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
+    ```
+
+1. Creare una **risorsa dell'endpoint di stima Luis**, di `LUIS`tipo, `my-luis-prediction-resource` denominata nel gruppo di risorse esistente `my-resource-group` denominato per `westus` l'area. Se si desidera una velocità effettiva superiore a quella del livello gratuito `F0` , `S0`modificare in. Altre informazioni sui [piani tariffari e la velocità effettiva](luis-boundaries.md#key-limits).
+
+    ```console
+    az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
+    ```
+
+    > [!Note] 
+    > Queste chiavi **non** vengono usate dal portale Luis fino a quando non vengono assegnate nel portale Luis sulle **risorse di Azure manage->** .
 
 ## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Assegnare una risorsa di creazione nel portale LUIS per tutte le app
 
@@ -105,7 +137,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Intestazione|Valore|
+    |Intestazione|Value|
     |--|--|
     |`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.| 
     |`Ocp-Apim-Subscription-Key`|Chiave di creazione.|
@@ -186,6 +218,6 @@ Aggiungi un avviso di metrica per la metrica **Totale chiamate** riferito a un d
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni [su come usare le versioni](luis-how-to-manage-versions.md) per controllare il ciclo di vita dell'app.
-* Comprendere i concetti che includono la [risorsa di creazione](/luis-concept-keys.md#authoring-key) e i [collaboratori](luis-concept-keys.md#contributions-from-other-authors) di tale risorsa.
+* Comprendere i concetti che includono la [risorsa di creazione](luis-concept-keys.md#authoring-key) e i [collaboratori](luis-concept-keys.md#contributions-from-other-authors) di tale risorsa.
 * Informazioni [su come creare risorse di](luis-how-to-azure-subscription.md) creazione e di runtime
 * Eseguire la migrazione alla nuova [risorsa di creazione](luis-migration-authoring.md) 

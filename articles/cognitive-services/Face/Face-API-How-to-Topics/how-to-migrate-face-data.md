@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/06/2019
 ms.author: lewlu
-ms.openlocfilehash: 886e0ff353ab270bb823629d2068508531c14fc2
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 49b92037fed6436d28f777761b18cf5f66e03025
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516870"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859171"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa
 
-Questa guida illustra come spostare i dati facciali, ad esempio un oggetto gruppo salvato con visi, in un'altra sottoscrizione di servizi cognitivi di Azure API Viso. Per spostare i dati, utilizzare la funzionalità snapshot. In questo modo si evita di dover compilare ripetutamente e eseguire il training di un oggetto gruppo o facet quando si spostano o si espandono le operazioni. Ad esempio, è possibile che sia stato creato un oggetto gruppo usando una sottoscrizione di valutazione gratuita e che ora si voglia eseguirne la migrazione alla sottoscrizione a pagamento. In alternativa, potrebbe essere necessario sincronizzare i dati volti tra le aree per un'operazione aziendale di grandi dimensioni.
+Questa guida illustra come spostare i dati facciali, ad esempio un oggetto gruppo salvato con visi, in un'altra sottoscrizione di servizi cognitivi di Azure API Viso. Per spostare i dati, utilizzare la funzionalità snapshot. In questo modo si evita di dover compilare ripetutamente e eseguire il training di un oggetto gruppo o facet quando si spostano o si espandono le operazioni. Ad esempio, è possibile che sia stato creato un oggetto gruppo usando una sottoscrizione di valutazione gratuita e che ora si voglia eseguirne la migrazione alla sottoscrizione a pagamento. In alternativa, potrebbe essere necessario sincronizzare i dati volti tra le sottoscrizioni in aree diverse per un'operazione aziendale di grandi dimensioni.
 
 Questa stessa strategia di migrazione si applica anche agli oggetti LargePersonGroup e LargeFaceList. Se non si ha familiarità con i concetti illustrati in questa guida, vedere le relative definizioni nella Guida ai [concetti di riconoscimento delle facce](../concepts/face-recognition.md) . Questa guida usa la libreria client .NET per l'API Viso con C#.
 
@@ -41,7 +41,9 @@ Questa guida usa una semplice app console per eseguire la migrazione dei dati pe
 
 ## <a name="create-face-clients"></a>Creare client dell'API Viso
 
-Nel metodo **Main** in *Program.cs*creare due istanze di [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) per le sottoscrizioni di origine e di destinazione. In questo esempio viene usata una sottoscrizione viso nell'area Asia orientale come origine e una sottoscrizione degli Stati Uniti occidentali come destinazione. Questo esempio illustra come eseguire la migrazione dei dati da un'area di Azure a un'altra. Se le sottoscrizioni si trovano in aree diverse, `Endpoint` modificare le stringhe.
+Nel metodo **Main** in *Program.cs*creare due istanze di [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) per le sottoscrizioni di origine e di destinazione. In questo esempio viene usata una sottoscrizione viso nell'area Asia orientale come origine e una sottoscrizione degli Stati Uniti occidentali come destinazione. Questo esempio illustra come eseguire la migrazione dei dati da un'area di Azure a un'altra. 
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))

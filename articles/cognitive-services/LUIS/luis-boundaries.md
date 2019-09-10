@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/9/2019
+ms.date: 09/09/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ff267a524001802f8bcd0903fcb7119bab16ef11
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: HT
+ms.openlocfilehash: afa6c5e40918906eb9fe0e40ed633715e3f2741d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813321"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844806"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -29,7 +29,7 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 |Area|Limite|
 |--|:--|
 | [Nome app][luis-get-started-create-app] | *Numero max predefinito di caratteri |
-| Applicazioni| 500 applicazioni per ogni risorsa di Azure |
+| Applicazioni| 500 applicazioni per ogni risorsa di creazione di Azure |
 | [Test batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
 | Elenco esplicito | 50 per applicazione|
 | Entità esterne | Nessun limite |
@@ -65,21 +65,24 @@ Non usare i caratteri seguenti nei nomi seguenti.
 
 Language Understanding ha chiavi separate, un tipo per la creazione e un tipo per l'esecuzione di query sull'endpoint di stima. Per altre informazioni sulle differenze tra i tipi di chiave, vedere [Chiavi di creazione e di endpoint per query di stima in LUIS](luis-concept-keys.md).
 
-## <a name="key-limits"></a>Limiti delle chiavi
+<a name="key-limits"></a>
 
-La chiave di creazione presenta diversi limiti per creazione e endpoint. La chiave endpoint del servizio LUIS è valida solo per le query di endpoint.
+## <a name="resource-key-limits"></a>Limiti delle chiavi di risorsa
 
-* 500 applicazioni per ogni risorsa di Azure 
-* 100 versioni per applicazione
+Le chiavi delle risorse hanno limiti diversi per la creazione e l'endpoint. La chiave dell'endpoint della query di stima LUIS è valida solo per le query endpoint. 
+
+* 500 applicazioni per ogni risorsa di creazione di Azure 
 
 |Chiave|Creazione|Endpoint|Scopo|
 |--|--|--|--|
-|Creazione/Avvio di Language Understanding|1 milione/mese, 5/secondo|1\.000/mese, 5/secondo|Creazione di app LUIS|
-|[Sottoscrizione][pricing] di Language Understanding-livello gratuito F0 |non valido|10.000/mese, 5/secondo|Esecuzione di query per l'endpoint LUIS|
-|[Sottoscrizione][pricing] di Language Understanding-S0-livello Basic|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
-|[Sottoscrizione][pricing] di servizi cognitivi-S0-livello standard|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
-|[Integrazione dell'Analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)|non valido|nessun addebito|Aggiunta di informazioni sentiment inclusa l'estrazione dei dati di frase chiave |
-|[Integrazione vocale](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|non valido|Richieste di endpoint $5,50 USD/1.000|Converte un'espressione parlata in un espressione di testo e restituisce i risultati LUIS|
+|Starter|1 milione/mese, 5/secondo|1\.000/mese, 5/secondo|Creazione di app LUIS|
+|Livello gratuito F0 |1 milione/mese, 5/secondo|10.000/mese, 5/secondo|Esecuzione di query per l'endpoint LUIS|
+|S0-livello Basic|-|50/secondo|Esecuzione di query per l'endpoint LUIS|
+|S0-livello standard|-|50/secondo|Esecuzione di query per l'endpoint LUIS|
+|[Integrazione dell'Analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|L'aggiunta di informazioni sui sentimenti, inclusa l'estrazione dei dati di frasi chiave, viene fornita senza richiedere un'altra risorsa di Azure. |
+|[Integrazione vocale](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1000 richieste endpoint per ogni costo unitario|Converte un'espressione parlata in un espressione di testo e restituisce i risultati LUIS|
+
+[Altre informazioni sui prezzi.][pricing]
 
 ## <a name="keyboard-controls"></a>Controlli tastiera
 

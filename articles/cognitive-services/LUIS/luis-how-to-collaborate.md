@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: e69fea4d57aaf2a0b7d3615b1eecbf99a6b13ab8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 004da6c84e6226c4de3114d32cde826cd167e1ab
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256832"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844830"
 ---
 # <a name="add-contributors-to-your-app"></a>Aggiungere collaboratori all'app
 
@@ -99,6 +99,6 @@ Altre informazioni sugli utenti di Azure Active Directory e sul consenso:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni [su come usare le versioni](luis-how-to-manage-versions.md) per controllare il ciclo di vita dell'app.
-* Comprendere i concetti che includono la [risorsa di creazione](/luis-concept-keys.md#authoring-key) e i [collaboratori](luis-concept-keys.md#contributions-from-other-authors) di tale risorsa.
+* Comprendere i concetti che includono la [risorsa di creazione](luis-concept-keys.md#authoring-key) e i [collaboratori](luis-concept-keys.md#contributions-from-other-authors) di tale risorsa.
 * Informazioni [su come creare risorse di](luis-how-to-azure-subscription.md) creazione e di runtime
 * Eseguire la migrazione alla nuova [risorsa di creazione](luis-migration-authoring.md) 
