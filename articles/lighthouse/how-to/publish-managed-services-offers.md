@@ -4,19 +4,19 @@ description: Informazioni su come pubblicare un'offerta di servizio gestito che 
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f9d3fad2a98647bcd10d54c03a76e95bc3e05227
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c0c2ccf03292434b3f23b26857ec0d2b3fc3ceed
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011852"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165260"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizi gestiti in Azure Marketplace
 
-In questo articolo verrà illustrato come pubblicare un'offerta di servizi gestiti pubblica o privata in [Azure Marketplace](https://azuremarketplace.microsoft.com) usando il [portale Cloud Partner](https://cloudpartner.azure.com/), per poter eseguire l'onboarding di un cliente che acquista l'offerta per la gestione risorse delegate di Azure.
+Questo articolo illustra come pubblicare un'offerta di servizi gestiti pubblici o privati in [Azure Marketplace](https://azuremarketplace.microsoft.com) tramite il [portale Cloud Partner](https://cloudpartner.azure.com/), consentendo ai clienti che la acquistano di eseguire l'onboarding delle risorse per la gestione di risorse delegate di Azure.
 
 > [!NOTE]
 > È necessario avere un [account valido nel Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per creare e pubblicare queste offerte. Se non si ha già un account, il [processo di iscrizione](https://aka.ms/joinmarketplace) avvierà la procedura per creare un account nel Centro per i partner ed eseguire la registrazione nel programma Commercial Marketplace. L'ID MPN (Microsoft Partner Network) verrà [associato automaticamente](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) alle offerte pubblicate per tenere traccia dell'impatto sugli engagement dei clienti.
@@ -127,6 +127,65 @@ Dopo aver aggiunto queste informazioni, selezionare **Salva**.
 ## <a name="publish-your-offer"></a>Pubblicare l'offerta
 
 Quando si è soddisfatti di tutte le informazioni immesse, il passaggio successivo consiste nel pubblicare l'offerta in Azure Marketplace. Selezionare il pulsante **Pubblica** per attivare l'offerta. Per altre informazioni su questo processo, vedere [Pubblicare offerte di Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
+
+## <a name="the-customer-onboarding-process"></a>Il processo di onboarding del cliente
+
+Quando un cliente aggiunge l'offerta, sarà in grado di [delegare una o più sottoscrizioni o gruppi di risorse specifici](view-manage-service-providers.md#delegate-resources) di cui verrà quindi eseguito l'onboarding per la gestione di risorse delegate di Azure. Se un cliente ha accettato un'offerta, ma non ha ancora delegato alcuna risorsa, vedrà una nota nella parte superiore della sezione **Provider offers** (Offerte di provider) della pagina [**Provider di servizi**](view-manage-service-providers.md) del portale di Azure.
+
+Prima di eseguire l'onboarding di una sottoscrizione (o dei gruppi di risorse al suo interno), è necessario autorizzare la sottoscrizione registrando manualmente il provider di risorse **Microsoft.ManagedServices**. Un utente nel tenant del cliente con il ruolo Collaboratore o Proprietario può eseguire questa operazione seguendo i passaggi descritti in [Provider e tipi di risorse di Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+
+Il cliente può quindi verificare che la sottoscrizione sia pronta per l'onboarding in uno dei modi seguenti.
+
+### <a name="azure-portal"></a>Portale di Azure
+
+1. Nel portale di Azure selezionare la sottoscrizione.
+1. Selezionare **Provider di risorse**.
+1. Verificare che **Microsoft.ManagedServices** sia contrassegnato come **Registrato**.
+
+### <a name="powershell"></a>PowerShell
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+Set-AzContext -Subscription <subscriptionId>
+Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
+```
+
+Dovrebbe restituire risultati simili ai seguenti:
+
+```output
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {registrationDefinitions}
+Locations         : {}
+
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {registrationAssignments}
+Locations         : {}
+
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {operations}
+Locations         : {}
+```
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+az account set –subscription <subscriptionId>
+az provider show --namespace "Microsoft.ManagedServices" --output table
+```
+
+Dovrebbe restituire risultati simili ai seguenti:
+
+```output
+Namespace                  RegistrationState
+-------------------------  -------------------
+Microsoft.ManagedServices  Registered
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,13 +7,12 @@ ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a8221de15dfa48b4eebcf0fe0df29ea0c3a1868e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7c47b233e508c22ef7b380acfb7720ad763d8de3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854959"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241115"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell
 
@@ -22,8 +21,6 @@ Il primo passaggio per usare Azure Resource Graph consiste nel verificare che il
 Alla fine di questo processo, il modulo risulterà aggiunto all'installazione di Azure PowerShell scelta e si eseguirà la prima query di Resource Graph.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="add-the-resource-graph-module"></a>Aggiungere il modulo di Resource Graph
 
@@ -48,7 +45,7 @@ Il modulo Resource Graph per PowerShell è **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Verificare che il modulo sia stato importato e che la versione sia corretta (0.7.3):
+1. Verificare che il modulo sia stato importato e che la versione sia l'ultima (0.7.5):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module

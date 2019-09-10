@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.openlocfilehash: 152e93fefecaeaab3502ad5d974ba923727f919b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f9a729376baeb03656b7b54fcb8e10a865d1f364
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443121"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195153"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Guida introduttiva: Creare un database di Azure per il server PostgreSQL nel portale di Azure
 
@@ -28,7 +28,7 @@ Aprire il Web browser e passare al [portale](https://portal.azure.com/). Immette
 Un server Database di Azure per PostgreSQL viene creato con un set definito di [risorse di calcolo e di archiviazione](./concepts-pricing-tiers.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md).
 
 Per creare un database di Azure per il server PostgreSQL, seguire questa procedura:
-1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale.
+1. Nell'angolo in alto a sinistra del portale selezionare **Crea una risorsa** (+).
 
 2. Selezionare **Database** > **Database di Azure per PostgreSQL**.
 
@@ -44,13 +44,13 @@ Per creare un database di Azure per il server PostgreSQL, seguire questa procedu
 
     Impostazione|Valore consigliato|DESCRIZIONE
     ---|---|---
-    Sottoscrizione|Nome della sottoscrizione utente|Sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
-    Gruppo di risorse|*myresourcegroup*| Nuovo nome di gruppo di risorse o uno esistente nella sottoscrizione.
+    Subscription|Nome della sottoscrizione utente|Sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
+    Resource group|*myresourcegroup*| Nuovo nome di gruppo di risorse o uno esistente nella sottoscrizione.
     Nome server |*mydemoserver*|Nome univoco per identificare il database di Azure per il server PostgreSQL. Al nome del server specificato viene aggiunto il nome di dominio *postgres.database.azure.com*. Il server può contenere solo lettere minuscole, numeri e il segno meno (-). Deve contenere almeno da 3 a 63 caratteri.
     Origine dati | *Nessuno* | Selezionare *Nessuno* per creare un nuovo server da zero. Si selezionerebbe *Backup* se si stesse creando un server da un backup geografico di un server Database di Azure per PostgreSQL esistente.
     Nome utente amministratore |*myadmin*| Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** o **public**. Non può iniziare con **pg_** .
     Password |Password| Nuova password per l'account amministratore del server. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre di queste categorie: lettere maiuscole, lettere minuscole, numeri (da 0 a 9) e caratteri non alfanumerici (!, $, #, % e così via).
-    Località|Area più vicina ai propri utenti| Località più vicina agli utenti.
+    Location|Area più vicina ai propri utenti| Località più vicina agli utenti.
     Versione|La versione principale più recente| La versione principale più recente di PostgreSQL, a meno che non si abbiano requisiti specifici diversi.
     Calcolo e archiviazione | **Utilizzo generico**, **Generazione 5**, **2 vCore**, **5 GB**, **7 giorni**, **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Configura server**. Selezionare quindi la scheda **Utilizzo generico**. *Generazione 5*, *4 vCore*, *100 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo**, **vCore**, **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano oppure regolarli. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
 
@@ -72,7 +72,7 @@ Per creare un database di Azure per il server PostgreSQL, seguire questa procedu
 
 Database di Azure per PostgreSQL crea un firewall a livello di server, che impedisce alle applicazioni e agli strumenti esterni di connettersi al server e ai database nel server, a meno che non si crei una regola per aprire il firewall per indirizzi IP specifici. 
 
-1. Al termine della distribuzione, individuare il server. Se necessario, è possibile eseguire una ricerca. Scegliere ad esempio **Tutte le risorse** dal menu a sinistra. Digitare il nome del server, ad esempio **mydemoserver**, per cercare il server appena creato. Selezionare il nome del server nell'elenco dei risultati della ricerca. Si apre la pagina **Panoramica** del server in cui vengono fornite le opzioni per una configurazione aggiuntiva.
+1. Al termine della distribuzione, individuare il server. Se necessario, è possibile eseguire una ricerca. Scegliere ad esempio **Tutte le risorse** dal menu a sinistra. Immettere il nome del server, in questo esempio **mydemoserver**, per cercare il server appena creato. Selezionare il nome del server nell'elenco dei risultati della ricerca. Si apre la pagina **Panoramica** del server in cui vengono fornite le opzioni per una configurazione aggiuntiva.
  
     ![Ricerca del nome del server](./media/quickstart-create-database-portal/4-locate.png)
 
@@ -182,15 +182,15 @@ pgAdmin è uno strumento open source usato con PostgreSQL. È possibile installa
     
 5. Selezionare **Salva**.
 
-6. Nel riquadro **Browser** a sinistra espandere il nodo **Servers** (Server). Selezionare il server, ad esempio **mydemoserver**. Fare clic per connettersi.
+6. Nel riquadro **Browser** a sinistra espandere il nodo **Servers** (Server). Selezionare il server, ad esempio **mydemoserver**, per connettersi.
 
 7. Espandere il nodo del server e quindi il nodo **Databases** (Database) sottostante. L'elenco includerà il database *postgres* esistente e qualsiasi altro database creato. Con Database di Azure per PostgreSQL è possibile creare più database per ogni server.
 
 8. Fare clic con il pulsante destro del mouse su **Databases** (Database), scegliere il menu **Create** (Crea) e quindi selezionare **Database**.
 
-9. Digitare un nome di database a scelta nel campo **Database**, ad esempio **mypgsqldb2**.
+9. Immettere un nome di database a scelta nel campo **Database**, ad esempio **mypgsqldb2**.
 
-10. Selezionare il **proprietario** del database nella casella di riepilogo. Scegliere il nome di accesso amministratore server, ad esempio **myadmin**.
+10. Selezionare il **proprietario** del database nella casella di riepilogo. Selezionare il nome delle credenziali di accesso amministratore del server, in questo esempio **myadmin**.
 
     ![Creare un database in pgAdmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
@@ -208,7 +208,7 @@ pgAdmin è uno strumento open source usato con PostgreSQL. È possibile installa
 Per eliminare l'intero gruppo di risorse, incluso il server appena creato:
 1. Individuare il gruppo di risorse nel portale. Scegliere **Gruppi di risorse** dal menu a sinistra. Selezionare quindi il nome del gruppo di risorse, ad esempio **myresourcegroup**.
 
-2. Nella pagina del gruppo di risorse selezionare **Elimina**. Digitare nella casella di testo il nome del gruppo di risorse, che in questo esempio è **myresourcegroup**, per confermare l'eliminazione. Selezionare **Elimina**.
+2. Nella pagina del gruppo di risorse selezionare **Elimina**. Immettere nella casella di testo il nome del gruppo di risorse, in questo esempio **myresourcegroup**, per confermare l'eliminazione. Selezionare **Elimina**.
 
 Per eliminare solo il server appena creato:
 1. Individuare il server nel portale, se non è già aperto. Scegliere **Tutte le risorse** dal menu a sinistra. Cercare quindi il server creato.
@@ -217,7 +217,7 @@ Per eliminare solo il server appena creato:
 
     ![Pulsante "Elimina"](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Verificare il nome del server che si vuole eliminare e visualizzare i database sottostanti interessati. Digitare il nome del server nella casella di testo, ad esempio **mydemoserver**. Selezionare **Elimina**.
+3. Verificare il nome del server che si vuole eliminare e visualizzare i database sottostanti interessati. Immettere il nome del server nella casella di testo, in questo esempio **mydemoserver**. Selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

@@ -1,28 +1,22 @@
 ---
-title: Creare una macchina virtuale data science Windows
-titleSuffix: Azure
+title: 'Guida introduttiva: Creare una Data Science Virtual Machine Windows'
+titleSuffix: Azure Data Science Virtual Machine
 description: Configurare e creare una macchina virtuale di Data Science in Azure per l'analisi dei dati e l'apprendimento automatico.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: vijetaj
-ms.openlocfilehash: 2b328ccf63259c7faf4debdc07313d24381313a5
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: ac4b9b4d32d05083ceabd41207243eb483648baa
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047677"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278603"
 ---
-# <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Effettuare un provisioning di una macchina virtuale di Data Science Windows di Azure
+# <a name="quickstart-set-up-a-windows-data-science-virtual-machine-on-azure"></a>Guida introduttiva: Configurare una Data Science Virtual Machine Windows in Azure
 
 La Data Science Virtual Machine (DSVM) è un'immagine di macchina virtuale (VM) Windows Server 2016 in Azure. È preinstallata e configurata con strumenti per l'analisi dei dati e Machine Learning.
 
@@ -30,7 +24,7 @@ La Data Science Virtual Machine (DSVM) è un'immagine di macchina virtuale (VM) 
 
 In una DSVM sono inclusi gli strumenti seguenti:
 
-* Python SDK per il [servizio Azure Machine Learning](../service/index.yml).
+* Python SDK per il [servizio Azure Machine Learning](../index.yml).
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition.
 * Distribuzione Anaconda Python.
 * Notebook Jupyter con kernel R, Python e PySpark.
@@ -234,7 +228,7 @@ Python SDK è preinstallato nella macchina virtuale di data science di Microsoft
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Esplorare gli strumenti disponibili nella DSVM aprendo il menu **Start**.
-* Per informazioni sul servizio Azure Machine Learning, leggere [Informazioni sul servizio Azure Machine Learning](../service/overview-what-is-azure-ml.md) e seguire [le guide di avvio rapido e le esercitazioni](../service/index.yml).
+* Per informazioni sul servizio Azure Machine Learning, leggere [Informazioni sul servizio Azure Machine Learning](../service/overview-what-is-azure-ml.md) e seguire le [esercitazioni](../index.yml).
 * In Esplora File passare a C:\Programmi\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts per trovare esempi che usano la libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale. 
 * Leggere l'articolo [Dieci cose da fare con una Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](../team-data-science-process/index.yml).

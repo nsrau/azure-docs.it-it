@@ -1,8 +1,6 @@
 ---
 title: Creare una funzione attivata tramite HTTP in Azure
 description: Informazioni su come creare in Azure la prima funzione Python usando Azure Functions Core Tools e l'interfaccia della riga di comando di Azure.
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 04/24/2019
@@ -10,13 +8,13 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
-manager: jeconnoc
-ms.openlocfilehash: 5b90702f89af260a67b69bf96c2e079a45298723
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+manager: gwallace
+ms.openlocfilehash: cb7f5a10169c8baaecae0fc1916a439d61bfbf7c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575452"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70170858"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Creare una funzione attivata tramite HTTP in Azure
 
@@ -28,7 +26,7 @@ Questo articolo è il primo di due argomenti di avvio rapido per Funzioni di Azu
 
 Prima di iniziare, è necessario disporre degli elementi seguenti:
 
-+ Installare [Python 3.6](https://www.python.org/downloads/)
++ Installare [Python 3.6.x](https://www.python.org/downloads/).
 
 + Installare [Azure Functions Core Tools](./functions-run-local.md#v2) versione 2.7.1575 o successiva.
 
@@ -104,7 +102,7 @@ Verrà creata una sottocartella denominata _HttpTrigger_ contenente i file segue
 
 Il comando seguente avvia l'app per le funzioni, che viene eseguita in locale usando lo stesso runtime di Funzioni di Azure presente in Azure.
 
-```bash
+```console
 func host start
 ```
 
@@ -134,7 +132,7 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/MyHttpTrigger
+        HttpTrigger: http://localhost:7071/api/HttpTrigger
 
 [8/27/2018 10:38:27 PM] Host started (29486ms)
 [8/27/2018 10:38:27 PM] Job host started
@@ -168,7 +166,33 @@ Questo comando effettuerà anche il provisioning di un'istanza di Azure Applicat
 
 A questo punto si è pronti per pubblicare il progetto di funzioni locale nell'app per le funzioni in Azure.
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+## <a name="deploy-the-function-app-project-to-azure"></a>Implementare il progetto dell'app per le funzioni in Azure
+
+Dopo aver creato l'app per le funzioni in Azure, è possibile usare il comando [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) degli strumenti di base per implementare il codice del progetto in Azure. In questi esempi sostituire `<APP_NAME>` con il nome dell'app creata nel passaggio precedente.
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
+
+L'opzione `--build remote` crea il progetto Python in remoto in Azure dai file del pacchetto di distribuzione. 
+
+Verrà visualizzato un output simile al seguente, che è stato troncato per migliorarne la leggibilità:
+
+```output
+Getting site publishing info...
+...
+
+Preparing archive...
+Uploading content...
+Upload completed successfully.
+Deployment completed successfully.
+Syncing triggers...
+Functions in myfunctionapp:
+    HttpTrigger - [httpTrigger]
+        Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
+```
+
+Copiare il valore di `Invoke url` per `HttpTrigger`, che è ora possibile usare per testare la funzione in Azure. L'URL contiene un valore della stringa di query `code` che rappresenta la chiave di funzione. Questa chiave rende più difficile ad altri utenti chiamare l'endpoint per il trigger HTTP in Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

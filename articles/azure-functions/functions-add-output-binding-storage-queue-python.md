@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639125"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171076"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Aggiungere un binding della coda di archiviazione di Azure alla funzione Python
 
@@ -194,7 +194,7 @@ curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow54
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La funzione di trigger HTTP è stata aggiornata per scrivere dati in una coda di archiviazione. Per altre informazioni sullo sviluppo di Funzioni di Azure con Python, vedere [Guida per sviluppatori Python per Funzioni di Azure](functions-reference-python.md) e [Trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
+La funzione di trigger HTTP è stata aggiornata per scrivere dati in una coda di archiviazione. Per altre informazioni sullo sviluppo di Funzioni di Azure con Python, vedere [Guida per sviluppatori Python per Funzioni di Azure](functions-reference-python.md) e [Trigger e binding di Funzioni di Azure](functions-triggers-bindings.md). Per alcuni esempi di progetti di Funzioni completi in Python, vedere gli [esempi di funzioni Python](/samples/browse/?products=azure-functions&languages=python). 
 
 Quindi, è consigliabile abilitare il monitoraggio di Application Insights per l'app per le funzioni:
 

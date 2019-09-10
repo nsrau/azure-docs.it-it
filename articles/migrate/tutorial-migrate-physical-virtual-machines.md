@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 728bf785edebcd17599b6a56edea1e26ed2d2fbc
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9b1944cdad67f9f1b74c8dae95bc9d8409e56f54
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311784"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309459"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Eseguire la migrazione di server fisici o virtuali ad Azure 
 
@@ -255,6 +255,11 @@ Nei computer di cui eseguire la migrazione, è necessario installare l'agente de
     ```
 
 ## <a name="replicate-machines"></a>Replicare i computer
+
+Selezionare ora le VM per la migrazione. 
+
+> [!NOTE]
+> È possibile replicare fino a 10 VM contemporaneamente. Se è necessario replicarne più, replicarle simultaneamente in batch di 10.
 
 1. Nel progetto di Azure Migrate selezionare **Server**, **Azure Migrate: Migrazione server**, quindi **Replica**.
 

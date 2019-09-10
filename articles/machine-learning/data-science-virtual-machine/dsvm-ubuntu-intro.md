@@ -1,29 +1,22 @@
 ---
-title: Creare una Data Science Virtual Machine per Ubuntu Linux
-titleSuffix: Azure
+title: Avvio rapido a Linux Ubuntu
+titleSuffix: Azure Data Science Virtual Machine
 description: Configurare e creare una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu) in Azure per attività di analisi e Machine Learning.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-ms.author: vijetaj
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 08/13/2019
-ms.openlocfilehash: 3aa32d8e42079a1aa4bdd7a18a24f7d5d01f7c3e
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 9b323970e735a3e2a9d2cf418b787ed046c5574d
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011663"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192095"
 ---
-# <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu)
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Guida introduttiva: Configurare la Data Science Virtual Machine per Linux (Ubuntu)
 
 La Data Science Virtual Machine (DSVM) per Linux è un'immagine di macchina virtuale basata su Ubuntu che semplifica l'uso di Machine Learning, incluso Deep Learning, in Azure. Gli strumenti di apprendimento avanzato includono:
 

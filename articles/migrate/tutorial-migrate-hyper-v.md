@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a88e9dddd492d5c24698bcde8c3a1fd942eaf66
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 755bb6d019418cf9dae22ebf7ee6a3c94af3c750
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854201"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309438"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Eseguire la migrazione di VM Hyper-V ad Azure 
 
@@ -133,10 +133,13 @@ Installare il file del programma di installazione scaricato (AzureSiteRecoveryPr
 
 Al termine dell'individuazione, è possibile avviare la replica delle VM Hyper-V in Azure.
 
+> [!NOTE]
+> È possibile replicare fino a 10 VM contemporaneamente. Se è necessario replicarne più, replicarle simultaneamente in batch di 10.
+
 1. Nel progetto di Azure Migrate selezionare **Server**, **Azure Migrate: Migrazione server**, quindi **Replica**.
 2. In **Replica** > **Impostazioni origine**  > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**. Fare quindi clic su **Avanti: Macchine virtuali**.
 3. In **Macchine virtuali** selezionare le VM da replicare.
-    - Se è stata eseguita una valutazione delle VM, è possibile applicare i suggerimenti dei risultati della valutazione in merito al tipo di disco (Premium/Standard) e alle dimensioni delle VM. A questo scopo, in **Importare le impostazioni di migrazione da una valutazione di Azure Migrate?** selezionare l'opzione **Sì**.
+    - Se è stata eseguita una valutazione delle VM, è possibile applicare i consigli dei risultati della valutazione in merito al tipo di disco (Premium/Standard) e alle dimensioni delle VM. A questo scopo, in **Importare le impostazioni di migrazione da una valutazione di Azure Migrate?** selezionare l'opzione **Sì**.
     - Se non è stata eseguita una valutazione o non si vogliono usare le impostazioni della valutazione, selezionare l'opzione **No**.
     - Se si è scelto di usare la valutazione, selezionare il gruppo di VM e il nome della valutazione.
 
@@ -158,7 +161,7 @@ Al termine dell'individuazione, è possibile avviare la replica delle VM Hyper-V
 
 10. In **Calcolo** esaminare il nome, le dimensioni, il tipo di disco del sistema operativo e il set di disponibilità delle VM. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
 
-    - **Dimensioni macchina virtuale**: se si usano i consigli della valutazione, l'elenco a discesa Dimensioni macchina virtuale conterrà le dimensioni consigliate. In caso contrario, Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure**. 
+    - **Dimensioni macchina virtuale**: se si usano i consigli per la valutazione, l'elenco a discesa Dimensioni macchina virtuale conterrà le dimensioni consigliate. In caso contrario, Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure**. 
     - **Disco del sistema operativo**: specificare il disco del sistema operativo (di avvio) per la VM. È il disco che contiene il bootloader e il programma di installazione del sistema operativo. 
     - **Set di disponibilità**: se la VM deve essere inclusa in un set di disponibilità di Azure dopo la migrazione, specificare il set. Il set deve trovarsi nel gruppo di risorse di destinazione specificato per la migrazione.
 
@@ -211,7 +214,7 @@ All'avvio della replica differenziale, è possibile eseguire una migrazione di t
 Per eseguire una migrazione di test, seguire questa procedura:
 
 
-1. In **Obiettivi della migrazione**  > **Server** > **Azure Migrate: Migrazione server** fare clic su **Testare i server con migrazione completata**.
+1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Migrazione server** fare clic su **Testare i server con migrazione completata**.
 
      ![Testare i server con migrazione completata](./media/tutorial-migrate-hyper-v/test-migrated-servers.png)
 
@@ -222,7 +225,7 @@ Per eseguire una migrazione di test, seguire questa procedura:
 3. In **Migrazione di test** selezionare la rete virtuale di Azure in cui verrà inserita la VM di Azure dopo la migrazione. È consigliabile usare una rete virtuale non di produzione.
 4. Verrà avviato il processo **Migrazione di test**. Monitorare il processo nelle notifiche del portale.
 5. Al termine della migrazione, visualizzare la VM di Azure di cui è stata eseguita la migrazione in **Macchine virtuali** nel portale di Azure. Il nome della macchina virtuale ha il suffisso **-Test**.
-6. Al termine del test, fare clic con il pulsante destro del mouse sulla VM di Azure in **Replica delle macchine virtuali**  e scegliere **Pulisci migrazione di test**.
+6. Al termine del test, fare clic con il pulsante destro del mouse sulla macchina virtuale di Azure in **Replica delle macchine virtuali** e scegliere **Pulisci migrazione di test**.
 
     ![Eseguire la pulizia della migrazione](./media/tutorial-migrate-hyper-v/clean-up.png)
 

@@ -7,15 +7,15 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high
-ms.date: 08/22/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e36f009422307b3b70091775d2288ee710839172
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: fc3145ee0b60402026389863b94d21da4b3e4123
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013996"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70307770"
 ---
 ::: zone target="docs"
 
@@ -70,6 +70,24 @@ Verificare la presenza dei dati negli account di archiviazione prima di eliminar
       ![Gruppo di risorse per i dischi gestiti](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
   - Se è stato copiato un file VHDX oppure un disco rigido virtuale differenze o dinamico, questo verrà caricato nell'account di archiviazione di staging come BLOB in blocchi. Passare all'**account di archiviazione di staging > BLOB** e quindi selezionare il contenitore appropriato (StandardSSD, StandardHDD o PremiumSSD). I file VHDX o i dischi rigidi virtuali verranno visualizzati come BLOB in blocchi nell'account di archiviazione di staging.
+  
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Verificare il caricamento dei dati in Azure
+
+Dopo il caricamento in Azure, verificare che i dati si trovino nell'account o negli account di archiviazione prima di eliminarli dall'origine. I dati possono trovarsi in:
+
+- Account di archiviazione di Azure. Quando si copiano i dati in Data Box, a seconda del tipo, i dati vengono caricati in uno dei percorsi seguenti nell'account di archiviazione di Azure.
+
+    - **Per i BLOB in blocchi e i BLOB di pagine**: https://<nome_account_archiviazione>.blob.core.windows.net/<containername>/files/a.txt
+
+    - **Per File di Azure**: https://<nome_account_archiviazione>.file.core.windows.net/<sharename>/files/a.txt
+
+- Gruppi di risorse di dischi gestiti. Quando si creano dischi gestiti, i dischi rigidi virtuali vengono caricati come BLOB di pagine e quindi convertiti in dischi gestiti. I dischi gestiti vengono associati ai gruppi di risorse specificati al momento della creazione dell'ordine.
+
+::: zone-end
 
 Per verificare che i dati siano stati caricati in Azure, seguire questa procedura:
 
@@ -77,13 +95,15 @@ Per verificare che i dati siano stati caricati in Azure, seguire questa procedur
 2. Passare a **Servizio Blob > Esplora BLOB**. Viene presentato l'elenco di contenitori. In modo corrispondente alla sottocartella creata nelle cartelle *BlockBlob* e *PageBlob*, contenitori con lo stesso nome vengono creati nell'account di archiviazione.
     Se i nomi delle cartelle non sono conformi alle convenzioni di denominazione di Azure, il caricamento dei dati in Azure avrà esito negativo.
 
-4. Per verificare che sia stato caricato l'intero set di dati, usare Microsoft Azure Storage Explorer. Collegare l'account di archiviazione corrispondente all'ordine di noleggio del disco e quindi esaminare l'elenco dei contenitori BLOB. Selezionare un contenitore, fare clic su **Altro** e quindi fare clic su **Statistiche cartella**. Nel riquadro **Attività** vengono visualizzate le statistiche per la cartella, inclusi il numero di BLOB e le dimensioni totali dei BLOB. Le dimensioni totali dei BLOB devono corrispondere alle dimensioni del set di dati.
+3. Per verificare che sia stato caricato l'intero set di dati, usare Microsoft Azure Storage Explorer. Collegare l'account di archiviazione corrispondente all'ordine di Data Box Disk e quindi esaminare l'elenco dei contenitori BLOB. Selezionare un contenitore, fare clic su **Altro** e quindi fare clic su **Statistiche cartella**. Nel riquadro **Attività** vengono visualizzate le statistiche per la cartella, inclusi il numero di BLOB e le dimensioni totali dei BLOB. Le dimensioni totali dei BLOB devono corrispondere alle dimensioni del set di dati.
 
     ![Statistiche delle cartelle in Storage Explorer](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Cancellazione dei dati dai dischi di Data Box
 
 Dopo aver completato la copia e aver verificato che i dati siano disponibili nell'account di archiviazione di Azure, i dischi vengono cancellati in modo sicuro conformemente allo standard NIST.
+
+::: zone target="docs"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -101,22 +121,6 @@ Passare alla guida pratica successiva per scoprire come gestire i dischi di Data
 
 ::: zone-end
 
-::: zone target="chromeless"
 
-# <a name="verify-data-upload-to-azure"></a>Verificare il caricamento dei dati in Azure
-
-Dopo il caricamento in Azure, verificare che i dati si trovino nell'account o negli account di archiviazione prima di eliminarli dall'origine. I dati possono trovarsi in:
-
-- Account di archiviazione di Azure. Quando si copiano i dati in Data Box, a seconda del tipo, i dati vengono caricati in uno dei percorsi seguenti nell'account di archiviazione di Azure.
-
-    - **Per i BLOB in blocchi e i BLOB di pagine**: https://<nome_account_archiviazione>.blob.core.windows.net/<containername>/files/a.txt
-
-    - **Per File di Azure**: https://<nome_account_archiviazione>.file.core.windows.net/<sharename>/files/a.txt
-
-    In alternativa, è possibile passare all'account di archiviazione di Azure nel portale di Azure e procedere da questa posizione.
-
-- Gruppi di risorse di dischi gestiti. Quando si creano dischi gestiti, i dischi rigidi virtuali vengono caricati come BLOB di pagine e quindi convertiti in dischi gestiti. I dischi gestiti vengono associati ai gruppi di risorse specificati al momento della creazione dell'ordine.
-
-::: zone-end
 
 

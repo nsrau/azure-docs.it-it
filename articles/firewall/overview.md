@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/23/2019
+ms.date: 09/4/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: f65b1d62a9c0e6835421c2ae796f9ea390407c9a
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c685b2314d15e431ccac3470fd337ca92697e1a5
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971609"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241172"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -93,6 +93,12 @@ Questo supporta gli scenari seguenti:
 ## <a name="azure-monitor-logging"></a>Registrazione di Monitoraggio di Azure
 
 Tutti gli eventi vengono integrati con Monitoraggio di Azure, per consentire di archiviare i log in un account di archiviazione e di trasmettere i flussi di eventi all'hub eventi o inviarli ai log di Monitoraggio di Azure.
+
+## <a name="pci-soc-and-iso-compliant"></a>Conforme a PCI, SOC e ISO
+
+Il firewall di Azure è conforme a PCI (Payment Card Industry), SOC (Service Organization Controls) e ISO (International Organization for Standardization). Attualmente supporta SOC 1 tipo 2, SOC 2 tipo 2, SOC 3, PCI DSS e ISO 27001, 27018, 20000-1, 22301, 9001, 27017.
+
+Per altre informazioni, vedere la [Guida alla conformità Microsoft](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 
 ## <a name="known-issues"></a>Problemi noti
 

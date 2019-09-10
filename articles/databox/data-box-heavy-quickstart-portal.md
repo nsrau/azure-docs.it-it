@@ -6,15 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.localizationpriority: high
+ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446725"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70241385"
 ---
+::: zone target = "docs"
+
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box Heavy usando il portale di Azure
 
 Questo argomento di avvio rapido descrive come distribuire Azure Data Box Heavy tramite il portale di Azure. I passaggi includono come cablare, configurare e copiare i dati in Data Box Heavy per il caricamento in Azure. La guida introduttiva viene eseguita nel portale di Azure e nell'interfaccia utente Web locale del dispositivo.
@@ -55,6 +58,7 @@ Prima di iniziare, verificare che:
     - Il cavo da 10 Gbps deve avere un connettore SFP+ sul lato da collegare a uno switch 10-G e un adattatore da QSFP+ a SFP+ (o l'adattatore QSA) sull'estremità da collegare al dispositivo.
 - I cavi di alimentazione si trovano in una vano nella parte posteriore del dispositivo.
 
+
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
@@ -69,6 +73,16 @@ Questo passaggio richiede circa 5 minuti.
 4. Immettere i dettagli dell'ordine e le informazioni per la spedizione. Se il servizio è disponibile nella propria area, specificare gli indirizzi di posta elettronica per le notifiche, controllare il riepilogo e quindi creare l'ordine.
 
 Dopo aver creato l'ordine, il dispositivo verrà preparato per la spedizione.
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+# <a name="cable-and-connect-to-your-device"></a>Cablare e connettersi al dispositivo
+
+Dopo aver esaminato i prerequisiti, cablare e connettersi al dispositivo.
+
+::: zone-end
 
 ## <a name="cable-for-power"></a>Cablare l'alimentazione
 
@@ -105,6 +119,9 @@ Questa operazione richiede circa 5-7 minuti.
 Questa operazione richiede circa 15-20 minuti.
 
 Seguire la procedura indicata per il primo nodo per cablare e configurare il secondo nodo nel dispositivo.  
+
+
+::: zone target = "docs"
 
 ## <a name="copy-data"></a>Copiare i dati
 
@@ -157,3 +174,5 @@ In questo argomento di avvio rapido è stato illustrato come distribuire un disp
 
 > [!div class="nextstepaction"]
 > [Usare il portale di Azure per amministrare Data Box Heavy](data-box-portal-admin.md)
+
+::: zone-end

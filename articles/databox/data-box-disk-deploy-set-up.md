@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/04/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 15960c39878e0c8ae22f94197ed1937597f1ee02
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: a0c43a43525b208927cc3512872e7f79fddab217
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126138"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307174"
 ---
 ::: zone target="docs"
 
@@ -313,9 +314,9 @@ Se si verificano problemi durante lo sblocco dei dischi, vedere come [risolvere 
 
 Dopo avere sbloccato il disco è possibile visualizzarne il contenuto.
 
-Per altre informazioni su come configurare i dischi, vedere [Disimballare il Data Box Disk](data-box-disk-deploy-set-up.md#unpack-your-disks).
+Per altre informazioni su come configurare i dischi, vedere [Disimballare il Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up?context=context/chromeless&linktarget=new).
 
-Per altre informazioni su come sbloccare i dischi, vedere [Sbloccare il Data Box Disk nel client Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client).
+Per altre informazioni su come sbloccare i dischi, vedere [Sbloccare Data Box Disk nel client Windows](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up?context=context/chromeless&fromOrigin=https://ms.azure.com&linktarget=new).
 
 ::: zone-end
 

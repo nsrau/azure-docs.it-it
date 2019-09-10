@@ -4,15 +4,15 @@ description: Descrive come eseguire una migrazione senza agente di VM VMware loc
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7fba9cbbaa15359e7e4dd95e66645dd5f4022431
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ec7d10a1d9fec43c149c068fb408211db76d19eb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640777"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309373"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Eseguire la migrazione di VM VMware ad Azure (senza agente)
 
@@ -126,9 +126,12 @@ Per informazioni sulla procedura per eseguire una VM Linux in Azure e istruzioni
 
 ## <a name="replicate-vms"></a>Replicare le VM
 
-Al termine dell'individuazione, è possibile avviare la replica delle VM VMware in Azure.
+Al termine dell'individuazione, è possibile avviare la replica delle VM VMware in Azure. 
 
-1. Nel progetto di Azure Migrate selezionare **Server** e **Azure Migrate: Migrazione server**, quindi **Replica**.
+> [!NOTE]
+> È possibile replicare fino a 10 VM contemporaneamente. Se è necessario replicarne più, replicarle simultaneamente in batch di 10. Per la migrazione senza agente è possibile eseguire fino a 100 repliche simultanee.
+
+1. Nel progetto di Azure Migrate selezionare **Server**, **Azure Migrate: Migrazione server**, quindi **Replica**.
 
     ![Replicare le VM](./media/tutorial-migrate-vmware/select-replicate.png)
 

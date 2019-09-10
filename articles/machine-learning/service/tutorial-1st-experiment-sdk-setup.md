@@ -9,31 +9,29 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
-ms.openlocfilehash: 7ed81375912613995d573b110607e7913adfd10f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 08/28/2019
+ms.openlocfilehash: f1003324e9f4b3762b5d8eca703af4a1fbd4613a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051672"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308808"
 ---
-# <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>Esercitazione: Introduzione alla creazione del primo esperimento di Machine Learning
+# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Esercitazione: Introduzione alla creazione del primo esperimento di Machine Learning con Python SDK
 
 In questa esercitazione si completeranno le procedure end-to-end per iniziare a usare Azure Machine Learning SDK per Python eseguito in Jupyter Notebook. Questa esercitazione, la **prima di una serie di esercitazioni in due parti**, illustra l'installazione e la configurazione dell'ambiente Python, nonché la creazione di un'area di lavoro per gestire gli esperimenti e i modelli di Machine Learning. Su questa base, nella [**seconda parte**](tutorial-1st-experiment-sdk-train.md) viene eseguito il training di più modelli di Machine Learning e viene presentato il processo di gestione dei modelli sia con il portale di Azure che con l'SDK.
 
 In questa esercitazione:
 
 > [!div class="checklist"]
-> * Creare un'area di lavoro di Machine Learning da usare nell'esercitazione successiva.
+> * Creare un'[area di lavoro di Azure Machine Learning](concept-workspace.md) da usare nell'esercitazione successiva.
 > * Creare una macchina virtuale Jupyter Notebook basata sul cloud con Azure Machine Learning SDK per Python installato e preconfigurato.
 
-## <a name="prerequisites"></a>Prerequisiti
-
-L'unico prerequisito per questa esercitazione è una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
-Un'area di lavoro è una risorsa cloud fondamentale usata per eseguire gli esperimenti, il training e la distribuzione di modelli di Machine Learning. Collega la sottoscrizione e il gruppo di risorse di Azure a un oggetto di facile utilizzo nell'SDK. Se è già disponibile un'area di lavoro del servizio Azure Machine Learning, passare alla [sezione successiva](#azure). Altrimenti crearne una adesso.
+Un'area di lavoro di Machine Learning è una risorsa cloud fondamentale usata per eseguire gli esperimenti, il training e la distribuzione di modelli di Machine Learning. Collega la sottoscrizione e il gruppo di risorse di Azure a un oggetto di facile utilizzo nell'SDK. Se è già disponibile un'area di lavoro del servizio Azure Machine Learning, passare alla [sezione successiva](#azure). Altrimenti crearne una adesso.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -51,58 +49,21 @@ Nell'area di lavoro viene creata una risorsa cloud per iniziare a usare i notebo
 
      ![Selezionare Nuova macchina virtuale](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
-1. Specificare un nome per la macchina virtuale. Selezionare quindi **Crea**.
+1. Specificare un nome per la macchina virtuale. 
+   + La lunghezza del nome della macchina virtuale per notebook deve essere compresa tra 2 e 16 caratteri. I caratteri validi sono lettere, cifre e il carattere -.  
+   + Il nome della deve inoltre essere univoco nell'intera sottoscrizione di Azure.
 
-    > [!NOTE]
-    > La lunghezza del nome della macchina virtuale per notebook deve essere compresa tra 2 e 16 caratteri. I caratteri validi sono lettere, cifre e il carattere -.  Il nome della deve inoltre essere univoco nell'intera sottoscrizione di Azure.
+1. Selezionare quindi **Crea**. La configurazione della macchina virtuale può richiedere qualche secondo.
 
 1. Attendere finché lo stato non diventa **In esecuzione**.
-
-### <a name="launch-jupyter-web-interface"></a>Avviare l'interfaccia Web di Jupyter
-
-Dopo che la macchina virtuale è in esecuzione, usare la sezione **Macchine virtuali per notebook** per avviare l'interfaccia Web di Jupyter.
+   Dopo che la macchina virtuale è in esecuzione, usare la sezione **Macchine virtuali per notebook** per avviare l'interfaccia Web di Jupyter.
 
 1. Selezionare **Jupyter** nella colonna **URI** relativa alla macchina virtuale.
 
     ![Avviare il server Jupyter Notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
-    Il collegamento consente di avviare il server del notebook e di aprire la pagina Web del notebook Jupyter in una nuova scheda del browser.  Questo collegamento funziona solo per l'utente che crea la macchina virtuale. Ogni utente dell'area di lavoro deve creare la propria macchina virtuale.
+   Il collegamento consente di avviare il server del notebook e di aprire la pagina Web del notebook Jupyter in una nuova scheda del browser.  Questo collegamento funziona solo per l'utente che crea la macchina virtuale. Ogni utente dell'area di lavoro deve creare la propria macchina virtuale.
 
-1. Nella pagina Web del notebook di Jupyter, il nomecartella nella parte superiore è il nome utente.  Selezionare questa cartella.
-
-    > [!TIP]
-    > Questa cartella si trova nel [contenitore di archiviazione](concept-workspace.md#resources) nell'area di lavoro anziché sulla macchina virtuale per notebook stessa.  È possibile eliminare la macchina virtuale per notebook e mantenere comunque tutto il lavoro.  Quando in un secondo momento si creerà una nuova macchina virtuale per notebook, verrà caricata la stessa cartella. Se si condivide l'area di lavoro con altri utenti, questi potranno visualizzare la cartella e si potrà visualizzare i rispettivi elementi.
-
-1. Aprire la sottodirectory `samples-*` e quindi aprire `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
-
-> [!Warning]
-> Assicurarsi di aprire il file `tutorial-1st-experiment-sdk-train.ipynb`, **non** il file `.yml` con lo > stesso nome. 
-
-Nella **seconda parte** dell'esercitazione viene eseguito il codice in `tutorial-1st-experiment-sdk-train.ipynb` per il training di un modello di Machine Learning.
-
-## <a name="end"></a> Eseguire la pulizia delle risorse
-
-Se si intende continuare con la **seconda parte** dell'esercitazione, non completare questa sezione.
-
-### <a name="stop-the-notebook-vm"></a>Arrestare la macchina virtuale per notebook
-
-Se si è usato un server notebook cloud, per ridurre i costi arrestare la macchina virtuale per notebook quando non viene usata.
-
-1. Nell'area di lavoro selezionare **Macchine virtuali per notebook**.
-
-   ![Arrestare il server di macchine virtuali](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. Selezionare la macchina virtuale dall'elenco.
-
-1. Selezionare **Arresta**.
-
-1. Quando si è pronti a usare di nuovo il server, selezionare **Avvia**.
-
-### <a name="delete-everything"></a>Eliminare tutto
-
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
-
-È anche possibile mantenere il gruppo di risorse ma eliminare una singola area di lavoro. Visualizzare le proprietà dell'area di lavoro e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -111,7 +72,10 @@ In questa esercitazione sono state completate le attività seguenti:
 * Creazione di un'area di lavoro del servizio Azure Machine Learning
 * Creazione e configurazione di un server notebook cloud nell'area di lavoro
 
-Continuare con la **seconda parte** di questa esercitazione per eseguire il training di un semplice modello di Machine Learning.
+Nella **seconda parte** dell'esercitazione viene eseguito il codice in `tutorial-1st-experiment-sdk-train.ipynb` per il training di un modello di Machine Learning. 
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Eseguire il training del primo modello](tutorial-1st-experiment-sdk-train.md)
+
+> [!IMPORTANT]
+> Se non si prevede di seguire la parte 2 di questa esercitazione oppure altre esercitazioni, è consigliabile [arrestare la VM del server notebook cloud](tutorial-1st-experiment-sdk-train.md#clean-up-resources) quando non viene usata per ridurre i costi.
