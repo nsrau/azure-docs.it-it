@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: d23d1881bb2d07d6287d648bb8ceb3e7930d547e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e4379c38d90f444102a9bbddbae64a8018defcf8
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074462"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844559"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -103,7 +103,7 @@ La Guida introduttiva usa il firmware DevKit precompilato per inviare i dati di 
 
 Il DevKit si connette a un endpoint specifico del dispositivo nell'hub Internet e invia dati di telemetria relativi a temperatura e umidità.
 
-1. Scaricare la versione più recente del [firmware](https://aka.ms/devkit/prod/getstarted/latest) getstarted per le cose devkit.
+1. Scaricare la versione più recente del [firmware getstarted](https://aka.ms/devkit/prod/getstarted/latest) per le cose devkit.
 
 1. Verificare che DevKit sia connesso al computer tramite USB. Aprire Esplora file è disponibile un dispositivo di archiviazione di massa USB denominato **AZ3166**.
 
@@ -113,7 +113,7 @@ Il DevKit si connette a un endpoint specifico del dispositivo nell'hub Internet 
 
     ![Copia firmware](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/copy-firmware.png)
 
-1. In DevKit, tenendo premuto il pulsante **b**, premere e rilasciare il pulsante di reimpostazione e quindi rilasciare il pulsante **b**. Il DevKit accede alla modalità AP. Per confermare, la schermata Visualizza l'identificatore del set di servizi (SSID) del DevKit e l'indirizzo IP del portale di configurazione.
+1. In DevKit, tenendo premuto il pulsante **b**, premere e rilasciare il pulsante di **reimpostazione** e quindi rilasciare il pulsante **b**. Il DevKit accede alla modalità AP. Per confermare, la schermata Visualizza l'identificatore del set di servizi (SSID) del DevKit e l'indirizzo IP del portale di configurazione.
 
     ![Pulsante di reimpostazione, pulsante B e SSID](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ap.jpg)
 
@@ -179,7 +179,7 @@ Per preparare l'ambiente di sviluppo per DevKit, seguire questa procedura:
 
 5. Configurare Visual Studio Code con le impostazioni di Arduino.
 
-    In Visual Studio Code fare clic su **File > Preferenze > Impostazioni**. Quindi fare clic su di **...** e **Apri settings.json**.
+    In Visual Studio Code fare clic su **File > preferenze > impostazioni** (in MacOS, **codice > Preferenze > Impostazioni**). Fare quindi clic sull'icona **Open Settings (JSON)** nell'angolo superiore destro della pagina *Settings (impostazioni* ).
 
     ![Installare Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
 

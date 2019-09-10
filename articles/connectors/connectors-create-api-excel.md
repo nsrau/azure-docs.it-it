@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 5d0d276096441c780dee4f8b1e95442a1d7e7b25
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d3c6395f7fd66e1b89fc49536e228249bc4ed2a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050922"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859245"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gestire i dati di Excel Online con App per la logica di Azure
 
@@ -53,6 +53,9 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 1. Nel trigger scegliere **Nuovo passaggio**.
 
 1. Nella casella di ricerca digitare "excel" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
+
+   > [!NOTE]
+   > La finestra di progettazione dell'app per la logica non può caricare tabelle con 100 o più colonne. Se possibile, ridurre il numero di colonne nella tabella selezionata in modo che la finestra di progettazione possa caricare la tabella.
 
 1. Se richiesto, accedere all'account Office 365.
 

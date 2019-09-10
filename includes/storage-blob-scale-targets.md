@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 4/20/2019
 ms.author: tamram
 ms.openlocfilehash: aab17966862c57a52f252b3c4e9b757673078b0a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67180359"
 ---
-| Resource | Destinazione        |
+| Risorsa | Destinazione        |
 |----------|---------------|
-| Dimensioni massime del singolo contenitore blob | Uguale a capacità dell'account di archiviazione massimo |
-| Numero massimo di blocchi in un blocco di blob o blob di aggiunta | 50.000 blocchi |
-| Dimensioni massime di un blocco in un blob in blocchi | 100 MiB |
-| Dimensioni massime di un blob in blocchi | 50.000 x 100 MiB (circa 4,75 TiB) |
-| Dimensioni massime di un blocco in un blob di Accodamento | 4 MiB |
-| Dimensioni massime di un blob di Accodamento | 50.000 x 4 MiB (circa 195 GiB) |
-| Dimensioni massime di un blob di pagine | 8 TiB |
-| Numero massimo di criteri di accesso archiviati per il contenitore blob | 5 |
-|Velocità effettiva da raggiungere per BLOB singolo |Fino a limiti di ingresso/uscita di account di archiviazione<sup>1</sup> |
+| Dimensioni massime di un singolo contenitore BLOB | Uguale alla capacità massima dell'account di archiviazione |
+| Numero massimo di blocchi in un BLOB in blocchi o in un BLOB di Accodamento | 50.000 blocchi |
+| Dimensione massima di un blocco in un BLOB in blocchi | 100 MiB |
+| Dimensioni massime di un BLOB in blocchi | 50.000 X 100 MiB (approssimativamente 4,75 TiB) |
+| Dimensione massima di un blocco in un BLOB di Accodamento | 4 MiB |
+| Dimensioni massime di un BLOB di Accodamento | 50.000 x 4 MiB (circa 195 GiB) |
+| Dimensioni massime di un BLOB di pagine | 8 TiB |
+| Numero massimo di criteri di accesso archiviati per ogni contenitore BLOB | 5 |
+|Velocità effettiva da raggiungere per BLOB singolo |Fino a limiti di ingresso/uscita dell'account di archiviazione<sup>1</sup> |
 
-<sup>1</sup> la velocità effettiva singolo oggetto dipende da diversi fattori, tra cui, ma non solo: concorrenza, le dimensioni delle richieste, livello di prestazioni, velocità di origine per il caricamento e di destinazione per i download. Per poter sfruttare [blob in blocchi ad alta velocità](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) miglioramenti alle prestazioni, usare dimensioni della richiesta Put Blob o Put Block > 4 MiB (> 256 KB per archiviazione blob in blocchi di prestazioni premium o per Data Lake Storage Gen2).
+<sup>1</sup> la velocità effettiva di un singolo oggetto dipende da diversi fattori, tra cui: concorrenza, dimensioni della richiesta, livello di prestazioni, velocità dell'origine per i caricamenti e destinazione per i download. Per sfruttare i vantaggi offerti dai miglioramenti delle prestazioni dei [BLOB in blocchi con velocità effettiva elevata](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) , usare una dimensione Put Blob o Put Block request di > 4 MiB (> 256 KiB per l'archiviazione BLOB in blocchi a prestazioni Premium o per data Lake storage Gen2).

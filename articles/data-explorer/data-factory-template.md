@@ -8,12 +8,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: acfcee6e8308bc508bd709c40bd1794beab3130f
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 5a6aebd276ef8658da9ca763be7da5c38a9c772a
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804730"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873421"
 ---
 # <a name="use-azure-data-factory-template-for-bulk-copy-from-database-to-azure-data-explorer"></a>Usare Azure Data Factory modello per la copia bulk dal database in Azure Esplora dati
 
@@ -38,19 +38,19 @@ I [modelli Azure Data Factory](/azure/data-factory/solution-templates-introducti
 
 Esempio di SQL Server formato della tabella di origine:
     
-    ```sql   
-    CREATE TABLE control_table (
-        PartitionId int,
-        SourceQuery varchar(255),
-        ADXTableName varchar(255)
-    );
-    ```
+```sql   
+CREATE TABLE control_table (
+PartitionId int,
+SourceQuery varchar(255),
+ADXTableName varchar(255)
+);
+```
     
-        |Proprietà  |Descrizione  | Esempio
-        |---------|---------| ---------|
-        |PartitionId   |   ordine di copia | 1  |  
-        |SourceQuery   |   query che indica i dati che verranno copiati durante il runtime della pipeline | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
-        |ADXTableName  |  Nome tabella di destinazione | MyAdxTable       |  
+|Proprietà  |Descrizione  | Esempio
+|---------|---------| ---------|
+|PartitionId   |   ordine di copia | 1  |  
+|SourceQuery   |   query che indica i dati che verranno copiati durante il runtime della pipeline | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
+|ADXTableName  |  Nome tabella di destinazione | MyAdxTable       |  
 
 Se il **ControlTableDataset** è in un formato diverso, creare un **ControlTableDataset** analogo per il formato.
 

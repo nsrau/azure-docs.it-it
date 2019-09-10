@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 3116ddd6c42c29fa45f1f5e2fa9926f6f16a77b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67180508"
 ---
-| Resource | Limite predefinito | Limite massimo | Note |
+| Risorsa | Limite predefinito | Limite massimo | Nota |
 | --- | --- | --- | --- |
-| Azure Network Watcher | 1 per area | 1 per area | Istanza di Network Watcher viene creata per abilitare l'accesso al servizio. Solo un'istanza di Network Watcher è obbligatorio per ogni sottoscrizione per ogni area. |
-| Sessioni di acquisizione pacchetti |100 per area | 10,000 |Consente di acquisire numerose sessioni, non è stato salvato. |
+| Azure Network Watcher | 1 per area | 1 per area | Network Watcher viene creato per consentire l'accesso al servizio. È necessaria una sola istanza di Network Watcher per ogni sottoscrizione per area. |
+| Sessioni di acquisizione pacchetti |100 per area | 10,000 |Solo numero di sessioni, acquisizioni non salvate. |

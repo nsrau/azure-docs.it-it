@@ -1,21 +1,21 @@
 ---
 title: Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
-description: Panoramica della configurazione dell'applicazione Azure Blockchain Workbench.
+description: Panoramica della configurazione dell'applicazione Azure blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c737106b47b95fcc6d1abdadc81398a3bc9256d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578981"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845103"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
 
@@ -55,7 +55,7 @@ La logica di business di un'applicazione può essere modellata come macchina a s
 
 | Campo | Description | Obbligatorio | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| Name | Nome univoco del flusso di lavoro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la classe di contratto applicabile. | Yes | 50 |
+| NOME | Nome univoco del flusso di lavoro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la classe di contratto applicabile. | Yes | 50 |
 | DisplayName | Nome visualizzato descrittivo del flusso di lavoro. | Yes | 255 |
 | Description | Descrizione del flusso di lavoro. | No | 255 |
 | Initiators | Raccolta di [ruoli applicazione](#application-roles). Ruoli assegnati agli utenti autorizzati a creare contratti nel flusso di lavoro. | Yes | |

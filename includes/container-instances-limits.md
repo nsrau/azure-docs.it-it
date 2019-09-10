@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
 ms.openlocfilehash: f8821060b98ebfc954a6e59abad60350e6779b76
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: HT
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67180512"
 ---
 | Risorsa | Limite predefinito |
@@ -25,7 +25,7 @@ ms.locfileid: "67180512"
 | Eliminazioni di contenitori ogni 5 minuti | 100<sup>1</sup> |
 
 
-<sup>1</sup> Per richiedere un aumento del limite, creare una [richiesta di supporto di Azure][azure-support].<br />
+<sup>1</sup> Per richiedere un aumento del limite, creare un [richiesta di supporto di Azure][azure-support].<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c337501c46dd9b30ff20d71a9363ab03fdb608
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: f9244dfabef8b13105ef830f9f4543da9cb2cca9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980452"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842644"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durate dei token configurabili in Azure Active Directory (anteprima)
 
@@ -106,7 +106,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 * Se i criteri sono assegnati in modo esplicito all'entità servizio, vengono applicati.
 * Se all'entità servizio non sono assegnati criteri in modo esplicito, vengono applicati i criteri assegnati in modo esplicito all'elemento organizzazione padre dell'entità servizio.
 * Se all'entità servizio o all'organizzazione non sono assegnati criteri in modo esplicito, vengono applicati i criteri assegnati all'applicazione.
-* Se all'entità servizio, all'organizzazione o all'oggetto applicazione non sono stati assegnati criteri, vengono applicati i valori predefiniti. Vedere in proposito la tabella in [Proprietà configurabili per la durata dei token](#configurable-token-lifetime-properties).
+* Se all'entità servizio, all'organizzazione o all'oggetto applicazione non sono stati assegnati criteri, verranno applicati i valori predefiniti. Vedere in proposito la tabella in [Proprietà configurabili per la durata dei token](#configurable-token-lifetime-properties).
 
 Per altre informazioni sulla relazione tra oggetti applicazione e oggetti entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md).
 
@@ -413,7 +413,7 @@ Ottiene tutte le app e le entità servizio collegate a criteri specifici.
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| Parametri | Descrizione | Esempio |
+| Parametri | DESCRIZIONE | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
 
@@ -426,7 +426,7 @@ Aggiorna i criteri esistenti.
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| Parametri | Descrizione | Esempio |
+| Parametri | DESCRIZIONE | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Stringa relativa al nome dei criteri. |`-DisplayName "MyTokenPolicy"` |
@@ -460,7 +460,7 @@ Collega i criteri specificati a un'applicazione.
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parametri | Descrizione | Esempio |
+| Parametri | DESCRIZIONE | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |
@@ -487,7 +487,7 @@ Rimuove i criteri da un'applicazione.
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |
@@ -531,7 +531,7 @@ Rimuove i criteri dall'entità servizio specificata.
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |

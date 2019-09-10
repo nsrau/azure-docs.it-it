@@ -1,31 +1,25 @@
 ---
 title: Guida alla risoluzione dei problemi del Centro sicurezza di Azure | Documentazione Microsoft
-description: Questo documento facilita la risoluzione dei problemi nel Centro sicurezza di Azure.
+description: Questo documento consente di risolvere i problemi nel centro sicurezza di Azure.
 services: security-center
-documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
-ms.openlocfilehash: 93656578fac52e4ba5ff96e655ea51678f2292cd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: 26615819dc407e51281254c73076a1d721e6059f
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609915"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873396"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni usano il Centro sicurezza di Azure e devono risolvere i problemi correlati.
 
 >[!NOTE]
->A partire dall'inizio di giugno 2017, il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione a Microsoft Monitoring Agent.
+>Il Centro sicurezza usa il Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md).
 >
 
 ## <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
@@ -56,9 +50,9 @@ Per visualizzare la versione dell'agente di cui si dispone, aprire **Gestione at
 ## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Scenari di installazione di Microsoft Monitoring Agent
 Esistono due scenari di installazione che possono produrre risultati diversi quando si installa Microsoft Monitoring Agent nel computer in uso. Gli scenari supportati sono:
 
-* **Agente installato automaticamente tramite il Centro sicurezza**: in questo scenario sarà possibile visualizzare gli avvisi sia con il Centro sicurezza che tramite la ricerca log. Si riceveranno notifiche tramite posta elettronica all'indirizzo e-mail configurato nei criteri di sicurezza per la sottoscrizione a cui appartiene la risorsa.
+* **Agente installato automaticamente tramite il Centro sicurezza**: in questo scenario sarà possibile visualizzare gli avvisi sia con il Centro sicurezza che tramite la ricerca log. Si riceveranno notifiche tramite posta elettronica all'indirizzo di posta elettronica configurato nei criteri di sicurezza per la sottoscrizione a cui appartiene la risorsa.
 .
-* **Agente installato manualmente in una macchina virtuale situata in Azure**: in questo scenario, se si usano agenti scaricati e installati manualmente prima di febbraio 2017, sarà possibile visualizzare gli avvisi nel portale del Centro sicurezza solo se si filtra in base alla sottoscrizione a cui appartiene l'area di lavoro. Nel caso in cui si filtri in base alla sottoscrizione a cui che appartiene la risorsa, non sarà possibile visualizzare gli avvisi. Si riceveranno notifiche tramite posta elettronica all'indirizzo e-mail configurato nei criteri di sicurezza per la sottoscrizione a cui appartiene l'area di lavoro.
+* **Agent installato manualmente in una macchina virtuale situata in Azure**: in questo scenario, se si usano gli agenti scaricati e installati manualmente prima del 2017 febbraio, è possibile visualizzare gli avvisi nel portale del Centro sicurezza solo se si filtra la sottoscrizione dell'area di lavoro appartiene a. Se si applica un filtro alla sottoscrizione a cui appartiene la risorsa, non verranno visualizzati avvisi. Si riceveranno notifiche tramite posta elettronica all'indirizzo di posta elettronica configurato nei criteri di sicurezza per la sottoscrizione a cui appartiene l'area di lavoro.
 
 >[!NOTE]
 > Per evitare il comportamento descritto nel secondo scenario, assicurarsi di scaricare la versione più recente dell'agente.

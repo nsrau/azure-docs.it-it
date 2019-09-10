@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 2edd12435643f88a0923abf0927149993d49e424
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567801"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845593"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
@@ -142,7 +142,7 @@ Gli endpoint di servizio consentono di esporre le risorse cruciali di Azure solo
 
 #### <a name="reserved-ips"></a>IP riservati
 
-Un'altra opzione consiste nell'effettuare il provisioning degli [indirizzi IP riservati](../virtual-network/virtual-networks-reserved-public-ip.md) per le VM e includere nell'elenco degli elementi consentiti gli indirizzi IP di queste VM nelle impostazioni firewall del server. L'assegnazione degli indirizzi IP riservati evita di dover aggiornare le regole firewall quando si modificano gli indirizzi IP.
+Un'altra opzione consiste nel eseguire il provisioning degli indirizzi IP [riservati](../virtual-network/virtual-networks-reserved-public-ip.md) per le VM e aggiungere gli indirizzi IP specifici delle VM nelle impostazioni del firewall del server. L'assegnazione degli indirizzi IP riservati evita di dover aggiornare le regole firewall quando si modificano gli indirizzi IP.
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Con quale porta è possibile connettersi al database SQL
 

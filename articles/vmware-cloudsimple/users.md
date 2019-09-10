@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c775f5352461dce6c63f5cc4a1c910c7f8df80ec
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9d261acf80f51a09cc4daa9182a87b0354cf8a3d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69564095"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845392"
 ---
 # <a name="view-the-list-of-cloudsimple-portal-users"></a>Visualizzare l'elenco degli utenti del portale di CloudSimple
 
-Gli utenti vengono aggiunti all'elenco di utenti al primo accesso al portale di CloudSimple. Per visualizzare l'elenco degli utenti che hanno accesso al portale di CloudSimple tramite Azure, [accedere al portale di CloudSimple](monitor-activity.md), selezionare **account** dal menu laterale, quindi selezionare **utenti** nel portale di CloudSimple.
+Gli utenti vengono aggiunti all'elenco di utenti al primo accesso al portale di CloudSimple. Per visualizzare l'elenco degli utenti che hanno accesso al portale di CloudSimple tramite Azure, [accedere al portale di CloudSimple](access-cloudsimple-portal.md), selezionare **account** dal menu laterale, quindi selezionare **utenti** nel portale di CloudSimple.
 
 * Per visualizzare i dettagli dell'utente, inclusi la sottoscrizione di Azure, il tenant e gli ID utente, fare clic su una voce nella pagina **utenti** .
 

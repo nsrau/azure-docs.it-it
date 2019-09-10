@@ -1,23 +1,23 @@
 ---
-title: Risoluzione dei problemi relativi ad Azure Blockchain Workbench
-description: Come risolvere i problemi di un'applicazione Azure Blockchain Workbench.
+title: Risoluzione dei problemi di anteprima di Azure blockchain Workbench
+description: Come risolvere i problemi di un'applicazione Azure blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b0263761a4aaf663b16584fbf9caa11bb124d5c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fec065b629f2f2b93e78a63521ea0ce4669dd4e
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510081"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844035"
 ---
-# <a name="azure-blockchain-workbench-troubleshooting"></a>Risoluzione dei problemi relativi ad Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Risoluzione dei problemi di anteprima di Azure blockchain Workbench
 
 È disponibile uno script di PowerShell per semplificare il debug o il supporto per gli sviluppatori. Lo script genera un riepilogo e raccoglie log dettagliati per la risoluzione dei problemi. I log raccolti includono:
 
@@ -27,6 +27,8 @@ ms.locfileid: "65510081"
 * Monitoraggio di Azure (log di monitoraggio di Azure)
 
 È possibile usare le informazioni per determinare i passaggi successivi e determinare la causa principale dei problemi.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="troubleshooting-script"></a>Script di risoluzione dei problemi
 
@@ -52,9 +54,9 @@ Questo script accetta i parametri seguenti:
 | ResourceGroupName | Nome del gruppo di risorse di Azure in cui è stato distribuito Blockchain Workbench. | Sì |
 | OutputDirectory | Percorso in cui creare il file ZIP di output. Se non è specificato, per impostazione predefinita viene usata la directory corrente. | No |
 | LookbackHours | Numero di ore da usare durante il pull dei dati di telemetria. Il valore predefinito è 24 ore. Il valore massimo è 90 ore. | No |
-| OmsSubscriptionId | L'ID sottoscrizione in cui log di monitoraggio di Azure viene distribuito. Passare questo parametro solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench.| No |
-| OmsResourceGroup |Il gruppo di risorse in cui log di monitoraggio di Azure viene distribuito. Passare questo parametro solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench.| No |
-| OmsWorkspaceName | Nome dell'area di lavoro Log Analytics. Questo parametro verrà passato solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench | No |
+| OmsSubscriptionId | ID sottoscrizione in cui vengono distribuiti i log di monitoraggio di Azure. Passare questo parametro solo se i log di monitoraggio di Azure per la rete blockchain vengono distribuiti all'esterno del gruppo di risorse di blockchain Workbench.| No |
+| OmsResourceGroup |Il gruppo di risorse in cui vengono distribuiti i log di monitoraggio di Azure. Passare questo parametro solo se i log di monitoraggio di Azure per la rete blockchain vengono distribuiti all'esterno del gruppo di risorse di blockchain Workbench.| No |
+| OmsWorkspaceName | Nome dell'area di lavoro Log Analytics. Passare questo parametro solo se i log di monitoraggio di Azure per la rete blockchain sono distribuiti all'esterno del gruppo di risorse di blockchain Workbench | No |
 
 ## <a name="what-is-collected"></a>Quali dati vengono raccolti?
 

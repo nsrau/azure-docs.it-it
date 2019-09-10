@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 6ba41132c93ebdb2578bafb100416ca3fe579298
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f9cb82abd5bc0823f5e7bc23fe437007bccc8e0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123289"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873572"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gestire i lab per le classi in Azure Lab Services 
 Questo articolo descrive come creare ed eliminare un lab per le classi, nonché come visualizzare tutti i lab per le classi in un account lab. 
@@ -37,7 +37,7 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 
         ![Creare un lab per le classi](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Nella pagina **Select virtual machine specifications** (Seleziona le specifiche delle macchine virtuali) eseguire le operazioni seguenti:
-    1. Selezionare le **dimensioni** per le macchine virtuali create nel lab. Attualmente **piccole**, **medium**, **medium (virtualizzazione)** , **grandi**, e **GPU** sono dimensioni è consentito. Per informazioni dettagliate, vedere la [dimensioni delle macchine Virtuali](#vm-sizes) sezione.
+    1. Selezionare le **dimensioni** per le macchine virtuali create nel lab. Attualmente, sono consentite dimensioni **piccole**, **medie**, **medie (virtualizzazione)** , **grandi** e **GPU**. Per informazioni dettagliate, vedere la sezione [dimensioni delle VM](#vm-sizes) .
     1. Selezionare l'**area** in cui si vogliono creare le macchine virtuali. 
     1. Selezionare l'**immagine della macchina virtuale** da usare per creare macchine virtuali nel lab. Se si seleziona un'immagine di Linux, viene visualizzata un'opzione per abilitare la connessione Desktop remoto. Per informazioni, vedere [Abilitare Connessione desktop remoto per Linux](how-to-enable-remote-desktop-linux.md).
     1. Selezionare **Avanti**.
@@ -49,12 +49,12 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 
         > [!IMPORTANT]
         > Prendere nota del nome utente e della password perché non verranno più visualizzati.
-    3. Disabilitare **Usa la stessa password per tutte le macchine virtuali** opzione se si desidera che gli studenti per impostare le proprie password. Questo passaggio è **facoltativo**. 
+    3. Disabilitare l'opzione **Usa la stessa password per tutte le macchine virtuali** se si vuole che gli studenti impostino le proprie password. Questo passaggio è **facoltativo**. 
 
-        Un insegnante può scegliere di usare la stessa password per tutte le macchine virtuali nel lab oppure consentire agli studenti di impostare le password per le proprie macchine virtuali. Per impostazione predefinita, questa impostazione è abilitata per le immagini di tutti i Windows e Linux, ad eccezione di Ubuntu. Quando si seleziona **Ubuntu** macchina virtuale, questa impostazione è disabilitata, in modo che gli studenti verranno richiesto di impostare una password quando accedono per la prima volta.
+        Un insegnante può scegliere di usare la stessa password per tutte le macchine virtuali nel Lab o consentire agli studenti di impostare le password per le macchine virtuali. Per impostazione predefinita, questa impostazione è abilitata per tutte le immagini Windows e Linux, ad eccezione di Ubuntu. Quando si seleziona macchina virtuale **Ubuntu** , questa impostazione è disabilitata, quindi agli studenti verrà richiesto di impostare una password quando accedono per la prima volta.
     1. Selezionare **Create**. 
 
-        ![Impostare le credenziali](../media/tutorial-setup-classroom-lab/set-credentials.png)
+        ![Imposta credenziali](../media/tutorial-setup-classroom-lab/set-credentials.png)
 6. Nella pagina **Configure template** (Configura modello) viene visualizzato lo stato del processo di creazione del lab. La creazione del modello nel lab richiede fino a 20 minuti. Un modello in un lab è un'immagine della macchina virtuale di base da cui vengono create tutte le macchine virtuali di tutti gli utenti. Configurare la macchina virtuale modello con tutte le caratteristiche che si vuole fornire agli utenti del lab.  
 
     ![Configurare il modello](../media/tutorial-setup-classroom-lab/configure-template.png)
@@ -63,7 +63,7 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
     ![Pagina di configurazione del modello al termine dell'operazione](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. I passaggi seguenti sono facoltativi in questa esercitazione: 
     2. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). Se si tratta di una macchina virtuale modello di Linux, scegliere se si vuole effettuare la connessione con SSH o RDP (se RDP è abilitato).
-    1. Selezionare **la reimpostazione della password** per reimpostare la password per la macchina virtuale. 
+    1. Selezionare **Reset password** (Reimposta password) per reimpostare la password per la macchina virtuale. 
     1. Installare e configurare il software nella macchina virtuale modello. 
     1. **Arrestare** la VM.  
     1. Immettere una **descrizione** per il modello.
@@ -93,11 +93,13 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 
 | Dimensione | Core | RAM | Descrizione | 
 | ---- | ----- | --- | ----------- | 
-| Small | 2 | 3,5 GB | Queste dimensioni sono ideale per la riga di comando, aprire web browser, server web con traffico ridotto, piccoli database medio. |
-| Media | 4 | 7 GB | Queste dimensioni sono ideale per i database relazionali, la memorizzazione nella cache in memoria e analitica | 
-| Medium (virtualizzazione nidificata) | 4 | 16 GB | Queste dimensioni sono ideali per i database relazionali, la memorizzazione nella cache in memoria e analitica. Queste dimensioni supporta anche la virtualizzazione annidata. <p>Queste dimensioni sono utilizzabile negli scenari in cui ogni studente necessarie più macchine virtuali. Gli insegnanti possono usare la virtualizzazione annidata per configurare alcune macchine virtuali di dimensioni ridotte annidate all'interno della macchina virtuale. </p> |
-| Large | 8 | 32 GB | Queste dimensioni sono ideali per applicazioni che richiedono CPU più veloci, prestazioni migliori per i dischi locali, database di grandi dimensioni, le cache di grandi quantità di memoria. Queste dimensioni supporta anche la virtualizzazione annidata |  
-| GPU | 12 | 112 GB | Queste dimensioni sono ideali per carichi di lavoro a elevato utilizzo di calcolo a elevato utilizzo di grafica e visualizzazione | 
+| Small | 2 | 3,5 GB | Queste dimensioni sono ideali per la riga di comando, l'apertura del Web browser, i server Web con traffico ridotto, i database di piccole e medie dimensioni. |
+| Medio | 4 | 7 GB | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi | 
+| Media (virtualizzazione annidata) | 4 | 16 GB | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi. Questa dimensione supporta anche la virtualizzazione nidificata. <p>Questa dimensione può essere usata in scenari in cui ogni studente necessita di più macchine virtuali. Gli insegnanti possono usare la virtualizzazione annidata per configurare alcune macchine virtuali nidificate di piccole dimensioni all'interno della macchina virtuale. </p> |
+| Large | 8 | 32 GB | Queste dimensioni sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni. Questa dimensione supporta anche la virtualizzazione nidificata |  
+| GPU piccola (visualizzazione) | 6 | 56 GB | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX. | 
+| GPU piccola (calcolo) | 6 | 56 GB | Queste dimensioni sono ideali per applicazioni a elevato utilizzo di calcolo e di rete, ad esempio le applicazioni di intelligenza artificiale e Deep Learning. | 
+| GPU media (visualizzazione) | 12 | 112 GB | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX. | 
 
 ## <a name="view-all-classroom-labs"></a>Visualizzare tutti i lab per le classi
 1. Accedere al [portale di Azure Lab Services](https://labs.azure.com).

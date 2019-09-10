@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: c0bfbbd8b85f0b3eadf468cdd1261f52bff26abe
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 33e21b54927280e2692a58c311e2de23e257f923
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813376"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845376"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -65,9 +65,9 @@ Istanza gestita ha due livelli di servizio: Per utilizzo generico e business cri
 | Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore)<br/>Aggiungere altri Vcore per ottenere ulteriore spazio in TempDB. | Limitato dalle dimensioni massime di archiviazione dell'istanza. Le dimensioni del file di log TempDB sono attualmente limitate a 24 GB/vCore. |
 | OLTP in memoria | Non supportate | Disponibile |
 | Numero massimo di sessioni | 30000 | 30000 |
-| Repliche leggibili | 0 | 1 (incluso nel prezzo) |
-| Prezzi/fatturazione | vCore, archiviazione riservata  <br/> IOPS non addebitato, l'archivio di backup non è ancora addebitato. | vCore, archiviazione riservata  <br/> IOPS non addebitato, l'archivio di backup non è ancora addebitato. | 
-| Modelli di sconto | [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test) | [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test)|
+| [Repliche di sola lettura](sql-database-read-scale-out.md) | 0 | 1 (incluso nel prezzo) |
+| Prezzi/fatturazione | viene addebitato [vCore e l'archiviazione riservata](https://azure.microsoft.com/pricing/details/sql-database/managed/) . <br/>Per IOPS non viene addebitato alcun costo.<br/>L'archiviazione di backup non è ancora addebitata. | viene addebitato [vCore e l'archiviazione riservata](https://azure.microsoft.com/pricing/details/sql-database/managed/) . <br/>Per IOPS non viene addebitato alcun costo.<br/>L'archiviazione di backup non è ancora addebitata. | 
+| Modelli di sconto | [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo| [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo|
 
 > [!NOTE]
 > - La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include la dimensione dei dati e dei file di log presenti sia nel database utenti che in quello di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.

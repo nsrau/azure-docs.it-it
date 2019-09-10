@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0630ca28652b48b3632dbae94c5e16d6adb462c4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812295"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858728"
 ---
 # <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Tenere traccia delle metriche di training di Machine Learning con Azure Machine Learning
 
@@ -273,7 +273,7 @@ Il training e il monitoraggio del modello si verificano in background, pertanto 
 È possibile visualizzare le metriche relative a un modello sottoposto a training usando ```run.get_metrics()```. È ora possibile ottenere tutte le metriche registrate nell'esempio precedente per determinare il modello migliore.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal"></a>Visualizzare l'esperimento nel portale di Azure
+## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Visualizzare l'esperimento nell'portale di Azure o nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com)
 
 Al termine dell'esecuzione di un esperimento, è possibile passare al record esecuzione dell'esperimento registrato. È possibile accedere alla cronologia in due modi:
 

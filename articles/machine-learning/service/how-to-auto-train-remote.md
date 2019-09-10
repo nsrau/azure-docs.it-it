@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 3c3205b64803ac4ee67997ef546ffd64c89f23b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5918cc3835d00536845a96ed81ef663867291e29
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624825"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858803"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Eseguire il training di modelli di apprendimento automatico nel cloud
 
@@ -278,7 +278,7 @@ La stampa delle variabili di riepilogo della spiegazione `best_run` ha come risu
 
 ![Output della console di spiegabilità del modello](./media/how-to-auto-train-remote/expl-print.png)
 
-È anche possibile visualizzare l'importanza delle caratteristiche tramite l'interfaccia utente del widget e l'interfaccia utente Web nel portale di Azure all'interno dell'area di lavoro.
+È anche possibile visualizzare l'importanza della funzionalità tramite l'interfaccia utente del widget, l'interfaccia utente Web in portale di Azure o la [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com). 
 
 ![Interfaccia utente di spiegabilità del modello](./media/how-to-auto-train-remote/model-exp.png)
 

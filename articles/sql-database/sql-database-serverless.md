@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 738d6738469960c8b21809b9320c4d034613c4e3
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: ba4e1e933b00aa8ca74be30a6ea5e1a22844b15f
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802369"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858493"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Database SQL di Azure senza server (anteprima)
 
@@ -201,7 +201,7 @@ New-AzSqlDatabase `
 L'esempio seguente sposta un database dal livello di calcolo di cui è stato effettuato il provisioning nel livello di calcolo senza server. In questo esempio vengono specificati in modo esplicito il numero minimo e massimo di vCore e il ritardo di sospensione automatica.
 
 ```powershell
-Set-AzSqlDatabase
+Set-AzSqlDatabase `
   -ResourceGroupName $resourceGroupName `
   -ServerName $serverName `
   -DatabaseName $databaseName `

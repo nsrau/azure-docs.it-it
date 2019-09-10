@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c9f0908d8b5290dc4585a330a7ea78a6577ab9
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 60f38b60b5fbf0166f25c423663d157cf8f13ee2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942962"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860899"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -67,12 +67,12 @@ La pagina delle impostazioni dei dispositivi consente di configurare:
 - **Richiedi autenticazione a più fattori per aggiungere dispositivi** : è possibile scegliere se gli utenti devono fornire un ulteriore fattore di autenticazione per aggiungere il dispositivo a Azure ad. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
-> **Richiedi autenticazione a più fattori per aggiungere** l'impostazione dispositivi non si applica ai dispositivi ibridi Azure ad aggiunti.
+> **Richiedi autenticazione a più fattori per aggiungere** l'impostazione dei dispositivi si applica ai dispositivi che sono Azure ad aggiunti o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti.
 
-- **Numero massimo di dispositivi per utente**: questa impostazione consente di selezionare il numero massimo di dispositivi che un utente può avere in Azure AD. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. La quota del dispositivo viene conteggiata per tutti i dispositivi Azure AD aggiunti o Azure AD registrati oggi. Il valore predefinito è **20**.
+- **Numero massimo di dispositivi** : questa impostazione consente di selezionare il numero massimo di dispositivi Azure ad aggiunti o Azure ad registrati che un utente può avere in Azure ad. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. Il valore predefinito è **20**.
 
 > [!NOTE]
-> L'impostazione **numero massimo di dispositivi** non si applica ai dispositivi ibridi Azure ad aggiunti.
+> L'impostazione **numero massimo di dispositivi** si applica ai dispositivi Azure ad aggiunti o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti.
 
 - **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**: per impostazione predefinita, il valore di questa opzione è **Nessuno**. Se si selezionano utenti o gruppi specifici oppure l'opzione TUTTI, si consente la sincronizzazione delle impostazioni dell'utente e dei dati delle app tra i dispositivi Windows 10. Leggere altre informazioni sul funzionamento della sincronizzazione in Windows 10.
 Questa opzione è una funzionalità Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).

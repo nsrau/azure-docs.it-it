@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 77ed643afaf5e69f41224af68f5e9f8a93fcace5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ea896697c8f6986c4c77f3ce86a62947d9a3327e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722087"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861405"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita dell'archiviazione BLOB di Azure
 
@@ -54,7 +54,7 @@ La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree d
 Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.  
 
 > [!NOTE]
-> Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccare queste richieste specificando eccezioni. Il bypass necessario è: `Logging,  Metrics,  AzureServices`. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccare queste richieste specificando eccezioni. Il bypass obbligatorio è: `AzureServices`. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -304,7 +304,7 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 
 Le condizioni di esecuzione sono basate sull'età. Per tenere traccia del tempo trascorso, i BLOB di base usano la data/ora dell'ultima modifica, mentre gli snapshot dei BLOB usano la data/ora di creazione dello snapshot.
 
-| Condizione di esecuzione azione             | Valore della condizione                          | DESCRIZIONE                             |
+| Condizione di esecuzione azione             | Valore della condizione                          | Descrizione                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni BLOB di base     |
 | daysAfterCreationGreaterThan     | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni snapshot BLOB |
@@ -435,4 +435,4 @@ Quando un BLOB viene spostato da un livello di accesso a un altro, l'ora dell'Ul
 
 Informazioni su come recuperare i dati dopo l'eliminazione accidentale:
 
-- [Eliminazione temporanea per i BLOB di archiviazione di Azure](../blobs/storage-blob-soft-delete.md)
+- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../blobs/storage-blob-soft-delete.md)

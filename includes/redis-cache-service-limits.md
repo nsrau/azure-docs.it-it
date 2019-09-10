@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
 ms.openlocfilehash: 77019068279261a36f8ba40247e5f5694ca77892
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67180551"
 ---
-| Resource | Limite |
+| Risorsa | Limite |
 | --- | --- |
 | Dimensioni cache |530 GB |
 | Database |64 |
-| Numero massimo di client connesso |40.000 |
-| Cache di Azure per le repliche di Redis, per la disponibilità elevata |1 |
+| Numero massimo di client connessi |40.000 |
+| Cache di Azure per le repliche Redis, per la disponibilità elevata |1 |
 | Partizioni in una cache premium con il clustering |10 |
 
-I limiti e le dimensioni di Cache Redis di Azure variano per ogni piano tariffario. Per visualizzare i piani tariffari e le relative dimensioni, vedere [Cache di Azure per Redis prezzi](https://azure.microsoft.com/pricing/details/cache/).
+I limiti e le dimensioni di Cache Redis di Azure variano per ogni piano tariffario. Per visualizzare i piani tariffari e le dimensioni associate, vedere la pagina [relativa ai prezzi di cache di Azure per Redis](https://azure.microsoft.com/pricing/details/cache/).
 
 Per altre informazioni sui limiti di configurazione di Cache Redis di Azure, vedere [Configurazione predefinita del server Redis](../articles/azure-cache-for-redis/cache-configure.md#default-redis-server-configuration).
 

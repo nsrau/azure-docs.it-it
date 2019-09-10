@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81ffe8618e07f2e49e4439ea57e254e5d37974f9
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 16fac492fe4c193ecd7ffa7eeff1e884acb742ae
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227954"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860527"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
@@ -109,7 +109,7 @@ Per abilitarla, è necessario:
 
 Se si dispone già di un servizio con le dipendenze installate nel **file di ambiente** e nel **file di assegnazione dei punteggi**, abilitare la raccolta di dati nel modo seguente:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Passare a [portale di Azure](https://portal.azure.com).
 
 1. Aprire l'area di lavoro.
 
@@ -144,6 +144,8 @@ Se si dispone già di un servizio con le dipendenze installate nel **file di amb
 
   1. Selezionare **Aggiorna** per applicare la modifica.
 
+  È anche possibile accedere a queste impostazioni nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
+
 + Opzione 2: uso di Python per disabilitare la raccolta dei dati:
 
   ```python 
@@ -172,7 +174,7 @@ Per accedere rapidamente ai dati dal BLOB:
 
 ### <a name="analyzing-model-data-through-power-bi"></a>Analisi dei dati del modello tramite Power BI
 
-1. Scaricare e aprire [Power BI Desktop](https://www.powerbi.com)
+1. Scaricare e aprire [Power bi desktop](https://www.powerbi.com)
 
 1. Selezionare **Recupera dati** e fare clic su [**Archivio BLOB di Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 

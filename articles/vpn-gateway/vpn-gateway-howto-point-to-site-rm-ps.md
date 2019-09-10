@@ -1,20 +1,20 @@
 ---
-title: "Connettere un computer a una rete virtuale usando l'autenticazione da punto a sito e il certificato di Azure nativo: PowerShell | Microsoft Docs"
+title: "Connettersi a una rete virtuale di Azure da un computer usando la VPN da punto a sito e l'autenticazione del certificato di Azure nativo: PowerShell | Microsoft Docs"
 description: Connettere i client Windows e Mac OS X in modo sicuro alla rete virtuale di Azure tramite certificati da punto a sito e autofirmati o certificati rilasciati da un'autorità di certificazione. Questo articolo usa PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 09/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17d07b508c7ecd8b5750bf5f4108cb789a419c42
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989450"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843541"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: PowerShell
+# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurare una connessione VPN da punto a sito a una VNet usando l'autenticazione del certificato nativa di Azure: PowerShell
 
 Questo articolo illustra come connettere in modo sicuro singoli client che eseguono Windows, Linux o Mac OS X a una rete virtuale di Azure. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. È anche possibile usare una VPN da punto a sito al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. La modalità da punto a sito crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol) o IKEv2. Per altre informazioni sulle connessioni VPN da punto a sito, vedere [Informazioni sulla VPN da punto a sito](point-to-site-about.md).
 
@@ -131,8 +131,8 @@ Dichiarare le variabili da usare. Usare l'esempio seguente, sostituendo i valori
 Configurare e creare il gateway di rete virtuale per la rete virtuale.
 
 * -GatewayType deve essere **Vpn** e -VpnType deve essere **RouteBased**.
-* -VpnClientProtocol consente di specificare i tipi di tunnel da abilitare. Sono le opzioni di tunnel **OpenVPN, SSTP** e **IKEv2**. È possibile scegliere di abilitare uno di essi o qualsiasi combinazione supportata. Se si desidera abilitare più tipi, quindi specificare i nomi separati da una virgola. OpenVPN e SSTP non è possibile abilitare contemporaneamente. Il client strongSwan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP. È possibile usare il client OpenVPN per connettersi al tipo di tunnel OpenVPN.
-* Lo SKU 'Basic' del gateway di rete virtuale non supporta l'autenticazione IKEv2, OpenVPN o RADIUS. Se si prevede che client Mac si connetteranno alla rete virtuale, non usare lo SKU Basic.
+* -VpnClientProtocol consente di specificare i tipi di tunnel da abilitare. Le opzioni del tunnel sono **OpenVPN, SSTP** e **IKEv2**. È possibile scegliere di abilitarne una o qualsiasi combinazione supportata. Se si vuole abilitare più tipi, specificare i nomi separati da una virgola. Non è possibile abilitare OpenVPN e SSTP insieme. Il client strongSwan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP. È possibile usare il client OpenVPN per connettersi al tipo di tunnel OpenVPN.
+* Lo SKU del gateway di rete virtuale ' Basic ' non supporta l'autenticazione IKEv2, OpenVPN o RADIUS. Se si prevede che client Mac si connetteranno alla rete virtuale, non usare lo SKU Basic.
 * Per il completamento di un gateway VPN possono essere necessari fino a 45 minuti, in base allo [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md) selezionato. In questo esempio viene usato IKEv2.
 
 ```azurepowershell-interactive

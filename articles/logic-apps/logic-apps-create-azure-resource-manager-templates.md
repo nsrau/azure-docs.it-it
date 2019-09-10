@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 57e9cec16326068cc7de74b8f7266fbe47808fed
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706518"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845444"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creare modelli di Azure Resource Manager per automatizzare la distribuzione per le app per la logica di Azure
 
@@ -83,10 +83,10 @@ Quando si esegue il `Get-LogicAppTemplate` comando con questo strumento, il coma
 
 ### <a name="generate-template-with-powershell"></a>Generare un modello con PowerShell
 
-Per generare il modello dopo l'installazione del modulo LogicAppTemplate, eseguire questo comando di PowerShell:
+Per generare il modello dopo aver installato il modulo LogicAppTemplate e l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), eseguire questo comando di PowerShell:
 
 ```text
-PS> Get-LogicAppTemplate
+PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
 Per seguire la raccomandazione per il piping in un token dallo [strumento client di Azure Resource Manager](https://github.com/projectkudu/ARMClient), eseguire questo comando, `$SubscriptionId` dove è l'ID sottoscrizione di Azure:
@@ -107,9 +107,9 @@ Per l'estrazione con riferimenti Azure Key Vault (solo statico), eseguire questo
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| Parametri | Obbligatoria | DESCRIZIONE |
+| Parametri | Obbligatoria | Descrizione |
 |------------|----------|-------------|
-| TemplateFile | Yes | Percorso del file del modello |
+| TemplateFile | Sì | Percorso del file del modello |
 | Insieme di credenziali delle chiavi | No | Enumerazione che descrive come gestire i possibili valori di Key Vault. Il valore predefinito è `None`. |
 ||||
 

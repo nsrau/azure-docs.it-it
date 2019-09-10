@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: cc0c7c4928fb03cb60bb51f74d74fdc1ab914348
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129596"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844913"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Inviare le metriche del sistema operativo guest all'archivio dati di Monitoraggio di Azure per una macchina virtuale Windows (versione classica)
 
@@ -34,6 +34,8 @@ Il processo illustrato in questo articolo funziona solo sulle macchine virtuali 
 - La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+
+- La risorsa VM deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Creare una macchina virtuale classica e un account di archiviazione
 

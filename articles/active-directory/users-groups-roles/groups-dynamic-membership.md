@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4b5f85aa99876ef6c3c9193612051085f3e0ffc0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194603"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872180"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -70,7 +70,7 @@ Una regola di appartenenza che popola automaticamente un gruppo con utenti o dis
 
 - Proprietà
 - Operator
-- Value
+- Valore
 
 L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
 
@@ -358,6 +358,11 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ## <a name="rules-for-devices"></a>Regole per i dispositivi
 
 È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. Un gruppo non può avere come membri sia utenti che dispositivi. L'attributo **organizationalUnit** non viene più elencato e non deve essere usato. Questa stringa viene impostata da Intune in casi specifici ma non viene riconosciuta da Azure AD, quindi nessun dispositivo viene aggiunto ai gruppi in base a questo attributo.
+
+> [!NOTE]
+> systemlabels è un attributo di sola lettura che non può essere impostato con Intune.
+>
+> Per Windows 10, il formato corretto dell'attributo deviceOSVersion è il seguente: (Device. deviceOSVersion-EQ "10,0 (17763)"). La formattazione può essere convalidata con il cmdlet Get-MsolDevice di PowerShell.
 
 È possibile usare gli attributi del dispositivo seguenti.
 

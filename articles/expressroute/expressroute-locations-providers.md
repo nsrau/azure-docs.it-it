@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 84dff3c4948109654cf08fa1390ac4e6bf2717dc
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: f3bae365692b2165e4944becbe5081bb69bef98b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812151"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70846107"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -189,7 +189,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 Se si è in modalità remota e non si dispone di connettività Fiber o si desidera esplorare altre opzioni di connettività, è possibile controllare gli operatori satellite seguenti. 
 
 * Intelsat
-* SES
+* [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
 * Viasat
 
 ## <a name="c1partners"></a>Connettività tramite provider di servizi aggiuntivi

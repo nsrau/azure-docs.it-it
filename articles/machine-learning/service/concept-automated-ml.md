@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: c654da71a0c060a9344ef7d7d42b30263a7fb2db
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 319871280b94f54b99f7a9957f671ec50122ebf3
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165200"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860922"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -47,7 +47,7 @@ Con il **servizio Azure Machine Learning**è possibile progettare ed eseguire gl
 
 1. **Configurare la destinazione di calcolo per il training del modello**, ad esempio il [computer locale, Azure Machine Learning calcoli, le macchine virtuali remote o Azure Databricks](how-to-set-up-training-targets.md).  Informazioni sulla formazione automatica [su una risorsa remota](how-to-auto-train-remote.md).
 
-1. **Configurare i parametri automatici di Machine Learning** che determinano il numero di iterazioni su modelli diversi, le impostazioni iperparametri, la pre-elaborazione avanzata/conteggi e le metriche da esaminare quando si determina il modello migliore.  È possibile configurare le impostazioni per l'esperimento di training automatico [in portale di Azure](how-to-create-portal-experiments.md) o [con l'SDK](how-to-configure-auto-train.md).
+1. **Configurare i parametri automatici di Machine Learning** che determinano il numero di iterazioni su modelli diversi, le impostazioni iperparametri, la pre-elaborazione avanzata/conteggi e le metriche da esaminare quando si determina il modello migliore.  È possibile configurare le impostazioni per l'esperimento di training automatico in [portale di Azure](how-to-create-portal-experiments.md), [la pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com)o [con l'SDK](how-to-configure-auto-train.md). 
 
 1. **Inviare l'esecuzione del training.**
 
@@ -133,7 +133,7 @@ Vedere gli esempi e informazioni su come creare modelli usando Machine Learning 
 + Seguire l' [esercitazione: Eseguire automaticamente il training di un modello di regressione con Machine Learning automatizzato di Azure](tutorial-auto-train-models.md)
 
 + Configurare le impostazioni per l'esperimento di training automatico:
-  + In portale di Azure interfaccia, [seguire questa procedura](how-to-create-portal-experiments.md).
+  + In portale di Azure interfaccia o nella pagina di destinazione dell'area di lavoro (anteprima) [usare questi passaggi](how-to-create-portal-experiments.md).
   + Con Python SDK, [seguire questa procedura](how-to-configure-auto-train.md).
 
 + Per informazioni su come eseguire il training automatico usando i dati delle serie temporali, [seguire questa procedura](how-to-auto-train-forecast.md).

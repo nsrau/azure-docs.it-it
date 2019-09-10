@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 074b9ec06818363a97253a587ac451a38999832f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 56bfe92de24b9386252ee8719af66cc658948565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837928"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844306"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
@@ -35,7 +35,7 @@ Dopo l'impostazione della scadenza di un gruppo:
 Attualmente può essere configurato un solo criterio di scadenza per i gruppi di Office 365 di un tenant.
 
 > [!NOTE]
-> Per la configurazione e l'uso dei criteri di scadenza per i gruppi di Office 365 è necessario disporre di Azure AD Premium licenze per i membri di tutti i gruppi a cui sono applicati i criteri di scadenza.
+> Per la configurazione e l'uso dei criteri di scadenza per i gruppi di Office 365 è necessario disporre delle licenze Azure AD Premium per i membri di tutti i gruppi a cui vengono applicati i criteri di scadenza.
 
 Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell, vedere [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell per Graph 2.0.0.137).
 
@@ -69,8 +69,11 @@ Per altre informazioni sulle autorizzazioni per ripristinare un gruppo eliminato
   - Al termine salvare le impostazioni facendo clic su **Salva**.
 
 > [!NOTE]
-> Quando si configura la scadenza per la prima volta, la scadenza di tutti i gruppi creati prima dell'intervallo di scadenza scelto viene impostata su 30 giorni. La prima notifica di rinnovo viene inviata tramite posta elettronica entro un giorno. Ad esempio, il gruppo A è stato creato da 400 giorni e l'intervallo di scadenza è impostato su 180 giorni. Quando si applicano i criteri di scadenza, il gruppo A ha 30 giorni prima di essere eliminato, a meno che il proprietario non lo rinnovi.
+> Quando si configura per la prima volta la scadenza, tutti i gruppi antecedenti all'intervallo di scadenza vengono impostati su 30 giorni fino alla scadenza, a meno che il proprietario non lo rinnovi. La prima notifica di rinnovo viene inviata tramite posta elettronica entro un giorno.
+>
 > Quando un gruppo dinamico viene eliminato e ripristinato, viene considerato come un nuovo gruppo e popolato nuovamente in base alla regola. Questo processo può richiedere fino a 24 ore.
+>
+> Le notifiche di scadenza per i gruppi usati nei team vengono visualizzate nel feed dei proprietari dei team.
 
 ## <a name="email-notifications"></a>Notifiche tramite posta elettronica
 

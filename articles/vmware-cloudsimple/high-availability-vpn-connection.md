@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ea8ad80d8d12ae9ecac88bd6a3d661ca895d67f4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0b40c15956dc03209dcab49641af66bc8ae24187
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972766"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845330"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurare una connessione a disponibilità elevata da locale a gateway VPN CloudSimple
 
@@ -27,7 +27,7 @@ Per impostazione predefinita, i gateway VPN CloudSimple sono configurati in moda
 
 ### <a name="phase-1"></a>Fase 1
 
-| Parametro | Value |
+| Parametro | Valore |
 |-----------|-------|
 | Versione IKE | IKEv1 |
 | Crittografia | AES 256 |
@@ -38,7 +38,7 @@ Per impostazione predefinita, i gateway VPN CloudSimple sono configurati in moda
 
 ### <a name="phase-2"></a>Fase 2
 
-| Parametro | Value |
+| Parametro | Valore |
 |-----------|-------|
 | Crittografia | AES 256 |
 | Algoritmo hash| SHA 256 |
@@ -50,7 +50,7 @@ Per impostazione predefinita, i gateway VPN CloudSimple sono configurati in moda
 
 Prima di configurare il firewall locale, completare le seguenti attività.
 
-1. Verificare che l'organizzazione abbia [acquistato](create-nodes.md) i nodi necessari e che sia stato creato almeno un cloud privato CloudSimple.
+1. Verificare che l'organizzazione abbia eseguito il [provisioning](create-nodes.md) dei nodi necessari e che sia stato creato almeno un cloud privato CloudSimple.
 2. [Configurare un gateway VPN da sito a sito](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) tra la rete locale e il cloud privato CloudSimple.
 
 ## <a name="configure-on-premises-cisco-asa-firewall"></a>Configurare il firewall Cisco ASA locale

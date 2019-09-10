@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 7afa96c3c4d1a163e323aa0bb50ec361ff74aac3
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 302fad84a2f0443fb639e57d7bb0cfddef4c3443
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278698"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858742"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 
@@ -30,7 +30,7 @@ Informazioni su come usare il servizio Azure Machine Learning per distribuire un
 
 Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribuito in un cluster AKS __connesso all'area di lavoro__. Esistono due modi per connettere un cluster AKS all'area di lavoro:
 
-* Creare il cluster AKS usando Azure Machine Learning Service SDK, l'interfaccia della riga di comando di Machine Learning o il portale di Azure. Questo processo connette automaticamente il cluster all'area di lavoro.
+* Creare il cluster AKS usando Azure Machine Learning Service SDK, l'interfaccia della riga di comando di Machine Learning, la [portale di Azure](https://portal.azure.com) o la [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com). Questo processo connette automaticamente il cluster all'area di lavoro.
 * Alleghi un cluster AKS esistente all'area di lavoro del servizio Azure Machine Learning. È possibile collegare un cluster usando Azure Machine Learning Service SDK, Machine Learning CLI o il portale di Azure.
 
 > [!IMPORTANT]

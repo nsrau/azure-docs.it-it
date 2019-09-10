@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 8ee8c0c9d9724706f9b46013eba14e878832fd02
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129611"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844963"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Azure Resource Manager per un set di scalabilità di macchine virtuali Windows
 
@@ -31,6 +31,7 @@ Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribu
 
 - È necessario avere installato [Azure PowerShell](/powershell/azure) oppure è possibile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
+- La risorsa VM deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurare Monitoraggio di Azure come sink dei dati 
 L'estensione Diagnostica di Azure usa una funzionalità denominata **sink di dati** per instradare le metriche e i log in posizioni diverse. Le procedure seguenti illustrano come usare un modello di Resource Manager e PowerShell per distribuire una VM usando il nuovo sink di dati Monitoraggio di Azure. 

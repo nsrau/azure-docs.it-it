@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 08ceb5d795465a5759d0130618eafdccdc8c3c91
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3113ad050ec6040d4f7964e940c507024bcf002d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011512"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844995"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per l'inferenza con GPU
 
@@ -24,7 +24,7 @@ Questo articolo illustra come usare il servizio Azure Machine Learning per distr
 L'inferenza o il punteggio del modello è la fase in cui il modello distribuito viene utilizzato per eseguire stime. L'uso delle GPU anziché delle CPU offre vantaggi a livello di prestazioni per il calcolo altamente eseguibili.
 
 > [!IMPORTANT]
-> L'inferenza GPU è supportata solo nel servizio Azure Kubernetes.
+> Per le distribuzioni di servizi Web, l'inferenza GPU è supportata solo nel servizio Azure Kubernetes. Per l'inferenza usando una __pipeline di Machine Learning__, le GPU sono supportate solo nel calcolo Azure Machine Learning. Per altre informazioni sull'uso di pipeline ML, vedere [eseguire stime batch](how-to-run-batch-predictions.md). 
 
 > [!TIP]
 > Sebbene i frammenti di codice in questo articolo utilizzano un modello TensorFlow, è possibile applicare le informazioni a qualsiasi framework di Machine Learning che supporti GPU.

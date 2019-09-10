@@ -1,7 +1,7 @@
 ---
 title: Configurare un ambiente di sviluppo Python
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come configurare un ambiente di sviluppo quando si usa il servizio Azure Machine Learning. Questo articolo illustra come usare gli ambienti conda, creare file di configurazione e configurare il proprio server notebook basato sul cloud, notebook Jupyter, Azure Databricks, Azure Notebooks, IDE, editor di codice e il Data Science Virtual Machine.
+description: Informazioni su come configurare un ambiente di sviluppo quando si usa il servizio Azure Machine Learning. Questo articolo illustra come usare gli ambienti conda, creare file di configurazione e configurare il proprio server notebook basato sul cloud, notebook Jupyter, Azure Databricks, IDE, editor di codice e la Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bf83f483bb7680b71bf928430858240deb3d603
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 39daff8be5ac072479463dc10c9041cda6b7b628
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278816"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860570"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -30,7 +30,7 @@ La tabella seguente illustra tutti gli ambienti di sviluppo trattati in questo a
 | [Ambiente locale](#local) | Controllo completo dell'ambiente di sviluppo e delle dipendenze. Eseguire con qualsiasi strumento di compilazione, ambiente o IDE di propria scelta. | Per iniziare, è necessario più tempo. È necessario installare i pacchetti SDK necessari ed è necessario installare anche un ambiente, se non è già presente. |
 | [Azure Databricks](#aml-databricks) | Ideale per l'esecuzione di flussi di lavoro di Machine Learning intensivi su larga scala sulla piattaforma Apache Spark scalabile. | Overkill per l'apprendimento automatico sperimentale o per esperimenti e flussi di lavoro su scala ridotta. Costi aggiuntivi per Azure Databricks. Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/databricks/). |
 | [Il Data Science Virtual Machine (DSVM)](#dsvm) | Analogamente alla macchina virtuale notebook basata sul cloud (Python e SDK sono preinstallati), ma con gli strumenti di data science e di apprendimento automatico più diffusi preinstallati. Facile da scalare e combinare con altri strumenti e flussi di lavoro personalizzati. | Un'esperienza introduttiva più lenta rispetto alla VM notebook basata sul cloud. |
-| [Azure Notebooks](#aznotebooks) | Esperienza introduttiva gratuita e leggera con Python e l'SDK pre-installato. | Sono disponibili macchine virtuali meno potenti rispetto alla VM notebook basata sul cloud. Isolato dall'area di lavoro e da altre risorse. |
+
 
 Questo articolo fornisce anche suggerimenti sull'utilizzo aggiuntivi per gli strumenti seguenti:
 
@@ -40,7 +40,7 @@ Questo articolo fornisce anche suggerimenti sull'utilizzo aggiuntivi per gli str
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un'area di lavoro del servizio Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md). Un'area di lavoro è sufficiente per iniziare a usare il proprio [Server notebook basato sul cloud](#notebookvm), un [DSVM](#dsvm), [Azure Databricks](#aml-databricks)o [Azure Notebooks](#aznotebooks).
+Un'area di lavoro del servizio Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md). Un'area di lavoro è sufficiente per iniziare a usare il proprio [Server notebook basato sul cloud](#notebookvm), un [DSVM](#dsvm)o [Azure Databricks](#aml-databricks).
 
 Per installare l'ambiente SDK per il [computer locale](#local), [Jupyter Notebook server](#jupyter) o [Visual Studio Code](#vscode) sono necessari anche:
 
@@ -59,7 +59,7 @@ La macchina virtuale notebook (anteprima) è una workstation di Azure sicura bas
 
 La VM del notebook è:
 
-+ **Sicuro**. Poiché l'accesso alla macchina virtuale e al notebook viene protetto con HTTPS e Azure Active Directory per impostazione predefinita, i professionisti IT possono applicare con facilità Single Sign-On e altre funzionalità di sicurezza, ad esempio l'autenticazione a più fattori.
++ **Sicuro**. Poiché l'accesso alla macchina virtuale e al notebook viene protetto con HTTPS e Azure Active Directory per impostazione predefinita, i professionisti IT possono applicare facilmente Single Sign-on e altre funzionalità di sicurezza, ad esempio l'autenticazione a più fattori.
 
 + **Preconfigurato**. Questo ambiente Python ML completamente preparato ne trae il proprio pedigree dal popolare Data Science VM IaaS e include:
   + Azure ML Python SDK (versione più recente)
@@ -289,12 +289,12 @@ Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Offre
 
 Funzionamento di Azure Databricks con il servizio Azure Machine Learning:
 + È possibile eseguire il training di un modello usando Spark MLlib e distribuire il modello in ACI/AKS dall'interno Azure Databricks.
-+ È anche possibile usare le funzionalità [automatiche di Machine Learning](concept-automated-ml.md) in un SDK di Azure ml speciale con Azure Databricks.
++ È anche possibile usare le funzionalità automatiche di [Machine Learning](concept-automated-ml.md) in un SDK di Azure ml speciale con Azure Databricks.
 + È possibile usare Azure Databricks come destinazione di calcolo da una [pipeline di Azure Machine Learning](concept-ml-pipelines.md).
 
 ### <a name="set-up-your-databricks-cluster"></a>Configurare il cluster databricks
 
-Creare un [cluster databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Alcune impostazioni si applicano solo se si installa l'SDK per Machine Learning automatico in databricks.
+Creare un [cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)databricks. Alcune impostazioni si applicano solo se si installa l'SDK per Machine Learning automatico in databricks.
 **La creazione del cluster potrebbe richiedere alcuni minuti.**
 
 Usare le impostazioni seguenti:
@@ -352,17 +352,6 @@ Prova:
   Sebbene siano disponibili molti notebook di esempio, **solo [questi notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funzionano con Azure Databricks.**
 
 + Informazioni su come [creare una pipeline con databricks come calcolo di training](how-to-create-your-first-pipeline.md).
-
-## <a id="aznotebooks"></a>Azure Notebooks
-
-[Azure Notebooks](https://notebooks.azure.com) (anteprima) è un ambiente di sviluppo interattivo nel cloud di Azure. Si tratta di un modo semplice per iniziare a sviluppare Azure Machine Learning.
-
-* L'SDK di Azure Machine Learning è già installato.
-* Dopo aver creato un'area di lavoro del servizio Azure Machine Learning nel portale di Azure, è possibile fare clic su un pulsante per configurare automaticamente l'ambiente di Azure Notebooks per usare l'area di lavoro.
-
-Per iniziare a usare Azure Notebooks, usare il [portale di Azure](https://portal.azure.com).  Aprire l'area di lavoro e nella sezione **Panoramica** selezionare **inizia in Azure Notebooks**.
-
-Per impostazione predefinita, Azure Notebooks usa un livello di servizio gratuito limitato a 4 GB di memoria e 1 GB di dati. È, tuttavia, possibile rimuovere questi limiti mediante l'aggiunta di un'istanza di Data Science Virtual Machine al progetto Azure Notebooks. Per altre informazioni, vedere [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) (Gestire e configurare i progetti di Azure Notebooks - Livello di calcolo).
 
 ## <a id="workspace"></a>Creare un file di configurazione dell'area di lavoro
 

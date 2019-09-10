@@ -1,59 +1,71 @@
 ---
-title: Abilitare Azure Active Directory Domain Services con PowerShell | Microsoft Docs
-description: Abilitare Azure Active Directory Domain Services con PowerShell
+title: Abilitare i servizi di dominio Azure DS usando PowerShell | Microsoft Docs
+description: Informazioni su come configurare e abilitare Azure Active Directory Domain Services usando Azure AD PowerShell e Azure PowerShell.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: c6572ab8bc2a10039f327233f983c2e822fba3b0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 163259af3797b652c9605c171447f4a7d2576c87
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617225"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842704"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Abilitare Azure Active Directory Domain Services con PowerShell
-Questo articolo illustra come abilitare Azure Active Directory (AD) Domain Services con PowerShell.
+
+Azure Active Directory Domain Services (Azure AD DS) offre servizi di dominio gestiti, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM, completamente compatibili con Windows Server Active Directory. È possibile utilizzare questi servizi di dominio senza distribuire, gestire e applicare patch manualmente ai controller di dominio. Azure AD DS si integra con il tenant di Azure AD esistente. Questa integrazione consente agli utenti di accedere con le proprie credenziali aziendali ed è possibile usare i gruppi e gli account utente esistenti per proteggere l'accesso alle risorse.
+
+Questo articolo illustra come abilitare Azure AD DS usando PowerShell.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-## <a name="task-1-install-the-required-powershell-modules"></a>Attività 1: Installare i moduli di PowerShell necessari
+## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="install-and-configure-azure-ad-powershell"></a>Installare e configurare Azure AD PowerShell
-Seguire le istruzioni nell'articolo per [installare il modulo Azure AD PowerShell e connettersi ad Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Per completare questo articolo, sono necessarie le risorse seguenti:
 
-### <a name="install-and-configure-azure-powershell"></a>Installare e configurare Azure PowerShell
-Seguire le istruzioni nell'articolo per [installare il modulo Azure PowerShell e connettersi alla sottoscrizione di Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+* Installare e configurare Azure PowerShell.
+    * Se necessario, seguire le istruzioni per [installare il modulo Azure PowerShell e connettersi alla sottoscrizione di Azure](/powershell/azure/install-az-ps).
+    * Assicurarsi di accedere alla sottoscrizione di Azure usando il cmdlet [Connect-AzAccount][Connect-AzAccount] .
+* Installare e configurare Azure AD PowerShell.
+    * Se necessario, seguire le istruzioni per [installare il modulo Azure ad PowerShell e connettersi al Azure ad](/powershell/azure/active-directory/install-adv2).
+    * Assicurarsi di accedere al tenant di Azure AD usando il cmdlet [Connect-AzureAD][Connect-AzureAD] .
+* Per abilitare Azure AD DS, sono necessari privilegi di *amministratore globale* nel tenant di Azure AD.
+* Per creare le risorse di Azure AD DS richieste, sono necessari privilegi di *collaboratore* nella sottoscrizione di Azure.
 
+## <a name="create-required-azure-ad-resources"></a>Creare risorse di Azure AD richieste
 
-## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>Attività 2: Creare l'entità servizio richiesta nella directory di Azure AD
-Digitare il comando PowerShell seguente per creare l'entità servizio richiesta per Azure AD Domain Services nella directory di Azure AD.
+Azure AD DS richiede un'entità servizio e un gruppo di Azure AD. Queste risorse consentono al dominio gestito di Azure AD DS di sincronizzare i dati e di definire quali utenti dispongono di autorizzazioni amministrative nel dominio gestito.
+
+Per prima cosa, creare un'entità servizio Azure AD per Azure AD DS per comunicare ed eseguire l'autenticazione. Un ID applicazione specifico viene usato denominato *domain controller Services* con ID *2565bd9d-DA50-47d4-8B85-4c97f669dc36*. Non modificare questo ID applicazione.
+
+Creare un'entità servizio Azure AD usando il cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] :
+
 ```powershell
-# Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Attività 3: Creare e configurare il gruppo "AAD DC Administrators"
-L'attività successiva consiste nel creare il gruppo di amministratori che verrà usato per delegare le attività di amministrazione nel dominio gestito.
+A questo punto, creare un gruppo di Azure AD denominato *AAD DC Administrators*. Agli utenti aggiunti a questo gruppo vengono concesse le autorizzazioni per eseguire attività amministrative nel dominio gestito Azure AD DS.
+
+Creare il gruppo di *amministratori di AAD DC* usando il cmdlet [New-AzureADGroup][New-AzureADGroup] :
+
 ```powershell
-# Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `
   -Description "Delegated group to administer Azure AD Domain Services" `
   -SecurityEnabled $true -MailEnabled $false `
   -MailNickName "AADDCAdministrators"
 ```
 
-Dopo aver creato il gruppo, aggiungere un paio di utenti.
+Con il gruppo di *amministratori di AAD DC* creato, aggiungere un utente al gruppo usando il cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember] . Per prima cosa, è necessario ottenere l'ID oggetto gruppo *amministratori di AAD DC* usando il cmdlet [Get-AzureADGroup][Get-AzureADGroup] , quindi l'ID oggetto dell'utente desiderato usando il cmdlet [Get-AzureADUser][Get-AzureADUser] .
+
+Nell'esempio seguente, ID oggetto utente per l'account con UPN `admin@contoso.onmicrosoft.com`. Sostituire questo account utente con l'UPN dell'utente che si vuole aggiungere al gruppo di *amministratori di AAD DC* :
+
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
@@ -69,17 +81,18 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
-## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Attività 4: Registrare il provider di risorse di Azure AD Domain Services
-Digitare il comando PowerShell seguente per registrare il provider di risorse per Azure AD Domain Services:
+## <a name="create-supporting-azure-resources"></a>Creare risorse di supporto di Azure
+
+Per prima cosa, registrare il provider di risorse Azure AD Domain Services usando il cmdlet [Register-AzResourceProvider][Register-AzResourceProvider] :
+
 ```powershell
-# Register the resource provider for Azure AD Domain Services with Resource Manager.
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-## <a name="task-5-create-a-resource-group"></a>Attività 5: Creare un gruppo di risorse
-Digitare il comando PowerShell seguente per creare un gruppo di risorse:
+Successivamente, creare un gruppo di risorse usando il cmdlet [New-AzResourceGroup][New-AzResourceGroup] . Nell'esempio seguente, il gruppo di risorse è denominato *myResourceGroup* e viene creato nell'area *westus* . Usare il proprio nome e l'area desiderata:
+
 ```powershell
-$ResourceGroupName = "ContosoAaddsRg"
+$ResourceGroupName = "myResourceGroup"
 $AzureLocation = "westus"
 
 # Create the resource group.
@@ -88,17 +101,12 @@ New-AzResourceGroup `
   -Location $AzureLocation
 ```
 
-In questo gruppo di risorse è possibile creare la rete virtuale e il dominio gestito di Azure AD Domain Services.
+Creare la rete virtuale e le subnet per Azure AD Domain Services. Vengono create due subnet, una per *DomainServices*e una per i *carichi di lavoro*. Azure AD DS viene distribuito nella subnet *DomainServices* dedicata. Non distribuire altre applicazioni o carichi di lavoro in questa subnet. Usare i *carichi di lavoro* separati o altre subnet per il resto delle macchine virtuali.
 
-
-## <a name="task-6-create-and-configure-the-virtual-network"></a>Attività 6: Creare e configurare la rete virtuale
-A questo punto, creare la rete virtuale in cui abilitare Azure AD Domain Services. Assicurarsi di creare una subnet dedicata per Azure AD Domain Services. Non distribuire le macchine virtuali del carico di lavoro in questa subnet dedicata.
-
-Digitare i comandi PowerShell seguenti per creare una rete virtuale con una subnet dedicata per Azure AD Domain Services.
+Creare le subnet usando il cmdlet [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNetworkSubnetConfig] , quindi creare la rete virtuale usando il cmdlet [New-AzVirtualNetwork][New-AzVirtualNetwork] .
 
 ```powershell
-$ResourceGroupName = "ContosoAaddsRg"
-$VnetName = "DomainServicesVNet_WUS"
+$VnetName = "myVnet"
 
 # Create the dedicated subnet for AAD Domain Services.
 $AaddsSubnet = New-AzVirtualNetworkSubnetConfig `
@@ -110,7 +118,7 @@ $WorkloadSubnet = New-AzVirtualNetworkSubnetConfig `
   -AddressPrefix 10.0.1.0/24
 
 # Create the virtual network in which you will enable Azure AD Domain Services.
-$Vnet=New-AzVirtualNetwork `
+$Vnet= New-AzVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
   -Location westus `
   -Name $VnetName `
@@ -118,47 +126,45 @@ $Vnet=New-AzVirtualNetwork `
   -Subnet $AaddsSubnet,$WorkloadSubnet
 ```
 
+## <a name="create-an-azure-ad-ds-managed-domain"></a>Creare un dominio gestito di Azure AD DS
 
-## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Attività 7: Effettuare il provisioning del dominio gestito di Azure AD Domain Services
-Digitare il comando PowerShell seguente per abilitare Azure AD Domain Services per la directory:
+A questo punto è possibile creare un dominio gestito di Azure AD DS. Impostare l'ID sottoscrizione di Azure e quindi specificare un nome per il dominio gestito, ad esempio *contoso.com*. È possibile ottenere l'ID sottoscrizione usando il cmdlet [Get-AzSubscription][Get-AzSubscription] .
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
 $ManagedDomainName = "contoso.com"
-$ResourceGroupName = "ContosoAaddsRg"
-$VnetName = "DomainServicesVNet_WUS"
-$AzureLocation = "westus"
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -ApiVersion 2017-06-01 -Force -Verbose
+  -Force -Verbose
 ```
 
-> [!WARNING]
-> **Non dimenticare i passaggi di configurazione aggiuntivi dopo aver eseguito il provisioning del dominio gestito.**
-> Dopo aver eseguito il provisioning del dominio gestito, è necessario completare le attività seguenti:
-> * Aggiornare le impostazioni DNS per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio. Per configurare DNS, selezionare il dominio gestito di Azure AD DS nel portale. Nella finestra **Panoramica** viene richiesto di configurare automaticamente queste impostazioni DNS.
-> * Creare le regole del gruppo di sicurezza di rete necessarie per limitare il traffico in ingresso per il dominio gestito. Per creare le regole del gruppo di sicurezza di rete, selezionare il dominio gestito di Azure AD DS nel portale. Nella finestra **Panoramica** viene richiesto di creare automaticamente le regole del gruppo di sicurezza di rete appropriate.
-> * **[Abilitare la sincronizzazione password in Azure Active Directory Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)** , in modo che gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
+Sono necessari alcuni minuti per creare la risorsa e restituire il controllo al prompt di PowerShell. Il provisioning del dominio gestito di Azure AD DS continua a essere eseguito in background e può richiedere fino a un'ora per completare la distribuzione. Nella portale di Azure la pagina **Panoramica** per il dominio gestito di Azure AD DS Mostra lo stato corrente in questa fase di distribuzione.
 
-## <a name="powershell-script"></a>Script di PowerShell
-Per eseguire tutte le attività elencate in questo articolo, è possibile usare lo script di PowerShell seguente. Copiare lo script e salvarlo in un file con estensione '.ps1'. Eseguire lo script in PowerShell o con PowerShell Integrated Scripting Environment (ISE).
+Quando il portale di Azure indica che il dominio gestito da Azure AD DS ha completato il provisioning, è necessario completare le attività seguenti:
+
+* Aggiornare le impostazioni DNS per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio.
+    * Per configurare DNS, selezionare il dominio gestito di Azure AD DS nel portale. Nella finestra **Panoramica** viene richiesto di configurare automaticamente queste impostazioni DNS.
+* [Abilitare la sincronizzazione password per Azure ad Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in modo che gli utenti finali possano accedere al dominio gestito usando le credenziali aziendali.
+
+## <a name="complete-powershell-script"></a>Completare lo script di PowerShell
+
+Il seguente script di PowerShell completo combina tutte le attività illustrate in questo articolo. Copiare lo script e salvarlo in un file con `.ps1` estensione. Eseguire lo script in una console di PowerShell locale o nel [Azure cloud Shell][cloud-shell].
 
 > [!NOTE]
-> **Autorizzazioni necessarie per eseguire questo script** Per abilitare Azure AD Domain Services, è necessario essere l'amministratore globale per la directory di Azure AD. Sono inoltre necessari almeno i privilegi di "Collaboratore" nella rete virtuale in cui abilitare Azure AD Domain Services.
->
+> Per abilitare Azure AD DS, è necessario essere un amministratore globale per il tenant di Azure AD. Sono inoltre necessari almeno i privilegi di *collaboratore* nella sottoscrizione di Azure.
 
 ```powershell
 # Change the following values to match your deployment.
 $AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
+$ResourceGroupName = "myResourceGroup"
+$VnetName = "myVnet"
+$AzureLocation = "westus"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
 $ManagedDomainName = "contoso.com"
-$ResourceGroupName = "ContosoAaddsRg"
-$VnetName = "DomainServicesVNet_WUS"
-$AzureLocation = "westus"
 
 # Connect to your Azure AD directory.
 Connect-AzureAD
@@ -218,18 +224,37 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -ApiVersion 2017-06-01 -Force -Verbose
+  -Force -Verbose
 ```
 
-> [!WARNING]
-> **Non dimenticare i passaggi di configurazione aggiuntivi dopo aver eseguito il provisioning del dominio gestito.**
-> Dopo aver eseguito il provisioning del dominio gestito, è necessario completare le attività seguenti:
-> * Aggiornare le impostazioni DNS per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio. Per configurare DNS, selezionare il dominio gestito di Azure AD DS nel portale. Nella finestra **Panoramica** viene richiesto di configurare automaticamente queste impostazioni DNS.
-> * Creare le regole del gruppo di sicurezza di rete necessarie per limitare il traffico in ingresso per il dominio gestito. Per creare le regole del gruppo di sicurezza di rete, selezionare il dominio gestito di Azure AD DS nel portale. Nella finestra **Panoramica** viene richiesto di creare automaticamente le regole del gruppo di sicurezza di rete appropriate.
-> * **[Abilitare la sincronizzazione password in Azure Active Directory Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)** , in modo che gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
+Sono necessari alcuni minuti per creare la risorsa e restituire il controllo al prompt di PowerShell. Il provisioning del dominio gestito di Azure AD DS continua a essere eseguito in background e può richiedere fino a un'ora per completare la distribuzione. Nella portale di Azure la pagina **Panoramica** per il dominio gestito di Azure AD DS Mostra lo stato corrente in questa fase di distribuzione.
+
+Quando il portale di Azure indica che il dominio gestito da Azure AD DS ha completato il provisioning, è necessario completare le attività seguenti:
+
+* Aggiornare le impostazioni DNS per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio.
+    * Per configurare DNS, selezionare il dominio gestito di Azure AD DS nel portale. Nella finestra **Panoramica** viene richiesto di configurare automaticamente queste impostazioni DNS.
+* [Abilitare la sincronizzazione password per Azure ad Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in modo che gli utenti finali possano accedere al dominio gestito usando le credenziali aziendali.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver creato il dominio gestito, eseguire le attività di configurazione seguenti per poter usare il dominio gestito:
 
-* [Aggiornare le impostazioni del server DNS per la rete virtuale in modo che puntino al dominio gestito](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
-* [Abilitare la sincronizzazione password nel dominio gestito](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)
+Per visualizzare il dominio gestito di Azure AD DS in azione, è possibile [aggiungere un dominio a una VM Windows][windows-join], [configurare LDAP sicuro][tutorial-ldaps]e [configurare la sincronizzazione dell'hash delle password][tutorial-phs].
+
+<!-- INTERNAL LINKS -->
+[windows-join]: join-windows-vm.md
+[tutorial-ldaps]: tutorial-configure-ldaps.md
+[tutorial-phs]: tutorial-configure-password-hash-sync.md
+
+<!-- EXTERNAL LINKS -->
+[Connect-AzAccount]: /powershell/module/Az.Accounts/Connect-AzAccount
+[Connect-AzureAD]: /powershell/module/AzureAD/Connect-AzureAD
+[New-AzureADServicePrincipal]: /powershell/module/AzureAD/New-AzureADServicePrincipal
+[New-AzureADGroup]: /powershell/module/AzureAD/New-AzureADGroup
+[Add-AzureADGroupMember]: /powershell/module/AzureAD/Add-AzureADGroupMember
+[Get-AzureADGroup]: /powershell/module/AzureAD/Get-AzureADGroup
+[Get-AzureADUser]: /powershell/module/AzureAD/Get-AzureADUser
+[Register-AzResourceProvider]: /powershell/module/Az.Resources/Register-AzResourceProvider
+[New-AzResourceGroup]: /powershell/module/Az.Resources/New-AzResourceGroup
+[New-AzVirtualNetworkSubnetConfig]: /powershell/module/Az.Network/New-AzVirtualNetworkSubnetConfig
+[New-AzVirtualNetwork]: /powershell/module/Az.Network/New-AzVirtualNetwork
+[Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
+[cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users

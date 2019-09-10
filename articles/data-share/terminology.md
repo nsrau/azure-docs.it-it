@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 01025acfa2fd939db8134a1e61c7902034a1d2c3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424225"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844697"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Concetti di anteprima della condivisione di dati di Azure 
 
@@ -33,7 +33,7 @@ Una condivisione dati è un gruppo di set di dati condivisi come una singola ent
 
 Una sottoscrizione di condivisione viene creata quando un consumer di dati accetta un invito alla condivisione dati da un provider di dati. I provider di dati possono visualizzare le sottoscrizioni di condivisione attive passando a **condivisioni inviate** nell'account di condivisione dati di Azure e selezionando **Condividi sottoscrizioni**.
 
-Un consumer di dati può verificare se dispone di una sottoscrizione di condivisione attiva passando  alle condivisioni ricevute e visualizzando lo stato delle condivisioni ricevute. 
+Un consumer di dati può verificare se dispone di una sottoscrizione di condivisione attiva passando alle **condivisioni ricevute** e visualizzando lo stato delle condivisioni ricevute. 
 
 ## <a name="snapshot"></a>Snapshot
 
@@ -53,7 +53,9 @@ Un consumer di dati ha la possibilità di acconsentire esplicitamente a questa p
 
 Un provider di dati può invitare più destinatari nella propria condivisione di dati. A tale scopo, è possibile aggiungere i destinatari alla condivisione dati. Gli inviti possono essere aggiunti anche dopo la creazione di una condivisione di dati. 
 
-Un provider di dati può eliminare un invito dopo che è stato inviato. Si noti che se un provider di dati Elimina un invito dopo che è stato accettato, il consumer di dati può comunque disporre di una sottoscrizione di condivisione attiva. Se il provider di dati Elimina un invito e non è ancora stato accettato, il consumer di dati non sarà in grado di accettarlo. 
+Un provider di dati può eliminare un invito dopo che è stato inviato se non è stato accettato. Se il provider di dati Elimina un invito e non è ancora stato accettato, il consumer di dati non sarà in grado di accettarlo. 
+
+Gli inviti possono essere inviati fino a 5 volte al giorno. 
 
 ## <a name="recipient"></a>Destinatario
 

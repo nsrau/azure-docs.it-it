@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 50bb26aa1a29dc8b1454fadec416aceea76405b2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533530"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844250"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -79,7 +79,7 @@ Questo errore si verifica quando i cluster entrano in uno stato di errore per di
 
 1. Fino a quando il cluster non `failed` è in `upgrade` stato `scale` di stato e le operazioni non riusciranno. I problemi e le soluzioni principali comuni includono:
     * Ridimensionamento con **quota di calcolo (CRP) insufficiente**. Per risolvere il cluster, ridimensionare prima di tutto il cluster fino a uno stato di obiettivo stabile entro la quota. Seguire quindi questa [procedura per richiedere un aumento della quota di calcolo](../azure-supportability/resource-manager-core-quotas-request.md) prima di riprovare a eseguire la scalabilità verticale oltre i limiti di quota iniziali.
-    * Ridimensionamento di un cluster con rete avanzata e risorse insufficienti per la **subnet (rete)** . Per risolvere il cluster, ridimensionare prima di tutto il cluster fino a uno stato di obiettivo stabile entro la quota. Seguire quindi [questa procedura per richiedere un aumento della quota di risorse](../azure-resource-manager/resource-manager-quota-errors.md#solution) prima di provare a eseguire la scalabilità verticale oltre i limiti iniziali della quota.
+    * Ridimensionamento di un cluster con rete avanzata e **risorse insufficienti per la subnet (rete)** . Per risolvere il cluster, ridimensionare prima di tutto il cluster fino a uno stato di obiettivo stabile entro la quota. Seguire quindi [questa procedura per richiedere un aumento della quota di risorse](../azure-resource-manager/resource-manager-quota-errors.md#solution) prima di provare a eseguire la scalabilità verticale oltre i limiti iniziali della quota.
 2. Una volta risolta la cause sottostante dell'errore di aggiornamento, il cluster deve essere in uno stato di esito positivo. Una volta verificato uno stato di esito positivo, ripetere l'operazione originale.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Si sono verificati errori durante il tentativo di aggiornare o ridimensionare lo stato in corso di aggiornamento del cluster o l'aggiornamento non è riuscito
@@ -129,6 +129,15 @@ Le operazioni del cluster sono limitate quando è ancora in corso un'operazione 
 
 In base all'output dello stato del cluster:
 
-* Se il cluster si trova in uno stato di provisioning diverso da SUCCEEDED o *failed*, attendere che venga terminata l'operazione (*aggiornamento/aggiornamento/creazione/ridimensionamento/eliminazione/migrazione*). Al termine dell'operazione precedente, riprovare a eseguire l'operazione più recente del cluster.
+* Se il cluster si trova in uno stato di provisioning diverso da *succeeded* o *failed*, attendere che venga terminata l'operazione (*aggiornamento/aggiornamento/creazione/ridimensionamento/eliminazione/migrazione*). Al termine dell'operazione precedente, riprovare a eseguire l'operazione più recente del cluster.
 
 * Se si verifica un errore di aggiornamento del cluster, attenersi alla procedura descritta [per la ricezione di errori nel caso in cui il cluster si trova in stato di errore e l'aggiornamento o il ridimensionamento non funzionerà fino a quando non sarà stato risolto](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+
+## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>Si ricevono errori che non sono stati trovati dall'entità servizio quando si tenta di creare un nuovo cluster senza passarne uno esistente.
+
+Quando si crea un cluster AKS, è necessario che un'entità servizio crei risorse per conto dell'utente. AKS offre la possibilità di crearne uno nuovo in fase di creazione del cluster, ma ciò richiede che Azure Active Directory propaghi completamente la nuova entità servizio in un tempo ragionevole per consentire la creazione del cluster. Quando questa propagazione richiede troppo tempo, la convalida del cluster non riuscirà a creare perché non è possibile trovare un'entità servizio disponibile a tale scopo. 
+
+Usare le soluzioni alternative seguenti:
+1. Usare un'entità servizio esistente che è già stata propagata tra le aree ed esiste per passare ad AKS al momento della creazione del cluster.
+2. Se si usano gli script di automazione, aggiungere i ritardi di tempo tra la creazione dell'entità servizio e la creazione del cluster AKS.
+3. Se si usa portale di Azure, tornare alle impostazioni del cluster durante la creazione e ripetere la pagina di convalida dopo alcuni minuti.

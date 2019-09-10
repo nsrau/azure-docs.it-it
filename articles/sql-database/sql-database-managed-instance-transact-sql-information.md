@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 8f12f07d22387e5625b10e564cd05109e5bc73fc
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: cad04df9ba76ce483a308411949e6f98bab23bf9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744392"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858549"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze T-SQL tra istanze gestite, limitazioni e problemi noti
 
@@ -28,7 +28,7 @@ Esistono alcune limitazioni di PaaS introdotte in Istanza gestita e alcune modif
 
 - La [disponibilità](#availability) include le differenze tra [Always-on](#always-on-availability) e i [backup](#backup).
 - La [protezione](#security) include le differenze tra il [controllo](#auditing), i [certificati](#certificates), le [credenziali](#credential), i [provider di crittografia](#cryptographic-providers), [gli account di accesso e gli utenti](#logins-and-users)e la [chiave del servizio e la chiave master del servizio](#service-key-and-service-master-key).
-- La [configurazione](#configuration) include le differenze nell' [estensione del pool di buffer](#buffer-pool-extension), le regole di [confronto](#collation), i [livelli di compatibilità](#compatibility-levels), il [mirroring del database](#database-mirroring), le opzioni di [database](#database-options), [SQL Server Agent](#sql-server-agent)e le [Opzioni di tabella](#tables).
+- La [configurazione](#configuration) include le differenze nell' [estensione del pool di buffer](#buffer-pool-extension), le regole di [confronto](#collation), i [livelli di compatibilità](#compatibility-levels), il mirroring del [database](#database-mirroring), le [Opzioni di database](#database-options), [SQL Server Agent](#sql-server-agent)e le [Opzioni di tabella](#tables).
 - [Funzionalità](#functionalities) tra cui [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transazioni distribuite](#distributed-transactions), [Eventi estesi](#extended-events), [Librerie esterne](#external-libraries), [FileStream e FileTable](#filestream-and-filetable), [ricerca semantica full-text](#full-text-semantic-search), [server collegati](#linked-servers), [PolyBase](#polybase), [Replica](#replication), [RIPRISTINO](#restore-statement), [Service Broker](#service-broker), [stored procedure, funzioni e trigger](#stored-procedures-functions-and-triggers).
 - [Impostazioni dell'ambiente](#Environment) , ad esempio le configurazioni di reti virtuali e subnet.
 
@@ -201,7 +201,7 @@ Le regole di confronto di istanza predefinita sono `SQL_Latin1_General_CP1_CI_AS
 
 ### <a name="compatibility-levels"></a>Livelli di compatibilità
 
-- I livelli di compatibilità supportati sono 100, 110, 120, 130 e 140.
+- I livelli di compatibilità supportati sono 100, 110, 120, 130, 140 e 150.
 - I livelli di compatibilità inferiori a 100 non sono supportati.
 - Il livello di compatibilità predefinito per i nuovi database è 140. Per i database ripristinati, il livello di compatibilità rimane invariato se era 100 e versioni successive.
 
@@ -352,7 +352,7 @@ Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate n
 
 ### <a name="distributed-transactions"></a>Transazioni distribuite
 
-Attualmente [le transazioni MSDTC e elastiche](sql-database-elastic-transactions-overview.md) non sono supportate nelle istanze gestite.
+Attualmente [le transazioni](sql-database-elastic-transactions-overview.md) MSDTC e elastiche non sono supportate nelle istanze gestite.
 
 ### <a name="extended-events"></a>Eventi estesi
 

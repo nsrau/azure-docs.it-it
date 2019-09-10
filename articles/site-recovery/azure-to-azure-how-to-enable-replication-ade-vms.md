@@ -1,29 +1,26 @@
 ---
-title: Configurare la replica per le macchine virtuali abilitate per crittografia dischi di Azure in Azure Site Recovery | Microsoft Docs
+title: Configurare la replica per le macchine virtuali abilitate per crittografia dischi di Azure in Azure Site Recovery
 description: Questo articolo descrive come configurare la replica per le macchine virtuali abilitate per crittografia dischi di Azure da un'area di Azure a un'altra usando Site Recovery.
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bf0ee89bb091a13560a7a7d8d9e77c74827d94a2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884120"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861325"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicare le macchine virtuali abilitate per crittografia dischi di Azure in un'altra area di Azure
 
-Questo articolo descrive come replicare le macchine virtuali abilitate per crittografia dischi di Azure da un'area di Azure a un'altra.
+Questo articolo descrive come eseguire la replica di macchine virtuali di Azure con crittografia dischi di Azure abilitata, da un'area di Azure a un'altra.
 
 >[!NOTE]
->Azure Site Recovery attualmente supporta solo le macchine virtuali abilitate per la crittografia dischi di Azure che eseguono un sistema operativo Windows. Le macchine virtuali abilitate per crittografia dischi di Azure senza Azure AD app sono supportate solo se usano dischi gestiti. Le macchine virtuali con dischi non gestiti non sono supportate.
+> Site Recovery attualmente supporta ADE, con e senza Azure Active Directory (AAD) per le macchine virtuali che eseguono Windows.  Per i computer che eseguono ADE 1,1 (senza AAD), le macchine virtuali Windows devono usare Managed Disks. Le macchine virtuali con dischi non gestiti non sono supportate. Se si passa da ADE 0,1 (con AAD) a 1,1, è necessario disabilitare la replica e abilitare la replica per una macchina virtuale dopo l'abilitazione di 1,1.
 
->[!NOTE]
->Se si passa da ADE V1 (con Azure AD app) ad ADE V2 (senza Azure AD app), è necessario disabilitare la replica e abilitare la replica dopo l'abilitazione di ADE V2.
 
 ## <a id="required-user-permissions"></a>Autorizzazioni utente necessarie
 Site Recovery richiede che l'utente disponga delle autorizzazioni per la creazione dell'insieme di credenziali delle chiavi nell'area di destinazione e la copia delle chiavi dall'area di origine all'insieme di credenziali delle chiavi dell'area di destinazione.
@@ -132,7 +129,7 @@ Negli scenari seguenti verrà richiesto di aggiornare le impostazioni di crittog
   - È stata abilitata la replica Site Recovery nella macchina virtuale. Successivamente, è stata abilitata la crittografia del disco nella macchina virtuale di origine.
   - È stata abilitata la replica Site Recovery nella macchina virtuale. Successivamente, è stata modificata la chiave di crittografia del disco o la chiave di crittografia della chiave nella macchina virtuale di origine.
 
-È possibile usare [uno script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) per copiare le chiavi di crittografia nell'area di destinazione e quindi aggiornare le impostazioni di crittografia > di destinazione nell'insieme di credenziali di servizi di ripristino**Proprietà**  >  *elemento* > replicato **Calcolo e rete**.
+È possibile usare [uno script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) per copiare le chiavi di crittografia nell'area di destinazione e quindi aggiornare le impostazioni di crittografia > di destinazione nell'insieme di credenziali di servizi di ripristino**Proprietà**  >   > *elemento replicato* **Calcolo e rete**.
 
 ![Finestra di dialogo Aggiorna impostazioni ADE](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 

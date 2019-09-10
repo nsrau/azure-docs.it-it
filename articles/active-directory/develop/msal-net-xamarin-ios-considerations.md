@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 906f2fc8cdac31922e6e93526f65577fe76c4b9c
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 054033c0fc9f1138ef9ecf7eaceca626f6f53423
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532387"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872856"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Considerazioni specifiche di Novell per iOS con MSAL.NET
 In Novell iOS sono disponibili diverse considerazioni che è necessario tenere in considerazione quando si usa MSAL.NET
@@ -104,13 +104,23 @@ Per abilitare questa condivisione della cache, è necessario impostare il metodo
 
 In precedenza è stato indicato che MSAL ha aggiunto $ (AppIdentifierPrefix) ogni volta che si `WithIosKeychainSecurityGroup()` usa l'API. Questo perché il AppIdentifierPrefix o "ID team" viene usato per garantire che solo le applicazioni eseguite dallo stesso server di pubblicazione possano condividere l'accesso keychain.
 
-#### <a name="note-keychainsecuritygroup-property-deprecated"></a>Nota: Proprietà KeychainSecurityGroup deprecata
+> [!NOTE]
+> **La `KeychainSecurityGroup` proprietà è deprecata.**
+> 
+> In precedenza, da MSAL 2. x, gli sviluppatori dovevano includere il prefisso TeamID quando usavano `KeychainSecurityGroup` la proprietà.
+>
+>  Da MSAL 2.7. x, quando si usa la `iOSKeychainSecurityGroup` nuova proprietà, MSAL risolverà il prefisso TeamID durante il Runtime. Quando si usa questa proprietà, il valore non deve contenere il prefisso TeamId.
+>  Usare la nuova `iOSKeychainSecurityGroup` proprietà, che non richiede di specificare il TeamID, perché la proprietà precedente `KeychainSecurityGroup` è ora obsoleta.
 
-In precedenza, da MSAL 2. x, gli sviluppatori dovevano includere il prefisso TeamID quando utilizzavano la `KeychainSecurityGroup` proprietà
+### <a name="use-microsoft-authenticator"></a>USA Microsoft Authenticator
 
-Da MSAL 2.7. x, quando si usa la `iOSKeychainSecurityGroup` nuova proprietà, MSAL risolverà il prefisso TeamID durante il Runtime. Quando si usa questa proprietà, il valore non deve contenere il prefisso TeamId.
+L'applicazione può usare Microsoft Authenticator (Broker) per abilitare:
 
-Usare la nuova `iOSKeychainSecurityGroup` proprietà, che non richiede agli sviluppatori di fornire il TeamID, perché la proprietà `KeychainSecurityGroup` precedente è ora obsoleta.
+- Single Sign-on (SSO). Gli utenti non dovranno accedere a ogni applicazione.
+- Identificazione del dispositivo. Accedendo al certificato del dispositivo, creato sul dispositivo quando è stato aggiunto all'area di lavoro. L'applicazione sarà pronta se gli amministratori del tenant abilitano l'accesso condizionale correlato ai dispositivi.
+- Verifica dell'identificazione dell'applicazione. Quando un'applicazione chiama il broker, passa l'URL di reindirizzamento e il broker lo verifica.
+
+Per informazioni dettagliate su come abilitare il broker, vedere [usare Microsoft Authenticator o Microsoft Intune portale aziendale nelle applicazioni Novell iOS e Android](msal-net-use-brokers-with-xamarin-apps.md).
 
 ### <a name="sample-illustrating-xamarin-ios-specific-properties"></a>Esempio che illustra le proprietà specifiche di Novell iOS
 

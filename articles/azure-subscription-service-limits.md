@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
 ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68698262"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -25,7 +25,7 @@ Per altre informazioni sui prezzi di Azure, vedere [Panoramica dei prezzi di Azu
 > [!NOTE]
 > Per aumentare il limite o la quota superiore al limite predefinito, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](azure-resource-manager/resource-manager-quota-errors.md). I limiti non possono essere aumentati oltre il valore limite massimo illustrato nelle tabelle seguenti. Se non è presente alcuna colonna limite massimo, la risorsa non ha limiti regolabili.
 >
-> Le sottoscrizioni della [versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non sono idonee per aumenti limite o quota Se si ha una [sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Per altre informazioni, vedere [aggiornare la sottoscrizione della versione di valutazione gratuita di Azure a una sottoscrizione con pagamento in base](billing/billing-upgrade-azure-subscription.md) al consumo e le [domande frequenti sulla sottoscrizione della versione di valutazione gratuita](https://azure.microsoft.com/free/free-account-faq).
+> Le [sottoscrizioni della versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non sono idonee per aumenti limite o quota Se si ha una [sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Per altre informazioni, vedere [aggiornare la sottoscrizione della versione di valutazione gratuita di Azure a una sottoscrizione con pagamento in base](billing/billing-upgrade-azure-subscription.md) al consumo e le [domande frequenti sulla sottoscrizione della versione di valutazione gratuita](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-azure-resource-manager"></a>Limiti e Azure Resource Manager
@@ -85,7 +85,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [Rete](#networking-limits)
   * [Gateway applicazione](#application-gateway-limits)
   * [DNS di Azure](#azure-dns-limits)
-  * [Servizio front door di Azure](#azure-front-door-service-limits)
+  * [Servizio Frontdoor di Azure](#azure-front-door-service-limits)
   * [Firewall di Azure](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [Bilanciamento del carico](#load-balancer)
@@ -372,7 +372,7 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 ### <a name="key-vault-limits"></a>Limiti relativi all'insieme di credenziali delle chiavi
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-### <a name="multi-factor-authentication-limits"></a>Limiti di autenticazione a più fattori
+### <a name="multi-factor-authentication-limits"></a>Limiti di Multi-Factor Authentication
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### <a name="automation-limits"></a>Limiti di automazione

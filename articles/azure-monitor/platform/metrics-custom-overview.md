@@ -5,15 +5,15 @@ author: ancav
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d52cb4d7b8e29838338baddd45a175661801b19b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254070"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844670"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Metriche personalizzate in Monitoraggio di Azure
 
@@ -55,17 +55,17 @@ Questa proprietà consente di acquisire l'area di Azure in cui è distribuita la
 >
 
 ### <a name="timestamp"></a>Timestamp
-Ogni punto dati inviato a Monitoraggio di Azure deve essere contrassegnato con un timestamp. Il timestamp consente di acquisire il valore DateTime in corrispondenza del quale il valore della metrica viene misurato o raccolto. Monitoraggio di Azure accetta i dati di metrica con valori di timestamp non superiori a 20 minuti precedenti e 5 minuti successivi. Il timestamp deve essere nel formato ISO 8601.
+Ogni punto dati inviato a Monitoraggio di Azure deve essere contrassegnato con un timestamp. Il timestamp consente di acquisire il valore DateTime in corrispondenza del quale il valore della metrica viene misurato o raccolto. Monitoraggio di Azure accetta i dati di metrica con valori di timestamp non superiori a 20 minuti precedenti e 5 minuti successivi. Il timestamp deve essere in formato ISO 8601.
 
 ### <a name="namespace"></a>Spazio dei nomi
 Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usando gli spazi dei nomi, è possibile isolare i gruppi di metriche per cui possono essere raccolte informazioni dettagliate o indicatori di prestazioni diversi. Ad esempio, si potrebbe disporre di uno spazio dei nomi denominato **ContosoMemoryMetrics** che tiene traccia delle metriche di utilizzo della memoria che profilano l'applicazione. Un altro spazio dei nomi denominato **ContosoAppTransaction** può tenere traccia di tutte le metriche relative alle transazioni utente nell'applicazione.
 
-### <a name="name"></a>NOME
+### <a name="name"></a>Name
 **Nome** è il nome della metrica che viene segnalata. In genere, il nome è sufficientemente descrittivo per aiutare a identificare l'elemento misurato. Un esempio è una metrica che misura il numero di byte di memoria utilizzati su una determinata macchina virtuale. Potrebbe avere un nome di metrica come ad esempio **Byte di memoria In uso**.
 
 ### <a name="dimension-keys"></a>Chiavi di dimensione
 Una dimensione è una coppia chiave o valore che consente di descrivere caratteristiche aggiuntive sulla metrica raccolta. Usando le caratteristiche aggiuntive, è possibile raccogliere altri dati sulla metrica, così da ottenere informazioni più dettagliate. Alla metrica **Byte di memoria in uso**, ad esempio, può essere associata una chiave di dimensione denominata **Processo** che acquisisce il numero di byte di memoria usati da ogni processo in una macchina virtuale. Usando tale chiave, è possibile filtrare la metrica per visualizzare la quantità di memoria usata da processi specifici o per identificare i primi 5 processi per uso della memoria.
-Le dimensioni sono facoltative, non tutte le metriche possono avere dimensioni. Una metrica personalizzata può avere dimensioni fino a 10.
+Le dimensioni sono facoltative e non tutte le metriche possono avere dimensioni. Una metrica personalizzata può avere fino a 10 dimensioni.
 
 ### <a name="dimension-values"></a>Valori di dimensione
 Quando si segnala un punto dati delle metriche, per ogni chiave di dimensione per la metrica indicata è presente un valore di dimensione corrispondente. Se ad esempio si vuole indicare la memoria usata da ContosoApp nella macchina virtuale, lo scenario è il seguente:
@@ -75,7 +75,7 @@ Quando si segnala un punto dati delle metriche, per ogni chiave di dimensione pe
 * Il valore di dimensione è **ContosoApp.exe**.
 
 Quando si pubblica un valore della metrica, è possibile specificare solo un unico valore di dimensione per chiave di dimensione. Se si raccoglie la stessa metrica di uso della memoria per più processi nella macchina virtuale, è possibile indicare più valori di metrica per tale timestamp. Ogni valore della metrica specifica un valore di dimensione diverso per la chiave di dimensione **Processo**.
-Le dimensioni sono facoltative, non tutte le metriche possono avere dimensioni. Se un metrica post definisce le chiavi di dimensione, i valori di dimensione corrispondenti sono obbligatori.
+Le dimensioni sono facoltative e non tutte le metriche possono avere dimensioni. Se una metrica post definisce le chiavi della dimensione, i valori della dimensione corrispondenti sono obbligatori.
 
 ### <a name="metric-values"></a>Valori della metrica
 Monitoraggio di Azure archivia tutte le metriche a intervalli di granularità di un minuto. Siamo consapevoli che durante un minuto specificato, potrebbe essere necessario campionare più volte una metrica. Un esempio è l'utilizzo della CPU. Oppure potrebbe essere necessario misurarla per diversi eventi discreti. Un esempio sono le latenze delle transazioni di accesso. Per limitare il numero di valori non elaborati che è necessario generare e pagare in Monitoraggio di Azure, è possibile pre-aggregare in locale e generare i valori in locale, come indicato di seguito.
@@ -168,15 +168,31 @@ Dopo l'invio delle metriche personalizzate a Monitoraggio di Azure, è possibile
 ## <a name="supported-regions"></a>Aree supportate
 Nella versione di anteprima pubblica la possibilità di pubblicare metriche personalizzate è disponibile solo in un subset di aree di Azure. Tale restrizione significa che le metriche possono essere pubblicate solo per le risorse in una delle aree supportate. La seguente tabella elenca il set di aree di Azure supportate per le metriche personalizzate. Elenca inoltre gli endpoint corrispondenti nei quali le metriche per le risorse in tali aree devono essere pubblicate:
 
-|Area di Azure|Prefisso di endpoint a livello di area|
+|Area di Azure |Prefisso di endpoint a livello di area|
 |---|---|
-|Stati Uniti orientali| https:\//eastus.monitoring.azure.com/ |
-|Stati Uniti centro-meridionali| https:\//southcentralus.monitoring.azure.com/ |
-|Stati Uniti centro-occidentali| https:\//westcentralus.monitoring.azure.com/ |
-|Stati Uniti occidentali 2| https:\//westus2.monitoring.azure.com/ |
-|Asia sud-orientale| https:\//southeastasia.monitoring.azure.com/ |
-|Europa settentrionale| https:\//northeurope.monitoring.azure.com/ |
-|Europa occidentale| https:\//westeurope.monitoring.azure.com/ |
+| **Stati Uniti e Canada** | |
+|Stati Uniti centro-occidentali | https:\//westcentralus.monitoring.azure.com/ |
+|Stati Uniti occidentali 2       | https:\//westus2.monitoring.azure.com/ |
+|Stati Uniti centro-settentrionali | https:\//northcentralus.Monitoring.Azure.com
+|Stati Uniti centro-meridionali| https:\//southcentralus.Monitoring.Azure.com/ |
+|Stati Uniti centrali      | https:\//centralus.Monitoring.Azure.com |
+|Canada centrale | https:\//canadacentral.Monitoring.Azure.comc
+|East US| https:\//eastus.Monitoring.Azure.com/ |
+| **Europa** | |
+|Europa settentrionale    | https:\//northeurope.Monitoring.Azure.com/ |
+|Europa occidentale     | https:\//westeurope.monitoring.azure.com/ |
+|Regno Unito meridionale | https:\//uksouth.Monitoring.Azure.com
+|Francia centrale | https:\//francecentral.Monitoring.Azure.com |
+| **Africa** | |
+|Sudafrica settentrionale | https:\//southafricanorth.Monitoring.Azure.com
+| **Asia** | |
+|India centrale | https:\//centralindia.Monitoring.Azure.com
+|Australia orientale | https:\//australiaeast.Monitoring.Azure.com
+|Giappone orientale | https:\//japaneast.Monitoring.Azure.com
+|Asia sud-orientale  | https:\//SouthEastAsia.Monitoring.Azure.com |
+|Asia orientale | https:\//eastasia.Monitoring.Azure.com
+|Corea del Sud centrale   | https:\//koreacentral.Monitoring.Azure.com
+
 
 ## <a name="quotas-and-limits"></a>Quote e limiti
 Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle metriche personalizzate:

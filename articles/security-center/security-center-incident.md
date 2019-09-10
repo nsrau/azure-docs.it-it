@@ -2,24 +2,19 @@
 title: Gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure | Microsoft Docs
 description: Questo documento consente di usare il Centro sicurezza di Azure per gestire gli eventi imprevisti della sicurezza.
 services: security-center
-documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 editor: ''
-ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/27/2019
-ms.author: rkarlin
-ms.openlocfilehash: 9f757d5fb2c8d3a807e325068d386e16a7d6caa7
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.date: 09/09/2019
+ms.author: memildin
+ms.openlocfilehash: c492c4023df30eb51692aa4ae21fb938067c6ebb
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806560"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873378"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure
 
@@ -29,7 +24,7 @@ In questo argomento vengono illustrati gli eventi imprevisti nel centro sicurezz
 
 ## <a name="what-is-a-security-incident"></a>Che cos'è un evento imprevisto della sicurezza?
 
-Nel Centro sicurezza un evento imprevisto della sicurezza è un'aggregazione di tutti gli avvisi relativi a una risorsa, in linea con i modelli delle [catene di attacco](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) . Gli eventi imprevisti vengono visualizzati nell'elenco degli [avvisi di sicurezza](security-center-managing-and-responding-alerts.md) . Fare clic su Ona un evento imprevisto per visualizzare gli avvisi correlati, che consentono di ottenere ulteriori informazioni su ogni occorrenza.
+Nel Centro sicurezza un evento imprevisto della sicurezza è un'aggregazione di tutti gli avvisi relativi a una risorsa, in linea con i modelli delle [catene di attacco](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) . Gli eventi imprevisti vengono visualizzati nell'elenco degli [avvisi di sicurezza](security-center-managing-and-responding-alerts.md) . Fare clic su un evento imprevisto per visualizzare gli avvisi correlati, che consentono di ottenere ulteriori informazioni su ogni occorrenza.
 
 ## <a name="managing-security-incidents"></a>Gestione degli eventi imprevisti della sicurezza
 

@@ -10,12 +10,12 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 290753b866f15e09a52572fdd7a43a60fc2812d6
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: ebdeaf21253e89a9a14e3a56ca7be0f6e8adceb0
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575553"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859224"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Risoluzione dei problemi di connettività
 
@@ -57,7 +57,7 @@ In caso contrario, rivolgersi all'amministratore IT per verificare che la manute
 
 ## <a name="check-your-firewall-settings"></a>Controllare le impostazioni del firewall
 
-SQL Data Warehouse comunica attraverso la porta 1433.   Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In tal caso, non è possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 1433. Altre informazioni sulle configurazioni del firewall sono disponibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
+SQL Data Warehouse comunica attraverso la porta 1433.   Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In tal caso, non è possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 1433. Altre informazioni sulle configurazioni del firewall sono disponibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Controllare le impostazioni dell'endpoint di VNet/servizio
 

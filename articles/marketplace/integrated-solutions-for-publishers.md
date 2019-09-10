@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 63f9112696156f2192669913bb15a82b9a7eede7
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 2d23b2b39844d48c6414d269f8d69d7b96fff272
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657463"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860300"
 ---
 # <a name="publishing-integrated-solutions"></a>Pubblicazione-soluzioni integrate
 
@@ -52,7 +52,7 @@ Per una panoramica del [programma soluzioni integrate](https://aka.ms/AA5qos4), 
 
 ## <a name="nomination-process"></a>Processo di candidatura
 
-I partner che vogliono partecipare al programma dovrebbero identificare gli altri partner che vogliono usare e completare il modulo di candidatura per [soluzioni integrate](https://aka.ms/AA5qicu) . Il team del programma integrato Solutions rileverà quindi la candidatura e seguirà entro 10 giorni lavorativi con l'approvazione e i passaggi successivi. 
+I partner che vogliono partecipare al programma dovrebbero identificare gli altri partner che vogliono usare e completare il modulo di [candidatura per soluzioni integrate](https://aka.ms/AA5qicu) . Il team del programma integrato Solutions rileverà quindi la candidatura e seguirà entro 10 giorni lavorativi con l'approvazione e i passaggi successivi. 
 
 ## <a name="developing-your-integrated-solution"></a>Sviluppo della soluzione integrata 
 
@@ -88,6 +88,6 @@ Sebbene siano disponibili cinque tipi di servizi per le offerte di servizi di co
 
 ## <a name="going-to-market-with-your-integrated-solution"></a>Immissione sul mercato con la soluzione integrata 
 
-Una volta che la soluzione è disponibile in Azure Marketplace o in AppSource, è opportuno promuovere la sensibilizzazione e la generazione della domanda attraverso le attività di marketing. Esaminare le attività elencate nel [piano del progetto e nella sequenza temporale](https://aka.ms/AA5qiuc), incluse le attività che i partner possono guidare all'interno dei propri team e l'uno con l'altro. È quindi possibile accedere ai [vantaggi offerti dai](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#how-to-access-microsoft-resources) partner che hanno pubblicato nel Marketplace. Tutte le offerte di soluzioni integrate sono idonee per i vantaggi a livello di valutazione.
+Una volta che la soluzione è disponibile in Azure Marketplace o in AppSource, è opportuno promuovere la sensibilizzazione e la generazione della domanda attraverso le attività di marketing. Esaminare le attività elencate nel [piano del progetto e nella sequenza temporale](https://aka.ms/AA5qiuc), incluse le attività che i partner possono guidare all'interno dei propri team e l'uno con l'altro. È quindi possibile accedere ai [vantaggi offerti dai](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) partner che hanno pubblicato nel Marketplace. Tutte le offerte di soluzioni integrate sono idonee per i vantaggi a livello di valutazione.
 
 ---

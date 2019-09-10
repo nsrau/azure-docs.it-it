@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 09/09/2019
 ms.author: apimpm
-ms.openlocfilehash: b89f4d2264924983aac93fb266efd71e46bea6bf
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 44fd3f0381c25f2fe0a3e9dc4cf5b8c685486ae0
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305220"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861149"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (reti virtuali) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -79,7 +79,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 >
 
 > [!IMPORTANT]
-> Se si rimuove Gestione API da una rete virtuale o si modifica quella in cui è distribuito, la rete virtuale usata in precedenza può rimanere bloccata fino a due ore. Durante questo periodo non sarà possibile eliminare la rete virtuale o distribuirvi una nuova risorsa.
+> Se si rimuove gestione API da una VNET o si modifica quella in cui è distribuito, la VNET utilizzata in precedenza può rimanere bloccata per un massimo di sei ore. Durante questo periodo non sarà possibile eliminare la rete virtuale o distribuirvi una nuova risorsa. Questo comportamento è valido per i client che usano API-Version 2018-01-01 e versioni precedenti. I client che usano API-Version 2019-01-01 e versioni successive, il VNET viene liberato non appena viene eliminato il servizio gestione API associato.
 
 ## <a name="enable-vnet-powershell"></a>Abilitare la connessione della rete virtuale usando i cmdlet di PowerShell
 È inoltre possibile abilitare la connettività della rete virtuale utilizzando i cmdlet di PowerShell

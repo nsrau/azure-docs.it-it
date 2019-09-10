@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
 ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68717459"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
@@ -54,7 +54,7 @@ Se non si ha ancora un riferimento in Application Insights SDK:
   * [Progetto Java](../../azure-monitor/app/java-get-started.md)
   * [Progetto Node.js](../../azure-monitor/app/nodejs.md)
   * [JavaScript in ogni pagina Web](../../azure-monitor/app/javascript.md) 
-* Nel codice del dispositivo o del server Web includere:
+* Nel dispositivo o nel codice del server Web includere:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
@@ -580,7 +580,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.S
 
 Registrare un evento di diagnostica, ad esempio inserire o rimuovere un metodo.
 
- Parametro | Descrizione
+ Parametro | DESCRIZIONE
 ---|---
 `message` | Dati di diagnostica. Possono essere molto più lunghi di un nome.
 `properties` | Mapping da stringa a stringa: dati aggiuntivi usati per [filtrare le eccezioni](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) nel portale. Per impostazione predefinita è vuoto.
@@ -1154,7 +1154,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient dispone di una proprietà Context contenente valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli manualmente. Ad esempio:
+TelemetryClient dispone di una proprietà Context contenente valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli manualmente. Esempio:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

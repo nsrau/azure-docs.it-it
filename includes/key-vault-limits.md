@@ -5,40 +5,40 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67180552"
 ---
-#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transazioni chiave (numero massimo di transazioni consentito entro 10 secondi, per ogni insieme di credenziali per ogni area geografica<sup>1</sup>):
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transazioni chiave (numero massimo di transazioni consentite in 10 secondi per ogni insieme di credenziali per area<sup>1</sup>):
 
-|Tipo di chiave|Chiave protetta tramite HSM<br>CREARE la chiave|Chiave protetta tramite HSM<br>Tutte le altre transazioni|Chiave software<br>CREARE la chiave|Chiave software<br>Tutte le altre transazioni|
+|Tipo di chiave|Chiave HSM<br>Crea chiave|Chiave HSM<br>Tutte le altre transazioni|Chiave del software<br>Crea chiave|Chiave del software<br>Tutte le altre transazioni|
 |:---|---:|---:|---:|---:|
-|RSA a 2048 bit|5|1\.000|10|2\.000|
-|RSA 3.072 bit|5|250|10|500|
-|RSA a 4096 bit|5|125|10|250|
+|RSA a 2.048 bit|5|1\.000|10|2\.000|
+|RSA a 3.072 bit|5|250|10|500|
+|RSA a 4.096 bit|5|125|10|250|
 |ECC P-256|5|1\.000|10|2\.000|
 |ECC P-384|5|1\.000|10|2\.000|
 |ECC P-521|5|1\.000|10|2\.000|
 |ECC SECP256K1|5|1\.000|10|2\.000|
 
 > [!NOTE]
-> Nella tabella precedente, noteremo che per le chiavi di software RSA 2048 bit, sono consentite 2.000 transazioni GET per ogni 10 secondi. Per RSA di 2.048 bit modulo di protezione hardware le chiavi, sono consentite 1.000 transazioni GET per ogni 10 secondi.
+> Nella tabella precedente è possibile notare che per le chiavi software RSA a 2.048 bit, sono consentite 2.000 transazioni GET per 10 secondi. Per le chiavi HSM RSA a 2.048 bit, sono consentite 1.000 transazioni GET per 10 secondi.
 >
-> Le soglie di limitazione vengono ponderate e imposizione è attiva la somma. Ad esempio, come illustrato nella tabella precedente, quando si eseguono operazioni GET sulle chiavi di RSA HSM, è otto volte più costosa da usare le chiavi di 4096 bit rispetto alle chiavi di 2.048 bit. Infatti, 1.000/125 = 8.
+> Le soglie di limitazione sono ponderate e l'imposizione è relativa alla somma. Ad esempio, come illustrato nella tabella precedente, quando si eseguono operazioni GET su chiavi HSM HSM, è più costoso usare chiavi a 4.096 bit per otto volte rispetto alle chiavi a 2.048 bit. Questo perché 1000/125 = 8.
 >
-> In un determinato intervallo di 10 secondi, è possibile eseguire un client di Azure Key Vault *sola* delle operazioni seguenti prima di incontra un `429` la limitazione delle richieste di codice di stato HTTP:
-> - 2\.000 transazioni di GET-chiave del software RSA di 2.048 bit.
-> - 1\.000 transazioni RSA di 2.048 bit chiave protetta tramite HSM GET
-> - Transazioni di 125 GET chiave protetta tramite HSM RSA 4096 bit
-> - Le transazioni di GET chiave di HSM RSA 4096 bit 124 e GET chiave protetta tramite HSM RSA di 2.048 bit 8
+> In un intervallo di 10 secondi specificato, un client Azure Key Vault può eseguire *solo una* delle operazioni seguenti prima di riscontrare un `429` codice di stato http di limitazione delle richieste:
+> - 2\.000 RSA 2.048-bit software-chiave GET Transactions
+> - 1\.000 RSA 2.048-bit HSM-chiave GET Transactions
+> - 125 RSA 4.096-bit HSM-chiave GET Transactions
+> - 124 RSA a 4.096 bit-chiave HSM GET Transactions e 8 RSA 2.048-bit HSM-chiave GET Transactions
 
-#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>I segreti, chiavi dell'account di archiviazione gestito e le transazioni dell'insieme di credenziali:
-| Tipo di transazioni | Numero massimo di transazioni consentito entro 10 secondi, per ogni insieme di credenziali per ogni area<sup>1</sup> |
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Segreti, chiavi dell'account di archiviazione gestita e transazioni dell'insieme di credenziali:
+| Tipo di transazioni | Numero massimo di transazioni consentite in 10 secondi, per ogni insieme di credenziali per area<sup>1</sup> |
 | --- | --- |
 | Tutte le transazioni |2\.000 |
 
-Per informazioni su come gestire la limitazione delle richieste quando questi limiti vengono superati, vedere [linee guida sulla limitazione di Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md).
+Per informazioni su come gestire la limitazione delle richieste quando questi limiti vengono superati, vedere [Azure Key Vault indicazioni sulla limitazione delle richieste](../articles/key-vault/key-vault-ovw-throttling.md).
 
-<sup>1</sup> un limite a livello di sottoscrizione per tutti i tipi di transazione è cinque volte per ogni limite dell'insieme di credenziali chiave. Ad esempio, HSM-altre transazioni per ogni sottoscrizione sono limitate a 5.000 transazioni entro 10 secondi per ogni sottoscrizione.
+<sup>1</sup> un limite a livello di sottoscrizione per tutti i tipi di transazione è cinque volte per ogni limite di Key Vault. Ad esempio, le transazioni HSM-other per ogni sottoscrizione sono limitate a 5.000 transazioni in 10 secondi per sottoscrizione.

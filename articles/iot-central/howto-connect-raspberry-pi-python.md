@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3f91e09e35eec0685cb4333802b860fb08412cb6
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 5c6e99c62d199c36081113011845a3bf2607bcb3
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019753"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842550"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central (Python)
 
@@ -70,13 +70,13 @@ I passaggi seguenti descrivono come scaricare e configurare l'applicazione di es
 
 1. Eseguire il comando seguente per installare il client di IoT Central Python:
 
-    ```sh
+    ```bash
     pip install iotc
     ```
 
 1. Scaricare il codice Python di esempio:
 
-    ```sh
+    ```bash
     curl -O https://raw.githubusercontent.com/Azure/iot-central-firmware/master/RaspberryPi/app.py
     ```
 
@@ -87,7 +87,7 @@ I passaggi seguenti descrivono come scaricare e configurare l'applicazione di es
 
 1. Usare il comando seguente per eseguire l'esempio:
 
-    ```sh
+    ```bash
     python app.py
     ```
 

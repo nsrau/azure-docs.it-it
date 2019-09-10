@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7cb4f1a106d8caa2c43f5f17c5efa16a3ee6df2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 4e953ad732852f9ee99c7830997e2d1dc29b8f84
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011636"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844999"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -129,7 +129,7 @@ Per altre informazioni, vedere i seguenti articoli:
 
 ### <a name="datasets-and-datastores"></a>DataSet e archivi dati
 
-**Set di impostazioni Azure Machine Learning** (anteprima) semplifica l'accesso e l'utilizzo dei dati. I set di dati gestiscono i dati in diversi scenari, come il training del modello e la creazione della pipeline. Con Azure Machine Learning SDK è possibile accedere all'archiviazione sottostante, esplorare e preparare i dati, gestire il ciclo di vita delle diverse definizioni del set di dati e confrontare i set di dati usati nel training e nell'ambiente di produzione.
+**Set di impostazioni Azure Machine Learning** (anteprima) semplifica l'accesso e l'utilizzo dei dati. I set di dati gestiscono i dati in diversi scenari, come il training del modello e la creazione della pipeline. Con Azure Machine Learning SDK è possibile accedere all'archiviazione sottostante, esplorare i dati e gestire il ciclo di vita delle diverse definizioni dei set di dati.
 
 I set di dati forniscono metodi per lavorare con i dati nei formati più diffusi `from_delimited_files()` , `to_pandas_dataframe()`ad esempio usando o.
 

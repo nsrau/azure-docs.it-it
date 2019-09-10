@@ -1,5 +1,5 @@
 ---
-title: Tabella dei limiti di Azure SignalR Service
+title: Tabella dei limiti del servizio Azure SignalR
 description: Descrive i limiti di sistema per il servizio Azure SignalR.
 services: signalr
 documentationcenter: signalr
@@ -14,18 +14,18 @@ ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: zhshang
 ms.openlocfilehash: 1d87439b7afeb946fd37c468a0853adcb674ee5a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67180548"
 ---
-| Resource | Limite predefinito | Limite massimo | 
+| Risorsa | Limite predefinito | Limite massimo | 
 | --- | --- | --- |
-| Le unità Azure SignalR Service per ogni istanza per il livello gratuito |1 |1 |
-| Unità Azure SignalR Service per ogni istanza per il livello Standard |100 |100 |
-| Le unità SignalR Service di Azure per sottoscrizione per area per il livello gratuito|5 |5 |
-| Totale unità di servizio Azure SignalR conta per sottoscrizione per area |150 |Illimitato |
+| Unità di servizio di Azure SignalR per istanza per il livello gratuito |1 |1 |
+| Unità di servizio di Azure SignalR per istanza per il livello standard |100 |100 |
+| Unità di servizio di Azure SignalR per ogni sottoscrizione per area per il livello gratuito|5 |5 |
+| Conteggio totale delle unità di servizio di Azure SignalR per ogni sottoscrizione per area |150 |Senza limitazioni |
 | Connessioni per unità al giorno per il livello gratuito |20 |20 |
 | Connessioni per unità al giorno per il livello standard |1\.000 |1\.000|
 | Messaggi per unità al giorno per il livello gratuito inclusi|20.000 |20.000 |

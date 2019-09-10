@@ -9,15 +9,15 @@ ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d6c5d881c5ca6eee14835ab0ec10bff2749299dc
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68502300"
 ---
 La tabella seguente elenca le informazioni sulle quote specifiche per la messaggistica del bus di servizio di Azure. Per informazioni sui prezzi e altre quote per il bus di servizio, vedere [prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
-| Nome quota | Ambito | Note | Valore |
+| Nome quota | Ambito | Note | Value |
 | --- | --- | --- | --- |
 | Numero massimo di spazi dei nomi Basic o standard per ogni sottoscrizione di Azure |Spazio dei nomi |Le richieste successive per gli spazi dei nomi di base o standard aggiuntivi vengono rifiutate dal portale di Azure. |100|
 | Numero massimo di spazi dei nomi premium per sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Premium vengono rifiutate dal portale. |50 |
@@ -31,7 +31,7 @@ La tabella seguente elenca le informazioni sulle quote specifiche per la messagg
 | Dimensione massima di un [ID di messaggio](/dotnet/api/microsoft.azure.servicebus.message.messageid) | Entità |- | 128 |
 | Dimensioni massime di un [ID di sessione](/dotnet/api/microsoft.azure.servicebus.message.sessionid) del messaggio | Entità |- | 128 |
 | Dimensioni del messaggio per una coda, un argomento o un'entità di sottoscrizione |Entità |I messaggi in ingresso che superano queste quote vengono rifiutati e viene ricevuta un'eccezione dal codice chiamante. |Dimensione massima dei messaggi: 256 KB per il [livello standard](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB per il [livello Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />A causa di un sovraccarico del sistema, questo limite è minore di questi valori.<br /><br />Dimensione massima delle intestazioni: 64 KB.<br /><br />Numero massimo di proprietà di intestazione nel contenitore delle proprietà: **byte/int. MaxValue**.<br /><br />Dimensione massima della proprietà nel contenitore delle proprietà: nessun limite esplicito. Limitato dalla dimensione massima delle intestazioni. |
-| Dimensioni delle proprietà dei messaggi per una coda, un argomento o un'entità di sottoscrizione |Entità | Viene generata  l'eccezione SerializationException. |La dimensione massima della proprietà del messaggio per ogni proprietà è 32.000. La dimensione cumulativa di tutte le proprietà non può essere superiore a 64.000. Questo limite si applica all'intera intestazione di [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), che include sia proprietà utente che proprietà di sistema, ad esempio [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)e [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
+| Dimensioni delle proprietà dei messaggi per una coda, un argomento o un'entità di sottoscrizione |Entità | Viene generata l'eccezione **SerializationException** . |La dimensione massima della proprietà del messaggio per ogni proprietà è 32.000. La dimensione cumulativa di tutte le proprietà non può essere superiore a 64.000. Questo limite si applica all'intera intestazione di [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), che include sia proprietà utente che proprietà di sistema, ad esempio [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)e [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
 | Numero di sottoscrizioni e per ogni argomento |Entità |Le successive richieste di creazione di altre sottoscrizioni per l'argomento vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il portale, viene visualizzato un messaggio di errore. Se viene chiamato dall'API di gestione, viene ricevuta un'eccezione dal codice chiamante. |2\.000 per argomento per il livello Basic o standard. |
 | Numero di filtri SQL per ogni argomento |Entità |Le successive richieste di creazione di filtri aggiuntivi per l'argomento vengono rifiutate e viene ricevuta un'eccezione dal codice chiamante. |2\.000 |
 | Numero di filtri di correlazione per ogni argomento |Entità |Le successive richieste di creazione di filtri aggiuntivi per l'argomento vengono rifiutate e viene ricevuta un'eccezione dal codice chiamante. |100,000 |

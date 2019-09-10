@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: d7c538bd98b3924b422a93bc67cac405a6e4b7af
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 818285e089ab01c2c603f2b0181fbd6d9179eba1
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383114"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873462"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Creare e gestire in qualità di CSP un'applicazione IoT Central di Azure per conto del cliente
 
@@ -71,14 +71,14 @@ Per altre informazioni, vedere la documentazione sulle [sottoscrizioni di Azure]
 
 ## <a name="region"></a>Region
 
-Scegliere l'area in cui si vuole creare l'applicazione Azure IoT Central. In genere è consigliabile scegliere l'area più vicina fisicamente ai dispositivi per ottenere prestazioni ottimali.
+Scegliere la regione o l'area [geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione IoT Central di Azure. In genere, è consigliabile scegliere l'area più vicina fisicamente ai dispositivi per ottenere prestazioni ottimali.
 
 > [!NOTE]
 > Il modello di **applicazione di anteprima** è attualmente disponibile solo nelle aree **Europa settentrionale** e **Stati Uniti centrali** .
 
-Per altre informazioni, vedere la documentazione sulle [aree di Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
+Per altre informazioni, vedere [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/) e [geografie di Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 
-È possibile vedere le aree in cui Azure IoT Central è disponibile nella pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
+È possibile vedere le aree in cui Azure IoT Central è disponibile nella pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central).
 
 > [!Note]
 > Dopo aver scelto un'area, è possibile spostare l'applicazione in un'altra area geografica in un secondo momento.

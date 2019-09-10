@@ -1,6 +1,6 @@
 ---
-title: "App Web che chiama web API (acquisire un token per l'app): piattaforma delle identità Microsoft"
-description: Informazioni su come compilare un'app Web che chiama web API (acquisire un token per l'app)
+title: App Web che chiama le API Web (acquisisce un token per l'app)-piattaforma di identità Microsoft
+description: Informazioni su come creare un'app Web che chiama le API Web (acquisendo un token per l'app)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 653db995000308bb3ef78a9183696cd9d8ed1056
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3aa144c76fb0a8e479658efdb5d43361fbbc085c
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074801"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860630"
 ---
-# <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>App Web che chiama le API - web acquisire un token per l'app
+# <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>App Web che chiama le API Web: acquisisce un token per l'app
 
-Dopo aver compilato è oggetto di applicazione client, si userà lo per acquisire un token che si userà quindi per chiamare un'API web. In ASP.NET o ASP.NET Core, la chiamata a una web che API viene quindi eseguita nel controller. Si tratta di:
+Ora che è stato compilato l'oggetto applicazione client, questo verrà usato per acquisire un token per chiamare un'API Web. In ASP.NET o ASP.NET Core la chiamata a un'API Web viene quindi eseguita nel controller. Si tratta di:
 
-- Ottenere un token per l'API web usando la cache dei token. A tale scopo, si chiama `AcquireTokenSilent`
-- Chiamare le API protetta con il token di accesso
+- Ottenere un token per l'API Web usando la cache dei token. Per ottenere questo token, chiamare `AcquireTokenSilent`.
+- Chiamata dell'API protetta con il token di accesso.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-I metodi del controller sono protetti da un `[Authorize]` attributo che impedisca agli utenti di essere autenticati per usare l'App Web. Ecco il codice che chiama Microsoft Graph
+I metodi controller sono protetti da un `[Authorize]` attributo che impone agli utenti autenticati di usare l'app Web. Ecco il codice che chiama Microsoft Graph.
 
 ```CSharp
 [Authorize]
@@ -41,7 +41,7 @@ public class HomeController : Controller
 }
 ```
 
-Ecco un codice semplificato dell'azione di HomeController, che ottiene un token per chiamare Microsoft Graph.
+Di seguito è riportato un codice semplificato dell'azione di HomeController, che ottiene un token per chiamare il Microsoft Graph.
 
 ```CSharp
 public async Task<IActionResult> Profile()
@@ -69,23 +69,23 @@ public async Task<IActionResult> Profile()
 }
 ```
 
-Se si desidera conoscere nei dettagli il totale del codice necessario per questo scenario, vedere la fase 2 [2-1-Web App chiama Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) passaggio delle [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) esercitazione
+Per comprendere meglio il codice necessario per questo scenario, vedere il passaggio 2 ([2-1-chiamate app Web Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) dell'esercitazione [MS-Identity-aspnetcore-WebApp-Tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) .
 
-Esistono numerosi esistono complessità aggiuntive, ad esempio:
+Esistono numerose complessità aggiuntive, ad esempio:
 
-- implementazione di una cache dei token per l'App Web (esercitazione di presentare diverse implementazioni di)
-- Rimozione dell'account dalla cache quando l'utente accede in uscita
-- Chiamata di API diverse, tra cui consenso incrementale
+- Implementazione di una cache di token per l'app Web (l'esercitazione presenta diverse implementazioni)
+- Rimozione dell'account dalla cache quando l'utente si disconnette
+- Chiamata di diverse API, incluso il consenso incrementale
 
 ## <a name="aspnet"></a>ASP.NET
 
-Gli aspetti sono simili in ASP.NET:
+Le cose sono simili in ASP.NET:
 
-- Estrae l'ID del tenant e ID utente di un'azione del controller protetta da un attributo [Authorize], il `ClaimsPrincipal` membro del controller (in ASP.NET viene utilizzato `HttpContext.User`)
-- da qui si basa un MSAL.NET `IConfidentialClientApplication`
-- Chiamata IT di `AcquireTokenSilent` metodo dell'applicazione client riservato 
+- Un'azione del controller protetta da un attributo [autorizzate] estrae l'ID tenant e l'ID `ClaimsPrincipal` utente del membro del controller. (ASP.NET usa `HttpContext.User`).
+- Da qui, compila un MSAL.NET `IConfidentialClientApplication`.
+- Infine, viene chiamato il `AcquireTokenSilent` metodo dell'applicazione client riservata.
 
-il codice è simile al codice illustrato per ASP.NET Core
+Il codice è simile al codice illustrato per ASP.NET Core.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

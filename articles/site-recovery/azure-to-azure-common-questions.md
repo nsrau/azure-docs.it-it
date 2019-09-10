@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: d479a568ddeac29be88d0709b7544ba645274afa
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875672"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861383"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande frequenti: Ripristino di emergenza da Azure ad Azure
 
@@ -41,7 +41,15 @@ Il team di Site Recovery collabora con il team di gestione della capacità di Az
 ## <a name="replication"></a>Replica
 
 ### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>È possibile replicare le macchine virtuali abilitate con Crittografia dischi di Azure?
-Sì, è possibile replicarle. Vedere l'articolo [Eseguire la replica di macchine virtuali abilitate per Crittografia dischi di Azure (ADE) in un'altra area di Azure](azure-to-azure-how-to-enable-replication-ade-vms.md). Azure Site Recovery supporta attualmente solo macchine virtuali di Azure che eseguono un sistema operativo Windows e quelle abilitate per la crittografia con le app di Azure Active Directory (Azure AD).
+
+Sì, Site Recovery supporta il ripristino di emergenza di macchine virtuali con crittografia dischi di Azure (ADE) abilitata. Quando si Abilita la replica, tutte le chiavi e i segreti di crittografia del disco necessari vengono copiati dall'area di origine all'area di destinazione nel contesto utente. Se non si dispone delle autorizzazioni appropriate, è possibile passare uno script pronto all'uso all'amministratore della sicurezza per copiare le chiavi e i segreti.
+
+- Site Recovery supporta ADE per le macchine virtuali di Azure che eseguono Windows.
+- Site Recovery supporta ADE versione 0,1, con uno schema che usa Azure Active Directory (AAD) e la versione 1,1, senza AAD. [Altre informazioni](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata)
+- ADE versione 1,1, le macchine virtuali Windows devono essere usate dischi gestiti.
+- [Altre](azure-to-azure-how-to-enable-replication-ade-vms.md) informazioni sull'abilitazione della replica per le macchine virtuali crittografate.
+
+
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>È possibile replicare le macchine virtuali in un'altra sottoscrizione?
 Sì, è possibile replicare macchine virtuali di Azure in una sottoscrizione diversa nello stesso tenant di Azure AD.

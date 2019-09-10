@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 2a18362546ae3c31b06fc5294495d8f5ac5f0be3
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 8edb361000110da16ce2a230d8768b204076ad21
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389931"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844278"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Anteprima: creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -169,14 +169,14 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ## <a name="upgrade-a-node-pool"></a>Aggiornare un pool di nodi
  
 > [!NOTE]
-> Le operazioni di aggiornamento e ridimensionamento in un cluster o in un pool di nodi si escludono a vicenda. Non è possibile avere un cluster o un pool di nodi simultaneamente per l'aggiornamento e la scalabilità. Al contrario, ogni tipo di operazione deve essere completato sulla risorsa di destinazione prima della richiesta successiva sulla stessa risorsa. Per altre informazioni, vedere la [Guida alla risoluzione dei problemi](https://aka.ms/aks-pending-upgrade).
+> Le operazioni di aggiornamento e ridimensionamento in un cluster o in un pool di nodi non possono essere eseguite simultaneamente, se si tenta di restituire un errore. Al contrario, ogni tipo di operazione deve essere completato sulla risorsa di destinazione prima della richiesta successiva sulla stessa risorsa. Per altre informazioni, vedere la [Guida alla risoluzione dei problemi](https://aka.ms/aks-pending-upgrade).
 
-Quando il cluster AKS è stato creato nel primo passaggio, è `--kubernetes-version` stato specificato un di *1.13.10* . Questa impostazione consente di impostare la versione di Kubernetes sia per il piano di controllo che per il pool di nodi iniziale. Sono disponibili diversi comandi per l'aggiornamento della versione Kubernetes del piano di controllo e del pool di nodi, illustrati di [seguito](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Quando il cluster AKS è stato creato inizialmente nel primo passaggio, è `--kubernetes-version` stato specificato un di *1.13.10* . Questo imposta la versione di Kubernetes sia per il piano di controllo che per il pool di nodi predefinito. I comandi in questa sezione illustrano come aggiornare un singolo pool di nodi specifico. La relazione tra l'aggiornamento della versione Kubernetes del piano di controllo e il pool di nodi è illustrata nella [sezione seguente](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > La versione dell'immagine del sistema operativo del pool di nodi è associata alla versione Kubernetes del cluster. Si otterranno solo gli aggiornamenti delle immagini del sistema operativo, in seguito a un aggiornamento del cluster.
 
-Aggiornare *mynodepool* a Kubernetes *1.13.10*. Usare il comando [AZ AKS node pool upgrade][az-aks-nodepool-upgrade] per aggiornare il pool di nodi, come illustrato nell'esempio seguente:
+Poiché in questo esempio sono presenti due pool di nodi, è necessario usare [AZ AKS nodepool upgrade][az-aks-nodepool-upgrade] per aggiornare un pool di nodi. Aggiornare *mynodepool* a Kubernetes *1.13.10*. Usare il comando [AZ AKS nodepool upgrade][az-aks-nodepool-upgrade] per aggiornare il pool di nodi, come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -239,16 +239,14 @@ Come procedura consigliata, è consigliabile aggiornare tutti i pool di nodi in 
 Un cluster AKS ha due oggetti risorsa cluster. Il primo è una versione del piano di controllo Kubernetes. Il secondo è un pool di agenti con una versione di Kubernetes. Un piano di controllo è mappato a uno o più pool di nodi e ognuno ha una propria versione Kubernetes. Il comportamento di un'operazione di aggiornamento dipende dalla risorsa di destinazione e dalla versione dell'API sottostante chiamata.
 
 1. Per l'aggiornamento del piano di controllo è necessario usare`az aks upgrade`
-   * Se il cluster dispone di un singolo pool di agenti, il piano di controllo e il pool di agenti singoli verranno aggiornati insieme
-   * Se nel cluster sono presenti più pool di agenti, verrà aggiornato solo il piano di controllo
+   * Questa operazione aggiornerà anche tutti i pool di nodi del cluster
 1. Aggiornamento con`az aks nodepool upgrade`
    * Verrà aggiornato solo il pool di nodi di destinazione con la versione specificata di Kubernetes
 
 La relazione tra le versioni di Kubernetes contenute nei pool di nodi deve anche seguire un set di regole.
 
-1. Non è possibile effettuare il downgrade della versione Kubernetes del piano di controllo o del pool di nodi.
-1. Se non si specifica una versione del piano di controllo Kubernetes, il valore predefinito sarà la versione corrente del piano di controllo esistente.
-1. Se non viene specificata una versione Kubernetes del pool di nodi, il valore predefinito sarà la versione del piano di controllo.
+1. Non è possibile effettuare il downgrade del piano di controllo né della versione Kubernetes del pool di nodi.
+1. Se non viene specificata una versione Kubernetes del pool di nodi, il valore predefinito usato verrà eseguito il fallback alla versione del piano di controllo.
 1. È possibile aggiornare o ridimensionare un piano di controllo o un pool di nodi in un determinato momento, non è possibile inviare entrambe le operazioni simultaneamente.
 1. Una versione Kubernetes del pool di nodi deve essere la stessa versione principale del piano di controllo.
 1. Una versione Kubernetes del pool di nodi può essere al massimo due (2) versioni secondarie minori del piano di controllo, mai maggiore.
@@ -271,7 +269,7 @@ az aks nodepool scale \
     --no-wait
 ```
 
-Elencare nuovamente lo stato dei pool di nodi usando il comando [AZ AKS node pool list][az-aks-nodepool-list] . L'esempio seguente mostra che *mynodepool* è nello stato di *ridimensionamento* con un nuovo conteggio di *5* nodi:
+Elencare nuovamente lo stato dei pool di nodi usando il comando [AZ AKS node pool list][az-aks-nodepool-list] . L'esempio seguente mostra che *mynodepool* è nello stato di ridimensionamento con un nuovo conteggio di *5* nodi:
 
 ```console
 $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
@@ -358,7 +356,7 @@ Sono necessari alcuni minuti per eliminare i nodi e il pool di nodi.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Specificare le dimensioni della macchina virtuale per un pool di nodi
 
-Negli esempi precedenti per creare un pool di nodi, è stata usata una dimensione di macchina virtuale predefinita per i nodi creati nel cluster. Uno scenario più comune è creare pool di nodi con diverse dimensioni e funzionalità di VM. Ad esempio, è possibile creare un pool di nodi che contiene nodi con grandi quantità di CPU o memoria oppure un pool di nodi che fornisce supporto per la GPU. Nel passaggio successivo si [useranno tains e tollerations](#schedule-pods-using-taints-and-tolerations) per indicare all'utilità di pianificazione Kubernetes come limitare l'accesso ai pod che possono essere eseguiti in questi nodi.
+Negli esempi precedenti per creare un pool di nodi, è stata usata una dimensione di macchina virtuale predefinita per i nodi creati nel cluster. Uno scenario più comune è creare pool di nodi con diverse dimensioni e funzionalità di VM. Ad esempio, è possibile creare un pool di nodi che contiene nodi con grandi quantità di CPU o memoria oppure un pool di nodi che fornisce supporto per la GPU. Nel passaggio successivo si useranno [tains e tollerations](#schedule-pods-using-taints-and-tolerations) per indicare all'utilità di pianificazione Kubernetes come limitare l'accesso ai pod che possono essere eseguiti in questi nodi.
 
 Nell'esempio seguente creare un pool di nodi basato su GPU che usa le dimensioni della macchina virtuale *Standard_NC6* . Queste VM sono basate sulla scheda NVIDIA Tesla K80. Per informazioni sulle dimensioni delle VM disponibili, vedere [dimensioni per le macchine virtuali Linux in Azure][vm-sizes].
 
@@ -428,7 +426,7 @@ L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per lim
 
 Per altre informazioni su come usare le funzionalità pianificate di Kubernetes avanzate, vedere [procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione in AKS][taints-tolerations] .
 
-In questo esempio, applicare un oggetto Tain al nodo basato su GPU usando il comando [kubectl Tain node][kubectl-taint] . Specificare il nome del nodo basato su GPU dall'output del comando precedente `kubectl get nodes` . Il Taint viene applicato come *chiave: valore* e quindi un'opzione di pianificazione. Nell'esempio seguente viene usata la coppia *SKU = GPU* e vengono definiti i pod in caso contrario la capacità *NoSchedule* :
+In questo esempio, applicare un oggetto Tain al nodo basato su GPU usando il comando [kubectl Tain node][kubectl-taint] . Specificare il nome del nodo basato su GPU dall'output del comando precedente `kubectl get nodes` . Il Taint viene applicato come *chiave: valore* e quindi un'opzione di pianificazione. Nell'esempio seguente viene usata la coppia *SKU = GPU* e vengono definiti i pod in caso contrario la capacità NoSchedule:
 
 ```console
 kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule

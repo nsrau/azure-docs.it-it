@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/10/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3d6d374b6e516180ec488fe4de1317a3c99a7f7c
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a49449f799696ce6962afea6bdc212f658c660bd
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050119"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860363"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -99,8 +99,6 @@ Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** pe
 4. Selezionare la casella di controllo consenso, quindi selezionare **Elimina**.
 
 
-
-
 5. Selezionare l' icona ![di notifica Elimina dati](./media/backup-azure-delete-vault/messages.png)di backup. Al termine dell'operazione, il servizio Visualizza il messaggio: *Interruzione del backup ed eliminazione dei dati di backup per "elemento di backup".* *L'operazione è stata completata*.
 6. Selezionare **Aggiorna** dal menu **elementi di backup** per assicurarsi che l'elemento di backup venga eliminato.
 
@@ -152,7 +150,7 @@ Per arrestare la protezione ed eliminare i dati di backup, seguire questa proced
 
     ![Rimuovere la protezione dati inattiva.](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
-5. Nella finestra **Elimina protezione** dati inattiva selezionare la casella di controllo **Elimina archiviazione online** , quindi selezionare **OK**.
+5. Nella finestra **Elimina protezione dati inattiva** selezionare la casella di controllo **Elimina archiviazione online** , quindi selezionare **OK**.
 
     ![Elimina lo spazio di archiviazione online.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
@@ -175,6 +173,148 @@ Dopo aver eliminato gli elementi di backup locali, seguire i passaggi successivi
 
 4. Selezionare **Sì** per verificare che si vuole eliminare l'insieme di credenziali. L'insieme di credenziali viene eliminato. Il portale torna al menu **nuovo** del servizio.
 
+## <a name="delete-the-recovery-services-vault-by-using-powershell"></a>Eliminare l'insieme di credenziali di servizi di ripristino tramite PowerShell
+
+Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** per comprendere le dipendenze e il processo di eliminazione dell'insieme di credenziali.
+
+Per arrestare la protezione ed eliminare i dati di backup:
+
+- Se si usa SQL nel backup di macchine virtuali di Azure e si Abilita la protezione automatica per le istanze di SQL, disabilitare prima la protezione automatica.
+
+    ```PowerShell
+        Disable-AzRecoveryServicesBackupAutoProtection 
+           [-InputItem] <ProtectableItemBase> 
+           [-BackupManagementType] <BackupManagementType> 
+           [-WorkloadType] <WorkloadType> 
+           [-PassThru] 
+           [-VaultId <String>] 
+           [-DefaultProfile <IAzureContextContainer>] 
+           [-WhatIf] 
+           [-Confirm] 
+           [<CommonParameters>] 
+    ```
+
+  [Scopri di più](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) su come disabilitare la protezione per un elemento protetto da backup di Azure 
+
+- Arrestare la protezione ed eliminare i dati per tutti gli elementi protetti da backup nel cloud (ad esempio, VM laaS, condivisione file di Azure e così via):
+
+    ```PowerShell
+       Disable-AzRecoveryServicesBackupProtection 
+       [-Item] <ItemBase> 
+       [-RemoveRecoveryPoints] 
+       [-Force] 
+       [-VaultId <String>] 
+       [-DefaultProfile <IAzureContextContainer>] 
+       [-WhatIf] 
+       [-Confirm] 
+       [<CommonParameters>] 
+    ```
+    [Altre informazioni su](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)Disabilitalaprotezioneperunelementoprotettodabackup . 
+
+- Per i file e le cartelle locali protetti con l'agente di backup di Azure (MARS) che esegue il backup in Azure, usare il comando di PowerShell seguente per eliminare i dati di cui è stato eseguito il backup da ogni modulo di PowerShell MARS:
+
+    ```
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
+    ```
+
+    Pubblicare il messaggio seguente:
+     
+    *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [a] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"):*
+
+
+- Per i computer locali protetti con MAB (Backup di Microsoft Azure Server) o DPM in Azure (System Center Data Protection Manager), usare il comando seguente per eliminare i dati di cui è stato eseguito il backup in Azure.
+
+    ```
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin> 
+    ```
+
+    Pubblicare il messaggio seguente: 
+         
+   *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [a] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"):*
+
+Dopo aver eliminato i dati di cui è stato eseguito il backup, annullare la registrazione di tutti i contenitori locali e i server di gestione. 
+
+- Per i file e le cartelle locali protetti con l'agente di backup di Azure (MARS) che esegue il backup in Azure:
+
+    ```PowerShell
+    Unregister-AzRecoveryServicesBackupContainer 
+              [-Container] <ContainerBase> 
+              [-PassThru] 
+              [-VaultId <String>] 
+              [-DefaultProfile <IAzureContextContainer>] 
+              [-WhatIf] 
+              [-Confirm] 
+              [<CommonParameters>] 
+    ```
+    [Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) informazioni su come annullare la registrazione di un server Windows o di un altro contenitore dall'insieme di credenziali. 
+
+- Per i computer locali protetti con MAB (Backup di Microsoft Azure Server) o DPM in Azure (System Center Data Protection Manage:
+
+    ```PowerShell
+        Unregister-AzRecoveryServicesBackupManagementServer
+          [-AzureRmBackupManagementServer] <BackupEngineBase>
+          [-PassThru]
+          [-VaultId <String>]
+          [-DefaultProfile <IAzureContextContainer>]
+          [-WhatIf]
+          [-Confirm]
+          [<CommonParameters>]
+    ```
+
+    [Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) informazioni su come annullare la registrazione di un contenitore di gestione di backup dall'insieme di credenziali.
+
+Dopo aver eliminato definitivamente i dati sottoposti a backup e aver annullato la registrazione di tutti i contenitori, procedere con l'eliminazione dell'insieme di credenziali. 
+
+Per eliminare un insieme di credenziali dei servizi di ripristino: 
+
+   ```PowerShell
+       Remove-AzRecoveryServicesVault 
+      -Vault <ARSVault> 
+      [-DefaultProfile <IAzureContextContainer>] 
+      [-WhatIf] 
+      [-Confirm] 
+      [<CommonParameters>]        
+   ```
+
+[Altre](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) informazioni sull'eliminazione di un insieme di credenziali di servizi di ripristino. 
+
+## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Eliminare l'insieme di credenziali di servizi di ripristino tramite CLI
+
+Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** per comprendere le dipendenze e il processo di eliminazione dell'insieme di credenziali.
+
+> [!NOTE]
+> Attualmente, l'interfaccia della riga di comando di backup di Azure supporta la gestione solo dei backup di VM di Azure, quindi il comando seguente per eliminare l'insieme di credenziali funziona solo se l'insieme di credenziali contiene backup di macchine virtuali Non è possibile eliminare un insieme di credenziali usando l'interfaccia della riga di comando di backup di Azure se l'insieme di credenziali contiene un elemento di backup di tipo diverso dalle macchine virtuali 
+
+Per eliminare l'insieme di credenziali di servizi di ripristino esistente, seguire questa procedura: 
+
+- Per arrestare la protezione ed eliminare i dati di backup 
+
+    ```CLI
+    az backup protection disable --container-name 
+                             --item-name 
+                             [--delete-backup-data {false, true}] 
+                             [--ids] 
+                             [--resource-group] 
+                             [--subscription] 
+                             [--vault-name] 
+                             [--yes] 
+    ```
+
+    Per ulteriori informazioni, fare riferimento a questo [articolo](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable.). 
+
+- Eliminare un insieme di credenziali di servizi di ripristino esistente: 
+
+    ```CLI
+    az backup vault delete [--force] 
+                       [--ids] 
+                       [--name] 
+                       [--resource-group] 
+                       [--subscription] 
+                       [--yes] 
+    ```
+
+    Per ulteriori informazioni, fare riferimento a questo [articolo](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest) . 
+
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Eliminare l'insieme di credenziali di servizi di ripristino usando Azure Resource Manager
 
 Questa opzione per eliminare l'insieme di credenziali di servizi di ripristino è consigliata solo se tutte le dipendenze vengono rimosse e si sta ancora ricevendo l' *errore di eliminazione*dell'insieme di credenziali. Provare uno o tutti i suggerimenti seguenti:
@@ -182,8 +322,6 @@ Questa opzione per eliminare l'insieme di credenziali di servizi di ripristino �
 - Dal riquadro **Essentials** nel menu dell'insieme di credenziali verificare che non siano presenti elementi di backup, server di gestione di backup o elementi replicati. Se sono presenti elementi di backup, vedere la sezione [prima di iniziare](#before-you-start) .
 - Provare [di nuovo a eliminare l'insieme di credenziali dal portale](#delete-the-recovery-services-vault) .
 - Se tutte le dipendenze vengono rimosse e si sta ancora ricevendo l' *errore di eliminazione*dell'insieme di credenziali, usare lo strumento ARMClient per eseguire i passaggi seguenti (dopo la nota).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. Passare a [chocolatey.org](https://chocolatey.org/) per scaricare e installare cioccolato. Quindi, installare ARMClient eseguendo il comando seguente:
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: df9e60c8d517c35029e425d50dba81a18c2f1114
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: da987b5e841824dc62f3b740cae2961de9d7b293
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617355"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872899"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare il [servizio backup di Azure](backup-overview.md) per eseguire il backup di computer e carichi di lavoro locali e di macchine virtuali (VM) di Azure. Questo articolo riepiloga le impostazioni e le limitazioni del supporto quando si esegue il backup di macchine virtuali di Azure con backup di Azure.
@@ -151,6 +151,7 @@ Eseguire il backup di macchine virtuali di cui viene eseguita la migrazione in A
 Backup della coerenza tra più macchine virtuali | Backup di Azure non garantisce la coerenza dei dati e delle applicazioni tra più macchine virtuali.
 Backup con [impostazioni di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Non supportato. <br/><br/> Se il ripristino della macchina virtuale di Azure con le impostazioni di diagnostica viene attivato usando [Crea nuova](backup-azure-arm-restore-vms.md#create-a-vm) opzione, il ripristino ha esito negativo.
 Ripristino di macchine virtuali con aggiunta di zona | Supportato (per la macchina virtuale di cui è stato eseguito il backup dopo Jan 2019 e la [zona di disponibilità](https://azure.microsoft.com/global-infrastructure/availability-zones/) è disponibile).<br/><br/>È attualmente supportato il ripristino nella stessa zona bloccata nelle VM. Tuttavia, se la zona non è disponibile, il ripristino ha esito negativo.
+VM Gen2 | Supportato <br> Backup di Azure supporta il backup e il ripristino di [macchine virtuali Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando queste VM vengono ripristinate dal punto di ripristino, vengono ripristinate come [macchine virtuali Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 
 
 ## <a name="vm-storage-support"></a>Supporto per l'archiviazione delle macchine virtuali
@@ -214,8 +215,8 @@ Sicurezza dei dati:
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
 Macchine virtuali di Azure | ![Sì][green] | ![Yes][green]
-Computer locali/VM di Azure con DPM | ![Yes][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Yes][green]
+Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
+Computer locali/VM di Azure con MABS | ![Yes][green] | ![Sì][green]
 
 
 
@@ -230,8 +231,8 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ND | ![Sì][green]
 Macchine virtuali di Azure | ND | ND
-Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Yes][green] | ![Sì][green]
+Computer locali/VM di Azure con DPM | ![Yes][green] | ![Sì][green]
+Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

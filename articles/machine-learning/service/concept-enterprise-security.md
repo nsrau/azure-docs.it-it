@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: 81e8601ac83d43bde0767e38eb387f489d76125b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e1029ad34a05d342e5aed5bb30407dee7c914f3c
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165235"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873570"
 ---
 # <a name="enterprise-security-for-the-azure-machine-learning-service"></a>Sicurezza aziendale per il servizio Azure Machine Learning
 
@@ -132,7 +132,7 @@ Per altre informazioni sulle identità gestite, vedere [identità gestite per le
 
 Non è consigliabile che gli amministratori revocano l'accesso dell'identità gestita alle risorse indicate nella tabella precedente. È possibile ripristinare l'accesso tramite l'operazione di risincronizzazione delle chiavi.
 
-Il servizio Azure Machine Learning crea un'applicazione aggiuntiva (il nome inizia `aml-`con) con accesso a livello di collaboratore nella sottoscrizione per ogni area dell'area di lavoro. Se, ad esempio, si dispone di un'area di lavoro negli Stati Uniti orientali e di un'altra area di lavoro in Europa settentrionale nella stessa sottoscrizione, verranno visualizzate due di queste applicazioni. Queste applicazioni consentono al servizio Azure Machine Learning di semplificare la gestione delle risorse di calcolo.
+Il servizio Azure Machine Learning crea un'applicazione aggiuntiva (il nome inizia `aml-` con `Microsoft-AzureML-Support-App-`o) con accesso a livello di collaboratore nella sottoscrizione per ogni area dell'area di lavoro. Se, ad esempio, si dispone di un'area di lavoro negli Stati Uniti orientali e di un'altra area di lavoro in Europa settentrionale nella stessa sottoscrizione, verranno visualizzate due di queste applicazioni. Queste applicazioni consentono al servizio Azure Machine Learning di semplificare la gestione delle risorse di calcolo.
 
 ## <a name="network-security"></a>Sicurezza di rete
 
@@ -152,7 +152,7 @@ Per informazioni su come usare le proprie chiavi per i dati archiviati nell'arch
 
 I dati di training vengono in genere archiviati anche nell'archivio BLOB di Azure in modo che sia accessibile alle destinazioni di calcolo di training. Questo spazio di archiviazione non è gestito da Azure Machine Learning ma montato per le destinazioni di calcolo come file system remoto.
 
-Per informazioni sulla rigenerazione delle chiavi di accesso per gli account di archiviazione di Azure usati con l'area di lavoro, vedere rigenerazione delle [chiavi di accesso alle archiviazione](how-to-change-storage-access-key.md).
+Per informazioni sulla rigenerazione delle chiavi di accesso per gli account di archiviazione di Azure usati con l'area di lavoro, vedere [rigenerazione delle chiavi di accesso alle archiviazione](how-to-change-storage-access-key.md).
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 

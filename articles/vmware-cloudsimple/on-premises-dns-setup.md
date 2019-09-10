@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ed20dd9068ccdea1fb9cd04801eb0096fed2c922
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 929c923fda8c1c2bddd96d0b4d4e4b6ce6d29de9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972438"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845318"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurare DNS per la risoluzione dei nomi per il cloud privato accesso vCenter da workstation locali
 
@@ -56,18 +56,24 @@ zone “cloudsimple.io”
 
 ### <a name="create-a-zone-on-a-microsoft-windows-dns-server"></a>Creare una zona in un server DNS Microsoft Windows
 
-1. Fare clic con il pulsante destro del mouse sul server DNS e scegliere **nuova zona**.  
-![Nuova zona](media/DNS01.png)
+1. Fare clic con il pulsante destro del mouse sul server DNS e scegliere **nuova zona**. 
+  
+    ![Nuova zona](media/DNS01.png)
 2. Selezionare **zona Stub** e fare clic su **Avanti**.
-![Nuova zona](media/DNS02.png)
+
+    ![Nuova zona](media/DNS02.png)
 3. Selezionare l'opzione appropriata in base all'ambiente in uso e fare clic su **Avanti**.
-![Nuova zona](media/DNS03.png)
+
+    ![Nuova zona](media/DNS03.png)
 4. Selezionare **zona** di ricerca diretta e fare clic su **Avanti**.
-![Nuova zona](media/DNS01.png)
+
+    ![Nuova zona](media/DNS01.png)
 5. Immettere il nome della zona e fare clic su **Avanti**.
-![Nuova zona](media/DNS05.png)
+
+    ![Nuova zona](media/DNS05.png)
 6. Immettere gli indirizzi IP dei server DNS per il cloud privato ottenuti dal portale di CloudSimple.
-![Nuova zona](media/DNS06.png)
+
+    ![Nuova zona](media/DNS06.png)
 7. Fare clic su **Avanti** se necessario per completare l'installazione della procedura guidata.
 
 ## <a name="create-a-conditional-forwarder"></a>Creazione di un server d'avanzamento condizionale
@@ -90,6 +96,7 @@ zone “cloudsimple.io” {
 ### <a name="create-a-conditional-forwarder-on-a-microsoft-windows-dns-server"></a>Creazione di un server d'invio condizionale in un server DNS Microsoft Windows
 
 1. Aprire il gestore DNS nel server DNS.
-2. Fare clic con il pulsante destro del mouse su **Server** d'inoltri condizionali e selezionare l'opzione per aggiungere un nuovo server d'istruzione.
-![Server di invio condizionale 1 DNS Windows](media/DNS08.png)
+2. Fare clic con il pulsante destro del mouse su **server d'inoltri condizionali** e selezionare l'opzione per aggiungere un nuovo server d'istruzione.
+
+    ![Server di invio condizionale 1 DNS Windows](media/DNS08.png)
 3. Immettere il dominio DNS e l'indirizzo IP dei server DNS nel cloud privato e fare clic su **OK**.

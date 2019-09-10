@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1d70c5d86221213ae3f9a2d31fdf40857cb516be
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981157"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845664"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Livello di servizio iperscalabile per un massimo di 100 TB
 
@@ -186,7 +186,7 @@ Per richiedere la possibilità di creare database con iperscalabilità in aree n
 
 2. Fare clic su [ **nuova richiesta di supporto**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-    ![Pannello Guida e supporto tecnico di Azure](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+    ![Pannello Guida e supporto tecnico di Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
 
 3. Per **tipo di problema**selezionare **limiti per servizio e sottoscrizione (quote)**
 
@@ -198,13 +198,13 @@ Per richiedere la possibilità di creare database con iperscalabilità in aree n
 
 1. Fare clic su **specificare i dettagli**
 
-    ![Dettagli del problema](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+    ![Dettagli del problema](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
 8. Scegliere il **tipo di quota del database SQL**: **Altra richiesta di quota**
 
 9. Compilare il modello seguente:
 
-    ![Dettagli quota](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![Dettagli quota](media/sql-database-service-tier-hyperscale/request-screen-3.png)
 
     Nel modello specificare le informazioni seguenti
 

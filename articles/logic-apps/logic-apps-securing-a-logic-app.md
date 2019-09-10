@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 15ec46511f1269606e0b0416c7c4a25f93012bec
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6c16b38cce31c45158a5871c10dbd01339da9203
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736895"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845423"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in app per la logica di Azure
 
@@ -193,7 +193,7 @@ Per controllare l'accesso agli input e agli output nella cronologia di esecuzion
 
   Questa opzione consente di proteggere l'accesso alla cronologia di esecuzione in base alle richieste provenienti da un intervallo di indirizzi IP specifico.
 
-* [Nascondere i dati dalla cronologia di esecuzione usando](#obfuscate)l'offuscamento.
+* [Nascondere i dati dalla cronologia di esecuzione usando l'offuscamento](#obfuscate).
 
   In molti trigger e azioni è possibile nascondere gli input, gli output o entrambi dalla cronologia di esecuzione di un'app per la logica.
 
@@ -440,7 +440,7 @@ Questo modello di esempio con più definizioni di parametro protette che usano `
 | Nome parametro | Descrizione |
 |----------------|-------------|
 | `TemplatePasswordParam` | Parametro di modello che accetta una password che viene quindi passata al `basicAuthPasswordParam` parametro della definizione del flusso di lavoro. |
-| `TemplatePasswordParam` | Parametro di modello che accetta un nome utente che viene quindi passato al `basicAuthUserNameParam` parametro della definizione del flusso di lavoro. |
+| `TemplateUsernameParam` | Parametro di modello che accetta un nome utente che viene quindi passato al `basicAuthUserNameParam` parametro della definizione del flusso di lavoro. |
 | `basicAuthPasswordParam` | Parametro di definizione del flusso di lavoro che accetta la password per l'autenticazione di base in un'azione HTTP |
 | `basicAuthUserNameParam` | Parametro di definizione del flusso di lavoro che accetta il nome utente per l'autenticazione di base in un'azione HTTP |
 |||

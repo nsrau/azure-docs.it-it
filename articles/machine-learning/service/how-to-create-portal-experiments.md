@@ -11,18 +11,19 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: 0286c82c0b4378e24fa46d0327bd6a5b26037496
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 79632a2b5862538ef702cec01a60aada14d8dbce
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813652"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860496"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici nel portale di Azure (anteprima)
 
  In questo articolo si apprenderà come creare, esplorare e distribuire esperimenti automatici di machine learning nel portale di Azure senza una singola riga di codice. Automatizzato Machine Learning consente di automatizzare il processo di selezione dell'algoritmo migliore da usare per i dati specifici, in modo da poter generare rapidamente un modello di machine learning. [Altre informazioni su Machine Learning automatizzato](concept-automated-ml.md).
 
  Se si preferisce un'esperienza più basata sul codice, è anche possibile [configurare gli esperimenti di Machine Learning automatici in Python](how-to-configure-auto-train.md) con l' [SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,6 +40,8 @@ Passare al riquadro sinistro dell'area di lavoro. Selezionare Machine Learning a
  Se questa è la prima volta che si esegue un esperimento, verrà visualizzata la schermata **di benvenuto Machine Learning automatizzata** . 
 
 In caso contrario, verrà visualizzato il dashboard di **Machine Learning automatizzato** con una panoramica di tutti gli esperimenti automatici di Machine Learning, inclusi quelli creati con l'SDK. Qui è possibile filtrare ed esplorare le esecuzioni in base alla data, al nome dell'esperimento e allo stato di esecuzione.
+
+È anche possibile accedere a Machine Learning automatizzati dalla [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
 
 ## <a name="create-an-experiment"></a>Creare un esperimento
 
@@ -59,7 +62,7 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
       Selezionare **Create**. La creazione di un nuovo calcolo può richiedere alcuni minuti.
 
       >[!NOTE]
-      > Il nome di calcolo indicherà se la *profilatura*del calcolo selezionato/creato è abilitata. (Per altre informazioni sul profiling dei dati, vedere 7B).
+      > Il nome di calcolo indicherà se la profilatura del calcolo selezionato/creato è abilitata. (Per altre informazioni sul profiling dei dati, vedere 7B).
 
 1. Selezionare un account di archiviazione per i dati. 
 
@@ -98,7 +101,7 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche del modello](how-to-configure-auto-train.md#explore-model-metrics).
     Criteri uscita| Quando uno di questi criteri viene soddisfatto, il processo di training termina prima del completamento completo. <br> *Training job time (minutes)* (Durata processo di training - minuti): Per quanto tempo consentire l'esecuzione del processo di training.  <br> *Max number of iterations* (Numero max di iterazioni): Numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più del numero specificato di iterazioni. <br> *Soglia Punteggio metrica*:  Punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo al processo di training del necessario.
     Pre-elaborazione| Selezionare questa impostazione per abilitare o disabilitare la pre-elaborazione eseguita da Automatic Machine Learning. La pre-elaborazione include la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche. [Altre informazioni sulla pre-elaborazione](#preprocess).
-    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-auto-train.md).
+    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida](how-to-configure-auto-train.md)incrociata.
     Concorrenza| Selezionare i limiti multicore da usare quando si usa il calcolo multicore.
     Algoritmo bloccato| Selezionare gli algoritmi che si desidera escludere dal processo di training.
 
@@ -111,7 +114,7 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
 >[!NOTE]
 > Vengono visualizzate voci vuote per le funzionalità con tipi irrilevanti.
 
-Statistica|DESCRIZIONE
+Statistica|Descrizione
 ------|------
 Funzionalità| Nome della colonna riepilogata.
 Profilo| Visualizzazione inline basata sul tipo dedotto. Ad esempio, le stringhe, i valori booleani e le date avranno conteggi dei valori, mentre i decimali (numerici) hanno istogrammi approssimati. In questo modo è possibile acquisire una rapida conoscenza della distribuzione dei dati.
@@ -134,7 +137,7 @@ Curtosi| Misura della quantità di dati di questa colonna rispetto a una distrib
 
 Quando si configurano gli esperimenti, è possibile abilitare `Preprocess`l'impostazione avanzate. In questo modo, vengono eseguiti automaticamente i passaggi di pre-elaborazione e di conteggi dei dati seguenti.
 
-|&nbsp;Passaggi di pre-elaborazione| DESCRIZIONE |
+|&nbsp;Passaggi di pre-elaborazione| Descrizione |
 | ------------- | ------------- |
 |Eliminazione delle caratteristiche con elevata cardinalità o senza varianza|Eliminarli dai set di training e di convalida, incluse le funzionalità con tutti i valori mancanti, lo stesso valore in tutte le righe o con cardinalità estremamente elevata (ad esempio, hash, ID o GUID).|
 |Attribuire i valori mancanti|Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
@@ -197,6 +200,6 @@ A questo punto si dispone di un servizio Web operativo per generare stime.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Provare l'esercitazione end-to-end [per creare il primo esperimento di Machine Learning automatizzato con Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
-* [Scopri di più su Machine Learning e Azure Machine Learning automatizzati](concept-automated-ml.md) .
+* [Scopri di più su Machine Learning](concept-automated-ml.md) e Azure Machine Learning automatizzati.
 * [Informazioni sui risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
 * [Informazioni su come utilizzare un servizio Web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 3fa97c5738128907b0edad40cedf582e80c33443
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fd4eef9771ae89e330c99b398ad6d473356213f5
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194466"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858539"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -142,7 +142,7 @@ Sì. Il gateway applicazione viene sempre distribuito in una subnet di rete virt
 
 ### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>Il gateway applicazione può comunicare con istanze all'esterno della relativa rete virtuale o al di fuori della relativa sottoscrizione?
 
-Fino a quando si dispone di connettività IP, il gateway applicazione può comunicare con istanze all'esterno della rete virtuale in cui si trova. Il gateway applicazione può anche comunicare con istanze all'esterno della sottoscrizione in cui si trova. Se si prevede di usare IP interni come membri del pool back-end, usare il peering di [rete virtuale](../virtual-network/virtual-network-peering-overview.md) o il [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Fino a quando si dispone di connettività IP, il gateway applicazione può comunicare con istanze all'esterno della rete virtuale in cui si trova. Il gateway applicazione può anche comunicare con istanze all'esterno della sottoscrizione in cui si trova. Se si prevede di usare IP interni come membri del pool back-end, usare il [peering di rete virtuale](../virtual-network/virtual-network-peering-overview.md) o il [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>È possibile distribuire altri elementi nella subnet del gateway applicazione?
 
@@ -353,7 +353,7 @@ Nel pannello del menu di un gateway applicazione del portale selezionare **log a
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>È possibile impostare avvisi con il gateway applicazione?
 
-Sì. Nel gateway applicazione gli avvisi vengono configurati sulle metriche. Per altre informazioni, vedere [metriche del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) e [ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Sì. Nel gateway applicazione gli avvisi vengono configurati sulle metriche. Per altre informazioni, vedere [metriche del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) e [ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Come si analizzano le statistiche sul traffico per il gateway applicazione?
 

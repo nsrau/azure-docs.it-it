@@ -1,5 +1,5 @@
 ---
-title: Come creare un BLOB in Archiviazione di Azure con la libreria client per Node.js v2
+title: Creare un BLOB in archiviazione di Azure per node. js
 description: Si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di Archiviazione di Azure per Node.js v2 per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,12 +7,13 @@ ms.date: 02/04/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 89dbd6cc9a03398427b157fa207adb898d3bfc56
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 8fada27f82fea557d7d078f06b5c05e7d1db906d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721978"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861242"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Come caricare, scaricare ed elencare BLOB con la libreria client per Node.js v2
 

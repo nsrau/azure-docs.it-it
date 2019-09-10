@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: d626a7768e7070360a6f0249486bfa83407fe998
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 60ecd71419bbf65cceab257cb97a96929d24ec08
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70192048"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860552"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Informazioni sui risultati automatici di Machine Learning
 
@@ -30,10 +30,10 @@ Altre informazioni su:
 
 * Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Creare un esperimento di Machine Learning automatizzato con l'SDK o nel portale di Azure.
+* Creare un esperimento di Machine Learning automatizzato, con l'SDK, nella portale di Azure o nella pagina di destinazione dell'area di lavoro (anteprima).
 
-    * Usare l'SDK per compilare un modello di [classificazione](how-to-auto-train-remote.md) o un [modello di regressione](tutorial-auto-train-models.md)
-    * Usare il [portale di Azure](how-to-create-portal-experiments.md) per creare un modello di classificazione o regressione caricando i dati appropriati.
+    * Usare l'SDK per compilare un modello di [classificazione](how-to-auto-train-remote.md) o un [modello](tutorial-auto-train-models.md) di regressione
+    * Usare la [portale di Azure o la pagina di destinazione dell'area di lavoro (anteprima)](how-to-create-portal-experiments.md) per creare un modello di classificazione o regressione caricando i dati appropriati.
 
 ## <a name="view-the-run"></a>Visualizza l'esecuzione
 
@@ -75,7 +75,7 @@ Le metriche e i grafici seguenti sono disponibili per ogni modello di classifica
 
 Le metriche seguenti vengono salvate in ogni iterazione di esecuzione per un'attività di classificazione.
 
-|Metrica|Descrizione|Calcolo|Parametri aggiuntivi
+|Metrica|DESCRIZIONE|Calcolo|Parametri aggiuntivi
 --|--|--|--|
 AUC_Macro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Macro è la media aritmetica dell'area AUC per ogni classe.  | [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Micro viene calcolato a livello globale combinando i veri positivi e i falsi positivi da ogni classe.| [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -170,7 +170,7 @@ Le metriche e i grafici seguenti sono disponibili per ogni modello di regression
 
 Le metriche seguenti vengono salvate in ogni iterazione di esecuzione per un'attività di regressione o previsione.
 
-|Metrica|Descrizione|Calcolo|Parametri aggiuntivi
+|Metrica|DESCRIZIONE|Calcolo|Parametri aggiuntivi
 --|--|--|--|
 explained_variance|explained_variance è la proporzione in base alla quale un modello matematico tiene conto della variazione di un determinato set di dati. Si tratta della riduzione percentuale della varianza dei dati originali rispetto alla varianza degli errori. Quando la media degli errori è 0, la varianza è perfettamente spiegata.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nessuna|
 r2_score|R2 è il coefficiente di determinazione o la riduzione percentuale di errori quadratici rispetto a un modello di base che restituisce la media. |[Calcolo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nessuna|
@@ -216,5 +216,5 @@ Per altre informazioni sull'abilitazione delle funzionalità di interpretazione,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ Scopri [di più su Machine](concept-automated-ml.md) learning in Azure Machine Learning.
++ Scopri di più [su Machine](concept-automated-ml.md) learning in Azure Machine Learning.
 + Provare il notebook di esempio per la [spiegazione del modello di Machine Learning automatizzato](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) .

@@ -10,13 +10,13 @@ ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67180556"
 ---
 | Category | Limite |
 | --- | --- |
-| Identità gestito assegnata dall'utente | <ul><li>Quando si crea assegnata dall'utente gestite le identità, solo caratteri alfanumerici (0-9, a-z e A-Z) e il trattino (-) sono supportati. Per l'assegnazione a una macchina virtuale o un set per il corretto funzionamento di scalabilità di macchine virtuali, il nome è limitato a 24 caratteri.</li><li>Se si usa l'estensione di macchina virtuale di identità gestita, il limite supportato è 32 identità gestita assegnata dall'utente. Senza l'estensione di macchina virtuale di identità gestita, il limite supportato è 512 identità assegnata dall'utente.</li>|
+| Identità gestite assegnate dall'utente | <ul><li>Quando si creano identità gestite assegnate dall'utente, sono supportati solo i caratteri alfanumerici (0-9, a-z e A-Z) e il trattino (-). Per il corretto funzionamento dell'assegnazione a una macchina virtuale o a un set di scalabilità di macchine virtuali, il nome è limitato a 24 caratteri.</li><li>Se si usa l'estensione della macchina virtuale identità gestita, il limite supportato è 32 identità gestite assegnate dall'utente. Senza l'estensione della macchina virtuale identità gestita, il limite supportato è 512 identità assegnate dall'utente.</li>|
 

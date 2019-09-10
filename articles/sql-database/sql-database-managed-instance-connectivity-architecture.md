@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: aac328806e2570bd124626e916c250d481a11311
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d539bd569eee613eb43947e5fd0e3b0614ca5d79
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567586"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858615"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura di connettività per un'istanza gestita nel database SQL di Azure
 
@@ -96,7 +96,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie
 
-| Name       |Port                        |Protocol|Source           |Destination|Azione|
+| NOME       |Port                        |Protocol|Source           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestione  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI SUBNET  |Allow |
 |mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |Allow |
@@ -104,7 +104,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie
 
-| Name       |Port          |Protocol|Source           |Destination|Azione|
+| NOME       |Port          |Protocol|Source           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestione  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |Allow |
 |mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Allow |
@@ -238,4 +238,4 @@ Se la rete virtuale include un DNS personalizzato, il server DNS personalizzato 
   - Nel [portale di Azure](sql-database-managed-instance-get-started.md).
   - Tramite [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Utilizzando [un modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Usando [un modello di Azure Resource Manager (usando JumpBox, con SSMS incluso)](https://portal.azure.com/). 
+  - Usando [un modello di Azure Resource Manager (usando JumpBox, con SSMS incluso)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

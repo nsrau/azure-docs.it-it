@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: b716cbf3efb044da68d4dd1dcb724369855d1ed1
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5aa2d694c2c74b493a7fd1a2a89d39866928d1d4
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173651"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843864"
 ---
 # <a name="streaming-ingestion-preview"></a>Inserimento di flussi (anteprima)
 
@@ -34,7 +34,7 @@ Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la 
 ## <a name="enable-streaming-ingestion-on-your-cluster"></a>Abilitare l'inserimento di flussi nel cluster
 
 1. Nel portale di Azure passare a cluster di Esplora dati di Azure. In **Impostazioni**selezionare **configurazioni**. 
-1. Nel riquadro **configurazioni** selezionare attivato per abilitare l'inserimento del **flusso**.
+1. Nel riquadro **configurazioni** selezionare **attivato per abilitare l'inserimento del** **flusso**.
 1. Selezionare **Salva**.
  
     ![inserimento di flussi in](media/ingest-data-streaming/streaming-ingestion-on.png)
@@ -44,7 +44,7 @@ Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la 
     > [!TIP]
     > Se il criterio viene definito a livello di database, tutte le tabelle nel database sono abilitate per l'inserimento di flussi.
 
-## <a name="supported-streaming-ingestion-types"></a>Tipi di inserimento di flussi supportati
+## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>Usare l'inserimento di flussi per inserire i dati nel cluster
 
 Sono disponibili due tipi di inserimento di flussi supportati:
 
@@ -72,7 +72,7 @@ Sono disponibili due tipi di inserimento di flussi supportati:
 
 ## <a name="limitations"></a>Limitazioni
 
-* Le prestazioni e la capacità di inserimento dei flussi vengono ridimensionate con dimensioni maggiori di macchine virtuali e cluster. Per un singolo nodo D11, il carico consigliato è massimo 20 richieste al secondo. Per un singolo nodo D14, il carico consigliato è fino a 150 richieste al secondo.
+* Le prestazioni e la capacità di inserimento dei flussi vengono ridimensionate con dimensioni maggiori di macchine virtuali e cluster. Per un singolo nodo D14, il carico consigliato è fino a 150 richieste al secondo.
 * Attualmente, il supporto è solo per gli SKU con 8 e 16 core (D13, D14, L8 e L16).
 * Il limite per le dimensioni dei dati per ogni richiesta di inserimento è 4 MB.
 * Gli aggiornamenti dello schema, ad esempio la creazione e la modifica di tabelle e mapping di inserimento, possono richiedere fino a 5 minuti per il servizio di inserimento di flussi.

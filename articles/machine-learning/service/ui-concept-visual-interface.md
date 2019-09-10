@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 1cb56386f52d1c7b1ec357b912c648c1961b4c1d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 70141e3ad438ff7ff6d4486e6c27ff4163416e95
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677978"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860409"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Che cos'è l'interfaccia visiva per il servizio Azure Machine Learning? 
 
@@ -55,7 +55,7 @@ Un esperimento è costituito da set di impostazioni e moduli analitici, che è p
 * È necessario impostare tutti i parametri obbligatori per ogni modulo.
 
 
-Per informazioni su come iniziare a usare l'interfaccia visiva, vedere [esercitazione: Stimare il prezzo dell'automobile con](ui-tutorial-automobile-price-train-score.md)l'interfaccia visiva.
+Per informazioni su come iniziare a usare l'interfaccia visiva, vedere [esercitazione: Stimare il prezzo di un'automobile con l'interfaccia visiva grafica](ui-tutorial-automobile-price-train-score.md).
 
 ## <a name="dataset"></a>Set di dati
 
@@ -81,7 +81,7 @@ Usare le risorse di calcolo dall'area di lavoro per eseguire l'esperimento o osp
 | Ambiente di calcolo di Azure Machine Learning | ✓ | |
 | Servizio Azure Kubernetes | | ✓ |
 
-Le destinazioni di calcolo sono collegate all' [area di lavoro](concept-workspace.md)Machine Learning. È possibile gestire le destinazioni di calcolo nell'area di lavoro nel [portale di Azure](https://portal.azure.com).
+Le destinazioni di calcolo sono collegate all' [area di lavoro](concept-workspace.md)Machine Learning. È possibile gestire le destinazioni di calcolo nell'area di lavoro nell' [portale di Azure](https://portal.azure.com) o nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
 
 ## <a name="deployment"></a>Distribuzione
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7d47b74d4fef3676101f3f624dcacb832dcedc3a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128268"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858700"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ La tendenza ai dati si verifica quando i dati serviti a un modello in produzione
 
 ## <a name="what-can-i-monitor"></a>Che cosa è possibile monitorare?
 
-Con Azure Machine Learning servizio è possibile monitorare gli input per un modello distribuito in AKS e confrontare questi dati con il set di dati di training per il modello. A intervalli regolari, i dati di inferenza sono [snapshot e](how-to-explore-prepare-data.md)profilati, quindi vengono calcolati in base al set di dati baseline per produrre un'analisi della deriva dei dati che: 
+Con Azure Machine Learning servizio è possibile monitorare gli input per un modello distribuito in AKS e confrontare questi dati con il set di dati di training per il modello. A intervalli regolari, i dati di inferenza sono [snapshot e profilati](how-to-explore-prepare-data.md), quindi vengono calcolati in base al set di dati baseline per produrre un'analisi della deriva dei dati che: 
 
 + Misura la grandezza della deviazione dei dati, denominata coefficiente di tendenza.
 + Misura il contributo alla derivazione dei dati per funzionalità, che informa quali funzionalità hanno causato la deriva dei dati.
@@ -134,6 +134,7 @@ Sono disponibili diversi modi per visualizzare le metriche di Drift:
 * Usare il `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Utilizzare la [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) funzione su qualsiasi `datadrift` oggetto di esecuzione.
 * Visualizzare le metriche nel portale di Azure del modello.
+* Visualizzare le metriche dalla sezione **modelli** della [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
 
 Nell'esempio Python seguente viene illustrato come tracciare le metriche di spostamento dei dati rilevanti. È possibile usare le metriche restituite per creare visualizzazioni personalizzate:
 
@@ -158,7 +159,7 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-La configurazione del rilevamento della deriva dei dati può essere visualizzata nella pagina dei dettagli del modello nel portale di Azure.
+La configurazione del rilevamento della deriva dei dati può essere visualizzata nella pagina dei dettagli del modello nella portale di Azure o nella pagina di destinazione dell'area di lavoro (anteprima).
 
 ![Configurazione della deviazione dati portale di Azure](media/how-to-monitor-data-drift/drift_config.png)
 
@@ -167,6 +168,8 @@ La configurazione del rilevamento della deriva dei dati può essere visualizzata
 Per visualizzare i risultati nell'area di lavoro in [portale di Azure](https://portal.azure.com), passare alla pagina del modello. Nella scheda Dettagli del modello viene visualizzata la configurazione della deviazione dati. È ora disponibile una scheda relativa alla deviazione dei dati (anteprima) per la visualizzazione delle metriche di spostamento dei dati. 
 
 ![Spostamento dei dati portale di Azure](media/how-to-monitor-data-drift/drift_ui.png)
+
+I risultati sono disponibili anche nei dettagli del modello nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
 
 ## <a name="receiving-drift-alerts"></a>Ricezione di avvisi di Drift
 

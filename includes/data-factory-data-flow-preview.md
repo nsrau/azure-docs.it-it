@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: kromerm
 ms.openlocfilehash: aaa8908f5b05ae4c4523760c3c12a077ac1a09d5
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67509866"
 ---
 > [!NOTE] 
-> Azure Data Factory di Mapping del flusso di dati è attualmente una funzionalità di anteprima pubblica e non è soggetto alle disposizioni di contratto di servizio clienti di Azure. Mapping di flusso dei dati non sono attualmente disponibili in queste aree di Azure: Occidentale Stati Uniti centrali, Brasile meridionale, Francia centrale, Corea centrale.
+> Il flusso di dati del mapping Azure Data Factory è attualmente una funzionalità di anteprima pubblica e non è soggetta alle disposizioni del contratto di servizio di Azure. Attualmente, i flussi di dati di mapping non sono disponibili nelle aree di Azure seguenti: Stati Uniti centro-occidentali, Brasile meridionale, Francia centrale, Corea centrale.

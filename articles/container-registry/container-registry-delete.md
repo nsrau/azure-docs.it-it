@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: 12c1b5f9fa9620622b31f22c701d58ae237bcbf2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d652c511a3f54fd0b756a95fbe183b4678416a10
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035150"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873207"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Eliminare immagini del contenitore in Azure Container Registry usando l'interfaccia della riga di comando di Azure
 
@@ -60,7 +60,7 @@ Are you sure you want to continue? (y/n): y
 
 È possibile associare un [hash di manifesto](container-registry-concepts.md#manifest-digest) a uno o più tag oppure a nessuno. Quando si elimina in base all'hash, vengono eliminati tutti i tag a cui fa riferimento il manifesto, così come i dati dei livelli univoci dell'immagine. I dati dei livelli condivisi non vengono eliminati.
 
-Per eliminare in base all'hash, elencare prima gli hash di manifesto nel repository che contengono le immagini da eliminare. Ad esempio:
+Per eliminare in base all'hash, elencare prima gli hash di manifesto nel repository che contengono le immagini da eliminare. Esempio:
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -227,7 +227,6 @@ then
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
-    else
     echo "No data deleted."
     echo "Set ENABLE_DELETE=true to enable image deletion of these images in $REPOSITORY:"
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY --query "[?tags[0]==null]" -o tsv
@@ -260,7 +259,7 @@ if ($enableDelete) {
 }
 ```
 
-## <a name="automatically-purge-tags-and-manifests-preview"></a>Elimina automaticamente i tag e i manifesti (anteprima)
+## <a name="automatically-purge-tags-and-manifests-preview"></a>Ripulire automaticamente tag e manifesti (anteprima)
 
 In alternativa alla creazione di script per i comandi dell'interfaccia della riga di comando di Azure, eseguire un'attività ACR su richiesta o pianificata per eliminare tutti i tag precedenti a una determinata durata o corrispondere a un filtro di nome specificato. Per altre informazioni, vedere [eliminare automaticamente le immagini da un registro contenitori di Azure](container-registry-auto-purge.md).
 

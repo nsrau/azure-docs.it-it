@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af6abefd132df7980bdc6e485734a996761653b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 151058f23bed674883da57e0b728dc1df4b698d9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972787"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70846130"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurare il cloud privato come destinazione di ripristino di emergenza con VMware Site Recovery Manager
 
@@ -33,6 +33,8 @@ Per la soluzione CloudSimple è necessario eseguire le operazioni seguenti:
 * Fornire le proprie licenze per SRM quando il cloud privato è il sito protetto. Non sono necessarie licenze SRM aggiuntive per il sito CloudSimple quando viene usato come sito di ripristino.
 
 Con questa soluzione si ha il controllo completo sulla replica vSphere e SRM. Le interfacce dell'interfaccia della riga di comando e dell'interfaccia utente, API e CLI, consentono di usare gli script e gli strumenti esistenti.
+
+![Distribuzione di Site Recovery Manager](media/srm-deployment.png)
 
 È possibile usare qualsiasi versione di LRV e SRM compatibile con il cloud privato e gli ambienti locali. Gli esempi in questa guida usano LRV 6,5 e SRM 6,5. Queste versioni sono compatibili con vSphere 6,5, supportato da CloudSimple.
 
@@ -130,7 +132,7 @@ Prima di installare LRV e SRM, è necessario eseguire l'escalation dei privilegi
 
 L'installazione di è costituita da questa procedura di alto livello:
 
-1. Escalation dei [privilegi](escalate-private-cloud-privileges.md).
+1. [Escalation dei privilegi](escalate-private-cloud-privileges.md).
 2. Creare un utente nel cloud privato per la replica vSphere e l'installazione di SRM. Descritto di seguito [nell'interfaccia utente di vCenter: Creare un utente nel cloud privato per LRV & l'installazione](#vcenter-ui-create-a-user-in-private-cloud-for-vra-and-srm-installation)di SRM.
 3. Preparare l'ambiente cloud privato per l'installazione di LRV.
 4. Distribuire LRV nel cloud privato usando OVF in VR ISO di vmware.com. Per LRV 6,5, [questo Blog VMware](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) contiene informazioni rilevanti.
@@ -204,7 +206,7 @@ Dopo aver installato SRM nel cloud privato, eseguire le attività seguenti, come
 
 #### <a name="cloudsimple-portal-de-escalate-privileges"></a>Portale di CloudSimple: Privilegi de escalation
 
-Per annullare l'escalation dei privilegi, vedere decrescenza dei [privilegi](escalate-private-cloud-privileges.md#de-escalate-privileges).
+Per annullare l'escalation dei privilegi, vedere [decrescenza dei privilegi](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
 ## <a name="ongoing-management-of-your-srm-solution"></a>Gestione continuativa della soluzione SRM
 

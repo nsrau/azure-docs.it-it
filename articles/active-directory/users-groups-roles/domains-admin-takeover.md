@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 553118486d1148f63e79ca25c32ed7dd8a3b7414
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a756f0d9fe3669ab9d0f2b4576a35be5d2112a87
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736806"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872203"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
@@ -82,7 +82,7 @@ Se si gestisce già un tenant con i servizi di Azure o Office 365, non è possib
 Quando si verifica la proprietà del nome di dominio, Azure AD lo rimuove dal tenant non gestito e lo sposta nel tenant esistente. L'acquisizione esterna della proprietà di una directory non gestita da parte di un amministratore richiede lo stesso processo convalida di convalida TXT DNS dell'acquisizione interna della proprietà da parte di un amministratore, con la differenza che anche gli elementi seguenti vengono spostati con il nome di dominio:
 
 - Utenti
-- Abbonamenti
+- Sottoscrizioni
 - Assegnazioni di licenze
 
 ### <a name="support-for-external-admin-takeover"></a>Supporto per l'acquisizione esterna della proprietà da parte dell'amministratore
@@ -102,15 +102,17 @@ I piani di servizio supportati includono:
 - Microsoft Stream
 - Versione di valutazione gratuita di Dynamics 365
 
-L'acquisizione di un amministratore esterno non è supportata per alcun servizio con piani di servizio che includono SharePoint, OneDrive o Skype for business. ad esempio, tramite una sottoscrizione gratuita di Office. Facoltativamente è possibile usare l'[opzione **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) per rimuovere il nome di dominio dal tenant non gestito e verificarlo nel tenant desiderato. L'opzione ForceTakeover non sposta gli utenti, né conserva l'accesso alla sottoscrizione. Sposta solo il nome di dominio. 
+L'acquisizione di un amministratore esterno non è supportata per alcun servizio con piani di servizio che includono SharePoint, OneDrive o Skype for business. ad esempio, tramite una sottoscrizione gratuita di Office. 
+
+Facoltativamente è possibile usare l'[opzione **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) per rimuovere il nome di dominio dal tenant non gestito e verificarlo nel tenant desiderato. **L'opzione ForceTakeover non viene spostata sugli utenti o mantiene l'accesso alla sottoscrizione. Questa opzione consente di spostare solo il nome di dominio.**
 
 #### <a name="more-information-about-rms-for-individuals"></a>Altre informazioni su RMS per utenti singoli
 
-Per [RMS per utenti singoli](/azure/information-protection/rms-for-individuals), quando il tenant non gestito si trova nella stessa area del tenant di cui si è proprietari, anche la [chiave del tenant Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) creata automaticamente e i [modelli di protezione predefiniti](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) vengono spostati con il nome di dominio. 
+Per [RMS per utenti singoli](/azure/information-protection/rms-for-individuals), quando il tenant non gestito si trova nella stessa area del tenant di cui si è proprietari, anche la [chiave del tenant Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) creata automaticamente e i [modelli di protezione predefiniti](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) vengono spostati con il nome di dominio.
 
-La chiave e i modelli non vengono invece spostati quando il tenant si trova in un'area diversa, ad esempio se il tenant non gestito è in Europa e il tenant di cui si è proprietari è in America del Nord. 
+La chiave e i modelli non vengono invece spostati quando il tenant si trova in un'area diversa, Ad esempio, se il tenant non gestito si trova in Europa e l'organizzazione di cui si è proprietari è in America del Nord.
 
-Anche se RMS per utenti singoli è progettato per supportare l'autenticazione Azure AD per l'apertura di contenuti protetti, non impedisce agli utenti di proteggere a loro volta il contenuto. Se gli utenti non hanno protetto il contenuto con la sottoscrizione di RMS per utenti singoli e se la chiave e i modelli non sono stati spostati, il contenuto non sarà accessibile dopo l'acquisizione della proprietà del dominio.
+Anche se RMS per utenti singoli è progettato per supportare l'autenticazione Azure AD per l'apertura di contenuti protetti, non impedisce agli utenti di proteggere a loro volta il contenuto. Se gli utenti hanno protetto il contenuto con la sottoscrizione RMS per utenti singoli e la chiave e i modelli non sono stati spostati, il contenuto non sarà accessibile dopo l'acquisizione del dominio.
 
 #### <a name="more-information-about-power-bi"></a>Altre informazioni su Power BI
 
@@ -119,8 +121,7 @@ Quando si esegue un'acquisizione esterna, il contenuto di Power BI creato prima 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlet di Azure AD PowerShell per l'opzione ForceTakeover
 È possibile visualizzare questi cmdlet usati in [Esempio di PowerShell](#powershell-example).
 
-
-Cmdlet | Utilizzo 
+Cmdlet | Utilizzo
 ------- | -------
 `connect-msolservice` | Quando richiesto, accedere al tenant gestito.
 `get-msoldomain` | Mostra i nomi di dominio associati al tenant corrente.
@@ -129,6 +130,9 @@ Cmdlet | Utilizzo
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fornisce le informazioni da inserire nel nuovo record TXT DNS per il dominio (MS=xxxxx). La verifica potrebbe non essere eseguita immediatamente perché la propagazione del record TXT richiede tempo. Attendere quindi alcuni minuti prima di prendere in considerazione l'opzione **-ForceTakeover**. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se il nome di dominio continua a non essere verificato, è possibile procedere con l'opzione **-ForceTakeover**, che verifica che il record TXT sia stato creato e avvia il processo di acquisizione della proprietà.<li>L'opzione **-ForceTakeover** deve essere aggiunta al cmdlet solo quando si forza l'acquisizione esterna della proprietà da parte dell'amministratore, ad esempio quando il tenant non gestito ha i servizi di Office 365 che bloccano l'acquisizione della proprietà.
 `get-msoldomain` | Nell'elenco di domini il nome di dominio ora risulta **Verificato**.
+
+> [!NOTE]
+> L'organizzazione Azure AD non gestita viene eliminata 10 giorni dopo l'utilizzo dell'opzione External OPA Force.
 
 ### <a name="powershell-example"></a>Esempio di PowerShell
 

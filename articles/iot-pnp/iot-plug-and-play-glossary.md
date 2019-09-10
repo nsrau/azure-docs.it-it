@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 79b57a9c9f12c6014b9002b0688beae334af3587
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806525"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858838"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossario dei termini per la Plug and Play di anteprima
 
@@ -46,9 +46,9 @@ Azure IoT Central è una soluzione software distribuita come servizio completame
 
 Il servizio Azure Internet per la certificazione esegue un set di test di certificazione quando si invia un [plug and Play dispositivo](#iot-plug-and-play-device) per la certificazione tramite il [portale di Azure Certified per](#azure-certified-for-iot-portal)Internet. Prima di poter aggiungere un dispositivo al [Catalogo dei dispositivi Certified for](#certified-for-iot-device-catalog)Internet, il dispositivo deve essere certificato.
 
-## <a name="azure-iot-device-workbench-extension"></a>Estensione Azure Azure per i dispositivi Workbench
+## <a name="azure-iot-tools-extension"></a>Estensione degli strumenti di Azure.
 
-Azure Internet per dispositivi Workbench è un'estensione di [Visual Studio Code](#visual-studio-code) che fornisce un ambiente integrato per:
+Azure Internet è una raccolta di estensioni in [Visual Studio Code](#visual-studio-code) che consentono di interagire con l'hub Internet e sviluppare dispositivi Internet. Per quanto riguarda Plug and Play lo sviluppo di dispositivi, consente di:
 
 - Creare [modelli](#device-capability-model) e [interfacce](#interface)per le funzionalità del dispositivo.
 - Pubblicare in [repository di modelli](#model-repository).
@@ -200,4 +200,4 @@ I campi di telemetria definiti in un' [interfaccia](#interface) rappresentano le
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
-Visual Studio Code è un editor di codice moderno disponibile per più piattaforme. Le estensioni, ad esempio l' [estensione Azure Azure per i dispositivi Workbench](#azure-iot-device-workbench-extension) , consentono di personalizzarle per supportare un'ampia gamma di scenari di sviluppo.
+Visual Studio Code è un editor di codice moderno disponibile per più piattaforme. Le estensioni, ad esempio quelle presenti nel pacchetto Azure Internet degli [strumenti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) , consentono di personalizzare l'editor per supportare un'ampia gamma di scenari di sviluppo.

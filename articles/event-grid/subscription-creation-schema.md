@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
-ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6129c7f498ce6c52fce4266f693c6a304642f8c3
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822792"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845467"
 ---
 # <a name="event-grid-subscription-schema"></a>Schema di sottoscrizione per Griglia di eventi
 
@@ -36,7 +36,7 @@ Il nome della sottoscrizione eventi deve essere composto da 3 a 64 caratteri e s
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | destinazione | object | Oggetto che definisce l'endpoint. |
-| filter | object | Campo facoltativo per il filtro dei tipi di eventi. |
+| filtro | object | Campo facoltativo per il filtro dei tipi di eventi. |
 
 ### <a name="destination-object"></a>oggetto destination
 
@@ -47,7 +47,7 @@ Il nome della sottoscrizione eventi deve essere composto da 3 a 64 caratteri e s
 
 ### <a name="filter-object"></a>oggetto filter
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Corrisponde se il tipo di evento nel messaggio di evento è una corrispondenza esatta a uno di questi nomi di tipo di evento. Genera un errore se il nome dell'evento non corrisponde ad alcuno dei nomi di tipo di evento registrati per l'origine evento. Il valore predefinito corrisponde a tutti i tipi di evento. |
 | subjectBeginsWith | string | Filtro di corrispondenza del prefisso per il campo dell'oggetto nel messaggio dell'evento. La stringa predefinita o una stringa vuota corrisponde sempre. | 
@@ -68,7 +68,7 @@ Il nome della sottoscrizione eventi deve essere composto da 3 a 64 caratteri e s
     },
     "filter": {
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
-      "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+      "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "isSubjectCaseSensitive ": "true"
     }

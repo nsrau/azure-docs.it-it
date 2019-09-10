@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 88d9ab0063b6cf2803332d7af50190c659b3e6fe
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 7922f07cfe08d0bd58827b59337b86387c624778
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207216"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844677"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -94,6 +94,7 @@ La struttura di cartelle per un progetto di funzioni Python ha un aspetto simile
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
+ | | - example.py
  | - MySecondFunction
  | | - __init__.py
  | | - function.json
@@ -110,6 +111,12 @@ Il codice condiviso deve essere mantenuto in una cartella separata. Per fare rif
 
 ```
 from __app__.SharedCode import myFirstHelperFunction
+```
+
+Per fare riferimento a moduli locali a una funzione, è possibile usare la sintassi di importazione relativa, come indicato di seguito:
+
+```
+from . import example
 ```
 
 Quando si distribuisce un progetto di funzione nell'app per le funzioni in Azure, l'intero contenuto della cartella *FunctionApp* deve essere incluso nel pacchetto, ma non nella cartella.
@@ -231,7 +238,7 @@ def main(req):
 
 Sono disponibili altri metodi di registrazione che consentono di scrivere nella console a livelli di traccia diversi:
 
-| Metodo                 | DESCRIZIONE                                |
+| Metodo                 | Descrizione                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Scrive un messaggio con livello critico nel logger radice.  |
 | **`error(_message_)`**   | Scrive un messaggio con livello errore nel logger radice.    |
@@ -301,7 +308,7 @@ def main():
 
 Per ottenere il contesto di chiamata di una funzione durante l'esecuzione, includere [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) l'argomento nella firma. 
 
-Ad esempio:
+Esempio:
 
 ```python
 import azure.functions

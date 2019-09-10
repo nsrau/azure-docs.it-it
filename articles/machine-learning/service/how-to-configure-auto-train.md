@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 9a2b030185c821ec9bd577ecdabbc929766f2d14
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997924"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858895"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 
@@ -34,7 +34,7 @@ Opzioni di configurazione disponibili nell'apprendimento automatico:
 * Esplorare le metriche del modello
 * Registrare e distribuire modelli
 
-Se si preferisce un'esperienza senza codice, è anche possibile [creare esperimenti di Machine Learning automatici nel portale di Azure](how-to-create-portal-experiments.md).
+Se si preferisce un'esperienza senza codice, è anche possibile [creare esperimenti automatici di Machine Learning in portale di Azure](how-to-create-portal-experiments.md).
 
 ## <a name="select-your-experiment-type"></a>Selezionare il tipo di esperimento
 
@@ -439,7 +439,7 @@ Usare queste 2 API nel primo passaggio del modello montato per comprendere megli
 
 ### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>Ridimensionamento/normalizzazione e algoritmo con valori di ipermetria:
 
-Per comprendere i valori di ridimensionamento, normalizzazione e algoritmo/iperparametro per una pipeline, usare fitted_model. Steps. [Altre informazioni sul ridimensionamento o](concept-automated-ml.md#preprocess)la normalizzazione. Di seguito è riportato un output di esempio:
+Per comprendere i valori di ridimensionamento, normalizzazione e algoritmo/iperparametro per una pipeline, usare fitted_model. Steps. [Altre informazioni sul ridimensionamento o la normalizzazione](concept-automated-ml.md#preprocess). Di seguito è riportato un output di esempio:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
@@ -553,13 +553,13 @@ Il processo di Machine Learning automatizzato consente di riconoscere l'importan
     print(per_class_summary)
     ```
 
-È possibile visualizzare il grafico relativo all'importanza delle caratteristiche nella propria area di lavoro nel portale di Azure. Visualizzare l'URL utilizzando l'oggetto Run:
+Visualizzare l'URL per visualizzare l'importanza della funzionalità usando l'oggetto Run:
 
 ```
 automl_run.get_portal_url()
 ```
 
-È possibile visualizzare il grafico relativo all'importanza delle caratteristiche nella propria area di lavoro nel portale di Azure. Il grafico viene visualizzato anche quando si usa `RunDetails` il [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in un notebook. Per altre informazioni sui grafici, vedere l'articolo relativo ai [risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
+È possibile visualizzare il grafico relativo all'importanza della funzionalità nell'area di lavoro nell'portale di Azure o dalla [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com). Il grafico viene visualizzato anche quando si usa `RunDetails` il [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in un notebook. Per altre informazioni sui grafici, vedere l'articolo relativo ai [risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails
