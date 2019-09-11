@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.localizationpriority: high
+ms.date: 09/05/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240202"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390416"
 ---
 ::: zone target="chromeless"
 
@@ -85,12 +85,9 @@ Eseguire la procedura seguente se si restituisce il dispositivo in Europa.
 
 I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiuntiva. Tutte le spedizioni in ingresso devono prevedere una notifica anticipata. Seguire questa procedura per il ritiro in Australia.
 
-1. Inviare un messaggio all'indirizzo `adbops@microsoft.com` per richiedere un'etichetta di spedizione con ID di ingresso univoco o il codice TAU. Inviare la richiesta almeno 3 giorni prima della data di spedizione pianificata per ricevere l'etichetta in tempo.
-2. L'oggetto del messaggio di posta elettronica deve essere: *Richiesta di etichetta per la spedizione inversa con codice TAU*. Assicurarsi di includere i seguenti dettagli nel messaggio di posta elettronica: 
-
-    - Nome ordine
-    - Indirizzo
-    - Nome del contatto
+1. Usare l'etichetta di spedizione per reso fornita e verificare che vi sia scritto il codice TAU (numero di riferimento). Se l'etichetta di spedizione fornita è mancante o per qualsiasi altro problema, inviare un messaggio di posta elettronica a [Data Box Asia Operations](mailto:adbo@microsoft.com). Specificare il nome dell'ordine nell'intestazione dell'oggetto e fornire i dettagli del problema riscontrato.
+3. Applicare l'etichetta sulla scatola. 
+4. Prenotare un ritiro online al collegamento https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
 ### <a name="pick-up-in-asia"></a>Ritiro in Asia
 
