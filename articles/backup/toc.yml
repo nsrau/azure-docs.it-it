@@ -80,8 +80,8 @@
       href: backup-azure-backup-server-import-export-.md
     - name: Sostituire la libreria di nastri
       href: backup-azure-backup-cloud-as-tape.md
-    - name: Attributi comuni della sicurezza di Azure
-      href: backup-security-attributes.md
+    - name: Criteri di sicurezza integrati
+      href: backup-security-controls.md
 - name: Procedure
   items:
     - name: Server di backup di Azure

@@ -61,8 +61,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Metriche e diagnostica di Load Balancer Standard
       href: load-balancer-standard-diagnostics.md
-    - name: Attributi di sicurezza
-      href: load-balancer-security-attributes.md
+    - name: Criteri di sicurezza integrati
+      href: load-balancer-security-controls.md
 - name: Procedure
   items:
     - name: Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona

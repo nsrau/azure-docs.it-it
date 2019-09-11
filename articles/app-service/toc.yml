@@ -77,8 +77,8 @@
           href: overview-authentication-authorization.md
         - name: Applicazione di patch a sistema operativo e runtime
           href: overview-patch-os-runtime.md
-        - name: Attributi di sicurezza
-          href: app-service-security-attributes.md
+        - name: Criteri di sicurezza integrati
+          href: app-service-security-controls.md
         - name: Panoramica della sicurezza
           href: overview-security.md
     - name: Funzionalità di rete
