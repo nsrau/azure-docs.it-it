@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/19/2019
+ms.date: 9/4/2019
 ms.author: raiye
-ms.openlocfilehash: c27438dbbeffc0837c3d71d9bb532803655538b8
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 71febe6544a4f53215ec4dbee2bcef86bda23386
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637540"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275513"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
@@ -25,33 +25,30 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 ## <a name="august-2019-guest-os"></a>Sistema operativo guest 2019 agosto
 
->[!NOTE]
->Il sistema operativo guest di agosto è attualmente in fase di implementazione in macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di agosto. L'elenco è soggetto a variazioni.
-
 | Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 19-08   |  [4512482]  |  Windows Security   |  3,76  |  13 agosto, 2019  |
-|  Rel 19-08   |  [4494175]  |  Aggiornamento microcodice   |  5,34  |  18 giugno, 2019  |
-|  Rel 19-08   |  [4512517]  |  Aggiornamento cumulativo più recente   |  5,34  |  13 agosto, 2019  |
-|  Rel 19-08   |  [4494174]  |  Aggiornamento microcodice   |  6.1  |  18 giugno, 2019  |
-|  Rel 19-08   |  [4511553]  |  Aggiornamento cumulativo più recente   |  6.1  |  13 agosto, 2019  |
-|  Rel 19-08   |  [4512486]  |  Windows Security   |  2,89  |  13 agosto, 2019  |
-|  Rel 19-08   |  [4512489]  |  Windows Security   |  4,69  |  13 agosto, 2019  |
-|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  2,89, 3,76, 4,69  |  15 agosto 2019  |
-|  Rel 19-08   |  [4507449]  |  Non-sicurezza   |  2,89  |  9 luglio 2019  |
-|  Rel 19-08   |  [4507000]  |  Non sicurezza di 4.5.2 .NET   |  3,76  |  12 agosto 2019  |
-|  Rel 19-08   |  [4507002]  |  .NET 3,5 non-sicurezza   |  3,76  |  12 agosto 2019  |
-|  Rel 19-08   |  [4507462]  |  Non-sicurezza   |  3,76  |  9 luglio 2019  |
-|  Rel 19-08   |  [4506999]  |  Non sicurezza di 4.5.2 .NET    |  4,69  |  12 agosto 2019  |
-|  Rel 19-08   |  [4507005]  |  .NET 3,5 non-sicurezza    |  4,69  |  12 agosto 2019  |
-|  Rel 19-08   |  [4507448]  |  Non-sicurezza   |  4,69  |  9 luglio 2019  |
-|  Rel 19-08   |  [4509091]  |  Aggiornamento dello stack di manutenzione   |  5,34  |  9 luglio 2019  |
-|  Rel 19-08   |  [4509095]  |  Aggiornamento dello stack di manutenzione   |  6.1  |  9 luglio 2019  |
-|  Rel 19-08   |  [4512937]  |  Aggiornamento dello stack di manutenzione   |  6.1  |  29 luglio 2019  |
-|  Rel 19-08   |  [4507004]  |  Non sicurezza di .NET 3.5.1    |  2,89  |  12 agosto 2019  |
-|  Rel 19-08   |  [4504418]  |  Aggiornamento dello stack di manutenzione   |  3,76, 4,69  |  11 luglio 2019  |
-|  Rel 19-08   |  [4507001]  |  Non sicurezza di 4.5.2 .NET   |  2,89  |  12 agosto 2019  |
-|  Rel 19-08   |  [4507704]  |  Impostazione dell'ora legale in Windows per il Brasile e il Marocco   |  2,89, 3,76, 4,69, 5,34  |  13 agosto, 2019  |
+|  Rel 19-08   |  [4512482]  |  Windows Security   |  [3,76]  |  13 agosto, 2019  |
+|  Rel 19-08   |  [4494175]  |  Aggiornamento microcodice   |  [5,34]  |  18 giugno, 2019  |
+|  Rel 19-08   |  [4512517]  |  Aggiornamento cumulativo più recente   |  [5,34]  |  13 agosto, 2019  |
+|  Rel 19-08   |  [4494174]  |  Aggiornamento microcodice   |  [6,1]  |  18 giugno, 2019  |
+|  Rel 19-08   |  [4511553]  |  Aggiornamento cumulativo più recente   |  [6,1]  |  13 agosto, 2019  |
+|  Rel 19-08   |  [4512486]  |  Windows Security   |  [2,89]  |  13 agosto, 2019  |
+|  Rel 19-08   |  [4512489]  |  Windows Security   |  [4,69]  |  13 agosto, 2019  |
+|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2,89], [3,76], [4,69]  |  15 agosto 2019  |
+|  Rel 19-08   |  [4507449]  |  Non-sicurezza   |  [2,89]  |  9 luglio 2019  |
+|  Rel 19-08   |  [4507000]  |  Non sicurezza di 4.5.2 .NET   |  [3,76]  |  12 agosto 2019  |
+|  Rel 19-08   |  [4507002]  |  .NET 3,5 non-sicurezza   |  [3,76]  |  12 agosto 2019  |
+|  Rel 19-08   |  [4507462]  |  Non-sicurezza   |  [3,76]  |  9 luglio 2019  |
+|  Rel 19-08   |  [4506999]  |  Non sicurezza di 4.5.2 .NET    |  [4,69]  |  12 agosto 2019  |
+|  Rel 19-08   |  [4507005]  |  .NET 3,5 non-sicurezza    |  [4,69]  |  12 agosto 2019  |
+|  Rel 19-08   |  [4507448]  |  Non-sicurezza   |  [4,69]  |  9 luglio 2019  |
+|  Rel 19-08   |  [4509091]  |  Aggiornamento dello stack di manutenzione   |  [5,34]  |  9 luglio 2019  |
+|  Rel 19-08   |  [4509095]  |  Aggiornamento dello stack di manutenzione   |  [6,1]  |  9 luglio 2019  |
+|  Rel 19-08   |  [4512937]  |  Aggiornamento dello stack di manutenzione   |  [6,1]  |  29 luglio 2019  |
+|  Rel 19-08   |  [4507004]  |  Non sicurezza di .NET 3.5.1    |  [2,89]  |  12 agosto 2019  |
+|  Rel 19-08   |  [4504418]  |  Aggiornamento dello stack di manutenzione   |  [3,76], [4,69]  |  11 luglio 2019  |
+|  Rel 19-08   |  [4507001]  |  Non sicurezza di 4.5.2 .NET   |  [2,89]  |  12 agosto 2019  |
+|  Rel 19-08   |  [4507704]  |  Impostazione dell'ora legale in Windows per il Brasile e il Marocco   |  [2,89], [3,76], [4,69], [5,34]  |  13 agosto, 2019  |
 
 [4512482]: https://support.microsoft.com/kb/4512482
 [4494175]: https://support.microsoft.com/kb/4494175
@@ -75,6 +72,12 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4504418]: https://support.microsoft.com/kb/4504418
 [4507001]: https://support.microsoft.com/kb/4507001
 [4507704]: https://support.microsoft.com/kb/4507704
+
+[6,1]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,34]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,69]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,76]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,89]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="july-2019-guest-os"></a>Sistema operativo guest 2019 luglio

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8368fc5369ee6cd93bbf472d4904cd647d66058d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 692eff26dbbc2289ec589a327dbe58958b414a56
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673028"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842721"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Esercitazione: configurare Bonusly per il provisioning utenti automatico
 
@@ -39,7 +39,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account utente in Bonusly con autorizzazioni di amministratore
 
 > [!NOTE]
-> L'integrazione del provisioning di Azure AD si basa sull'[API Rest Bonusly](https://bonusly.gelato.io/reference) disponibile per gli sviluppatori di Bonusly.
+> L'integrazione del provisioning di Azure AD si basa sull'[API Rest Bonusly](https://konghq.com/solutions/gateway/) disponibile per gli sviluppatori di Bonusly.
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Aggiunta di Bonusly dalla raccolta
 
@@ -86,7 +86,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 ### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Bonusly in Azure AD:
 
-1. Accedi per il [portale di Azure](https://portal.azure.com) e selezionare **applicazioni aziendali**, selezionare **tutte le applicazioni**, quindi selezionare **Bonusly**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **applicazioni aziendali**, selezionare **tutte le applicazioni**, quindi selezionare **bonusly**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
