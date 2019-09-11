@@ -27,6 +27,8 @@
       items:
         - name: Panoramica
           href: customize-content-models-overview.md
+        - name: Personaggi animati
+          href: animated-characters-recognition.md
         - name: Marchi
           href: customize-brands-model-overview.md
         - name: Linguaggio
@@ -45,8 +47,10 @@
       href: video-indexer-output-json-v2.md
     - name: Trovare momenti esatti nei video
       href: video-indexer-search.md
-    - name: 'Scene, scatti e fotogrammi chiave'
+    - name: 'Rilevare scene, scatti e fotogrammi chiave'
       href: scenes-shots-keyframes.md
+    - name: Identificare e trascrivere contenuto multilingue
+      href: multi-language-identification-transcription.md
     - name: Visualizzare e modificare le informazioni dettagliate di Video Indexer
       href: video-indexer-view-edit.md
     - name: Usare l'editor per creare progetti
@@ -57,6 +61,8 @@
       href: video-indexer-disaster-recovery.md
     - name: Personalizzare i modelli di contenuto
       items:
+        - name: Personaggi animati
+          href: animated-characters-recognition.md
         - name: Person
           items:
             - name: con il sito Web di Video Indexer

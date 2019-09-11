@@ -21,7 +21,7 @@
       href: tutorial-configure-password-hash-sync.md
 - name: Esempi
   items:
-    - name: Creare un'istanza di Azure Active Directory Domain Services con Azure PowerShell
+    - name: Creare un dominio gestito con Azure PowerShell
       href: powershell-create-instance.md
 - name: Concetti
   items:

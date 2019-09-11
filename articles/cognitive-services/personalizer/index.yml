@@ -1,61 +1,101 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione di Personalizza esperienze
+summary: Informazioni su come usare Personalizza esperienze per consentire all'applicazione di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
 metadata:
-  document_id: null
-  title: 'Personalizza esperienze - Esercitazioni, guide introduttive, informazioni di riferimento sulle API'
-  description: 'Informazioni su come usare il servizio Personalizza esperienze per consentire all''applicazione di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.'
+  ms.topic: landing-page
+  ms.date: 09/09/2019
+  ms.author: nitinme
   author: nitinme
-  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: personalizer
-  ms.topic: landing-page
-  ms.date: 05/07/2019
-  ms.author: nitinme
-abstract:
-  description: 'Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/personalizer/what-is-personalizer
-            html: <p>Informazioni sul funzionamento di Personalizza esperienze e su come usarlo.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Informazioni su Personalizza esperienze
-          - href: /azure/cognitive-services/personalizer/how-personalizer-works
-            html: <p>Informazioni sull'utilizzo del ciclo di feedback di Personalizza esperienze con le API di Classifica e Ricompensa.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Funzionamento di Personalizza esperienze
-          - href: /azure/cognitive-services/personalizer/ethics-responsible-use
-            html: <p>Implementare la personalizzazione in modo che generi fiducia nell'azienda e nel servizio.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Etica e responsabilità
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: ''
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ../media/index/logo_Csharp.svg
-            href: csharp-quickstart-commandline-feedback-loop.md
-            text: 'C#'
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API REST
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092082"> API di Personalizza esperienze</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Interfaccia della riga di comando di Azure</a></p>'
+  services: cognitive-services
+  title: Documentazione di Personalizza esperienze
+  titleSuffix: Azure Cognitive Services
+  description: Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
+  ms.openlocfilehash: 7c73472231b563c1efa583e356774f755abea3bf
+  ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/10/2019
+  ms.locfileid: "70845411"
+landingContent:
+- title: Informazioni su Personalizza esperienze
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Personalizza esperienze
+      url: what-is-personalizer.md
+  - linkListType: concept
+    links:
+    - text: Funzionamento di Personalizza esperienze
+      url: how-personalizer-works.md
+    - text: In quali casi è possibile usare Personalizza esperienze?
+      url: where-can-you-use-personalizer.md
+    - text: Etica e uso responsabile
+      url: ethics-responsible-use.md
+    - text: Scelta di funzionalità e azioni da personalizzare
+      url: concepts-features.md
+    - text: Come calcolare una ricompensa
+      url: concept-rewards.md
+    - text: Valutazioni offline
+      url: concepts-offline-evaluation.md
+  - linkListType: how-to-guide
+    links:
+    - text: Analizzare il successo con la valutazione offline
+      url: how-to-offline-evaluation.md
+- title: Sviluppo con Personalizza esperienze
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso di .NET
+      url: csharp-quickstart-commandline-feedback-loop.md
+    - text: Uso di Python
+      url: python-quickstart-commandline-feedback-loop.md
+    - text: Node.js
+      url: quickstart-command-line-feedback-loop-nodejs-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: Come creare e configurare Personalizza esperienze
+      url: how-to-settings.md
+  - linkListType: reference
+    links:
+    - text: Esempi di codice
+      url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
+    - text: API REST
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
+    - text: Pacchetto NuGet
+      url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
+    - text: Pacchetto NPM
+      url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+    - text: Pacchetto Pypi
+      url: https://pypi.org/project/azure-cognitiveservices-personalizer/
+  - linkListType: concept
+    links:
+    - text: Scalabilità e prestazioni
+      url: concepts-scalability-performance.md
+- title: Informazioni sull'apprendimento per rinforzo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è l'apprendimento per rinforzo?
+      url: concepts-reinforcement-learning.md
+  - linkListType: concept
+    links:
+    - text: Esplorazione
+      url: concepts-exploration.md
+    - text: Funzionalità, azione e contesto
+      url: concepts-features.md
+    - text: Apprendimento attivo
+      url: concept-active-learning.md
+    - text: Ricompense
+      url: concept-rewards.md
+- title: Guida e feedback
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: risoluzione dei problemi
+      url: troubleshooting.md
+    - text: Inviare domande a Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/personalizer
+    - text: Influire sul servizio con UserVoice
+      url: https://cognitive.uservoice.com/forums/921562-personalizer

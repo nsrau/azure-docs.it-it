@@ -1,0 +1,153 @@
+### YamlMime:Landing
+title: Documentazione di Archiviazione BLOB di Azure
+summary: L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
+metadata:
+  title: Documentazione di Archiviazione BLOB di Azure
+  description: L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
+  services: storage
+  ms.service: storage
+  ms.subservice: blobs
+  ms.topic: landing-page
+  ms.collection: collection
+  author: normesta
+  ms.author: normesta
+  ms.date: 08/20/2019
+  ms.openlocfilehash: 3bc4bf920f4c780f0b73cdd75e62d8aff77b3c94
+  ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/10/2019
+  ms.locfileid: "70875572"
+landingContent:
+- title: Informazioni sull'archiviazione BLOB
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Archiviazione BLOB di Azure
+      url: storage-blobs-overview.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Usare il portale di Azure
+      url: storage-quickstart-blobs-portal.md
+    - text: Usare Storage Explorer
+      url: storage-quickstart-blobs-storage-explorer.md
+  - linkListType: concept
+    links:
+    - text: Panoramica dell'account di archiviazione
+      url: ../common/storage-account-overview.md
+    - text: Ridondanza dei dati
+      url: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un account di archiviazione
+      url: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Creare un account di archiviazione BLOB in blocchi
+      url: storage-blob-create-account-block-blob.md
+    - text: Configurare un dominio personalizzato
+      url: storage-custom-domain-name.md
+- title: Analisi e informazioni dettagliate
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Data Lake Storage Gen2
+      url: data-lake-storage-introduction.md
+  - linkListType: quickstart
+    links:
+    - text: Analizzare i dati con Databricks
+      url: data-lake-storage-quickstart-create-databricks-account.md
+  - linkListType: concept
+    links:
+    - text: Elaborazione di Big Data
+      url: data-lake-storage-data-scenarios.md
+    - text: Accesso multi-protocollo
+      url: data-lake-storage-multi-protocol-access.md
+    - text: Procedure consigliate
+      url: data-lake-storage-best-practices.md
+  - linkListType: tutorial
+    links:
+    - text: Estrarre, trasformare e caricare dati con Azure Databricks
+      url: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Estrarre, trasformare e caricare dati con Apache Hive in Azure HDInsight
+      url: data-lake-storage-tutorial-extract-transform-load-hive.md
+    - text: Inserire dati in tabelle Databricks con Griglia di eventi
+      url: data-lake-storage-events.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Uso con cluster di Azure HDInsight
+      url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Uso con Power BI
+      url: data-lake-storage-use-power-bi.md
+- title: Sviluppare applicazioni
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Usare .NET
+      url: storage-quickstart-blobs-dotnet.md
+    - text: Usare Python
+      url: storage-quickstart-blobs-python.md
+    - text: Instradare eventi a un endpoint Web
+      url: ../../event-grid/blob-event-quickstart-portal.md
+    - text: Ospitare un sito Web statico
+      url: storage-blob-static-website-how-to.md
+  - linkListType: concept
+    links:
+    - text: Gestire eventi
+      url: storage-blob-event-overview.md
+    - text: Siti Web statici
+      url: storage-blob-static-website.md
+  - linkListType: tutorial
+    links:
+    - text: Creare un'app Web per caricare dati di immagini
+      url: storage-upload-process-images.md
+- title: Gestire sicurezza e identità
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Autorizzare l'accesso ad archiviazione di Azure
+      url: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Controllo di accesso Data Lake
+      url: data-lake-storage-access-control.md
+  - linkListType: how-to-guide
+    links:
+    - text: Accedere ai dati BLOB con un account Azure AD
+      url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
+      url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Usare un'identità gestita per autorizzare l'accesso all'archiviazione BLOB
+      url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- title: Trasferire i dati
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Confrontare le soluzioni di trasferimento dei dati
+      url: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Usare Azure Data Box per il trasferimento offline
+      url: ../../databox/data-box-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Trasferire con AzCopy
+      url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Trasferire con Azure Data Factory
+      url: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- title: Prestazioni e scalabilità
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Scalabilità e prestazioni
+      url: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: Elenco di controllo di prestazioni e scalabilità
+      url: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - linkListType: tutorial
+    links:
+    - text: Ottimizzare per prestazioni e scalabilità
+      url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- title: Eseguire il backup e l'archiviazione dei dati
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Archiviazione ad accesso frequente, ad accesso sporadico e archivio
+      url: storage-blob-storage-tiers.md
+    - text: Gestire il ciclo di vita di archiviazione BLOB di Azure
+      url: storage-lifecycle-management-concepts.md
