@@ -274,8 +274,8 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Protezione avanzata dalle minacce
-        - name: Attributi di sicurezza
-          href: cosmos-db-security-attributes.md
+        - name: Criteri di sicurezza integrati
+          href: cosmos-db-security-controls.md
     - name: Soluzione pronta per l'azienda
       items:
         - name: Backup online e ripristino su richiesta
@@ -459,6 +459,10 @@
           items:
             - name: Intestazioni della risposta
               href: gremlin-headers.md
+            - name: Limiti
+              href: gremlin-limits.md
+            - name: Compatibilità
+              href: gremlin-compatibility.md
         - name: Guide alle procedure
           items:
             - name: Modellazione di dati del grafico
@@ -471,6 +475,10 @@
               href: graph-execution-profile.md
             - name: Usare i token delle risorse
               href: how-to-use-resource-tokens-gremlin.md
+            - name: Usare endpoint a livello di area
+              href: how-to-use-regional-gremlin.md
+            - name: Accedere alle proprietà di documenti di sistema
+              href: how-to-access-system-properties-gremlin.md
             - name: Visualizzare i dati del grafico
               href: graph-visualization.md
             - name: Archiviare e gestire Spring Data
