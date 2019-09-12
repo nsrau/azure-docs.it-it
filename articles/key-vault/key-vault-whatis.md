@@ -2,19 +2,19 @@
 title: Cos'è l'insieme di credenziali chiave di Azure? | Microsoft Docs
 description: Informazioni su come Azure Key Vault protegge le chiavi crittografiche e i segreti usati dalle applicazioni e dai servizi cloud.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/18/2019
-ms.author: barclayn
-ms.openlocfilehash: 2786ec387d528e1593e2687d906060f8a2673a8c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.author: mbaldwin
+ms.openlocfilehash: cf8101923f898c4ce190f3eaf2f3a9b2430cc723
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934469"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885120"
 ---
 # <a name="what-is-azure-key-vault"></a>Cos'è l'insieme di credenziali chiave di Azure?
 
@@ -41,7 +41,7 @@ Ecco altri termini importanti:
 
 - **Resource** (Risorsa): una risorsa è un elemento gestibile disponibile tramite Azure. Esempi comuni sono la macchina virtuale, l'account di archiviazione, l'app Web, il database e la rete virtuale. Sono disponibili molte altre.
 
-- **Gruppo di risorse**: Un gruppo di risorse è un contenitore che include le risorse correlate per una soluzione di Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione.
+- **Gruppo di risorse**: Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione.
 
 - **Entità servizio**: Un'entità servizio di Azure è un'identità di sicurezza usata da app, servizi e strumenti di automazione creati dall'utente per accedere a risorse di Azure specifiche. È possibile considerarlo come una "identità utente" (nome utente e password o certificato) con un ruolo specifico e autorizzazioni strettamente controllate. A differenza di un'identità utente generica, un'entità servizio dovrà eseguire solo operazioni specifiche. Migliora la sicurezza se si concede solo il livello di autorizzazione minimo necessario per eseguire le attività di gestione.
 

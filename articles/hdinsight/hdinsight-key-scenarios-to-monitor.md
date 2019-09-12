@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2caa96e0ad036bbb872de43a7d8736969cf33c42
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 706f0333f1cca984b44e0fc96a5b014d4157ce4c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812029"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879689"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorare le prestazioni del cluster in Azure HDInsight
 
@@ -27,7 +27,7 @@ I cluster Hadoop offrono prestazioni ottimali quando il carico nel cluster viene
 
 Per una panoramica sui nodi del cluster e sul rispettivo caricamento, accedere all'[interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md) e selezionare la scheda **Host**. Gli host sono elencati in base ai relativi nomi di dominio completi. Lo stato operativo di ogni host viene visualizzato tramite un indicatore di integrità colorato:
 
-| Colore | Descrizione |
+| Colore | DESCRIZIONE |
 | --- | --- |
 | Rosso | Almeno un componente master dell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
 | Arancione | Almeno un componente secondario nell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
@@ -68,7 +68,7 @@ Per un'analisi più approfondita delle code, nell'elenco a sinistra del dashboar
 
 Nell'interfaccia utente di ResourceManager selezionare **Scheduler** (Utilità di pianificazione) dal menu a sinistra. Viene visualizzato un elenco delle code disponibili in *Application Queues* (Code dell'applicazione). In quest'area è possibile visualizzare la capacità usata per ognuna delle code, come vengono distribuiti i processi tra di esse e se i processi hanno risorse limitate.
 
-![Collegamento al menu ResourceManager UI (Interfaccia utente di ResourceManager)](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Menu dell'interfaccia utente Gestione risorse](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Limitazione del servizio di archiviazione
 

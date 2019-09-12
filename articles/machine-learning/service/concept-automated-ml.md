@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 319871280b94f54b99f7a9957f671ec50122ebf3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860922"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882026"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -98,7 +98,12 @@ La compilazione di previsioni è parte integrante di qualsiasi azienda, sia che 
 
 Un esperimento di serie temporali automatizzato viene considerato un problema di regressione MultiVariante. I valori delle serie temporali precedenti sono "trasformati tramite pivot" per diventare dimensioni aggiuntive per il regressore insieme ad altri predittori. Questo approccio, a differenza dei metodi classici della serie temporale, ha il vantaggio di incorporare naturalmente più variabili contestuali e la relazione tra loro durante il training. Machine Learning Machine Learning apprende un singolo modello, ma spesso con rami internamente, per tutti gli elementi del set di dati e gli orizzonti di stima. Sono pertanto disponibili più dati per stimare i parametri del modello e la generalizzazione per la serie non visibile diventa possibile.
 
-Per altre informazioni, vedere un esempio di [Machine Learning automatizzato per la previsione delle serie temporali](how-to-auto-train-forecast.md).
+Per altre informazioni, vedere un esempio di [Machine Learning automatizzato per la previsione delle serie temporali](how-to-auto-train-forecast.md). In alternativa, vedere il [notebook della domanda di energia](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) per esempi di codice dettagliati sulla configurazione di previsione avanzata, tra cui:
+
+* rilevamento festività e conteggi
+* convalida incrociata di origine in sequenza
+* ritardi configurabili
+* funzionalità di aggregazione della finestra in sequenza
 
 ## <a name="ensemble"></a>Modelli di ensemble
 

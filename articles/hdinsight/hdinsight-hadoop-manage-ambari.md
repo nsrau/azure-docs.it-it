@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 3ca9c12caa7fa9b54cd63c2655166d95477dffa2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442064"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885315"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
 
@@ -49,7 +49,7 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-|Elemento |DESCRIZIONE |
+|Elemento |Descrizione |
 |---|---|
 |Logo di Ambari|Apre il dashboard, che può essere usato per monitorare il cluster.|
 |Nome cluster # Ops|Visualizza il numero di operazioni Ambari in corso. Selezionando il nome del cluster o **# ops**, viene visualizzato un elenco delle operazioni in background.|
@@ -76,7 +76,7 @@ Gli avvisi con stato diverso da **OK** determinano la compilazione del campo **#
 
 Gli avvisi sono organizzati in diversi gruppi predefiniti, che possono essere visualizzati dalla pagina **Alerts** .
 
-![pagina degli avvisi](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![pagina degli avvisi](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
 È possibile gestire i gruppi scegliendo **Manage Alert Groups** (Gestisci gruppi di avvisi) dal menu **Actions** (Azioni).
 
@@ -92,11 +92,11 @@ Selezionare infine __Manage Alert Settings__ (Gestire impostazioni di avviso) da
 
 La scheda **Metrics** del dashboard contiene una serie di widget che consentono di monitorare lo stato del cluster in modo immediato. Widget diversi, ad esempio **CPU Usage**, forniscono informazioni aggiuntive quando vengono selezionati.
 
-![dashboard con metriche](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![dashboard con metriche](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
 La scheda **Heatmaps** visualizza le metriche come mappe termiche colorate, dal verde al rosso.
 
-![dashboard con mappe termiche](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![dashboard con mappe termiche](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
 Per altre informazioni sui nodi presenti nel cluster, selezionare **Host**. Selezionare quindi il nodo desiderato.
 
@@ -142,7 +142,7 @@ L'uso di utenti, gruppi e autorizzazioni è supportato con un cluster HDInsight 
 
 La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seguire questa procedura.
 
-![pagina Hosts](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![pagina Hosts](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
 
 > [!NOTE]  
 > Non usare le procedure per aggiungere, rimuovere o ripristinare un host con cluster HDInsight.
@@ -151,7 +151,7 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
 
 2. Usare il menu **Actions** per selezionare l'azione da eseguire:
 
-    |Elemento |Descrizione |
+    |Elemento |DESCRIZIONE |
     |---|---|
     |Avvia tutti i componenti|Avviare tutti i componenti nell'host.|
     |Arresta tutti i componenti|Arrestare tutti i componenti nell'host.|

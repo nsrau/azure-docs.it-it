@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 2a037a495a1e1ed211bd9a535891ccf75fdb140b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278188"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879050"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
 
@@ -90,7 +90,7 @@ Per le attività di previsione, Machine Learning automatizzato USA operazioni di
 
 L' `AutoMLConfig` oggetto definisce le impostazioni e i dati necessari per un'attività automatica di machine learning. Analogamente a un problema di regressione, si definiscono parametri di training standard come il tipo di attività, il numero di iterazioni, i dati di training e il numero di convalide incrociate. Per le attività di previsione, è necessario impostare parametri aggiuntivi che interessano l'esperimento. La tabella seguente illustra ogni parametro e il relativo utilizzo.
 
-| Param | Descrizione | Obbligatoria |
+| Param | DESCRIZIONE | Obbligatoria |
 |-------|-------|-------|
 |`time_column_name`|Utilizzato per specificare la colonna DateTime nei dati di input utilizzati per compilare la serie temporale e dedurre la relativa frequenza.|✓|
 |`grain_column_names`|Nome/i che definisce i singoli gruppi di serie nei dati di input. Se la granularità non è definita, si presuppone che il set di dati sia una serie temporale.||
@@ -138,8 +138,12 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-> [!NOTE]
-> Per la procedura di convalida incrociata (CV), i dati delle serie temporali possono violare i presupposti statistici di base della strategia di convalida incrociata della K-fold canonica, in modo che Machine Learning automatico implementi una procedura di convalida dell'origine in sequenza per creare riduzioni di convalida incrociata per i dati di serie temporali. Per utilizzare questa procedura, specificare il `n_cross_validations` parametro `AutoMLConfig` nell'oggetto. È possibile ignorare la convalida e usare i set di convalida personalizzati `X_valid` con `y_valid` i parametri e.
+Vedere il [notebook della domanda di energia](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) per esempi di codice dettagliati sulla configurazione di previsione avanzata, tra cui:
+
+* rilevamento festività e conteggi
+* convalida incrociata di origine in sequenza
+* ritardi configurabili
+* funzionalità di aggregazione della finestra in sequenza
 
 ### <a name="view-feature-engineering-summary"></a>Visualizza riepilogo Progettazione funzionalità
 

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 7a278196b2f4edc35ebc8c4dc77116363e9f7901
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 2e79f38fb6495d75e0438fa3622cc226886c0773
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811809"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885556"
 ---
-# <a name="scale-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight
+# <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
 HDInsight offre elasticità permettendo di aumentare e ridurre il numero di nodi di lavoro nei cluster. Questa elasticità consente di compattare un cluster dopo ore o nei fine settimana ed espanderlo durante le esigenze aziendali di picco.
 
@@ -29,7 +29,7 @@ Se si dispone di un'elaborazione batch periodica, il cluster HDInsight può esse
 
 Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 
-|Utilità | Descrizione|
+|Utilità | DESCRIZIONE|
 |---|---|
 |[PowerShell AZ](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -clustername \<nome cluster >-TargetInstanceCount \<NewSize >|
 |[AzureRM di PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -clustername \<nome cluster >-TargetInstanceCount \<NewSize >|

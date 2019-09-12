@@ -2,8 +2,8 @@
 title: Considerazioni sulla rete - Modulo di protezione hardware dedicato di Azure | Microsoft Docs
 description: Panoramica delle considerazioni sulla rete applicabili alle distribuzioni del modulo di protezione hardware dedicato di Azure
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: barclayn
-ms.openlocfilehash: 042ecabe38969a6a26c27622b8c3d25193b3e7c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118035"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881278"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Reti con HSM dedicato di Azure
 
@@ -60,7 +60,7 @@ Una rete privata virtuale da punto a sito è la forma più semplice di connessio
 
 ### <a name="site-to-site-vpn"></a>VPN da sito a sito
 
-Una rete privata virtuale da sito a sito consente la comunicazione sicura tra HSM dedicati basati su Azure e l'IT locale. Un motivo per eseguire questa operazione è la presenza di una funzionalità di backup per il modulo di protezione hardware locale e che necessita di una connessione tra i due oggetti per l'esecuzione del backup.
+Una rete privata virtuale da sito a sito consente la comunicazione sicura tra HSM dedicati basati su Azure e l'IT locale. Per eseguire questa operazione, è necessario disporre di una funzionalità di backup per il modulo di protezione hardware locale e che sia necessaria una connessione tra i due per l'esecuzione del backup.
 
 ## <a name="connecting-virtual-networks"></a>Connessione di reti virtuali
 

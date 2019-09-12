@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 199fcdf2ebf10852906b842f09fe7beafd2acdb5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e52a32c1897a7add939880fbe27d6b4b7fbee0bd
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326618"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883583"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Panoramica della terminazione SSL e del protocollo SSL end-to-end con il gateway applicazione
 
@@ -95,7 +95,7 @@ I certificati di autenticazione sono stati deprecati e sostituiti da certificati
    
 > [!NOTE] 
 >
-> Affinché un certificato SSL possa essere considerato attendibile, il certificato del server back-end deve essere stato emesso da un'autorità di certificazione inclusa nell'archivio attendibile del gateway applicazione. se il certificato non è stato emesso da una CA attendibile, il gateway applicazione verificherà verificare se il certificato della CA emittente è stato emesso da un'autorità di certificazione attendibile e così via fino a quando non viene trovata una CA attendibile (a questo punto viene stabilita una connessione protetta attendibile) o non è possibile trovare alcuna autorità di certificazione attendibile. a quel punto il gateway applicazione contrassegna il Unhe back-end althy). È quindi consigliabile che il certificato del server back-end contenga sia le CA radice che intermidie.
+> Affinché un certificato SSL possa essere considerato attendibile, il certificato del server back-end deve essere stato emesso da un'autorità di certificazione inclusa nell'archivio attendibile del gateway applicazione. se il certificato non è stato emesso da una CA attendibile, il gateway applicazione verificherà per verificare se il certificato della CA emittente è stato emesso da un'autorità di certificazione attendibile e così via fino a quando non viene individuata una CA attendibile (a questo punto viene stabilita una connessione protetta attendibile) o non è possibile trovare alcuna autorità di certificazione attendibile (a questo punto il gateway applicazione contrassegna il back-end non integro). È quindi consigliabile che il certificato del server back-end contenga sia le CA radice che intermidie.
 
 - Se il certificato è autofirmato o firmato da intermediari sconosciuti, per abilitare SSL end-to-end nello SKU v2 deve essere definito un certificato radice attendibile. Il gateway applicazione comunicherà solo con back-end il cui certificato radice del certificato del server corrisponde a uno dei certificati dell'elenco dei certificati radice attendibili nell'impostazione HTTP di back-end associata al pool.
 

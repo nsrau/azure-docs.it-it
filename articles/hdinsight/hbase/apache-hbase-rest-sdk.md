@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 707869880c5df619def2d707264b59e22e03c521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f833d045f297679ae3629f8e0afe20b3ca834821
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720305"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885578"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>Usare il SDK .NET per Apache HBase
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Usare .NET SDK per Apache HBase
 
-[Apache HBase](apache-hbase-overview.md) fornisce due opzioni principali per lavorare con i dati: [Query Apache Hive e chiamate all'API REST di HBase](apache-hbase-tutorial-get-started-linux.md). È possibile lavorare direttamente con l'API REST usando il comando `curl` o un'utilità analoga.
+[Apache HBase](apache-hbase-overview.md) offre due opzioni principali per lavorare con i dati: [Apache hive le query e le chiamate all'API RESTful di HBase](apache-hbase-tutorial-get-started-linux.md). È possibile lavorare direttamente con l'API REST usando il comando `curl` o un'utilità analoga.
 
 Per le applicazioni C# e .NET, è disponibile la [libreria client Microsoft REST HBase per .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) basata sull'API REST HBase.
 
@@ -60,7 +60,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 
 Questa nuova tabella ha due famiglie di colonne, t1 e t2. Poiché le famiglie di colonne vengono archiviate separatamente in oggetti HFile diversi, è opportuno disporre di una famiglia di colonne distinta per i dati su cui vengono eseguite frequentemente query. Nell'esempio nella sezione [Inserire dati](#insert-data) seguente le colonne vengono aggiunte alla famiglia di colonne t1.
 
-## <a name="delete-a-table"></a>Eliminare una tabella
+## <a name="delete-a-table"></a>Elimina una tabella
 
 Per eliminare una tabella:
 
@@ -114,9 +114,9 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase implementa [Cloud BigTable](https://cloud.google.com/bigtable/), quindi il formato dei dati è simile al seguente:
 
-![Utente con ruolo di utente del cluster](./media/apache-hbase-rest-sdk/table.png)
+![Utente con ruolo di utente del cluster](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
-## <a name="select-data"></a>Selezionare i dati
+## <a name="select-data"></a>Seleziona dati
 
 Per leggere i dati da una tabella HBase, passare il nome della tabella e la chiave di riga al metodo `GetCellsAsync` per restituire l'oggetto `CellSet`.
 

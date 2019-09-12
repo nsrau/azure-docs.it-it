@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: d4774dcc96e5f7639ca0b03bca992c9a3126230b
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5264491220a4b0756a2a9f0a96aae4ed67809618
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623886"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879446"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -93,7 +93,7 @@ Le [azioni script](hdinsight-hadoop-customize-cluster-linux.md) di HDInsight ese
 
 Il passaggio successivo prevede la revisione dei file di log di esecuzione dei processi per i diversi servizi.  I servizi possono includere Apache HBase, Apache Spark e molti altri. Poiché un cluster Hadoop genera numerosi log dettagliati, determinare quali log sono utili (e quali no) può essere dispendioso in termini di tempo.  Conoscere il sistema di registrazione è importante per la gestione mirata dei file di log.  Di seguito è riportato un esempio di file di log.
 
-![Esempio di file di log di HDInsight](./media/hdinsight-log-management/logs.png)
+![Esempio di file di log di HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Accedere ai file di log di Hadoop
 
@@ -148,7 +148,7 @@ Dopo avere determinato quali file di log possono essere eliminati, è possibile 
 
 Per determinati file di log, è possibile usare un approccio di archiviazione di prezzo inferiore. Per i log attività di Azure Resource Manager, è possibile esplorare questo approccio con il portale di Azure.  Configurare l'archiviazione dei log di Azure Resource Manager selezionando il collegamento **Log attività** nel portale di Azure per l'istanza di HDInsight.  Nella parte superiore della pagina di ricerca Log attività scegliere la voce di menu **Esporta** per aprire il riquadro **Esporta log attività**.  Specificare la sottoscrizione, l'area, se eseguire l'esportazione in un account di archiviazione e per quanti giorni conservare i log. In questo stesso riquadro è anche possibile indicare se eseguire l'esportazione in un hub eventi. 
 
-![Esportare i file di log](./media/hdinsight-log-management/archive.png)
+![Esportare i file di log](./media/hdinsight-log-management/hdi-export-log-files.png)
 
 In alternativa, è possibile generare uno script per archiviare i log con PowerShell.  Per uno script di PowerShell di esempio, vedere [Archive Azure Automation logs to Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8) (Archiviare i log di Automazione di Azure in Archiviazione BLOB di Azure).
 

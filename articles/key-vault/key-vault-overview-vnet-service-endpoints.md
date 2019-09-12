@@ -4,16 +4,16 @@ description: Panoramica degli endpoint servizio di rete virtuale per Key Vault
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: barbkess
+manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 45499dac3cc50e2b6e79f9ebcb1bc3e7b4330beb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2617ae7bd1c761ae7977eac518c2e40ca55da00c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165842"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883231"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint servizio di rete virtuale per Azure Key Vault
 
@@ -53,7 +53,7 @@ Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Azu
 > Tenere presente le seguenti limitazioni di configurazione:
 > * Sono consentite al massimo 127 regole di rete virtuale e 127 regole IPv4. 
 > * Gli intervalli di indirizzi di piccole dimensioni che usano dimensioni di prefisso "/31" o "/32" non sono supportati. Configurare questi intervalli usando le regole dei singoli indirizzi IP.
-> * Le regole di rete IP sono consentite solo per gli indirizzi IP pubblici. Gli intervalli di indirizzi IP riservati per le reti private (come da definizione in RFC 1918) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con **10.** , **172.16-31**, e **192.168.** . 
+> * Le regole di rete IP sono consentite solo per gli indirizzi IP pubblici. Gli intervalli di indirizzi IP riservati per le reti private (come da definizione in RFC 1918) non sono consentiti nelle regole IP. Le reti private includono indirizzi che iniziano con **10.** , **172.16-31**e **192,168.** . 
 > * Attualmente sono supportati solo gli indirizzi IPv4.
 
 ## <a name="trusted-services"></a>Servizi attendibili
@@ -73,7 +73,7 @@ Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad
 |Archiviazione di Azure|[Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Archivio Azure Data Lake|[Crittografia dei dati in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) con una chiave gestita dal cliente.|
 |Azure Databricks|[Servizio di analisi veloce, facile e collaborativo basato su Apache Spark](../azure-databricks/what-is-azure-databricks.md)|
-|Gestione API di Azure|[Distribuire i certificati per il dominio personalizzato da Key Vault usando l'identità del servizio gestito](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
+|Gestione API di Azure|[Distribuire i certificati per un dominio personalizzato da Key Vault usando MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 
 
 

@@ -1,51 +1,51 @@
 ---
-title: Sicurezza di Azure Key Vault | Microsoft Docs
+title: Sicurezza Azure Key Vault | Microsoft Docs
 description: Gestire le autorizzazioni di accesso per Azure Key Vault, chiavi e segreti. L'articolo riguarda il modello di autenticazione e autorizzazione per Key Vault e offre informazioni su come proteggere l'insieme di credenziali delle chiavi.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: barclayn
+ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 5b32e4897e718e0e411caf9ba76b036f1352bde0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 728398aeec4715d15ebe44ae6d4e4bfa5f295df8
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715292"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884780"
 ---
-# <a name="azure-key-vault-security"></a>Sicurezza di Azure Key Vault
+# <a name="azure-key-vault-security"></a>Sicurezza Azure Key Vault
 
-È necessario proteggere le chiavi di crittografia e i segreti, ad esempio i certificati, stringhe di connessione e password nel cloud in modo che si usa Azure Key Vault. Poiché si sta archiviando sensibili e dati aziendali critici, è necessario eseguire passaggi per ottimizzare la sicurezza dei dati archiviati in essi contenuti e gli insiemi di credenziali. Questo articolo illustra alcuni dei concetti che è opportuno considerare quando si progetta la sicurezza di Azure Key Vault.
+È necessario proteggere le chiavi di crittografia e i segreti, ad esempio certificati, stringhe di connessione e password nel cloud, in modo da usare Azure Key Vault. Poiché si archiviano dati sensibili e aziendali critici, è necessario eseguire le operazioni necessarie per ottimizzare la sicurezza degli insiemi di credenziali e i dati archiviati in essi. In questo articolo verranno illustrati alcuni dei concetti che è opportuno considerare quando si progetta la sicurezza del Azure Key Vault.
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 
-Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Chiunque provi a gestire o recuperare il contenuto da un insieme di credenziali deve essere autenticate da Azure AD.
+Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Chiunque tenti di gestire o recuperare il contenuto da un insieme di credenziali deve essere autenticato da Azure AD.
 
 - L'autenticazione stabilisce l'identità del chiamante.
-- Autorizzazione determina le operazioni che il chiamante può eseguire. Autorizzazione in Azure Key Vault Usa una combinazione di [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) (RBAC) e i criteri di accesso di Azure Key Vault.
+- L'autorizzazione determina le operazioni che il chiamante è in grado di eseguire. L'autorizzazione in Key Vault usa una combinazione di [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) (RBAC) e criteri di accesso Azure Key Vault.
 
 ### <a name="access-model-overview"></a>Panoramica del modello di accesso
 
-Accesso agli insiemi di credenziali viene eseguita tramite due interfacce o piani. Questi piani sono il piano di gestione e piano dati.
+L'accesso agli insiemi di credenziali avviene tramite due interfacce o piani. Questi piani sono il piano di gestione e il piano dati.
 
-- Il *piano di gestione* è dove gestire Key Vault se stessa ed è l'interfaccia utilizzata per creare ed eliminare gli insiemi di credenziali. È anche possibile leggere le proprietà di insieme di credenziali delle chiavi e gestire i criteri di accesso.
+- Il *piano di gestione* è il punto in cui si gestiscono Key Vault stesso ed è l'interfaccia usata per creare ed eliminare insiemi di credenziali. È anche possibile leggere le proprietà dell'insieme di credenziali delle chiavi e gestire i criteri di accesso.
 - Il *piano dati* consente di lavorare con i dati archiviati in un insieme di credenziali delle chiavi. È possibile aggiungere, eliminare e modificare chiavi, segreti e certificati.
 
-Per accedere a un insieme di credenziali delle chiavi in entrambi piano, tutti i chiamanti (utenti o applicazioni) devono essere autenticati e autorizzati. Entrambi i piani usano Azure Active Directory (Azure AD) per l'autenticazione. Per l'autorizzazione, il piano di gestione usa il controllo degli accessi in base al ruolo, mentre il piano dati usa i criteri di accesso dell'insieme di credenziali delle chiavi.
+Per accedere a un insieme di credenziali delle chiavi in entrambi i piani, è necessario autenticare e autorizzare tutti i chiamanti (utenti o applicazioni). Entrambi i piani usano Azure Active Directory (Azure AD) per l'autenticazione. Per l'autorizzazione, il piano di gestione usa il controllo degli accessi in base al ruolo, mentre il piano dati usa i criteri di accesso dell'insieme di credenziali delle chiavi.
 
 Il modello con un singolo meccanismo di autenticazione per entrambi i piani presenta alcuni vantaggi:
 
 - Le organizzazioni possono controllare l'accesso a tutti gli insiemi di credenziali delle chiavi in modo centralizzato.
 - Se un utente lascia l'organizzazione, perde immediatamente l'accesso a tutti gli insiemi di credenziali delle chiavi all'interno dell'organizzazione.
-- Le organizzazioni possono personalizzare l'autenticazione con le opzioni di Azure AD, ad esempio per abilitare l'autenticazione a più fattori per maggiore sicurezza
+- Le organizzazioni possono personalizzare l'autenticazione usando le opzioni disponibili in Azure AD, ad esempio per abilitare l'autenticazione a più fattori per una maggiore sicurezza
 
-### <a name="managing-administrative-access-to-key-vault"></a>Gestire l'accesso amministrativo a Key Vault
+### <a name="managing-administrative-access-to-key-vault"></a>Gestione dell'accesso amministrativo ai Key Vault
 
-Quando si crea un insieme di credenziali delle chiavi in un gruppo di risorse, è gestire l'accesso con Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. È possibile concedere l'accesso a un livello di ambito specifico assegnando i ruoli RBAC appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. A un ruolo Controllo degli accessi in base al ruolo è possibile assegnare i livelli di ambiti seguenti:
+Quando si crea un insieme di credenziali delle chiavi in un gruppo di risorse, è possibile gestire l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. È possibile concedere l'accesso a un livello di ambito specifico assegnando i ruoli RBAC appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. A un ruolo Controllo degli accessi in base al ruolo è possibile assegnare i livelli di ambiti seguenti:
 
 - **Sottoscrizione** Un ruolo Controllo degli accessi in base al ruolo assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e a tutte le risorse in tale sottoscrizione.
 - **Gruppo di risorse**: Un ruolo Controllo degli accessi in base al ruolo assegnato a livello di gruppo di risorse si applica a tutte le risorse di tale gruppo.
@@ -57,9 +57,9 @@ Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le speci
 > Se un utente ha le autorizzazioni `Contributor` per un piano di gestione di un insieme di credenziali delle chiavi, l'utente può concedere a se stesso l'accesso al piano dati impostando criteri di accesso dell'insieme di credenziali delle chiavi. È necessario controllare attentamente chi ha accesso al ruolo `Contributor` per gli insiemi di credenziali delle chiavi. Assicurarsi che solo gli utenti autorizzati possano accedere e gestire gli insiemi di credenziali delle chiavi, le chiavi, i segreti e i certificati.
 
 <a id="data-plane-access-control"></a>
-### <a name="controlling-access-to-key-vault-data"></a>Controllo dell'accesso ai dati Key Vault
+### <a name="controlling-access-to-key-vault-data"></a>Controllo dell'accesso ai dati di Key Vault
 
-I criteri di accesso di Key Vault concedono autorizzazioni separatamente per le chiavi, segreti o certificati. È possibile concedere a un utente l'accesso solo alle chiavi e non ai segreti. Autorizzazioni di accesso per le chiavi, segreti e certificati vengono gestite a livello di insieme di credenziali.
+Key Vault criteri di accesso concedono le autorizzazioni separatamente a chiavi, segreti o certificati. È possibile concedere a un utente l'accesso solo alle chiavi e non ai segreti. Le autorizzazioni di accesso per chiavi, segreti e certificati sono gestite a livello di insieme di credenziali.
 
 > [!IMPORTANT]
 > I criteri di accesso dell'insieme di credenziali delle chiavi non supportano le autorizzazioni granulari a livello di oggetto, ad esempio una chiave, un segreto o un certificato specifico. Quando a un utente viene concessa l'autorizzazione per creare ed eliminare chiavi, può eseguire tali operazioni su tutte le chiavi dell'insieme di credenziali.
@@ -70,32 +70,32 @@ Per impostare i criteri di accesso per un insieme di credenziali delle chiavi, u
 
 ## <a name="network-access"></a>Accesso alla rete
 
-È possibile ridurre l'esposizione degli insiemi di credenziali, specificando gli indirizzi IP possano accedervi. Gli endpoint servizio di rete virtuale per Azure Key Vault consentono di limitare l'accesso a una rete virtuale specifica. Gli endpoint consentono anche di limitare l'accesso a un elenco di intervalli di indirizzi IPv4 (protocollo internet versione 4). L'accesso viene negato a tutti gli utenti che si connettono all'insieme di credenziali delle chiavi dall'esterno di tali origini.
+È possibile ridurre l'esposizione degli insiemi di credenziali specificando quali indirizzi IP possono accedervi. Gli endpoint servizio di rete virtuale per Azure Key Vault consentono di limitare l'accesso a una rete virtuale specifica. Gli endpoint consentono anche di limitare l'accesso a un elenco di intervalli di indirizzi IPv4 (protocollo internet versione 4). L'accesso viene negato a tutti gli utenti che si connettono all'insieme di credenziali delle chiavi dall'esterno di tali origini.
 
-Dopo aver firewall regole sono in effetti, gli utenti possono solo leggere i dati da Key Vault quando le richieste provengono da reti virtuali consentite o intervalli di indirizzi IPv4. Questo vale anche per l'accesso a Key Vault dal portale di Azure. Benché gli utenti possano accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbero non essere in grado di elencare chiavi, segreti o certificati se il computer client in uso non è presente nell'elenco dei computer consentiti. Ciò influisce anche sul selettore dell'insieme di credenziali delle chiavi di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero essere in grado di visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non di elencare le chiavi.
+Dopo aver applicato le regole del firewall, gli utenti possono leggere i dati solo da Key Vault quando le loro richieste provengono da reti virtuali consentite o da intervalli di indirizzi IPv4. Questo vale anche per l'accesso a Key Vault dal portale di Azure. Benché gli utenti possano accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbero non essere in grado di elencare chiavi, segreti o certificati se il computer client in uso non è presente nell'elenco dei computer consentiti. Ciò influisce anche sul selettore dell'insieme di credenziali delle chiavi di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero essere in grado di visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non di elencare le chiavi.
 
-Per altre informazioni su Azure Key Vault verifica indirizzo di rete [endpoint del servizio rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
+Per ulteriori informazioni sugli [endpoint del servizio rete virtuale](key-vault-overview-vnet-service-endpoints.md) Azure Key Vault verifica indirizzo di rete per Azure Key Vault
 
 ## <a name="monitoring"></a>Monitoraggio
 
-La registrazione di Key Vault consente di salvare informazioni sulle attività eseguite nell'insieme di credenziali. Log di Key Vault:
+Key Vault registrazione salva le informazioni sulle attività eseguite nell'insieme di credenziali. Log Key Vault:
 
-- Tutte autenticate richieste dell'API REST, tra cui le richieste non riuscite
-  - Operazioni per la chiave dell'insieme di credenziali se stesso. Tali operazioni includono la creazione, eliminazione, impostazione di criteri di accesso e aggiornamento degli attributi dell'insieme di credenziali chiave come i tag.
-  - Operazioni sulle chiavi e segreti nell'insieme di credenziali chiave, tra cui:
-    - Creazione, modifica o eliminazione di chiavi o segreti.
-    - Firma, verifica, la crittografia, decrittografia, ritorno a capo e rimozione del wrapping delle chiavi, recupero di informazioni riservate ed elenco chiavi e segreti (e relative versioni).
-- Richieste non autenticate che generano una risposta 401. Esempi sono le richieste senza un token di connessione, che sono in formato non valido o è scaduto o che hanno un token non valido.
+- Tutte le richieste API REST autenticate, incluse le richieste non riuscite
+  - Operazioni nell'insieme di credenziali delle chiavi. Queste operazioni includono la creazione, l'eliminazione, l'impostazione dei criteri di accesso e l'aggiornamento degli attributi dell'insieme di credenziali delle chiavi come i tag.
+  - Operazioni su chiavi e segreti nell'insieme di credenziali delle chiavi, tra cui:
+    - Creazione, modifica o eliminazione di queste chiavi o segreti.
+    - Firma, verifica, crittografia, decrittografia, wrapping e annullamento del wrapping delle chiavi, recupero di segreti ed elenco di chiavi e segreti (e delle relative versioni).
+- Richieste non autenticate che generano una risposta 401. Alcuni esempi sono le richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.
 
-Le informazioni di registrazione sono accessibile all'interno di 10 minuti dopo l'operazione di insieme di credenziali delle chiavi. Spetta all'utente la gestione dei log nell'account di archiviazione. 
+È possibile accedere alle informazioni di registrazione entro 10 minuti dall'operazione di Key Vault. È responsabilità dell'utente gestire i log nell'account di archiviazione. 
 
 - Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
 - Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 
-Per indicazioni su gestione dell'archiviazione in modo sicuro gli account di esaminare il [Guida alla sicurezza di archiviazione di Azure](../storage/common/storage-security-guide.md)
+Per consigli sulla gestione sicura degli account di archiviazione, vedere la [Guida alla sicurezza di archiviazione di Azure](../storage/common/storage-security-guide.md)
 
 ## <a name="next-steps"></a>Fasi successive
 
 - [Endpoint del servizio rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
 - [Controllo degli accessi in base al ruolo: ruoli predefiniti](../role-based-access-control/built-in-roles.md)
-- [Endpoint del servizio rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
+- [endpoint del servizio rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)

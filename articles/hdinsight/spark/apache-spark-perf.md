@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 8d058c55eab3d161e625d7d4ca3ef53b36497e00
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: cda974a71c0d24bda9422fb8444fbf4dec0088f9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814070"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885116"
 ---
-# <a name="optimize-apache-spark-jobs"></a>Ottimizzare i processi Apache Spark
+# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Ottimizzare i processi di Apache Spark in HDInsight
 
 Informazioni su come ottimizzare la configurazione del cluster [Apache Spark](https://spark.apache.org/) per carichi di lavoro specifici.  Il problema più comune è legato a un carico eccessivo sulla memoria, causato da configurazioni non corrette (in particolare, a executor di dimensioni errate), operazioni con esecuzione prolungata e attività che generano operazioni cartesiane. È possibile velocizzare i processi con una memorizzazione nella cache appropriata e consentendo l'[asimmetria dei dati](#optimize-joins-and-shuffles). Per ottenere prestazioni ottimali, monitorare e analizzare i processi Spark che comportano un'esecuzione prolungata e un consumo eccessivo di risorse.
 
@@ -61,7 +61,7 @@ Quando si crea un nuovo cluster Spark, è possibile selezionare Archiviazione BL
 | --- | --- | --- | --- | --- |
 | Archivio BLOB di Azure | **wasb:** //url/ | **Standard** | Yes | Cluster temporaneo |
 | Azure Data Lake Storage generazione 2| **abfs[s]:** //url/ | **Più rapido** | Sì | Cluster temporaneo |
-| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Più rapido** | Yes | Cluster temporaneo |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Più rapido** | Sì | Cluster temporaneo |
 | Hadoop Distributed File System locale | **hdfs:** //url/ | **Il più rapido** | No | Cluster interattivo 24/7 |
 
 ## <a name="use-the-cache"></a>Usare la cache

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 0dfeb6a80cbf227f20b24def7641882ad0444489
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2234ae4ce8257559f78d6aa50ecae59ae742ba33
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844605"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910014"
 ---
 # <a name="url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL
 
@@ -83,7 +83,7 @@ Le regole di percorso non fanno distinzione tra maiuscole e minuscole.
 
 #### <a name="v2"></a>v2
 
-Le regole di percorso fanno distinzione tra maiuscole e minuscole.
+Le regole di percorso non fanno distinzione tra maiuscole e minuscole.
 
 |Modello di percorso v2  |È supportato?  |
 |---------|---------|

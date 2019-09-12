@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 91407fc76d0a7555a87a8a3dcd1b3ad04ee2af80
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f9dbddcba1545e0a110faa9fbf8e3de9ff189525
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736229"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879502"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
@@ -50,31 +50,31 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 1. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure ML Server for Operationalization**.
 
-    ![Opzione per una casella](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![OP1 di una casella](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. Viene ora presentata l'opzione per scegliere come si vuole rendere operativo ML Server. Tra le opzioni presentate scegliere la prima immettendo **A**.
 
-    ![Opzione per una casella](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![OP2 di una casella](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. Quando richiesto, immettere due volte la password per un utente amministratore locale.
 
 1. Verranno visualizzati gli output indicanti che l'operazione è riuscita. Viene anche chiesto di selezionare un'altra opzione dal menu. Selezionare E per tornare al menu principale.
 
-    ![Opzione per una casella](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![OP3 di una casella](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. È facoltativamente possibile effettuare controlli diagnostici eseguendo un test di diagnostica, come illustrato di seguito:
 
     a. Dal menu principale selezionare **6** per eseguire i test diagnostici.
 
-    ![Opzione per una casella](./media/r-server-operationalize/diagnostic-1.png)
+    ![diagnostic1](./media/r-server-operationalize/diagnostic-1.png)
 
     b. Dal menu Diagnostic Tests selezionare **A**. Quando richiesto, immettere la password specificata per l'utente amministratore locale.
 
-    ![Opzione per una casella](./media/r-server-operationalize/diagnostic-2.png)
+    ![diagnostic2](./media/r-server-operationalize/diagnostic-2.png)
 
     c. Verificare che l'output indichi che il valore dell'integrità generale è pass.
 
-    ![Opzione per una casella](./media/r-server-operationalize/diagnostic-3.png)
+    ![diagnostic3](./media/r-server-operationalize/diagnostic-3.png)
 
     d. Tra le opzioni di menu presentate immettere **E** per tornare al menu principale e quindi immettere **8** per uscire dall'utilità di amministrazione.
 
