@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 04/17/2019
+ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: c125941414c73b14138f2b2fc15e470d9ed2d905
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8ecf5fb7d54e7c9411c1153610d3a637477285bf
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137550"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382958"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Esercitazione: Usare Visione artificiale per generare i metadati delle immagini in Archiviazione di Azure
 
@@ -42,7 +42,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 È necessario creare una risorsa di Visione artificiale per l'account Azure. Questa risorsa gestisce l'accesso al servizio Visione artificiale di Azure. 
 
-1. Seguire le istruzioni contenute in [Creare una risorsa di Servizi cognitivi di Azure](../../cognitive-services-apis-create-account.md#single-service-resource) per creare una risorsa di Visione artificiale.
+1. Seguire le istruzioni contenute in [Creare una risorsa di Servizi cognitivi di Azure](../../cognitive-services-apis-create-account.md) per creare una risorsa di Visione artificiale.
 
 1. Passare quindi al menu del gruppo di risorse e fare clic sulla sottoscrizione API Visione artificiale appena creata. Copiare l'URL sotto **Endpoint** in qualsiasi punto sia possibile recuperarlo facilmente in seguito. Quindi fare clic su **Mostra chiavi di accesso**.
 

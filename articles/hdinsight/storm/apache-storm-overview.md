@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 00c536120ed9507d5ecc6fe930429d12514945b3
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0540d8a83a8dc1da9bc763bce0b30463889cfe90
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483827"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915025"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Che cos'è Apache Storm in Azure HDInsight?
 
@@ -64,7 +64,7 @@ Il nodo Nimbus offre funzionalità simili a quelle di JobTracker di Apache Hadoo
 
 La configurazione predefinita per i cluster Apache Storm prevede un solo nodo Nimbus. Storm in HDInsight prevede invece due nodi Nimbus. In caso di errore del nodo primario, il cluster Storm passa a quello secondario mentre il nodo primario viene ripristinato. Il diagramma seguente illustra la configurazione del flusso di attività per Storm in HDInsight:
 
-![Diagramma di Nimbus, Zookeeper e Supervisor](./media/apache-storm-overview/nimbus.png)
+![Diagramma di Nimbus, Zookeeper e Supervisor](./media/apache-storm-overview/storm-diagram-nimbus.png)
 
 ## <a name="ease-of-creation"></a>Facilità di creazione
 

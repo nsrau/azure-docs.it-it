@@ -1,5 +1,5 @@
 ---
-title: Eseguire la creazione, il training e la pubblicazione di una knowledge base - QnA Maker
+title: 'Guida introduttiva: Eseguire la creazione, il training e la pubblicazione di una knowledge base - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. La knowledge base di QnA Maker in questo esempio viene creata da una semplice pagina Web di domande frequenti per rispondere alle domande sul recupero chiavi di BitLocker.
 author: diberry
@@ -8,16 +8,16 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 03ce1047dd175ae4a676fa1461632a8e23122a8d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 229956b41f7f26637e6a6aa62e341c4b06b8a429
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249736"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376372"
 ---
-# <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Creare, eseguire il training e pubblicare la knowledge base QnA Maker
+# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Guida introduttiva: Creare, eseguire il training e pubblicare la knowledge base QnA Maker
 
 È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. Questo articolo offre un esempio della creazione di una knowledge base di QnA Maker da una semplice pagina Web di domande frequenti, per rispondere a domande sul recupero delle chiavi di BitLocker.
 

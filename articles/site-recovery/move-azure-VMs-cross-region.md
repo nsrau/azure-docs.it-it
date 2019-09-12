@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ec78e4c260c2ca5e0469f9373f60d8bca29ada7f
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793730"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375727"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
@@ -67,8 +67,8 @@ Può essere opportuno spostare macchine virtuali dell'infrastruttura di Azure co
    Azure Site Recovery individua e crea automaticamente una rete virtuale e un account di archiviazione quando si abilita la replica per la macchina virtuale di origine. È anche possibile creare prima queste risorse e assegnarle alla macchina virtuale come parte del passaggio di abilitazione della replica, ma tutte le altre risorse devono essere create manualmente nell'area di destinazione. Per creare le risorse di rete usate più di frequente in base alla configurazione della macchina virtuale di origine, vedere i documenti seguenti:
 
    - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [IP pubblico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
+   - [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     
    Per gli altri componenti di rete, vedere la [documentazione relativa alle reti di Azure](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
 
@@ -80,11 +80,11 @@ Nella procedura seguente viene usato Azure Site Recovery per copiare i dati nell
 ### <a name="create-the-vault-in-any-region-except-the-source"></a>Creare l'insieme di credenziali in tutte le aree tranne l'origine
 
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
-2. Selezionare **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)**.
+2. Selezionare **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)** .
 3. Per **Nome** specificare il nome descrittivo **ContosoVMVault**. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
 4. Creare un gruppo di risorse **ContosoRG**.
 5. Specificare un'area di Azure. Per verificare le aree supportate, vedere [Prezzi di Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. Per gli insiemi di credenziali di Servizi di ripristino, selezionare **Panoramica** > **ContosoVMVault** > **+Replica**.
+6. Per gli insiemi di credenziali di Servizi di ripristino, selezionare **Panoramica** > **ContosoVMVault** >  **+Replica**.
 7. Per **Origine** selezionare **Azure**.
 8. Per **Percorso di origine** selezionare l'area di Azure di origine in cui le macchine virtuali sono attualmente in esecuzione.
 9. Selezionare il modello di distribuzione Azure Resource Manager. Selezionare quindi la **sottoscrizione di origine** e il **gruppo di risorse di origine**.

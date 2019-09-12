@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori, microservizi e Node.js in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 4ee11b4bebe32ff4a9af38a0789823178f388e10
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 8148f7858ac9de458daa1c15220507b0de1bad19
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725778"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772630"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Guida introduttiva: Debug e iterazione con Visual Studio Code e Node.js in Kubernetes usando Azure Dev Spaces
 
@@ -38,7 +38,7 @@ In questa guida si apprenderà come:
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Abilitare Azure Dev Spaces nel cluster del servizio Azure Kubernetes

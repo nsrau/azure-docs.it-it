@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3790b543a1a6dcbb793dbf661441700e6fa24232
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4404f785116110d99dc242d2dae39c4a462f45e9
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611884"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376239"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
@@ -71,7 +71,7 @@ In questa esercitazione si apprenderà come:
 
     Per creare le risorse di rete usate più di frequente che sono pertinenti per il caso specifico in base alla configurazione della VM di origine, vedere la documentazione seguente:
     - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
     -  [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     - Per qualsiasi altro componente di rete, vedere la [documentazione relativa alle reti](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 

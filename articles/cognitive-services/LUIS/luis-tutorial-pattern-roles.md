@@ -1,5 +1,5 @@
 ---
-title: Ruoli dei criteri - LUIS
+title: 'Esercitazione: Ruoli dei criteri - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Criteri per estrarre dati da espressioni modello formattate in modo corretto. L'espressione modello usa un'entità semplice e i ruoli per estrarre i dati correlati, ad esempio il percorso di origine e destinazione.
 ms.custom: seodec18
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7586a81eac95a2e4a08b045b3a2826132d9919f7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7b95dcf6a93c9abdeab9520f0a0fd80eb17dccff
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560029"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387632"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Esercitazione: Estrarre criteri correlati in base al contesto usando i ruoli
 

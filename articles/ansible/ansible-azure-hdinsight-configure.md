@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d6b6dd333d04457a68c3f2452d3cc538a32b61f6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ff135473443589650d90bfb7f3e5aa248f72e821
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230269"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861265"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Esercitazione: Configurare un cluster in Azure HDInsight tramite Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure HDInsight](/azure/hdinsight/) è un servizio di analisi basato su Hadoop per l'elaborazione dei dati. HDInsight è un strumento ETL (estrazione, trasformazione e caricamento) usato per i Big Data, strutturati o non strutturati. HDInsight supporta diversi [tipi di cluster](/azure/hdinsight/hadoop/apache-hadoop-introduction#cluster-types-in-hdinsight) in cui ogni tipo supporta un set diverso di componenti. 
+[Azure HDInsight](/azure/hdinsight/) è un servizio di analisi basato su Hadoop per l'elaborazione dei dati. HDInsight è un strumento ETL (estrazione, trasformazione e caricamento) usato per i Big Data, strutturati o non strutturati. HDInsight supporta diversi [tipi di cluster](/azure/hdinsight/hadoop/apache-hadoop-introduction) in cui ogni tipo supporta un set diverso di componenti. 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 

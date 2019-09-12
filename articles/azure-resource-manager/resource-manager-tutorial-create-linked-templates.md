@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036002"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802057"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Esercitazione: Creare modelli collegati di Azure Resource Manager
 
@@ -287,7 +287,7 @@ Fare riferimento a [Esercitazione: Creare modelli di Azure Resource Manager con 
 
 Poiché l'account di archiviazione viene ora definito nel modello collegato, è necessario aggiornare i seguenti due elementi della risorsa `Microsoft.Compute/virtualMachines`.
 
-* Riconfigurare l'elemento `dependOn`. La definizione dell'account di archiviazione viene spostata nel modello collegato.
+* Riconfigurare l'elemento `dependsOn`. La definizione dell'account di archiviazione viene spostata nel modello collegato.
 * Riconfigurare l'elemento `properties/diagnosticsProfile/bootDiagnostics/storageUri`. In [creare il modello collegato](#create-the-linked-template), è stato aggiunto un valore di output:
 
     ```json

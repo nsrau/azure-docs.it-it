@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d1beae9ebd86035e075f75b088618ec55595e876
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b69000e251bb71bc08ea97b24a7422daf2cd89e4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035694"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813818"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C per dispositivi Windows
 
@@ -265,12 +265,12 @@ Il codice del modulo predefinito riceve i messaggi in una coda di input e li pas
        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-           ret = 1;
+           ret = MU_FAILURE;
        }
        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-           ret = 1;
+           ret = MU_FAILURE;
        }
        else
        {

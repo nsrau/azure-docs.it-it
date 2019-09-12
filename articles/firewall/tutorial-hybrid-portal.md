@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: f7dce448b01c211441fd1e0fd530ff6ad062c303
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 08c1a8940bedb1093f618c8de53abc78f81c10dd
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114862"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918781"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con il portale di Azure
 
@@ -102,7 +102,7 @@ A questo punto, creare la rete virtuale:
 4. In **Nome** digitare **VNet-Spoke**.
 5. In **Spazio degli indirizzi** digitare **10.6.0.0/16**.
 6. In **Sottoscrizione** selezionare la propria sottoscrizione.
-7. Per **Gruppo di risorse** selezionare **Test-FW-RG**.
+7. In **Gruppo di risorse** selezionare **FW-Hybrid-Test**.
 8. In **Località** selezionare la stessa località usata in precedenza.
 9. In **Subnet**, in **Nome** digitare **SN-Workload**.
 10. In **Intervallo indirizzi** digitare **10.6.0.0/24**.

@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: ad0710a3492eeecd56989e627211da5d4a5e0e0a
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 260f6a6141903ea1fd7edcfe2e031091bba322be
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186248"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744748"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Esercitazione per C#: Chiamare le API Servizi cognitivi in una pipeline di indicizzazione di Ricerca di Azure
 
@@ -66,7 +66,7 @@ La presenza di una chiave valida stabilisce una relazione di trust, in base alle
 
 ## <a name="prepare-sample-data"></a>Preparare i dati di esempio
 
-La pipeline di arricchimento effettua il pull da origini dati di Azure. I dati di origine devono provenire da un tipo di origine dati supportato di un [indicizzatore di Ricerca di Azure](search-indexer-overview.md). Archiviazione tabelle di Azure non è supportato per la ricerca cognitiva. Per questo esercizio viene usato l'archivio BLOB per presentare più tipi di contenuto.
+La pipeline di arricchimento effettua il pull da origini dati di Azure. I dati di origine devono provenire da un tipo di origine dati supportato di un [indicizzatore di Ricerca di Azure](search-indexer-overview.md). Per questo esercizio viene usato l'archivio BLOB per presentare più tipi di contenuto.
 
 1. [Accedere al portale di Azure](https://portal.azure.com), passare all'account di archiviazione di Azure, fare clic su **BLOB** e quindi su **+ Contenitore**.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8a0b974e9b64d477e53c37757b4f2fa952befba2
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061872"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743390"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
@@ -54,7 +54,7 @@ Contenuto dell'esercitazione:
 
 Questo articolo continua da dove è stato interrotto in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md) o [Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure](app-service-web-tutorial-dotnetcore-sqldb.md). Se non è già stato fatto, seguire prima una delle due esercitazioni. In alternativa, è possibile adattare le procedure alla propria app .NET con un database SQL.
 
-Per eseguire il debug dell'app usando il database SQL come back-end, assicurarsi di aver consentito la connessione client dal computer. In caso contrario, aggiungere l'indirizzo IP del client seguendo la procedura descritta in [Gestire regole del firewall IP a livello di server tramite il portale di Azure](../sql-database/sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal).
+Per eseguire il debug dell'app usando il database SQL come back-end, assicurarsi di aver consentito la connessione client dal computer. In caso contrario, aggiungere l'indirizzo IP del client seguendo la procedura descritta in [Gestire regole del firewall IP a livello di server tramite il portale di Azure](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

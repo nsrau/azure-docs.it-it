@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 23b0990be7f215d9cc443c5549ae38de86826d17
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 6b9a74ee6530d8fc195490b0f1414e6348e855f6
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114607"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743595"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine in Registro Azure Container 
 
-ACR Tasks supporta l'esecuzione automatica della compilazione quando viene aggiornata l'immagine di base di un contenitore, ad esempio per applicare patch al sistema operativo o al framework applicazioni in una delle immagini di base. Questa esercitazione illustra come creare un'attività in ACR Tasks che attiva una compilazione nel cloud in seguito al push nel registro dell'immagine di base di un contenitore.
+Attività del Registro Azure Container supporta l'esecuzione automatica della compilazione quando viene aggiornata l'immagine di base di un contenitore, ad esempio per applicare patch al sistema operativo o al framework applicazioni in una delle immagini di base. Questa esercitazione illustra come creare un'attività in Attività del Registro Azure Container che attiva una compilazione nel cloud in seguito al push nel registro dell'immagine di base di un contenitore.
 
 In questa esercitazione, che è l'ultima della serie, si apprenderà come:
 
@@ -46,9 +46,9 @@ Questa esercitazione presuppone che siano già state completate le procedure del
 
 Se non è già stato fatto, prima di procedere completare le prime due esercitazioni:
 
-[Compilare immagini dei contenitori nel cloud con ACR Tasks](container-registry-tutorial-quick-task.md)
+[Compilare immagini dei contenitori nel cloud con Attività del Registro Azure Container](container-registry-tutorial-quick-task.md)
 
-[Automatizzare la compilazione di immagini dei contenitori con ACR Tasks](container-registry-tutorial-build-task.md)
+[Automatizzare la compilazione di immagini dei contenitori con Attività del Registro Azure Container](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>Configurare l'ambiente
 
@@ -68,7 +68,7 @@ I documenti Dockerfile che definiscono la maggior parte delle immagini dei conte
 
 Un'immagine di base viene spesso aggiornata dal gestore delle immagini per includere nuove funzionalità o nuovi miglioramenti del sistema operativo o del framework. Un'altra comune causa di aggiornamento dell'immagine di base è costituita dalle patch di sicurezza.
 
-Quando viene aggiornata un'immagine di base, diventa necessario ricompilare tutte le immagini dei contenitori nel registro che sono basate su di essa, per includere le nuove funzionalità e i nuovi aggiornamenti. ACR Tasks include la possibilità di compilare automaticamente le immagini quando viene aggiornata l'immagine di base di un contenitore.
+Quando viene aggiornata un'immagine di base, diventa necessario ricompilare tutte le immagini dei contenitori nel registro che sono basate su di essa, per includere le nuove funzionalità e i nuovi aggiornamenti. Attività del Registro Azure Container include la possibilità di compilare automaticamente le immagini quando viene aggiornata l'immagine di base di un contenitore.
 
 ### <a name="tasks-triggered-by-a-base-image-update"></a>Attività attivate da un aggiornamento di un'immagine di base
 
@@ -125,7 +125,6 @@ az acr task create \
     --arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --file Dockerfile-app \
-    --branch master \
     --git-access-token $GIT_PAT
 ```
 

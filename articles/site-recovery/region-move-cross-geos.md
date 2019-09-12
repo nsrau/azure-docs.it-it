@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 63150b8924438df8d77fdd088811d9fbe3ec2d84
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: bff6268507c0d2ec0aa1eac0c7e2e9d2513ded58
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967317"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376132"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Spostare le VM di Azure tra aree per enti pubblici e aree pubbliche 
 
@@ -98,8 +98,8 @@ Il servizio Mobility deve essere installato in ogni server da replicare. Site Re
      Per creare le risorse di rete usate più di frequente che sono pertinenti per il caso specifico in base alla configurazione della VM di origine, vedere i documenti seguenti.
 
     - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [IP pubblico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
+    - [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     
     Per qualsiasi altro componente di rete, vedere la [documentazione](https://docs.microsoft.com/azure/#pivot=products&panel=network) relativa alle reti. 
 

@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: 2cde1fe258d2caf7e7dc9d8ede582364f42c676b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: c21b4d525e395dfb032a89631eb34156fe3e5b23
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648877"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744726"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Esercitazione per Python: Chiamare le API Servizi cognitivi in una pipeline di indicizzazione di Ricerca di Azure
 
@@ -67,7 +67,7 @@ Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
 
 ## <a name="prepare-sample-data"></a>Preparare i dati di esempio
 
-La pipeline di arricchimento effettua il pull da origini dati di Azure. I dati di origine devono provenire da un tipo di origine dati supportato di un [indicizzatore di Ricerca di Azure](search-indexer-overview.md). Archiviazione tabelle di Azure non è supportato per la ricerca cognitiva. Per questo esercizio viene usato l'archivio BLOB per presentare più tipi di contenuto.
+La pipeline di arricchimento effettua il pull da origini dati di Azure. I dati di origine devono provenire da un tipo di origine dati supportato di un [indicizzatore di Ricerca di Azure](search-indexer-overview.md). Per questo esercizio viene usato l'archivio BLOB per presentare più tipi di contenuto.
 
 1. [Accedere al portale di Azure](https://portal.azure.com), passare all'account di archiviazione di Azure, fare clic su **BLOB** e quindi su **+ Contenitore**.
 
@@ -473,6 +473,7 @@ I risultati saranno simili all'esempio seguente. Lo screenshot mostra solo una p
 Ripetere l'operazione per altri campi: content, languageCode, keyPhrases e organizations in questo esercizio. È possibile restituire più campi tramite `$select` usando un elenco delimitato da virgole.
 
 È possibile usare GET o POST, in base alla lunghezza e alla complessità della stringa di query. Per altre informazioni, vedere [Eseguire query su un indice di Ricerca di Azure con l'API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Reimpostare ed eseguire di nuovo

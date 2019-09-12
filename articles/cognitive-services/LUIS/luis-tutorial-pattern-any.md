@@ -1,5 +1,5 @@
 ---
-title: Entità Pattern.any - LUIS
+title: 'Esercitazione: Entità Pattern.any - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Usare l'entità pattern.any per estrarre dati da espressioni formattate in modo corretto e in cui la fine dei dati potrebbe essere facilmente confusa con le ultime parole dell'espressione.
 services: cognitive-services
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 165163d0a889e0bd5f1faef8d7f6a17d28c2b4f7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 57a7deee3112737dc457646d040d5d3e02e63d46
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563278"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390294"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Esercitazione: Estrarre dati in formato libero con entità pattern.any
 

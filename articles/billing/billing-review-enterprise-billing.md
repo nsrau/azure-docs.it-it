@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: banders
 ms.openlocfilehash: 25d9b48696dc2a83ea0ba77c1be2c7aad7627fff
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443156"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Esaminare i dati di fatturazione dell'Iscrizione Enterprise tramite le API REST

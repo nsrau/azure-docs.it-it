@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 6e26f9d344a4c11c335d1ea34998c848cbe3598a
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: a9e8ddcca727c4c457e4d92a880fb0cafe5ca6f8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753758"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375732"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Spostare macchine virtuali di Azure nelle zone di disponibilità
 Le zone di disponibilità di Azure consentono di proteggere le applicazioni e i dati da eventuali guasti del data center. Ogni zona di disponibilità è costituita da uno o più data center dotati di impianti indipendenti per l'energia, il raffreddamento e la rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dai guasti del data center. Con le zone di disponibilità, Azure offre un Contratto di servizio con tempo di attività delle macchine virtuali del 99,99%. Le zone di disponibilità sono supportate in aree selezionate, come indicato in [Informazioni sulle zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
@@ -68,8 +68,8 @@ Se le macchine virtuali sono distribuite come *istanza singola* in un'area speci
      Per informazioni su come creare le risorse di rete usate più di frequente che sono pertinenti per il caso specifico in base alla configurazione della macchina virtuale di origine, vedere i documenti seguenti.
 
     - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [IP pubblico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
+    - [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     
    Per qualsiasi altro componente di rete, vedere la [documentazione](https://docs.microsoft.com/azure/#pivot=products&panel=network) relativa alle reti.
 

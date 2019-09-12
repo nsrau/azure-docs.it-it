@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 388583b42d36a21ceb53a59e7c37392bf0eb8333
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: bfbe3d6aac6e97f3568c3c0ce3643bb215726a0b
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534311"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376185"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali Windows con un modello di Azure
 
@@ -35,13 +35,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="define-a-scale-set-in-a-template"></a>Definire un set di scalabilità in un modello
 I modelli di Azure Resource Manager consentono di distribuire gruppi di risorse correlate. I modelli sono scritti in JavaScript Object Notation (JSON) e definiscono l'intero ambiente dell'infrastruttura di Azure per l'applicazione. In un singolo modello è possibile creare il set di scalabilità di macchine virtuali, installare le applicazioni e configurare le regole di scalabilità automatica. Con l'uso di variabili e parametri, questo modello può essere riutilizzato per creare altri set di scalabilità o aggiornare i set esistenti. È possibile distribuire i modelli tramite il portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell oppure dalle pipeline di integrazione continua/distribuzione continua (CI/CD).
 
-Per altre informazioni sui modelli, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment). Per la sintassi e le proprietà JSON, vedere le informazioni di riferimento sul modello [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets).
+Per altre informazioni sui modelli, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process). Per la sintassi e le proprietà JSON, vedere le informazioni di riferimento sul modello [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets).
 
 Un modello definisce la configurazione di ciascun tipo di risorsa. Un tipo di risorsa del set di scalabilità di macchine virtuali è simile a una singola VM. Le parti principali del tipo di risorsa del set di scalabilità di macchine virtuali sono le seguenti:
 
 | Proprietà                     | Descrizione della proprietà                                  | Valore di esempio del modello                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| Tipo                         | Tipo di risorsa di Azure da creare                            | Microsoft.Compute/virtualMachineScaleSets |
+| type                         | Tipo di risorsa di Azure da creare                            | Microsoft.Compute/virtualMachineScaleSets |
 | name                         | Nome del set di scalabilità                                       | myScaleSet                                |
 | location                     | Posizione in cui creare il set di scalabilità                     | Stati Uniti orientali                                   |
 | sku.name                     | Dimensioni delle VM per ogni istanza del set di scalabilità                  | Standard_A1                               |

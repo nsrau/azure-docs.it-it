@@ -6,23 +6,22 @@ ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4cf3feeb92f04b4e97cbdc83c539c206790a78c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5cb47cdd76d1de284c4dc6dbdfbfedd0095653ab
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264523"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899574"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-projects"></a>Creare una pipeline CI/CD per Ruby on Rails con Azure DevOps Projects
 

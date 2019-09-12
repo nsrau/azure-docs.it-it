@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 08/15/2019
-ms.openlocfilehash: d6127d4fba3d2255dee28cd41179f16394545328
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 16845e5891117cc01bef5fae28cf4b36c0508651
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207219"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899549"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Informazioni su Apache Hadoop in Azure HDInsight
 
@@ -30,10 +30,6 @@ Apache Hadoop MapReduce è un framework software per la scrittura di processi in
 * **Mapper**: usa i dati di input, li analizza (in genere mediante operazioni di filtro e ordinamento) e quindi genera tuple (coppie chiave-valore)
 
 * **Reducer**: usa le tuple generate dal Mapper ed esegue un'operazione di riepilogo che crea un risultato combinato più piccolo a partire dai dati del Mapper
-
-La figura seguente illustra un esempio di processo di base di conteggio parole in MapReduce.
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
 L'output del processo consentirà di conoscere il numero totale di occorrenze di ogni parola presente nel testo.
 

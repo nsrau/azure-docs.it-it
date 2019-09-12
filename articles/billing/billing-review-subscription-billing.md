@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: banders
 ms.openlocfilehash: 8cfa429b18fb282f5c1f85d2fd1637704653b855
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443043"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Esaminare la fatturazione della sottoscrizione con le API REST
@@ -45,7 +45,7 @@ Il parametri `${startDate}` e `${endDate}` sono necessari per questo esempio, ma
 
 Gli argomenti seguenti sono obbligatori:
 
-|Intestazione della richiesta|Descrizione|
+|Intestazione della richiesta|DESCRIZIONE|
 |--------------------|-----------------|
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|
 |*Authorization:*|Richiesto. Impostare su un [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valido. |

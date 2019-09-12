@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 74a9e5e6be326bf9cef3dc6d26594b80491deb3e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e85f2ea849aca9deeb92da7d7b2381d6c2b1b725
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446049"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802453"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in Node.js tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -54,7 +54,7 @@ Per eseguire l'applicazione sul lato servizio in questa guida di avvio rapido è
 
 È possibile verificare la versione corrente di Node.js installata nel computer di sviluppo tramite il comando seguente:
 
-```
+```cmd/sh
 node --version
 ```
 
@@ -120,7 +120,7 @@ Supponendo che l'applicazione sul lato dispositivo sia in esecuzione, attenersi 
 
 * Fornire le credenziali del servizio e l'ID dispositivo come variabili di ambiente.
  
-   ```
+   ```cmd/sh
    # In Linux
    export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
    export STREAMING_TARGET_DEVICE="MyDevice"
@@ -134,7 +134,7 @@ Supponendo che l'applicazione sul lato dispositivo sia in esecuzione, attenersi 
 
 * Passare a `Quickstarts/device-streams-service` nella cartella del progetto decompressa ed eseguire l'esempio usando il nodo.
 
-   ```
+   ```cmd/sh
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
     
    # Install the preview service SDK, and other dependencies

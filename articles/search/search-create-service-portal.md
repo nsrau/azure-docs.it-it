@@ -1,22 +1,22 @@
 ---
-title: Creare un servizio di Ricerca di Azure nel portale - Ricerca di Azure
+title: 'Guida introduttiva: Creare un servizio di Ricerca di Azure nel portale - Ricerca di Azure'
 description: Eseguire il provisioning di una risorsa di Ricerca di Azure nel portale di Azure. Scegliere gruppi di risorse, aree e SKU o piano tariffario.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0aabf10b3be8f2f13abbba15d514a008f193646c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 483810f89ea4bbb3a68e616929bd7d752c4d509f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649956"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883861"
 ---
-# <a name="create-an-azure-search-service-in-the-portal"></a>Creare un servizio di Ricerca di Azure nel portale
+# <a name="quickstart-create-an-azure-search-service-in-the-portal"></a>Guida introduttiva: Creare un servizio di Ricerca di Azure nel portale
 
 Ricerca di Azure è una risorsa autonoma usata per aggiungere un'esperienza di ricerca alle app personalizzate. Anche se Ricerca di Azure si integra facilmente con molti altri servizi di Azure, è possibile usarlo come componente autonomo oppure integrarlo con le app nei server di rete o con il software in esecuzione in altre piattaforme cloud.
 

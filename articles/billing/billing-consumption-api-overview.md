@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/07/2018
 ms.author: banders
 ms.openlocfilehash: 2a2922daef5e75af41252119f9a467fae976bcda
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443264"
 ---
 # <a name="azure-consumption-api-overview"></a>Panoramica delle API per il consumo di Azure 
@@ -96,7 +96,7 @@ L'API include:
 -   **Filtri**: filtrare il budget per ottenere un subset più piccolo di risorse tramite i filtri configurabili seguenti
     - Gruppo di risorse
     - Nome risorsa
-    - Misuratore
+    - Contatore
 -   **Periodi budget configurabili**: specificare la frequenza di reimpostazione del budget e la durata della validità di quest'ultimo.
 
 Per altre informazioni, vedere le specifiche tecniche per l'[API Budget](https://docs.microsoft.com/rest/api/consumption/budgets).
@@ -109,7 +109,7 @@ L'API include:
 
 -   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore. 
 -   **Filtri**: personalizzare i risultati relativi alle raccomandazioni tramite i filtri seguenti:
-    - Ambito
+    - Scope
     - Periodo di ricerca posticipata
 -   **Informazioni sulle prenotazioni per tipi di offerte diversi**: le informazioni sulle prenotazioni sono attualmente disponibili per i clienti Enterprise e Accesso Web diretto.
 
@@ -136,7 +136,7 @@ L'API include:
 
 -   **Controllo degli accessi in base al ruolo di Azure**: configurare criteri di accesso nel [portale di Azure](https://portal.azure.com), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o tramite [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per specificare quali utenti o applicazioni possono accedere ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore. 
 -   **Filtri**: personalizzare i risultati della granularità giornaliera con il filtro seguente:
-    - Data di utilizzo
+    - Data utilizzo
 -   **Informazioni sulle prenotazioni per tipi di offerte diversi**: le informazioni sulle prenotazioni sono attualmente disponibili per i clienti Enterprise e Accesso Web diretto.
 -   **Aggregazioni giornaliere o mensili**: i chiamanti possono specificare se vogliono i propri dati di riepilogo delle prenotazioni nella granularità giornaliera o mensile.
 
@@ -163,7 +163,7 @@ Ecco alcuni degli scenari resi possibili dalle API per il consumo:
 -   **Spesa di Azure durante il mese**: qual è la spesa mensile corrente fino a oggi? Sono necessarie rettifiche alla spesa e/o all'utilizzo di Azure? Qual è il periodo del mese in cui l'utilizzo di Azure è maggiore?
 -   **Impostazione di avvisi**: se si vogliono impostare avvisi relativi al consumo basato sulle risorse o basati sull'importo monetario, in base a un budget.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sull'uso delle API di fatturazione di Azure ottenere informazioni dettagliate a livello di codice sull'utilizzo di Azure, vedere [Panoramica dell'API di fatturazione di Azure](billing-usage-rate-card-overview.md).
 

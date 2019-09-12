@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 124b10607f710ddfb76787eac09dea7ec6ffc03c
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 3302402ae791ac17b8ac09ab91b061a558eb7c75
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173060"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390353"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB
 
@@ -49,11 +49,6 @@ Per completare questa esercitazione:
 
 * Installare [Python](https://www.python.org/downloads/)
 * Scaricare e installare [Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python)
-
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
-
-* Installare e configurare [Maven](https://maven.apache.org/download.cgi) per usarlo dalla riga di comando
-* Installare e configurare un [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
@@ -107,14 +102,6 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
-
-[Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) ed estrarre il file storage-java-ragrs.zip. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione Java di base.
-
-```bash
-git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
-```
-
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 [Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) e decomprimere il file. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione Node.js di base.
@@ -165,24 +152,6 @@ setx accountname "<youraccountname>"
 setx accountkey "<youraccountkey>"
 ```
 
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
-
-Questo esempio richiede l'archiviazione sicura del nome e della chiave dell'account di archiviazione. Archiviarli in variabili di ambiente locali nel computer che esegue l'esempio. Eseguire l'esempio per Linux o per Windows, in base al sistema operativo, per creare le variabili di ambiente. In Windows la variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi** o la shell in uso.
-
-### <a name="linux-example"></a>Esempio per Linux
-
-```
-export AZURE_STORAGE_ACCOUNT="<youraccountname>"
-export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
-```
-
-### <a name="windows-example"></a>Esempio per Windows
-
-```powershell
-setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
-setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
-```
-
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 Per eseguire l'esempio, è necessario aggiungere le credenziali dell'account di archiviazione nel file `.env.example` e rinominarlo in `.env`.
@@ -222,49 +191,6 @@ La funzione di ripetizione dei tentativi dell'oggetto di archiviazione è impost
 
 Prima del download vengono definite le funzioni [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) dell'oggetto del servizio, che definiscono i gestori eventi che vengono attivati quando un download viene completato oppure ha esito negativo e viene eseguito un nuovo tentativo.
 
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
-
-Per eseguire l'esempio, usare Maven nella riga di comando.
-
-1. Aprire una shell e passare a **storage-blobs-java-v10-quickstart** all'interno della directory clonata.
-2. Immettere `mvn compile exec:java`.
-
-Questo esempio crea un file di test nella directory predefinita. Per gli utenti di Windows, questa directory si trova nel percorso **AppData\Local\Temp**. Presenta quindi le opzioni di comandi seguenti che è possibile immettere:
-
-- Immettere **P** per eseguire un'operazione put BLOB. Questo comando carica un file temporaneo nell'account di archiviazione.
-- Immettere **L** per eseguire un'operazione list BLOB. Questo comando elenca i BLOB attualmente presenti nel contenitore.
-- Immettere **G** per eseguire un'operazione get BLOB. Questo comando scarica un file dall'account di archiviazione nel computer locale.
-- Immettere **D** per eseguire un'operazione delete BLOB. Questo comando elimina il BLOB dall'account di archiviazione.
-- Immettere **E** per chiudere l'esempio. Questo comando elimina anche tutte le risorse che ha creato.
-
-Questo esempio mostra l'output se si esegue l'applicazione in Windows.
-
-```
-Created quickstart container
-Enter a command
-(P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample
-# Enter a command :
-P
-Uploading the sample file into the container: https://<storageaccount>.blob.core.windows.net/quickstart
-# Enter a command :
-L
-Listing blobs in the container: https://<storageaccount>.blob.core.windows.net/quickstart
-Blob name: SampleBlob.txt
-# Enter a command :
-G
-Get the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
-The blob was downloaded to C:\Users\<useraccount>\AppData\Local\Temp\downloadedFile13097087873115855761.txt
-# Enter a command :
-D
-Delete the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
-
-# Enter a command :
->> Blob deleted: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
-E
-Cleaning up the sample and exiting!
-```
-
-Avendo il controllo dell'esempio, immettere i comandi per eseguire il codice. Gli input fanno distinzione tra maiuscole e minuscole.
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
@@ -389,18 +315,6 @@ def response_callback(response):
         if secondary_read_count >= secondary_threshold:
             blob_client.location_mode = LocationMode.PRIMARY
             secondary_read_count = 0
-```
-
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
-
-Con l'SDK Java V10, la definizione di gestori di callback non è necessaria e l'SDK presenta ora alcune differenze fondamentali rispetto all'SDK V7. Invece di LocationMode, è ora disponibile una **pipeline** secondaria. È possibile definire una pipeline secondaria tramite **RequestRetryOptions**. Se definita, l'applicazione passerà automaticamente a questa pipeline secondaria se non riesce ad accedere ai dati tramite quella primaria.
-
-```java
-// We create pipeline options here so that they can be easily used between different pipelines
-PipelineOptions myOptions = new PipelineOptions();
-myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.windows.net"));
-// We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
-final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)

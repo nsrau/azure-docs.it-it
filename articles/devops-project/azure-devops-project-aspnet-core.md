@@ -6,23 +6,22 @@ ms.technology: devops-cicd
 services: azure-devops-project
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 387801f2ecb2f5fa1639005726218efb54d75dc8
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 7d2ccdfa1fe553d0795a82856dd255f4a54138bf
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331430"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898031"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Creare una pipeline CI/CD per .NET con Azure DevOps Projects
 

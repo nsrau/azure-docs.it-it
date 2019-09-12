@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 7534313a5862ececf4757be807e59b6df39f6430
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66396531"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873350"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
@@ -46,7 +46,7 @@ Si noti che i dispositivi esportati da driver paravirtualizzati non sono support
 2. Preparare i server [VMware](vmware-azure-tutorial-prepare-on-premises.md) o [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) locali. Se si esegue la migrazione di computer fisici non è necessario preparare nulla. È sufficiente verificare la [matrice di supporto](vmware-physical-azure-support-matrix.md).
 
 
-## <a name="select-a-replication-goal"></a>Selezionare un obiettivo di replica
+## <a name="select-a-protection-goal"></a>Scegliere un obiettivo di protezione
 
 Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 1. Fare clic su **Insiemi di credenziali dei servizi di ripristino** e quindi sull'insieme di credenziali.
