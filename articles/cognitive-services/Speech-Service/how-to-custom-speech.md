@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6d697cd49363139cfeae2753a4f1ae40fca6e6b2
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 0f3b7826fdcc16d3094785507ec8263da39d6284
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802501"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881517"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è Riconoscimento vocale personalizzato?
 
@@ -25,7 +25,7 @@ ms.locfileid: "70802501"
 
 Prima di poter eseguire qualsiasi operazione con Riconoscimento vocale personalizzato, saranno necessari un account Azure e una sottoscrizione di servizi vocali. Una volta ottenuto un account, è possibile preparare i dati, eseguire il training e testare i modelli, controllare la qualità del riconoscimento, valutare l'accuratezza e infine distribuire e usare il modello di riconoscimento vocale personalizzato.
 
-In questo diagramma vengono evidenziati i componenti che costituiscono il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Usare i collegamenti seguenti per ulteriori informazioni su ogni passaggio.
+In questo diagramma vengono evidenziati i componenti che costituiscono il [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech). Usare i collegamenti seguenti per ulteriori informazioni su ogni passaggio.
 
 ![Vengono evidenziati i diversi componenti che costituiscono il portale di Riconoscimento vocale personalizzato.](./media/custom-speech/custom-speech-overview.png)
 

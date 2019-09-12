@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 580712c4d1815b1c994fd62be78e8d7f3f1c9a01
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9fba32c9c21faa6e02c8b48b3907ab67e47036d5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809436"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885500"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usare gli strumenti Azure Data Lake per Visual Studio con Sandbox di Hortonworks
 
@@ -185,7 +185,7 @@ Gli strumenti Data Lake consentono anche di visualizzare facilmente le informazi
 
 È possibile visualizzare le proprietà di un database o di una tabella in modo da mostrare i dettagli per l'elemento selezionato nella finestra **Proprietà**. Vedere ad esempio le informazioni visualizzate nella schermata seguente:
 
-![Schermata della finestra Proprietà](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![Schermata della finestra Proprietà](./media/hdinsight-hadoop-emulator-visual-studio/hdi-properties-window.png)
 
 ### <a name="create-a-table"></a>Creare una tabella
 

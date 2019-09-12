@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5176fc36b62fc1e970bd51f6386191ea34c5170c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d624f6a1711bf2c2bad5ebc252d00c299ebca225
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872684"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909839"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 
@@ -61,7 +61,7 @@ Per iniziare:
 3. Accedere all'account Azure tramite **Connect-AzAccount**. Questo cmdlet visualizza una pagina Web che richiede le credenziali dell'account:
 
     * In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Connect-AzAccount**, usando il parametro **-Credential**.
-    * Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio:  **Connect-AzAccount -Tenant "fabrikam.com"**
+    * Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Esempio: **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
 
@@ -666,7 +666,7 @@ La sezione seguente elenca i passaggi necessari per creare una macchina virtuale
 
    * **Macchine virtuali gestite e crittografate con Azure AD (BEK e KEK)** : per le macchine virtuali gestite e crittografate con Azure AD (con BEK e KEK) collegare i dischi gestiti ripristinati. Per informazioni dettagliate, vedere [Collegare un disco dati a una macchina virtuale Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **Macchine virtuali gestite e crittografate senza Azure ad (solo per le** macchine virtuali)-per le VM gestite e crittografate senza Azure ad (solo crittografate con l'uso di solo la chiave di crittografia), se l'insieme di credenziali delle chiavi di origine e il **segreto non sono disponibili** , ripristinare i segreti in Key Vault [ macchina virtuale non crittografata da un punto di ripristino di backup di Azure](backup-azure-restore-key-secret.md). Eseguire quindi gli script seguenti per impostare le informazioni dettagliate sulla crittografia nel disco del sistema operativo ripristinato (questo passaggio non è necessario per il disco dati). Recuperare $dekurl dall'insieme di credenziali delle chiavi ripristinato.
+   * **Macchine virtuali gestite e crittografate senza Azure ad (solo per le** macchine virtuali)-per le VM gestite e crittografate senza Azure ad (solo crittografate con l'uso di solo la chiave di crittografia), se l'insieme di credenziali delle chiavi di origine e il **segreto non sono disponibili** , ripristinare i [segreti in Key Vault macchina virtuale non crittografata da un punto di ripristino di backup di Azure](backup-azure-restore-key-secret.md). Eseguire quindi gli script seguenti per impostare le informazioni dettagliate sulla crittografia nel disco del sistema operativo ripristinato (questo passaggio non è necessario per il disco dati). Recuperare $dekurl dall'insieme di credenziali delle chiavi ripristinato.
 
      Lo script seguente deve essere eseguito solo quando l'insieme di credenziali delle chiavi e il segreto di origine non sono disponibili.  
 
@@ -716,6 +716,7 @@ La sezione seguente elenca i passaggi necessari per creare una macchina virtuale
     ```
 
 7. Eseguire il push dell'estensione ADE.
+   Se le estensioni ADE non vengono inserite, i dischi dati verranno contrassegnati come non crittografati, pertanto è obbligatorio per i passaggi seguenti da eseguire:
 
    * **Per una macchina virtuale con Azure AD**: usare il comando seguente per abilitare manualmente la crittografia per i dischi dati  
 
@@ -746,6 +747,8 @@ La sezione seguente elenca i passaggi necessari per creare una macchina virtuale
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+> [!NOTE]
+> Assicurarsi di eliminare manualmente i file JASON creati come parte del processo di ripristino del disco della VM crittografato.
 
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Ripristinare file da un backup della macchina virtuale di Azure

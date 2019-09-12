@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: f5473ae7bd9ac1615d59d18c996e01902e1adbd6
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 3b27a4788bd144a8d2d423af1fa23ef09c5379f8
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241420"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772846"
 ---
 ::: zone target = "docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "70241420"
 
 ::: zone target = "chromeless"
 
-## <a name="get-started-with-azure-data-box-heavy"></a>Introduzione ad Azure Data Box Disk Heavy
+# <a name="get-started-with-azure-data-box-heavy"></a>Introduzione ad Azure Data Box Disk Heavy
 
 ::: zone-end
 
