@@ -142,8 +142,8 @@
       href: backup-recovery.md
     - name: Esempio di infrastruttura
       href: infrastructure-example.md
-    - name: Attributi di sicurezza
-      href: virtual-machines-windows-security-attributes.md
+    - name: Criteri di sicurezza integrati
+      href: virtual-machines-windows-security-controls.md
 - name: Guide alle procedure
   items:
     - name: Creare VM

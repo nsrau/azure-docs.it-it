@@ -770,8 +770,6 @@
                   href: log-query/get-started-portal.md
                 - name: Esercitazione sulle query su log
                   href: log-query/get-started-queries.md
-                - name: Esperienza Log semplice
-                  href: log-query/simple-logs.md
             - name: Dati di log
               items:
                 - name: Struttura dei dati di log
@@ -1037,8 +1035,6 @@
               href: insights/solutions-resources-views.md
             - name: Procedure consigliate
               href: insights/solutions-best-practices.md
-            - name: Raccogliere i dati di monitoraggio da un runbook
-              href: platform/runbook-datacollect.md
 - name: riferimento
   items:
     - name: Limiti del servizio

@@ -46,8 +46,8 @@
               href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Protezione avanzata dalle minacce
           href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Attributi comuni della sicurezza di Azure
-          href: ../common/storage-security-attributes.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Criteri di sicurezza integrati
+          href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Ridondanza dei dati
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       items:
@@ -160,8 +160,12 @@
       items:
         - name: Avviare il failover di un account
           href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Usare l'emulatore di archiviazione di Azure
-      href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Usare un emulatore di archiviazione
+      items:
+        - name: Usare l'emulatore open source Azurite
+          href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Usare l'emulatore di archiviazione di Azure
+          href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Sviluppare con code
       items:
         - name: .NET

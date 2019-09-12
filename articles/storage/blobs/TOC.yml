@@ -116,8 +116,8 @@
               href: storage-blob-immutable-storage.md
             - name: Protezione avanzata dalle minacce
               href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Attributi comuni della sicurezza di Azure
-              href: ../common/storage-security-attributes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Criteri di sicurezza integrati
+              href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Ridondanza dei dati
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           items:
