@@ -35,7 +35,7 @@ Il nome della sottoscrizione eventi deve essere composto da 3 a 64 caratteri e s
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| destinazione | object | Oggetto che definisce l'endpoint. |
+| destination | object | Oggetto che definisce l'endpoint. |
 | filtro | object | Campo facoltativo per il filtro dei tipi di eventi. |
 
 ### <a name="destination-object"></a>oggetto destination
