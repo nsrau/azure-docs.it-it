@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: dcd9095a1e5010a3d0dd5ea7ad884e36e24c7c1d
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9424ebbd4ed2e1536a10d77a88257bad948628e2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814002"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915402"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Creare processi di Apache Spark Streaming a disponibilità elevata con YARN
 
@@ -29,7 +29,7 @@ Spark Streaming rappresenta un flusso continuo di dati con un *flusso discretizz
 
 Il core di Spark usa *set di dati distribuiti resilienti* (RDD, Resilient Distributed Dataset). I set RDD distribuiscono i dati tra più nodi nel cluster, in cui ogni nodo mantiene in genere i propri dati completamente in memoria per garantire prestazioni ottimali. Ogni RDD rappresenta gli eventi raccolti in un intervallo di batch. Quando è trascorso l'intervallo di batch, Spark Streaming produce un nuovo RDD contenente tutti i dati in tale intervallo. Questo set continuo di RDD viene raccolto in un flusso DStream. Un'applicazione Spark Streaming elabora i dati archiviati nel set RDD di ogni batch.
 
-![DStream Spark](./media/apache-spark-streaming-high-availability/DStream.png)
+![DStream Spark](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
 
 ## <a name="spark-structured-streaming-jobs"></a>Processi di Spark Structured Streaming
 

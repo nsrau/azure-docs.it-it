@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6aca340994f10bd546a25e577258d90d7b7b1368
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2721e134e03d3d622e61085dc39a2914098ba570
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860938"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930730"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -25,7 +25,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 
 ## <a name="2019-09-09"></a>2019-09-09
 
-### <a name="new-web-experience-for-azure-machine-learning-workspaces-preview"></a>Nuova esperienza Web per aree di lavoro Azure Machine Learning (anteprima)
+### <a name="new-web-experience-preview-for-azure-machine-learning-workspaces"></a>Nuova esperienza Web (anteprima) per aree di lavoro Azure Machine Learning 
 La nuova esperienza Web consente a data scientist e data Engineers di completare il ciclo di vita di Machine Learning end-to-end dalla preparazione e visualizzazione dei dati al training e alla distribuzione di modelli in un'unica posizione. 
 
 ![Interfaccia utente dell'area di lavoro Azure Machine Learning (anteprima)](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
@@ -34,7 +34,7 @@ La nuova esperienza Web consente a data scientist e data Engineers di completare
 
 Utilizzando questa nuova interfaccia di Azure Machine Learning, è ora possibile:
 + Gestione dei notebook o collegamento a Jupyter
-+ Eseguire esperimenti di Machine Learning automatici
++ [Eseguire esperimenti di Machine Learning automatici](tutorial-first-experiment-automated-ml.md)
 + [Creare set di dati da file locali, archivi dati, & file Web](how-to-create-register-datasets.md)
 + Esplorare & preparare i set di DataSet per la creazione di modelli
 + Monitorare la tendenza dei dati per i modelli 
@@ -272,7 +272,7 @@ Al momento di questa versione, sono supportati i browser seguenti: Chrome, Firef
     + Nelle attività di previsione, il `target_lags` parametro ora accetta un solo valore integer o un elenco di numeri interi. Se è stato specificato il valore integer, verrà creato solo un ritardo. Se viene specificato un elenco, verranno rilevati i valori univoci dei ritardi. target_lags = [1, 2, 2, 4] creerà i ritardi di uno, 2 e 4 punti.
     + Correzione del bug relativo alla perdita di tipi di colonne dopo la trasformazione (bug collegato);
     + In `model.forecast(X, y_query)`, consentire a y_query di essere un tipo di oggetto contenente nessuno all'inizio (#459519).
-    + Aggiungere i valori previsti all'output di automl
+    + aggiungere i valori previsti all'output di automl
   + **azureml-contrib-datadrift**
     +  Miglioramenti al notebook di esempio, inclusa l'opzione passa a azureml-opendatasets anziché azureml-contrib-opendatasets e miglioramenti delle prestazioni quando si arricchiscono i dati
   + **azureml-contrib-explain-Model**

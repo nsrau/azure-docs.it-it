@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a756f0d9fe3669ab9d0f2b4576a35be5d2112a87
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872203"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914766"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
@@ -43,7 +43,7 @@ Alcuni prodotti che includono SharePoint e OneDrive, ad esempio Office 365, non 
 
 3. Nel messaggio di conferma da Power BI selezionare **Yes, that's me** (Sì, sono io).
 
-4. Accedere al centro di [amministrazione di Microsoft 365](https://admin.microsoft.com) con l'account utente Power bi. Si riceve un messaggio che invita a **diventare l'amministratore** del nome di dominio già verificato nel tenant non gestito. Selezionare **Yes, I want to be the admin** (Sì, voglio essere l'amministratore).
+4. Accedere al centro di [amministrazione di Microsoft 365](https://portal.office.com/admintakeover) con l'account utente Power bi. Si riceve un messaggio che invita a **diventare l'amministratore** del nome di dominio già verificato nel tenant non gestito. Selezionare **Yes, I want to be the admin** (Sì, voglio essere l'amministratore).
   
    ![Primo screenshot per Become the Admin (Diventa l'amministratore)](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -157,7 +157,7 @@ Cmdlet | Utilizzo
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copiare il valore (la richiesta di verifica) restituita da questo comando. Ad esempio:
+4. Copiare il valore (la richiesta di verifica) restituita da questo comando. Esempio:
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -168,7 +168,7 @@ Cmdlet | Utilizzo
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   Ad esempio:
+   Esempio:
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

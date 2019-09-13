@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 09/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: f72feeefeb896c9006f767f8724d9ca3b3640c1e
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f3b093b8d5f772bad759d3384405f4ca9f0cee15
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035223"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933765"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -66,7 +66,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Sono inclusi:
 
-- **Eccezioni** non rilevate nell'app, incluse informazioni su
+- **Eccezioni non rilevate** nell'app, incluse informazioni su
     - Analisi dello stack
     - Dettagli dell'eccezione e messaggio che accompagna l'errore
     - Numero di colonna & riga di errore
@@ -101,9 +101,9 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configurazione
 La maggior parte dei campi di configurazione è denominata in modo che sia possibile impostarla su false. Tutti i campi sono facoltativi `instrumentationKey`ad eccezione di.
 
-| NOME | Predefinito | DESCRIZIONE |
+| Name | Predefinito | DESCRIZIONE |
 |------|---------|-------------|
-| instrumentationKey | Null | **Obbligatorio**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
+| InstrumentationKey | Null | **Obbligatorio**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
 | accountId | Null | ID account facoltativo, se l'app raggruppa gli utenti in account. Spazi, virgole, punti e virgola, uguali o barre verticali |
 | sessionRenewalMs | 1,8 milioni | Una sessione viene registrata se l'utente è inattivo per questo periodo di tempo in millisecondi. Il valore predefinito è 30 minuti |
 | sessionExpirationMs | 86,4 milioni | Una sessione viene registrata se continua per questo periodo di tempo in millisecondi. Il valore predefinito è 24 ore |
@@ -143,14 +143,14 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 
 Per impostazione predefinita, questo SDK **non** gestirà la modifica della Route basata sullo stato che si verifica nelle applicazioni a pagina singola. Per abilitare il rilevamento automatico delle modifiche della route per l'applicazione a pagina singola `enableAutoRouteTracking: true` , è possibile aggiungere alla configurazione di installazione.
 
-Attualmente si offre un plug-in [React](#react-extensions) separato che è possibile inizializzare con questo SDK. Verrà anche eseguito il rilevamento delle modifiche delle route, oltre a raccogliere altri dati di telemetria [specifici di React](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-js).
+Attualmente si offre un plug-in [React](#react-extensions) separato che è possibile inizializzare con questo SDK. Verrà anche eseguito il rilevamento delle modifiche delle route, oltre a raccogliere altri dati di [telemetria specifici di React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
 
 ## <a name="react-extensions"></a>Estensioni React
 
 | Estensioni |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-js)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native)|
+| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
+| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
 
 ## <a name="explore-browserclient-side-data"></a>Esplorare i dati sul lato client e sul browser
 

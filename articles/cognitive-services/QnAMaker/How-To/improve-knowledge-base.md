@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/11/2019
 ms.author: diberry
-ms.openlocfilehash: ae186209395078ed56a046aafdbe01bb513fc3a0
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: b5528d8cd23893248170bdb15588925f3c92c02b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277419"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934710"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usare l'apprendimento attivo per migliorare la Knowledge base
 
@@ -72,6 +72,9 @@ L'apprendimento attivo è disattivato per impostazione predefinita. Attivarlo pe
 1. Trovare il servizio QnA Maker, quindi attivare **Active Learning** (Apprendimento attivo). 
 
     [![Nella pagina Impostazioni servizio selezionare la funzionalità di apprendimento attivo. Se non si è in grado di abilitare o disabilitare la funzionalità, potrebbe essere necessario aggiornare il servizio.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+
+    > [!Note]
+    > La versione esatta sull'immagine precedente viene mostrata solo come esempio. La versione può essere diversa. 
 
     Una volta abilitata l' **apprendimento attivo** , la Knowledge base suggerisce nuove domande a intervalli regolari in base alle domande inviate dall'utente. È possibile disabilitare l'**apprendimento attivo** selezionando nuovamente l'impostazione.
 

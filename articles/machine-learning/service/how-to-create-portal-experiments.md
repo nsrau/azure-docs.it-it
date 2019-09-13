@@ -1,7 +1,7 @@
 ---
 title: Usare l'interfaccia ML automatizzata di Azure per eseguire il training dei modelli di distribuzione &
 titleSuffix: Azure Machine Learning service
-description: Crea, Gestisci e Distribuisci esperimenti di Machine Learning automatici nel portale di Azure
+description: Creazione, gestione e distribuzione di esperimenti automatici di Machine Learning nella pagina di destinazione dell'area di lavoro di Azure Machine Learning (anteprima).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,19 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/02/2019
-ms.openlocfilehash: 79632a2b5862538ef702cec01a60aada14d8dbce
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.date: 09/09/2019
+ms.openlocfilehash: 3ee15b5485f4fc0f81788107ce2378c65085e000
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860496"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910428"
 ---
-# <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici nel portale di Azure (anteprima)
+# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con la pagina di destinazione dell'area di lavoro di Azure Machine Learning (anteprima)
 
- In questo articolo si apprenderà come creare, esplorare e distribuire esperimenti automatici di machine learning nel portale di Azure senza una singola riga di codice. Automatizzato Machine Learning consente di automatizzare il processo di selezione dell'algoritmo migliore da usare per i dati specifici, in modo da poter generare rapidamente un modello di machine learning. [Altre informazioni su Machine Learning automatizzato](concept-automated-ml.md).
+ Questo articolo illustra come creare, esplorare e distribuire esperimenti automatici di Machine Learning nella pagina di destinazione dell'area di lavoro Azure Machine Learning senza una sola riga di codice. Automatizzato Machine Learning consente di automatizzare il processo di selezione dell'algoritmo migliore da usare per i dati specifici, in modo da poter generare rapidamente un modello di machine learning. [Altre informazioni su Machine Learning automatizzato](concept-automated-ml.md).
 
  Se si preferisce un'esperienza più basata sul codice, è anche possibile [configurare gli esperimenti di Machine Learning automatici in Python](how-to-configure-auto-train.md) con l' [SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,23 +32,26 @@ ms.locfileid: "70860496"
 
 ## <a name="get-started"></a>Attività iniziali
 
-Passare al riquadro sinistro dell'area di lavoro. Selezionare Machine Learning automatizzati nella sezione Creazione e modifica (anteprima).
 
-![Riquadro di spostamento del portale di Azure](media/how-to-create-portal-experiments/nav-pane.png)
+1. Accedere alla [pagina di destinazione dell'area di lavoro](https://ml.azure.com/workspaceportal/). 
 
- Se questa è la prima volta che si esegue un esperimento, verrà visualizzata la schermata **di benvenuto Machine Learning automatizzata** . 
+1. Selezionare la sottoscrizione e l'area di lavoro. 
+
+1. Passare al riquadro sinistro. Selezionare **automatizzato ml** nella sezione **creazione e modifica** .
+
+[![Riquadro di spostamento portale di Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+
+ Se è la prima volta che si esegue un esperimento, verrà **visualizzata la schermata iniziale.** 
 
 In caso contrario, verrà visualizzato il dashboard di **Machine Learning automatizzato** con una panoramica di tutti gli esperimenti automatici di Machine Learning, inclusi quelli creati con l'SDK. Qui è possibile filtrare ed esplorare le esecuzioni in base alla data, al nome dell'esperimento e allo stato di esecuzione.
 
-È anche possibile accedere a Machine Learning automatizzati dalla [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
+## <a name="create-and-run-experiment"></a>Creazione ed esecuzione dell'esperimento
 
-## <a name="create-an-experiment"></a>Creare un esperimento
-
-Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperimento di Machine Learning automatizzato** .
+1. Selezionare **Crea esperimento** e popolare il modulo.
 
 1. Immettere un nome di esperimento univoco.
 
-1. Selezionare un calcolo per il processo di profiling dei dati e di training. Un elenco di calcoli esistenti è disponibile nell'elenco a discesa. Per creare un nuovo calcolo, seguire le istruzioni riportate nel passaggio 3.
+1. Selezionare un calcolo per il processo di profiling dei dati e di training. Un elenco di calcoli esistenti è disponibile nell'elenco a discesa. Per creare un nuovo calcolo, seguire le istruzioni riportate nel passaggio 4.
 
 1. Selezionare **Crea nuovo calcolo** per configurare il contesto di calcolo per questo esperimento.
 
@@ -58,32 +60,40 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
     Nome dell'ambiente di calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
     Dimensioni delle macchine virtuali| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.
     Impostazioni aggiuntive| *Min node* (Nodi minimi): Immettere il numero minimo di nodi per il calcolo. Il numero minimo di nodi per il calcolo di AML è 0. Per abilitare la profilatura dei dati, è necessario disporre di uno o più nodi. <br> *Max node* (Nodi max): Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
+    
+    Selezionare **Create**. La creazione di un nuovo calcolo può richiedere alcuni minuti.
 
-      Selezionare **Create**. La creazione di un nuovo calcolo può richiedere alcuni minuti.
+    >[!NOTE]
+    > Il nome di calcolo indicherà se la profilatura del calcolo selezionato/creato è abilitata. Per altri dettagli, vedere la sezione [profiling dei dati](#profile) .
 
-      >[!NOTE]
-      > Il nome di calcolo indicherà se la profilatura del calcolo selezionato/creato è abilitata. (Per altre informazioni sul profiling dei dati, vedere 7B).
+1. Selezionare un set di dati dal contenitore di archiviazione oppure crearne uno caricando un file dal computer locale al contenitore. L'anteprima pubblica supporta solo i caricamenti di file locali e gli account di archiviazione BLOB di Azure.
 
-1. Selezionare un account di archiviazione per i dati. 
-
-1. Selezionare un contenitore di archiviazione.
-
-1. Selezionare un file di dati dal contenitore di archiviazione o caricare un file dal computer locale nel contenitore. L'anteprima pubblica supporta solo i caricamenti di file locali e gli account di archiviazione BLOB di Azure.
     >[!Important]
     > Requisiti per i dati di training:
     >* I dati devono essere in formato tabulare.
     >* Il valore che si desidera stimare (colonna di destinazione) deve essere presente nei dati.
 
-    [![Selezionare il file di dati](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
+    1. Per creare un nuovo set di dati da un file nel calcolo locale, selezionare **Sfoglia** e quindi selezionare il file. 
 
-1. Usare le schede anteprima e profilo per configurare ulteriormente i dati per questo esperimento.
+    1. Assegnare un nome univoco al set di dati e specificare una descrizione facoltativa. 
 
-    1. Nella scheda **Anteprima** indicare se i dati includono intestazioni e selezionare le funzionalità (colonne) per il training usando i pulsanti di opzione **inclusi** in ogni colonna della funzionalità.
+    1. Selezionare **Next (avanti** ) per caricarlo nel contenitore di archiviazione predefinito creato automaticamente con l'area di lavoro o scegliere un contenitore di archiviazione da usare per l'esperimento. 
 
-    1. Nella scheda **profilo** è possibile visualizzare il [profilo dati](#profile) per funzionalità, nonché la distribuzione, il tipo e le statistiche di riepilogo (media, mediana, max/min e così via) di ognuno.
+    1. Esaminare le **Impostazioni e** il modulo di anteprima per verificarne l'accuratezza. Il modulo viene popolato in modo intelligente in base al tipo di file. 
 
-        >[!NOTE]
-        > Se il contesto di calcolo **non** è abilitato per la profilatura, verrà visualizzato il seguente messaggio di errore: *Il profiling dei dati è disponibile solo per le destinazioni di calcolo già in esecuzione*.
+        Campo| Descrizione
+        ----|----
+        Formato file| Definisce il layout e il tipo di dati archiviati in un file.
+        Delimitatore| Uno o più caratteri per specificare il limite tra aree separate indipendenti in testo normale o altri flussi di dati.
+        Codifica| Identifica la tabella dello schema da utilizzare per la lettura del set di dati.
+        Intestazioni di colonna| Indica il modo in cui verranno gestite le intestazioni del set di dati.
+        Ignora righe | Indica il numero di righe, se presenti, ignorate nel set di dati.
+    
+        Selezionare **Avanti**.
+
+    1. Il form **dello schema** viene popolato in modo intelligente in base alle selezioni nelle **Impostazioni e** nel modulo di anteprima. Qui configurare il tipo di dati per ogni colonna, rivedere i nomi delle colonne e selezionare le colonne da **non includere** per l'esperimento. 
+            
+        Selezionare **Avanti.**
 
 1. Selezionare il tipo di processo di training: classificazione, regressione o previsione.
 
@@ -94,7 +104,7 @@ Selezionare **Crea esperimento** e popolare il modulo **Crea un nuovo esperiment
 
     1. Selezionare l'orizzonte di previsione: Indica il numero di unità di tempo (minuti/ore/giorni/settimane/mesi/anni) che il modello sarà in grado di stimare in futuro. Maggiore è il modello necessario per prevedere il futuro, minore sarà il livello di precisione. [Altre informazioni sulla previsione e sull'orizzonte di previsione](how-to-auto-train-forecast.md).
 
-1. Opzionale Impostazioni avanzate: impostazioni aggiuntive che è possibile usare per controllare meglio il processo di training.
+1. Opzionale Impostazioni avanzate: impostazioni aggiuntive che è possibile usare per controllare meglio il processo di training. In caso contrario, vengono applicati i valori predefiniti in base alla selezione dell'esperimento e ai dati. 
 
     Impostazioni avanzate|Descrizione
     ------|------
@@ -165,7 +175,7 @@ Per completare l'esecuzione di ogni pipeline, i processi di training possono ric
 
 Eseguire il drill-down su uno dei modelli di output per visualizzare i dettagli delle esecuzioni di training, come le metriche delle prestazioni e i grafici di distribuzione. [Altre informazioni sui grafici](how-to-understand-automated-ml.md).
 
-![Dettagli iterazione](media/how-to-create-portal-experiments/iteration-details.png)
+[![Dettagli iterazione](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## <a name="deploy-your-model"></a>Distribuire il modello
 
@@ -178,9 +188,10 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
     + Opzione 1: Per distribuire il modello migliore (in base ai criteri di metrica definiti), selezionare Distribuisci modello migliore dalla pagina Dettagli esecuzione.
 
     + Opzione 2: Per distribuire un'iterazione del modello specifica da questo esperimento, eseguire il drill-down sul modello per aprire la pagina dei dettagli dell'esecuzione e selezionare Distribuisci modello.
-1. Popolare il riquadro **Distribuisci modello** ,
 
-    Campo| Valore
+1. Popolare il riquadro **Distribuisci modello** .
+
+    Campo| Value
     ----|----
     Nome distribuzione| Immettere un nome univoco per la distribuzione.
     Descrizione della distribuzione| Immettere una descrizione per identificare meglio le finalità della distribuzione.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 38e33c0e138b115010b22cc3510b93be98546b50
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1e922dfd879c7323d467dca8c4017c5ede2c8659
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735876"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916534"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usare gli archivi di metadati esterni in Azure HDInsight
 
@@ -70,6 +70,7 @@ Ecco alcune procedure consigliate generali per il metastore Hive di HDInsight:
 - Monitora il Metastore per le prestazioni e la disponibilità usando gli strumenti di monitoraggio del database SQL di Azure, ad esempio il portale di Azure o i log di monitoraggio di Azure.
 - Quando una nuova versione di Azure HDInsight viene creata in un database del metastore personalizzato esistente, il sistema aggiorna lo schema del metastore che è irreversibile senza ripristino del database dal backup.
 - Se un metastore è condiviso da più cluster, assicurarsi che tutti i cluster abbiano la stessa versione HDInsight. Versioni Hive diverse usano schemi di database del metastore diversi. Ad esempio, non è possibile condividere un metastore tra cluster Hive 1.2 e Hive 2.1. 
+- In HDInsight 4,0, Spark e hive usano cataloghi indipendenti per accedere alle tabelle SparkSQL o hive. Una tabella creata da Spark risiede nel catalogo Spark. Una tabella creata da hive risiede nel catalogo hive. Questa operazione è diversa da quella di HDInsight 3,6 in cui hive e Spark condividono il catalogo comune. L'integrazione di hive e Spark in HDInsight 4,0 si basa sul connettore di hive warehouse (HWC). HWC funziona come un bridge tra Spark e hive. Informazioni [sul connettore del warehouse di hive](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
 
 ##  <a name="apache-oozie-metastore"></a>Metastore Apache Oozie
 

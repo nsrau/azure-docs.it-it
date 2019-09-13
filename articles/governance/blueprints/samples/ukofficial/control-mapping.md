@@ -8,18 +8,21 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b53f293f6289377d85f4346933f7edb7369065cf
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 43848e99f679e306747c4cb7b31a4d4692c888cc
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231624"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918349"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Controllo del mapping degli esempi di progetto ufficiale UK e del SSN UK
 
 Nell'articolo seguente viene illustrato in dettaglio come vengono mappati gli esempi ufficiali del Regno Unito e del SSN UK per i controlli del Regno Unito e del Regno Unito. Per ulteriori informazioni sui controlli, vedere il [sito ufficiale UK](https://www.gov.uk/government/publications/government-security-classifications).
 
 I mapping seguenti si riportano ai controlli del **Regno Unito ufficiale** e del **Regno Unito** . Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Quindi, trovare e selezionare i  **\[controlli\] di anteprima del Regno Unito e dei controlli NHS del Regno Unito e distribuire estensioni VM specifiche per supportare i requisiti di controllo** predefiniti Initiative.
+
+> [!IMPORTANT]
+> Ogni controllo seguente è associato a una o più definizioni di [criteri di Azure](../../../policy/overview.md) . Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo; Tuttavia, spesso non si tratta di una corrispondenza 1:1 o completa tra un controllo e uno o più criteri. Di conseguenza, la **conformità** nei criteri di Azure si riferisce solo ai criteri stessi; Ciò non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono risolti da alcuna definizione di criteri di Azure. La conformità in criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
 
 ## <a name="1-data-in-transit-protection"></a>1 dati nella protezione di transito
 

@@ -11,22 +11,23 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 09/10/2019
 ms.author: lahugh
-ms.openlocfilehash: 9d94c4be90b408da7635f47567aa8f713f14de86
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5dbd13775bd91a2bab3a7a4989cb14f4d7b44fa8
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083179"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900726"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Supporto per le macchine virtuali di seconda generazione (anteprima) in Azure
 
 > [!IMPORTANT]
-> Il supporto di Azure per le macchine virtuali di seconda generazione è attualmente in fase di anteprima. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per ulteriori informazioni, vedere le [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Il supporto di Azure per le macchine virtuali di seconda generazione è attualmente in fase di anteprima.
+> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per ulteriori informazioni, vedere le [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Il supporto per le macchine virtuali di seconda generazione (VM) è ora disponibile in anteprima in Azure. Non è possibile modificare la generazione di una macchina virtuale dopo averla creata, quindi esaminare le considerazioni in questa pagina prima di scegliere una generazione. 
+Il supporto per le macchine virtuali di seconda generazione (VM) è ora disponibile in anteprima in Azure. Non è possibile modificare la generazione di una macchina virtuale dopo averla creata, quindi esaminare le considerazioni in questa pagina prima di scegliere una generazione.
 
 Le macchine virtuali di seconda generazione supportano le funzionalità principali che non sono supportate nelle macchine virtuali di prima generazione. Queste funzionalità includono una maggiore memoria, Intel Software Guard Extensions (Intel SGX) e la memoria persistente virtualizzata (vPMEM). Le macchine virtuali di seconda generazione dispongono anche di alcune funzionalità che non sono ancora supportate in Azure. Per ulteriori informazioni, vedere la sezione [funzionalità e funzionalità](#features-and-capabilities) .
 
@@ -37,14 +38,18 @@ Le macchine virtuali di seconda generazione utilizzano la nuova architettura di 
 Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni delle macchine virtuali in Azure. Azure offre ora il supporto per la generazione di anteprima 2 per le seguenti serie di macchine virtuali selezionate:
 
 * [Serie B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
+* [Serie DC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
 * Serie [Dsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) e [serie Dsv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
 * [Serie Esv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
 * [Serie Fsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
 * [Serie GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
+* [Serie HB](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hb-series)
+* [Serie HC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hc-series)
 * Serie [ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) e [serie Lsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
 * [Serie Mv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
 * Serie [NCv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) e [serie NCv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
 * [Serie ND](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
+* [Serie NVv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Immagini di macchine virtuali di seconda generazione in Azure Marketplace
 
@@ -54,6 +59,8 @@ Le macchine virtuali di seconda generazione supportano le seguenti immagini del 
 * Windows Server 2016 Datacenter
 * Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
+* SUSE Linux Enterprise Server 15 SP1
+* SUSE Linux Enterprise Server 12 SP4
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Confronto tra locale e VM di generazione 2 di Azure
 
@@ -121,13 +128,28 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
 * **Esiste una differenza di prezzo tra le macchine virtuali di prima e di seconda generazione?**  
     No.
 
+* **Si dispone di un file con estensione VHD della macchina virtuale locale di seconda generazione. È possibile usare il file con estensione VHD per creare una macchina virtuale di seconda generazione in Azure?**
+  Sì, è possibile importare il file con estensione VHD di generazione 2 in Azure e usarlo per creare una macchina virtuale di seconda generazione. Per eseguire questa operazione, attenersi alla procedura seguente:
+    1. Caricare il file VHD in un account di archiviazione nella stessa area in cui si vuole creare la macchina virtuale.
+    1. Creare un disco gestito dal file con estensione vhd. Impostare la proprietà di generazione HyperV su V2. I comandi di PowerShell seguenti impostano la proprietà di generazione HyperV durante la creazione del disco gestito.
+
+        ```powershell
+        $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>
+        $osDiskName = 'gen2Diskfrmgenvhd'  #<Provide a name for your disk>
+        $diskconfig = New-AzDiskConfig -Location '<location>' -DiskSizeGB 127 -AccountType Standard_LRS -OsType Windows -HyperVGeneration "V2" -SourceUri $sourceUri -CreateOption 'Import'
+        New-AzDisk -DiskName $osDiskName -ResourceGroupName '<Your Resource Group>' -Disk $diskconfig
+        ```
+
+    1. Quando il disco è disponibile, creare una VM connettendo questo disco. La macchina virtuale creata sarà una macchina virtuale di seconda generazione.
+    Quando viene creata la macchina virtuale di seconda generazione, è possibile generalizzare l'immagine della macchina virtuale. Generalizzando l'immagine è possibile usarla per creare più macchine virtuali.
+
 * **Ricerca per categorie aumentare le dimensioni del disco del sistema operativo?**  
   I dischi del sistema operativo di dimensioni superiori a 2 TB sono nuovi per le macchine virtuali di seconda generazione. Per impostazione predefinita, i dischi del sistema operativo sono inferiori a 2 TB per le macchine virtuali di seconda generazione. È possibile aumentare le dimensioni del disco fino a un massimo consigliato di 4 TB. Usare l'interfaccia della riga di comando di Azure o l'portale di Azure per aumentare le dimensioni del disco del sistema operativo. Per informazioni su come espandere i dischi a livello di codice, vedere [ridimensionare un disco](expand-disks.md).
 
   Per aumentare le dimensioni del disco del sistema operativo dal portale di Azure:
 
   1. Nella portale di Azure passare alla pagina delle proprietà della macchina virtuale.
-  1. Per arrestare e deallocare la VM, selezionare il pulsante Interrompi.
+  1. Per arrestare e deallocare la VM, selezionare il pulsante **Interrompi** .
   1. Nella sezione **dischi** selezionare il disco del sistema operativo che si vuole aumentare.
   1. Nella sezione **dischi** selezionare **configurazione**e aggiornare le **dimensioni** al valore desiderato.
   1. Tornare alla pagina delle proprietà della macchina virtuale e **avviare** la macchina virtuale.

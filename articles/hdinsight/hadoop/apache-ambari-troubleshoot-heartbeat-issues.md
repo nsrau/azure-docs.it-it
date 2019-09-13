@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: 0b20bb5265dd5fa139a691fcb21aaa1795ff352c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 09/11/2019
+ms.openlocfilehash: 6b1c30ab218b47e080935d2959cb3f701806ac68
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735976"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918148"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemi di heartbeat di Apache Ambari in Azure HDInsight
 
@@ -21,7 +21,7 @@ Questo articolo descrive le procedure di risoluzione dei problemi e le possibili
 
 ### <a name="issue"></a>Problema
 
-L'agente Ambari ha un utilizzo elevato della CPU, che genera avvisi dall'interfaccia utente di Ambari che per alcuni nodi viene perso l'heartbeat dell'agente Ambari.
+L'agente Ambari ha un utilizzo elevato della CPU, che genera avvisi dall'interfaccia utente di Ambari che per alcuni nodi viene perso l'heartbeat dell'agente Ambari. L'avviso di heartbeat perso è in genere temporaneo. 
 
 ### <a name="cause"></a>Causa
 

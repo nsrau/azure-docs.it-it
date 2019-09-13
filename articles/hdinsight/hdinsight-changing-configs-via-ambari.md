@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 57e5eef8563bca0e27024d6ff5a46b983273df07
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d34cb7b8bfae14c25950cc4d77c6625c675e813b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810654"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934454"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Apache Ambari per ottimizzare le configurazioni cluster HDInsight
 
@@ -23,7 +23,7 @@ Per un'introduzione all'uso dell'interfaccia utente Web Ambari, vedere [Gestire 
 
 Accedere ad Ambari all'indirizzo `https://CLUSTERNAME.azurehdidnsight.net` con le credenziali del cluster. La schermata iniziale visualizza un dashboard generale.
 
-![Dashboard di Ambari](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
+![Dashboard di Ambari](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
 L'interfaccia utente Web Ambari può essere usata per gestire host, servizi, avvisi, configurazioni e visualizzazioni. Ambari non può essere usato per creare un cluster HDInsight, aggiornare i servizi, gestire stack e versioni, ritirare o ripristinare gli host o aggiungere servizi al cluster.
 
@@ -31,7 +31,7 @@ L'interfaccia utente Web Ambari può essere usata per gestire host, servizi, avv
 
 Le impostazioni di configurazione consentono di ottimizzare un determinato servizio. Per modificare le impostazioni di configurazione di un servizio, selezionare il servizio dalla barra laterale **Services** (Servizi) a sinistra e quindi passare alla scheda **Configs** (Configurazioni) nella pagina dei dettagli del servizio.
 
-![Barra laterale dei servizi](./media/hdinsight-changing-configs-via-ambari/services-sidebar.png)
+![Barra laterale dei servizi](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
 
 ### <a name="modify-namenode-java-heap-size"></a>Modificare le dimensioni dell'heap Java NameNode
 
@@ -41,15 +41,15 @@ Per modificare le dimensioni dell'heap Java NameNode:
 
 1. Selezionare **HDFS** dalla barra laterale Services (Servizi) e passare alla scheda **Configs** (Configurazioni).
 
-    ![Configurazione HDFS](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
+    ![Configurazione HDFS](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
 
 1. Trovare l'impostazione **NameNode Java heap size** (Dimensioni dell'heap Java NameNode). È anche possibile usare la casella di testo **filter** (filtro) per digitare e trovare una determinata impostazione. Selezionare l'icona **pen** (penna) accanto al nome dell'impostazione.
 
-    ![Dimensioni dell'heap Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
+    ![Dimensioni dell'heap Java NameNode](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
 
 1. Digitare il nuovo valore nella casella di testo, quindi premere **INVIO** per salvare la modifica.
 
-    ![Modifica Size1 heap Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![Modifica Size1 heap Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
 
 1. Le dimensioni dell'heap Java NameNode sono state modificate in 1 GB da 2 GB.
 
@@ -57,7 +57,7 @@ Per modificare le dimensioni dell'heap Java NameNode:
 
 1. Salvare le modifiche facendo clic sul pulsante verde **Save** (Salva) nella parte superiore della schermata di configurazione.
 
-    ![Salva le modifiche](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
+    ![Salva le modifiche](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
 
 ## <a name="apache-hive-optimization"></a>Ottimizzazione di Apache Hive
 
@@ -72,11 +72,11 @@ Hive offre due motori di esecuzione: [Apache Hadoop MapReduce](https://hadoop.ap
 
 1. Nella scheda **Configs** (Configurazioni) di Hive digitare **execution engine** nella casella di filtro.
 
-    ![Cercare il motore di esecuzione](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
+    ![Cercare il motore di esecuzione](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
 
 1. Il valore predefinito della proprietà **Optimization** (Ottimizzazione) è **Tez**.
 
-    ![Ottimizzazione - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
+    ![Ottimizzazione - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
 
 ### <a name="tune-mappers"></a>Ottimizzare i mapper
 
@@ -93,7 +93,7 @@ Ad esempio, per impostare quattro attività di mapper per dimensioni dei dati pa
 
 1. Impostare entrambi i parametri su **33.554.432** byte (32 MB).
 
-    ![Dimensioni dei raggruppamenti Tez](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
+    ![Dimensioni dei raggruppamenti Tez](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
  
 Queste modifiche interessano tutti i processi Tez nel server. Per ottenere un risultato ottimale, scegliere valori appropriati per i parametri.
 
@@ -109,7 +109,7 @@ Il parametro `hive.exec.reducers.bytes.per.reducer` specifica il numero di byte 
 
 1. Per modificare il parametro, passare alla scheda **Configs** (Configurazioni) di Hive e trovare il parametro **Data per Reducer** (Dati per riduttore) nella pagina Settings (Impostazioni).
 
-    ![Data per Reducer (Dati per riduttore)](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
+    ![Data per Reducer (Dati per riduttore)](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
  
 1. Selezionare **Edit** (Modifica) per impostare il valore su 128 MB (134.217.728 byte) e quindi premere **INVIO** per salvare.
 
@@ -127,7 +127,7 @@ Una query Hive viene eseguita in una o più fasi. Se le fasi indipendenti posson
  
 1.  Per limitare il numero di processi da eseguire in parallelo, modificare la `hive.exec.parallel.thread.number` proprietà. Il valore predefinito è 8.
 
-    ![Esecuzione parallela di Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
+    ![Esecuzione parallela di Hive](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
 
 ### <a name="enable-vectorization"></a>Abilitare la vettorializzazione
@@ -146,7 +146,7 @@ Per impostazione predefinita, Hive segue un set di regole per trovare un piano d
 
 Per abilitare l'ottimizzazione basata sui costi, passare alla scheda **Configs** (Configurazioni) di Hive e cercare `parameter hive.cbo.enable`, quindi impostare l'interruttore su **On** (Sì).
 
-![Configurazione dell'ottimizzazione basata sui costi](./media/hdinsight-changing-configs-via-ambari/cbo.png)
+![Configurazione dell'ottimizzazione basata sui costi](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 I parametri di configurazione aggiuntivi seguenti migliorano le prestazioni della query Hive quando l'ottimizzazione basata sui costi è abilitata:
 
@@ -179,7 +179,7 @@ I tipi di compressione disponibili sono:
 | Formato | Strumento | Algoritmo | Estensione file | Divisibile |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | gz | No |
-| Bzip2 | Bzip2 | Bzip2 |bz2 | Sì |
+| Bzip2 | Bzip2 | Bzip2 |bz2 | Yes |
 | LZO | Lzop | LZO | lzo | Sì, se indicizzato |
 | Snappy | N/D | Snappy | Snappy | No |
 
@@ -373,7 +373,7 @@ Le dimensioni dell'heap HBase specificano, in megabyte, la quantità massima di 
 
 1. Impostare il valore predefinito su 5.000 MB.
 
-    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
+    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
 
 
 ### <a name="optimize-read-heavy-workloads"></a>Ottimizzare i carichi di lavoro con numero elevato di letture

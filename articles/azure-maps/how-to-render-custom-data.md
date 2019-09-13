@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b6343931287ed59363db2715641ca63a814a9c32
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6619fd842f225a6d362a4b308dde6e35b43677c9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638806"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915764"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Eseguire il rendering di dati personalizzati in una mappa raster
 
@@ -27,7 +27,8 @@ Per eseguire il rendering di puntine da disegno, etichette e sovrapposizioni di 
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure
 
-Per completare le procedure descritte in questo articolo, è prima di tutto necessario [creare un account Azure Maps](how-to-manage-account-keys.md) nel piano tariffario S1.
+Per completare le procedure descritte in questo articolo, è necessario creare prima di tutto un account Azure Maps seguendo le istruzioni in [gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e seguire i passaggi in [ottenere la chiave primaria](./tutorial-search-location.md#getkey) per recuperare una chiave di sottoscrizione primaria per l'account.
+
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Eseguire il rendering di puntine da disegno con etichette e un'immagine personalizzata
 
@@ -145,7 +146,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Per ottenere il udId, aprire una nuova scheda nell'app post-up e selezionare GET HTTP Method nella scheda Builder ed effettuare una richiesta GET nell'URI di stato. Se il caricamento dei dati ha avuto esito positivo, si riceverà un udId nel corpo della risposta. Copiare udId.
+6. Per ottenere il udId, aprire una nuova scheda nell'app post-up e selezionare GET HTTP Method nella scheda Builder ed effettuare una richiesta GET nell'URI di stato. Se il caricamento dei dati è riuscito, si riceverà un udId nel corpo della risposta. Copiare udId.
 
    ```JSON
    {

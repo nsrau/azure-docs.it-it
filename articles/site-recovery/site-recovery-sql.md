@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742334"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934841"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurare il ripristino di emergenza per SQL Server
 
@@ -111,7 +111,7 @@ Alcune tecnologie BCDR come SQL Always On non supportano in modo nativo il failo
 
     ![Screenshot della finestra con etichetta Content_AG che mostra i nomi e gli Stati dei server](./media/site-recovery-sql/bring-listener-online.png)
 
-1. Creare un servizio di bilanciamento del carico. Per ogni listener del gruppo di disponibilità, creare un indirizzo IP dal pool di indirizzi IP front-end. Aggiungere anche la macchina virtuale SQL Server al pool back-end.
+1. Verificare che il servizio di bilanciamento del carico nella rete di failover disponga di un indirizzo IP, dal pool di indirizzi IP front-end corrispondente a ogni listener del gruppo di disponibilità e con il SQL Server macchina virtuale nel pool back-end.
 
      ![Screenshot della finestra intitolata "SQL-AlwaysOn-LB-front-end pool IP](./media/site-recovery-sql/create-load-balancer1.png)
 

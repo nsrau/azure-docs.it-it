@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 9018df73c85486f5ffc9b16c1dbb70d4d99fcc65
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 22726ed8acae69adc09389b8f5f28df594a570a3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360178"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915443"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Inviare o ricevere eventi da Hub eventi tramite Python
 
@@ -42,6 +42,9 @@ pip install azure-eventhub
 ```
 
 ## <a name="send-events"></a>Inviare eventi
+
+> [!NOTE]
+> Questo codice in questa sezione è relativo alla versione stabile corrente (1.3.1) dell'SDK di hub eventi. Se si sta cercando il codice di esempio che usa la versione di anteprima dell'SDK, vedere [Questa pagina](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples).
 
 ### <a name="create-a-python-script-to-send-events"></a>Creazione di uno script Python per inviare gli eventi
 
@@ -105,7 +108,7 @@ Per eseguire lo script aprire un prompt dei comandi con un percorso contenente P
 start python send.py
 ```
 
-Congratulazioni! Sono stati inviati messaggi a un hub eventi.
+La procedura è stata completata. Sono stati inviati messaggi a un hub eventi.
 
 ## <a name="receive-events"></a>Ricevere eventi
 

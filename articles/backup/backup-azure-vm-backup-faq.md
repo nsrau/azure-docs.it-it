@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 26d07ac0b09655e170b53af91f890f21d15afb1b
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827579"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909789"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -120,6 +120,12 @@ Per una macchina virtuale di Azure con dischi gestiti, il ripristino nei set di 
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>In che modo si ottengono migliori prestazioni di ripristino?
 La funzionalità di [ripristino istantaneo](backup-instant-restore-capability.md) consente di eseguire backup più veloci e ripristini istantanei dagli snapshot.
+
+### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>Cosa accade quando si modificano le impostazioni dell'insieme di credenziali delle chiavi per la VM crittografata?
+
+Dopo aver modificato le impostazioni dell'insieme di credenziali delle chiavi per la VM crittografata, i backup continueranno a funzionare con il nuovo set di dettagli, tuttavia, dopo il ripristino da un punto di ripristino prima della modifica, sarà necessario ripristinare i segreti in un insieme di credenziali delle chiavi prima di poter creare la macchina virtuale da  è. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+
+Operazioni come il rollup della chiave o del segreto non richiedono questo passaggio e lo stesso insieme di credenziali delle chiavi può essere usato dopo il ripristino.
 
 ## <a name="manage-vm-backups"></a>Gestire i backup delle macchine virtuali
 

@@ -1,287 +1,323 @@
 ---
-title: Analitica per il Marketplace nel centro per i Partner commercio
-description: Informazioni su come accedere ai report di analisi per monitorare le vendite, valutare le prestazioni e ottimizzazione delle tue offerte del marketplace.
-author: mattwojo
+title: Analisi per il Marketplace commerciale nel centro per i partner
+description: Informazioni su come accedere ai report analitici per monitorare le vendite, valutare le prestazioni e ottimizzare le offerte del Marketplace.
+author: chjenk
 manager: evansma
 ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
-ms.translationtype: MT
+ms.date: 09/09/2019
+ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619694"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880154"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analitica per il Marketplace nel centro per i Partner commercio
+# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analisi per il Marketplace commerciale nel centro per i partner
 
-Informazioni su come accedere ai report analitici in Microsoft Partner Center per monitorare le vendite, valutare le prestazioni e ottimizzare le offerte nel marketplace. Come partner, è possibile monitorare le presentazioni delle offerte tramite la visualizzazione dei dati e grafici insight supportati dal centro per i Partner e trovare un modo per ottimizzare le vendite. Gli strumenti migliorato analitica consentono di agire sui risultati delle prestazioni e gestire relazioni migliori con i clienti e i rivenditori. 
+Informazioni su come accedere ai report analitici nel centro per i partner Microsoft per monitorare le vendite, valutare le prestazioni e ottimizzare le offerte nel Marketplace. In qualità di partner, è possibile monitorare gli elenchi di offerte usando i grafici di visualizzazione e analisi dei dati supportati dal centro per i partner e trovare i modi per ottimizzare le vendite. Gli strumenti di analisi migliorati consentono di agire sui risultati delle prestazioni e di mantenere relazioni migliori con i clienti e i rivenditori. 
 
-Per accedere agli strumenti analitica Centro per i Partner, aprire il **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard in Marketplace commerciale.
+Per accedere agli strumenti di analisi del centro per i partner, aprire il dashboard **[analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Marketplace commerciale.
 
 |**Dashboard**|**Contenuto visualizzato**|
 |:---|:---|
-|[Riepilogo](#summary-dashboard)|Grafici delle tendenze e i valori dei dati di aggregazione che riepilogano le attività di marketplace per le offerte|
-|[Ordini](#orders-dashboard)|Informazioni sugli ordini in un formato scaricabile e con interfaccia grafico|
-|[Clienti](#customer-dashboard)|Informazioni sui clienti, incluse le tendenze di incremento, presentate sotto forma di grafico e scaricabile|
-|[Download](#downloads-dashboard)|Un elenco delle richieste di download negli ultimi 30 giorni|
+|[Riepilogo](#summary-dashboard)|Grafici, tendenze e valori di dati aggregati che riepilogano le attività del Marketplace per le offerte|
+|[Ordini](#orders-dashboard)|Informazioni sugli ordini in formato grafico e scaricabile|
+|[Clienti](#customer-dashboard)|Informazioni sui clienti, incluse le tendenze di crescita, presentate in formato grafico e scaricabile|
+|[Download](#downloads-dashboard)|Elenco delle richieste di download negli ultimi 30 giorni|
+|[Classificazioni e revisioni](#ratings-and-reviews)| Informazioni sulle classificazioni e le recensioni che i clienti lasciano per le offerte acquisite.
 
 ## <a name="summary-dashboard"></a>Dashboard Riepilogo
 
-Il **riepilogo** dashboard presenta una panoramica di base di ogni tipo di offerta. **Insights** Mostra informazioni importanti a colpo d'e fornire una visione più ampia dell'attività di vendita delle offerte. È possibile visualizzare questi report utilizzando il **riepilogo** dashboard:
+Il dashboard di **Riepilogo** presenta una panoramica basata su ogni tipo di offerta. **Insights** Mostra informazioni critiche a colpo d'occhio e fornisce un'ampia panoramica dell'attività di vendita delle offerte. È possibile visualizzare questi report usando il dashboard di **Riepilogo** :
 
-- [Ordini totali](#totals)
+- [Totale ordini](#totals)
 - [Clienti totali](#totals)
 - [Posizione geografica dei clienti](#customers-by-geography)
-- [Le tendenze emergenti sulla base di clienti e ordini informazioni](#growth-trend-chart)
-- [Tabellone punteggi dei clienti con gli ordini più alto](#customer-leaderboard)
+- [Tendenze emergenti in base alle informazioni sui clienti e sugli ordini](#growth-trend-chart)
+- [Tabellone clienti con ordini più elevati](#customer-leaderboard)
 - [Numero di ordini organizzati in base al nome dell'offerta](#offers-by-orders)
 
 ### <a name="date-range"></a>Intervallo di date
 
-È possibile trovare una selezione intervallo di date nell'angolo superiore destro di ogni pagina. L'output del **riepilogo** grafici di pagina possono essere personalizzati selezionando un intervallo di date basato passato 3, 6 o 12 mesi o selezionando un intervallo di date personalizzato con una durata massima di 12 mesi. L'intervallo di date predefinito è sei mesi.
+È possibile trovare la selezione di un intervallo di date nell'angolo superiore destro di ogni pagina. L'output dei grafici della pagina **Riepilogo** può essere personalizzato selezionando un intervallo di date basato sugli ultimi 3, 6 o 12 mesi oppure selezionando un intervallo di date personalizzato con una durata massima di 12 mesi. L'intervallo di date predefinito è di sei mesi.
 
-![Dashboard di analisi di partner Center](./media/analyze-dashboard.png)
+![Dashboard di analisi del centro per i partner](./media/analyze-dashboard.png)
 
 ### <a name="totals"></a>Totali
 
-Il **totali** sezione Visualizza un conteggio di tutti gli ordini creati, o dei clienti acquisiti, durante l'intervallo di date selezionato. 
+Nella sezione **totali** viene visualizzato il conteggio di tutti gli ordini creati o dei clienti acquisiti durante l'intervallo di date selezionato. 
 
-- Il valore di percentuale accanto a **Total Orders** e **clienti totale** rappresenta la quantità di incremento rispetto al mese precedente. 
+- Il valore percentuale accanto a **Total Orders** e **Total Customers** rappresenta la quantità di crescita rispetto al mese precedente. 
 - Un triangolo verde che punta verso l'alto indica una tendenza di crescita positiva. Un triangolo rosso che punta verso il basso indica una tendenza di crescita negativa rispetto al mese precedente. 
-- Ordine e le tendenze di incremento dei clienti sono rappresentate da grafici a barre e verranno visualizzato il valore per ogni mese, passare il mouse sulle colonne del grafico.
+- Le tendenze di crescita degli ordini e dei clienti sono rappresentate da grafici a barre e visualizzeranno il valore per ogni mese passando il mouse sulle colonne del grafico.
 
-![Totali analizza Centro per i partner](./media/analyze-totals.png)
+![Analisi totali del centro per i partner](./media/analyze-totals.png)
 
-### <a name="customers-by-geography"></a>Clienti in base a geography
+### <a name="customers-by-geography"></a>Clienti per geografia
 
-Il **i clienti in base a geography** mappa termica viene visualizzato un conteggio di clienti in una mappa del mondo. 
+I **clienti di geography** mappa termica visualizzano un numero di clienti in una mappa mondiale.
 
-- È possibile spostare la mappa per visualizzare la posizione esatta. 
-- È possibile ingrandire in una posizione specifica. 
-- La mappa termica è presente una griglia supplementare per visualizzare i dettagli del conteggio di clienti (o [ordinare conteggio](#orders-by-geography)) nel percorso specifico. 
-- È possibile eseguire la ricerca e selezionare un paese nella griglia per eseguire lo zoom avanti nella posizione della mappa. Tornare alla visualizzazione originale premendo la **Home** pulsante nella mappa.
-- Oggetto **nuovo** il cliente ha acquistato una delle offerte per la prima volta durante il mese nell'intervallo di date selezionato.
+- È possibile spostare la mappa per visualizzare la posizione esatta.
+- È possibile ingrandire una posizione specifica.
+- Mappa termica dispone di una griglia supplementare per visualizzare i dettagli relativi al numero di clienti (o al [numero di ordini](#orders-by-geography)) nella posizione specifica.
+- È possibile cercare e selezionare un paese nella griglia per ingrandire la posizione della mappa. Ripristinare la visualizzazione originale premendo il pulsante **Home** nella mappa.
+- Un **nuovo** cliente ha acquistato una delle offerte per la prima volta durante il mese entro l'intervallo di date selezionato.
 
-![Dati geografici cliente analizza di Centro per i partner](./media/analyze-customer-geography.png)
+![Centro per i partner analizzare la geografia del cliente](./media/analyze-customer-geography.png)
 
-### <a name="growth-trend-chart"></a>Grafico di tendenza di crescita
+### <a name="growth-trend-chart"></a>Grafico tendenza crescita
 
-È possibile visualizzare le tendenze sulla crescita della base di **ordini creati** o **clienti acquisiti**, visualizzati mensile in base a intervallo di date selezionato. È possibile analizzare ulteriormente queste tendenze selezionando collegamenti sotto il grafico, passare alla rispettiva **ordine** oppure **cliente** pagine.
+È possibile visualizzare le tendenze in base alla crescita degli **ordini creati** o **ai clienti acquisiti**, visualizzando mese per mese in base all'intervallo di date selezionato. È possibile analizzare ulteriormente queste tendenze selezionando i collegamenti al di sotto del grafico, che consentono di passare alle rispettive pagine dell' **ordine** o **del cliente** .
 
-![Tendenze di incremento analizza Centro per i partner](./media/analyze-growth-trends.png)
+![Il centro per i partner analizza le tendenze di crescita](./media/analyze-growth-trends.png)
 
-### <a name="customer-leaderboard"></a>Tabellone punteggi dei clienti
+### <a name="customer-leaderboard"></a>Tabellone clienti
 
-I clienti di prime 50 con il maggior numero di ordini vengono visualizzati in una *classifica*, ordinati in base al maggior numero di ordine e la percentuale di ordine. 
+I primi 50 clienti con il maggior numero di ordini vengono visualizzati in una *bacheca*, ordinati in base al numero massimo di ordini e alla percentuale di ordine. 
 
-- Selezionare un cliente per visualizzare i dettagli del profilo, gli ordini organizzati per offerta o ordini organizzati dal canale di tipo e sui prezzi di licenza di Azure. 
-- Il **sono disponibili in base agli ordini** grafico ad anello presenta le offerte di quattro principali (dal numero di ordine) e il rimanente offre raggruppati in come 'Rest tutto'.
+- Consente di selezionare un cliente per visualizzare i dettagli del profilo, gli ordini organizzati per offerta o gli ordini organizzati in base al tipo di licenza e al canale dei prezzi di Azure. 
+- Il grafico ad anello **Offerte per ordini** presenta le prime quattro offerte (per numero di ordini) e le offerte rimanenti raggruppate come ' Rest all'.
 
 > [!NOTE]
-> Informazioni personali dei clienti verranno visualizzate solo se il cliente ha fornito il consenso. È possibile visualizzare queste informazioni se è stato effettuato con un **proprietario** autorizzazioni a livello di ruolo. Gli utenti con il **collaboratore** ruolo non sarà in grado di visualizzare queste informazioni. [Altre informazioni sui ruoli utente e autorizzazioni](./manage-account.md#define-user-roles-and-permissions).
+> Le informazioni personali del cliente verranno presentate solo se il cliente ha fornito il consenso. È possibile visualizzare queste informazioni se è stato effettuato l'accesso con un ruolo **proprietario** a livello di autorizzazioni. Gli utenti con il ruolo **collaboratore** non saranno in grado di visualizzare queste informazioni. [Altre informazioni sui ruoli utente e le autorizzazioni](./manage-account.md#define-user-roles-and-permissions).
 
-![Tendenze di incremento analizza Centro per i partner](./media/analyze-growth-trends.png)
+![Il centro per i partner analizza le tendenze di crescita](./media/analyze-growth-trends.png)
 
-### <a name="offers-by-orders"></a>Offerte in base agli ordini
+### <a name="offers-by-orders"></a>Offerte per ordini
 
-Il **sono disponibili in base agli ordini** grafico consente di organizzare gli ordini attivi in base al nome dell'offerta. 
+Il grafico **Offerte per ordini** consente di organizzare gli ordini attivi in base al nome dell'offerta. 
 
-- È possibile trascinare su intervalli dal grafico ad anello a sinistra del grafico ad anello a destra per visualizzare altri dettagli sull'offerta, avere trascinato. Questi due grafici consentono di confrontare una specifica offerta con le prestazioni di tutte le altre offerte ('Rest All'). 
+- È possibile trascinare le sezioni dal grafico a sinistra al grafico ad anello a destra per visualizzare altri dettagli sull'offerta trascinata. Questi due grafici consentono di confrontare un'offerta specifica con le prestazioni di tutte le altre offerte ("Rest all"). 
 
-![Offerte di partner Center analizza in base agli ordini](./media/analyze-offer-by-order.png)
+![Il centro per i partner analizza le offerte per ordini](./media/analyze-offer-by-order.png)
 
-## <a name="orders-dashboard"></a>Dashboard di ordini
+## <a name="orders-dashboard"></a>Dashboard ordini
 
-Il **ordini** dashboard delle **Analizza** menu sono visualizzati gli ordini correnti per tutte le offerte SaaS. È possibile visualizzare rappresentazioni grafiche di:
+Il dashboard **Orders** del menu **Analyze** Visualizza gli ordini correnti per tutte le offerte SaaS. È possibile visualizzare le rappresentazioni grafiche di:
 
-- [Totali degli ordini](#order-totals)
-- [Ordini in base a geography](#orders-by-geography)
+- [Totale ordini](#order-totals)
+- [Ordini per geografia](#orders-by-geography)
 - [Tendenze per gli ordini attivi e annullati](#trends-for-active-and-canceled-orders)
-- [Ordini sono organizzati per tipo di licenza di marketplace](#orders-by-marketplace-license-type)
-- [Ordini organizzati per i clienti nuovi ed esistenti](#orders-by-customer-type)
+- [Ordini organizzati per tipo di licenza Marketplace](#orders-by-marketplace-license-type)
+- [Ordini organizzati da clienti nuovi ed esistenti](#orders-by-customer-type)
 - [Tabella Dettagli ordine](#order-details-table)
 
 > [!NOTE]
-> Esistono differenze tra modalità analitica report visualizzato nel portale Cloud Partner (CPP) e il nuovo programma commerciale Marketplace nel centro per i Partner. Un modo specifico è che il **informazioni dettagliate del venditore** in CPP dispone di un **ordini e utilizzo** scheda, che consente di visualizzare i dati per le offerte basate sull'utilizzo e le offerte non basate su utilizzo. Nel centro per i Partner, il **ordini** pagina dispone di una scheda separata per SaaS offre.
+> Esistono differenze tra il modo in cui i report di analisi vengono visualizzati nel portale Cloud Partner (CPP) e il nuovo programma commerciale Marketplace nel centro per i partner. Un modo specifico è che il **venditore Insights** in CPP dispone di una scheda **Orders & Usage** , che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo. Nel centro per i partner la pagina **Orders** include una scheda separata per le offerte SaaS.
 
-### <a name="order-totals"></a>Totali degli ordini
+### <a name="order-totals"></a>Totale ordini
 
-Il **totali degli ordini** sezione Visualizza un conteggio di tutti gli ordini creati, inclusi i **Active** e **annullato** ordini, durante il selezionato [intervallo di date ](#date-range). 
+Nella sezione **Order totali** viene visualizzato il conteggio di tutti gli ordini creati, inclusi sia gli ordini **attivi** che quelli **annullati** , durante l' [intervallo di date](#date-range)selezionato. 
 
-- Il valore di percentuale accanto a **Total Orders** rappresenta la quantità di incremento rispetto al mese precedente. 
+- Il valore percentuale accanto a **ordini totali** rappresenta la quantità di crescita rispetto al mese precedente. 
 - Un triangolo verde che punta verso l'alto indica una tendenza di crescita positiva. Un triangolo rosso che punta verso il basso indica una tendenza di crescita negativa rispetto al mese precedente. 
-- Le tendenze di incremento sono rappresentate da grafici a barre e verranno visualizzato il valore per ogni mese, passare il mouse sulle colonne del grafico.
+- Le tendenze di crescita sono rappresentate da grafici a barre e visualizzeranno il valore per ogni mese passando il mouse sulle colonne del grafico.
 
-### <a name="orders-by-geography"></a>Ordini in base a geography
+### <a name="orders-by-geography"></a>Ordini per geografia
 
-Il **ordini per area geografica** mappa termica viene visualizzato un conteggio degli ordini in una mappa del mondo e funziona esattamente come il  **[clienti dalla mappa termica geography](#customers-by-geography)** .
+Il mappa termica **Orders by geography** Visualizza un conteggio degli ordini in una mappa mondiale e funziona allo stesso modo dei **[clienti in base all'area geografica mappa termica](#customers-by-geography)** .
 
 ### <a name="trends-for-active-and-canceled-orders"></a>Tendenze per gli ordini attivi e annullati
 
-Il **attivo Ordina per offerte** grafico ad anello possono essere gestite tutte ordini attivi in base ai relativi nomi di offerta.
+Il grafico **ad anello attivo Orders by consente** di organizzare tutti gli ordini attivi in base ai nomi delle offerte.
 
-- Le offerte di 4 superiore vengono visualizzate nel grafico e il resto delle offerte vengono raggruppati come 'Rest tutto'.
-- È possibile selezionare le offerte specifiche nella legenda per visualizzare solo le offerte nel grafico. 
-- Posizionare il mouse su una sezione del grafico verrà visualizzato il numero di ordini e la percentuale di tale offerta rispetto al numero totale di ordini in tutte le offerte.
-- **Ordina per offerte di tendenza** consente di visualizzare le tendenze di incremento mese per mese. La colonna month rappresenta il numero di ordini in base al nome dell'offerta. Il grafico a linee Visualizza la tendenza di percentuale di crescita tracciata su un asse z.
-- Scorrere verso destra e sinistra lungo l'asse x e lo stato attivo su punti dati specifici, è possibile usare il dispositivo di scorrimento nella parte superiore del grafico.
+- Le prime quattro offerte vengono visualizzate nel grafico e il resto delle offerte viene raggruppato come "Rest all".
+- È possibile selezionare offerte specifiche nella legenda per visualizzare solo le offerte nel grafico. 
+- Se si passa il puntatore del mouse su una sezione del grafico, viene visualizzato il numero di ordini e la percentuale di tale offerta rispetto al numero totale di ordini in tutte le offerte.
+- La **tendenza Orders by offers** Visualizza tendenze di crescita mensili per mese. La colonna Month rappresenta il numero di ordini in base al nome dell'offerta. Il grafico a linee Visualizza la tendenza percentuale di crescita tracciata su un asse z.
+- È possibile utilizzare il dispositivo di scorrimento nella parte superiore del grafico per scorrere a destra e a sinistra lungo l'asse x e concentrarsi su punti dati specifici.
 - È possibile visualizzare il grafico di tendenza selezionando un elemento specifico nella legenda.
-- È anche possibile scegliere di visualizzare tendenze e i dati per **ordini annullati**. Il grafico funzionerà esattamente come ordini attivi.
+- È anche possibile scegliere di visualizzare le tendenze e i dati per **gli ordini annullati**. Il grafico funzionerà nello stesso modo degli ordini attivi.
 
-![Ordini attivi analizza Centro per i partner](./media/analyze-active-orders.png)
+![Analizza gli ordini attivi nel centro per i partner](./media/analyze-active-orders.png)
 
-### <a name="orders-by-marketplace-license-type"></a>Ordini in base al tipo di licenza di marketplace
+### <a name="orders-by-marketplace-license-type"></a>Tipo di licenza Orders by Marketplace
 <!-- Section needs review and clarification!  -->
-Il **ordini in base al tipo di licenza marketplace** grafico mostra un numero di ordini dal mese precedente basato sul tipo di licenza e metodo di fatturazione dell'offerta del marketplace. Tipi di licenza includono:
+Il grafico **Orders by Marketplace License Type** Visualizza un numero di ordini mensili in base al tipo di licenza e al metodo di fatturazione dell'offerta Marketplace. I tipi di licenza includono:
 
-- **Fatturazione tramite Azure**: Microsoft prevede la fatturazione ai clienti per tuo conto quando si sceglie di [vendere la tua offerta tramite il Microsoft](./create-new-saas-offer.md#sell-through-microsoft) con questo tipo di licenza. I tipi di pagamento includono pagamento tramite carta di credito o fatturazione Enterprise.
-- **Bring your own license per**: Microsoft non invia fatture ai clienti l'utilizzo dei dati di questo tipo di offerta del marketplace. Elencato come **[scaricarlo ora (gratuito)](./create-new-saas-offer.md#get-it-now-free)** nel marketplace.
-- **Gratuito**: Microsoft non invia fatture ai clienti l'utilizzo dei dati di questo tipo di offerta del marketplace. Elencato come **[versione di valutazione gratuita](./create-new-saas-offer.md##free-trial-listing)** nel marketplace.
-- **Microsoft come reseller**: Offerte vendute dai rivenditori di Microsoft come parte di rappresenta il  **[programma Cloud Solution Provider (CSP)](./create-new-saas-offer.md#csp-program-opt-in)** .
+- **Fatturazione tramite Azure**: Microsoft fattura i clienti per conto dell'utente quando sceglie di [vendere l'offerta tramite Microsoft](./create-new-saas-offer.md#sell-through-microsoft) con questo tipo di licenza. I tipi di pagamento includono il pagamento in base al consumo tramite carta di credito o fatturazione aziendale.
+- **Bring your own License**: Microsoft non addebita ai clienti l'utilizzo di questo tipo di offerta Marketplace. Elencato come **[Get it Now (gratuito)](./create-new-saas-offer.md#get-it-now-free)** nel Marketplace.
+- **Gratuito**: Microsoft non addebita ai clienti l'utilizzo di questo tipo di offerta Marketplace. Elencato come **[versione di valutazione gratuita](./create-new-saas-offer.md##free-trial-listing)** nel Marketplace.
+- **Microsoft As Reseller**: Rappresenta le offerte vendute da Microsoft Resellers come parte del **[programma Cloud Solution Provider (CSP)](./create-new-saas-offer.md#csp-program-opt-in)** .
 
-![Ordini analizza Centro per i partner in base al tipo di licenza](./media/analyze-license-type.png)
+![Il centro per i partner analizza gli ordini per tipo di licenza](./media/analyze-license-type.png)
 
-### <a name="orders-by-customer-type"></a>Ordini in base al tipo di cliente
+### <a name="orders-by-customer-type"></a>Ordini per tipo di cliente
 
-Il **ordini in base al tipo di cliente** grafico a barre visualizza il numero di ordini diviso tra **nuovi clienti** e **i clienti esistenti**. 
+Il grafico a barre **Orders by Customer Type** Visualizza il numero di ordini divisi tra **i nuovi clienti** e i **clienti esistenti**. 
 
-- Oggetto **nuovo cliente** ha acquisito uno o più delle tue offerte per la prima volta all'interno dello stesso mese di calendario (asse y). Un' **cliente esistente** ha acquisito in precedenza un'offerta da parte dell'utente prima del mese di calendario segnalato (sull'asse y). 
+- Un **nuovo cliente** ha acquisito una o più offerte per la prima volta nello stesso mese di calendario (asse y). Un **cliente esistente** ha precedentemente acquisito un'offerta dall'utente prima del mese di calendario indicato (sull'asse y). 
 - Un grafico a torta aggiuntivo rappresenta tutti gli ordini creati dal cliente nuovo o esistente per l'intervallo di date selezionato.
-- In entrambi i grafici, è possibile scegliere di visualizzare solo nuovi o soli i clienti esistenti selezionando la legenda corrispondente.
+- In entrambi i grafici è possibile scegliere di visualizzare solo i clienti nuovi o solo quelli esistenti selezionando la legenda corrispondente.
 
-![Digitare gli ordini analizza partner Center dal cliente](./media/analyze-order-by-customer.png)
+![Il centro per i partner analizza gli ordini per tipo di cliente](./media/analyze-order-by-customer.png)
 
 ### <a name="order-details-table"></a>Tabella Dettagli ordine
 
-Il **tabella Dettagli ordine** Visualizza un elenco numerato delle prime 1000 ordini ordinati in base alla data di acquisto.
+Nella **tabella Order Details** viene visualizzato un elenco numerato dei 1000 ordini principali ordinati in base alla data di acquisizione.
 
 - Ogni colonna della griglia è ordinabile.
 - I dati possono essere estratti in un file TSV se il numero di record è inferiore a 1000.
-- Se il numero di record oltre 1000, esportare i dati saranno in modo asincrono in una pagina di download per i successivi 30 giorni.
-- I filtri possono essere applicati per il **tabella Dettagli ordine** per visualizzare solo i dati che si sono interessati. I dati possono essere filtrati per paese, il tipo di licenza di Azure, tipo di licenza Marketplace, tipo di offerta, lo stato dell'ordine, trail gratuito, nome di ID, ID, e azienda del cliente sottoscrizione Marketplace.
+- Se il numero di record è superiore a 1000, i dati esportati verranno posizionati in modo asincrono in una pagina di download per i successivi 30 giorni.
+- I filtri possono essere applicati alla **tabella Order Details** per visualizzare solo i dati a cui si è interessati. I dati possono essere filtrati in base a paese, tipo di licenza di Azure, tipo di licenza Marketplace, tipo di offerta, stato dell'ordine, tracce gratuite, ID sottoscrizione del Marketplace, ID cliente e nome della società.
 
-![Dettagli dell'ordine analizza Centro per i partner](./media/analyze-order-details.png)
+![Dettagli dell'ordine di analisi del centro per i partner](./media/analyze-order-details.png)
 
-## <a name="customer-dashboard"></a>Dashboard dei clienti
+## <a name="customer-dashboard"></a>Dashboard del cliente
 
-Il **cliente** dashboard delle **Analizza** menu consente di visualizzare i dati per i clienti che hanno acquistato le offerte. È possibile visualizzare rappresentazioni grafiche di:
+Il dashboard del **cliente** del menu **analizza** Visualizza i dati per i clienti che hanno acquisito le offerte. È possibile visualizzare le rappresentazioni grafiche di:
 
-- [Totali dei clienti](#customer-totals)
-- [Clienti in base a geography](#customers-by-geography)
+- [Totale clienti](#customer-totals)
+- [Clienti per geografia](#customers-by-geography)
 - [Tendenze dei clienti](#customer-trends)
-- [Clienti in base agli ordini](#customers-by-orders)
+- [Clienti per ordini](#customers-by-orders)
 - [Tabella Dettagli cliente](#customer-details-table)
 
-### <a name="customer-totals"></a>Totali dei clienti
+### <a name="customer-totals"></a>Totale clienti
 
-Il **totali dei clienti** sezione Visualizza un conteggio di tutti i clienti, inclusi nuovi, esistenti e varianza, durante selezionato [intervallo di date](#date-range).
+La sezione relativa ai **totali** dei clienti Visualizza il conteggio di tutti i clienti, inclusi quelli nuovi, esistenti e in varianza, durante l' [intervallo di date](#date-range)selezionato.
 
-- Percentuale di clienti di incremento rispetto al mese precedente è indicata dal numero e un indicatore verso l'alto nell'indicatore verde o verso il basso in rosso.
-- Le tendenze di incremento sono rappresentate da grafici a barre e verranno visualizzato il valore per ogni mese, passare il mouse sulle colonne del grafico.
+- La percentuale di crescita dei clienti rispetto al mese precedente è indicata dal numero e dall'indicatore ascendente in verde o verso il basso in rosso.
+- Le tendenze di crescita sono rappresentate da grafici a barre e visualizzeranno il valore per ogni mese passando il mouse sulle colonne del grafico.
 
-#### <a name="customer-types"></a>Tipi di clienti
+#### <a name="customer-types"></a>Tipi di cliente
 
-Esistono tre tipi di clienti: nuovi, esistenti e varianza. 
+Sono disponibili tre tipi di clienti: nuovo, esistente e varianza. 
 
-- Un nuovo cliente ha acquistato uno o più delle tue offerte per la prima volta nel corso del mese selezionato.
-- Un cliente ha acquistato uno o più delle tue offerte prima del mese selezionate.
-- Un cliente churned annullata. tutte le offerte acquistate in precedenza.
+- Un nuovo cliente ha acquisito una o più offerte per la prima volta entro il mese selezionato.
+- Un cliente esistente ha acquisito una o più offerte prima del mese selezionato.
+- Un cliente con varianza ha annullato tutte le offerte acquistate in precedenza.
 
 ### <a name="customer-trends"></a>Tendenze dei clienti
 
-Il **tendenze dei clienti** grafico mostra un conteggio di tutti i clienti, inclusi nuovi, esistenti e varianza, con una tendenza di crescita mese per mese.
+Il grafico **tendenze dei clienti** Visualizza un conteggio di tutti i clienti, inclusi quelli nuovi, esistenti e in varianza, con una tendenza di crescita mensile per mese.
 
-- Il grafico a linee rappresenta le percentuali di aumento delle dimensioni complessive dei clienti. 
-- La colonna month rappresenta il numero di clienti in pila dai clienti nuovi, esistenti e varianza.
-- Viene visualizzato il conteggio di varianza dei clienti della direzione dell'asse Y negativo.
-- È possibile selezionare specifici della legenda sono visualizzati gli elementi a più visualizzazioni dettagliate. Ad esempio, selezionare i nuovi clienti dalla legenda per visualizzare solo i nuovi clienti.
-- Scorrere verso destra e sinistra sull'asse x e sono incentrate sui punti dati specifici per visualizzare in modo più dettagliato, è possibile usare il dispositivo di scorrimento nella parte superiore del grafico.
-- Posizionare il mouse su una colonna del grafico sono riportati i dettagli solo quel mese.
+- Il grafico a linee rappresenta le percentuali di crescita complessive del cliente. 
+- La colonna Month rappresenta il conteggio dei clienti in pila per i clienti nuovi, esistenti e rilevati.
+- Il numero di clienti varianza viene visualizzato sulla direzione negativa dell'asse Y.
+- È possibile selezionare elementi di legenda specifici per visualizzare visualizzazioni più dettagliate. Ad esempio, selezionare nuovi clienti dalla legenda per visualizzare solo i nuovi clienti.
+- È possibile utilizzare il dispositivo di scorrimento nella parte superiore del grafico per scorrere a destra e a sinistra sull'asse x e concentrarsi su punti dati specifici per visualizzarli in modo più dettagliato.
+- Se si passa il puntatore del mouse su una colonna del grafico, vengono visualizzati i dettagli solo per quel mese.
 
-![Tendenze dei clienti analizza Centro per i partner](./media/analyze-customer-trends.png)
+![Centro per i partner analizzare le tendenze dei clienti](./media/analyze-customer-trends.png)
 
-### <a name="customers-by-orders"></a>Clienti in base agli ordini
+### <a name="customers-by-orders"></a>Clienti per ordini
 
-Il **i clienti in base agli ordini** grafico consente di visualizzare i **Top cliente Percentile** lungo l'asse x, come determinato dal relativo numero di ordini. L'asse y consente di visualizzare il numero di ordini del cliente. L'asse z (grafico a linee) Visualizza la percentuale cumulativa del numero totale di ordini. È possibile visualizzare i dettagli, passare il mouse sui punti lungo il grafico a linee.
+Il grafico **Customers by Orders** Visualizza il **primo percentile del cliente** lungo l'asse x, come determinato dal numero di ordini. L'asse y Visualizza il numero di ordini del cliente. L'asse z (grafico a linee) Visualizza la percentuale cumulativa del numero totale di ordini. È possibile visualizzare i dettagli posizionando il puntatore del mouse sui punti lungo il grafico a linee.
 
-Ad esempio, è possibile imparare da questi dati di ordine cliente che i primi 30% dei clienti inviano contributi a 83% degli ordini, uguali a 2,130 ordini.
+Ad esempio, è possibile apprendere dai dati degli ordini dei clienti che i primi 30% dei clienti contribuiscono al 83% degli ordini, equivalenti a 2.130 ordini.
 
-![Ordini dei clienti di partner Center analizza](./media/analyze-customer-orders.png)
+![Centro per i partner analizzare gli ordini dei clienti](./media/analyze-customer-orders.png)
 
 ### <a name="customer-details-table"></a>Tabella Dettagli cliente
 
-Il **tabella Dettagli cliente** Visualizza un elenco numerato di clienti le prime 1000 ordinati in base alla data vengono innanzitutto acquisito una delle offerte.
+La **tabella Customer Details** Visualizza un elenco numerato dei primi 1000 clienti ordinati in base alla data in cui è stata acquisita per la prima volta una delle offerte.
 
-- Informazioni personali dei clienti sarà disponibile solo se il cliente ha fornito il consenso. È possibile visualizzare queste informazioni solo se è stato effettuato con un **proprietario** a livello di ruolo di autorizzazioni. [Altre informazioni sui ruoli utente e autorizzazioni](./manage-account.md#define-user-roles-and-permissions).
+- Le informazioni personali del cliente saranno disponibili solo se il cliente ha fornito il consenso. È possibile visualizzare queste informazioni solo se è stato effettuato l'accesso con un livello di autorizzazione del ruolo **proprietario** . [Altre informazioni sui ruoli utente e le autorizzazioni](./manage-account.md#define-user-roles-and-permissions).
 - Ogni colonna della griglia è ordinabile.
 - I dati possono essere estratti in un file TSV se il numero di record è inferiore a 1000.
-- Se il numero di record oltre 1000, esportare i dati saranno in modo asincrono in una pagina di download per i successivi 30 giorni.
-- Filtri possono essere applicati alla tabella per visualizzare solo i dati che si sono interessati. I dati possono essere filtrati in base a nome della società, Customer ID, ID sottoscrizione Marketplace, il tipo di licenza di Azure, data acquisito, data perso, posta elettronica dei clienti, Customer stato/stato/città/Zip, lingua del cliente, e così via.
+- Se il numero di record è superiore a 1000, i dati esportati verranno posizionati in modo asincrono in una pagina di download per i successivi 30 giorni.
+- I filtri possono essere applicati alla tabella per visualizzare solo i dati a cui si è interessati. I dati possono essere filtrati in base al nome della società, all'ID cliente, all'ID sottoscrizione del Marketplace, al tipo di licenza di Azure, alla data di acquisizione, alla data di smarrimento, alla posta elettronica del cliente, alla lingua del cliente, alla lingua e così via.
 
-![Dettagli del cliente analizza Centro per i partner](./media/analyze-customer-table.png)
+![Centro per i partner analizzare i dettagli dei clienti](./media/analyze-customer-table.png)
 
-## <a name="downloads-dashboard"></a>Download di dashboard
+## <a name="downloads-dashboard"></a>Download del dashboard
 
-Il **Downloads** dashboard del **Analizza** menu vengono visualizzate le richieste per tutti i download che contengono più di 1000 righe di dati dei clienti o l'ordine.
+Il dashboard **download** del menu **analizza** consente di visualizzare le richieste di download che contengono oltre 1000 righe di dati del cliente o dell'ordine.
 
-Si riceverà una notifica popup e un messaggio di posta elettronica contenente un collegamento per il **Scarica** dashboard ogni volta che si richiede un download con più di 1000 righe di dati. I download di questi dati saranno disponibili per un periodo di 30 giorni e quindi rimossi.
+Si riceverà una notifica popup e un messaggio di posta elettronica contenente un collegamento al dashboard **Downloads** ogni volta che si richiede un download con oltre 1000 righe di dati. Questi download dei dati saranno disponibili per un periodo di 30 giorni e quindi rimossi.
 
-![Download di analisi di partner Center](./media/analyze-downloads.png)
+![Analizza i download del centro per i partner](./media/analyze-downloads.png)
 
-### <a name="dictionary-of-data-terms"></a>Dizionario di termini di dati
+### <a name="dictionary-of-data-terms"></a>Dizionario dei termini dati
 
 | Nome attributo | Report | Definizione|
 |---|---|---|
-| Azure License Type | Customer e Order | Tipo di contratto di licenza usato dai clienti per acquistare Azure. Noto anche come canale |
-| Tipo di licenza di Azure: Provider di soluzioni cloud | Customer e Order | Il cliente finale ottiene Azure e l'offerta del Marketplace dell'utente tramite il Cloud Solution Provider, che agisce come rivenditore.|
-| Tipo di licenza di Azure: Enterprise | Customer e Order | Il cliente finale ottiene Azure e l'offerta del Marketplace dell'utente tramite un contratto Enterprise Agreement firmato direttamente con Microsoft.|
-| Tipo di licenza di Azure: Enterprise tramite il rivenditore  | Customer e Order | Il cliente finale procures Azure e un'offerta sul Marketplace tramite un rivenditore che facilita il contratto Enterprise Agreement con Microsoft.|  |
-| Tipo di licenza di Azure: Pagamento a consumo| Customer e Order | Il cliente finale procures Azure e un'offerta sul Marketplace tramite un contratto di "Pagamento a consumo", eseguito l'accesso direttamente con Microsoft.||
+| Azure License Type | Cliente, ordine | Tipo di contratto di licenza usato dai clienti per acquistare Azure. Noto anche come canale |
+| Tipo di licenza di Azure: Provider di soluzioni cloud | Cliente, ordine | Il cliente finale ottiene Azure e l'offerta del Marketplace dell'utente tramite il Cloud Solution Provider, che agisce come rivenditore.|
+| Tipo di licenza di Azure: Enterprise | Cliente, ordine | Il cliente finale ottiene Azure e l'offerta del Marketplace dell'utente tramite un contratto Enterprise Agreement firmato direttamente con Microsoft.|
+| Tipo di licenza di Azure: Enterprise tramite rivenditore  | Cliente, ordine | Il cliente finale approvvigiona Azure e l'offerta del Marketplace tramite un rivenditore che facilita la Enterprise Agreement con Microsoft.|  |
+| Tipo di licenza di Azure: Con pagamento in base al consumo| Cliente, ordine | Il cliente finale approvvigiona Azure e l'offerta del Marketplace tramite un contratto con pagamento in base al consumo, firmato direttamente con Microsoft.||
 | Nome dell'istanza cloud| Ordine| Microsoft Cloud in cui sono state distribuite le macchine virtuali.||
-| Nome dell'istanza cloud: Azure Global| Ordine| Pubblico globale Microsoft cloud.|| |
-| Nome dell'istanza cloud: Azure Government | Ordine| Cloud di Microsoft per enti pubblici specifici per uno dei governi seguenti: Cina, Germania o Stati Uniti d'America.| |
-| Città del cliente| Customer| Il nome della città fornito dal cliente. Città potrebbe essere diversa da quello della città nella sottoscrizione di Azure del cliente.||
-| Customer Communication Language  | Customer| Lingua di comunicazione preferita dal cliente.||
-| Customer Company Name | Customer e Order | Il nome della società fornito dal cliente. Nome potrebbe essere diverso da quello della città nella sottoscrizione di Azure del cliente.|  |
-| Customer Country | Customer e Order | Il nome di paese specificato dal cliente. Paese potrebbe essere diverso da quello del paese nella sottoscrizione di Azure del cliente.|  |
-| Customer Email| Customer| L'indirizzo di posta elettronica fornito per il cliente finale. Messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica di sottoscrizione di Azure del cliente.||
-| Customer First Name| Customer| Il nome specificato dal cliente. Nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure del cliente.| |
-| ID cliente | Customer e Order | L'identificatore univoco assegnato a un cliente. Un cliente può disporre di zero o più sottoscrizioni di Azure Marketplace.|  |
-| Customer Postal Code  | Customer| Il codice postale fornito dal cliente. Codice potrebbe essere diverso rispetto al codice postale fornito nella sottoscrizione di Azure del cliente.| |
-| Customer State| Customer| Lo stato (indirizzo) fornito dal cliente. Lo stato potrebbe essere diverso dal nome ultima fornito nella sottoscrizione di Azure del cliente.| |
-| Date Acquired| Customer| La prima data il cliente ha acquistato qualsiasi offerta pubblicata da parte dell'utente.| |
-| Date Lost| Customer| La data dell'ultima cliente annullato l'ultimo di tutte le offerte acquistata in precedenza.||
-| Nuovo cliente  | Ordine| Il valore identifica un nuovo cliente l'acquisizione di uno o più delle tue offerte per la prima volta (o No). Valore sarà "Sì" se all'interno dello stesso mese di calendario per "Data acquisito". Valore sarà "No" se il cliente ha acquistato una delle offerte prima del mese di calendario segnalati. |
-| Anteprima dello SKU| Ordine| Il valore sarà possibile sapere se si have tag dello SKU come "anteprima". Valore sarà "Sì" se lo SKU è stato contrassegnato conseguenza e le sottoscrizioni di Azure solo autorizzate dall'utente possono distribuire e usare questa immagine. Valore sarà "No" se lo SKU non è stato identificato come "anteprima".  |
-| Contatto promozionale consenso esplicito| Customer| Il valore sarà possibile sapere se il cliente in modo proattivo acconsentito esplicitamente per contatto promozionale da server di pubblicazione. Al momento l'opzione non è presentata ai clienti, pertanto è stato indicato "No" a livello generale. Dopo la distribuzione della funzionalità, si procederà all'aggiornamento dovuto.|
+| Nome istanza cloud: Azure Global| Ordine| Microsoft cloud pubblico globale.|| |
+| Nome istanza cloud: Azure Government | Ordine| Cloud Microsoft specifici per enti pubblici per uno dei seguenti enti pubblici: Cina, Germania o il Stati Uniti di America.| |
+| Città del cliente| Cliente| Nome della città fornito dal cliente. La città potrebbe essere diversa da quella della città nella sottoscrizione di Azure di un cliente.||
+| Customer Communication Language  | Cliente| Lingua di comunicazione preferita dal cliente.||
+| Customer Company Name | Cliente, ordine | Nome della società fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente.|  |
+| Customer Country | Cliente, ordine | Nome del paese fornito dal cliente. Il paese può essere diverso da quello del paese nella sottoscrizione di Azure di un cliente.|  |
+| Customer Email| Cliente| Indirizzo di posta elettronica fornito dal cliente finale. Il messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica nella sottoscrizione di Azure di un cliente.||
+| Customer First Name| Cliente| Nome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente.| |
+| ID cliente | Cliente, ordine | Identificatore univoco assegnato a un cliente. Un cliente può avere zero o più sottoscrizioni di Azure Marketplace.|  |
+| Customer Postal Code  | Cliente| Il CAP fornito dal cliente. Il codice può essere diverso dal codice postale fornito nella sottoscrizione di Azure di un cliente.| |
+| Customer State| Cliente| Stato (indirizzo) fornito dal cliente. Lo stato potrebbe essere diverso dal cognome fornito nella sottoscrizione di Azure di un cliente.| |
+| Date Acquired| Cliente| La prima data in cui il cliente ha acquistato qualsiasi offerta pubblicata dall'utente.| |
+| Date Lost| Cliente| Ultima data in cui il cliente ha annullato l'ultima delle offerte acquistate in precedenza.||
+| È un nuovo cliente  | Ordine| Il valore identificherà un nuovo cliente che acquisisce una o più offerte per la prima volta (o meno). Il valore sarà "Sì" se rientra nello stesso mese di calendario per "data di acquisizione". Il valore sarà "No" Se il cliente ha acquistato una delle offerte prima del mese di calendario indicato. |
+| SKU anteprima| Ordine| Il valore indica se lo SKU è stato contrassegnato come "anteprima". Il valore sarà "Yes" se lo SKU è stato contrassegnato di conseguenza e solo le sottoscrizioni di Azure autorizzate da possono distribuire e usare questa immagine. Il valore sarà "No" se lo SKU non è stato identificato come "anteprima".  |
+| Consenso esplicito per il contatto promozionale| Cliente| Il valore indica se il cliente ha acconsentito in modo proattivo per il contatto promozionale da parte degli editori. Al momento l'opzione non è presentata ai clienti, pertanto è stato indicato "No" a livello generale. Dopo la distribuzione della funzionalità, si procederà all'aggiornamento dovuto.|
 | Marketplace License Type| Ordine| Metodo di fatturazione dell'offerta del Marketplace dell'utente.||
 | Tipo di licenza Marketplace: Fatturazione tramite Azure| Ordine| Microsoft è l'agente per questa offerta del Marketplace dell'utente ed emette le fatture al cliente per conto dell'utente. Il pagamento avviene con l'uso di carta di credito per pagamento in base al consumo o fattura aziendale.||
-| Tipo di licenza Marketplace: Bring Your Own License | Ordine| La macchina virtuale richiede una chiave di licenza fornita dal cliente per la distribuzione. Microsoft non invia fatture ai clienti per elencare le offerte in questo modo attraverso il marketplace.||
-| Tipo di licenza Marketplace: Gratuito| Ordine| L'offerta è configurato per essere liberi di tutti gli utenti. Microsoft non invia fatture ai clienti l'utilizzo dei dati di questa offerta.||
-| Tipo di licenza Marketplace: Microsoft come rivenditore  | Ordine| Microsoft è il rivenditore di questa offerta del Marketplace dell'utente.|  |
-| ID della sottoscrizione Marketplace | Customer e Order | L'identificatore univoco associato alla sottoscrizione Azure del cliente per l'acquisto dell'offerta del Marketplace. ID era in precedenza il GUID della sottoscrizione di Azure.||
-| Nome offerta  | Ordine| Il nome dell'offerta di Marketplace.|| |
-| Tipo di offerta  | Ordine| Tipo di offerta del Marketplace di Microsoft.|||
-| Tipo di offerta: Applicazione gestita  | Ordine, | Usare l'app di Azure: tipo di offerta di app gestita quando sono necessarie le condizioni seguenti: Si distribuisce una soluzione basata su sottoscrizione per i clienti che usano una macchina virtuale o un'intera soluzione basata su IaaS. Personalmente o dal cliente richiedono che la soluzione deve essere gestita da un partner. |
-| Tipo di offerta: Applicazione di Azure| Ordine, | Usare il tipo di offerta modello di soluzione dell'applicazione di Azure quando la soluzione richiede automazione aggiuntiva per la distribuzione e la configurazione oltre a una macchina virtuale semplice.||
+| Tipo di licenza Marketplace: Bring your own License | Ordine| La macchina virtuale richiede un codice di licenza fornito dal cliente per la distribuzione. Microsoft non fattura i clienti per elencare le loro offerte in questo modo tramite il Marketplace.||
+| Tipo di licenza Marketplace: Gratuito| Ordine| L'offerta è configurata per essere gratuita a tutti gli utenti. Microsoft non addebita ai clienti l'utilizzo di questa offerta.||
+| Tipo di licenza Marketplace: Microsoft As Reseller  | Ordine| Microsoft è il rivenditore di questa offerta del Marketplace dell'utente.|  |
+| ID sottoscrizione Marketplace | Cliente, ordine | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta per il Marketplace. ID è stato precedentemente il GUID della sottoscrizione di Azure.||
+| Nome offerta  | Ordine| Nome dell'offerta del Marketplace.|| |
+| Tipo di offerta  | Ordine| Tipo di offerta di Microsoft Marketplace.|||
+| Tipo di offerta: Applicazione gestita  | Ordine | Usare l'app di Azure: tipo di offerta di app gestita quando sono necessarie le condizioni seguenti: Si distribuisce una soluzione basata su sottoscrizione per i clienti che usano una macchina virtuale o un'intera soluzione basata su IaaS. Per l'utente o il cliente è necessario che la soluzione sia gestita da un partner. |
+| Tipo di offerta: Applicazione di Azure| Ordine | Usare il tipo di offerta del modello di soluzione applicazione Azure quando la soluzione richiede un'automazione aggiuntiva per la distribuzione e la configurazione oltre una semplice macchina virtuale.||
 | Tipo di offerta: Servizio di consulenza| Ordine| I Servizi di consulenza in Azure Marketplace consentono di connettere i clienti con servizi per supportare ed estendere l'uso di Azure.| |
 | Tipo di offerta: Contenitore | Ordine| Usare il tipo di offerta Contenitore quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come un servizio Azure Container basato su Kubernetes.||
-| Tipo di offerta: Dynamics 365 Business Central| Ordine| Usare questo tipo di offerta quando la soluzione è integrata con Dynamics 365 for Finance and Operations| |
-| Tipo di offerta: Dynamics 365 for Customer Engagement | Ordine| Usare questo tipo di offerta quando la soluzione è integrata con Dynamics 365 for Customer Engagement.||
-| Tipo di offerta: Modulo di IoT Edge | Ordine| Moduli di IoT Edge di Azure sono le più piccola unità di calcolo gestite da IoT Edge e possono contenere servizi Microsoft (ad esempio Azure Stream Analitica), 3rd-party servizi o il proprio codice specifico della soluzione. |
-| Tipo di offerta: Applicazione di Power BI | Ordine| Usare il tipo di offerta di applicazione di Power BI quando si distribuisce un'applicazione integrata con Power BI.|  |
+| Tipo di offerta: Dynamics 365 Business Central| Ordine| Usare questo tipo di offerta quando la soluzione è integrata con Dynamics 365 per Finanza e operazioni| |
+| Tipo di offerta: Dynamics 365 for Customer Engagement | Ordine| Usare questo tipo di offerta quando la soluzione è integrata con Dynamics 365 per il coinvolgimento dei clienti.||
+| Tipo di offerta: Modulo IoT Edge | Ordine| Azure IoT Edge moduli sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere servizi Microsoft, ad esempio analisi di flusso di Azure, servizi di terze parti o codice specifico della soluzione. |
+| Tipo di offerta: Applicazione Power BI | Ordine| Usare il tipo di offerta di applicazione Power BI quando si distribuisce un'applicazione integrata con Power BI.|  |
 | Tipo di offerta: Applicazione SaaS| Ordine| Usare il tipo di offerta di app SaaS per consentire ai clienti di acquistare la soluzione tecnica basata su SaaS come una sottoscrizione.||
 | Tipo di offerta: Macchina virtuale | Ordine| Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appliance virtuale all'abbonamento associato al cliente.||
-| Tipo di offerta: Estensione di Visual Studio Marketplace  | Ordine| Disponibili in precedenza tipo di offerta per gli sviluppatori di estensioni di Azure DevOps. Passare Avanti DevOps di Azure gli sviluppatori di estensioni possono vendere l'estensione direttamente ai clienti. Offerte di estensione possono essere configurate come a pagamento o incluse una versione di valutazione. |
+| Tipo di offerta: Estensione Visual Studio Marketplace  | Ordine| Tipo di offerta in precedenza disponibile per gli sviluppatori di estensioni DevOps di Azure. In futuro gli sviluppatori di estensioni DevOps di Azure possono vendere la propria estensione direttamente ai clienti. Le offerte di estensione possono essere configurate come a pagamento o inclusa una versione di valutazione. |
 | Order Cancel Date| Ordine| Data in cui l'ordine del Marketplace è stato eliminato.||
-| ID dell'ordine| Ordine| Identificatore univoco dell'ordine del cliente per il servizio Marketplace. Offerte per macchina virtuale basata sull'utilizzo non sono associate a un ordine.| |
-| Order Purchase Date| Ordine| La data in cui è stato creato l'ordine del Marketplace.|||
+| ID ordine| Ordine| Identificatore univoco dell'ordine del cliente per il servizio Marketplace. Le offerte basate sull'utilizzo delle macchine virtuali non sono associate a un ordine.| |
+| Order Purchase Date| Ordine| Data di creazione dell'ordine del Marketplace.|||
 | Order Status| Ordine| Lo stato di un ordine del Marketplace al momento dell'ultimo aggiornamento dei dati.|     |
-| Stato dell'ordine: Attivo  | Ordine| Il cliente ha acquistato un ordine e non ha annullato il relativo ordine.|         |
-| Stato dell'ordine: annullato | Ordine| Il cliente già acquistato un ordine e successivamente annullato il relativo ordine.||
-| Messaggio di posta elettronica provider| Customer| L'indirizzo di posta elettronica del provider coinvolti nella relazione tra Microsoft e gli utenti finali. Se il cliente è un'azienda tramite il rivenditore, questo sarà il rivenditore. Se è coinvolto un Cloud Solution Provider (CSP), questo sarà il CSP.|
-| Nome del provider| Customer| Il nome del provider coinvolti nella relazione tra clienti Microsoft e di fine. Se il cliente è un'azienda tramite il rivenditore, questo sarà il rivenditore. Se è coinvolto un Cloud Solution Provider (CSP), questo sarà il CSP.|
-| SKU| Ordine| Nome SKU di base a quanto definito durante la pubblicazione. Un'offerta può avere molti SKU, ma uno SKU può essere associato solo a una singola offerta.||
+| Stato dell'ordine: Attivo  | Ordine| Il cliente ha acquistato un ordine e non ha annullato l'ordine.|         |
+| Stato dell'ordine: annullato | Ordine| Il cliente ha precedentemente acquistato un ordine e successivamente ha annullato l'ordine.||
+| Posta elettronica provider| Cliente| Indirizzo di posta elettronica del provider che ha richiesto la relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
+| Nome provider| Cliente| Nome del provider associato alla relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
+| SKU| Ordine| Nome dello SKU come definito durante la pubblicazione. Un'offerta può avere molti SKU, ma uno SKU può essere associato solo a una singola offerta.||
 | Trial End Date| Ordine| Data di scadenza del periodo di valutazione per questo ordine.||
+
+## <a name="ratings-and-reviews"></a>Classificazioni e revisioni
+
+Man mano che i clienti navigano, eseguono ricerche e acquistano offerte in entrambi i Marketplace, possono lasciare valutazioni e recensioni per le offerte acquisite. Sono in grado di inviare nuove classificazioni o revisioni, aggiornare o eliminare valutazioni o recensioni già inviate. Le recensioni vengono pubblicate in Azure Marketplace o in AppSource nella scheda revisioni della pagina di visualizzazione del prodotto dell'offerta. I clienti possono includere i nomi per le classificazioni o le revisioni oppure possono pubblicare in modo anonimo.  
+
+> [!NOTE]
+> I clienti possono apportare modifiche solo alle classificazioni e alle revisioni di cui sono proprietari.
+
+Il **Dashboard valutazioni & rivedere** Visualizza le tendenze e le informazioni dettagliate delle attività dei clienti. Fornisce rappresentazioni grafiche di:
+
+- Valutazioni & valutazioni  
+- Esaminare i commenti
+
+### <a name="marketplace-storefront-tabs"></a>Schede storefront del Marketplace
+
+Gli editori possono visualizzare le metriche dell'offerta separatamente nelle schede AppSource & Azure Marketplace. Per visualizzare specifiche metriche dell'offerta, selezionare **offerta** nell'elenco a discesa:
+
+![Elenco a discesa dell'offerta analizza il centro per i partner](./media/analyze-offer-dropdown.png)
+
+### <a name="ratings-and-reviews-summary"></a>Riepilogo valutazioni e valutazioni
+
+Nella sezione rating & revisioni riepilogo vengono visualizzate le metriche seguenti per un intervallo di date selezionato:
+
+- **Valutazione media:** Classificazione a stelle media ponderata di tutte le classificazioni inviate dai clienti per l'offerta selezionata.
+- **Suddivisione classificazione:** Suddivisione della classificazione a stelle per numero di clienti che hanno inviato valutazioni. Il grafico a barre è in pila con le classificazioni effettive e modificate (conteggio classificazione aggiornato).
+- **Totale classificazioni:** Conteggio complessivo delle classificazioni inviate. Questo conteggio include anche le classificazioni con e senza revisioni.
+- **Classificazioni con le revisioni:** Numero di revisioni inviate.
+
+![Riepilogo analisi classificazioni e recensioni del centro per i partner](./media/analyze-ratings-summary.png)
+
+### <a name="review-comments"></a>Esaminare i commenti
+
+Le revisioni vengono visualizzate in ordine cronologico quando sono state pubblicate. Nella visualizzazione predefinita vengono visualizzate tutte le revisioni. È possibile filtrare le revisioni in base alla classificazione a stelle usando il **filtro** nel menu a discesa. È anche possibile cercare le parole chiave visualizzate nella revisione.  
+
+![Commenti di analisi per il centro per i partner](./media/analyze-reviews.png)

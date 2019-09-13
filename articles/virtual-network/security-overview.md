@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 25c732d1311e2bcffe0fda0d5e427d5df5f99da6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1d9fc022a0b0d5ba96517b4ed06b4a2576245a26
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065936"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886018"
 ---
 # <a name="security-groups"></a>Gruppi di sicurezza
 <a name="network-security-groups"></a>
@@ -87,7 +87,7 @@ I tag di servizio seguenti sono disponibili per l'uso nelle [regole dei gruppi d
 * **SQL*** (solo gestione risorse): Questo tag indica i prefissi di indirizzo del database SQL di Azure, database di Azure per MySQL, database di Azure per PostgreSQL e servizi Azure SQL Data Warehouse. Se si specifica *Sql* come valore, verrà consentito o impedito il traffico verso SQL. Se si vuole solo consentire l'accesso a SQL in un' [area](https://azure.microsoft.com/regions)specifica, è possibile specificare l'area nel formato seguente: SQL. [nome area]. Il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. Questo tag è consigliato per la regola di sicurezza in uscita. 
 * **SqlManagement*** (solo gestione risorse): Questo tag indica i prefissi di indirizzo del traffico di gestione per le distribuzioni SQL dedicate. Se si specifica *SqlManagement* per il valore, il traffico è consentito o negato a SqlManagement. Questo tag è consigliato per la regola di sicurezza in ingresso/in uscita. 
 * **Archiviazione*** (solo gestione risorse): Questo tag identifica lo spazio indirizzi IP per il servizio Archiviazione di Azure. Se si specifica *Storage* come valore, verrà consentito o impedito il traffico verso il servizio di archiviazione. Se si vuole solo consentire l'accesso all'archiviazione in un' [area](https://azure.microsoft.com/regions)specifica, è possibile specificare l'area nel seguente formato di archiviazione. [nome area]. Il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Archiviazione di Azure, ma non uno specifico account di archiviazione di Azure. Questo tag è consigliato per la regola di sicurezza in uscita. 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** per la versione classica): Questo tag include lo spazio degli indirizzi della rete virtuale (tutti gli intervalli CIDR definiti per la rete virtuale), tutti gli spazi di indirizzi locali connessi, le reti virtuali [con peering](virtual-network-peering-overview.md) o la rete virtuale connessa a un [gateway di rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json) e a un indirizzo prefissi utilizzati nelle [route definite dall'utente](virtual-networks-udr-overview.md). Tenere presente che questo tag può contenere la route predefinita. 
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** per la versione classica): Questo tag include lo spazio degli indirizzi della rete virtuale (tutti gli intervalli CIDR definiti per la rete virtuale), tutti gli spazi di indirizzi locali connessi, le reti virtuali con [peering](virtual-network-peering-overview.md) o la rete virtuale connessa a un [gateway di rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), il [ Indirizzo IP virtuale dei](security-overview.md#azure-platform-considerations) prefissi dell'host e degli indirizzi usati nelle [route definite dall'utente](virtual-networks-udr-overview.md). Tenere presente che questo tag può contenere la route predefinita. 
 
 > [!NOTE]
 > I tag di servizio per i servizi Azure identificano i prefissi di indirizzo dal cloud specifico in uso. 

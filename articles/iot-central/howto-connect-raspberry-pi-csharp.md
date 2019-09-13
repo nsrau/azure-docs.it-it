@@ -3,17 +3,17 @@ title: Connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central
 description: Come sviluppatore di dispositivi, come connettere un Raspberry Pi all'applicazione IoT Central di Azure usando C#.
 author: viv-liu
 ms.author: viviali
-ms.date: 04/15/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 9395fa5ba5ae8dfa6ff03aabd1a27942ca4fa60a
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 7a66925dceee4bf90bc6a5cd155f99347bbd124e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195181"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886007"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central (C#)
 
@@ -46,7 +46,7 @@ Un'applicazione creata dal modello di applicazione **Sample Devkits** include un
   - Corrente
   - Velocità della ventola
   - Attiva/Disattiva runtime di integrazione.
-- Properties
+- Proprietà
   - Proprietà Numero stampo del dispositivo
   - Proprietà cloud della posizione
 
@@ -354,7 +354,7 @@ Impostazioni attivazione/disattivazione
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | SÌ      | NO      | Off     |
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Proprietà
 
 | Type            | `Display name` | Nome campo | Tipo di dati                              |
 | --------------- | ------------ | ---------- | -------------------------------------- |

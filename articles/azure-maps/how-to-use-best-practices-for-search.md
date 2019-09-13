@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 996a084fd653b2100d94313e8801d915b4bf2cf3
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 25615ae8bc9bc8cadbe973f3a1859c2d43b067a9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348185"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915569"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Procedure consigliate per l'uso di mappe di Azure servizio di ricerca
 
@@ -27,7 +27,7 @@ Azure Maps [servizio di ricerca](https://docs.microsoft.com/rest/api/maps/search
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire chiamate alle API del servizio Mappe sono necessari un account di Mappe e una chiave. Per informazioni sulla creazione di un account e il recupero di una chiave, vedere [Come gestire l'account e le chiavi dell'account di Mappe di Azure](how-to-manage-account-keys.md).
+Per eseguire chiamate alle API del servizio Mappe sono necessari un account di Mappe e una chiave. Per informazioni sulla creazione di un account, seguire le istruzioni in [gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e seguire i passaggi in [ottenere la chiave primaria](./tutorial-search-location.md#getkey) per recuperare una chiave di sottoscrizione primaria per l'account.
 
 > [!Tip]
 > Per eseguire una query sul servizio di ricerca, è possibile usare l' [app post](https://www.getpostman.com/apps) per compilare chiamate REST oppure è possibile usare qualsiasi ambiente di sviluppo API preferito.
@@ -686,7 +686,7 @@ Si osservi inoltre la struttura della risposta riportata di seguito. I tipi di r
 
 ### <a name="geometry"></a>Geometria
 
-Quando il tipo di risposta è **Geometry**, può includere l'ID Geometry restituito nell'oggetto DataSources in "Geometry" e "ID". [Get Polygon Service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) consente, ad esempio, di richiedere i dati geometrici in formato GeoJSON, ad esempio una struttura City o Airport per un set di entità. È possibile usare questi dati limite per la [geoschermatura](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) o per [la ricerca all'interno della geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
+Quando il tipo di risposta è **Geometry**, può includere l'ID Geometry restituito nell'oggetto **DataSources** in "Geometry" e "ID". [Get Polygon Service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) consente, ad esempio, di richiedere i dati geometrici in formato GeoJSON, ad esempio una struttura City o Airport per un set di entità. È possibile usare questi dati limite per la [geoschermatura](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) o per [la ricerca all'interno della geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
 
 
 Le risposte all' [indirizzo di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) o all'API [fuzzy di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) possono includere l' **ID Geometry** restituito nell'oggetto DataSources in "Geometry" e "ID".

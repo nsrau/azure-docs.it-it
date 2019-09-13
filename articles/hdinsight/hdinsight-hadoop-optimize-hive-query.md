@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 60c725e084a18326cc4bc9cc05d02d103261f5a4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d545cd997b35cfa5e7fec58b17507ce63097fd20
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809263"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898784"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Ottimizzare le query Apache Hive in Azure HDInsight
 
@@ -29,11 +29,11 @@ Se si aumenta il numero di nodi del ruolo di lavoro in un cluster HDInsight, si 
 
 * Durante la creazione del cluster, è possibile specificare il numero di nodi del ruolo di lavoro usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando.  Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La schermata seguente mostra la configurazione dei nodi del ruolo di lavoro nel portale di Azure:
   
-    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png "scaleout_1")
+    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
     
 * Dopo avere creato il cluster, è possibile anche modificare il numero di nodi del ruolo di lavoro per scalare orizzontalmente il cluster senza ricrearne uno:
 
-    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png "scaleout_2")
+    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 Per altre informazioni sulla scalabilità di HDInsight, vedere [Scale HDInsight clusters](hdinsight-scaling-best-practices.md) (Scalare i cluster HDInsight)
 
@@ -41,7 +41,7 @@ Per altre informazioni sulla scalabilità di HDInsight, vedere [Scale HDInsight 
 
 [Apache Tez](https://tez.apache.org/) è un motore di esecuzione alternativo al motore di MapReduce. I cluster HDInsight basati su Linux hanno Tez abilitato per impostazione predefinita.
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 Tez è più veloce perché:
 
@@ -65,7 +65,7 @@ Le operazioni di I/O rappresentano il principale collo di bottiglia nelle presta
 
 Il partizionamento Hive viene implementato riorganizzando i dati non elaborati in nuove directory. Ogni partizione ha una propria directory di file ed è definita dall'utente. Il diagramma seguente illustra il partizionamento di una tabella Hive mediante la colonna *Anno*. Viene creata una nuova directory per ogni anno.
 
-![Partizionamento Hive][image-hdi-optimize-hive-partitioning_1]
+![Partizionamento Hive](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 Alcune considerazioni sul partizionamento:
 
@@ -121,7 +121,7 @@ Una volta creata la tabella partizionata, è possibile creare il partizionamento
 Per altre informazioni, vedere [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) (Tabelle partizionate).
 
 ## <a name="use-the-orcfile-format"></a>Utilizzare il formato ORCFile
-Hive supporta diversi formati di file. Ad esempio:
+Hive supporta diversi formati di file. Esempio:
 
 * **Testo**: è il formato di file predefinito e funziona con la maggior parte degli scenari.
 * **Avro**: funziona bene per scenari di interoperabilità.
@@ -197,7 +197,3 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 * [Usare Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
 * [Analizzare i dati sui ritardi dei voli usando Interactive query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [Analizzare i dati Twitter mediante Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
-
-
-[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
-[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png

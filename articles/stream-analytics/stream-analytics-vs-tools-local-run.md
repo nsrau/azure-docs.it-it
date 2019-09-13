@@ -9,16 +9,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 1b86085a76f5ff87147db9dbd0a584784f5e4a2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ec427ad7af18f4f301e1e62ca21af643a0425aa
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686496"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914002"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Eseguire test locali delle query di Analisi di flusso con Visual Studio
 
-È possibile usare gli strumenti di Analisi di flusso di Azure per Visual Studio per eseguire test locali dei processi di Analisi di flusso con dati di esempio.
+È possibile usare gli strumenti di analisi di flusso di Azure per Visual Studio per testare i processi di analisi di flusso localmente con dati di esempio o [dati dinamici](stream-analytics-live-data-local-testing.md). 
 
 Per imparare a creare un processo di Analisi di flusso con Visual Studio, usare questa [Guida introduttiva](stream-analytics-quick-create-vs.md).
 
@@ -28,15 +28,15 @@ Nel progetto di Analisi di flusso di Azure fare doppio clic su **Script.asaql** 
 
 ![Editor di query](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-query-01.png)
  
-### <a name="add-local-input"></a>Add local input (Aggiungi input locale)
+### <a name="add-local-input"></a>Aggiungere un input locale
 
 Per convalidare la query rispetto ai dati statici locali, fare clic con il pulsante destro del mouse sull'input e scegliere **Aggiungi input locale**.
    
-![Add local input (Aggiungi input locale)](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
+![Aggiungere un input locale](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
 Nella finestra popup selezionare i dati di esempio dal percorso locale e fare clic su **Salva**.
    
-![Add local input (Aggiungi input locale)](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-02.png)
+![Aggiungere un input locale](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-02.png)
    
 Verrà aggiunto automaticamente un file denominato **local_EntryStream.json** nella cartella degli input.
    
@@ -44,7 +44,7 @@ Verrà aggiunto automaticamente un file denominato **local_EntryStream.json** ne
    
 Nell'editor di query fare clic su **Esecuzione locale**. oppure premere il tasto F5.
    
-![Esecuzione locale](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
+![Esegui localmente](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
    
 L'output può essere visualizzato in formato tabella direttamente da Visual Studio.
 
@@ -74,7 +74,9 @@ Nella finestra **Output** viene visualizzato lo stato dell'operazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+
+* [Avvio rapido: Creare un processo di analisi di flusso con Visual Studio](stream-analytics-quick-create-vs.md)
 * [Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure](stream-analytics-vs-tools.md)
-* [Avvio rapido: Creare un processo di Stream Analitica con Visual Studio](stream-analytics-quick-create-vs.md)
-* [Esercitazione: Distribuire un processo Azure Stream Analitica con integrazione continua/distribuzione continua con Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Testare i dati live in locale usando gli strumenti di Analisi di flusso di Azure per Visual Studio (anteprima)](stream-analytics-live-data-local-testing.md)
+* [Esercitazione: Distribuire un processo di analisi di flusso di Azure con CI/CD usando Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Eseguire integrazione e sviluppo in modo continuo con gli strumenti di Analisi di flusso](stream-analytics-tools-for-visual-studio-cicd.md)

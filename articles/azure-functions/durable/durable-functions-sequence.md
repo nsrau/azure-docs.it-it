@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1168963c0698c6bdafe20babe2e5143585bf90a8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ee5b18ddc734335ddac2a7d3352de0e4388f445d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087114"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933264"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Concatenamento di funzioni in Funzioni permanenti - Esempio di sequenza di Hello
 
-Il concatenamento di funzioni si riferisce al criterio di esecuzione di una sequenza di funzioni in un determinato ordine. Spesso l'output di una funzione deve essere applicato all'input di un'altra funzione. Questo articolo descrive la sequenza di concatenamento creata al completamento dell'avvio rapido di Durable Functions ([ C# ](durable-functions-create-first-csharp.md) oppure [JavaScript](quickstart-js-vscode.md)). Per altre informazioni su Durable Functions, vedere [Modelli e concetti tecnici per Durable Functions](durable-functions-concepts.md).
+Il concatenamento di funzioni si riferisce al criterio di esecuzione di una sequenza di funzioni in un determinato ordine. Spesso l'output di una funzione deve essere applicato all'input di un'altra funzione. Questo articolo descrive la sequenza di concatenamento creata al completamento dell'avvio rapido di Durable Functions ([ C# ](durable-functions-create-first-csharp.md) oppure [JavaScript](quickstart-js-vscode.md)). Per altre informazioni su Durable Functions, vedere [Panoramica di Durable Functions](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -141,7 +141,7 @@ Come si può notare, il `runtimeStatus` dell'istanza è *Completato* e `output` 
 > [!NOTE]
 > L'endpoint HTTP POST che ha avviato la funzione di orchestrazione è implementato nell'applicazione di esempio come una funzione di trigger HTTP denominata "HttpStart". È possibile implementare una logica di avvio simile per altri tipi di trigger, ad esempio `queueTrigger`, `eventHubTrigger`, o `timerTrigger`.
 
-Esaminare i log di esecuzione della funzione. La funzione `E1_HelloSequence` si è avviata e completata più volte a causa del comportamento di riproduzione descritto nella [panoramica](durable-functions-concepts.md). In compenso, si sono verificate solo tre esecuzioni di `E1_SayHello` da quando tali esecuzioni delle funzioni non vengono riprodotte.
+Esaminare i log di esecuzione della funzione. La `E1_HelloSequence` funzione è stata avviata e completata più volte a causa del comportamento di riproduzione descritto nell'argomento relativo all' [affidabilità dell'orchestrazione](durable-functions-orchestrations.md#reliability) . In compenso, si sono verificate solo tre esecuzioni di `E1_SayHello` da quando tali esecuzioni delle funzioni non vengono riprodotte.
 
 ## <a name="visual-studio-sample-code"></a>Codice di esempio di Visual Studio
 

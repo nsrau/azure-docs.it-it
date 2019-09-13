@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 49534cbce7bb0bbf540416785e31b451509d5bf6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694297"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916169"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Georilevazione e gestione degli indirizzi IP
 
@@ -36,10 +36,9 @@ Questo comportamento è progettato per evitare una raccolta non necessaria di da
 
 Mentre il comportamento predefinito prevede la riduzione della raccolta dei dati personali, è ancora disponibile la flessibilità necessaria per raccogliere e archiviare i dati degli indirizzi IP. Prima di scegliere di archiviare i dati personali come gli indirizzi IP, è consigliabile verificare che questo non interrompa i requisiti di conformità o le normative locali che potrebbero essere soggette a. Per ulteriori informazioni sulla gestione dei dati personali in Application Insights, consultare le [linee guida per i dati personali](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
 
-## <a name="storing-partial-ip-address-data"></a>Archiviazione di dati di indirizzi IP parziali
+## <a name="storing-ip-address-data"></a>Archiviazione dei dati degli indirizzi IP
 
-Per abilitare l'archiviazione e la raccolta di indirizzi IP parziali, è necessario impostare la `DisableIpMasking` proprietà del componente Application Insights su. `true` Questa proprietà può essere impostata tramite Azure Resource Manager modelli o chiamando l'API REST. Gli indirizzi IP verranno registrati con l'ultimo ottetto azzerato.
-
+Per abilitare la raccolta e l'archiviazione IP, è `DisableIpMasking` necessario impostare la proprietà del componente Application Insights su. `true` Questa proprietà può essere impostata tramite Azure Resource Manager modelli o chiamando l'API REST. 
 
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
@@ -92,7 +91,7 @@ Se è necessario modificare solo il comportamento per una singola risorsa Applic
 
     In questo caso non è in corso l'acquisto di nuovi elementi, si sta semplicemente aggiornando la configurazione della risorsa Application Insights esistente.
 
-6. Una volta completata la distribuzione, i nuovi dati di telemetria verranno registrati con i primi tre ottetti compilati con l'IP e l'ultimo ottetto azzerato.
+6. Al termine della distribuzione, verranno registrati i nuovi dati di telemetria.
 
     Se si sceglie di nuovo modello e si modifica il modello, verrà visualizzato solo il modello predefinito e non verrà visualizzata la proprietà appena aggiunta e il relativo valore associato. Se non vengono visualizzati i dati degli indirizzi IP e si desidera `"DisableIpMasking": true` confermare che è impostato. Eseguire il comando PowerShell seguente: Sostituire `Fabrikam-dev` con la risorsa e il nome del gruppo di risorse appropriati.
     
@@ -128,7 +127,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Inizializzatore della telemetria
 
-Se è necessario registrare l'intero indirizzo IP anziché solo i primi tre ottetti, è possibile usare un [inizializzatore di telemetria ](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) per copiare l'indirizzo IP in un campo personalizzato che non verrà mascherato.
+Se è necessaria un'alternativa più flessibile rispetto `DisableIpMasking` alla registrazione di tutti gli indirizzi IP o parte di essi, è possibile usare un [inizializzatore di telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) per copiare tutto o parte dell'indirizzo IP in un campo personalizzato. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -205,7 +204,7 @@ appInsights.defaultClient.addTelemetryProcessor((envelope) => {
 });
 ```
 
-### <a name="client-side-javascript"></a>JavaScript sul lato client
+### <a name="client-side-javascript"></a>JavaScript lato client
 
 A differenza degli SDK sul lato server, l'SDK JavaScript sul lato client non calcola l'indirizzo IP. Per impostazione predefinita, il calcolo degli indirizzi IP per la telemetria sul lato client viene eseguito nell'endpoint di inserimento in Azure al momento dell'arrivo della telemetria. Ciò significa che se si inviano dati lato client a un proxy e quindi si inoltra all'endpoint di inserimento, il calcolo degli indirizzi IP potrebbe visualizzare l'indirizzo IP del proxy e non il client. Se non viene utilizzato alcun proxy, questo non dovrebbe essere un problema.
 

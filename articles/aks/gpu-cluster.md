@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4eef31a050072c0413421a5490b35b765cb9557d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e805ca87a34a6b50e9f799909efe8fcbe859883c
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68381824"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899475"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usare le GPU per carichi di lavoro a elevato utilizzo di calcolo nel servizio Azure Kubernetes
 
@@ -32,7 +32,7 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Se occorre un cluster servizio Azure Kubernetes che soddisfi i requisiti minimi (nodo abilitato per la GPU e Kubernetes versione 1.10 o versioni successive), completare i passaggi seguenti. Se si dispone già di un cluster AKS che soddisfa questi requisiti, [passare alla sezione successiva](#confirm-that-gpus-are-schedulable).
+Se occorre un cluster del servizio Azure Kubernetes che soddisfi i requisiti minimi (nodo abilitato per la GPU e Kubernetes versione 1.10 o versioni successive), completare i passaggi seguenti. Se si dispone già di un cluster AKS che soddisfa questi requisiti, [passare alla sezione successiva](#confirm-that-gpus-are-schedulable).
 
 Per prima cosa, creare un gruppo di risorse per il cluster usando il comando [AZ Group create][az-group-create] . L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *EastUS*:
 
@@ -60,7 +60,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Prima di poter usare le GPU nei nodi, è necessario distribuire un DaemonSet per il plug-in del dispositivo NVIDIA. Il DaemonSet esegue un pod in ogni nodo per specificare i driver necessari per la GPU.
 
-Per prima cosa, creare uno spazio dei nomi usando il comando [kubectl create namespace][kubectl-create] , ad esempio *GPU-* Resources:
+Per prima cosa, creare uno spazio dei nomi usando il comando [kubectl create namespace][kubectl-create] , ad esempio *GPU-Resources*:
 
 ```console
 kubectl create namespace gpu-resources
@@ -73,7 +73,7 @@ apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   name: nvidia-device-plugin-daemonset
-  namespace: kube-system
+  namespace: gpu-resources
 spec:
   updateStrategy:
     type: RollingUpdate
@@ -223,7 +223,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>Visualizzare lo stato e l'output del carico di lavoro abilitato per la GPU
 
-Monitorare lo stato di avanzamento del processo usando il comando [kubectl Get Jobs][kubectl-get] con `--watch` l'argomento. L'esecuzione del pull dell'immagine come prima cosa e l'elaborazione del set di dati possono richiedere alcuni minuti. Quando la colonna completes Visualizza *1/1*, il processo è stato completato correttamente. Uscire dal `kubetctl --watch` comando con *CTRL + C*:
+Monitorare lo stato di avanzamento del processo usando il comando [kubectl Get Jobs][kubectl-get] con `--watch` l'argomento. L'esecuzione del pull dell'immagine come prima cosa e l'elaborazione del set di dati possono richiedere alcuni minuti. Quando la colonna *completes* Visualizza *1/1*, il processo è stato completato correttamente. Uscire dal `kubetctl --watch` comando con *CTRL + C*:
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch

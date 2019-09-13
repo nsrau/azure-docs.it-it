@@ -9,39 +9,39 @@ ms.author: robreed
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39282e816be875e598d7e0599eeb358a79941be7
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3fe008d20ab43636b59861bcc5a7914ba0fca17e
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478073"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910056"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Asset di tipo variabile in Automazione di Azure
 
-Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le configurazioni DSC nell'account di automazione. Essi possono essere gestite dal portale di Azure, PowerShell, all'interno di un runbook o configurazione DSC. Le variabili di automazione sono utili per gli scenari seguenti:
+Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le configurazioni DSC nell'account di automazione. Possono essere gestiti dalla portale di Azure, da PowerShell, all'interno di una configurazione Runbook o DSC. Le variabili di automazione sono utili per gli scenari seguenti:
 
 - Condivisione di un valore tra più runbook o configurazioni DSC.
 
 - Condivisione di un valore tra più processi dello stesso runbook o configurazione DSC.
 
-- Gestione di un valore dal portale o dalla riga di comando di PowerShell che è usata da runbook o configurazioni DSC, ad esempio un set di elementi di configurazione comuni come un elenco specifico di nomi di macchina virtuale, un gruppo di risorse specifico, un nome di dominio Active Directory e altro ancora.  
+- Gestire un valore dal portale o dalla riga di comando di PowerShell usata da manuali operativi o dalle configurazioni DSC, ad esempio un set di elementi di configurazione comuni come un elenco specifico di nomi di VM, un gruppo di risorse specifico, un nome di dominio AD e altro ancora.  
 
-Poiché le variabili di automazione sono persistenti, sono disponibili anche se il runbook o configurazione DSC ha esito negativo. Questo comportamento consente un valore da impostare in un runbook che viene quindi usato da un altro, o viene usato da stesso runbook o configurazione DSC alla successiva esecuzione.
+Poiché le variabili di automazione sono persistenti, sono disponibili anche se la configurazione di Runbook o DSC ha esito negativo. Questo comportamento consente l'impostazione di un valore da parte di un Runbook che viene quindi usato da un altro o viene usato dalla stessa configurazione di Runbook o DSC la volta successiva che viene eseguita.
 
-Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata. Le variabili crittografate vengono archiviate in modo sicuro in automazione di Azure e il relativo valore non è possibile recuperarne il [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet fornito come parte del modulo Azure PowerShell. L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook o configurazione DSC. Se si desidera modificare una variabile crittografata in non crittografato, è possibile necessario eliminare e ricreare la variabile come non crittografato.
+Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata. Le variabili crittografate vengono archiviate in modo sicuro in automazione di Azure e il relativo valore non può essere recuperato dal cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) incluso nel modulo Azure PowerShell. L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook o configurazione DSC. Se si desidera modificare una variabile crittografata in non crittografato, è possibile eliminare e ricreare la variabile come non crittografata.
 
 >[!NOTE]
 >Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di automazione. Questa chiave è archiviata in un Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, la chiave viene caricata da Key Vault e quindi usata per crittografare l'asset. Questo processo è gestito da Automazione di Azure.
 
 ## <a name="variable-types"></a>Tipi di variabile
 
-Quando si crea una variabile con il portale di Azure, è necessario selezionare un tipo di dati nell'elenco a discesa, in modo che nel portale possa essere visualizzato il controllo appropriato per immettere il valore della variabile. La variabile non è limitata a questo tipo di dati. È necessario impostare la variabile con Windows PowerShell se si desidera specificare un valore di un tipo diverso. Se si specifica **non definito**, quindi imposta il valore della variabile **$null**, e sarà necessario impostare il valore con il [Set-AzureRMAutomationVariable](/powershell/module/AzureRM.Automation/Set-AzureRmAutomationVariable) cmdlet o **Set-AutomationVariable** attività. Non è possibile creare o modificare il valore di un tipo di variabile complesso nel portale, ma è possibile fornire un valore di qualsiasi tipo con Windows PowerShell. I tipi complessi verranno restituiti come [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
+Quando si crea una variabile con il portale di Azure, è necessario selezionare un tipo di dati nell'elenco a discesa, in modo che nel portale possa essere visualizzato il controllo appropriato per immettere il valore della variabile. La variabile non è limitata a questo tipo di dati. È necessario impostare la variabile utilizzando Windows PowerShell se si desidera specificare un valore di tipo diverso. Se si specifica **non definito**, il valore della variabile imposta su **$null**ed è necessario impostare il valore con il cmdlet [set-AzureRMAutomationVariable](/powershell/module/AzureRM.Automation/Set-AzureRmAutomationVariable) o l'attività **set-AutomationVariable** . Non è possibile creare o modificare il valore per un tipo di variabile complesso nel portale, ma è possibile specificare un valore di qualsiasi tipo usando Windows PowerShell. I tipi complessi verranno restituiti come [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 È possibile archiviare più valori in una singola variabile creando una matrice o una tabella hash e salvandola nella variabile.
 
 Di seguito è riportato un elenco dei tipi di variabile disponibili in Automazione:
 
-* string
+* String
 * Integer
 * DateTime
 * Boolean
@@ -49,7 +49,7 @@ Di seguito è riportato un elenco dei tipi di variabile disponibili in Automazio
 
 ## <a name="azurerm-powershell-cmdlets"></a>Cmdlet di PowerShell AzureRM
 
-Per AzureRM, per creare e gestire asset di credenziali di automazione con Windows PowerShell, vengono usati i cmdlet della tabella seguente. Sono inclusi come parte del [modulo azurerm. Automation](/powershell/azure/overview), che è disponibile per l'uso nei runbook di automazione e nelle configurazioni DSC.
+Per AzureRM, per creare e gestire asset di credenziali di automazione con Windows PowerShell, vengono usati i cmdlet della tabella seguente. Vengono forniti come parte del [modulo AzureRM. Automation](/powershell/azure/overview), disponibile per l'uso nei manuali operativi di automazione e nelle configurazioni DSC.
 
 | Cmdlets | Descrizione |
 |:---|:---|
@@ -60,7 +60,7 @@ Per AzureRM, per creare e gestire asset di credenziali di automazione con Window
 
 ## <a name="activities"></a>Attività
 
-Le attività incluse nella tabella seguente vengono usate per accedere alle credenziali in un Runbook o nelle configurazioni DSC.
+Le attività nella tabella seguente vengono usate per accedere alle variabili in un Runbook e le configurazioni DSC. La differenza tra i cmdlet Get-AzureRmAutomationVariable e Get-AutomationVariable è stata chiarita sopra all'inizio di questo documento.
 
 | Attività | Descrizione |
 |:---|:---|
@@ -122,7 +122,7 @@ Usare l'attività **Set-AutomationVariable** per impostare il valore di una vari
 
 #### <a name="setting-and-retrieving-a-simple-value-from-a-variable"></a>Impostazione e recupero di un valore semplice da una variabile
 
-I comandi di esempio seguenti mostrano come impostare e recuperare una variabile in un runbook testuale. In questo esempio, si presuppone che le variabili di tipo integer denominata *NumberOfIterations* e *NumberOfRunnings* e una variabile di tipo stringa denominata *SampleMessage* hanno è stato creato.
+I comandi di esempio seguenti mostrano come impostare e recuperare una variabile in un runbook testuale. In questo esempio si presuppone che siano state create variabili di tipo integer denominate *NumberOfIterations* e *NumberOfRunnings* e una variabile di tipo String denominata *SampleMessage* .
 
 ```powershell
 $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
@@ -169,7 +169,7 @@ In un runbook grafico è possibile aggiungere **Get-AutomationVariable** o **Set
 
 #### <a name="setting-values-in-a-variable"></a>Impostazione dei valori in una variabile
 
-La figura seguente illustra attività di esempio per aggiornare una variabile con un valore semplice in un runbook grafico. In questo esempio, **Get-AzureRmVM** recupera una singola macchina virtuale di Azure e il nome del computer vengono salvati in una variabile di automazione esistente con un tipo di stringa. Non è importante se il [collegamento è una pipeline o una sequenza](../automation-graphical-authoring-intro.md#links-and-workflow) poiché è prevista la presenza di un solo oggetto nell'output.
+La figura seguente illustra attività di esempio per aggiornare una variabile con un valore semplice in un runbook grafico. In questo esempio **Get-AzureRmVM** recupera una singola macchina virtuale di Azure e il nome del computer viene salvato in una variabile di automazione esistente con un tipo di stringa. Non è importante se il [collegamento è una pipeline o una sequenza](../automation-graphical-authoring-intro.md#links-and-workflow) poiché è prevista la presenza di un solo oggetto nell'output.
 
 ![Impostare una variabile semplice](../media/variables/runbook-set-simple-variable.png)
 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: fd24d0d9f05855cf22da547f95b16da0a8d2c788
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617639"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910448"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -156,11 +156,11 @@ Più schede di interfaccia rete guest/server | Sì.
 
 **Componente** | **Supportato**
 --- | ---
-Azure ExpressRoute | Sì
-ILB | Yes
-ELB | Yes
-Gestione traffico di Azure | Sì
-Più NIC | Sì
+Azure ExpressRoute | Yes
+ILB | Sì
+ELB | Sì
+Gestione traffico di Azure | Yes
+Più NIC | Yes
 Indirizzo IP riservato | Sì
 IPv4 | Sì
 Conservazione indirizzo IP di origine | Sì
@@ -173,11 +173,11 @@ Rete accelerata | No
 Disco dinamico | Il disco del sistema operativo deve essere un disco di base. <br/><br/>I dischi dati possono essere dinamici
 Configurazione dei dischi Docker | No
 NFS host | Sì per VMware<br/><br/> No per server fisici
-Host SAN (iSCSI/FC) | Yes
+Host SAN (iSCSI/FC) | Sì
 Host vSAN | Sì per VMware<br/><br/> N/D per server fisici
 Percorsi multipli (MPIO) | Sì, testato con DSM Microsoft, EMC PowerPath 5.7 SP4, DSM EMC PowerPath per CLARiiON
 Volumi virtuali host | Sì per VMware<br/><br/> N/D per server fisici
-VMDK guest/server | Sì
+VMDK guest/server | Yes
 Disco cluster condiviso guest/server | No
 Disco crittografato guest/server | No
 NFS guest/server | No
@@ -187,7 +187,7 @@ RDM guest/server | Yes<br/><br/> N/D per server fisici
 Disco guest/server > 1 TB | Sì, il disco deve avere dimensioni maggiori di 1024 MB<br/><br/>Fino a 8.192 GB durante la replica a Managed Disks (9,26 versioni successive)<br></br> Fino a 4.095 GB durante la replica in account di archiviazione
 Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | No
 Disco Guest/server con dimensioni del settore fisico 4K logiche e 512 byte | No
-Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Yes
+Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Sì
 Guest/server - Spazi di archiviazione | No
 Disco di aggiunta/rimozione a caldo guest/server | No
 Guest/server - esclusione disco | Yes
@@ -208,13 +208,13 @@ Avvio EFI/UEFI Guest/server | -Supportato quando si esegue il servizio Mobility 
 **Componente** | **Supportato**
 --- | ---
 Archiviazione con ridondanza locale | Yes
-Archiviazione con ridondanza geografica | Sì
+Archiviazione con ridondanza geografica | Yes
 Archiviazione con ridondanza geografica e accesso in lettura | Yes
 Archiviazione ad accesso sporadico | No
 Archiviazione ad accesso frequente| No
 BLOB in blocchi | No
-Crittografia inattiva (SSE)| Yes
-Archiviazione Premium | Sì
+Crittografia inattiva (SSE)| Sì
+Archiviazione Premium | Yes
 Servizio di importazione/esportazione | No
 Firewall di archiviazione di Azure per reti virtuali | Sì.<br/> Configurato nell'account di archiviazione di destinazione/archiviazione della cache (usato per archiviare i dati di replica).
 Account di archiviazione per utilizzo generico V2 (livelli ad accesso frequente e sporadico) | Sì (i costi delle transazioni sono sostanzialmente superiori per la versione V2 rispetto alla V1)
@@ -223,7 +223,7 @@ Account di archiviazione per utilizzo generico V2 (livelli ad accesso frequente 
 
 **Funzionalità** | **Supportato**
 --- | ---
-Set di disponibilità | Sì
+Set di disponibilità | Yes
 Zone di disponibilità | No
 HUB | Sì
 Dischi gestiti | Yes
@@ -245,6 +245,10 @@ VHD condiviso | Non supportati. | Il controllo ha esito negativo se non supporta
 Disco FC | Non supportati. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportati. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker. |
 Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
+
+## <a name="resource-group-limits"></a>Limiti del gruppo di risorse
+
+Per informazioni sul numero di macchine virtuali che possono essere protette in un singolo gruppo di risorse, vedere l'articolo relativo ai [limiti e alle quote della sottoscrizione](https://docs.microsoft.com/azure/azure-subscription-service-limits#resource-group-limits)
 
 ## <a name="churn-limits"></a>Limiti di varianza
 

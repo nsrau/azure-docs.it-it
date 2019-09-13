@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ec4cb58692cd98a799f1dc58f60b11a0552829c8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279491"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934912"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Domande frequenti
 
@@ -26,6 +26,37 @@ Vedere l' [elenco per VMware](https://docs.microsoft.com/azure/migrate/migrate-s
 ### <a name="whats-the-difference-between-azure-migrate-and-azure-site-recovery"></a>Qual è la differenza tra Azure Migrate e Azure Site Recovery?
 
 Azure Migrate offre un hub centralizzato per avviare la migrazione, eseguire e monitorare l'individuazione e la valutazione di computer e carichi di lavoro e per eseguire e tenere traccia della migrazione di computer e carichi di lavoro in Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) è una soluzione di ripristino di emergenza. Azure Migrate migrazione del server utilizza Azure Site Recovery sul back-end per abilitare gli scenari di migrazione per la migrazione in modalità Lift-and-Shift dei computer locali.
+
+### <a name="how-do-i-delete-an-azure-migrate-project"></a>Ricerca per categorie eliminare un progetto Azure Migrate
+
+Per eliminare un progetto Azure Migrate e le risorse associate, tra cui siti, insiemi di credenziali dei servizi di ripristino, migrazione degli insiemi di credenziali, insiemi di credenziali delle chiavi, progetti di valutazione e così via, passare alla pagina "gruppi di risorse" del portale di Azure, selezionare il gruppo di risorse in cui eseguire la migrazione del progetto è stato creato e selezionare "Mostra tipi nascosti". Selezionare quindi il progetto migrate e le risorse associate elencate di seguito ed eliminarle. In alternativa, se il gruppo di risorse viene usato esclusivamente dal progetto di migrazione e dalle risorse associate, è possibile eliminare l'intero gruppo di risorse. Si noti che questo elenco è un elenco completo di tutti i tipi di risorse creati per tutti gli scenari (individuazione, valutazione e migrazione). Si troveranno solo le risorse create per lo scenario nel gruppo di risorse.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-vmware-or-physical-servers-resource-type"></a>Risorse create per i server individuati, valutati o migrati in server fisici o VMware [Resource (tipo)]:
+
+- "Appliancename" KV (Key Vault)
+- Sito "appliancename" (Microsoft. OffAzure/VMwareSites)
+- "NomeProgetto" (Microsoft. migrate/migrateprojects)
+- Progetto "NomeProgetto" (Microsoft. migrate/assessmentProjects)
+- "NomeProgetto" rsvault (insieme di credenziali di servizi di ripristino)
+- "NomeProgetto"-MigrateVault-* (insieme di credenziali di servizi di ripristino)
+- migrateappligwsa * (account di archiviazione)
+- migrateapplilsa * (account di archiviazione)
+- migrateapplicsa * (account di archiviazione)
+- migrateapplikv * (Key Vault)
+- migrateapplisbns16041 (spazio dei nomi del bus di servizio)
+
+Nota: Eliminare gli account di archiviazione e gli insiemi di credenziali delle chiavi con cautela, perché possono contenere rispettivamente i dati dell'applicazione e le chiavi di sicurezza.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-hyper-v-resource-type"></a>Risorse create per i server individuati, valutati o migrati in Hyper-V [Resource (Type)]:
+
+- "NomeProgetto" (Microsoft. migrate/migrateprojects)
+- Progetto "NomeProgetto" (Microsoft. migrate/assessmentProjects)
+- HyperV * kV (Key Vault)
+- Sito HyperV * (Microsoft. OffAzure/HyperVSites)
+- "NomeProgetto"-MigrateVault-* (insieme di credenziali di servizi di ripristino) 
+
+Nota: Eliminare l'insieme di credenziali delle chiavi con cautela perché potrebbe contenere chiavi di sicurezza.
+
 
 ## <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -189,7 +220,7 @@ Oltre agli script, è inoltre possibile utilizzare strumenti di distribuzione co
 Visualizzare l'elenco dei [sistemi operativi Windows e Linux supportati da monitoraggio di Azure per le macchine virtuali](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-an-hour"></a>È possibile visualizzare le dipendenze in Azure Migrate per più di un'ora?
-No. È possibile visualizzare le dipendenze per un massimo di un'ora. È possibile tornare a una data specifica nella cronologia, fino a un mese, ma la durata massima per la visualizzazione è di un'ora. Ad esempio, è possibile usare la durata dell'intervallo di tempo nella mappa delle dipendenze per visualizzare le dipendenze di ieri, ma è possibile visualizzarle solo per una finestra di un'ora. È tuttavia possibile usare i log di monitoraggio di Azure per [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) per un periodo di tempo più lungo.
+No. È possibile visualizzare le dipendenze per un massimo di un'ora. È possibile tornare a una data specifica nella cronologia, fino a un mese, ma la durata massima per la visualizzazione è di un'ora. Ad esempio, è possibile usare la durata dell'intervallo di tempo nella mappa delle dipendenze per visualizzare le dipendenze di ieri, ma è possibile visualizzarle solo per una finestra di un'ora. È tuttavia possibile usare i log di monitoraggio di Azure per [eseguire query sui dati](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) delle dipendenze per un periodo di tempo più lungo.
 
 ### <a name="can-i-use-dependency-visualization-for-groups-that-contain-more-than-10-vms"></a>È possibile usare la visualizzazione delle dipendenze per i gruppi che contengono più di 10 VM?
 È possibile [visualizzare le dipendenze per i gruppi](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) che contengono fino a 10 macchine virtuali. Se si dispone di un gruppo con più di 10 macchine virtuali, è consigliabile suddividere il gruppo in gruppi più piccoli e quindi visualizzare le dipendenze.

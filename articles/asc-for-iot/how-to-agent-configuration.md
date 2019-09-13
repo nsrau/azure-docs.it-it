@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8b4764d855663325b2445f7b588b795c15f4edde
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095c8fa080d96c9dc6d40261ee5afc559e9ca06b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596332"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933875"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: Configurare gli agenti di sicurezza
 
@@ -87,28 +87,28 @@ Per usare un valore di proprietà predefinito, rimuovere la proprietà dall'ogge
 
 1. Nell'hub Internet delle cose individuare e selezionare il dispositivo che si vuole modificare.
 
-2. Fare clic sul dispositivo e quindi sul modulo **azureiotsecurity** .
+1. Fare clic sul dispositivo e quindi sul modulo **azureiotsecurity** .
 
-3. Fare clic su **Module Identity gemelle**.
+1. Fare clic su **Module Identity gemelle**.
 
-4. Modificare le proprietà che si desidera modificare nel modulo di sicurezza.
+1. Modificare le proprietà che si desidera modificare nel modulo di sicurezza.
    
    Ad esempio, per configurare gli eventi di connessione come priorità alta e raccogliere gli eventi con priorità alta ogni 7 minuti, utilizzare la configurazione seguente.
    
-   ```json
+    ```json
     "desired": {
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-        "highPriorityMessageFrequency": {
-          "value" : "PT7M"
-        },    
-        "eventPriorityConnectionCreate": {
-          "value" : "High" 
+        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+            "highPriorityMessageFrequency": {
+                "value": "PT7M"
+            },
+            "eventPriorityConnectionCreate": {
+                "value": "High"
+            }
         }
-      } 
-    }, 
+    }
     ```
 
-5. Fare clic su **Save**.
+1. Fare clic su **Save**.
 
 ### <a name="using-a-default-value"></a>Uso di un valore predefinito
 
@@ -120,7 +120,7 @@ La tabella seguente contiene le proprietà controllabili del Centro sicurezza di
 
 I valori predefiniti sono disponibili nello schema appropriato in [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Name| Stato | Valori validi| Valori predefiniti| DESCRIZIONE |
+| Name| Stato | Valori validi| Valori predefiniti| Descrizione |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|Obbligatorio: false |Valori validi: Durata nel formato ISO 8601 |Valore predefinito: PT7M |Intervallo di tempo massimo prima dell'invio dei messaggi con priorità alta.|
 |lowPriorityMessageFrequency |Obbligatorio: false|Valori validi: Durata nel formato ISO 8601 |Valore predefinito: PT5H |Tempo massimo prima dell'invio dei messaggi con priorità bassa.| 
@@ -138,12 +138,12 @@ I valori predefiniti sono disponibili nello schema appropriato in [GitHub](https
 |Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |True|Statistiche evento correlate agli agenti. |
 |Statistiche messaggio|eventPriorityMessageStatistics |Basso |True |Statistiche messaggi correlati all'agente. |
 |Hardware connesso|eventPriorityConnectedHardware |Basso |True |Snapshot di tutti i componenti hardware connessi al dispositivo.|
-|Porte in ascolto|eventPriorityListeningPorts |High |True |Snapshot di tutte le porte di ascolto aperte sul dispositivo.|
+|Porte in ascolto|eventPriorityListeningPorts |Alto |True |Snapshot di tutte le porte di ascolto aperte sul dispositivo.|
 |Creazione processo |eventPriorityProcessCreate |Basso |False |Controlla la creazione del processo nel dispositivo.|
 |Terminazione processo|eventPriorityProcessTerminate |Basso |False |Controlla la terminazione del processo nel dispositivo.| 
 |Informazioni di sistema |eventPrioritySystemInformation |Basso |True |Uno snapshot delle informazioni di sistema, ad esempio: Sistema operativo o CPU).| 
-|Utenti locali| eventPriorityLocalUsers |High |True|Snapshot degli utenti locali registrati nel sistema. |
-|Accedi|  eventPriorityLogin |High|False|Controllare gli eventi di accesso al dispositivo (account di accesso locali e remoti).|
+|Utenti locali| eventPriorityLocalUsers |Alto |True|Snapshot degli utenti locali registrati nel sistema. |
+|Accedi|  eventPriorityLogin |Alto|False|Controllare gli eventi di accesso al dispositivo (account di accesso locali e remoti).|
 |Creazione della connessione |eventPriorityConnectionCreate|Basso|False|Controlla le connessioni TCP create da e verso il dispositivo. |
 |Configurazione del firewall| eventPriorityFirewallConfiguration|Basso|True|Snapshot della configurazione del firewall del dispositivo (regole del firewall). |
 |Baseline del sistema operativo| eventPriorityOSBaseline| Basso|True|Snapshot del controllo della linea di base del sistema operativo del dispositivo.|

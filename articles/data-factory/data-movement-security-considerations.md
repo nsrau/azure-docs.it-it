@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c42e70efc8543e1d255690070ffb51b865e1754f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608589"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931261"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -59,7 +59,7 @@ In questo articolo vengono prese in esame le considerazioni sulla sicurezza nei 
 
 ### <a name="securing-data-store-credentials"></a>Proteggere le credenziali dell'archivio dati
 
-- **Archiviare credenziali crittografate i un archivio gestito di Azure Data Factory**. Data Factory consente di proteggere le credenziali dell'archivio dati crittografandole con i certificati gestiti da Microsoft. Questi certificati ruotano ogni due anni. In questo arco temporale è compreso il rinnovo del certificato e la migrazione delle credenziali. Le credenziali crittografate vengono archiviate in modo sicuro in un account di archiviazione di Azure gestito dai servizi di gestione di Azure Data Factory. Per altre informazioni sulla sicurezza di Archiviazione di Azure, vedere [Panoramica sulla sicurezza di Archiviazione di Azure](../security/fundamentals/storage-overview.md).
+- **Archiviare credenziali crittografate i un archivio gestito di Azure Data Factory**. Data Factory consente di proteggere le credenziali dell'archivio dati crittografandole con i certificati gestiti da Microsoft. Questi certificati ruotano ogni due anni. In questo arco temporale è compreso il rinnovo del certificato e la migrazione delle credenziali. Per altre informazioni sulla sicurezza di Archiviazione di Azure, vedere [Panoramica sulla sicurezza di Archiviazione di Azure](../security/fundamentals/storage-overview.md).
 - **Archiviare le credenziali in Azure Key Vault**. È anche possibile archiviare la credenziale dell'archivio dati in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credenziale durante l'esecuzione di un'attività. Per altre informazioni, vedere [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare credenziali in Azure Key Vault).
 
 ### <a name="data-encryption-in-transit"></a>Crittografia di dati in transito
@@ -108,14 +108,15 @@ Gli scenari ibridi richiedono l'installazione del runtime di integrazione self-h
 Il canale di comando consente la comunicazione tra i servizi di spostamento dei dati in Data Factory e nel runtime di integrazione self-hosted. La comunicazione contiene informazioni relative all'attività. Il canale di dati viene usato per trasferire i dati tra gli archivi dati locali e quelli nel cloud.    
 
 ### <a name="on-premises-data-store-credentials"></a>Credenziali dell'archivio dati locale
-Le credenziali per gli archivi dati locali vengono sempre crittografate e archiviate. Possono essere archiviate in locale nel computer del runtime di integrazione self-hosted o memorizzate nella risorsa di archiviazione gestita di Azure Data Factory (esattamente come l'archivio credenziali del cloud). 
+Le credenziali possono essere archiviate all'interno data factory o [a cui viene fatto riferimento da Data Factory](store-credentials-in-key-vault.md) durante il runtime da Azure Key Vault. Se si archiviano le credenziali all'interno data factory, questo viene sempre archiviato crittografato nel runtime di integrazione self-hosted. 
+ 
+- **Archiviare le credenziali in locale**. Se si usa direttamente il cmdlet **set-AzDataFactoryV2LinkedService** con le stringhe di connessione e le credenziali inline in JSON, il servizio collegato viene crittografato e archiviato nel runtime di integrazione self-hosted.  In questo caso, le credenziali passano attraverso il servizio back-end di Azure, che è estremamente sicuro, al computer di integrazione self-hosted in cui viene infine encrpted e archiviato. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali.
 
-- **Archiviare le credenziali in locale**. Per crittografare e archiviare le credenziali in locale nel runtime di integrazione self-hosted, seguire i passaggi in [Crittografia delle credenziali per gli archivi dati locali in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Tutti i connettori supportano questa opzione. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali. 
+- **Archiviare le credenziali in Azure Key Vault**. È anche possibile archiviare la credenziale dell'archivio dati in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credenziale durante l'esecuzione di un'attività. Per altre informazioni, vedere [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare credenziali in Azure Key Vault).
+
+- **Archiviare le credenziali in locale senza propagarle tramite il back-end di Azure al runtime di integrazione self-hosted**. Per crittografare e archiviare le credenziali in locale nel runtime di integrazione Self-Hosted senza dover propagarle tramite data factory back-end, seguire la procedura descritta in [crittografare le credenziali per gli archivi dati locali in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Tutti i connettori supportano questa opzione. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali. 
 
    Usare il cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** per crittografare le credenziali del servizio collegato e i dettagli sensibili nel servizio collegato. È quindi possibile usare il codice JSON restituito (con l'elemento **EncryptedCredential** nella stringa di connessione) per creare un servizio collegato usando il cmdlet **set-AzDataFactoryV2LinkedService** .  
-
-- **Archiviare nella risorsa di archiviazione gestita di Azure Data Factory**. Se si usa direttamente il cmdlet **set-AzDataFactoryV2LinkedService** con le stringhe di connessione e le credenziali inline in JSON, il servizio collegato viene crittografato e archiviato in Azure Data Factory archiviazione gestita. Le informazioni sensibili sono ancora crittografate dal certificato e Microsoft gestisce questi certificati.
-
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Porte usate durante la crittografia del servizio collegato nel runtime di integrazione self-hosted
@@ -172,7 +173,7 @@ La tabella seguente indica la porta in uscita e i requisiti di dominio per i fir
 
 Nella tabella seguente vengono indicati i requisiti relativi alla porta in ingresso per Windows Firewall:
 
-| Porte in ingresso | DESCRIZIONE                              |
+| Porte in ingresso | Descrizione                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Richiesta dal cmdlet di crittografia PowerShell, come descritto in [Crittografare le credenziali per gli archivi dati locali in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), e dall'applicazione di gestione delle credenziali per impostare in modo sicuro le credenziali per gli archivi dati locali nel runtime di integrazione self-hosted. |
 

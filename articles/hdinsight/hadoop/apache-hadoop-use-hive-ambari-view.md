@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 55f8f453faf35d52c5c292e6b309194443980466
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719576"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917707"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usare la vista Hive di Apache Ambari con Apache Hadoop in HDInsight
 
@@ -28,17 +28,17 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
 
 ## <a name="run-a-hive-query"></a>Eseguire una query Hive
 
-1. Dal [portale di Azure](https://portal.azure.com/), selezionare il cluster.  Visualizzare [elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters) per le istruzioni. Il cluster viene aperto in un nuovo pannello del portale.
+1. Dal [portale di Azure](https://portal.azure.com/)selezionare il cluster.  Per istruzioni, vedere [elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters) . Il cluster viene aperto in un nuovo pannello del portale.
 
-2. Dal **dashboard Cluster**, selezionare **visualizzazioni di Ambari**. Quando viene richiesta l'autenticazione, usare il nome e la password dell'account di accesso al cluster (per impostazione predefinita, `admin`) specificati durante la creazione del cluster.
+2. Da **Dashboard cluster**selezionare **visualizzazioni Ambari**. Quando viene richiesta l'autenticazione, usare il nome e la password dell'account di accesso al cluster (per impostazione predefinita, `admin`) specificati durante la creazione del cluster.
 
 3. Nell'elenco di viste selezionare __vista Hive__.
 
-    ![Vista Hive selezionata](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![Vista Hive selezionata](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     La pagina Vista Hive è simile all'immagine seguente:
 
-    ![Immagine del foglio di lavoro della query per la vista Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Immagine del foglio di lavoro della query per la vista Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
 4. Dalla scheda __Query__ incollare le istruzioni HiveQL seguenti nel foglio di lavoro:
 
@@ -75,17 +75,17 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
    > [!IMPORTANT]  
    > Mantenere la selezione di __Database__ __predefinita__. Gli esempi di questo documento usano il database predefinito incluso in HDInsight.
 
-5. Per avviare la query, selezionare **Execute** sotto il foglio di lavoro. Il pulsante diventa arancione e il testo cambia in **Interrompi**.
+5. Per avviare la query, selezionare **Execute (Esegui** ) sotto il foglio di foglio. Il pulsante diventa arancione e il testo cambia in **Interrompi**.
 
 6. Al termine dell'elaborazione della query, nella scheda **Risultati** vengono visualizzati i risultati dell'operazione. Il testo seguente è il risultato della query:
 
         loglevel       count
         [ERROR]        3
 
-    È possibile usare la **LOG** scheda per visualizzare le informazioni sulla registrazione create dal processo.
+    È possibile utilizzare la scheda **log** per visualizzare le informazioni di registrazione create dal processo.
 
    > [!TIP]  
-   > Scaricare o salvare i risultati di **azioni** nella finestra di dialogo elenco a discesa la **risultati** scheda.
+   > Scaricare o salvare i risultati dalla finestra di dialogo a discesa **azioni** nella scheda **risultati** .
 
 ### <a name="visual-explain"></a>Visual Explain
 
@@ -95,7 +95,7 @@ La vista **Visual Explain** (Spiegazione visiva) della query può essere utile p
 
 ### <a name="tez-ui"></a>Interfaccia utente di Tez
 
-Per visualizzare la UI Tez per la query, selezionare la **Tez UI** tab di sotto del foglio di lavoro.
+Per visualizzare l'interfaccia utente di TeZ per la query, selezionare la scheda **interfaccia utente di TeZ** al di sotto del foglio di foglio.
 
 > [!IMPORTANT]  
 > Tez non viene usato per risolvere tutte le query. Molte query possono essere risolte senza usare Tez. 
@@ -104,19 +104,19 @@ Per visualizzare la UI Tez per la query, selezionare la **Tez UI** tab di sotto 
 
 La scheda __Jobs__ (Processi) visualizza una cronologia delle query Hive.
 
-![Immagine della cronologia processo](./media/apache-hadoop-use-hive-ambari-view/job-history.png)
+![Immagine della cronologia processo](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Tabelle di database
 
 È possibile usare la scheda __Tables__ (Tabelle) per utilizzare le tabelle in un database Hive.
 
-![Immagine della scheda delle tabelle](./media/apache-hadoop-use-hive-ambari-view/tables.png)
+![Immagine della scheda delle tabelle](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>Query salvate
 
 Dalla scheda **Query** è facoltativamente possibile salvare le query. Dopo aver salvato una query, è possibile riusarla dalla scheda __Query salvate__.
 
-![Immagine della scheda delle query salvate](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
+![Immagine della scheda delle query salvate](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Le query salvate vengono archiviate nell'archiviazione cluster predefinita. Le query salvate sono disponibili nel percorso `/user/<username>/hive/scripts`. Vengono archiviate come file `.hql` in testo normale.
@@ -150,7 +150,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Si potrà quindi usare la funzione definita dall'utente nella query, Ad esempio: `SELECT myawesomeudf(name) FROM people;`.
+Si potrà quindi usare la funzione definita dall'utente nella query, Ad esempio `SELECT myawesomeudf(name) FROM people;`.
 
 Per altre informazioni sull'uso di funzioni definite dall'utente con Hive in HDInsight, vedere gli articoli seguenti:
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a93f8286c6927a3e87e03fb73e680c9638285336
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433730"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917800"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
 
@@ -21,7 +21,7 @@ Informazioni su come configurare la replica [Apache HBase](https://hbase.apache.
 
 La replica di cluster usa una metodologia con push dell'origine. Un cluster HBase può essere un'origine o una destinazione o può soddisfare entrambi i ruoli in una sola volta. La replica è asincrona. L'obiettivo della replica è la coerenza finale. Quando l'origine riceve una modifica a una famiglia di colonne con la replica abilitata, tale modifica viene propagata in tutti i cluster di destinazione. Quando i dati vengono replicati da un cluster a un altro, viene tenuta traccia del cluster di origine e di tutti i cluster che hanno già usato i dati, per evitare cicli di replica.
 
-In questo articolo configurare una replica origine-destinazione. Per altre topologie di cluster, vedere la [guida di riferimento di Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
+In questo articolo viene configurata una replica di destinazione di origine. Per altre topologie di cluster, vedere la [guida di riferimento di Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Di seguito sono illustrati i casi d'uso della replica HBase per una singola rete virtuale:
 
@@ -60,7 +60,7 @@ Per semplificare la configurazione degli ambienti, sono disponibili alcuni [mode
 
 Per usare un modello che riesca a creare due reti virtuali in due aree diverse e la connessione VPN tra le reti virtuali, selezionare il pulsante seguente **Implementa in Azure**. La definizione del modello è disponibile in un'[archiviazione BLOB pubblica](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 Alcuni valori hardcoded nel modello:
 
@@ -69,14 +69,14 @@ Alcuni valori hardcoded nel modello:
 | Proprietà | Value |
 |----------|-------|
 | Location | Stati Uniti occidentali |
-| Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
+| Nome rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
 | Prefisso dello spazio degli indirizzi | 10.1.0.0/16 |
 | Nome della subnet | subnet 1 |
 | Prefisso della subnet | 10.1.0.0/24 |
 | Nome della subnet (gateway) | GatewaySubnet (non può essere modificato) |
 | Prefisso della subnet (gateway) | 10.1.255.0/27 |
 | Nome del gateway | vnet1gw |
-| Tipo gateway | VPN |
+| Tipo di gateway | VPN |
 | Tipo di gateway VPN | RouteBased |
 | SKU del gateway | Basic |
 | IP del gateway | vnet1gwip |
@@ -86,14 +86,14 @@ Alcuni valori hardcoded nel modello:
 | Proprietà | Value |
 |----------|-------|
 | Location | East US |
-| Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
+| Nome rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
 | Prefisso dello spazio degli indirizzi | 10.2.0.0/16 |
 | Nome della subnet | subnet 1 |
 | Prefisso della subnet | 10.2.0.0/24 |
 | Nome della subnet (gateway) | GatewaySubnet (non può essere modificato) |
 | Prefisso della subnet (gateway) | 10.2.255.0/27 |
 | Nome del gateway | vnet2gw |
-| Tipo gateway | VPN |
+| Tipo di gateway | VPN |
 | Tipo di gateway VPN | RouteBased |
 | SKU del gateway | Basic |
 | IP del gateway | vnet1gwip |
@@ -135,7 +135,7 @@ Per installare Bind, usare la procedura seguente:
     sudo apt-get install bind9 -y
     ```
 
-3. Configurare Bind per inoltrare le richieste di risoluzione nome per il server DNS locale. A questo scopo, usare il testo seguente come contenuto del file `/etc/bind/named.conf.options`:
+3. Configurare binding per l'invio di richieste di risoluzione dei nomi al server DNS locale. A questo scopo, usare il testo seguente come contenuto del file `/etc/bind/named.conf.options`:
 
     ```
     acl goodclients {
@@ -275,7 +275,7 @@ Quando si esegue la replica di un cluster, è necessario specificare le tabelle 
 
 Per creare una tabella **Contatti** e inserire alcuni dati nella tabella, seguire le istruzioni in [Esercitazione su Apache HBase: Introduzione ad Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
-## <a name="enable-replication"></a>Abilitare la replica
+## <a name="enable-replication"></a>Abilita replica
 
 La procedura seguente illustra come chiamare lo script di azione script dal portale di Azure. Per informazioni su come eseguire un'azione script tramite Azure PowerShell e l'interfaccia della riga di comando classica di Azure, vedere [Personalizzare i cluster HdInsight usando l'azione script](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -301,7 +301,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
 
 Argomenti obbligatori:
 
-|NOME|Descrizione|
+|Name|DESCRIZIONE|
 |----|-----------|
 |-s, --src-cluster | Specifica il nome DNS del cluster HBase di origine. Ad esempio: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, - dst-cluster | Specifica il nome DNS del cluster HBase di destinazione (replica). Ad esempio: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,7 +310,7 @@ Argomenti obbligatori:
 
 Argomenti facoltativi:
 
-|NOME|Descrizione|
+|NOME|DESCRIZIONE|
 |----|-----------|
 |-su, --src-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di origine. Il valore predefinito è **admin**. |
 |-du, --dst-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di destinazione. Il valore predefinito è **admin**. |
@@ -396,7 +396,7 @@ La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato descritto come configurare la replica di Apache HBase in una rete virtuale o tra due reti virtuali. Per altre informazioni su HDInsight e Apache HBase, vedere questi articoli:
+In questo articolo si è appreso come configurare la replica di Apache HBase in una rete virtuale o tra due reti virtuali. Per altre informazioni su HDInsight e Apache HBase, vedere questi articoli:
 
 * [Introduzione ad Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Panoramica di Apache HBase di HDInsight](./apache-hbase-overview.md)

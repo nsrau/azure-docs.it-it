@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: ffc6ea447ae90649be0455abbed6245c078e518d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 18031400155b92f243877ae8c8d7a56e1d5295a0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596351"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933653"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selezionare e distribuire un agente di sicurezza nel dispositivo Internet delle cose
 
@@ -51,9 +51,9 @@ L'agente di sicurezza basato su C ha un footprint di memoria inferiore ed è la 
 | Prerequisiti per Linux | libunwind8, libcurl3, UUID-Runtime, auditd, audispd-plugins | libunwind8, libcurl3, UUID-Runtime, auditd, audispd-plugins, sudo, netstat, iptables |
 | Impronta disco | 10,5 MB | 90 MB |
 | Footprint di memoria (in media) | 5,5 MB | 33 MB |
-| [Autenticazione](concept-security-agent-authentication-methods.md) nell'hub Internet | Sì | Sì |
-| [Raccolta](how-to-agent-configuration.md#supported-security-events) dati di sicurezza | Sì | Yes |
-| Aggregazione di eventi | Sì | Yes |
+| [Autenticazione](concept-security-agent-authentication-methods.md) nell'hub Internet | Sì | Yes |
+| [Raccolta](how-to-agent-configuration.md#supported-security-events) dati di sicurezza | Yes | Sì |
+| Aggregazione di eventi | Sì | Sì |
 | Configurazione remota tramite il [modulo di sicurezza gemello](concept-security-module.md) | Sì | Sì |
 |
 
@@ -78,7 +78,7 @@ Rispondere alle domande seguenti sui dispositivi Internet per selezionare l'agen
 
 - Si usa una distribuzione Linux con l'architettura x64?
 
-    È possibile usare una delle due versioni di Agent. <br>
+    È possibile utilizzare entrambe le versioni di Agent. <br>
     [Distribuire un agente di sicurezza basato su C per Linux](how-to-deploy-linux-c.md) e/o [distribuire C#un agente di sicurezza basato su per Linux](how-to-deploy-linux-cs.md).
 
 Entrambe le versioni degli agenti offrono lo stesso set di funzionalità e supportano opzioni di configurazione simili.
@@ -97,7 +97,7 @@ Nell'elenco seguente sono incluse tutte le piattaforme attualmente supportate.
 |C#|Ubuntu 18.04    |x64|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 IoT Core compilazione 17763 |x64|
+|C#|Windows 10 Internet core, Build 17763    |x64|
 |
 
 ## <a name="next-steps"></a>Passaggi successivi

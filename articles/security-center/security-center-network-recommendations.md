@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 3683550045699a24c27a3226fba2e90a671f80e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 536e2e3732a0b196801e37c51dfb6c746e070441
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101019"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910450"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteggere le risorse di Azure nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
@@ -128,9 +128,9 @@ La sezione **Topologia di rete** include una visualizzazione gerarchica delle ri
 
 Il contenuto di questa tabella, macchine virtuali e subnet, è ordinato in base alla gravità.
 
-Nella visualizzazione Topologia il primo livello contiene le reti virtuali. Il secondo livello contiene le subnet e il terzo livello include le macchine virtuali appartenenti alle subnet. La colonna di destra mostra lo stato attuale delle raccomandazioni per il gruppo di sicurezza di rete per queste risorse.
+Nella visualizzazione Topologia il primo livello contiene le reti virtuali. Il secondo Visualizza le subnet e il terzo livello Visualizza le macchine virtuali che appartengono a tali subnet. La colonna di destra mostra lo stato attuale delle raccomandazioni per il gruppo di sicurezza di rete per queste risorse.
 
-Il terzo livello contiene le macchine virtuali, che è simile a quello descritta in precedenza. Fare clic su una risorsa per ottenere altre informazioni o per applicare la configurazione o il controllo di sicurezza necessario.
+Il terzo livello contiene le macchine virtuali, che è simile a quello descritta in precedenza. È possibile fare clic su qualsiasi risorsa per saperne di più o applicare la configurazione o il controllo di sicurezza necessario.
 
 ## <a name="network-recommendations"></a>Indicazioni per la rete
 
@@ -143,7 +143,7 @@ Il terzo livello contiene le macchine virtuali, che è simile a quello descritta
 |L'accesso ai servizi app deve essere limitato|Limitare l'accesso ai servizi app modificando la configurazione di rete per negare il traffico in ingresso da intervalli troppo ampi.|Alto|10|Servizio app|
 |Le porte di gestione devono essere chiuse nelle macchine virtuali|Rafforzare il gruppo di sicurezza di rete delle macchine virtuali per limitare l'accesso alle porte di gestione.|Alto|10|Macchina virtuale|
 Lo standard di protezione DDoS deve essere abilitato|Proteggi le reti virtuali contenenti applicazioni con indirizzi IP pubblici abilitando il servizio protezione DDoS standard. La protezione DDoS consente la mitigazione di attacchi volumetrici e di protocollo di rete.|Alto|10|Rete virtuale|
-|L'invio IP nella macchina virtuale deve essere disabilitato|Disabilitare l'invio IP. Quando l'indirizzo IP viene abilitato sulla scheda di interfaccia di rete di una macchina virtuale, il computer può ricevere il traffico destinato ad altre destinazioni. L'invio IP è raramente necessario (ad esempio, quando si usa la VM come appliance virtuale di rete) e pertanto deve essere esaminato dal team di sicurezza di rete.|Medio|10|Macchina virtuale|
+|L'invio IP nella macchina virtuale deve essere disabilitato|Disabilitare l'invio IP. Quando l'indirizzo IP viene abilitato sulla scheda di interfaccia di rete di una macchina virtuale, il computer può ricevere il traffico destinato ad altre destinazioni. L'invio IP è raramente necessario, ad esempio quando si usa la VM come appliance virtuale di rete, e pertanto deve essere rivisto dal team di sicurezza di rete.|Medio|10|Macchina virtuale|
 |L'applicazione Web deve essere accessibile solo tramite HTTPS|Abilitare l'accesso "solo HTTPS" per le applicazioni Web. L'uso di HTTPS assicura l'autenticazione di server/Servizi e protegge i dati in transito da attacchi di intercettazione a livello di rete.|Medio|20|Applicazione Web|
 |Il controllo di accesso alla rete JIT deve essere applicato alle macchine virtuali|Applicare il controllo di accesso delle macchine virtuali JIT (just-in-Time) per bloccare in modo permanente l'accesso alle porte selezionate e consentire agli utenti autorizzati di aprirle, tramite JIT, solo per un periodo di tempo limitato.|Alto|20|Macchina virtuale|
 |Le app per le funzioni devono essere accessibili solo tramite HTTPS|Abilitare l'accesso "solo HTTPS" per le app per le funzioni. L'uso di HTTPS assicura l'autenticazione di server/Servizi e protegge i dati in transito da attacchi di intercettazione a livello di rete.|Medio|20|App per le funzioni|

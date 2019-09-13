@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d599607da6653d088f53490ea4d4b5f7f6d0f236
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382939"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915985"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gestire le password delle app dalla pagina Info di sicurezza (anteprima)
 
@@ -30,11 +30,9 @@ Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'ass
 
 Quando si usano password per le app, è importante tenere presente quanto segue:
 
-- Le password per le app vengono generate automaticamente e immesse una sola volta per ogni app.
+- Le password dell'app vengono generate automaticamente e devono essere create e immesse una volta per ogni app.
 
 - Il limite è di 40 password per utente. Se si prova a crearne un'altra oltre questo limite, verrà chiesto di eliminare una password esistente prima di poter creare quella nuova.
-
-- Usare una sola password per dispositivo, non per app. Ad esempio, creare una singola password per tutte le app del portatile e un'altra per tutte le app sul PC desktop.
 
     >[!Note]
     >I client di Office 2013, tra cui Outlook, supportano i nuovi protocolli di autenticazione e possono essere usati con la verifica in due passaggi. Questo supporto significa che dopo l'attivazione della verifica in due passaggi non sono più necessarie le password per le app per i client Office 2013. Per altre informazioni, vedere l'articolo [Funzionamento dell'autenticazione moderna per le applicazioni client di Office 2013 e Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).

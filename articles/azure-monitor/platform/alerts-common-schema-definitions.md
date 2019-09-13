@@ -1,6 +1,6 @@
 ---
-title: Definizioni dello schema di avviso comuni per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione
-description: Informazioni sulle definizioni dello schema di avviso comuni per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione
+title: Definizioni dello schema di avviso comuni per monitoraggio di Azure
+description: Informazioni sulle definizioni dello schema di avviso comuni per monitoraggio di Azure
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,24 +8,22 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: 94938358bc4e4782e91401e24a01a3688c6a51ba
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 5f05b95085048515c5f8612f3029ffb2efa28091
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034795"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916022"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
-Questo articolo descrive le [definizioni dello schema di avviso comuni](https://aka.ms/commonAlertSchemaDocs) per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione. 
+Questo articolo descrive le [definizioni dello schema di avviso comuni](https://aka.ms/commonAlertSchemaDocs) per monitoraggio di Azure, incluse quelle per webhook, app per la logica di Azure, funzioni di Azure e manuali operativi di automazione di Azure. 
 
-## <a name="overview"></a>Panoramica
+Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origine. Queste istanze sono descritte nello schema comune nelle sezioni seguenti:
+* **Elementi**di base: Set di campi standardizzati, comune in tutti i tipi di avviso, che descrivono la risorsa in cui si trova l'avviso, insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 
+* **Contesto avviso**: Set di campi che descrive la motivo dell'avviso, con campi che variano in base al tipo di avviso. Un avviso di metrica, ad esempio, include campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività contiene informazioni sull'evento che ha generato l'avviso. 
 
-Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa origine**, che vengono descritte nello schema comune nelle seguenti sezioni:
-* **Elementi**di base: Set di **campi standardizzati**, comune in tutti i tipi di avviso, che descrivono la **risorsa** in cui si trova l'avviso insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 
-* **Contesto avviso**: Set di campi che descrivono la **motivo dell'avviso**, con campi che variano **in base al tipo di avviso**. Ad esempio, un avviso di metrica avrebbe campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività avrebbe informazioni sull'evento che ha generato l'avviso. 
-
-##### <a name="sample-alert-payload"></a>Payload degli avvisi di esempio
+**Payload degli avvisi di esempio**
 ```json
 {
   "schemaId": "azureMonitorCommonAlertSchema",
@@ -74,25 +72,25 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
 }
 ```
 
-## <a name="essentials-fields"></a>Campi ' Essentials '
+## <a name="essentials"></a>Informazioni di base
 
 | Campo | Descrizione|
 |:---|:---|
 | alertId | GUID che identifica in modo univoco l'istanza di avviso. |
 | alertRule | Nome della regola di avviso che ha generato l'istanza di avviso. |
-| severity | Gravità dell'avviso Valori possibili: Sev0, Sev1, Sev2, Sev3, Sev4 |
-| signalType | Identifica il segnale su cui è stata definita la regola di avviso. Valori possibili: Metrica, log, log attività |
-| monitorCondition | Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su "attivato". Quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su "risolto".   |
+| severity | Gravità dell'avviso. Valori possibili: Sev0, Sev1, Sev2, Sev3 o Sev4. |
+| signalType | Identifica il segnale su cui è stata definita la regola di avviso. Valori possibili: Metrica, log o log attività. |
+| monitorCondition | Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su **attivato**. Quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su **risolto**.   |
 | monitoringService | Il servizio di monitoraggio o la soluzione che ha generato l'avviso. I campi per il contesto dell'avviso sono determinati dal servizio di monitoraggio. |
-| alertTargetIds | Elenco degli ID ARM tutti gli obiettivi interessati di un avviso. Per un avviso di log definito in un'area di lavoro Log Analytics o in un'istanza di Application Insights, è la rispettiva area di lavoro/applicazione. |
-| originAlertId | ID dell'istanza di avviso generata dal servizio di monitoraggio che lo genera. |
-| firedDateTime | Data e ora in cui l'istanza di avviso è stata attivata in formato UTC |
-| resolvedDateTime | Data e ora in cui la condizione di monitoraggio per l'istanza di avviso è impostata su' risolto ' in formato UTC. Attualmente applicabile solo per gli avvisi della metrica.|
-| description | Descrizione definita nella regola di avviso |
-|essentialsVersion| Numero di versione per la sezione Essentials.|
-|alertContextVersion | Numero di versione per la sezione alertContext |
+| alertTargetIds | Elenco degli ID Azure Resource Manager interessati da un avviso. Per un avviso di log definito in un'area di lavoro Log Analytics o in un'istanza di Application Insights, è la rispettiva area di lavoro o applicazione. |
+| originAlertId | ID dell'istanza di avviso, generato dal servizio di monitoraggio che lo genera. |
+| firedDateTime | Data e ora in cui l'istanza di avviso è stata attivata nel formato UTC (Coordinated Universal Time). |
+| resolvedDateTime | Data e ora in cui la condizione di monitoraggio per l'istanza di avviso è impostata su **risolto** in formato UTC. Attualmente applicabile solo per gli avvisi della metrica.|
+| description | Descrizione, come definito nella regola di avviso. |
+|essentialsVersion| Il numero di versione per la sezione Essentials.|
+|alertContextVersion | Numero di versione per la `alertContext` sezione. |
 
-##### <a name="sample-values"></a>Valori di esempio
+**Valori di esempio**
 ```json
 {
   "essentials": {
@@ -114,13 +112,13 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
 }
 ```
 
-## <a name="alert-context-fields"></a>Campi ' contesto avviso '
+## <a name="alert-context"></a>Contesto dell'avviso
 
 ### <a name="metric-alerts"></a>Avvisi delle metriche
 
-#### <a name="monitoringservice--platform"></a>monitoringService =' Platform '
+#### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
-##### <a name="sample-values"></a>Valori di esempio
+**Valori di esempio**
 ```json
 {
   "alertContext": {
@@ -151,15 +149,14 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
 }
 ```
 
-### <a name="log-alerts"></a>Avvisi di log
+### <a name="log-alerts"></a>Avvisi relativi ai log
 
 > [!NOTE]
-> + Per gli avvisi del log in cui è stato definito un payload JSON personalizzato, l'abilitazione dello schema comune ridurrà lo schema del payload a quello descritto di seguito.
-> + Gli avvisi con lo schema comune abilitato hanno un limite di dimensioni superiori di 256 KB per ogni avviso. **I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso.** Questa operazione può essere determinata controllando il flag ' IncludedSearchResults '. Negli scenari in cui non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca in combinazione con l' [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> Per gli avvisi del log in cui è definito un payload JSON personalizzato, l'abilitazione dello schema comune ripristina lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 KB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare questo problema selezionando il `IncludedSearchResults`flag. Quando non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca insieme all' [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
-#### <a name="monitoringservice--log-analytics"></a>monitoringService =' Log Analytics '
+#### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
-##### <a name="sample-values"></a>Valori di esempio
+**Valori di esempio**
 ```json
 {
   "alertContext": {
@@ -224,9 +221,9 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
 }
 ```
 
-#### <a name="monitoringservice--application-insights"></a>monitoringService =' Application Insights '
+#### <a name="monitoringservice--application-insights"></a>`monitoringService` = `Application Insights`
 
-##### <a name="sample-values"></a>Valori di esempio
+**Valori di esempio**
 ```json
 {
   "alertContext": {
@@ -289,9 +286,9 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
 
 ### <a name="activity-log-alerts"></a>Avvisi del log attività
 
-#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService =' log attività-amministrativo '
+#### <a name="monitoringservice--activity-log---administrative"></a>`monitoringService` = `Activity Log - Administrative`
 
-##### <a name="sample-values"></a>Valori di esempio
+**Valori di esempio**
 ```json
 {
   "alertContext": {
@@ -316,9 +313,9 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
 }
 ```
 
-#### <a name="monitoringservice--activity-log---policy"></a>monitoringService =' log attività-criteri '
+#### <a name="monitoringservice--activity-log---policy"></a>`monitoringService` = `Activity Log - Policy`
 
-##### <a name="sample-values"></a>Valori di esempio
+**Valori di esempio**
 ```json
 {
   "alertContext": {
@@ -349,9 +346,9 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
 }
 ```
 
-#### <a name="monitoringservice--activity-log---autoscale"></a>monitoringService =' log attività-scalabilità automatica '
+#### <a name="monitoringservice--activity-log---autoscale"></a>`monitoringService` = `Activity Log - Autoscale`
 
-##### <a name="sample-values"></a>Valori di esempio
+**Valori di esempio**
 ```json
 {
   "alertContext": {
@@ -379,9 +376,9 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
 }
 ```
 
-#### <a name="monitoringservice--activity-log---security"></a>monitoringService =' log attività-sicurezza '
+#### <a name="monitoringservice--activity-log---security"></a>`monitoringService` = `Activity Log - Security`
 
-##### <a name="sample-values"></a>Valori di esempio
+**Valori di esempio**
 ```json
 {
   "alertContext": {
@@ -412,9 +409,9 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
 }
 ```
 
-#### <a name="monitoringservice--servicehealth"></a>monitoringService =' ServiceHealth '
+#### <a name="monitoringservice--servicehealth"></a>`monitoringService` = `ServiceHealth`
 
-##### <a name="sample-values"></a>Valori di esempio
+**Valori di esempio**
 ```json
 {
   "alertContext": {
@@ -456,9 +453,9 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
   }
 }
 ```
-#### <a name="monitoringservice--resource-health"></a>monitoringService =' Integrità risorse '
+#### <a name="monitoringservice--resource-health"></a>`monitoringService` = `Resource Health`
 
-##### <a name="sample-values"></a>Valori di esempio
+**Valori di esempio**
 ```json
 {
   "alertContext": {
@@ -487,6 +484,6 @@ Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Altre informazioni sullo schema di avviso comune](https://aka.ms/commonAlertSchemaDocs)
-- [Informazioni su come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
+- Altre informazioni sullo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs).
+- Informazioni [su come creare un'app per la logica che usa lo schema di avviso comune per gestire tutti gli avvisi](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
 

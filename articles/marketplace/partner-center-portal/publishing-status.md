@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 77cb18a858ca87acbb8182bf708e403010251365
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ec2a174c365e31520fe99ca0b505bbb62faad8c6
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191788"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883412"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Verificare lo stato di pubblicazione dell'offerta del Marketplace commerciale
 
@@ -98,6 +98,9 @@ Questo report contiene le descrizioni dei criteri non riusciti, insieme alle not
 ## <a name="preview-creation"></a>Creazione anteprima
 
 Durante il passaggio di **creazione dell'anteprima** , viene creata una versione dell'offerta accessibile solo ai destinatari specificati nella sezione di anteprima dell'offerta.
+
+>[!Note]
+> Non usare questo passaggio per fornire agli utenti esterni all'organizzazione visibilità in un'offerta. In alternativa, usare l'opzione **offerta privata** . A questo punto, l'offerta non è stata completamente testata e convalidata e non è pronta per la distribuzione esterna.
 
 ## <a name="publisher-approval"></a>Approvazione dell'editore
 

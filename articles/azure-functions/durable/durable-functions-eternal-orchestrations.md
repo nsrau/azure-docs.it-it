@@ -2,19 +2,19 @@
 title: Orchestrazioni perenni in Funzioni permanenti - Azure
 description: Informazioni su come implementare le orchestrazioni perenni usando l'estensione Funzioni permanenti per Funzioni di Azure.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 788693698e75a24269e29c54e03af35c1853f1f6
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: dbe51eddcf748843fd90cc533063fd25e7c282fd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735198"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933376"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrazioni perenni in Funzioni permanenti (Funzioni di Azure)
 
@@ -22,7 +22,7 @@ Le *orchestrazioni perenni* sono funzioni di orchestrazione che non terminano ma
 
 ## <a name="orchestration-history"></a>Cronologia di orchestrazione
 
-Come spiegato nelle informazioni su [checkpoint e riesecuzione](durable-functions-checkpointing-and-replay.md), Durable Task Framework tiene traccia della cronologia di ogni orchestrazione di funzioni. Questa cronologia aumenta in modo costante finché la funzione dell'agente di orchestrazione continua a pianificare nuovo lavoro. Se la funzione dell'agente di orchestrazione entra in un ciclo infinito e pianifica lavoro in modo continuo, le dimensioni della cronologia potrebbero diventare eccessive con notevoli problemi a livello di prestazioni. Il concetto di *orchestrazione perenne* è stato ideato per ridurre questa tipologia di problemi per le applicazioni che necessitano di un ciclo infinito.
+Come illustrato nell'argomento relativo alla [cronologia dell'orchestrazione](durable-functions-orchestrations.md#orchestration-history) , il Framework di attività permanenti tiene traccia della cronologia di ogni orchestrazione di funzioni. Questa cronologia aumenta in modo costante finché la funzione dell'agente di orchestrazione continua a pianificare nuovo lavoro. Se la funzione dell'agente di orchestrazione entra in un ciclo infinito e pianifica lavoro in modo continuo, le dimensioni della cronologia potrebbero diventare eccessive con notevoli problemi a livello di prestazioni. Il concetto di *orchestrazione perenne* è stato ideato per ridurre questa tipologia di problemi per le applicazioni che necessitano di un ciclo infinito.
 
 ## <a name="resetting-and-restarting"></a>Reimpostazione e riavvio
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2019
+ms.date: 09/11/2019
 ms.author: magoedte
-ms.openlocfilehash: d2aa25af4ebf721d04ada46ffab37107bf73113b
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: bd4016d91000ee23023eaa64872bff9a057058d1
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861125"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916057"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Panoramica di Enable Monitoraggio di Azure per le macchine virtuali (Preview)
 
@@ -92,11 +92,11 @@ Nella tabella seguente sono elencati i sistemi operativi Windows e Linux support
 |Windows 8.1 | X | X | |
 |Windows 8 | X | X | |
 |Windows 7 SP1 | X | X | |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
-|Ubuntu 14.04, 16.04, 18.04 | X | X | X |
-|CentOS Linux 6, 7 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
-|Debian 8, 9,4 | X<sup>1</sup> | | X |
+|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| x |
+|Ubuntu 18,04, 16,04 | x | X | X |
+|CentOS Linux 7, 6 | X | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X | x |
+|Debian 9.4, 8 | X<sup>1</sup> | | X |
 
 <sup>1</sup> La funzionalità relativa alle prestazioni di Monitoraggio di Azure per le macchine virtuali è disponibile solo da Monitoraggio di Azure. Non è disponibile direttamente dal riquadro sinistro della macchina virtuale di Azure.
 
@@ -110,45 +110,51 @@ Nella tabella seguente sono elencati i sistemi operativi Windows e Linux support
 > - Le versioni del kernel non standard, ad esempio Estensione indirizzo fisico (Physical Address Extension, PAE) e Xen, non sono supportate per le distribuzioni Linux. Un sistema con stringa di versione *2.6.16.21-0.8-xen*, ad esempio, non è supportato.
 > - I kernel personalizzati, incluse le ricompilazioni dei kernel standard, non sono supportati.
 > - Il kernel CentOSPlus è supportato.
+> - È necessario applicare patch al kernel Linux per la vulnerabilità di Spectre. Per ulteriori informazioni, consultare il fornitore della distribuzione Linux.
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | Versione del sistema operativo | Versione del kernel |
 |:--|:--|
-| 7.4 | 3.10.0-693 |
-| 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
+| 7.5 | 3.10.0-862 |
+| 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
 | Versione del sistema operativo | Versione del kernel |
 |:--|:--|
-| 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+| 6.9 | 2.6.32-696 |
 
 #### <a name="centosplus"></a>CentOSPlus
+
 | Versione del sistema operativo | Versione del kernel |
 |:--|:--|
-| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
-| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
+| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
 | Versione del sistema operativo | Versione del kernel |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4,15.\*<br>4,18 * |
-| Ubuntu 16.04.3 | kernel 4.15.* |
-| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
-| 14.04 | 3.13.\*<br>4.4.\* |
+| 18,04 | 5,0 (include il kernel ottimizzato per Azure)<br>4,18 *<br>4,15* |
+| 16.04.3 | 4,15. * |
+| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| Versione del sistema operativo | Versione del kernel
+| Versione del sistema operativo | Versione del kernel |
 |:--|:--|
-|12 SP2 | 4.4.* |
+|12 SP4 | 4,12. * (include il kernel ottimizzato per Azure) |
 |12 SP3 | 4.4.* |
-|12 SP4 | 4.4.* |
-|12 SP4 | Kernel ottimizzato per Azure |
+|12 SP2 | 4.4.* |
+
+#### <a name="debian"></a>Debian 
+
+| Versione del sistema operativo | Versione del kernel |
+|:--|:--|
+| 9 | 4,9 | 
 
 ### <a name="the-microsoft-dependency-agent"></a>Microsoft Dependency Agent
 

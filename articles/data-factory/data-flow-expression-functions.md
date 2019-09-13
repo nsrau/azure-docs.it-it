@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 72c516f0a6e377cc16205917967482a29b4fdfbd
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: f13d156ea34fc1c909704a18f645be62a6e09f90
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "69036219"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881329"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni di trasformazione dei dati nel flusso di dati di mapping 
 
@@ -25,22 +25,22 @@ ___
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Calcola il modulo positivo di coppie di numeri.
-* ``abs(-20) -> 20``
-* ``abs(10) -> 10``
+* ``abs(-20) -> 20``  
+* ``abs(10) -> 10``  
 ___
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calcola un valore inverso del coseno* ``acos(1) -> 0.0``
+Calcola un valore inverso del coseno* ``acos(1) -> 0.0``  
 ___
 ### <code>add</code>
 <code><b>add(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Aggiunge una coppia di stringhe o numeri. Aggiunge una data a un numero di giorni. Aggiunge una matrice di tipo simile a un'altra. Uguale all'operatore +* ``add(10, 20) -> 30``
-* ``10 + 20 -> 30``
-* ``add('ice', 'cream') -> 'icecream'``
-* ``'ice' + 'cream' + ' cone' -> 'icecream cone'``
-* ``add(toDate('2012-12-12'), 3) -> 2012-12-15 (date value)``
-* ``toDate('2012-12-12') + 3 -> 2012-12-15 (date value)``
-* ``[10, 20] + [30, 40] => [10, 20, 30, 40]``
+Aggiunge una coppia di stringhe o numeri. Aggiunge una data a un numero di giorni. Aggiunge una matrice di tipo simile a un'altra. Uguale all'operatore +* ``add(10, 20) -> 30``  
+* ``10 + 20 -> 30``  
+* ``add('ice', 'cream') -> 'icecream'``  
+* ``'ice' + 'cream' + ' cone' -> 'icecream cone'``  
+* ``add(toDate('2012-12-12'), 3) -> 2012-12-15 (date value)``  
+* ``toDate('2012-12-12') + 3 -> 2012-12-15 (date value)``  
+* ``[10, 20] + [30, 40] => [10, 20, 30, 40]``  
 ___
 ### <code>addDays</code>
 <code><b>addDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to add&gt;</i> : integral) => datetime</b></code><br/><br/>

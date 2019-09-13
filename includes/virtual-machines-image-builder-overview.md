@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 4be1ed779ad424d30ac34fd55f117ada3ed9c7a2
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: c881c95fb860befbc978aba5a6c73375dce235fe
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70166730"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919696"
 ---
 Le immagini di macchine virtuali (VM) standardizzate consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere impostazioni di configurazione e sicurezza predefinite e il software necessario. Per configurare la pipeline di imaging, è necessario disporre di tempo, infrastruttura e configurazione, ma con generatore di immagini di VM di Azure è sufficiente fornire una semplice configurazione che descriva l'immagine, la invii al servizio e l'immagine venga compilata e distribuita.
  
@@ -47,7 +47,7 @@ AIB supporterà le immagini del sistema operativo di base di Azure Marketplace:
 - Ubuntu 16.04
 - RHEL 7,6
 - CentOS 7.6
-- Windows 10 RS5 Enterprize/Professional/Enterprise per desktop virtuale (EVD) 
+- Windows 10 RS5 Enterprise/Professional/Enterprise per desktop virtuale (EVD) 
 - Windows 2016
 - Windows 2019
 

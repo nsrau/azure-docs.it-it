@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 603df1def011232ad2120c37ad1ba256f2a30526
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596510"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933795"
 ---
 # <a name="pricing-and-associated-costs"></a>Prezzi e costi associati
 
@@ -65,10 +65,11 @@ Nella tabella seguente viene fornito un riepilogo dei costi associati e delle im
 | [Esportare](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) il processo del dispositivo (esportazione gemella) | Una volta al giorno | Disabilitare la _raccolta di metadati gemelli_ |
 | **Archiviazione Log Analytics** |  |
 | Suggerimenti e avvisi del dispositivo| Avvisi e avvisi di sicurezza generati dal servizio | Non facoltativo |
-| Dati di sicurezza non elaborati| Dati di sicurezza non elaborati dai dispositivi Internet, raccolti dagli agenti di sicurezza | Disabilitare l' _archiviazione degli eventi di sicurezza dei dispositivi_ non elaborati |
+| Dati di sicurezza non elaborati| Dati di sicurezza non elaborati dai dispositivi Internet, raccolti dagli agenti di sicurezza | Disabilitare l' _archiviazione degli eventi di sicurezza dei dispositivi non elaborati_ |
+|
 
 >[!Important]
-> La disattivazione ha implicazioni gravi per le funzionalità di sicurezza disponibili.
+> La disattivazione ha gravi implicazioni nel centro sicurezza di Azure per la disponibilità delle funzionalità di sicurezza. 
   
 | Rifiuta esplicitamente | Implicazioni |
 | --- | --- |
@@ -82,7 +83,7 @@ Nella tabella seguente viene fornito un riepilogo dei costi associati e delle im
 
 ## <a name="see-also"></a>Vedere anche
 
-- Accedere ai [dati di sicurezza](how-to-security-data-access.md) non elaborati
+- Accedere ai [dati di sicurezza non elaborati](how-to-security-data-access.md)
 - [Esaminare un dispositivo](how-to-investigate-device.md)
 - Comprendere ed esplorare le [raccomandazioni sulla sicurezza](concept-recommendations.md)
 - Comprendere ed esplorare gli [avvisi di sicurezza](concept-security-alerts.md)

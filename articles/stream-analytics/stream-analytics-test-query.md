@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: b8670fc7958e66e7c25e27bb3a22429ab20b2514
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 9c67d511f6c94c8b9af034835e149875304e2235
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990895"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918974"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testare un processo di Analisi di flusso di Azure con dati di esempio
 
-In analisi di flusso di Azure è possibile testare la query senza avviare o arrestare il processo. È possibile testare le query sui dati in ingresso dal sink di input o i dati di esempio caricati da un file locale.
+In analisi di flusso di Azure è possibile testare la query senza avviare o arrestare il processo. È possibile testare le query sui dati in ingresso dal sink di input o i dati di esempio caricati da un file locale nel portale di Azure. È anche possibile testare le query localmente da dati di esempio locali o dati dinamici in [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) e [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run). 
 
 ## <a name="sample-incoming-data-from-input"></a>Campionare i dati in ingresso dall'input
 

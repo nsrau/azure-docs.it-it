@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4dfcde96957bb8fce3731e38eee62554795d795f
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 30842c787e2009b4919fef916f3c5e1f73a79bf2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844886"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918828"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -211,13 +211,16 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 |Australia orientale |Archiviazione con ridondanza locale     |No    |Yes|
 |Australia sud-orientale|Archiviazione con ridondanza locale     |No    |Non ancora|
 |India centrale  |Archiviazione con ridondanza locale     |No    |Non ancora|
+|East US        |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Francia centrale |CON RIDONDANZA LOCALE, ZRS|No    |CON ridondanza locale-Sì, ZRS-non ancora|
 |Francia meridionale   |Archiviazione con ridondanza locale     |No    |Sì|
 |India meridionale    |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Asia sud-orientale |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
 |Stati Uniti centro-occidentali|Archiviazione con ridondanza locale     |No    |Non ancora|
-|Europa occidentale    |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
-|Stati Uniti occidentali 2      |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
+|Europa occidentale    |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
+|Stati Uniti occidentali        |Archiviazione con ridondanza locale     |No    |Non ancora|
+|Stati Uniti occidentali 2      |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
+
 
 \* Per le aree senza supporto per il portale, è comunque possibile usare PowerShell o l'interfaccia della riga di comando di Azure per creare più di 5 condivisioni TiB. In alternativa, creare una nuova condivisione tramite il portale senza specificare la quota. Verrà creata una condivisione con le dimensioni predefinite 100 TiB, che può essere aggiornata in un secondo momento tramite PowerShell o l'interfaccia della riga di comando di Azure.
 

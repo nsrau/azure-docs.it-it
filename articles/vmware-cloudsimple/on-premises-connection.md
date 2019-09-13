@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240721"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910538"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Connettersi da locale a CloudSimple usando ExpressRoute
 
@@ -23,7 +23,7 @@ Se si dispone già di una connessione Azure ExpressRoute da una posizione estern
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per stabilire la connessione Copertura globale dall'ambiente locale è necessario un blocco di indirizzi di rete **/29** .  Lo spazio degli indirizzi/29 viene usato per la rete di transito tra circuiti ExpressRoute.  La rete di transito non dovrebbe sovrapporsi ad alcuna rete virtuale di Azure, reti locali o reti cloud private CloudSimple.
+Per stabilire la connessione Copertura globale dall'ambiente locale è necessario un blocco di indirizzi di rete **/29** .  Lo spazio degli indirizzi/29 viene usato per la rete di transito tra circuiti ExpressRoute.  La rete di transito non dovrebbe sovrapporsi ad alcuna rete virtuale di Azure, a reti locali o a reti cloud private CloudSimple.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,7 +32,7 @@ Per stabilire la connessione Copertura globale dall'ambiente locale è necessari
 
 ## <a name="scenarios"></a>Scenari
 
-La connessione della rete locale alla rete cloud privata consente di usare il cloud privato in diversi modi, inclusi i seguenti:
+La connessione della rete locale alla rete cloud privata consente di usare il cloud privato in diversi modi, inclusi gli scenari seguenti:
 
 * Accedere alla rete cloud privata senza creare una connessione VPN da sito a sito.
 * Usa la Active Directory locale come origine delle identità nel cloud privato.
@@ -43,6 +43,7 @@ La connessione della rete locale alla rete cloud privata consente di usare il cl
 ## <a name="connecting-expressroute-circuits"></a>Connessione di circuiti ExpressRoute
 
 Per stabilire la connessione ExpressRoute, è necessario creare un'autorizzazione sul circuito ExpressRoute e fornire le informazioni di autorizzazione a CloudSimple.
+
 
 ### <a name="create-expressroute-authorization"></a>Crea autorizzazione ExpressRoute
 
@@ -70,6 +71,11 @@ Per stabilire la connessione ExpressRoute, è necessario creare un'autorizzazion
     * Sottotipo del problema: **Creare una connessione ExpressRoute in locale**
     * Specificare l'ID risorsa e la chiave di autorizzazione copiati e salvati nel riquadro dettagli.
     * Specificare uno spazio degli indirizzi di rete/29 per la rete di transito.
+    * Si sta inviando una route predefinita tramite ExpressRoute?
+    * Se il traffico del cloud privato usa la route predefinita inviata tramite ExpressRoute?
+
+    > [!IMPORTANT]
+    > L'invio della route predefinita consente di inviare tutto il traffico Internet dal cloud privato tramite la connessione Internet locale.  Per disabilitare la route predefinita configurata nel cloud privato e usare la route predefinita per la connessione locale, fornire i dettagli nel ticket di supporto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

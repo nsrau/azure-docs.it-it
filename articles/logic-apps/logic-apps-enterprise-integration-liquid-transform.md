@@ -9,18 +9,18 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 203c57a2755a3287566a774e2878a87b847337b9
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61467530"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900651"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Eseguire trasformazioni JSON avanzate con i modelli Liquid in App per la logica di Azure
 
 È possibile eseguire trasformazioni JSON di base nelle app per la logica tramite operazioni native sui dati, come **Componi** o **Analizza JSON**. Per eseguire trasformazioni JSON avanzate, è possibile creare modelli o mappe con [Liquid](https://shopify.github.io/liquid/), un linguaggio del modello open source per app Web flessibili. Un modello Liquid definisce come trasformare l'output JSON e supporta trasformazioni JSON più complesse, ad esempio iterazioni, flussi di controllo, variabili e così via. 
 
-Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è necessario definire prima di tutto il codice JSON per il mapping a JSON con un modello Liquid e archiviare tale mappa nell'account di integrazione. In questo articolo viene illustrato come creare e usare il modello o la mappa Liquid. 
+Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è necessario innanzitutto definire il mapping da JSON a JSON con un modello Liquid e archiviare tale mappa nell'account di integrazione. In questo articolo viene illustrato come creare e usare il modello o la mappa Liquid. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,16 +28,16 @@ Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è nec
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Base [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) di base
 
 * Conoscenza di base sul [linguaggio del modello Liquid.](https://shopify.github.io/liquid/)
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Creare un modello o una mappa Liquid per l'account di integrazione
 
-1. Per questo esempio, creare il modello Liquid di esempio descritto in questo passaggio. Nel modello Liquid, è possibile usare [Liquid Filtra](https://shopify.github.io/liquid/basics/introduction/#filters), che usano [DotLiquid](https://dotliquidmarkup.org/) e C# convenzioni di denominazione. 
+1. Per questo esempio, creare il modello Liquid di esempio descritto in questo passaggio. Nel modello Liquid è possibile usare [filtri Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), che usano [DotLiquid](https://dotliquidmarkup.org/) e convenzioni C# di denominazione. 
 
    > [!NOTE]
-   > Assicurarsi che i nomi dei filtri utilizza *maiuscola* nel modello. In caso contrario, i filtri non funzioneranno.
+   > Assicurarsi che i nomi di filtro usino la *maiuscola e minuscola* nel modello. In caso contrario, i filtri non funzioneranno.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -81,7 +81,7 @@ Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è nec
 
 1. Nel portale di Azure seguire questa procedura per [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Nella finestra di progettazione di app per la logica aggiungere il [trigger Request](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) all'app per la logica.
+2. Nella finestra di progettazione di app per la logica aggiungere il [trigger Request](../connectors/connectors-native-reqres.md#add-request) all'app per la logica.
 
 3. Nel trigger scegliere **Nuovo passaggio**. 
    Nella casella di ricerca immettere "liquid" come filtro e selezionare questa azione: **Trasforma JSON in JSON - Liquid**

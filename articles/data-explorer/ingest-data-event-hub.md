@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 8e13e9f95fac8d2e651755ade126417acc6d97da
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: e52ce4411a2fa1969db196ba2e32bb485f71f8b6
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311627"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931239"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Inserire dati dall'hub eventi in Esplora dati di Azure
 
@@ -56,12 +56,12 @@ In questo articolo vengono generati dati di esempio e inviati a un hub eventi. I
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Sottoscrizione | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per l'hub eventi.|
+    | Sottoscrizione | Sottoscrizione | Selezionare la sottoscrizione di Azure da usare per l'hub eventi.|
     | Gruppo di risorse | *test-hub-rg* | Creare un nuovo gruppo di risorse. |
     | Location | *Stati Uniti occidentali* | Per questo articolo, selezionare *Stati Uniti occidentali* . Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze. Per prestazioni ottimali creare lo spazio dei nomi dell'hub eventi nella stessa località del cluster Kusto (più importante per spazi dei nomi dell'hub eventi con velocità effettiva elevata).
     | Nome spazio dei nomi | Nome dello spazio dei nomi univoco | Scegliere un nome univoco per identificare lo spazio dei nomi. Ad esempio, *spazionomitest*. Il nome di dominio *servicebus.windows.net* viene accodato al nome specificato. Il nome può contenere solo lettere, numeri e trattini. Il nome deve iniziare con una lettera e deve terminare con una lettera o un numero. La lunghezza del valore deve essere compresa tra 6 e 50 caratteri.
     | Nome hub eventi | *test-hub* | L'hub eventi si trova nello spazio dei nomi, che fornisce un contenitore di ambito univoco. Il nome dell'hub eventi deve essere univoco all'interno dello spazio dei nomi. |
-    | Consumer group name (Nome gruppo di consumer) | *test-group* | I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. |
+    | Nome del gruppo di consumer | *test-group* | I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. |
     | | |
 
 1. Selezionare **Acquisto** per indicare che si stanno creando risorse nella sottoscrizione.
@@ -124,7 +124,7 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
-    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. |
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportate: GZip |
     | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**. Obbligatorio per JSON, MULTILINE JSON o AVRO e facoltativo per gli altri formati.|
     | | |
 
@@ -137,7 +137,7 @@ Quando si esegue l'[app di esempio](https://github.com/Azure-Samples/event-hubs-
 
 1. Nello spazio dei nomi dell'hub eventi creato selezionare **Criteri di accesso condiviso** e quindi **RootManageSharedAccessKey**.
 
-    ![Criteri di accesso condivisi](media/ingest-data-event-hub/shared-access-policies.png)
+    ![Criteri di accesso condiviso](media/ingest-data-event-hub/shared-access-policies.png)
 
 1. Copiare **Stringa di connessione - Chiave primaria**. Verrà incollata nella sezione successiva.
 

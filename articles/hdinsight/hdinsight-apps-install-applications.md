@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8ed854a5775dfc20e258c14de51fe2066fa6caad
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 68bbe22a4a6f7697c2bfab291412aae85efc32e9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810281"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916983"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight
 
@@ -23,7 +23,7 @@ Un'applicazione HDInsight è un'applicazione che gli utenti possono installare i
 
 L'elenco seguente mostra le applicazioni pubblicate:
 
-|Applicazione |Tipi di cluster | Descrizione |
+|Applicazione |Tipi di cluster | DESCRIZIONE |
 |---|---|---|
 |[Piattaforma AtScalena Intelligence](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atscale.atscale) |Hadoop |AtScale consente di trasformare il cluster HDInsight in un server OLAP con scalabilità orizzontale, consentendo di eseguire query su miliardi di righe di dati in modo interattivo usando gli strumenti di business intelligence già conoscibili, personalizzati e apprezzati, da Microsoft Excel, Power BI, Tableau Software a QlikView. |
 |[CDAP per HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |hbase |CDAP è la prima piattaforma di integrazione unificata per Big Data che accelera il time-to-value per Hadoop e consente di fornire dati self-service. Open source ed estendibile, CDAP rimuove le barriere all'innovazione. Requisiti: 4 nodi area, min D3 V2. |
@@ -59,7 +59,7 @@ La procedura seguente illustra come installare applicazioni HDInsight in un clus
     ![Menu del portale Applicazioni di HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Selezionare **+ Aggiungi** dal menu. È possibile visualizzare un elenco di applicazioni disponibili.  Se **+ Add** è disattivato, significa che non sono disponibili applicazioni per questa versione del cluster HDInsight.
    
-    ![Applicazioni disponibili in Applicazioni di HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+    ![Applicazioni disponibili in Applicazioni di HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
 6. Selezionare una delle applicazioni disponibili, quindi seguire le istruzioni per accettare le condizioni legali.
 
 È possibile visualizzare lo stato di installazione dalle notifiche del portale (selezionare l'icona a campana nella parte superiore del portale). Dopo l'installazione dell'applicazione, questa verrà visualizzata nel pannello App installate.
@@ -86,7 +86,7 @@ Il portale include un elenco delle applicazioni HDInsight installate per un clus
     |Stato |Stato dell'applicazione. |
     |Pagina Web |URL dell'applicazione Web distribuita nel nodo perimetrale. Le credenziali sono le stesse usate per le credenziali utente HTTP configurate per il cluster. |
     |Endpoint SSH |È possibile usare SSH per connettersi al nodo perimetrale. Le credenziali SSH sono le stesse usate per le credenziali utente SSH configurate per il cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-    |Descrizione | Descrizione dell'applicazione. |
+    |DESCRIZIONE | Descrizione dell'applicazione. |
 
 6. Per eliminare un'applicazione, fare clic con il pulsante destro del mouse sull'applicazione e quindi scegliere **Elimina** dal menu di scelta rapida.
 

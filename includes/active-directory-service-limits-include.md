@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 421e88374a4ca03311fa77a6568a676aa9ffafa5
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "67148432"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919692"
 ---
 Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure Active Directory (Azure AD).
 
@@ -26,7 +26,7 @@ Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure 
 | Applicazioni |Al massimo 100 utenti possono essere proprietari di una singola applicazione. |
 | Gruppi |<ul><li>Al massimo 100 utenti possono essere proprietari di un singolo gruppo.</li><li>Qualsiasi numero di oggetti può essere membro di un singolo gruppo.</li><li>Un utente può essere un membro di un numero qualsiasi di gruppi.</li><li>Il numero di membri in un gruppo che è possibile sincronizzare tra l'istanza locale di Active Directory e Azure Active Directory usando Azure AD Connect è limitato a 50.000.</li></ul> |
 | Proxy dell'applicazione | <ul><li>Un massimo di 500 transazioni al secondo per ogni applicazione proxy app</li><li>Un massimo di 750 transazioni al secondo per il tenant</li></ul><br/>Una transazione viene definita come una singola richiesta e risposta http per una risorsa univoca. Quando la limitazione è limitata, i client riceveranno una risposta 429 (troppe richieste). |
-| Pannello di accesso |<ul><li>Non sono previsti limiti al numero di applicazioni che possono essere visualizzate nel Pannello di accesso per ogni utente. Questo vale per gli utenti a cui sono state assegnate licenze per Azure AD Premium o Enterprise Mobility Suite.</li><li>Nel Pannello di accesso è possibile visualizzare un massimo di 10 riquadri di app per ogni utente. Questo limite si applica agli utenti a cui sono state assegnate licenze per le edizioni Free o Basic di Azure Active Directory. Esempi di riquadri di app includono Box, Salesforce o Dropbox. Questo limite non si applica agli account di amministratore.</li></ul> |
+| Pannello di accesso |<ul><li>Non sono previsti limiti al numero di applicazioni che possono essere visualizzate nel Pannello di accesso per ogni utente. Questo vale per gli utenti a cui sono state assegnate licenze per Azure AD Premium o Enterprise Mobility Suite.</li><li>Nel Pannello di accesso è possibile visualizzare un massimo di 10 riquadri di app per ogni utente. Questo limite si applica agli utenti a cui sono assegnate licenze per Azure AD Free piano di licenze. Esempi di riquadri di app includono Box, Salesforce o Dropbox. Questo limite non si applica agli account di amministratore.</li></ul> |
 | Report | È possibile visualizzare o scaricare in qualsiasi report un massimo di 1000 righe. Eventuali dati aggiuntivi vengono troncati. |
 | Unità amministrative | Un oggetto può appartenere al massimo a 30 unità amministrative. |
 | Autorizzazioni e ruoli amministrativi | <ul><li>Un gruppo non può essere aggiunto come [proprietario](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Non è possibile assegnare un gruppo a un [ruolo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>La capacità degli utenti di leggere le informazioni di directory degli altri utenti non può essere limitata al di fuori del commutere a livello di tenant per disabilitare tutti gli accessi degli utenti non amministratori a tutte le informazioni di directory (scelta non consigliata). Altre informazioni sulle autorizzazioni predefinite sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Potrebbero essere necessari fino a 15 minuti o la disconnessione e l'accesso prima dell'aggiunta e della revoca delle appartenenze ai ruoli amministrativi.</li></ul> |

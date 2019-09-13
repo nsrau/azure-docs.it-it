@@ -14,12 +14,12 @@ ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc6f6f7b02db664ca6cd62dc7aad61baf5f132fa
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 78acb1f27b27c53aaaac508e0aa99a5b9c14ff2d
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088414"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914929"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gestire le password per le app per la verifica in due passaggi
 
@@ -28,11 +28,9 @@ ms.locfileid: "70088414"
 
 Quando si usano password per le app, è importante tenere presente quanto segue:
 
-- Le password per le app vengono generate automaticamente e immesse una sola volta per ogni app.
+- Le password dell'app vengono generate automaticamente e devono essere create e immesse una volta per ogni app.
 
 - Il limite è di 40 password per utente. Se si prova a crearne un'altra oltre questo limite, verrà chiesto di eliminare una password esistente prima di poter creare quella nuova.
-
-- Usare una sola password per dispositivo, non per app. Ad esempio, creare una singola password per tutte le app del portatile e un'altra per tutte le app sul PC desktop.
 
     >[!Note]
     >I client di Office 2013, tra cui Outlook, supportano i nuovi protocolli di autenticazione e possono essere usati con la verifica in due passaggi. Questo supporto significa che dopo l'attivazione della verifica in due passaggi non sono più necessarie le password per le app per i client Office 2013. Per altre informazioni, vedere l'articolo [Funzionamento dell'autenticazione moderna per le applicazioni client di Office 2013 e Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
@@ -49,7 +47,7 @@ Durante il processo iniziale di registrazione della verifica a due fattori, vien
 
 - **L'organizzazione usa la verifica a due fattori e il portale di Office 365.** Se si usa l'account aziendale o dell'Istituto di istruzione (ad alain@contoso.comesempio,), la verifica a due fattori e le app di Office 365 nell'organizzazione, è possibile gestire le password dell'app dalla [pagina del portale di Office 365](https://www.office.com). Per istruzioni dettagliate, vedere [creare ed eliminare password di app usando il portale di Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) in questo articolo.
 
-- **Si sta usando la verifica a due fattori con un account Microsoft personale.** Se si usa un account Microsoft personale (ad esempio, alain@outlook.com) con la verifica a due fattori, è possibile gestire le password dell'app dalla pagina delle nozioni di base sulla [sicurezza](https://account.microsoft.com/security/). Per istruzioni dettagliate, vedere [uso di password di app con app che non supportano la verifica in due passaggi](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
+- **Si sta usando la verifica a due fattori con un account Microsoft personale.** Se si usa un account Microsoft personale (ad esempio, alain@outlook.com) con la verifica a due fattori, è possibile gestire le password dell'app dalla [pagina delle nozioni di base sulla sicurezza](https://account.microsoft.com/security/). Per istruzioni dettagliate, vedere [uso di password di app con app che non supportano la verifica in due passaggi](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
 ## <a name="create-and-delete-app-passwords-from-the-additional-security-verification-page"></a>Creare ed eliminare le password dell'app dalla pagina verifica aggiuntiva di sicurezza
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 226862c51417e311bc39feefa9f5e860d55b7dc1
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 51f0e223abd7103663fddd8c06dcdf0be549c671
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034098"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930782"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti di Spark & hive per Visual Studio Code
 
@@ -56,7 +56,7 @@ Per aprire una cartella di lavoro e creare un file in Visual Studio Code, attene
 
 2. Nella visualizzazione **Esplora risorse** selezionare la cartella **HDexample** , quindi selezionare l'icona **nuovo file** accanto alla cartella di lavoro:
 
-   ![Nuovo file](./media/hdinsight-for-vscode/new-file.png)
+   ![Nuovo file](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
 3. Assegnare un nome al nuovo file usando l' `.hql` estensione di file (query hive `.py` ) o (script Spark). Questo esempio usa **HelloWorld.hql**.
 
@@ -131,7 +131,7 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
 
 3. Esaminare la vista **OUTPUT**. Questa visualizzazione Mostra il cluster (o i cluster) collegato e tutti i cluster nella sottoscrizione di Azure:
 
-    ![Impostare una configurazione del cluster predefinito](./media/hdinsight-for-vscode/list-cluster-result.png)
+    ![Impostare una configurazione del cluster predefinito](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="set-the-default-cluster"></a>Impostare il cluster predefinito
 
@@ -280,7 +280,7 @@ Inviare un file. si noti che la cartella. VSCODE viene aggiunta automaticamente 
 
 + Impostazioni di progetto:
 
-    ![Configurazione di Livy](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+    ![Configurazione di Livy](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
     >[!NOTE]
     >Per le impostazioni **driverMemory** e **executorMemory** , impostare il valore e l'unità. Ad esempio:  1g o 1024.
@@ -292,19 +292,19 @@ Inviare un file. si noti che la cartella. VSCODE viene aggiunta automaticamente 
 
     | name | description | type | 
     | :- | :- | :- | 
-    | file | File contenente l'applicazione da eseguire | Percorso (obbligatorio) |
+    | file | File contenente l'applicazione da eseguire | percorso (obbligatorio) |
     | proxyUser | Utente da rappresentare durante l'esecuzione del processo | String |
     | className | Classe principale Java/Spark dell'applicazione | String |
-    | args | Argomenti della riga di comando per l'applicazione | Elenco di stringhe |
-    | jars | Jar da usare in questa sessione | Elenco di stringhe | 
-    | pyFiles | File di Python da usare in questa sessione | Elenco di stringhe |
-    | files | File da usare in questa sessione | Elenco di stringhe |
+    | args | Argomenti della riga di comando per l'applicazione | elenco di stringhe |
+    | jars | jar da usare in questa sessione | elenco di stringhe | 
+    | pyFiles | File di Python da usare in questa sessione | elenco di stringhe |
+    | files | file da usare in questa sessione | elenco di stringhe |
     | driverMemory | Quantità di memoria da usare per il processo del driver | String |
     | driverCores | Numero di core da usare per il processo del driver | Int |
     | executorMemory | Quantità di memoria da usare per ogni processo executor | String |
     | executorCores | Numero di core da usare per ogni executor | Int |
     | numExecutors | Numero di executor da avviare per questa sessione | Int |
-    | archives | Archivi da usare in questa sessione | Elenco di stringhe |
+    | archives | Archivi da usare in questa sessione | elenco di stringhe |
     | coda | Nome della coda YARN da inviare a| String |
     | name | Nome della sessione | String |
     | conf | Proprietà di configurazione di Spark | Mapping della chiave = val |
@@ -317,7 +317,7 @@ Inviare un file. si noti che la cartella. VSCODE viene aggiunta automaticamente 
     | id | ID sessione | Int | 
     | appId | ID applicazione della sessione | String |
     | appInfo | Informazioni dettagliate sull'applicazione | Mapping della chiave = val |
-    | log | Righe di log | Elenco di stringhe |
+    | log | Righe di log | elenco di stringhe |
     | stato |Stato batch | String |
 
     >[!NOTE]
@@ -409,7 +409,7 @@ Quando si invia un processo a un cluster HDInsight, viene richiesto di collegare
   >
   >È possibile usare `Spark / Hive: List Cluster` per controllare il cluster collegato:
   >
-  >![Strumenti di Spark & hive per Visual Studio Code Reader collegati](./media/hdinsight-for-vscode/list-cluster-result.png)
+  >![Strumenti di Spark & hive per Visual Studio Code Reader collegati](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 

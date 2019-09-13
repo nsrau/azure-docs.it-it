@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 50bb26aa1a29dc8b1454fadec416aceea76405b2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6ff273236f9f8465de9ec0cda89ed3ff8996ecec
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844250"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932656"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -141,3 +141,9 @@ Usare le soluzioni alternative seguenti:
 1. Usare un'entità servizio esistente che è già stata propagata tra le aree ed esiste per passare ad AKS al momento della creazione del cluster.
 2. Se si usano gli script di automazione, aggiungere i ritardi di tempo tra la creazione dell'entità servizio e la creazione del cluster AKS.
 3. Se si usa portale di Azure, tornare alle impostazioni del cluster durante la creazione e ripetere la pagina di convalida dopo alcuni minuti.
+
+## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Si ricevono errori dopo la limitazione del traffico in uscita
+
+Quando si limita il traffico in uscita da un cluster AKS, sono disponibili le porte in uscita e le regole di rete [consigliate e facoltative](limit-egress-traffic.md) e le regole di dominio/FQDN/applicazione per AKS. Se le impostazioni sono in conflitto con una di queste regole, potrebbe non essere possibile eseguire determinati `kubectl` comandi. È anche possibile che vengano visualizzati errori durante la creazione di un cluster AKS.
+
+Verificare che le impostazioni non siano in conflitto con le porte in uscita, le regole di rete e le regole di dominio FQDN/applicazione consigliate o facoltative.

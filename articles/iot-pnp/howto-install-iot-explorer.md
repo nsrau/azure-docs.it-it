@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: c7d8b946fc587d58f13e16c1d7d806390e712104
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879552"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932468"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installare e usare Azure Internet Explorer
 
@@ -83,17 +83,17 @@ Fare doppio clic su un dispositivo nella pagina Panoramica per visualizzare il l
 
 ### <a name="device"></a>Dispositivo
 
-Questa sezione include le schede **identità del dispositivo**, telemetria e **dispositivi gemelli** .
+Questa sezione include le schede **identità del dispositivo**, **telemetria**e **dispositivi gemelli** .
 
 - È possibile visualizzare e aggiornare le informazioni sull'identità del dispositivo nella scheda **identità dispositivo** .
-- Se un dispositivo è connesso e invia attivamente dati, è possibile visualizzare i dati di telemetria nella scheda telemetria.
+- Se un dispositivo è connesso e invia attivamente dati, è possibile visualizzare i dati di telemetria nella scheda **telemetria** .
 - È possibile accedere alle informazioni sul dispositivo gemello nella scheda del **dispositivo gemello** .
 
 ### <a name="digital-twin"></a>Gemello digitale
 
 È possibile usare lo strumento per visualizzare un'istanza del dispositivo gemello digitale del dispositivo. Per un dispositivo Plug and Play, tutte le interfacce associate al modello di funzionalità del dispositivo vengono visualizzate in questo articolo. Consente di selezionare un'interfaccia per espandere le relative [plug and Play primitive](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
-#### <a name="properties"></a>Properties
+#### <a name="properties"></a>Proprietà
 
 È possibile visualizzare le proprietà di sola lettura definite in un'interfaccia nella pagina delle **Proprietà** . È possibile aggiornare le proprietà scrivibili definite in un'interfaccia nella pagina **proprietà scrivibili** .
 
@@ -116,8 +116,8 @@ Per inviare un comando a un dispositivo, passare alla pagina **comandi** :
 
 #### <a name="telemetry"></a>Telemetria
 
-Per visualizzare i dati di telemetria per l'interfaccia selezionata, passare alla relativa pagina di telemetria.
+Per visualizzare i dati di telemetria per l'interfaccia selezionata, passare alla relativa pagina di **telemetria** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sulle procedure si è appreso come installare e usare Azure Internet Explorer Explorer per interagire con i dispositivi Plug and Play. Un passaggio successivo suggerito consiste nell'apprendere come [gestire i modelli](./howto-manage-models.md).
+In questo articolo sulle procedure si è appreso come installare e usare Azure Internet Explorer Explorer per interagire con i dispositivi Plug and Play. Un passaggio successivo suggerito consiste nell'apprendere come [installare e usare l'estensione dell'interfaccia](./howto-install-pnp-cli.md)della riga di comando di Azure.

@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 847a4ec7da3c9b00753e5d07baf2952b31d2b5bb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872899"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934854"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -36,8 +36,7 @@ Prima di eseguire il backup di un database di SQL Server, verificare i criteri s
 1. Identificare o creare un insieme di credenziali di [servizi di ripristino](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) nella stessa area o nelle stesse impostazioni locali della VM che ospita l'istanza di SQL Server.
 2. Verificare che la macchina virtuale disponga di [connettività di rete](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 3. Assicurarsi che i database di SQL Server seguano le [linee guida per la denominazione dei database per backup di Azure](#database-naming-guidelines-for-azure-backup).
-4. In particolare per SQL 2008 e 2008 R2, [aggiungere la chiave del registro di sistema](#add-registry-key-to-enable-registration) per abilitare la registrazione del server. Questo passaggio non sarà necessario quando la funzionalità è disponibile a livello generale.
-5. Verificare che non siano presenti altre soluzioni di backup abilitate per il database. Disabilitare tutti gli altri backup SQL Server prima di eseguire il backup del database.
+4. Verificare che non siano presenti altre soluzioni di backup abilitate per il database. Disabilitare tutti gli altri backup SQL Server prima di eseguire il backup del database.
 
 > [!NOTE]
 > È possibile abilitare backup di Azure per una macchina virtuale di Azure e anche per un database SQL Server in esecuzione nella macchina virtuale senza conflitti.
@@ -75,7 +74,7 @@ Stabilire la connettività usando una delle opzioni seguenti:
 
    
 - **Consentire l'accesso usando i tag del firewall di Azure**. Se si usa il firewall di Azure, creare una regola dell'applicazione usando il [tag FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup. Questo consente l'accesso in uscita a backup di Azure.
-- **Distribuire un server proxy HTTP per**instradare il traffico. Quando si esegue il backup di un database di SQL Server in una macchina virtuale di Azure, l'estensione di backup nella VM usa le API HTTPS per inviare i comandi di gestione a backup e dati di Azure in archiviazione di Azure. L'estensione per il backup usa anche Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Le estensioni sono l'unico componente configurato per l'accesso a Internet pubblico.
+- **Distribuire un server proxy HTTP per instradare il traffico**. Quando si esegue il backup di un database di SQL Server in una macchina virtuale di Azure, l'estensione di backup nella VM usa le API HTTPS per inviare i comandi di gestione a backup e dati di Azure in archiviazione di Azure. L'estensione per il backup usa anche Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Le estensioni sono l'unico componente configurato per l'accesso a Internet pubblico.
 
 Le opzioni di connettività includono i vantaggi e gli svantaggi seguenti:
 
@@ -98,22 +97,6 @@ Evitare di utilizzare i seguenti elementi nei nomi di database:
 
 L'aliasing è disponibile per i caratteri non supportati, ma è consigliabile evitarli. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
-### <a name="add-registry-key-to-enable-registration"></a>Aggiungere la chiave del registro di sistema per abilitare la registrazione
-
-1. Apri regedit
-2. Creare il percorso della directory del registro di sistema: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (sarà necessario creare il TestHook ' Key ' in WorkloadBackup, che a sua volta deve essere creato in Microsoft).
-3. Nel percorso della directory del registro di sistema creare un nuovo valore stringa con il nome stringa **AzureBackupEnableWin2K8R2SP1** e il valore: **True**
-
-    ![RegEdit per l'abilitazione della registrazione](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
-
-In alternativa, è possibile automatizzare questo passaggio eseguendo il file. reg con il comando seguente:
-
-```csharp
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
-"AzureBackupEnableWin2K8R2SP1"="True"
-```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -175,7 +158,7 @@ Come individuare i database in esecuzione in una macchina virtuale:
    Per ottimizzare i carichi di backup, Backup di Azure imposta il numero massimo di database in un processo di backup su 50.
 
      * Per proteggere più di 50 database, configurare più backup.
-     * Per [abilitare](#enable-auto-protection) l'intera istanza o il gruppo di disponibilità always on, nell' elenco a discesa Proteggi AutoProtect selezionare **on**, quindi fare clic su **OK**.
+     * Per [abilitare](#enable-auto-protection) l'intera istanza o il gruppo di disponibilità always on, nell'elenco a discesa **Proteggi AutoProtect** Selezionare **on**, quindi fare clic su **OK**.
 
     > [!NOTE]
     > La funzionalità di [protezione automatica](#enable-auto-protection) non solo Abilita la protezione in tutti i database esistenti in una sola volta, ma protegge automaticamente anche tutti i nuovi database aggiunti a tale istanza o al gruppo di disponibilità.  
@@ -262,18 +245,6 @@ Per creare un criterio di backup:
 
 14. Dopo aver completato le modifiche ai criteri di backup, selezionare **OK**.
 
-
-### <a name="modify-policy"></a>Modificare i criteri
-Modificare i criteri per modificare la frequenza di backup o il periodo di mantenimento dati.
-
-> [!NOTE]
-> Eventuali modifiche apportate al periodo di conservazione verranno applicate in modo retrospettivo a tutti i punti di ripristino meno recenti oltre a quelli nuovi.
-
-Nel dashboard dell'insieme di credenziali passare > a Gestisci**criteri di backup** e scegliere il criterio che si vuole modificare.
-
-  ![Gestire i criteri di backup](./media/backup-azure-sql-database/modify-backup-policy.png)
-
-
 ## <a name="enable-auto-protection"></a>Abilitare la protezione automatica  
 
 È possibile abilitare la protezione automatica per eseguire automaticamente il backup di tutti i database esistenti e futuri in un'istanza di SQL Server autonoma o in un gruppo di disponibilità Always On.
@@ -285,7 +256,7 @@ Nel dashboard dell'insieme di credenziali passare > a Gestisci**criteri di backu
 Per abilitare la protezione automatica:
 
   1. In **Elementi per backup** selezionare l'istanza per la quale si vuole abilitare la protezione automatica.
-  2. Selezionare l'elenco a discesa in **AutoProtect**, scegliere Sì e quindi fare clic **su** **OK**.
+  2. Selezionare l'elenco **a**discesa in **AutoProtect**, scegliere Sì e quindi fare clic su **OK**.
 
       ![Abilitare la protezione automatica nel gruppo di disponibilità](./media/backup-azure-sql-database/enable-auto-protection.png)
 

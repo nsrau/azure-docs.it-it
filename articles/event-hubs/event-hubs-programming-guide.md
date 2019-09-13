@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d9a1dff9c44403ad14e58b3fc3cda880cf65a29c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 28b5c2db0f347b27beb31d427c7f189d74903dff
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679100"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913968"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guida alla programmazione per Hub eventi di Azure
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
@@ -110,7 +110,7 @@ Per usare la classe [EventProcessorHost][], è possibile implementare [IEventPro
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost][]fornendo i parametri appropriati per l'hub eventi. Ad esempio:
+Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost][]fornendo i parametri appropriati per l'hub eventi. Esempio:
 
 > [!NOTE]
 > EventProcessorHost e le classi correlate sono disponibili nel pacchetto **Microsoft. Azure. EventHubs. Processor** . Aggiungere il pacchetto al progetto di Visual Studio seguendo le istruzioni riportate in [questo articolo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) oppure eseguendo il comando seguente nella finestra della [console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :`Install-Package Microsoft.Azure.EventHubs.Processor`.
@@ -140,7 +140,10 @@ La classe [EventProcessorHost][] implementa inoltre un meccanismo di impostazion
 
 ## <a name="publisher-revocation"></a>Revoca di publisher
 
-Oltre alle funzionalità di runtime avanzate di [EventProcessorHost][], Hub eventi consente anche di revocare i publisher per impedire a publisher specifici di inviare eventi a un hub eventi. Queste funzionalità sono utili in situazioni in cui il token di un autore è stato compromesso o un aggiornamento software sta causando un comportamento non appropriato. In queste situazioni, l'identità dell'autore, che fa parte del relativo token di firma di accesso condiviso, può essere bloccata impedendo la pubblicazione di eventi.
+Oltre alle funzionalità avanzate della fase di esecuzione dell'host processore di eventi, il servizio Hub eventi consente la [revoca del server di pubblicazione](/rest/api/eventhub/revoke-publisher) per impedire a autori specifici di inviare eventi a un hub eventi. Queste funzionalità sono utili in situazioni in cui il token di un autore è stato compromesso o un aggiornamento software sta causando un comportamento non appropriato. In queste situazioni, l'identità dell'autore, che fa parte del relativo token di firma di accesso condiviso, può essere bloccata impedendo la pubblicazione di eventi.
+
+> [!NOTE]
+> Attualmente, solo l'API REST supporta questa funzionalità ([revoca del server di pubblicazione](/rest/api/eventhub/revoke-publisher)).
 
 Per altre informazioni sulla revoca di publisher e su come eseguire l'invio a Hub eventi come publisher, vedere l'esempio relativo alla [pubblicazione sicura su larga scala in Hub eventi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 

@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c1ecdb80263efda4cbbb43caaa4e27a04b261f81
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 288fa54a1a6dd4eb05f953a4490bf7736d6d7ff8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989811"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931240"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory
 
@@ -29,7 +29,7 @@ Si desidera:
 
 - Risolvere gli errori di accesso per ottenere una visualizzazione migliore dell'integrità di accesso dell'organizzazione e per risolvere rapidamente i problemi?
 
-- Sai chi sta usando le autenticazioni legacy per accedere al tuo ambiente? Bloccando [l'autenticazione legacy](../conditional-access/block-legacy-authentication.md), è possibile migliorare la protezione del tenant.
+- Sai chi sta usando le autenticazioni legacy per accedere al tuo ambiente? [Bloccando l'autenticazione legacy](../conditional-access/block-legacy-authentication.md), è possibile migliorare la protezione del tenant.
 
 Per rispondere a queste domande, Active Directory fornisce cartelle di lavoro per il monitoraggio. Le [cartelle di lavoro di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinano testo, query di analisi, metriche e parametri in report interattivi avanzati. 
 
@@ -48,6 +48,15 @@ Per utilizzare le cartelle di lavoro di monitoraggio, è necessario:
 - Un tenant Active Directory con una licenza Premium (P1 o P2). Informazioni su come [ottenere una licenza Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - [Area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+
+## <a name="roles"></a>Ruoli
+Per gestire le cartelle di lavoro di, è necessario disporre di uno dei ruoli seguenti, nonché accedere all'area di lavoro [log Analytics sottostante](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) :
+-   Amministratore globale
+-   Amministrazione della protezione
+-   Ruolo con autorizzazioni di lettura per la sicurezza
+-   Lettore di report
+-   Amministratore applicazione
+
 
 ## <a name="workbook-access"></a>Accesso alla cartella di lavoro 
 
@@ -162,7 +171,7 @@ Per gli accessi disabilitati, si ottiene una suddivisione in base allo stato di 
 
 ## <a name="sign-ins-by-grant-controls"></a>Accessi tramite i controlli Grant
 
-Per accedere alla cartella di lavoro per gli accessi tramite i [controlli di concessione](../conditional-access/controls.md), nella sezione **accesso condizionale** Selezionare accessi **tramite Concedi controlli**. 
+Per accedere alla cartella di lavoro per gli accessi tramite i [controlli di concessione](../conditional-access/controls.md), nella sezione **accesso condizionale selezionare accessi** **tramite Concedi controlli**. 
 
 Questa cartella di lavoro Mostra le tendenze di accesso disabilitate seguenti:
 

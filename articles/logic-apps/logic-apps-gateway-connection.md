@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 07/01/2019
-ms.openlocfilehash: 65c1d427939dc39aebece24b923bc4ebfbf136bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ed2ba70b803940700044e900a1b2bb6607c0f051
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860979"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934058"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
-Per accedere a origini dati in locale dalle app per la logica, creare una risorsa gateway dati locale nel portale di Azure. L'app per la logica può quindi usare i [connettori locali](../logic-apps/logic-apps-gateway-install.md#supported-connections). Questo articolo illustra come creare la risorsa per il gateway di Azure *dopo* aver [scaricato e installato il gateway nel computer locale](../logic-apps/logic-apps-gateway-install.md). Per altre informazioni sul funzionamento del gateway, vedere funzionamento [del gateway](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
+Per accedere a origini dati in locale dalle app per la logica, creare una risorsa gateway dati locale nel portale di Azure. L'app per la logica può quindi usare i [connettori locali](../connectors/apis-list.md#on-premises-connectors). Questo articolo illustra come creare una risorsa del gateway di Azure *dopo* il [download e l'installazione del gateway in un computer locale](../logic-apps/logic-apps-gateway-install.md). Per altre informazioni sul gateway, vedere funzionamento [del gateway](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
 > [!TIP]
 > Per connettere le reti virtuali di Azure, considerare invece la possibilità di creare un [*ambiente del servizio di integrazione*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). 
@@ -29,6 +29,27 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 * [Gateway dati locale di Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Gateway dati locale di Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Gateway dati locale di Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
+
+<a name="supported-connections"></a>
+
+## <a name="supported-data-sources"></a>Origini dati supportate
+
+Per le app per la logica di Azure, il gateway dati locale supporta i [connettori locali](../connectors/apis-list.md#on-premises-connectors) per queste origini dati:
+
+* BizTalk Server 2016
+* File system
+* IBM DB2  
+* IBM Informix
+* IBM MQ
+* MySQL
+* Oracle Database
+* PostgreSQL
+* SAP
+* Server SharePoint
+* SQL Server
+* Teradata
+
+Sebbene il gateway stesso non comporti costi aggiuntivi, il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md) per la logica si applica a questi connettori e ad altre operazioni in app per la logica di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -128,13 +149,20 @@ Per creare una risorsa del gateway diversa, collegare l'installazione del gatewa
 
 1. Se non è già selezionato, nel menu della risorsa del gateway selezionare **Gateway dati locale**. Sulla barra degli strumenti delle risorse del gateway selezionare **Elimina**.
 
-   Esempio:
+   Ad esempio:
 
    ![Elimina gateway](./media/logic-apps-gateway-connection/gateway-delete.png)
 
 <a name="faq"></a>
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
+
+**D**: Perché non viene visualizzata l'installazione del gateway durante la creazione della risorsa gateway in Azure? <br/>
+**R**: Questo problema può verificarsi per i motivi seguenti:
+
+* L'installazione del gateway è già registrata e richiesta da un'altra risorsa del gateway in Azure. Le installazioni del gateway non vengono visualizzate nell'elenco delle istanze dopo che le risorse del gateway vengono create per loro. Per controllare le registrazioni del gateway nel portale di Azure, esaminare tutte le risorse di Azure di tipo **Gateway dati locali** per *tutte* le sottoscrizioni di Azure.
+
+* L'identità di Azure AD per la persona che ha installato il gateway è diversa da quella della persona che ha effettuato l'accesso al portale di Azure. Verificare di aver eseguito l'accesso con la stessa identità usata per l'installazione del gateway.
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 

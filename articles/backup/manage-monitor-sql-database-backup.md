@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1d50f239a0ef4de02c9f0c87a28b0f5092d9c529
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019042"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934781"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -127,7 +127,7 @@ Per ulteriori informazioni, vedere [SQL Server tipi di backup](backup-architectu
 
 Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la protezione ma prima di eliminare l'insieme di credenziali:
 
-1. Nel dashboard dell'insieme di credenziali, in Gestisci, selezionare **infrastruttura di backup**.  
+1. Nel dashboard dell'insieme di credenziali, in **Gestisci**, selezionare **infrastruttura di backup**.  
 
    ![Selezionare Infrastruttura di backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
@@ -140,6 +140,32 @@ Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la
 4. Fare clic con il pulsante destro del mouse sul server protetto e selezionare **Annulla registrazione**.
 
    ![Selezionare Elimina](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
+
+## <a name="modify-policy"></a>Modificare i criteri
+Modificare i criteri per modificare la frequenza di backup o il periodo di mantenimento dati.
+
+> [!NOTE]
+> Eventuali modifiche apportate al periodo di conservazione verranno applicate in modo retrospettivo a tutti i punti di ripristino meno recenti oltre a quelli nuovi.
+
+Nel dashboard dell'insieme di credenziali passare a **Gestisci** > **criteri di backup** e scegliere il criterio che si vuole modificare.
+
+  ![Gestire i criteri di backup](./media/backup-azure-sql-database/modify-backup-policy.png)
+
+  ![Modificare i criteri di backup](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
+
+La modifica dei criteri avrà un effetto su tutti gli elementi di backup associati e sul trigger corrispondenti processi di **configurazione della protezione** . 
+
+#### <a name="inconsistent-policy"></a>Criteri non coerenti 
+
+In alcuni casi, un'operazione di modifica dei criteri può causare una versione non **coerente** dei criteri per alcuni elementi di backup. Ciò si verifica quando il processo di **configurazione della protezione** corrispondente non riesce per l'elemento di backup dopo l'attivazione di un'operazione di modifica dei criteri. Viene visualizzato come segue nella visualizzazione dell'elemento di backup:
+ 
+  ![Criteri non coerenti](./media/backup-azure-sql-database/inconsistent-policy.png)
+
+È possibile correggere la versione dei criteri per tutti gli elementi interessati con un solo clic:
+
+  ![Correggi criteri non coerenti](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
+ 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Ripetere la registrazione dell'estensione nella macchina virtuale SQL Server
 

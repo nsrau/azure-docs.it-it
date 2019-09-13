@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53900bcade3f7a283309f5ee1c624c742a62ad3f
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 306382a7dede44a0f1db53373e14e81cb54098ca
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812450"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914744"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -77,7 +77,7 @@ Azure AD ibrido join non è attualmente supportato se l'ambiente è costituito d
 
 Azure AD ibrido join non è attualmente supportato quando si utilizza Virtual Desktop Infrastructure (VDI).
 
-Azure AD ibrido join è supportato per il TPM 2,0 conforme a FIPS e non è supportato per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD ibrido join. Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza.
+Azure AD ibrido join è supportato per il TPM 2,0 conforme a FIPS e non è supportato per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD ibrido join. Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza. A partire dalla versione di WIndows 10 1903, TPMs 1,2 non vengono usati per i join Azure AD ibridi e i dispositivi con tali TPMs verranno considerati come se non avessero un TPM.
 
 Azure AD ibrido join non è supportato per Windows Server che esegue il ruolo controller di dominio (DC).
 
@@ -145,7 +145,7 @@ I nomi dell'entità utente di AD locale a volte possono essere diversi da quelli
 
 La tabella seguente contiene informazioni sul supporto per questi nomi dell'entità utente di AD locale nell'aggiunta ad Azure AD ibrido di Windows 10
 
-| Tipo di nome dell'entità utente di AD locale | Tipo di dominio | Versione di Windows 10 | Descrizione |
+| Tipo di nome dell'entità utente di AD locale | Tipo di dominio | Versione di Windows 10 | DESCRIZIONE |
 | ----- | ----- | ----- | ----- |
 | Instradabile | Federato | Dalla versione 1703 | Disponibile a livello generale |
 | Non instradabile | Federato | Dalla versione 1803 | Disponibile a livello generale |

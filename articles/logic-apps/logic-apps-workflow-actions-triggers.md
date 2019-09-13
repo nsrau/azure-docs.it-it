@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: c109627d2a2e9190afb2c27b9fb202e93baa68cb
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: df1b03d5fbb5b8ef8cda9407e4a595bc2de8ce54
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689660"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918948"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Riferimento per i tipi di trigger e di azione nel linguaggio di definizione del flusso di lavoro per app per la logica
 
@@ -504,7 +504,7 @@ Questo trigger viene eseguito in base alla pianificazione delle ricorrenze speci
 
 | Value | Type | Descrizione | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | Data e ora di inizio in questo formato: <p>AAAA-MM-GGThh:mm:ss se si specifica un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si specifica un fuso orario <p>Ad esempio, per il 18 settembre 2017 alle 14.00, specificare "2017-09-18T14:00:00" e indicare un fuso orario, ad esempio l'ora solare del Pacifico, oppure specificare "2017-09-18T14:00:00Z" senza fuso orario. <p>**Nota:** l'ora di inizio deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si specifica un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. Per altre informazioni sulle date e le ore di inizio, vedere [Creare e pianificare attività eseguite regolarmente](../connectors/connectors-native-recurrence.md). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | Data e ora di inizio in questo formato: <p>AAAA-MM-GGThh:mm:ss se si specifica un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si specifica un fuso orario <p>Ad esempio, per il 18 settembre 2017 alle 14.00, specificare "2017-09-18T14:00:00" e indicare un fuso orario, ad esempio l'ora solare del Pacifico, oppure specificare "2017-09-18T14:00:00Z" senza fuso orario. <p>**Nota:** Questa ora di inizio ha un numero massimo di 49 anni nel futuro e deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si specifica un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. Per altre informazioni sulle date e le ore di inizio, vedere [Creare e pianificare attività eseguite regolarmente](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | String | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Specificare il fuso orario che si vuole applicare. | 
 | <*one-or-more-hour-marks*> | Intero o matrice di intero | Se si specifica "Day" o "Week" per `frequency`, è possibile specificare uno o più numeri interi compresi tra 0 e 23, separati da virgole, come ore del giorno in cui eseguire il flusso di lavoro. <p>Ad esempio, se si specifica "10", "12" e "14", gli indicatori di ora corrisponderanno alle 10.00, alle 12.00 e alle 14.00. | 
 | <*one-or-more-minute-marks*> | Intero o matrice di intero | Se si specifica "Day" o "Week" per `frequency`, è possibile specificare uno o più numeri interi compresi tra 0 e 59, separati da virgole, come minuti dell'ora in cui eseguire il flusso di lavoro. <p>Ad esempio, è possibile specificare "30" come indicatore dei minuti e, usando l'esempio precedente per le ore del giorno, si otterranno le ore 10.30, 12.30 e 14.30. | 
@@ -2664,7 +2664,7 @@ Ecco i tipi di autenticazione che è possibile configurare:
 
 Per l'[autenticazione di base](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) usando Azure Active Directory, la definizione di trigger o azione può includere un oggetto JSON `authentication`, che dispone delle proprietà specificate nella tabella seguente. Per accedere ai valori dei parametri durante il runtime, si può usare l'espressione `@parameters('parameterName')` fornita dal [linguaggio di definizione del flusso di lavoro](https://aka.ms/logicappsdocs). 
 
-| Proprietà | Obbligatorio | Value | Descrizione | 
+| Proprietà | Obbligatorio | Value | DESCRIZIONE | 
 |----------|----------|-------|-------------| 
 | **type** | Yes | "Basic" | Il tipo di autenticazione da usare, in questo caso, "Basic" | 
 | **username** | Yes | "@parameters('userNameParam')" | Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |

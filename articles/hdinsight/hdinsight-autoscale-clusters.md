@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 877fc3a4e29fc1753d7b4f92091b34d4b2537846
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9071b41ab39c62f639b62a439e4d2530a7d7e11b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810321"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880049"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Ridimensionare automaticamente i cluster Azure HDInsight (anteprima)
 
@@ -30,7 +30,7 @@ La tabella seguente descrive i tipi di cluster e le versioni compatibili con la 
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 senza ESP | Sì | Sì | No | No | No | No | No |
 | HDInsight 4,0 senza ESP | Sì | Sì | No | No | No | No | No |
-| HDInsight 3,6 con ESP | Sì | Sì | No | No | No | No | No |
+| HDInsight 3,6 con ESP | Yes | Sì | No | No | No | No | No |
 | HDInsight 4,0 con ESP | Sì | Sì | No | No | No | No | No |
 
 ## <a name="how-it-works"></a>Funzionamento
@@ -85,7 +85,7 @@ Per abilitare la funzionalità di scalabilità automatica con il ridimensionamen
     * Il numero minimo (**Minimum**) di nodi del ruolo di lavoro.  
     * Il numero massimo (**Maximum**) di nodi del ruolo di lavoro.  
 
-    ![Abilitare la scalabilità automatica basata sul carico del nodo di lavoro](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![Abilitare la scalabilità automatica basata sul carico del nodo di lavoro](./media/hdinsight-autoscale-clusters/hdinsight-using-autoscale.png)
 
 Il numero iniziale di nodi del ruolo di lavoro deve essere compreso tra il numero minimo e il numero massimo inclusi. Questo valore definisce le dimensioni iniziali del cluster al momento della creazione. Il numero minimo di nodi del ruolo di lavoro deve essere maggiore di zero.
 

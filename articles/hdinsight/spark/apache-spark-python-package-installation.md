@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: da871a1fed0663c5654ebcfd61f4189bf2267026
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ce5dc7e17020e1e4564ebe1f531645f7329718dc
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814056"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900711"
 ---
 # <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>Azione script per installare pacchetti Python esterni per notebook di Jupyter in Apache Spark in HDInsight
 
@@ -64,10 +64,10 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 4. Immettere i valori seguenti per la finestra **Invia azione script** :  
 
 
-    |Parametro | Valore |
+    |Parametro | Value |
     |---|---|
     |Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
-    |Name |Immettere `tensorflow` nella casella di testo.|
+    |NOME |Immettere `tensorflow` nella casella di testo.|
     |URI script Bash |Immettere `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh` nella casella di testo. |
     |Tipo/i di nodo | Selezionare le caselle di controllo **Head**e **Worker** . |
 
@@ -97,7 +97,7 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
     Il risultato sarà analogo a questo:
     
-    ![Esecuzione del codice TensorFlow](./media/apache-spark-python-package-installation/execution.png "Esecuzione del codice TensorFlow")
+    ![Esecuzione del codice TensorFlow](./media/apache-spark-python-package-installation/tensorflow-execution.png "Esecuzione del codice TensorFlow")
 
 > [!NOTE]  
 > Nel cluster sono presenti due installazioni di Python. Spark userà l'installazione di Anaconda python che si trova in `/usr/bin/anaconda/bin` e l'impostazione predefinita per l'ambiente Python 2.7. Per usare Python 3.x e installare i pacchetti nel kernel di PySpark3, usare il percorso all'`conda`eseguibile per tale ambiente e usare il parametro `-n` per specificare l'ambiente. Ad esempio, il comando `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, consente di installare il pacchetto `ggplot` nell'ambiente Python 3.5 usando il canale `conda-forge`.

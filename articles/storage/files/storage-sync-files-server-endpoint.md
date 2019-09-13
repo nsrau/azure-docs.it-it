@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3a4a77a9b4cdd30c04de4c4eb9d8731c1ea0616c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699258"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932629"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Aggiungere e rimuovere un endpoint server di Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -50,10 +50,15 @@ Se si desidera interrompere l'utilizzo di Sincronizzazione file di Azure per un 
 
 Per garantire che tutti i file suddivisi in livelli vengano richiamati prima di rimuovere l'endpoint server, disabilitare la suddivisione in livelli cloud nell'endpoint server e quindi eseguire il cmdlet di PowerShell seguente per richiamare tutti i file suddivisi in livelli all'interno dello spazio dei nomi dell'endpoint server:
 
-```powershell
+```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
+Se `-Order CloudTieringPolicy` si specifica, vengono richiamati prima i file modificati più di recente.
+Altri parametri facoltativi ma utili da considerare sono:
+* `-ThreadCount`determina il numero di file che possono essere richiamati in parallelo.
+* `-PerFileRetryCount`determina la frequenza con cui viene eseguito il tentativo di richiamo di un file attualmente bloccato.
+* `-PerFileRetryDelaySeconds`determina il tempo in secondi tra i tentativi per richiamare i tentativi e deve essere sempre utilizzato in combinazione con il parametro precedente.
 
 > [!Note]  
 > Se il volume locale che ospita il server non ha abbastanza spazio libero per richiamare tutti i dati archiviati a livelli, il cmdlet `Invoke-StorageSyncFileRecall` ha esito negativo.  

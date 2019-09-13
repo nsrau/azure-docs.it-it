@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9d459f88cd252303384acb4a72d0af0cce6ee226
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e6f6ba131a4fb5dd31f113afd2b6de2d65aeaea0
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428476"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915177"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
 
@@ -28,7 +28,7 @@ Per usare una topologia C# con un cluster basato su Linux, è necessario aggiorn
 
 | Versione HDInsight | Versione di Apache Storm | Versione di SCP.NET | Versione Mono predefinita |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
-| 3.3 |0.10.x |0.10.x.x</br>(solo in HDInsight per Windows) | NA |
+| 3.3 |0.10.x |0.10.x.x</br>(solo in HDInsight per Windows) | ND |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
@@ -100,7 +100,7 @@ namespace ConsoleApplication2
 
 Gli strumenti Data Lake per Visual Studio includono i modelli seguenti:
 
-| Tipo di progetto | Dimostra |
+| Tipo di progetto | Dimostrazione |
 | --- | --- |
 | Applicazione Storm |Un progetto di topologia Storm vuoto |
 | Esempio di writer SQL di Azure per Storm |Come scrivere nel database SQL di Azure |
@@ -155,7 +155,7 @@ Per una topologia di esempio che usa questo componente e funziona con Storm in H
 
    * **NextTuple**: chiamato da Storm quando allo spout è consentita la generazione di nuove tuple.
 
-   * **Ack** (solo topologia transazionale): gestisce i messaggi di riconoscimento avviati da altri componenti della topologia per tuple inviate dallo spout. Il riconoscimento di una tupla consente allo spout di sapere che tale tupla è stata elaborata correttamente dai componenti downstream.
+   * **Ack** (solo topologia transazionale): Gestisce i riconoscimenti avviati da altri componenti della topologia per le tuple inviate dal beccuccio. Il riconoscimento di una tupla consente allo spout di sapere che tale tupla è stata elaborata correttamente dai componenti downstream.
 
    * **Fail** (solo topologia transazionale): gestisce tuple la cui elaborazione da parte di altri componenti della topologia ha avuto esito negativo. L'implementazione di un metodo Fail consente di generare nuovamente la tupla in modo che sia possibile elaborarla di nuovo.
 
@@ -432,7 +432,7 @@ Le topologie transazionali implementano le operazioni seguenti per supportare la
 
 * **Memorizzazione dei metadati nella cache**: lo spout deve memorizzare i metadati relativi ai dati generati, in modo che, in caso di errore, questi ultimi possano essere recuperati e generati nuovamente. Poiché l'esempio genera una quantità limitata di dati, i dati non elaborati di ogni tupla vengono archiviati in un dizionario per la ripetizione.
 
-* **Ack**: ogni bolt della topologia può chiamare `this.ctx.Ack(tuple)` per confermare che ha elaborato correttamente la tupla. Quando tutti i BOLT hanno riconosciuto la tupla, la `Ack` viene richiamato metodo dello spout. Il metodo `Ack` consente allo spout di rimuovere i dati memorizzati nella cache per la ripetizione.
+* **Ack**: ogni bolt della topologia può chiamare `this.ctx.Ack(tuple)` per confermare che ha elaborato correttamente la tupla. Quando tutti i Bolt hanno riconosciuto la tupla, viene `Ack` richiamato il metodo del beccuccio. Il metodo `Ack` consente allo spout di rimuovere i dati memorizzati nella cache per la ripetizione.
 
 * **Errore**: ciascun bolt può chiamare `this.ctx.Fail(tuple)` per indicare che l'elaborazione di una tupla non è riuscita. L'errore viene propagato al metodo `Fail` dello spout, dove la tupla può essere ripetuta usando i metadati memorizzati nella cache.
 
@@ -566,7 +566,7 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà**. Nelle proprietà del progetto impostare **Tipo di output** su **Applicazione console**.
 
-    ![Screenshot delle proprietà di progetto, con il tipo di Output evidenziato](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
+    ![Screenshot delle proprietà di progetto, con il tipo di Output evidenziato](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
 
    > [!NOTE]
    > Ricordarsi di reimpostare **Tipo di output** su **Libreria di classi** prima di distribuire la topologia a un cluster.
@@ -683,7 +683,7 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
 
 2. Salvare le modifiche, quindi premere **F5** o selezionare **Debug** > **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando viene visualizzato il messaggio **Esecuzione test completata** , premere un tasto qualsiasi per chiudere la finestra.
 
-3. Usare **Esplora risorse** per individuare la directory contenente il progetto. Ad esempio: **C:\Users\<nome_utente>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In questa directory, aprire **Bin** e quindi fare clic su **Debug**. Verranno visualizzati i file di testo generati durante l'esecuzione dei test: sentences.txt, counter.txt e splitter.txt. Aprire ogni file di testo e verificare i dati.
+3. Usare **Esplora risorse** per individuare la directory contenente il progetto. Ad esempio:  **C:\Users\<nome_utente>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In questa directory, aprire **Bin** e quindi fare clic su **Debug**. Verranno visualizzati i file di testo generati durante l'esecuzione dei test: sentences.txt, counter.txt e splitter.txt. Aprire ogni file di testo e verificare i dati.
 
    > [!NOTE]  
    > In questi file i dati stringa vengono resi permanenti come matrice di valori decimali. Ad esempio \[[97,103,111]] nel file **splitter.txt** corrisponde alla parola *and*.
@@ -712,7 +712,7 @@ Per visualizzare gli errori che si sono verificati in una topologia in esecuzion
 
 2. Per quanto riguarda **Spout** e **Bolt**, nella colonna **Ultimo errore** vengono visualizzate informazioni sull'ultimo errore verificatosi.
 
-3. Selezionare **Spout Id** (ID spout) o **Bolt Id** (ID bolt) per il componente in cui si è verificato un errore. Viene visualizzata una pagina dei dettagli. Nella parte inferiore di tale pagina, nella sezione **Errori**, vengono visualizzate informazioni aggiuntive sugli errori.
+3. Selezionare l'ID del **beccuccio** o l' **ID del Bolt** per il componente in cui è elencato un errore. Viene visualizzata una pagina dei dettagli. Nella parte inferiore di tale pagina, nella sezione **Errori**, vengono visualizzate informazioni aggiuntive sugli errori.
 
 4. Per ottenere altre informazioni, selezionare una **porta** nella sezione **Executors** (Esecutori) della pagina. Verrà visualizzato il log di lavoro di Storm relativo agli ultimi minuti.
 

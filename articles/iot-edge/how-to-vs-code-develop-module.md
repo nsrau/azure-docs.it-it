@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b63b68b7721dd848e6a72b3b7d9cfa38bf031b23
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: b451e501b216b02ecb052ee159d0e26343af7901
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035076"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910239"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug
 
@@ -89,7 +89,7 @@ I passaggi seguenti mostrano come creare un modulo IoT Edge nel linguaggio di sv
 
 1. Immettere un nome per il modulo. Scegliere un nome univoco all'interno del registro contenitori.
 
-1. Specificare il nome del repository di immagini del modulo. Visual Studio Code popola automaticamente il nome del modulo con il valore **localhost:5000/<nome del modulo\>** . Sostituire tale valore con le proprie informazioni di registro. Se per il test si usa un registro Docker locale, **localhost** è corretto. Se si usa Registro Azure Container, specificare il server di accesso indicato nelle impostazioni del registro. Il server di accesso ha un nome simile a * **\<nome registro\>*.azurecr.io**. Sostituire solo la parte **localhost:5000** della stringa, in modo che il risultato finale sia simile a * *\<* nome registro *\>.azurecr.io/* \<nome del modulo\>***.
+1. Specificare il nome del repository di immagini del modulo. Visual Studio Code popola automaticamente il nome del modulo con il valore **localhost:5000/<nome del modulo\>** . Sostituire tale valore con le proprie informazioni di registro. Se per il test si usa un registro Docker locale, **localhost** è corretto. Se si usa Registro Azure Container, specificare il server di accesso indicato nelle impostazioni del registro. Il server di accesso ha un aspetto simile   **_\<al nome\>del registro di sistema_. azurecr.io**. Sostituire solo la parte **localhost: 5000** della stringa, in modo che il risultato finale appaia  **\<come *nome*\>del registro di sistema. azurecr.io/ _\<il nome\>del modulo_** .
 
    ![Specificare il repository di immagini Docker](./media/how-to-develop-csharp-module/repository.png)
 

@@ -1,18 +1,18 @@
 ---
-title: Novità di Azure Site Recovery | Microsoft Docs
+title: Novità di Azure Site Recovery
 description: Fornisce un riepilogo delle nuove funzionalità introdotte in Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 2d40e6fef215219035720ee64492a91fcdafb472
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146908"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933927"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -24,16 +24,56 @@ Il servizio [Azure Site Recovery](site-recovery-overview.md) viene aggiornato e 
 
 Per Site Recovery componenti, sono supportate le versioni N-4, dove N è la versione rilasciata più recente. Questi report sono riepilogati nella tabella seguente.
 
-**Aggiornamento** |  **Configurazione unificata** | **OVA del server di configurazione** | **Agente del servizio Mobility** | **Provider di Site Recovery** | **Agente di Servizi di ripristino** 
---- | --- | --- | --- | ---
+**Aggiornamento** |  **Configurazione unificata** | **OVA del server di configurazione** | **Agente del servizio Mobility** | **Provider di Site Recovery** | **Agente di Servizi di ripristino**
+--- | --- | --- | --- | --- | ---
+[Rollup 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Rollup 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [Rollup 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
 [Rollup 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
 [Rollup 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
-[Rollup 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
         
 
 [Altre](service-updates-how-to.md) informazioni sull'installazione e il supporto degli aggiornamenti.
+
+
+## <a name="updates-september-2019"></a>Aggiornamenti (2019 settembre)
+
+### <a name="update-rollup-40"></a>Aggiornamento cumulativo 40
+
+L' [aggiornamento cumulativo 40](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
+
+**Aggiornamento** | **Dettagli**
+--- | ---
+**Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
+**Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
+
+
+
+
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure
+
+Le nuove funzionalità per il ripristino di emergenza delle macchine virtuali di Azure sono riepilogate nella tabella.
+
+**Funzionalità** | **Dettagli**
+--- | ---
+**Pulitura dopo il failback** | Dopo aver eseguito il failover nell'area secondaria di Azure e dopo aver eseguito il failback nell'area primaria, Site Recovery pulisce automaticamente i computer nell'area secondaria. Non è necessario eliminare manualmente le macchine virtuali e le schede di rete.
+**Il failover di test mantiene l'indirizzo IP** | È ora possibile mantenere l'indirizzo IP della VM di origine durante un'esercitazione sul ripristino di emergenza e selezionare un indirizzo IP statico per un failover di test.
+
+## <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
+
+Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
+
+**Funzionalità** | **Dettagli**
+--- | ---
+Nuovi avvisi del server di elaborazione | Sono stati aggiunti nuovi avvisi del server di elaborazione. [Altre informazioni](vmware-physical-azure-monitor-process-server.md) 
+
+## <a name="hyper-v-disaster-recovery"></a>Ripristino di emergenza di Hyper-V
+
+Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
+
+**Funzionalità** | **Dettagli**
+--- | ---
+Account di archiviazione | Site Recovery supporta ora l'uso di un account di archiviazione con il controllo degli accessi in base al ruolo (RBAC) abilitato. [Altre](../storage/common/storage-account-manage.md#access-control) informazioni sul controllo di accesso per gli account di archiviazione. 
 
 
 ## <a name="updates-august-2019"></a>Aggiornamenti (2019 agosto)

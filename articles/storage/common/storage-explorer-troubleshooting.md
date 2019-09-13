@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 96a8eab57f1714eed4831bea01508e9140d1dfad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
-ms.translationtype: MT
+ms.openlocfilehash: 69631b39403dedab56ed75cb145d464c0e1f747c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934978"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935350"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -22,7 +22,7 @@ In questa guida sono riepilogate le soluzioni per gli errori comuni riscontrati 
 
 ## <a name="role-based-access-control-permission-issues"></a>Problemi di autorizzazione del controllo degli accessi in base al ruolo
 
-Il controllo degli accessi in [base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) offre una gestione degli accessi con granularità fine per le risorse di Azure combinando set di autorizzazioni in _ruoli_. Ecco alcuni suggerimenti che è possibile seguire per fare in modo che RBAC funzioni in Storage Explorer.
+Il [controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) offre una gestione degli accessi con granularità fine per le risorse di Azure combinando set di autorizzazioni in _ruoli_. Ecco alcuni suggerimenti che è possibile seguire per fare in modo che RBAC funzioni in Storage Explorer.
 
 ### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>Cosa è necessario per visualizzare le risorse in Storage Explorer?
 
@@ -30,7 +30,7 @@ Se si verificano problemi durante l'accesso alle risorse di archiviazione tramit
 
 Se non si è certi di disporre dei ruoli o delle autorizzazioni appropriate, contattare l'amministratore dell'account Azure.
 
-#### <a name="read-listget-storage-accounts"></a>Lettura: Elenca/ottiene gli account di archiviazione
+#### <a name="read-listget-storage-accounts"></a>Lettura: Elencare/ottenere gli account di archiviazione
 
 È necessario disporre dell'autorizzazione per elencare gli account di archiviazione. È possibile ottenere questa autorizzazione assegnando il ruolo "lettore".
 
@@ -71,7 +71,7 @@ Gli errori di certificato sono causati da una delle due situazioni seguenti:
 In presenza di un certificato autofirmato o non attendibile, Storage Explorer non riesce più a stabilire se il messaggio HTTPS ricevuto è stato modificato. Se è disponibile una copia del certificato autofirmato, è possibile fare in modo che Storage Explorer lo consideri attendibile seguendo questa procedura:
 
 1. Ottenere una copia del certificato X.509 con codifica Base64 (file con estensione cer) del certificato
-2. Fare clic su **Modifica** > **Certificati SSL** > **Importa certificati** e quindi usare la selezione file per trovare, selezionare e aprire il file con estensione cer.
+2. Fare clic su **modifica** → **certificati SSL** → **Importa certificati**, quindi utilizzare la selezione file per trovare, selezionare e aprire il file con estensione cer.
 
 Il problema potrebbe anche essere il risultato di più certificati (radice e intermedi). Per risolvere l'errore, è necessario aggiungere entrambi i certificati.
 
@@ -86,7 +86,7 @@ Se non si è certi della provenienza del certificato, è possibile provare quest
 3. Eseguire `s_client -showcerts -connect microsoft.com:443`
 4. Cercare i certificati autofirmati. Se non si è certi di quali certificati sono autofirmati, cercare in qualsiasi punto in `("s:")` cui l'oggetto `("i:")` e l'emittente sono uguali.
 5. Dopo aver trovato i certificati autofirmati, per ognuno di essi, copiare e incollare tutto da e includendo **-----BEGIN CERTIFICATE-----** a **-----END CERTIFICATE-----** in un nuovo file con estensione CER.
-6. Aprire Storage Explorer, fare clic su **Modifica** > **Certificati SSL** > **Importa certificati**, quindi usare la selezione file per trovare, selezionare e aprire i file con estensione CER creati.
+6. Aprire Storage Explorer, fare clic su **modifica** → **certificati SSL** → **Importa certificati**, quindi usare la selezione file per trovare, selezionare e aprire i file con estensione cer creati.
 
 Se non è possibile trovare certificati autofirmati usando i passaggi precedenti, contattare Microsoft tramite lo strumento di feedback per ulteriori informazioni. È anche possibile scegliere di avviare Storage Explorer dalla riga di comando con il `--ignore-certificate-errors` flag. Quando viene avviato con questo flag, Storage Explorer ignorerà gli errori del certificato.
 
@@ -215,6 +215,58 @@ Se viene visualizzato questo messaggio di errore, è possibile che non si dispon
 
 Se vengono visualizzate le chiavi dell'account, archiviare un problema in GitHub in modo da consentire la risoluzione del problema.
 
+## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>Si è verificato un errore durante l'aggiunta della nuova connessione: TypeError Impossibile leggere la proprietà' version ' di undefined
+
+Se si riceve questo messaggio di errore quando si tenta di aggiungere una connessione personalizzata, è possibile che i dati di connessione archiviati in Gestione credenziali locale siano danneggiati.
+Per risolvere questo problema, è possibile provare a eliminare le connessioni locali danneggiate, quindi aggiungerle nuovamente.
+
+1. Avviare Storage Explorer. Nel menu superiore scegliere Guida → imposta/Nascondi Strumenti di sviluppo.
+2. Nella finestra aperta passare alla scheda applicazione → archiviazione locale (lato sinistro) → file://
+3. A seconda del tipo di connessione con cui si verifica il problema, cercare la relativa chiave e copiarne il valore in un editor di testo. Il valore è una matrice di nomi di connessione personalizzati.
+    * Account di archiviazione
+        * `StorageExplorer_CustomConnections_Accounts_v1`
+    * Contenitori BLOB
+        * `StorageExplorer_CustomConnections_Blobs_v1`
+        * `StorageExplorer_CustomConnections_Blobs_v2`
+    * Condivisioni file
+        * `StorageExplorer_CustomConnections_Files_v1`
+    * Code
+        * `StorageExplorer_CustomConnections_Queues_v1`
+    * Tabelle
+        * `StorageExplorer_CustomConnections_Tables_v1`
+4. Dopo aver salvato i nomi di `[]`connessione correnti, impostare il valore nell'strumenti di sviluppo come.
+
+Se si desidera mantenere le connessioni non danneggiate, è possibile eseguire i passaggi seguenti per individuare le connessioni danneggiate. Se non si desidera perdere tutte le connessioni esistenti, è possibile ignorare i passaggi seguenti e seguire le istruzioni specifiche della piattaforma per cancellare i dati di connessione.
+
+1. Dall'editor di testo, aggiungere nuovamente ogni nome di connessione al Strumenti di sviluppo e verificare se la connessione è ancora funzionante.
+2. Se una connessione funziona correttamente, non è danneggiata ed è possibile lasciarla in modo sicuro. Se una connessione non funziona, rimuovere il valore dal Strumenti di sviluppo e registrarlo in modo che sia possibile aggiungerlo di nuovo in un secondo momento.
+3. Ripetere fino a quando non sono state esaminate tutte le connessioni.
+
+Dopo aver attraversato tutte le connessioni, per tutti i nomi delle connessioni che non sono stati aggiunti, è necessario cancellare i dati danneggiati (se presenti) e aggiungerli di nuovo attraverso i passaggi normali usando Storage Explorer.
+
+# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+
+1. Aprire ' Credential Manager ' aprendo il menu Start e cercare ' Credential Manager '.
+2. Nella finestra aperta passare a "credenziali di Windows".
+3. In ' Generic credentials ' cercare le voci con `<connection_type_key>/<corrupted_connection_name>` la chiave (ad `StorageExplorer_CustomConnections_Accounts_v1/account1`esempio,).
+4. Rimuovere queste voci e aggiungere di nuovo le connessioni.
+
+# <a name="macostabmacos"></a>[macOS](#tab/macOS)
+
+1. Aprire Spotlight (barra dello spazio dei comandi) e cercare "accesso keychain".
+2. Cercare le voci con la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio `StorageExplorer_CustomConnections_Accounts_v1/account1`,).
+3. Eliminare queste voci e aggiungere di nuovo le connessioni.
+
+# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+
+La gestione delle credenziali locali varia a seconda della distribuzione Linux. Se la distribuzione di Linux non fornisce uno strumento GUI integrato per la gestione delle credenziali locali, è possibile installare uno strumento di terze parti per gestire le credenziali locali. Ad esempio, è possibile usare [cavalluccio](https://wiki.gnome.org/Apps/Seahorse/), uno strumento di interfaccia utente grafica open source per la gestione delle credenziali locali di Linux.
+
+1. Aprire lo strumento di gestione delle credenziali locale, trovare le credenziali salvate.
+2. Cercare le voci con la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio `StorageExplorer_CustomConnections_Accounts_v1/account1`,).
+3. Eliminare queste voci e aggiungere di nuovo le connessioni.
+
+Se questo errore si è ancora riscontrato dopo aver eseguito questi passaggi o se si vuole condividere le informazioni che si ritiene danneggiano le connessioni, [aprire un problema](https://github.com/microsoft/AzureStorageExplorer/issues) nella pagina di GitHub.
+
 ## <a name="issues-with-sas-url"></a>Problemi relativi all'URL SAS
 
 Se ci si connette a un servizio tramite un URL SAS e si verifica questo errore:
@@ -233,15 +285,15 @@ Se per errore è stato associato un URL SAS non valido e non è possibile annull
 
 ## <a name="linux-dependencies"></a>Dipendenze Linux
 
-<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
+Storage Explorer 1.10.0 e versioni successive è disponibile come snap dall'archivio snap. Lo snap Storage Explorer installa automaticamente tutte le relative dipendenze e viene aggiornato quando è disponibile una nuova versione dello snap-in. L'installazione del Storage Explorer snap è il metodo consigliato per l'installazione.
 
-Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+Storage Explorer richiede l'uso di un gestore delle password, che potrebbe essere necessario connettersi manualmente prima di Storage Explorer funzionerà correttamente. È possibile connettersi Storage Explorer al gestore delle password del sistema con il comando seguente:
 
 ```bash
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+È anche possibile scaricare l'applicazione come file con estensione tar. gz, ma è necessario installare le dipendenze manualmente.
 
 > [!IMPORTANT]
 > Storage Explorer come specificato nel download di. tar. gz è supportato solo per le distribuzioni di Ubuntu. Altre distribuzioni non sono state verificate e possono richiedere pacchetti alternativi o aggiuntivi.

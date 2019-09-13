@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3db0cd3dd01e3f5f6af6b4b668d1ccac094624a2
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0df6f5f9728a8e48a3257e56ddf8ad23906dc92c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735164"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933325"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gestire le istanze in Durable Functions in Azure
 
@@ -31,9 +31,6 @@ In Durable Functions sono disponibili opzioni per la modalità di implementazion
 Il metodo [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) in [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) `startNew` `DurableOrchestrationClient` o in (JavaScript) avvia una nuova istanza. Per acquisire istanze di questa classe, utilizzare l' `orchestrationClient` associazione. Internamente, questo metodo accoda un messaggio nella coda di controllo, che poi attiva l'avvio di una funzione con il nome specificato che usa l'associazione del trigger `orchestrationTrigger`.
 
 Questa operazione asincrona viene completata quando il processo di orchestrazione viene pianificato correttamente. Il processo di orchestrazione dovrebbe essere avviato entro 30 secondi. Se richiede più tempo, verrà visualizzato `TimeoutException`.
-
-> [!WARNING]
-> Quando si sviluppa localmente in JavaScript, impostare la variabile `WEBSITE_HOSTNAME` di `localhost:<port>` ambiente su (ad `localhost:7071`esempio,) per usare `DurableOrchestrationClient`i metodi in. Per altre informazioni su questo requisito, vedere il [problema descritto in GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="net"></a>.NET
 
@@ -361,7 +358,7 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 
 ## <a name="send-events-to-instances"></a>Inviare eventi a istanze
 
-In alcuni scenari è importante che le funzioni dell'agente di orchestrazione siano in grado di attendere e restare in ascolto di eventi esterni. Sono incluse [funzioni di monitoraggio](durable-functions-concepts.md#monitoring) e funzioni in attesa di [interazione umana](durable-functions-concepts.md#human).
+In alcuni scenari è importante che le funzioni dell'agente di orchestrazione siano in grado di attendere e restare in ascolto di eventi esterni. Sono incluse [funzioni di monitoraggio](durable-functions-overview.md#monitoring) e funzioni in attesa di [interazione umana](durable-functions-overview.md#human).
 
 Inviare notifiche degli eventi alle istanze in esecuzione usando il metodo [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) della classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o il `raiseEvent` metodo della `DurableOrchestrationClient` classe (JavaScript). Le istanze che possono gestire questi eventi sono quelle in attesa di una chiamata a [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) o `waitForExternalEvent` (JavaScript).
 
@@ -541,7 +538,7 @@ Se si verifica un errore dell'orchestrazione per un motivo imprevisto, è possib
 
 Usare l'API [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.NET) `rewindAsync` o (JavaScript) per ripristinare lo stato di *esecuzione* dell'orchestrazione. Eseguire nuovamente gli errori di esecuzione dell'attività o della sottoorchestrazione che hanno causato l'errore dell'orchestrazione.
 
-Si immagini, ad esempio, di avere un flusso di lavoro che interessa una serie di [approvazioni umane](durable-functions-concepts.md#human). Si supponga che esista una serie di funzioni di attività che notificano a un utente che è necessaria l'approvazione e attendono la risposta in tempo reale. Una volta ricevute le risposte o si è verificato un timeout per tutte le attività di approvazione, si supponga che un'altra attività non riesca a causa di una configurazione errata dell'applicazione, ad esempio una stringa di connessione al database non Ne consegue un errore di orchestrazione nel flusso di lavoro. Con l' `RewindAsync` API (.NET) `rewindAsync` o (JavaScript), un amministratore dell'applicazione può correggere l'errore di configurazione e riavvolgere l'orchestrazione non riuscita allo stato immediatamente prima dell'errore. Nessuno dei passaggi di interazione umana deve essere riapprovato e l'orchestrazione può essere completata correttamente.
+Si immagini, ad esempio, di avere un flusso di lavoro che interessa una serie di [approvazioni umane](durable-functions-overview.md#human). Si supponga che esista una serie di funzioni di attività che notificano a un utente che è necessaria l'approvazione e attendono la risposta in tempo reale. Una volta ricevute le risposte o si è verificato un timeout per tutte le attività di approvazione, si supponga che un'altra attività non riesca a causa di una configurazione errata dell'applicazione, ad esempio una stringa di connessione al database non Ne consegue un errore di orchestrazione nel flusso di lavoro. Con l' `RewindAsync` API (.NET) `rewindAsync` o (JavaScript), un amministratore dell'applicazione può correggere l'errore di configurazione e riavvolgere l'orchestrazione non riuscita allo stato immediatamente prima dell'errore. Nessuno dei passaggi di interazione umana deve essere riapprovato e l'orchestrazione può essere completata correttamente.
 
 > [!NOTE]
 > La funzionalità *Rewind* non supporta la rimozione di istanze di orchestrazione che usano timer durevoli.
@@ -661,4 +658,7 @@ func durable delete-task-hub --task-hub-name UserTest
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni su come usare le API HTTP per la gestione delle istanze](durable-functions-http-api.md)
+> [Informazioni su come gestire il controllo delle versioni](durable-functions-versioning.md)
+
+> [!div class="nextstepaction"]
+> [Informazioni di riferimento sulle API HTTP predefinite per la gestione delle istanze](durable-functions-http-api.md)

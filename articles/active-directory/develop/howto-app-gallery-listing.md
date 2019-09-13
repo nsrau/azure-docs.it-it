@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/04/2019
+ms.date: 09/06/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3cbaf76489058624e56bec50b37eeb18a99ba7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 1cf3eead3a56297efa3bea90ef48eb464ad63da0
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812509"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898524"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedura: Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
-Questo articolo illustra come elencare un'applicazione nel Azure AD raccolta di applicazioni, implementare Single Sign-On (SSO) e gestire l'elenco.
+Questo articolo illustra come elencare un'applicazione nella raccolta di applicazioni di Azure AD, implementare l'accesso Single Sign-on (SSO) e gestire l'elenco.
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Definizione della raccolta di applicazioni di Azure AD
 
@@ -48,7 +48,12 @@ Questo articolo illustra come elencare un'applicazione nel Azure AD raccolta di 
 
 - Per l'accesso SSO con password, assicurarsi che l'applicazione supporti l'autenticazione basata su modulo in modo che sia possibile eseguire l'insieme di credenziali delle password affinché l'accesso SSO funzioni come previsto.
 
+- Per le richieste di provisioning utenti automatico, l'applicazione deve essere presente nella raccolta con la funzionalità Single Sign-On abilitata per usare SAML 2.0/WS-Fed. È possibile richiedere sia l'accesso SSO che il provisioning utenti nel portale, se non sono già elencati.
+
 - È necessario un account permanente per il test con almeno 2 utenti registrati.
+
+> [!NOTE]
+> È in esecuzione con un numero elevato di richieste di SCIM Connector, quindi è stata interrotta l'acquisizione di nuove richieste nel portale. Tieni sotto mano le tue richieste fino a un ulteriore preavviso. Ci scusiamo per questo ritardo e per eventuali inconvenienti causati da questo problema.
 
 ## <a name="submit-the-request-in-the-portal"></a>Inviare la richiesta nel portale
 

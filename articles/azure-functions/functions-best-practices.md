@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19e088eee878695d24678d1df17b2848a4be1e01
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097547"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933047"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
@@ -36,7 +36,7 @@ Quando è possibile, suddividere le funzioni di grandi dimensioni in gruppi di f
 
 ### <a name="cross-function-communication"></a>Comunicazioni tra funzioni
 
-Le [funzioni permanenti](durable/durable-functions-concepts.md) e le [app per la logica di Azure](../logic-apps/logic-apps-overview.md) sono progettate per gestire transazioni di stato e comunicazioni tra più funzioni.
+Le [funzioni permanenti](durable/durable-functions-overview.md) e le [app per la logica di Azure](../logic-apps/logic-apps-overview.md) sono progettate per gestire transazioni di stato e comunicazioni tra più funzioni.
 
 Se per integrare più funzioni non si usano queste due soluzioni, è opportuno in genere usare le code di archiviazione per la comunicazione tra funzioni.  Il motivo principale è che le code di archiviazione sono più economiche ed è molto più facile sottoporle a provisioning. 
 

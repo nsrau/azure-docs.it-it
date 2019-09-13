@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 83e9e1364293601337f854f083bbb279361e29c5
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: aa18c4a078edf579e8d9c4c09df99100dfcea148
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810993"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918315"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Enterprise Security Package configurazioni con Azure Active Directory Domain Services in HDInsight
 
@@ -74,7 +74,7 @@ Dopo aver creato l'identità gestita e aver assegnato il ruolo corretto, l'ammin
 
 Dopo aver abilitato Azure Active Directory Domain Services, un server DNS (Domain Name Service) locale viene eseguito nelle macchine virtuali (VM) AD. Configurare la rete virtuale (VNET) di Azure Active Directory Domain Services per usare i server DNS personalizzati. Per individuare gli indirizzi IP corretti, selezionare **Proprietà** nella categoria **Gestisci** e osservare gli indirizzi IP elencati sotto **Indirizzo IP nella rete virtuale**.
 
-![Individuare gli indirizzi IP per i server DNS locali](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns.png)
+![Individuare gli indirizzi IP per i server DNS locali](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png)
 
 Modificare la configurazione dei server DNS nella rete virtuale di Azure Active Directory Domain Services per usare gli indirizzi IP personalizzati selezionando **Server DNS** nella categoria **Impostazioni**. Fare quindi clic sul pulsante di opzione accanto a **Personalizzato**, immettere il primo indirizzo IP nella casella di testo seguente e fare clic su **Salva**. Aggiungere altri indirizzi IP seguendo la stessa procedura.
 

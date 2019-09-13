@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: ee798ba624aaf9f21886edab36185fb1b6ae67f2
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 30587af098b5ced7962dc45d6a059184f8b5f319
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387326"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914887"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima: creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
 
@@ -42,7 +42,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-Per usare i contenitori di Windows Server, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.1 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] ::
+Per usare i contenitori di Windows Server, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.12 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -141,7 +141,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 

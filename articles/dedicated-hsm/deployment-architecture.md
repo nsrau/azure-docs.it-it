@@ -2,8 +2,8 @@
 title: Architettura di distribuzione - HSM dedicato di Azure | Microsoft Docs
 description: Considerazioni sulla progettazione di base quando si usa il modulo HSM dedicato di Azure come parte di un'architettura di applicazione
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: barclayn
-ms.openlocfilehash: f078df7677e771d131f15056ac4a54a58a3134bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 93755ded8f9db27cf8e78079f32e90cccfac2831
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60912286"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883825"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architettura di distribuzione Azure HSM dedicati
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architettura di distribuzione HSM dedicata di Azure
 
 HSM dedicato di Azure offre l'archiviazione di chiavi crittografiche in Azure. Soddisfa requisiti rigorosi di sicurezza. L'uso di HSM dedicato di Azure dedicato sarà utile ai clienti che:
 
@@ -29,7 +29,7 @@ HSM dedicato di Azure offre l'archiviazione di chiavi crittografiche in Azure. S
 
 I moduli di protezione hardware vengono distribuiti nei data center di Microsoft e il provisioning può essere facilmente effettuato come coppia di dispositivi, come base per una soluzione a disponibilità elevata. Possono inoltre essere distribuiti in più aree, per una soluzione resiliente alle emergenze. Le aree in cui è attualmente disponibile HSM dedicato sono:
 
-* Stati Uniti orientali
+* East US
 * Stati Uniti orientali 2
 * Stati Uniti occidentali
 * Stati Uniti centro-meridionali

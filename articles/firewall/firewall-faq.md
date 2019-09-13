@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: victorh
-ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: da5880d27e5dd51d3a5f90b7cd6cf2e7dec50f89
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114769"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932751"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -133,7 +133,7 @@ Il tunneling forzato non è supportato per impostazione predefinita, ma può ess
 
 Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet. Per impostazione predefinita, Firewall di Azure non supporta il tunneling forzato a una rete locale.
 
-Tuttavia, se la configurazione richiede il tunneling forzato a una rete locale, Microsoft effettuerà assistenza caso per caso. Contattare il supporto tecnico per poter esaminare il caso. Se accettata, si consentirà la sottoscrizione e si assicurerà che la connettività Internet del firewall richiesta venga mantenuta.
+Tuttavia, se la configurazione richiede il tunneling forzato a una rete locale, Microsoft effettuerà assistenza caso per caso. Contattare il supporto tecnico per poter esaminare il caso. Se il caso viene accettato, la sottoscrizione verrà inserita nell'elenco elementi consentiti e la connettività Internet del firewall verrà mantenuta.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Vi sono restrizioni relative al gruppo di risorse del firewall?
 
@@ -150,6 +150,9 @@ Se si configura * **. contoso.com**, consente *anyvalue*. contoso.com, ma non co
 ## <a name="what-does-provisioning-state-failed-mean"></a>Cosa si *intende per lo stato di provisioning: La* media non è riuscita?
 
 Ogni volta che viene applicata una modifica alla configurazione, il firewall di Azure tenta di aggiornare tutte le istanze back-end sottostanti. In rari casi, una di queste istanze back-end potrebbe non riuscire ad aggiornarsi con la nuova configurazione e il processo di aggiornamento si interrompe con uno stato di provisioning non riuscito. Il firewall di Azure è ancora operativo, ma la configurazione applicata potrebbe trovarsi in uno stato incoerente, in cui alcune istanze hanno la configurazione precedente, in cui altre hanno il set di regole aggiornato. In tal caso, provare ad aggiornare la configurazione ancora una volta fino a quando l'operazione ha esito positivo e il firewall si trova in uno stato di provisioning *riuscito* .
+
+### <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>In che modo il firewall di Azure gestisce la manutenzione pianificata e gli errori non pianificati?
+Il firewall di Azure è costituito da diversi nodi back-end in una configurazione Active-Active.  Per qualsiasi manutenzione pianificata, è disponibile la logica di svuotamento della connessione per aggiornare correttamente i nodi.  Gli aggiornamenti vengono pianificati durante le ore non lavorative per ogni area di Azure per limitare ulteriormente il rischio di rotture.  Per i problemi non pianificati, viene creata un'istanza di un nuovo nodo per sostituire il nodo che ha avuto esito negativo.  La connettività al nuovo nodo viene in genere ristabilita entro 10 secondi dal momento in cui si è verificato l'errore.
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Esiste un limite di caratteri per un nome di firewall?
 

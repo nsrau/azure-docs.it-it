@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: dc98a0ab47e269aa99f21d3f10952cdabe2c897f
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 950ad6d5f55186b63f879bac3f0675c501b57276
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736031"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934446"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice di supporto per la replica di macchine virtuali di Azure da un'area a un'altra
 
@@ -72,6 +72,7 @@ Questa tabella riepiloga il supporto per l'account di archiviazione della cache 
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
 Account di archiviazione V2 di utilizzo generico (livelli di accesso frequente e sporadico) | Supportato | L'utilizzo di GPv2 non è consigliato perché i costi delle transazioni per V2 sono sostanzialmente più elevati di V1 account di archiviazione.
+Archiviazione Premium | Non supportate | Gli account di archiviazione standard vengono usati per l'archiviazione della cache, per ottimizzare i costi.
 Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si usano account di archiviazione cache o di archiviazione di destinazione abilitati per il firewall, assicurarsi di selezionare ["Consenti ai servizi Microsoft attendibili"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 

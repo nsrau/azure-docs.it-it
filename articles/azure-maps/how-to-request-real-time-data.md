@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 75fe9c120eae99e517aa52b704fbd6c170e78649
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 4c53d1c1ffbc80e694a9a7b423b2aaf9c6d38b48
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802287"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914389"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Richiedi dati in tempo reale usando il servizio Mobility di Azure Maps
 
@@ -29,7 +29,7 @@ In questo articolo si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire chiamate alle API di transito pubblico di Azure Maps, sono necessari un account e una chiave di Maps. Per informazioni sulla creazione di un account e il recupero di una chiave, vedere [Come gestire l'account e le chiavi dell'account di Mappe di Azure](how-to-manage-account-keys.md).
+Per eseguire chiamate alle API di transito pubblico di Azure Maps, sono necessari un account e una chiave di Maps. Per informazioni sulla creazione di un account, seguire le istruzioni in [gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e seguire i passaggi in [ottenere la chiave primaria](./tutorial-search-location.md#getkey) per recuperare una chiave di sottoscrizione primaria per l'account.
 
 Questo articolo usa l'[app Postman](https://www.getpostman.com/apps) per compilare le chiamate REST. È possibile usare qualsiasi ambiente di sviluppo API preferito.
 

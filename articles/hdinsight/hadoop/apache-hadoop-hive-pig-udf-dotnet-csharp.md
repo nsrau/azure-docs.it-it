@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: c05e72cd28c78b26b7c23a123b133d10147a4421
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 4e6825b40700fe3bd24631094a2a6060d94524cc
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810777"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882280"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Usare C# funzioni definite dall'utente con Apache hive e Apache Pig in Apache Hadoop in HDInsight
 
@@ -161,7 +161,7 @@ Per altre informazioni sulla versione del framework .NET e di Mono compresa nell
 
 4. Espandere il cluster HDInsight in cui si desidera distribuire l'applicazione. Viene elencata una voce con il testo __(Account di archiviazione predefinito)__ .
 
-    ![Esplora server con account di archiviazione per il cluster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![Esplora server con account di archiviazione per il cluster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
     * Se è possibile espandere questa voce, si usa un __Account di archiviazione di Azure__ come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, espandere la voce e quindi fare doppio clic su __(Contenitore predefinito)__ .
 
@@ -171,7 +171,7 @@ Per altre informazioni sulla versione del framework .NET e di Mono compresa nell
 
    * Se si usa un __Account di Archiviazione di Azure__, fare clic sull'icona per il caricamento, quindi passare alla cartella **bin\debug** per il progetto **HiveCSharp**. Selezionare infine il file **HiveCSharp.exe** e fare clic su **Ok**.
 
-       ![icona relativa al caricamento](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![icona relativa al caricamento](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
     
    * Se si usa __Azure Data Lake Storage__, fare clic con il pulsante destro del mouse su un'area vuota nell'elenco di file e quindi scegliere __Carica__. Selezionare infine il file **HiveCSharp.exe** e fare clic su **Apri**.
 

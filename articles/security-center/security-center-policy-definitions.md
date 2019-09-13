@@ -2,24 +2,18 @@
 title: Definizioni di criteri di Azure monitorate nel Centro sicurezza di Azure | Microsoft Docs
 description: Definizioni di criteri di Azure monitorate nel Centro sicurezza di Azure.
 services: security-center
-documentationcenter: na
 author: monhaber
 manager: barbkess
-editor: ''
-ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 56e6285501529f26e3622e2f773dbd373c169c10
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990496"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910363"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Criteri di sicurezza di Azure monitorati dal centro sicurezza
 Questo articolo fornisce un elenco di definizioni di criteri di Azure che è possibile monitorare nel centro sicurezza di Azure. Per altre informazioni sui criteri di sicurezza, vedere [Utilizzo dei criteri di sicurezza](tutorial-security-policy.md).
@@ -50,7 +44,7 @@ Per informazioni sui criteri predefiniti monitorati dal centro sicurezza, vedere
 |I log di diagnostica in Azure Data Lake Store devono essere abilitati|Controllare l'abilitazione dei log e mantenerli fino a un anno. Questa operazione crea percorsi attività per l'analisi quando si verifica un evento imprevisto di sicurezza o la rete viene compromessa.|
 |I log di diagnostica in Data Lake Analytics devono essere abilitati|Controllare l'abilitazione dei log e mantenerli per un massimo di un anno. Questa operazione crea percorsi attività per l'analisi quando si verifica un evento imprevisto di sicurezza o la rete viene compromessa.|
 |È necessario eseguire la migrazione degli account di archiviazione alle nuove risorse di AzureRM|Usare Azure Resource Manager per gli account di archiviazione per fornire miglioramenti alla sicurezza. Sono inclusi: <br>-Controllo di accesso più sicuro (RBAC)<br>-Controllo migliore<br>-Distribuzione e governance basate su Azure Resource Manager<br>-Accesso alle identità gestite<br>-Accesso a Azure Key Vault per i segreti<br>-Autenticazione basata su Azure AD<br>-Supporto per i tag e i gruppi di risorse per semplificare la gestione della sicurezza|
-|È necessario eseguire la migrazione delle macchine virtuali a nuove risorse AzureRM|Usare Azure Resource Manager per le macchine virtuali per fornire miglioramenti alla sicurezza.  Sono inclusi: <br>-Controllo di accesso più sicuro (RBAC)<br>-Controllo migliore<br>-Distribuzione e governance basate su Azure Resource Manager<br>-Accesso alle identità gestite<br>-Accesso a Azure Key Vault per i segreti<br>-Autenticazione basata su Azure AD<br>-Supporto per i tag e i gruppi di risorse per semplificare la gestione della sicurezza|
+|È necessario eseguire la migrazione delle macchine virtuali a nuove risorse AzureRM|Usare Azure Resource Manager per le macchine virtuali per fornire miglioramenti alla sicurezza. Sono inclusi: <br>-Controllo di accesso più sicuro (RBAC)<br>-Controllo migliore<br>-Distribuzione e governance basate su Azure Resource Manager<br>-Accesso alle identità gestite<br>-Accesso a Azure Key Vault per i segreti<br>-Autenticazione basata su Azure AD<br>-Supporto per i tag e i gruppi di risorse per semplificare la gestione della sicurezza|
 |Le regole di avviso delle metriche devono essere configurate negli account batch|Controllare la configurazione delle regole di avviso delle metriche sugli account Azure Batch per abilitare la metrica necessaria.|
 |I log di diagnostica negli account batch devono essere abilitati|Controllare l'abilitazione dei log e mantenerli per un massimo di un anno. Questa operazione crea percorsi attività per l'analisi quando si verifica un evento imprevisto di sicurezza o la rete viene compromessa.|
 |La crittografia deve essere abilitata nelle variabili dell'account di automazione|È importante abilitare la crittografia degli Asset variabili dell'account di automazione di Azure quando si archiviano dati sensibili.|
@@ -59,12 +53,12 @@ Per informazioni sui criteri predefiniti monitorati dal centro sicurezza, vedere
 |Il controllo di SQL Server deve essere abilitato|Controllare l'esistenza del controllo SQL a livello di server.|
 |\[Anteprima]: Monitorare i database SQL non crittografati nel Centro sicurezza di Azure|Il Centro sicurezza di Azure monitora i database o i server SQL non crittografati come consigliato.|
 |\[Anteprima]: Monitorare i database SQL non controllati nel Centro sicurezza di Azure|Il Centro sicurezza di Azure monitora i server e i database SQL che non hanno attivato il controllo SQL come consigliato.|
-|\[Anteprima]: Installare gli aggiornamenti di sistema nei computer|Il Centro sicurezza di Azure monitora gli aggiornamenti dei sistemi di sicurezza mancanti nei server come consigliato.|
+|\[Anteprima]: Gli aggiornamenti di sistema devono essere installati nelle macchine|Il Centro sicurezza di Azure monitora gli aggiornamenti dei sistemi di sicurezza mancanti nei server come consigliato.|
 |\[Anteprima]: Controllare crittografia BLOB mancante per gli account di archiviazione|Controllare gli account di archiviazione che non usano la crittografia BLOB. Questo vale solo per i tipi di risorse di archiviazione Microsoft, non per l'archiviazione di altri provider. Il Centro sicurezza di Azure monitora il possibile accesso just-in-time alla rete come consigliato.|
 |\[Anteprima]: Alle macchine virtuali deve essere applicato il controllo di accesso alla rete JIT|Il Centro sicurezza di Azure monitora il possibile accesso just-in-time alla rete come consigliato.|
 |\[Anteprima]: I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali|Il Centro sicurezza di Azure monitora la possibile configurazione whitelist dell'applicazione.|
 |\[Anteprima]: È necessario configurare gruppi di sicurezza di rete mancanti per le macchine virtuali|Il Centro sicurezza di Azure monitora i gruppi di sicurezza di rete con regole troppo permissive, come consigliato.|
-|\[Anteprima]: È necessario correggere le vulnerabilità nella configurazione della sicurezza nei computer|Il Centro sicurezza di Azure monitora i server che non soddisfano la baseline configurata come consigliato.| 
+|\[Anteprima]: Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte|Il Centro sicurezza di Azure monitora i server che non soddisfano la baseline configurata come consigliato.| 
 |\[Anteprima]: Endpoint Protection deve essere installato nelle macchine virtuali|Il Centro sicurezza di Azure monitora i server in cui non è installato Microsoft System Center Endpoint Protection Agent come consigliato.|
 |\[Anteprima]: La crittografia del disco deve essere applicata nelle macchine virtuali|Il Centro sicurezza di Azure monitora le macchine virtuali in cui non è abilitata la crittografia del disco come consigliato.|
 |\[Anteprima]: Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità|Monitorare le vulnerabilità rilevate dalla soluzione di valutazione della vulnerabilità e le macchine virtuali che non hanno una soluzione di valutazione della vulnerabilità nel centro sicurezza di Azure come consigliato.|

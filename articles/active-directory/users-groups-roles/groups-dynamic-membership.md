@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b5f85aa99876ef6c3c9193612051085f3e0ffc0
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 59450fc93052a1e169d13fab5b80cbc57c169e0f
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872180"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909775"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -70,7 +70,7 @@ Una regola di appartenenza che popola automaticamente un gruppo con utenti o dis
 
 - Proprietà
 - Operator
-- Valore
+- Value
 
 L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
 
@@ -86,14 +86,14 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
 
-| Properties | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
 
-| Properties | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
 | country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
@@ -124,7 +124,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 
 ### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
 
-| Properties | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | otherMails |Qualsiasi valore stringa. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -249,7 +249,7 @@ Una regola di appartenenza può essere costituita da espressioni complesse in cu
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. Possono essere usate per creare regole di appartenenza tramite gli operatori logici -any e -all.
 
-| Properties | Valori | Utilizzo |
+| Proprietà | Valori | Utilizzo |
 | --- | --- | --- |
 | assignedPlans | Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -376,7 +376,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  deviceManufacturer | Qualsiasi valore stringa. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Qualsiasi valore stringa. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personale, Azienda, Sconosciuto | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Nome del profilo Apple Device Enrollment o del profilo Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Profilo di registrazione del dispositivo Apple, registrazione del dispositivo-identificatori di dispositivi aziendali (Android-chiosco) o nome del profilo di Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (per i dispositivi mobili)<br>PC (per i computer gestiti dall'agente di PC Intune) | (device.managementType -eq "MDM")
  deviceId | ID dispositivo di Azure AD valido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

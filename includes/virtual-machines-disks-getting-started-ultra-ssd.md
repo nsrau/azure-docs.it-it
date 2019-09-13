@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: db8147717e825d9cc48b7f0704dc5eea0be223a9
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3f910a3d0466153bd60fe23ef2f9f656cac292ee
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510340"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919697"
 ---
 # <a name="using-azure-ultra-disks"></a>Uso di Azure ultra Disks
 
@@ -64,11 +64,11 @@ $vmSize = "Standard_E64s_v3"
 
 La risposta sarà simile a quella riportata di seguito, dove X è la zona da usare per la distribuzione nell'area scelta. X può essere 1, 2 o 3. Attualmente, solo tre aree supportano dischi Ultra: Stati Uniti orientali 2, Asia sudorientale ed Europa settentrionale.
 
-Mantenere il valore Zones, che rappresenta la zona di disponibilità e sarà necessario per distribuire un disco Ultra.
+Mantenere il valore **Zones** , che rappresenta la zona di disponibilità e sarà necessario per distribuire un disco Ultra.
 
-|ResourceType  |NOME  |Location  |Zone  |Restrizione  |Capacità  |Value  |
+|ResourceType  |Name  |Location  |Zone  |Restrizione  |Capacità  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
-|dischi     |UltraSSD_LRS         |eastus2         |x         |         |         |         |
+|dischi     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 > [!NOTE]
 > Se non è stata trovata alcuna risposta dal comando, la registrazione alla funzionalità è ancora in sospeso oppure si sta usando una versione precedente dell'interfaccia della riga di comando o di PowerShell.
@@ -79,7 +79,7 @@ Ora che si conosce la zona in cui eseguire la distribuzione, seguire i passaggi 
 
 Determinare prima di tutto le dimensioni della macchina virtuale da distribuire. Per il momento, solo le famiglie di macchine virtuali DsV3 e EsV3 supportano dischi Ultra. Per altri dettagli su queste dimensioni di macchine virtuali, vedere la seconda tabella in questo [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
-Se si vuole creare una VM con più dischi Ultra, vedere l'esempio [creare una macchina virtuale con più dischi Ultra](https://aka.ms/UltraSSDTemplate).
+Se si vuole creare una VM con più dischi Ultra, vedere l'esempio [creare una macchina virtuale con più dischi Ultra](https://aka.ms/ultradiskArmTemplate).
 
 Se si intende usare un modello personalizzato, assicurarsi che **apiVersion** per `Microsoft.Compute/virtualMachines` `2018-06-01` e `Microsoft.Compute/Disks` sia impostato su (o versione successiva).
 
@@ -93,7 +93,7 @@ Determinare prima di tutto le dimensioni della macchina virtuale da distribuire.
 
 È necessario creare una macchina virtuale in grado di usare dischi Ultra, per poter alleghiare un disco Ultra.
 
-Sostituire o impostare le variabili **$VMName**, **$RgName**, **$DiskName**, **$location**, **$password**$User con valori personalizzati. Impostare **$zone** sul valore della zona di disponibilità ottenuta dall' [inizio di questo articolo](#determine-your-availability-zone). Eseguire quindi il comando dell'interfaccia della riga di comando seguente per creare una macchina virtuale ultra abilitata:
+Sostituire o impostare le variabili **$VMName**, **$RgName**, **$DiskName**, **$location**, $password **$User con** valori personalizzati. Impostare **$zone** sul valore della zona di disponibilità ottenuta dall' [inizio di questo articolo](#determine-your-availability-zone). Eseguire quindi il comando dell'interfaccia della riga di comando seguente per creare una macchina virtuale ultra abilitata:
 
 ```azurecli-interactive
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location

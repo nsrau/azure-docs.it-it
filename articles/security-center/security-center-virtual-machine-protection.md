@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 03/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: cb6025b47aec50121a0f96f7b6cba7ad726db291
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c8f381a3440d742cca880f44b73cbc22bde92ecc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907963"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910552"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protezione delle macchine virtuali nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure, dei server non Azure e delle macchine virtuali. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.
@@ -108,7 +108,6 @@ Esistono quattro tipi di icone rappresentate in questo elenco:
 L'icona visualizzata sotto ogni raccomandazione consente di identificare rapidamente le macchine virtuali e i computer che richiedono attenzione e il tipo di raccomandazione. È anche possibile usare i filtri per cercare all'interno dell'elenco in base al **tipo di risorsa** e alla **gravità**.
 
 Per eseguire il drill down delle raccomandazioni di sicurezza per ogni macchina virtuale, fare clic sulla macchina virtuale.
-Qui sono visualizzasti i dettagli sulla sicurezza relativi alla macchina virtuale o al computer. Nella parte inferiore è possibile vedere l'azione consigliata e il livello di gravità di ogni problema.
 ![Servizi cloud](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>Servizi cloud
@@ -125,7 +124,7 @@ Per visualizzare una spiegazione più esaustiva riguardante questa raccomandazio
 ![Aggiornare la versione sistema operativo](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>Servizi app
-È necessario abilitare il servizio app nella sottoscrizione per visualizzare le informazioni del servizio stesso. Per istruzioni su come abilitare questa funzionalità, vedere [Proteggere il servizio app con il Centro sicurezza di Azure](security-center-app-services.md).
+Per visualizzare le informazioni sul servizio app, è necessario abilitare il servizio app nella sottoscrizione. Per istruzioni sull'abilitazione di questa funzionalità, vedere [proteggere il servizio app con il Centro sicurezza di Azure](security-center-app-services.md).
 [!NOTE]
 > La funzionalità di monitoraggio del Servizio app è disponibile in anteprima e solo per il livello Standard del Centro sicurezza.
 
@@ -170,7 +169,7 @@ Per installare Microsoft Monitoring Agent:
 
    ![Installare Microsoft Monitoring Agent](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Se si desidera impostare nuovi set di scalabilità affinché installino automaticamente Microsoft Monitoring Agent:
+Per impostare nuovi set di scalabilità per installare automaticamente i Microsoft Monitoring Agent:
 1. Passare a Criteri di Azure e fare clic su **Definizioni**.
 2. Cercare i criteri **distribuisci log Analytics Agent per i set di scalabilità di macchine virtuali Windows** e fare clic su di esso.
 3. Fare clic su **Assegna**.
@@ -208,10 +207,10 @@ Se si desidera impostare tutti i set di scalabilità esistenti affinché install
 |Machine|40|Risolvere i problemi di integrità dell'agente di monitoraggio nei computer|Per la protezione completa del Centro sicurezza, risolvere i problemi dell'agente di monitoraggio nei computer seguendo le istruzioni nella Guida alla risoluzione dei problemi| 
 |Machine|40|Risolvere i problemi di integrità della protezione degli endpoint nei computer|Per la protezione completa del Centro sicurezza, risolvere i problemi dell'agente di monitoraggio nei computer seguendo le istruzioni nella Guida alla risoluzione dei problemi.|
 |Machine|40|Risolvere il problema dei dati di analisi mancanti nei computer|Risolvere il problema dei dati di analisi mancanti nelle macchine virtuali e nei computer. L'assenza di dati di analisi nei computer determina l'impossibilità di usufruire di valutazioni sulla sicurezza, ad esempio la ricerca di aggiornamenti, l'analisi della baseline e la ricerca di soluzioni di protezione degli endpoint.|
-|Machine|40|Installare gli aggiornamenti di sistema nei computer|Installare gli aggiornamenti mancanti per la sicurezza del sistema e critici per proteggere i computer e le macchine virtuali Windows e Linux
+|Machine|40|Gli aggiornamenti di sistema devono essere installati nelle macchine|Installare gli aggiornamenti mancanti per la sicurezza del sistema e critici per proteggere i computer e le macchine virtuali Windows e Linux
 |Machine|15|Aggiungere un Web Application Firewall| Aggiungere una soluzione WAF (web application firewall) per proteggere le applicazioni Web. |
 |Machine|40|Aggiornare la versione del sistema operativo per i ruoli del servizio cloud|Aggiornare la versione del sistema operativo per i ruoli del servizio cloud alla versione più recente disponibile per la famiglia del sistema operativo.|
-|Machine|35|È necessario correggere le vulnerabilità nella configurazione della sicurezza nei computer|Risolvere le vulnerabilità nella configurazione della sicurezza dei computer per proteggerli da attacchi.|
+|Machine|35|Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte|Risolvere le vulnerabilità nella configurazione della sicurezza dei computer per proteggerli da attacchi.|
 |Machine|35|Risolvere le vulnerabilità nella configurazione della sicurezza nei contenitori|Risolvere le vulnerabilità nella configurazione della sicurezza nei computer in cui è installato Docker per proteggerli da attacchi.|
 |Machine|25|Abilitare i controlli applicazioni adattivi|Abilitare il controllo delle applicazioni per controllare quali applicazioni possono essere eseguite nelle macchine virtuali in Azure. Sarà così possibile rafforzare la protezione delle macchine virtuali dai malware. Il Centro sicurezza usa l'apprendimento automatico per analizzare le applicazioni in esecuzione in ogni macchina virtuale e, grazie a questa funzionalità intelligente, consente di applicare regole di autorizzazione. Questa funzionalità semplifica il processo di configurazione e gestione delle regole di autorizzazione delle applicazioni.|
 |Machine|20|Installare la soluzione di protezione degli endpoint nei computer|Installare una soluzione di protezione degli endpoint nelle macchine virtuali per proteggerli da minacce e vulnerabilità.|

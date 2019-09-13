@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: ea896697c8f6986c4c77f3ce86a62947d9a3327e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e4d961603ab0ade1bb175161fffd7f085a1f644b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861405"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934094"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita dell'archiviazione BLOB di Azure
 
@@ -54,7 +54,7 @@ La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree d
 Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.  
 
 > [!NOTE]
-> Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccare queste richieste specificando eccezioni. Il bypass obbligatorio è: `AzureServices`. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccare queste richieste fornendo eccezioni per i servizi Microsoft attendibili. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Portale di Azure
 

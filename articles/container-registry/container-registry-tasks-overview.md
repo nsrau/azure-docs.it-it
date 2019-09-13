@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: 2d7237c1d142e9f7bb5a47294d1375040be43ac3
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c62987031a73aa4840c1d036689a3c52fb4dc4a0
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308028"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914672"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -21,14 +21,22 @@ I contenitori offrono nuovi livelli di virtualizzazione, isolando le dipendenze 
 
 ## <a name="what-is-acr-tasks"></a>Informazioni su ACR Tasks
 
-**ACR Tasks** è una suite di funzionalità in Registro Azure Container. Fornisce funzionalità per la creazione di immagini di contenitore basate su cloud per Linux, Windows e ARM e ed è in grado di automatizzare l'[applicazione di patch a sistemi operativi e framework](#automate-os-and-framework-patching) per i contenitori Docker. Attività del Registro Azure Container non solo estende il ciclo di sviluppo "a ciclo interno" al cloud con la creazione di immagini contenitore on demand, ma permette anche la compilazione automatica su commit del codice sorgente o quando viene aggiornata l'immagine base del contenitore. Con i trigger correlati all'aggiornamento dell'immagine di base, è possibile automatizzare il flusso di lavoro dell'applicazione di patch al sistema operativo e al framework applicazioni mantenendo gli ambienti sicuri e rispettando le entità di sicurezza di contenitori non modificabili.
+**ACR Tasks** è una suite di funzionalità in Registro Azure Container. Offre funzionalità di creazione di immagini contenitore basate su cloud per le [piattaforme](#image-platforms) , tra cui Linux, Windows e ARM, e può automatizzare l'applicazione di [patch al sistema operativo e al Framework](#automate-os-and-framework-patching) per i contenitori docker. Le attività ACR non solo estendono il ciclo di sviluppo "Inner-loop" nel cloud con le compilazioni di immagini del contenitore su richiesta, ma consentono anche le compilazioni automatiche attivate dagli aggiornamenti del codice sorgente, gli aggiornamenti all'immagine di base di un contenitore o i timer. Con i trigger di aggiornamento dell'immagine di base, ad esempio, è possibile automatizzare il flusso di lavoro di patch del sistema operativo e dell'applicazione, mantenendo gli ambienti protetti rispettando al contempo i principi dei contenitori non modificabili.
 
-Compilare e testare le immagini del contenitore con Attività del Registro Azure Container in quattro modi:
+## <a name="task-scenarios"></a>Scenari di attività
 
-* [Attività rapida](#quick-task): compilare ed eseguire il push di immagini del contenitore on demand, in Azure, senza necessitare di un'installazione locale di un motore Docker. Pensare `docker build`, `docker push` nel cloud. Compilazione dal codice sorgente locale o un repository GIT.
-* [Compilazione automatica in caso di commit del codice sorgente](#automatic-build-on-source-code-commit): attivare automaticamente una compilazione dell'immagine del contenitore quando viene eseguito il commit di codice in un repository Git.
-* [Compilazione in caso di aggiornamento dell'immagine di base](#automate-os-and-framework-patching): attivare una compilazione di immagini dei contenitori quando l'immagine di base dell'immagine è stata aggiornata.
-* [Attività](#multi-step-tasks)in più passaggi: definire le attività in più passaggi che compilano immagini, eseguono i contenitori come comandi ed eseguono il push delle immagini in un registro. Questa funzionalità delle attività ACR supporta l'esecuzione di attività su richiesta e le operazioni di compilazione, test e push di immagini parallele.
+Le attività ACR supportano diversi scenari per la creazione e la gestione di immagini del contenitore e altri elementi. Per informazioni dettagliate, vedere le sezioni seguenti di questo articolo.
+
+* **[Attività rapida](#quick-task)** : creare ed eseguire il push di una singola immagine del contenitore in un registro contenitori su richiesta, in Azure, senza che sia necessaria un'installazione locale del motore docker. Pensare `docker build`, `docker push` nel cloud.
+* **Attività attivate automaticamente** : abilitare uno o più *trigger* per la compilazione di un'immagine:
+  * **[Attiva l'aggiornamento del codice sorgente](#trigger-task-on-source-code-update)** 
+  * **[Trigger sull'aggiornamento dell'immagine di base](#automate-os-and-framework-patching)** 
+  * **[Attiva in base a una pianificazione](#schedule-a-task)** 
+* **[Attività](#multi-step-tasks)** in più passaggi: estendere la funzionalità di compilazione e push di un'unica immagine delle attività ACR con flussi di lavoro multifase basati su più contenitori. 
+
+A ogni attività ACR è associato un [contesto del codice sorgente](#context-locations) , ovvero la posizione di un set di file di origine usati per compilare un'immagine del contenitore o un altro artefatto. I contesti di esempio includono un repository git o un file system locale.
+
+Le attività possono inoltre sfruttare le [variabili Run](container-registry-tasks-reference-yaml.md#run-variables), in modo da poter riutilizzare le definizioni delle attività e standardizzare i tag per le immagini e gli artefatti.
 
 ## <a name="quick-task"></a>Attività rapida
 
@@ -44,12 +52,21 @@ ACR Tasks è progettato come primitiva del ciclo di vita dei contenitori. È ad 
 
 Per informazioni su come usare le attività rapide, vedere la prima esercitazione su Attività del Registro Azure Container, [Compilare immagini dei contenitori nel cloud con Attività del Registro Azure Container](container-registry-tutorial-quick-task.md).
 
-## <a name="automatic-build-on-source-code-commit"></a>Compilazione automatica in caso di commit del codice sorgente
+> [!TIP]
+> Se si vuole compilare ed eseguire il push di un'immagine direttamente dal codice sorgente, senza Dockerfile, Azure Container Registry fornisce il comando [AZ ACR Pack Build][az-acr-pack-build] (anteprima). Questo strumento crea ed esegue il push di un'immagine dal codice sorgente dell'applicazione usando il [cloud Buildpacks nativo](https://buildpacks.io/).
 
-Usare le attività ACR per attivare automaticamente una compilazione dell'immagine del contenitore quando viene eseguito il commit del codice in un repository git in GitHub o Azure DevOps. Le attività di compilazione, configurabili con il comando dell'interfaccia della riga di comando di Azure [AZ ACR Task][az-acr-task], consentono di specificare un repository git e, facoltativamente, un Branch e un Dockerfile. Quando il team esegue il commit di codice nel repository, un webhook creato da Attività del Registro Azure Container attiva una compilazione dell'immagine del contenitore definita nel repository.
+## <a name="trigger-task-on-source-code-update"></a>Attività trigger sull'aggiornamento del codice sorgente
 
-> [!IMPORTANT]
-> Se in precedenza sono state create attività durante l'anteprima con il comando `az acr build-task`, tali attività devono essere ricreate con il comando [az acr task][az-acr-task].
+Attivare una compilazione dell'immagine del contenitore o un'attività in più passaggi quando viene eseguito il commit del codice o una richiesta pull eseguita o aggiornata a un repository git in GitHub o Azure DevOps. Ad esempio, configurare un'attività di compilazione con il comando dell'interfaccia della riga di comando di Azure [AZ ACR task create][az-acr-task-create] specificando un repository git e, facoltativamente, un Branch e Dockerfile. Quando il team aggiorna il codice nel repository, un webhook creato da un'attività ACR attiva una compilazione dell'immagine del contenitore definita nel repository. 
+
+Le attività ACR supportano i trigger seguenti quando si imposta un repository Git come contesto dell'attività:
+
+| Trigger | Abilitato per impostazione predefinita |
+| ------- | ------------------ |
+| Esegui commit | Yes |
+| Richiesta pull | No |
+
+Per configurare il trigger, è necessario fornire all'attività un token di accesso personale (PAT) per impostare il webhook nel repository GitHub o Azure DevOps.
 
 Per informazioni su come attivare compilazioni in caso di commit del codice sorgente, vedere la seconda esercitazione su Attività del Registro Azure Container, [Automatizzare la compilazione di immagini dei contenitori con Attività del Registro Azure Container](container-registry-tutorial-build-task.md).
 
@@ -63,25 +80,33 @@ Quando un'immagine del sistema operativo o del framework app viene aggiornata da
 
 Individuando dinamicamente le dipendenze dell'immagine di base durante la compilazione di un'immagine del contenitore, Attività del Registro Azure Container può rilevare l'aggiornamento dell'immagine di base di un'immagine di applicazione. Con un'[attività di compilazione](container-registry-tutorial-base-image-update.md#create-a-task) preconfigurata, ACR Tasks **ricompila quindi automaticamente ogni immagine di applicazione**. Grazie al rilevamento e alla ricompilazione automatici, ACR Tasks consente di risparmiare il tempo e il lavoro normalmente necessari per monitorare e aggiornare manualmente ogni immagine di applicazione che fa riferimento all'immagine di base aggiornata.
 
-Un'attività ACR tiene traccia dell'aggiornamento di un'immagine di base quando l'immagine di base si trova in una delle posizioni seguenti:
+Per le compilazioni di immagini da un Dockerfile, un'attività ACR tiene traccia dell'aggiornamento di un'immagine di base quando l'immagine di base si trova in una delle posizioni seguenti:
 
 * La stessa istanza di Registro Azure Container in cui viene eseguita l'attività
 * Un'altra istanza di Registro Azure Container nella stessa area 
 * Un repository pubblico in Docker Hub
 * Un repository pubblico in Registro contenitori di Microsoft
 
+> [!NOTE]
+> * Il trigger di aggiornamento dell'immagine di base è abilitato per impostazione predefinita in un'attività ACR. 
+> * Attualmente, le attività ACR tengono traccia solo degli aggiornamenti delle immagini di base per le immagini dell'applicazione (*Runtime*). Le attività ACR non tengono traccia degli aggiornamenti delle immagini di base per le immagini intermedie (*BuildTime*) usate in dockerfile in più fasi. 
+
 Per altre informazioni sull'applicazione di patch per il sistema operativo e il Framework, vedere la terza esercitazione sulle attività di ACR, [automatizzare le compilazioni di immagini nell'aggiornamento dell'immagine di base con container Registry Azure](container-registry-tutorial-base-image-update.md)
+
+## <a name="schedule-a-task"></a>Pianificare un'attività
+
+Facoltativamente, pianificare un'attività impostando uno o più *trigger timer* quando si crea o si aggiorna l'attività. La pianificazione di un'attività è utile per l'esecuzione di carichi di lavoro del contenitore in base a una pianificazione definita o per l'esecuzione di operazioni di manutenzione o di test su immagini con push regolari nel registro. Per informazioni dettagliate, vedere [eseguire un'attività ACR in base a una pianificazione definita](container-registry-tasks-scheduled.md).
 
 ## <a name="multi-step-tasks"></a>Attività in più passaggi
 
-Le attività in più passaggi forniscono la definizione e l'esecuzione di attività basate sui passaggi per la compilazione, il test e l'applicazione di patch alle immagini del contenitore nel cloud. I passaggi dell'attività definiscono singole operazioni di compilazione e push dell'immagine contenitore. Possono anche definire l'esecuzione di uno o più contenitori, in cui ogni passaggio usa il contenitore come ambiente di esecuzione.
+Le attività in più passaggi forniscono la definizione e l'esecuzione di attività basate sui passaggi per la compilazione, il test e l'applicazione di patch alle immagini del contenitore nel cloud. I passaggi dell'attività definiti in un [file YAML](container-registry-tasks-reference-yaml.md) specificano le singole operazioni di compilazione e push per le immagini del contenitore o altri artefatti. Possono anche definire l'esecuzione di uno o più contenitori, in cui ogni passaggio usa il contenitore come ambiente di esecuzione.
 
 Ad esempio, è possibile creare un'attività in più passaggi che consenta di automatizzare le operazioni seguenti:
 
 1. Compilare un'immagine dell'applicazione Web
 1. Eseguire il contenitore dell'applicazione Web
 1. Compilare un'immagine di test dell'applicazione Web
-1. Eseguire il contenitore di test dell'applicazione Web che esegue test sul contenitore dell'applicazione in esecuzione
+1. Eseguire il contenitore di test dell'applicazione Web, che esegue i test sul contenitore di applicazioni in esecuzione
 1. Se i test vengono superati, compilare un pacchetto di archivio del grafico di Helm
 1. Eseguire un `helm upgrade` usando il nuovo pacchetto di archivio del grafico di Helm
 
@@ -114,7 +139,7 @@ Per impostazione predefinita, le attività ACR compilano immagini per il sistema
 
 Ogni esecuzione di attività genera l'output del log che è possibile esaminare per determinare se i passaggi dell'attività sono stati eseguiti correttamente. Se si usa il comando [AZ ACR Build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)o [AZ ACR task run](/cli/azure/acr/task#az-acr-task-run) per attivare l'attività, l'output del log per l'esecuzione dell'attività viene trasmesso alla console e archiviato anche per un successivo recupero. Quando un'attività viene attivata automaticamente, ad esempio da un commit del codice sorgente o da un aggiornamento di un'immagine di base, i log delle attività vengono archiviati solo. Visualizzare i log per un'attività eseguita nel portale di Azure o usare il comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
 
-A partire da luglio 2019, i dati e i log per le esecuzioni delle attività in un registro verranno conservati per impostazione predefinita per 30 giorni e quindi eliminati automaticamente. Se si vogliono archiviare i dati per un'esecuzione di attività, abilitare l'archiviazione usando il comando [AZ ACR task update-Run](/cli/azure/acr/task#az-acr-task-update-run) . Nell'esempio seguente viene abilitata l'archiviazione per l'esecuzione dell'attività *CF11* *nel registro di*sistema del registro di sistema.
+Per impostazione predefinita, i dati e i log per le esecuzioni delle attività in un registro vengono conservati per 30 giorni e quindi eliminati automaticamente. Se si vogliono archiviare i dati per un'esecuzione di attività, abilitare l'archiviazione usando il comando [AZ ACR task update-Run](/cli/azure/acr/task#az-acr-task-update-run) . Nell'esempio seguente viene abilitata l'archiviazione per l'esecuzione dell'attività *CF11* nel registro di sistema del registro di *sistema.*
 
 ```azurecli
 az acr task update-run --registry myregistry --run-id cf11 --no-archive false
@@ -122,7 +147,7 @@ az acr task update-run --registry myregistry --run-id cf11 --no-archive false
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Quando si è pronti per automatizzare l'applicazione di patch al sistema operativo e al Framework compilando le immagini del contenitore nel cloud, vedere la [serie di esercitazioni di attività ACR](container-registry-tutorial-quick-task.md)in tre parti.
+Quando si è pronti per automatizzare le compilazioni e la manutenzione delle immagini del contenitore nel cloud, vedere la [serie di esercitazioni sulle attività ACR](container-registry-tutorial-quick-task.md).
 
 Installare eventualmente l'[estensione Docker per Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e l'estensione [Account Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) per l'uso dei registri contenitori di Azure. Eseguire il pull e il push delle immagini in un registro contenitori di Azure o eseguire Attività del Registro Azure Container, il tutto all'interno di Visual Studio Code.
 
@@ -137,7 +162,9 @@ Installare eventualmente l'[estensione Docker per Visual Studio Code](https://co
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-task]: /cli/azure/acr
+[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
 [az-login]: /cli/azure/reference-index#az-login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 92274f63db78d53bdd0fa3fd440977422be3b4a1
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: eea0b930ab26e3f4d816fed69ccf8e987e6d33c7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036274"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881342"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiare dati da e in un file system locale usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -85,7 +85,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 | Scenario | Host nella definizione del servizio collegato | folderPath nella definizione del set di dati |
 | --- | --- | --- |
 | Cartella locale nel computer del gateway di gestione dati: <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\\* |D:\\\\ (per Gateway di gestione dati versione 2.0 e successive) <br/><br/> localhost (per le versioni precedenti alla versione 2.0 di Gateway di gestione dati) |.\\\\ o cartella\\\\sottocartella (per Gateway di gestione dati 2.0 e versioni successive) <br/><br/>D:\\\\ o D:\\\\cartella\\\\sottocartella (per la versione del gateway precedente a 2.0) |
-| Cartella condivisa remota: <br/><br/>Esempi: \\ \\MyServershare\\ *o\\MyServer sharecartella\\sottocartella\\ \\\\\\\\\\* |\\\\\\\\myserver\\\\share |.\\\\ o cartella\\\\sottocartella |
+| Cartella condivisa remota: <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\\* |\\\\\\\\myserver\\\\share |.\\\\ o cartella\\\\sottocartella |
 
 >[!NOTE]
 >Quando si crea tramite interfaccia utente, non è necessario immettere la doppia barra rovesciata (`\\`) per i caratteri di escape come con JSON, basta specificare la barra rovesciata singola.

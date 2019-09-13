@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4fc34ed5cdd53977aa20bef84200ba2bf5386979
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561549"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899480"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
@@ -39,7 +39,7 @@ Kubernetes usa il ridimensionamento automatico orizzontale dei pod per monitorar
 
 Quando si configura il ridimensionamento automatico orizzontale dei pod per una distribuzione specifica, si definisce il numero minimo e massimo di repliche che può essere eseguito. È anche possibile definire le metriche da monitorare e su cui basare qualsiasi decisione per il ridimensionamento, ad esempio l'utilizzo della CPU.
 
-Per iniziare a usare il servizio di scalabilità automatica di Pod orizzontali in AKS, vedere la pagina relativa ai pod di scalabilità automatica [in AKS][aks-hpa].
+Per iniziare a usare il servizio di scalabilità automatica di Pod orizzontali in AKS, vedere la pagina relativa ai [pod di scalabilità automatica in AKS][aks-hpa].
 
 ### <a name="cooldown-of-scaling-events"></a>Raffreddamento degli eventi di ridimensionamento
 
@@ -51,7 +51,7 @@ Attualmente, non è possibile ottimizzare i valori di cooldown dal valore predef
 
 ## <a name="cluster-autoscaler"></a>Ridimensionamento automatico del cluster
 
-Per rispondere alle mutevoli richieste di Pod, Kubernetes dispone di un cluster AutoScaler (attualmente disponibile in anteprima in AKS) che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il ridimensionamento automatico del cluster controlla il server API ogni 10 secondi per rilevare eventuali modifiche necessarie al numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
+Per rispondere alle mutevoli richieste di Pod, Kubernetes dispone di un cluster AutoScaler (attualmente disponibile in anteprima in AKS) che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il servizio di scalabilità automatica del cluster controlla il server API metrica ogni 10 secondi per eventuali modifiche necessarie nel numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
 
 ![Ridimensionamento automatico del cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
@@ -94,8 +94,8 @@ I nodi virtuali vengono distribuiti in una subnet aggiuntiva nella stessa rete v
 Per iniziare a ridimensionare le applicazioni, seguire prima la [Guida introduttiva per creare un cluster AKS con l'interfaccia della riga di][aks-quickstart]comando di Azure. È quindi possibile iniziare a ridimensionare manualmente o automaticamente le applicazioni nel cluster servizio Azure Kubernetes:
 
 - Ridimensionare manualmente i [Pod][aks-manually-scale-pods] o i [nodi][aks-manually-scale-nodes]
-- Usare il ridimensionamento automatico del [Pod orizzontale][aks-hpa]
-- Usare il ridimensionamento automatico del [cluster][aks-cluster-autoscaler]
+- Usare il [ridimensionamento automatico del Pod orizzontale][aks-hpa]
+- Usare il [ridimensionamento][aks-cluster-autoscaler] automatico del cluster
 
 Per altre informazioni sui concetti fondamentali di Kubernetes e del servizio Azure Kubernetes, vedere gli articoli seguenti:
 

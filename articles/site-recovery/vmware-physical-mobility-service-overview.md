@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: c692b1c5b77b95e5487a847b46473906135c3d86
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: aeb00b84ac254232e0d68fd9631fb539a928e67d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261141"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931897"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
 
@@ -119,7 +119,7 @@ Utilizzo | UnifiedAgent. exe/Role \<MS/MT > il \<percorso di installazione di/IN
 log di installazione | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 /InstallLocation| Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility (qualsiasi cartella).
-/Platform | Obbligatorio. Specifica la piattaforma in cui viene installato il servizio Mobility. **VMware** per macchine virtuali VMware/server fisici; **Azure** per macchine virtuali di Azure.
+/Platform | Obbligatorio. Specifica la piattaforma in cui viene installato il servizio Mobility. **VMware** per macchine virtuali VMware/server fisici; **Azure** per macchine virtuali di Azure.<br/><br/> Se si tratta di macchine virtuali di Azure come macchine fisiche, specificare **VMware**.
 /Silent| facoltativo. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione

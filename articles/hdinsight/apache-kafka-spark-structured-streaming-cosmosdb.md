@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 546dd094614a72cada2aff60704c4fc191301ad2
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1e4f79a1978b77c2b744d523c8f42f1497d63007
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734926"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918381"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Lo streaming strutturato Spark è un motore di elaborazione del flusso basato su
 
 Apache Kafka in HDInsight non fornisce l'accesso ai broker Kafka tramite Internet pubblico. Tutto ciò che comunica con Kafka deve trovarsi nella stessa rete virtuale di Azure dei nodi del cluster Kafka. Per questo esempio, i cluster Spark e Kafka si trovano entrambi in una rete virtuale di Azure. Il diagramma seguente illustra il flusso delle comunicazioni tra i cluster:
 
-![Diagramma dei cluster Spark e Kafka in una rete virtuale di Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
+![Diagramma dei cluster Spark e Kafka in una rete virtuale di Azure](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
 
 > [!NOTE]  
 > Il servizio Kafka è limitato alle comunicazioni all'interno della rete virtuale. Altri servizi nel cluster, ad esempio SSH e Ambari, sono accessibili tramite Internet. Per altre informazioni sulle porte pubbliche disponibili con HDInsight, vedere [Porte e URI usati da HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -44,7 +44,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 1. Usare il pulsante seguente per accedere ad Azure e aprire il modello nel portale di Azure.
     
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png" alt="Deploy to Azure"/>
+    <img src="./media/apache-kafka-spark-structured-streaming-cosmosdb/resource-manager-deploy.png" alt="Deploy to Azure"/>
     </a>
 
     Il modello di Azure Resource Manager si trova nel repository GitHub per questo progetto ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
@@ -67,7 +67,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
 2. Usare le informazioni seguenti per popolare le voci nel pannello **Distribuzione personalizzata**:
    
-    ![Distribuzione personalizzata di HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
+    ![Distribuzione personalizzata di HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
     * **Sottoscrizione** Selezionare la sottoscrizione di Azure.
    

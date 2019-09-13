@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: 126d96cbd85f4e91de5a6393be02a15240b51ade
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e8fd49781301406e0c35e1de57cea3040167c6c3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035590"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915861"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portale di che si sposta in Azure
 
@@ -50,7 +50,7 @@ Mentre la maggior parte delle funzionalità continuerà a funzionare senza esegu
 Consultare [Domande frequenti per la transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics](oms-portal-faq.md) per informazioni su come effettuare la transizione al portale di Azure. 
 
 ## <a name="user-access-and-role-migration"></a>Migrazione del ruolo e dell'accesso utente
-La gestione di accesso al portale Azure è più completa e più potente rispetto alla gestione di accesso nel portale di OMS. Per informazioni dettagliate sulla gestione dell'accesso in Log Analytics, vedere [progettazione dell'area di lavoro log di monitoraggio di Azure] progettazione-log-deployment.md).
+La gestione di accesso al portale Azure è più completa e più potente rispetto alla gestione di accesso nel portale di OMS. Vedere [progettazione dell'area di lavoro log di monitoraggio di Azure](design-logs-deployment.md) per informazioni dettagliate sulla gestione dell'accesso in log Analytics.
 
 > [!NOTE]
 > Le versioni precedenti di questo articolo dichiaravano che le autorizzazioni che venivano convertite automaticamente dal portale di OMS al portale di Azure. La conversione automatica non è più prevista. È quindi necessario eseguire la conversione manualmente.
@@ -76,7 +76,7 @@ Non è più possibile creare nuove aree di lavoro usando il portale di OMS. Per 
 
 ### <a name="alert-extension"></a>Estensione dell'avviso  
 
-Gli avvisi sono stati estesi nel [portale di Azure gli](alerts-extend.md) avvisi esistenti continueranno a essere elencati nel portale di OMS, ma è possibile gestirli solo in portale di Azure. Se si accede agli avvisi a livello di codice tramite l'API REST per gli avvisi di Log Analytics o il modello risorse degli avvisi di Log Analytics sarà necessario usare i gruppi di azioni invece delle azioni nelle chiamate API, dei modelli di Azure Resource Manager e dei comandi di PowerShell.
+Gli avvisi sono stati [estesi nel portale di Azure gli](alerts-extend.md) avvisi esistenti continueranno a essere elencati nel portale di OMS, ma è possibile gestirli solo in portale di Azure. Se si accede agli avvisi a livello di codice tramite l'API REST per gli avvisi di Log Analytics o il modello risorse degli avvisi di Log Analytics sarà necessario usare i gruppi di azioni invece delle azioni nelle chiamate API, dei modelli di Azure Resource Manager e dei comandi di PowerShell.
 
 ### <a name="alert-management-solution"></a>soluzione Alert Management
 Diversamente da quanto annunciato in precedenza, la [soluzione Gestione avvisi](alert-management-solution.md) continuerà a essere disponibile e completamente supportata nel portale di Azure. È possibile continuare a installare la soluzione da Azure Marketplace.

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/08/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 5828d4f453afeccfaac206195f064e43a20d1ba0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 8e732496c4523646f02ef461b7d3c52314c28dae
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844762"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932835"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Eseguire la migrazione a una chiave di creazione delle risorse di Azure
 
@@ -35,7 +35,8 @@ Ad esempio, se si dispone di 2 tipi di app LUIS che si sta creando con membri di
 
 La migrazione include:
 
-* **Tutte** le app del proprietario.
+* Tutti gli utenti di LUIS, proprietari e collaboratori.
+* **Tutte le** app.
 * Una migrazione **unidirezionale** .
 
 Il proprietario non può scegliere un subset di app da migrare e il processo non è reversibile. 
@@ -87,13 +88,17 @@ Al termine del processo di migrazione, tutte le app LUIS sono ora assegnate a un
 
 ## <a name="migration-for-the-app-contributor"></a>Migrazione per il collaboratore app
 
+Ogni utente di LUIS deve eseguire la migrazione, inclusi collaboratori/collaboratori. 
+
 ### <a name="before-the-app-is-migrated"></a>Prima della migrazione dell'app
 
 È possibile scegliere di esportare un'app a cui si è collaboratori, quindi importare di nuovo l'app in LUIS. Il processo di importazione crea una nuova app con un nuovo ID app, di cui si è proprietari.
 
 ### <a name="after-the-app-is-migrated"></a>Dopo la migrazione dell'app
 
-Dopo il processo di migrazione, se è necessario accedere all'app originale, è necessario essere aggiunti alla risorsa di creazione di Azure come collaboratore dal proprietario dell'app.  
+Il proprietario dell'app deve [aggiungere la posta elettronica alla risorsa di creazione di Azure come collaboratore](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource). 
+
+Dopo il processo di migrazione, le app di cui si è proprietari sono disponibili nella pagina **app personali** del portale Luis.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

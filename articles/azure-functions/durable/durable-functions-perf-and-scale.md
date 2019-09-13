@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ed0fe22903412d4164fb3a85dbd9afafdc7023e6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 53f561283d4d07d58bd03b59a24a30d8010caaf0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097994"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933282"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -55,7 +55,7 @@ L'estensione di attività durevole implementa un algoritmo di backup esponenzial
 Il ritardo massimo di polling può essere configurato tramite `maxQueuePollingInterval` la proprietà nel [file host. JSON](../functions-host-json.md#durabletask). L'impostazione di questa opzione su un valore più alto può comportare latenze di elaborazione dei messaggi superiori. Le latenze più elevate sarebbero previste solo dopo periodi di inattività. L'impostazione di questa opzione su un valore inferiore può comportare costi di archiviazione più elevati a causa dell'aumento delle transazioni di archiviazione.
 
 > [!NOTE]
-> Quando viene eseguito nei piani di consumo e Premium di funzioni di Azure, il controller di scalabilità di [funzioni di Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) eseguirà il polling di ogni controllo e coda di elementi di lavoro ogni 10 secondi. Questo polling aggiuntivo è necessario per determinare quando attivare le istanze delle app per le funzioni e prendere decisioni di scalabilità. Al momento della stesura di questa operazione, questo intervallo di 10 secondi è costante e non può essere configurato.
+> Quando viene eseguito nei piani di consumo e Premium di funzioni di Azure, il [controller di scalabilità di funzioni di Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) eseguirà il polling di ogni controllo e coda di elementi di lavoro ogni 10 secondi. Questo polling aggiuntivo è necessario per determinare quando attivare le istanze delle app per le funzioni e prendere decisioni di scalabilità. Al momento della stesura di questa operazione, questo intervallo di 10 secondi è costante e non può essere configurato.
 
 ## <a name="storage-account-selection"></a>Selezione dell'account di archiviazione
 
@@ -243,4 +243,4 @@ Se non si realizzano in valori di velocità effettiva previsti e l'uso della CPU
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare la prima funzione permanente in C#](durable-functions-create-first-csharp.md)
+> [Informazioni sul ripristino di emergenza e sulla distribuzione geografica](durable-functions-disaster-recovery-geo-distribution.md)

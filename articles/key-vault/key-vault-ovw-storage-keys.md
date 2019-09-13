@@ -6,14 +6,14 @@ services: key-vault
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/01/2019
-ms.openlocfilehash: 251a7c21b671052a23f6ee18cb4278737464b25c
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 86ac58aea174ca05580da99b6bde0cc3823ab151
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744878"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883069"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Gestire chiavi dell'account di archiviazione con Azure Key Vault e l'interfaccia della riga di comando di Azure 
 
@@ -45,7 +45,7 @@ Un tenant Azure AD fornisce a ogni applicazione registrata un' [entità servizio
 
 Key Vault è un'applicazione Microsoft già registrata in tutti i tenant di Azure AD. Il Key Vault viene registrato con lo stesso ID applicazione e all'interno di ogni cloud di Azure.
 
-| Tenant | Cloud | ID applicazione |
+| tenant | Cloud | ID applicazione |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Pubblico di Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |

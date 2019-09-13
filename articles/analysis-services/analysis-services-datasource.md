@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/10/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142551"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899421"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -23,18 +23,18 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 
 |Origine dati  |In memoria  |DirectQuery  |
 |---------|---------|---------|
-|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Yes      |    Yes      |
-|Azure SQL Data Warehouse     |   Yes      |   Yes       |
-|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Yes       |    No      |
-|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Yes       |    No      |
+|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Sì      |    Yes      |
+|Azure SQL Data Warehouse     |   Yes      |   Sì       |
+|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Sì       |    No      |
+|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Sì       |    No      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Yes        |  No        |
-|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Yes       |    No      |
+|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sì       |    No      |
 |Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Yes     |   No       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Yes       |   No       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sì       |   No       |
 ||||
 
 <a name="tab1400a">1</a> - Solo modelli tabulari 1400 e superiori.   
-<a name="azsqlmanaged">2</a> - Istanza gestita di database SQL di Azure è supportata. Poiché un'istanza gestita viene eseguita nella rete virtuale di Azure con un indirizzo IP privato, è necessario un gateway dati locale. Azure SQL istanza gestita di Database con un endpoint pubblico non è attualmente supportato.   
+<a name="azsqlmanaged">2</a> - Istanza gestita di database SQL di Azure è supportata. Poiché l'istanza gestita viene eseguita in Azure VNet con un indirizzo IP privato, è necessario abilitare l'endpoint pubblico nell'istanza. Se questa funzionalità non è abilitata, è necessario un gateway dati locale.    
 <a name="databricks">3</a> - Azure Databricks con il connettore Spark non è attualmente supportato.   
 <a name="gen2">4</a> - ADLS Gen2 non è attualmente supportato.
 
@@ -52,7 +52,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, provider Microsoft OLE DB per SQL Server, provider di dati .NET Framework per SQL Server | Provider di dati .NET Framework per SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, provider Microsoft OLE DB per SQL Server, provider di dati .NET Framework per SQL Server | Provider di dati .NET Framework per SQL Server |
-| Oracle | Provider OLE DB per Oracle, Provider di dati Oracle per .NET |Provider di dati Oracle per .NET |
+| Oracle | Provider di OLE DB per Oracle, Oracle provider di dati per .NET |Provider di dati Oracle per .NET |
 | Teradata |Provider OLE DB per Teradata, provider di dati Teradata per .NET |Provider di dati Teradata per .NET |
 | | | |
 
@@ -72,7 +72,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
 |Documento JSON<sup>[1](#tab1400b)</sup>     |  
 |Righe da file binario<sup>[1](#tab1400b)</sup>     | 
-|MySQL Database     | 
+|Database MySQL     | 
 |Feed OData<sup>[1](#tab1400b)</sup>     |  
 |Query ODBC     | 
 |OLE DB     |   
@@ -81,14 +81,14 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |Report Salesforce<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|Elenco di SharePoint<sup>[1](#tab1400b)</sup>, <sup> [2](#filesSP)</sup>     |   
+|Elenco SharePoint<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Database di Sybase     |  
 |File TXT  |
 |Tabella XML<sup>[1](#tab1400b)</sup>    |  
 ||
  
 <a name="tab1400b">1</a> - Solo modelli tabulari 1400 e superiori.   
-<a name="filesSP">2</a> -file in SharePoint locale non sono supportati.
+<a name="filesSP">2</a> -i file in SharePoint locale non sono supportati.
 
 ## <a name="specifying-a-different-provider"></a>Specificare un provider diverso
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: f7fc5b32fb18da60816056c72dde8c53d439befe
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d7cb473c54dc9cf735e43c65bc079fb4f21e4c97
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812183"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914000"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
 
@@ -26,6 +26,8 @@ In linea con la strategia Microsoft incentrata sul cloud, le funzionalità più 
 
 > [!NOTE]
 > Per un glossario di termini relativi al database SQL di Azure, vedere [Glossario dei termini relativi al database SQL](sql-database-glossary-terms.md)
+
+## <a name="deployment-models"></a>Modelli di distribuzione
 
 Per la distribuzione di un database SQL di Azure sono disponibili le opzioni seguenti:
 
@@ -43,7 +45,7 @@ Il database SQL offre prestazioni prevedibili con più tipi di risorse, livelli 
 ## <a name="scalable-performance-and-pools"></a>Prestazioni e pool scalabili
 
 Tutte le versioni del database SQL consentono di definire la quantità di risorse che verranno assegnate. 
-- I database singoli sono database isolati dagli altri e portatili, ognuno con una quantità garantita di risorse di calcolo, memoria e archiviazione. La quantità di risorse assegnata al database è dedicata a tale database e non verrà condivisa con altri database nel cloud di Azure. Offre inoltre la possibilità di ridimensionare in modo dinamico [le risorse di un database singolo](sql-database-single-database-scale.md) . Database singolo offre risorse di calcolo, memoria e archiviazione diverse per esigenze diverse che variano da 1 a 80 Vcore, da 32GB a 4 TB e così via. Il [livello di servizio con scalabilità](sql-database-service-tier-hyperscale.md) elevata per database singolo consente di scalare fino a 100 TB, con funzionalità di backup e ripristino rapide.
+- I database singoli sono database isolati dagli altri e portatili, ognuno con una quantità garantita di risorse di calcolo, memoria e archiviazione. La quantità di risorse assegnata al database è dedicata a tale database e non verrà condivisa con altri database nel cloud di Azure. Offre inoltre la possibilità di ridimensionare in modo dinamico [le risorse di un database singolo](sql-database-single-database-scale.md) . Database singolo offre risorse di calcolo, memoria e archiviazione diverse per esigenze diverse che variano da 1 a 80 Vcore, da 32GB a 4 TB e così via. Il [livello di servizio](sql-database-service-tier-hyperscale.md) con scalabilità elevata per database singolo consente di scalare fino a 100 TB, con funzionalità di backup e ripristino rapide.
 - Con i pool elastici è possibile assegnare le risorse che verranno condivise da tutti i database nel pool. È possibile creare un nuovo database o spostare i database singoli esistenti in un pool di risorse per massimizzare l'uso delle risorse e risparmiare denaro e la possibilità di ridimensionare in modo dinamico le [risorse del pool elastico](sql-database-elastic-pool-scale.md) .
 - Con le istanze gestite, ogni istanza è isolata dalle altre con risorse garantite. In un'istanza gestita i database dell'istanza condividono un set di risorse e la possibilità di [ridimensionare le risorse dell'istanza gestita](sql-database-managed-instance-resource-limits.md) aumentando e riducendo le prestazioni in modo dinamico.
 
@@ -51,11 +53,19 @@ Tutte le versioni del database SQL consentono di definire la quantità di risors
 
 La scalabilità dinamica è diversa dalla scalabilità automatica. Con la scalabilità automatica, un servizio viene ridimensionato automaticamente in base a vari criteri, mentre la scalabilità dinamica consente di gestire manualmente il ridimensionamento senza tempi di inattività. Un singolo database supporta la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più *automatica*, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database. Esistono comunque script utili per automatizzare la scalabilità per un database singolo. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un database singolo SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
-### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Modelli di acquisto, livelli di servizio, dimensioni di calcolo e spazi di archiviazione
+### <a name="purchasing-models"></a>Modelli di acquisto
 
 Il database SQL offre due modelli di acquisto:
-- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di Vcore, la quantità di memoria e la quantità e la velocità di archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per un risparmio in termini di costi. Per altre informazioni su Vantaggio Azure Hybrid, vedere le [domande frequenti](#sql-database-frequently-asked-questions-faq).
+- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di Vcore, la quantità di memoria e la quantità e la velocità di archiviazione. Il modello di acquisto basato su vCore consente anche di usare **[vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/)** per ottenere risparmi sui costi. Per altre informazioni su Vantaggio Azure Hybrid, vedere le [domande frequenti](#sql-database-frequently-asked-questions-faq).
 - Il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) offre un insieme di risorse di calcolo, memoria e risorse di I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti. Le dimensioni di calcolo di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
+- [Modello senza server](sql-database-serverless.md) che consente di ridimensionare automaticamente le risorse di calcolo in base alla domanda del carico di lavoro e alle fatture per la quantità di calcolo usata al secondo. Il livello di calcolo senza server inoltre sospende automaticamente i database durante i periodi di inattività quando viene addebitata solo l'archiviazione e riprende automaticamente i database quando l'attività restituisce.
+
+### <a name="service-tiers"></a>Livelli di servizio
+
+Il database SQL di Azure offre tre livelli di servizio progettati per diversi tipi di applicazioni:
+- Livello di servizio [per utilizzo generico/standard](sql-database-service-tier-general-purpose.md) progettato per i carichi di lavoro comuni. Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.
+- Livello di servizio [business critical/Premium](sql-database-service-tier-business-critical.md) progettato per le applicazioni OLTP con frequenza di transazioni elevata e i/o con latenza più bassa. Offre massima resilienza agli errori tramite diverse repliche isolate.
+- Livello di servizio con [Iperscalabilità](sql-database-service-tier-hyperscale.md) progettato per database OLTP di grandi dimensioni e la possibilità di ridimensionare automaticamente le risorse di calcolo e ridimensionare l'archiviazione. 
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 

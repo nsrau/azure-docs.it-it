@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 7dd3c3904115db4fa3978f39b86023bf9fb0805c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 5671c3e36a49680b72b1f7b138cbd6e9c0bc4313
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390056"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914857"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Anteprima: ridimensiona automaticamente un cluster per soddisfare le richieste dell'applicazione in Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ Questo articolo richiede la versione 2.0.65 o successiva dell'interfaccia della 
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-Per usare il servizio di scalabilità automatica del cluster, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.4 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la disponibilità di eventuali aggiornamenti tramite il comando [AZ Extension Update][az-extension-update] :
+Per usare il servizio di scalabilità automatica del cluster, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.12 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la disponibilità di eventuali aggiornamenti tramite il comando [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -90,7 +90,7 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --enable-vmss \
+  --vm-set-type VirtualMachineScaleSets \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3

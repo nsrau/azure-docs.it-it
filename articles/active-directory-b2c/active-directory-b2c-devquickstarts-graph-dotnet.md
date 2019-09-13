@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 88b1d05a47f4a8267ab936a922ac190a925bd5ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11a9fc521a7b17ae0ff2f579f173f4d43383bdd5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510193"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880099"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Usare l'API Graph di Azure AD
 
@@ -42,13 +42,15 @@ Dopo aver creato un tenant B2C, è necessario registrare l'applicazione usando i
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere il tenant di Azure AD B2C selezionando l'account nell'angolo superiore destro della pagina.
-3. Nel riquadro di spostamento sinistro scegliere **Tutti i servizi**, fare clic su **Registrazioni per l'app** e quindi su **Aggiungi**.
+3. Nel riquadro di spostamento a sinistra scegliere **tutti i servizi**, fare clic su registrazioni per l' **app**e quindi su **nuova registrazione**.
 4. Seguire le istruzioni e creare una nuova applicazione. 
-    1. Selezionare **App Web/API** come Tipo di applicazione.    
-    2. Fornire **qualsiasi URL Sign-on** (ad esempio `https://B2CGraphAPI`) perché non è rilevante per questo esempio.  
+    1. Aggiungere un nome appropriato
+    2. Seleziona gli **account solo in questa directory organizzativa**
+    3. Selezionare **Web** come tipo di applicazione e specificare **un URL di accesso** , ad esempio `https://B2CGraphAPI`, perché non è pertinente per questo esempio.  
+    4. Fare clic su Registra.
 5. L'applicazione verrà mostrata nell'elenco delle applicazioni, fare clic su di essa per ottenere l'**ID applicazione** (noto anche come ID Client). Copiarlo in quanto sarà necessario in una sezione successiva.
-6. Nel menu Impostazioni fare clic su **Chiavi**.
-7. Nella sezione **Password** immettere la descrizione della chiave e selezionare una durata e quindi fare clic su **Salva**. Copiare il valore della chiave (noto anche come segreto client) per usarlo in una sezione successiva.
+6. Scegliere **certificati & segreti**dal menu impostazioni.
+7. Nella sezione **segreti client** fare clic su **nuovo segreto client**, specificare una descrizione per il segreto e selezionare una durata, quindi fare clic su **Aggiungi**. Copiare il valore del segreto (noto anche come segreto client) per l'uso in una sezione successiva.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configurare le autorizzazioni creare, leggere e aggiornare per l'applicazione
 A questo punto è necessario configurare l'applicazione per ottenere tutte le autorizzazioni necessarie per creare, leggere, aggiornare ed eliminare gli utenti.
@@ -284,7 +286,7 @@ B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 
 Esaminare il metodo `B2CGraphClient.SendGraphPatchRequest(...)` per informazioni dettagliate su come inviare la richiesta.
 
-### <a name="search-users"></a>Cercare gli utenti
+### <a name="search-users"></a>Cerca utenti
 È possibile cercare gli utenti nel tenant di B2C in due modi: con l'ID oggetto dell'utente oppure con l'identificatore di accesso dell'utente, ovvero la proprietà `signInNames`.
 
 Eseguire uno dei comandi seguenti per cercare un utente specifico:

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2019
 ms.author: mlottner
-ms.openlocfilehash: a8f751d0a40a8d8e1555549c200a9a7ca8ef0661
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600618"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933893"
 ---
 # <a name="security-agent-event-aggregation"></a>Aggregazione di eventi dell'agente di sicurezza
 
@@ -28,7 +28,7 @@ Il Centro sicurezza di Azure per gli agenti di sicurezza Internet raccoglie i da
 
 Per ridurre la quota e i costi aggiuntivi mantenendo protetti i dispositivi, il Centro sicurezza di Azure per gli agenti Internet aggrega questi tipi di eventi.
 
-L'aggregazione di eventi è **attivata** per impostazione predefinita e, sebbene non consigliata, può essere disattivata **manualmente in qualsiasi** momento.
+L'aggregazione di eventi è **attivata** per impostazione predefinita e, sebbene non consigliata, può essere **disattivata manualmente in qualsiasi** momento.
 
 L'aggregazione è attualmente disponibile per i tipi di eventi seguenti:
 * ProcessCreate
@@ -36,7 +36,7 @@ L'aggregazione è attualmente disponibile per i tipi di eventi seguenti:
 * ProcessTerminate (solo Windows)
 
 ## <a name="how-does-event-aggregation-work"></a>Funzionamento dell'aggregazione di eventi
-Quando **viene lasciata**l'aggregazione di eventi, il Centro sicurezza di Azure per gli agenti degli eventi aggrega gli eventi per il periodo intervallo o l'intervallo di tempo.
+Quando viene lasciata l' **aggregazione di eventi**, il Centro sicurezza di Azure per gli agenti degli eventi aggrega gli eventi per il periodo intervallo o l'intervallo di tempo.
 Una volta trascorso il periodo di intervallo, l'agente invia gli eventi aggregati al cloud di Azure per un'ulteriore analisi.
 Gli eventi aggregati vengono archiviati in memoria fino a quando non vengono inviati al cloud di Azure.
 
@@ -59,6 +59,7 @@ Dopo l'analisi, il Centro sicurezza di Azure per le cose crea avvisi di sicurezz
 
 L'ora di inizio dell'aggregazione, l'ora di fine e il numero di passaggi per ogni evento vengono registrati nel campo relativo ai **Dettagli** dell'evento all'interno log Analytics da usare durante le indagini. 
 
+Ogni evento aggregato rappresenta un periodo di 24 ore di avvisi raccolti. Utilizzando il menu Opzioni evento nell'angolo superiore sinistro di ogni evento, è possibile **ignorare** ogni singolo evento aggregato.    
 
 ## <a name="event-aggregation-twin-configuration"></a>Configurazione dell'aggregazione di eventi gemelli
 Apportare modifiche alla configurazione del Centro sicurezza di Azure per l'aggregazione di eventi Internet nell' [oggetto di configurazione dell'agente](how-to-agent-configuration.md) dell'identità del modulo gemello del modulo **azureiotsecurity** .

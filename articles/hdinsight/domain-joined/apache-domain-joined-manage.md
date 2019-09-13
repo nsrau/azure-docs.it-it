@@ -4,16 +4,16 @@ description: Informazioni su come gestire i cluster HDInsight di Azure con Enter
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: acf11b8107855c6f087f63f592cdbbad3766795e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e5062ce27e1e9367a262d263070ab01f899dfc54
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811032"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918889"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gestire i cluster HDInsight con Enterprise Security Package
 Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e su come gestire i cluster ESP.
@@ -34,7 +34,7 @@ Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e 
    
 3. È possibile visualizzare un cluster collegato usando il comando **List cluster** (Elenca cluster). È ora possibile inviare uno script al cluster collegato.
 
-   ![cluster collegato](./media/apache-domain-joined-manage/linked-cluster.png "cluster collegato")
+   ![cluster collegato](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "cluster collegato")
 
 4. È anche possibile scollegare un cluster immettendo **HDInsight: Unlink a cluster** (HDInsight: Scollega un cluster) nel riquadro comandi.
 
@@ -60,7 +60,7 @@ Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e 
 
 4. È inoltre possibile scollegare un cluster in **Azure Explorer** (Esplora Azure).
    
-   ![IntelliJ del cluster scollegato](./media/apache-domain-joined-manage/unlink.png)
+   ![IntelliJ del cluster scollegato](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Usare Eclipse per collegarsi a un cluster aggiunto al dominio
 
@@ -71,7 +71,7 @@ Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e 
 
 2. Immettere i valori nei campi **Cluster Name** (Nome cluster), **User Name** (Nome utente) e **Password** e quindi fare clic su OK per collegare il cluster. Facoltativamente, immettere l'account di archiviazione e la chiave di archiviazione e quindi selezionare il contenitore di archiviazione per Storage Explorer in modo da usare la visualizzazione struttura ad albero a sinistra.
    
-   ![finestra di dialogo collega cluster Eclipse](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![finestra di dialogo collega cluster Eclipse](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
    
    > [!NOTE]  
    > Vengono usati la chiave di archiviazione, il nome utente e la password collegati se il cluster ha eseguito l'accesso alla sottoscrizione di Azure e ha collegato un cluster.
@@ -83,7 +83,7 @@ Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e 
 
 4. È inoltre possibile scollegare un cluster in **Azure Explorer** (Esplora Azure).
    
-   ![Eclipse del cluster scollegato](./media/apache-domain-joined-manage/unlink.png)
+   ![Eclipse del cluster scollegato](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>Accedere al cluster con il pacchetto di sicurezza aziendale.
 

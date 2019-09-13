@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: d41d671cf773bdab20c3f105c7d1abb6c7bde840
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 66e0654162d3d0ac68d8fc1622358b36268569cf
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810242"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916507"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architettura di Apache Hadoop in Azure HDInsight
 
@@ -45,7 +45,7 @@ I NodeManager eseguono le attività che costituiscono l'applicazione, quindi seg
 
 Tutti i tipi di cluster HDInsight distribuiscono YARN. Il ResourceManager viene distribuito per la disponibilità elevata con un'istanza primaria e secondaria, che vengono eseguite rispettivamente nel primo e nel secondo nodo head all'interno del cluster. È attiva una sola istanza del ResourceManager alla volta. Le istanze di NodeManager vengono eseguite sui nodi di lavoro disponibili nel cluster.
 
-![YARN in HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
+![YARN in HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,27 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: bd5ec1e75fa1669b0ca33e4cb4629793b09a9bad
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ddfe5c855b6cd0171494f1af20dc5eb4ae571a6e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036131"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918987"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
 Questo articolo elenca i partner del desktop virtuale di Windows in ordine alfabetico.
-
-## <a name="active-cypher"></a>Cypher attivo
-
-![Logo di crittografia attivo](./media/partners/active-cypher.png)
-
-Active Cypher è un provider di servizi a valore aggiunto per desktop virtuale di Windows che lo dota di tecnologia di crittografia per aiutare a proteggere l'organizzazione da violazioni e perdite di dati. Con la crittografia attiva, la tecnologia di crittografia innovativa supporta la strategia di protezione file complessiva per l'esecuzione di desktop virtuali Windows in Azure.
-
-Se usato con desktop virtuale Windows, il Cypher attivo fornisce funzionalità aggiuntive per consentire l'accessibilità e la mobilità dei dati degli utenti, impedendo la perdita accidentale di dati. Con il Cypher attivo, i criteri di sicurezza del gruppo e le autorizzazioni esistenti in Azure Information Protection possono essere sfruttati per crittografare i file utente quando si usa desktop virtuale di Windows.
-
-- [Vedere la breve soluzione congiunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oNLu)
-- [Accedere al sito Web del partner.](https://activecypher.com/)
 
 ## <a name="cloudjumper"></a>CloudJumper
 

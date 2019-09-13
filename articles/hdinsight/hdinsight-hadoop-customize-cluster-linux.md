@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: c6f55b40b3ee077b81a3cdd6f3add7a2cad23f95
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 226a3b0ffa4b770d1738e69fd04592476b9f4075
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809933"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935237"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster HDInsight di Azure usando azioni script
 
@@ -165,11 +165,11 @@ In questa sezione vengono illustrate le diverse modalità d'uso delle azioni scr
 
 3. Nella sezione __Impostazioni avanzate__ selezionare __Azioni script__. Nella sezione __Azioni script__ selezionare __+ Invia nuova__.
 
-    ![Inviare una nuova azione script](./media/hdinsight-hadoop-customize-cluster-linux/add-script-action.png)
+    ![Inviare una nuova azione script](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
 
 4. Usare la voce __Seleziona uno script__ per selezionare uno script pronto. Per usare uno script personalizzato, selezionare __Personalizzato__. Specificare quindi __Nome__ e __URI script Bash__ per lo script.
 
-    ![Aggiungere uno script nel modulo di selezione script](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![Aggiungere uno script nel modulo di selezione script](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     La tabella seguente illustra gli elementi nel modulo:
 
@@ -185,7 +185,7 @@ In questa sezione vengono illustrate le diverse modalità d'uso delle azioni scr
 
 5. Selezionare __Crea__ per salvare lo script. È quindi possibile usare __+ Invia nuovo__ per aggiungere un altro script.
 
-    ![Azioni script multiple](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts.png)
+    ![Azioni script multiple](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
     Dopo aver completato l'aggiunta degli script, selezionare il pulsante __Seleziona__ e quindi il pulsante __Avanti__ per tornare alla sezione __Riepilogo del cluster__.
 
@@ -251,7 +251,7 @@ Accedere al [portale di Azure](https://portal.azure.com):
 
 4. Usare la voce __Seleziona uno script__ per selezionare uno script pronto. Per usare uno script personalizzato, selezionare __Personalizzato__. Specificare quindi __Nome__ e __URI script Bash__ per lo script.
 
-    ![Aggiungere uno script nel modulo di selezione script](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![Aggiungere uno script nel modulo di selezione script](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     La tabella seguente illustra gli elementi nel modulo:
 
@@ -356,7 +356,7 @@ Per un esempio dell'uso di .NET SDK per applicare script a un cluster, vedere [A
 
 6. È anche possibile selezionare i puntini di sospensione **...** a destra delle voci nella sezione Azioni script per eseguire azioni.
 
-    ![Azioni script, puntini di sospensione](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
+    ![Azioni script, puntini di sospensione](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -438,11 +438,11 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 2. Nella barra nella parte superiore della pagina fare clic sulla voce **ops**. Viene visualizzato un elenco delle operazioni correnti e precedenti eseguite nel cluster tramite Ambari.
 
-    ![Barra nell'interfaccia utente di Ambari con selezionato ops](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+    ![Barra nell'interfaccia utente di Ambari con selezionato ops](./media/hdinsight-hadoop-customize-cluster-linux/hdi-apache-ambari-nav.png)
 
 3. Trovare le voci con **run\_customscriptaction** nella colonna **Operations**. Queste voci vengono create quando si eseguono le azioni script.
 
-    ![Schermata delle operazioni](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+    ![Schermata delle operazioni](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
     Selezionare la voce **run\customscriptaction** ed eseguire il drill-down dei collegamenti per visualizzare l'output di **STDOUT** e **STDERR**. Questo output viene generato all'esecuzione dello script e potrebbe contenere informazioni utili.
 
@@ -452,7 +452,7 @@ Se la creazione del cluster non riesce a causa di un errore nello script, i log 
 
 * I log di archiviazione sono disponibili in `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    ![Script per log delle azioni](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![Script per log delle azioni](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     In questa directory i log sono organizzati per **nodi head**, **nodi di lavoro** e **nodi Zookeeper**. Vedere gli esempi seguenti:
 
@@ -520,4 +520,4 @@ Sussistono due eccezioni:
 * [Installare e usare Apache Giraph in cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md) (Aggiungere altra memoria a un cluster HDInsight)
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png "Fasi durante la creazione di un cluster"

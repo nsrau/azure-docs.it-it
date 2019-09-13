@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 1820c31053c13a0f3039812b31df415bc9fa4fdc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314911"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910369"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
 
@@ -131,7 +131,7 @@ Concetti importanti in Criteri di Azure
 
 - Un' **assegnazione** è un'applicazione di un'iniziativa o un criterio a un ambito specifico (gruppo di gestione, sottoscrizione e così via) 
 
-In Centro sicurezza è presente un'iniziativa integrata che include tutti i criteri di sicurezza relativi. Per valutare i criteri del Centro sicurezza nelle risorse di Azure, è necessario creare un'assegnazione nel gruppo di gestione o la sottoscrizione da valutare.  
+In Centro sicurezza è presente un'iniziativa integrata che include tutti i criteri di sicurezza relativi. Per valutare i criteri del Centro sicurezza nelle risorse di Azure, è necessario creare un'assegnazione nel gruppo di gestione o la sottoscrizione da valutare.
 
 Nell'iniziativa integrata sono presenti tutti i criteri del Centro sicurezza abilitati per impostazione predefinita. È possibile scegliere di disabilitare determinati criteri dall'iniziativa integrata, ad esempio è possibile applicare tutti i criteri del Centro sicurezza, ad eccezione del **firewall delle applicazioni Web**, modificando il valore del parametro di effetto dei criteri su **Disabled**. 
 
@@ -228,9 +228,9 @@ Questo esempio illustra come rimuovere un'assegnazione:
 |Aggiornamenti del sistema |Monitora gli aggiornamenti di sistema mancanti nel Centro sicurezza di Azure |systemUpdatesMonitoringEffect|
 |Crittografia di archiviazione |Controlla crittografia BLOB mancante per gli account di archiviazione |storageEncryptionMonitoringEffect|
 |Accesso alla rete JIT |Monitora i possibili accessi JIT alla rete nel Centro sicurezza di Azure |jitNetworkAccessMonitoringEffect |
-|Controlli delle applicazioni adattivi |Monitora il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure |adaptiveApplicationControlsMonitoringEffect|
+|Controlli applicazione adattivi |Monitora il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure |adaptiveApplicationControlsMonitoringEffect|
 |Gruppi di sicurezza di rete |Monitora gli accessi di rete permissivi nel Centro sicurezza di Azure |networkSecurityGroupsMonitoringEffect| 
-|Configurazioni di sicurezza |Monitora le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
+|Configurazioni della sicurezza |Monitora le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
 |Endpoint Protection |Monitora server senza Endpoint Protection nel Centro sicurezza di Azure |endpointProtectionMonitoringEffect |
 |Crittografia del disco |Monitora i dischi di macchine virtuali non crittografati nel Centro sicurezza di Azure |diskEncryptionMonitoringEffect|
 |Valutazione della vulnerabilità |Monitorare le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure |vulnerabilityAssessmentMonitoringEffect|

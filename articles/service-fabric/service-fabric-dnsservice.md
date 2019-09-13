@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: 94b2b807eb68d628165ca8fa4011b8f3e41d3c6d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 123e63fb79ba966e4e17b0c55440049a79add905
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599639"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931178"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servizio DNS in Azure Service Fabric
 Il servizio DNS è un servizio di sistema facoltativo che è possibile abilitare nel cluster per individuare altri servizi usando il protocollo DNS. 
@@ -179,7 +179,7 @@ Le query DNS che usano come destinazione una partizione vengono formattate come 
 Dove:
 
 - *First-Label-Of-Partitioned-Service-DNSName* è la prima parte del nome DNS del servizio.
-- *artitionPrefix* è un valore che può essere impostato nella sezione DnsService del manifesto del cluster o tramite il modello di Resource Manager del cluster. Il valore predefinito è "-". Per altre informazioni, vedere [Impostazioni del servizio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *artitionPrefix* è un valore che può essere impostato nella sezione DnsService del manifesto del cluster o tramite il modello di Resource Manager del cluster. Il valore predefinito è "--". Per altre informazioni, vedere [Impostazioni del servizio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-Partition-Name* è il nome della partizione. 
 - *PartitionSuffix* è un valore che può essere impostato nella sezione DnsService del manifesto del cluster o tramite il modello di Resource Manager del cluster. Il valore predefinito è una stringa vuota. Per altre informazioni, vedere [Impostazioni del servizio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Remaining-Partitioned-Service-DNSName* è la parte rimanente del nome DNS del servizio.

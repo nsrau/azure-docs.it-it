@@ -4,20 +4,20 @@ description: Informazioni sull'indicizzazione in Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: c8e21ea89f3e23709d636ab8af4716bff76d7217
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 4d961f8635a52a09011543b793ce8a87eaa4ea9e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479282"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914203"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indicizzazione in Azure Cosmos DB-Panoramica
 
 Azure Cosmos DB è un database indipendente dallo schema che consente di eseguire l'iterazione dell'applicazione senza dover gestire lo schema o la gestione degli indici. Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente ogni proprietà per tutti gli elementi nel [contenitore](databases-containers-items.md#azure-cosmos-containers) senza dover definire alcuno schema o configurare indici secondari.
 
-Lo scopo di questo articolo è spiegare come Azure Cosmos DB indicizza i dati e come vengono usati gli indici per migliorare le prestazioni di esecuzione delle query. È consigliabile eseguire questa sezione prima di esplorare come personalizzare i [criteri](index-policy.md)di indicizzazione.
+Lo scopo di questo articolo è spiegare come Azure Cosmos DB indicizza i dati e come vengono usati gli indici per migliorare le prestazioni di esecuzione delle query. È consigliabile eseguire questa sezione prima di esplorare come personalizzare i criteri di [indicizzazione](index-policy.md).
 
 ## <a name="from-items-to-trees"></a>Da elementi a alberi
 
@@ -25,6 +25,7 @@ Ogni volta che un elemento viene archiviato in un contenitore, il relativo conte
 
 Si consideri ad esempio questo elemento:
 
+```json
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -36,6 +37,7 @@ Si consideri ad esempio questo elemento:
             { "city": "Athens" }
         ]
     }
+```
 
 Verrà rappresentato dall'albero seguente:
 
@@ -70,13 +72,13 @@ Il tipo di indice di **intervallo** viene usato per:
 
     ```sql
    SELECT * FROM container c WHERE c.property = 'value'
-    ```
+   ```
 
 - Query di intervallo:
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
-   ``` 
+   ```
   (funziona per `>`, `<`, `>=`, `<=`, )`!=`
 
 - `ORDER BY`query
@@ -107,15 +109,27 @@ Il tipo di indice **spaziale** viene usato per:
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
-Gli indici spaziali possono essere usati in oggetti [GeoJSON](geospatial.md) formattati correttamente. Punti, oggetti LineString e poligoni sono attualmente supportati.
+Gli indici spaziali possono essere usati in oggetti [GeoJSON](geospatial.md) formattati correttamente. Punti, oggetti LineString, poligoni e multipoligoni sono attualmente supportati.
 
-Il tipo di indice composito viene usato per:
+Il tipo di indice **composito** viene usato per:
 
-- `ORDER BY`query su più proprietà: 
+- `ORDER BY`query su più proprietà:
 
-   ```sql
-   SELECT * FROM container c ORDER BY c.firstName, c.lastName
-   ```
+```sql
+ SELECT * FROM container c ORDER BY c.property1, c.property2
+```
+
+- Esegue una query con un `ORDER BY`filtro e un oggetto. Queste query possono utilizzare un indice composto se la proprietà Filter viene aggiunta alla `ORDER BY` clausola.
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
+```
+
+- Esegue una query con un filtro su due o più proprietà in cui almeno una proprietà è un filtro di uguaglianza
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
+```
 
 ## <a name="querying-with-indexes"></a>Esecuzione di query con indici
 
@@ -126,7 +140,7 @@ Si consideri, ad esempio, `SELECT location FROM location IN company.locations WH
 ![Corrispondenza di un percorso specifico all'interno di un albero](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Una `ORDER BY` clausola che ordina in base a una singola proprietà necessita *sempre* di un indice di intervallo e avrà esito negativo se il percorso a cui fa riferimento non ne ha uno. In modo analogo `ORDER BY` , una query multifunzione necessita *sempre* di un indice composto.
+> Una `ORDER BY` clausola che ordina in base a una singola proprietà necessita *sempre* di un indice di intervallo e avrà esito negativo se il percorso a cui fa riferimento non ne ha uno. Analogamente, `ORDER BY` una query che ordina in base a più proprietà necessita *sempre* di un indice composto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

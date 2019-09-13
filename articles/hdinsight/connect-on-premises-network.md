@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404538"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918562"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -67,11 +67,11 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
   
 2. Dal menu a sinistra passare a **+ Crea una risorsa** > **calcolo** > **Ubuntu server 18,04 LTS**.
 
-    ![Creare una macchina virtuale Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![Creare una macchina virtuale Ubuntu](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
 3. Nella scheda __Informazioni di base__ immettere le informazioni seguenti:  
   
-    | Campo | Valore |
+    | Campo | Value |
     | --- | --- |
     |Sottoscrizione |Selezionare la sottoscrizione appropriata.|
     |Gruppo di risorse |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|
@@ -84,7 +84,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
     |Password o chiave pubblica SSH | Il campo disponibile è determinato dall'opzione selezionata per **Tipo di autenticazione**.  Immettere il valore appropriato.|
     |Porte in ingresso pubbliche|Selezionare **Consenti porte selezionate**. Selezionare quindi **SSH (22)** nell'elenco a discesa **selezionare le porte in ingresso** .|
 
-    ![Configurazione di base della macchina virtuale](./media/connect-on-premises-network/vm-basics.png)
+    ![Configurazione di base della macchina virtuale](./media/connect-on-premises-network/virtual-machine-basics.png)
 
     Per le altre voci lasciare i valori predefiniti e quindi selezionare la scheda **Rete**.
 
@@ -109,7 +109,7 @@ Dopo aver creato la macchina virtuale, si riceverà una notifica contenente il m
 
 2. Prendere nota dei valori specificati per **ETICHETTA INDIRIZZO IP PUBBLICO/NOME DNS** e **INDIRIZZO IP PRIVATO** per usarli in seguito.
 
-   ![Indirizzi IP pubblico e privato](./media/connect-on-premises-network/vm-ip-addresses.png)
+   ![Indirizzi IP pubblico e privato](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Installare e configurare Bind (software DNS)
 

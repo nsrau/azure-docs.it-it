@@ -8,12 +8,12 @@ services: iot-pnp
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: yahajiza
-ms.openlocfilehash: ec36bef9c2b65a5c88a52621bbf3a1db708c235c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 1b71d8bd0f0417c7dc408c580a1c73ac654743ce
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880501"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932866"
 ---
 # <a name="manage-models-in-the-repository"></a>Gestire i modelli nel repository
 
@@ -30,7 +30,7 @@ Sono disponibili tre strumenti che è possibile usare per gestire il repository:
 Esistono due tipi di repository di modelli per l'archiviazione di modelli e interfacce per le funzionalità dei dispositivi:
 
 - È disponibile un unico _repository pubblico_ che archivia i modelli e le interfacce di funzionalità del dispositivo per i dispositivi nel catalogo dei dispositivi [Azure Certified per](https://aka.ms/iotdevcat)Internet. Questo repository archivia anche le [interfacce comuni](./concepts-common-interfaces.md) e [DCMS e le interfacce pubblicate dai partner Microsoft](./howto-onboard-portal.md). Per informazioni su come certificare un dispositivo e aggiungere il modello di funzionalità del dispositivo al repository pubblico, vedere l'esercitazione [certificare il dispositivo Plug and Play](./tutorial-certification-test.md).
-- Sono presenti più _repository aziendali_. Un repository aziendale viene creato automaticamente per l'organizzazione quando si esegue l'onboarding nel [portale Azure Certified for](./howto-onboard-portal.md)Internet. È possibile usare il repository aziendale per archiviare i modelli e le interfacce di funzionalità del dispositivo durante le fasi di sviluppo e test.
+- Sono presenti più _repository aziendali_. Un repository aziendale viene creato automaticamente per l'organizzazione quando si esegue [l'onboarding nel portale Azure Certified for](./howto-onboard-portal.md)Internet. È possibile usare il repository aziendale per archiviare i modelli e le interfacce di funzionalità del dispositivo durante le fasi di sviluppo e test.
 
 ## <a name="azure-certified-for-iot-portal"></a>Portale Azure Certified per le cose
 
@@ -41,7 +41,7 @@ Nel [portale di Azure Certified per](https://preview.catalog.azureiotsolutions.c
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure fornisce comandi per la gestione di modelli e interfacce per le funzionalità dei dispositivi nei repository Plug and Play pubblici e dei modelli aziendali.
+L'interfaccia della riga di comando di Azure fornisce comandi per la gestione di modelli e interfacce per le funzionalità dei dispositivi nei repository Plug and Play pubblici e dei modelli aziendali. Per altre informazioni, vedere la Guida alle procedure per l' [installazione e l'uso dell'estensione Azure per l'interfaccia della](./howto-install-pnp-cli.md) riga di comando di Azure.
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -49,7 +49,7 @@ Per aprire la vista del **repository di modelli** in Visual Studio Code.
 
 1. Aprire Visual Studio Code, premere **CTRL + MAIUSC + P**, digitare e selezionare **plug and Play: Aprire il repository**del modello.
 
-1. È possibile scegliere di **aprire il repository del modello pubblico** o **aprire il repository del modello aziendale**. Per il repository del modello aziendale, è necessario immettere la stringa di connessione del repository del modello. Questa stringa di connessione è reperibile nel [portale di Azure Certified per](https://preview.catalog.azureiotsolutions.com) l'uso nella scheda **stringhe di connessione** per il **repository aziendale**.
+1. È possibile scegliere di **aprire il repository del modello pubblico** o **aprire il repository del modello aziendale**. Per il repository del modello aziendale, è necessario immettere la stringa di connessione del repository del modello. Questa stringa di connessione è reperibile nel [portale Microsoft Azure Certified per IoT](https://preview.catalog.azureiotsolutions.com) nella scheda **Stringhe di connessione** per il **repository aziendale**.
 
 1. Una nuova scheda apre la visualizzazione del **repository del modello** .
 

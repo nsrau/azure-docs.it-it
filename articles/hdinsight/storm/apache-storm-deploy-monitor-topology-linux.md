@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: ac1a4c77589f4ef88c9ee862cb871b376ca8a0fe
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c219c85836eb4730fa90918385555c433a12449
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483845"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915075"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuire e gestire le topologie Apache Storm su Azure HDInsight 
 
@@ -21,12 +21,12 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster di Apache Storm in HDInsight. Visualizzare [creare Apache cluster Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **Storm** per **tipo di Cluster**.
+* Un cluster Apache Storm in HDInsight. Consultare [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **Storm** per **Tipo di cluster**.
 
 
-* (Facoltativo) Familiarità con SSH e SCP: Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Opzionale Familiarità con SSH e SCP: Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Facoltativo) Visual Studio: Azure SDK 2.5.1 o versione successiva e Data Lake Tools per Visual Studio. Per altre informazioni, vedere [Introduzione all'uso di Data Lake Tools per Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* Opzionale Visual Studio: Azure SDK 2.5.1 o versione successiva e Data Lake Tools per Visual Studio. Per altre informazioni, vedere [Introduzione all'uso di Data Lake Tools per Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     Una delle seguenti versioni di Visual Studio:
 
@@ -54,7 +54,7 @@ HDInsight Tools consente di inviare topologie C# o ibride al cluster Storm. Nei 
 
 3. Nella finestra di dialogo **Nuovo progetto** espandere **Installato** > **Modelli** e quindi selezionare **HDInsight**. Dall'elenco dei modelli selezionare **Storm Sample**. Nella parte inferiore della finestra di dialogo digitare un nome per l'applicazione.
 
-    ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![image](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
 4. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e selezionare **Submit to Storm on HDInsight**.
 
@@ -90,7 +90,7 @@ HDInsight Tools consente di inviare topologie C# o ibride al cluster Storm. Nei 
 
 Dopo che la topologia è stata inviata con Visual Studio, verrà visualizza la vista relativa alle **topologie Storm**. Per visualizzare informazioni sulla topologia in esecuzione, selezionarla dall'elenco.
 
-![monitor Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
+![monitor Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]  
 > È possibile visualizzare **Storm Topologies** anche da **Esplora server**, espandendo **Azure** > **HDInsight** e quindi facendo clic su un cluster Storm in HDInsight e selezionando **View Storm Topologies**.
@@ -101,7 +101,7 @@ Selezionare la forma degli spout o dei bolt per visualizzare informazioni su que
 
 La disattivazione di una topologia comporta la sua sospensione finché non viene terminata o riattivata. Per eseguire queste operazioni, usare i pulsanti __Disattiva__ e __Riattiva__ nella parte superiore del __Topology Summary__ (Riepilogo topologia).
 
-### <a name="rebalance"></a>Ribilanciare
+### <a name="rebalance"></a>Ribilancia
 
 Il ribilanciamento di una topologia consente al sistema di analizzare il parallelismo della topologia. Ad esempio, se il cluster è stato ridimensionato per aggiungere altre note, il ribilanciamento consente a una topologia di visualizzare i nuovi nodi.
 
@@ -209,7 +209,7 @@ Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfacci
 
 ### <a name="base-uri"></a>URI di base
 
-L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibile nel nodo head in **https:\//HEADNODEFQDN:8744/api/v1/** . Il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
+L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibile nel nodo Head all'indirizzo **https:\//HEADNODEFQDN: 8744/API/V1/** . Il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
 
 È possibile trovare il nome di dominio completo (FQDN) per il nodo head del cluster in diversi modi:
 

@@ -4,18 +4,333 @@ description: Informazioni su come gestire i criteri di indicizzazione in Azure C
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: a6c1ec6d58939336fb8a982e3ab1b9be20d4e0a5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: ede4266457aaa76bdd9f1141df5c2981bb722326
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172159"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915913"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
 
-In Azure Cosmos DB, i dati vengono indicizzati seguendo i [criteri di indicizzazione](index-policy.md) definiti per ogni contenitore. I criteri di indicizzazione predefiniti per i contenitori appena creati applicano indici di intervallo per qualsiasi stringa o numero e indici spaziali per qualsiasi oggetto GeoJSON di tipo Point. Questi criteri possono essere sottoposti a override:
+In Azure Cosmos DB, i dati vengono indicizzati seguendo i [criteri di indicizzazione](index-policy.md) definiti per ogni contenitore. I criteri di indicizzazione predefiniti per i contenitori appena creati applicano gli indici di intervallo per qualsiasi stringa o numero. Questo criterio può essere sostituito con i criteri di indicizzazione personalizzati.
+
+## <a name="indexing-policy-examples"></a>Esempi di criteri di indicizzazione
+
+Di seguito sono riportati alcuni esempi di criteri di indicizzazione visualizzati nel formato JSON, ovvero come sono presentati nel portale di Azure. Gli stessi parametri possono essere impostati tramite l'interfaccia della riga di comando di Azure o qualsiasi SDK.
+
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Criteri di esclusione per escludere in modo selettivo alcuni percorsi delle proprietà
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*"
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/path/to/single/excluded/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/excluded/properties/*"
+            }
+        ]
+    }
+```
+
+Questo criterio di indicizzazione è equivalente a quello riportato di seguito ```kind```, ```dataType```che imposta ```precision``` manualmente i valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number",
+                        "precision": -1
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String",
+                        "precision": -1
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/path/to/single/excluded/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/excluded/properties/*"
+            }
+        ]
+    }
+```
+
+### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Criteri di inclusione per includere in modo selettivo alcuni percorsi delle proprietà
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/path/to/included/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/included/properties/*"
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/*"
+            }
+        ]
+    }
+```
+
+Questo criterio di indicizzazione è equivalente a quello riportato di seguito ```kind```, ```dataType```che imposta ```precision``` manualmente i valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/path/to/included/property/?",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    }
+                ]
+            },
+            {
+                "path": "/path/to/root/of/multiple/included/properties/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/*"
+            }
+        ]
+    }
+```
+
+> [!NOTE] 
+> È in genere consigliabile usare un criterio di indicizzazione di **esclusione** per consentire ad Azure Cosmos DB di indicizzare in modo proattivo qualsiasi nuova proprietà che può essere aggiunta al modello.
+
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usare un indice spaziale solo in un percorso di proprietà specifico
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ],
+    "spatialIndexes": [
+        {
+            "path": "/path/to/geojson/property/?",
+            "types": [
+                "Point",
+                "Polygon",
+                "MultiPolygon",
+                "LineString"
+            ]
+        }
+    ]
+}
+```
+
+## <a name="composite-indexing-policy-examples"></a>Esempi di criteri di indicizzazione composti
+
+Oltre a includere o escludere i percorsi per le singole proprietà, è anche possibile specificare un indice composto. Se si desidera eseguire una query con una clausola `ORDER BY` per più proprietà, è obbligatorio un [indice composto](index-policy.md#composite-indexes) su queste proprietà. Inoltre, gli indici compositi avranno un vantaggio in materia di prestazioni per le query che hanno un filtro e hanno una clausola ORDER BY su proprietà diverse.
+
+### <a name="composite-index-defined-for-name-asc-age-desc"></a>Indice composto definito per (nome cres, età disc):
+
+```json
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+Per la query #1 e la #2 di query è necessario l'indice composto precedente per nome ed età:
+
+Query 1:
+
+```sql
+    SELECT *
+    FROM c
+    ORDER BY c.name ASC, c.age DESC
+```
+
+Query 2:
+
+```sql
+    SELECT *
+    FROM c
+    ORDER BY c.name DESC, c.age ASC
+```
+
+Questo indice composito trarrà vantaggio dalla #3 di query e #4 di query e ottimizza i filtri:
+
+#3 di query:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Tim"
+ORDER BY c.name DESC, c.age ASC
+```
+
+#4 di query:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Tim" AND c.age > 18
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Indice composto definito per (nome ASC, Age ASC) e (nome ASC, Age DESC):
+
+È possibile definire più indici composti differenti entro lo stesso criterio di indicizzazione.
+
+```json
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"ascending"
+                }
+            ],
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc"></a>Indice composto definito per (nome ASC, Age ASC):
+
+È facoltativo specificare l'ordine. Se non specificato, l'ordine è crescente.
+
+```json
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                },
+                {  
+                    "path":"/age",
+                }
+            ]
+        ]
+}
+```
+
+### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Escludere tutti i percorsi delle proprietà mantenendo però l'indicizzazione attiva
+
+Questo criterio può essere usato in situazioni in cui la funzionalità [Time-to-Live (TTL)](time-to-live.md) è attiva ma non è richiesto alcun indice secondario (per usare Azure Cosmos DB come puro archivio chiave-valore).
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [],
+        "excludedPaths": [{
+            "path": "/*"
+        }]
+    }
+```
+
+### <a name="no-indexing"></a>Nessuna indicizzazione
+
+Questo criterio disattiva l'indicizzazione. Se `indexingMode` è`none`impostato su, non è possibile impostare una durata (TTL) sul contenitore.
+
+```json
+    {
+        "indexingMode": "none"
+    }
+```
+
+## <a name="updating-indexing-policy"></a>Aggiornamento dei criteri di indicizzazione
+
+In Azure Cosmos DB, i criteri di indicizzazione possono essere aggiornati utilizzando uno dei metodi seguenti:
 
 - dal portale di Azure
 - usando l'interfaccia della riga di comando di Azure
@@ -24,7 +339,7 @@ In Azure Cosmos DB, i dati vengono indicizzati seguendo i [criteri di indicizzaz
 Un [aggiornamento dei criteri di indicizzazione](index-policy.md#modifying-the-indexing-policy) attiva una trasformazione dell'indice. Lo stato di avanzamento della trasformazione può essere monitorato anche dagli SDK.
 
 > [!NOTE]
-> Come parte dell'aggiornamento dell'SDK e del portale, stiamo cambiando i criteri di indicizzazione per allinearli con un nuovo layout di indicizzazione implementato nei nuovi contenitori. Con questo nuovo layout, tutti i tipi di dati primitivi sono indicizzati come Intervallo con la massima precisione (-1). Di conseguenza, le tipologie e la precisione dell'indice non sono più esposti all'utente. In futuro, gli utenti dovranno semplicemente aggiungere percorsi alla sezione includedPaths e ignorare indexKinds e la precisione. Questa modifica non ha alcun impatto sulle prestazioni ed è possibile continuare ad aggiornare i criteri di indicizzazione con la stessa sintassi. È possibile continuare a usare tutti gli esempi nella documentazione esistente per aggiornare i criteri di indicizzazione.
+> Quando si aggiornano i criteri di indicizzazione, le Scritture in Azure Cosmos DB verranno interrotte. Durante la reindicizzazione, le query possono restituire risultati parziali durante l'aggiornamento dell'indice.
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
@@ -340,246 +655,6 @@ Aggiornare il contenitore con le modifiche
 
 ```python
 response = client.ReplaceContainer(containerPath, container)
-```
-
-## <a name="indexing-policy-examples"></a>Esempi di criteri di indicizzazione
-
-Di seguito sono riportati alcuni esempi di criteri di indicizzazione visualizzati nel formato JSON, ovvero come sono presentati nel portale di Azure. Gli stessi parametri possono essere impostati tramite l'interfaccia della riga di comando di Azure o qualsiasi SDK.
-
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Criteri di esclusione per escludere in modo selettivo alcuni percorsi delle proprietà
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/*",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    },
-                    {
-                        "kind": "Range",
-                        "dataType": "String"
-                    },
-                    {
-                        "kind": "Spatial",
-                        "dataType": "Point"
-                    }
-                ]
-            }
-        ],
-        "excludedPaths": [
-            {
-                "path": "/path/to/single/excluded/property/?"
-            },
-            {
-                "path": "/path/to/root/of/multiple/excluded/properties/*"
-            }
-        ]
-    }
-```
-
-### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Criteri di inclusione per includere in modo selettivo alcuni percorsi delle proprietà
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/path/to/included/property/?",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    }
-                ]
-            },
-            {
-                "path": "/path/to/root/of/multiple/included/properties/*",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    }
-                ]
-            }
-        ],
-        "excludedPaths": [
-            {
-                "path": "/*"
-            }
-        ]
-    }
-```
-
-Nota: È in genere consigliabile usare un criterio di indicizzazione di **esclusione** per consentire ad Azure Cosmos DB di indicizzare in modo proattivo qualsiasi nuova proprietà che può essere aggiunta al modello.
-
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usare un indice spaziale solo in un percorso di proprietà specifico
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/*",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    },
-                    {
-                        "kind": "Range",
-                        "dataType": "String"
-                    }
-                ]
-            },
-            {
-                "path": "/path/to/geojson/property/?",
-                "indexes": [
-                    {
-                        "kind": "Spatial",
-                        "dataType": "Point"
-                    }
-                ]
-            }
-        ],
-        "excludedPaths": []
-    }
-```
-
-### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Escludere tutti i percorsi delle proprietà mantenendo però l'indicizzazione attiva
-
-Questo criterio può essere usato in situazioni in cui la funzionalità [Time-to-Live (TTL)](time-to-live.md) è attiva ma non è richiesto alcun indice secondario (per usare Azure Cosmos DB come puro archivio chiave-valore).
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [],
-        "excludedPaths": [{
-            "path": "/*"
-        }]
-    }
-```
-
-### <a name="no-indexing"></a>Nessuna indicizzazione
-```
-    {
-        "indexingMode": "none"
-    }
-```
-
-## <a name="composite-indexing-policy-examples"></a>Esempi di criteri di indicizzazione composti
-
-Oltre a includere o escludere i percorsi per le singole proprietà, è anche possibile specificare un indice composto. Se si desidera eseguire una query con una clausola `ORDER BY` per più proprietà, è obbligatorio un [indice composto](index-policy.md#composite-indexes) su queste proprietà.
-
-### <a name="composite-index-defined-for-name-asc-age-desc"></a>Indice composto definito per (nome cres, età disc):
-```
-    {  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[  
-
-        ],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"descending"
-                }
-            ]
-        ]
-    }
-```
-
-Questo indice composto sarà in grado di supportare le due query seguenti:
-
-Query 1:
-```sql
-    SELECT *
-    FROM c
-    ORDER BY name asc, age desc    
-```
-
-Query 2:
-```sql
-    SELECT *
-    FROM c
-    ORDER BY name desc, age asc
-```
-
-### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Indice composto definito per (nome cres, età disc) e (nome cres, età disc):
-
-È possibile definire più indici composti differenti entro lo stesso criterio di indicizzazione. 
-```
-    {  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[  
-
-        ],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"ascending"
-                }
-            ],
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"descending"
-                }
-            ]
-        ]
-    }
-```
-
-### <a name="composite-index-defined-for-name-asc-age-asc"></a>Indice composto definito per (nome cres, età cres):
-
-È facoltativo specificare l'ordine. Se non specificato, l'ordine è crescente.
-```
-{  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[  
-
-        ],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                },
-                {  
-                    "path":"/age",
-                }
-            ]
-        ]
-}
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

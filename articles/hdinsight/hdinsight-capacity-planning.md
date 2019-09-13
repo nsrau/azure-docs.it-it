@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 608d097f1ebad9e4e1092c7ec54a573ccb58ad81
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734655"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916568"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -96,9 +96,6 @@ In genere, i costi vengono addebitati per l'intera durata di un cluster. Se è n
 
 L'esecuzione parallela di più componenti di mapping e la riduzione dei componenti su un cluster multinodo possono generare talvolta degli errori. Per isolare il problema, provare a eseguire il test distribuito eseguendo più processi simultanei in un singolo cluster di nodi del ruolo di lavoro, quindi espandere questo approccio per eseguire più processi simultaneamente nei cluster che contengono più di un nodo. Per creare un cluster HDInsight a nodo singolo in Azure, usare l'opzione *personalizzata (dimensioni, impostazioni, app)* e usare il valore 1 per il *numero di nodi del* ruolo di lavoro nella sezione **dimensioni del cluster** durante il provisioning di un nuovo cluster nel portale.
 
-È possibile anche installare un ambiente di sviluppo a singolo nodo nel computer locale ed eseguire qui il test della soluzione. Hortonworks offre un ambiente di sviluppo locale a singolo nodo per soluzioni basate su Hadoop, particolarmente utile per le attività iniziali di sviluppo, la creazione di un modello di verifica e il testing. Per altre informazioni, vedere [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
-
-Per identificare il problema in un cluster locale a singolo nodo, è possibile ripetere l'esecuzione dei processi non riusciti modificando i dati di input o usando set di dati più piccoli. Le modalità di esecuzione dei processi dipendono dalla piattaforma e dal tipo di applicazione.
 
 ## <a name="quotas"></a>Quote
 

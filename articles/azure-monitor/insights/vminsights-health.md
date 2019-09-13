@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 09/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 311db544a119d4b9bee7d31cfdfac33aa3c4ed79
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: b9b4a33e5aee92a4e8caa7a1128538cb2f1a8a7e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233205"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933111"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Informazioni sull'integrità delle macchine virtuali di Azure
 
@@ -36,49 +36,52 @@ Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine v
 
 Questa sezione descrive i criteri di integrità predefiniti per monitorare le VM Windows e Linux di Azure. Tutti i criteri di integrità sono preconfigurati per l'invio di un avviso quando rilevano una condizione di tipo non integro.
 
-### <a name="windows-vms"></a>Macchine virtuali Windows
+| Nome monitoraggio | Frequenza (min) | Lookback durata (min) | Operator | Soglia | Avviso per stato | severity | Categoria carico di lavoro | 
+|--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
+| Disco logico online | 5 | 15 | <> | 1 (true) | Critico | Sev1 | Linux | 
+| Spazio disponibile su disco logico | 5 | 15 | < | 200 MB (avviso)<br> 100 MB (critico) | Avviso | Sev1<br> Sev2 | Linux | 
+| % inode disponibili su disco logico | 5 | 15 | < | 5% | Critico | Sev1 | Linux | 
+| % spazio disponibile su disco logico | 5 | 15 | < | 5% | Critico | Sev1 | Linux | 
+| Stato scheda di rete | 5 | 15 | <> | 1 (true) | Avviso | Sev2 | Linux | 
+| Memoria disponibile in megabyte del sistema operativo | 5 | 10 | < | 2,5 MB | Critico | Sev1 | Linux | 
+| Media disco Disk sec/Read | 5 | 25 | > | 0,05 s | Critico | Sev1 | Linux | 
+| Media disco Disk sec/Transfer | 5 | 25 | > | 0,05 s | Critico | Sev1 | Linux | 
+| Media disco Disk sec/Write | 5 | 25 | > | 0,05 s | Critico | Sev1 | Linux | 
+| Stato del disco | 5 | 25 | <> | 1 (true) | Critico | Sev1 | Linux | 
+| Percentuale tempo processore totale sistema operativo | 5 | 10 | >= | 95% | Critico | Sev1 | Linux | 
+| Percentuale di utilizzo di CPU totale | 5 | 10 | >= | 95% | Critico | Sev1 | Windows | 
+| Errore o danneggiamento del file system | 60 | 60 | <> | 4 | Critico | Sev1 | Windows | 
+| Media lettura disco logico/secondi | 1 | 15 | > | 0.04 s | Avviso | Sev2 | Windows | 
+| Media trasferimento disco logico/secondi | 1 | 15 | > | 0.04 s | Avviso | Sev2 | Windows | 
+| Media di secondi per scrittura su disco logico (disco logico) | 1 | 15 | > | 0.04 s | Avviso | Sev2 | Windows | 
+| Lunghezza corrente coda su disco (disco logico) | 5 | 60 | >= | 32 | Avviso | Sev2 | Windows | 
+| Spazio disponibile su disco logico (MB) | 15 | 60 | > | 500 MB di avviso<br> 300 MB critico | Critico | Sev1<br> Sev2 | Windows | 
+| Spazio disponibile su disco logico (%) | 15 | 60 | > | avviso 10%<br> critico 5% | Critico | Sev1<br> Sev2 | Windows |
+| Percentuale tempo di inattività del disco logico | 15 | 360 | <= | 20% | Avviso | Sev2 | Windows | 
+| Percentuale di larghezza di banda utilizzata per lettura | 5 | 60 | >= | 60% | Avviso | Sev2 | Windows | 
+| Percentuale di larghezza di banda utilizzata in totale | 5 | 60 | >= | 75% | Avviso | Sev2 | Windows | 
+| Percentuale di larghezza di banda utilizzata per scrittura | 5 | 60 | >= | 60% | Avviso | Sev2 | Windows | 
+| Integrità del servizio di client DHCP | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio di client DNS | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio Registro eventi di Windows | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio Windows Firewall | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio RPC | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio di server | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio Gestione remota Windows | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Megabyte disponibili per la memoria | 5 | 10 | < | 100 MB | Critico | Sev1 | Windows | 
+| Voci della tabella delle pagine di sistema gratuite | 5 | 10 | <= | 5000 | Critico | Sev1 | Windows | 
+| Pagine di memoria al secondo | 5 | 10 | >= | 5000/s | Avviso | Sev1 | Windows | 
+| Percentuale di memoria in uso di cui è stato eseguito il commit | 5 | 10 | > | 80% | Critico | Sev1 | Windows | 
+| Media trasferimento disco/secondi | 1 | 15 | > | 0.04 s | Avviso | Sev2 | Windows | 
+| Media di secondi per scrittura su disco | 1 | 15 | > | 0.04 s | Avviso | Sev2 | Windows | 
+| Lunghezza corrente coda su disco | 5 | 60 | >= | 32 | Avviso | Sev2 | Windows | 
+| Percentuale tempo di inattività del disco | 5 | 60 | >= | 20% | Avviso | Sev2 | Windows | 
 
-- Megabyte disponibili per la memoria
-- Media scritture disco/secondi (disco logico)
-- Media scritture disco/secondi (disco)
-- Media lettura disco logico/secondi
-- Media trasferimento disco logico/secondi
-- Media lettura disco/secondi
-- Media trasferimento disco/secondi
-- Lunghezza corrente coda su disco (disco logico)
-- Lunghezza corrente coda su disco (disco)
-- Percentuale tempo di inattività del disco
-- Errore o danneggiamento del file system
-- Spazio disponibile su disco logico (%) insufficiente
-- Spazio disponibile su disco logico (MB) insufficiente
-- Percentuale tempo di inattività del disco logico
-- Pagine di memoria al secondo
-- Percentuale di larghezza di banda utilizzata per lettura
-- Percentuale di larghezza di banda utilizzata in totale
-- Percentuale di larghezza di banda utilizzata per scrittura
-- Percentuale di memoria in uso di cui è stato eseguito il commit
-- Percentuale tempo di inattività del disco
-- Integrità del servizio di client DHCP
-- Integrità del servizio di client DNS
-- Integrità del servizio RPC
-- Integrità del servizio di server
-- Percentuale di utilizzo di CPU totale
-- Integrità del servizio Registro eventi di Windows
-- Integrità del servizio Windows Firewall
-- Integrità del servizio Gestione remota Windows
+>[!NOTE]
+>La durata lookback rappresenta la frequenza con cui la finestra di ricerca controlla i valori delle metriche, ad esempio negli ultimi cinque minuti.  
 
-### <a name="linux-vms"></a>Macchine virtuali Linux
-
-- Media disco Disk sec/Transfer
-- Media disco Disk sec/Read
-- Media disco Disk sec/Write
-- Integrità disco
-- Spazio disponibile su disco logico
-- % spazio disponibile su disco logico
-- % inode disponibili su disco logico
-- Integrità scheda di rete
-- Percentuale tempo processore totale
-- Megabyte disponibili per la memoria del sistema operativo
+>[!NOTE]
+>Frequency rappresenta la frequenza con cui l'avviso della metrica controlla se le condizioni vengono soddisfatte, ad esempio ogni minuto.  Si tratta della frequenza con cui viene eseguito il criterio di integrità e lookback è la durata della valutazione del criterio di integrità. Il criterio di integrità, ad esempio, sta valutando se la condizione di **utilizzo della CPU** è superiore al 95% con una frequenza di 5 minuti e rimane maggiore del 95% per 15 minuti (3 cicli di valutazione consecutivi), lo stato viene aggiornato a critico gravità se non era già presente.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -185,7 +188,7 @@ Selezionando **Visualizza tutti i criteri di integrità** si apre una pagina con
 
 * **Categoria**. Tipo di criteri di integrità utilizzato per raggruppare criteri simili per la creazione di report. Queste categorie sono **disponibilità** e **prestazioni**.
 
-Per visualizzare le istanze non integre, selezionare un valore nella colonna **componente** non integro. In questa pagina, una tabella elenca i componenti che si trovano in uno stato di integrità critico.
+Per visualizzare le istanze non integre, selezionare un valore nella colonna **componente non integro** . In questa pagina, una tabella elenca i componenti che si trovano in uno stato di integrità critico.
 
 ## <a name="health-diagnostics"></a>Diagnostica integrità
 
@@ -249,7 +252,7 @@ Per il tipo di criteri di integrità **unità** è possibile modificare la confi
 
 ![Configurazione di un esempio di criteri di integrità](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-Nel riquadro Configurazione per i criteri di integrità selezionati, se si usa l'esempio **media di secondi per scrittura su disco**, la soglia può essere configurata con un valore numerico diverso. Si tratta di un monitoraggio a due Stati, ovvero può essere modificato solo da integro ad **avviso**.
+Nel riquadro Configurazione per i criteri di integrità selezionati, se si usa l'esempio **media di secondi per scrittura su disco**, la soglia può essere configurata con un valore numerico diverso. Si tratta di un monitoraggio a due Stati, ovvero può essere modificato solo da **integro** ad **avviso**.
 
 Altri criteri di integrità talvolta utilizzano tre stati, in cui è possibile configurare il valore per le soglie di avviso e di stato di integrità critiche. È anche possibile modificare una soglia usando la [configurazione di monitoraggio](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)API REST di monitoraggio di Azure.
 
@@ -299,7 +302,7 @@ Gli avvisi di altri tipi di risorse o servizi non devono essere inclusi in quest
 
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 
-|Colonna |Descrizione |
+|Colonna |DESCRIZIONE |
 |-------|------------|
 |Sottoscrizione |Selezionare una sottoscrizione di Azure. Sono inclusi nella visualizzazione solo gli avvisi della sottoscrizione selezionata. |
 |Gruppo di risorse |Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
@@ -390,7 +393,7 @@ Per identificare *monitorId* per criteri di integrità specifici, nell'esempio s
     armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview "{'properties':{'alertGeneration':'Disabled'}}"
     ```   
 
-4. Immettere il comando GET usato nel passaggio 2 per verificare che il valore della proprietà sia impostatosu Disabled (disabilitato).
+4. Immettere il comando GET usato nel passaggio 2 per verificare che il valore della proprietà sia impostato su **Disabled (disabilitato**).
 
 #### <a name="associate-an-action-group-with-health-criteria"></a>Associare un gruppo di azioni ai criteri di integrità
 
