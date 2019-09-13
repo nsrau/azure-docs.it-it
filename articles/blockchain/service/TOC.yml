@@ -13,6 +13,8 @@
       href: create-member-cli.md
     - name: Connettersi al nodo della transazione
       items:
+        - name: Uso di VS Code
+          href: connect-vscode.md
         - name: Uso di MetaMask
           href: connect-metamask.md
         - name: Uso di Geth

@@ -19,7 +19,7 @@
           href: tutorial-facilities-udf.md
         - name: Inviare notifiche con App per la logica
           href: tutorial-facilities-events.md
-        - name: Visualizzare gli eventi con Time Series Insights
+        - name: Visualizzare eventi con Time Series Insights
           href: tutorial-facilities-analyze.md
 - name: Concetti
   items:

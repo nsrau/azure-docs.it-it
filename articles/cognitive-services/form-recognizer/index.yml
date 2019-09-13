@@ -1,78 +1,78 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione di Riconoscimento modulo
+summary: Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. L'apprendimento non supervisionato consente al modello di riconoscere il layout e le relazioni tra campi e voci senza assegnazione manuale di etichette dati o impegnative attività di creazione di codice e manutenzione.
 metadata:
-  title: Documentazione delle API - Riconoscimento modulo
-  titleSuffix: Azure Cognitive Services
-  description: Informazioni su come usare Riconoscimento modulo per estrarre in modo intelligente dati chiave-valore dai documenti modulo.
-  services: cognitive-services
-  author: PatrickFarley
-  manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: forms-recognizer
-  ms.topic: landing-page
-  ms.date: 04/16/2019
-  ms.author: pafarley
-ms.custom: seodec18
-abstract:
+  title: Documentazione di Riconoscimento modulo
   description: Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. L'apprendimento non supervisionato consente al modello di riconoscere il layout e le relazioni tra campi e voci senza assegnazione manuale di etichette dati o impegnative attività di creazione di codice e manutenzione.
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/form-recognizer-landing-page-video.png
-      width: 250
-    title: 'Automazione dei processi basata su intelligenza artificiale con Riconoscimento modulo (2:15)'
-    href: 'https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/form-recognizer/overview
-            html: <p>Panoramica di Riconoscimento modulo.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Informazioni su Riconoscimento modulo
-          - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto
-            html: <p>Informazioni su come usare il contenitore di Riconoscimento modulo per analizzare dati di modulo e tabella.</p>
-            image:
-              src: ../media/index/i_get-started.svg
-            title: Installare ed eseguire i contenitori
-          - href: /azure/cognitive-services/form-recognizer/build-training-data-set
-            html: <p>Creare un set di dati ottimizzato per il training di un modello personalizzato.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Creare un set di dati di training
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: 'Eseguire il training di un modello di Riconoscimento modulo ed estrarre i dati dai moduli con:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/logos/logo-curl.svg
-            text: cURL
-            href: quickstarts/curl-train-extract.md
-          - image:
-              src: ./media/logos/logo-python.svg
-            text: Python
-            href: quickstarts/python-train-extract.md
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            html: '<p><a href="https://aka.ms/form-recognizer/api">API Riconoscimento modulo</a></p>'
-          - title: SDK
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview">.NET</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Interfaccia della riga di comando di Azure</a></p>'
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: form-recognizer
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 09/05/2019
+  ms.openlocfilehash: 0c450a79c0dbdd19732488af927c3c29df263a23
+  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/12/2019
+  ms.locfileid: "70931834"
+landingContent:
+- title: Informazioni su Riconoscimento modulo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Riconoscimento modulo
+      url: overview.md
+  - linkListType: video
+    links:
+    - text: Automazione dei processi basata su intelligenza artificiale con Riconoscimento modulo
+      url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+- title: Eseguire il training di un modello personalizzato ed estrarre i dati
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso di .NET SDK
+      url: quickstarts/dotnet-sdk.md
+    - text: Uso dell'API REST (Python)
+      url: quickstarts/python-train-extract.md
+    - text: Uso dell'API REST (cURL)
+      url: quickstarts/curl-train-extract.md
+- title: Estrarre dati dalle ricevute
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso di .NET SDK
+      url: quickstarts/dotnet-sdk.md
+- title: Creare un set di dati di training
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un set di dati di training
+      url: build-training-data-set.md
+- title: Usare i contenitori
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Installare ed eseguire i contenitori
+      url: form-recognizer-container-howto.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare i contenitori
+      url: form-recognizer-container-configuration.md
+  - linkListType: deploy
+    links:
+    - text: Usare istanze di contenitore
+      url: deploy-form-recognizer-on-container-instances.md
+- title: riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API di Riconoscimento modulo
+      url: https://aka.ms/form-recognizer/api
+    - text: .NET SDK
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: interfaccia della riga di comando di Azure
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list

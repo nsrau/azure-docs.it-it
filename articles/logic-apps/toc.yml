@@ -15,7 +15,7 @@
       href: quickstart-create-logic-apps-visual-studio-code.md
 - name: Esercitazioni
   items:
-    - name: Verificare il traffico regolarmente
+    - name: Creare flussi di lavoro basati su pianificazione
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
     - name: Gestire le richieste delle liste di distribuzione
       href: tutorial-process-mailing-list-subscriptions-workflow.md

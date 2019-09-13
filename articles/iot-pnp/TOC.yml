@@ -37,10 +37,12 @@
       href: concepts-limits-quotas.md
 - name: Guide alle procedure
   items:
-    - name: Usare IoT Device Workbench
-      href: howto-use-iot-device-workbench.md
+    - name: Sviluppare con Visual Studio e Visual Studio Code
+      href: howto-develop-with-vs-vscode.md
     - name: Installare IoT Explorer
       href: howto-install-iot-explorer.md
+    - name: Installare l'estensione dell'interfaccia della riga di comando di Azure
+      href: howto-install-pnp-cli.md
     - name: Eseguire l'onboarding al portale IoT
       href: howto-onboard-portal.md
     - name: Gestire i modelli

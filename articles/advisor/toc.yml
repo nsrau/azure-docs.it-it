@@ -22,6 +22,8 @@
       href: view-recommendations.md
     - name: Autorizzazioni e azioni bloccate
       href: permissions.md
+    - name: Configurare gli avvisi per le raccomandazioni
+      href: advisor-alerts.md
 - name: riferimento
   items:
     - name: Centro sicurezza

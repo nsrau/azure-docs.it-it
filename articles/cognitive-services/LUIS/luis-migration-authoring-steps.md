@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/08/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: aa0c34a361ce191618d7b84e7a96557f2344284a
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70803933"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935209"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Passaggi per eseguire la migrazione alla risorsa di creazione di Azure
 
@@ -95,11 +95,22 @@ Il processo di migrazione è disponibile se si è il proprietario di qualsiasi a
 
     ![Selezionare sottoscrizione e la risorsa di authoring LUIS per visualizzare le app che possono essere create.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
 
+
+## <a name="app-contributor-begins-the-migration-process"></a>Il collaboratore app avvia il processo di migrazione
+
+Seguire gli stessi passaggi del proprietario dell'app per la migrazione. Il processo crea una nuova risorsa di creazione di tipo `LUIS.Authoring`. 
+
+È necessario eseguire la migrazione dell'account per essere aggiunto come collaboratore per le app di cui è stata eseguita la migrazione di proprietà di altri utenti.  
+
 ## <a name="after-the-migration-process-add-contributors-to-your-authoring-resource"></a>Dopo il processo di migrazione, aggiungere collaboratori alla risorsa di creazione
 
 [!INCLUDE [Manage contributors for the Azure authoring resource for language understanding](./includes/manage-contributors-authoring-resource.md)]
 
 Informazioni [su come aggiungere collaboratori](luis-how-to-collaborate.md). 
+
+## <a name="troubleshooting-errors-with-the-migration-process"></a>Risoluzione degli errori con il processo di migrazione
+
+Se durante il processo `MissingSubscriptionRegistration` di migrazione viene visualizzato un errore nel portale Luis con una barra di notifica rossa, creare una risorsa di servizio cognitivo nell' [portale di Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) o nell'interfaccia della riga di comando di [Azure](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Altre informazioni sulle [cause di questo errore](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

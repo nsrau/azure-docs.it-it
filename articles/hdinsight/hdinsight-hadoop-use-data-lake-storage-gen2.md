@@ -7,12 +7,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: e06d6473a47dcff3506843150375c70ed2bd8cea
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
-ms.translationtype: MT
+ms.openlocfilehash: 40caabc08b08e4c9268bf60d588819ce81717986
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061832"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900263"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -33,19 +33,42 @@ Per creare un cluster HDInsight che USA Data Lake Storage Gen2 per l'archiviazio
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Creare un'identità gestita assegnata dall'utente
 
-Creare un'identità gestita assegnata dall'utente, se non è già disponibile. Vedere [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente mediante il portale di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity). Per altre informazioni sul funzionamento delle identità gestite in Azure HDInsight, vedere [identità gestite in Azure HDInsight](hdinsight-managed-identities.md).
+Creare un'identità gestita assegnata dall'utente, se non è già disponibile. 
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. In alto a sinistra fare clic su **Crea una risorsa**.
+1. Nella casella di ricerca digitare **User assegnata** e fare clic su **identità gestita assegnata dall'utente**.
+1. Fare clic su **Create**(Crea).
+1. Immettere un nome per l'identità gestita, selezionare la sottoscrizione, il gruppo di risorse e la località corretti.
+1. Fare clic su **Create**(Crea).
+
+Per altre informazioni sul funzionamento delle identità gestite in Azure HDInsight, vedere [identità gestite in Azure HDInsight](hdinsight-managed-identities.md).
 
 ![Creare un'identità gestita assegnata dall'utente](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
 ### <a name="create-a-data-lake-storage-gen2-account"></a>Creare un account di Data Lake Storage Gen2
 
-Creare un account di archiviazione di Azure Data Lake Storage Gen2. Assicurarsi che l'opzione **spazio dei nomi gerarchico** sia abilitata. Per altre informazioni, vedere [Avvio rapido: Creare un account di archiviazione di Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+Creare un account di archiviazione di Azure Data Lake Storage Gen2. 
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. In alto a sinistra fare clic su **Crea una risorsa**.
+1. Nella casella di ricerca digitare **storage** e fare clic su **account di archiviazione**.
+1. Fare clic su **Create**(Crea).
+1. Nella schermata **Crea account di archiviazione** :
+    1. Selezionare la sottoscrizione e il gruppo di risorse corretti.
+    1. Immettere un nome per l'account Data Lake Storage Gen2. Per altre informazioni sulla denominazione degli account di archiviazione convetions, vedere [convenzioni di denominazione per le risorse di Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage).
+    1. Fare clic sulla scheda **Avanzate** .
+    1. Fare clic su **abilitato** accanto a **spazio dei nomi gerarchico** in **Data Lake storage Gen2**.
+    1. Fare clic su **Rivedi e crea**.
+    1. Fare clic su **Crea**
+
+Per altre informazioni sulle altre opzioni durante la creazione dell'account di [archiviazione, vedere Guida introduttiva: Creare un account di archiviazione di Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 ![Screenshot che mostra la creazione dell'account di archiviazione nel portale di Azure](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
 ### <a name="set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configurare le autorizzazioni per l'identità gestita nell'account Data Lake Storage Gen2
 
-Assegnare l'identità gestita al ruolo di **proprietario dei dati del BLOB di archiviazione** nell'account di archiviazione. Per altre informazioni, vedere [Gestire i diritti di accesso a dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo (anteprima)](../storage/common/storage-auth-aad-rbac.md).
+Assegnare l'identità gestita al ruolo di **proprietario dei dati del BLOB di archiviazione** nell'account di archiviazione.
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione.
 1. Selezionare l'account di archiviazione e quindi selezionare **controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per l'account. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo.
@@ -131,7 +154,7 @@ Data Lake Storage Gen2 usa un modello di controllo di accesso che supporta il co
 
 RBAC usa le assegnazioni di ruolo per applicare in modo efficace set di autorizzazioni a utenti, gruppi ed entità servizio per le risorse di Azure. In genere, le risorse di Azure sono vincolate alle risorse di primo livello, ad esempio gli account di archiviazione di Azure. Per archiviazione di Azure e anche Data Lake Storage Gen2, questo meccanismo è stato esteso alla risorsa file system.
 
- Per altre informazioni sulle autorizzazioni per i file con RBAC, vedere controllo degli accessi in [base al ruolo di Azure (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
+ Per altre informazioni sulle autorizzazioni per i file con RBAC, vedere [controllo degli accessi in base al ruolo di Azure (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
 Per altre informazioni sulle autorizzazioni per i file con ACL, vedere [elenchi di controllo di accesso su file e directory](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

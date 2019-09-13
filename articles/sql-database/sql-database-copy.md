@@ -8,15 +8,15 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
-ms.author: sstein
+ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: cdbc79ca6764dd49f427b395dbaf8502c58bf63a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.date: 09/04/2019
+ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173422"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934211"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
 
@@ -72,7 +72,8 @@ Per creare una copia del database, è necessario disporre dei seguenti ruoli
 - SQL Server ruolo Collaboratore o
 - Ruolo personalizzato nei database di origine e di destinazione con l'autorizzazione seguente:
 
-   Microsoft. SQL/Servers/databases/Read Microsoft. SQL/Servers/databases/Write
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
 
 Per annullare una copia del database, è necessario avere i seguenti ruoli
 
@@ -80,7 +81,23 @@ Per annullare una copia del database, è necessario avere i seguenti ruoli
 - SQL Server ruolo Collaboratore o
 - Ruolo personalizzato nei database di origine e di destinazione con l'autorizzazione seguente:
 
-   Microsoft. SQL/Servers/databases/Read Microsoft. SQL/Servers/databases/Write
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
+   
+Per gestire la copia del database con portale di Azure, sono necessarie anche le autorizzazioni seguenti:
+
+&nbsp;&nbsp; Microsoft.resources/subscriptions/&nbsp; Resources/Read   
+&nbsp;&nbsp; Microsoft.resources/subscriptions/&nbsp; Resources/Write   
+&nbsp;&nbsp; Microsoft.Resources&nbsp; /distribuzioni/lettura   
+&nbsp;&nbsp; Microsoft.Resources&nbsp; /Deployments/Write   
+&nbsp;&nbsp; Microsoft.resources/Distributions&nbsp; /operationstatuses/Read    
+
+Se si desidera visualizzare le operazioni in distribuzioni nel gruppo di risorse nel portale, le operazioni tra più provider di risorse, incluse le operazioni SQL, sono necessari i ruoli RBAC aggiuntivi: 
+
+&nbsp;&nbsp; Microsoft.resources/subscriptions/ResourceGroups/distribuzioni&nbsp; /operazioni/lettura   
+&nbsp;&nbsp; Microsoft.resources/subscriptions/ResourceGroups/Distributions&nbsp; /operationstatuses/Read
+
+
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Copiare un database tramite Transact-SQL
 
