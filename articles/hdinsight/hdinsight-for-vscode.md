@@ -305,7 +305,7 @@ Inviare un file. si noti che la cartella. VSCODE viene aggiunta automaticamente 
     | executorCores | Numero di core da usare per ogni executor | Int |
     | numExecutors | Numero di executor da avviare per questa sessione | Int |
     | archives | Archivi da usare in questa sessione | elenco di stringhe |
-    | coda | Nome della coda YARN da inviare a| String |
+    | queue | Nome della coda YARN da inviare a| String |
     | name | Nome della sessione | String |
     | conf | Proprietà di configurazione di Spark | Mapping della chiave = val |
 
