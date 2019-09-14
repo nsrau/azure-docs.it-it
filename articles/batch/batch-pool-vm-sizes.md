@@ -11,15 +11,15 @@ ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 09/12/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f894a7438c56c3830eb62c516447195f10fc3b76
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e3d96ad7783c43dba6b69f6b11acccf790d0d6c9
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094659"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983742"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -45,16 +45,18 @@ Eventuali dimensioni di VM promozionali o di anteprima non elencate non sono gar
 | Serie Av2 | Tutte le dimensioni | Any |
 | Serie B | Nessuna | Non disponibile |
 | Serie DC | Nessuna | Non disponibile |
-| Dv2, serie Dsv2 | Tutte le dimensioni | Any |
+| Dv2, serie DSv2 | Tutte le dimensioni | Any |
 | Dv3, serie Dsv3 | Tutte le dimensioni | Any |
-| [Dimensioni con ottimizzazione per la memoria](../virtual-machines/linux/sizes-memory.md) | Nessuna | Non disponibile |
+| EV3, serie Esv3 | Tutte le dimensioni | Any |
 | Serie Fsv2 | Tutte le dimensioni | Any |
 | Serie H | Tutte le dimensioni | Any |
 | Serie HB<sup>2</sup> | Tutte le dimensioni | Any |
 | Serie HC<sup>2</sup> | Tutte le dimensioni | Any |
 | Serie Ls | Tutte le dimensioni | Any |
 | Serie Lsv2 | Nessuna | Non disponibile |
-| Serie M | Standard_M64ms (solo per priorità bassa), Standard_M128s (solo con priorità bassa) | Any |  
+| Serie M | Standard_M64ms (solo per priorità bassa), Standard_M128s (solo con priorità bassa) | Any |
+| Serie Mv2 | Nessuna | Non disponibile |
+| Serie NC | Tutte le dimensioni | Any |
 | Serie NCv2<sup>2</sup> | Tutte le dimensioni | Any |
 | Serie NCv3<sup>2</sup> | Tutte le dimensioni | Any |
 | Serie ND<sup>2</sup> | Tutte le dimensioni | Any |

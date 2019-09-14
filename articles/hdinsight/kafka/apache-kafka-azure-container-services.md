@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: dc2c3e557f295bd3125c09d9b839716159dcf50b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e87ac268ab5448f38470f46bd6b0c7f2cdd204ce
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446465"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960525"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usare il servizio Azure Kubernetes con Apache Kafka in HDInsight
 
@@ -35,7 +35,7 @@ Questo documento presuppone che si abbia familiarità con la creazione e l'uso d
 * Servizio Azure Kubernetes
 * Reti virtuali di Azure
 
-Questo documento presuppone anche che sia stata eseguita l'[esercitazione sul servizio Azure Kubernetes](../../aks/tutorial-kubernetes-prepare-app.md). Questo articolo crea un servizio contenitore, crea un cluster Kubernetes, un registro contenitori e configura il `kubectl` utilità.
+Questo documento presuppone anche che sia stata eseguita l'[esercitazione sul servizio Azure Kubernetes](../../aks/tutorial-kubernetes-prepare-app.md). In questo articolo viene creato un servizio contenitore, viene creato un cluster Kubernetes, un registro contenitori e viene `kubectl` configurata l'utilità.
 
 ## <a name="architecture"></a>Architettura
 
@@ -113,7 +113,7 @@ Per configurare Kafka per creare pubblicità per gli indirizzi IP anziché per i
 
 3. Per visualizzare la configurazione di Kafka, selezionare __Configs__ (Configurazioni) nella parte centrale in alto.
 
-    ![Collegamenti Configs (Configurazioni) per Kafka](./media/apache-kafka-azure-container-services/select-kafka-config.png)
+    ![Collegamenti Configs (Configurazioni) per Kafka](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
 4. Per trovare la configurazione __kafka-env__, immettere `kafka-env` nel campo __Filtro__ in alto a destra.
 
@@ -135,7 +135,7 @@ Per configurare Kafka per creare pubblicità per gli indirizzi IP anziché per i
 
 8. Per salvare le modifiche alla configurazione usare il pulsante __Salva__. Immettere un messaggio di testo che descrive le modifiche. Selezionare __OK__ dopo aver salvato le modifiche.
 
-    ![Pulsante per salvare la configurazione](./media/apache-kafka-azure-container-services/save-button.png)
+    ![Pulsante per salvare la configurazione](./media/apache-kafka-azure-container-services/save-configuration-button.png)
 
 9. Per evitare errori al riavvio di Kafka, usare il pulsante __Service Actions__ (Azioni del servizio) e selezionare __Attiva modalità di manutenzione__. Per completare questa operazione selezionare OK.
 
@@ -143,7 +143,7 @@ Per configurare Kafka per creare pubblicità per gli indirizzi IP anziché per i
 
 10. Per riavviare Kafka, utilizzare il pulsante __Riavvia__ e selezionare __Restart All Affected__ (Riavviare tutti gli elementi interessati). Confermare il riavvio, quindi usare il pulsante __OK__ dopo aver completato l'operazione.
 
-    ![Pulsante di riavvio con Restart all affected (Riavviare tutti gli elementi interessati) evidenziato](./media/apache-kafka-azure-container-services/restart-button.png)
+    ![Pulsante di riavvio con Restart all affected (Riavviare tutti gli elementi interessati) evidenziato](./media/apache-kafka-azure-container-services/restart-required-button.png)
 
 11. Per disabilitare la modalità di manutenzione, usare il pulsante __Service Actions__ (Azioni del servizio) e selezionare __Disattiva modalità di manutenzione__. Per completare questa operazione selezionare **OK**.
 
@@ -212,7 +212,7 @@ A questo punto, Kafka e il servizio Azure Kubernetes sono in comunicazione trami
 
 11. Aprire un Web browser e immettere l'indirizzo IP esterno per il servizio. Si arriva a una pagina simile all'immagine seguente:
 
-    ![Immagine della pagina Web](./media/apache-kafka-azure-container-services/test-web-page.png)
+    ![Immagine della pagina Web](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
 
 12. Immettere il testo nel campo e quindi selezionare il pulsante __Send__ (Invia). I dati vengono inviati a Kafka. Il consumer Kafka nell'applicazione legge quindi il messaggio e lo aggiunge alla sezione __Messages from Kafka__ (Messaggi da Kafka).
 

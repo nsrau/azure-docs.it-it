@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 63eb13dd131fcc1c424c02fdac10f531cc9f0282
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5e50c814fef24aa799549d055ad6496f5bdf05e0
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876632"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961492"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Supporto per le lingue dei contenuti della Knowledge Base per QnA Maker
 
@@ -29,19 +29,11 @@ La lingua viene automaticamente riconosciuta dal contenuto delle origini dati es
 
     ![Selezionare la risorsa Ricerca di Azure](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 
-1. Selezionare l'indice **testkb**. Questo indice di Ricerca di Azure è sempre il primo creato e contiene il contenuto salvato di tutte le Knowledge Base di quel servizio. 
+1. Selezionare **indici**, quindi selezionare l'indice **Testkb** . Questo è il primo indice di ricerca di Azure creato e contiene il contenuto salvato di tutte le Knowledge base in tale servizio. 
 
-    ![Selezionare la Knowledge Base di test](../media/qnamaker-how-to-language-kb/select-testkb.png)
+1. Selezionare i **campi** per visualizzare i campi dell'indice.
 
-1. Selezionare la sezione dei **campi** che mostra i dettagli _Testkb_ .
-
-    ![Selezionare i campi](../media/qnamaker-how-to-language-kb/selectfields.png)
-
-1. Selezionare la casella **Analizzatore** per visualizzare i dettagli della lingua.
-
-    ![Selezionare Analizzatore](../media/qnamaker-how-to-language-kb/select-analyzer.png)
-
-1. Si noterà che l' _analizzatore_ è impostato su una lingua specifica. Questa lingua è stata rilevata automaticamente durante il passaggio di creazione della Knowledge base dagli URL e dai file importati. La lingua non può essere cambiata dopo aver creato la risorsa.
+1. La colonna _analizzatore_ dei `questions` campi `answer` e è impostata su una lingua specifica. Questa lingua è stata rilevata automaticamente durante il passaggio di creazione della Knowledge base dagli URL e dai file importati. La lingua non può essere cambiata dopo aver creato la risorsa.
 
     ![Analizzatore selezionato](../media/qnamaker-how-to-language-kb/selected-analyzer.png)
 

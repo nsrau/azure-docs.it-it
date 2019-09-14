@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 28ec42f1634e0546d75f81ed76b1ecbac51f6c3f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277599"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984370"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
@@ -87,6 +87,8 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
 
 ## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Trovare le chiavi degli endpoint nel portale di QnA Maker
 
+L'endpoint si trova nella stessa area della risorsa perché le chiavi dell'endpoint vengono utilizzate per effettuare una chiamata alla Knowledge base.
+
 Le chiavi endpoint possono essere gestite dal [portale di QnA Maker](https://qnamaker.ai).
 
 1. Accedere al portale di [QnA Maker](https://qnamaker.ai), passare al profilo e quindi selezionare **impostazioni del servizio**:
@@ -106,11 +108,13 @@ QnA Maker crea diverse risorse di Azure. Per ridurre la gestione e trarre vantag
 
 |Service|Condividi|`Reason`|
 |--|--|--|
-|Servizi cognitivi|x|Non possibile dalla progettazione|
+|Servizi cognitivi|X|Non possibile dalla progettazione|
 |Piano di servizio app|✔|Spazio su disco fisso allocato per un piano di servizio app. Se altre app che condividono lo stesso piano di servizio app usano spazio su disco significativo, si verificheranno problemi nell'istanza del servizio app QnAMaker.|
-|Servizio app|X|Non possibile dalla progettazione|
+|Servizio app|x|Non possibile dalla progettazione|
 |Application Insights|✔|Può essere condivisa|
 |Servizio di ricerca|✔|1. `testkb` è un nome riservato per il servizio QnAMaker, non può essere usato da altri.<br>2. Il mapping dei sinonimi `synonym-map` in base al nome è riservato per il servizio QnAMaker.<br>3. Il numero di Knowledge base pubblicate è limitato dal livello di servizio di ricerca. Se sono disponibili indici gratuiti, possono essere usati da altri servizi.|
+
+Altre informazioni sul servizio [app](../../../app-service/index.yml) e il [servizio di ricerca](../../../search/index.yml).
 
 ### <a name="using-a-single-search-service"></a>Uso di un singolo servizio di ricerca
 
@@ -202,6 +206,8 @@ Il runtime di QnAMaker fa parte dell'istanza del servizio app Azure distribuita 
 Il servizio di gestione di QnA Maker viene usato solo per il portale di QnA Maker e per l'elaborazione iniziale dei dati. Questo servizio è disponibile solo nell'area Stati Uniti occidentali. Nessun dato cliente è archiviato in questo servizio Stati Uniti occidentali.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni sul servizio [app](../../../app-service/index.yml) e il [servizio di ricerca](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
 > [Creare e pubblicare una Knowledge Base](../Quickstarts/create-publish-knowledge-base.md)

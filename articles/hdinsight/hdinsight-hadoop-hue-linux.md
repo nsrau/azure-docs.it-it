@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 74ccf2af2d379b3c1966543885df6ebe5cf0f47a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 67f338b583ef428b8dd04e859a5204fd708ce434
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059432"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962030"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installare e usare Hue nei cluster Hadoop di HDInsight
 
@@ -56,7 +56,7 @@ Questa sezione fornisce istruzioni su come usare lo script quando si effettua il
    >
 2. Nel pannello **Configurazione facoltativa** selezionare **Azioni script** e specificare le informazioni come mostrato di seguito:
 
-    ![Specificare i parametri di azione script per Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "Specificare i parametri di azione script per Hue")
+    ![Specificare i parametri di azione script per Hue](./media/hdinsight-hadoop-hue-linux/hdi-hue-script-action.png "Specificare i parametri di azione script per Hue")
 
    * **NOME**: Immettere un nome descrittivo per l'azione script.
    * **URI SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
@@ -91,7 +91,7 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Questo è il nome host del nodo head primario in cui si trova il sito Web Hue.
-4. Usare il browser per aprire il portale di Hue all'indirizzo http:\//HOSTNAME:8888. Sostituire HOSTNAME con il nome ottenuto nel passaggio precedente.
+4. Usare il browser per aprire il portale di Hue all'indirizzo\/http:/hostname: 8888. Sostituire HOSTNAME con il nome ottenuto nel passaggio precedente.
 
    > [!NOTE]  
    > Quando si accede per la prima volta, viene richiesto di creare un account per l'accesso al portale Hue. Le credenziali specificate saranno limitate al portale e non sono correlate alle credenziali amministratore o utente SSH specificate durante il provisioning del cluster.

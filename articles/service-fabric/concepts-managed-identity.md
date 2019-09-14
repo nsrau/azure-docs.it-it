@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 3e95412675100043eb21f50c8f93aa0ec0b6b7e6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d63fd3d1b778c691d053f13fbf0fbb2ed5ccb3e3
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963996"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968273"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identità gestita per Service Fabric applicazione (anteprima)
 
@@ -62,9 +62,8 @@ L'elenco degli scenari supportati per la versione di anteprima è il seguente:
 
 Gli scenari seguenti non sono supportati o non sono consigliati. Si noti che queste azioni potrebbero non essere bloccate, ma possono causare interruzioni nelle applicazioni:
 
-   - Rimuovere o modificare le identità assegnate a un'applicazione; se è necessario apportare modifiche, inviare distribuzioni separate prima di aggiungere una nuova assegnazione di identità e quindi rimuovere una assegnata in precedenza. La rimozione di un'identità da un'applicazione esistente può avere effetti indesiderati, inclusa l'uscita dell'applicazione in uno stato non aggiornabile. Se la rimozione di un'identità è necessaria, è possibile eliminare l'applicazione in modo sicuro. Si noti che questa operazione eliminerà l'identità assegnata dal sistema (se così definita) associata all'applicazione e rimuoverà tutte le associazioni con le identità assegnate dall'utente assegnate all'applicazione.
+   - Rimuovere o modificare le identità assegnate a un'applicazione; Se è necessario apportare modifiche, inviare distribuzioni separate prima di aggiungere una nuova assegnazione di identità e quindi rimuovere una assegnata in precedenza. La rimozione di un'identità da un'applicazione esistente può avere effetti indesiderati, inclusa l'uscita dell'applicazione in uno stato non aggiornabile. Se la rimozione di un'identità è necessaria, è possibile eliminare l'applicazione in modo sicuro. Si noti che questa operazione eliminerà l'identità assegnata dal sistema (se così definita) associata all'applicazione e rimuoverà tutte le associazioni con le identità assegnate dall'utente assegnate all'applicazione.
 
-   - Non è consigliabile combinare identità assegnate dal sistema e assegnate dall'utente nella stessa applicazione.
 >
 > [!NOTE]
 >

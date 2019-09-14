@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: d45842a4c61f871a479c91f7b192de8e567f9821
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8158611678acc23d89bab377c170759c6bf9677f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862018"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962641"
 ---
 # <a name="animated-character-detection-preview"></a>Rilevamento di caratteri animati (anteprima)
 
@@ -91,8 +91,7 @@ Se si è proprietari di un account Video Indexer a pagamento, è necessario prim
     1. Dopo aver digitato il nuovo nome, fare clic sull'icona di controllo accanto al nuovo nome. In questo modo il nuovo nome viene salvato nel modello in Video Indexer.
     1. Al termine della modifica di tutti i nomi desiderati, è necessario eseguire il training del modello.
 
-        * Account di valutazione: aprire la pagina Personalizzazione e fare clic sulla scheda caratteri animati e fare clic sul modello del pulsante di **Train** .
-        * Account a pagamento: aprire la pagina Personalizzazione e fare clic sulla scheda caratteri animati. Per il modello pertinente, fare clic sul collegamento **modifica in visione personalizzata** . Verrà quindi inviato alla pagina del modello in Visione personalizzata. Fai clic sul pulsante "Train" per eseguire il training del modello. 
+        Aprire la pagina Personalizzazione e fare clic sulla scheda **caratteri animati** . Per il modello pertinente, fare clic sul collegamento **modifica in visione personalizzata** . Verrà quindi inviato alla pagina del modello in Visione personalizzata. Fare clic sul pulsante **Train (Train** ) per eseguire il training del modello. 
     1. Una volta eseguito il training, qualsiasi video che verrà indicizzato o reindicizzato con tale modello riconoscerà i caratteri sottoposti a training. 
     Gli account a pagamento che hanno accesso al proprio account di Visione personalizzata possono visualizzare i modelli e le immagini con tag. Altre informazioni su come [migliorare il classificatore in visione personalizzata](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 

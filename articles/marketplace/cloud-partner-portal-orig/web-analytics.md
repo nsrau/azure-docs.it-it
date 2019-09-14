@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6b2a7981452b47a3992b6c0efee286878e143fb
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943147"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962892"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -43,7 +43,7 @@ Per generare la propria campagna, sono disponibili due modi.
 
 Ad esempio, è possibile usare: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-1. (Avanzate): Usare uno dei nostri campagna supportato, generico, gli ID nell'URL. Per assicurare flessibilità con i tag di riferimento aggiuntivi che è necessario usare, viene supportata la convenzione per riconoscere automaticamente questi tag aggiuntivi:
+1. (Avanzate): Usare uno degli ID di campagna generici supportati nell'URL. Per assicurare flessibilità con i tag di riferimento aggiuntivi che è necessario usare, viene supportata la convenzione per riconoscere automaticamente questi tag aggiuntivi:
     
     1. **utm\_campaign**
     2. **utm\_source**
@@ -71,7 +71,7 @@ Di seguito è fornito un esempio:
     2.  URL della pagina di destinazione = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. L'utente fa clic sul collegamento per \"provare il prodotto\" e accede ad AppSource.
     1. URL del referrer = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. URL della pagina di destinazione (**assicurarsi che questo URL includa utm\_campaign e utm\_source aggiunto a questo URL**) = [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. URL della pagina di destinazione (**assicurarsi che questo URL includa utm\_campaign e utm\_source aggiunto a questo URL**) = [https://appsource.microsoft.com/product/dynamics-365/contoso.offername? **utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Come valutare il successo di una campagna
 -----------------------------------------

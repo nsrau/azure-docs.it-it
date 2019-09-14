@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559099"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962540"
 ---
 # <a name="personalizer-settings"></a>Impostazioni di Personalizza esperienze
 
@@ -67,7 +67,7 @@ Il modello più recente, sottoposto a training dalle chiamate all'API per le ric
 
 Frequenze di aggiornamento del modello elevate sono utili nelle situazioni in cui si vuole tenere accuratamente traccia delle modifiche nei comportamenti degli utenti, ad esempio nei siti basati su notizie live, contenuto virale oppure offerte su prodotti in tempo reale. In questi scenari si può usare una frequenza di 15 minuti. Nella maggior parte dei casi d'uso, una frequenza di aggiornamento inferiore è efficace. Frequenze di aggiornamento di un minuto sono utili durante il debug del codice di un'applicazione con Personalizza esperienze, l'esecuzione di demo o i test interattivi di aspetti di Machine Learning.
 
-![Model update frequency imposta la frequenza con cui viene ripetuto il training di un nuovo modello di Personalizza esperienze.](media/settings/configure-model-update-frequency-settings.png)
+![Model update frequency imposta la frequenza con cui viene ripetuto il training di un nuovo modello di Personalizza esperienze.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 
 Dopo aver cambiato questa impostazione, assicurarsi di selezionare **Salva**.
 

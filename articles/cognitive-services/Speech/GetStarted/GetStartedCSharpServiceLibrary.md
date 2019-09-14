@@ -3,20 +3,20 @@ title: Introduzione all'API Riconoscimento vocale Microsoft con la libreria di s
 titlesuffix: Azure Cognitive Services
 description: Usare la libreria di servizi per il riconoscimento vocale Bing per convertire la lingua parlata in testo.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0f445d1fff48ee7a04c0b1c1d64c808f87d824b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71c3e471a8844eb6c6b70921e40c94338a084a8b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515218"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965849"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Avvio rapido: Usare la libreria di servizi di Riconoscimento vocale Bing in C&#35; per .NET per dispositivi Windows
 

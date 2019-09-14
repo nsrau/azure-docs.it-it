@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6ba008ffdf0fe00d6720b0968dc42bfcfc651c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0dd53689f7528e73845ab47a9791f062e0f2cb0c
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258970"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962793"
 ---
 # <a name="register-in-dev-center"></a>Eseguire la registrazione nel Dev Center  
 Per assicurarsi di non essere connessi a un account personale aprire una nuova sessione di Navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer.  
@@ -144,7 +144,7 @@ Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerci
   > L'account Dev Center consente a Microsoft di fatturare al cliente per conto del server di pubblicazione in base al tipo di elenco delle transazioni. La registrazione dell'account Dev Center consente a Microsoft di convalidare le informazioni legali, fiscali e bancarie dell'azienda del cliente. Per altre informazioni, fare clic [qui](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 * **Come si avvia la registrazione al Dev Center?**
-  > Per evitare duplicazioni, verificare prima di tutto che la propria società non abbia già registrato un account Dev Center. È necessario eseguire l'accesso con l'account Microsoft che si vuole associare all'account per sviluppatore. Se non si dispone già di un account Microsoft, è possibile crearne uno nuovo [qui](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1), ad esempio contoso_marketplace@live.com. Per accedere e registrarsi, andare alla pagina https://dev.windows.com/en-us/registration?accountProgram=Azure
+  > Per evitare duplicazioni, verificare prima di tutto che la propria società non abbia già registrato un account Dev Center. È necessario eseguire l'accesso con l'account Microsoft che si vuole associare all'account per sviluppatore. Se non si dispone già di un account Microsoft, è possibile crearne uno nuovo [qui](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1), ad esempio contoso_marketplace@live.com. Per accedere e registrarsi, andare alla pagina https://dev.windows.com/registration?accountProgram=Azure
   > <br>Per altre informazioni sul processo di registrazione, fare clic [qui](https://docs.microsoft.com/azure/marketplace/register-dev-center).</br>
 
 * **Quale tipo di account occorre scegliere, "Individuale" o "Aziendale"?**
@@ -157,7 +157,7 @@ Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerci
   > Verificare di avere specificato correttamente anche il CAP. Viene infatti eseguita una convalida anche tra città e CAP.
 
 * **Come si fa a ottenere un codice promozionale?**
-  > Completare il modulo di [Registrazione al Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) per ricevere un codice promozionale di Dev Center. Vedere come [creare un account Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per altre informazioni.
+  > Completare il modulo di [Registrazione al Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) per ricevere un codice promozionale di Dev Center. Per ulteriori informazioni, vedere come [creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner.
  
 * **Che cosa succede dopo che è stata completata la registrazione?**
   > Cercare un messaggio di posta elettronica da verify@microsoft.com con riga dell'oggetto "Azione necessaria: Verificare l'account di posta elettronica con Microsoft". Fare clic sul collegamento di verifica temporale per completare la registrazione. *Se non si riceve l'e-mail entro 24 ore, controllare nella cartella della posta indesiderata.*

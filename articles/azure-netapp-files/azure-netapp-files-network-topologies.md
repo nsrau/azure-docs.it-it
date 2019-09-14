@@ -3,7 +3,7 @@ title: Linee guida per la pianificazione della rete Azure NetApp Files | Microso
 description: Vengono descritte le linee guida che consentono di progettare un'architettura di rete efficace utilizzando Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: ram-kakani
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 087ecee053069a02e4d4dd6f636d05ea15269e2e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383497"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984129"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
 
 La pianificazione dell'architettura di rete è un elemento fondamentale della progettazione di un'infrastruttura di applicazioni. Questo articolo consente di progettare un'architettura di rete efficace per i carichi di lavoro per trarre vantaggio dalle funzionalità avanzate di Azure NetApp Files.
 
-Azure NetApp Files volumi sono progettati per essere contenuti in una subnet per scopi specifici denominata [subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) delegata all'interno della rete virtuale di Azure. È quindi possibile accedere ai volumi direttamente dalla VNet, da reti virtuali con peering nella stessa area o da locale su un gateway di rete virtuale (ExpressRoute o gateway VPN) in base alle esigenze. La subnet è dedicata alla Azure NetApp Files e non esiste connettività ad altri servizi di Azure o a Internet.
+Azure NetApp Files volumi sono progettati per essere contenuti in una subnet per scopi specifici denominata [subnet delegata](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) all'interno della rete virtuale di Azure. È quindi possibile accedere ai volumi direttamente dalla VNet, da reti virtuali con peering nella stessa area o da locale su un gateway di rete virtuale (ExpressRoute o gateway VPN) in base alle esigenze. La subnet è dedicata alla Azure NetApp Files e non esiste connettività ad altri servizi di Azure o a Internet.
 
 ## <a name="considerations"></a>Considerazioni  
 
@@ -36,13 +36,13 @@ Azure NetApp Files volumi sono progettati per essere contenuti in una subnet per
 Le funzionalità seguenti non sono attualmente supportate per Azure NetApp Files: 
 
 * Gruppi di sicurezza di rete (gruppi) applicati alla subnet delegata
-* Route definite dall'utente (UDR) con hop successivo come subnet di file NetApp di Azure
+* Route definite dall'utente (UDR) con prefisso dell'indirizzo come subnet di file di Azure NetApp
 * Criteri di Azure (ad esempio, criteri di denominazione personalizzati) nell'interfaccia Azure NetApp Files
 * Bilanciamento del carico per il traffico Azure NetApp Files
 
 Per Azure NetApp Files vengono applicate le restrizioni di rete seguenti:
 
-* Il numero di indirizzi IP in uso in un VNet con Azure NetApp Files (incluso reti virtuali con peering) non può essere maggiore di 1000.
+* Il numero di indirizzi IP in uso in un VNet con Azure NetApp Files (incluso reti virtuali con peering) non può essere maggiore di 1000. Stiamo lavorando per aumentare questo limite per soddisfare le esigenze di scalabilità dei clienti. Nel frattempo, se è necessario un numero maggiore di indirizzi IP, contattare il team di supporto con il caso d'uso e il limite richiesto.
 * In ogni rete virtuale di Azure (VNet), è possibile delegare solo una subnet in Azure NetApp Files.
 
 
@@ -55,10 +55,10 @@ Nella tabella seguente vengono descritte le topologie di rete supportate da Azur
 |    Connettività al volume in un VNet locale    |    Sì    |         |
 |    Connettività al volume in un VNet con peering (stessa area)    |    Sì    |         |
 |    Connettività al volume in una VNet con peering (tra aree o peering globale)    |    No    |    Nessuna    |
-|    Connettività a un volume sul gateway ExpressRoute    |    Sì    |         |
+|    Connettività a un volume sul gateway ExpressRoute    |    Yes    |         |
 |    Connettività da locale a volume in una VNet spoke tramite gateway ExpressRoute e peering VNet con transito gateway    |    Yes    |        |
 |    Connettività da locale a volume in una VNet spoke tramite gateway VPN    |    Sì    |         |
-|    Connettività da locale a volume in una VNet spoke sul gateway VPN e il peering VNet con transito gateway    |    Yes    |         |
+|    Connettività da locale a volume in una VNet spoke sul gateway VPN e il peering VNet con transito gateway    |    Sì    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Rete virtuale per volumi Azure NetApp Files
@@ -71,11 +71,11 @@ Prima di eseguire il provisioning di un volume di Azure NetApp Files, è necessa
 
 ### <a name="subnets"></a>Subnet
 
-Le subnet segmentano la rete virtuale in spazi di indirizzi distinti che possono essere usati dalle risorse di Azure.  Azure NetApp Files volumi sono contenuti in una subnet per scopi specifici denominata [subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)delegata. 
+Le subnet segmentano la rete virtuale in spazi di indirizzi distinti che possono essere usati dalle risorse di Azure.  Azure NetApp Files volumi sono contenuti in una subnet per scopi specifici denominata [subnet delegata](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
 
 La delega della subnet fornisce le autorizzazioni esplicite al servizio Azure NetApp Files per creare risorse specifiche del servizio nella subnet.  Usa un identificatore univoco per la distribuzione del servizio. In questo caso, viene creata un'interfaccia di rete per abilitare la connettività ai Azure NetApp Files.
 
-Se si usa un nuovo VNet, è possibile creare una subnet e delegare la subnet a Azure NetApp Files seguendo le istruzioni in delegare [una subnet al Azure NetApp files](azure-netapp-files-delegate-subnet.md). È anche possibile delegare una subnet vuota esistente che non è già stata delegata ad altri servizi.
+Se si usa un nuovo VNet, è possibile creare una subnet e delegare la subnet a Azure NetApp Files seguendo le istruzioni in [delegare una subnet al Azure NetApp files](azure-netapp-files-delegate-subnet.md). È anche possibile delegare una subnet vuota esistente che non è già stata delegata ad altri servizi.
 
 Se il VNet viene sottoposto a peering con un'altra VNet, non è possibile espandere lo spazio di indirizzi del VNet. Per questo motivo, è necessario creare la nuova subnet delegata nello spazio di indirizzi della VNet. Se è necessario estendere lo spazio di indirizzi, è necessario eliminare il peering di VNet prima di espandere lo spazio degli indirizzi.
 

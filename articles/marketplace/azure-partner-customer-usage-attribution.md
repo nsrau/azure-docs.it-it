@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 98d33dd1aad726d4da8499006166dfd2c043378f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 40170540458b7bc7ddb30f88117d472858937e8c
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977162"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962942"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Report
 
-È possibile trovare il report per l'attribuzione dell'utilizzo dei clienti nel dashboard del centro per i partner. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Per visualizzare il report, è necessario usare le credenziali del centro per i partner per accedere. Se si verificano problemi con il report o l'accesso, creare una richiesta di supporto seguendo le istruzioni nella sezione ottenere supporto.
+È possibile trovare il report per l'attribuzione dell'utilizzo dei clienti nel dashboard del centro per i partner. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Per visualizzare il report, è necessario usare le credenziali del centro per i partner per accedere. Se si verificano problemi con il report o l'accesso, creare una richiesta di supporto seguendo le istruzioni nella sezione ottenere supporto.
 
 Scegliere modello rilevato nell'elenco a discesa del tipo di associazione partner per visualizzare il report.
 
@@ -269,7 +269,7 @@ Durante la distribuzione del software \<PARTNER>, Microsoft è in grado di ident
 
 Sono disponibili due canali di supporto in base ai problemi riscontrati.
 
-Se si verificano problemi nel centro per i partner, ad esempio per visualizzare il report di attribuzione dell'utilizzo del cliente o per accedere, creare una richiesta di supporto con il team di supporto di partner Center:[https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+Se si verificano problemi nel centro per i partner, ad esempio per visualizzare il report di attribuzione dell'utilizzo del cliente o per accedere, creare una richiesta di supporto con il team di supporto di partner Center:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 

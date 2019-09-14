@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 2e79f38fb6495d75e0438fa3622cc226886c0773
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: aabcf7ac6c7bf14264178831bb3e4f6670d29984
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885556"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960894"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -29,7 +29,7 @@ Se si dispone di un'elaborazione batch periodica, il cluster HDInsight può esse
 
 Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 
-|Utilità | DESCRIZIONE|
+|Utilità | Descrizione|
 |---|---|
 |[PowerShell AZ](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -clustername \<nome cluster >-TargetInstanceCount \<NewSize >|
 |[AzureRM di PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -clustername \<nome cluster >-TargetInstanceCount \<NewSize >|
@@ -37,7 +37,7 @@ Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 |[Interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)|il numero di istanze \<di destinazione del \<cluster HDInsight di Azure clustername > > |
 |[Portale di Azure](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
 
-![Ridimensiona cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Ridimensiona cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
 Usando uno di questi metodi, è possibile aumentare o ridurre il cluster HDInsight in pochi minuti.
 
@@ -112,7 +112,7 @@ Per visualizzare un elenco dei processi in sospeso e in esecuzione, è possibile
 3. Dall'interfaccia utente di Ambariri selezionare **Yarn** nell'elenco dei servizi nel menu a sinistra.  
 4. Dalla pagina YARN selezionare **Quick Links (collegamenti rapidi** ) e passare il mouse sul nodo head attivo e quindi selezionare **ResourceManager UI (interfaccia utente di ResourceManager**).
 
-    ![Interfaccia utente ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
+    ![Interfaccia utente ResourceManager](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
 È possibile accedere direttamente all'interfaccia utente ResourceManager con `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 

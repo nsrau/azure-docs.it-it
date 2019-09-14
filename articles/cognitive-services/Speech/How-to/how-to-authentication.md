@@ -3,20 +3,20 @@ title: Eseguire l'autenticazione a Riconoscimento vocale Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Richiedere l'autenticazione per usare l'API Riconoscimento vocale Bing
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 11d6256fb63452b849a80abab181876d14b3b6a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1e708ff29293b87935d0d191ba44ad4a11917a0
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515046"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965665"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Eseguire l'autenticazione a Speech API
 
@@ -35,7 +35,7 @@ Per l'uso a lungo termine o per una quota maggiore, iscriversi per ottenere un [
 
 Per usare l'API REST del Servizio di riconoscimento vocale, è necessario passare la chiave di sottoscrizione nel campo `Ocp-Apim-Subscription-Key` nell'intestazione della richiesta.
 
-NOME| Format| Descrizione
+Name| Formato| Descrizione
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 

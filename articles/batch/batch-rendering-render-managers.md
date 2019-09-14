@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: eb3ce47e5ffed697392065a1faacbbfaec19f4d1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436168"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983677"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Uso di Azure Batch con le applicazioni di gestione delle farm di rendering
 
@@ -26,9 +26,15 @@ Sono supportate le applicazioni di gestione del rendering seguenti:
 * [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
+## <a name="azure-render-hub"></a>Hub di rendering di Azure
+
+L'hub di rendering di Azure semplifica la creazione e la gestione di farm di rendering di Azure.  L'hub di rendering dispone del supporto nativo per PipelineFx Qube e scadenza 10.  Per altre informazioni e istruzioni dettagliate, vedere [il repository GitHub](https://github.com/Azure/azure-render-hub).
+
 ## <a name="using-azure-with-pipelinefx-qube"></a>Uso di Azure con PipelineFX Qube
 
-Gli script e le istruzioni per abilitare l'uso delle VM del pool di Azure Batch come ruoli di lavoro di Qube sono disponibili nel [repository GitHub](https://github.com/Azure/azure-qube).
+Azure render Hub supporta i gestori di rendering più diffusi, inclusa la scadenza.  Per istruzioni sulla distribuzione e sull'uso dell'hub di rendering, vedere [il repository GitHub](https://github.com/Azure/azure-render-hub).
+
+Gli script e le istruzioni per abilitare le macchine virtuali del pool di Azure Batch da usare come Qube worker sono disponibili anche nel [repository GitHub](https://github.com/Azure/azure-qube).
 
 ## <a name="using-azure-with-royal-render"></a>Uso di Azure con Royal Render
 
@@ -38,7 +44,7 @@ Per un esempio di un cliente di Royal Render che usa l'integrazione di Azure, ve
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>Uso di Azure con Thinkbox Deadline
 
-Gli script e le istruzioni per abilitare l'uso delle VM del pool di Azure Batch come slave di Deadline sono disponibili nel [repository GitHub](https://github.com/Azure/azure-deadline).
+Azure render Hub supporta i gestori di rendering più diffusi, inclusa la scadenza.  Per istruzioni sulla distribuzione e sull'uso dell'hub di rendering, vedere [il repository GitHub](https://github.com/Azure/azure-render-hub).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

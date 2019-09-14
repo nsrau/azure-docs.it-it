@@ -3,20 +3,20 @@ title: Introduzione all'API Riconoscimento vocale Bing tramite REST | Microsoft 
 titlesuffix: Azure Cognitive Services
 description: Usare REST per accedere all'API Riconoscimento vocale in Servizi cognitivi Microsoft per convertire audio parlato in testo.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e962a12c6c27737f95e78e80036e51bac41147d5
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515143"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965776"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Avvio rapido: Usare l'API REST Riconoscimento vocale Bing
 
@@ -66,8 +66,8 @@ Alcuni esempi di URI del servizio sono elencati nella tabella seguente.
 
 | Modalità di riconoscimento  | Linguaggio | Formato di output | URI del servizio |
 |---|---|---|---|
-| `interactive` | pt-BR | Predefinito | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Dettagliato | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `interactive` | pt-BR | Predefinito | https:\//Speech.Platform.Bing.com/Speech/Recognition/Interactive/cognitiveservices/V1?Language=PT-BR |
+| `conversation` | en-US | Dettagliato | https:\//Speech.Platform.Bing.com/Speech/Recognition/Conversation/cognitiveservices/V1?Language=en-US&format=detailed |
 | `dictation` | fr-FR | Semplice | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]

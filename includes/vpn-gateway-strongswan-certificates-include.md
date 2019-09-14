@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/16/2019
+ms.date: 09/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 98172c2c487488a72bbfdd3a8205ac7d8668db60
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1c2525b352c25f470814ce909a8d10ff821d9e32
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035738"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961613"
 ---
 Generare il certificato della CA.
 
@@ -22,7 +22,7 @@ Generare il certificato della CA.
   ipsec pki --self --in caKey.pem --dn "CN=VPN CA" --ca --outform pem > caCert.pem
   ```
 
-Stampare il certificato della CA nel formato base64. Questo è il formato supportato da Azure. Successivamente, caricarlo su Azure come parte della configurazione di connessione da punto a sito.
+Stampare il certificato della CA nel formato base64. Questo è il formato supportato da Azure. Questo certificato viene caricato in Azure come parte della [procedura di configurazione P2S](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
   ```
   openssl x509 -in caCert.pem -outform der | base64 -w0 ; echo

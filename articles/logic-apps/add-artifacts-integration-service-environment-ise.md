@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.openlocfilehash: df43b52514eebc3216dbec01cff0d8a3b14e7940
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 08/01/2019
+ms.openlocfilehash: 8e2e9d30fa24e56711a0d6800a8ca9a34e53c12e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517657"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967208"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Aggiungere elementi all'ambiente Integration Services (ISE) in app per la logica di Azure
 
-Dopo aver creato un [ambiente di Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), aggiungere elementi come app per la logica, account di integrazione e connettori personalizzati in modo che possano accedere alle risorse nella rete virtuale di Azure.
+Dopo aver creato un [ambiente di Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), aggiungere elementi, ad esempio app per la logica, account di integrazione e connettori, in modo che possano accedere alle risorse nella rete virtuale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,7 +28,7 @@ Dopo aver creato un [ambiente di Integration Services (ISE)](../logic-apps/conne
 
 <a name="create-logic-apps-environment"></a>
 
-## <a name="create-logic-apps-in-an-ise"></a>Creare app per la logica in ISE
+## <a name="create-logic-apps"></a>Creare app per la logica
 
 Per compilare app per la logica che vengono eseguite nell'ambiente Integration Services (ISE), seguire questa procedura:
 
@@ -57,7 +57,7 @@ Per compilare app per la logica che vengono eseguite nell'ambiente Integration S
 
 <a name="create-integration-account-environment"></a>
 
-## <a name="create-integration-accounts-in-an-ise"></a>Creare account di integrazione in ISE
+## <a name="create-integration-accounts"></a>Creare gli account di integrazione
 
 In base allo [SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selezionato al momento della creazione, ISE include un utilizzo specifico dell'account di integrazione senza costi aggiuntivi. Le app per la logica esistenti in un ambiente di Integration Services possono fare riferimento solo agli account di integrazione presenti nello stesso ISE. Quindi, affinché un account di integrazione funzioni con le app per la logica in un ISE, l'account di integrazione e le app per la logica devono usare lo *stesso ambiente* del percorso. Per altre informazioni sugli account di integrazione e ISEs, [vedere account di integrazione](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
 )con ISE.
@@ -84,9 +84,25 @@ Per creare un account di integrazione che usa ISE, seguire questa procedura:
 
 1. Per gestire gli account di integrazione in ISE, vedere [gestire l'ambiente del servizio di integrazione](../logic-apps/ise-manage-integration-service-environment.md).
 
+<a name="add-ise-connectors-environment"></a>
+
+## <a name="add-ise-connectors"></a>Aggiungi connettori ISE
+
+È possibile aggiungere i connettori gestiti da Microsoft disponibili per l'uso in ISE, ma non distribuiti in ISE.
+
+1. Nel menu ISE, in **Impostazioni**, selezionare **connettori gestiti**. Sulla barra degli strumenti fare clic su **Aggiungi**.
+
+   ![Visualizzazione di connettori gestiti](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
+
+1. Nel riquadro **Aggiungi un nuovo connettore gestito** aprire l'elenco **trova connettore** . Se è disponibile il connettore desiderato, selezionarlo e quindi selezionare **Crea**.
+
+   L'elenco Mostra solo i connettori idonei ma non distribuiti in ISE. I connettori già distribuiti in ISE non sono disponibili per la selezione.
+
+   ![Seleziona connettore idoneo](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+
 <a name="create-custom-connectors-environment"></a>
 
-## <a name="create-custom-connectors-in-an-ise"></a>Creare connettori personalizzati in ISE
+## <a name="create-custom-connectors"></a>Creare connettori personalizzati
 
 Per usare i connettori personalizzati in ISE, creare i connettori personalizzati direttamente all'interno di ISE.
 

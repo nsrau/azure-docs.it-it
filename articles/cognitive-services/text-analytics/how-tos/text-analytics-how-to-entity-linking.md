@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 93d5b3de47ec0b3c0494589da0baf87f91a0233a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390250"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984274"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -47,7 +47,6 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 | Quantità      | Numero        | "6", "sei"     |
 | Quantità      | Percentuale    | "50%", "cinquanta percento"|
 | Quantità      | Ordinale       | "2°", "secondo"     |
-| Quantità      | Intervallo numerico   | "da 4 a 8"     |
 | Quantità      | Tempo di risoluzione           | "90 giorni", "30 anni"    |
 | Quantità      | Currency      | "$ 10,99"     |
 | Quantità      | Dimensione     | "10 miglia", "40 cm"     |
@@ -59,7 +58,6 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 | DateTime      | Intervallo orario     | "dalle 18 alle 19"     |
 | DateTime      | Duration      | "1 minuto e 45 secondi"   |
 | DateTime      | Configurazione           | "ogni martedì"     |
-| DateTime      | TimeZone      |    |
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 

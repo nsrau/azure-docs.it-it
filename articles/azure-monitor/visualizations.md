@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 4e9bb9bd86e22efa5dd514e742481911b09c5e17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6390384220830d473b56f4082a98dfaa8aa686d1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61088256"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984180"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -32,11 +32,11 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecno
 ![dashboard](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Vantaggi
-- Integrazione avanzata in Azure. Visualizzazioni possono essere aggiunti ai dashboard da più pagine di Azure, tra cui Esplora metriche, Log Analitica e Application Insights.
+- Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui Esplora metriche, Log Analytics e Application Insights.
 - Supporto sia per le metriche sia per i log.
-- Combinare dati provenienti da più origini, tra cui output dal [Esplora metriche](platform/metrics-charts.md), [registrare query](log-query/log-query-overview.md), e [viene eseguito il mapping](app/app-map.md) e disponibilità in Application Insights.
+- Combina i dati di più origini, tra cui output da [Esplora metriche](platform/metrics-charts.md), [query di log](log-query/log-query-overview.md)e [mappe](app/app-map.md) e disponibilità in Application Insights.
 - Opzione per dashboard personali o condivisi, integrati con l'[autenticazione basata su ruoli (RBAC)](../role-based-access-control/overview.md) di Azure.
-- Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti e dei log con intervallo di un minuto.
+- Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti Registra l'aggiornamento ogni ora, con un'opzione di aggiornamento manuale su richiesta facendo clic sull'icona "Aggiorna" in una determinata visualizzazione o aggiornando il dashboard completo.
 - Dashboard delle metriche con parametri con timestamp e parametri personalizzati.
 - Opzioni di layout flessibili.
 - Modalità schermo intero.
@@ -53,7 +53,7 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecno
 ## <a name="azure-monitor-views"></a>Visualizzazioni di Monitoraggio di Azure
 Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log. Vengono usate dalle [soluzioni di monitoraggio](insights/solutions.md) per presentare i dati raccolti.
 
-![visualizzazione](media/visualizations/view.png)
+![Visualizza](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantaggi
 - Visualizzazioni avanzate per i dati di log.
@@ -71,7 +71,7 @@ Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consent
 - Le dimensioni della risposta delle query sono limitate a 8 MB e il tempo di esecuzione è 110 secondi.
 
 
-## <a name="workbooks"></a>Workbooks
+## <a name="workbooks"></a>Cartelle di lavoro
 Le [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
 
 ![Cartella di lavoro](media/visualizations/workbook.png)
@@ -132,7 +132,7 @@ Le [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) sono documenti 
 - Massima flessibilità nell'interfaccia utente, visualizzazione, interattività e funzionalità.
 - Combinazione di metriche e dati di log con altre origini dati.
 
-### <a name="disadvantages"></a>Svantaggi:
+### <a name="disadvantages"></a>Svantaggi
 - Necessità di un notevole lavoro di progettazione.
 
 
@@ -140,7 +140,7 @@ Le [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) sono documenti 
 - Informazioni sui [dati raccolti da Monitoraggio di Azure](platform/data-platform.md).
 - Informazioni sui [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
 - Informazioni sulle [visualizzazioni in Monitoraggio di Azure](platform/view-designer.md).
-- Scopri [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md).
+- Informazioni sulle [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md)di.
 - Informazioni sull'[importazione dei dati di log in Power BI](../azure-monitor/platform/powerbi.md).
 - Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](../azure-monitor/platform/grafana-plugin.md).
 

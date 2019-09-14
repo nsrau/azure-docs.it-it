@@ -3,20 +3,20 @@ title: Lingue supportate - API Traduzione vocale
 titlesuffix: Azure Cognitive Services
 description: Informazioni sulle lingue supportate dall'API Traduzione vocale.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ed8f693e4dc0344a0117ae9d6992b925992ef0c4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2f5b48f2dbc2d109c03613676c6a119fd971603b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446918"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965436"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Lingue supportate dall'API Traduzione vocale
 
@@ -27,7 +27,7 @@ Di seguito sono elencate le lingue supportate per la traduzione vocale. Se per l
 | Lingua per la sintesi vocale    |
 |:----------- |
 | Arabo (standard moderno)      |
-| Portoghese (Brasile)     |
+| Portoghese brasiliano     |
 | Cinese (mandarino)      |
 | Inglese      |
 | Francese      |
@@ -43,7 +43,7 @@ L'API Traduzione vocale supporta le lingue seguenti come lingue di destinazione 
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
-| Bengalese      | `bn`          |
+| Bengali      | `bn`          |
 | Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Cantonese (tradizionale)      | `yue`          |

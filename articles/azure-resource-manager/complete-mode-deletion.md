@@ -4,14 +4,14 @@ description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/04/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: d783ab9c12952393f0a74b245109dda58bff3927
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 268f6b7f3e7462986e6289088a0716794dc832f1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194408"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983973"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -24,7 +24,6 @@ I tipi di risorsa contrassegnati con No non vengono eliminati automaticamente qu
 Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
-> - [Microsoft. AADDomainServices](#microsoftaaddomainservices)
 > - [Microsoft. addons](#microsoftaddons)
 > - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft. Advisor](#microsoftadvisor)
@@ -32,6 +31,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft. AppPlatform](#microsoftappplatform)
 > - [Microsoft. attestazione](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -65,14 +65,12 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft. CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -115,7 +113,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft. ManagedLab](#microsoftmanagedlab)
 > - [Microsoft. ManagedServices](#microsoftmanagedservices)
 > - [Microsoft. Management](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
@@ -181,14 +178,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | DomainServices | Sì |
 > | DomainServices/oucontainer | No |
-> | DomainServices/ReplicaSets | Yes |
-
-## <a name="microsoftaaddomainservices"></a>Microsoft. AADDomainServices
-
-> [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Eliminazione in modalità completa |
-> | ------------- | ----------- |
-> | domains | No |
+> | DomainServices/ReplicaSets | Sì |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -234,8 +224,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | alertsMetaData | No |
 > | alertsSummary | No |
 > | alertsSummaryList | No |
-> | feedback | No |
-> | smartDetectorAlertRules | No |
+> | Feedback | No |
+> | smartDetectorAlertRules | Sì |
 > | smartDetectorRuntimeEnvironments | No |
 > | smartGroups | No |
 
@@ -252,7 +242,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | reportFeedback | No |
-> | servizio | Yes |
+> | servizio | Sì |
 > | validateServiceName | No |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
@@ -260,8 +250,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | configurationStores | Yes |
+> | configurationStores | Sì |
 > | configurationStores/eventGridFilters | No |
+
+## <a name="microsoftappplatform"></a>Microsoft. AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Eliminazione in modalità completa |
+> | ------------- | ----------- |
+> | Molla | Yes |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -296,7 +293,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | automationAccounts | Sì |
 > | automationAccounts/configurations | Yes |
 > | automationAccounts/jobs | No |
-> | automationAccounts/runbooks | Sì |
+> | automationAccounts/runbooks | Yes |
 > | automationAccounts/softwareUpdateConfigurations | No |
 > | automationAccounts/webhooks | No |
 
@@ -323,7 +320,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | b2cDirectories | Sì |
+> | b2cDirectories | Yes |
 > | b2ctenants | No |
 
 ## <a name="microsoftazuredata"></a>Microsoft. AzureData
@@ -331,6 +328,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
+> | hybridDataManagers | Sì |
+> | postgresInstances | Yes |
+> | sqlBigDataClusters | Sì |
+> | SQLInstances | Sì |
 > | sqlServerRegistrations | Sì |
 > | sqlServerRegistrations/SQLServers | No |
 
@@ -357,11 +358,28 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | billingAccounts | No |
 > | billingAccounts/contratti | No |
+> | billingAccounts/billingPermissions | No |
 > | billingAccounts/billingProfiles | No |
+> | billingAccounts/billingProfiles/billingPermissions | No |
+> | billingAccounts/billingProfiles/billingRoleAssignments | No |
+> | billingAccounts/billingProfiles/billingRoleDefinitions | No |
 > | billingAccounts/billingProfiles/billingSubscriptions | No |
+> | billingAccounts/billingProfiles/createBillingRoleAssignment | No |
+> | billingAccounts/billingProfiles/clienti | No |
 > | billingAccounts/billingProfiles/invoices | No |
 > | billingAccounts/billingProfiles/invoices/pricesheet | No |
 > | billingAccounts/billingProfiles/invoiceSections | No |
+> | billingAccounts/billingProfiles/invoiceSections/billingPermissions | No |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleAssignments | No |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleDefinitions | No |
+> | billingAccounts/billingProfiles/invoiceSections/billingSubscriptions | No |
+> | billingAccounts/billingProfiles/invoiceSections/createBillingRoleAssignment | No |
+> | billingAccounts/billingProfiles/invoiceSections/initiateTransfer | No |
+> | billingAccounts/billingProfiles/invoiceSections/Products | No |
+> | billingAccounts/billingProfiles/invoiceSections/Products/Transfer | No |
+> | billingAccounts/billingProfiles/invoiceSections/Products/updateAutoRenew | No |
+> | billingAccounts/billingProfiles/invoiceSections/Transactions | No |
+> | billingAccounts/billingProfiles/invoiceSections/trasferimenti | No |
 > | billingAccounts/BillingProfiles/patchOperations | No |
 > | billingAccounts/billingProfiles/paymentMethods | No |
 > | billingAccounts/billingProfiles/policies | No |
@@ -369,10 +387,17 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | billingAccounts/billingProfiles/pricesheetDownloadOperations | No |
 > | billingAccounts/billingProfiles/products | No |
 > | billingAccounts/billingProfiles/transactions | No |
+> | billingAccounts/billingRoleAssignments | No |
+> | billingAccounts/billingRoleDefinitions | No |
 > | billingAccounts/billingSubscriptions | No |
+> | billingAccounts/createBillingRoleAssignment | No |
 > | billingAccounts/createInvoiceSectionOperations | No |
 > | billingAccounts/clienti | No |
 > | billingAccounts/Customers/billingSubscriptions | No |
+> | billingAccounts/Customers/initiateTransfer | No |
+> | billingAccounts/clienti/prodotti | No |
+> | billingAccounts/clienti/transazioni | No |
+> | billingAccounts/clienti/trasferimenti | No |
 > | billingAccounts/departments | No |
 > | billingAccounts/enrollmentAccounts | No |
 > | billingAccounts/invoices | No |
@@ -395,11 +420,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | billingAccounts/products | No |
 > | billingAccounts/transactions | No |
 > | billingPeriods | No |
-> | billingPermissions | No |
+> | BillingPermissions | No |
 > | billingProperty | No |
-> | billingRoleAssignments | No |
-> | billingRoleDefinitions | No |
-> | createBillingRoleAssignment | No |
+> | BillingRoleAssignments | No |
+> | BillingRoleDefinitions | No |
+> | CreateBillingRoleAssignment | No |
 > | departments | No |
 > | enrollmentAccounts | No |
 > | invoices | No |
@@ -407,6 +432,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | transfers/acceptTransfer | No |
 > | transfers/declineTransfer | No |
 > | transfers/operationStatus | No |
+> | trasferimenti/validateTransfer | No |
 > | validateAddress | No |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -414,7 +440,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | mapApis | Yes |
+> | mapApis | Sì |
 > | updateCommunicationPreference | No |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
@@ -430,7 +456,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | blockchainMembers | Yes |
-> | visualizzazioni | Yes |
+> | visualizzazioni | Sì |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
@@ -497,7 +523,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | CdnWebApplicationFirewallManagedRuleSets | No |
 > | CdnWebApplicationFirewallPolicies | Yes |
 > | edgenodes | No |
-> | profiles | Yes |
+> | profiles | Sì |
 > | profiles/endpoints | Sì |
 > | profiles/endpoints/customdomains | No |
 > | profiles/endpoints/origins | No |
@@ -508,7 +534,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | certificateOrders | Yes |
+> | certificateOrders | Sì |
 > | certificateOrders/certificates | No |
 > | validateCertificateRegistrationInformation | No |
 
@@ -572,13 +598,17 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | osPlatformImages | No |
 > | publicImages | No |
 > | quotas | No |
-> | storageAccounts | Yes |
+> | storageAccounts | Sì |
+> | storageAccounts/blobServices | No |
+> | storageAccounts/fileServices | No |
 > | storageAccounts/metricDefinitions | No |
 > | storageAccounts/metriche | No |
+> | storageAccounts/queueServices | No |
 > | storageAccounts/services | No |
 > | storageAccounts/services/diagnosticSettings | No |
 > | storageAccounts/services/metricDefinitions | No |
 > | storageAccounts/Servizi/metriche | No |
+> | storageAccounts/tableServices | No |
 > | storageAccounts/vmImages | No |
 > | vmImages | No |
 
@@ -602,17 +632,17 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | availabilitySets | Sì |
-> | diskEncryptionSets | Yes |
+> | availabilitySets | Yes |
+> | diskEncryptionSets | Sì |
 > | dischi | Sì |
 > | galleries | Sì |
-> | raccolte/applicazioni | Yes |
+> | raccolte/applicazioni | Sì |
 > | raccolte/applicazioni/versioni | Sì |
 > | galleries/images | Sì |
 > | galleries/images/versions | Sì |
-> | Gruppi host | Yes |
+> | Gruppi host | Sì |
 > | Gruppi host/host | Sì |
-> | immagini | Yes |
+> | immagini | Sì |
 > | proximityPlacementGroups | Yes |
 > | restorePointCollections | Sì |
 > | restorePointCollections/restorePoints | No |
@@ -662,7 +692,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | containerGroups | Yes |
+> | containerGroups | Sì |
 > | serviceAssociationLinks | No |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
@@ -670,7 +700,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | registries | Yes |
+> | registries | Sì |
 > | registries/builds | No |
 > | registries/builds/cancel | No |
 > | registries/builds/getLogLink | No |
@@ -699,15 +729,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | containerServices | Sì |
-> | managedClusters | Sì |
-> | openShiftManagedClusters | Yes |
+> | managedClusters | Yes |
+> | openShiftManagedClusters | Sì |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | applicazioni | Yes |
+> | applicazioni | Sì |
 > | updateCommunicationPreference | No |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
@@ -750,25 +780,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | showbackRules | No |
 > | Visualizzazioni | No |
 
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-
-> [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Eliminazione in modalità completa |
-> | ------------- | ----------- |
-> | hubs | Yes |
-> | hubs/authorizationPolicies | No |
-> | hubs/connectors | No |
-> | hubs/connectors/mappings | No |
-> | hubs/interactions | No |
-> | hubs/kpi | No |
-> | hubs/links | No |
-> | hubs/profiles | No |
-> | hubs/roleAssignments | No |
-> | hubs/roles | No |
-> | hubs/suggestTypeSchema | No |
-> | hubs/views | No |
-> | hubs/widgetTypes | No |
-
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
@@ -782,7 +793,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | associazioni | No |
-> | resourceProviders | Sì |
+> | resourceProviders | Yes |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -796,7 +807,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | DataBoxEdgeDevices | Sì |
+> | DataBoxEdgeDevices | Yes |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
@@ -813,15 +824,12 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | catalogs | Sì |
 > | datacatalogs | Yes |
+> | datacatalogs/origini dati | No |
+> | sottocataloghi/origini dati/analisi | No |
+> | datacatalogs/DataSources/scansioni/set di dati | No |
+> | datacatalogs/origini dati/analisi/trigger | No |
 > | datacatalogs/scantargets | No |
 > | datacatalogs/scantargets/DataSets | No |
-
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-
-> [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Eliminazione in modalità completa |
-> | ------------- | ----------- |
-> | connectionManagers | Sì |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -851,7 +859,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | account | Yes |
+> | account | Sì |
 > | accounts/eventGridFilters | No |
 > | accounts/firewallRules | No |
 
@@ -862,14 +870,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | services | Yes |
 > | services/projects | Sì |
-> | slot | Yes |
+> | slot | Sì |
 
 ## <a name="microsoftdatashare"></a>Microsoft. DataShare
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | account | Sì |
+> | account | Yes |
 > | account/condivisioni | No |
 > | account/condivisioni/set di impostazioni | No |
 > | account/condivisioni/inviti | No |
@@ -911,7 +919,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | serverGroups | Sì |
+> | serverGroups | Yes |
 > | server | Sì |
 > | servers/advisors | No |
 > | servers/queryTexts | No |
@@ -919,7 +927,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | servers/topQueryStatistics | No |
 > | servers/virtualNetworkRules | No |
 > | servers/waitStatistics | No |
-> | serversv2 | Sì |
+> | serversv2 | Yes |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
@@ -931,16 +939,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | serviceTopologies | Yes |
 > | serviceTopologies/servizi | Sì |
 > | serviceTopologies/Services/serviceUnits | Sì |
-> | steps | Sì |
+> | steps | Yes |
 
 ## <a name="microsoftdesktopvirtualization"></a>Microsoft. DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | applicationgroups | Yes |
+> | applicationgroups | Sì |
 > | applicationgroups/applicazioni | No |
-> | applicationgroups/assignedusers | No |
 > | applicationgroups/startmenuitems | No |
 > | hostpools | Sì |
 > | hostpools/sessionhosts | No |
@@ -953,11 +960,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | ElasticPools | Sì |
+> | elasticPools | Sì |
 > | ElasticPools/IotHubTenants | Sì |
-> | Hub IoT | Yes |
+> | Hub IoT | Sì |
 > | IotHubs/eventGridFilters | No |
-> | ProvisioningServices | Sì |
+> | ProvisioningServices | Yes |
 > | usages | No |
 
 ## <a name="microsoftdevops"></a>Microsoft. DevOps
@@ -965,14 +972,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | pipeline | Sì |
+> | pipeline | Yes |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | controllers | Yes |
+> | controllers | Sì |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -980,9 +987,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | labcenters | Sì |
-> | labs | Sì |
+> | labs | Yes |
 > | Lab/ambienti | Sì |
-> | labs/serviceRunners | Yes |
+> | labs/serviceRunners | Sì |
 > | labs/virtualMachines | Sì |
 > | schedules | Sì |
 
@@ -992,7 +999,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | databaseAccountNames | No |
-> | databaseAccounts | Yes |
+> | databaseAccounts | Sì |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
@@ -1019,18 +1026,18 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | services | Yes |
+> | services | Sì |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | domains | Yes |
+> | domains | Sì |
 > | domains/topics | No |
 > | eventSubscriptions | No |
 > | extensionTopics | No |
-> | topics | Sì |
+> | topics | Yes |
 > | topicTypes | No |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
@@ -1085,6 +1092,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
+> | autoManagedVmConfigurationProfiles | Sì |
 > | guestConfigurationAssignments | No |
 > | software | No |
 > | softwareUpdateProfile | No |
@@ -1096,7 +1104,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | hanaInstances | Sì |
-> | sapMonitors | Sì |
+> | sapMonitors | Yes |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
@@ -1110,7 +1118,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | clusters | Yes |
+> | clusters | Sì |
 > | clusters/applications | No |
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
@@ -1139,15 +1147,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | components | Yes |
-> | networkScopes | Sì |
+> | components | Sì |
+> | networkScopes | Yes |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | processi | Yes |
+> | processi | Sì |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
@@ -1163,14 +1171,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | appTemplates | No |
-> | IoTApps | Yes |
+> | IoTApps | Sì |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | Grafico | Yes |
+> | Grafico | Sì |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -1178,7 +1186,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | deletedVaults | No |
-> | hsmPools | Yes |
+> | hsmPools | Sì |
 > | insiemi di credenziali | Yes |
 > | vaults/accessPolicies | No |
 > | insiemi di credenziali/eventGridFilters | No |
@@ -1208,10 +1216,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | hostingEnvironments | Sì |
-> | integrationAccounts | Yes |
+> | hostingEnvironments | Yes |
+> | integrationAccounts | Sì |
 > | integrationServiceEnvironments | Yes |
-> | isolatedEnvironments | Yes |
+> | integrationServiceEnvironments/managedApis | Yes |
+> | isolatedEnvironments | Sì |
 > | flussi di lavoro | Sì |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
@@ -1228,7 +1237,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | aree di lavoro | Yes |
+> | aree di lavoro | Sì |
 > | workspaces/computes | No |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -1238,13 +1247,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | Identità | No |
 > | userAssignedIdentities | Sì |
-
-## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
-
-> [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Eliminazione in modalità completa |
-> | ------------- | ----------- |
-> | labaccounts | Yes |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft. ManagedServices
 
@@ -1325,7 +1327,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | mediaservices/liveEvents/liveOutputs | No |
 > | mediaservices/liveOutputOperations | No |
 > | mediaservices/streamingEndpointOperations | No |
-> | mediaservices/streamingEndpoints | Sì |
+> | mediaservices/streamingEndpoints | Yes |
 > | mediaservices/streamingLocators | No |
 > | mediaservices/streamingPolicies | No |
 > | mediaservices/transforms | No |
@@ -1343,7 +1345,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | assessmentProjects | Yes |
+> | assessmentProjects | Sì |
 > | migrateprojects | Sì |
 > | projects | Sì |
 
@@ -1352,16 +1354,19 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
+> | holographicsBroadcastAccounts | Sì |
+> | objectUnderstandingAccounts | Sì |
 > | remoteRenderingAccounts | Sì |
 > | spatialAnchorsAccounts | Sì |
+> | surfaceReconstructionAccounts | Sì |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | netAppAccounts | Yes |
-> | netAppAccounts/capacityPools | Yes |
+> | netAppAccounts | Sì |
+> | netAppAccounts/capacityPools | Sì |
 > | netAppAccounts/capacityPools/volumi | Sì |
 > | netAppAccounts/capacityPools/Volumes/mountTargets | Sì |
 > | netAppAccounts/capacityPools/volumi/snapshot | Sì |
@@ -1372,17 +1377,17 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | applicationGateways | Sì |
-> | applicationGatewayWebApplicationFirewallPolicies | Yes |
-> | applicationSecurityGroups | Sì |
+> | applicationGatewayWebApplicationFirewallPolicies | Sì |
+> | applicationSecurityGroups | Yes |
 > | azureFirewallFqdnTags | No |
-> | azureFirewalls | Yes |
-> | bastionHosts | Yes |
+> | azureFirewalls | Sì |
+> | bastionHosts | Sì |
 > | bgpServiceCommunities | No |
-> | connessioni | Sì |
+> | connessioni | Yes |
 > | ddosCustomPolicies | Sì |
 > | ddosProtectionPlans | Sì |
 > | dnsOperationStatuses | No |
-> | dnszones | Yes |
+> | dnszones | Sì |
 > | dnszones/A | No |
 > | dnszones/AAAA | No |
 > | dnszones/all | No |
@@ -1396,27 +1401,27 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | dnszones/SRV | No |
 > | dnszones/TXT | No |
 > | expressRouteCircuits | Yes |
-> | expressRouteCrossConnections | Sì |
-> | expressRouteGateways | Yes |
-> | expressRoutePorts | Yes |
+> | expressRouteCrossConnections | Yes |
+> | expressRouteGateways | Sì |
+> | expressRoutePorts | Sì |
 > | expressRouteServiceProviders | No |
-> | firewallPolicies | Sì |
-> | frontdoor | Yes |
+> | firewallPolicies | Yes |
+> | frontdoor | Sì |
 > | frontdoorWebApplicationFirewallManagedRuleSets | No |
-> | frontdoorWebApplicationFirewallPolicies | Yes |
+> | frontdoorWebApplicationFirewallPolicies | Sì |
 > | getDnsResourceReference | No |
 > | internalNotify | No |
-> | loadBalancers | Sì |
+> | loadBalancers | Yes |
 > | localNetworkGateways | Sì |
 > | natGateways | Sì |
 > | networkIntentPolicies | Yes |
 > | networkInterfaces | Yes |
-> | networkProfiles | Yes |
-> | networkSecurityGroups | Yes |
+> | networkProfiles | Sì |
+> | networkSecurityGroups | Sì |
 > | networkWatchers | Sì |
-> | networkWatchers/connectionMonitors | Yes |
+> | networkWatchers/connectionMonitors | Sì |
 > | networkWatchers/lenses | Sì |
-> | networkWatchers/pingMeshes | Sì |
+> | networkWatchers/pingMeshes | Yes |
 > | p2sVpnGateways | Yes |
 > | privateDnsOperationStatuses | No |
 > | privateDnsZones | Sì |
@@ -1429,35 +1434,35 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | privateDnsZones/SOA | No |
 > | privateDnsZones/SRV | No |
 > | privateDnsZones/TXT | No |
-> | privateDnsZones/virtualNetworkLinks | Sì |
-> | privateEndpoints | Sì |
+> | privateDnsZones/virtualNetworkLinks | Yes |
+> | privateEndpoints | Yes |
 > | privateLinkServices | Sì |
 > | publicIPAddresses | Sì |
-> | publicIPPrefixes | Sì |
-> | routeFilters | Sì |
-> | routeTables | Sì |
+> | publicIPPrefixes | Yes |
+> | routeFilters | Yes |
+> | routeTables | Yes |
 > | secureGateways | Sì |
 > | serviceEndpointPolicies | Sì |
 > | trafficManagerGeographicHierarchies | No |
-> | trafficmanagerprofiles | Sì |
+> | trafficmanagerprofiles | Yes |
 > | trafficmanagerprofiles/heatMaps | No |
 > | trafficManagerUserMetricsKeys | No |
 > | virtualHubs | Sì |
 > | virtualNetworkGateways | Sì |
 > | virtualNetworks | Sì |
 > | virtualNetworkTaps | Sì |
-> | virtualWans | Sì |
-> | vpnGateways | Yes |
+> | virtualWans | Yes |
+> | vpnGateways | Sì |
 > | vpnSites | Sì |
-> | webApplicationFirewallPolicies | Yes |
+> | webApplicationFirewallPolicies | Sì |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | spazi dei nomi | Yes |
-> | namespaces/notificationHubs | Yes |
+> | spazi dei nomi | Sì |
+> | namespaces/notificationHubs | Sì |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -1467,17 +1472,18 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | HyperVSites | Sì |
 > | ImportSites | Sì |
 > | ServerSites | Sì |
-> | VMwareSites | Sì |
+> | VMwareSites | Yes |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
+> | clusters | Yes |
 > | dispositivi | No |
 > | linkTargets | No |
 > | storageInsightConfigs | No |
-> | aree di lavoro | Yes |
+> | aree di lavoro | Sì |
 > | workspaces/dataSources | No |
 > | workspaces/linkedServices | No |
 > | workspaces/query | No |
@@ -1499,7 +1505,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | legacyPeerings | No |
 > | peerAsns | No |
-> | peering | Sì |
+> | peering | Yes |
+> | peeringServiceProviders | No |
+> | peeringServices | Yes |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -1517,7 +1525,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | consoles | No |
-> | dashboards | Sì |
+> | dashboards | Yes |
 > | userSettings | No |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
@@ -1525,7 +1533,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | workspaceCollections | Sì |
+> | workspaceCollections | Yes |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
@@ -1547,7 +1555,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | spazi dei nomi | Sì |
+> | spazi dei nomi | Yes |
 > | namespaces/authorizationrules | No |
 > | namespaces/hybridconnections | No |
 > | namespaces/hybridconnections/authorizationrules | No |
@@ -1560,7 +1568,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | account | No |
-> | collezioni | Yes |
+> | Collezioni | Sì |
 > | raccolte/applicazioni | No |
 > | raccolte/SecurityPrincipals | No |
 > | templateImages | No |
@@ -1570,7 +1578,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | query | Sì |
+> | query | Yes |
 > | resourceChangeDetails | No |
 > | resourceChanges | No |
 > | risorse | No |
@@ -1625,7 +1633,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | flussi | Sì |
 > | jobcollections | Sì |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1660,7 +1667,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | No |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | No |
 > | jitNetworkAccessPolicies | No |
-> | playbookConfigurations | Sì |
+> | File networkdata | No |
+> | playbookConfigurations | Yes |
 > | criteri | No |
 > | pricings | No |
 > | regulatoryComplianceStandards | No |
@@ -1692,7 +1700,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | le aggregazioni | No |
 > | Regole di avviso | No |
-> | segnalibri | No |
+> | alertRuleTemplates | No |
+> | Segnalibri | No |
 > | cases | No |
 > | DataConnector | No |
 > | entità | No |
@@ -1730,18 +1739,18 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | containerGroupSets | Sì |
 > | edgeclusters | Sì |
 > | edgeclusters/applicazioni | No |
-> | Reti | Yes |
-> | secretstores | Yes |
+> | Reti | Sì |
+> | secretstores | Sì |
 > | secretstores/certificati | No |
 > | secretstores/segreti | No |
-> | volumes | Sì |
+> | volumes | Yes |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | applicazioni | Yes |
+> | applicazioni | Sì |
 > | containerGroups | Sì |
 > | gateways | Sì |
 > | Reti | Sì |
@@ -1755,14 +1764,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | providerRegistrations | No |
 > | providerRegistrations/resourceTypeRegistrations | No |
-> | rollouts | Sì |
+> | rollouts | Yes |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | SignalR | Sì |
+> | SignalR | Yes |
 > | SignalR/eventGridFilters | No |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
@@ -1770,7 +1779,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | SiteRecoveryVault | Yes |
+> | SiteRecoveryVault | Sì |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft. SoftwarePlan
 
@@ -1785,7 +1794,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | applicationDefinitions | Yes |
-> | applicazioni | Sì |
+> | applicazioni | Yes |
 > | jitRequests | Sì |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
@@ -1894,7 +1903,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | managers | Yes |
+> | managers | Sì |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
@@ -1910,6 +1919,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | annulla | No |
 > | CreateSubscription | No |
+> | enable | No |
 > | rinomina | No |
 > | SubscriptionDefinitions | No |
 > | SubscriptionOperations | No |
@@ -1919,18 +1929,18 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | environments | Yes |
+> | environments | Sì |
 > | environments/accessPolicies | No |
 > | environments/eventsources | Sì |
-> | environments/referenceDataSets | Sì |
+> | environments/referenceDataSets | Yes |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | dedicatedCloudNodes | Yes |
-> | dedicatedCloudServices | Sì |
+> | dedicatedCloudNodes | Sì |
+> | dedicatedCloudServices | Yes |
 > | virtualMachines | Sì |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -1949,13 +1959,13 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | apiManagementAccounts/connectionAcls | No |
 > | apiManagementAccounts/connections | No |
 > | billingMeters | No |
-> | certificati | Yes |
-> | connectionGateways | Yes |
+> | certificati | Sì |
+> | connectionGateways | Sì |
 > | connessioni | Sì |
 > | customApis | Sì |
 > | deletedSites | No |
 > | funzioni | No |
-> | hostingEnvironments | Sì |
+> | hostingEnvironments | Yes |
 > | hostingEnvironments/multiRolePools | No |
 > | hostingEnvironments/workerPools | No |
 > | publishingUsers | No |
@@ -1964,7 +1974,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | runtimes | No |
 > | serverFarms | Yes |
 > | serverFarms/eventGridFilters | No |
-> | siti | Yes |
+> | siti | Sì |
 > | siti/configurazione  | No |
 > | siti/eventGridFilters | No |
 > | sites/hostNameBindings | No |

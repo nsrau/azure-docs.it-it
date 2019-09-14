@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 558ce8950a1848f0cddc247f60dd4e75dd20ccf0
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: e14cb56db6e45fe86ecd5e73766c47d29dd23fa1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305473"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984236"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Supporto lingua e area geografica per l'API Analisi del testo
 
@@ -48,7 +48,7 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Arabo      | `ar`          |           |             | ✔ \*                     | |
 | Ceco       | `cs`          |           |             | ✔ \*                     | |
-| Cinese semplificato | `zh-CN`|           |             | ✔         |    |
+| Cinese semplificato | `zh-CN`| ✔ \***     |             | ✔         |    |
 | Danese      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Olandese       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | Inglese     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
@@ -58,7 +58,7 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 | Greco       | `el`          | ✔ \*     |             |            |     |
 | Ungherese   | `hu`          |           |             |  ✔ \*          |     | 
 | Italiano     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Giapponese    | `ja`          |          | ✔           |  ✔ \*          |     |
+| Giapponese    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
 | Coreano      | `ko`          |          | ✔           |  ✔ \*          |     |
 | Norvegese (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | Polacco      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
@@ -71,7 +71,9 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 
 \*Il supporto della lingua è in anteprima
 
-\*\*Il [riconoscimento delle entità](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) denominate e il [collegamento di entità](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) sono entrambi disponibili per questa lingua.    
+\*\*Il [riconoscimento delle entità](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) denominate e il [collegamento di entità](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) sono entrambi disponibili per questa lingua.  
+
+\** * Disponibile nell' [anteprima pubblica analisi del sentiment V3](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
 
 ## <a name="see-also"></a>Vedere anche
 

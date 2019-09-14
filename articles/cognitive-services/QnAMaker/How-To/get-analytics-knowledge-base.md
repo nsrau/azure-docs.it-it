@@ -9,14 +9,14 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: ebc06057dfa4bce72821ddf807cda46270e8ff3e
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 5c55084a57e46931049841f5011941b2115e9e69
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70206844"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961512"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Ottenere analisi sulla Knowledge Base
 
@@ -26,9 +26,7 @@ QnA Maker archivia tutti i log di chat e altri dati di telemetria se è stato at
 
     ![Selezionare la risorsa Application Insights](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Selezionare **Analytics**. Si aprirà una nuova finestra in cui è possibile eseguire query sui dati di telemetria di QnA Maker.
-
-    ![Selezionare Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
+2. Selezionare **Log Analytics**. Si aprirà una nuova finestra in cui è possibile eseguire query sui dati di telemetria di QnA Maker.
 
 3. Incollare la seguente query ed eseguirla.
 
@@ -48,7 +46,7 @@ QnA Maker archivia tutti i log di chat e altri dati di telemetria se è stato at
 
     Selezionare **Esegui** per eseguire la query.
 
-    ![Esegui query](../media/qnamaker-how-to-analytics-kb/run-query.png)
+    [![Eseguire la query per determinare domande, risposte e Punteggio dagli utenti](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Eseguire query per ottenere altre analisi sulla Knowledge Base di QnA Maker
 

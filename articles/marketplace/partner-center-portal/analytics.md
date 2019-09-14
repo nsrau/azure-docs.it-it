@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 535dae4226f7db9cbc7240f9a92642f0e206cd3b
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880154"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962741"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analisi per il Marketplace commerciale nel centro per i partner
 
@@ -26,7 +26,6 @@ Per accedere agli strumenti di analisi del centro per i partner, aprire il dashb
 |[Ordini](#orders-dashboard)|Informazioni sugli ordini in formato grafico e scaricabile|
 |[Clienti](#customer-dashboard)|Informazioni sui clienti, incluse le tendenze di crescita, presentate in formato grafico e scaricabile|
 |[Download](#downloads-dashboard)|Elenco delle richieste di download negli ultimi 30 giorni|
-|[Classificazioni e revisioni](#ratings-and-reviews)| Informazioni sulle classificazioni e le recensioni che i clienti lasciano per le offerte acquisite.
 
 ## <a name="summary-dashboard"></a>Dashboard Riepilogo
 
@@ -286,38 +285,3 @@ Si riceverà una notifica popup e un messaggio di posta elettronica contenente u
 | Nome provider| Cliente| Nome del provider associato alla relazione tra Microsoft e il cliente finale. Se il cliente è un'azienda tramite rivenditore, questo sarà il rivenditore. Se è necessario un provider di soluzioni cloud (CSP), questo sarà il CSP.|
 | SKU| Ordine| Nome dello SKU come definito durante la pubblicazione. Un'offerta può avere molti SKU, ma uno SKU può essere associato solo a una singola offerta.||
 | Trial End Date| Ordine| Data di scadenza del periodo di valutazione per questo ordine.||
-
-## <a name="ratings-and-reviews"></a>Classificazioni e revisioni
-
-Man mano che i clienti navigano, eseguono ricerche e acquistano offerte in entrambi i Marketplace, possono lasciare valutazioni e recensioni per le offerte acquisite. Sono in grado di inviare nuove classificazioni o revisioni, aggiornare o eliminare valutazioni o recensioni già inviate. Le recensioni vengono pubblicate in Azure Marketplace o in AppSource nella scheda revisioni della pagina di visualizzazione del prodotto dell'offerta. I clienti possono includere i nomi per le classificazioni o le revisioni oppure possono pubblicare in modo anonimo.  
-
-> [!NOTE]
-> I clienti possono apportare modifiche solo alle classificazioni e alle revisioni di cui sono proprietari.
-
-Il **Dashboard valutazioni & rivedere** Visualizza le tendenze e le informazioni dettagliate delle attività dei clienti. Fornisce rappresentazioni grafiche di:
-
-- Valutazioni & valutazioni  
-- Esaminare i commenti
-
-### <a name="marketplace-storefront-tabs"></a>Schede storefront del Marketplace
-
-Gli editori possono visualizzare le metriche dell'offerta separatamente nelle schede AppSource & Azure Marketplace. Per visualizzare specifiche metriche dell'offerta, selezionare **offerta** nell'elenco a discesa:
-
-![Elenco a discesa dell'offerta analizza il centro per i partner](./media/analyze-offer-dropdown.png)
-
-### <a name="ratings-and-reviews-summary"></a>Riepilogo valutazioni e valutazioni
-
-Nella sezione rating & revisioni riepilogo vengono visualizzate le metriche seguenti per un intervallo di date selezionato:
-
-- **Valutazione media:** Classificazione a stelle media ponderata di tutte le classificazioni inviate dai clienti per l'offerta selezionata.
-- **Suddivisione classificazione:** Suddivisione della classificazione a stelle per numero di clienti che hanno inviato valutazioni. Il grafico a barre è in pila con le classificazioni effettive e modificate (conteggio classificazione aggiornato).
-- **Totale classificazioni:** Conteggio complessivo delle classificazioni inviate. Questo conteggio include anche le classificazioni con e senza revisioni.
-- **Classificazioni con le revisioni:** Numero di revisioni inviate.
-
-![Riepilogo analisi classificazioni e recensioni del centro per i partner](./media/analyze-ratings-summary.png)
-
-### <a name="review-comments"></a>Esaminare i commenti
-
-Le revisioni vengono visualizzate in ordine cronologico quando sono state pubblicate. Nella visualizzazione predefinita vengono visualizzate tutte le revisioni. È possibile filtrare le revisioni in base alla classificazione a stelle usando il **filtro** nel menu a discesa. È anche possibile cercare le parole chiave visualizzate nella revisione.  
-
-![Commenti di analisi per il centro per i partner](./media/analyze-reviews.png)

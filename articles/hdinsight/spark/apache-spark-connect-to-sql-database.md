@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 20c4571ee795c280e6c916e3080279a6d13fecce
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c262d3841acd3497667c00a9deee04b304ddae76
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814219"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984798"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Usare un cluster HDInsight Spark per leggere e scrivere dati nel database SQL di Azure
 
@@ -182,7 +182,7 @@ In questa sezione si trasmetteranno dati all'oggetto **hvactable** creato nel da
 
 1. L'output mostra lo schema di **HVAC.csv**, che coincide con lo schema di **hvactable**. Nell'output vengono elencate le colonne presenti nella tabella.
 
-    ![Schema della tabella](./media/apache-spark-connect-to-sql-database/schema-of-table.png "Schema della tabella")
+    ![Schema della tabella](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "Schema della tabella")
 
 1. Usare infine il frammento di codice seguente per leggere i dati da HVAC.csv e trasmetterli nell'oggetto **hvactable** nel database SQL di Azure. Incollare il frammento di codice in una cella di codice, sostituire i valori segnaposto con i valori relativi al database SQL di Azure in uso e quindi premere **MAIUSC+INVIO** per eseguirlo.
 

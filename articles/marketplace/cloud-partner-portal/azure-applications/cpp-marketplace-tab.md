@@ -1,5 +1,5 @@
 ---
-title: Offerta di applicazione Azure scheda Marketplace
+title: Scheda Marketplace offerta applicazione Azure
 description: Usare la scheda Marketplace per identificare gli asset di marketing per un'offerta di applicazione di Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 7ea6e6be0597a114b02fad8c41e37d21ce1f6028
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5d54e4c6744675da0dea5b095590b71df6d2641
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942963"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962868"
 ---
 # <a name="azure-application-marketplace-tab"></a>Scheda Marketplace per applicazioni di Azure
 
@@ -24,18 +24,18 @@ Il modulo Panoramica presenta i campi obbligatori e facoltativi illustrati nella
 
 ![Modulo Panoramica](./media/azureapp-marketplace-overview.png)
 
-La tabella seguente descrive le impostazioni da usare per la creazione di una vetrina dell'offerta.   I campi aggiunti con un asterisco sono obbligatori.
+La tabella seguente descrive le impostazioni da usare per la creazione di una vetrina dell'offerta.   I campi accodati con un asterisco sono obbligatori.
 
 |      Campo         |    Descrizione    |
 |  ---------------   |  ---------------  |
 | **Titolo\***        | Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace. La lunghezza massima consentita è di 50 caratteri. |
 | **Riepilogo\***      | Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri.           |
-| **Riepilogo esteso\*** | Riepilogo più lungo dell'offerta (sebbene possa coincidere con il riepilogo). La lunghezza massima consentita è di 256 caratteri.           |
+| **Riepilogo lungo\*** | Riepilogo più lungo dell'offerta (sebbene possa coincidere con il riepilogo). La lunghezza massima consentita è di 256 caratteri.           |
 | **Descrizione\***  | Descrizione dell'offerta. La lunghezza massima consentita è di 3000 caratteri. È consentito codice HTML semplice, inclusi i tag &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e header.  |
-| **Identificatore di marketing\*** | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri. Scegliere un identificatore di marketing breve e descrittivo per il servizio. Questo verrà usato negli URL di marketplace per l'offerta. Ad esempio, se l'ID editore è "contoso" e l'identificatore di marketing è "sampleApp", l'URL per l'offerta in Azure Marketplace sarà https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp  
-| **ID sottoscrizione di anteprima\*** | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta disponibile in anteprima dopo la pubblicazione, prima che venga attivata.          |
-| **Collegamenti utili**    | Facoltativamente, è possibile fornire collegamenti a diverse risorse per gli utenti dell'offerta, ad esempio supporto, documentazione, forum e così via.  È consigliabile aggiungere almeno un collegamento alla documentazione.            |
-| **Suggeriti categorie (al massimo 5)\*** | Selezionare un massimo di cinque categorie. Le categorie selezionate sono usate per il mapping dell'offerta alle categorie di prodotti disponibili in Azure Marketplace e nel portale di Azure. Verranno visualizzate sulle pagine del browser e nella pagina dei dettagli del prodotto. |
+| **Identificatore marketing\*** | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri. Scegliere un identificatore di marketing breve e descrittivo per il servizio. Questo verrà usato negli URL di marketplace per l'offerta. Ad esempio, se l'ID editore è "contoso" e l'identificatore di marketing è "sampleApp", l'URL per l'offerta in Azure Marketplace sarà https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Anteprima ID sottoscrizione\*** | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta disponibile in anteprima dopo la pubblicazione, prima che venga attivata.          |
+| **Collegamenti utili**    | Facoltativamente, è possibile fornire collegamenti a diverse risorse per gli utenti dell'offerta, ad esempio supporto tecnico, documentazione, forum e così via.  È consigliabile aggiungere almeno un collegamento alla documentazione.            |
+| **Categorie suggerite (max 5)\*** | Selezionare da una a cinque categorie. Le categorie selezionate sono usate per il mapping dell'offerta alle categorie di prodotti disponibili in Azure Marketplace e nel portale di Azure. Verranno visualizzate sulle pagine del browser e nella pagina dei dettagli del prodotto. |
 |  |  |
 
 
@@ -50,12 +50,12 @@ La tabella seguente descrive gli artefatti di marketing.
 |      Campo         |    Descrizione    |
 |  ---------------   |  ---------------  |
 | **Small\***        | Logo piccolo: Formato PNG 40x40 pixel     |
-| **Medium\***       | Logo medio: 90 x 90 pixel in formato PNG    |
-| **Large\***        | Logo grande: 115 x 115 pixel in formato PNG   |
-| **Wide\***         | Logo grande: 255 x 115 pixel in formato PNG    |
-| **Hero** (Banner)           | Logo alto facoltativi: 815 x 290 pixel in formato PNG. **Nota:** Dopo essere stata caricata, l'icona del logo alto non può essere eliminata. |
+| **Medium\***       | Logo medio: 90x90 pixel in formato PNG    |
+| **Large\***        | Logo grande: 115x115 pixel in formato PNG   |
+| **Wide\***         | Logo Wide: 255x115 pixel in formato PNG    |
+| **Hero** (Banner)           | Logo Hero facoltativo: 815x290 pixel in formato PNG. **Nota:** Dopo essere stata caricata, l'icona del logo alto non può essere eliminata. |
 | **Screenshot (max 5)** |        Gli screenshot vengono visualizzati nella pagina dei dettagli del prodotto. Si tratta di un ottimo metodo per comunicare in modo visivo ciò che fa l'app e come funziona. Ad esempio, è possibile mostrare diagrammi di architettura o illustrazioni di casi d'uso. Gli screenshot sono facoltativi e sono limitati a 5 per ogni SKU. Per aggiungere uno screenshot:<ul><li>Selezionare **+ Aggiungi screenshot** per aprire la finestra Screenshot</li><li>**Nome**: immettere un nome/titolo (lunghezza massima di 100 caratteri).</li><li>**Upload**: caricare l'immagine. L'immagine deve essere in formato PNG, con una dimensione di 533 x 324 pixel.</li></ul>           |
-| **L'aggiunta del video**      | Facoltativo, vengono visualizzati i video nella pagina dei dettagli del prodotto. Si tratta di un ottimo metodo per comunicare in modo visivo ciò che fa l'applicazione e come funziona. Per aggiungere un video: <ul><li>Selezionare **+ Aggiungi video** per aprire la finestra Video</li><li>**Nome**: immettere un nome/titolo (lunghezza massima di 100 caratteri).</li><li>**Collegamento**: immettere l'URL del sito che ospita il video (YouTube o Vimeo)</li><li>**Anteprima**: caricare un'immagine di anteprima. L'immagine deve essere in formato PNG, con una dimensione di 533 x 324 pixel.</li></ul>          |
+| **Aggiungi video**      | Facoltativo, i video vengono visualizzati nella pagina dei dettagli del prodotto. Si tratta di un ottimo metodo per comunicare in modo visivo ciò che fa l'applicazione e come funziona. Per aggiungere un video: <ul><li>Selezionare **+ Aggiungi video** per aprire la finestra Video</li><li>**Nome**: immettere un nome/titolo (lunghezza massima di 100 caratteri).</li><li>**Collegamento**: immettere l'URL del sito che ospita il video (YouTube o Vimeo)</li><li>**Anteprima**: caricare un'immagine di anteprima. L'immagine deve essere in formato PNG, con una dimensione di 533 x 324 pixel.</li></ul>          |
 |  |  |
 
 
@@ -125,8 +125,8 @@ Usare il modulo Note legali per fornire la documentazione legale necessaria per 
 
 Specificare le informazioni seguenti:
 
-- **Privacy policy URL\***  : immettere un collegamento all'informativa sulla privacy dell'app.
-- **Le condizioni d'uso\***  : immettere le condizioni d'uso per l'app. Per ottenere la versione di prova dell'app, i clienti devono accettare tali condizioni.
+- **URL\* informativa sulla privacy** : immettere un collegamento all'informativa sulla privacy dell'app.
+- **Condizioniperl'utilizzo\***  : immettere le condizioni per l'utilizzo per l'app. Per ottenere la versione di prova dell'app, i clienti devono accettare tali condizioni.
 
 ![Modulo Note legali](./media/azureapp-marketplace-legal.png)
 

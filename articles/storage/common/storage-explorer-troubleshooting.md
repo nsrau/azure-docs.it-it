@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 69631b39403dedab56ed75cb145d464c0e1f747c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: HT
+ms.openlocfilehash: 3a95d52f2a0aa07094f91b0653fcb94ff1f88d44
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935350"
+ms.locfileid: "70958989"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -264,6 +264,7 @@ La gestione delle credenziali locali varia a seconda della distribuzione Linux. 
 1. Aprire lo strumento di gestione delle credenziali locale, trovare le credenziali salvate.
 2. Cercare le voci con la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio `StorageExplorer_CustomConnections_Accounts_v1/account1`,).
 3. Eliminare queste voci e aggiungere di nuovo le connessioni.
+---
 
 Se questo errore si è ancora riscontrato dopo aver eseguito questi passaggi o se si vuole condividere le informazioni che si ritiene danneggiano le connessioni, [aprire un problema](https://github.com/microsoft/AzureStorageExplorer/issues) nella pagina di GitHub.
 

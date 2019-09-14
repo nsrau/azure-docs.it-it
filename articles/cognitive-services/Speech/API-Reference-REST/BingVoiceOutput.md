@@ -3,20 +3,20 @@ title: API Sintesi vocale del Servizio di riconoscimento vocale Microsoft | Micr
 titlesuffix: Azure Cognitive Services
 description: Usare l'API Sintesi vocale per fornire la sintesi vocale in tempo reale in una varietà di voci e lingue
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: priyar
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee9b0b47fb88cba948bc06db6eb83fe9c076fe40
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515430"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966863"
 ---
 # <a name="bing-text-to-speech-api"></a>API Sintesi vocale Bing
 
@@ -32,7 +32,7 @@ L'API Sintesi vocale Bing consente a un'applicazione di inviare richieste HTTP a
 
 Ogni richiesta di sintesi vocale deve avere un token di accesso JSON Web (JWT). Questo token di accesso viene passato nell'intestazione della richiesta di riconoscimento vocale. Il token ha una scadenza di 10 minuti. Per informazioni su come eseguire la sottoscrizione e ottenere le chiavi API che vengono usate per recuperare i token di accesso JWT validi, vedere la pagina per la [sottoscrizione dei Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/).
 
-La chiave API viene passata al servizio token. Ad esempio:
+La chiave API viene passata al servizio token. Esempio:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -41,11 +41,11 @@ Content-Length: 0
 
 Le informazioni di intestazione necessarie per il token di accesso sono le seguenti.
 
-NOME| Format | Descrizione
+NOME| Formato | DESCRIZIONE
 ----|----|----
-Ocp-Apim-Subscription-Key | ASCII | Your subscription key (Chiave della sottoscrizione)
+Ocp-Apim-Subscription-Key | ASCII | Chiave di sottoscrizione
 
-Il servizio token restituisce il token di accesso JWT come `text/plain`. Il token JWT viene quindi passato come `Base64 access_token` all'endpoint di sintesi vocale sotto forma di intestazione Authorization preceduta dalla stringa di prefisso `Bearer`. Ad esempio:
+Il servizio token restituisce il token di accesso JWT come `text/plain`. Il token JWT viene quindi passato come `Base64 access_token` all'endpoint di sintesi vocale sotto forma di intestazione Authorization preceduta dalla stringa di prefisso `Bearer`. Esempio:
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -66,7 +66,7 @@ Content-Type | application/ssml+xml | Tipo di contenuto di input.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | Formato audio di output.
 X-Search-AppId | GUID (solo esadecimale, senza trattini) | ID che identifica l'applicazione client in modo univoco. Può essere l'ID dello Store per le app. Se non è disponibile, l'ID può essere generato dall'utente per un'applicazione.
 X-Search-ClientID | GUID (solo esadecimale, senza trattini) | ID che identifica in modo univoco un'istanza dell'applicazione per ogni installazione.
-User-Agent | Nome dell'applicazione | Il nome dell'applicazione è obbligatorio e deve essere più breve di 255 caratteri.
+User-Agent | Nome applicazione | Il nome dell'applicazione è obbligatorio e deve essere più breve di 255 caratteri.
 Authorization | Token di autorizzazione |  Vedere le sezione <a href="#Subscription">Token di autorizzazione</a>.
 
 ### <a name="InputParam"></a>Parametri di input
@@ -122,7 +122,7 @@ Content-Length: 0
 
 ### <a name="ErrorResponse"></a>Risposte di errore
 
-Tipi di errore | Descrizione
+Errore | DESCRIZIONE
 ----|----
 HTTP/400 (Richiesta non valida) | Un parametro obbligatorio è assente, vuoto o Null oppure il valore passato a un parametro obbligatorio o facoltativo non è valido. Uno dei motivi per cui si riceve una risposta di tipo "non valido" è il passaggio di un valore di stringa più lungo del limite massimo consentito. È inclusa una breve descrizione del parametro che causa il problema.
 HTTP/401 (Non autorizzato) | La richiesta non è autorizzata.

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: da987b5e841824dc62f3b740cae2961de9d7b293
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 62f633b617abb52e1be4003f65cc537cc9ff2a25
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872899"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983787"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare il [servizio backup di Azure](backup-overview.md) per eseguire il backup di computer e carichi di lavoro locali e di macchine virtuali (VM) di Azure. Questo articolo riepiloga le impostazioni e le limitazioni del supporto quando si esegue il backup di macchine virtuali di Azure con backup di Azure.
@@ -180,7 +180,7 @@ Più indirizzi IP riservati |    Supportato. <br/><br/> [Vedere altre informazio
 Macchine virtuali con più schede di rete  | Supportato. <br/><br/> [Vedere altre informazioni](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sul ripristino delle macchine virtuali con impostazioni di rete speciali.
 Macchine virtuali con indirizzi IP pubblici    | Supportato.<br/><br/> Associare un indirizzo IP pubblico esistente alla scheda di interfaccia di rete oppure creare un indirizzo e associarlo alla scheda di interfaccia di rete dopo aver eseguito il ripristino.
 Gruppo di sicurezza di rete (NSG) nella scheda di interfaccia di rete/subnet. |   Supportato.
-Indirizzo IP riservato (statico) | Non supportati.<br/><br/> Non è possibile eseguire il backup di una macchina virtuale con un indirizzo IP riservato e nessun endpoint definito.
+Indirizzo IP statico | Non supportati.<br/><br/> A una nuova macchina virtuale creata a partire da un punto di ripristino viene assegnato un indirizzo IP dinamico.<br/><br/> Per le macchine virtuali classiche non è possibile eseguire il backup di una macchina virtuale con un indirizzo IP riservato e nessun endpoint definito.
 Indirizzo IP dinamico |    Supportato.<br/><br/> Se la scheda di interfaccia di rete nella macchina virtuale di origine USA indirizzi IP dinamici, per impostazione predefinita la scheda di interfaccia di rete nella macchina virtuale ripristinata lo userà anche.
 Gestione traffico di Azure   | Supportato.<br/><br/>Se la macchina virtuale di cui è stato eseguito il backup si trova in gestione traffico, aggiungere manualmente la macchina virtuale ripristinata alla stessa istanza di gestione traffico.
 DNS di Azure | Supportato.
@@ -213,10 +213,10 @@ Sicurezza dei dati:
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
-Macchine virtuali di Azure | ![Sì][green] | ![Yes][green]
+Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Yes][green]
+Macchine virtuali di Azure | ![Yes][green] | ![Yes][green]
 Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Yes][green] | ![Sì][green]
+Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
 
 
 
@@ -231,8 +231,8 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ND | ![Sì][green]
 Macchine virtuali di Azure | ND | ND
-Computer locali/VM di Azure con DPM | ![Yes][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
+Computer locali/VM di Azure con DPM | ![Sì][green] | ![Yes][green]
+Computer locali/VM di Azure con MABS | ![Yes][green] | ![Yes][green]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

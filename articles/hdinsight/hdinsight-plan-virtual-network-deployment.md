@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 135855ee33f783e85b398c7f9716c2c897633de9
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: a0c9c729081da9f6c7b8f549a4906d432af6ecb2
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779547"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961654"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Pianificare una rete virtuale per Azure HDInsight
 
@@ -212,7 +212,7 @@ Il traffico di rete nelle reti virtuali di Azure può essere controllato usando 
 
 In qualità di servizio gestito, HDInsight richiede l'accesso illimitato ai servizi di gestione e integrità HDInsight sia per il traffico in ingresso che in uscita dal VNET. Quando si usa gruppi, è necessario assicurarsi che questi servizi possano comunque comunicare con il cluster HDInsight.
 
-![Diagramma delle entità HDInsight create in VNET personalizzati di Azure](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![Diagramma delle entità HDInsight create in VNET personalizzati di Azure](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
 
 ### <a name="hdinsight-with-network-security-groups"></a>HDInsight con gruppi di sicurezza di rete
 
@@ -220,7 +220,7 @@ Se si prevede di usare i **gruppi di sicurezza di rete** per controllare il traf
 
 1. Identificare l'area di Azure che si intende usare per HDInsight.
 
-2. Identificare gli indirizzi IP richiesti da HDInsight. Per altre informazioni, vedere [indirizzi IP di gestione di HDInsight](hdinsight-management-ip-addresses.md).
+2. Identificare gli indirizzi IP richiesti da HDInsight. Per altre informazioni, vedere [Indirizzi IP di gestione di HDInsight](hdinsight-management-ip-addresses.md).
 
 3. Creare o modificare i gruppi di sicurezza di rete per la subnet in cui si intende installare HDInsight.
 
@@ -234,7 +234,7 @@ Per altre informazioni sul controllo del traffico in uscita dai cluster HDInsigh
 
 #### <a name="forced-tunneling-to-on-premise"></a>Tunneling forzato a un'istanza locale
 
-Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight non supporta il tunneling forzato del traffico verso le reti locali. 
+Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight non __supporta il__ tunneling forzato del traffico verso le reti locali. 
 
 ## <a id="hdinsight-ip"></a> Indirizzi IP richiesti
 

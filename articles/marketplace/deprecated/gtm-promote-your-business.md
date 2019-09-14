@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 8bb064deae87e6545d003ffb1fa85058926f5dee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9549e40ea3b79c356867c2fe36dc336e69795c8b
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688957"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962830"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promuovere la propria attività con Microsoft
 
@@ -28,7 +28,7 @@ Per promuovere un'offerta o un'app e accedere ad altri vantaggi e risorse, usare
 
 | Vantaggi | Risorse |
 |:--- |:--- |
-| Sfruttare i vantaggi di base | Entrando a far parte di Microsoft Partner Network, si ricevono alcuni vantaggi di base che consentono di risparmiare tempo e denaro. I vantaggi possono aiutare l'utente a <ul> <li> rafforzare le proprie competenze, </li> <li> fornire un servizio migliore ai clienti e </li> <li> sviluppare connessioni per sfruttare al meglio il potenziale della propria attività. </li> </ul> Per altre informazioni sui vantaggi di base, visitare [Vantaggi di base e requisiti](https://partner.microsoft.com/en-US/membership/core-benefits#tab-content-1). |
+| Sfruttare i vantaggi di base | Entrando a far parte di Microsoft Partner Network, si ricevono alcuni vantaggi di base che consentono di risparmiare tempo e denaro. I vantaggi possono aiutare l'utente a <ul> <li> rafforzare le proprie competenze, </li> <li> fornire un servizio migliore ai clienti e </li> <li> sviluppare connessioni per sfruttare al meglio il potenziale della propria attività. </li> </ul> Per altre informazioni sui vantaggi di base, visitare [Vantaggi di base e requisiti](https://partner.microsoft.com/membership/core-benefits#tab-content-1). |
 | Ottenere la competenza per la piattaforma cloud | Acquisire una competenza consente di <ul> <li> distinguersi dagli altri partner Microsoft. </li> <li> Inoltre consente di testimoniare la propria esperienza tecnica e il successo dei clienti sul mercato. </li> </ul> L'acquisizione di una competenza è un prerequisito per partecipare a molti dei principali programmi per partner come quello di co-selling. Consultare la [Competenza per la piattaforma cloud](https://partner.microsoft.com/reach-customers/selling-with-microsoft) per altre informazioni. |
 | Acquisire l'idoneità per il programma di co-selling IP | L'utente potrebbe essere idoneo per il programma di co-selling IP.  Questo programma consente di: <ul> <li> Collaborare direttamente con i venditori Microsoft e con altri partner alla realizzazione di opportunità di vendita mirate e alla pianificazione di account. </li> <li> Rendere la propria soluzione visibile ai venditori Microsoft nel catalogo di soluzioni del venditore. </li> <li> I venditori Microsoft a loro volta verranno ricompensati per l'avvio di una collaborazione di successo in collaborazione con l'editore. </li> </ul> Per altre informazioni tra cui i requisiti di idoneità, consultare [il programma di co-selling e Alzare di livello la propria azienda](https://partner.microsoft.com/reach-customers/selling-with-microsoft). |
 

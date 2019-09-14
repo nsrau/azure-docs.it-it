@@ -4,14 +4,14 @@ description: Viene descritto come usare i modelli di Azure Resource Manager per 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61e9bbabee969280c07521edb05d67ba68c0c58e
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801997"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965301"
 ---
 # <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
@@ -21,43 +21,35 @@ Per soddisfare queste esigenze, è possibile automatizzare le distribuzioni e ut
 
 Per implementare l'infrastruttura come codice per le soluzioni di Azure, usare Azure Resource Manager modelli. Il modello è un file JavaScript Object Notation (JSON) che definisce l'infrastruttura e la configurazione per il progetto. Il modello usa la sintassi dichiarativa, che consente di indicare lo stato che si intende distribuire senza dover scrivere la sequenza di comandi di programmazione per crearla. Nel modello si specificano le risorse da distribuire e le proprietà di tali risorse.
 
-## <a name="benefits-of-resource-manager-templates"></a>Vantaggi dei modelli di Gestione risorse
+## <a name="why-choose-resource-manager-templates"></a>Perché scegliere Gestione risorse modelli?
 
-I modelli Gestione risorse offrono i vantaggi seguenti:
+Se si sta tentando di scegliere tra l'uso di modelli Gestione risorse e una delle altre infrastrutture come servizi di codice, considerare i vantaggi seguenti dell'uso dei modelli:
 
-* Distribuire, gestire e monitorare tutte le risorse per la soluzione come gruppo, anziché gestire singolarmente queste risorse.
+* **Sintassi dichiarativa**: Gestione risorse modelli consentono di creare e distribuire un'intera infrastruttura di Azure in modo dichiarativo. Ad esempio, è possibile distribuire non solo le macchine virtuali, ma anche l'infrastruttura di rete, i sistemi di archiviazione e tutte le altre risorse che potrebbero essere necessarie.
 
-* Distribuire ripetutamente la soluzione nel corso del ciclo di vita di sviluppo e avere la certezza che le risorse vengano distribuite in uno stato coerente.
+* **Risultati ripetibili**: Distribuire ripetutamente l'infrastruttura durante tutto il ciclo di vita di sviluppo e avere la certezza che le risorse vengano distribuite in modo coerente. I modelli sono idempotente, il che significa che è possibile distribuire più volte lo stesso modello e ottenere gli stessi tipi di risorsa nello stesso stato. È possibile sviluppare un modello che rappresenta lo stato desiderato, anziché sviluppare molti modelli distinti per rappresentare gli aggiornamenti.
 
-* Gestire l'infrastruttura tramite modelli dichiarativi anziché script.
-
-Se si sta tentando di scegliere tra l'uso di modelli Gestione risorse o una delle altre infrastrutture come servizi di codice, tenere presente i seguenti modelli di vantaggi:
-
-* I nuovi servizi e funzionalità di Azure sono immediatamente disponibili nei modelli. Non appena un provider di risorse introduce nuove risorse, è possibile distribuire tali risorse tramite modelli. Con altre infrastrutture come servizi di codice, è necessario attendere che le terze parti implementino le interfacce per le nuove risorse.
-
-* Le distribuzioni di modelli vengono gestite tramite un singolo invio del modello, anziché tramite più comandi imperativi. Gestione risorse orchestra la distribuzione di risorse interdipendenti, in modo che vengano create nell'ordine corretto. Analizza il modello e determina l'ordine corretto per la distribuzione in base ai riferimenti tra le risorse.
+* **Orchestrazione**. Non è necessario preoccuparsi delle complessità delle operazioni di ordinamento. Gestione risorse orchestra la distribuzione di risorse interdipendenti, in modo che vengano create nell'ordine corretto. Quando possibile, Gestione risorse distribuisce le risorse in parallelo, in modo che le distribuzioni vengano completate più velocemente rispetto alle distribuzioni seriali. Il modello viene distribuito tramite un solo comando, anziché tramite più comandi imperativi.
 
    ![Confronto Distribuzione modelli](./media/template-deployment-overview/template-processing.png)
 
-* Le distribuzioni di modelli vengono rilevate nel portale di Azure. È possibile esaminare la cronologia di distribuzione e ottenere informazioni sulla distribuzione del modello. È possibile visualizzare il modello che è stato distribuito, i valori dei parametri passati ed eventuali valori di output. Altre infrastrutture come servizi del codice non vengono rilevate tramite il portale.
+* **Convalida incorporata**: Il modello viene distribuito solo dopo il passaggio della convalida. Gestione risorse controlla il modello prima di avviare la distribuzione per assicurarsi che la distribuzione abbia esito positivo. È meno probabile che la distribuzione venga interrotta in uno stato di metà fine.
+
+* **File modulari**: È possibile suddividere i modelli in componenti più piccoli e riutilizzabili e collegarli insieme in fase di distribuzione. È anche possibile annidare un modello all'interno di un altro modello.
+
+* **Creare una risorsa di Azure**: Nei modelli è possibile usare immediatamente nuovi servizi e funzionalità di Azure. Non appena un provider di risorse introduce nuove risorse, è possibile distribuire tali risorse tramite modelli. Non è necessario attendere l'aggiornamento degli strumenti o dei moduli prima di usare i nuovi servizi.
+
+* **Distribuzioni rilevate**: Nella portale di Azure è possibile esaminare la cronologia della distribuzione e ottenere informazioni sulla distribuzione del modello. È possibile visualizzare il modello che è stato distribuito, i valori dei parametri passati ed eventuali valori di output. Altre infrastrutture come servizi del codice non vengono rilevate tramite il portale.
 
    ![Cronologia distribuzioni](./media/template-deployment-overview/deployment-history.png)
 
-* Le distribuzioni modello sottoposte a convalida pre-flight. Gestione risorse controlla il modello prima di avviare la distribuzione per assicurarsi che la distribuzione abbia esito positivo. È meno probabile che la distribuzione venga interrotta in uno stato di metà fine.
+* **Criteri come codice**: [Criteri di Azure](../governance/policy/overview.md) è un criterio come Framework di codice per automatizzare la governance. Se si usano i criteri di Azure, la correzione dei criteri viene eseguita su risorse non conformi quando viene distribuita tramite modelli.
 
-* Se si usano i [criteri di Azure](../governance/policy/overview.md), la correzione dei criteri viene eseguita su risorse non conformi quando viene distribuita tramite modelli.
+* **Progetti di distribuzione**: È possibile sfruttare i vantaggi dei [progetti](../governance/blueprints/overview.md) forniti da Microsoft per soddisfare gli standard normativi e di conformità. Questi progetti includono modelli predefiniti per diverse architetture.
 
-* Microsoft fornisce i [progetti](../governance/blueprints/overview.md) di distribuzione per soddisfare gli standard normativi e di conformità. Questi progetti includono modelli predefiniti per diverse architetture.
+* **Codice esportabile**: È possibile ottenere un modello per un gruppo di risorse esistente esportando lo stato corrente del gruppo di risorse o visualizzando il modello usato per una distribuzione specifica. Per conoscere la sintassi del modello è molto utile visualizzare il [modello esportato](export-template-portal.md).
 
-## <a name="idempotent"></a>Idempotente
-
-Idempotente significa semplicemente che è possibile eseguire molte volte le stesse operazioni e ottenere lo stesso risultato. La distribuzione di un modello di Gestione risorse è idempotente. È possibile distribuire lo stesso modello molte volte e ottenere gli stessi tipi di risorse nello stesso stato. Questo concetto è importante perché significa che si ottengono risultati coerenti se si ridistribuisce un modello in un gruppo di risorse esistente o si distribuisce un modello a un nuovo gruppo di risorse.
-
-Si supponga di aver distribuito tre risorse in un gruppo di risorse, quindi decidere di aggiungere una quarta risorsa. Anziché creare un nuovo modello che contiene solo la nuova risorsa, è possibile aggiungere la quarta risorsa al modello esistente. Quando si distribuisce il nuovo modello nel gruppo di risorse che ha già tre risorse, Gestione risorse determina le azioni da intraprendere.
-
-Se la risorsa esiste nel gruppo di risorse e la richiesta non contiene aggiornamenti per le proprietà, non viene eseguita alcuna azione. Se la risorsa esiste ma le proprietà sono state modificate, viene aggiornata la risorsa esistente. Se la risorsa non esiste, viene creata la nuova risorsa.
-
-Si ha la certezza che, al termine della distribuzione, le risorse si trovino sempre nello stato previsto.
+* **Strumenti di creazione**: È possibile creare modelli con [Visual Studio Code](resource-manager-tools-vs-code.md) e l'estensione dello strumento del modello. Si ottengono IntelliSense, l'evidenziazione della sintassi, la guida inline e molte altre funzioni del linguaggio.
 
 ## <a name="template-file"></a>File modello
 
@@ -74,20 +66,6 @@ Il modello include le sezioni seguenti:
 * [Risorse](resource-group-authoring-templates.md#resources) : specificare le risorse da distribuire.
 
 * [Output](template-outputs.md) : valori restituiti dalle risorse distribuite.
-
-## <a name="template-features"></a>Funzionalità del modello
-
-Gestione risorse analizza le dipendenze per assicurarsi che le risorse vengano create nell'ordine corretto. La maggior parte delle dipendenze è determinata implicitamente. Tuttavia, è possibile impostare in modo esplicito una dipendenza per assicurarsi che una risorsa venga distribuita prima di un'altra risorsa. Per altre informazioni, vedere [Definizione delle dipendenze nei modelli di Gestione risorse di Azure](resource-group-define-dependencies.md).
-
-È possibile aggiungere una risorsa al modello e, facoltativamente, distribuirla. In genere, si passa un valore di parametro che indica se la risorsa deve essere distribuita. Per ulteriori informazioni, vedere [distribuzione condizionale nei modelli gestione risorse](conditional-resource-deployment.md).
-
-Anziché ripetere i blocchi di JSON più volte nel modello, è possibile usare un elemento Copy per specificare più di un'istanza di una variabile, una proprietà o una risorsa. Per ulteriori informazioni, vedere la pagina relativa [all'iterazione di risorse, proprietà o variabili nei modelli Azure Resource Manager](resource-group-create-multiple.md).
-
-## <a name="export-templates"></a>Esporta modelli
-
-È possibile ottenere un modello per un gruppo di risorse esistente esportando lo stato corrente del gruppo di risorse o visualizzando il modello usato per una distribuzione specifica. Per conoscere la sintassi del modello è molto utile visualizzare il [modello esportato](export-template-portal.md).
-
-Quando si crea una soluzione dal portale, la soluzione include automaticamente un modello di distribuzione. Non è necessario creare un modello da zero, perché è possibile iniziare con il modello della soluzione e personalizzarlo per soddisfare esigenze specifiche. Per un esempio completo, vedere [Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).
 
 ## <a name="template-deployment-process"></a>Distribuzione modelli processo
 
@@ -146,6 +124,7 @@ Per informazioni sui modelli annidati, vedere [Uso di modelli collegati con Azur
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulle proprietà nei file di modello, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
-* Per iniziare a sviluppare un modello, vedere [usare Visual Studio Code per creare modelli Azure Resource Manager](resource-manager-tools-vs-code.md).
-* Per un'introduzione al servizio Gestione risorse, incluse le funzionalità di gestione, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
-
+* Per impostare in modo esplicito le dipendenze in modo che una risorsa venga distribuita prima di un'altra, vedere [definizione delle dipendenze nei modelli Azure Resource Manager](resource-group-define-dependencies.md).
+* È possibile aggiungere una risorsa al modello e, facoltativamente, distribuirla. Per ulteriori informazioni, vedere [distribuzione condizionale nei modelli gestione risorse](conditional-resource-deployment.md).
+* Anziché ripetere i blocchi di JSON più volte nel modello, è possibile specificare più istanze di una variabile, di una proprietà o di una risorsa. Per ulteriori informazioni, vedere la pagina relativa [all'iterazione di risorse, proprietà o variabili nei modelli Azure Resource Manager](resource-group-create-multiple.md).
+* Per informazioni sull'esportazione di modelli, [vedere Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).

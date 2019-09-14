@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9464b408f43f55cb75a57798b098be6335328e3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: d5f271f75a4faa7067f8a52d63a34772780c6448
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136519"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959922"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -33,7 +33,7 @@ I servizi di Azure seguenti supportano le identità gestite per le risorse di Az
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Disponibile | Anteprima | Anteprima | Anteprima | 
-| Assegnata dall'utente | Anteprima | Anteprima | Anteprima | Anteprima |
+| Assegnata dall'utente | Disponibile | Anteprima | Anteprima | Anteprima |
 
 Vedere l'elenco seguente per configurare l'identità gestita per le macchine virtuali di Azure (nelle aree in cui è disponibile):
 
@@ -48,7 +48,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per le macchine vir
 |Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Disponibile | Anteprima | Anteprima | Anteprima |
-| Assegnata dall'utente | Anteprima | Anteprima | Anteprima | Anteprima |
+| Assegnata dall'utente | Disponibile | Anteprima | Anteprima | Anteprima |
 
 Vedere l'elenco seguente per configurare l'identità gestita per il set di scalabilità di macchine virtuali di Azure (nelle aree in cui è disponibile):
 
@@ -210,7 +210,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|
-| Azure Global | `https://eventhubs.azure.net` | Anteprima |
+| Azure Global | `https://eventhubs.azure.net` | Disponibile |
 | Azure Government |  | Non disponibile |
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
@@ -219,7 +219,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|
-| Azure Global | `https://servicebus.azure.net`  | Anteprima |
+| Azure Global | `https://servicebus.azure.net`  | Disponibile |
 | Azure Government |  | Non disponibile |
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |

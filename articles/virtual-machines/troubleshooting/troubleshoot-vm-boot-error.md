@@ -1,5 +1,5 @@
 ---
-title: Errore di avvio della macchina virtuale di Azure
+title: Errore di avvio di Macchine virtuali di Azure
 description: Non è stato possibile avviare la macchina virtuale perché la macchina virtuale è passata a una console di ripristino
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 14bf7b289f3d03dd1437a18b0b5bd35fdec567ea
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9995b9049378a0ab4f3450ec577d034598d171e9
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143310"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984832"
 ---
 # <a name="vm-boot-error"></a>Errore di avvio della VM
 
@@ -48,7 +48,7 @@ Attenersi alla procedura di mitigazione riportata di seguito, a seconda dell'err
 
     2. Eseguire quindi il comando seguente per rigenerare la configurazione:`grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * Se il file mancante è `/boot/grub/menu.lst`, questo errore è per le versioni precedenti del sistema operativo (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14,04**), in modo che i comandi possano rinviare. Sarà necessario avviare un vecchio server e verificare che vengano forniti i comandi corretti.
+   * Se il file mancante è `/boot/grub/menu.lst`, questo errore è per le versioni precedenti del sistema operativo (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14,04**), quindi i comandi potrebbero essere diversi. Sarà necessario avviare un vecchio server e verificare che vengano forniti i comandi corretti.
 
 ### <a name="error---no-such-partition"></a>Errore-nessuna partizione di questo tipo
 

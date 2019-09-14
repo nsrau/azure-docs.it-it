@@ -3,20 +3,20 @@ title: Concetti relativi a Riconoscimento vocale Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Concetti di base usati nel servizio di riconoscimento vocale Microsoft.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fba1bbdeaf68bdd45524b336011627a27cd024da
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954514"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965705"
 ---
 # <a name="basic-concepts"></a>Concetti di base
 
@@ -32,7 +32,7 @@ Se è la prima volta che si crea un'applicazione abilitata per il riconoscimento
 
 Il *flusso audio* è uno dei concetti di base principali del riconoscimento vocale. A differenza di una pressione di tasti, che si verifica in un unico momento nel tempo e contiene un unico dato, una richiesta parlata è distribuita su centinaia di millisecondi e contiene molti kilobyte di informazioni. La durata delle espressioni parlate presenta alcune difficoltà per gli sviluppatori che desiderano offrire un'esperienza vocale semplice ed elegante per la propria applicazione. I computer e gli algoritmi di oggi eseguono la trascrizione vocale in circa metà della durata dell'espressione, pertanto un'espressione di 2 secondi può essere trascritta approssimativamente in 1 secondo, ma qualsiasi applicazione in cui si verifichi un ritardo di 1 secondo nell'elaborazione utente non è né semplice né elegante.
 
-Esistono tuttavia modi di "nascondere" il tempo di trascrizione eseguendo la trascrizione stessa di una parte dell'espressione mentre l'utente ne pronuncia un'altra. È ad esempio suddividendo un 1 secondo utterance in 10 blocchi di 100 millisecondi ed eseguendo la trascrizione su ogni blocco a sua volta, oltre 450 il totale 500 millisecondi necessari per la trascrizione possono essere "nascosti" in modo che l'utente è a conoscenza trascrizione in esecuzione mentre stanno parlando. In relazione a questo esempio, tenere presente che il servizio esegue la trascrizione dei precedenti 100 millisecondi di audio mentre l'utente parla nei 100 successivi. Di conseguenza, quando l'utente smette di parlare, il servizio dovrà trascrivere circa solo 100 millisecondi di audio per generare un risultato.
+Esistono tuttavia modi di "nascondere" il tempo di trascrizione eseguendo la trascrizione stessa di una parte dell'espressione mentre l'utente ne pronuncia un'altra. Suddividendo, ad esempio, un enunciato di 1 secondo in 10 blocchi di 100 millisecondi ed eseguendo la trascrizione su ogni blocco, oltre 450 del totale di 500 millisecondi richiesti per la trascrizione può essere "nascosto", in modo che l'utente non sia a conoscenza della trascrizione viene eseguito mentre parlano. In relazione a questo esempio, tenere presente che il servizio esegue la trascrizione dei precedenti 100 millisecondi di audio mentre l'utente parla nei 100 successivi. Di conseguenza, quando l'utente smette di parlare, il servizio dovrà trascrivere circa solo 100 millisecondi di audio per generare un risultato.
 
 Per ottenere questa esperienza utente, le informazioni audio parlate vengono raccolte in blocchi e trascritte mentre l'utente parla. La raccolta di tali blocchi dal *flusso audio* e il relativo processo di invio al servizio sono denominati, complessivamente, *streaming audio.* Lo streaming audio è una parte importante di ogni applicazione abilitata al riconoscimento vocale. La messa a punto delle dimensioni dei blocchi e l'ottimizzazione dell'implementazione del flusso sono alcuni modi per migliorare l'esperienza utente che comportano un maggiore impatto.
 
@@ -81,10 +81,10 @@ Il servizio di riconoscimento vocale Microsoft consente agli sviluppatori di agg
 
 | Casi d'uso | [API REST](GetStarted/GetStartedREST.md) | [Librerie client](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertire breve contenuto vocale, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Yes | Yes |
-| Convertire contenuto audio lungo (> 15 secondi) | No | Yes |
-| Trasmettere un flusso audio con risultati temporanei desiderati | No | Yes |
-| Comprendere il testo convertito dall'audio tramite LUIS | No | Yes |
+| Convertire breve contenuto vocale, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Sì | Yes |
+| Convertire contenuto audio lungo (> 15 secondi) | No | Sì |
+| Trasmettere un flusso audio con risultati temporanei desiderati | No | Sì |
+| Comprendere il testo convertito dall'audio tramite LUIS | No | Sì |
 
  Se la lingua o la piattaforma non dispone ancora di un componente SDK, è possibile creare la propria implementazione in base alla [documentazione del protocollo](API-Reference-REST/websocketprotocol.md).
 
@@ -160,13 +160,13 @@ Le risposte di trascrizione restituiscono il testo convertito dall'audio ai clie
 
 - `RecognitionStatus` specifica lo stato del riconoscimento. I valori possibili sono indicati nella tabella seguente.
 
-| Stato | Descrizione |
+| Stato | DESCRIZIONE |
 | ------------- | ---------------- |
 | Riuscito | Il riconoscimento ha avuto esito positivo e il campo DisplayText è presente |
 | NoMatch | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. Per altri dettagli, vedere [NoMatch Recognition Status(#nomatch-recognition-status)  |
 | InitialSilenceTimeout | La parte iniziale del flusso audio conteneva solo silenzio e il servizio ha raggiunto il timeout in attesa della parte parlata |
 | BabbleTimeout | La parte iniziale del flusso audio conteneva solo rumore e il servizio ha raggiunto il timeout in attesa della parte parlata |
-| Tipi di errore | Il servizio di riconoscimento ha rilevato un errore interno e non è in grado di continuare |
+| Errore | Il servizio di riconoscimento ha rilevato un errore interno e non è in grado di continuare |
 
 - `DisplayText` rappresenta l'espressione riconosciuta dopo l'applicazione di maiuscole/minuscole, punteggiatura e normalizzazione del testo inverso e dopo che il contenuto volgare è stato mascherato con asterischi. Il campo DisplayText è presente *solo* se nel campo `RecognitionStatus` è presente il valore `Success`.
 
@@ -190,7 +190,7 @@ Il servizio di riconoscimento vocale Microsoft può restituire una vasta gamma d
 
 È possibile controllare il formato di un'espressione restituita specificando il parametro di query dell'URL `format`. Per impostazione predefinita, il servizio restituisce `simple` risultati.
 
-| Format | Descrizione |
+| Formato | Descrizione |
 |-----|-----|
 | `simple` | Risultato di un'espressione semplificata contenente lo stato di riconoscimento e il testo riconosciuto nella forma di visualizzazione. |
 | `detailed` | Stato di riconoscimento ed elenco degli N migliori risultati in cui ogni espressione restituita contiene tutte le quattro forme di riconoscimento e un punteggio di attendibilità. |

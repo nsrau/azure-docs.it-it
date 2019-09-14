@@ -3,20 +3,20 @@ title: Introduzione all'API Riconoscimento vocale Microsoft in Java per disposit
 titlesuffix: Azure Cognitive Services
 description: Usare l'API Riconoscimento vocale Microsoft per sviluppare applicazioni Android che convertono audio parlato in testo.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 147042e300e629dd7e354d4e9079cc4855a8146c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 77fee2ecee9cfabe3fad9c1df2c41c7803c3367e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515189"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966838"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Avvio rapido: Usare l'API Riconoscimento vocale Bing in Java per dispositivi Android
 

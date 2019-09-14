@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 30842c787e2009b4919fef916f3c5e1f73a79bf2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 4c13c0b7601257c120c46ec341156a8e8bba332f
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918828"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967779"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -208,16 +208,17 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 
 |Region |Ridondanza supportata |Supporta gli account di archiviazione esistenti |Supporto del portale * |
 |-------|---------|---------|---------|
-|Australia orientale |Archiviazione con ridondanza locale     |No    |Yes|
+|Australia orientale |Archiviazione con ridondanza locale     |No    |Sì|
 |Australia sud-orientale|Archiviazione con ridondanza locale     |No    |Non ancora|
 |India centrale  |Archiviazione con ridondanza locale     |No    |Non ancora|
+|Asia orientale      |Archiviazione con ridondanza locale     |No    |Non ancora|
 |East US        |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Francia centrale |CON RIDONDANZA LOCALE, ZRS|No    |CON ridondanza locale-Sì, ZRS-non ancora|
 |Francia meridionale   |Archiviazione con ridondanza locale     |No    |Sì|
 |India meridionale    |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Asia sud-orientale |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
 |Stati Uniti centro-occidentali|Archiviazione con ridondanza locale     |No    |Non ancora|
-|Europa occidentale    |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
+|Europa occidentale    |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
 |Stati Uniti occidentali        |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Stati Uniti occidentali 2      |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
 

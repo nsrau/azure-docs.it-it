@@ -1,7 +1,7 @@
 ---
-title: Metriche di log durante le esecuzioni di training
+title: Registrare gli esperimenti di ML & metrica
 titleSuffix: Azure Machine Learning service
-description: È possibile tenere traccia degli esperimenti e monitorare le metriche per migliorare il processo di creazione del modello. Informazioni su come aggiungere la registrazione allo script di training, come inviare l'esperimento, come controllare lo stato di avanzamento di un processo in esecuzione e come visualizzare i risultati registrati di un'esecuzione.
+description: Monitora gli esperimenti di Azure ML e monitora le metriche di esecuzione per migliorare il processo di creazione del modello. Aggiungere la registrazione allo script di training e visualizzare i risultati registrati di un'esecuzione.  Usare Run. log, Run. start_logging o ScriptRunConfig.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 1c2747c8eaac0323ac32f67afb27ac854a3a5ce9
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858728"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959952"
 ---
-# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Tenere traccia delle metriche di training di Machine Learning con Azure Machine Learning
+# <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorare le esecuzioni e le metriche dell'esperimento di Azure ML
 
-Migliorare il processo di creazione del modello monitorando gli esperimenti e monitorando le metriche. In questo articolo si apprenderà come aggiungere codice di registrazione allo script di training, inviare un'esecuzione dell'esperimento, monitorare l'esecuzione e controllare i risultati in Azure Machine Learning servizio.
+Migliorare il processo di creazione del modello tenendo traccia degli esperimenti e monitorando le metriche di esecuzione. In questo articolo si apprenderà come aggiungere codice di registrazione allo script di training, inviare un'esecuzione dell'esperimento, monitorare l'esecuzione e controllare i risultati in Azure Machine Learning servizio.
 
 > [!NOTE]
 > Azure Machine Learning servizio può anche registrare le informazioni provenienti da altre origini durante il training, ad esempio le esecuzioni automatiche di Machine Learning o il contenitore Docker che esegue il processo di training. Questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.

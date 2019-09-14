@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: fad2c83138f211e83e9462182d33f6169cbdb833
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736461"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968045"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Apache Spark
 
@@ -47,23 +47,23 @@ Selezionare l'ID di processo, quindi fare clic su **Data** (Dati) nel menu degli
 
 + Controllare **Inputs** (Input), **Outputs** (Output) e **Table Operations** (Operazioni tabella) selezionando le schede separatamente.
 
-    ![Schede dati](./media/apache-azure-spark-history-server/sparkui-data-tabs.png)
+    ![Schede dati](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
 + Copiare tutte le righe facendo clic sul pulsante **Copy** (Copia).
 
-    ![Copia dati](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
+    ![Copia dati](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
 
 + Salvare tutti i dati come file con estensione CSV facendo clic sul pulsante **csv**.
 
-    ![Salvataggio dati](./media/apache-azure-spark-history-server/sparkui-data-save.png)
+    ![Salvataggio dati](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
 
 + Eseguire ricerche immettendo parole chiave nel campo **Search** (Cerca). I risultati della ricerca verranno visualizzati immediatamente.
 
-    ![Ricerca dati](./media/apache-azure-spark-history-server/sparkui-data-search.png)
+    ![Ricerca dati](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
 
 + Fare clic sull'intestazione di colonna per ordinare la tabella, fare clic sul segno più per espandere una riga e visualizzare altri dettagli o fare clic sul segno meno per comprimere una riga.
 
-    ![Tabella dati](./media/apache-azure-spark-history-server/sparkui-data-table.png)
+    ![Tabella dati](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
 
 + Scaricare un singolo file facendo clic sul pulsante **Partial Download** (Download parziale) sulla destra. Il file selezionato verrà scaricato in locale e, se non esiste più, si aprirà una nuova scheda con i messaggi di errore.
 
@@ -75,7 +75,7 @@ Selezionare l'ID di processo, quindi fare clic su **Data** (Dati) nel menu degli
 
 + Fare clic sul numero sotto la tabella per spostarsi tra le pagine quando in un'unica pagina compaiono troppe righe. 
 
-    ![Pagina dati](./media/apache-azure-spark-history-server/sparkui-data-page.png)
+    ![Pagina dati](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
 
 + Passare il puntatore sul punto interrogativo accanto a Data (Dati) per visualizzare la descrizione comando oppure fare clic sul punto interrogativo per ottenere altre informazioni.
 
@@ -93,7 +93,7 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
 
 + Per impostazione predefinita vengono mostrati tutti i processi ed è possibile filtrare la visualizzazione per **ID processo**.
 
-    ![ID processo del grafico](./media/apache-azure-spark-history-server/sparkui-graph-jobid.png)
+    ![ID processo del grafico](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
 
 + Per impostazione predefinita è selezionato **Progress** (Avanzamento). È anche possibile controllare il flusso di dati selezionando **Read/Written** (Letti/Scritti) nell'elenco a discesa **Display** (Visualizza).
 
@@ -211,15 +211,15 @@ Per tornare alla versione Community, procedere come segue:
 5. La proprietà viene impostata su **false**.
 6. Fare clic su **Salva** per salvare la configurazione.
 
-    ![Funzionalità disattivata](./media/apache-azure-spark-history-server/sparkui-turn-off.png)
+    ![Funzionalità disattivata](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
 7. Fare clic su **Spark2** nel pannello a sinistra e nella scheda **Summary** (Riepilogo) fare clic su **Spark2 History Server** (Server cronologia Spark2).
 
-    ![Riavvio del server 1](./media/apache-azure-spark-history-server/sparkui-restart-1.png) 
+    ![Riavvio del server 1](./media/apache-azure-spark-history-server/apache-spark-restart1.png) 
 
 8. Riavviare il server cronologia facendo clic su **Restart** (Riavvia) per **Spark2 History Server** (Server cronologia Spark2).
 
-    ![Riavvio del server 2](./media/apache-azure-spark-history-server/sparkui-restart-2.png)  
+    ![Riavvio del server 2](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 
 9. Aggiornare l'interfaccia utente Web Server cronologia Spark. Verrà ripristinata la versione Community.
 
@@ -236,7 +236,7 @@ Se si verificano errori del server cronologia, procedere come segue per recupera
 
 3. Specificare il titolo e la descrizione dell'errore, trascinare il file ZIP nel campo di modifica, quindi fare clic su **Submit new issue** (Invia nuovo problema).
 
-    ![Problema file](./media/apache-azure-spark-history-server/sparkui-file-issue.png)
+    ![Problema file](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
 
 ### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. Aggiornare il file JAR per lo scenario di aggiornamento rapido
@@ -314,7 +314,7 @@ Se si vuole eseguire l'aggiornamento tramite hotfix, usare lo script seguente pe
    + Selezionare **Head** e **Lavoro**.
    + **Parametri**: impostare i parametri per l'utilizzo del file Bash.
 
-     ![Caricamento log o hotfix di aggiornamento](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![Caricamento log o hotfix di aggiornamento](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
 
 
 ## <a name="known-issues"></a>Problemi noti

@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi di collaborazione B2B - Azure Active Directory | Microsoft Docs
+title: Risoluzione dei problemi di collaborazione B2B-Azure Active Directory | Microsoft Docs
 description: Informazioni su come risolvere i problemi comuni di Collaborazione B2B di Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185d29ff1770ed9549b4b63a2e5da579bcf054f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767164"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983405"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory
 
@@ -35,9 +35,9 @@ La possibilità di cercare gli utenti guest esistenti nella selezione utenti di 
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Gli inviti sono stati disabilitati per la directory
 
-Se si riceve una notifica che indica che non si è autorizzati a invitare utenti, verificare che l'account utente abbia le autorizzazioni necessarie per invitare utenti esterni in Impostazioni utente:
+Se si riceve una notifica che non si dispone delle autorizzazioni per invitare gli utenti, verificare che l'account utente sia autorizzato a invitare gli utenti esterni in Azure Active Directory > impostazioni utente > utenti esterni > gestire le impostazioni di collaborazione esterna:
 
-![Screenshot che mostra le impostazioni di utenti esterni](media/troubleshoot/external-user-settings.png)
+![Screenshot che mostra le impostazioni degli utenti esterni](media/troubleshoot/external-user-settings.png)
 
 Se di recente sono state modificate queste impostazioni o è stato assegnato il ruolo Mittente dell'invito guest a un utente, potrebbero essere necessari 15-60 minuti perché le modifiche abbiano effetto.
 
@@ -49,7 +49,7 @@ Di seguito sono riportati gli errori più comuni.
 
 Questo si verifica quando si invitano utenti la cui organizzazione usa Azure Active Directory, ma dove l'account dell'utente specifico non esiste (ad esempio se l'utente non esiste in contoso.com di Azure AD). L'amministratore di contoso.com potrebbe aver impostato criteri che impediscono la creazione di utenti. L'utente deve rivolgersi all'amministratore per determinare se gli utenti esterni sono consentiti. L'amministratore dell'utente esterno potrebbe dover consentire gli utenti verificati tramite posta elettronica nel dominio (vedere questo [articolo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) su come consentire gli utenti verificati tramite posta elettronica).
 
-![Errore che indica che il tenant non consente l'indirizzo di posta elettronica gli utenti verificati](media/troubleshoot/allow-email-verified-users.png)
+![Errore indicante che il tenant non consente utenti verificati tramite posta elettronica](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>L'utente esterno non esiste già in un dominio federato
 
@@ -78,15 +78,15 @@ Per garantire la conformità alle leggi sulla privacy, le API non includono mess
 
 Se questo scenario è importante per l'utente, è possibile eliminare il messaggio di posta elettronica di invito dell'API e inviarlo tramite il meccanismo di posta elettronica preferito. Richiedere al consulente legale della propria organizzazione di verificare che qualsiasi messaggio di posta elettronica inviato in questo modo sia conforme alle leggi sulla privacy.
 
-## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Viene visualizzato un errore di "AADSTS65005" quando si tenta di accedere a una risorsa di Azure
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Viene visualizzato un errore "AADSTS65005" quando si prova ad accedere a una risorsa di Azure
 
-Un utente che ha un account guest non possa accedere e sta ricevendo il messaggio di errore seguente:
+Un utente che dispone di un account Guest non può accedere e riceve il messaggio di errore seguente:
 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 
-L'utente dispone di un account utente di Azure ed è un tenant virale che è stato abbandonato o non gestito. Esistono, inoltre, non globali o la società amministratori nel tenant.
+L'utente dispone di un account utente di Azure ed è un tenant virale che è stato abbandonato o non gestito. Inoltre, nel tenant non sono presenti amministratori globali o aziendali.
 
-Per risolvere questo problema, è necessario eseguire failover il tenant abbandonato. Fare riferimento a [assumere una directory non gestita come amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). È anche necessario accedere il DNS con connessione internet per il suffisso del dominio in questione per fornire l'evidenza diretta che ha il controllo dello spazio dei nomi. Dopo che il tenant verrà restituito a uno stato gestito, discutere con il cliente se lasciando gli utenti e nome di dominio verificato è l'opzione migliore per la propria organizzazione.
+Per risolvere il problema, è necessario prendere il sopravvento sul tenant abbandonato. Fare riferimento a [una directory non gestita come amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). È anche necessario accedere al DNS con connessione Internet per il suffisso di dominio in questione, in modo da fornire evidenza diretta che si sta controllando lo spazio dei nomi. Quando il tenant viene restituito a uno stato gestito, rivolgersi al cliente indipendentemente dal fatto che gli utenti e il nome di dominio verificato siano la scelta migliore per la propria organizzazione.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Un utente guest con un tenant JIT o "virale" non può reimpostare la password
 

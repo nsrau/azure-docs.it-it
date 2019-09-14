@@ -3,20 +3,20 @@ title: Informazioni di riferimento sull'API Traduzione vocale
 titleSuffix: Azure Cognitive Services
 description: Documentazione di riferimento per l'API Traduzione vocale.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0f083a6ca3079128aad4aba3a53013df378a6106
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9d2f78d05de6b966dd872e0b57a90d1c8e890975
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446911"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965363"
 ---
 # <a name="translator-speech-api"></a>API Traduzione vocale
 
@@ -56,7 +56,7 @@ Nel [sito GitHub di Microsoft Translator](https://github.com/MicrosoftTranslator
 
 GET /speech/translate stabilisce una sessione per la traduzione vocale
 
-### <a name="connecting"></a>Connessione
+### <a name="connecting"></a>Connessione in corso
 Prima di connettersi al servizio, esaminare l'elenco di parametri indicati più avanti in questa sezione. Un richiesta di esempio è:
 
 `GET wss://dev.microsofttranslator.com/speech/translate?from=en-US&to=it-IT&features=texttospeech&voice=it-IT-Elsa&api-version=1.0`
@@ -166,11 +166,11 @@ Quando un'applicazione client ha completato la trasmissione dell'audio e ha rice
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Value|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Value|Descrizione|Tipo parametro|Tipo di dati|
 |:---|:---|:---|:---|:---|
 |api-version|1.0|Versione dell'API richiesta dal client. I valori consentiti sono: `1.0`.|query   |string|
 |from|(vuoto)   |Specifica la lingua dell'audio in ingresso. Il valore è uno degli identificatori della lingua dell'ambito `speech` nella risposta dall'API Languages.|query|string|
-|to|(vuoto)|Specifica la lingua in cui tradurre il testo trascritto. Il valore è uno degli identificatori della lingua dell'ambito `text` nella risposta dall'API Languages.|query|string|
+|in|(vuoto)|Specifica la lingua in cui tradurre il testo trascritto. Il valore è uno degli identificatori della lingua dell'ambito `text` nella risposta dall'API Languages.|query|string|
 |funzionalità|(vuoto)   |Set di funzionalità separate da virgole selezionate dal client. Le funzionalità includono:<ul><li>`TextToSpeech`: specifica che il servizio deve restituire l'audio tradotto della frase tradotta finale.</li><li>`Partial`: specifica che il servizio deve restituire i risultati intermedi del riconoscimento mentre è in corso la trasmissione dell'audio al servizio.</li><li>`TimingInfo`: specifica che il servizio deve restituire le informazioni sugli intervalli associati a ogni riconoscimento.</li></ul>Un client, ad esempio, specificherà `features=partial,texttospeech` per ricevere i risultati parziali e la sintesi vocale, ma non le informazioni sugli intervalli. Si noti che i risultati finali vengono sempre trasmessi al client.|query|string|
 |voice|(vuoto)|Identifica la voce da usare per il rendering della sintesi vocale del testo tradotto. Il valore è uno degli identificatori della voce dell'ambito tts nella risposta dall'API Languages. Se non viene specificata una voce, il sistema ne sceglierà automaticamente una quando verrà abilitata la funzionalità di sintesi vocale.|query|string|
 |format|(vuoto)|Specifica il formato del flusso audio di sintesi vocale restituito dal servizio. Le opzioni disponibili sono:<ul><li>`audio/wav`: flusso audio Waveform. Il client userà l'intestazione WAV per interpretare correttamente il formato audio. L'audio WAV per la sintesi vocale è una modulazione PCM a canale singolo a 16 bit con una frequenza di campionamento di 24 kHz o 16 kHz.</li><li>`audio/mp3`: flusso audio MP3.</li></ul>Il valore predefinito è `audio/wav`.|query|string|
@@ -187,7 +187,7 @@ Quando un'applicazione client ha completato la trasmissione dell'audio e ha rice
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|`Reason`|Modello di risposta|Headers|
+|Codice di stato HTTP|`Reason`|Modello di risposta|Intestazioni|
 |:--|:--|:--|:--|
 |101    |Aggiornamento WebSocket.|Valore di esempio del modello <br/> Oggetto {}|X-RequestId<br/>Valore che identifica la richiesta per la risoluzione dei problemi.<br/>string|
 |400    |Richiesta non valida. Controllare i parametri di input per verificare che siano validi. L'oggetto della risposta include una descrizione più dettagliata dell'errore.|||

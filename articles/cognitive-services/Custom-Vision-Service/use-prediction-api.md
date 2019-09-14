@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 22955ba4b885b264210dc8788f2a410b785b28b4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883973"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966928"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usare il modello con l'API di stima
 
@@ -38,14 +38,12 @@ Una volta che il modello è stato pubblicato correttamente, verrà visualizzata 
 
 ## <a name="get-the-url-and-prediction-key"></a>Ottenere l'URL e la chiave di stima
 
-Una volta pubblicato il modello, è possibile recuperare le informazioni richieste selezionando __URL stima__ . Verrà visualizzata una finestra di dialogo con le informazioni per l'utilizzo dell'API di stima, inclusi l' __URL__ di stima e la __chiave di stima__ .
+Una volta pubblicato il modello, è possibile recuperare le informazioni richieste selezionando __URL stima__. Verrà visualizzata una finestra di dialogo con le informazioni per l'utilizzo dell'API di stima, inclusi l' __URL__ di stima e la __chiave di stima__.
 
 ![La scheda prestazioni viene visualizzata con un rettangolo rosso che circonda il pulsante URL di stima.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
 ![La scheda prestazioni viene visualizzata con un rettangolo rosso che circonda il valore dell'URL di stima per l'utilizzo di un file di immagine e il valore della chiave di stima.](./media/use-prediction-api/prediction-api-info.png)
 
-> [!TIP]
-> È possibile trovare la __chiave di stima__ anche nella pagina [portale di Azure](https://portal.azure.com) per la risorsa visione personalizzata Azure associata al progetto, nel pannello __chiavi__ .
 
 In questa guida verrà usata un'immagine locale, quindi copiare l'URL in **se si dispone** di un file di immagine in un percorso temporaneo. Copiare anche il valore della __chiave di stima__ corrispondente.
 
@@ -53,7 +51,7 @@ In questa guida verrà usata un'immagine locale, quindi copiare l'URL in **se si
 
 1. In Visual Studio creare una nuova C# applicazione console.
 
-1. Usare il codice seguente come corpo del file __Program.cs__ .
+1. Usare il codice seguente come corpo del file __Program.cs__.
 
     ```csharp
     using System;

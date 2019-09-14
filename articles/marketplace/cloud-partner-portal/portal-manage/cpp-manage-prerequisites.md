@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 62269490355414a6b75759361cd574ac7e90e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d98a5f04f60cb7d933ea91e0657f6067fb1c59a8
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598678"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962811"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Prerequisiti per la gestione di account nel portale Cloud Partner 
 
@@ -21,7 +21,7 @@ Prima di poter usare la [portale cloud partner](https://cloudpartner.azure.com/)
 
 ## <a name="account-terms-and-guidelines"></a>Termini e linee guida per l'account
 
-Prima di creare un account, esaminare attentamente i diritti e le responsabilità dell'utente nel [contratto di servizi Microsoft](https://www.microsoft.com/servicesagreement) e le condizioni per l' [utilizzo di Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx) .  
+Prima di creare un account, esaminare attentamente i diritti e le responsabilità dell'utente nel [contratto di servizi Microsoft](https://www.microsoft.com/servicesagreement) e le condizioni per l' [utilizzo di Microsoft](https://www.microsoft.com/us-en/legal/intellectualproperty/copyright/default.aspx) .  
 
 Scegliere con attenzione il nome dell'account.  Rappresenta l'organizzazione, quindi non deve contenere parole con copyright o contenzioso.  Microsoft, ad esempio, impedisce l'utilizzo delle condizioni di copyright, ad esempio "Azure" e "Microsoft", nei nomi degli account.  Per altre informazioni, vedere [linee guida per Azure Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines)
 

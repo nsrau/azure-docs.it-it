@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5949f57a87f324dc2e6651611574f4b66215c8a8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 895d44ea7ab6bfebee44014ad4e96016a555c08e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389769"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959928"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -38,7 +38,7 @@ Durante la fase di controllo, molte organizzazioni scoprono che:
 * [La promozione della replica del controller di dominio non riesce a causa di una password della modalità ripristino servizi directory debole](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [L'abbassamento di livello del controller di dominio non riesce a causa di una password amministratore locale](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
-Dopo che la funzionalità è stata eseguita in modalità di controllo per un periodo di tempo ragionevole, è possibile cambiare la configurazione da *controllo* a *Imponi* per richiedere password più sicure. Il monitoraggio con lo stato attivo in questa fase è una scelta valida.
+Dopo che la funzionalità è stata eseguita in modalità di controllo per un periodo di tempo ragionevole, è possibile cambiare la configurazione da *controllo* a Imponi per richiedere password più sicure. Il monitoraggio con lo stato attivo in questa fase è una scelta valida.
 
 ## <a name="deployment-requirements"></a>Requisiti di distribuzione
 
@@ -65,6 +65,14 @@ Dopo che la funzionalità è stata eseguita in modalità di controllo per un per
 * Un account amministratore globale per registrare il servizio proxy per la protezione con password e la foresta con Azure AD.
 * Un account con privilegi di amministratore di dominio Active Directory nel dominio radice della foresta per registrare la foresta di Windows Server Active Directory con Azure AD.
 * Qualsiasi dominio Active Directory che esegue il software del servizio agente di controller di dominio deve utilizzare la replica di file system distribuito (DFSR) per la replica SYSVOL.
+
+  Se il dominio non sta già usando DFSR, è necessario eseguirne la migrazione per usare DFSR prima di installare Azure AD la protezione delle password. Per ulteriori informazioni, vedere il collegamento seguente:
+
+  [Guida alla migrazione della replica SYSVOL: Da FRS a Replica DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+
+  > [!WARNING]
+  > Il software dell'agente del controller di dominio Azure AD Password Protection verrà attualmente installato nei controller di dominio in domini che usano ancora FRS (la tecnologia predecessore per DFSR) per la replica SYSVOL, ma il software non funzionerà correttamente in questo ambiente. Gli effetti collaterali negativi aggiuntivi includono i singoli file che non riescono a eseguire la replica e le procedure di ripristino di SYSVOL sembrano avere esito positivo ma non riescono a replicare tutti i file. È consigliabile eseguire la migrazione del dominio per usare DFSR il prima possibile, sia per i vantaggi intrinseci di DFSR che per sbloccare la distribuzione di Azure AD la protezione delle password. Le versioni future del software verranno disabilitate automaticamente durante l'esecuzione in un dominio che continua a usare il servizio Replica file.
+
 * Il servizio di distribuzione delle chiavi deve essere abilitato in tutti i controller di dominio nel dominio che esegue Windows Server 2012. Per impostazione predefinita, questo servizio viene abilitato tramite l'avvio manuale del trigger.
 
 ## <a name="single-forest-deployment"></a>Distribuzione a foresta singola
@@ -103,7 +111,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
    * Per verificare che il servizio sia in esecuzione, usare il comando di PowerShell seguente:
 
-      [https://login.microsoftonline.com/consumers/](`Get-Service AzureADPasswordProtectionProxy | fl`).
+      `Get-Service AzureADPasswordProtectionProxy | fl`.
 
      Il risultato dovrebbe mostrare **lo stato** "Running".
 

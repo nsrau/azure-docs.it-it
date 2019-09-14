@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: d1a0f3ea46922b8a684c269c13df068e0c879cbd
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309077"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962724"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del Marketplace commerciale
 
@@ -74,7 +74,7 @@ Tutti i partner che hanno un'offerta Live possono collaborare con un responsabil
 
 Per le descrizioni dettagliate di tutti questi vantaggi, vedere il [mazzo del programma Rewards del Marketplace](https://aka.ms/marketplacerewards).
 
-Oltre ai vantaggi riconoscibili, i partner di applicazioni aziendali con le offerte Dynamics pubblicate per Microsoft AppSource hanno una programmazione supplementare disponibile tramite [ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). Sono inclusi il supporto tecnico, marketing e vendite specializzato per le esigenze dei partner per le applicazioni aziendali.
+Oltre ai vantaggi riconoscibili, i partner di applicazioni aziendali con le offerte Dynamics pubblicate per Microsoft AppSource hanno una programmazione supplementare disponibile tramite [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Sono inclusi il supporto tecnico, marketing e vendite specializzato per le esigenze dei partner per le applicazioni aziendali.
 
 ## <a name="marketplace-rewards-requirements-and-restrictions"></a>Requisiti e restrizioni per i premi del Marketplace
 
@@ -101,9 +101,9 @@ Le transazioni dimostrate come fraudolente non vengono conteggiate per il [livel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se l'offerta è stata creata in portale Cloud Partner, accedere per creare o configurare l'offerta.
+Se l'offerta è stata creata in [portale cloud partner](https://cloudpartner.azure.com), accedere per creare o configurare l'offerta.
 
-Se l'offerta è stata creata nel centro per i partner, effettuare l'accesso per creare o configurare l'offerta.
+Se l'offerta è stata creata nel centro per i [partner](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview), effettuare l'accesso per creare o configurare l'offerta.
 
 Esaminare le [risorse self-service disponibili](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

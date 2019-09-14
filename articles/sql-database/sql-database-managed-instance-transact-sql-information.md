@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cad04df9ba76ce483a308411949e6f98bab23bf9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 29fd82eb0253f2f7f6b9bc8b6a84882e2372124c
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858549"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984978"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze T-SQL tra istanze gestite, limitazioni e problemi noti
 
@@ -339,7 +339,7 @@ Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows, 
 - `ALTER ASSEMBLY` non può fare riferimento a file. Vedere [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Posta elettronica database (db_mail)
- - `sp_send_dbmail`Impossibile inviare allegati utilizzando @file_attachments il parametro. I file system locali e le condivisioni extent o l'archiviazione BLOB di Azure non sono accessibili da questa procedura.
+ - `sp_send_dbmail`Impossibile inviare allegati utilizzando @file_attachments il parametro. Le condivisioni file system e Extertal locali o l'archiviazione BLOB di Azure non sono accessibili da questa procedura.
  - Vedere i problemi noti relativi al `@query` parametro e all'autenticazione.
  
 ### <a name="dbcc"></a>DBCC
@@ -479,9 +479,12 @@ Limitazioni:
 - Il ripristino `.BAK` del file di un database che contiene qualsiasi limitazione descritta in questo documento (ad esempio `FILESTREAM` , `FILETABLE` oggetti o) non può essere ripristinato in istanza gestita.
 - `.BAK`non è possibile ripristinare i file che contengono più set di backup. 
 - `.BAK`i file che contengono più file di log non possono essere ripristinati.
-- Non è possibile ripristinare i backup che contengono database di dimensioni maggiori di 8 TB, oggetti OLTP in memoria attivi o più di 280 file in un'istanza di per utilizzo generico. 
+- Non è possibile ripristinare i backup che contengono database di dimensioni maggiori di 8 TB, gli oggetti OLTP in memoria attivi o il numero di file che superano 280 file per ogni istanza in un'istanza di per utilizzo generico. 
 - Non è possibile ripristinare i backup che contengono database di dimensioni maggiori di 4 TB o oggetti OLTP in memoria con dimensioni totali superiori a quelle descritte in [limiti di risorse](sql-database-managed-instance-resource-limits.md) in business critical istanza.
 Per informazioni sulle istruzioni RESTORE, vedere [istruzioni RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
+
+ > [!IMPORTANT]
+ > Le stesse limitazioni si applicano all'operazione di ripristino temporizzato incorporata. Ad esempio, non è possibile ripristinare per utilizzo generico database di dimensioni maggiori di 4 TB nell'istanza di business critical. Non è possibile ripristinare business critical database con file OLTP in memoria o più di 280 file nell'istanza di per utilizzo generico.
 
 ### <a name="service-broker"></a>Broker di servizio
 

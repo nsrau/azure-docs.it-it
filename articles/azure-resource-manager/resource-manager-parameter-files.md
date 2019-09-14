@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 694bd3b5f14ac37229763b33fb97c17bd4e573d4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 4305213d272172cb89bfdd207b6c8106af3f4939
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69893802"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983941"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Crea Gestione risorse file di parametri
 
@@ -204,6 +204,6 @@ Se il modello include un parametro con lo stesso nome di uno dei parametri nel c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
+- Per informazioni su come definire i parametri nel modello, vedere [Parameters in Azure Resource Manager Templates](template-parameters.md).
 - Per altre informazioni sull'uso di valori da un insieme di credenziali delle chiavi, vedere [usare Azure Key Vault per passare il valore di un parametro sicuro durante la distribuzione](resource-manager-keyvault-parameter.md).
-
+- Per ulteriori informazioni sui parametri, vedere [parametri in Azure Resource Manager modelli](template-parameters.md).

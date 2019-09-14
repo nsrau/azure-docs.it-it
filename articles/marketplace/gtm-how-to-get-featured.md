@@ -7,18 +7,18 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5194bdcd5b77b0527ccdefc1af85bf03bdac2cab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a99237ec52d302dbb7fc3914c6abfff5fecf4523
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938182"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962746"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Come apparire in primo piano in AppSource e in Azure Marketplace
 
 In Azure Marketplace e AppSource sono disponibili sezioni per le **app in primo piano**, in cui è possibile far apparire un'app in primo piano:
 
-* In primo luogo, se si ha un'offerta per una versione di valutazione o una transazione, è possibile usare la "promozione per categoria" attraverso i vantaggi Go-To-Market.
+* Prima di tutto, se si dispone di una versione di valutazione o di transazione, è possibile usare il vantaggio "categoria Promozione" tramite i [vantaggi del Marketplace commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 * In secondo luogo, rivedere l'elenco dei criteri e delle procedure consigliate riportato di seguito per conquistare lo spazio desiderato.
 
 L'algoritmo di selezione delle app in primo piano genera un punteggio per un'app da parte di Microsoft, del tutto simile al punteggio relativo al rischio di credito che viene assegnato a un soggetto negli Stati Uniti.  La selezione settimanale delle app in primo piano sarà basata su un calcolo relativo alle prestazioni dell'app e del servizio.
@@ -44,7 +44,7 @@ Il supporto GTM include anche una libreria completa di modelli Self-help, conten
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui servizi GTM del marketplace, vedere [Servizi per l'immissione sul mercato](https://partner.microsoft.com/reach-customers/gtm).
+Scopri di più sui [vantaggi del Marketplace commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Accedere al [portale Cloud Partner](https://cloudpartner.azure.com) per creare e configurare l'offerta.
 

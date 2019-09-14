@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5431dd74629b9ed76a6a072d8ada286ce71a7633
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7c7aaf911930f83775f66c47377bc68edb059519
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596070"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958976"
 ---
 # <a name="monitor-server-metrics"></a>Monitorare le metriche dei server
 
@@ -55,6 +55,10 @@ Usare questa tabella per determinare le metriche più adatte allo scenario di mo
 |MemoryLimitLow|Memoria: limite memoria minimo|Byte|Average|Limite inferiore della memoria, dal file di configurazione.|
 |MemoryLimitVertiPaq|Memoria: limite memoria VertiPaq|Byte|Average|Limite in memoria dal file di configurazione.|
 |MemoryUsage|Memoria: Utilizzo memoria|Byte|Average|Utilizzo della memoria del processo server utilizzato per il calcolo del prezzo di una memoria più pulita. Equivale al contatore Process\PrivateBytes più le dimensioni dei dati con mapping in memoria, ignorando la memoria con mapping o allocazione eseguita dal motore di analisi in memoria (VertiPaq) in eccesso rispetto al limite di memoria del motore.|
+|private_bytes_metric|Byte privati |Byte|Average|Quantità totale di memoria allocata dal processo del motore Analysis Services e dai processi del contenitore mashup, esclusa la memoria condivisa con altri processi.|
+|virtual_bytes_metric|Virtual Bytes |Byte|Average|Dimensioni correnti dello spazio degli indirizzi virtuali usato dal processo del motore Analysis Services e dai processi del contenitore mashup.|
+|mashup_engine_private_bytes_metric|Byte privati motore M |Byte|Average|La quantità totale di processi del contenitore mashup di memoria è stata allocata, esclusa la memoria condivisa con altri processi.|
+|mashup_engine_virtual_bytes_metric|Byte virtuali del motore M |Byte|Average|Dimensioni correnti dello spazio degli indirizzi virtuali che i processi del contenitore mashup usano.|
 |Gestione quote|Memoria: Gestione quote|Byte|Average|Quota di memoria corrente, in byte. Le quote di memoria sono note anche come concessioni di memoria o prenotazioni di memoria.|
 |QuotaBlocked|Memoria: quota bloccata|Conteggio|Average|Numero corrente di richieste di quota bloccate fino a quando non vengono liberate altre quote di memoria.|
 |VertiPaqNonpaged|Memoria: VertiPaq non di paging|Byte|Average|Byte di memoria bloccata nel working set per l'uso da parte del motore in memoria.|

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cf72a83035e318d3a937176bbaaebd8e298d3ad2
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 358cbfb80da03d20475e591f0fd0c5b907b83b22
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390624"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984693"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -221,7 +221,7 @@ Questi tipi sono attualmente supportati:
 * `pandas`
 * `numpy`
 * `pyspark`
-* Oggetto Python standard
+* oggetto Python standard
 
 Per usare la generazione dello schema, `inference-schema` includere il pacchetto nel file dell'ambiente conda.
 
@@ -805,6 +805,19 @@ Per altri progetti ed esempi di esempio, vedere questi repository di esempio in 
 * [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
+## <a name="download-a-model"></a>Scaricare un modello
+Se si vuole scaricare il modello per usarlo nel proprio ambiente di esecuzione, è possibile eseguire questa operazione con i comandi SDK/CLI seguenti:
+
+SDK
+```python
+model_path = Model(ws,'mymodel').download()
+```
+
+Interfaccia della riga di comando:
+```azurecli-interactive
+az ml model download --model-id mymodel:1 --target-dir model_folder
+```
+
 ## <a name="package-models"></a>Modelli di pacchetto
 
 In alcuni casi, potrebbe essere necessario creare un'immagine Docker senza distribuire il modello (se, ad esempio, si prevede di eseguire la [distribuzione nel servizio app Azure](how-to-deploy-app-service.md)). In alternativa, potrebbe essere necessario scaricare l'immagine ed eseguirla in un'installazione locale di Docker. Potrebbe anche essere necessario scaricare i file usati per compilare l'immagine, esaminarli, modificarli e compilare l'immagine manualmente.
@@ -834,7 +847,7 @@ package.wait_for_creation(show_output=True)
 
 Dopo aver creato un pacchetto, è possibile usare `package.pull()` per eseguire il pull dell'immagine nell'ambiente Docker locale. L'output di questo comando visualizzerà il nome dell'immagine. Ad esempio: 
 
-[https://login.microsoftonline.com/consumers/](`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`). 
+`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
 Dopo aver scaricato il modello, utilizzare il `docker images` comando per elencare le immagini locali:
 

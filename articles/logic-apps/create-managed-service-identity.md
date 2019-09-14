@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: bb1443afa14f2a23b807af52ab8fef6ac41ea200
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: HT
+ms.openlocfilehash: d6cf19a07829afea924d3d799b1309cfc5f6329f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934042"
+ms.locfileid: "70959962"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Eseguire l'autenticazione e accedere alle risorse con le identità gestite nelle App per la logica di Azure
 
@@ -23,7 +23,7 @@ Per accedere alle risorse in altri tenant di Azure Active Directory (Azure AD) e
 > [!NOTE]
 > L'app per la logica può usare identità gestite solo con connettori che supportano identità gestite. Attualmente, solo il connettore HTTP supporta le identità gestite.
 >
-> In ogni sottoscrizione di Azure si possono attualmente avere fino a 10 flussi di lavoro di app per la logica con identità gestite assegnate dal sistema.
+> È attualmente possibile avere fino a 100 flussi di lavoro di app per la logica con identità gestite assegnate dal sistema in ogni sottoscrizione di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -111,7 +111,7 @@ Quando Azure crea l'app per la logica, la definizione di flusso di lavoro dell'a
 }
 ```
 
-| Proprietà | Valore | Descrizione |
+| Proprietà | Valore | DESCRIZIONE |
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | Un identificatore univoco globale (GUID) che rappresenta l'app per la logica nel tenant di Azure AD e a volta appare come "ID oggetto" o `objectID` |
 | **tenantId** | <*Azure-AD-tenant-ID*> | Un identificatore univoco globale (GUID) che rappresenta il tenant di Azure AD di cui l'app per la logica è ora membro. All'interno del tenant di Azure AD, l'entità servizio ha lo stesso nome dell'istanza dell’app per la logica. |
@@ -168,7 +168,7 @@ Dopo aver configurato l'app per la logica con un'identità gestita assegnata dal
    > 
    > Nella proprietà **Destinatari**, il valore ID risorsa deve corrispondere esattamente a quanto previsto da Azure AD, incluse le eventuali barre finali necessarie. 
    > È possibile trovare i valori ID risorsa in questa [tabella che descrive i servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   > Ad esempio, se si usa l'ID risorsa di Azure Resource Manager, assicurarsi che l'URI abbia una barra finale.
+   > Ad esempio, se si usa l'ID risorsa Azure Resource Manager, assicurarsi che l'URI abbia una barra finale.
 
 1. Continuare a compilare le app per la logica nel modo desiderato.
 

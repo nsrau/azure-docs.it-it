@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: d977d5a25db0cbe641179bce860e9f67c60f29ab
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 2d53f1bfc6eade535bfb1b3bb07d5115ffe5fc80
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340809"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967897"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Inviare processi da R Tools per Visual Studio
 
@@ -55,17 +55,18 @@ RTVS migliora il flusso di lavoro R offrendo strumenti come la [finestra R inter
 5. Aprire il file `1-Getting Started with R.R` nella cartella `A first look at R`.
 6. Partendo dall'inizio del file, premere Ctrl + Invio per inviare ogni riga, una alla volta, nella finestra R interattivo. Alcune righe potrebbero richiedere un po' di tempo a causa dell'installazione di pacchetti.
     * In alternativa, è possibile selezionare tutte le righe nel file R (Ctrl + A), quindi eseguirle tutte (Ctrl + Invio) oppure selezionare l'icona Esegui in finestra interattiva sulla barra degli strumenti.
-        ![Esegui in finestra interattiva](./media/r-server-submit-jobs-r-tools-vs/execute-interactive.png)
+
+        ![Esegui Interactive](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
 7. Dopo aver eseguito tutte le righe dello script, verrà visualizzato un output simile al seguente:
 
-    ![Impostazioni di Data Science](./media/r-server-submit-jobs-r-tools-vs/workspace.png)
+    ![Area di lavoro](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Inviare processi a un cluster HDInsight ML Services
 
 Usando Microsoft ML Server/Microsoft R Client da un computer Windows dotato di PuTTY, è possibile creare un contesto di calcolo che eseguirà funzioni `RevoScaleR` distribuite dal client locale al cluster HDInsight. Usare `RxSpark` per creare il contesto di calcolo, specificare il nome utente, il nodo perimetrale del cluster Apache Hadoop, gli switch SSH e così via.
 
-1. È l'indirizzo del nodo perimetrale servizi di Machine Learning in HDInsight `CLUSTERNAME-ed-ssh.azurehdinsight.net` in cui `CLUSTERNAME` è il nome del cluster di servizi di Machine Learning.
+1. L'indirizzo del nodo perimetrale di ml Services `CLUSTERNAME-ed-ssh.azurehdinsight.net` in `CLUSTERNAME` HDInsight è dove è il nome del cluster di servizi ml.
 
 1. Incollare il codice seguente nella finestra R interattivo in Visual Studio, modificando i valori delle variabili di installazione in base all'ambiente.
 
@@ -82,20 +83,20 @@ Usando Microsoft ML Server/Microsoft R Client da un computer Windows dotato di P
     # Create the Spark Cluster compute context
     mySparkCluster <- RxSpark(
           sshUsername = mySshUsername,
-      sshHostname = mySshHostname,
-      sshSwitches = mySshSwitches,
-      sshProfileScript = mySshProfileScript,
-      consoleOutput = TRUE,
-      hdfsShareDir = myHdfsShareDir,
-      shareDir = myShareDir,
-      sshClientDir = mySshClientDir
+          sshHostname = mySshHostname,
+          sshSwitches = mySshSwitches,
+          sshProfileScript = mySshProfileScript,
+          consoleOutput = TRUE,
+          hdfsShareDir = myHdfsShareDir,
+          shareDir = myShareDir,
+          sshClientDir = mySshClientDir
     )
-    
+
     # Set the current compute context as the Spark compute context defined above
     rxSetComputeContext(mySparkCluster)
     ```
-    
-    ![Impostazione del contesto di Spark](./media/r-server-submit-jobs-r-tools-vs/spark-context.png)
+
+   ![Impostazione del contesto di Spark](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
 1. Nella finestra R interattivo, eseguire i comandi seguenti:
 
@@ -107,23 +108,22 @@ Usando Microsoft ML Server/Microsoft R Client da un computer Windows dotato di P
 
     L'output dovrebbe essere simile al seguente:
 
-    ![Esecuzione del comando rx avvenuta con esito positivo](./media/r-server-submit-jobs-r-tools-vs/rx-commands.png)
-
+    ![Esecuzione](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) comando RX riuscita a
 1. Verificare che `rxHadoopCopy` abbia copiato correttamente il file `people.json` dalla cartella di dati di esempio nella cartella `/user/RevoShare/newUser` appena creata:
 
     1. Nel riquadro del cluster HDInsight ML Services in Azure selezionare **Account di archiviazione** dal menu a sinistra.
 
-        ![Account di archiviazione](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
+        ![Account di archiviazione](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. Selezionare l'account di archiviazione predefinito per il cluster, prendendo nota del nome del contenitore o della directory.
 
     3. Selezionare **Contenitori** dal menu a sinistra nel riquadro dell'account di archiviazione.
 
-        ![Contenitori](./media/r-server-submit-jobs-r-tools-vs/containers.png)
+        ![Contenitori](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
     4. Selezionare il nome del contenitore del cluster, scegliere la cartella **utente** (potrebbe essere necessario fare clic su *Carica altri* nella parte inferiore dell'elenco), quindi selezionare *RevoShare*, quindi **newUser**. Il file `people.json` dovrebbe comparire nella cartella `newUser`.
 
-        ![File copiato](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
+        ![File copiato](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
 1. Dopo aver terminato di usare il contesto Apache Spark corrente, è necessario arrestarlo. Non è possibile eseguire contemporaneamente più contesti.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: spelluru
-ms.openlocfilehash: a3233a32bf8a0e602fbdb64778fad25f550294df
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 3bb222d3197ef37d56767300d71cc350d25a37bd
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699057"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984474"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Inviare eventi o ricevere eventi da Hub eventi di Azure usando node. js
 
@@ -85,7 +85,7 @@ Questa sezione illustra come creare un'applicazione Node. js che invia eventi a 
 3. Immettere la stringa di connessione e il nome dell'hub eventi nel codice precedente
 4. Eseguire quindi il comando `node send.js` in un prompt dei comandi per eseguire il file. Questo invierà 100 eventi all'hub eventi
 
-Congratulazioni! A questo punto sono stati inviati eventi a un hub eventi.
+La procedura è stata completata. A questo punto sono stati inviati eventi a un hub eventi.
 
 
 ## <a name="receive-events"></a>Ricevere eventi
@@ -129,7 +129,7 @@ Questa sezione illustra come creare un'applicazione Node. js che riceve gli even
 3. Immettere la stringa di connessione e il nome dell'hub eventi nel codice riportato sopra.
 4. Eseguire quindi il comando `node receive.js` in un prompt dei comandi per eseguire il file. Si riceveranno gli eventi da una delle partizioni del gruppo di consumer predefinito nell'hub eventi
 
-Congratulazioni! Sono stati ricevuti eventi dall'hub eventi.
+La procedura è stata completata. Sono stati ricevuti eventi dall'hub eventi.
 
 ## <a name="receive-events-using-event-processor-host"></a>Ricevere eventi con l'host processore di eventi
 
@@ -142,10 +142,10 @@ Questa sezione illustra come ricevere eventi da un hub eventi usando Azure [Even
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
+    const eventHubConnectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
 
     // Name of the event hub. For example: myeventhub
-    const eventHubsName = "<EVENT HUB NAME>";
+    const eventHubName = "<EVENT HUB NAME>";
 
     // Azure Storage connection string
     const storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=<STORAGE ACCOUNT NAME>;AccountKey=<STORAGE ACCOUNT KEY>;EndpointSuffix=core.windows.net";
@@ -184,7 +184,7 @@ Questa sezione illustra come ricevere eventi da un hub eventi usando Azure [Even
 3. Immettere la stringa di connessione e il nome dell'hub eventi nel codice precedente insieme alla stringa di connessione per un archivio BLOB di Azure
 4. Eseguire quindi il comando `node receiveAll.js` in un prompt dei comandi per eseguire il file.
 
-Congratulazioni! Sono stati ricevuti eventi dall'hub eventi usando l'host del processore di eventi. Questa operazione riceverà gli eventi da tutte le partizioni del gruppo di consumer predefinito nell'hub eventi
+La procedura è stata completata. Sono stati ricevuti eventi dall'hub eventi usando l'host del processore di eventi. Questa operazione riceverà gli eventi da tutte le partizioni del gruppo di consumer predefinito nell'hub eventi
 
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere gli articoli seguenti:

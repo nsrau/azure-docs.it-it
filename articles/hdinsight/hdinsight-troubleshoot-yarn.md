@@ -6,12 +6,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 15ef18663a42153c11a55d4c5963d47f0e2514d6
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573719"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961748"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Risolvere i problemi di YARN di Apache Hadoop usando Azure HDInsight
 
@@ -33,27 +33,27 @@ In questo esempio è stata modificata la capacità dal 50% al 25% per due code e
 
 1. Selezionare l'icona **Visualizzazioni di Ambari** e scegliere il motivo di griglia. Selezionare quindi **YARN Queue Manager** (Gestore code YARN).
 
-    ![Selezionare l'icona Visualizzazioni di Ambari](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Selezionare l'icona Visualizzazioni di Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Selezionare la coda **predefinita**.
 
-    ![Selezionare la coda predefinita](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![Selezionare la coda predefinita](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. Per la coda **predefinita**, modificare la **capacità** dal 50% al 25%. Per la coda **thriftsvr**, impostare la **capacità** sul 25%.
 
-    ![Impostare la capacità sul 25% per la coda predefinita e la coda thriftsvr](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![Impostare la capacità sul 25% per la coda predefinita e la coda thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Per creare una nuova coda, fare clic su **Aggiungi coda**.
 
-    ![Selezionare Aggiungi coda](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![Selezionare Aggiungi coda](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Assegnare un nome alla nuova coda.
 
-    ![Assegnare alla coda il nome Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![Assegnare alla coda il nome Spark](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Lasciare i valori di **Capacità** al 50% e selezionare il pulsante **Azioni**.
 
-    ![Selezionare il pulsante Azioni](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![Selezionare il pulsante Azioni](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Selezionare **Save and Refresh Queues** (Salva e aggiorna code).
 
-    ![Selezionare Save and Refresh Queues (Salva e aggiorna code)](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Selezionare Save and Refresh Queues (Salva e aggiorna code)](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'utilità di pianificazione YARN.
 

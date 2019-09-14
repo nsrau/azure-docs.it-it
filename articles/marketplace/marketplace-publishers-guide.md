@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956755"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962614"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guida alla pubblicazione per Azure Marketplace e AppSource
 
@@ -52,7 +52,7 @@ Eseguire l'upselling e il cross-selling delle soluzioni risolvendo i problemi de
 
 È possibile ottenere una visione approfondita delle prestazioni delle proprie inserzioni tramite informazioni dettagliate e dati analitici messi a disposizione in Marketplace. È inoltre possibile ottenere altre informazioni sulle prestazioni della campagna, gli ordini e i proventi e su come ottimizzare le attività delle campagne per la propria soluzione.
 
-### <a name="marketplace-go-to-market-benefits"></a>Vantaggi del programma Go-To-Market di Marketplace 
+### <a name="commercial-marketplace-benefits"></a>Vantaggi del Marketplace commerciale 
 
 Le nuove inserzioni in Marketplace possono usufruire di un'ampia gamma di vantaggi gratuiti pensati per consentire ai partner di far crescere la propria azienda in Marketplace. Tali vantaggi sono classificabili nelle seguenti categorie: 
 
@@ -62,9 +62,9 @@ Le nuove inserzioni in Marketplace possono usufruire di un'ampia gamma di vantag
 
 *   Co-selling: è possibile avviare o accelerare il passaggio alla fase di vendita in collaborazione con Microsoft tramite Marketplace. Accedere a programmi e supporto per promuovere le vendite congiunte con Microsoft Teams.
 
-Dopo che l'editore ha [inviato la propria soluzione](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) a Marketplace, il team di onboarding contatterà l'editore per offrire il proprio supporto nell'esperienza di pubblicazione.  Visualizzare [come creare un account Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per altre informazioni.
+Dopo che l'editore ha [inviato la propria soluzione](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) a Marketplace, il team di onboarding contatterà l'editore per offrire il proprio supporto nell'esperienza di pubblicazione.  Per ulteriori informazioni [, vedere come creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner.
 
-Per altre informazioni sui vantaggi di Microsoft Go-To-Market e sulle strategie che è possibile adottare per espandere il proprio volume di affari in Marketplace, visitare la [pagina dei servizi Microsoft Go-To-Market](https://partner.microsoft.com/reach-customers/gtm).
+Scopri di più sui [vantaggi del Marketplace commerciale](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

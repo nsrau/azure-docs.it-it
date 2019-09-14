@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: b003c0cc6480c5d03c3755e7c57785ab2026194b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: c05ac7a1894fc3e159ef8fc2b3dd2654714faccf
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498397"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965193"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure
 
@@ -67,7 +67,8 @@ Se si gestisce un set di scalabilità di macchine virtuali, vedere il modello di
 
 ### <a name="powershell"></a>PowerShell
 
-Il cmdlet [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) può essere usato per eseguire l'onboarding delle macchine virtuali nella portale di Azure tramite PowerShell.
+Il cmdlet [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) può essere usato per l'onboarding delle macchine virtuali in Azure tramite PowerShell.
+Tuttavia, attualmente viene implementato solo per i computer che eseguono Windows (il cmdlet attiva solo l'estensione Windows).
 
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Registrazione di macchine virtuali tra sottoscrizioni di Azure
 
@@ -317,7 +318,7 @@ Per risolvere i problemi o visualizzare lo stato dell'estensione DSC per le macc
 
 Dopo la registrazione di un computer come nodo DSC in Configurazione stato di Automazione di Azure, vi sono diversi motivi che richiedono la ripetizione della registrazione del nodo in futuro:
 
-- Dopo la registrazione, ogni nodo negozia automaticamente un certificato univoco per l'autenticazione che scade dopo un anno. Attualmente il protocollo di registrazione di PowerShell DSC non può rinnovare automaticamente i certificati quando si avvicina la scadenza, quindi è necessario registrare di nuovo i nodi dopo un anno. Prima di registrare di nuovo, verificare che ogni nodo esegua Windows Management Framework 5.0 RTM. Se il certificato di autenticazione di un nodo scade e se il nodo non è registrato, il nodo non sarà in grado di comunicare con Automazione di Azure e sarà indicato che "Non risponde". Una registrazione eseguita 90 giorni o meno dall'ora di scadenza del certificato, o in qualsiasi momento dopo l'ora di scadenza del certificato. comporterà un nuovo certificato che viene generato e utilizzato.
+- Per le versioni di Windows Server precedenti a Windows Server 2019, ogni nodo negozia automaticamente un certificato univoco per l'autenticazione che scade dopo un anno. Attualmente il protocollo di registrazione di PowerShell DSC non può rinnovare automaticamente i certificati quando si avvicina la scadenza, quindi è necessario registrare di nuovo i nodi dopo un anno. Prima di registrare di nuovo, verificare che ogni nodo esegua Windows Management Framework 5.0 RTM. Se il certificato di autenticazione di un nodo scade e se il nodo non è registrato, il nodo non sarà in grado di comunicare con Automazione di Azure e sarà indicato che "Non risponde". Una registrazione eseguita 90 giorni o meno dall'ora di scadenza del certificato, o in qualsiasi momento dopo l'ora di scadenza del certificato. comporterà un nuovo certificato che viene generato e utilizzato.  Una soluzione a questo problema è inclusa in Windows Server 2019 e versioni successive.
 - Per modificare qualsiasi [valore di Gestione configurazione locale per PowerShell DS](/powershell/dsc/metaconfig4) impostato durante la registrazione iniziale del nodo, ad esempio ConfigurationMode. Attualmente, i valori dell'agente DSC possono essere modificati solo tramite la registrazione. L'unica eccezione è il valore di Configurazione del nodo assegnato al nodo che può essere modificato direttamente in Automation DSC per Azure.
 
 La ripetizione della registrazione può essere eseguita così' come è stato registrato il nodo inizialmente, usando uno dei metodi di caricamento descritti in questo documento. Non è necessario annullare la registrazione di un nodo da Configurazione stato di Automazione di Azure prima di registrarlo di nuovo.

@@ -1,5 +1,5 @@
 ---
-title: Gestire l'accesso alle risorse di Azure per utenti esterni usando il controllo degli accessi in base al ruolo | Microsoft Docs
+title: Gestire l'accesso alle risorse di Azure per gli utenti Guest esterni usando RBAC | Microsoft Docs
 description: Informazioni su come gestire l'accesso alle risorse di Azure per utenti esterni a un'organizzazione tramite il controllo degli accessi in base al ruolo.
 services: active-directory
 documentationcenter: ''
@@ -12,123 +12,197 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12f4b0276074b6732cf57443f51ef5d867f205a6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952201"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967468"
 ---
-# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gestire l'accesso alle risorse di Azure per utenti esterni usando il controllo degli accessi in base al ruolo
+# <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>Gestire l'accesso alle risorse di Azure per gli utenti Guest esterni con RBAC
 
-Il controllo degli accessi in base al ruolo (RBAC) consente una migliore gestione della sicurezza nelle organizzazioni di grandi dimensioni e nelle piccole e medie imprese che si avvalgono di collaboratori esterni, fornitori o freelance che hanno necessità di accedere a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. Il controllo degli accessi in base al ruolo consente la flessibilità di possedere una sottoscrizione di Azure gestita dall'account di amministratore (ruolo di amministratore del servizio a livello di sottoscrizione) e di invitare più utenti a usare la stessa sottoscrizione ma senza i diritti amministrativi.
+Il controllo degli accessi in base al ruolo consente una migliore gestione della sicurezza per le organizzazioni di grandi dimensioni e per le aziende di piccole e medie dimensioni che lavorano con collaboratori esterni, fornitori o freelance che necessitano dell'accesso a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. È possibile utilizzare le funzionalità di [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) per collaborare con utenti Guest esterni ed è possibile utilizzare il controllo degli accessi in base al ruolo per concedere solo le autorizzazioni necessarie agli utenti guest nell'ambiente in uso.
 
-> [!NOTE]
-> Gli abbonamenti di Office 365 o le licenze di Azure Active Directory, ad esempio Accesso ad Azure Active Directory) di cui è stato effettuato il provisioning dal Microsoft 365 non danno diritto all'interfaccia di amministrazione per l'uso di RBAC.
+## <a name="when-would-you-invite-guest-users"></a>Quando invitare gli utenti Guest?
 
-## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Assegnare i ruoli di controllo degli accessi in base al ruolo all'ambito della sottoscrizione
+Di seguito sono riportati alcuni scenari di esempio in cui è possibile invitare utenti guest all'organizzazione e concedere le autorizzazioni:
 
-Ecco due esempi comuni di uso del controllo degli accessi in base al ruolo:
+- Consentire a un fornitore esterno indipendente che ha solo un account di posta elettronica di accedere alle risorse di Azure per un progetto.
+- Consentire a un partner esterno di gestire determinate risorse o un'intera sottoscrizione.
+- Consentire ai tecnici di assistenza che non fanno parte della propria organizzazione (come il supporto Microsoft) di accedere temporaneamente alla propria risorsa di Azure per la risoluzione dei problemi.
 
-* Utenti esterni alle organizzazioni (non inclusi nel tenant di Azure Active Directory dell'utente amministratore) invitati a gestire risorse specifiche o l'intera sottoscrizione
-* Collaborazione con utenti all'interno dell'organizzazione (inclusi nel tenant di Azure Active Directory dell'utente), ma appartenenti a team o gruppi diversi che necessitano di un accesso granulare all'intera sottoscrizione o a determinati ambiti o gruppi di risorse nell'ambiente
+## <a name="permission-differences-between-member-users-and-guest-users"></a>Differenze di autorizzazione tra utenti membro e utenti Guest
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Concedere l'accesso a livello di sottoscrizione per un utente all'esterno di Azure Active Directory
+I membri nativi di una directory (utenti membro) hanno autorizzazioni diverse rispetto a quelle degli utenti invitati da un'altra directory come guest di collaborazione B2B (utenti guest). Ad esempio, l'utente dei membri può leggere quasi tutte le informazioni di directory mentre gli utenti Guest hanno autorizzazioni di directory limitate. Per ulteriori informazioni sugli utenti del membro e sugli utenti guest, vedere [quali sono le autorizzazioni utente predefinite in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
-I ruoli RBAC possono essere concessi solo dai **proprietari** della sottoscrizione. Pertanto, l'amministratore deve eseguire l'accesso con un account utente a cui è preassegnato questo ruolo o che ha creato la sottoscrizione di Azure.
+## <a name="add-a-guest-user-to-your-directory"></a>Aggiungere un utente guest alla directory
 
-Dopo avere eseguito l'accesso come amministratore dal portale di Azure, selezionare "Sottoscrizioni" e scegliere quella desiderata.
-![Pannello delle sottoscrizioni nel portale di Azure](./media/role-assignments-external-users/0.png) Per impostazione predefinita, se l'utente amministratore ha acquistato la sottoscrizione di Azure, l'utente verrà visualizzato come **amministratore dell'account**, vale a dire con il ruolo di sottoscrizione. Per altre informazioni sui ruoli di sottoscrizione di Azure, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+Attenersi alla seguente procedura per aggiungere un utente guest alla directory usando la pagina Azure Active Directory.
 
-In questo esempio l'utente "alflanigan@outlook.com" è **Proprietario** della sottoscrizione nella "versione di valutazione gratuita" nel tenant AAD "Default tenant Azure". Poiché questo utente ha creato la sottoscrizione di Azure con l'account Microsoft iniziale "Outlook" (account Microsoft = Outlook, Live e così via), il nome di dominio predefinito per tutti gli altri utenti aggiunti in questo tenant sarà **"\@alflaniganuoutlook.onmicrosoft.com"** . Per impostazione predefinita, la sintassi del nuovo dominio è costituita dalla combinazione di nome utente e nome dominio dell'utente che ha creato il tenant con l'aggiunta dell'estensione **".onmicrosoft.com"** .
-Gli utenti possono anche accedere con un nome di dominio personalizzato nel tenant dopo averlo aggiunto e verificato per il nuovo tenant. Per altre informazioni su come verificare un nome di dominio personalizzato in un tenant di Azure Active Directory, vedere [Aggiungere un nome di dominio personalizzato alla directory](../active-directory/fundamentals/add-custom-domain.md).
+1. Assicurarsi che le impostazioni di collaborazione esterna dell'organizzazione siano configurate in modo che sia possibile invitare i guest. Per altre informazioni, vedere [abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](../active-directory/b2b/delegate-invitations.md).
 
-In questo esempio la directory "Default tenant Azure" contiene solo gli utenti con il nome di dominio "\@alflanigan.onmicrosoft.com".
+1. Nella portale di Azure fare clic su **Azure Active Directory** > **utenti** > **nuovo utente Guest**.
 
-Dopo avere selezionato la sottoscrizione, l'utente amministratore deve fare clic su **Controllo di accesso (IAM)** e quindi su **Aggiungi nuovo ruolo**.
+    ![Nuova funzionalità utente guest in portale di Azure](./media/role-assignments-external-users/invite-guest-user.png)
 
-![funzione IAM di controllo di accesso nel portale di Azure](./media/role-assignments-external-users/1.png)
+1. Seguire i passaggi per aggiungere un nuovo utente Guest. Per ulteriori informazioni, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](../active-directory/b2b/add-users-administrator.md#add-guest-users-to-the-directory).
 
-![aggiungere un nuovo utente nella funzione IAM di controllo di accesso nel portale di Azure](./media/role-assignments-external-users/2.png)
+In seguito all'aggiunta di un utente guest alla directory, è possibile inviare all'utente guest un collegamento diretto a un'app condivisa oppure l'utente guest può selezionare l'URL di riscatto nel messaggio di posta elettronica di invito.
 
-Il passaggio successivo consiste nel selezionare il ruolo da assegnare e l'utente a cui verrà assegnato il ruolo di controllo degli accessi in base al ruolo. Nel menu a discesa **Ruolo** l'utente amministratore vede solo i ruoli predefiniti di controllo degli accessi in base al ruolo disponibili in Azure. Per una descrizione più dettagliata di ogni ruolo e dei relativi ambiti assegnabili, vedere [Ruoli predefiniti per le risorse di Azure](built-in-roles.md).
+![Messaggio di posta elettronica di invito utente Guest](./media/role-assignments-external-users/invite-email.png)
 
-L'utente amministratore deve quindi aggiungere l'indirizzo e-mail dell'utente esterno. Per l'utente esterno il comportamento previsto è quello di non essere visibile nel tenant esistente. Dopo che l'utente esterno è stato invitato, saranno visibili sotto **sottoscrizioni > controllo di accesso (IAM)** con tutti gli utenti correnti assegnati attualmente a un ruolo RBAC nell'ambito della sottoscrizione.
+Per consentire all'utente guest di accedere alla directory, è necessario completare il processo di invito.
 
-![aggiungere autorizzazioni al nuovo ruolo di controllo degli accessi in base al ruolo](./media/role-assignments-external-users/3.png)
+![Autorizzazioni di verifica dell'invito utente Guest](./media/role-assignments-external-users/invite-review-permissions.png)
 
-![elenco di ruoli di controllo degli accessi in base al ruolo a livello di sottoscrizione](./media/role-assignments-external-users/4.png)
+Per ulteriori informazioni sul processo di invito, vedere [Azure Active Directory riscatto dell'invito di collaborazione B2B](../active-directory/b2b/redemption-experience.md).
 
-L'utente "chessercarlton@gmail.com" è stato inviato ad essere un **proprietario** per la sottoscrizione nella "versione di valutazione gratuita". Dopo avere inviato l'invito, l'utente esterno riceverà una conferma tramite posta elettronica con un collegamento di attivazione.
-![Invito tramite posta elettronica per il ruolo di controllo degli accessi in base al ruolo](./media/role-assignments-external-users/5.png)
+## <a name="grant-access-to-a-guest-user"></a>Concessione dell'accesso a un utente Guest
 
-Essendo esterno all'organizzazione, il nuovo utente non dispone degli attributi esistenti nella directory "Default tenant Azure". Questi verranno creati previo consenso dell'utente esterno deve essere registrato nella directory che è associato alla sottoscrizione sono stati assegnati a un ruolo.
+Per concedere l'accesso in RBAC, si crea un'assegnazione di ruolo. Per concedere l'accesso a un utente Guest, seguire la [stessa procedura descritta](role-assignments-portal.md#add-a-role-assignment) per un utente membro, un gruppo, un'entità servizio o un'identità gestita. Attenersi alla seguente procedura per concedere l'accesso a un utente guest in ambiti diversi.
 
-![messaggio di invito tramite posta elettronica per il ruolo di controllo degli accessi in base al ruolo](./media/role-assignments-external-users/6.png)
+1. Nel portale di Azure fare clic su **Tutti i servizi**.
 
-L'utente esterno diventa visibile nel tenant di Azure Active Directory da questo momento in poi come utente esterno e può essere visualizzato nel portale di Azure.
+1.  Consente di selezionare il set di risorse a cui viene applicato l'accesso, noto anche come ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
 
-![pannello utenti azure active directory portale di Azure](./media/role-assignments-external-users/7.png)
+1. Fare clic sulla risorsa specifica.
 
-Nella visualizzazione **Utenti**, gli utenti esterni sono riconoscibili dal tipo di icona diverso nel portale di Azure.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
-Tuttavia, la concessione dell'accesso come **Proprietario** o **Collaboratore** a un utente esterno nell'ambito della **sottoscrizione**, non consente l'accesso alla directory dell'utente amministratore, a meno che ciò non sia consentito dall'opzione di **amministrazione globale**. Nelle proprietà dell'utente è possibile identificare il **tipo di utente**, che dispone di due parametri comuni, **Membro** e **Guest**. Un membro è un utente registrato nella directory, mentre un utente guest è un utente invitato nella directory da un'origine esterna. Per altre informazioni, vedere [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](../active-directory/active-directory-b2b-admin-add-users.md).
+    Lo screenshot seguente mostra un esempio del pannello controllo di accesso (IAM) per un gruppo di risorse. Se si apportano modifiche al controllo di accesso, si applicano solo al gruppo di risorse.
 
-> [!NOTE]
-> Assicurarsi che, dopo avere immesso le credenziali nel portale, l'utente esterno selezioni la directory corretta a cui accedere. Lo stesso utente può avere accesso a più directory e selezionarne una facendo clic sul nome utente nella parte superiore destra nel portale di Azure e quindi scegliere la directory appropriata nell'elenco a discesa.
+    ![Pannello Controllo di accesso (IAM) per un gruppo di risorse](./media/role-assignments-external-users/access-control-resource-group.png)
 
-Pur essendo un utente guest nella directory, l'utente esterno può gestire tutte le risorse per la sottoscrizione di Azure, ma non è in grado di accedere alla directory.
+1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questo ambito.
 
-![accesso limitato ad Azure Active Directory nel portale di Azure](./media/role-assignments-external-users/9.png)
+1. Fare clic su **Aggiungi** > **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
 
-Azure Active Directory e una sottoscrizione di Azure non hanno una relazione padre-figlio come quella che hanno altre risorse di Azure, ad esempio le macchine virtuali, le reti virtuali, le app Web, le risorse di archiviazione e così via, con una sottoscrizione di Azure. Tutte queste ultime vengono create, gestite e fatturate in una sottoscrizione di Azure, mentre una sottoscrizione di Azure viene usata per gestire l'accesso a una directory di Azure. Per altre informazioni, vedere [Come associare una sottoscrizione di Azure ad Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
-Da tutti i ruoli predefiniti di controllo degli accessi in base al ruolo, **Proprietario** e **Collaboratore** offrono l'accesso completo a livello di gestione a tutte le risorse nell'ambiente, ma il ruolo Collaboratore non può creare ed eliminare nuovi ruoli di controllo degli accessi in base al ruolo. Altri ruoli predefiniti, come **Collaboratore Macchina Virtuale**, offrono l'accesso completo a livello di gestione solo alle risorse indicate dal nome, indipendentemente dal **gruppo di risorse** in cui sono state create.
+    ![Menu Aggiungi](./media/role-assignments-external-users/add-menu.png)
 
-L'assegnazione del ruolo predefinito di controllo degli accessi in base al ruolo **Collaboratore Macchina Virtuale** a livello di sottoscrizione implica che all'utente a cui è stato assegnato il ruolo seguente:
+1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
 
-* Può visualizzare tutte le macchine virtuali indipendentemente dalla data di distribuzione e dai gruppi di risorse di appartenenza
-* Ha accesso completo a livello di gestione alle macchine virtuali nella sottoscrizione
-* Non può visualizzare gli altri tipi di risorse nella sottoscrizione
-* Non può applicare modifiche dalla prospettiva della fatturazione
+1. Nell'elenco **Seleziona** selezionare l'utente Guest. Se l'utente non viene visualizzato nell'elenco, è possibile digitare nella casella **Seleziona** per cercare i nomi visualizzati, gli indirizzi di posta elettronica e gli identificatori di oggetto.
 
-## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Assegnare un ruolo predefinito di controllo degli accessi in base al ruolo a un utente esterno
+   ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-external-users/add-role-assignment.png)
 
-Per uno scenario diverso in questo test, l'utente esterno "alflanigan@gmail.com" viene aggiunto come **Collaboratore Macchina virtuale**.
+1. Fare clic su **Salva** per assegnare il ruolo all'ambito selezionato.
 
-![ruolo predefinito collaboratore macchina virtuale](./media/role-assignments-external-users/11.png)
+    ![Assegnazione di ruolo per collaboratore macchina virtuale](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-Il comportamento normale per questo utente esterno con questo ruolo predefinito è visualizzare e gestire solo le macchine virtuali e solo le risorse di Resource Manager adiacenti necessarie durante la distribuzione. Per impostazione predefinita, questi ruoli limitati consentono l'accesso solo alle risorse corrispondenti create nel portale di Azure.
+## <a name="grant-access-to-a-guest-user-not-yet-in-your-directory"></a>Concessione dell'accesso a un utente Guest non ancora presente nella directory
 
-![Panoramica del ruolo Collaboratore Macchina virtuale nel portale di Azure](./media/role-assignments-external-users/12.png)
+Per concedere l'accesso in RBAC, si crea un'assegnazione di ruolo. Per concedere l'accesso a un utente Guest, seguire la [stessa procedura descritta](role-assignments-portal.md#add-a-role-assignment) per un utente membro, un gruppo, un'entità servizio o un'identità gestita.
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Concedere l'accesso a livello di sottoscrizione per un utente nella stessa directory
+Se l'utente Guest non è ancora presente nella directory, è possibile invitare l'utente direttamente dal riquadro Aggiungi assegnazione ruolo.
 
-Il flusso del processo è identico all'aggiunta di un utente esterno sia dal punto di vista dell'amministratore che concede il ruolo di controllo degli accessi in base al ruolo sia dal punto di vista dell'utente a cui viene concesso l'accesso al ruolo. La differenza è che l'utente invitato non riceverà gli inviti tramite posta elettronica e tutti gli ambiti di risorse nella sottoscrizione saranno disponibili nel dashboard dopo l'accesso.
+1. Nel portale di Azure fare clic su **Tutti i servizi**.
 
-## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>Assegnare ruoli di controllo degli accessi in base al ruolo nell'ambito del gruppo di risorse
+1.  Consente di selezionare il set di risorse a cui viene applicato l'accesso, noto anche come ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
 
-L'assegnazione di un ruolo di controllo degli accessi in base al ruolo nell'ambito del **gruppo di risorse** prevede un processo identico per l'assegnazione del ruolo a livello di sottoscrizione per entrambi i tipi di utenti: esterni o interni (appartenenti alla stessa directory). Gli utenti a cui viene assegnato il ruolo Controllo degli accessi in base al ruolo vedono nel proprio ambiente solo il gruppo di risorse per cui è stato loro assegnato l'accesso dall'icona **Gruppi di risorse** nel portale di Azure.
+1. Fare clic sulla risorsa specifica.
 
-## <a name="assign-rbac-roles-at-the-resource-scope"></a>Assegnare ruoli di controllo degli accessi in base al ruolo nell'ambito delle risorse
+1. Fare clic su **Controllo di accesso (IAM)** .
 
-Il processo di assegnazione di un ruolo di controllo degli accessi in base al ruolo nell'ambito delle risorse in Azure è identico per l'assegnazione del ruolo a livello di sottoscrizione o di gruppo di risorse, seguendo lo stesso flusso di lavoro per entrambi gli scenari. Anche in questo caso, gli utenti assegnati al ruolo Controllo degli accessi in base al ruolo possono vedere solo gli elementi per cui è stato loro assegnato l'accesso nella scheda **Tutte le risorse** o direttamente nel dashboard.
+1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questo ambito.
 
-Un aspetto importante per il controllo degli accessi in base al ruolo nell'ambito del gruppo di risorse o delle risorse è che gli utenti devono eseguire l'accesso alla directory corretta.
+1. Fare clic su **Aggiungi** > **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
 
-![accesso alla directory nel portale di Azure](./media/role-assignments-external-users/13.png)
+    ![Menu Aggiungi](./media/role-assignments-external-users/add-menu.png)
 
-## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>Assegnare ruoli di controllo degli accessi in base al ruolo per un gruppo di Azure Active Directory
+1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
 
-Tutti gli scenari che usano il controllo degli accessi in base al ruolo nei tre ambiti diversi in Azure offrono il privilegio di gestione, distribuzione e amministrazione di varie risorse come utente assegnato, senza la necessità di gestire una sottoscrizione personale. Indipendentemente dal fatto che venga assegnato il ruolo di controllo degli accessi in base al ruolo nell'ambito di una sottoscrizione, di un gruppo di risorse o delle risorse, tutte le risorse create successivamente dagli utenti assegnati vengono fatturate per la sottoscrizione di Azure a cui gli utenti hanno accesso. In questo modo gli utenti con autorizzazioni di amministratore per la fatturazione per l'intera sottoscrizione di Azure hanno una panoramica completa sul consumo, indipendentemente da chi gestisce le risorse.
+1. Nell'elenco **Seleziona** Digitare l'indirizzo di posta elettronica della persona che si vuole invitare e selezionare tale persona.
 
-Per le organizzazioni di dimensioni maggiori, i ruoli di controllo degli accessi in base al ruolo possono essere applicati allo stesso modo per i gruppi di Azure Active Directory considerando la prospettiva che l'utente amministratore intenda concedere l'accesso granulare a team o a interi reparti, non singolarmente per ogni utente; si tratta quindi di un'opzione molto efficiente in termini di gestione e tempo. Per illustrare questo esempio, il ruolo **Collaboratore** è stato aggiunto a uno dei gruppi nel tenant a livello di sottoscrizione.
+   ![Invitare l'utente Guest nel riquadro Aggiungi assegnazione ruolo](./media/role-assignments-external-users/add-role-assignment-new-guest.png)
 
-![aggiungere il ruolo di controllo degli accessi in base al ruolo per i gruppi AAD](./media/role-assignments-external-users/14.png)
+1. Fare clic su **Salva** per aggiungere l'utente guest alla directory, assegnare il ruolo e inviare un invito.
 
-Questi gruppi sono gruppi di sicurezza di cui viene eseguito il provisioning e la gestione solo all'interno di Azure Active Directory.
+    Dopo alcuni istanti, viene visualizzata una notifica dell'assegnazione di ruolo e le informazioni sull'invito.
 
+    ![Assegnazione di ruolo e notifica utente invitato](./media/role-assignments-external-users/invited-user-notification.png)
+
+1. Per invitare manualmente l'utente Guest, fare clic con il pulsante destro del mouse e copiare il collegamento all'invito nella notifica. Non fare clic sul collegamento all'invito perché avvia il processo di invito.
+
+    Il collegamento all'invito avrà il formato seguente:
+
+    `https://invitations.microsoft.com/redeem/...`
+
+1. Inviare il collegamento di invito all'utente Guest per completare il processo di invito.
+
+    Per ulteriori informazioni sul processo di invito, vedere [Azure Active Directory riscatto dell'invito di collaborazione B2B](../active-directory/b2b/redemption-experience.md).
+
+## <a name="remove-a-guest-user-from-your-directory"></a>Rimuovere un utente guest dalla directory
+
+Prima di rimuovere un utente Guest da una directory, è necessario rimuovere prima le assegnazioni di ruolo per tale utente Guest. Attenersi alla seguente procedura per rimuovere un utente Guest da una directory.
+
+1. Aprire il **controllo di accesso (IAM)** in un ambito, ad esempio gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa, in cui l'utente Guest ha un'assegnazione di ruolo.
+
+1. Fare clic sulla scheda **assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo.
+
+1. Nell'elenco delle assegnazioni di ruolo aggiungere un segno di spunta accanto all'utente guest con l'assegnazione di ruolo che si desidera rimuovere.
+
+   ![Rimuovi assegnazione di ruolo](./media/role-assignments-external-users/remove-role-assignment-select.png)
+
+1. Fare clic su **Rimuovi**.
+
+   ![Messaggio di rimozione assegnazione di ruolo](./media/role-assignments-external-users/remove-role-assignment.png)
+
+1. Nella finestra con il messaggio di rimozione dell'assegnazione di ruolo fare clic su **Sì**.
+
+1. Nella barra di spostamento a sinistra fare clic su **Azure Active Directory** > **utenti**.
+
+1. Fare clic sull'utente guest che si desidera rimuovere.
+
+1. Fare clic su **Elimina**.
+
+   ![Elimina utente Guest](./media/role-assignments-external-users/delete-guest-user.png)
+
+1. Nel messaggio di eliminazione visualizzato, fare clic su **Sì**.
+
+## <a name="troubleshoot"></a>Risolvere problemi
+
+### <a name="guest-user-cannot-browse-the-directory"></a>L'utente Guest non può esplorare la directory
+
+Gli utenti guest hanno autorizzazioni di directory limitate. Ad esempio, gli utenti guest non possono esplorare la directory e non possono cercare gruppi o applicazioni. Per ulteriori informazioni, vedere [quali sono le autorizzazioni utente predefinite in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+
+![L'utente Guest non può esplorare gli utenti in una directory](./media/role-assignments-external-users/directory-no-users.png)
+
+Se un utente Guest necessita di privilegi aggiuntivi nella directory, è possibile assegnare un ruolo della directory all'utente Guest. Se si desidera che un utente guest disponga di accesso in lettura completo alla directory, è possibile aggiungere l'utente Guest al ruolo [Readers di directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+
+![Assegnare il ruolo lettori directory](./media/role-assignments-external-users/directory-roles.png)
+
+### <a name="guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles"></a>L'utente Guest non può esplorare utenti, gruppi o entità servizio per assegnare i ruoli
+
+Gli utenti guest hanno autorizzazioni di directory limitate. Anche se un utente Guest è un [proprietario](built-in-roles.md#owner) di un ambito, se tenta di creare un'assegnazione di ruolo per concedere a un altro utente l'accesso, non può esplorare l'elenco di utenti, gruppi o entità servizio.
+
+![L'utente Guest non può esplorare le entità di sicurezza per assegnare i ruoli](./media/role-assignments-external-users/directory-no-browse.png)
+
+Se l'utente Guest conosce il nome di accesso esatto di un utente nella directory, può concedere l'accesso. Se si desidera che un utente guest disponga di accesso in lettura completo alla directory, è possibile aggiungere l'utente Guest al ruolo [Readers di directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+
+### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>L'utente Guest non può registrare le applicazioni o creare entità servizio
+
+Gli utenti guest hanno autorizzazioni di directory limitate. Se un utente guest deve essere in grado di registrare le applicazioni o creare entità servizio, è possibile aggiungere l'utente Guest al ruolo di [sviluppatore dell'applicazione](../active-directory/users-groups-roles/directory-assign-admin-roles.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+
+![L'utente Guest non può registrare le applicazioni](./media/role-assignments-external-users/directory-access-denied.png)
+
+### <a name="guest-user-does-not-see-the-new-directory"></a>L'utente Guest non Visualizza la nuova directory
+
+Se a un utente Guest è stato concesso l'accesso a una directory, ma non viene visualizzata la nuova directory elencata nel portale di Azure quando si tenta di passare al riquadro **directory + sottoscrizione** , assicurarsi che l'utente Guest abbia completato il processo di invito. Per ulteriori informazioni sul processo di invito, vedere [Azure Active Directory riscatto dell'invito di collaborazione B2B](../active-directory/b2b/redemption-experience.md).
+
+### <a name="guest-user-does-not-see-resources"></a>Le risorse non vengono visualizzate dall'utente Guest
+
+Se a un utente Guest è stato concesso l'accesso a una directory, ma non vengono visualizzate le risorse a cui è stato concesso l'accesso nel portale di Azure, assicurarsi che l'utente Guest abbia selezionato la directory corretta. Un utente guest potrebbe avere accesso a più directory. Per cambiare directory, in alto a sinistra fare clic su **directory + sottoscrizione**e quindi fare clic sulla directory appropriata.
+
+![Riquadro Directory + sottoscrizioni in portale di Azure](./media/role-assignments-external-users/directory-subscription.png)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](../active-directory/b2b/add-users-administrator.md)
+- [Proprietà di un utente di Collaborazione B2B di Azure Active Directory](../active-directory/b2b/user-properties.md)
+- [Gli elementi del messaggio di posta elettronica di invito per la collaborazione B2B-Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)

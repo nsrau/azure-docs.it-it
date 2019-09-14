@@ -17,12 +17,12 @@ ms.date: 07/29/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b2d80d21822758991ad8b3bc1d3bb44e2257f4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129809"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983491"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -31,7 +31,7 @@ L'architettura di report in Azure Active Directory (Azure AD) include i componen
 - **Attività** 
     - **Accessi**: informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
     - **Log di controllo** - [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative a gestione di utenti e gruppi, applicazioni gestite e attività di directory.
-    - **Log** di provisioning: fornire le attività di sistema relative a utenti, gruppi e ruoli di cui è stato effettuato il provisioning tramite il servizio di provisioning di Azure ad. 
+    - **Log di provisioning** : fornire le attività di sistema relative a utenti, gruppi e ruoli di cui è stato effettuato il provisioning tramite il servizio di provisioning di Azure ad. 
 
 - **Sicurezza** 
     - **Accessi a rischio**: un [accesso a rischio](concept-risky-sign-ins.md) indica un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente.
@@ -58,9 +58,9 @@ I log di provisioning forniscono risposte alle domande seguenti:
 * Come sono stati importati i ruoli da Amazon Web Services?
 * Quali utenti non sono stati creati correttamente in DropBox?
 
-È possibile accedere ai log di provisioning selezionando i **log** di provisioning nella sezione **monitoraggio** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com). Potrebbero essere necessarie fino a due ore per la visualizzazione di alcuni record del provisioning nel portale.
+È possibile accedere ai log di provisioning selezionando i **log di provisioning** nella sezione **monitoraggio** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com). Potrebbero essere necessarie fino a due ore per la visualizzazione di alcuni record del provisioning nel portale.
 
-![Log] di provisioning (./media/concept-provisioning-logs/access-provisioning-logs.png "Log") di provisioning
+![Log di provisioning](./media/concept-provisioning-logs/access-provisioning-logs.png "Log di provisioning")
 
 
 Un log di provisioning ha una visualizzazione elenco predefinita che mostra:
@@ -85,7 +85,7 @@ In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già
 
 Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
-![Informazioni dettagliate](./media/concept-provisioning-logs/detailed-information.png "Informazioni dettagliate")
+![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtro") di
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrare le attività di provisioning

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 4ce40fdf36f7d66e60e15955318e43f1f24f275f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 15d0a584d88045f6020162a88124cd9d6a4735bf
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515853"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984012"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
 
@@ -31,12 +31,12 @@ La tabella seguente descrive i limiti delle risorse per Azure NetApp Files:
 
 |  Risorsa  |  Limite predefinito  |  Modificabile tramite richiesta di supporto  |
 |----------------|---------------------|--------------------------------------|
-|  Numero di account NetApp per sottoscrizione di Azure   |  10    |  Yes   |
+|  Numero di account NetApp per sottoscrizione di Azure   |  10    |  Sì   |
 |  Numero di pool di capacità per account NetApp   |    25     |   Sì   |
 |  Numero di volumi per pool di capacità     |    500   |    Sì     |
 |  Numero di snapshot per volume       |    255     |    No        |
 |  Numero di subnet delegate a Azure NetApp Files (Microsoft. NetApp/volumes) per rete virtuale di Azure    |   1   |    No    |
-|  Numero di indirizzi IP simultanei in un VNet (incluso reti virtuali con peering) che possono accedere Azure NetApp Files   |    1000   |    No   |
+|  Numero di indirizzi IP in un VNet (incluso reti virtuali con peering) che possono accedere Azure NetApp Files   |    1000   |    Sì   |
 |  Dimensioni minime di un singolo pool di capacità   |  4 TiB     |    No  |
 |  Dimensioni massime di un singolo pool di capacità    |  500 TiB   |   No   |
 |  Dimensioni minime di un singolo volume    |    100 GiB    |    No    |
@@ -53,7 +53,7 @@ Dal piano di navigazione portale di Azure:
 2. Fare clic su **+ nuova richiesta di supporto**.
 3. Nella scheda informazioni di base specificare le informazioni seguenti: 
     1. Tipo di problema: Selezionare i **limiti del servizio e della sottoscrizione (quote)** .
-    2. Sottoscrizioni: Selezionare la sottoscrizione per la risorsa necessaria per aumentare la quota.
+    2. Sottoscrizioni Selezionare la sottoscrizione per la risorsa necessaria per aumentare la quota.
     3. Tipo di quota: Selezionare **archiviazione: Azure NetApp Files limiti**.
     4. Fare clic su **Avanti: Soluzioni**.
 4. Nella scheda Dettagli:

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: b4bcd07cf7549029d09f5acd58fdf8f92fffed74
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c3a80cbdd166f77681665ee3675c1a71ce3a9bd6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945294"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967081"
 ---
 # <a name="detect-popular-brands-in-images"></a>Rileva i marchi più diffusi nelle immagini
 
@@ -76,5 +76,5 @@ In alcuni casi, il rilevatore di marchi identificherà l'immagine del logo e il 
 
 La funzionalità per il rilevamento del marchio fa parte dell'API di [analisi delle immagini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Brands` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"brands"` sezione.
 
-* [Avvio rapido: Analizzare un'immagine (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Avvio rapido: Visione artificiale .NET SDK](./quickstarts-sdk/csharp-sdk.md)
 * [Avvio rapido: Analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

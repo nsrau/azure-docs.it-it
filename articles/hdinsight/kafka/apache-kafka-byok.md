@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f619a0179849e2ca17a0528d97ef13f0788a4838
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 09cca0eda9a82b1605323678d7442700dc1a2292
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811537"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960511"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Bring your own key per Apache Kafka in Azure HDInsight
 
@@ -58,7 +58,7 @@ Per creare un cluster Kafka abilitato per BYOK, seguire questa procedura:
 
         b. Impostare **Opzioni** su **Genera** e assegnare un nome alla chiave.
 
-        ![Genera nome chiave](./media/apache-kafka-byok/kafka-create-a-key.png "Genera nome chiave")
+        ![Genera nome chiave](./media/apache-kafka-byok/apache-kafka-create-key.png "Genera nome chiave")
 
         c. Selezionare la chiave creata nell'elenco di chiavi.
 
@@ -103,7 +103,7 @@ Per creare un cluster Kafka abilitato per BYOK, seguire questa procedura:
 
    Per ruotare la chiave, è necessario avere l'URL completo della nuova chiave (vedere il passaggio 3 della [procedura di impostazione del Key Vault e delle chiavi](#setup-the-key-vault-and-keys)). Al termine, passare alla sezione proprietà del cluster Kafka nel portale e fare clic su **cambia chiave** in **URL chiave di crittografia del disco**. Immettere l'URL della nuova chiave e inviare per ruotare la chiave.
 
-   ![Kafka ruotare la chiave di crittografia del disco](./media/apache-kafka-byok/kafka-change-key.png)
+   ![Kafka ruotare la chiave di crittografia del disco](./media/apache-kafka-byok/apache-kafka-change-key.png)
 
 ## <a name="faq-for-byok-to-apache-kafka"></a>Domande frequenti su BYOK per Apache Kafka
 
