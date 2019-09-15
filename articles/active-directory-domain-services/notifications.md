@@ -1,102 +1,89 @@
 ---
-title: 'Azure Active Directory Domain Services: impostazioni delle notifiche | Microsoft Docs'
-description: Impostazioni di notifica per Azure AD Domain Services
+title: Notifiche tramite posta elettronica per Azure AD Domain Services | Microsoft Docs '
+description: Informazioni su come configurare le notifiche di posta elettronica per segnalare i problemi in un dominio gestito Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 09/12/2019
 ms.author: iainfou
-ms.openlocfilehash: a89b13d40f4eea08ecdb0f1eb8d68d1a146aca2b
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8261723f145c7b8ba01e27108e7a309f9f483d2c
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472789"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993144"
 ---
-# <a name="notification-settings-in-azure-ad-domain-services"></a>Impostazioni di notifica in Azure AD Domain Services
+# <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurare le notifiche di posta elettronica per i problemi in Azure Active Directory Domain Services
 
-Le notifiche per Azure AD Domain Services consentono di essere aggiornati non appena viene rilevato un avviso di integrità nel dominio gestito.  
+L'integrità di un dominio gestito di Azure Active Directory Domain Services (Azure AD DS) viene monitorata dalla piattaforma Azure. Nella pagina stato integrità della portale di Azure vengono visualizzati tutti gli avvisi per il dominio gestito. Per garantire la risposta tempestiva ai problemi, è possibile configurare le notifiche tramite posta elettronica in modo da creare report sugli avvisi di integrità non appena vengono rilevati nel dominio gestito Azure AD DS.
 
-Questa funzionalità è disponibile solo per i domini gestiti non presenti nelle reti virtuali classiche.
+Questo articolo illustra come configurare i destinatari delle notifiche tramite posta elettronica per un dominio gestito Azure AD DS.
 
+## <a name="email-notification-overview"></a>Panoramica delle notifiche di posta elettronica
 
-## <a name="how-to-check-your-azure-ad-domain-services-email-notification-settings"></a>Come controllare le impostazioni di notifica di posta elettronica per Azure AD Domain Services
+Per segnalare i problemi relativi a un dominio gestito di Azure AD DS, è possibile configurare le notifiche tramite posta elettronica. Queste notifiche di posta elettronica specificano il dominio gestito Azure AD DS in cui è presente l'avviso, oltre a fornire il tempo di rilevamento e un collegamento alla pagina di integrità nell'portale di Azure. È quindi possibile seguire i consigli per la risoluzione dei problemi forniti per risolvere i problemi.
 
-1. Accedere alla pagina [Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) nel portale di Azure.
-2. Scegliere il dominio gestito nella tabella.
-3. Nel menu di spostamento a sinistra scegliere **Impostazioni notifiche**.
-
-Nella pagina sono elencati tutti i destinatari delle notifiche di posta elettronica per Azure AD Domain Services.
-
-## <a name="what-does-an-email-notification-look-like"></a>Che aspetto ha una notifica di posta elettronica?
-
-L'immagine seguente illustra un esempio di notifica:
+La notifica di posta elettronica di esempio seguente indica che è stato generato un avviso o un avviso critico nel dominio gestito di Azure AD DS:
 
 ![Esempio di notifica di posta elettronica](./media/active-directory-domain-services-alerts/email-alert.png)
 
-Il messaggio di posta elettronica specifica il dominio gestito per cui è stato attivato l'avviso, data e ora del rilevamento e un collegamento alla pagina di integrità di Azure AD Domain Services nel portale di Azure.
+> [!WARNING]
+> Assicurarsi sempre che il messaggio di posta elettronica provenga da un mittente Microsoft verificato prima di fare clic sui collegamenti nel messaggio. Le notifiche tramite posta elettronica provengono sempre `azure-noreply@microsoft.com` dall'indirizzo.
+
+### <a name="why-would-i-receive-email-notifications"></a>Perché si ricevono notifiche di posta elettronica?
+
+Azure AD DS invia notifiche tramite posta elettronica per aggiornamenti importanti sul dominio gestito. Queste notifiche sono solo per i problemi urgenti che influiscano sul servizio e devono essere risolti immediatamente. Ogni notifica tramite posta elettronica viene attivata da un avviso sul dominio gestito Azure AD DS. Gli avvisi vengono visualizzati anche nella portale di Azure e possono essere visualizzati nella pagina relativa allo [stato di Azure AD DS][check-health].
+
+Azure AD DS non invia messaggi di posta elettronica per l'annuncio, gli aggiornamenti o le vendite.
+
+### <a name="when-will-i-receive-email-notifications"></a>Quando si ricevono notifiche di posta elettronica?
+
+Una notifica viene inviata immediatamente quando viene rilevato un [nuovo avviso][troubleshoot-alerts] in un dominio gestito di Azure AD DS. Se l'avviso non viene risolto, le notifiche di posta elettronica aggiuntive vengono inviate come promemoria ogni quattro giorni.
+
+### <a name="who-should-receive-the-email-notifications"></a>A chi vengono inviate le notifiche di posta elettronica?
+
+L'elenco dei destinatari di posta elettronica per Azure AD DS deve essere costituito da utenti che sono in grado di amministrare e apportare modifiche al dominio gestito. Questo elenco di messaggi di posta elettronica deve essere considerato come "prima risposta" per eventuali avvisi e problemi.
+
+È possibile aggiungere fino a cinque destinatari di messaggi di posta elettronica aggiuntivi per le notifiche tramite posta elettronica. Se si desiderano più di cinque destinatari per le notifiche di posta elettronica, creare una lista di distribuzione e aggiungerla all'elenco di notifiche.
+
+È anche possibile scegliere di fare in modo che tutti gli *amministratori globali* della directory Azure ad e tutti i membri del gruppo *AAD DC Administrators* ricevano le notifiche tramite posta elettronica. Azure AD DS Invia la notifica solo a un massimo di 100 indirizzi di posta elettronica, incluso l'elenco degli amministratori globali e degli amministratori di AAD DC.
+
+## <a name="configure-email-notifications"></a>Configurare le notifiche di posta elettronica
+
+Per esaminare i destinatari delle notifiche di posta elettronica esistenti o aggiungere altri destinatari, seguire questa procedura:
+
+1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**.
+1. Selezionare il dominio gestito di Azure AD DS, ad esempio *contoso.com*.
+1. Sul lato sinistro della finestra della risorsa Azure AD DS selezionare **impostazioni di notifica**. Vengono visualizzati i destinatari esistenti per le notifiche tramite posta elettronica.
+1. Per aggiungere un destinatario di posta elettronica, immettere l'indirizzo di posta elettronica nella tabella destinatari aggiuntivi.
+1. Al termine, selezionare **Salva** nella finestra di spostamento in alto a destra.
 
 > [!WARNING]
-> Verificare sempre che il messaggio sia stato inviato da un mittente Microsoft verificato prima di fare clic sui collegamenti in esso contenuti. L'indirizzo di provenienza è sempre azure-noreply@microsoft.com.
-
-
-## <a name="why-would-i-receive-email-notifications"></a>Perché si ricevono notifiche di posta elettronica?
-
-Azure AD Domain Services invia notifiche di posta elettronica per segnalare aggiornamenti importanti sul dominio.  Queste notifiche vengono usate solo per aspetti urgenti che influiscono sul servizio e che devono essere risolti immediatamente. Ogni notifica di posta elettronica viene attivata da un avviso per il dominio gestito specifico. Questi avvisi verranno visualizzati anche nel portale di Azure e possono essere esaminati nella [pagina di integrità di Azure AD Domain Services](check-health.md).
-
-Azure Active Directory Domain Services non invia i messaggi a questo elenco per finalità di vendita, pubblicità o aggiornamenti.
-
-## <a name="when-will-i-receive-email-notifications"></a>Quando si ricevono notifiche di posta elettronica?
-
-Quando si rileva un [nuovo avviso](troubleshoot-alerts.md) per il dominio gestito viene inviata immediatamente una notifica. Se l'avviso non viene risolto, ogni quattro giorni viene inviata una notifica di posta elettronica come promemoria.
-
-## <a name="who-should-receive-the-email-notifications"></a>A chi vengono inviate le notifiche di posta elettronica?
-
-
- È consigliabile che l'elenco di destinatari di posta elettronica per Azure AD Domain Services includa gli utenti che possono amministrare e apportare modifiche al dominio gestito. Questo elenco deve essere considerato come la prima risorsa per rispondere agli eventuali problemi riscontrati. Se gli indirizzi da aggiungere sono più di cinque, è consigliabile creare una lista di distribuzione da aggiungere all'elenco di notifiche.
-
-È possibile aggiungere fino a cinque indirizzi aggiuntivi per le notifiche relative ad Azure AD Domain Services. È possibile anche fare in modo che tutti gli amministratori globali di directory e ogni membro del gruppo di amministratori AAD DC ricevano le notifiche di posta elettronica per Azure AD Domain Services. Azure AD Domain Services invierà notifiche solo a un massimo di 100 indirizzi, incluso l'elenco di amministratori globali e di amministratori AAD DC.
-
-
-## <a name="how-to-add-an-additional-email-recipient"></a>Come aggiungere un destinatario aggiuntivo
-
-> [!WARNING]
-> Quando si modificano le impostazioni di notifica, la modifica viene applicata all'intero dominio gestito e non solo alle impostazioni personali.
-
-1. Accedere alla pagina [Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) nel portale di Azure.
-2. Fare clic sul dominio gestito.
-3. Nel menu di spostamento a sinistra fare clic su **Impostazioni notifiche**.
-4. Per aggiungere un indirizzo di posta elettronica, digitare l'indirizzo nella tabella dei destinatari aggiuntivi.
-5. Fare clic su "Salva" nel riquadro di spostamento in alto.
+> Quando si modificano le impostazioni di notifica, vengono aggiornate le impostazioni di notifica per l'intero dominio gestito Azure AD DS, non solo per se stessi.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-#### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>È stata ricevuta una notifica di posta elettronica per un avviso, ma nel portale di Azure non è presente alcun avviso. Che cosa è successo?
+### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>È stata ricevuta una notifica di posta elettronica per un avviso, ma nel portale di Azure non è presente alcun avviso. Cosa è successo?
 
-Un avviso già risolto non è più visualizzato nel portale di Azure. Probabilmente un altro utente che riceve le notifiche di posta elettronica ha risolto l'avviso nel dominio gestito o la notifica è stata risolta automaticamente da Azure AD Domain Services.
+Se un avviso viene risolto, l'avviso viene cancellato dal portale di Azure. Il motivo più probabile è che un altro utente che riceve le notifiche tramite posta elettronica ha risolto l'avviso sul dominio gestito Azure AD DS oppure è stato risolto automaticamente dalla piattaforma Azure.
 
+### <a name="why-can-i-not-edit-the-notification-settings"></a>Perché non è possibile modificare le impostazioni di notifica?
 
-#### <a name="why-can-i-not-edit-the-notification-settings"></a>Perché non è possibile modificare le impostazioni di notifica?
+Se non si riesce ad accedere alla pagina delle impostazioni di notifica nella portale di Azure, non si dispone delle autorizzazioni necessarie per modificare il dominio gestito Azure AD DS. È necessario contattare un amministratore globale per ottenere le autorizzazioni per modificare Azure AD risorsa DS o essere rimosse dall'elenco di destinatari.
 
-Se non si è in grado di accedere alla pagina delle impostazioni di notifica nel portale di Azure, non si dispone delle autorizzazioni per modificare Azure AD Domain Services. È necessario contattare l'amministratore globale per ottenere le autorizzazioni per modificare le risorse di Azure AD Domain Services o per essere rimossi dall'elenco di destinatari.
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Non si ricevono notifiche di posta elettronica anche se è stato fornito l'indirizzo di posta elettronica. Perché?
 
-#### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Non si ricevono notifiche di posta elettronica anche se è stato fornito l'indirizzo di posta elettronica. Perché?
-
-Controllare se la notifica è presente nella cartella della posta indesiderata e assicurarsi che il mittente sia stato aggiunto all'elenco di elementi consentiti (azure-noreply@microsoft.com).
+Controllare la cartella posta indesiderata o posta indesiderata nel messaggio di posta elettronica per la notifica `azure-noreply@microsoft.com`e assicurarsi di consentire al mittente di.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Risolvere i problemi correlati agli avvisi nel dominio gestito](troubleshoot-alerts.md)
-- [Altre informazioni su Azure AD Domain Services](overview.md)
-- [Contattare il team del prodotto](contact-us.md)
 
-## <a name="contact-us"></a>Contatti
-Contattare il team di prodotto di Servizi di dominio Azure AD per [condividere commenti e suggerimenti o per chiedere supporto tecnico](contact-us.md).
+Per ulteriori informazioni sulla risoluzione di alcuni problemi che possono essere segnalati, vedere [risolvere gli avvisi in un dominio gestito di Azure AD DS][troubleshoot-alerts].
+
+<!-- INTERNAL LINKS -->
+[check-health]: check-health.md
+[troubleshoot-alerts]: troubleshoot-alerts.md

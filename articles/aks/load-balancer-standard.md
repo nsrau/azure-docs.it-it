@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9cfced0860b206e41b3e9f82f1ed2b92867e6b39
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 42323af40ee18a965363321196a04aa75c00aa40
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914830"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996947"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico con SKU standard in Azure Kubernetes Service (AKS)
 
@@ -277,6 +277,8 @@ Passare all'indirizzo IP pubblico in un browser e verificare che sia visualizzat
 
 Quando si usa un servizio di bilanciamento del carico con SKU *standard* con indirizzi IP pubblici in uscita gestiti, che vengono creati per impostazione predefinita, è possibile ridimensionare il numero di indirizzi IP pubblici in uscita gestiti usando il parametro *Load-Balancer-Managed-IP-count* .
 
+Per aggiornare un cluster esistente, eseguire il comando seguente. Questo parametro può essere impostato anche in fase di creazione del cluster per avere più indirizzi IP pubblici in uscita gestiti.
+
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
@@ -284,11 +286,15 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-Nell'esempio precedente il numero di indirizzi IP pubblici in uscita gestiti viene impostato su *2* per il cluster *myAKSCluster* in *myResourceGroup*. È anche possibile usare il parametro *Load-Balancer-Managed-IP-count* per impostare il numero iniziale di indirizzi IP pubblici in uscita gestiti durante la creazione del cluster. Il numero predefinito di indirizzi IP pubblici in uscita gestiti è 1.
+Nell'esempio precedente il numero di indirizzi IP pubblici in uscita gestiti viene impostato su *2* per il cluster *myAKSCluster* in *myResourceGroup*. 
+
+È anche possibile usare il parametro *Load-Balancer-Managed-IP-count* per impostare il numero iniziale di indirizzi IP pubblici in uscita gestiti durante la creazione del cluster mediante `--load-balancer-managed-outbound-ip-count` l'aggiunta del parametro e l'impostazione del valore desiderato. Il numero predefinito di indirizzi IP pubblici in uscita gestiti è 1.
 
 ## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>Facoltativo: specificare gli indirizzi IP pubblici o i prefissi per l'uscita
 
-Quando si usa un servizio di bilanciamento del carico con SKU *standard* , il cluster AKS crea automaticamente un indirizzo IP pubblico nello stesso gruppo di risorse creato per il cluster AKS e assegna l'indirizzo IP pubblico al servizio di bilanciamento del carico dello SKU *standard* . In alternativa, è possibile assegnare un indirizzo IP pubblico.
+Quando si usa un servizio di bilanciamento del carico con SKU *standard* , il cluster AKS crea automaticamente un indirizzo IP pubblico nello stesso gruppo di risorse creato per il cluster AKS e assegna l'indirizzo IP pubblico al servizio di bilanciamento del carico dello SKU *standard* . In alternativa, è possibile assegnare un indirizzo IP pubblico personalizzato al momento della creazione del cluster oppure aggiornare le proprietà del servizio di bilanciamento del carico di un cluster esistente.
+
+Con l'introduzione di più indirizzi IP o prefissi, è possibile definire più servizi di backup quando si definisce l'indirizzo IP dietro un singolo oggetto di bilanciamento del carico. L'endpoint in uscita di nodi specifici dipenderà dal servizio a cui sono associati.
 
 > [!IMPORTANT]
 > È necessario usare gli indirizzi IP pubblici dello SKU *standard* per l'uscita con lo SKU *standard* del servizio di bilanciamento del carico. È possibile verificare lo SKU degli indirizzi IP pubblici usando il comando [AZ Network Public-IP Show][az-network-public-ip-show] :
@@ -324,8 +330,6 @@ az network public-ip prefix show --resource-group myResourceGroup --name myPubli
 
 Il comando precedente mostra l'ID del prefisso IP pubblico *myPublicIPPrefix* nel gruppo di risorse *myResourceGroup* .
 
-Usare il comando *AZ AKS Update* con il parametro *Load-Balancer-Outbound-IP-Prefixes* con gli ID del comando precedente.
-
 Nell'esempio seguente viene usato il parametro *Load-Balancer-Outbound-IP-Prefixes* con gli ID del comando precedente.
 
 ```azurecli-interactive
@@ -337,6 +341,36 @@ az aks update \
 
 > [!IMPORTANT]
 > Gli IP pubblici e i prefissi IP devono trovarsi nella stessa area e nella stessa sottoscrizione del cluster AKS.
+
+### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>Definire un indirizzo IP pubblico o prefissi in fase di creazione del cluster
+
+Per supportare scenari come gli endpoint in uscita dell'elenco elementi consentiti, è possibile importare indirizzi IP o prefissi IP per l'uscita al momento della creazione del cluster. Aggiungere gli stessi parametri mostrati in precedenza al passaggio di creazione del cluster per definire gli IP pubblici e i prefissi IP all'inizio del ciclo di vita di un cluster.
+
+Usare il comando *AZ AKS create* con il parametro *Load-Balancer-Outbound-IPS* per creare un nuovo cluster con gli indirizzi IP pubblici all'inizio.
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+```
+
+Usare il comando *AZ AKS create* con il parametro *Load-Balancer-Outbound-IP-Prefixes* per creare un nuovo cluster con i prefissi IP pubblici all'inizio.
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
+```
 
 ## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>Pulire la configurazione del servizio di bilanciamento del carico SKU standard
 

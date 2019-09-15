@@ -1,6 +1,6 @@
 ---
 title: 'Esempio di interfaccia visiva #3: regressione al prezzo e confrontare gli algoritmi'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Questo articolo illustra come creare un esperimento di apprendimento automatico complesso senza scrivere una sola riga di codice usando l'interfaccia visiva. Informazioni su come eseguire il training e il confronto di più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d05a601196ec4a5349a0acb4763098d9716c17f5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2c45ccf55b1adde7150dee17fd562b24ee4777ba
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990012"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997091"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Esempio 2: regressione: Stimare il prezzo e confrontare gli algoritmi
 
@@ -62,7 +62,7 @@ I problemi di Machine Learning variano. Le attività comuni di Machine Learning 
 
 Dato che l'obiettivo di questo esperimento è stimare i prezzi delle automobili e perché la colonna Label (price) contiene numeri reali, un modello di regressione è una scelta ottimale. Poiché il numero di funzionalità è relativamente ridotto (inferiore a 100) e queste funzionalità non sono di tipo sparse, è probabile che il limite della decisione sia non lineare.
 
-Per confrontare le prestazioni di algoritmi diversi, vengono usati due algoritmi non lineari, la **regressione dell'albero delle decisioni** con boosting e la regressione della **foresta delle decisioni**, per la compilazione dei modelli. Entrambi gli algoritmi hanno parametri che è possibile modificare, ma si usano i valori predefiniti per questo esperimento.
+Per confrontare le prestazioni di algoritmi diversi, vengono usati due algoritmi non lineari, la **regressione dell'albero delle decisioni con boosting** e la **regressione della foresta delle decisioni**, per la compilazione dei modelli. Entrambi gli algoritmi hanno parametri che è possibile modificare, ma si usano i valori predefiniti per questo esperimento.
 
 Viene usato il modulo **Split data** per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 70% dei dati originali e il set di dati di testing contenga il 30% dei dati originali.
 
@@ -80,7 +80,7 @@ Ecco i risultati:
 
 ![Confrontare i risultati](media/ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
-Questi risultati mostrano che il modello compilato con la **regressione dell'albero delle decisioni** con boosting ha un errore quadratico medio più basso rispetto al modello basato sulla regressione della **foresta delle decisioni**.
+Questi risultati mostrano che il modello compilato con la **regressione dell'albero delle decisioni con boosting** ha un errore quadratico medio più basso rispetto al modello basato sulla **regressione della foresta delle decisioni**.
 
 Entrambi gli algoritmi hanno un errore inferiore nel set di dati di training rispetto al set di dati di test non visibile.
 

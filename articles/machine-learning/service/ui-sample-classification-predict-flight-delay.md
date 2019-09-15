@@ -1,6 +1,6 @@
 ---
 title: 'Esempio di interfaccia visiva #6: Classificazione per la stima dei ritardi dei voli'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Questo articolo illustra come creare un modello di apprendimento automatico per stimare i ritardi dei voli usando l'interfaccia visiva di trascinamento della selezione e il codice R personalizzato.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 07/02/2019
-ms.openlocfilehash: 4c0a990ae3f45fc7b08c157f180d8ecf805c24e6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 3d1363d24aa6e5f8875ba90513a8d9d5b951c9db
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990031"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997120"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>Esempio 6-Classificazione: Stimare i ritardi dei voli usando R
 
@@ -63,7 +63,7 @@ Le colonne **Carrier**, **OriginAirportID**e **DestAirportID** vengono salvate c
 
 ![Modifica-metadati](media/ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
-Usare quindi il modulo **Select Columns** in DataSet per escludere dalle colonne del set di dati che sono possibili perdite di destinazione: **DepDelay**, **DepDel15**, **ArrDelay**,annullato, **anno**. 
+Usare quindi il modulo **Select Columns** in DataSet per escludere dalle colonne del set di dati che sono possibili perdite di destinazione: **DepDelay**, **DepDel15**, **ArrDelay**, **annullato**, **anno**. 
 
 Per unire i record di volo con i record meteorologici orari, usare l'ora di partenza pianificata come una delle chiavi di join. Per eseguire il join, è necessario arrotondare la colonna CSRDepTime all'ora più vicina, eseguita dal modulo **Execute R script** . 
 
@@ -108,7 +108,7 @@ Creare un modello usando il modulo di **regressione logistica a due classi** ed 
 
 Il risultato del modulo **Train Model** è un modello di classificazione sottoposto a training che può essere usato per assegnare punteggi ai nuovi esempi per eseguire stime. Usare il set di test per generare punteggi dai modelli sottoposti a training. Usare quindi il modulo **Evaluate Model** per analizzare e confrontare la qualità dei modelli.
 
-Dopo aver eseguito l'esperimento, è possibile visualizzare l'output del modulo **Score Model** facendo clic sulla porta di output e selezionando Visualize ( **Visualizza**). L'output include le etichette con punteggio e le probabilità per le etichette.
+Dopo aver eseguito l'esperimento, è possibile visualizzare l'output del modulo **Score Model** facendo clic sulla porta di output e selezionando **Visualize (Visualizza**). L'output include le etichette con punteggio e le probabilità per le etichette.
 
 Infine, per testare la qualità dei risultati, aggiungere il modulo **Evaluate Model** nell'area di disegno dell'esperimento e connettere la porta di input sinistra all'output del modulo Score Model. Eseguire l'esperimento e visualizzare l'output del modulo **Evaluate Model** facendo clic sulla porta di output e selezionando **Visualize (Visualizza**).
 

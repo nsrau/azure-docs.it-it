@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b0b5bd5972e544c4254ee0f425e27cc8c465f0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297583"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995222"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi ai dispositivi ibridi Azure Active Directory aggiunti 
 
@@ -210,7 +210,7 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 ![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/5.png)
 
-###### <a name="network-errors"></a>Errori di rete
+###### <a name="network-errors"></a>errori di rete
 
 - **WININET_E_CANNOT_CONNECT** (0x80072EFD/-2147012867)
    - Motivo: Non è stato possibile stabilire una connessione con il server
@@ -267,7 +267,7 @@ Utilizzare i registri Visualizzatore eventi per individuare il codice di errore,
    - Motivo: Non è stato possibile individuare l'endpoint per l'autenticazione nome utente/password.
    - Risoluzione: Controllare le impostazioni del provider di identità locale. Verificare che gli endpoint WS-Trust siano abilitati e assicurarsi che la risposta MEX contenga questi endpoint corretti.
 
-##### <a name="network-errors"></a>Errori di rete
+##### <a name="network-errors"></a>errori di rete
 
 - **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614)
    - Motivo: Timeout di rete generale.
@@ -404,6 +404,9 @@ Questi campi indicano se l'utente è autenticato correttamente in Azure AD duran
 - ID di accesso alternativo
 - Proxy HTTP non trovato
 
+## <a name="known-issues"></a>Problemi noti
+- In Impostazioni-account >-> Accedi all'azienda o all'Istituto di istruzione, Azure AD ibrido dispositivi aggiunti possono visualizzare due account diversi, uno per Azure AD e uno per AD locale, quando si è connessi a hotspot mobili o a reti Wi-Fi esterne. Si tratta solo di un problema dell'interfaccia utente e non ha alcun effetto sulla funzionalità. 
+ 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Continuare [la risoluzione dei problemi dei dispositivi tramite il comando dsregcmd](troubleshoot-device-dsregcmd.md)

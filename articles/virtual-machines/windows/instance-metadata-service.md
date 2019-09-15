@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: bffe6436678a055ac6d861587f048542f15c5f22
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0610648594d09de3f86c5d9eb2f0cae722978cca
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079314"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996399"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -263,7 +263,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 
 I metadati dell'istanza possono essere recuperati in Windows tramite il programma `curl`:
 
-```bash
+```powershell
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
 ```
 
@@ -341,7 +341,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Le API seguenti sono disponibili tramite l'endpoint dei metadati:
 
-Data | Descrizione | Versione introdotta
+Data | DESCRIZIONE | Versione introdotta
 -----|-------------|-----------------------
 attested | Vedere [Dati con attestazione](#attested-data) | 2018-10-01
 identity | Identità gestite per le risorse di Azure. Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
@@ -354,7 +354,7 @@ scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
 > [!NOTE]
 > Tramite l'endpoint dei metadati, si accede alle seguenti categorie tramite istanza/calcolo
 
-Data | Descrizione | Versione introdotta
+Data | DESCRIZIONE | Versione introdotta
 -----|-------------|-----------------------
 azEnvironment | Ambiente Azure in cui è in esecuzione la macchina virtuale | 2018-10-01
 customData | Vedere [dati personalizzati](#custom-data) | 2019-02-01
@@ -370,7 +370,7 @@ un provider | Provider della macchina virtuale | 2018-10-01
 publicKeys | [Raccolta di chiavi pubbliche](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assegnate alla VM e ai percorsi | 2018-04-02
 publisher | Autore dell'immagine della macchina virtuale | 2017-04-02
 resourceGroupName | [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) per la macchina virtuale | 2017-08-01
-resourceId | ID [completo della risorsa](https://docs.microsoft.com/rest/api/resources/resources/getbyid) | 2019-03-11
+resourceId | ID [completo](https://docs.microsoft.com/rest/api/resources/resources/getbyid) della risorsa | 2019-03-11
 sku | SKU specifica per l'immagine della macchina virtuale | 2017-04-02
 subscriptionId | Sottoscrizione di Azure per la macchina virtuale | 2017-08-01
 tags | [Tag](../../azure-resource-manager/resource-group-using-tags.md) per la macchina virtuale  | 2017-08-01
@@ -386,7 +386,7 @@ zona | [Zona di disponibilità](../../availability-zones/az-overview.md) della m
 > [!NOTE]
 > Tramite l'endpoint dei metadati, si accede alle seguenti categorie tramite istanza/rete/interfaccia
 
-Data | Descrizione | Versione introdotta
+Data | DESCRIZIONE | Versione introdotta
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Indirizzo IPv4 locale della macchina virtuale | 2017-04-02
 ipv4/publicIpAddress | Indirizzo IPv4 pubblico della macchina virtuale | 2017-04-02

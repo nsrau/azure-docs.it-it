@@ -1,6 +1,6 @@
 ---
 title: Usare i segreti nelle esecuzioni di training
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Passare i segreti alle esecuzioni di training in modo sicuro usando l'area di lavoro Key Vault
 services: machine-learning
 author: rastala
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 777818b74f935a560047d1eea20e0d0e657efcac
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4872ba8a707192cd61ec371fa982a076d410e918
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019420"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996567"
 ---
 # <a name="use-secrets-in-training-runs"></a>Usare i segreti nelle esecuzioni di training
 
@@ -69,4 +69,4 @@ I metodi set e Get hanno anche le versioni batch [set_secrets](https://docs.micr
 ## <a name="next-steps"></a>Passaggi successivi
 
  * [Visualizza notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
- * [Informazioni sulla sicurezza aziendale con Azure Machine Learning Service](concept-enterprise-security.md)
+ * [Informazioni sulla sicurezza aziendale con Azure Machine Learning](concept-enterprise-security.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c6b9c0a8615960772ccac824c293b5f4ea6cfe55
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 78e113f881d1f62c9848ba40f039fa19eeb09055
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129201"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996461"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -370,7 +370,7 @@ Questo errore si verifica in genere quando un'applicazione di backup crea uno sn
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimale)** | -2134364065 |
 | **Stringa di errore** | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Questo errore si verifica perché l'agente Sincronizzazione file di Azure non accede alla condivisione di file di Azure, possibilmente poiché la condivisione file di Azure o l'account di archiviazione che lo ospita non è più presente. È possibile risolvere questo errore eseguendo questa procedura:
 
@@ -396,6 +396,18 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non ac
 2. [Verificare l'esistenza dell'account di archiviazione.](#troubleshoot-storage-account)
 3. [Verificare che le impostazioni del firewall e della rete virtuale nell'account di archiviazione siano configurate correttamente (se abilitate)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
+<a id="-2134364022"></a><a id="storage-unknown-error"></a>**Si è verificato un errore sconosciuto durante l'accesso all'account di archiviazione.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8308a |
+| **HRESULT (decimale)** | -2134364022 |
+| **Stringa di errore** | ECS_E_STORAGE_ACCOUNT_UNKNOWN_ERROR |
+| **Rimedio necessario** | Sì |
+
+1. [Verificare l'esistenza dell'account di archiviazione.](#troubleshoot-storage-account)
+2. [Verificare che le impostazioni del firewall e della rete virtuale nell'account di archiviazione siano configurate correttamente (se abilitate)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
 <a id="-1906441138"></a>**La sincronizzazione non è riuscita a causa di un problema con il database di sincronizzazione.**  
 
 | | |
@@ -403,7 +415,7 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non ac
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (decimale)** | -1906441138 |
 | **Stringa di errore** | JET_errWriteConflict |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Questo errore si verifica quando è presente un problema con il database interno usato da Sincronizzazione file di Azure. Quando si verifica questo problema, creare una richiesta di supporto per ricevere assistenza durante la risoluzione del problema.
 
@@ -425,7 +437,7 @@ Questo errore si verifica se la versione dell'agente di Sincronizzazione file di
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (decimale)** | -2134351810 |
 | **Stringa di errore** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore si verifica quando il limite di archiviazione di condivisione file di Azure è stato raggiunto, il che può succedere se viene applicata una quota per una condivisione file di Azure o se l'utilizzo supera i limiti per una condivisione file di Azure. Per altre informazioni, vedere i [limiti attuali per una condivisione file di Azure](storage-files-scale-targets.md).
 
@@ -478,7 +490,7 @@ Questo errore si verifica quando viene sospesa la sottoscrizione di Azure. La si
 | **HRESULT** | 0x80c8306c |
 | **HRESULT (decimale)** | -2134364052 |
 | **Stringa di errore** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Questo errore si verifica quando la condivisione file di Azure è inaccessibile a causa di un firewall di account di archiviazione o perché l'account di archiviazione appartiene a una rete virtuale. Verificare che le impostazioni del firewall e della rete virtuale nell'account di archiviazione siano configurate correttamente. Per altre informazioni, vedere [configurare le impostazioni del firewall e della rete virtuale](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
 
@@ -505,7 +517,7 @@ Se il problema persiste per più di due ore, creare una richiesta di supporto pe
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (decimale)** | -2146762487 |
 | **Stringa di errore** | CERT_E_UNTRUSTEDROOT |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Questo errore può verificarsi se l'organizzazione usa un proxy di terminazione SSL o se un'entità dannosa intercetta il traffico tra il server e il servizio Sincronizzazione file di Azure. Se si è certi che questo comportamento sia previsto (perché l'organizzazione usa un proxy di terminazione SSL ), ignorare la verifica dei certificati con un override del registro di sistema.
 
@@ -530,7 +542,7 @@ Impostando questo valore del registro, l'agente di Sincronizzazione file di Azur
 | **HRESULT** | 0x80072ee2 |
 | **HRESULT (decimale)** | -2147012894 |
 | **Stringa di errore** | WININET_E_TIMEOUT |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -541,7 +553,7 @@ Impostando questo valore del registro, l'agente di Sincronizzazione file di Azur
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (decimale)** | -2134375680 |
 | **Stringa di errore** | ECS_E_SERVER_CREDENTIAL_NEEDED |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore si verifica in genere perché l'ora del server non è corretta. Se il server è in esecuzione in una macchina virtuale, verificare che l'ora dell'host sia corretta.
 
@@ -612,7 +624,7 @@ Questo errore si verifica perché l'eliminazione dell'endpoint server non è riu
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimale)** | -2134375654 |
 | **Stringa di errore** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Questo errore si verifica perché il volume è esaurito. Questo errore si verifica generalmente perché i file all'esterno di endpoint del server usano spazio nel volume. Liberare spazio nel volume aggiungendo altri endpoint server, spostando i file in un altro volume o aumentando le dimensioni del volume in cui l'endpoint server è attivo.
 
@@ -646,7 +658,7 @@ Questo errore si verifica perché sono state apportate modifiche nella condivisi
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimale)** | -2134375853 |
 | **Stringa di errore** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Nei casi in cui sono presenti numerosi errori di sincronizzazione file, le sessioni di sincronizzazione potrebbero presentare errori. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
@@ -660,7 +672,7 @@ Nei casi in cui sono presenti numerosi errori di sincronizzazione file, le sessi
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (decimale)** | -2134376423 |
 | **Stringa di errore** | ECS_E_SYNC_INVALID_PATH |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Assicurarsi che il percorso esista, che si trovi in un volume NTFS locale e che non sia un reparse point o un endpoint server esistente.
 
@@ -671,7 +683,7 @@ Assicurarsi che il percorso esista, che si trovi in un volume NTFS locale e che 
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (decimale)** | -2134375817 |
 | **Stringa di errore** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore si verifica perché la versione del driver cloud a livelli caricata (StorageSync.sys) non è compatibile con il servizio agente di sincronizzazione archiviazione (FileSyncSvc). Se l'agente Sincronizzazione file di Azure è stato aggiornato, riavviare il server per completare l'installazione. Se l'errore persiste, disinstallare l'agente, riavviare il server e reinstallare l'agente Sincronizzazione file di Azure.
 
@@ -772,7 +784,7 @@ Per risolvere il problema, eseguire la procedura seguente:
 | **HRESULT** | 0x80c8027e |
 | **HRESULT (decimale)** | -2134375810 |
 | **Stringa di errore** | ECS_E_SYNC_REPLICA_ROOT_CHANGED |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Questo errore si verifica perché Sincronizzazione file di Azure non supporta l'eliminazione e la ricreazione di una condivisione file di Azure nello stesso gruppo di sincronizzazione. 
 

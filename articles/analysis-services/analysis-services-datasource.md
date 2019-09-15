@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899421"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993377"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -23,13 +23,13 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 
 |Origine dati  |In memoria  |DirectQuery  |
 |---------|---------|---------|
-|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Sì      |    Yes      |
-|Azure SQL Data Warehouse     |   Yes      |   Sì       |
+|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Sì      |    Sì      |
+|Azure SQL Data Warehouse     |   Yes      |   Yes       |
 |Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Sì       |    No      |
 |Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Sì       |    No      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Yes        |  No        |
-|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sì       |    No      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Yes     |   No       |
+|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Yes       |    No      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sì     |   No       |
 |Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sì       |   No       |
 ||||
 
@@ -42,7 +42,7 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 **Provider**   
 I modelli in memoria e DirectQuery che si connettono alle origini dati di Azure usano il provider di dati .NET Framework per SQL Server.
 
-## <a name="on-premises-data-sources"></a>Origini dati locali
+## <a name="other-data-sources"></a>Altre origini dati
 
 La connessione alle origini dati locali da un server Azure Analysis Services richiede un gateway locale. Quando si usa un gateway, sono necessari i provider a 64 bit.
 
@@ -113,6 +113,10 @@ Per le origini dati locali:
 Per le origini dati cloud:
 
 * Se si usa l'autenticazione SQL, la rappresentazione deve essere l'account del servizio.
+
+## <a name="oauth-credentials"></a>Credenziali OAuth
+
+Per i modelli tabulari con livello di compatibilità 1400 e superiore, il database SQL di Azure, Azure SQL Data Warehouse, Dynamics 365 e l'elenco SharePoint supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali tramite SSMS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gateway locale](analysis-services-gateway.md)   

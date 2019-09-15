@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: ba4e1e933b00aa8ca74be30a6ea5e1a22844b15f
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858493"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993458"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Database SQL di Azure senza server (anteprima)
 
@@ -132,7 +132,7 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
 |Maschera dati|Aggiunta, modifica, eliminazione o visualizzazione delle regole di maschera dati|
 |Transparent Data Encryption|Visualizzazione dello stato di Transparent Data Encryption|
-|Esecuzione di query sulle prestazioni dell'archivio dati|Modifica o visualizzazione delle impostazioni dell'archivio dati; ottimizzazione automatica|
+|Esecuzione di query sulle prestazioni dell'archivio dati|Modifica o visualizzazione delle impostazioni dell'archivio query|
 |Ottimizzazione automatica|Applicazione e verifica delle indicazioni di ottimizzazione automatica, ad esempio l'indicizzazione automatica|
 |Copia del database|Crea database come copia.<br>Esportare in un file BACPAC.|
 |Sincronizzazione dati SQL|Sincronizzazione tra database hub e membro che viene eseguita secondo un calendario configurabile o manualmente|
@@ -255,7 +255,7 @@ Il pool di risorse utente è il limite più interno di gestione delle risorse pe
 
 Nella tabella seguente sono elencate le metriche per il monitoraggio dell'utilizzo delle risorse del pacchetto dell'app e del pool di utenti di un database senza server.
 
-|Entità|Metrica|DESCRIZIONE|Unità|
+|Entità|Metrica|Descrizione|Unità|
 |---|---|---|---|
 |Pacchetto dell'app|app_cpu_percent|Percentuale del numero di vCore usati dall'app rispetto al numero massimo di vCore consentito per l'app.|Percentuale|
 |Pacchetto dell'app|app_cpu_billed|Quantità di risorse di calcolo fatturata per l'app durante il periodo di riferimento. L'importo pagato durante questo periodo è dato dal prodotto di questa metrica per il prezzo unitario dei vCore. <br><br>I valori di questa metrica sono determinati dall'aggregazione nel tempo del numero massimo di CPU usate e dalla memoria usata al secondo. Se la quantità usata è inferiore a quella minima di cui è stato effettuato il provisioning in base al valore impostato per il numero minimo di vCore e la quantità minima di memoria, viene fatturata la quantità minima di cui è stato effettuato il provisioning. Per confrontare la quantità di CPU e di memoria ai fini della fatturazione, la memoria viene normalizzata in unità di vCore ridimensionando la quantità di memoria in GB in base a 3 GB per vCore.|Secondi per vCore|

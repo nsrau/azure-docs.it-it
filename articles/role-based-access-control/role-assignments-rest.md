@@ -1,5 +1,5 @@
 ---
-title: Gestire l'accesso alle risorse di Azure tramite RBAC e l'API REST - Azure | Microsoft Docs
+title: Gestire l'accesso alle risorse di Azure con RBAC e l'API REST-Azure | Microsoft Docs
 description: Informazioni su come gestire l'accesso alle risorse di Azure per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'API REST. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
 services: active-directory
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86ee030e8c97cf3033b9d2d76b8125c64ecf8065
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472741"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996464"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'API REST
 
@@ -38,25 +38,24 @@ Per visualizzare le informazioni sull'accesso nel controllo degli accessi in bas
 
 1. All'intero dell'URI sostituire *{scope}* con l'ambito per il quale elencare le assegnazioni di ruolo.
 
-    | `Scope` | Type |
+    | Ambito | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Sottoscrizione |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
-    
-       
-     > [!NOTE]
-     > Nell'esempio precedente che è Microsoft. Web che viene usato il provider di risorse che fa riferimento all'istanza di servizio App. Analogamente è possibile usare qualsiasi altro provider di risorse e compilare l'URI dell'ambito. Per comprendere più, vedere [provider di risorse di Azure e i tipi](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) e supportato [operazioni di provider di risorse di Azure RM](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
+    | `subscriptions/{subscriptionId1}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Risorsa |
+
+    Nell'esempio precedente Microsoft. Web è un provider di risorse che fa riferimento a un'istanza del servizio app. Analogamente, è possibile usare qualsiasi altro provider di risorse e specificare l'ambito. Per altre informazioni, vedere [provider di risorse di Azure e tipi](../azure-resource-manager/resource-manager-supported-services.md) e [le operazioni supportate Azure Resource Manager provider di risorse](resource-provider-operations.md).  
      
 1. Sostituire *{filter}* con la condizione da applicare per filtrare l'elenco delle assegnazioni di ruolo.
 
-    | Filtro | Descrizione |
+    | Applica filtro | Descrizione |
     | --- | --- |
-    | `$filter=atScope()` | Elenca le assegnazioni di ruolo per solo l'ambito specificato, senza includere le assegnazioni di ruolo negli ambiti secondari. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Elenca le assegnazioni di ruolo per un utente specificato, gruppo o entità servizio. |
-    | `$filter=assignedTo('{objectId}')` | Elenca le assegnazioni di ruolo per un determinato utente o entità servizio. Se l'utente è membro di un gruppo che dispone di un'assegnazione di ruolo, viene elencato anche tale assegnazione di ruolo. Questo filtro è transitivo per i gruppi che significa che, se l'utente è un membro di un gruppo e tale gruppo è un membro di un altro gruppo che dispone di un'assegnazione di ruolo, viene elencato anche tale assegnazione di ruolo. Questo filtro accetta solo un id di oggetto per un utente o un'entità servizio. È possibile passare un id di oggetto per un gruppo. |
+    | `$filter=atScope()` | Elenca le assegnazioni di ruolo solo per l'ambito specificato, escluse le assegnazioni di ruolo in ambito sottoambito. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Elenca le assegnazioni di ruolo per un utente, un gruppo o un'entità servizio specificati. |
+    | `$filter=assignedTo('{objectId}')` | Elenca le assegnazioni di ruolo per un utente o un'entità servizio specificata. Se l'utente è membro di un gruppo che dispone di un'assegnazione di ruolo, viene elencata anche tale assegnazione di ruolo. Questo filtro è transitivo per i gruppi che significa che se l'utente è un membro di un gruppo e tale gruppo è membro di un altro gruppo che dispone di un'assegnazione di ruolo, viene elencata anche tale assegnazione di ruolo. Questo filtro accetta solo un ID oggetto per un utente o un'entità servizio. Non è possibile passare un ID oggetto per un gruppo. |
 
-## <a name="grant-access"></a>Concedere l'accesso
+## <a name="grant-access"></a>Concedi accesso
 
 Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si crea un'assegnazione di ruolo. Per creare un'assegnazione di ruolo, usare l'API REST per la [creazione di assegnazioni di ruolo](/rest/api/authorization/roleassignments/create) e specificare l'entità di sicurezza, la definizione del ruolo e l'ambito. Per chiamare questa API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/write`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator).
 
@@ -73,29 +72,37 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
     ```json
     {
       "properties": {
-        "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+        "roleDefinitionId": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
         "principalId": "{principalId}"
       }
     }
     ```
-    
+
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
-    | `Scope` | Type |
+    | Ambito | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Sottoscrizione |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
+    | `subscriptions/{subscriptionId1}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Risorsa |
 
 1. Sostituire *{roleAssignmentName}* con l'identificatore GUID dell'assegnazione di ruolo.
 
-1. All'interno del corpo della richiesta sostituire *{subscriptionId}* con l'identificatore della sottoscrizione.
+1. Nel corpo della richiesta sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
+
+    | Ambito | Type |
+    | --- | --- |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
+    | `subscriptions/{subscriptionId1}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Risorsa |
 
 1. Sostituire *{roleDefinitionId}* con l'identificatore della definizione del ruolo.
 
 1. Sostituire *{principalId}* con l'identificatore di oggetto dell'utente, del gruppo o dell'entità servizio a cui verrà assegnato il ruolo.
 
-## <a name="remove-access"></a>Rimuovere un accesso
+## <a name="remove-access"></a>Rimuovi accesso
 
 Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, si rimuove un'assegnazione di ruolo. Per rimuovere un'assegnazione di ruolo, usare l'API REST per l'[eliminazione delle assegnazioni di ruolo](/rest/api/authorization/roleassignments/delete). Per chiamare questa API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/delete`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator).
 
@@ -109,11 +116,12 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per la rimozione dell'assegnazione di ruolo.
 
-    | `Scope` | Type |
+    | Ambito | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Sottoscrizione |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
+    | `subscriptions/{subscriptionId1}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Risorsa |
 
 1. Sostituire *{roleAssignmentName}* con l'identificatore GUID dell'assegnazione di ruolo.
 

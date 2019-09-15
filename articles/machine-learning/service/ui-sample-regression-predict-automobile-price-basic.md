@@ -1,6 +1,6 @@
 ---
 title: 'Esempio di interfaccia visiva #1: regressione al prezzo stimato'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Scopri come creare un modello di apprendimento automatico per stimare il prezzo di un'automobile senza scrivere una sola riga di codice.
 services: machine-learning
 ms.service: machine-learning
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 0c86955e0b10111bf9b6db0d884b73867a4467c5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4d41efcaeb93c0843686f9e8ef1b62da5367e071
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990415"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996542"
 ---
 # <a name="sample-1---regression-predict-price"></a>Esempio 1: regressione: Prevedere il prezzo
 
 Informazioni su come creare un modello di regressione di Machine Learning senza scrivere una sola riga di codice usando l'interfaccia visiva.
 
-Questo esperimento consente di eseguire il training di un regressore della **foresta delle decisioni** per stimare il prezzo di un'automobile in base a funzionalità tecniche quali marca, modello, potenza e dimensioni. Poiché stiamo provando a rispondere alla domanda "Qual è?" si tratta di un problema di regressione. Tuttavia, è possibile applicare gli stessi passaggi fondamentali in questo esperimento per risolvere qualsiasi tipo di problema di Machine Learning, sia che si tratti di regressione, classificazione, clustering e così via.
+Questo esperimento consente di eseguire il training di un **regressore della foresta delle decisioni** per stimare il prezzo di un'automobile in base a funzionalità tecniche quali marca, modello, potenza e dimensioni. Poiché stiamo provando a rispondere alla domanda "Qual è?" si tratta di un problema di regressione. Tuttavia, è possibile applicare gli stessi passaggi fondamentali in questo esperimento per risolvere qualsiasi tipo di problema di Machine Learning, sia che si tratti di regressione, classificazione, clustering e così via.
 
 I passaggi fondamentali di un modello di apprendimento automatico del training sono:
 
@@ -68,7 +68,7 @@ Viene usato il modulo **Split data** per dividere in modo casuale i dati di inpu
 
 Dopo aver eseguito il training del modello, si utilizzano i moduli **Score Model** e **Evaluate Model** per generare risultati stimati e valutare i modelli.
 
-**Score Model** genera stime per il set di dati di test usando il modello sottoposto a training. Per controllare il risultato, selezionare la porta di output di **Score Model** e quindi selezionare Visualize ( **Visualizza**).
+**Score Model** genera stime per il set di dati di test usando il modello sottoposto a training. Per controllare il risultato, selezionare la porta di output di **Score Model** e quindi selezionare **Visualize (Visualizza**).
 
 ![Risultato del Punteggio](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
 

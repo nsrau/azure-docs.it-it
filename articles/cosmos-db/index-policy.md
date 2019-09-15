@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 86ac042bdddce36f00be71cc5109618bec909d90
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 60b323c12e5c548c974a7d660d08861637ac2381
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914181"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996675"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Azure Cosmos DB supporta due modalità di indicizzazione:
 - **Coerente**: Se i criteri di indicizzazione di un contenitore sono impostati su coerenti, l'indice viene aggiornato in modo sincrono durante la creazione, l'aggiornamento o l'eliminazione di elementi. Ciò significa che la coerenza delle query di lettura sarà la [coerenza configurata per l'account](consistency-levels.md).
 - **Nessuna**: Se i criteri di indicizzazione di un contenitore sono impostati su None, l'indicizzazione viene disabilitata in tale contenitore. Questa operazione viene in genere usata quando un contenitore viene usato come archivio chiave-valore puro senza la necessità di indici secondari. Consente inoltre di velocizzare le operazioni di inserimento bulk.
 
-Inoltre, è necessario impostare la proprietà **Automatic** nei criteri di indicizzazione su **true**. L'impostazione di questa proprietà su true consente Azure Cosmos DB di indicizzare automaticamente i documenti man mano che vengono scritti.
+Per impostazione predefinita, i criteri di indicizzazione vengono impostati su `automatic`. Per ottenere questo risultato, impostare `automatic` la proprietà nei criteri di indicizzazione su. `true` L'impostazione di questa `true` proprietà su consente ad Azure CosmosDB di indicizzare automaticamente i documenti man mano che vengono scritti.
 
 ## <a name="including-and-excluding-property-paths"></a>Inclusione ed esclusione dei percorsi delle proprietà
 

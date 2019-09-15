@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 07/29/2019
+ms.date: 08/29/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3747ca7504e1a8a6bbeb6237c1b3cb2e5e4afb5b
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 5b279a86df2024828044c32b7d188fa1d9545271
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667484"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995081"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Attendibilità degli URL portale di Azure nel firewall o nel server proxy
 
@@ -22,30 +22,54 @@ Per prestazioni ottimali e connettività tra la rete locale o l'area estesa e il
 
 ## <a name="azure-portal-urls-for-proxy-bypass"></a>URL di portale di Azure per il bypass del proxy
 
-Aggiungere l'elenco di URL seguente al server o al firewall proxy per consentire al traffico di rete verso questi endpoint di ignorare le restrizioni:
+Gli endpoint URL per la portale di Azure di sicurezza sono specifici del cloud di Azure in cui viene distribuita l'organizzazione. Selezionare il cloud, quindi aggiungere l'elenco di URL al server proxy o al firewall per consentire al traffico di rete verso questi endpoint di ignorare le restrizioni.
 
-* *.aadcdn.microsoftonline-p.com
-* *.aimon.applicationinsights.io
-* *.azure.com
-* *.azuredatalakestore.net
-* *.azureedge.net
-* *.exp.azure.com
-* *.exp.azure.com
-* *.gfx.ms
-* *.account.microsoft.com
-* *.hosting.portal.azure.net
-* *.marketplaceapi.microsoft.com
-* *.microsoftonline.com
-* *.msauth.net
-* *.msftauth.net
-* *.portal.azure.com
-* *.portalext.visualstudio.com
-* *.sts.microsoft.com
-* *.vortex.data.microsoft.com
-* *.vscommerce.visualstudio.com
-* *.vssps.visualstudio.com
-* *.windows.net
-* *.wpc.azureedge.net
+#### <a name="public-cloudtabpublic-cloud"></a>[Cloud pubblico](#tab/public-cloud)
+```
+*.aadcdn.microsoftonline-p.com
+*.aka.ms
+*.applicationinsights.io
+*.azure.com
+*.azure.net
+*.azureafd.net
+*.azure-api.net
+*.azuredatalakestore.net
+*.azureedge.net
+*.loganalytics.io
+*.microsoft.com
+*.microsoftonline.com
+*.microsoftonline-p.com
+*.msauth.net
+*.msftauth.net
+*.trafficmanager.net
+*.visualstudio.com
+*.windows.net
+*.windows-int.net
+```
+
+#### <a name="us-government-cloudtabus-government-cloud"></a>[DEGLI STATI UNITI Cloud per enti pubblici](#tab/us-government-cloud)
+```
+*.azure.us
+*.loganalytics.us
+*.microsoft.us
+*.microsoftonline.us
+*.msauth.net
+*.usgovcloudapi.net
+*.usgovtrafficmanager.net
+*.windowsazure.us
+```
+
+#### <a name="china-government-cloudtabchina-government-cloud"></a>[Cloud per enti pubblici Cina](#tab/china-government-cloud)
+```
+*.azure.cn
+*.microsoft.cn
+*.microsoftonline.cn
+*.chinacloudapi.cn
+*.trafficmanager.cn
+*.chinacloudsites.cn
+*.windowsazure.cn
+```
+---
 
 > [!NOTE]
 > Il traffico verso questi endpoint usa le porte TCP standard per HTTP (80) e HTTPS (443).
@@ -53,5 +77,11 @@ Aggiungere l'elenco di URL seguente al server o al firewall proxy per consentire
 >
 ## <a name="next-steps"></a>Passaggi successivi
 
-* È necessario disporre di indirizzi IP attendibili? Scaricare l'elenco di [Microsoft Azure intervalli IP del Data Center](https://www.microsoft.com/download/details.aspx?id=41653).
-* Altri servizi Microsoft usano URL e indirizzi IP aggiuntivi per la connettività. Per ottimizzare la connettività di rete per Microsoft 365 Services, vedere [configurare la rete per Office 365](/office365/enterprise/set-up-network-for-office-365).
+È necessario disporre di indirizzi IP attendibili? Scaricare l'elenco di Microsoft Azure intervalli IP del Data Center per il cloud:
+
+* [Tutto il mondo](https://www.microsoft.com/download/details.aspx?id=56519)
+* [DEGLI STATI UNITI Governo](http://www.microsoft.com/download/details.aspx?id=57063)
+* [Germania](http://www.microsoft.com/download/details.aspx?id=57064)
+* [Cina](http://www.microsoft.com/download/details.aspx?id=57062)
+
+Altri servizi Microsoft usano URL e indirizzi IP aggiuntivi per la connettività. Per ottimizzare la connettività di rete per Microsoft 365 Services, vedere [configurare la rete per Office 365](/office365/enterprise/set-up-network-for-office-365).

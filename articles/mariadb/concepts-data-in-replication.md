@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 28c2c01e85120ec17e6f782fb0686a627d50d0d0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/13/2019
+ms.openlocfilehash: 3ceb8b4f3c2c50ac0ac3bd12831b5497f9a05afb
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136738"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993035"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Eseguire la replica dei dati in Database di Azure per MariaDB
 
@@ -37,7 +37,7 @@ Il [*database di sistema mysql*](https://mariadb.com/kb/en/library/the-mysql-dat
 - Se nel server master è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso `mariadb.az_replication_change_master` nel stored procedure. Fare riferimento agli [esempi](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) seguenti e al `master_ssl_ca` parametro.
 - Verificare che l'indirizzo IP del server master sia stato aggiunto alle regole firewall del server di replica di Database di Azure per MariaDB. Aggiornare le regole firewall usando il [portale di Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
 - Verificare che il computer che ospita il server master consenta sia il traffico in ingresso che in uscita sulla porta 3306.
-- Verificare che il server master disponga di un **indirizzo IP pubblico** o che il DNS sia accessibile pubblicamente
+- Verificare che il server master disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
 
 ### <a name="other"></a>Altro
 - La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.

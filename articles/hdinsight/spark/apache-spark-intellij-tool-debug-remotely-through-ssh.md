@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: 9690e114f9ae01c4aee71145525fdda2eff4701c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 844901d9c689d5a04312b52101572854f4d7fe6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814174"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994033"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Eseguire il debug di applicazioni Apache Spark in un cluster HDInsight con Azure Toolkit for IntelliJ tramite SSH
 
@@ -77,7 +77,7 @@ Per risolvere questo errore, [scaricare il file eseguibile](https://public-repo-
 1. Aprire lo script **SparkCore_wasbloTest**, fare clic con il pulsante destro del mouse sull'editor di script e quindi selezionare l'opzione **Run '[Spark Job]XXX'** (Esegui '[Processo Spark]XXX') per avviare l'esecuzione in modalità locale.
 1. Dopo aver completato l'esecuzione in locale, è possibile visualizzare il file di output salvato nella directory **data** >  **__default__** della finestra di gestione del progetto corrente.
 
-    ![Risultato dell'esecuzione in locale](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
+    ![Risultato dell'esecuzione in locale](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 1. Per questi strumenti la configurazione dell'esecuzione in locale predefinita viene impostata automaticamente quando l'esecuzione e il debug vengono eseguiti in modalità locale. Aprire la configurazione **[Spark in HDInsight] xxx** nell'angolo superiore destro. è possibile vedere **[Spark in HDInsight] xxx** già creato in **Apache Spark su HDInsight**. Passare alla scheda **Locally Run** (Esecuzione in locale).
 
     ![Configurazione dell'esecuzione in locale](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
@@ -114,13 +114,11 @@ Per risolvere questo errore, [scaricare il file eseguibile](https://public-repo-
 
 1. Dopo aver completato le impostazioni di configurazione, è possibile eseguire il progetto con il cluster remoto oppure eseguire il debug remoto.
    
-   ![Pulsante di esecuzione remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
+   ![Pulsante di esecuzione remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run-button.png)
 
 1. Fare clic sul pulsante **Disconnetti**. I log di invio non vengono visualizzati nel riquadro sinistro, ma l'esecuzione è ancora in corso nel back-end.
 
-   ![Risultato dell'esecuzione remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
-
-
+   ![Risultato dell'esecuzione remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-remote-run-result.png)
 
 ### <a name="scenario-2-perform-remote-debugging"></a>Scenario 2: Eseguire l'esecuzione da remoto
 1. Impostare i punti di interruzione e quindi fare clic sull'icona **Remote debug** (Debug remoto). La differenza rispetto all'invio remoto risiede nel fatto che non è necessario configurare il nome utente/password SSH.
@@ -148,7 +146,7 @@ Per risolvere questo errore, [scaricare il file eseguibile](https://public-repo-
 
 1. Fare clic con il pulsante destro del mouse sulla destinazione nella scheda **Debug**, quindi selezionare **Imposta valore**. Successivamente inserire un nuovo valore per la variabile. e selezionare **Invia** per salvarlo. 
 
-   ![Imposta valore](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![Imposta valore](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value1.png)
 
 1. Selezionare l'icona **Resume Program** (Riprendi programma) per continuare a eseguire il programma. Questa volta, non viene rilevata alcuna eccezione. È possibile notare come il progetto venga eseguito correttamente senza eccezioni.
 

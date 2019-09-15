@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: cda974a71c0d24bda9422fb8444fbf4dec0088f9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 673c83c861e1f044a521786a903dd7b21db8c170
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885116"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995576"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Ottimizzare i processi di Apache Spark in HDInsight
 
@@ -60,7 +60,7 @@ Quando si crea un nuovo cluster Spark, è possibile selezionare Archiviazione BL
 | Tipo di store | File system | Velocità | Temporaneo | Casi d'uso |
 | --- | --- | --- | --- | --- |
 | Archivio BLOB di Azure | **wasb:** //url/ | **Standard** | Yes | Cluster temporaneo |
-| Azure Data Lake Storage generazione 2| **abfs[s]:** //url/ | **Più rapido** | Sì | Cluster temporaneo |
+| Azure Data Lake Storage generazione 2| **abfs[s]:** //url/ | **Più rapido** | Yes | Cluster temporaneo |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **Più rapido** | Sì | Cluster temporaneo |
 | Hadoop Distributed File System locale | **hdfs:** //url/ | **Il più rapido** | No | Cluster interattivo 24/7 |
 
@@ -96,7 +96,7 @@ La struttura della memoria Spark e alcuni parametri di memoria dell'executor chi
 
 Se si usa [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), questo controlla la quantità complessiva massima di memoria usata da tutti i contenitori in ogni nodo Spark.  Il diagramma seguente mostra gli oggetti chiave e le relative relazioni.
 
-![Gestione della memoria Spark in YARN](./media/apache-spark-perf/yarn-spark-memory.png)
+![Gestione della memoria Spark in YARN](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
 Per indirizzare messaggi di "memoria insufficiente", provare a:
 

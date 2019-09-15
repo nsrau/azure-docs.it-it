@@ -1,7 +1,7 @@
 ---
 title: Interfaccia visiva grafica
-titleSuffix: Azure Machine Learning service
-description: Informazioni su termini, concetti e flussi di lavoro che costituiscono l'interfaccia visiva (anteprima) per il servizio Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Informazioni su termini, concetti e flussi di lavoro che costituiscono l'interfaccia visiva (anteprima) per Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 70141e3ad438ff7ff6d4486e6c27ff4163416e95
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860409"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996515"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Che cos'è l'interfaccia visiva per il servizio Azure Machine Learning? 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>Che cos'è l'interfaccia visiva per Azure Machine Learning? 
 
-L'interfaccia visiva (anteprima) per il servizio Azure Machine Learning consente di preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning senza scrivere codice.
+L'interfaccia visiva (anteprima) per Azure Machine Learning consente di preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning senza scrivere codice.
 
 Non è necessaria alcuna programmazione. i [set di impostazioni](#dataset) e i [moduli](#module) vengono collegati visivamente per costruire il modello.
 
-L'interfaccia visiva usa l'area di [lavoro](concept-workspace.md) del servizio Azure Machine Learning per:
+L'interfaccia visiva usa l' [area di lavoro](concept-workspace.md) Azure Machine Learning per:
 
 + Gli artefatti di scrittura dell' [esperimento](#experiment) vengono eseguiti nell'area di lavoro.
 + Accedere ai [set di impostazioni](#dataset).

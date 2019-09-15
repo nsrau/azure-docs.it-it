@@ -1,6 +1,6 @@
 ---
 title: Usare Visual Studio Code per Machine Learning
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come installare Azure Machine Learning per Visual Studio Code e creare un semplice esperimento in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,24 +10,24 @@ ms.author: ronglu
 author: ronglums
 ms.date: 7/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1d18006e6ec3ff1659f8fb80f8cf6766797d76b
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 0507080a390a4bb9f981b0d911961337e9b2c62a
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114422"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997186"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introduzione ad Azure Machine Learning per Visual Studio Code
 
 In questo articolo si apprenderà come usare l'estensione per Azure Machine Learning per Visual Studio Code per eseguire il training e distribuire modelli di machine learning e Deep Learning.
 
-Il [servizio Azure Machine Learning](overview-what-is-azure-ml.md) fornisce supporto per gli esperimenti eseguiti localmente e sulle destinazioni di calcolo remote. Per ogni esperimento è possibile tenere traccia di più esecuzioni in quanto spesso occorre provare in modo interattivo altre tecniche, iperparametri diversi e altro ancora. È possibile usare Azure Machine Learning per tenere traccia delle metriche personalizzate e delle esecuzioni dell'esperimento, consentendo così la riproducibilità e la verificabilità di data science.
+[Azure Machine Learning](overview-what-is-azure-ml.md) fornisce il supporto per gli esperimenti eseguiti localmente e sulle destinazioni di calcolo remote. Per ogni esperimento è possibile tenere traccia di più esecuzioni in quanto spesso occorre provare in modo interattivo altre tecniche, iperparametri diversi e altro ancora. È possibile usare Azure Machine Learning per tenere traccia delle metriche personalizzate e delle esecuzioni dell'esperimento, consentendo così la riproducibilità e la verificabilità di data science.
 
 È anche possibile distribuire questi modelli in base alle esigenze di test e produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
++ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova la [versione gratuita o a pagamento del Azure Machine Learning](https://aka.ms/AMLFree).
 
 + È necessario installare Visual Studio Code. Visual Studio Code è un editor di codice sorgente leggero ma potente che viene eseguito sul desktop. È dotato del supporto incorporato per Python e altri linguaggi di programmazione. Se non è già stato installato Visual Studio Code, [Scopri come](https://code.visualstudio.com/docs/setup/setup-overview).
 
@@ -69,13 +69,13 @@ Per installare l'estensione Azure Machine Learning:
 
    ![Scegliere l'interprete](./media/vscode-tools-for-ai/python.png)
 
-1. Nell'angolo inferiore destro della finestra viene visualizzata una notifica che indica che è in corso l'installazione automatica di [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) . L'ambiente Python appena creato è locale e privato e include i prerequisiti Visual Studio Code per l'uso del servizio Azure Machine Learning.
+1. Nell'angolo inferiore destro della finestra viene visualizzata una notifica che indica che è in corso l'installazione automatica di [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) . L'ambiente Python appena creato è locale e privato e include i prerequisiti Visual Studio Code per lavorare con Azure Machine Learning.
 
    ![Installare Azure Machine Learning SDK per Python](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Introduzione ad Azure Machine Learning
 
-Prima di iniziare a eseguire il training e distribuire modelli di Machine Learning in Visual Studio Code, è necessario creare un' [area di lavoro del servizio Azure Machine Learning](concept-workspace.md) nel cloud. Questa area di lavoro conterrà i modelli e le risorse. 
+Prima di iniziare a eseguire il training e distribuire modelli di Machine Learning in Visual Studio Code, è necessario creare un' [area di lavoro Azure Machine Learning](concept-workspace.md) nel cloud. Questa area di lavoro conterrà i modelli e le risorse. 
 
 Per creare un'area di lavoro e aggiungere il primo esperimento:
 
@@ -117,7 +117,7 @@ Per creare una destinazione di calcolo:
 
 1. Nella barra attività Visual Studio Code selezionare l'icona Azure. Verrà visualizzata la barra laterale di Azure Machine Learning.
 
-2. Nella visualizzazione struttura ad albero espandere la sottoscrizione di Azure e l'area di lavoro del servizio Azure Machine Learning. Nell'immagine di esempio seguente, il nome della sottoscrizione è una **versione di valutazione gratuita**e l'area di lavoro è **TeamWorkspace**. 
+2. Nella visualizzazione albero espandere la sottoscrizione di Azure e Azure Machine Learning area di lavoro. Nell'immagine di esempio seguente, il nome della sottoscrizione è una **versione di valutazione gratuita**e l'area di lavoro è **TeamWorkspace**. 
 
 3. Sotto il nodo dell'area di lavoro fare clic con il pulsante destro del mouse sul nodo **Compute** (Calcolo) e scegliere **Create Compute** (Crea calcolo).
 
@@ -147,7 +147,7 @@ Per eseguire l'esperimento localmente usando Azure Machine Learning:
 
 1. Nella barra attività Visual Studio Code selezionare l'icona Azure. Verrà visualizzata la barra laterale di Azure Machine Learning.
 
-1. Nella visualizzazione struttura ad albero espandere la sottoscrizione di Azure e l'area di lavoro del servizio Azure Machine Learning. 
+1. Nella visualizzazione albero espandere la sottoscrizione di Azure e Azure Machine Learning area di lavoro. 
 
 1. Nel nodo area di lavoro espandere il nodo **calcolo** e fare clic con il pulsante destro del mouse sulla **configurazione di esecuzione** del calcolo che si vuole usare. 
 
@@ -196,7 +196,7 @@ Per eseguire l'esperimento con Azure Machine Learning in una destinazione di cal
 
 1. Nella barra attività Visual Studio Code selezionare l'icona Azure. Verrà visualizzata la barra laterale di Azure Machine Learning.
 
-1. Nella visualizzazione struttura ad albero espandere la sottoscrizione di Azure e l'area di lavoro del servizio Azure Machine Learning. 
+1. Nella visualizzazione albero espandere la sottoscrizione di Azure e Azure Machine Learning area di lavoro. 
 
 1. Nella finestra dell'editor fare clic con il pulsante destro del mouse sullo script **Python e selezionare AML: Run as Experiment in Azure** (AML: Esegui come esperimento in Azure). 
 
@@ -224,7 +224,7 @@ Per registrare il modello:
 
 1. Nella barra attività Visual Studio Code selezionare l'icona Azure. Verrà visualizzata la barra laterale di Azure Machine Learning.
 
-1. Nella visualizzazione struttura ad albero espandere la sottoscrizione di Azure e l'area di lavoro del servizio Azure Machine Learning.
+1. Nella visualizzazione albero espandere la sottoscrizione di Azure e Azure Machine Learning area di lavoro.
 
 1. Sotto il nodo dell'area di lavoro fare clic con il pulsante destro del mouse su **Models** (Modelli) e scegliere **Register Model** (Registra modello).
 
@@ -247,13 +247,13 @@ In Visual Studio Code, è possibile distribuire il servizio Web in:
 + Istanze di contenitore di Azure (ACI) per il test.
 + Azure Kubernetes Service (AKS) per la produzione.
 
-Non è necessario creare un contenitore ACI da testare in anticipo, perché i contenitori ACI vengono creati in tempo reale. Tuttavia, è necessario configurare in anticipo i cluster AKS. Per altre informazioni, vedere [distribuire modelli con il servizio Azure Machine Learning](how-to-deploy-and-where.md).
+Non è necessario creare un contenitore ACI da testare in anticipo, perché i contenitori ACI vengono creati in tempo reale. Tuttavia, è necessario configurare in anticipo i cluster AKS. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 Per distribuire un servizio Web:
 
 1. Nella barra attività Visual Studio Code selezionare l'icona Azure. Verrà visualizzata la barra laterale di Azure Machine Learning.
 
-1. Nella visualizzazione struttura ad albero espandere la sottoscrizione di Azure e l'area di lavoro del servizio Azure Machine Learning.
+1. Nella visualizzazione albero espandere la sottoscrizione di Azure e l'area di lavoro Azure Machine Learning.
 
 1. Sotto il nodo dell'area di lavoro espandere il nodo **Models** (Modelli).
 

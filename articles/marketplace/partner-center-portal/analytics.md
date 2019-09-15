@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 535dae4226f7db9cbc7240f9a92642f0e206cd3b
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 4357a91a87648885def69d8e75e19e38a5a3f751
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962741"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993713"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analisi per il Marketplace commerciale nel centro per i partner
 
@@ -244,7 +244,7 @@ Si riceverà una notifica popup e un messaggio di posta elettronica contenente u
 | Nome istanza cloud: Azure Government | Ordine| Cloud Microsoft specifici per enti pubblici per uno dei seguenti enti pubblici: Cina, Germania o il Stati Uniti di America.| |
 | Città del cliente| Cliente| Nome della città fornito dal cliente. La città potrebbe essere diversa da quella della città nella sottoscrizione di Azure di un cliente.||
 | Customer Communication Language  | Cliente| Lingua di comunicazione preferita dal cliente.||
-| Customer Company Name | Cliente, ordine | Nome della società fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente.|  |
+| Customer Company Name | Cliente, ordine | Nome della società fornito dal cliente. Il nome potrebbe essere diverso dal nome nella sottoscrizione di Azure di un cliente.|  |
 | Customer Country | Cliente, ordine | Nome del paese fornito dal cliente. Il paese può essere diverso da quello del paese nella sottoscrizione di Azure di un cliente.|  |
 | Customer Email| Cliente| Indirizzo di posta elettronica fornito dal cliente finale. Il messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica nella sottoscrizione di Azure di un cliente.||
 | Customer First Name| Cliente| Nome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente.| |

@@ -1,6 +1,6 @@
 ---
 title: 'Esempio di interfaccia visiva #4: Classificazione per la stima del rischio di credito (sensibile ai costi)'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Questo articolo illustra come creare un esperimento di Machine Learning complesso usando l'interfaccia visiva. Si apprenderà come implementare script Python personalizzati e confrontare più modelli per scegliere l'opzione migliore.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: ee4b67c82ef2bf5a1ef9c060687cc1c937328e66
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 977ff101b0f697a48b3e5595834c98fef0f1119a
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990423"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997035"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)
 
@@ -23,7 +23,7 @@ Questo articolo illustra come creare un esperimento di Machine Learning compless
 
 Questo esempio consente di eseguire il training di un classificatore per stimare il rischio di credito usando le informazioni sull'applicazione di credito, ad esempio la cronologia dei crediti, l'età e il numero Tuttavia, è possibile applicare i concetti in questo articolo per risolvere i problemi di apprendimento automatico.
 
-Se si sta iniziando a usare Machine Learning, è possibile esaminare prima di tutto l'esempio di classificatore di [base](ui-sample-classification-predict-credit-risk-basic.md) .
+Se si sta iniziando a usare Machine Learning, è possibile esaminare prima di tutto l' [esempio di classificatore di base](ui-sample-classification-predict-credit-risk-basic.md) .
 
 Ecco il grafo completato per questo esperimento:
 
@@ -48,7 +48,7 @@ In questo esperimento vengono confrontati due approcci diversi per la generazion
 - Training con il set di dati originale.
 - Training con un set di dati replicato.
 
-Con entrambi gli approcci, i modelli vengono valutati usando il set di dati di test con la replica per assicurarsi che i risultati siano allineati con la funzione cost. Si testano due classificatori con entrambi gli approcci: **Macchina a vettori di supporto a due classi** e **albero delle decisioni**con boosting a due classi.
+Con entrambi gli approcci, i modelli vengono valutati usando il set di dati di test con la replica per assicurarsi che i risultati siano allineati con la funzione cost. Si testano due classificatori con entrambi gli approcci: **Macchina a vettori di supporto a due classi** e **albero delle decisioni con boosting**a due classi.
 
 Il costo di un'errata classificazione di un esempio a basso rischio è pari a 1 e il costo di una classificazione errata di un esempio ad alto rischio come basso è 5. Viene usato un modulo **Execute Python script** per tenere conto di questo costo di classificazione errata.
 
@@ -95,7 +95,7 @@ Il modulo **Two-Class Support Vector Machine** gestisce le funzionalità di stri
 
 ## <a name="models"></a>Modelli
 
-Poiché si applicano due classificatori, SVM ( **Two-Class Support Vector Machine** ) e albero delle decisioni con boosting a **due classi**, e si usano anche due set di impostazioni, viene generato un totale di quattro modelli:
+Poiché si applicano due classificatori, SVM ( **Two-Class Support Vector Machine** ) e **albero delle decisioni con boosting a due classi**, e si usano anche due set di impostazioni, viene generato un totale di quattro modelli:
 
 - SVM è stato sottoposto a training con i dati originali.
 - SVM sottoposto a training con i dati replicati.
@@ -104,7 +104,7 @@ Poiché si applicano due classificatori, SVM ( **Two-Class Support Vector Machin
 
 Il flusso di lavoro sperimentale standard viene usato per creare, eseguire il training e testare i modelli:
 
-1. Inizializzare gli algoritmi di apprendimento usando la **macchina a vettori di supporto a due classi** e l'albero delle decisioni con boosting a **due classi**.
+1. Inizializzare gli algoritmi di apprendimento usando la **macchina a vettori di supporto a due classi** e l'albero delle decisioni con **boosting a due classi**.
 1. Utilizzare **Train Model** per applicare l'algoritmo ai dati e creare il modello effettivo.
 1. Usare **Score Model** per produrre punteggi usando gli esempi di test.
 

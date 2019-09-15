@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 6c1104ba340f23a76d5b9b4167f895f5a115152c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 8faa6338179eb1540eb4f9a375bf3bc696c745f3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773277"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995383"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Leggere le repliche nel database di Azure per MariaDB
 
@@ -75,7 +75,7 @@ Quando si crea una replica, questa non eredita le regole del firewall o l'endpoi
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
-È possibile connettersi alla replica usando il nome host e un account utente valido, come per un normale database di Azure per il server MariaDB. Per un server denominato la **replica** con il **nome utente amministratore amministratore,** è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
+È possibile connettersi alla replica usando il nome host e un account utente valido, come per un normale database di Azure per il server MariaDB. Per un server denominato la **replica** con il **nome utente amministratore**amministratore, è possibile connettersi alla replica usando l'interfaccia della riga di comando di MySQL:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -155,4 +155,4 @@ Il [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [creare e gestire le repliche in lettura tramite il portale di Azure](howto-read-replicas-portal.md)
-- Leggere le informazioni su come [creare e gestire repliche in lettura tramite l'interfaccia della riga di comando di Azure](howto-read-replicas-cli.md)
+- Informazioni su come [creare e gestire le repliche di lettura usando l'interfaccia della riga di comando di Azure e l'API REST](howto-read-replicas-cli.md)

@@ -1,7 +1,7 @@
 ---
 title: Guida alla risoluzione dei problemi di distribuzione
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come risolvere, risolvere e risolvere i problemi relativi agli errori di distribuzione comuni di Docker con il servizio Azure Kubernetes e le istanze di contenitore di Azure con Azure Machine Learning servizio.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come risolvere, risolvere e risolvere i problemi relativi agli errori di distribuzione comuni di Docker con il servizio Azure Kubernetes e le istanze di contenitore di Azure con Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 08b9434dbcca96ff57e2c8182693023a5eb2eea9
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183548"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997168"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi al servizio Azure Machine Learning di Azure Kubernetes e alla distribuzione di istanze di contenitore di Azure
+# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi a Azure Machine Learning servizio Azure Kubernetes e alla distribuzione di istanze di contenitore di Azure
 
-Informazioni su come risolvere gli errori comuni di distribuzione di Docker con istanze di contenitore di Azure (ACI) e Azure Kubernetes Service (AKS) usando Azure Machine Learning Service.
+Informazioni su come risolvere gli errori comuni di distribuzione di Docker con istanze di contenitore di Azure (ACI) e Azure Kubernetes Service (AKS) usando Azure Machine Learning.
 
-Durante la distribuzione di un modello nel servizio Azure Machine Learning, il sistema esegue una serie di attività. Le attività di distribuzione sono le seguenti:
+Quando si distribuisce un modello in Azure Machine Learning, il sistema esegue una serie di attività. Le attività di distribuzione sono le seguenti:
 
 1. Registrare il modello nel registro dei modelli dell'area di lavoro.
 
@@ -346,7 +346,7 @@ In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del cod
 
         ```json
         {
-            "name": "Azure Machine Learning service: Docker Debug",
+            "name": "Azure Machine Learning: Docker Debug",
             "type": "python",
             "request": "attach",
             "port": 5678,
@@ -479,7 +479,7 @@ In questo esempio di testo, il nome del `myregistry` registro di sistema è e `m
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. Per aggiungere VS Code a PTVSD all'interno del contenitore, aprire VS Code e usare il tasto F5 oppure selezionare __debug__. Quando richiesto, selezionare il __servizio Azure Machine Learning: Configurazione di debug__ di Docker. È anche possibile selezionare l'icona debug dalla barra laterale, il __servizio Azure Machine Learning: Voce di debug__ Docker dal menu a discesa debug, quindi usare la freccia verde per collegare il debugger.
+1. Per aggiungere VS Code a PTVSD all'interno del contenitore, aprire VS Code e usare il tasto F5 oppure selezionare __debug__. Quando richiesto, selezionare l' __Azure Machine Learning: Configurazione di debug__ di Docker. È anche possibile selezionare l'icona debug dalla barra laterale, ovvero la __Azure Machine Learning: Voce di debug__ Docker dal menu a discesa debug, quindi usare la freccia verde per collegare il debugger.
 
     ![Icona debug, pulsante Avvia debug e selettore configurazione](media/how-to-troubleshoot-deployment/start-debugging.png)
 

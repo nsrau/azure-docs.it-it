@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 36f70ebaaf3fe6d841ef700561bbd6a200366c84
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 17135f896140a843dd95c8d9624e9faf1d7194c3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563874"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996254"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitoraggio del servizio di archiviazione con monitoraggio di Azure per l'archiviazione (anteprima)
 
@@ -43,6 +43,10 @@ Per questa funzionalità non è necessario abilitare o configurare elementi, per
 >[!NOTE]
 >Non sono previsti addebiti per accedere a questa funzionalità e verranno addebitate solo le funzionalità essenziali di monitoraggio di Azure configurate o abilitate, come descritto nella pagina [Dettagli prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) .
 
+>[!NOTE]
+>Il monitoraggio di Azure per l'archiviazione non supporta gli [account per utilizzo generico V1](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
+>
+
 ## <a name="view-from-azure-monitor"></a>Visualizza da monitoraggio di Azure
 
 Da monitoraggio di Azure è possibile visualizzare i dettagli relativi a transazioni, latenza e capacità da più account di archiviazione nella sottoscrizione e identificare le prestazioni, i problemi di capacità e gli errori.
@@ -51,7 +55,7 @@ Per visualizzare l'utilizzo e la disponibilità degli account di archiviazione i
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare **monitoraggio** nel riquadro a sinistra nel portale di Azure e nella sezione Insights selezionare account di **archiviazione (anteprima)** .
+2. Selezionare **monitoraggio** nel riquadro a sinistra nel portale di Azure e nella sezione **Insights** selezionare **account di archiviazione (anteprima)** .
 
     ![Visualizzazione di più account di archiviazione](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -162,7 +166,7 @@ Le personalizzazioni vengono salvate in una cartella di lavoro personalizzata pe
 
 2. Nella cartella di lavoro **Panoramica** , dalla barra dei comandi, selezionare **modifica**.
 
-3. Selezionare nell'elenco a discesa sottoscrizioni una o più sottoscrizioni per le quali si desidera impostare il valore predefinito. Tenere presente che la cartella di lavoro supporta la selezione di un totale di 10 sottoscrizioni.  
+3. Selezionare nell'elenco a discesa **sottoscrizioni** una o più sottoscrizioni per le quali si desidera impostare il valore predefinito. Tenere presente che la cartella di lavoro supporta la selezione di un totale di 10 sottoscrizioni.  
 
 4. Selezionare dall'elenco a discesa **account di archiviazione** uno o più account per i quali si vuole impostare come predefinito. Tenere presente che la cartella di lavoro supporta la selezione di un totale di 200 account di archiviazione. 
 
@@ -201,7 +205,7 @@ A questo punto è possibile modificare il tema colori per la metrica della capac
 
 1. Selezionare **le impostazioni delle colonne** nella griglia metrica.
 
-2. Nel riquadro **Modifica impostazioni colonna** selezionare sotto la sezione **colonne** **Microsoft. storage/Storageaccounts-Capacity-capacità utilizzata $ | Microsoft. storage/storageaccounts/Blobservices-Capacity-BlobCapacity $ | Microsoft. storage/ storageaccounts/fileservices-Capacity-filecapacity $ | Microsoft. storage/storageaccounts/queueservices-Capacity-QueueCapacity $ | Microsoft. storage/storageaccounts/tableservices-Capacity-TableCapacity $** . Nella tavolozza dei **colori**dell'elenco a discesa selezionare **verde**.
+2. Nel riquadro **Modifica impostazioni colonna** selezionare sotto la sezione **colonne** **Microsoft. storage/Storageaccounts-Capacity-capacità utilizzata $ | Microsoft. storage/storageaccounts/Blobservices-Capacity-BlobCapacity $ | Microsoft. storage/ storageaccounts/fileservices-Capacity-filecapacity $ | Microsoft. storage/storageaccounts/queueservices-Capacity-QueueCapacity $ | Microsoft. storage/storageaccounts/tableservices-Capacity-TableCapacity $** . Nella **tavolozza dei colori**dell'elenco a discesa selezionare **verde**.
 
 3. Selezionare **Salva e Chiudi** per eseguire il commit della modifica.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Esempio di interfaccia visiva #3: Classificazione per la stima del rischio di credito'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come creare un classificatore di Machine Learning senza scrivere una singola riga di codice usando l'interfaccia visiva.
 services: machine-learning
 ms.service: machine-learning
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 7565f94910d0e926682a72af42b02059fe7295ea
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 26e3f5f237cdd148d12f0a413eb97ed52cb84b49
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990060"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997047"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Esempio 3-classificazione: Prevedere il rischio di credito
 
-Informazioni su come creare un classificatore di Machine Learning senza scrivere una singola riga di codice usando l'interfaccia visiva. Questo esempio consente di eseguire il training di un albero delle decisioni con boosting a **due classi** per stimare il rischio di credito (alto o basso) in base alle informazioni sulle applicazioni di credito, ad esempio la cronologia dei crediti, l'età e il numero di
+Informazioni su come creare un classificatore di Machine Learning senza scrivere una singola riga di codice usando l'interfaccia visiva. Questo esempio consente di eseguire il training di un **albero delle decisioni con boosting a due classi** per stimare il rischio di credito (alto o basso) in base alle informazioni sulle applicazioni di credito, ad esempio la cronologia dei crediti, l'età e il numero di
 
 Poiché si sta provando a rispondere alla domanda "quale?" si tratta di un problema di classificazione. Tuttavia, è possibile applicare lo stesso processo fondamentale per risolvere qualsiasi tipo di problema di Machine Learning, indipendentemente dal fatto che si tratti di regressione, classificazione, clustering e così via.
 
@@ -51,10 +51,10 @@ Per creare l'esperimento, attenersi alla procedura seguente:
 1. Trascinare il modulo del set di dati di dati UCI della carta di credito tedesco nell'area di disegno dell'esperimento.
 1. Aggiungere un modulo **Modifica metadati** in modo che sia possibile aggiungere nomi significativi per ogni colonna.
 1. Aggiungere un modulo **Split data** per creare i set di training e di test. Impostare la frazione di righe nel primo set di dati di output su 0,7. Questa impostazione specifica che il 70% dei dati verrà restituito alla porta sinistra del modulo e il resto sulla porta destra. Il set di dati a sinistra viene usato per il training e quello giusto per i test.
-1. Aggiungere un modulo a albero delle decisioni con boosting a **due classi** per inizializzare un classificatore di albero delle decisioni con boosting.
+1. Aggiungere un modulo a **albero delle decisioni con boosting a due classi** per inizializzare un classificatore di albero delle decisioni con boosting.
 1. Aggiungere un modulo **Train Model** . Connettere il classificatore dal passaggio precedente alla porta di input sinistra del modello di **Training**. Aggiungere il set di training (la porta di output sinistra dei **dati di suddivisione**) alla porta di input destra del **modello Train**. Il training **Model** eseguirà il training del classificatore.
 1. Aggiungere un modulo **Score Model** e connettervi il modulo **Train Model** . Aggiungere quindi il set di test (la porta destra dei **dati di suddivisione**) al **modello di Punteggio**. Il **modello di Punteggio** effettuerà le stime. È possibile selezionare la relativa porta di output per visualizzare le stime e le probabilità della classe positiva.
-1. Aggiungere un modulo **Evaluate Model** e connettere il set di dati con punteggio alla relativa porta di input sinistra. Per visualizzare i risultati della valutazione, selezionare la porta di output del modulo **Evaluate Model** e selezionare Visualize ( **Visualizza**).
+1. Aggiungere un modulo **Evaluate Model** e connettere il set di dati con punteggio alla relativa porta di input sinistra. Per visualizzare i risultati della valutazione, selezionare la porta di output del modulo **Evaluate Model** e selezionare **Visualize (Visualizza**).
 
 Ecco il grafico completo dell'esperimento:
 

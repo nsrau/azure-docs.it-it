@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 215660b0f0b8748461849f20e65a3585f939085e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8f684a9c0c40774c8c17a08801997c569be74c8d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858789"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993354"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creare e accedere ai set di impostazioni (anteprima) in Azure Machine Learning
 
@@ -76,7 +76,12 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
+
 ### <a name="create-tabulardatasets"></a>Crea TabularDatasets
+
+TabularDatasets può essere creato tramite l'SDK o usando la pagina di destinazione dell'area di lavoro (anteprima).
+
+#### <a name="sdk"></a>SDK 
 
 Usare il `from_delimited_files()` metodo sulla `TabularDatasetFactory` classe per leggere i file in formato CSV o TSV e creare un TabularDataset non registrato. Se si esegue la lettura da più file, i risultati verranno aggregati in una rappresentazione tabulare.
 
@@ -103,7 +108,18 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|1|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||D
 
+#### <a name="workspace-landing-page"></a>Pagina di destinazione dell'area di lavoro 
+
+Accedere alla pagina di [destinazione dell'area di lavoro](https://ml.azure.com) per creare un set di dati tramite l'esperienza Web. Attualmente, la pagina di destinazione dell'area di lavoro supporta solo la creazione di TabularDatasets.
+
+Nell'animazione seguente viene illustrato come creare un set di dati nella pagina di destinazione dell'area di lavoro. 
+
+Per prima cosa, selezionare **set di impostazioni** nella sezione **Asset** del riquadro sinistro. Selezionare quindi **+ Crea set di dati** per scegliere l'origine del set di dati. può provenire da file locali, archivio dati o URL Web pubblici. Le **Impostazioni e l'anteprima** e i moduli **dello schema** vengono popolati in modo intelligente in base al tipo di file. Selezionare **Avanti** per esaminarli o per configurare ulteriormente il set di dati prima della creazione. Selezionare **fine** per completare la creazione del set di dati. 
+
+![Creare un set di dati con l'interfaccia utente](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
 ### <a name="create-filedatasets"></a>Crea set di dati
+
 Utilizzare il `from_files()` metodo sulla `FileDatasetFactory` classe per caricare file in qualsiasi formato e creare un oggetto filedataset non registrato.
 
 ```Python
@@ -134,6 +150,9 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data')
 ```
 
+>[!Note]
+> I set di impostazioni creati tramite la pagina di destinazione dell'area di lavoro vengono registrati automaticamente nell'area di lavoro. 
+
 ## <a name="version-datasets"></a>Set di impostazioni di versione
 
 È possibile registrare un nuovo set di dati con lo stesso nome creando una nuova versione. La versione del set di dati è un modo per aggiungere segnalibri allo stato dei dati, in modo da poter applicare una versione specifica del set di dati per la sperimentazione o la riproduzione futura. Scenari tipici da considerare per il controllo delle versioni: 
@@ -141,7 +160,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 * Quando si applicano approcci diversi per la preparazione dei dati o la progettazione di funzionalità.
 
 ```Python
-# create a TabularDataset from new Titanic training data
+# create a TabularDataset from Titanic training data
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: d6a8ac97aa3896eaf98651f5f1120fcc6bf25516
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c71bf9be94799c2b109d57393e70e99a0710e252
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814108"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995469"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Eseguire il debug di processi Apache Spark in esecuzione in Azure HDInsight
 
@@ -29,14 +29,14 @@ Questo articolo illustra come tenere traccia ed eseguire il debug di processi [A
 ## <a name="track-an-application-in-the-yarn-ui"></a>Tenere traccia di un'applicazione nell'interfaccia utente di YARN
 1. Avviare l'interfaccia utente di YARN Fare clic su **Yarn** in **Dashboard cluster**.
    
-    ![Avviare l'interfaccia utente di YARN](./media/apache-spark-job-debugging/launch-yarn-ui.png)
+    ![Avviare l'interfaccia utente di YARN](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
    
    > [!TIP]  
    > In alternativa, è anche possibile avviare l'interfaccia utente di YARN dall'interfaccia utente di Ambari. Per avviare l'interfaccia utente Ambari, fare clic su **home Ambari** in **Dashboard cluster**. Nell'interfaccia utente di Ambari fare clic su **YARN**, su **Quick Links** (Collegamenti rapidi), sulla funzionalità di gestione risorse attiva e quindi fare clic su **Resource Manager UI** (Interfaccia utente di Gestione risorse). 
 
 2. Poiché il processo Spark è stato avviato con Jupyter Notebook, il nome dell'applicazione è **remotesparkmagics**. Si tratta del nome per tutte le applicazioni avviate dai notebook. Per ottenere altre informazioni sul processo, fare clic sull'ID dell'applicazione relativo al nome dell'applicazione. Verrà avviata la visualizzazione dell'applicazione.
    
-    ![Trovare un ID applicazione di Spark](./media/apache-spark-job-debugging/find-application-id.png)
+    ![Trovare un ID applicazione di Spark](./media/apache-spark-job-debugging/find-application-id1.png)
    
     Per le applicazioni avviate da Jupyter Notebook lo stato è sempre **IN ESECUZIONE** fino a quando non si esce dal notebook.
 3. Nella visualizzazione dell'applicazione è possibile eseguire il drill-down per trovare i contenitori associati all'applicazione e i log (stdout o stderr). È anche possibile avviare l'interfaccia utente di Spark facendo clic sul collegamento corrispondente all' **URL di verifica**, come illustrato di seguito. 
@@ -48,13 +48,13 @@ Nell'interfaccia utente di Spark è possibile eseguire il drill-down dei process
 
 1. Per avviare l'interfaccia utente di Spark, nella visualizzazione dell'applicazione, fare clic sul collegamento relativo a **URL di verifica**, come illustrato nella schermata precedente. È possibile visualizzare tutti i processi Spark avviati dall'applicazione in esecuzione in Jupyter Notebook.
    
-    ![Visualizzare processi Spark](./media/apache-spark-job-debugging/view-spark-jobs.png)
+    ![Visualizzare processi Spark](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 2. Fare clic sulla scheda **Executors** per visualizzare le informazioni di elaborazione e archiviazione per ogni executor. È anche possibile recuperare lo stack di chiamate facendo clic sul collegamento **Thread Dump** .
    
     ![Visualizzare gli executor Spark](./media/apache-spark-job-debugging/view-spark-executors.png)
 3. Fare clic sulla scheda **Stages** per visualizzare le fasi associate all'applicazione.
    
-    ![Visualizza fasi Spark](./media/apache-spark-job-debugging/view-spark-stages.png "Visualizza fasi Spark")
+    ![Visualizza fasi Spark](./media/apache-spark-job-debugging/view-apache-spark-stages.png "Visualizza fasi Spark")
    
     Ogni fase può avere più attività per cui è possibile visualizzare le statistiche di esecuzione, come illustrato di seguito.
    

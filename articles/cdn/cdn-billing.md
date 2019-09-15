@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 09/13/2019
 ms.author: magattus
-ms.openlocfilehash: 2fd3d2f8fbc98d8c7b19cbcc365748cc088d76fd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8704d715a20b94dc170f232b07a0acd54bb1e6f1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594088"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996817"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Informazioni sulla fatturazione per la rete CDN di Azure
 
@@ -57,9 +57,12 @@ Quando si usa l'archiviazione BLOB di Azure come origine per il contenuto, è ne
 
 - GB di spazio effettivo usato: spazio di archiviazione effettivo degli oggetti di origine.
 
+- Transazioni: in base alle esigenze per riempire la cache.
+
 - Trasferimenti in GB: quantità di dati trasferiti per riempire la cache della rete CDN.
 
-- Transazioni: in base alle esigenze per riempire la cache.
+> [!NOTE]
+> A partire dall'ottobre 2019, se si usa la rete CDN di Azure di Microsoft, il costo del trasferimento dei dati dalle origini ospitate in Azure ai pop della rete CDN è gratuito. La rete CDN di Azure di Verizon e la rete CDN di Azure di Akamai sono soggette alle tariffe descritte di seguito.
 
 Per altre informazioni sulla fatturazione di Archiviazione di Azure, vedere [Informazioni sulla fatturazione di archiviazione di Azure (larghezza di banda, transazioni e capacità)](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
@@ -83,6 +86,36 @@ Ogni volta che un POP della rete CDN deve riempire la cache, presenta una richie
 - Il numero di nodi che devono caricare l'oggetto: ogni volta che un nodo carica un oggetto dall'origine, viene generata una transazione fatturabile. Di conseguenza, contenuti più globali (accesso da più nodi) si traducono in più transazioni fatturabili.
 
 - Influenza (TTL): un TTL maggiore per l'oggetto indica che questo deve essere recuperato dall'origine con una frequenza minore. Esso indica anche che i client, come ad esempio i browser, possono memorizzare nella cache l'oggetto per un tempo più lungo, riducendo le transazioni nella rete CDN.
+
+## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Quali servizi di origine sono idonei per il trasferimento dati gratuito con la rete CDN di Azure di Microsoft? 
+Se si usa uno dei servizi di Azure seguenti come origine della rete CDN, non verrà addebitato il trasferimento dei dati dall'origine ai pop della rete CDN. 
+
+- Archiviazione di Azure
+- Servizi multimediali di Azure
+- Macchine virtuali di Azure
+- Rete virtuale
+- Load Balancer
+- Gateway applicazione
+- Servizio DNS di Azure
+- ExpressRoute
+- Gateway VPN
+- Gestione traffico
+- Network Watcher
+- Firewall di Azure
+- Servizio Frontdoor di Azure
+- Azure Bastion
+- Servizio app di Azure
+- Funzioni di Azure
+- Data factory di Azure
+- Gestione API di Azure
+- Azure Batch 
+- Esplora dati di Azure
+- HDInsight
+- Azure Cosmos DB
+- Archivio Azure Data Lake
+- Servizio Azure Machine Learning 
+- Database SQL di Azure
+- Cache Redis di Azure
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Ricerca per categorie su come gestire più efficacemente i costi
 Impostare la durata TTL massima possibile per il contenuto. 

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 4bf2e057f4c5dad650834f9b42c75be3aedec46e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1cd5325be7def4bc631d994f8811734e6c3cf545
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142851"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996444"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informazioni sulle definizioni del ruolo per le risorse di Azure
 
@@ -150,7 +150,7 @@ Collaboratore ai dati dei BLOB di archiviazione
 
 Poiché Alice ha un'azione con`*`carattere jolly () nell'ambito di una sottoscrizione, le relative autorizzazioni ereditano per consentire l'esecuzione di tutte le operazioni di gestione. Alice può leggere, scrivere ed eliminare i contenitori. Tuttavia non può eseguire operazioni sui dati senza eseguire passaggi aggiuntivi. Ad esempio, per impostazione predefinita, non può leggere i BLOB all'interno di un contenitore. Per leggere i BLOB, Alice deve prima recuperare le chiavi di accesso alle risorse di archiviazione e usarle per accedere ai BLOB.
 
-Le autorizzazioni di Bob sono limitate solo `Actions` a e `DataActions` specificate nel ruolo di collaboratore [dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-contributor) . In base al ruolo, Bob può eseguire sia operazioni di gestione sia operazioni sui dati. Ad esempio, Bob può leggere, scrivere ed eliminare i contenitori nell'account di archiviazione specificato ed è anche in grado di leggere, scrivere ed eliminare i BLOB.
+Le autorizzazioni di Bob sono limitate solo `Actions` a e `DataActions` specificate nel ruolo di [collaboratore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-contributor) . In base al ruolo, Bob può eseguire sia operazioni di gestione sia operazioni sui dati. Ad esempio, Bob può leggere, scrivere ed eliminare i contenitori nell'account di archiviazione specificato ed è anche in grado di leggere, scrivere ed eliminare i BLOB.
 
 Per altre informazioni sulla gestione e sulla sicurezza del piano dati per l'archiviazione, vedere [Guida alla sicurezza di Archiviazione di Azure](../storage/common/storage-security-guide.md).
 
@@ -213,16 +213,18 @@ L'autorizzazione `NotDataActions` specifica le operazioni sui dati che sono escl
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-La `AssignableScopes` proprietà specifica gli ambiti (sottoscrizioni, gruppi di risorse o risorse) per i quali è disponibile questa definizione di ruolo. È possibile rendere il ruolo disponibile per l'assegnazione solo nelle sottoscrizioni o nei gruppi di risorse che lo richiedono e non ingombrare l'esperienza utente per il resto delle sottoscrizioni o dei gruppi di risorse. È necessario usare almeno una sottoscrizione, un gruppo di risorse o un ID della risorsa.
+La `AssignableScopes` proprietà specifica gli ambiti (gruppi di gestione, sottoscrizioni, gruppi di risorse o risorse) per i quali è disponibile questa definizione di ruolo. È possibile rendere disponibile il ruolo per l'assegnazione solo nei gruppi di gestione, nelle sottoscrizioni o nei gruppi di risorse che lo richiedono. È necessario usare almeno un gruppo di gestione, una sottoscrizione, un gruppo di risorse o un ID di risorsa.
 
 Per i ruoli predefiniti, `AssignableScopes` è impostato sull'ambito radice (`"/"`), per indicare che il ruolo è disponibile per l'assegnazione in tutti gli ambiti. Ecco alcuni esempi di ambiti assegnabili validi:
 
-| Scenario | Esempio |
+| Il ruolo è disponibile per l'assegnazione | Esempio |
 |----------|---------|
-| Ruolo disponibile per l'assegnazione in una singola sottoscrizione | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
-| Ruolo disponibile per l'assegnazione in due sottoscrizioni | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
-| Ruolo disponibile per l'assegnazione solo nel gruppo di risorse Network | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| Il ruolo è disponibile per l'assegnazione in tutti gli ambiti (si applica solo ai ruoli predefiniti) | `"/"` |
+| Un'unica sottoscrizione | `"/subscriptions/{subscriptionId1}"` |
+| Due sottoscrizioni | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
+| Gruppo di risorse di rete | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
+| Un gruppo di gestione | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
+| Gruppo di gestione e sottoscrizione | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+| Tutti gli ambiti (si applica solo ai ruoli predefiniti) | `"/"` |
 
 Per informazioni su `AssignableScopes` per i ruoli personalizzati, vedere [Ruoli personalizzati per le risorse di Azure](custom-roles.md).
 

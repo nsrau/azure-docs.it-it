@@ -1,7 +1,7 @@
 ---
 title: Estensione dell'interfaccia della riga di comando di Machine Learning
-titleSuffix: Azure Machine Learning service
-description: Informazioni sull'estensione dell'interfaccia della riga di comando di Azure Machine Learning per l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure è un'utilità della riga di comando multipiattaforma che consente di usare le risorse nel cloud di Azure. L'estensione di Machine Learning consente di usare il servizio Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Informazioni sull'estensione dell'interfaccia della riga di comando di Azure Machine Learning per l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure è un'utilità della riga di comando multipiattaforma che consente di usare le risorse nel cloud di Azure. L'estensione Machine Learning consente di usare Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: jordane
 author: jpe316
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c5068512f8ba26f7710bca7c0fccb98e0a5be33
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 85ebcc36d32b86ec2640ce7ce02190deaab19d6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996739"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997089"
 ---
-# <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Usare l'estensione dell'interfaccia della riga di comando per il servizio Azure Machine Learning
+# <a name="use-the-cli-extension-for-azure-machine-learning"></a>Usare l'estensione CLI per Azure Machine Learning
 
-L'interfaccia della riga di comando di Azure Machine Learning è un'estensione dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), un'interfaccia della riga di comando multipiattaforma per la piattaforma Azure. Questa estensione fornisce comandi per l'utilizzo del servizio Azure Machine Learning. Consente di automatizzare le attività di machine learning. L'elenco seguente fornisce alcune azioni di esempio che è possibile eseguire con l'estensione CLI:
+L'interfaccia della riga di comando di Azure Machine Learning è un'estensione dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), un'interfaccia della riga di comando multipiattaforma per la piattaforma Azure. Questa estensione fornisce i comandi per lavorare con Azure Machine Learning. Consente di automatizzare le attività di machine learning. L'elenco seguente fornisce alcune azioni di esempio che è possibile eseguire con l'estensione CLI:
 
 + Eseguire gli esperimenti per creare modelli di apprendimento automatico
 
@@ -32,7 +32,7 @@ L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+* Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
 
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -86,7 +86,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az group create -n myresourcegroup -l westus2
     ```
 
-+ Creare un'area di lavoro del servizio Azure Machine Learning:
++ Creare un'area di lavoro Azure Machine Learning:
 
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
@@ -163,7 +163,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
 
 ## <a name="environment-management"></a>Gestione dell'ambiente
 
-I comandi seguenti illustrano come creare, registrare ed elencare Azure Machine Learning [ambienti](how-to-configure-environment.md) del servizio per l'area di lavoro:
+I comandi seguenti illustrano come creare, registrare ed elencare Azure Machine Learning [ambienti](how-to-configure-environment.md) per l'area di lavoro:
 
 + Creare file di impalcatura per un ambiente:
 

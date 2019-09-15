@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: heidist
-ms.openlocfilehash: f6cc119387482e4f5403e91de98916cbe2aaff2a
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 60dfae48b0aa1d6e0d9bc8e79d5ff2dedd744fd5
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963499"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993561"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-search"></a>Come modellare i dati SQL relazionali per l'importazione e l'indicizzazione in ricerca di Azure
 
@@ -152,11 +152,11 @@ Dato il set di risultati precedente e lo schema dell'indice precedente, sono dis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile utilizzare la [procedura guidata Importa dati](search-import-data-portal.md) per indicizzare un set di righe simile a quello descritto in questo articolo. La procedura guidata rileva la raccolta JSON incorporata in *chat room* e deduce uno schema di indice che fornisce la raccolta di tipi complessi appropriata. 
+Utilizzando il proprio set di dati, è possibile utilizzare la [procedura guidata Importa dati](search-import-data-portal.md) per creare e caricare l'indice. La procedura guidata rileva la raccolta JSON incorporata, ad esempio quella contenuta in *chat room*, e deduce uno schema di indice che include una raccolta di tipi complessi. 
 
   ![Indice derivato dall'importazione guidata dati](media/index-sql-relational-data/search-index-rooms-complex-collection.png "Indice derivato dall'importazione guidata dati")
 
-Per completare l'importazione e creare un indice utilizzabile, è necessario selezionare la chiave e impostare gli attributi manualmente. Se non si ha familiarità con questa procedura guidata, provare la Guida introduttiva seguente per informazioni sui passaggi di base.
+Per informazioni sui passaggi di base della procedura guidata Importa dati, provare a eseguire la Guida introduttiva seguente.
 
 > [!div class="nextstepaction"]
 > [Avvio rapido: Creare un indice di ricerca usando portale di Azure](search-get-started-portal.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7385888c54d46e706621f781a64d12d3ae7aa5fb
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 87e130d3a4569971bffb9b1ac2e189babb900225
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512669"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997647"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -33,7 +33,7 @@ La tabella seguente fornisce un confronto tra dischi Ultra, unità SSD Premium, 
 
 ## <a name="ultra-disk"></a>Disco Ultra
 
-I dischi di Azure ultra offrono velocità effettiva elevata, IOPS elevate e archiviazione su disco a bassa latenza coerente per le macchine virtuali IaaS di Azure. Alcuni vantaggi aggiuntivi di dischi Ultra includono la possibilità di modificare dinamicamente le prestazioni del disco, insieme ai carichi di lavoro, senza dover riavviare le macchine virtuali. I dischi Ultra sono adatti per carichi di lavoro con utilizzo intensivo di dati, ad esempio SAP HANA, database di livello superiore e carichi di lavoro pesanti per le transazioni. I dischi Ultra possono essere usati solo come dischi dati. È consigliabile usare unità SSD Premium come dischi del sistema operativo.
+I dischi di Azure ultra offrono velocità effettiva elevata, IOPS elevate e archiviazione su disco a bassa latenza coerente per le macchine virtuali IaaS di Azure. Alcuni vantaggi aggiuntivi di ultra disks includono la possibilità di modificare dinamicamente le prestazioni del disco, insieme ai carichi di lavoro, senza dover riavviare le macchine virtuali (VM). I dischi Ultra sono adatti per carichi di lavoro con utilizzo intensivo di dati, ad esempio SAP HANA, database di livello superiore e carichi di lavoro pesanti per le transazioni. I dischi Ultra possono essere usati solo come dischi dati. È consigliabile usare unità SSD Premium come dischi del sistema operativo.
 
 ### <a name="performance"></a>Prestazioni
 
@@ -42,9 +42,9 @@ Quando si effettua il provisioning di un disco Ultra, è possibile configurare i
 Di seguito sono riportate alcune funzionalità chiave di dischi Ultra:
 
 - Capacità disco: La capacità di dischi Ultra è compresa tra 4 GiB e 64 TiB.
-- Operazioni di I/O al secondo (IOPS) del disco: I dischi Ultra supportano i limiti di IOPS di 300 IOPS/GiB, fino a un massimo di 160 K di IOPS per disco. Per ottenere il valore di IOPS di cui è stato effettuato il provisioning, verificare che le operazioni di i/o al secondo del disco selezionate siano inferiori al limite di IOPS Il numero minimo di IOPS per disco è di 2 IOPS/GiB, con una linea di base complessiva minima di 100 IOPS. Se, ad esempio, si dispone di un disco con 4 GiB Ultra, si otterrà un minimo di 100 IOPS, anziché 8 IOPS.
+- Operazioni di I/O al secondo (IOPS) del disco: I dischi Ultra supportano i limiti di IOPS di 300 IOPS/GiB, fino a un massimo di 160 K di IOPS per disco. Per ottenere il valore di IOPS di cui è stato effettuato il provisioning, verificare che le operazioni di i/o al secondo del disco selezionate siano inferiori al limite di IOPS Il numero minimo di IOPS per disco è di 2 IOPS/GiB, con una linea di base complessiva minima di 100 IOPS. Se, ad esempio, si dispone di un disco con 4 GiB Ultra, si avrà almeno 100 IOPS, anziché otto IOPS.
 - Velocità effettiva del disco: Con dischi Ultra, il limite di velocità effettiva di un singolo disco è 256 KiB/s per ogni IOPS con provisioning, fino a un massimo di 2000 MBps per disco (dove MBps = 10 ^ 6 byte al secondo). La velocità effettiva minima per disco è 4KiB/s per ogni IOPS di cui è stato effettuato il provisioning, con una linea di base complessiva minima di 1 MBps.
-- I dischi Ultra supportano la regolazione degli attributi relativi alle prestazioni del disco (IOPS e velocità effettiva) in fase di esecuzione senza scollegare il disco dalla macchina virtuale. Dopo l'esecuzione di un'operazione di ridimensionamento delle prestazioni in un disco, può essere necessario attendere fino a un'ora prima che la modifica abbia effetto.
+- I dischi Ultra supportano la regolazione degli attributi relativi alle prestazioni del disco (IOPS e velocità effettiva) in fase di esecuzione senza scollegare il disco dalla macchina virtuale. Dopo l'esecuzione di un'operazione di ridimensionamento delle prestazioni in un disco, può essere necessario attendere fino a un'ora prima che la modifica abbia effetto. È previsto un limite di quattro operazioni di ridimensionamento delle prestazioni in un intervallo di 24 ore. È possibile che un'operazione di ridimensionamento delle prestazioni abbia esito negativo a causa della mancanza di capacità della larghezza di banda delle prestazioni.
 
 ### <a name="disk-size"></a>Dimensioni disco
 
@@ -71,3 +71,4 @@ Per il momento, i dischi Ultra presentano limitazioni aggiuntive, come indicato 
 - Possono essere creati solo come dischi vuoti  
 - Non sono ancora supportati snapshot del disco, immagini di VM, set di disponibilità, set di scalabilità di macchine virtuali e crittografia dischi di Azure
 - Non supporta ancora l'integrazione con backup di Azure o Azure Site Recovery
+- Il limite massimo corrente per IOPS nelle VM GA è 80.000.

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 07/08/2019
-ms.openlocfilehash: 7d47b74d4fef3676101f3f624dcacb832dcedc3a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.date: 09/13/2019
+ms.openlocfilehash: 80c5ad26150547263469c9f59366e270bf660335
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858700"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993182"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 
@@ -133,7 +133,6 @@ Sono disponibili diversi modi per visualizzare le metriche di Drift:
 
 * Usare il `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Utilizzare la [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) funzione su qualsiasi `datadrift` oggetto di esecuzione.
-* Visualizzare le metriche nel portale di Azure del modello.
 * Visualizzare le metriche dalla sezione **modelli** della [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
 
 Nell'esempio Python seguente viene illustrato come tracciare le metriche di spostamento dei dati rilevanti. È possibile usare le metriche restituite per creare visualizzazioni personalizzate:
@@ -159,17 +158,16 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-La configurazione del rilevamento della deriva dei dati può essere visualizzata nella pagina dei dettagli del modello nella portale di Azure o nella pagina di destinazione dell'area di lavoro (anteprima).
+La configurazione del rilevamento della tendenza dei dati può essere visualizzata in **modelli** nella scheda **Dettagli** della pagina di destinazione dell' [area di lavoro (anteprima)](https://ml.azure.com).
 
-![Configurazione della deviazione dati portale di Azure](media/how-to-monitor-data-drift/drift_config.png)
+![Spostamento dei dati portale di Azure](media/how-to-monitor-data-drift/drift-config.png)
 
-## <a name="view-results-in-azure-portal"></a>Visualizza risultati in portale di Azure
+## <a name="view-results-in-your-workspace-landing-page"></a>Visualizzare i risultati nella pagina di destinazione dell'area di lavoro
 
-Per visualizzare i risultati nell'area di lavoro in [portale di Azure](https://portal.azure.com), passare alla pagina del modello. Nella scheda Dettagli del modello viene visualizzata la configurazione della deviazione dati. È ora disponibile una scheda relativa alla deviazione dei dati (anteprima) per la visualizzazione delle metriche di spostamento dei dati. 
+Per visualizzare i risultati nell'area di lavoro nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com), passare alla pagina del modello. Nella scheda Dettagli del modello viene visualizzata la configurazione della deviazione dati. È ora disponibile una scheda della barra di **spostamento dei** dati in cui vengono visualizzate le metriche di spostamento dei dati. 
 
-![Spostamento dei dati portale di Azure](media/how-to-monitor-data-drift/drift_ui.png)
+[![Spostamento dati della pagina di destinazione dell'area di lavoro](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
-I risultati sono disponibili anche nei dettagli del modello nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
 
 ## <a name="receiving-drift-alerts"></a>Ricezione di avvisi di Drift
 

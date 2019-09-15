@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 240b2110db66af0982e4e1bf95d3715cbe733a60
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0e11949804e0c3de52db315424f83905516b4da8
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816529"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996608"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
 
@@ -85,6 +85,7 @@ Una delle possibili cause è la mancanza del supporto multicanale SMB. Attualmen
 
 - Ottenere una VM con un core più grande può contribuire a migliorare la velocità effettiva.
 - L'esecuzione dell'applicazione client da più macchine virtuali aumenterà la velocità effettiva.
+
 - Usare le API REST laddove possibile.
 
 ## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>La velocità effettiva nei client Linux è significativamente inferiore rispetto ai client Windows.
@@ -95,8 +96,9 @@ Si tratta di un problema noto relativo all'implementazione del client SMB in Lin
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Distribuire il carico tra più macchine virtuali
+- Distribuire il carico tra più macchine virtuali.
 - Nella stessa VM usare più punti di montaggio con l'opzione **nosharesock** e distribuire il carico tra questi punti di montaggio.
+- In Linux provare a montare con l'opzione **nostrictsync** per evitare di forzare lo SCARICAmento SMB per ogni chiamata fsync. Per File di Azure, questa opzione non interferisce con i dati Consistentcy, ma può comportare metadati di file non aggiornati nell'elenco di directory (comando**ls-l** ). L'esecuzione di query direttamente sui metadati del file (comando**Stat** ) restituirà i metadati del file più aggiornati.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latenze elevate per carichi di lavoro intensivi dei metadati che coinvolgono numerose operazioni di apertura/chiusura.
 

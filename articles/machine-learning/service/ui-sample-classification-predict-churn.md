@@ -1,6 +1,6 @@
 ---
 title: 'Esempio di interfaccia visiva #5: Classificazione per prevedere la varianza + appetency + up-selling'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Questo esperimento di esempio dell'interfaccia visiva mostra la stima del classificatore binario della varianza, un'attività comune per la gestione delle relazioni con i clienti (CRM).
 services: machine-learning
 ms.service: machine-learning
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: a2eabdd601fcf350d2076d33882e3d90255fee92
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 054ac3ea5224a4ffea2e7bae9da329ba7bc81233
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016458"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997125"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Esempio 5-classificazione: Prevedere varianza, appetency e vendita 
 
 Informazioni su come creare un esperimento di apprendimento automatico complesso senza scrivere una singola riga di codice usando l'interfaccia visiva.
 
-Questo esperimento addestra tre classificatori di albero delle decisioni con boosting a **due classi** per prevedere le attività comuni per i sistemi CRM (Customer Relationship Management): varianza, appetency e vendita. I valori e le etichette dei dati sono suddivisi in più origini dati e sono ripartiti in anonimato informazioni sui clienti. Tuttavia, è comunque possibile usare l'interfaccia visiva per combinare i set di dati ed eseguire il training di un modello usando i valori con codifica.
+Questo esperimento addestra tre classificatori di **albero delle decisioni con boosting a due classi** per prevedere le attività comuni per i sistemi CRM (Customer Relationship Management): varianza, appetency e vendita. I valori e le etichette dei dati sono suddivisi in più origini dati e sono ripartiti in anonimato informazioni sui clienti. Tuttavia, è comunque possibile usare l'interfaccia visiva per combinare i set di dati ed eseguire il training di un modello usando i valori con codifica.
 
 Poiché si sta provando a rispondere alla domanda "quale?" si tratta di un problema di classificazione. Tuttavia, è possibile applicare gli stessi passaggi in questo esperimento per risolvere qualsiasi tipo di problema di Machine Learning, indipendentemente dal fatto che si tratti di regressione, classificazione, clustering e così via.
 

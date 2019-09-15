@@ -1,7 +1,7 @@
 ---
 title: Problemi noti e risoluzione dei problemi
-titleSuffix: Azure Machine Learning service
-description: Ottenere un elenco dei problemi noti, delle soluzioni alternative e della risoluzione dei problemi per il servizio Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Ottenere un elenco dei problemi noti, le soluzioni alternative e la risoluzione dei problemi per Azure Machine Learning.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96af61089f2b7b85d58a8a2ab61936459cef158b
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ffbc919333c43c04f461498a513d098ce8fe628f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858683"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996587"
 ---
-# <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemi noti e risoluzione per il servizio di Azure Machine Learning
+# <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
-Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso del servizio di Azure Machine Learning.
+Questo articolo consente di individuare e correggere gli errori o gli errori riscontrati quando si usa Azure Machine Learning.
 
 ## <a name="visual-interface-issues"></a>Problemi relativi all'interfaccia visiva
 
@@ -87,7 +87,7 @@ Problemi di Databricks e Azure Machine Learning.
 
 ### <a name="failure-when-installing-packages"></a>Errore durante l'installazione dei pacchetti
 
-L'installazione di Azure Machine Learning SDK non riesce in Azure Databricks quando sono installati altri pacchetti. Alcuni pacchetti, come `psutil`, possono causare conflitti. Per evitare errori di installazione, installare i pacchetti bloccando la versione della libreria. Questo problema è correlato a databricks e non a Azure Machine Learning Service SDK. Questo problema può verificarsi anche con altre librerie. Esempio:
+L'installazione di Azure Machine Learning SDK non riesce in Azure Databricks quando sono installati altri pacchetti. Alcuni pacchetti, come `psutil`, possono causare conflitti. Per evitare errori di installazione, installare i pacchetti bloccando la versione della libreria. Questo problema è correlato a databricks e non al Azure Machine Learning SDK. Questo problema può verificarsi anche con altre librerie. Esempio:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -143,7 +143,7 @@ Se si passa direttamente a visualizzare l'area di lavoro a un collegamento di co
 In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto. Per visualizzare alcuni log, visitare [portale di Azure](https://portal.azure.com) e passare all'area di lavoro e selezionare **area di lavoro > esperimento > Esegui log >** .  È anche possibile trovare queste informazioni nella sezione **esperimenti** della pagina di [destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
 
 > [!NOTE]
-> Il servizio Azure Machine Learning registra informazioni da diverse origini durante il training, ad esempio AutoML o il contenitore Docker che esegue il processo di training. Molti di questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.
+> Azure Machine Learning registra le informazioni da diverse origini durante il training, ad esempio AutoML o il contenitore Docker che esegue il processo di training. Molti di questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.
 
 ## <a name="activity-logs"></a>Log attività
 

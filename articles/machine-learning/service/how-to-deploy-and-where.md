@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/06/2019
+ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 358cbfb80da03d20475e591f0fd0c5b907b83b22
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: ff3a19a543f87833420f585bbdf7891cc7589746
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984693"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997196"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -764,7 +764,7 @@ Per un'utilità che consente di creare librerie client dalla specifica, vedere [
 ### <a id="azuremlcompute"></a>Inferenza batch
 Azure Machine Learning le destinazioni di calcolo vengono create e gestite dal servizio Azure Machine Learning. Possono essere usati per la stima in batch da Azure Machine Learning pipeline.
 
-Per una procedura dettagliata di inferenza batch con Azure Machine Learning calcolo, vedere [How to Run batch Predictions](how-to-run-batch-predictions.md).
+Per una procedura dettagliata di inferenza batch con Azure Machine Learning calcolo, vedere [How to Run batch Predictions](tutorial-pipeline-batch-scoring-classification.md).
 
 ### <a id="iotedge"></a>Inferenza IoT Edge
 Il supporto per la distribuzione in Edge è in anteprima. Per altre informazioni, vedere [Deploy Azure Machine Learning As an IOT Edge Module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
@@ -847,7 +847,7 @@ package.wait_for_creation(show_output=True)
 
 Dopo aver creato un pacchetto, è possibile usare `package.pull()` per eseguire il pull dell'immagine nell'ambiente Docker locale. L'output di questo comando visualizzerà il nome dell'immagine. Ad esempio: 
 
-`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
+[https://login.microsoftonline.com/consumers/](`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`). 
 
 Dopo aver scaricato il modello, utilizzare il `docker images` comando per elencare le immagini locali:
 

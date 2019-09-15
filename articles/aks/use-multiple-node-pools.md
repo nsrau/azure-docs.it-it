@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 516d4f47cb971dee91bc678ff56eeca71a28183a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915846"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996888"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Anteprima: creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -76,9 +76,9 @@ az provider register --namespace Microsoft.ContainerService
 Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, si applicano le limitazioni seguenti:
 
 * Più pool di nodi sono disponibili solo per i cluster creati dopo aver registrato correttamente la funzionalità *MultiAgentpoolPreview* per la sottoscrizione. Non è possibile aggiungere o gestire pool di nodi con un cluster AKS esistente creato prima che questa funzionalità sia stata registrata correttamente.
-* Non è possibile eliminare il primo pool di nodi.
+* Non è possibile eliminare il pool di nodi predefinito (primo).
 * Non è possibile usare il componente aggiuntivo routing applicazione HTTP.
-* Non è possibile aggiungere, aggiornare o eliminare pool di nodi usando un modello di Gestione risorse esistente come per la maggior parte delle operazioni. Usare invece [un modello di gestione risorse separato](#manage-node-pools-using-a-resource-manager-template) per apportare modifiche ai pool di nodi in un cluster AKS.
+* Non è possibile aggiungere o eliminare pool di nodi usando un modello di Gestione risorse esistente come per la maggior parte delle operazioni. Usare invece [un modello di gestione risorse separato](#manage-node-pools-using-a-resource-manager-template) per apportare modifiche ai pool di nodi in un cluster AKS.
 
 Quando questa funzionalità è in anteprima, si applicano le seguenti limitazioni aggiuntive:
 
@@ -89,6 +89,8 @@ Quando questa funzionalità è in anteprima, si applicano le seguenti limitazion
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
 Per iniziare, creare un cluster AKS con un pool a nodo singolo. L'esempio seguente usa il comando [AZ Group create][az-group-create] per creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* . Un cluster AKS denominato *myAKSCluster* viene quindi creato usando il comando [AZ AKS create][az-aks-create] . Viene usata una *versione--kubernetes-Version* di *1.13.10* per illustrare come aggiornare un pool di nodi in un passaggio successivo. È possibile specificare qualsiasi [versione di Kubernetes supportata][supported-versions].
+
+È consigliabile usare il servizio di bilanciamento del carico SKU standard quando si usano più pool di nodi. Leggere [questo documento](load-balancer-standard.md) per altre informazioni sull'uso di Load Balancer standard con AKS.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -101,7 +103,8 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10
+    --kubernetes-version 1.13.10 \
+    --load-balancer-sku standard
 ```
 
 La creazione del cluster richiede alcuni minuti.
@@ -578,7 +581,7 @@ L'aggiornamento del cluster AKS potrebbe richiedere alcuni minuti in base alle i
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Assegnare un indirizzo IP pubblico per nodo in un pool di nodi
 
 > [!NOTE]
-> Durante l'anteprima esiste una limitazione all'uso di questa funzionalità con *Load Balancer standard SKU in AKS (anteprima)* a causa delle possibili regole di bilanciamento del carico in conflitto con il provisioning delle macchine virtuali. In anteprima usare lo *SKU Basic Load Balancer* se è necessario assegnare un indirizzo IP pubblico per ogni nodo.
+> Durante l'anteprima dell'assegnazione di un indirizzo IP pubblico per nodo, non può essere usato con lo *SKU Load Balancer standard in AKS* a causa di possibili regole del servizio di bilanciamento del carico in conflitto con il provisioning delle macchine virtuali. In anteprima usare lo *SKU Basic Load Balancer* se è necessario assegnare un indirizzo IP pubblico per ogni nodo.
 
 I nodi AKS non richiedono indirizzi IP pubblici per la comunicazione. Tuttavia, in alcuni scenari potrebbe essere necessario che i nodi in un pool di nodi dispongano di indirizzi IP pubblici. Un esempio è il gioco, in cui una console deve effettuare una connessione diretta a una macchina virtuale cloud per ridurre al minimo i luppoli. Per ottenere questo risultato, è possibile registrarsi per una funzionalità di anteprima separata, ovvero l'indirizzo IP pubblico del nodo (anteprima).
 
