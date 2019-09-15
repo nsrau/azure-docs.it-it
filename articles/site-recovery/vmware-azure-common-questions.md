@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 27e5323e2c9fed3886b2ddf175a2c67718ad52d0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959157"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002284"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti sulla replica da VMware ad Azure
 
@@ -231,7 +231,7 @@ Esaminare i [prerequisiti](vmware-azure-deploy-configuration-server.md#prerequis
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>È possibile configurare manualmente il server di configurazione invece di usare un modello?
 
-Si consiglia di [creare la VM del server di configurazione](vmware-azure-deploy-configuration-server.md) utilizzando la versione più recente del modello OVF (Open Virtual Machine Format). Se non è possibile usare il modello (ad esempio, se non si ha accesso al server VMware), [scaricare](physical-azure-set-up-source.md) il file di installazione dal portale e configurare il server di configurazione.
+Si consiglia di [creare la macchina virtuale del server di configurazione](vmware-azure-deploy-configuration-server.md) utilizzando la versione più recente del modello di Open VIRTUALIZATION Format (OVF). Se non è possibile usare il modello (ad esempio, se non si ha accesso al server VMware), [scaricare](physical-azure-set-up-source.md) il file di installazione dal portale e configurare il server di configurazione.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Un server di configurazione può eseguire la replica in più aree?
 

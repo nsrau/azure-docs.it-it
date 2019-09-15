@@ -1,7 +1,7 @@
 ---
 title: Distribuire un modello per l'inferenza con GPU
-titleSuffix: Azure Machine Learning service
-description: Questo articolo illustra come usare il servizio Azure Machine Learning per distribuire un modello di apprendimento avanzato Tensorflow abilitato per GPU come servizio Web. servizio e richieste di inferenza dei punteggi.
+titleSuffix: Azure Machine Learning
+description: Questo articolo illustra come usare Azure Machine Learning per distribuire un modello di apprendimento avanzato Tensorflow abilitato per GPU come servizio Web. richieste di inferenza di servizi e punteggi.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 3113ad050ec6040d4f7964e940c507024bcf002d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: bfed4daed51e95bb0b86ef187d45722e2c3a25ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844995"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002777"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per l'inferenza con GPU
 
-Questo articolo illustra come usare il servizio Azure Machine Learning per distribuire un modello abilitato per GPU come servizio Web. Le informazioni contenute in questo articolo si basano sulla distribuzione di un modello in Azure Kubernetes Service (AKS). Il cluster AKS fornisce una risorsa GPU utilizzata dal modello per l'inferenza.
+Questo articolo illustra come usare Azure Machine Learning per distribuire un modello abilitato per GPU come servizio Web. Le informazioni contenute in questo articolo si basano sulla distribuzione di un modello in Azure Kubernetes Service (AKS). Il cluster AKS fornisce una risorsa GPU utilizzata dal modello per l'inferenza.
 
 L'inferenza o il punteggio del modello è la fase in cui il modello distribuito viene utilizzato per eseguire stime. L'uso delle GPU anziché delle CPU offre vantaggi a livello di prestazioni per il calcolo altamente eseguibili.
 
@@ -34,7 +34,7 @@ L'inferenza o il punteggio del modello è la fase in cui il modello distribuito 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro del servizio Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
+* Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
 * Ambiente di sviluppo Python con Azure Machine Learning SDK installato. Per ulteriori informazioni, vedere [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
@@ -51,7 +51,7 @@ L'inferenza o il punteggio del modello è la fase in cui il modello distribuito 
 Per connettersi a un'area di lavoro esistente, usare il codice seguente:
 
 > [!IMPORTANT]
-> Questo frammento di codice prevede che la configurazione dell'area di lavoro venga salvata nella directory corrente o nel relativo elemento padre. Per ulteriori informazioni sulla creazione di un'area di lavoro, vedere [creare e gestire aree di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).   Per ulteriori informazioni sul salvataggio della configurazione nel file, vedere [creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
+> Questo frammento di codice prevede che la configurazione dell'area di lavoro venga salvata nella directory corrente o nel relativo elemento padre. Per ulteriori informazioni sulla creazione di un'area di lavoro, vedere [creare e gestire aree di lavoro Azure Machine Learning](how-to-manage-workspace.md).   Per ulteriori informazioni sul salvataggio della configurazione nel file, vedere [creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -93,7 +93,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure effettuerà la fatturazione fino a quando il cluster AKS esiste. Assicurarsi di eliminare il cluster AKS al termine dell'operazione.
 
-Per altre informazioni sull'uso di AKS con Azure Machine Learning Service, vedere [come eseguire la distribuzione nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
+Per altre informazioni sull'uso di AKS con Azure Machine Learning, vedere [come eseguire la distribuzione nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Scrivere lo script di immissione
 

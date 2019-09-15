@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6a942e48ffea7785fe971cc2f8fa66e8569ed672
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 362024868de269ed64a440a25e8c19c5b68bef80
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342728"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003467"
 ---
 # <a name="where-clause"></a>Clausola WHERE
 
-La clausola WHERE facoltativa (`WHERE <filter_condition>`) specifica le condizioni che gli elementi JSON di origine devono soddisfare per la query per includerle nei risultati. Un elemento JSON deve valutare le condizioni specificate come `true` da considerare per il risultato. Il livello di indice viene utilizzata la clausola WHERE per determinare il subset più piccolo di elementi di origine che possono far parte del risultato.
+La clausola WHERE facoltativa`WHERE <filter_condition>`() specifica le condizioni che devono essere soddisfatte dagli elementi JSON di origine affinché la query li includa nei risultati. Un elemento JSON deve valutare le condizioni `true` specificate per essere considerato per il risultato. Il livello di indice utilizza la clausola WHERE per determinare il subset più piccolo di elementi di origine che può far parte del risultato.
   
 ## <a name="syntax"></a>Sintassi
   
@@ -33,7 +33,7 @@ WHERE <filter_condition>
   
 - `<scalar_expression>`  
   
-   Espressione che rappresenta il valore da calcolare. Visualizzare [espressioni scalari](sql-query-scalar-expressions.md) per informazioni dettagliate.  
+   Espressione che rappresenta il valore da calcolare. Per informazioni dettagliate, vedere [espressioni scalari](sql-query-scalar-expressions.md) .  
   
 
 ## <a name="remarks"></a>Note
@@ -42,7 +42,7 @@ WHERE <filter_condition>
 
 ## <a name="examples"></a>Esempi
 
-La query seguente gli elementi di richieste che contengono un' `id` proprietà il cui valore `AndersenFamily`. Esclude qualsiasi elemento che non è un `id` proprietà o il cui valore non corrisponde al `AndersenFamily`.
+La query seguente richiede elementi che contengono una `id` proprietà il cui valore `AndersenFamily`è. Esclude tutti gli elementi che non dispongono di una `id` proprietà o il cui valore non corrisponde. `AndersenFamily`
 
 ```sql
     SELECT f.address
@@ -64,9 +64,9 @@ I risultati sono:
 
 ### <a name="scalar-expressions-in-the-where-clause"></a>Espressioni scalari nella clausola WHERE
 
-Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. L'API SQL supporta anche vari [espressioni scalari](sql-query-scalar-expressions.md). Quelle di uso più comune sono le espressioni binarie e unarie. Anche i riferimenti di proprietà dell'oggetto JSON sono espressioni valide.
+Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. L'API SQL supporta inoltre varie [espressioni scalari](sql-query-scalar-expressions.md). Quelle di uso più comune sono le espressioni binarie e unarie. Anche i riferimenti di proprietà dell'oggetto JSON sono espressioni valide.
 
-È possibile usare gli operatori binari supportati seguenti:  
+È possibile utilizzare gli operatori binari supportati seguenti:  
 
 |**Tipo di operatore**  | **Valori** |
 |---------|---------|
@@ -74,9 +74,9 @@ Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. L
 |Bit per bit    | \|, &, ^, <<, >>, >>> (spostamento a destra riempimento zero) |
 |Logico    | AND, OR, NOT      |
 |Confronto | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|string     |  \|\| (concatenazione) |
+|String     |  \|\| (concatenazione) |
 
-Le seguenti query di usano gli operatori binari:
+Nelle query seguenti vengono utilizzati operatori binari:
 
 ```sql
     SELECT *
@@ -104,10 +104,10 @@ Le seguenti query di usano gli operatori binari:
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-È anche possibile usare riferimenti di proprietà nelle query. Ad esempio, `SELECT * FROM Families f WHERE f.isRegistered` restituisce l'elemento JSON che contiene la proprietà `isRegistered` con valore uguale a `true`. Qualsiasi altro valore, come `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, o `<array>`, esclude l'elemento dal risultato. 
+È anche possibile usare i riferimenti alle proprietà nelle query. Ad esempio, `SELECT * FROM Families f WHERE f.isRegistered` restituisce l'elemento JSON che contiene la `isRegistered` proprietà con valore uguale `true`a. Qualsiasi altro valore, ad esempio `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`o `<array>`, esclude l'elemento dal risultato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Introduzione](sql-query-getting-started.md)
-- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Clausola FROM](sql-query-from.md)

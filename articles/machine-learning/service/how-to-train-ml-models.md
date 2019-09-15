@@ -1,7 +1,7 @@
 ---
 title: Eseguire il training di modelli di Machine Learning con oggetti Estimator
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come eseguire il training su nodo singolo e distribuito di modelli di Machine Learning tradizionale e di apprendimento avanzato usando la classe Estimator del servizio Machine Learning
+titleSuffix: Azure Machine Learning
+description: Informazioni su come eseguire il training a nodo singolo e distribuito di modelli tradizionali di apprendimento automatico e apprendimento avanzato usando Azure Machine Learning classe Estimator
 ms.author: maxluk
 author: maxluk
 services: machine-learning
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10aee302377c4f71e47d93f5cd975043efcea375
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 041f80937e3ebae15dd5bd64858ccbd8269104a0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815911"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002588"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Eseguire il training di modelli con Azure Machine Learning usando l'oggetto Estimator
 
@@ -56,7 +56,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 Questo frammento di codice specifica i parametri seguenti per il costruttore di `Estimator`.
 
-Parametro | DESCRIZIONE
+Parametro | Descrizione
 --|--
 `source_directory`| Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale al calcolo remoto.
 `script_params`| Dizionario che specifica gli argomenti della riga di comando da passare allo script `entry_script`di training, sotto forma `<command-line argument, value>` di coppie. Per specificare un flag dettagliato in `script_params`, utilizzare. `<command-line argument, "">`

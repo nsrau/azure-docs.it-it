@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 735013046f65a9dba345c52db883df0b114ba7f2
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 3f46c54edff2bc765e75742848f83d30e7aa7c09
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69892060"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003407"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Archiviare le credenziali in Azure Key Vault
 
-È possibile archiviare le credenziali per gli archivi dati e i calcoli in [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory recupera le credenziali durante l'esecuzione di un'attività che usa l'archivio dati o il calcolo.
+È possibile archiviare le credenziali per gli archivi dati e i calcoli in [Azure Key Vault](../key-vault/key-vault-overview.md). Azure Data Factory recupera le credenziali durante l'esecuzione di un'attività che usa l'archivio dati o il calcolo.
 
 Attualmente questa funzionalità è supportata da tutti i tipi di attività tranne quelle personalizzate. Per la configurazione del connettore in particolare, verificare i dettagli nella sezione delle proprietà del servizio collegato nell'[argomento relativo a ogni connettore](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -43,8 +43,8 @@ Per il servizio collegato di Azure Key Vault sono supportate le proprietà segue
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzureKeyVault**. | Sì |
-| baseUrl | Specificare l'URL di Azure Key Vault. | Sì |
+| type | La proprietà type deve essere impostata su: **AzureKeyVault**. | Yes |
+| baseUrl | Specificare l'URL di Azure Key Vault. | Yes |
 
 **Nell'interfaccia utente:**
 
@@ -79,7 +79,7 @@ Quando si configura un campo nel servizio collegato che fa riferimento a un segr
 | type | La proprietà type del campo deve essere impostata su: **AzureKeyVaultSecret**. | Sì |
 | secretName | Nome del segreto in Azure Key Vault. | Sì |
 | secretVersion | Versione di Secret in Azure Key Vault.<br/>Se non specificata, usare sempre la versione più recente del segreto.<br/>Se specificata, corrisponde alla versione specificata.| No |
-| store | Fa riferimento a un servizio collegato di Azure Key Vault che si usa per archiviare la credenziale. | Yes |
+| store | Fa riferimento a un servizio collegato di Azure Key Vault che si usa per archiviare la credenziale. | Sì |
 
 **Nell'interfaccia utente:**
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: e6f6ba131a4fb5dd31f113afd2b6de2d65aeaea0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 828ec2b925535df3f925093466556447e703cd76
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915177"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003801"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
 
@@ -135,7 +135,7 @@ Per una topologia di esempio che usa questo componente e funziona con Storm in H
 
 2. Nella finestra **Nuovo progetto** espandere **Modelli** > **installati** e selezionare **Azure Data Lake**. Dall'elenco dei modelli selezionare **Applicazione Storm**. Nella parte inferiore della schermata immettere **WordCount** come nome dell'applicazione.
 
-    ![Screenshot della finestra Nuovo progetto](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
+    ![Screenshot della finestra Nuovo progetto](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
 3. Dopo avere creato il progetto, si dovrebbe disporre dei file seguenti:
 
@@ -338,7 +338,7 @@ Per una topologia di esempio che usa questo componente e funziona con Storm in H
 
 Gli spout e i bolt vengono disposti in un grafico che definisce i flussi di dati tra i componenti. Di seguito è riportato il grafico relativo alla topologia in oggetto:
 
-![Diagramma della disposizione degli elementi](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![Diagramma della disposizione degli elementi](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
 
 Lo spout genera frasi, che vengono quindi distribuite a istanze del bolt Splitter. Il bolt Splitter suddivide le frasi in parole, che vengono quindi distribuite al bolt Counter.
 
@@ -461,7 +461,6 @@ Per un esempio di topologia ibrida, creare un progetto e selezionare **Storm Hyb
   > [!NOTE]  
   > Questa versione illustra anche come usare codice Clojure da un file di testo come componente Java.
 
-
 Quando si invia il progetto, per passare da una topologia all'altra spostare l'istruzione `[Active(true)]` nella topologia che si desidera usare prima di effettuare l'invio al cluster.
 
 > [!NOTE]  
@@ -571,15 +570,15 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
    > [!NOTE]
    > Ricordarsi di reimpostare **Tipo di output** su **Libreria di classi** prima di distribuire la topologia a un cluster.
 
-2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Aggiungi** > **Nuovo elemento**. Selezionare **Classe** e immettere **LocalTest.cs** come nome della classe. Infine fare clic su **Aggiungi**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Aggiungi** > **Nuovo elemento**. Selezionare **Classe** e immettere **LocalTest.cs** come nome della classe. Infine fare clic su **Aggiungi**.
 
-3. Aprire **LocalTest.cs** e aggiungere all'inizio l'istruzione **using** seguente:
+1. Aprire **LocalTest.cs** e aggiungere all'inizio l'istruzione **using** seguente:
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. Usare il codice seguente come contenuto della classe **LocalTest**:
+1. Usare il codice seguente come contenuto della classe **LocalTest**:
 
     ```csharp
     // Drives the topology components
@@ -681,9 +680,9 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
     Console.ReadKey();
     ```
 
-2. Salvare le modifiche, quindi premere **F5** o selezionare **Debug** > **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando viene visualizzato il messaggio **Esecuzione test completata** , premere un tasto qualsiasi per chiudere la finestra.
+1. Salvare le modifiche, quindi premere **F5** o selezionare **Debug** > **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando viene visualizzato il messaggio **Esecuzione test completata** , premere un tasto qualsiasi per chiudere la finestra.
 
-3. Usare **Esplora risorse** per individuare la directory contenente il progetto. Ad esempio:  **C:\Users\<nome_utente>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In questa directory, aprire **Bin** e quindi fare clic su **Debug**. Verranno visualizzati i file di testo generati durante l'esecuzione dei test: sentences.txt, counter.txt e splitter.txt. Aprire ogni file di testo e verificare i dati.
+1. Usare **Esplora risorse** per individuare la directory contenente il progetto. Esempio: **C:\Users\<nome_utente>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In questa directory, aprire **Bin** e quindi fare clic su **Debug**. Verranno visualizzati i file di testo generati durante l'esecuzione dei test: sentences.txt, counter.txt e splitter.txt. Aprire ogni file di testo e verificare i dati.
 
    > [!NOTE]  
    > In questi file i dati stringa vengono resi permanenti come matrice di valori decimali. Ad esempio \[[97,103,111]] nel file **splitter.txt** corrisponde alla parola *and*.

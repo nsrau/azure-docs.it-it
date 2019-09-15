@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 2d369af7c11473d811677f33f9112d41260fcecf
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736029"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003109"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurare le impostazioni di Apache Spark
 
@@ -44,11 +44,11 @@ Apache Spark ha tre posizioni per le configurazioni di sistema:
 Quando si seleziona una particolare versione di Spark, il cluster include le impostazioni di configurazione predefinite.  È possibile modificare i valori di configurazione predefiniti di Spark usando un file di configurazione di Spark personalizzato.  Di seguito è illustrato un esempio.
 
 ```
-    spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
-    spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
-    spark.hadoop.parquet.block.size 1099511627776
-    spark.sql.files.maxPartitionBytes 1099511627776
-    spark.sql.files.openCostInBytes 1099511627776
+spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
+spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
+spark.hadoop.parquet.block.size 1099511627776
+spark.sql.files.maxPartitionBytes 1099511627776
+spark.sql.files.openCostInBytes 1099511627776
 ```
 
 L'esempio precedente esegue l'override di alcuni valori predefiniti per cinque parametri di configurazione di Spark.  Si tratta dei valori predefiniti relativi a codec di compressione, dimensioni minime di divisione Apache Hadoop MapReduce, dimensioni del blocco Parquet, partizione Spark SQL e dimensioni dei file aperti.  Queste modifiche alla configurazione vengono scelte in quanto i dati e i processi associati (in questo esempio, i dati di genomica) hanno caratteristiche particolari, che offrono prestazioni migliori se si usano queste impostazioni di configurazione personalizzate.
@@ -63,7 +63,7 @@ Viene visualizzata l'interfaccia utente Web di Apache Ambari, con una vista del 
 
 Per visualizzare i valori di configurazione per Apache Spark, selezionare **Config History** (Cronologia configurazione) e quindi selezionare **Spark2**.  Selezionare la scheda **Configs** (Configurazioni) e quindi fare clic sul collegamento `Spark` (o `Spark2`, a seconda della versione) nell'elenco di servizi.  Verrà visualizzato un elenco di valori di configurazione per il cluster:
 
-![Configurazioni di Spark](./media/apache-spark-settings/spark-config.png)
+![Configurazioni di Spark](./media/apache-spark-settings/spark-configurations.png)
 
 Per visualizzare e modificare i singoli valori di configurazione di Spark, selezionare un collegamento con la parola "spark" nel titolo.  Le configurazioni per Spark includono sia i valori di configurazione personalizzati che quelli avanzati nelle categorie seguenti:
 
@@ -82,7 +82,7 @@ Se si crea un set non predefinito di valori di configurazione, è anche possibil
 
 Il diagramma seguente mostra gli oggetti Spark principali: il programma driver e il contesto Spark associato, oltre che lo strumento di gestione di cluster e i relativi *n* nodi del ruolo di lavoro.  Ogni nodo del ruolo di lavoro include un executor, una cache e *n* istanze di attività.
 
-![Oggetti del cluster](./media/apache-spark-settings/spark-arch.png)
+![Oggetti del cluster](./media/apache-spark-settings/hdi-spark-architecture.png)
 
 I processi Spark usano risorse del ruolo di lavoro, in particolare la memoria, quindi è prassi comune modificare i valori di configurazione di Spark per gli executor del nodo del ruolo di lavoro.
 
@@ -93,7 +93,7 @@ I tre parametri principali che vengono spesso modificati per ottimizzare le conf
 
 Un'altra fonte di informazioni sulle risorse in uso dagli executor Spark è l'interfaccia utente dell'applicazione Spark.  Nell'interfaccia utente di Spark selezionare la scheda **Executor** per visualizzare le viste di riepilogo e dei dettagli della configurazione e delle risorse utilizzate dagli executor.  Queste viste aiutano a determinare se modificare i valori predefiniti per gli executor Spark per l'intero cluster o un set specifico di esecuzioni del processo.
 
-![Executor Spark](./media/apache-spark-settings/spark-executors.png)
+![Executor Spark](./media/apache-spark-settings/apache-spark-executors.png)
 
 In alternativa, è possibile usare l'API REST Ambari per verificare a livello di codice le impostazioni di configurazione dei cluster HDInsight e Spark.  Per altre informazioni, vedere le [informazioni di riferimento dell'API Apache Ambari in GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -105,7 +105,7 @@ A seconda del carico di lavoro di Spark, è possibile determinare che una config
 
 Ecco un esempio di due nodi del ruolo di lavoro con valori di configurazione diversi:
 
-![Configurazioni a due nodi](./media/apache-spark-settings/executor-config.png)
+![Configurazioni a due nodi](./media/apache-spark-settings/executor-configuration.png)
 
 L'elenco seguente illustra i principali parametri di memoria degli executor Spark.
 
@@ -116,7 +116,7 @@ L'elenco seguente illustra i principali parametri di memoria degli executor Spar
 
 YARN controlla la quantità complessiva massima di memoria usata dai contenitori in ogni nodo Spark. Il diagramma seguente mostra le relazioni per nodo tra gli oggetti di configurazione YARN e gli oggetti Spark.
 
-![Gestione della memoria Spark in YARN](./media/apache-spark-settings/yarn-spark-memory.png)
+![Gestione della memoria Spark in YARN](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Modificare i parametri per un'applicazione in esecuzione in un notebook Jupyter
 
@@ -136,8 +136,8 @@ Per le applicazioni in esecuzione nel notebook Jupyter, usare il comando `%%conf
 Il codice riportato di seguito mostra come modificare la configurazione per un'applicazione in esecuzione in un notebook Jupyter.
 
 ```
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
 ## <a name="conclusion"></a>Conclusione

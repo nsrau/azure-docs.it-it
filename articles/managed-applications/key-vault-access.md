@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a87066425845a7f1043576a858a361e601ba9cc8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588294"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003418"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segreto di accesso di Key Vault quando si distribuiscono le Applicazioni gestite di Azure
 
-Quando è necessario passare un valore protetto (ad esempio una password) come parametro durante la distribuzione, è possibile recuperare il valore da [Azure Key Vault](../key-vault/key-vault-whatis.md). Per accedere a Key Vault durante la distribuzione delle applicazione gestite è necessario concedere l'accesso all'entità servizio **Provider di risorse di Appliance**. Il servizio Applicazioni gestite usa questa identità per eseguire le operazioni. Per recuperare correttamente un valore da un insieme di credenziali delle chiavi durante la distribuzione, l'entità servizio deve essere in grado di accedere all'insieme di credenziali delle chiavi.
+Quando è necessario passare un valore protetto (ad esempio una password) come parametro durante la distribuzione, è possibile recuperare il valore da [Azure Key Vault](../key-vault/key-vault-overview.md). Per accedere a Key Vault durante la distribuzione delle applicazione gestite è necessario concedere l'accesso all'entità servizio **Provider di risorse di Appliance**. Il servizio Applicazioni gestite usa questa identità per eseguire le operazioni. Per recuperare correttamente un valore da un insieme di credenziali delle chiavi durante la distribuzione, l'entità servizio deve essere in grado di accedere all'insieme di credenziali delle chiavi.
 
 Questo articolo descrive come configurare Key Vault per lavorare con le applicazioni gestite.
 

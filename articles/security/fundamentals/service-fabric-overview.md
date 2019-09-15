@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ca2f346950d84fda736437f439efc5d35e342799
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5329323122d8470b19055040b6f00b6db7c0e75f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934579"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998940"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Panoramica della sicurezza di Azure Service Fabric
 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili. Service Fabric fa fronte alle problematiche correlate allo sviluppo e alla gestione delle applicazioni cloud. Gli sviluppatori e gli amministratori non devono più occuparsi di risolvere complessi problemi di infrastruttura e possono concentrarsi sull'implementazione di carichi di lavoro cruciali e impegnativi, scalabili e affidabili.
@@ -132,7 +132,7 @@ La sicurezza da client a nodo viene configurata usando le identità dei client. 
 ### <a name="manage-secrets-in-service-fabric-applications"></a>Gestire i segreti nelle applicazioni di Service Fabric
 I segreti possono essere informazioni riservate, ad esempio le stringhe di connessione di archiviazione, le password o altri valori che non devono essere gestiti in testo normale.
 
-È possibile usare [Azure Key Vault](../../key-vault/key-vault-whatis.md) per gestire le chiavi e i segreti. L'uso dei segreti in un'applicazione non si basa tuttavia su una piattaforma cloud specifica. È possibile distribuire applicazioni a un cluster ospitato in una posizione qualsiasi. In questo flusso sono presenti quattro passaggi principali:
+È possibile usare [Azure Key Vault](../../key-vault/key-vault-overview.md) per gestire le chiavi e i segreti. L'uso dei segreti in un'applicazione non si basa tuttavia su una piattaforma cloud specifica. È possibile distribuire applicazioni a un cluster ospitato in una posizione qualsiasi. In questo flusso sono presenti quattro passaggi principali:
 
 1.  Ottenere un certificato di crittografia dei dati.
 2.  Installare il certificato nel cluster.

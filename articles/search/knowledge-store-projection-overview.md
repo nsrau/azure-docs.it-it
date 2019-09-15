@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.subservice: cognitive-search
-ms.openlocfilehash: 2dd61a4511d406fefec5aacd0702fa732f79de92
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 85376bddbfbf8249438c9027eaf4dc63b83fe2fe
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186238"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004014"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Uso delle proiezioni in un archivio informazioni in ricerca di Azure
 
@@ -34,7 +34,7 @@ Nell'archivio informazioni sono supportati due tipi di proiezioni:
 
 + **Oggetti**: Quando è necessaria una rappresentazione JSON dei dati e degli arricchimenti, le proiezioni di oggetti vengono salvate come BLOB.
 
-Per visualizzare le proiezioni definite nel contesto, eseguire un'istruzione per iniziare a [usare l'archivio informazioni](knowledge-store-howto.md)
+Per visualizzare le proiezioni definite nel contesto, eseguire un'istruzione per iniziare a [usare l'archivio informazioni](knowledge-store-howto.md).
 
 ## <a name="projection-groups"></a>Gruppi di proiezione
 
@@ -66,6 +66,9 @@ Poiché semplifica l'importazione, si consigliano le proiezioni di tabella per l
 ### <a name="defining-a-table-projection"></a>Definizione di una proiezione di tabella
 
 Quando si definisce una proiezione di tabella `knowledgeStore` all'interno dell'elemento dell'elemento Skills, iniziare eseguendo il mapping di un nodo nell'albero di arricchimento all'origine della tabella. In genere, questo nodo è l'output di una competenza di **shaper** aggiunto all'elenco di competenze per produrre una forma specifica che è necessario proiettare nelle tabelle. Il nodo scelto per il progetto può essere sezionato in modo da essere proiettato in più tabelle. La definizione delle tabelle è un elenco di tabelle che si desidera proiettare. 
+
+#### <a name="projection-slicing"></a>Sezionamento della proiezione
+Quando si definisce un gruppo di proiezione della tabella, è possibile suddividere in più tabelle correlate un singolo nodo nell'albero di arricchimento. Se si aggiunge una tabella con un percorso di origine figlio di una proiezione di tabella esistente, il nodo figlio verrà sezionato al di fuori del nodo padre e proiettato nella nuova tabella ancora correlata. In questo modo è possibile definire un singolo nodo in un'abilità di shaper che può essere l'origine di tutte le proiezioni di tabella.
 
 Ogni tabella richiede tre proprietà:
 
@@ -154,7 +157,7 @@ Per la generazione di una proiezione di oggetti sono necessari alcuni attributi 
 
 + StorageContainer Contenitore in cui verranno salvati gli oggetti
 + source: Percorso del nodo della struttura ad albero di arricchimento che è la radice della proiezione
-+ chiave Percorso che rappresenta una chiave univoca per l'oggetto da archiviare. Verrà usato per creare il nome del BLOB nel contenitore.
++ Chiave Percorso che rappresenta una chiave univoca per l'oggetto da archiviare. Verrà usato per creare il nome del BLOB nel contenitore.
 
 ## <a name="projection-lifecycle"></a>Ciclo di vita della proiezione
 

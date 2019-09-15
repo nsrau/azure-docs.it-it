@@ -1,6 +1,6 @@
 ---
 title: Interpretabilità dei modelli
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come spiegare il motivo per cui il modello esegue stime usando il Azure Machine Learning SDK. Può essere utilizzato durante il training e l'inferenza per comprendere il modo in cui il modello esegue stime.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 2e8eb79c4baebebb1974a977394215545ef944db
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6b825e61542dabc92baf482ede6c93edc486e059
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872395"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002352"
 ---
-# <a name="model-interpretability-with-azure-machine-learning-service"></a>Interpretazione dei modelli con il servizio Azure Machine Learning
+# <a name="model-interpretability-with-azure-machine-learning"></a>Interpretazione dei modelli con Azure Machine Learning
 
 In questo articolo si apprenderà come spiegare il motivo per cui il modello ha eseguito le stime con i diversi pacchetti di interpretazione del Azure Machine Learning Python SDK.
 
@@ -66,7 +66,7 @@ I __Explainer diretti__ provengono da librerie integrate. L'SDK esegue il wrappi
 * **Spiegatore Mimic**: Il Explainer MIME si basa sul concetto di modelli surrogati globali. Un modello di surrogato globale è un modello interpretabile in modo intrinseco che viene sottoposto a training per approssimare le stime di un modello di black box nel modo più accurato possibile. I data scientist possono interpretare il modello surrogato per trarre conclusioni sul modello di black box. È possibile usare uno dei modelli interpretabili seguenti come modello surrogato: LightGBM (LinearExplainableModel), regressione lineare (LinearExplainableModel), modello a discesa di sfumatura stocastica (SGDExplainableModel) e albero delle decisioni (DecisionTreeExplainableModel).
 
 
-* **Spiegazione dell'importanza della funzionalità**di permutazione: L'importanza della funzionalità di permutazione è una tecnica usata per spiegare i modelli di classificazione e regressione ispirati dalla [carta delle foreste casuali di Breiman](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (vedere la sezione 10). A un livello elevato, il modo in cui funziona è rimescolando in modo casuale i dati una funzionalità alla volta per l'intero set di dati e calcolando il grado di riduzione della metrica delle prestazioni di interesse. Maggiore è la modifica, più importante è la funzionalità.
+* **Spiegazione dell'importanza della funzionalità di permutazione**: L'importanza della funzionalità di permutazione è una tecnica usata per spiegare i modelli di classificazione e regressione ispirati dalla [carta delle foreste casuali di Breiman](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (vedere la sezione 10). A un livello elevato, il modo in cui funziona è rimescolando in modo casuale i dati una funzionalità alla volta per l'intero set di dati e calcolando il grado di riduzione della metrica delle prestazioni di interesse. Maggiore è la modifica, più importante è la funzionalità.
 
 * **Spiegazione di lime** (`contrib`): In base a LIME, il Delucidatore LIME usa l'algoritmo di CALCe per la creazione di modelli di surrogati locali all'avanguardia. A differenza dei modelli surrogati globali, LIME è incentrato sul training di modelli surrogati locali per spiegare singole stime.
 * **Spiegazione del testo Han** (`contrib`): Il Explainer del testo HAN usa una rete gerarchica di attenzione per ottenere spiegazioni del modello dai dati di testo per un determinato modello di testo black box. Il modello di surrogato HAN viene sottoposto a training per gli output previsti di un determinato modello di insegnante. Dopo aver eseguito il training a livello globale nel corpus di testo, è stato aggiunto un passaggio preciso per un documento specifico, in modo da migliorare l'accuratezza delle spiegazioni. HAN usa un RNN bidirezionale con due livelli di attenzione, per la frase e la parola attenzione. Dopo aver eseguito il training del DNN sul modello Teacher e aver ottimizzato in base a un documento specifico, è possibile estrarre le parole importanti dai livelli di attenzione. È stato rilevato che HAN è più accurato di LIME o SHAP per i dati di testo ma anche più costoso in termini di tempo di training. Tuttavia, sono stati apportati miglioramenti al tempo di training offrendo all'utente la possibilità di inizializzare la rete con gli incorporamenti di Word GloVe, sebbene sia ancora lenta. Il tempo di training può essere migliorato significativamente eseguendo HAN in una VM GPU di Azure remota. L'implementazione di HAN è descritta in ["reti gerarchiche di attenzione per la classificazione dei documenti (Yang et al., 2016)"](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification).
@@ -219,7 +219,7 @@ Il `explain` pacchetto è progettato per funzionare sia con le destinazioni di c
 
 ### <a name="train-and-explain-remotely"></a>Eseguire il training e spiegare in remoto
 
-Sebbene sia possibile eseguire il training sulle varie destinazioni di calcolo supportate dal servizio Azure Machine Learning, l'esempio riportato in questa sezione illustra come eseguire questa operazione usando una destinazione di calcolo Azure Machine Learning.
+Sebbene sia possibile eseguire il training sulle varie destinazioni di calcolo supportate da Azure Machine Learning, l'esempio riportato in questa sezione illustra come eseguire questa operazione usando una destinazione di calcolo Azure Machine Learning.
 
 1. Creare uno script di training in un notebook Jupyter locale, ad esempio run_explainer. py.
 
@@ -474,7 +474,7 @@ Il Explainer può essere distribuito insieme al modello originale e può essere 
 
 1. Distribuire l'immagine in una destinazione di calcolo:
 
-   1. Creare un file di assegnazione dei punteggi (prima di questo passaggio, seguire la procedura descritta in [distribuire modelli con il servizio Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) per registrare il modello di stima originale)
+   1. Creare un file di assegnazione dei punteggi (prima di questo passaggio, seguire la procedura descritta in [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) per registrare il modello di stima originale)
 
         ```python
         %%writefile score.py

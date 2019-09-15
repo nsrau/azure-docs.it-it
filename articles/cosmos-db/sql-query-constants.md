@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: ed337c8330eb8b3e4ad97c92cca1d0c5977f9588
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 41cafeb76b7b9481a78ffcff179676d0aa7bf6fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342452"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002037"
 ---
-# <a name="azure-cosmos-db-sql-query-constants"></a>Costanti di query di Cosmos DB SQL Azure  
+# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB costanti di query SQL  
 
  Una costante, nota anche come valore letterale o scalare, è un simbolo che rappresenta un valore di dati specifico. Il formato di una costante dipende dal tipo di dati del valore che rappresenta.  
   
@@ -26,7 +26,7 @@ ms.locfileid: "67342452"
 |**Boolean**|Valori: **false**, **true**.|  
 |**Number**|Un numero a virgola mobile e precisione doppia, standard IEEE 754.|  
 |**String**|Una sequenza di zero o più caratteri Unicode. Le stringhe devono essere racchiuse tra virgolette singole o doppie.|  
-|**Array**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalare, tranne **Undefined**.|  
+|**Array**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalari, ad eccezione di **undefined**.|  
 |**Object**|Un set non ordinato di zero o più coppie nome/valore. Il nome è una stringa Unicode, il valore può essere di qualsiasi tipo di dati scalare, tranne **Undefined**.|  
   
 ## <a name="bk_syntax"></a>Sintassi
@@ -118,5 +118,5 @@ ms.locfileid: "67342452"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Dati del documento modello](modeling-data.md)

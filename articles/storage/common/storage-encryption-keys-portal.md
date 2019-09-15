@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c8ec6b1e90eb6638c99ca43715c5e8bea6e48c22
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 892cbe66222626a6847ad7a5b6c990d23991c182
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030947"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002259"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configurare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure dalla portale di Azure
 
@@ -24,7 +24,7 @@ Questo articolo illustra come configurare un insieme di credenziali delle chiavi
 
 
 > [!IMPORTANT]
-> L'uso delle chiavi gestite dal cliente con la crittografia di archiviazione di Azure richiede che l'insieme di credenziali delle chiavi disponga di due proprietà obbligatorie configurate, **eliminazione** temporanea e **non**ripulitura. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
+> L'uso delle chiavi gestite dal cliente con la crittografia di archiviazione di Azure richiede che l'insieme di credenziali delle chiavi disponga di due proprietà obbligatorie configurate, **eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
 > Sono supportate solo le chiavi RSA e le dimensioni della chiave 2048.
 
 ## <a name="enable-customer-managed-keys"></a>Abilita chiavi gestite dal cliente
@@ -73,4 +73,4 @@ Quando si crea una nuova versione di una chiave, è necessario aggiornare l'acco
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
-- [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+- [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

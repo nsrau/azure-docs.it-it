@@ -1,7 +1,7 @@
 ---
 title: Eseguire il training di una rete neurale Deep Learning con TensorFlow
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come eseguire gli script di training di TensorFlow su larga scala con Azure Machine Learning servizio.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come eseguire gli script di training di TensorFlow su larga scala usando Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b65a9b7440922d2b1d7a02a79cc6d0811a1d9fc
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 52c675369fa70d1b1113f34b9b0dda2126547e0a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639350"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002511"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Creazione di un modello di apprendimento avanzato TensorFlow su larga scala con Azure Machine Learning
 
@@ -65,7 +65,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro del servizio Azure Machine Learning](concept-workspace.md) è la risorsa di livello superiore per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
 
 Creare un oggetto dell'area di `config.json` lavoro dal file creato nella [sezione Prerequisiti](#prerequisites).
 
@@ -201,9 +201,9 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Training distribuito
 
-Lo [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) strumento di stima supporta anche il training distribuito nei cluster CPU e GPU. È possibile eseguire facilmente processi TensorFlow distribuiti e Azure Machine Learning servizio gestirà l'orchestrazione.
+Lo [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) strumento di stima supporta anche il training distribuito nei cluster CPU e GPU. È possibile eseguire facilmente processi TensorFlow distribuiti e Azure Machine Learning gestirà l'orchestrazione.
 
-Il servizio Azure Machine Learning supporta due metodi di formazione distribuita in TensorFlow:
+Azure Machine Learning supporta due modalità di training distribuito in TensorFlow:
 
 - Training distribuito [basato su MPI](https://www.open-mpi.org/) con [Horovod](https://github.com/uber/horovod) Framework
 - [TensorFlow distribuiti](https://www.tensorflow.org/deploy/distributed) nativi usando il metodo del server dei parametri

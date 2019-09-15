@@ -1,7 +1,7 @@
 ---
 title: Ottimizzare gli iperparametri per il modello
-titleSuffix: Azure Machine Learning service
-description: Ottimizzare in modo efficiente gli iperparametri per il modello di apprendimento avanzato/apprendimento automatico mediante il servizio Azure Machine Learning. Si apprenderà come definire lo spazio di ricerca dei parametri, come specificare una metrica primaria da ottimizzare e come terminare le esecuzioni con prestazioni scarse.
+titleSuffix: Azure Machine Learning
+description: Ottimizza in modo efficiente gli iperparametri per il modello di apprendimento avanzato/apprendimento automatico usando Azure Machine Learning. Si apprenderà come definire lo spazio di ricerca dei parametri, come specificare una metrica primaria da ottimizzare e come terminare le esecuzioni con prestazioni scarse.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a6f7c6de005112578cc29865574e5e255c99a8e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: cb4023be41377846ed209b3d6702188f5d79ba00
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873080"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999396"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Ottimizzare gli iperparametri per il modello con il servizio Azure Machine Learning
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ottimizzazione degli iperparametri per il modello con Azure Machine Learning
 
-Ottimizzare in modo efficiente gli iperparametri per il modello mediante il servizio Azure Machine Learning.  L'ottimizzazione degli iperparametri include i passaggi seguenti:
+Ottimizza in modo efficiente gli iperparametri per il modello usando Azure Machine Learning.  L'ottimizzazione degli iperparametri include i passaggi seguenti:
 
 * Definire lo spazio di ricerca dei parametri
 * Specificare una metrica primaria da ottimizzare  
@@ -94,7 +94,7 @@ Questo codice definisce uno spazio di ricerca con due parametri: `learning_rate`
 
 ### <a name="sampling-the-hyperparameter-space"></a>Campionamento dello spazio degli iperparametri
 
-È anche possibile specificare il metodo di campionamento dei parametri da usare per la definizione dello spazio degli iperparametri. Il servizio Azure Machine Learning supporta il campionamento casuale, il campionamento a griglia e il campionamento bayesiano.
+È anche possibile specificare il metodo di campionamento dei parametri da usare per la definizione dello spazio degli iperparametri. Azure Machine Learning supporta il campionamento casuale, il campionamento della griglia e il campionamento Bayes.
 
 #### <a name="random-sampling"></a>Campionamento casuale
 
@@ -186,7 +186,7 @@ Quando si usano criteri di terminazione anticipata, è possibile configurare i p
 * `evaluation_interval`: frequenza per l'applicazione del criterio. Ogni volta che lo script di training registra la metrica primaria viene conteggiata come un intervallo. Di conseguenza, un valore `evaluation_interval` di 1 applicherà i criteri ogni volta che lo script di training segnala la metrica primaria. Un valore `evaluation_interval` di 2 applicherà i criteri una volta ogni due. Se non specificato, `evaluation_interval` è impostato su 1 per impostazione predefinita.
 * `delay_evaluation`: ritarda la prima valutazione dei criteri per un numero di intervalli specificato. Si tratta di un parametro facoltativo che consente l'esecuzione di tutte le configurazioni per un numero minimo iniziale di intervalli, evitando la terminazione anticipata delle esecuzioni di training. Se specificato, i criteri vengono applicati ogni multiplo di evaluation_interval che è maggiore o uguale a delay_evaluation.
 
-Il servizio Azure Machine Learning supporta i criteri di terminazione anticipata seguenti:
+Azure Machine Learning supporta i seguenti criteri di terminazione anticipata.
 
 ### <a name="bandit-policy"></a>Criteri Bandit
 
@@ -304,7 +304,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` è il nome da assegnare all'esperimento di ottimizzazione degli iperparametri e `workspace` è l'area di lavoro in cui si vuole creare l'esperimento. Per altre informazioni sugli esperimenti, vedere [Informazioni sul funzionamento del servizio Azure Machine Learning](concept-azure-machine-learning-architecture.md).
+`experiment_name`è il nome assegnato all'esperimento di ottimizzazione iperparametri e `workspace` è l'area di lavoro in cui si desidera creare l'esperimento. per ulteriori informazioni sugli esperimenti, vedere la pagina relativa al funzionamento di [Azure Machine Learning.](concept-azure-machine-learning-architecture.md)
 
 ## <a name="visualize-experiment"></a>Visualizzare l'esperimento
 

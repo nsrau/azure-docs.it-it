@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 60b323c12e5c548c974a7d660d08861637ac2381
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 944c05a28eb33c659bf4aaa600985530122f8d3e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996675"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000318"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
@@ -26,8 +26,11 @@ In alcune situazioni, potrebbe essere necessario eseguire l'override di questo c
 
 Azure Cosmos DB supporta due modalità di indicizzazione:
 
-- **Coerente**: Se i criteri di indicizzazione di un contenitore sono impostati su coerenti, l'indice viene aggiornato in modo sincrono durante la creazione, l'aggiornamento o l'eliminazione di elementi. Ciò significa che la coerenza delle query di lettura sarà la [coerenza configurata per l'account](consistency-levels.md).
-- **Nessuna**: Se i criteri di indicizzazione di un contenitore sono impostati su None, l'indicizzazione viene disabilitata in tale contenitore. Questa operazione viene in genere usata quando un contenitore viene usato come archivio chiave-valore puro senza la necessità di indici secondari. Consente inoltre di velocizzare le operazioni di inserimento bulk.
+- **Coerente**: L'indice viene aggiornato in modo sincrono durante la creazione, l'aggiornamento o l'eliminazione di elementi. Ciò significa che la coerenza delle query di lettura sarà la [coerenza configurata per l'account](consistency-levels.md).
+- **Nessuna**: L'indicizzazione è disabilitata nel contenitore. Questa operazione viene in genere usata quando un contenitore viene usato come archivio chiave-valore puro senza la necessità di indici secondari. Può anche essere usato per migliorare le prestazioni delle operazioni bulk. Una volta completate le operazioni bulk, è possibile impostare la modalità di indicizzazione su coerente e quindi monitorarla utilizzando [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) fino al completamento.
+
+> [!NOTE]
+> Cosmos DB supporta anche una modalità di indicizzazione differita. L'indicizzazione Lazy esegue gli aggiornamenti dell'indice con un livello di priorità molto inferiore quando il motore non esegue altre operazioni. Ciò può comportare risultati di query **incoerenti o incompleti** . Inoltre, l'utilizzo dell'indicizzazione differita al posto di ' none ' per le operazioni bulk non offre alcun vantaggio poiché qualsiasi modifica alla modalità di indice provocherà l'eliminazione e la ricreazione dell'indice. Per questi motivi, è consigliabile evitare che i clienti la utilizzino. Per migliorare le prestazioni per le operazioni bulk, impostare la modalità di indice su None, quindi tornare alla modalità `IndexTransformationProgress` coerente e monitorare la proprietà nel contenitore fino al completamento.
 
 Per impostazione predefinita, i criteri di indicizzazione vengono impostati su `automatic`. Per ottenere questo risultato, impostare `automatic` la proprietà nei criteri di indicizzazione su. `true` L'impostazione di questa `true` proprietà su consente ad Azure CosmosDB di indicizzare automaticamente i documenti man mano che vengono scritti.
 

@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 43848e99f679e306747c4cb7b31a4d4692c888cc
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 654ae2da9bcdb6d73de47730aff6870c2e3dfaeb
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918349"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001531"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Controllo del mapping degli esempi di progetto ufficiale UK e del SSN UK
 

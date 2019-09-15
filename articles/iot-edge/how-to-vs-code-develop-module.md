@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b451e501b216b02ecb052ee159d0e26343af7901
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e5bfd2fc127774b9630e87ab4f51241e82ed7c87
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910239"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999058"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug
 
@@ -61,7 +61,7 @@ Per compilare e distribuire l'immagine del modulo, è necessario Docker per comp
     > [!TIP]
     > Per prototipi e test è possibile usare un registro Docker locale anziché un registro nel cloud.
 
-A meno che il modulo non venga sviluppato in C, è necessario anche lo [strumento di sviluppo Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/) basato su Python per configurare l'ambiente di sviluppo locale in modo da eseguire e testare la soluzione IoT Edge ed eseguirne il debug. Se non è già stato fatto, installare [Python (2.7/3.6) e Pip](https://www.python.org/) e quindi **iotedgehubdev** eseguendo questo comando nel terminale.
+A meno che il modulo non venga sviluppato in C, è necessario anche lo [strumento di sviluppo Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/) basato su Python per configurare l'ambiente di sviluppo locale in modo da eseguire e testare la soluzione IoT Edge ed eseguirne il debug. Se non è già stato fatto, installare [Python (2.7/3.6 +) e PIP](https://www.python.org/) , quindi installare **iotedgehubdev** eseguendo questo comando nel terminale.
 
    ```cmd
    pip install --upgrade iotedgehubdev
@@ -269,22 +269,22 @@ Durante il debug di moduli con questo metodo, i moduli sono in esecuzione in pri
       ptvsd.break_into_debugger()
       ```
 
-     Ad esempio, se si desidera eseguire il debug del metodo `receive_message_callback`, si potrebbe inserire questa riga di codice come illustrato di seguito:
+     Se ad esempio si desidera eseguire il debug della `receive_message_listener` funzione, inserire la riga di codice come illustrato di seguito:
 
       ```python
-      def receive_message_callback(message, hubManager):
+      def receive_message_listener(client):
           ptvsd.break_into_debugger()
-          global RECEIVE_CALLBACKS
-          message_buffer = message.get_bytearray()
-          size = len(message_buffer)
-          print ( "    Data: <<<%s>>> & Size=%d" % (message_buffer[:size].decode ('utf-8'), size) )
-          map_properties = message.properties()
-          key_value_pair = map_properties.get_internals()
-          print ( "    Properties: %s" % key_value_pair )
-          RECEIVE_CALLBACKS += 1
-          print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
-          hubManager.forward_event_to_output("output1", message, 0)
-          return IoTHubMessageDispositionResult.ACCEPTED
+          global RECEIVED_MESSAGES
+          while True:
+              message = client.receive_message_on_input("input1")   # blocking call
+              RECEIVED_MESSAGES += 1
+              print("Message received on input1")
+              print( "    Data: <<{}>>".format(message.data) )
+              print( "    Properties: {}".format(message.custom_properties))
+              print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
+              print("Forwarding message to output1")
+              client.send_message_to_output(message, "output1")
+              print("Message successfully forwarded")
       ```
 
 1. Nel riquadro comandi di Visual Studio Code:

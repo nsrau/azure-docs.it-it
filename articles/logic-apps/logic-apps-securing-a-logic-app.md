@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 6c16b38cce31c45158a5871c10dbd01339da9203
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: be10d144fadb21a695c5573c82681a26136e71d4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845423"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004090"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in app per la logica di Azure
 
@@ -185,7 +185,7 @@ Per impedire ad altri utenti di modificare o eliminare l'app per la logica, è p
 
 Durante l'esecuzione di un'app per la logica, tutti i dati vengono crittografati durante il transito usando [TLS (Transit Layer Security)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) e [inattivi](../security/fundamentals/encryption-atrest.md). Al termine dell'esecuzione dell'app per la logica, è possibile visualizzare la cronologia dell'esecuzione, inclusi i passaggi eseguiti con lo stato, la durata, gli input e gli output per ogni azione. Questo approfondimento fornisce informazioni dettagliate sulle modalità di esecuzione dell'app per la logica e su dove è possibile iniziare la risoluzione dei problemi che si verificano.
 
-Quando si accede alla cronologia di esecuzione dell'app per la logica, app per la logica autentica l'accesso e fornisce collegamenti agli input e agli output delle richieste e delle risposte nell'esecuzione dell'app per la logica. Tuttavia, per le azioni che gestiscono password, segreti, chiavi o altre informazioni riservate, si desidera impedire ad altri utenti di visualizzare e accedere a tali dati. Ad esempio, se l'app per la logica ottiene un segreto da [Azure Key Vault](../key-vault/key-vault-whatis.md) da usare durante l'autenticazione di un'azione http, si vuole nascondere tale segreto dalla visualizzazione.
+Quando si accede alla cronologia di esecuzione dell'app per la logica, app per la logica autentica l'accesso e fornisce collegamenti agli input e agli output delle richieste e delle risposte nell'esecuzione dell'app per la logica. Tuttavia, per le azioni che gestiscono password, segreti, chiavi o altre informazioni riservate, si desidera impedire ad altri utenti di visualizzare e accedere a tali dati. Ad esempio, se l'app per la logica ottiene un segreto da [Azure Key Vault](../key-vault/key-vault-overview.md) da usare durante l'autenticazione di un'azione http, si vuole nascondere tale segreto dalla visualizzazione.
 
 Per controllare l'accesso agli input e agli output nella cronologia di esecuzione dell'app per la logica, sono disponibili le opzioni seguenti:
 
@@ -370,7 +370,7 @@ Per ulteriori informazioni, vedere [proteggere i parametri nelle definizioni del
 
 Quando si automatizzano le distribuzioni con i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters), è possibile definire i parametri di modello protetti, che vengono valutati `securestring` in fase di distribuzione, usando i tipi e. `secureobject` Per definire i parametri del modello, usare la sezione di `parameters` primo livello del modello, che è separata e diversa dalla sezione `parameters` della definizione del flusso di lavoro. Per specificare i valori per i parametri del modello, usare un [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)separato.
 
-Se, ad esempio, si usano i segreti, è possibile definire e usare i parametri di modello protetti che recuperano i segreti da [Azure Key Vault](../key-vault/key-vault-whatis.md) durante la distribuzione. È quindi possibile fare riferimento all'insieme di credenziali delle chiavi e al segreto nel file dei parametri. Per altre informazioni, vedere gli argomenti seguenti:
+Se, ad esempio, si usano i segreti, è possibile definire e usare i parametri di modello protetti che recuperano i segreti da [Azure Key Vault](../key-vault/key-vault-overview.md) durante la distribuzione. È quindi possibile fare riferimento all'insieme di credenziali delle chiavi e al segreto nel file dei parametri. Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Usare Azure Key Vault per passare i valori dei parametri protetti durante la distribuzione](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 * [Proteggere i parametri nei modelli di Azure Resource Manager](#secure-parameters-deployment-template) più avanti in questo argomento
@@ -425,7 +425,7 @@ Per proteggere le informazioni riservate nella definizione del flusso di lavoro 
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Proteggere i parametri nei modelli di Azure Resource Manager
 
-Un modello di gestione risorse per un'app per la `parameters` logica include più sezioni. Per proteggere password, chiavi, segreti e altre informazioni riservate, definire parametri protetti a livello di modello e di definizione del flusso di lavoro `securestring` usando `secureobject` il tipo o. È quindi possibile archiviare questi valori in [Azure Key Vault](../key-vault/key-vault-whatis.md) e usare il [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) per fare riferimento all'insieme di credenziali delle chiavi e al segreto. Il modello recupera quindi tali informazioni in fase di distribuzione. Per ulteriori informazioni, vedere [utilizzare Azure Key Vault per passare i valori dei parametri protetti durante la distribuzione](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+Un modello di gestione risorse per un'app per la `parameters` logica include più sezioni. Per proteggere password, chiavi, segreti e altre informazioni riservate, definire parametri protetti a livello di modello e di definizione del flusso di lavoro `securestring` usando `secureobject` il tipo o. È quindi possibile archiviare questi valori in [Azure Key Vault](../key-vault/key-vault-overview.md) e usare il [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) per fare riferimento all'insieme di credenziali delle chiavi e al segreto. Il modello recupera quindi tali informazioni in fase di distribuzione. Per ulteriori informazioni, vedere [utilizzare Azure Key Vault per passare i valori dei parametri protetti durante la distribuzione](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
 Di seguito sono riportate `parameters` altre informazioni su queste sezioni:
 

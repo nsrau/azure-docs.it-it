@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: d729ab4b3f42f5d353309023cf07ae5e212e02ec
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 565330528638bb6c8e0458a9761e2cf9fa4e3d2a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147607"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001458"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introduzione ai dispositivi gemelli (Python)
 
@@ -56,7 +56,7 @@ In questa sezione si crea un'app console Python che aggiunge i metadati della po
    ```
 
    > [!NOTE]
-   > I pacchetti PIP per Azure-iothub-Service-client e Azure-iothub-Device-client sono attualmente disponibili solo per il sistema operativo Windows. Per Linux/Mac OS, vedere le sezioni specifiche per Linux e Mac OS dell' [ambiente di sviluppo per Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
+   > Il pacchetto pip per Azure-iothub-Service-client è attualmente disponibile solo per il sistema operativo Windows. Per Linux/Mac OS, vedere le sezioni specifiche per Linux e Mac OS dell' [ambiente di sviluppo per Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
    >
 
 2. Usando un editor di testo, creare un nuovo file **AddTagsAndQuery.py**.
@@ -155,84 +155,57 @@ Nella sezione successiva si crea un'app per dispositivo che segnala le informazi
 
 In questa sezione si crea un'app console Python che si connette all'hub come **{ID dispositivo}** e quindi aggiorna le proprietà segnalate del dispositivo gemello per contenere le informazioni connesse usando una rete cellulare.
 
-1. Da un prompt dei comandi nella directory di lavoro, installare l' **SDK del servizio hub Internet Azure per Python**:
+1. Da un prompt dei comandi nella directory di lavoro, installare l' **SDK per dispositivi dell'hub Azure Internet per Python**:
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
-
-   > [!NOTE]
-   > I pacchetti PIP per Azure-iothub-Service-client e Azure-iothub-Device-client sono attualmente disponibili solo per il sistema operativo Windows. Per Linux/Mac OS, vedere le sezioni specifiche per Linux e Mac OS dell' [ambiente di sviluppo per Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
-   >
 
 2. Usando un editor di testo, creare un nuovo file **ReportConnectivity.py**.
 
-3. Aggiungere il codice seguente per importare i moduli necessari dall'SDK del servizio:
+3. Aggiungere il codice seguente per importare i moduli necessari dall'SDK per dispositivi:
 
     ```python
     import time
-    import iothub_client
-    from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
+    import threading
+    from azure.iot.device import IoTHubModuleClient
     ```
 
 4. Aggiungere il codice seguente. Sostituire il `[IoTHub Device Connection String]` valore del segnaposto con la stringa di connessione del dispositivo copiata in [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
-
-    # choose HTTP, AMQP, AMQP_WS or MQTT as transport protocol
-    PROTOCOL = IoTHubTransportProvider.MQTT
-
-    TIMER_COUNT = 5
-    TWIN_CONTEXT = 0
-    SEND_REPORTED_STATE_CONTEXT = 0
     ```
 
 5. Aggiungere il codice seguente al file **ReportConnectivity.py** per implementare la funzionalità dei dispositivi gemelli:
 
     ```python
-    def device_twin_callback(update_state, payload, user_context):
-        print ( "" )
-        print ( "Twin callback called with:" )
-        print ( "    updateStatus: %s" % update_state )
-        print ( "    payload: %s" % payload )
-
-    def send_reported_state_callback(status_code, user_context):
-        print ( "" )
-        print ( "Confirmation for reported state called with:" )
-        print ( "    status_code: %d" % status_code )
+    def twin_update_listener(client):
+        while True:
+            patch = client.receive_twin_desired_properties_patch()  # blocking call
+            print("Twin patch received:")
+            print(patch)
 
     def iothub_client_init():
-        client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
-
-        if client.protocol == IoTHubTransportProvider.MQTT or client.protocol == IoTHubTransportProvider.MQTT_WS:
-            client.set_device_twin_callback(
-                device_twin_callback, TWIN_CONTEXT)
-
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
         return client
 
     def iothub_client_sample_run():
         try:
             client = iothub_client_init()
 
-            if client.protocol == IoTHubTransportProvider.MQTT:
-                print ( "Sending data as reported property..." )
+            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(client,))
+            twin_update_listener_thread.daemon = True
+            twin_update_listener_thread.start()
 
-                reported_state = "{\"connectivity\":\"cellular\"}"
-
-                client.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
+            # Send reported 
+            print ( "Sending data as reported property..." )
+            reported_patch = {"connectivity": "cellular"}
+            client.patch_twin_reported_properties(reported_patch)
+            print ( "Reported properties updated" )
 
             while True:
-                print ( "Press Ctrl-C to exit" )
-
-                status_counter = 0
-                while status_counter <= TIMER_COUNT:
-                    status = client.get_send_status()
-                    time.sleep(10)
-                    status_counter += 1 
-        except IoTHubError as iothub_error:
-            print ( "Unexpected error %s from IoTHub" % iothub_error )
-            return
+                time.sleep(1000000)
         except KeyboardInterrupt:
             print ( "IoTHubClient sample stopped" )
     ```
@@ -244,6 +217,7 @@ In questa sezione si crea un'app console Python che si connette all'hub come **{
     ```python
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Device Twins Python client sample..." )
+        print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
 
         iothub_client_sample_run()
     ```

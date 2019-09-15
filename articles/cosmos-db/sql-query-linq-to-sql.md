@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: ce9d96a90a2463d1ab8e1a9774a019e38ca681f4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ad6dcf7307955300a781a7a649b6ac76b3c69589
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036026"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003554"
 ---
 # <a name="linq-to-sql-translation"></a>Traduzione LINQ in SQL
 
@@ -68,7 +68,7 @@ Il provider LINQ incluso in SQL .NET SDK supporta gli operatori seguenti:
 - **Funzioni matematiche**: Supporta la conversione da `Abs`.NET `Acos`, `Asin`, `Atan` ,,`Cos` ,,`Exp`, ,`Log`, ,,`Pow` `Floor` `Ceiling` `Log10` `Round`, `Sign`, ,`Sin` ,`Tan`enelle funzioni predefinite di SQLequivalenti.`Truncate` `Sqrt`
 - **Funzioni stringa**: Supporta la conversione da `Concat`.NET `Contains`, `Count`, `EndsWith` ,,`Replace` ,,`Reverse`, ,`SubString`, ,,`ToUpper` `StartsWith``IndexOf` `ToLower` `TrimEnd` e`TrimStart` alle funzioni predefinite di SQL equivalenti.
 - **Funzioni di matrice**: Supporta la conversione da `Concat`.NET `Contains`, e `Count` alle funzioni predefinite di SQL equivalenti.
-- **Funzioni di estensione**geospaziale: Supporta la conversione da metodi `Distance`Stub `IsValid` `IsValidDetailed`,, e `Within` alle funzioni predefinite di SQL equivalenti.
+- **Funzioni di estensione geospaziale**: Supporta la conversione da metodi `Distance`Stub `IsValid` `IsValidDetailed`,, e `Within` alle funzioni predefinite di SQL equivalenti.
 - **Funzione di estensione della funzione definita dall'utente**: Supporta la conversione dal metodo `UserDefinedFunctionProvider.Invoke` Stub alla funzione definita dall'utente corrispondente.
 - **Miscellaneous**: Supporta la conversione `Coalesce` di operatori condizionali e. Può tradurre `Contains` in stringa Contains, ARRAY_CONTAINS o SQL in, a seconda del contesto.
 
@@ -324,5 +324,5 @@ Una query nidificata applica la query interna a ogni elemento del contenitore es
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Dati del documento modello](modeling-data.md)

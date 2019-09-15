@@ -11,16 +11,16 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 5aaad8c44328e1cc2aeb7729e3e221665823a467
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0bba755ec5683e988bb8ae3f2308a1c298b228b0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072956"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000570"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificazione & individuazione dati del database SQL di Azure e SQL Data Warehouse
 
-Individuazione dati & classificazione offre funzionalità avanzate incorporate nel database SQL diAzure per l'individuazione, la **classificazione** & , l'assegnazione di etichette per la**protezione** dei dati sensibili nei database.
+Individuazione dati & classificazione offre funzionalità avanzate incorporate nel database SQL di **Azure per l'individuazione,** la &  **classificazione**, l' **assegnazione di etichette**per la**protezione** dei dati sensibili nei database.
 
 L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
@@ -137,6 +137,8 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 - Aggiungere o aggiornare la classificazione di una o più colonne: [AGGIUNGI CLASSIFICAZIONE DI RISERVATEZZA](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - Rimuovere la classificazione da una o più colonne: [ELIMINA CLASSIFICAZIONE DI RISERVATEZZA](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Visualizzare tutte le classificazioni sul database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+### <a name="manage-classifications-using-rest-apis"></a>Gestire le classificazioni usando le API REST
 
 È anche possibile usare l'API REST per gestire le classificazioni a livello di codice. Le API REST pubblicate supportano le operazioni seguenti:
 

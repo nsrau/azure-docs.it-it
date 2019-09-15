@@ -1,6 +1,6 @@
 ---
 title: Informazioni sui risultati automatici di ML
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come visualizzare e comprendere i grafici e le metriche per ognuna delle esecuzioni automatiche di machine learning.
 services: machine-learning
 author: nilesha
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 60ecd71419bbf65cceab257cb97a96929d24ec08
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 56d8dff7d158cedb4ab33e811cf5134cdbc475ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860552"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999436"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Informazioni sui risultati automatici di Machine Learning
 
@@ -28,7 +28,7 @@ Altre informazioni su:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
 
 * Creare un esperimento di Machine Learning automatizzato, con l'SDK, nella portale di Azure o nella pagina di destinazione dell'area di lavoro (anteprima).
 
@@ -75,7 +75,7 @@ Le metriche e i grafici seguenti sono disponibili per ogni modello di classifica
 
 Le metriche seguenti vengono salvate in ogni iterazione di esecuzione per un'attività di classificazione.
 
-|Metrica|DESCRIZIONE|Calcolo|Parametri aggiuntivi
+|Metrica|Descrizione|Calcolo|Parametri aggiuntivi
 --|--|--|--|
 AUC_Macro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Macro è la media aritmetica dell'area AUC per ogni classe.  | [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Micro viene calcolato a livello globale combinando i veri positivi e i falsi positivi da ogni classe.| [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|

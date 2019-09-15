@@ -1,6 +1,6 @@
 ---
 title: Avviare, monitorare e annullare le esecuzioni di training in Python
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come iniziare, impostare lo stato di, contrassegnare e organizzare gli esperimenti di machine learning.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: b938d55749373711ddf2a19df12b987276b224ca
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 6615b5c277577ee2238434591c61362885f2fec6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376304"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002740"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Avviare, monitorare e annullare le esecuzioni di training in Python
 
@@ -33,9 +33,9 @@ Questo articolo illustra alcuni esempi delle attività seguenti:
 
 Sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
 
-* Un' [area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
+* [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
 * SDK Azure Machine Learning per Python (versione 1.0.21 o successiva). Per eseguire l'installazione o l'aggiornamento alla versione più recente dell'SDK, vedere [installare o aggiornare l'SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -45,7 +45,7 @@ Sono necessari gli elementi seguenti:
     print(azureml.core.VERSION)
     ```
 
-* L' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) della riga di comando di Azure e l' [estensione CLI per il servizio Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* L' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) della riga di comando di Azure e l' [estensione CLI per Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 ## <a name="start-a-run-and-its-logging-process"></a>Avviare un'esecuzione e il processo di registrazione
 
@@ -79,7 +79,7 @@ Per avviare un'esecuzione dell'esperimento, seguire questa procedura:
     az login
     ```
 
-1. Alleghi una configurazione dell'area di lavoro alla cartella che contiene lo script di training. Sostituire `myworkspace` con l'area di lavoro del servizio Azure Machine Learning. Sostituire `myresourcegroup` con il gruppo di risorse di Azure che contiene l'area di lavoro:
+1. Alleghi una configurazione dell'area di lavoro alla cartella che contiene lo script di training. Sostituire `myworkspace` con l'area di lavoro Azure Machine Learning. Sostituire `myresourcegroup` con il gruppo di risorse di Azure che contiene l'area di lavoro:
 
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
@@ -253,7 +253,7 @@ print(parent_run.get_children())
 
 ## <a name="tag-and-find-runs"></a>Esegui tag e trova
 
-Nel servizio Azure Machine Learning è possibile usare proprietà e tag per organizzare ed eseguire query sulle esecuzioni per ottenere informazioni importanti.
+In Azure Machine Learning, è possibile usare proprietà e tag per organizzare ed eseguire query sulle esecuzioni per ottenere informazioni importanti.
 
 ### <a name="add-properties-and-tags"></a>Aggiungere proprietà e tag
 
@@ -341,4 +341,4 @@ I notebook seguenti illustrano i concetti in questo articolo:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come registrare le metriche per gli esperimenti, vedere [metriche di log durante le esecuzioni di training](how-to-track-experiments.md).
+* Per informazioni su come registrare le metriche per gli esperimenti, vedere [metriche di log durante](how-to-track-experiments.md)le esecuzioni di training.

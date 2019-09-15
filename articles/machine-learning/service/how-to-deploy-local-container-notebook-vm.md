@@ -1,7 +1,7 @@
 ---
 title: Come distribuire i modelli nelle VM notebook
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come distribuire i modelli di servizio Azure Machine Learning come servizio Web usando le macchine virtuali del notebook.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando le macchine virtuali del notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,26 +10,26 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 08/08/2019
-ms.openlocfilehash: d6b26dfe1eb8ea65dd7c751a148c599123b0f6db
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 046f998038c47a48a8528bf36d87ac836395eec2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947760"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002819"
 ---
 # <a name="deploy-a-model-to-notebook-vms"></a>Distribuire un modello in macchine virtuali notebook
 
-Informazioni su come usare il servizio Azure Machine Learning per distribuire un modello come servizio Web nella macchina virtuale del notebook. Usare le macchine virtuali del notebook se si verifica una delle condizioni seguenti:
+Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web nella macchina virtuale del notebook. Usare le macchine virtuali del notebook se si verifica una delle condizioni seguenti:
 
 - È necessario distribuire e convalidare rapidamente il modello.
 - Si sta eseguendo il test di un modello in fase di sviluppo.
 
 > [!TIP]
-> La distribuzione di un modello da un Jupyter Notebook in una macchina virtuale notebook a un servizio Web nella stessa VM è una _distribuzione locale_. In questo caso, il computer locale è la VM del notebook. Per altre informazioni sulle distribuzioni, vedere [distribuire modelli con Azure Machine Learning servizio](how-to-deploy-and-where.md).
+> La distribuzione di un modello da un Jupyter Notebook in una macchina virtuale notebook a un servizio Web nella stessa VM è una _distribuzione locale_. In questo caso, il computer locale è la VM del notebook. Per altre informazioni sulle distribuzioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'area di lavoro del servizio Azure Machine Learning con una VM notebook in esecuzione. Per ulteriori informazioni, vedere [configurazione dell'ambiente e dell'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
+- Un'area di lavoro Azure Machine Learning con una VM notebook in esecuzione. Per ulteriori informazioni, vedere [configurazione dell'ambiente e dell'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="deploy-to-the-notebook-vms"></a>Eseguire la distribuzione nelle VM notebook
 

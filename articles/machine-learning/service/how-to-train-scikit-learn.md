@@ -1,6 +1,6 @@
 ---
 title: Training di modelli di Machine Learning con Scikit-learn
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire gli script di training di Scikit-learn su scala aziendale usando la classe SKlearn Estimator di Azure Machine Learning. Gli script di esempio classificano le immagini fiore Iris per creare un modello di machine learning basato sul set di dati Iris Scikit-learn.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c44f4ed5cd6488520bf6dd99f502f33049b9b17
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 2b05ba7e4d38b596bdf76655fad0736425f8ce89
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68962990"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002527"
 ---
-# <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Creazione di modelli Scikit-learn su larga scala con il servizio Azure Machine Learning
+# <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Creazione di modelli Scikit-learn su larga scala con Azure Machine Learning
 
 Questo articolo illustra come eseguire gli script di training di Scikit-learn su scala aziendale usando la classe [SKlearn Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) di Azure Machine Learning. 
 
@@ -65,7 +65,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro del servizio Azure Machine Learning](concept-workspace.md) è la risorsa di livello superiore per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
 
 Creare un oggetto dell'area di `config.json` lavoro dal file creato nella [sezione Prerequisiti](#prerequisites).
 
@@ -193,7 +193,7 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 ## <a name="next-steps"></a>Passaggi successivi
 
 
-In questo articolo è stato eseguito il training e la registrazione di un modello keras nel servizio Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla distribuzione del modello.
+In questo articolo è stato eseguito il training e la registrazione di un modello keras in Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla distribuzione del modello.
 
 > [!div class="nextstepaction"]
 > [Come e dove distribuire i modelli](how-to-deploy-and-where.md)

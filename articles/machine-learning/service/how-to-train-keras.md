@@ -1,7 +1,7 @@
 ---
 title: Training della rete neurale Deep Learning con keras
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come eseguire il training e registrare un modello di classificazione di rete neurale keras in esecuzione in TensorFlow usando Azure Machine Learning Service.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come eseguire il training e registrare un modello di classificazione di rete neurale keras in esecuzione in TensorFlow usando Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,20 +11,20 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7646330d9d89d5257a991b5095b7b6814aa3ba9
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: efa9b8f4f5cba36bfb2557b7be33ec9519b1d804
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966824"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999379"
 ---
-# <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning-service"></a>Eseguire il training e la registrazione di un modello di classificazione keras con Azure Machine Learning Service
+# <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Eseguire il training e registrare un modello di classificazione keras con Azure Machine Learning
 
-Questo articolo illustra come eseguire il training e la registrazione di un modello di classificazione keras basato su TensorFlow usando Azure Machine Learning Service. Usa il set di [dati MNIST](http://yann.lecun.com/exdb/mnist/) più diffusi per classificare le cifre scritte a mano usando una rete neurale profonda (DNN) creata usando la [libreria keras Python](https://keras.io) in esecuzione in [TensorFlow](https://www.tensorflow.org/overview).
+Questo articolo illustra come eseguire il training e la registrazione di un modello di classificazione keras basato su TensorFlow usando Azure Machine Learning. Usa il set di [dati MNIST](http://yann.lecun.com/exdb/mnist/) più diffusi per classificare le cifre scritte a mano usando una rete neurale profonda (DNN) creata usando la [libreria keras Python](https://keras.io) in esecuzione in [TensorFlow](https://www.tensorflow.org/overview).
 
-Keras è un'API di rete neurale di alto livello in grado di eseguire la maggior parte degli altri Framework DNN più diffusi per semplificare lo sviluppo. Con Azure Machine Learning servizio è possibile scalare rapidamente i processi di training usando le risorse di calcolo del cloud elastico. È anche possibile tenere traccia delle esecuzioni di training, dei modelli di versione, della distribuzione dei modelli e molto altro ancora.
+Keras è un'API di rete neurale di alto livello in grado di eseguire la maggior parte degli altri Framework DNN più diffusi per semplificare lo sviluppo. Con Azure Machine Learning è possibile scalare rapidamente i processi di training usando le risorse di calcolo del cloud elastico. È anche possibile tenere traccia delle esecuzioni di training, dei modelli di versione, della distribuzione dei modelli e molto altro ancora.
 
-Indipendentemente dal fatto che si stia sviluppando un modello keras da zero o si stia introducendo un modello esistente nel cloud, Azure Machine Learning servizio può aiutarti a creare modelli pronti per la produzione.
+Indipendentemente dal fatto che si stia sviluppando un modello keras da zero o si stia introducendo un modello esistente nel cloud, Azure Machine Learning possibile creare modelli pronti per la produzione.
 
 Per informazioni sulle differenze tra Machine Learning e Deep Learning, vedere l' [articolo concettuale](concept-deep-learning-vs-machine-learning.md) .
 
@@ -68,7 +68,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro del servizio Azure Machine Learning](concept-workspace.md) è la risorsa di livello superiore per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
 
 Creare un oggetto dell'area di `config.json` lavoro dal file creato nella [sezione Prerequisiti](#prerequisites).
 
@@ -203,7 +203,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato eseguito il training e la registrazione di un modello keras nel servizio Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla distribuzione del modello.
+In questo articolo è stato eseguito il training e la registrazione di un modello keras in Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla distribuzione del modello.
 
 > [!div class="nextstepaction"]
 > [Come e dove distribuire i modelli](how-to-deploy-and-where.md)

@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6c9adf1c00503ec7f1cbf4a3405c303eea2d2292
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1b94f1686c2893c1c69bc846d3a0d29084975b7a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034874"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002185"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurare chiavi gestite dal cliente per la crittografia di archiviazione di Azure da PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "69034874"
 Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando PowerShell.
 
 > [!IMPORTANT]
-> L'uso delle chiavi gestite dal cliente con la crittografia di archiviazione di Azure richiede che l'insieme di credenziali delle chiavi disponga di due proprietà obbligatorie configurate, **eliminazione** temporanea e **non**ripulitura. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
+> L'uso delle chiavi gestite dal cliente con la crittografia di archiviazione di Azure richiede che l'insieme di credenziali delle chiavi disponga di due proprietà obbligatorie configurate, **eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
 > Sono supportate solo le chiavi RSA e le dimensioni della chiave 2048.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Assegnare un'identità all'account di archiviazione
@@ -42,7 +42,7 @@ Per altre informazioni sulla configurazione di identità gestite assegnate dal s
 
 ## <a name="create-a-new-key-vault"></a>Creare un nuovo insieme di credenziali delle chiavi
 
-Per creare un nuovo insieme di credenziali delle chiavi usando PowerShell, chiamare [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). L'insieme di credenziali delle chiavi usato per archiviare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure deve avere due impostazioni di protezione della chiave abilitate, l' **eliminazione** temporanea e non la ripulitura. 
+Per creare un nuovo insieme di credenziali delle chiavi usando PowerShell, chiamare [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). L'insieme di credenziali delle chiavi usato per archiviare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure deve avere due impostazioni di protezione della chiave abilitate, l' **eliminazione** temporanea e non la **ripulitura**. 
 
 Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati. 
 
@@ -97,4 +97,4 @@ Quando si crea una nuova versione di una chiave, è necessario aggiornare l'acco
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md) 
-- [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+- [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

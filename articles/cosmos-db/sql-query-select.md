@@ -1,21 +1,21 @@
 ---
 title: Clausola SELECT in Azure Cosmos DB
-description: Informazioni sulla clausola SELECT SQL per Azure Cosmos DB. Usa SQL come un linguaggio di query JSON di Azure Cosmos DB.
+description: Informazioni sulla clausola SQL SELECT per Azure Cosmos DB. Usare SQL come linguaggio di query JSON Azure Cosmos DB.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: 84d0212f7f212b4554b506726e027fe51f795eea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342696"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003517"
 ---
 # <a name="select-clause"></a>Clausola SELECT
 
-Ogni query è costituito da una clausola SELECT e facoltativi [FROM](sql-query-from.md) e [in cui](sql-query-where.md) clausole, come base agli standard ANSI SQL. In genere, l'origine nella clausola FROM viene enumerata e la clausola WHERE viene applicato un filtro sull'origine per recuperare un subset degli elementi JSON. La clausola SELECT proietta quindi i valori JSON richiesti nell'elenco di selezione.
+Ogni query è costituita da una clausola SELECT e dalle clausole [from](sql-query-from.md) e [where](sql-query-where.md) facoltative per gli standard SQL ANSI. In genere, l'origine nella clausola FROM viene enumerata e la clausola WHERE applica un filtro sull'origine per recuperare un subset di elementi JSON. La clausola SELECT proietta quindi i valori JSON richiesti nell'elenco di selezione.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -52,7 +52,7 @@ SELECT <select_specification>
  
 - `DISTINCT`
   
-  Specifica che i duplicati di proprietà previste devono essere rimosso.  
+  Specifica che i duplicati delle proprietà proiettate devono essere rimossi.  
 
 - `<scalar_expression>`  
 
@@ -78,7 +78,7 @@ La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esatt
   
 ## <a name="examples"></a>Esempi
 
-L'istruzione SELECT seguente query restituisce riportato `address` dal `Families` cui `id` corrisponde a `AndersenFamily`:
+L'esempio di query SELECT seguente `address` restituisce `Families` da `id` le `AndersenFamily`cui corrispondenze:
 
 ```sql
     SELECT f.address
@@ -99,7 +99,7 @@ I risultati sono:
 ```
 
 ### <a name="quoted-property-accessor"></a>Funzione di accesso della proprietà di delimitazione
-È possibile accedere alle proprietà usando la proprietà di delimitazione operator []. Ad esempio, la sintassi di `SELECT c.grade` and `SELECT c["grade"]` sono equivalenti. Questa sintassi è utile per eseguire l'escape di una proprietà che contiene spazi, caratteri speciali, che abbia lo stesso nome di una parola chiave SQL o una parola riservata.
+È possibile accedere alle proprietà utilizzando l'operatore di proprietà tra virgolette []. Ad esempio, la sintassi di `SELECT c.grade` and `SELECT c["grade"]` sono equivalenti. Questa sintassi è utile per eseguire l'escape di una proprietà che contiene spazi, caratteri speciali o ha lo stesso nome di una parola chiave SQL o di una parola riservata.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ I risultati sono:
 
 ### <a name="nested-properties"></a>Proprietà annidate
 
-L'esempio seguente vengono proiettate due proprietà annidate, `f.address.state` e `f.address.city`.
+Nell'esempio seguente vengono proiettate due proprietà `f.address.state` annidate, e `f.address.city`.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -147,7 +147,7 @@ I risultati sono:
     }]
 ```
 
-Nell'esempio precedente, è necessario creare un oggetto JSON della clausola SELECT, e poiché il codice di esempio non fornita alcuna chiave, la clausola utilizza il nome di variabile argomento implicito `$1`. La query seguente restituisce due variabili di argomento implicite: `$1` e `$2`.
+Nell'esempio precedente, la clausola SELECT deve creare un oggetto JSON e, poiché l'esempio non fornisce alcuna chiave, la clausola usa il nome `$1`della variabile dell'argomento implicito. La query seguente restituisce due variabili di argomento implicite `$2`: `$1` e.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -173,5 +173,5 @@ I risultati sono:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Introduzione](sql-query-getting-started.md)
-- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Clausola WHERE](sql-query-where.md)

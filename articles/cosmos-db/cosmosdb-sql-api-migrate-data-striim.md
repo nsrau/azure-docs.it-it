@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 27961413d0dddc165f90ebde1c5e1aee6b8d9fd3
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 36ba9e2d3385184f32876a6d067b58f7c21a90bd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981843"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003275"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrare i dati in Azure Cosmos DB account API SQL tramite StriIm
  
@@ -40,9 +40,9 @@ Questo articolo illustra come usare StriIm per eseguire la migrazione dei dati d
 
 1. Nel riquadro **Impostazioni cluster StriIm** scegliere il tipo di distribuzione di StriIm e le dimensioni della macchina virtuale.
 
-   |Impostazione | Valore | Descrizione |
+   |Impostazione | Valore | DESCRIZIONE |
    | ---| ---| ---|
-   |Tipo di distribuzione StriIm |Autonomi | StriIm può essere eseguito in un tipo di distribuzione autonomo o **cluster** . La modalità autonoma distribuirà il server StriIm in una singola macchina virtuale ed è possibile selezionare le dimensioni delle VM a seconda del volume di dati. La modalità cluster distribuirà il server StriIm in due o più macchine virtuali con le dimensioni selezionate. Gli ambienti cluster con più di 2 nodi offrono disponibilità elevata e failover automatici.</br></br> In questa esercitazione è possibile selezionare l'opzione autonoma. Usare la VM di dimensioni predefinite "Standard_F4s".  | 
+   |Tipo di distribuzione StriIm |Autonomi | StriIm può essere eseguito in un tipo di distribuzione **autonomo** o **cluster** . La modalità autonoma distribuirà il server StriIm in una singola macchina virtuale ed è possibile selezionare le dimensioni delle VM a seconda del volume di dati. La modalità cluster distribuirà il server StriIm in due o più macchine virtuali con le dimensioni selezionate. Gli ambienti cluster con più di 2 nodi offrono disponibilità elevata e failover automatici.</br></br> In questa esercitazione è possibile selezionare l'opzione autonoma. Usare la VM di dimensioni predefinite "Standard_F4s".  | 
    | Nome del cluster StriIm|    < Striim_cluster_Name >|  Nome del cluster StriIm.|
    | Password del cluster StriIm|   < Striim_cluster_password >|  Password per il cluster.|
 
@@ -193,7 +193,7 @@ In questa sezione si configurerà l'account dell'API di Azure Cosmos DB SQL come
 
    ![Convalidare i dati migrati in Azure](./media/cosmosdb-sql-api-migrate-data-striim/portal-validate-results.png)
 
-Con la soluzione StriIm in Azure è possibile eseguire la migrazione continua dei dati in Azure Cosmos DB da diverse origini, ad esempio Oracle, Cassandra, MongoDB e altre ancora, per Azure Cosmos DB. Per eventuali problemi durante la configurazione del percorso di migrazione con StriIm, archiviare una richiesta di supporto nel [sito Web di StriIm](https://go2.striim.com/request-support-striim).
+Con la soluzione StriIm in Azure è possibile eseguire la migrazione continua dei dati in Azure Cosmos DB da diverse origini, ad esempio Oracle, Cassandra, MongoDB e altre ancora, per Azure Cosmos DB. Per altre informazioni, visitare il [sito Web StriIm](https://www.striim.com/), [scaricare una versione di valutazione gratuita di 30 giorni di StriIm](https://go2.striim.com/download-free-trial)e per eventuali problemi durante la configurazione del percorso di migrazione con StriIm, inviare una [richiesta di supporto.](https://go2.striim.com/request-support-striim)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

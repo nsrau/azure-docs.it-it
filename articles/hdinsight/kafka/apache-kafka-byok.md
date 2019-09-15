@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 09cca0eda9a82b1605323678d7442700dc1a2292
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 15638d90fe24938a45f6d4cce156e998f1f9afc2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960511"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000107"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Bring your own key per Apache Kafka in Azure HDInsight
 
@@ -146,5 +146,5 @@ Se il cluster perde l'accesso alla chiave, gli avvisi vengono visualizzati nel p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su Azure Key Vault, vedere [Informazioni su Azure Key Vault](../../key-vault/key-vault-whatis.md).
+* Per altre informazioni su Azure Key Vault, vedere [Informazioni su Azure Key Vault](../../key-vault/key-vault-overview.md).
 * Per iniziare a usare Azure Key Vault, vedere [Introduzione ad Azure Key Vault](../../key-vault/key-vault-overview.md).

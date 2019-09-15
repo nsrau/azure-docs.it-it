@@ -1,6 +1,6 @@
 ---
 title: Training della rete neurale Deep Learning con Chainer
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire gli script di training di PyTorch su scala aziendale usando la classe di stimatore chainer di Azure Machine Learning.  Lo script di esempio classifica le immagini di cifre scritte a mano per creare una rete neurale di apprendimento avanzato usando la libreria Python del Chainer in esecuzione in numpy.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: bc14ba2bcaa80236717c062abd1dc8a63b58305c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 91e638793d77a6d38f9813345829720d98545293
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966838"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002724"
 ---
-# <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Esegui il training e la registrazione dei modelli di Chainer su larga scala con il servizio Azure Machine Learning
+# <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Esegui il training e la registrazione dei modelli di Chainer su larga scala con Azure Machine Learning
 
 Questo articolo illustra come eseguire gli script di training del [Chainer](https://chainer.org/) su scala aziendale usando la classe di [stimatore chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) di Azure Machine Learning. Lo script di training di esempio in questo articolo usa il popolare [set di dati MNIST](http://yann.lecun.com/exdb/mnist/) per classificare le cifre scritte a mano usando una rete neurale profonda (DNN) creata usando la libreria Python del Chainer in esecuzione su [numpy](https://www.numpy.org/).
 
@@ -25,7 +25,7 @@ Sia che si stia eseguendo il training di un modello di chaining di Deep Learning
 
 Scopri di più sull'apprendimento avanzato [rispetto a Machine Learning](concept-deep-learning-vs-machine-learning.md).
 
-Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -60,7 +60,7 @@ print("SDK version:", azureml.core.VERSION)
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro del servizio Azure Machine Learning](concept-workspace.md) è la risorsa di livello superiore per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
 
 Creare un oggetto dell'area di lavoro `config.json` leggendo il file creato nella [sezione Prerequisiti](#prerequisites):
 
@@ -140,7 +140,7 @@ Per altre informazioni sulle destinazioni di calcolo, vedere l'articolo [che cos
 
 ## <a name="create-a-chainer-estimator"></a>Creare uno strumento di stima del Chainer
 
-Lo strumento di [stima](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) del Chainer fornisce un modo semplice per avviare i processi di training del Chainer nella destinazione di calcolo.
+Lo strumento di [stima del Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) fornisce un modo semplice per avviare i processi di training del Chainer nella destinazione di calcolo.
 
 Lo strumento di stima del chainer viene implementato [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) tramite la classe generica, che può essere utilizzata per supportare qualsiasi Framework. Per altre informazioni sui modelli di training con lo strumento di stima generico, vedere eseguire il training dei [modelli con Azure Machine Learning usando Estimator](how-to-train-ml-models.md)
 
@@ -209,7 +209,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato eseguito il training e la registrazione di una rete neurale con formazione approfondita usando Chainer nel servizio Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla [distribuzione del modello](how-to-deploy-and-where.md) .
+In questo articolo è stato eseguito il training e la registrazione di una rete neurale con formazione approfondita usando Chainer su Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla [distribuzione del modello](how-to-deploy-and-where.md) .
 
 * [Ottimizzare gli iperparametri](how-to-tune-hyperparameters.md)
 

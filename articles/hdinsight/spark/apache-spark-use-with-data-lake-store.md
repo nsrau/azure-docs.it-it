@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f57d054134b9f2c8b327fe157e7a5b5e3d5ff183
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b8e830cb187b375e17b3dc33c582126adfa32f3e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813931"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002471"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Usare il cluster HDInsight Spark per analizzare i dati in Azure Data Lake Storage Gen1
 
@@ -25,7 +25,6 @@ In questo articolo si usa [Jupyter notebook](https://jupyter.org/) disponibile c
 
 * Cluster Azure HDInsight Spark con Azure Data Lake Storage Gen1 come risorsa di archiviazione. Seguire le istruzioni in [Avvio rapido: Impostazione dei cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
-    
 ## <a name="prepare-the-data"></a>Preparare i dati
 
 > [!NOTE]  
@@ -57,7 +56,7 @@ Se è stato creato un cluster HDInsight con Data Lake Storage come risorsa di ar
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Usare un cluster HDInsight Spark con Azure Data Lake Storage Gen1
 
-1. Dalla schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Apache Spark, se è stato aggiunto sulla schermata iniziale. È anche possibile passare al cluster da **Esplora tutto** > **Cluster HDInsight**.
+1. Dal [portale di Azure](https://portal.azure.com/), dal schermata iniziale, fare clic sul riquadro per il cluster di Apache Spark (se è stato aggiunto a schermata iniziale). È anche possibile passare al cluster da **Esplora tutto** > **Cluster HDInsight**.
 
 2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
@@ -120,7 +119,7 @@ Se è stato creato un cluster HDInsight con Data Lake Storage come risorsa di ar
 
      È anche possibile visualizzare i risultati in altri formati. Ad esempio, un grafico ad area per lo stesso output apparirebbe come segue.
 
-     ![Grafico ad area dei risultati della query](./media/apache-spark-use-with-data-lake-store/jupyter-area-output.png "Grafico ad area dei risultati della query")
+     ![Grafico ad area dei risultati della query](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Grafico ad area dei risultati della query")
 
 8. Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Questa operazione consente di arrestare e chiudere il notebook.
 

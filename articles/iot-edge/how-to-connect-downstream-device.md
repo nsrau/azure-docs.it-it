@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f739bdbd295662006a964f890147ad67c373d7b5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698622"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999412"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
@@ -170,10 +170,9 @@ Questa sezione presenta un'applicazione di esempio per la connessione a un clien
 
 Questa sezione presenta un'applicazione di esempio per la connessione di un cliente dispositivo Python Azure IoT a un gateway IoT Edge. 
 
-1. Ottenere l'esempio per **edge_downstream_client** nel [repository degli esempi di Azure IoT SDK per dispositivi per Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples). 
-2. Assicurarsi di avere predisposto tutti i prerequisiti per eseguire l'esempio esaminando il file **readme.md**. 
-3. Nel file edge_downstream_client.py aggiornare le variabili **CONNECTION_STRING** e **TRUSTED_ROOT_CA_CERTIFICATE_PATH**. 
-4. Vedere la documentazione dell'SDK per istruzioni su come eseguire l'esempio nel dispositivo. 
+1. Ottenere l'esempio per **send_message** dalla pagina [relativa agli esempi di Azure per dispositivi SDK per Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
+2. Verificare che sia in esecuzione in un contenitore perimetrale o in uno scenario di debug, impostare le `EdgeHubConnectionString` variabili `EdgeModuleCACertificateFile` di ambiente e.
+3. Vedere la documentazione dell'SDK per istruzioni su come eseguire l'esempio nel dispositivo. 
 
 
 ## <a name="test-the-gateway-connection"></a>Testare la connessione al gateway

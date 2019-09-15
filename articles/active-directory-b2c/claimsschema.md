@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 132dd91ba121fc5939a0f30194fe4abdd3755414
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 1a26d6228fd2d0383f22d4f286cc84e263facfe6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847041"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999094"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -44,11 +44,11 @@ L'elemento **ClaimType** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
+| ID | Sì | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
 
 L'elemento **ClaimType** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | Titolo che viene visualizzato agli utenti nelle varie schermate. Il valore può essere [localizzato](localization.md). |
 | DataType | 0:1 | Tipo di attestazione. È possibile usare i tipi di dati boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection. |
@@ -71,8 +71,8 @@ L'elemento **Protocollo** contiene gli attributi seguenti:
 
 | Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
-| PartnerClaimType | Yes | Nome del tipo di attestazione da usare. |
+| Name | Yes | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono:  OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| PartnerClaimType | Sì | Nome del tipo di attestazione da usare. |
 
 Nell'esempio seguente, quando il framework dell'esperienza di gestione delle identità interagisce con un provider di identità SAML2 o un'applicazione basata su attestazioni, l'attestazione **surname** (cognome) viene mappata a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Quando il framework interagisce con OpenIdConnect e OAuth2, l'attestazione viene mappata a `family_name`.
 
@@ -100,13 +100,13 @@ Il token JWT emesso da Azure AD B2C crea quindi `family_name` invece del nome di
 }
 ```
 
-### <a name="mask"></a>Mask
+### <a name="mask"></a>Maschera
 
 L'elemento **Mask** contiene gli attributi seguenti:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| `Type` | Sì | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
+| `Type` | Yes | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
 | `Regex` | No | Se **`Type`** è impostato su `Regex`, specificare l'espressione regolare da usare.
 
 L'esempio seguente configura un'attestazione **PhoneNumber** con la maschera `Simple`:
@@ -144,7 +144,7 @@ Il framework dell'esperienza di gestione delle identità esegue il rendering sol
 
 L'elemento **Restriction** può contenere l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | MergeBehavior | No | Metodo usato per unire i valori di enumerazione con un elemento ClaimType nei criteri padre avente lo stesso identificatore. Usare questo attributo quando si sovrascrive un'attestazione specificata nei criteri di base. I valori possibili sono: `Append`, `Prepend` o `ReplaceAll`. Il valore `Append` è una raccolta di dati che è consigliabile accodare alla fine della raccolta specificata nei criteri padre. Il valore `Prepend` è una raccolta di dati che è consigliabile aggiungere all'inizio della raccolta specificata nei criteri padre. Il `ReplaceAll` valore è una raccolta di dati specificati nei criteri padre che è consigliabile ignorare. |
 
@@ -159,9 +159,9 @@ L'elemento **Restriction** contiene gli elementi seguenti:
 
 L'elemento **Enumeration** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| Text | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
+| Text | Yes | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
 |Value | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. Valori possibili: True o False. |
 

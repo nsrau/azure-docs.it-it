@@ -15,16 +15,16 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: d6d3e91bef6c4f837b068d755994b2f3268600da
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7c899bae6cf36e68664a3ce60939f72a4b5bd1ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074048"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001215"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
-Questa esercitazione descrive come proteggere l'[app del servizio Web](https://docs.microsoft.com/azure/app-service/) o l'[app per le funzioni](https://docs.microsoft.com/azure/azure-functions/) tramite la creazione (acquisto) di un certificato del servizio app in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) e la successiva associazione a un'app del servizio app.
+Questa esercitazione descrive come proteggere l'[app del servizio Web](https://docs.microsoft.com/azure/app-service/) o l'[app per le funzioni](https://docs.microsoft.com/azure/azure-functions/) tramite la creazione (acquisto) di un certificato del servizio app in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) e la successiva associazione a un'app del servizio app.
 
 > [!TIP]
 > I certificati del servizio app possono essere usati sia per i servizi di Azure che per i servizi non di Azure e non includono solo i servizi app. A questo scopo, è necessario creare una copia PFX locale di un certificato del servizio app per poterlo usare ovunque. Per altre informazioni, vedere [Creating a local PFX copy of an App Service Certificate](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/) (Creazione di una copia PFX locale del certificato del servizio app).
@@ -64,13 +64,13 @@ Selezionare il certificato nella pagina [Certificati del servizio app](https://p
 
 ![inserimento immagine stato di pronto per l'archiviazione in un insieme di credenziali delle chiavi](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-Il [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) è un servizio di Azure che consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. È l'archiviazione scelta per i certificati del servizio app.
+Il [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) è un servizio di Azure che consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. È l'archiviazione scelta per i certificati del servizio app.
 
 Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Repository dell'insieme di credenziali delle chiavi** per creare un nuovo insieme di credenziali o sceglierne uno esistente. Se si sceglie di creare un nuovo insieme di credenziali, usare la tabella seguente per configurarlo e quindi fare clic su Crea. Vedere le informazioni per creare un nuovo insieme di credenziali delle chiavi all'interno della stessa sottoscrizione e dello stesso gruppo di risorse.
 
 | Impostazione | DESCRIZIONE |
 |-|-|
-| NOME | Nome univoco costituito da caratteri alfanumerici e trattini. |
+| Name | Nome univoco costituito da caratteri alfanumerici e trattini. |
 | Gruppo di risorse | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
 | Location | Selezionare la stessa località dell'app del servizio app. |
 | Piano tariffario | Per altre informazioni, vedere [Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -111,7 +111,7 @@ Ora che il certificato è stato importato, è necessario associarlo a un nome di
 
 Usare la tabella seguente per informazioni sulla configurazione dell'associazione nella finestra di dialogo **Associazioni SSL**, quindi fare clic su **Aggiungi l'associazione**.
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Descrizione |
 |-|-|
 | Nome host | Nome di dominio per cui aggiungere l'associazione SSL. |
 | Identificazione personale del certificato privato | Certificato da associare. |

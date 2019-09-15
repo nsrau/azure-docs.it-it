@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 923859fdb0b398d04e710810a96c33fb1c3cd9da
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9d983dc4a2623e7f2a272ea2a320d2658d784dee
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698575"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003593"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Sviluppare moduli di IoT Edge personalizzati
 
@@ -48,7 +48,7 @@ Per semplificare la creazione delle route, IoT Edge aggiunge il concetto di endp
 
 Infine, i messaggi da dispositivo a cloud gestiti dall'hub Edge vengono contrassegnati con le proprietà di sistema seguenti:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | -------- | ----------- |
 | $connectionDeviceId | L'ID dispositivo del client che ha inviato il messaggio |
 | $connectionModuleId | L'ID modulo del modulo che ha inviato il messaggio |
@@ -60,7 +60,7 @@ La connessione all'hub di IoT Edge locale da un modulo prevede due passaggi:
 1. Creare un'istanza di ModuleClient nell'applicazione.
 2. Verificare che l'applicazione accetti il certificato presentato dall'hub di IoT Edge su tale dispositivo.
 
-Creare un'istanza di ModuleClient per connettere il modulo all'hub IoT Edge in esecuzione nel dispositivo, nello stesso modo in cui le istanze di DeviceClient connettono i dispositivi IoT all'hub IoT. Per altre informazioni sulla classe ModuleClient e i relativi metodi di comunicazione, vedere le informazioni si riferimento sull'API per il linguaggio preferito per l'SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C e Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) o [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Creare un'istanza di ModuleClient per connettere il modulo all'hub IoT Edge in esecuzione nel dispositivo, nello stesso modo in cui le istanze di DeviceClient connettono i dispositivi IoT all'hub IoT. Per altre informazioni sulla classe ModuleClient e i relativi metodi di comunicazione, vedere le informazioni si riferimento sull'API per il linguaggio preferito per l'SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)o [node. js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 ## <a name="language-and-architecture-support"></a>Supporto per lingue e architetture
 

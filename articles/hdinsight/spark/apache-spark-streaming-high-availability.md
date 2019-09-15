@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9424ebbd4ed2e1536a10d77a88257bad948628e2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e4414a64b2ee34ec16fde56dd750f2faa26b2e09
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915402"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002946"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Creare processi di Apache Spark Streaming a disponibilità elevata con YARN
 
@@ -21,7 +21,7 @@ ms.locfileid: "70915402"
 
 Spark Streaming crea processi con esecuzione prolungata durante i quali è possibile applicare trasformazioni ai dati e quindi esegue il push dei risultati in file system, database, dashboard e nella console. Spark Streaming elabora micro-batch di dati, raccogliendo prima un batch di eventi per un intervallo di tempo definito. Tale batch viene poi fatto proseguire per l'elaborazione e l'output. Gli intervalli di tempo dei batch sono in genere definiti in frazioni di secondo.
 
-![Spark Streaming](./media/apache-spark-streaming-high-availability/spark-streaming.png)
+![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## <a name="dstreams"></a>DStream
 
@@ -57,7 +57,7 @@ Per creare un'applicazione che elabora ogni evento una sola volta, valutare la m
 
 In HDInsight, il lavoro del cluster è coordinato da *Yet Another Resource Negotiator* (YARN). La progettazione della disponibilità elevata per Spark Streaming include tecniche per Spark Streaming e anche per i componenti YARN.  Di seguito è illustrata una configurazione di esempio con YARN. 
 
-![Architettura YARN](./media/apache-spark-streaming-high-availability/yarn-arch.png)
+![Architettura YARN](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
 
 Nelle sezioni seguenti vengono descritte alcune considerazioni sulla progettazione di questa configurazione.
 

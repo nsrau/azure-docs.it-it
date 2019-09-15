@@ -1,6 +1,6 @@
 ---
 title: Training della rete neurale Deep Learning con PyTorch
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire gli script di training di PyTorch su scala aziendale usando la classe PyTorch Estimator di Azure Machine Learning.  Gli script di esempio classificano le immagini Chicken e Turkey per creare una rete neurale Deep Learning basata sull'esercitazione per il trasferimento di PyTorch.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7ac3675ec9d90fc51bc9e3c72b76d8fb80312a8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: c688f5a59a9a6d980f50a726f9da4dc4379ce073
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966778"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002561"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Esegui il training di modelli di Deep Learning Pytorch su larga scala con Azure Machine Learning
 
@@ -67,7 +67,7 @@ from azureml.train.dnn import PyTorch
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro del servizio Azure Machine Learning](concept-workspace.md) è la risorsa di livello superiore per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
 
 Creare un oggetto dell'area di `config.json` lavoro dal file creato nella [sezione Prerequisiti](#prerequisites).
 
@@ -93,7 +93,7 @@ Il set di dati è costituito da circa 120 di immagini di training per tacchini e
 
 ### <a name="prepare-training-scripts"></a>Preparare gli script di training
 
-In questa esercitazione, lo script `pytorch_train.py`di training è già disponibile. In pratica, è possibile usare qualsiasi script di training personalizzato, così come è, ed eseguirlo con Azure Machine Learning servizio.
+In questa esercitazione, lo script `pytorch_train.py`di training è già disponibile. In pratica, è possibile usare qualsiasi script di training personalizzato, così come è, ed eseguirlo con Azure Machine Learning.
 
 Caricare lo script di training di `pytorch_train.py`Pytorch,.
 
@@ -101,7 +101,7 @@ Caricare lo script di training di `pytorch_train.py`Pytorch,.
 shutil.copy('pytorch_train.py', project_folder)
 ```
 
-Tuttavia, se si vuole usare Azure Machine Learning funzionalità di rilevamento e metrica dei servizi, sarà necessario aggiungere un codice di piccola entità all'interno dello script di training. Esempi di rilevamento delle metriche sono disponibili in `pytorch_train.py`.
+Tuttavia, se si vuole usare Azure Machine Learning funzionalità di rilevamento e metrica, è necessario aggiungere un codice di piccola entità all'interno dello script di training. Esempi di rilevamento delle metriche sono disponibili in `pytorch_train.py`.
 
 ## <a name="create-a-compute-target"></a>Creare una destinazione di calcolo
 
@@ -189,7 +189,7 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Training distribuito
 
-Lo [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) strumento di stima supporta anche il training distribuito nei cluster CPU e GPU. È possibile eseguire facilmente processi PyTorch distribuiti e Azure Machine Learning servizio gestirà l'orchestrazione.
+Lo [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) strumento di stima supporta anche il training distribuito nei cluster CPU e GPU. È possibile eseguire facilmente processi PyTorch distribuiti e Azure Machine Learning gestirà l'orchestrazione.
 
 ### <a name="horovod"></a>Horovod
 [Horovod](https://github.com/uber/horovod) è un framework open source di riduzione per la formazione distribuita sviluppata da uber. Offre un percorso facile ai processi PyTorch GPU distribuiti.
@@ -222,7 +222,7 @@ Per ottimizzare l'inferenza con il [Runtime ONNX](concept-onnx.md), convertire i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato eseguito il training e la registrazione di una rete neurale di apprendimento avanzato con PyTorch nel servizio Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla distribuzione del modello.
+In questo articolo è stato eseguito il training e la registrazione di una rete neurale di apprendimento avanzato con PyTorch in Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla distribuzione del modello.
 
 > [!div class="nextstepaction"]
 > [Come e dove distribuire i modelli](how-to-deploy-and-where.md)

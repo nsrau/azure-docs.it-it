@@ -7,18 +7,18 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9670433284ae963783b655322c4b18f748df52c5
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ee44d744c580dd9fbf20e7186b6e76fdc74cc5d0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231946"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004074"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
 Un progetto completamente definito con vari artefatti, ad esempio gruppi di risorse, modelli di Resource Manager, criteri o assegnazioni di ruolo, consente la creazione rapida e coerente di oggetti all'interno di Azure. Per abilitare l'uso flessibile di questi contenitori e schemi progettuali riutilizzabili, Azure Blueprint supporta i parametri. Il parametro offre flessibilità nella modifica delle proprietà sugli elementi distribuiti dal progetto, sia durante la definizione che durante l'assegnazione.
 
-Un esempio semplice è l'artefatto gruppo di risorse. Quando si crea un gruppo di risorse, occorre fornire due valori obbligatori: nome e località. Quando si aggiunge un gruppo di risorse al progetto, se questi parametri non esistono occorre definire il nome e la località per ogni uso del progetto. Questa ripetizione potrebbe portare alla creazione di artefatti nello stesso gruppo di risorse a ogni uso del progetto. Le risorse all'interno di tale gruppo potrebbero essere duplicate e provocare un conflitto.
+Un esempio semplice è l'artefatto gruppo di risorse. Quando si crea un gruppo di risorse, occorre fornire due valori obbligatori: nome e località. Quando si aggiunge un gruppo di risorse al progetto, se i parametri non esistono, è necessario definire il nome e il percorso per ogni uso del progetto. Questa ripetizione potrebbe portare alla creazione di artefatti nello stesso gruppo di risorse a ogni uso del progetto. Le risorse all'interno di tale gruppo potrebbero essere duplicate e provocare un conflitto.
 
 > [!NOTE]
 > Non è un problema se due diversi progetti diversi includono un gruppo di risorse con lo stesso nome.
@@ -44,7 +44,7 @@ Se l'assegnazione del progetto usa un' **identità gestita assegnata dal sistema
 Se l'assegnazione del progetto usa un' **identità gestita assegnata dall'utente**, è possibile che la Key Vault a cui si fa riferimento _sia_ presente in una sottoscrizione centralizzata. È necessario concedere all'identità gestita i diritti appropriati per la Key Vault prima dell'assegnazione del progetto.
 
 > [!IMPORTANT]
-> In entrambi i casi, il Key Vault deve disporre dell'abilitazione dell' **accesso a Azure Resource Manager per la distribuzione dei modelli** configurata nella pagina **criteri di accesso** . Per istruzioni su come abilitare questa funzionalità, vedere [Key Vault - Abilitare la distribuzione di modelli](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> In entrambi i casi, il Key Vault deve disporre dell' **Abilitazione dell'accesso a Azure Resource Manager per la distribuzione dei modelli** configurata nella pagina **criteri di accesso** . Per istruzioni su come abilitare questa funzionalità, vedere [Key Vault - Abilitare la distribuzione di modelli](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 Per altre informazioni sull'insieme di credenziali di Azure, vedere [Panoramica di Key Vault](../../../key-vault/key-vault-overview.md).
 
@@ -60,7 +60,7 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 
-1. Fare clic su un progetto esistente e quindi fare clic su **modifica progetto** oppure su **+ Crea progetto** e compilare le informazioni nella scheda nozioni di **base** .
+1. Fare clic su un progetto esistente e quindi fare clic su **modifica progetto** oppure su **+ Crea progetto** e compilare le informazioni nella scheda **nozioni di base** .
 
 1. Fare clic su **Avanti: Artefatti** oppure fare clic sulla scheda **Artefatti**.
 

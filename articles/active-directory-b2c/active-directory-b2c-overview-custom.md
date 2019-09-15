@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: be6d54886f23b0fa219b1e4b8948b4a4c51f5864
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a3ded11ac6a68e82fba76e7551699f29f3cb6075
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716832"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998423"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Criteri personalizzati in Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ L'identità del cliente e il servizio di gestione degli accessi (CIAM) in Azure 
 
 Azure AD B2C interagisce in sequenza con i provider di identità, gli utenti, altri sistemi e la directory dell'utente locale per eseguire un'attività di identità. Ad esempio accesso di un utente, registrazione di un nuovo utente o reimpostazione di una password. Il Framework dell'esperienza di gestione delle identità e un criterio (chiamato anche percorso utente o criterio del framework attendibilità) stabilisce attendibilità tra più parti e definisce in modo esplicito gli attori, le azioni, i protocolli e la sequenza di passaggi da completare.
 
-Il Framework dell'esperienza di identità è una piattaforma Azure completamente configurabile, basata su criteri e basata sul cloud che orchestra la relazione di trust tra le entità nei formati di protocollo standard, ad esempio OpenID Connect, OAuth, SAML, WSFed e alcune non standard, ad esempio REST Scambi di attestazioni da sistema a sistema basato su API. Il framework crea esperienze intuitive e generiche che supportano HTML e CSS.
+Il Framework dell'esperienza di identità è una piattaforma Azure completamente configurabile, basata su criteri e basata sul cloud che orchestra la relazione di trust tra le entità nei formati di protocollo standard, ad esempio OpenID Connect, OAuth, SAML e alcune non standard, ad esempio REST Scambi di attestazioni da sistema a sistema basato su API. Il framework crea esperienze intuitive e generiche che supportano HTML e CSS.
 
 Un criterio personalizzato è rappresentato come uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. Gli elementi XML definiscono, tra gli altri elementi, lo schema delle attestazioni, le trasformazioni delle attestazioni, le definizioni di contenuto, i provider di attestazioni, i profili tecnici e le procedure di orchestrazione per i percorsi utente. Un criterio personalizzato è accessibile nella forma di uno o più file XML che vengono eseguiti dal framework dell'esperienza di gestione delle identità quando vengono chiamati da una Relying Party. Gli sviluppatori che configurano criteri personalizzati devono definire dettagliatamente le relazioni attendibili in modo da includere gli endpoint dei metadati e le definizioni di scambio per le attestazioni esatte e configurare i segreti, le chiavi e i certificati necessari per ogni provider di identità.
 

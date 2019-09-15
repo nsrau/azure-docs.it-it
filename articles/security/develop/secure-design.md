@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 87acc6e8c561349b734bd9cd98300b65e730abe7
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 316ed596cfa49987e229004c388267286ff50927
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928083"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000975"
 ---
 # <a name="design-secure-applications-on-azure"></a>Progettare applicazioni sicure in Azure
 In questo articolo vengono presentate le attività e i controlli di sicurezza da prendere in considerazione quando si progettano applicazioni per il cloud. Vengono analizzate le risorse di formazione e le domande e i concetti di sicurezza da prendere in considerazione durante i requisiti e le fasi di progettazione di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per progettare un'applicazione più protetta.
@@ -203,7 +203,7 @@ Cosa è possibile fare per sviluppare un approccio incentrato sull'identità all
 
 #### <a name="enforce-multi-factor-authentication-for-users"></a>Applicare l'autenticazione a più fattori per gli utenti
 
-Usare l'autenticazione a due fattori. L'autenticazione a due fattori è lo standard corrente per l'autenticazione e l'autorizzazione perché evita i punti deboli di sicurezza intrinseci nei tipi di autenticazione nome utente e password. L'accesso alle interfacce di gestione di Azure (portale di Azure/PowerShell remoto) e ai servizi rivolti ai clienti deve essere progettato e configurato per l'uso di [Azure Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Usare l'autenticazione a due fattori. L'autenticazione a due fattori è lo standard corrente per l'autenticazione e l'autorizzazione perché evita i punti deboli di sicurezza intrinseci nei tipi di autenticazione nome utente e password. L'accesso alle interfacce di gestione di Azure (portale di Azure/PowerShell remoto) e ai servizi rivolti ai clienti deve essere progettato e configurato per l'uso di [multi-factor authentication di Azure](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 #### <a name="use-strong-authentication-and-authorization-platforms"></a>Usare piattaforme di autenticazione e autorizzazione complesse
 
@@ -217,7 +217,7 @@ Usare i meccanismi di autenticazione e autorizzazione forniti dalla piattaforma 
 
 Il concetto di [privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) significa fornire agli utenti il livello di accesso e controllo preciso necessari per svolgere il proprio lavoro e nient'altro.
 
-Uno sviluppatore di software necessita di diritti di amministratore di dominio? Un assistente amministrativo deve poter accedere ai controlli amministrativi nei propri personal computer? La valutazione dell'accesso al software non è diversa. Se si usa il controllo degli accessi in [base al ruolo (RBAC)](../../role-based-access-control/overview.md) per fornire agli utenti diverse capacità e autorità nell'applicazione, non si darebbe accesso a tutti gli elementi. Limitando l'accesso agli elementi necessari per ogni ruolo, si limita il rischio di un problema di sicurezza che si verifica.
+Uno sviluppatore di software necessita di diritti di amministratore di dominio? Un assistente amministrativo deve poter accedere ai controlli amministrativi nei propri personal computer? La valutazione dell'accesso al software non è diversa. Se si usa il [controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md) per fornire agli utenti diverse capacità e autorità nell'applicazione, non si darebbe accesso a tutti gli elementi. Limitando l'accesso agli elementi necessari per ogni ruolo, si limita il rischio di un problema di sicurezza che si verifica.
 
 Assicurarsi che l'applicazione applichi il [privilegio minimo](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) per tutti i modelli di accesso.
 
@@ -242,11 +242,11 @@ Il modo migliore per difendersi da questo tipo di attacco è chiedere all'utente
 
 Perdere chiavi e credenziali è un problema comune. un rischio ben peggiore della perdita di chiavi e credenziali consiste negli accessi non autorizzati. Gli utenti malintenzionati possono sfruttare le tecniche automatizzate e manuali per trovare chiavi e segreti archiviati in repository di codice, ad esempio GitHub. Non inserire chiavi e segreti in questi repository di codice pubblico o in un altro server.
 
-Inserire sempre chiavi, certificati, segreti e stringhe di connessione in una soluzione di gestione delle chiavi. È possibile utilizzare una soluzione centralizzata in cui le chiavi e i segreti sono archiviati in moduli di protezione hardware (HSM). Azure fornisce un modulo di protezione hardware nel cloud con [Azure Key Vault](../../key-vault/key-vault-whatis.md).
+Inserire sempre chiavi, certificati, segreti e stringhe di connessione in una soluzione di gestione delle chiavi. È possibile utilizzare una soluzione centralizzata in cui le chiavi e i segreti sono archiviati in moduli di protezione hardware (HSM). Azure fornisce un modulo di protezione hardware nel cloud con [Azure Key Vault](../../key-vault/key-vault-overview.md).
 
 Key Vault è un *Archivio segreto*: si tratta di un servizio cloud centralizzato per l'archiviazione dei segreti delle applicazioni. Key Vault mantiene i dati riservati in modo sicuro mantenendo i segreti dell'applicazione in un'unica posizione centrale e fornendo accesso sicuro, controllo delle autorizzazioni e registrazione di accesso.
 
-I segreti vengono archiviati insingoli insiemi di credenziali. Ogni insieme di credenziali dispone di criteri di configurazione e di sicurezza per controllare l'accesso. È possibile accedere ai dati tramite un'API REST o un SDK client disponibile per la maggior parte dei linguaggi di programmazione.
+I segreti vengono archiviati in *singoli insiemi*di credenziali. Ogni insieme di credenziali dispone di criteri di configurazione e di sicurezza per controllare l'accesso. È possibile accedere ai dati tramite un'API REST o un SDK client disponibile per la maggior parte dei linguaggi di programmazione.
 
 > [!IMPORTANT]
 > Azure Key Vault è progettato per archiviare i segreti di configurazione per le applicazioni server. Non è destinato all'archiviazione dei dati che appartengono agli utenti dell'app. Ciò si riflette nelle caratteristiche di prestazioni, nell'API e nel modello di costo.
@@ -277,7 +277,7 @@ Quando si inseriscono commenti nel codice, assicurarsi di non salvare le informa
 
 In pratica, si supponga che tutti gli elementi del progetto di sviluppo saranno una conoscenza pubblica al momento della distribuzione. Evitare di includere dati sensibili di qualsiasi tipo nel progetto.
 
-In precedenza, abbiamo discusso [Azure Key Vault](../../key-vault/key-vault-whatis.md). È possibile usare Key Vault per archiviare segreti quali chiavi e password anziché impostarli come hardcoded. Quando si usa Key Vault in combinazione con le identità gestite per le risorse di Azure, l'app Web di Azure può accedere ai valori di configurazione segreta in modo semplice e sicuro senza archiviare segreti nel controllo del codice sorgente o nella configurazione. Per altre informazioni, vedere [gestire i segreti nelle app Server con Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+In precedenza, abbiamo discusso [Azure Key Vault](../../key-vault/key-vault-overview.md). È possibile usare Key Vault per archiviare segreti quali chiavi e password anziché impostarli come hardcoded. Quando si usa Key Vault in combinazione con le identità gestite per le risorse di Azure, l'app Web di Azure può accedere ai valori di configurazione segreta in modo semplice e sicuro senza archiviare segreti nel controllo del codice sorgente o nella configurazione. Per altre informazioni, vedere [gestire i segreti nelle app Server con Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Implementare misure non sicure
 

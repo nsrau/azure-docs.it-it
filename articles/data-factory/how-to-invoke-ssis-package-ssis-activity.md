@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d2fe8da1c4d49f5b57f907a5940ec9c445d0d1f7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 9057cefa5108924c57dbc85bbb895b31e804a51c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984326"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000649"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS tramite l'attività Esegui pacchetto SSIS in Azure Data Factory
 Questo articolo descrive come eseguire un pacchetto SQL Server Integration Services (SSIS) nella pipeline Azure Data Factory (ADF) usando l'attività Esegui pacchetto SSIS. 
@@ -269,7 +269,7 @@ In questo passaggio si crea una pipeline con un'attività di esecuzione del pacc
    }
    ```
 
-Per eseguire i pacchetti archiviati in file System/condivisioni file/File di Azure, è possibile immettere i valori per le proprietà del percorso del pacchetto o del log come indicato di seguito.
+   Per eseguire i pacchetti archiviati in file System/condivisioni file/File di Azure, è possibile immettere i valori per le proprietà del percorso del pacchetto o del log come indicato di seguito.
 
    ```json
    {
@@ -318,7 +318,7 @@ Per eseguire i pacchetti archiviati in file System/condivisioni file/File di Azu
    }
    ```
 
-Per eseguire pacchetti all'interno di progetti archiviati in file System/condivisioni file/File di Azure, è possibile immettere i valori per la proprietà Percorso pacchetto come indicato di seguito.
+   Per eseguire pacchetti all'interno di progetti archiviati in file System/condivisioni file/File di Azure, è possibile immettere i valori per la proprietà Percorso pacchetto come indicato di seguito.
 
    ```json
    {

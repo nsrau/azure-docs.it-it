@@ -1,21 +1,21 @@
 ---
-title: Espressioni scalari nelle query SQL di Azure Cosmos DB
-description: Informazioni sulle espressioni scalari sintassi SQL per Azure Cosmos DB.
+title: Espressioni scalari in Azure Cosmos DB query SQL
+description: Informazioni sulla sintassi di espressione scalare SQL per Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4464c39a45c47c680a13f3ebc34841b47ee0d7c6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c35ad65a584f8ee95142e9bc85a58b5b6cd99744
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342780"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003543"
 ---
-# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Espressioni scalari nelle query SQL di Azure Cosmos DB
+# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Espressioni scalari in Azure Cosmos DB query SQL
 
-Il [clausola SELECT](sql-query-select.md) supporta espressioni scalari. Un'espressione scalare è una combinazione di simboli e operatori che si può valutare per ottenere un singolo valore. Esempi di espressioni scalari includono: le costanti, riferimenti a proprietà, i riferimenti agli elementi di matrice, riferimenti ad alias o chiamate di funzione. Espressioni scalari possono essere combinate in espressioni complesse usando gli operatori.
+La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'espressione scalare è una combinazione di simboli e operatori che si può valutare per ottenere un singolo valore. Esempi di espressioni scalari includono: costanti, riferimenti a proprietà, riferimenti a elementi di matrice, riferimenti ad alias o chiamate di funzione. Le espressioni scalari possono essere combinate in espressioni complesse usando gli operatori.
 
 ## <a name="syntax"></a>Sintassi
   
@@ -59,11 +59,11 @@ Il [clausola SELECT](sql-query-select.md) supporta espressioni scalari. Un'espre
   
 - `<scalar_expression>.property_name`  
   
-   Rappresenta un valore della proprietà di un oggetto. Se la proprietà non esiste o si fa riferimento a un valore, che non è un oggetto, quindi l'espressione viene valutata **indefinito** valore.  
+   Rappresenta un valore della proprietà di un oggetto. Se la proprietà non esiste o viene fatto riferimento a una proprietà su un valore che non è un oggetto, l'espressione restituisce un valore non **definito** .  
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   Rappresenta un valore della proprietà con nome `property_name` o un elemento di matrice con indice `array_index` di una matrice. Se l'indice della proprietà o matrice non esiste o si fa riferimento all'indice della proprietà o matrice per un valore che non è un oggetto o una matrice, l'espressione restituisce un valore non definito.  
+   Rappresenta un valore della proprietà con il nome `property_name` o l'elemento di matrice `array_index` con indice di una matrice. Se l'indice della proprietà o matrice non esiste o si fa riferimento all'indice della proprietà o matrice per un valore che non è un oggetto o una matrice, l'espressione restituisce un valore non definito.  
   
 - `unary_operator <scalar_expression>`  
   
@@ -99,7 +99,7 @@ Il [clausola SELECT](sql-query-select.md) supporta espressioni scalari. Un'espre
   
 ## <a name="remarks"></a>Note
   
-  Quando si chiama una funzione scalare incorporata o definita dall'utente, è necessario definire tutti gli argomenti. Se uno degli argomenti non è definito, la funzione non verrà chiamata e il risultato sarà indefinito.  
+  Quando si chiama una funzione scalare predefinita o definita dall'utente, è necessario definire tutti gli argomenti. Se uno degli argomenti non è definito, la funzione non verrà chiamata e il risultato sarà indefinito.  
   
   Quando si crea un oggetto, qualsiasi proprietà a cui viene assegnato un valore non definito verrà ignorata e non inclusa nell'oggetto creato.  
   
@@ -119,7 +119,7 @@ I risultati sono:
     }]
 ```
 
-Nella query seguente, il risultato dell'espressione scalare è un valore booleano:
+Nella query seguente il risultato dell'espressione scalare è un valore booleano:
 
 ```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState
@@ -141,6 +141,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione ad Azure Cosmos DB](introduction.md)
-- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Sottoquery](sql-query-subquery.md)

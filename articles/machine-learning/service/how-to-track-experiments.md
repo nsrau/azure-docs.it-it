@@ -1,6 +1,6 @@
 ---
 title: Registrare gli esperimenti di ML & metrica
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Monitora gli esperimenti di Azure ML e monitora le metriche di esecuzione per migliorare il processo di creazione del modello. Aggiungere la registrazione allo script di training e visualizzare i risultati registrati di un'esecuzione.  Usare Run. log, Run. start_logging o ScriptRunConfig.
 services: machine-learning
 author: heatherbshapiro
@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1c2747c8eaac0323ac32f67afb27ac854a3a5ce9
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: a37ed7c7f39324a7fb4750389c0d76c36539c3cc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959952"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002699"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorare le esecuzioni e le metriche dell'esperimento di Azure ML
 
-Migliorare il processo di creazione del modello tenendo traccia degli esperimenti e monitorando le metriche di esecuzione. In questo articolo si apprenderà come aggiungere codice di registrazione allo script di training, inviare un'esecuzione dell'esperimento, monitorare l'esecuzione e controllare i risultati in Azure Machine Learning servizio.
+Migliorare il processo di creazione del modello tenendo traccia degli esperimenti e monitorando le metriche di esecuzione. In questo articolo si apprenderà come aggiungere codice di registrazione allo script di training, inviare un'esecuzione dell'esperimento, monitorare l'esecuzione e controllare i risultati in Azure Machine Learning.
 
 > [!NOTE]
-> Azure Machine Learning servizio può anche registrare le informazioni provenienti da altre origini durante il training, ad esempio le esecuzioni automatiche di Machine Learning o il contenitore Docker che esegue il processo di training. Questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.
+> Azure Machine Learning possono anche registrare le informazioni provenienti da altre origini durante il training, ad esempio le esecuzioni automatiche di Machine Learning o il contenitore Docker che esegue il processo di training. Questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.
 
 ## <a name="available-metrics-to-track"></a>Metriche disponibili per il rilevamento
 
@@ -65,7 +65,7 @@ Prima di aggiungere la registrazione e inviare un esperimento, è necessario con
 
 **start_logging** crea un'esecuzione interattiva per l'uso in scenari come i notebook. Le metriche registrate durante la sessione vengono aggiunte al record esecuzione nell'esperimento.
 
-Nell'esempio seguente viene eseguito il training di un semplice modello sklearn Ridge localmente in un'istanza di Jupyter Notebook locale. Per altre informazioni sull'invio di esperimenti in ambienti diversi, vedere [Configurare le destinazioni di calcolo per il training del modello con il servizio di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+Nell'esempio seguente viene eseguito il training di un semplice modello sklearn Ridge localmente in un'istanza di Jupyter Notebook locale. Per altre informazioni sull'invio di esperimenti a diversi ambienti, vedere [configurare le destinazioni di calcolo per il training del modello con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
 
 1. Creare uno script di training in un'istanza di Jupyter Notebook locale. 
 
@@ -91,7 +91,7 @@ Nell'esempio seguente viene eseguito il training di un semplice modello sklearn 
    joblib.dump(value = reg, filename = 'model.pkl');
    ```
 
-2. Aggiungere il rilevamento dell'esperimento usando Azure Machine Learning SDK e caricare un modello persistente nel record esecuzione dell'esperimento. Il codice seguente aggiunge tag e log e consente di caricare un file di modello nell'esecuzione dell'esperimento.
+2. Aggiungere il rilevamento degli esperimenti usando il Azure Machine Learning SDK e caricare un modello permanente nel record di esecuzione dell'esperimento. Il codice seguente aggiunge tag e log e consente di caricare un file di modello nell'esecuzione dell'esperimento.
 
    ```python
     # Get an experiment object from Azure Machine Learning

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 9d88b8101f37fde5d1ab8ac11253884b6534e3b5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726772"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999176"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Archiviazione di Azure
 Questo articolo illustra un insieme di procedure consigliate di sicurezza in Archiviazione di Azure per la protezione delle applicazioni PaaS Web e per applicazioni mobili. Le procedure consigliate si basano sull'esperienza di tecnici e clienti con Azure.
@@ -71,7 +71,7 @@ Per altre informazioni sul controllo degli accessi in base al ruolo, vedere:
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Usare la crittografia lato client per i dati di valore elevato
 La crittografia lato client consente di crittografare i dati in transito a livello di codice prima di caricarli in Archiviazione di Azure e decrittografarli a livello di codice quando vengono recuperati. Questo approccio consente la crittografia dei dati in transito, ma anche dei dati inattivi. La crittografia dei dati lato client è il metodo più sicuro, ma richiede modifiche all'applicazione a livello di codice e l'implementazione della gestione delle chiavi.
 
-La crittografia lato client consente anche il controllo esclusivo delle chiavi di crittografia. È possibile generare e gestire chiavi di crittografia personalizzate. Usa una tecnica basata su busta in cui la libreria client di archiviazione di Azure genera una chiave di crittografia del contenuto (CEK) di cui viene eseguito il wrapping (crittografia) usando la chiave di crittografia della chiave (KEK). La chiave di crittografia della chiave è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata in [Azure Key Vault](/azure/key-vault/key-vault-whatis).
+La crittografia lato client consente anche il controllo esclusivo delle chiavi di crittografia. È possibile generare e gestire chiavi di crittografia personalizzate. Usa una tecnica basata su busta in cui la libreria client di archiviazione di Azure genera una chiave di crittografia del contenuto (CEK) di cui viene eseguito il wrapping (crittografia) usando la chiave di crittografia della chiave (KEK). La chiave di crittografia della chiave è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata in [Azure Key Vault](/azure/key-vault/key-vault-overview).
 
 La crittografia lato client è incorporata nelle librerie client di archiviazione .NET e Java. Vedere [Crittografia lato client e Azure Key Vault per Archiviazione di Microsoft Azure](/azure/storage/common/storage-client-side-encryption) per informazioni sulla crittografia dei dati all'interno di applicazioni client e la generazione e gestione di chiavi di crittografia personalizzate.
 

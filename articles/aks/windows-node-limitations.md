@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: ca5d857e4d473c7f76b7fac62e8a8bab39769b25
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a0fe65428a3329d4843ec913e934fb7a91b13759
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233138"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000227"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitazioni correnti per i pool di nodi di Windows Server e i carichi di lavoro delle applicazioni in Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Il supporto del pool di nodi di Windows Server include alcune limitazioni che fa
 
 Kubernetes è in passato basato su Linux. Molti esempi usati nel sito Web [Kubernetes.io][kubernetes] upstream sono destinati all'uso nei nodi Linux. Quando si creano distribuzioni che usano i contenitori di Windows Server, si applicano le considerazioni seguenti a livello di sistema operativo:
 
-- **Identity** -Linux usa UserID (UID) e GROUPID (GID), rappresentati come tipi Integer. I nomi di utenti e gruppi non sono canonici. si tratta semplicemente di un alias in */etc/groups* o */etc/passwd* di nuovo a UID + GID.
+- **Identity** -Linux identifica un utente tramite un identificatore utente Integer (UID). Un utente dispone anche di un nome utente alfanumerico per l'accesso, che Linux converte nell'UID dell'utente. Analogamente, Linux identifica un gruppo di utenti in base a un identificatore di gruppo Integer (GID) e converte un nome di gruppo nel rispettivo GID corrispondente.
     - Windows Server utilizza un ID di sicurezza (SID) di dimensioni maggiori archiviato nel database di gestione accessi Windows (SAM). Questo database non è condiviso tra l'host e i contenitori o tra contenitori.
 - **Autorizzazioni** per i file: Windows Server usa un elenco di controllo di accesso basato su Sid, anziché una maschera di bit di autorizzazioni e UID + GID
 - **Percorsi file** : la convenzione in Windows Server prevede l'uso di \ anziché/.

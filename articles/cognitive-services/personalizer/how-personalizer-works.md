@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/13/2019
 ms.author: diberry
-ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034382"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002899"
 ---
 # <a name="how-personalizer-works"></a>Funzionamento di Personalizza esperienze
 
@@ -89,31 +89,6 @@ Personalizza esperienze si basa su dati scientifici e ricerche nel campo dell'[a
 * Tratti e tono del bot: per i bot che possono variare tono, livello di dettaglio e stile di scrittura, valutare l'opportunità di variare questi tratti in modo personalizzato.
 * Contenuto di notifiche e avvisi: definire il testo da usare per gli avvisi in modo da coinvolgere maggiormente gli utenti.
 * Tempistica di notifiche e avvisi: individuare in modo personalizzato il momento opportuno in cui inviare le notifiche per un maggiore coinvolgimento degli utenti.
-
-## <a name="checklist-for-applying-personalizer"></a>Elenco di controllo per l'applicazione di Personalizza esperienze
-
-È possibile applicare Personalizza esperienze nelle situazioni in cui:
-
-* Si ha un obiettivo aziendale o di usabilità per l'applicazione.
-* Decidere contestualmente cosa mostrare agli utenti in un determinato punto dell'applicazione migliora tale obiettivo.
-* La scelta migliore può e deve essere appresa in base al comportamento collettivo degli utenti e al punteggio totale.
-* L'uso dell'apprendimento automatico per la personalizzazione è conforme alle [linee guida per l'uso responsabile](ethics-responsible-use.md) e alle scelte del team.
-* La decisione può essere espressa classificando l'opzione migliore ([azione](concepts-features.md#actions-represent-a-list-of-options) nell'ambito di un set di scelte limitato.
-* La validità della scelta può essere determinata in base alla logica di business, valutando alcuni aspetti del comportamento degli utenti ed esprimendoli con un numero compreso tra -1 e 1.
-* Il punteggio di ricompensa non introduce troppi fattori esterni o di confusione. In particolare, la durata dell'esperimento è abbastanza ridotta da poter calcolare il punteggio finché è ancora pertinente.
-* È possibile esprimere il contesto per le classificazione sotto forma di dizionario costituito da almeno 5 caratteristiche che si ritiene possano orientare verso la scelta giusta, escludendo le informazioni personali.
-* Le informazioni su ogni azione sono definite come dizionario di almeno 5 caratteristiche o attributi che si ritiene possano aiutare Personalizza esperienze a operare la scelta giusta.
-* È possibile conservare i dati per il tempo sufficiente ad accumulare una cronologia di almeno 100.000 interazioni.
-
-## <a name="machine-learning-considerations-for-applying-personalizer"></a>Considerazioni sull'apprendimento automatico per l'applicazione di Personalizza esperienze
-
-Personalizza esperienze si basa sull'apprendimento per rinforzo, un approccio all'apprendimento automatico in base al quale si apprende dal feedback fornito. 
-
-Personalizza esperienze apprenderà meglio nelle situazioni in cui:
-* Ci sono eventi sufficienti a tenere sotto controllo la personalizzazione ottimale se il problema devia nel corso del tempo (ad esempio, le preferenze nel campo delle notizie o della moda). Personalizza esperienze si adatta ai cambiamenti continui del mondo reale, ma i risultati non saranno ottimali se non ci sono eventi e dati sufficienti da cui apprendere per individuare e stabilire nuovi criteri. È consigliabile scegliere un caso d'uso che accada abbastanza frequentemente. Prendere in considerazione la ricerca di casi d'uso che si verifichino almeno 500 volte al giorno.
-* Il contesto e le azioni presentano caratteristiche sufficienti a facilitare l'apprendimento.
-* Per ogni chiamata ci sono meno di 50 azioni da classificare.
-* Le impostazioni di conservazione dati consentono a Personalizza esperienze di raccogliere dati sufficienti a eseguire valutazioni offline e l'ottimizzazione dei criteri. Si tratta in genere di almeno 50.000 punti dati.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Come usare Personalizza esperienze in un'applicazione Web
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 37ea126952451eae81c548a11f70b9a258808d34
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 6dfbcc7a3e76842546326742d801c913451855f3
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147360"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001115"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Caricare i file dal dispositivo al cloud con l'hub Internet (Python)
 
@@ -25,7 +25,7 @@ Questo articolo mostra come usare le [funzionalità di caricamento dei file dell
 
 * Usare il client Python per caricare un file tramite l'hub IoT.
 
-La Guida introduttiva inviare dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-python.md) Internet viene illustrata la funzionalità di messaggistica di base da dispositivo a cloud dell'hub Internet. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Quando è necessario caricare file da un dispositivo, è comunque possibile usare la sicurezza e l'affidabilità dell'hub IoT.
+La Guida introduttiva inviare dati di [telemetria da un dispositivo a un hub](quickstart-send-telemetry-python.md) Internet viene illustrata la funzionalità di messaggistica di base da dispositivo a cloud dell'hub Internet. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Quando è necessario caricare file da un dispositivo, è comunque possibile usare la sicurezza e l'affidabilità dell'hub IoT.
 
 > [!NOTE]
 > Python SDK per hub IoT attualmente supporta solo il caricamento dei file basati sui caratteri come i file **.txt**.
@@ -35,6 +35,9 @@ Al termine di questa esercitazione eseguire l'app console Python:
 * **FileUpload.py**, che carica un file nella risorsa di archiviazione tramite Python SDK per dispositivi.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+> [!NOTE]
+> Questa guida USA deprecated V1 Python SDK, perché la funzionalità di caricamento file non è ancora stata implementata nel nuovo SDK v2.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

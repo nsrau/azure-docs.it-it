@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 67a34b2b0a997a118cb2fe1b99de04bd58063307
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098631"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999052"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -88,7 +88,7 @@ I principi e i modelli per i perimetri di rete sono disponibili da molto tempo, 
 Di seguito sono illustrate le procedure consigliate per la gestione del perimetro di identità.
 
 **Procedura consigliata**: proteggere le chiavi e le credenziali per proteggere la distribuzione PaaS.   
-**Dettagli**: Perdere chiavi e credenziali è un problema comune. È possibile usare una soluzione centralizzata in cui le chiavi e i segreti possono essere archiviati in moduli di protezione hardware (HSM). [Azure Key Vault](../../key-vault/key-vault-whatis.md) protegge le chiavi e i segreti crittografando le chiavi di autenticazione, le chiavi dell'account di archiviazione, le chiavi di crittografia dei dati, i file PFX e le password usando chiavi protette da HSM.
+**Dettagli**: Perdere chiavi e credenziali è un problema comune. È possibile usare una soluzione centralizzata in cui le chiavi e i segreti possono essere archiviati in moduli di protezione hardware (HSM). [Azure Key Vault](../../key-vault/key-vault-overview.md) protegge le chiavi e i segreti crittografando le chiavi di autenticazione, le chiavi dell'account di archiviazione, le chiavi di crittografia dei dati, i file PFX e le password usando chiavi protette da HSM.
 
 **Procedura consigliata**: non inserire le credenziali e altri segreti nel codice sorgente o in GitHub.   
 **Dettagli**: un rischio ben peggiore della perdita di chiavi e credenziali consiste negli accessi non autorizzati. Gli utenti malintenzionati possono sfruttare le tecnologie bot per trovare chiavi e segreti archiviati in repository di codice come GitHub. Si consiglia pertanto di non inserire chiavi e segreti in questi archivi di codice pubblici.
@@ -133,7 +133,7 @@ Di seguito sono illustrate le procedure consigliate per l'uso della cache locale
 **Dettagli**: La limitazione degli accessi è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati. Il controllo degli accessi in base al ruolo (RBAC) può essere usato per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito. Per altre informazioni sulla concessione agli utenti dell'accesso alle applicazioni, vedere la sezione relativa all'[introduzione alla gestione degli accessi](/azure/role-based-access-control/overview).
 
 **Procedura consigliata**: Proteggere le chiavi.   
-**Dettagli**: Azure Key Vault consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con Key Vault è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware. Per ulteriori informazioni, vedere [Azure Key Vault](/azure/key-vault/key-vault-whatis). È anche possibile utilizzare Azure Key Vault per gestire i certificati TLS con il rinnovo automatico.
+**Dettagli**: Azure Key Vault consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con Key Vault è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware. Per ulteriori informazioni, vedere [Azure Key Vault](/azure/key-vault/key-vault-overview). È anche possibile utilizzare Azure Key Vault per gestire i certificati TLS con il rinnovo automatico.
 
 **Procedura consigliata**: Limitare gli indirizzi IP di origine in ingresso.   
 **Dettagli**: [Ambiente del servizio app](/azure/app-service/environment/intro) ha una funzionalità di integrazione di rete virtuale che consente di limitare gli indirizzi IP di origine in ingresso tramite gruppi di sicurezza di rete. Le reti virtuali consentono di posizionare le risorse di Azure in una rete instradabile non Internet di cui si controlla l'accesso. Per altre informazioni, vedere [Integrare un'app in una rete virtuale di Azure](/azure/app-service/web-sites-integrate-with-vnet).
@@ -159,7 +159,7 @@ Usare [Azure Application Insights](https://azure.microsoft.com/documentation/ser
 Application Insights include strumenti estensivi per l'interazione con i dati raccolti dal servizio stesso. Application Insights archivia questi dati in un repository comune. Può sfruttare le funzionalità condivise, ad esempio gli avvisi, i dashboard e l'analisi approfondita con il linguaggio di query kusto.
 
 ## <a name="perform-security-penetration-testing"></a>Eseguire test di penetrazione della sicurezza
-La convalida delle difese di sicurezza è importante quanto il test di qualsiasi altra funzionalità. Eseguire [test](pen-testing.md) di penetrazione in una parte standard del processo di compilazione e distribuzione. Pianificare test di sicurezza e analisi delle vulnerabilità regolari sulle applicazioni distribuite e monitorare le porte aperte, gli endpoint e gli attacchi.
+La convalida delle difese di sicurezza è importante quanto il test di qualsiasi altra funzionalità. Eseguire [test di penetrazione](pen-testing.md) in una parte standard del processo di compilazione e distribuzione. Pianificare test di sicurezza e analisi delle vulnerabilità regolari sulle applicazioni distribuite e monitorare le porte aperte, gli endpoint e gli attacchi.
 
 Il test fuzzy è un metodo per individuare gli errori del programma (errori del codice) fornendo dati di input in formato non valido alle interfacce di programma (punti di ingresso) che analizzano e utilizzano questi dati. Il rilevamento dei rischi per la [sicurezza di Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) è uno strumento basato sul cloud che è possibile usare per cercare bug e altre vulnerabilità di sicurezza nel software prima di distribuirlo in Azure. Lo strumento è progettato per rilevare le vulnerabilità prima di distribuire il software, in modo da non dover applicare patch a un bug, gestire arresti anomali o rispondere a un attacco dopo il rilascio del software.
 

@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 33128cbece3b217778182b3831b02e2f3f654f3b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c01f695210ebbd69a26b957e846ff645b1dea5bb
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853206"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999019"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Elenco di controllo dell'integrazione della piattaforma Microsoft Identity
 
@@ -66,7 +66,7 @@ Usare il seguente elenco di controllo per assicurarsi che l'applicazione sia int
 | ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Se l'app è registrata in una directory, minimizzare e monitorare manualmente l'elenco dei proprietari di registrazione delle app. |
 | ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Non abilitare il supporto per il [flusso di concessione implicita OAuth2](v2-oauth2-implicit-grant-flow.md) , a meno che non sia esplicitamente richiesto. Per informazioni sullo scenario valido, vedere [qui](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Non usare il [flusso di credenziali password del proprietario della risorsa (ROPC)](v2-oauth-ropc.md), che gestisce direttamente le password degli utenti. Questo flusso richiede un elevato livello di attendibilità e l'esposizione dell'utente e deve essere usato solo quando non è possibile usare altri flussi, più sicuri. |
-| ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Proteggere e gestire le credenziali dell'app. Usare le [credenziali del certificato](active-directory-certificate-credentials.md)e non le credenziali password (segreti client). Se è necessario usare una credenziale password, non impostarla manualmente. Non archiviare le credenziali nel codice o nella configurazione e non consentirle di gestirle dagli utenti. Se possibile, usare [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) o [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) per archiviare e ruotare periodicamente le credenziali. |
+| ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Proteggere e gestire le credenziali dell'app. Usare le [credenziali del certificato](active-directory-certificate-credentials.md)e non le credenziali password (segreti client). Se è necessario usare una credenziale password, non impostarla manualmente. Non archiviare le credenziali nel codice o nella configurazione e non consentirle di gestirle dagli utenti. Se possibile, usare [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) o [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) per archiviare e ruotare periodicamente le credenziali. |
 | ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Assicurarsi che l'applicazione richieda le autorizzazioni con privilegi minimi. Chiedere solo le autorizzazioni necessarie all'applicazione e solo quando servono. Comprendere i diversi [tipi di autorizzazioni](v1-permissions-and-consent.md#types-of-permissions). Usare solo le autorizzazioni dell'applicazione, se necessario. utilizzare le autorizzazioni delegate laddove possibile. Per un elenco completo delle autorizzazioni di Microsoft Graph, vedere questo [riferimento alle autorizzazioni](https://docs.microsoft.com/graph/permissions-reference). |
 | ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Se si sta proteggendo un'API usando la piattaforma di identità Microsoft, è opportuno valutare attentamente le autorizzazioni da esporre. Prendere in considerazione la granularità corretta per la soluzione e le autorizzazioni che richiedono il consenso dell'amministratore. Verificare la presenza di autorizzazioni previste nei token in ingresso prima di prendere decisioni di autorizzazione. |
 

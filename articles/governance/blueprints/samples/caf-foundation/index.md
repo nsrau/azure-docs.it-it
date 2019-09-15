@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: b78f81e16afbd044306c6697e0d8823bdd02b81a
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: aa25bbb54893fa84bb345a317850df4125faed25
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232870"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003292"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Panoramica del progetto di esempio di definizione della base di Microsoft Cloud Adoption Framework per Azure
 
@@ -27,7 +27,7 @@ Il progetto di esempio di definizione della base di Cloud Adoption Framework dis
 
 Questa implementazione include diversi servizi di Azure usati per offrire una base sicura, completamente monitorata e pronta per l'azienda. L'ambiente è costituito da:
 
-- Un'istanza di [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) usata per ospitare i segreti per le macchine virtuali distribuite nell'ambiente dei servizi condivisi
+- Un'istanza di [Azure Key Vault](../../../../key-vault/key-vault-overview.md) usata per ospitare i segreti per le macchine virtuali distribuite nell'ambiente dei servizi condivisi
 - [Analisi dei log](../../../../azure-monitor/overview.md), distribuito per garantire la registrazione di tutte le azioni e tutti i servizi in una posizione centrale dal momento in cui viene avviata la distribuzione sicura negli [account di archiviazione](../../../../storage/common/storage-introduction.md) per la registrazione diagnostica
 - [Centro sicurezza di Azure](../../../../security-center/security-center-intro.md) (versione standard), distribuito per fornire la protezione dalle minacce per i carichi di lavoro di cui è stata eseguita la migrazione
 - Il progetto definisce e distribuisce anche [criteri di Azure](../../../policy/overview.md) per: 

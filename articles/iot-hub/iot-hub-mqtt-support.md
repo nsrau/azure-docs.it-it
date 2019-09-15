@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 9a6b3a538304f2d09941650e3087130c21422dc0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6a43b721b70858d82083538638853c5bbdf1531d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946358"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004128"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -48,7 +48,7 @@ La tabella seguente include i collegamenti a esempi di codice per ogni linguaggi
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples) |IoTHubTransportProvider.MQTT |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Supporta sempre MQTT per impostazione predefinita |
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>Migrazione di un'app per dispositivo da AMQP a MQTT
 
@@ -59,6 +59,8 @@ Quando si esegue questa operazione, controllare gli elementi seguenti:
 * AMQP restituisce errori per diverse condizioni, mentre MQTT termina la connessione. Di conseguenza, la logica di gestione delle eccezioni potrebbe richiedere alcune modifiche.
 
 * MQTT non supporta le operazioni di *rifiuto* durante la ricezione [di messaggi da cloud a dispositivo](iot-hub-devguide-messaging.md). Se l'app back-end deve ricevere una risposta dall'app per dispositivo, prendere in considerazione l'uso di [metodi diretti](iot-hub-devguide-direct-methods.md).
+
+* AMQP non è supportato in Python SDK
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Uso diretto del protocollo MQTT (come dispositivo)
 
@@ -306,7 +308,7 @@ Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi
 
 I possibili codici di stato sono i seguenti:
 
-|Stato | Descrizione |
+|Stato | DESCRIZIONE |
 | ----- | ----------- |
 | 200 | Riuscito |
 | 400 | Richiesta non valida. JSON non valido |
@@ -346,7 +348,7 @@ Quando un dispositivo è connesso, l'hub IoT invia notifiche all'argomento `$iot
 Come per gli aggiornamenti delle proprietà, i valori `null` indicano l'eliminazione del membro dell'oggetto JSON. Si noti inoltre che `$version` indica la nuova versione della sezione delle proprietà desiderate del dispositivo gemello.
 
 > [!IMPORTANT]
-> L'hub IoT genera notifiche di modifica solo quando i dispositivi sono connessi. Assicurarsi di implementare il flusso di riconnessione del [dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow) per garantire la sincronizzazione delle proprietà desiderate tra l'hub e l'app per dispositivi.
+> L'hub IoT genera notifiche di modifica solo quando i dispositivi sono connessi. Assicurarsi di implementare il [flusso di riconnessione del dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow) per garantire la sincronizzazione delle proprietà desiderate tra l'hub e l'app per dispositivi.
 
 Per altre informazioni, vedere [la guida per gli sviluppatori di dispositivi gemelli](iot-hub-devguide-device-twins.md).
 
@@ -358,7 +360,7 @@ Per rispondere, il dispositivo invia un messaggio con un codice JSON valido o un
 
 Per ulteriori informazioni, vedere [Guida per gli sviluppatori di metodi diretti](iot-hub-devguide-direct-methods.md).
 
-## <a name="additional-considerations"></a>Ulteriori considerazioni
+## <a name="additional-considerations"></a>Considerazioni aggiuntive
 
 Come ultima considerazione, se è necessario personalizzare il comportamento del protocollo MQTT sul lato cloud, è necessario esaminare il gateway del [protocollo di Azure](iot-hub-protocol-gateway.md). Questo software consente di distribuire un gateway di protocollo personalizzato ad alte prestazioni che si interfaccia direttamente con l'hub IoT. Il gateway del protocollo IoT Azure consente di personalizzare il protocollo del dispositivo per supportare le distribuzioni di MQTT cosiddette "brownfield" o altri protocolli personalizzati. Questo approccio richiede tuttavia l'esecuzione e la gestione di un gateway di protocollo personalizzato.
 

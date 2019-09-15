@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cdb1b49af5d3a85dc1853e5964c1cdfdd5c3a7cd
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 679de2d3a5519e57978239ddd75a4b9fa2ffef3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716681"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998765"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui profili tecnici nei criteri personalizzati di Azure Active Directory B2C
 
@@ -37,7 +37,6 @@ Un profilo tecnico supporta i tipi di scenario riportati di seguito.
 - [Provider RESTful](restful-technical-profile.md) : è possibile chiamare i servizi API REST, ad esempio convalidare l'input dell'utente, arricchire i dati utente o integrarsi con applicazioni line-of-business.
 - [SAML2](saml-technical-profile.md): federazione con qualsiasi provider di identità con protocollo SAML.
 - [Autocertificazione](self-asserted-technical-profile.md): interazione con l'utente, ad esempio per raccogliere le credenziali dell'utente per l'accesso, eseguire il rendering della pagina di iscrizione o reimpostare la password.
-- **WsFed**: federazione con qualsiasi provider di identità con protocollo WsFed.
 - [Gestione delle sessioni](active-directory-b2c-reference-sso-custom.md): gestione di diversi tipi di sessioni.
 - **Application Insights**
 

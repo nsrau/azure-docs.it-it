@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 31273105c2f4de6950eae6a66c50264803197642
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 39427ac12dc6214630d6c3e5ace62692b1ea30b6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981865"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003075"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrare i dati in un account di API Cassandra Azure Cosmos DB usando StriIm
 
@@ -43,7 +43,7 @@ Questo articolo illustra come usare StriIm per eseguire la migrazione dei dati d
 
    |Impostazione | Valore | Descrizione |
    | ---| ---| ---|
-   |Tipo di distribuzione StriIm |Autonomi | StriIm può essere eseguito in un tipo di distribuzione autonomo o **cluster** . La modalità autonoma distribuirà il server StriIm in una singola macchina virtuale ed è possibile selezionare le dimensioni delle VM a seconda del volume di dati. La modalità cluster distribuirà il server StriIm in due o più macchine virtuali con le dimensioni selezionate. Gli ambienti cluster con più di 2 nodi offrono disponibilità elevata e failover automatici.</br></br> In questa esercitazione è possibile selezionare l'opzione autonoma. Usare la VM di dimensioni predefinite "Standard_F4s". | 
+   |Tipo di distribuzione StriIm |Autonomi | StriIm può essere eseguito in un tipo di distribuzione **autonomo** o **cluster** . La modalità autonoma distribuirà il server StriIm in una singola macchina virtuale ed è possibile selezionare le dimensioni delle VM a seconda del volume di dati. La modalità cluster distribuirà il server StriIm in due o più macchine virtuali con le dimensioni selezionate. Gli ambienti cluster con più di 2 nodi offrono disponibilità elevata e failover automatici.</br></br> In questa esercitazione è possibile selezionare l'opzione autonoma. Usare la VM di dimensioni predefinite "Standard_F4s". | 
    | Nome del cluster StriIm|    < Striim_cluster_Name >|  Nome del cluster StriIm.|
    | Password del cluster StriIm|   < Striim_cluster_password >|  Password per il cluster.|
 
@@ -155,7 +155,17 @@ In questa sezione si configurerà l'account di API Cassandra Azure Cosmos DB com
 
    ![Connessione a destinazione](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Immettere le proprietà di configurazione dell'istanza di Azure Cosmos DB di destinazione e selezionare **Salva** per continuare.
+1. Prima di configurare la destinazione, verificare di aver aggiunto un [certificato radice Baltimore all'ambiente Java di StriIm](/java/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store).
+
+1. Immettere le proprietà di configurazione dell'istanza di Azure Cosmos DB di destinazione e selezionare **Salva** per continuare. Ecco i parametri chiave da considerare:
+
+   * **Adapter** : usare **DatabaseWriter**. Quando si scrive nel Azure Cosmos DB API Cassandra, è necessario DatabaseWriter. Il driver Cassandra 3.6.0 è incluso in StriIm. Se il DatabaseWriter supera il numero di UR di cui è stato effettuato il provisioning nel contenitore Azure Cosmos, l'applicazione si arresterà in modo anomalo.
+
+   * Nome **utente** : specificare il nome dell'account Azure Cosmos.
+   
+   * **Password** : specificare la chiave primaria dell'account Azure Cosmos.
+
+   * **Tabelle** : le tabelle di destinazione devono avere chiavi primarie e le chiavi primarie non possono essere aggiornate.
 
    ![Configurare le proprietà di destinazione](./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png)
 
@@ -178,8 +188,7 @@ In questa sezione si configurerà l'account di API Cassandra Azure Cosmos DB com
 
 1. Infine, accedere ad Azure e passare all'account Azure Cosmos. Aggiornare il Esplora dati. è possibile vedere che i dati sono arrivati. 
 
-Con la soluzione StriIm in Azure è possibile eseguire la migrazione continua dei dati in Azure Cosmos DB da diverse origini, ad esempio Oracle, Cassandra, MongoDB e altre ancora, per Azure Cosmos DB. Per eventuali problemi durante la configurazione del percorso di migrazione con StriIm, archiviare una richiesta di supporto nel [sito Web di StriIm](https://go2.striim.com/request-support-striim).
-
+Con la soluzione StriIm in Azure è possibile eseguire la migrazione continua dei dati in Azure Cosmos DB da diverse origini, ad esempio Oracle, Cassandra, MongoDB e altre ancora, per Azure Cosmos DB. Per altre informazioni, visitare il [sito Web StriIm](https://www.striim.com/), [scaricare una versione di valutazione gratuita di 30 giorni di StriIm](https://go2.striim.com/download-free-trial)e per eventuali problemi durante la configurazione del percorso di migrazione con StriIm, inviare una [richiesta di supporto.](https://go2.striim.com/request-support-striim)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

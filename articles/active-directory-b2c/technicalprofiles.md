@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f712634c83fa290ab24d5e8437a82d5f93af0b7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1192c8d0057d77306a1ffb06dd9bae12b7634ca
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512287"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998751"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -108,7 +108,7 @@ L'elemento **Protocollo** contiene gli attributi seguenti:
 
 | Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Name | Yes | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. I valori possibili sono: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` o `None`. |
+| Name | Yes | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. Valori possibili: `OAuth1` `OAuth2` ,,`OpenIdConnect` ,,`Proprietary`, ,`self-asserted`o. `session management` `SAML2` `None` |
 | Gestore | No | Quando il nome del protocollo è impostato su `Proprietary`, specificare il nome completo dell'assembly usato da Azure AD B2C per determinare il gestore di protocollo. |
 
 ### <a name="metadata"></a>Metadata
@@ -123,15 +123,15 @@ L'elemento **Metadata** contiene gli elementi seguenti:
 
 L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Chiave | Yes | La chiave dei metadati. Per l'elenco degli elementi di metadati, vedere ogni tipo di profilo tecnico. |
+| Chiave | Sì | La chiave dei metadati. Per l'elenco degli elementi di metadati, vedere ogni tipo di profilo tecnico. |
 
 ### <a name="cryptographickeys"></a>CryptographicKeys
 
 L'elemento **CryptographicKeys** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | Chiave | 1:n | Una chiave di crittografia usata in questo profilo tecnico. |
 
@@ -142,7 +142,7 @@ L'elemento **Chiave** contiene l'attributo seguente:
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | ID | No | Un identificatore univoco di una coppia di chiavi specifica a cui fanno riferimento altri elementi nel file dei criteri. |
-| StorageReferenceId | Yes | Un identificatore di un contenitore di chiavi di archiviazione a cui fanno riferimento altri elementi nel file dei criteri. |
+| StorageReferenceId | Sì | Un identificatore di un contenitore di chiavi di archiviazione a cui fanno riferimento altri elementi nel file dei criteri. |
 
 ### <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
@@ -156,15 +156,15 @@ L'elemento **InputClaimsTransformations** contiene l'elemento seguente:
 
 L'elemento **InputClaimsTransformation** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Un identificatore di trasformazione delle attestazioni già definito nel file dei criteri o nel file dei criteri padre. |
+| ReferenceId | Sì | Un identificatore di trasformazione delle attestazioni già definito nel file dei criteri o nel file dei criteri padre. |
 
 ### <a name="inputclaims"></a>InputClaims
 
 L'elemento **InputClaims** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Un tipo di attestazione di input previsto. |
 
@@ -174,7 +174,7 @@ L'elemento **InputClaim** contiene gli attributi seguenti:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Yes | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
+| ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
 | DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
 | PartnerClaimType | No | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
 
@@ -190,9 +190,9 @@ L'elemento **PersistedClaims** contiene gli elementi seguenti:
 
 L'elemento **PersistedClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Yes | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
+| ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
 | DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
 | PartnerClaimType | No | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
 
@@ -200,7 +200,7 @@ L'elemento **PersistedClaim** contiene gli attributi seguenti:
 
 L'elemento **OutputClaims** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | Un tipo di attestazione di output previsto. |
 
@@ -219,7 +219,7 @@ L'elemento **OutputClaim** contiene gli attributi seguenti:
 
 L'elemento **OutputClaimsTransformations** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1:n | Gli identificatori delle trasformazione di attestazioni che devono essere eseguiti prima che le attestazioni siano inviate al provider di attestazioni o relying party. Una trasformazione delle attestazioni può essere usata per modificare le attestazioni ClaimsSchema esistenti o generarne di nuove. |
 
@@ -229,7 +229,7 @@ L'elemento **OutputClaimsTransformation** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Un identificatore di trasformazione delle attestazioni già definito nel file dei criteri o nel file dei criteri padre. |
+| ReferenceId | Sì | Un identificatore di trasformazione delle attestazioni già definito nel file dei criteri o nel file dei criteri padre. |
 
 ### <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -243,15 +243,15 @@ L'elemento **ValidationTechnicalProfiles** contiene l'elemento seguente:
 
 L'elemento **ValidationTechnicalProfile** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
+| ReferenceId | Sì | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 
 ###  <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Il **SubjectNamingInfo** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | ClaimType | Yes | Un identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri. |
 
@@ -261,7 +261,7 @@ L'elemento **IncludeTechnicalProfile** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
+| ReferenceId | Sì | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 
 ### <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 
@@ -269,7 +269,7 @@ L'elemento **UseTechnicalProfileForSessionManagement** contiene l'attributo segu
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
+| ReferenceId | Sì | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
 L'elemento **ClaimsProviderSelections** in un percorso utente definisce l'elenco di selezioni di provider di attestazioni e il relativo ordine. Con l'elemento **EnabledForUserJourneys** è possibile filtrare i provider di attestazioni disponibili per l'utente. L'elemento **EnabledForUserJourneys** contiene uno dei valori seguenti:
