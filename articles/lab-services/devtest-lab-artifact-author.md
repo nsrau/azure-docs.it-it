@@ -78,7 +78,7 @@ Per definire i parametri, usare la struttura seguente:
 
 | Nome dell'elemento | Obbligatorio? | Descrizione |
 | --- | --- | --- |
-| tipo |Yes |Tipo di valore del parametro. Vedere l'elenco seguente per informazioni sui tipi consentiti. |
+| type |Yes |Tipo di valore del parametro. Vedere l'elenco seguente per informazioni sui tipi consentiti. |
 | displayName |Yes |Nome del parametro che viene visualizzato a un utente nel lab. |
 | description |Yes |Descrizione del parametro che viene visualizzato nel lab. |
 
