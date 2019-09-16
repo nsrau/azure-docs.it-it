@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 0c8c2f2adb11a30b438fb41dca07519b2f74baf7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 29f5b9b704bcf4648e9c24516d8eff5429a0ce1d
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813580"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009963"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
@@ -28,7 +28,7 @@ Questo articolo illustra come copiare dati da e verso Azure SQL Data Warehouse. 
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore BLOB di Azure è supportato per le attività seguenti:
+Questo connettore Azure SQL Data Warehouse è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con tabella della [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Mapping del flusso di dati](concepts-data-flow-overview.md)
@@ -233,7 +233,7 @@ Per copiare dati da o in Azure SQL Data Warehouse, sono supportate le proprietà
 
 | Proprietà  | Descrizione                                                  | Obbligatoria                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| type      | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Sì                         |
+| type      | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Yes                         |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
 | table | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
 | tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di `schema` lavoro `table`, utilizzare e. | No per l'origine, Sì per il sink |
@@ -379,7 +379,7 @@ Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'att
 | rejectType        | Indica se l'opzione **rejectValue** viene specificata come valore letterale o come percentuale.<br/><br/>I valori consentiti sono **Value** (predefinito) e **Percentage**. | No                                            |
 | rejectSampleValue | Determina il numero di righe da recuperare prima che PolyBase ricalcoli la percentuale di righe rifiutate.<br/><br/>I valori consentiti sono 1, 2 e così via. | Sì se **rejectType** è **percentage**. |
 | useTypeDefault    | Specifica come gestire i valori mancanti nei file con testo delimitato quando PolyBase recupera dati dal file di testo.<br/><br/>Per altre informazioni su questa proprietà, vedere la sezione Arguments (Argomenti) in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>I valori consentiti sono **True** e **False** (predefinito).<br><br> | No                                            |
-| writeBatchSize    | Numero di righe da inserire nella tabella SQL **per batch**. Si applica solo se non viene usato PolyBase.<br/><br/>Il valore consentito è **integer** (numero di righe). Per impostazione predefinita, Data Factory determinare in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. | No                                            |
+| writeBatchSize    | Numero di righe da inserire nella tabella SQL **per batch**. Si applica solo se non viene usato PolyBase.<br/><br/>Il valore consentito è **integer** (numero di righe). Per impostazione predefinita, Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. | No                                            |
 | writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout. Si applica solo se non viene usato PolyBase.<br/><br/>Il valore consentito è **timespan**. Esempio: "00:30:00" (30 minuti). | No                                            |
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Azure SQL Data Warehouse ad ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
 | tableOption | Specifica se creare automaticamente la tabella di sink se non esiste in base allo schema di origine. La creazione automatica della tabella non è supportata quando la copia di gestione temporanea è configurata nell'attività di copia. I valori consentiti sono: `none` (impostazione predefinita),. `autoCreate` |No |
@@ -440,7 +440,7 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
    3. `rowDelimiter`il **valore predefinito**è **\n**, **\r\n**o **.**
    4. `nullValue`viene lasciato come predefinito o è impostato su una **stringa vuota** ("") `treatEmptyAsNull` e viene lasciato come predefinito o impostato su true.
    5. `encodingName`viene lasciato come predefinito o impostato su **UTF-8**.
-   6. `quoteChar`, `escapeChar` e`skipLineCount` non sono specificati. Il supporto di PolyBase ignora la riga di intestazione che può essere configurata come `firstRowAsHeader` nella data factory di Azure.
+   6. `quoteChar`, `escapeChar` e`skipLineCount` non sono specificati. La riga di intestazione Skip support, che può essere configurata come `firstRowAsHeader` in ADF.
    7. `compression` può essere **no compression**, **GZip** o **Deflate**.
 
 3. Se l'origine è una cartella, `recursive` l'attività di copia deve essere impostata su true.
@@ -556,7 +556,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 ```
 
 La soluzione consiste nell'deselezionare l'opzione "**Usa il tipo predefinito**" (false) nelle impostazioni di base del sink dell'attività di copia->. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)" è una configurazione nativa di base che specifica come gestire i valori mancanti in file di testo delimitati quando la polibase recupera i dati dal file di testo. 
+)" è una configurazione nativa di base, che specifica come gestire i valori mancanti in file di testo delimitati quando la polibase recupera i dati dal file di testo. 
 
 **`tableName`in Azure SQL Data Warehouse**
 
@@ -625,6 +625,14 @@ Quando si copiano i dati da o in Azure SQL Data Warehouse, vengono usati i mappi
 | uniqueidentifier                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Proprietà dell'attività GetMetadata
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività GetMetadata](control-flow-get-metadata-activity.md) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere [Archivi dati e formati supportati](copy-activity-overview.md##supported-data-stores-and-formats).

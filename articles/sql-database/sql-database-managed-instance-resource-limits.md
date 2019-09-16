@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/27/2019
-ms.openlocfilehash: 0dea447ed44a61b20faf9a0a1690b2bbdd674b30
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/16/2019
+ms.openlocfilehash: 7f7faf11ed18fa2a85587c193376a3e4ce905fd2
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70930614"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010197"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
-Questo articolo fornisce una panoramica dei limiti delle risorse per istanza gestita di database SQL di Azure e fornisce informazioni su come richiedere un aumento di questi limiti.
+Questo articolo fornisce una panoramica delle caratteristiche tecniche e dei limiti delle risorse per istanza gestita di database SQL di Azure e fornisce informazioni su come richiedere un aumento a questi limiti.
 
 > [!NOTE]
-> Per informazioni sulle differenze nelle funzionalità e nelle istruzioni T-SQL supportate, vedere [Confronto tra le funzionalità](sql-database-features.md) e [Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server](sql-database-managed-instance-transact-sql-information.md).
+> Per informazioni sulle differenze nelle funzionalità e nelle istruzioni T-SQL supportate, vedere [Confronto tra le funzionalità](sql-database-features.md) e [Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server](sql-database-managed-instance-transact-sql-information.md). Per differenze generali tra i livelli di servizio nel database singolo e nell'istanza gestita, vedere [confronto tra livelli di servizio](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
 ## <a name="instance-level-resource-limits"></a>Limiti delle risorse a livello di istanza
 
@@ -36,18 +36,18 @@ Istanza gestita di database SQL di Azure può essere distribuita in due generazi
 |   | **Quarta generazione** | **Quinta generazione** |
 | --- | --- | --- |
 | Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD NVMe veloce, vCore = 1 LP (hyperthread) |
-| Numero di vcore | 8, 16, 24 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vcore |
+| Numero di vCore | 8, 16, 24 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vcore |
 | Memoria massima (rapporto memoria/Core) | 7 GB per vCore<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. | 5,1 GB per vCore<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. |
 | Memoria OLTP max in memoria | Limite istanza: 3 GB per vCore<br/>Limiti del database:<br/> -8-core: 8 GB per database<br/> -16 core: 20 GB per database<br/> -24-core: 36 GB per database | Limite istanza: 2,5 GB per vCore<br/>Limiti del database:<br/> -8-core: 13 GB per database<br/> -16 core: 32 GB per database |
 | Archiviazione riservata istanza massima |  Per utilizzo generico: 8 TB<br/>Business critical: 1 TB | Per utilizzo generico: 8 TB<br/> Business critical 1 TB, 2 TB o 4 TB a seconda del numero di core |
 
 > [!IMPORTANT]
 > - L'hardware Gen4 è in fase di eliminazione. È consigliabile distribuire nuove istanze gestite nell'hardware quinta generazione.
-> - L'hardware Gen4 è attualmente disponibile nelle aree geografiche seguenti: Europa settentrionale, Europa occidentale, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti occidentali 2, Stati Uniti centrali, Canada centrale, India meridionale, Asia sudorientale e Corea centrale.
+> - L'hardware Gen4 al momento è ancora disponibile solo nelle aree seguenti: Europa settentrionale, Europa occidentale, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti occidentali 2, Stati Uniti centrali, Canada centrale, India meridionale, Asia sudorientale e Corea centrale.
 
 ### <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
-Istanza gestita ha due livelli di servizio: Per utilizzo generico e business critical. Questi livelli offrono funzionalità diverse, come descritto nella tabella seguente:
+Istanza gestita ha due livelli di servizio: [Per utilizzo generico](sql-database-service-tier-general-purpose.md) e [business critical](sql-database-service-tier-business-critical.md). Questi livelli forniscono [funzionalità diverse](sql-database-service-tiers-general-purpose-business-critical.md), come descritto nella tabella seguente:
 
 | **Funzionalità** | **Utilizzo generico** | **Business Critical** |
 | --- | --- | --- |
@@ -73,6 +73,9 @@ Istanza gestita ha due livelli di servizio: Per utilizzo generico e business cri
 > - La velocità effettiva e IOPS dipendono anche dalle dimensioni di pagina non esplicitamente limitate dall'istanza gestita.
 > È possibile creare un'altra replica leggibile in un'area di Azure diversa usando i gruppi di failover automatico.
 
+> [!NOTE]
+> Altre informazioni sui [limiti delle risorse nei pool di istanze gestite sono disponibili in questo articolo](sql-database-instance-pools.md#instance-pools-resource-limitations).
+
 ## <a name="supported-regions"></a>Aree supportate
 
 È possibile creare istanze gestite solo nelle [aree supportate](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Per creare un'istanza gestita in un'area che non è attualmente supportata, è possibile [inviare una richiesta di supporto tramite il portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
@@ -93,7 +96,7 @@ Istanza gestita supporta attualmente la distribuzione solo sui seguenti tipi di 
 I tipi di sottoscrizioni supportati possono contenere un numero limitato di risorse per area. L'istanza gestita prevede due limiti predefiniti per ogni area di Azure, a seconda di un tipo di sottoscrizione:
 
 - **Limite di subnet**: numero massimo di subnet in cui vengono distribuite le istanze gestite in una singola area.
-- **limite vCore**: Numero massimo di Vcore che possono essere distribuiti in tutte le istanze di una singola area.
+- **limite vCore**: Numero massimo di Vcore che possono essere distribuiti in tutte le istanze di una singola area. Il numero totale di istanze non è limitato a condizione che si trovi entro il limite di vCore.
 
 > [!Note]
 > Questi limiti sono impostazioni predefinite e non limitazioni tecniche. I limiti possono essere aumentati su richiesta creando una richiesta di [supporto speciale nel portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se sono necessarie più istanze gestite nell'area corrente. In alternativa, è possibile creare nuove istanze gestite in un'altra area di Azure senza inviare richieste di supporto.

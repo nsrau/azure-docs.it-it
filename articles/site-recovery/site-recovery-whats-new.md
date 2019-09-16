@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2d40e6fef215219035720ee64492a91fcdafb472
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 867a2dc9739e839a6957190f93311a811556df15
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933927"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010252"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -59,7 +59,7 @@ Le nuove funzionalità per il ripristino di emergenza delle macchine virtuali di
 **Pulitura dopo il failback** | Dopo aver eseguito il failover nell'area secondaria di Azure e dopo aver eseguito il failback nell'area primaria, Site Recovery pulisce automaticamente i computer nell'area secondaria. Non è necessario eliminare manualmente le macchine virtuali e le schede di rete.
 **Il failover di test mantiene l'indirizzo IP** | È ora possibile mantenere l'indirizzo IP della VM di origine durante un'esercitazione sul ripristino di emergenza e selezionare un indirizzo IP statico per un failover di test.
 
-## <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
+### <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
 
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
@@ -67,13 +67,13 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 --- | ---
 Nuovi avvisi del server di elaborazione | Sono stati aggiunti nuovi avvisi del server di elaborazione. [Altre informazioni](vmware-physical-azure-monitor-process-server.md) 
 
-## <a name="hyper-v-disaster-recovery"></a>Ripristino di emergenza di Hyper-V
+### <a name="hyper-v-disaster-recovery"></a>Ripristino di emergenza di Hyper-V
 
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-Account di archiviazione | Site Recovery supporta ora l'uso di un account di archiviazione con il controllo degli accessi in base al ruolo (RBAC) abilitato. [Altre](../storage/common/storage-account-manage.md#access-control) informazioni sul controllo di accesso per gli account di archiviazione. 
+Account di archiviazione | Site Recovery supporta ora l'uso di account di archiviazione con firewall abilitato per il ripristino di emergenza da Hyper-V ad Azure.  È possibile selezionare account di archiviazione abilitati per il firewall come account di destinazione o per l'archiviazione nella cache. Se si usa l'account abilitato per il firewall, assicurarsi di abilitare l'opzione per consentire i servizi Microsoft attendibili.
 
 
 ## <a name="updates-august-2019"></a>Aggiornamenti (2019 agosto)

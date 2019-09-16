@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 625f31252942c3d8dea9ca9b4772af19f60e17ab
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 08d1afb4175a61b70d8e04b19db187bcc87dd129
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720719"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010521"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -27,6 +27,12 @@ ms.locfileid: "68720719"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Salesforce. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta informazioni generali sull'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore Salesforce è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
+
 
 È possibile copiare dati da Salesforce in qualsiasi archivio dati di sink supportato. È anche possibile copiare dati da qualsiasi archivio di dati di origine supportato in Salesforce. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -320,21 +326,26 @@ Quando si copiano dati da Salesforce, vengono usati i mapping seguenti tra i tip
 | Checkbox |Boolean |
 | Currency |Decimal |
 | Date |DateTime |
-| Date/Time |DateTime |
+| Data/ora |DateTime |
 | Email |String |
-| Id |String |
-| Lookup Relationship |String |
-| Multi-Select Picklist |String |
+| ID |String |
+| Relazione di ricerca |String |
+| Elenco a discesa seleziona multipla |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Phone |String |
-| Picklist |String |
+| Telefono |String |
+| Elenco a discesa |String |
 | Text |String |
-| Text Area |String |
-| Text Area (Long) |String |
-| Text Area (Rich) |String |
-| Text (Encrypted) |String |
+| Area di testo |String |
+| Area di testo (Long) |String |
+| Area di testo (Rich) |String |
+| Testo (Crittografato) |String |
 | URL |String |
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini e sink dall'attività di copia in Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 8925ea9da06ff718f08b7be73944c75d388bc01f
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5ba530a614dd7eb064e1d9b5a59fc00b9280ef0a
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814165"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008629"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -33,6 +33,7 @@ Questo connettore BLOB di Azure è supportato per le attività seguenti:
 - [Mapping del flusso di dati](concepts-data-flow-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività GetMetadata](control-flow-get-metadata-activity.md)
+- [Elimina attività](delete-activity.md)
 
 In particolare, il connettore di Archiviazione BLOB supporta:
 
@@ -638,6 +639,18 @@ In questa sezione viene descritto il comportamento derivante dell'operazione di 
 ## <a name="mapping-data-flow-properties"></a>Mapping delle proprietà del flusso di dati
 
 Per informazioni dettagliate, vedere [trasformazione origine](data-flow-source.md) e [trasformazione sink](data-flow-sink.md) nel flusso di dati del mapping.
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Proprietà dell'attività GetMetadata
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività GetMetadata](control-flow-get-metadata-activity.md) 
+
+## <a name="delete-activity-properties"></a>Elimina proprietà attività
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di eliminazione](delete-activity.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

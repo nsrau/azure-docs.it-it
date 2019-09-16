@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 19c450a1832e725fa5fbf171b991a6b617291cfe
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 666df827af9d6af38757b3f13c788d091a2c7c4a
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276696"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010597"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiare dati da Presto tramite Azure Data Factory (anteprima)
 
@@ -27,6 +27,11 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 > Questo connettore è attualmente disponibile in anteprima. È possibile provarlo e inviare commenti e suggerimenti. Se si vuole accettare una dipendenza dai connettori in versione di anteprima nella propria soluzione, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore presto è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Presto a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -46,7 +51,7 @@ Per il servizio collegato di Presto sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Presto** | Yes |
 | host | Indirizzo IP o nome host del server Presto, ovvero 192.168.222.160.  | Sì |
-| serverVersion | Versione del server Presto, ovvero 0.148-t.  | Sì |
+| serverVersion | Versione del server Presto, ovvero 0.148-t.  | Yes |
 | catalogo | Il contesto del catalogo di tutte le richieste sul server.  | Sì |
 | port | Porta TCP che il server Presto usa per l'ascolto delle connessioni client. Il valore predefinito è 8080.  | No |
 | authenticationType | Meccanismo di autenticazione usato per la connessione al server Presto. <br/>I valori consentiti sono i seguenti: **Anonimo**, **LDAP** | Sì |
@@ -157,6 +162,11 @@ Per copiare dati da Presto, impostare il tipo di origine nell'attività di copia
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

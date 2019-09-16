@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a0d187d31acbea44740295dd3b61f2ec76e021e7
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9f443fc3bb4387f03eb3c9e96cd45fabab2b0813
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967490"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009158"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiare dati da HBase usando Azure Data Factory 
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da HBase. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore HBase è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da HBase a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -45,11 +50,11 @@ Per il servizio collegato HBase sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **HBase** | Sì |
+| type | La proprietà type deve essere impostata su: **HBase** | Yes |
 | host | Indirizzo IP o nome host del server HBase, cioè.  `[clustername].azurehdinsight.net`, )`192.168.222.160`  | Sì |
 | port | Porta TCP che l'istanza di HBase usa per l'ascolto delle connessioni client. Il valore predefinito è 9090. Se ci si connette a Azure HDInsights, specificare la porta come 443. | No |
 | httpPath | URL parziale corrispondente al server HBase, ad esempio `/hbaserest0` quando si usa un cluster HDInsights. | No |
-| authenticationType | Meccanismo di autenticazione da usare per la connessione al server HBase. <br/>I valori consentiti sono i seguenti: **Anonymous**, **Basic** | Yes |
+| authenticationType | Meccanismo di autenticazione da usare per la connessione al server HBase. <br/>I valori consentiti sono i seguenti: **Anonymous**, **Basic** | Sì |
 | userName | Nome utente usato per connettersi all'istanza di HBase.  | No |
 | password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No |
@@ -126,7 +131,7 @@ Per copiare dati da HBase, impostare la proprietà type del set di dati su **HBa
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **HBaseObject** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **HBaseObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -190,6 +195,11 @@ Per copiare dati da HBase, impostare il tipo di origine nell'attività di copia 
     }
 ]
 ```
+
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

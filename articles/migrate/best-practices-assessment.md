@@ -1,21 +1,21 @@
 ---
-title: Procedure consigliate per la creazione della valutazione con Azure Migrate server Assessment | Microsoft Docs
+title: Procedure consigliate per la creazione della valutazione con Azure Migrate server Assessment
 description: Fornisce suggerimenti per la creazione di valutazioni con Azure Migrate server assessment.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: 18b82b5553f7045c38c9de532199c2a0fd815ee1
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234307"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71007721"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedure consigliate per la creazione di valutazioni
 
-[Azure migrate](migrate-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub comprende Azure Migrate strumenti e offerte di fornitori di software indipendenti (ISV) di terze parti.
+[Azure Migrate](migrate-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti.
 
 In questo articolo vengono riepilogate le procedure consigliate per la creazione di valutazioni mediante lo strumento Azure Migrate server assessment.
 
@@ -25,7 +25,7 @@ Le valutazioni create con Azure Migrate server assessment sono uno snapshot temp
 
 **Tipo di valutazione** | **Dettagli** | **Dati**
 --- | --- | ---
-**Basato sulle prestazioni** | Valutazioni che fanno raccomandazioni basate sui dati sulle prestazioni raccolti | Le indicazioni sulle dimensioni della macchina virtuale sono basate sui dati di utilizzo della CPU e della memoria.<br/><br/> L'indicazione del tipo di disco (disco rigido/SSD standard o dischi gestiti Premium) si basa sui IOPS e la velocità effettiva dei dischi locali.
+**Basata sulle prestazioni** | Valutazioni che fanno raccomandazioni basate sui dati sulle prestazioni raccolti | Le indicazioni sulle dimensioni della macchina virtuale sono basate sui dati di utilizzo della CPU e della memoria.<br/><br/> L'indicazione del tipo di disco (disco rigido/SSD standard o dischi gestiti Premium) si basa sui IOPS e la velocità effettiva dei dischi locali.
 **Così come sono in locale** | Valutazioni che non utilizzano dati sulle prestazioni per apportare raccomandazioni. | Le indicazioni sulle dimensioni della macchina virtuale sono basate sulle dimensioni della macchina virtuale locale<br/><br> Il tipo di disco consigliato è basato su quello selezionato nell'impostazione del tipo di archiviazione per la valutazione.
 
 ### <a name="example"></a>Esempio
@@ -33,8 +33,8 @@ Ad esempio, se si dispone di una macchina virtuale locale con quattro core con u
 
 - **Valutazione basata sulle prestazioni**:
     - Identifica i core e la memoria effettivi basati sull'utilizzo di core (4 x 0,20 = 0,8) e memoria (8 GB x 0,10 = 0,8).
-    - Applica il fattore di comfort specificato nelle proprietà di valutazione (le'ts, 1,3 x) per ottenere i valori da utilizzare per il ridimensionamento. 
-    - Suggerisce le dimensioni più vicine della macchina virtuale in Azure che possono supportare ~ 1,4 core (0,8 x 1,3) e ~ 1,4 GB (0,8 x 1,3) di memoria.
+    - Applica il fattore di comfort specificato nelle proprietà della valutazione (si tratta di 1,3 x) per ottenere i valori da utilizzare per il ridimensionamento. 
+    - Suggerisce le dimensioni più vicine della macchina virtuale in Azure che possono supportare ~ 1,04 Core (0,8 x 1,3) e ~ 1,04 GB (0,8 x 1,3) di memoria.
 
 - **Valutazione As-is (As on-premises)** :
     -  Consiglia una macchina virtuale con quattro core; 8 GB di memoria.
@@ -77,7 +77,7 @@ Se si aggiungono o rimuovono computer da un gruppo dopo aver creato una valutazi
 
 ### <a name="outdated-assessments"></a>Valutazioni obsolete
 
-Se sono presenti modifiche locali alle macchine virtuali che si trovano in un gruppo valutato, la valutazione viene contrassegnata come obsoleta . Per riflettere le modifiche, eseguire nuovamente la valutazione.
+Se sono presenti modifiche locali alle macchine virtuali che si trovano in un gruppo valutato, la valutazione viene contrassegnata come obsoleta. Per riflettere le modifiche, eseguire nuovamente la valutazione.
 
 ### <a name="low-confidence-rating"></a>Classificazione con attendibilità bassa
 
@@ -85,9 +85,9 @@ Una valutazione potrebbe non avere tutti i punti dati per diversi motivi:
 
 - L'ambiente non è stato analizzato per il perioro di tempo per cui si sta creando la valutazione. Se, ad esempio, si sta creando una *valutazione basata sulle prestazioni* con durata delle prestazioni impostata su una settimana, è necessario attendere almeno una settimana dopo l'avvio dell'individuazione per tutti i punti dati da raccogliere. È sempre possibile fare clic su **Ricalcola** per visualizzare l'ultima classificazione di attendibilità applicabile. La classificazione di attendibilità è applicabile solo quando si crea una valutazione *basata sulle prestazioni* .
 
-- Durante il periodo per cui viene calcolata la valutazione sono state arrestate alcune VM. Se alcune macchine virtuali sono spente per un certo periodo di tempo, server Assessment non sarà in grado di raccogliere i dati sulle prestazioni per tale periodo.
+- Durante il periodo per cui viene calcolata la valutazione sono state arrestate alcune VM. Se alcune macchine virtuali sono state spente per un certo periodo di tempo, Server Assessment non sarà in grado di raccogliere i dati sulle prestazioni per questo periodo.
 
-- Sono state create alcune macchine virtuali dopo l'avvio dell'individuazione in server assessment. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questo caso, i dati sulle prestazioni per le nuove macchine virtuali non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa.
+- Dopo avere avviato l'individuazione in Server Assessment sono state create alcune macchine virtuali. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questo caso, i dati sulle prestazioni per le nuove macchine virtuali non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà limitata.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

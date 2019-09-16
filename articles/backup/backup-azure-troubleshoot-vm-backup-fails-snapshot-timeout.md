@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 391ad5c6535d457c2df988cd29d21e481310b17f
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061770"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018162"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -105,12 +105,12 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Causa 5: Il servizio di Backup di Azure non possiede l'autorizzazione per eliminare i punti di ripristino precedenti, a causa di un blocco del gruppo di risorse** <br>
 **Causa 6: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095-gb"></a>UserErrorUnsupportedDiskSize-attualmente backup di Azure non supporta dischi di dimensioni superiori a 4095 GB
+## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize: le dimensioni del disco configurate non sono attualmente supportate da backup di Azure.
 
 **Codice errore**: UserErrorUnsupportedDiskSize <br>
-**Messaggio di errore**: Attualmente backup di Azure non supporta dischi di dimensioni superiori a 4095 GB <br>
+**Messaggio di errore**: Le dimensioni del disco configurate non sono attualmente supportate da backup di Azure. <br>
 
-L'operazione di backup potrebbe non riuscire quando si esegue il backup di una macchina virtuale con una dimensione del disco superiore a 4095 GB. Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB e fino a 30 TB, fare riferimento a questo [articolo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+L'operazione di backup potrebbe non riuscire quando si esegue il backup di una macchina virtuale con una dimensione del disco superiore a 30 TB. Inoltre, il backup dei dischi crittografati di dimensioni superiori a 4 TB non è attualmente supportato. Verificare che le dimensioni del disco siano inferiori o uguali al limite supportato suddividendo il disco o i dischi.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossibile avviare il backup perché è attualmente in corso un'altra operazione di backup
 
@@ -122,12 +122,10 @@ La recente operazione di backup ha avuto esito negativo poiché è presente e in
 1. Accedere al portale di Azure fare clic su **tutti i servizi**. Digitare Servizi di ripristino e fare clic su **Insiemi di credenziali di Servizi di ripristino**. Verrà visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
 2. Nell'elenco degli insiemi di credenziali di Servizi di ripristino selezionare un insieme di credenziali in cui è configurato il backup.
 3. Scegliere **Processi di backup** dal menu del dashboard dell'insieme di credenziali per visualizzare tutti i processi di backup.
-
-- Se è in corso un processo di backup, attenderne il completamento o annullarlo.
-  - Per annullare il processo di backup, fare clic con il pulsante destro del mouse sul processo di backup e scegliere **Annulla** o usa [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
-- Se è stato riconfigurato il backup in un insieme di credenziali diverso, assicurarsi che non siano presenti processi di backup in esecuzione nell'insieme di credenziali precedente. Se esiste, annullare il processo di backup.
-  - Per annullare il processo di backup, fare clic sul processo di backup con il tasto destro del mouse e fare clic su **Annulla** oppure usare [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
-
+   - Se è in corso un processo di backup, attenderne il completamento o annullarlo.
+     - Per annullare il processo di backup, fare clic con il pulsante destro del mouse sul processo di backup e scegliere **Annulla** o usa [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+   - Se è stato riconfigurato il backup in un insieme di credenziali diverso, assicurarsi che non siano presenti processi di backup in esecuzione nell'insieme di credenziali precedente. Se esiste, annullare il processo di backup.
+     - Per annullare il processo di backup, fare clic sul processo di backup con il tasto destro del mouse e fare clic su **Annulla** oppure usare [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Ripetere l'operazione di backup.
 
 Se l'operazione di backup pianificato richiede più tempo, in conflitto con la configurazione del backup successiva, esaminare le [procedure](backup-azure-vms-introduction.md#best-practices)consigliate, le [prestazioni di backup](backup-azure-vms-introduction.md#backup-performance)e la considerazione del [ripristino](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -156,8 +154,7 @@ L'agente di macchine virtuali può essere danneggiato o il servizio può essere 
 4. Scaricare e installare la [versione più recente del file MSI dell'agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari i diritti di amministratore.
 5. Verificare che il servizio agente guest di Microsoft Azure sia visualizzato tra i servizi.
 6. Eseguire un backup su richiesta:
-
-- Nel portale selezionare **Esegui backup ora**.
+   - Nel portale selezionare **Esegui backup ora**.
 
 Verificare anche che [Microsoft .NET 4.5 sia installato](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) nella macchina virtuale. .NET 4.5 è necessario per la comunicazione dell'agente di macchine virtuali con il servizio.
 

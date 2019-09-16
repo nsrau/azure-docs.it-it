@@ -8,16 +8,16 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu
-ms.openlocfilehash: 15cb31a3157b034089b1518a4e70eeb93ecc449e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 97c03ad294bba1f8a0285fff4595991ca0acc8b5
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617103"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018268"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux
 
-Questa guida illustra come rendere disponibile contenuto statico nel servizio app in Linux usando [Archiviazione di Azure](/azure/storage/common/storage-introduction). I vantaggi includono la protezione e la portabilità del contenuto, l'accesso a più app e molteplici metodi di trasferimento.
+Questa guida illustra come rendere disponibile contenuto statico nel servizio app in Linux usando [Archiviazione di Azure](/azure/storage/common/storage-introduction). I vantaggi includono contenuto protetto, portabilità del contenuto, archiviazione persistente, accesso a più app e più metodi di trasferimento.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ Questa guida illustra come rendere disponibile contenuto statico nel servizio ap
 > [!NOTE]
 > Archiviazione di Azure è una risorsa di archiviazione non predefinita e fatturata separatamente, non inclusa nell'app Web.
 >
-> Portare il proprio dispositivo di archiviazione non supporta l'utilizzo la configurazione del Firewall di archiviazione a causa delle limitazioni dell'infrastruttura.
+> Bring your own storage non supporta l'uso della configurazione del firewall di archiviazione a causa delle limitazioni dell'infrastruttura.
 >
 
 Creare un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
@@ -64,7 +64,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 È consigliabile eseguire questa operazione per tutte le altre directory che si vogliono collegare a un account di archiviazione.
 
-## <a name="verify"></a>Verificare
+## <a name="verify"></a>Esegui verifica
 
 Dopo aver collegato un contenitore di archiviazione a un'app Web, è possibile verificare il collegamento eseguendo il comando seguente:
 
@@ -72,11 +72,11 @@ Dopo aver collegato un contenitore di archiviazione a un'app Web, è possibile v
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
 
-## <a name="use-custom-storage-in-docker-compose"></a>Usare l'archiviazione personalizzata di Docker Compose
+## <a name="use-custom-storage-in-docker-compose"></a>Usare l'archiviazione personalizzata in Docker Compose
 
-Archiviazione di Azure può essere montata con le app multi-contenitore usando l'id personalizzato. Per visualizzare il nome personalizzato-id, eseguire [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
+Archiviazione di Azure può essere montata con app multicontenitore usando l'ID personalizzato. Per visualizzare il nome dell'ID personalizzato, eseguire [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
-Nel *docker-Compose. yml* file, eseguire il mapping di `volumes` possibilità `custom-id`. Ad esempio:
+Nel file *Docker-compose. yml* mappare l' `volumes` opzione a `custom-id`. Ad esempio:
 
 ```yaml
 wordpress:

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: ab2035ec344e07d88e2ac4ffb19cb1b2361f2e92
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 26eb3852106fdacd30425abd14aa2c594aed978c
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277476"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71007792"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiare dati da Sybase usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -27,6 +27,11 @@ ms.locfileid: "70277476"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un database Sybase. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore Sybase è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da un database Sybase in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -54,11 +59,11 @@ Per il servizio collegato di Sybase sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Sybase** | Yes |
+| type | La proprietà type deve essere impostata su: **Sybase** | Sì |
 | server | Nome del server Sybase. |Sì |
-| database | Nome del database Sybase. |Yes |
+| database | Nome del database Sybase. |Sì |
 | authenticationType | Tipo di autenticazione usato per connettersi al database Sybase.<br/>I valori consentiti sono i seguenti: **Basic** e **Windows**. |Sì |
-| userName | Specificare il nome utente per la connessione al database Sybase. |Yes |
+| userName | Specificare il nome utente per la connessione al database Sybase. |Sì |
 | password | Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
@@ -127,7 +132,7 @@ Per copiare dati da Sybase, nella sezione **origine** dell'attività di copia so
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **SybaseSource** | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **SybaseSource** | Yes |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
@@ -169,6 +174,11 @@ Se si usa `RelationalSource` l'origine tipizzata, questo è ancora supportato co
 Quando si copiano dati da Sybase, vengono usati i mapping seguenti tra i tipi di dati di Sybase e i tipi di dati provvisori di Azure Data Factory. Vedere [Mapping dello schema e del tipo di dati](copy-activity-schema-and-type-mapping.md) per informazioni su come l'attività di copia esegue il mapping dello schema di origine e del tipo di dati al sink.
 
 Sybase supporta i tipi T-SQL. Per una tabella di mapping dai tipi SQL ai tipi di dati provvisori di Azure Data Factory, vedere la sezione [Connettore Database SQL di Azure - Mapping dei tipi di dati](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database).
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi
