@@ -55,10 +55,10 @@ L'unico parametro obbligatorio è `location`. Se non si definisce la versione *S
 
 In questo esempio, è innanzitutto necessario creare Load Balancer Basic e le relative risorse. Successivamente, configurare le risorse di bilanciamento del carico che includono una configurazione IP front-end, un pool di indirizzi back-end, una regola di bilanciamento del carico, un probe di integrità e una regola NAT in ingresso.
 
-Prima di creare un servizio di bilanciamento del carico usando l'esempio seguente, creare una rete virtuale denominata *vnetlb* con una subnet denominata *subnetlb* in un gruppo di risorse denominato *rg1* in località **Stati Uniti orientali**.
+Prima di creare un servizio di bilanciamento del carico usando l'esempio seguente, creare una rete virtuale denominata *vnetlb* con una subnet denominata *subnetlb* in un gruppo di risorse denominato *rg1* in località **East US**.
 
 ### <a name="step-1-create-a-basic-load-balancer"></a>PASSAGGIO 1. Creare un servizio di bilanciamento del carico di base
-In questo passaggio si crea Load Balancer Basic, denominato *lb* in località **Stati Uniti ORIENTALI** all'interno di un gruppo di risorse *rg1*.
+In questo passaggio si crea Load Balancer Basic, denominato *lb* in località **EAST US** all'interno di un gruppo di risorse *rg1*.
 #### <a name="sample-request"></a>Richiesta di esempio
 
   ```HTTP    
