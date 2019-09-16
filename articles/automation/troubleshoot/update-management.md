@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 884ded67c25aca78225baef2d7e4c5de1cc94fd0
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 48d2463eee2caeaae36118bf736d00eed84c897a
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782279"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186220"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -22,6 +22,42 @@ Questo articolo illustra alcune procedure per la risoluzione dei problemi che si
 È disponibile uno strumento di risoluzione dei problemi dell'agente che consente all'agente del ruolo di lavoro ibrido di determinare il problema sottostante. Per altre informazioni sullo strumento di risoluzione dei problemi, vedere [Risolvere i problemi dell'agente di aggiornamento](update-agent-issues.md). Per tutti gli altri problemi, vedere le informazioni dettagliate seguenti sui possibili problemi.
 
 ## <a name="general"></a>Generale
+
+### <a name="rp-register"></a>Scenario: Non è possibile registrare il provider di risorse di automazione per le sottoscrizioni
+
+#### <a name="issue"></a>Problema
+
+È possibile che venga visualizzato l'errore seguente quando si utilizzano soluzioni nell'account di automazione.
+
+```error
+Error details: Unable to register Automation Resource Provider for subscriptions:
+```
+
+#### <a name="cause"></a>Causa
+
+Il provider di risorse di automazione non è registrato nella sottoscrizione.
+
+#### <a name="resolution"></a>Risoluzione
+
+È possibile registrare i provider di risorse di automazione completando i seguenti passaggi nel portale di Azure:
+
+1. Fare clic su **Tutti i servizi** in fondo all'elenco dei servizi di Azure e quindi selezionare **Sottoscrizioni** nel gruppo di servizi _Generale_.
+2. Selezionare la propria sottoscrizione.
+3. Fare clic su **provider di risorse** in _Impostazioni_.
+4. Dall'elenco dei provider di risorse, verificare che il provider di risorse **Microsoft. Automation** sia registrato.
+5. Se il provider non è elencato, registrare il provider **Microsoft. Automation** con i passaggi elencati in [](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+
+### <a name="mw-exceeded"></a>Scenario: Gestione aggiornamenti pianificata non riuscita con l'errore MaintenanceWindowExceeded
+
+#### <a name="issue"></a>Problema
+
+La finestra di manutenzione predefinita per gli aggiornamenti è di 120 minuti. È possibile aumentare la finestra di manutenzione fino a un massimo di sei (6) ore o 360 minuti.
+
+#### <a name="resolution"></a>Risoluzione
+
+Modificare le distribuzioni degli aggiornamenti pianificati con errori e aumentare la finestra di manutenzione.
+
+Per ulteriori informazioni sulle finestre di manutenzione, vedere [Install Updates](../automation-update-management.md#install-updates).
 
 ### <a name="components-enabled-not-working"></a>Scenario: i componenti per la soluzione di Gestione aggiornamenti sono stati abilitati ed è in corso la configurazione della macchina virtuale
 
@@ -78,6 +114,24 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
+### <a name="updates-nodeployment"></a>Scenario: Aggiornamenti installazione senza distribuzione
+
+### <a name="issue"></a>Problema
+
+Quando si registra un computer Windows in Gestione aggiornamenti, è possibile visualizzare gli aggiornamenti installa senza una distribuzione.
+
+### <a name="cause"></a>Causa
+
+In Windows, gli aggiornamenti vengono installati automaticamente non appena sono disponibili. Ciò può causare confusione se non è stato pianificato un aggiornamento da distribuire nel computer.
+
+### <a name="resolution"></a>Risoluzione
+
+La chiave del registro di `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` sistema di Windows, il valore predefinito è "4"- **download automatico e installazione**.
+
+Per Gestione aggiornamenti client, è consigliabile impostare questa chiave su "3"- **download automatico ma non installazione automatica**.
+
+Per ulteriori informazioni, vedere [configurazione di aggiornamenti automatici](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
+
 ### <a name="nologs"></a>Scenario: I computer non vengono visualizzati nel portale in Gestione aggiornamenti
 
 #### <a name="issue"></a>Problema
@@ -109,11 +163,11 @@ Questa situazione può essere causata da problemi di configurazione locali poten
   | summarize by Computer, Solutions
   ```
 
-* Verificare la presenza di problemi di configurazione dell'ambito. La [configurazione dell'ambito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quali computer vengono configurati per la soluzione. Se il computer viene visualizzato nell'area di lavoro ma non viene visualizzato, sarà necessario configurare la configurazione dell'ambito per le macchine virtuali. Per informazioni su come eseguire questa operazione, vedere l'articolo relativo all'onboarding [dei computer nell'area di lavoro](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Verificare la presenza di problemi di configurazione dell'ambito. La [configurazione dell'ambito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quali computer vengono configurati per la soluzione. Se il computer viene visualizzato nell'area di lavoro ma non viene visualizzato, sarà necessario configurare la configurazione dell'ambito per le macchine virtuali. Per informazioni su come eseguire questa operazione, vedere l'articolo relativo all' [onboarding dei computer nell'area di lavoro](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Se i passaggi precedenti non risolvono il problema, seguire la procedura descritta in [distribuire un ruolo di lavoro ibrido per Runbook Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido per Windows o distribuire un ruolo di lavoro ibrido per [Runbook Linux](../automation-linux-hrw-install.md) per Linux.
+* Se i passaggi precedenti non risolvono il problema, seguire la procedura descritta in [distribuire un ruolo di lavoro ibrido per Runbook Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido per Windows o [distribuire un ruolo di lavoro ibrido per Runbook Linux](../automation-linux-hrw-install.md) per Linux.
 
-* Nell'area di lavoro eseguire la query seguente. Se viene visualizzato il risultato `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` , è stata definita una quota nell'area di lavoro che è stata raggiunta ed è stato interrotto il salvataggio dei dati. Nell'area di lavoro passare a **utilizzo e costi** > stimati**gestione del volume di dati** e verificare la quota o rimuovere la quota.
+* Nell'area di lavoro eseguire la query seguente. Se viene visualizzato il risultato `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` , è stata definita una quota nell'area di lavoro che è stata raggiunta ed è stato interrotto il salvataggio dei dati. Nell'area di lavoro passare > a **utilizzo e costi stimati** **gestione del volume di dati** e verificare la quota o rimuovere la quota.
 
   ```loganalytics
   Operation
@@ -242,6 +296,7 @@ Fare doppio clic sull'eccezione in rosso per visualizzare il messaggio completo.
 |`0x8024001E`| L'operazione di aggiornamento non è stata completata perché il servizio o il sistema è stato arrestato.|
 |`0x8024002E`| Il servizio Windows Update è disabilitato.|
 |`0x8024402C`     | Se si usa un server WSUS, assicurarsi che i valori del Registro di sistema per `WUServer` e `WUStatusServer` nella chiave del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` contengano il server WSUS corretto.        |
+|`0x80072EE2`|Problemi di connettività di rete o problemi di comunicazione con un server WSUS configurato. Controllare le impostazioni di WSUS e verificare che sia accessibile dal client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Assicurarsi che il servizio Windows Update (wuauserv) sia in esecuzione e non sia disattivato.        |
 |Qualsiasi altra eccezione generica     | Ricercare possibili soluzioni in Internet e collaborare con il supporto tecnico IT locale.         |
 
@@ -298,7 +353,31 @@ Se non è possibile risolvere un problema di patch, creare una copia del seguent
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 
-### <a name="other"></a>Scenario: il problema non è incluso in questo elenco
+## <a name="patches-are-not-installed"></a>Le patch non sono installate
+
+### <a name="machines-do-not-install-updates"></a>Computer che non installano gli aggiornamenti
+
+* Provare a eseguire gli aggiornamenti direttamente nel computer. Se non è possibile eseguire gli aggiornamenti nel computer, vedere l'[elenco degli errori potenziali nella guida alla risoluzione dei problemi](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+* Se gli aggiornamenti sono eseguiti localmente, provare a rimuovere e reinstallare l'agente nel computer seguendo le istruzioni riportate in ["Rimuovere una macchina virtuale da Gestione aggiornamenti"](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
+
+### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>So che gli aggiornamenti sono disponibili, ma non vengono visualizzati in base alle esigenze nei miei computer
+
+* Ciò si verifica spesso se i computer sono configurati per ottenere aggiornamenti da WSUS/SCCM, che tuttavia non li ha approvati.
+* È possibile controllare se i computer sono configurati per WSUS/SCCM eseguendo un [riferimento incrociato tra la chiave del Registro di sistema "UseWUServer" e le chiavi del Registro di sistema nella sezione "Configurazione degli aggiornamenti automatici mediante modifica del Registro di sistema" del presente documento](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)
+
+### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>**Gli aggiornamenti vengono visualizzati come installati, ma non è possibile trovarli sul computer**
+
+* Spesso gli aggiornamenti vengono sostituiti da altri aggiornamenti. Per altre informazioni, vedere ["Aggiornamento sostituito" nella Guida alla risoluzione dei problemi di Windows Update](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
+
+### <a name="installing-updates-by-classification-on-linux"></a>**Installazione degli aggiornamenti in base alla classificazione in Linux**
+
+* La distribuzione degli aggiornamenti in Linux in base alla classificazione ("Aggiornamenti critici e della sicurezza") presenta avvertimenti importanti, in particolare per CentOS. Queste [limitazioni sono documentate nella pagina di panoramica di Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)
+
+### <a name="kb2267602-is-consistently--missing"></a>**KB2267602 manca in modo coerente**
+
+* KB2267602 è l'[aggiornamento delle definizioni di Windows Defender](https://www.microsoft.com/wdsi/definitions). Viene aggiornato quotidianamente.
+
+## <a name="other"></a>Scenario: il problema non è incluso in questo elenco
 
 ### <a name="issue"></a>Problema
 
