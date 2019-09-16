@@ -614,6 +614,12 @@
       items:
         - name: Elaborare file di testo a larghezza fissa
           href: how-to-fixed-width.md
+    - name: Migrazione SSIS dall'ambiente locale
+      items:
+        - name: Panoramica sulla migrazione SSIS
+          href: scenario-ssis-migration-overview.md
+        - name: Migrazione SSISDB a un'istanza gestita di database SQL di Azure
+          href: scenario-ssis-migration-ssisdb-mi.md
 - name: riferimento
   items:
     - name: .NET

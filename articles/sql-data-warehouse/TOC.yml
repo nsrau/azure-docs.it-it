@@ -129,10 +129,16 @@
               href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
         - name: Vista materializzata
           items:
+            - name: Linee guida sull'ottimizzazione delle prestazioni
+              href: performance-tuning-materialized-views.md
             - name: Create
               href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
             - name: Alter
               href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        - name: Indice columnstore cluster ordinato
+          items:
+            - name: Linee guida sull'ottimizzazione delle prestazioni
+              href: performance-tuning-ordered-CCI.md
         - name: Memorizzazione nella cache dei set di risultati
           href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: Tabelle

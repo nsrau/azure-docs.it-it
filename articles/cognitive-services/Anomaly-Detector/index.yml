@@ -1,10 +1,10 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione dell'API Rilevamento anomalie
+summary: Informazioni su come usare l'API Rilevamento anomalie per monitorare i dati nel corso del tempo e rilevare anomalie in Machine Learning. È possibile ottenere informazioni dettagliate sui dati, indipendentemente dalla quantità, dal settore o dallo scenario.
 metadata:
-  title: 'API di Rilevamento anomalie - Esercitazioni, guide introduttive, informazioni di riferimento sulle API'
+  title: API di Rilevamento anomalie - Esercitazioni, guide introduttive, informazioni di riferimento sulle API
   titleSuffix: Azure Cognitive Services
-  description: 'Usare l''API Rilevamento anomalie per monitorare i dati nel corso del tempo e rilevare anomalie in Machine Learning. È possibile ottenere informazioni dettagliate sui dati, indipendentemente dalla quantità, dal settore o dallo scenario.'
+  description: Usare l'API Rilevamento anomalie per monitorare i dati nel corso del tempo e rilevare anomalie in Machine Learning. È possibile ottenere informazioni dettagliate sui dati, indipendentemente dalla quantità, dal settore o dallo scenario.
   services: cognitive-services
   author: aahill
   manager: nitinme
@@ -12,62 +12,102 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
-  ms.date: 03/26/2019
+  ms.date: 09/10/2019
   ms.author: aahi
-abstract:
-  description: 'L''API Rilevamento anomalie consente di incorporare facilmente funzionalità di rilevamento delle anomalie nelle app, così gli utenti possono identificare rapidamente i problemi per ridurre al minimo le perdite e l''impatto. Non sono necessarie competenze di Machine Learning. Tramite una singola chiamata API, è possibile attivare questo modello di intelligenza artificiale già sottoposto a training che inserisce dati delle serie temporali di tutti i tipi e quantità, seleziona il modello di rilevamento anomalie più appropriato per assicurare una elevata accuratezza dei dati e rileva automaticamente gli eventi imprevisti non appena si verificano. È possibile personalizzare il servizio per rilevare anomalie di tutte le dimensioni.  Usare Rilevamento anomalie per identificare eventi aziendali imprevisti, monitorare il traffico dei dispositivi IoT, gestire le frodi, rispondere alle variazioni del mercato e altro ancora.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/anomaly-detector/overview
-            html: <p>Altre informazioni sull'API Rilevamento anomalie</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Cos'è l'API Rilevamento anomalie?
-          - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
-            html: <p>Ottimizzare i risultati del rilevamento di anomalie seguendo le procedure consigliate per l'API</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Procedure consigliate per l'API Rilevamento anomalie
-          - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
-            html: '<p>Regolare la sensibilità del rilevamento di anomalie, usare diverse modalità di rilevamento e altro ancora.</p>'
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Uso dell'API Rilevamento anomalie
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: 'Rilevare anomalie nei dati delle serie temporali usando:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/logo_Csharp.svg
-            href: quickstarts/detect-data-anomalies-csharp
-            text: 'C#'
-          - image:
-              src: media/logo_Java.svg
-            href: quickstarts/detect-data-anomalies-java
-            text: Java
-          - image:
-              src: media/logo_python.svg
-            href: quickstarts/detect-data-anomalies-python
-            text: Python
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API REST
-            html: '<p><a href="https://aka.ms/anomaly-detector-rest-api-ref">API Rilevamento anomalie</a></p>'
-          - title: SDK
-            html: '<p><a href="https://aka.ms/anomaly-detector-dotnet-ref">.NET</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2089915">Go</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2090370">Python</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2090788">Node.js</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Interfaccia della riga di comando di Azure</a></p>'
+  ms.openlocfilehash: 61db0fe16557b582ad43cd2eddbe8e421a0b743a
+  ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/13/2019
+  ms.locfileid: "70967064"
+landingContent:
+- title: Informazioni sull'API Rilevamento anomalie
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è l'API Rilevamento anomalie?
+      url: overview.md
+  - linkListType: get-started
+    links:
+    - text: Demo dell'API Rilevamento anomalie
+      url: https://aka.ms/adDemo
+  - linkListType: video
+    links:
+    - text: Introduzione all'API Rilevamento anomalie
+      url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
+    - text: Algoritmi usati dall'API Rilevamento anomalie
+      url: https://www.youtube.com/embed/ERTaAnwCarM
+  - linkListType: reference
+    links:
+    - text: Algoritmi usati nel rilevamento delle anomalie (white paper)
+      url: https://arxiv.org/abs/1906.03821
+- title: Rilevare anomalie nei dati
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso di C#
+      url: quickstarts/detect-data-anomalies-csharp-sdk.md
+    - text: Uso di Python
+      url: quickstarts/detect-data-anomalies-python-sdk.md
+  - linkListType: tutorial
+    links:
+    - text: Visualizzare le anomalie con il rilevamento in batch e Power BI
+      url: tutorials/batch-anomaly-detection-powerbi.md
+    - text: Rilevare anomalie nei dati di streaming con Azure Databricks
+      url: tutorials/batch-anomaly-detection-powerbi.md
+  - linkListType: video
+    links:
+    - text: Rilevamento anomalie nei dati di streaming con Azure Databricks
+      url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks
+- title: Ottimizzare i risultati del rilevamento
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Modificare le modalità e i parametri di rilevamento delle anomalie per i dati.
+      url: how-to/identify-anomalies.md
+    - text: Usare procedure consigliate per ottimizzare i risultati del rilevamento anomalie.
+      url: concepts/anomaly-detection-best-practices.md
+  - linkListType: video
+    links:
+    - text: Procedure consigliate per Rilevamento anomalie
+      url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices
+- title: Usare contenitori Docker
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Installare ed eseguire contenitori di Rilevamento anomalie
+      url: anomaly-detector-container-howto.md
+    - text: Configurare i contenitori di Rilevamento anomalie
+      url: anomaly-detector-container-configuration.md
+    - text: Distribuire un'istanza di contenitore in Azure
+      url: how-to/deploy-anomaly-detection-on-container-instances.md
+  - linkListType: video
+    links:
+    - text: Trasferire Rilevamento anomalie in locale con il supporto dei contenitori
+      url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
+- title: Partecipare alla community di Rilevamento anomalie
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Partecipare al gruppo Anomaly Detector Advisors su Microsoft Teams
+      url: https://aka.ms/adadvisorsjoin
+    - text: Contenuto generato dagli utenti
+      url: user-generated-content.md
+- title: riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://aka.ms/anomaly-detector-rest-api-ref
+    - text: .NET SDK
+      url: https://aka.ms/anomaly-detector-dotnet-ref
+    - text: Python SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2090370
+    - text: Go SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2089915
+    - text: Node.js SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2090788
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Interfaccia della riga di comando di Azure
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list

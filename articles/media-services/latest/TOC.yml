@@ -32,6 +32,10 @@
     - name: Crittografare in modo dinamico il contenuto con DRM
       displayName: 'PlayReady, Widevine, FairPlay'
       href: protect-with-drm.md
+- name: Esempi
+  items:
+    - name: Esempi di Servizi multimediali
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-media-services'
 - name: Concetti
   items:
     - name: Panoramica

@@ -3,19 +3,19 @@ title: Indicizzare il contenuto dell'Archiviazione BLOB di Azure per la ricerca 
 description: Informazioni su come indicizzare Archiviazione BLOB di Azure ed estrarre il testo dai documenti con Ricerca di Azure.
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03f828be603720871672b9b5d90eb87dd283c002
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753973"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842537"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
 Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio PD, documenti di Microsoft Office e numerosi altri formati comuni) salvati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
@@ -68,7 +68,7 @@ Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare u
 
 Per specificare le credenziali per il contenitore BLOB, sono disponibili questi modi:
 
-- **Stringa di connessione dell'account di archiviazione per accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` È possibile ottenere la stringa di connessione dal portale di Azure passando al pannello dell'account di archiviazione > Impostazioni > chiavi (per gli account di archiviazione classico) o le impostazioni > chiavi (per gli account di archiviazione di Azure Resource Manager) di accesso.
+- **Stringa di connessione dell'account di archiviazione per accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`È possibile ottenere la stringa di connessione dal portale di Azure passando al pannello dell'account di archiviazione > Impostazioni > chiavi (per gli account di archiviazione classici) o Impostazioni > chiavi di accesso (per Azure Resource Manager account di archiviazione).
 - Stringa di connessione della **firma di accesso condiviso dell'account di archiviazione**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` la firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori e gli oggetti (BLOB).
 -  **Firma di accesso condiviso per il contenitore**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` la firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura sul contenitore.
 
@@ -96,7 +96,7 @@ Di seguito viene illustrato come creare un indice con un campo `content` ricerca
 
 Per altre informazioni sulla creazione di indici, vedere [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
-### <a name="step-3-create-an-indexer"></a>Passaggio 3: Creare un indicizzatore
+### <a name="step-3-create-an-indexer"></a>Passaggio 3: Crea un indicizzatore
 Un indicizzatore si connette a un'origine dati con un indice di ricerca di destinazione e consente di pianificare l'automatizzazione dell'aggiornamento dei dati.
 
 Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
@@ -116,14 +116,14 @@ Questo indicizzatore verrà eseguito ogni due ore (l'intervallo di pianificazion
 
 Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Per altre informazioni sulla definizione delle pianificazioni di indicizzatore, vedere [come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
+Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori [, vedere come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
 
 ## <a name="how-azure-search-indexes-blobs"></a>Indicizzazione dei BLOB con Ricerca di Azure
 
 A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore BLOB può indicizzare solo i metadati di archiviazione, opzione utile quando si è interessati solo ai metadati e non è necessario indicizzare il contenuto dei BLOB, indicizzare i metadati del contenuto e di archiviazione o indicizzare sia i metadati che il contenuto di testo. Per impostazione predefinita, l'indicizzatore estrae sia i metadati che il contenuto.
 
 > [!NOTE]
-> Per impostazione predefinita, i BLOB con contenuto strutturato, come quelli in formato JSON o CSV, vengono indicizzati come un unico blocco di testo. Se si desidera indicizzare i BLOB JSON e CSV in modo strutturato, vedere [indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) e [indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md) per altre informazioni.
+> Per impostazione predefinita, i BLOB con contenuto strutturato, come quelli in formato JSON o CSV, vengono indicizzati come un unico blocco di testo. Se si vuole indicizzare i BLOB JSON e CSV in modo strutturato, vedere indicizzazione di [BLOB JSON](search-howto-index-json-blobs.md) e [indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md) per altre informazioni.
 >
 > Anche un documento composito o incorporato (ad esempio, un archivio ZIP o un documento di Word con una e-mail di Outlook incorporata con allegati) viene indicizzato come documento singolo.
 
@@ -137,11 +137,11 @@ A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore 
 
   * **metadata\_storage\_name** (Edm.String): nome file del BLOB. Se, ad esempio, è presente un BLOB /my-container/my-folder/subfolder/resume.pdf, il valore di questo campo è `resume.pdf`.
   * **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio: `application/octet-stream`.
+  * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio `application/octet-stream`.
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): ultimo timestamp modificato per il BLOB. Ricerca di Azure usa questo timestamp per identificare i BLOB modificati, in modo da evitare di reindicizzare tutto dopo l'indicizzazione iniziale.
   * **metadata\_storage\_size** (Edm.Int64): dimensioni del BLOB in byte.
   * **metadata\_storage\_content\_md5** (Edm.String): hash MD5 dei contenuti del BLOB, se disponibile.
-  * **i metadati\_memorizzazione\_firma di accesso condiviso\_token** (EDM. String): un token di firma di accesso condiviso temporaneo che può essere usato da [competenze personalizzate](cognitive-search-custom-skill-interface.md) per ottenere l'accesso al blob. Questo token non deve essere memorizzato per utilizzarli successivamente come potrebbe scadere.
+  * **metadata\_storage\_sas\_token** (Edm.String): token di firma di accesso condiviso temporaneo che può essere usato dalle[competenze personalizzate](cognitive-search-custom-skill-interface.md) per ottenere l'accesso al BLOB. Questo token non deve essere archiviato per un uso successivo, perché potrebbe scadere.
 
 * Le proprietà dei metadati specifiche di ogni formato di documento vengono estratte nei campi elencati [qui](#ContentSpecificMetadata).
 
@@ -232,7 +232,7 @@ Il parametro di configurazione `dataToExtract` permette di controllare quali par
 
 * `storageMetadata`: specifica che vengono indicizzati solo [i metadati specificati dall'utente e le proprietà BLOB standard](../storage/blobs/storage-properties-metadata.md).
 * `allMetadata`: specifica che vengono indicizzati i metadati di archiviazione e i [metadati specifici del tipo di contenuto](#ContentSpecificMetadata) estratti dal contenuto BLOB.
-* `contentAndMetadata`: specifica che vengono indicizzati tutti i metadati e il contenuto di testo estratti dal BLOB. Si tratta del valore predefinito.
+* `contentAndMetadata`: specifica che vengono indicizzati tutti i metadati e il contenuto di testo estratti dal BLOB. Rappresenta il valore predefinito.
 
 Ad esempio, per indicizzare solo i metadati di archiviazione, usare:
 
@@ -276,7 +276,7 @@ Ricerca di Azure limita le dimensioni dei BLOB indicizzati. Questi limiti sono d
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. Ad esempio:
+È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. Esempio:
 
     {
       ... other parts of indexer definition
@@ -337,7 +337,7 @@ L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di
 
 Si consiglia di "comporre" i documenti da più origini nell'indice. Ad esempio, è possibile unire testo dagli oggetti binari di grandi dimensioni con altri metadati archiviati in Cosmos DB. È anche possibile utilizzare l'API di indicizzazione push insieme a diversi indicizzatori per compilare i documenti di ricerca da più parti. 
 
-Per funzionare, tutti gli indicizzatori e altri componenti devono concordare sulla chiave del documento. Per una procedura dettagliata, vedere questo articolo esterno: [Combinare documenti con altri dati in ricerca di Azure](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Per funzionare, tutti gli indicizzatori e altri componenti devono concordare sulla chiave del documento. Per altri dettagli su questo argomento, vedere [indicizzare più origini dati di Azure](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). Per una procedura dettagliata, vedere questo articolo esterno: [Combinare documenti con altri dati in ricerca di Azure](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indicizzazione di testo normale 
@@ -367,21 +367,31 @@ La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di docume
 
 | Formato documento/tipo di contenuto | Proprietà di metadati specifiche del tipo di contenuto | Dettagli elaborazione |
 | --- | --- | --- |
-| HTML (`text/html`) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Rimozione del markup HTML ed estrazione del testo |
-| PDF (`application/pdf`) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Estrazione del testo, inclusi i documenti incorporati (escluse le immagini) |
+| HTML (testo/HTML) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Rimozione del markup HTML ed estrazione del testo |
+| PDF (applicazione/PDF) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Estrazione del testo, inclusi i documenti incorporati (escluse le immagini) |
 | DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Estrazione del testo, inclusi i documenti incorporati |
 | DOC (application/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Estrazione del testo, inclusi i documenti incorporati |
+| DOCM (Application/vnd. MS-Word. Document. macroenabled. 12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Estrazione del testo, inclusi i documenti incorporati |
+| XML di WORD (Application/vnd. ms-word2006ml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Rimozione del markup XML ed estrazione del testo |
+| WORD 2003 XML (Application/vnd. ms-WordML) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date` |Rimozione del markup XML ed estrazione del testo |
 | XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Estrazione del testo, inclusi i documenti incorporati |
 | XLS (application/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Estrazione del testo, inclusi i documenti incorporati |
+| XLSM (Application/vnd. MS-Excel. Sheet. macroenabled. 12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Estrazione del testo, inclusi i documenti incorporati |
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Estrazione del testo, inclusi i documenti incorporati |
 | PPT (application/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Estrazione del testo, inclusi i documenti incorporati |
-| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Estrazione del testo, inclusi gli allegati |
+| PPTM (Application/vnd. MS-PowerPoint. Presentation. macroenabled. 12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Estrazione del testo, inclusi i documenti incorporati |
+| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Estrazione del testo, inclusi gli allegati |
+| ODT (Application/vnd. Oasis. OpenDocument. Text) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Estrazione del testo, inclusi i documenti incorporati |
+| ODS (Application/vnd. Oasis. OpenDocument. Spreadsheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Estrazione del testo, inclusi i documenti incorporati |
+| ODP (Application/vnd. Oasis. OpenDocument. Presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |Estrazione del testo, inclusi i documenti incorporati |
 | ZIP (application/zip) |`metadata_content_type` |Estrazione del testo da tutti i documenti nell'archivio |
-| XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Rimozione del markup XML ed estrazione del testo |
-| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Estrazione del testo<br/>NOTA:  per conoscere i dettagli su come estrarre più campi documento da un BLOB JSON, vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) |
+| GZ (applicazione/gzip) |`metadata_content_type` |Estrazione del testo da tutti i documenti nell'archivio |
+| EPUB (applicazione/EPUB + zip) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_title`<br/>`metadata_description`<br/>`metadata_language`<br/>`metadata_keywords`<br/>`metadata_identifier`<br/>`metadata_publisher` |Estrazione del testo da tutti i documenti nell'archivio |
+| XML (application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |Rimozione del markup XML ed estrazione del testo |
+| JSON (application/json) |`metadata_content_type`<br/>`metadata_content_encoding` |Estrazione del testo<br/>NOTA:  per conoscere i dettagli su come estrarre più campi documento da un BLOB JSON, vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Estrazione del testo, inclusi gli allegati |
-| RTF (application/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Estrazione del testo|
-| Testo normale (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Estrazione del testo|
+| RTF (application/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Estrazione del testo|
+| Testo normale (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Estrazione del testo|
 
 
 ## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure

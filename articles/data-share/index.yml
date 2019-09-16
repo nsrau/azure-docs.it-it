@@ -1,63 +1,61 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione di Condivisione dati di Azure (anteprima)
+summary: Condivisione dati di Azure (anteprima) è un servizio sicuro e affidabile per condividere dati con organizzazioni di terze parti.
 metadata:
-  title: Documentazione di Condivisione dati di Azure (anteprima) - Esercitazioni e guide pratiche
+  title: Condivisione dati di Azure (anteprima)
   description: Condivisione dati di Azure (anteprima) è un servizio sicuro e affidabile per condividere dati con organizzazioni di terze parti.
-  author: joannapea
-  ms.author: joanpo
+  services: service
   ms.service: data-share
+  ms.subservice: subservice
   ms.topic: landing-page
-  ms.date: 07/10/2019
-abstract:
-  description: '<p>Condivisione dati di Azure (anteprima) è un servizio sicuro e affidabile per condividere dati con organizzazioni di terze parti. Selezionare i set di dati che si intende condividere, aggiungere i destinatari e iniziare a condividere dati con la possibilità di gestire, monitorare e controllare le relazioni di condivisione dei dati. </p><p>Informazioni su come usare Condivisione dati di Azure tramite esercitazioni e guide pratiche.</p>'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/azure-friday.png
-      width: 250
-    title: Condivisione dati di Azure su Azure Friday
-    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
-    width: 250
-sections:
-  - title: Guide alle procedure
-    items:
-      - type: paragraph
-        text: 'Guide pratiche per imparare a monitorare la condivisione dei dati, configurare i mapping dei set di dati, aggiungere i destinatari e altro ancora:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/data-share/media/index/portal.svg
-            text: Monitorare Condivisione dati di Azure
-            href: /azure/data-share/how-to-monitor
-          - image:
-              src: /azure/data-share/media/index/portal.svg
-            text: Configurare un mapping dei set di dati
-            href: /azure/data-share/how-to-configure-mapping
-          - image:
-              src: /azure/data-share/media/index/portal.svg
-            text: Risolvere i problemi relativi a Condivisione dati di Azure
-            href: /azure/data-share/data-share-troubleshoot
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: Informazioni su come iniziare a condividere dati con Condivisione dati di Azure
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="share-your-data">Condividere dati con Condivisione dati di Azure</a>
-          - html: <a href="subscribe-to-data-share">Accettare e ricevere dati con Condivisione dati di Azure</a>
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Languages
-            html: <p><a href="/dotnet/api/overview/azure/datashare">.NET</a></p>
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0">Azure PowerShell</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/datashare">API REST</a></p>
+  ms.collection: collection
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 09/13/2019
+  ms.openlocfilehash: 7e44541fae4cb9987f4c2e3b68a6ec3ff61c1bcf
+  ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/14/2019
+  ms.locfileid: "70993930"
+landingContent:
+- title: Informazioni su Condivisione dati di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Condivisione dati di Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Concetti relativi a Condivisione dati di Azure
+      url: terminology.md
+    - text: Ruoli e requisiti per Condivisione dati di Azure
+      url: concepts-roles-permissions.md
+- title: Condividere dati
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Condividere dati con Condivisione dati di Azure
+      url: share-your-data.md
+    - text: Accettare e ricevere dati con Condivisione dati di Azure
+      url: subscribe-to-data-share.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare i mapping dei set di dati
+      url: how-to-configure-mapping.md
+    - text: Aggiungere set di dati
+      url: how-to-add-datasets.md
+- title: Monitorare e gestire
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Monitorare Condivisione dati di Azure
+      url: how-to-monitor.md
+    - text: Risolvere i problemi comuni
+      url: data-share-troubleshoot.md
+    - text: Aggiungere set di dati
+      url: how-to-add-datasets.md
+    - text: Eliminare un invito
+      url: how-to-delete-invitation.md
+    - text: Revocare una sottoscrizione di condivisione
+      url: how-to-revoke-share-subscription.md

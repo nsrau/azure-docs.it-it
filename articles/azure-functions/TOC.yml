@@ -98,6 +98,10 @@
       href: functions-premium-plan.md
     - name: Deployments
       href: functions-deployment-technologies.md
+    - name: Eventi e messaggistica
+      items:
+        - name: Progettazione per input identico
+          href: functions-idempotent.md
     - name: Trigger e associazioni
       items:
         - name: Informazioni su trigger e associazioni

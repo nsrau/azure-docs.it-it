@@ -3,20 +3,20 @@ title: Introduzione all'API Riconoscimento vocale Bing in JavaScript | Microsoft
 titlesuffix: Azure Cognitive Services
 description: Usare l'API Riconoscimento vocale Bing in Servizi cognitivi per sviluppare applicazioni per la conversione continua di audio parlato in testo.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 17901ad40a48e9ee8d1a8b872b04ad52b75b3a52
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eef1a4885b77ae94f11d3d5bda5ded9b70ed63a4
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515202"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965821"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Introduzione all'API Riconoscimento vocale in JavaScript
 
@@ -42,7 +42,7 @@ Questa sezione illustra i passaggi necessari per caricare una pagina HTML di ese
 
 ### <a name="open-the-sample-directly"></a>Aprire l'esempio direttamente
 
-Acquisire una chiave di sottoscrizione come descritto in precedenza. Aprire quindi il [collegamento all'esempio](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Questa pagina viene caricata nel browser predefinito (visualizzabile tramite [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+Acquisire una chiave di sottoscrizione come descritto in precedenza. Aprire quindi il [collegamento all'esempio](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Questa pagina viene caricata nel browser predefinito (visualizzabile tramite [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>Aprire l'esempio da una copia locale
 

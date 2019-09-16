@@ -121,6 +121,10 @@
           href: billing-understand-free-service-meter-mapping.md
     - name: Modificare il profilo
       href: billing-how-to-change-azure-account-profile.md
+    - name: Open Banking e Strong Customer Authentication
+      href: billing-open-banking-strong-customer-authentication.md
+    - name: Risolvere i problemi relativi al saldo scaduto
+      href: billing-azure-subscription-past-due-balance.md
     - name: Concedere l'accesso alla fatturazione
       href: billing-manage-access.md
     - name: Ruoli del contratto del cliente Microsoft in Azure
@@ -131,6 +135,8 @@
       href: billing-view-all-accounts.md
     - name: Organizzazione dei costi con le sezioni della fattura
       href: billing-mca-section-invoice.md
+    - name: Attività del Contratto Enterprise nel contratto del cliente Microsoft
+      href: billing-mca-enterprise-operations.md
     - name: Gestione di EA
       items:
         - name: Introduzione ad Azure EA Portal
@@ -151,8 +157,6 @@
           href: billing-ea-portal-troubleshoot.md
         - name: Attività del Contratto Enterprise nel contratto del cliente Microsoft
           href: billing-mca-enterprise-operations.md
-    - name: Risolvere i problemi relativi al saldo scaduto
-      href: billing-azure-subscription-past-due-balance.md
     - name: Configurare l'account di fatturazione del contratto del cliente Microsoft
       href: billing-mca-setup-account.md
     - name: Iscriversi con l'account di Office 365

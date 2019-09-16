@@ -40,6 +40,8 @@
       items:
         - name: Portale
           href: role-assignments-portal.md
+        - name: Portale - Utenti guest
+          href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
         - name: Interfaccia della riga di comando di Azure
@@ -72,8 +74,6 @@
       href: change-history-report.md
     - name: Eseguire l'accesso con privilegi elevati per gestire tutte le sottoscrizioni
       href: elevate-access-global-admin.md
-    - name: Gestire l'accesso per gli utenti esterni
-      href: role-assignments-external-users.md
     - name: Amministratori (versione classica)
       href: classic-administrators.md
     - name: Risolvere problemi
