@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: cfe2767b3725378bc88fe97203c7f1622558aa39
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a42b31a1392dd11638bae195b039a15a81d12897
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813543"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010526"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
 
@@ -27,6 +27,11 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 >Per informazioni sul supporto generale di ADF sullo scenario di integrazione dei dati SAP, vedere l'articolo relativo all' [integrazione dei dati SAP con Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con informazioni dettagliate introduttive, comparsing e linee guida.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo SAP Business Warehouse tramite connettore Open Hub è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da SAP Business Warehouse tramite Open Hub in qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -144,7 +149,7 @@ Per copiare dati da e in SAP BW Open Hub, impostare la proprietà type del set d
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **SapOpenHubTable**.  | Sì |
-| openHubDestinationName | Il nome di Open Hub Destination da cui copiare i dati. | Sì |
+| openHubDestinationName | Il nome di Open Hub Destination da cui copiare i dati. | Yes |
 
 Se è stato impostato `excludeLastRequest` e `baseRequestId` nel set di dati, è ancora supportato così com'è, mentre si consiglia di usare il nuovo modello in origine attività in futuro.
 
@@ -232,7 +237,12 @@ Quando si copiano dati da SAP BW Open Hub, vengono usati i mapping seguenti tra 
 | T (Time) | string |
 | P (BCD Packed, Currency, Decimal, Qty) | Decimal |
 | N (Numc) | string |
-| X (Binary e Raw) | string |
+| X (Binary e Raw) | String |
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

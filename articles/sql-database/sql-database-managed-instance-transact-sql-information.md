@@ -11,20 +11,20 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 29fd82eb0253f2f7f6b9bc8b6a84882e2372124c
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 388e676fbabf427801688cbfb47a1455444fd02e
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984978"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018999"
 ---
-# <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze T-SQL tra istanze gestite, limitazioni e problemi noti
+# <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze, limitazioni e problemi noti di istanza gestita di T-SQL
 
 Questo articolo riepiloga e spiega le differenze nella sintassi e nel comportamento tra l'istanza gestita di database SQL di Azure e la SQL Server locale motore di database. L'opzione di distribuzione dell'istanza gestita assicura una compatibilità elevata con il motore di database di SQL Server locale. La maggior parte delle funzionalità del motore di database di SQL Server è supportata in un'istanza gestita.
 
 ![Migrazione](./media/sql-database-managed-instance/migration.png)
 
-Esistono alcune limitazioni di PaaS introdotte in Istanza gestita e alcune modifiche di comportamento rispetto a SQL Server. Le differenze sono divise nelle categorie seguenti:<a name="Differences"></a>
+Esistono alcune limitazioni di PaaS introdotte in Istanza gestita e alcune modifiche del comportamento rispetto a SQL Server. Le differenze sono divise nelle categorie seguenti:<a name="Differences"></a>
 
 - La [disponibilità](#availability) include le differenze tra [Always-on](#always-on-availability) e i [backup](#backup).
 - La [protezione](#security) include le differenze tra il [controllo](#auditing), i [certificati](#certificates), le [credenziali](#credential), i [provider di crittografia](#cryptographic-providers), [gli account di accesso e gli utenti](#logins-and-users)e la [chiave del servizio e la chiave master del servizio](#service-key-and-service-master-key).
@@ -339,14 +339,14 @@ Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows, 
 - `ALTER ASSEMBLY` non può fare riferimento a file. Vedere [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Posta elettronica database (db_mail)
- - `sp_send_dbmail`Impossibile inviare allegati utilizzando @file_attachments il parametro. Le condivisioni file system e Extertal locali o l'archiviazione BLOB di Azure non sono accessibili da questa procedura.
+ - `sp_send_dbmail`Impossibile inviare allegati utilizzando @file_attachments il parametro. Le file system locali e le condivisioni esterne o l'archiviazione BLOB di Azure non sono accessibili da questa procedura.
  - Vedere i problemi noti relativi al `@query` parametro e all'autenticazione.
  
 ### <a name="dbcc"></a>DBCC
 
 Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate nelle istanze gestite.
 
-- È supportato solo un numero limitato `Trace flags` di elementi globali. Il livello `Trace flags` di sessione non è supportato. Vedere [flag di traccia](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- Sono supportati solo un numero limitato di flag di traccia globali. Il livello `Trace flags` di sessione non è supportato. Vedere [flag di traccia](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) e [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) funzionano con il numero limitato di flag di traccia globali.
 - Impossibile utilizzare [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) con le opzioni REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST e REPAIR_REBUILD perché il database non può essere impostato `SINGLE_USER` in modalità. vedere [differenze di alter database](#alter-database-statement). I potenziali danneggiamenti del database sono gestiti dal team di supporto di Azure. Se si nota un danneggiamento del database da correggere, contattare il supporto tecnico di Azure.
 
@@ -415,7 +415,7 @@ Le tabelle esterne che fanno riferimento ai file in HDFS o nell'archiviazione BL
 Per informazioni sulla configurazione della replica, vedere l'esercitazione relativa alla [replica](replication-with-sql-database-managed-instance.md).
 
 
-Se la replica è abilitata in un database in un [gruppo di failover](sql-database-auto-failover-group.md), l'amministratore dell'istanza gestita deve pulire tutte le pubblicazioni nel database primario precedente e riconfigurarle sul nuovo database primario dopo un failover. In questo scenario sono necessarie le attività seguenti:
+Se la replica è abilitata in un database in un [gruppo di failover](sql-database-auto-failover-group.md), l'amministratore dell'istanza gestita deve eliminare tutte le pubblicazioni nel database primario precedente e riconfigurarle sul nuovo database primario dopo un failover. In questo scenario sono necessarie le attività seguenti:
 
 1. Arrestare tutti i processi di replica in esecuzione nel database, se presenti.
 2. Eliminare i metadati della sottoscrizione dal server di pubblicazione eseguendo lo script seguente nel database del server di pubblicazione:
@@ -479,8 +479,8 @@ Limitazioni:
 - Il ripristino `.BAK` del file di un database che contiene qualsiasi limitazione descritta in questo documento (ad esempio `FILESTREAM` , `FILETABLE` oggetti o) non può essere ripristinato in istanza gestita.
 - `.BAK`non è possibile ripristinare i file che contengono più set di backup. 
 - `.BAK`i file che contengono più file di log non possono essere ripristinati.
-- Non è possibile ripristinare i backup che contengono database di dimensioni maggiori di 8 TB, gli oggetti OLTP in memoria attivi o il numero di file che superano 280 file per ogni istanza in un'istanza di per utilizzo generico. 
-- Non è possibile ripristinare i backup che contengono database di dimensioni maggiori di 4 TB o oggetti OLTP in memoria con dimensioni totali superiori a quelle descritte in [limiti di risorse](sql-database-managed-instance-resource-limits.md) in business critical istanza.
+- Non è possibile ripristinare i backup che contengono database di dimensioni maggiori di 8 TB, oggetti OLTP in memoria attivi o numero di file che superano 280 file per ogni istanza in un'istanza di per utilizzo generico. 
+- Non è possibile ripristinare i backup che contengono database di dimensioni maggiori di 4 TB o di oggetti OLTP in memoria con dimensioni totali superiori alle dimensioni descritte nei [limiti delle risorse](sql-database-managed-instance-resource-limits.md) in business critical istanza.
 Per informazioni sulle istruzioni RESTORE, vedere [istruzioni RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
  > [!IMPORTANT]
@@ -540,9 +540,19 @@ La dimensione massima del `tempdb` file non può essere maggiore di 24 GB per co
 
 ### <a name="error-logs"></a>Log degli errori
 
-Un'istanza gestita inserisce informazioni dettagliate nei log degli errori. Nel log degli errori di sono presenti molti eventi interni di sistema che vengono registrati. Utilizzare una procedura personalizzata per leggere i log degli errori che filtrano alcune voci irrilevanti. Per ulteriori informazioni, vedere [istanza gestita – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+Un'istanza gestita inserisce informazioni dettagliate nei log degli errori. Nel log degli errori di sono stati registrati molti eventi di sistema interni. Utilizzare una procedura personalizzata per leggere i log degli errori che filtrano alcune voci irrilevanti. Per ulteriori informazioni, vedere [istanza gestita – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a>Problemi noti
+
+### <a name="missing-validations-in-restore-process"></a>Convalide mancanti nel processo di ripristino
+
+**Data** 2019 Sep
+
+`RESTORE`l'istruzione e il ripristino temporizzato predefinito non eseguono alcuni controlli nessecary sul database ripristinato:
+- **L'istruzione DBCC CHECKDB**  -  `RESTORE` non `DBCC CHECKDB` viene eseguita nel database ripristinato. Se un database originale è danneggiato o il file di backup è danneggiato mentre viene copiato nell'archiviazione BLOB di Azure, i backup automatici non verranno eseguiti e il supporto di Azure contatterà il cliente. 
+- Il processo di ripristino temporizzato predefinito non controlla se il backup automatizzato da business critical istanza contiene gli [oggetti OLTP in memoria](sql-database-in-memory.md#in-memory-oltp). 
+
+**Soluzione temporanea**: Verificare che sia in esecuzione `DBCC CHECKDB` nel database di origine prima di eseguire un backup e utilizzare `WITH CHECKSUM` l'opzione in backup per evitare potenziali danneggiamenti che possono essere ripristinati nell'istanza gestita. Verificare che il database di origine non contenga [oggetti OLTP in memoria](sql-database-in-memory.md#in-memory-oltp) se viene ripristinato nel livello per utilizzo generico.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Potrebbe essere necessario riconfigurare Resource Governor business critical livello di servizio dopo il failover
 
@@ -552,13 +562,13 @@ Un'istanza gestita inserisce informazioni dettagliate nei log degli errori. Nel 
 
 **Soluzione temporanea**: Eseguire `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente o come parte del processo di SQL Agent che esegue l'attività SQL quando l'istanza viene avviata se si utilizza [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor).
 
-### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Impossibile eseguire a server di posta elettronica esterni tramite connessione protetta (SSL)
+### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>Non è possibile eseguire l'autenticazione a server di posta elettronica esterni tramite connessione protetta (SSL)
 
 **Data** 2019 agosto
 
 Posta elettronica database [configurata tramite connessione protetta (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) non è in grado di eseguire l'autenticazione in alcuni server di posta elettronica esterni ad Azure. Si tratta di un problema di configurazione della sicurezza che verrà risolto a breve.
 
-**Soluzione alternativa:** Rimuovere temporaneamente la connessione protetta (SSL) per la configurazione di posta elettronica database fino a quando il problema non viene risolto. 
+**Soluzione alternativa:** Rimuovere temporaneamente la connessione protetta (SSL) dalla configurazione di posta elettronica database fino a quando il problema non viene risolto. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>È necessario inizializzare nuovamente le finestre di dialogo Service Broker tra database dopo l'aggiornamento del livello di servizio
 
@@ -586,13 +596,13 @@ Il `@query` parametro nella procedura [sp_send_db_mail](https://docs.microsoft.c
 
 **Data** Mar 2019
 
-Se la replica transazionale è abilitata in un database in un gruppo di failover automatico, l'amministratore dell'istanza gestita deve eseguire la pulizia di tutte le pubblicazioni nel database primario precedente e riconfigurarle nel nuovo database primario dopo che si è verificato un failover in un'altra area. Per altri dettagli, vedere [replica](#replication) .
+Se la replica transazionale è abilitata in un database in un gruppo di failover automatico, l'amministratore dell'istanza gestita deve eseguire la pulizia di tutte le pubblicazioni nel database primario precedente e riconfigurarle sul nuovo database primario dopo che si è verificato un failover in un'altra area. Per altri dettagli, vedere [replica](#replication) .
 
 ### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>Gli account di accesso e gli utenti di AAD non sono supportati negli strumenti
 
 **Data** Gennaio 2019
 
-SQL Server Management Studio e SQL Server Data Tools non fuly supportano gli account di accesso e gli utenti di Azure acctive directory.
+SQL Server Management Studio e SQL Server Data Tools non supportano completamente gli account di accesso e gli utenti di Azure Active Directory.
 - L'uso di Azure AD entità server (account di accesso) e degli utenti (anteprima pubblica) con SQL Server Data Tools attualmente non è supportato.
 - La creazione di script per Azure AD entità server (account di accesso) e utenti (anteprima pubblica) non è supportata in SQL Server Management Studio.
 
@@ -612,7 +622,7 @@ Il `tempdb` database viene sempre suddiviso in 12 file di dati e la struttura de
 
 Ogni istanza gestita di per utilizzo generico ha fino a 35 TB di spazio di archiviazione riservato per lo spazio su disco Premium di Azure. Ogni file di database si trova in un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato sul disco non viene addebitato, ma la somma totale delle dimensioni del disco Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni di archiviazione a causa della frammentazione interna.
 
-Ad esempio, un'istanza gestita di per utilizzo generico potrebbe avere un file grande di 1,2 TB di dimensioni posizionate su un disco da 4 TB. Potrebbero inoltre essere presenti 248 file da 1 GB, ognuno dei quali viene inserito in dischi 128 GB distinti. Esempio:
+Ad esempio, un'istanza gestita di per utilizzo generico potrebbe avere un file di grandi dimensioni di 1,2 TB in un disco da 4 TB. Potrebbero inoltre essere presenti 248 file con dimensioni di 1 GB, ognuno dei quali si trova in dischi 128 GB distinti. Esempio:
 
 - la dimensione totale della risorsa di archiviazione sul disco allocato è 1 x 4 TB + 248 x 128 GB = 35 TB.
 - Lo spazio totale riservato per i database nell'istanza è 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
@@ -629,7 +639,7 @@ In numerose viste di sistema, contatori delle prestazioni, messaggi di errore, X
 
 ### <a name="error-logs-arent-persisted"></a>I log degli errori non sono salvati in stato permanente
 
-I log degli errori disponibili nell'istanza gestita non sono salvati in modo permanente e la loro dimensione non è inclusa nel limite massimo di archiviazione. I log degli errori potrebbero essere cancellati automaticamente se si verifica il failover. Potrebbero esserci gap nella cronologia dei log degli errori perché Istanza gestita stato spostato più tempo in diverse macchine virtuali.
+I log degli errori disponibili nell'istanza gestita non sono salvati in modo permanente e la loro dimensione non è inclusa nel limite massimo di archiviazione. I log degli errori potrebbero essere cancellati automaticamente se si verifica il failover. Potrebbero esserci gap nella cronologia dei log degli errori perché Istanza gestita stato spostato più volte su diverse macchine virtuali.
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>L'ambito della transazione su due database all'interno della stessa istanza non è supportato
 

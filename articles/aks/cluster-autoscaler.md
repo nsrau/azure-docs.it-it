@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 5671c3e36a49680b72b1f7b138cbd6e9c0bc4313
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 877d0a17b9ff06e9b9ac2c843c1847c9cb9726e4
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914857"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018708"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Anteprima: ridimensiona automaticamente un cluster per soddisfare le richieste dell'applicazione in Azure Kubernetes Service (AKS)
 
@@ -104,7 +104,7 @@ Sono necessari alcuni minuti per creare il cluster e configurare le impostazioni
 ## <a name="change-the-cluster-autoscaler-settings"></a>Modificare le impostazioni del componente di scalabilità automatica del cluster
 
 > [!IMPORTANT]
-> Se nella sottoscrizione è abilitata la funzionalità per *più pool di agenti* , passare alla [sezione scalabilità automatica con più pool di agenti](##use-the-cluster-autoscaler-with-multiple-node-pools-enabled). I cluster con più pool di agenti abilitati richiedono l' `az aks nodepool` uso del set di comandi per modificare le proprietà specifiche `az aks`del pool di nodi anziché. Nelle istruzioni seguenti si presuppone che non siano stati abilitati più pool di nodi. Per verificare se è abilitato, eseguire `az feature  list -o table` e `Microsoft.ContainerService/multiagentpoolpreview`cercare.
+> Se nella sottoscrizione è abilitata la funzionalità per *più pool di agenti* , passare alla [sezione scalabilità automatica con più pool di agenti](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). I cluster con più pool di agenti abilitati richiedono l' `az aks nodepool` uso del set di comandi per modificare le proprietà specifiche `az aks`del pool di nodi anziché. Nelle istruzioni seguenti si presuppone che non siano stati abilitati più pool di nodi. Per verificare se è abilitato, eseguire `az feature  list -o table` e `Microsoft.ContainerService/multiagentpoolpreview`cercare.
 
 Nel passaggio precedente per creare un cluster AKS o aggiornare un pool di nodi esistente, il numero minimo di nodi del cluster AutoScaler è stato impostato su *1*e il numero massimo di nodi è stato impostato su *3*. Se le richieste delle applicazioni cambiano, potrebbe essere necessario regolare il numero di nodi del componente di scalabilità automatica del cluster.
 

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 0f036462eb9b37b4ec783bcf8957d307cc55f7ac
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68698262"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018531"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo, l'elenco verrà espanso e aggiornato per coprire più servizi.
@@ -89,8 +89,9 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
   * [Firewall di Azure](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [Bilanciamento del carico](#load-balancer)
-  * [Indirizzo IP pubblico](#publicip-address)
   * [Network Watcher](#network-watcher-limits)
+  * [Indirizzo IP pubblico](#publicip-address)
+  * [Collegamento privato](#private-link-limits)
   * [Gestione traffico](#traffic-manager-limits)
   * [Rete virtuale](#networking-limits)
 * [Hub di notifica di Azure](#notification-hubs-limits)
@@ -168,6 +169,9 @@ Se non diversamente specificato, la tabella è valida per gli SKU v1, v2, Standa
 
 #### <a name="network-watcher-limits"></a>Limiti relativi a Network Watcher
 [!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
+
+#### <a name="private-link-limits"></a>Limiti dei collegamenti privati
+[!INCLUDE [private-link-limits](../includes/private-link-limits.md)]
 
 #### <a name="traffic-manager-limits"></a>Limiti relativi a Gestione traffico
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]

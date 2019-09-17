@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 3cdf2255208069e20f5a230cc2acd82a628fdcfd
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 41ed51fc0cec9843525275613cca211d2e1bf409
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840206"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018624"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Creare una topologia Apache Storm in Java
 
@@ -487,7 +487,7 @@ La topologia collega gli spout e i bolt in un grafico, che definisce il flusso d
 
 La seguente immagine è un diagramma di base del grafico dei componenti della topologia.
 
-![diagramma che mostra la disposizione degli spout e dei bolt](./media/apache-storm-develop-java-topology/wordcount-topology.png)
+![diagramma che mostra la disposizione degli spout e dei bolt](./media/apache-storm-develop-java-topology/word-count-topology1.png)
 
 Per implementare la topologia, immettere il comando seguente per creare e aprire un nuovo `WordCountTopology.java`file:
 

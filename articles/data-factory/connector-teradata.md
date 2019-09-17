@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: f17a7ef2131662cdb9ef4d138303556215810fba
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b91ec46d47814418de21e9afe3e6e5534473c921
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959020"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008974"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiare dati da Teradata Vantage usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -28,6 +28,11 @@ ms.locfileid: "70959020"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Teradata Vantage. Si basa sulla [Panoramica dell'attività di copia](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore Teradata è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Teradata Vantage a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -328,6 +333,11 @@ Quando si copiano dati da Teradata, vengono applicati i mapping seguenti. Per in
 | VarChar |String |
 | VarGraphic |Non supportati. Applica cast esplicito nella query di origine. |
 | Xml |Non supportati. Applica cast esplicito nella query di origine. |
+
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

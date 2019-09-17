@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3082c568b3ce3fa5199c7a7d0d082db36720d293
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 561f383327738c9a2ab29f2907f00ace1eec6def
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233028"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010281"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Cosmos DB (API SQL) usando Azure Data Factory
 
@@ -31,6 +31,11 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 >Questo connettore supporta solo la copia di dati da o verso l'API SQL Cosmos DB. Per l'API MongoDB, fare riferimento al [connettore per l'API di Azure Cosmos DB per MongoDB](connector-azure-cosmos-db-mongodb-api.md). Al momento non sono supportati altri tipi di API.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore Azure Cosmos DB (API SQL) è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Azure Cosmos DB (API SQL) in qualsiasi archivio dati sink supportato o da qualsiasi archivio dati di origine supportato in Azure Cosmos DB. Per un elenco degli archivi dati supportati dall'attività di copia come origini e sink, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -121,8 +126,8 @@ Per copiare dati da o verso Azure Cosmos DB (API SQL), impostare la proprietà *
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **DocumentDbCollection**. |Sì |
-| collectionName |Nome della raccolta documenti di Azure Cosmos DB. |Sì |
+| type | La proprietà **type** del set di dati deve essere impostata su **DocumentDbCollection**. |Yes |
+| collectionName |Nome della raccolta documenti di Azure Cosmos DB. |Yes |
 
 **Esempio**
 
@@ -167,7 +172,7 @@ Nella sezione **source** dell'attività di copia sono supportate le proprietà s
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **DocumentDbCollectionSource**. |Yes |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **DocumentDbCollectionSource**. |Sì |
 | query |Specificare la query Azure Cosmos DB per leggere i dati.<br/><br/>Esempio:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Se non specificato, viene eseguita questa istruzione SQL: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Carattere speciale che indica che il documento è nidificato e come rendere flat il set di risultati.<br/><br/>Se ad esempio una query Azure Cosmos DB restituisce il risultato nidificato `"Name": {"First": "John"}`, l'attività di copia identifica il nome di colonna come `Name.First`, con il valore "John", se il valore **nestedSeparator** è un **.** (punto). |No<br />(il valore predefinito è il **.** (punto)) |
 
@@ -251,6 +256,9 @@ Nella sezione **source** dell'attività di copia sono supportate le proprietà s
     }
 ]
 ```
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="import-or-export-json-documents"></a>Importare o esportare documenti JSON
 

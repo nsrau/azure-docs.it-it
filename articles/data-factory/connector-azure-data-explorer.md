@@ -13,18 +13,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: orspodek
-ms.openlocfilehash: a7ac0bdc2bd5eed802f6959a628dee4c8141dbd1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5cb08ddafe2075ae27ced6d70894696025df0a86
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720794"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010260"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiare dati in o da Esplora dati di Azure usando Azure Data Factory
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati in o da [Esplora dati di Azure](../data-explorer/data-explorer-overview.md). Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore di Azure Esplora dati è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da qualsiasi archivio dati di origine supportato in Esplora dati di Azure. È anche possibile copiare dati da Esplora dati di Azure in un qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md).
 
@@ -56,7 +61,7 @@ Il connettore Azure Esplora dati usa l'autenticazione basata su entità servizio
     - Chiave applicazione
     - ID tenant
 
-2. Concedere all'entità servizio l'autorizzazione appropriata in Esplora dati di Azure. Per informazioni dettagliate su ruoli e autorizzazioni e per la gestione delle autorizzazioni, vedere [gestire le autorizzazioni del database di Azure Esplora dati](../data-explorer/manage-database-permissions.md) . In generale, è necessario
+2. Concedere all'entità servizio l'autorizzazione appropriata in Esplora dati di Azure. Per informazioni dettagliate sui ruoli e sulle autorizzazioni, vedere gestire le autorizzazioni del [database di Azure Esplora dati](../data-explorer/manage-database-permissions.md) , oltre a esaminare la gestione delle autorizzazioni. In generale, è necessario
 
     - **Come origine**, concedere almeno il ruolo **Visualizzatore database** al database.
     - **Come sink**, concedere almeno il ruolo di inserimento del **database** al database.
@@ -219,6 +224,10 @@ Per copiare dati in Esplora dati di Azure, impostare la proprietà type nel sink
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

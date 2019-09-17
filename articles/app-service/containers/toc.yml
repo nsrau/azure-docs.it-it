@@ -204,7 +204,7 @@
     - name: Guide di riferimento dettagliate
       items:
         - name: Architetture di riferimento
-          href: /azure/architecture/reference-architectures/app-service-web-app/
+          href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Script di distribuzione
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: risoluzione dei problemi

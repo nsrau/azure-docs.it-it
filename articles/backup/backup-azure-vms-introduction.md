@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: db3e4b8a8abea4718f5779790906bf45591d221c
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951857"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018699"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -124,7 +124,7 @@ La fatturazione non viene avviata fino al completamento del primo backup complet
 
 La fatturazione relativa a una macchina virtuale specifica viene interrotta solo se viene arrestata la protezione e vengono eliminati i dati di backup. Quando si arresta la protezione e non vi sono processi di backup attivi, la dimensione dell'ultimo backup della macchina virtuale completato correttamente diventa la dimensione dell'istanza protetta usata per la fatturazione mensile.
 
-Il calcolo delle dimensioni dell'istanza protetta è basato sulle dimensioni effettive della macchina virtuale. Le dimensioni della VM corrispondono alla somma di tutti i dati della macchina virtuale, esclusa l'archiviazione temporanea. I prezzi sono basati sui dati effettivi archiviati nei dischi dati, non sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale.
+Il calcolo delle dimensioni dell'istanza protetta è basato sulle dimensioni *effettive* della macchina virtuale. Le dimensioni della VM corrispondono alla somma di tutti i dati della macchina virtuale, esclusa l'archiviazione temporanea. I prezzi sono basati sui dati effettivi archiviati nei dischi dati, non sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale.
 
 Analogamente, la fattura relativa all'archiviazione dei backup è basata sulla quantità di dati archiviati in backup di Azure, ovvero la somma dei dati effettivi in ogni punto di ripristino.
 
@@ -140,48 +140,13 @@ Disco dati 2 | 4095 GB | 0 GB
 In questo caso, la dimensione effettiva della macchina virtuale è 17 GB + 30 GB + 0 GB = 47 GB. Questa dimensione dell'istanza protetta (47 GB) diventa la base per la fattura mensile. Con la crescita della quantità di dati nella macchina virtuale, le dimensioni dell'istanza protetta utilizzate per la fatturazione cambiano.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Anteprima pubblica limitata: Backup della macchina virtuale con dimensioni del disco fino a 30 TB
+## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Anteprima pubblica: Backup della macchina virtuale con dimensioni del disco fino a 30 TB
 
-Backup di Azure supporta ora un'anteprima pubblica limitata di [Managed Disks di Azure](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) di dimensioni maggiori e più potenti fino a 30 TB. Questa versione di anteprima offre supporto a livello di produzione per le macchine virtuali gestite.
+Backup di Azure supporta ora l'anteprima pubblica di Managed Disks di [Azure](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) di dimensioni maggiori e più potenti fino a 30 TB. Questa versione di anteprima offre supporto a livello di produzione per le macchine virtuali gestite.
 
-È possibile eseguire facilmente la registrazione nell'anteprima senza alcun effetto sui backup in corso. Dopo che la sottoscrizione è stata registrata nell'anteprima, è necessario eseguire il backup di tutte le macchine virtuali con dimensioni del disco fino a 30 TB. Per eseguire la registrazione nell'anteprima:
- 
-Eseguire i cmdlet seguenti da un terminale di PowerShell con privilegi elevati:
+I backup per le macchine virtuali con le dimensioni di ogni disco fino a 30TB e un massimo di 256TB combinati per tutti i dischi in una macchina virtuale dovrebbero funzionare senza alcun effetto sui backup esistenti. Non è necessaria alcuna azione da parte dell'utente per ottenere i backup in esecuzione per i dischi di grandi dimensioni, se la macchina virtuale è già configurata con backup di Azure.
 
-1. Accedere all'account Azure.
-
-    ```powershell
-    PS C:> Login-AzureRmAccount
-    ```
-
-2. Selezionare la sottoscrizione che si desidera registrare per l'aggiornamento:
-
-    ```powershell
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3. Registrare questa sottoscrizione nel programma di anteprima: 
-
-    ```powershell
-    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-    Attendere 30 minuti per la registrazione della sottoscrizione nell'anteprima. 
-
- 4. Per controllare lo stato, eseguire i cmdlet seguenti:
-
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
-    ```
-5. Quando la sottoscrizione viene visualizzata come registrata, eseguire il comando seguente:
-    
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-> [!NOTE]
-> Le macchine virtuali crittografate con dischi di dimensioni superiori a 4 TB non sono supportate in questa versione di anteprima.
-
-
+Il backup di tutte le macchine virtuali di Azure con dischi di grandi dimensioni con backup configurato deve essere completato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

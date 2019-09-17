@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 62f633b617abb52e1be4003f65cc537cc9ff2a25
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 1b7e3a8a937682559440086e90af18bfc85b8f75
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983787"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018677"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare il [servizio backup di Azure](backup-overview.md) per eseguire il backup di computer e carichi di lavoro locali e di macchine virtuali (VM) di Azure. Questo articolo riepiloga le impostazioni e le limitazioni del supporto quando si esegue il backup di macchine virtuali di Azure con backup di Azure.
@@ -158,13 +158,13 @@ VM Gen2 | Supportato <br> Backup di Azure supporta il backup e il ripristino di 
 
 **Componente** | **Supporto**
 --- | ---
-Dischi di dati delle VM di Azure | Backup di una macchina virtuale con un massimo di 16 dischi dati. <br/><br/> Supporto di dischi con dimensioni fino a 4 TB.<br/><br/>Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB e fino a 30 TB, fare riferimento a questo [articolo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
-Dimensioni del disco dati | Ogni singolo disco può avere dimensioni fino a 4095 GB.<br/><br/>Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB fino a 30TB, vedere questo [articolo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Dischi di dati delle VM di Azure | Backup di una macchina virtuale con un massimo di 16 dischi dati. <br/><br/> Supporta il backup di macchine virtuali con ogni dimensione di disco fino a 30TB e un massimo di 256TB combinati per tutti i dischi in una macchina virtuale.
+Dimensioni del disco dati | Il disco singolo può essere fino a 30TB.
 Tipo di archiviazione | HDD Standard, SDD Standard, SSD Premium.
 Dischi gestiti | Supportato.
 Dischi crittografati | Supportato.<br/><br/> È possibile eseguire il backup delle macchine virtuali di Azure abilitate con crittografia dischi di Azure (con o senza l'app Azure AD).<br/><br/> Le macchine virtuali crittografate non possono essere ripristinate a livello di file/cartella. È necessario ripristinare l'intera macchina virtuale.<br/><br/> È possibile abilitare la crittografia nelle macchine virtuali che sono già protette dal servizio Backup di Azure.
 Dischi con l'acceleratore di scrittura abilitato | Non supportati.<br/><br/> Backup di Azure esclude automaticamente i dischi con acceleratore di scrittura abilitati durante il backup. Poiché non viene eseguito il backup, non sarà possibile ripristinare questi dischi dal punto di ripristino della macchina virtuale.
-Backup di dischi deduplicati | Non supportati.
+Eseguire il backup & ripristinare VM/dischi deduplicati | Backup di Azure non supporta la deduplicazione. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  -Backup di Azure non viene deduplicato tra VM nell'insieme di credenziali di servizi di ripristino <br/> <br/>  -Se sono presenti macchine virtuali in stato di deduplicazione durante il ripristino, non è possibile ripristinare i file perché l'insieme di credenziali non riconosce il formato
 Aggiunta di un disco a una macchina virtuale protetta | Supportato.
 Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.
 Archiviazione condivisa| Non è consigliabile eseguire il backup di macchine virtuali con Volume condiviso cluster (CSV) o file server di scalabilità orizzontale. Probabilmente i writer CSV avranno esito negativo durante il backup. Durante il ripristino, i dischi contenenti volumi CSV potrebbero non essere disponibili.
@@ -214,8 +214,8 @@ Sicurezza dei dati:
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
 Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Yes][green]
-Macchine virtuali di Azure | ![Yes][green] | ![Yes][green]
-Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
+Macchine virtuali di Azure | ![Sì][green] | ![Sì][green]
+Computer locali/VM di Azure con DPM | ![Yes][green] | ![Sì][green]
 Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
 
 
@@ -229,10 +229,10 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Comprimi nell'insieme di credenziali (HTTPS)**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | ND | ![Sì][green]
+Computer Windows locali senza DPM/MABS | ND | ![Yes][green]
 Macchine virtuali di Azure | ND | ND
-Computer locali/VM di Azure con DPM | ![Sì][green] | ![Yes][green]
-Computer locali/VM di Azure con MABS | ![Yes][green] | ![Yes][green]
+Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
+Computer locali/VM di Azure con MABS | ![Sì][green] | ![Yes][green]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

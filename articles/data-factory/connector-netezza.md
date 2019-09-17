@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 20e5e23e2000095a95913964673ce90a72b87e59
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5d5db9e837846a20bf4b68f7dc5c39ad587f4de9
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813536"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009970"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiare dati da Netezza usando Azure Data Factory
 
@@ -27,6 +27,12 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 >Per lo scenario di migrazione dei dati da Netezza ad Azure, vedere l'articolo relativo [all'uso di Azure Data Factory per eseguire la migrazione dei dati dal server Netezza locale ad Azure](data-migration-guidance-netezza-azure-sqldw.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore Netezza è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
+
 
 È possibile copiare dati da Netezza a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati dall'attività di copia come origini e sink, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -121,7 +127,7 @@ Per copiare dati da Netezza, impostare la proprietà **type** del set di dati su
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **NetezzaTable** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **NetezzaTable** | Sì |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
 | tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
@@ -159,9 +165,9 @@ Per copiare dati da Netezza, impostare il tipo di **origine** nell'attività di 
 |:--- |:--- |:--- |
 | type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **NetezzaSource**. | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Esempio: `"SELECT * FROM MyTable"` | No (se nel set di dati è specificato "tableName") |
-| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Netezza. <br>Consenti valori: **Nessuna** (impostazione predefinita), **dataslice** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None`), il grado di parallelismo per caricare simultaneamente i dati da un database Netezza viene controllato impostando [`parallelCopies`](copy-activity-performance.md#parallel-copy) sull'attività di copia. | No |
+| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Netezza. <br>Consenti valori: **Nessuna** (impostazione predefinita), **dataslice**e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None`), il grado di parallelismo per caricare simultaneamente i dati da un database Netezza viene controllato impostando [`parallelCopies`](copy-activity-performance.md#parallel-copy) sull'attività di copia. | No |
 | partitionSettings | Consente di specificare il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition `None`non è. | No |
-| partitionColumnName | Specificare il nome della colonna di origine **nel tipo Integer** che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, la chiave primaria della tabella viene rilevata automaticamente e utilizzata come colonna della partizione. <br>Applicare quando l'opzione di partizione `DynamicRange`è. Se si utilizza una query per recuperare i dati di origine, `?AdfRangePartitionColumnName` associare la clausola WHERE. Vedere l'esempio nella sezione [copia parallela da Netezza](#parallel-copy-from-netezza) . | No |
+| partitionColumnName | Specificare il nome della colonna di origine **nel tipo Integer** che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, la chiave primaria della tabella viene rilevata automaticamente e utilizzata come colonna di partizione. <br>Applicare quando l'opzione di partizione `DynamicRange`è. Se si utilizza una query per recuperare i dati di origine, `?AdfRangePartitionColumnName` associare la clausola WHERE. Vedere l'esempio nella sezione [copia parallela da Netezza](#parallel-copy-from-netezza) . | No |
 | partitionUpperBound | Valore massimo della colonna di partizione in cui copiare i dati. <br>Applica quando l'opzione di `DynamicRange`partizione è. Se si utilizza query per recuperare i dati di origine `?AdfRangePartitionUpbound` , associare la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Netezza](#parallel-copy-from-netezza) . | No |
 | partitionLowerBound | Valore minimo della colonna di partizione in cui copiare i dati. <br>Applicare quando l'opzione di partizione `DynamicRange`è. Se si utilizza una query per recuperare i dati di origine, `?AdfRangePartitionLowbound` associare la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Netezza](#parallel-copy-from-netezza) . | No |
 
@@ -237,6 +243,11 @@ Si consiglia di abilitare la copia parallela con il partizionamento dei dati, sp
     }
 }
 ```
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

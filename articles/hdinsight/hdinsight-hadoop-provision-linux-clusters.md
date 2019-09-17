@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: f59455374299e25d0c5d6a06c7ec9efc1f220ecf
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0f29df02e8242872311df3d4cb660d46bbc2cee3
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733497"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018778"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
@@ -111,10 +111,21 @@ Non è necessario specificare in modo esplicito il percorso del cluster, perché
 
 ## <a name="storage-endpoints-for-clusters"></a>Endpoint di archiviazione per i cluster
 
-Sebbene l'installazione locale di Hadoop usi Hadoop Distributed File System (HDFS) per l'archiviazione nel cluster, nel cloud vengono usati degli endpoint di archiviazione connessi al cluster. I cluster HDInsight usano [Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md) o i [BLOB in Archiviazione di Azure](hdinsight-hadoop-use-blob-storage.md). L'uso di Archiviazione di Azure o Data Lake Store consente di eliminare in modo sicuro i cluster HDInsight usati per il calcolo, pur mantenendo i dati. 
+Sebbene l'installazione locale di Hadoop usi Hadoop Distributed File System (HDFS) per l'archiviazione nel cluster, nel cloud vengono usati degli endpoint di archiviazione connessi al cluster. L'uso dell'archiviazione cloud consente di eliminare in modo sicuro i cluster HDInsight usati per il calcolo, mantenendo comunque i dati. 
+
+I cluster HDInsight possono usare le seguenti opzioni di archiviazione:
+
+* Azure Data Lake Storage Gen2
+* Azure Data Lake Storage Gen1
+* Archiviazione di Azure per utilizzo generico V2
+* Archiviazione di Azure per utilizzo generico V1
+* BLOB in blocchi di archiviazione**di Azure (supportato solo come archiviazione secondaria**)
+
+Per altre informazioni sulle opzioni di archiviazione con HDInsight, vedere [confrontare le opzioni di archiviazione per l'uso con i cluster HDInsight di Azure](hdinsight-hadoop-compare-storage-options.md).
 
 > [!WARNING]  
 > L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
+
 
 Durante la configurazione, per l'endpoint di archiviazione predefinito si specifica un contenitore BLOB di un account di archiviazione di Azure o Data Lake Storage. L'archiviazione predefinita include log di sistema e applicazioni. Facoltativamente, è possibile specificare degli account di archiviazione di Azure aggiuntivi e degli account di Data Lake Storage a cui il cluster può accedere. Il cluster HDInsight e l'account di archiviazione da esso dipendente devono trovarsi nella stessa posizione di Azure.
 

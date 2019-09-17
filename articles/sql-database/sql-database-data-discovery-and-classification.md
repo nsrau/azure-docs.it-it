@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0bba755ec5683e988bb8ae3f2308a1c298b228b0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b85793223e23aa3d668d6f86494da3ee78c43e91
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000570"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009984"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificazione & individuazione dati del database SQL di Azure e SQL Data Warehouse
 
@@ -142,10 +142,13 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 
 È anche possibile usare l'API REST per gestire le classificazioni a livello di codice. Le API REST pubblicate supportano le operazioni seguenti:
 
-- [Creazione o aggiornamento](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o aggiorna l'etichetta Riservatezza di una colonna specifica
+- [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crea o aggiorna l'etichetta di riservatezza di una determinata colonna
 - [Eliminazione](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina l'etichetta Riservatezza di una colonna specifica
+- [Disabilita Raccomandazione: Disabilita](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/disablerecommendation) le raccomandazioni di riservatezza in una colonna specifica
+- [Abilita raccomandazione](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/enablerecommendation) : Abilita le raccomandazioni di riservatezza in una determinata colonna (le indicazioni sono abilitate per impostazione predefinita in tutte le colonne)
 - [Recupero](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): ottiene l'etichetta Riservatezza di una colonna specifica
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - (Elenca elementi correnti per database): consente di ottenere le etichette Riservatezza correnti di un database specifico
+
 - [Elenco consigliato per database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : ottiene le etichette di riservatezza consigliate di un determinato database
 
 ## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Gestire l'individuazione e la classificazione dei dati tramite Azure PowerShell

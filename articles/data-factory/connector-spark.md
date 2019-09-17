@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 267c21087042904ef04a7bc930d5f31439217e17
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: bbd751592facc1a6194e052a486de15cace774cd
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276646"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010357"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiare dati da Spark usando Azure Data Factory 
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Spark. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore Spark è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Spark a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -45,9 +50,9 @@ Per il servizio collegato di Spark sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Spark** | Sì |
+| type | La proprietà type deve essere impostata su: **Spark** | Yes |
 | host | Indirizzo IP o nome host del server Spark.  | Sì |
-| port | Porta TCP che il server Spark usa per l'ascolto delle connessioni client. Se ci si connette a Azure HDInsights, specificare la porta come 443. | Yes |
+| port | Porta TCP che il server Spark usa per l'ascolto delle connessioni client. Se ci si connette a Azure HDInsights, specificare la porta come 443. | Sì |
 | serverType | Tipo del server Spark. <br/>I valori consentiti sono i seguenti: **SharkServer**, **SharkServer2**, **SparkThriftServer** | No |
 | thriftTransportProtocol | Protocollo di trasporto da usare nel livello Thrift. <br/>I valori consentiti sono i seguenti: **Binary**, **SASL**, **HTTP** | No |
 | authenticationType | Metodo di autenticazione usato per accedere al server Spark. <br/>I valori consentiti sono i seguenti: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
@@ -90,7 +95,7 @@ Per copiare dati da Spark, impostare la proprietà type del set di dati su **Spa
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **SparkObject** | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **SparkObject** | Yes |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
 | tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
@@ -156,6 +161,10 @@ Per copiare dati da Spark, impostare il tipo di origine nell'attività di copia 
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

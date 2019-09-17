@@ -8,27 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: b5b7d43fc5a53bcf46874a48914bcda565a41c3e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 4c6499cd0e105e28954b6d4df667c71a51b9ccff
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697057"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71017764"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
 Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sempre aggiornati sui recenti sviluppi, in questo articolo vengono fornite informazioni sulle nuove versioni e funzionalità.
 
-## <a name="sentiment-analysis-v3-public-preview---july-2019"></a>Anteprima pubblica di Analisi del sentiment V3-2019 luglio
+## <a name="sentiment-analysis-v3-public-preview---september-2019"></a>Anteprima pubblica di Analisi del sentiment V3-2019 settembre
 
 La prossima versione di Analisi del sentiment è ora disponibile per l'anteprima pubblica e offre miglioramenti significativi nell'accuratezza e nei dettagli della categorizzazione e del punteggio dell'API. Fornisce inoltre:
 
 * Assegnazione automatica di etichette per diversi sentimenti nel testo.
 * Analisi dei sentimenti e output a livello di documento e di frase. 
 
-Supporta l'inglese ed è disponibile in tre aree: Canada centrale, Asia orientale e Stati Uniti centrali. Cercare altre lingue e aree da aggiungere nelle versioni successive.
+Supporta l'inglese, il giapponese e il cinese semplificato ed è disponibile nelle aree seguenti `Australia East`: `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US` , , `UK South`,e .`West US 2` `West Europe`
 
 > [!div class="nextstepaction"]
 > [Altre informazioni su Analisi del sentiment V3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
@@ -40,5 +40,5 @@ Supporta l'inglese ed è disponibile in tre aree: Canada centrale, Asia oriental
 * [Esempi di scenari utente](text-analytics-user-scenarios.md)
 * [Analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rilevamento della lingua](how-tos/text-analytics-how-to-language-detection.md)
-* [Riconoscimento entità](how-tos/text-analytics-how-to-entity-linking.md)
+* [Riconoscimento delle entità](how-tos/text-analytics-how-to-entity-linking.md)
 * [Estrazione delle frasi chiave](how-tos/text-analytics-how-to-keyword-extraction.md)
