@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a695f08f00b99fcd0bc634d12e30c0f3cfbd312
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d8773b330349356410589cf66e8f50636d92b601
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813083"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009180"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiare dati da HDFS usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -30,7 +30,7 @@ Questo articolo illustra come copiare dati da HDFS server. Per altre informazion
 
 Questo connettore HDFS è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 In particolare, il connettore HDFS supporta:
@@ -481,6 +481,10 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 **In Azure Data Factory:**
 
 * Configurare il connettore HDFS usando **l'autenticazione di Windows** con l'account di dominio o l'entità Kerberos per connettersi all'origine dati HDFS. Controllare la sezione [Proprietà del servizio collegato HDFS](#linked-service-properties) per i dettagli di configurazione.
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
