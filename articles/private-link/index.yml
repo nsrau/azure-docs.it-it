@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentazione di Collegamento privato
+summary: Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e al database SQL, nonché ai servizi di proprietà del cliente/partner ospitati in Azure tramite un endpoint privato nella rete virtuale.  Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È anche possibile creare un servizio Collegamento privato personale nella rete virtuale e distribuirlo privatamente ai clienti.
+metadata:
+  title: Documentazione di Collegamento privato - Guide di avvio rapido, guide pratiche e documentazione di riferimento sulle API
+  description: Informazioni su come usare il servizio Collegamento privato di Azure. Le guide di avvio rapido e le esercitazioni illustrano come distribuire un servizio Collegamento privato.
+  ms.service: virtual-network
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 09/16/2019
+  ms.openlocfilehash: 867c20b96f8a48aeb52e455d718057e686ddfcbe
+  ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/16/2019
+  ms.locfileid: "71020212"
+landingContent:
+- title: Informazioni su Collegamento privato di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Collegamento privato?
+      url: private-link-overview.md
+- title: Connettersi a un servizio di Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Che cos'è un endpoint privato?
+      url: private-endpoint-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Creare un endpoint privato
+      url: create-private-endpoint-portal.md
+- title: Creare un servizio Collegamento privato personale
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Che cos'è il servizio Collegamento privato?
+      url: private-link-service-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un servizio Collegamento privato
+      url: create-private-link-service-powershell.md
+- title: riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Interfaccia della riga di comando di Azure
+      url: /cli/azure/network
+    - text: Azure PowerShell
+      url: /powershell/module/az.network
+    - text: REST
+      url: /rest/api/virtualnetwork/privatelinkservices
