@@ -1680,7 +1680,7 @@ In generale, una trasformazione basata su conteggi può essere applicata solo a 
 |------------------------|  
 |Il file di definizione del modulo contiene errori.|  
 |Il file di definizione{0}del modulo '' contiene errori.|  
-|Il file di definizione{0}del modulo '' contiene errori. [https://doi.org/10.13012/J8PN93H8]({1})|  
+|Il file di definizione{0}del modulo '' contiene errori. {1}|  
   
 
 ## <a name="error-0114"></a>Errore 0114  
