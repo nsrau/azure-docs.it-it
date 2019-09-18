@@ -17,7 +17,7 @@
       href: quick-create-net.md
     - name: Impostare e recuperare un segreto - Node.js
       href: quick-create-node.md
-    - name: Impostare e recuperare un segreto - Modello di Resource Manager
+    - name: Impostare e recuperare un segreto - Modello
       displayName: 'resource manager, resource manager template, arm'
       href: quick-create-template.md
 - name: Esercitazioni

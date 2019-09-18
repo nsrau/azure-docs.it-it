@@ -104,6 +104,8 @@
               href: concepts-monitoring.md
             - name: Log del server
               href: concepts-server-logs.md
+            - name: Log di controllo
+              href: concepts-audit.md
             - name: Archivio query
               items:
                 - name: Archivio query
