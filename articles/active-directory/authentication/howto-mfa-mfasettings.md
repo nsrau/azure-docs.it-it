@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eab92f044f62a1ca32062753f824ea76a2726a8
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: cf732ec97a57a5bc1d2bcaa39e5fd14a305504d0
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860293"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075508"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -30,7 +30,7 @@ Questo articolo offre informazioni utili per gestire le impostazioni di Azure Mu
 
 Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entrambi.
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Descrizione |
 | ------- | ----------- |
 | Blocco account | Blocca temporaneamente gli account nel servizio di autenticazione a più fattori se si verificano troppi tentativi di autorizzazione negata di seguito. Questa funzionalità si applica solo agli utenti che effettuano l'autenticazione tramite PIN (server MFA). |
 | [Blocca/Sblocca utenti](#block-and-unblock-users) | Utilizzato per impedire a utenti specifici di ricevere richieste di Multi-Factor Authentication. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati. |
@@ -44,7 +44,7 @@ Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entra
 
 Le impostazioni in questa sezione sono valide solo per il server MFA.
 
-| Funzionalità | Descrizione |
+| Funzionalità | DESCRIZIONE |
 | ------- | ----------- |
 | Impostazioni del server | Permette di scaricare il server MFA e di generare le credenziali di attivazione per inizializzare l'ambiente |
 | [Bypass monouso](#one-time-bypass) | Permette a un utente di eseguire l'autenticazione senza completare la verifica in due passaggi per un periodo di tempo limitato. |
@@ -403,6 +403,8 @@ La funzionalità riduce il numero di autenticazioni per le app Web, che in gener
 >La funzionalità di **memorizzazione di Multi-Factor Authentication** non è compatibile con la funzionalità **mantieni l'accesso** di AD FS, quando gli utenti eseguono la verifica in due passaggi per AD FS tramite il server Azure Multi-Factor Authentication o una soluzione di autenticazione a più fattori di terze parti.
 >
 >Se si seleziona **Mantieni l'accesso** in AD FS e si contrassegna il dispositivo come attendibile per Multi-Factor Authentication, l'utente non esegue automaticamente la verifica quando terminano i giorni per la **memorizzazione di Multi-Factor Authentication**. Azure AD richiede una nuova verifica in due passaggi, ma AD FS restituisce un token con l'attestazione originale e la data di Multi-Factor Authentication invece di eseguire di nuovo la verifica in due passaggi. **Questa reazione attiva un ciclo di verifica tra Azure AD e AD FS.**
+>
+>La funzionalità **ricorda multi-factor authentication** non è compatibile con gli utenti B2B e non sarà visibile agli utenti B2B durante l'accesso ai tenant invitati.
 >
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Abilitare la funzionalità Memorizza Multi-Factor Authentication
