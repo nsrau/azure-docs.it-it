@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1edb83fcbe03fd113c59986bdbb6afcf2a0970bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442219"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916132"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET
 
@@ -47,7 +47,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 4. Selezionare la sottoscrizione e fare clic su **Registra**.
 
-5. Eseguire l'applicazione selezionando **Avvia debug** dal menu **Debug** oppure premendo F5.
+5. Selezionare **Progetto** > **Gestisci pacchetti NuGet** > **Origine pacchetto: nuget.org** > **Aggiorna** per aggiornare i pacchetti di Application Insights SDK all'ultima versione stabile.
+
+6. Eseguire l'applicazione selezionando **Avvia debug** dal menu **Debug** oppure premendo F5.
 
 ## <a name="confirm-app-configuration"></a>Verificare la configurazione dell'app
 

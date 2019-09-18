@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 156486f4f4f0df3d4bb4ab76492709bbecfb8eb5
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c737447c3a3bd2d76d3ed620b7c61aaa81250130
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906474"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393828"
 ---
 ## <a name="set-up"></a>Configurare
 
@@ -23,4 +23,4 @@ I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si 
 Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, creare due [variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
 * `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` - La chiave di sottoscrizione per la risorsa di Traduzione testuale.
-* `TRANSLATOR_TEXT_ENDPOINT` - L'endpoint a livello di area o il nome di sottodominio personalizzato per la risorsa.
+* `TRANSLATOR_TEXT_ENDPOINT` - L'endpoint globale per Traduzione testuale. Usare `https://api.cognitive.microsofttranslator.com/`.

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0882be0419cbbbc7d94cb8d517e27bdb06a780
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: e7d0810c393cf9b6060f456c5ff01d03673b62a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013936"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861313"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Watch by Colors
 
@@ -56,7 +56,6 @@ Per configurare l'integrazione di Watch by Colors in Azure AD, è necessario agg
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Watch by Colors** nella casella di ricerca.
 1. Selezionare **Watch by Colors** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-watch-by-colors"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Watch by Colors
 
@@ -101,7 +100,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -123,13 +122,21 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-watch-by-colors-sso"></a>Configurare l'accesso Single Sign-On di Watch by Colors
 
-1. Aprire una nuova finestra del Web browser, accedere al sito aziendale di Watch by Colors come amministratore e seguire questa procedura:
+1. Per automatizzare la configurazione all'interno di Watch by Colors, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa l'estensione**.
 
-1. Nell'angolo in alto a destra della pagina fare clic su **Profile** (Profilo)  > **Account Settings** (Impostazioni account) > **SSO (Single Sign-On)** .
+    ![Estensione per App personali](common/install-myappssecure-extension.png)
+
+2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Watch by Colors** per passare all'applicazione Watch by Colors. Specificare quindi le credenziali di amministratore per accedere a Watch by Colors. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 5.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Se si vuole configurare manualmente Watch by Colors, aprire una nuova finestra del Web browser, accedere al sito aziendale di Watch by Colors come amministratore e seguire questa procedura:
+
+4. Nell'angolo in alto a destra della pagina fare clic su **Profile** (Profilo)  > **Account Settings** (Impostazioni account) > **SSO (Single Sign-On)** .
 
     ![Configurazione di Watch by Colors](./media/watch-by-colors-tutorial/config01.png)
 
-1. Nella pagina **SSO (Single Sign-On)** eseguire la procedura seguente:
+5. Nella pagina **SSO (Single Sign-On)** eseguire la procedura seguente:
 
     ![Configurazione di Watch by Colors](./media/watch-by-colors-tutorial/config02.png)
 
@@ -183,5 +190,5 @@ Quando si fa clic sul riquadro di Watch by Colors nel pannello di accesso, si do
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Provare Slack con Azure AD](https://aad.portal.azure.com/)
+- [Provare Watch by Colors con Azure AD](https://aad.portal.azure.com/)
 

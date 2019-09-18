@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva - Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C | Microsoft Docs
-description: Eseguire un'applicazione desktop ASP.NET di esempio che usa Azure Active Directory B2C per fornire l'accesso all'account.
+title: "Avvio rapido: Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C"
+description: Eseguire un'applicazione desktop WPF di esempio che usa Azure Active Directory B2C per fornire l'accesso all'account.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 636e47c1d0c689dd9660f8bf01ada571d3824961
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 98d312dbafd399cc8b92e2c4fb70499853c214b5
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835467"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914279"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
-- Un account di social networking di Facebook, Google, Microsoft o Twitter.
+- Un account di social networking di Facebook, Google o Microsoft.
 - [Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) o clonare l'app Web di esempio da GitHub.
 
     ```
@@ -45,10 +45,10 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
     ![Screenshot dell'applicazione WPF di esempio](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    L'esempio supporta diverse opzioni di iscrizione. Queste opzioni includono l'uso di un provider di identità basato su social network o la creazione di un account locale tramite un indirizzo di posta elettronica. Per questa guida introduttiva, usare un account di provider di identità basato su social network, ovvero un account di Facebook, Google, Microsoft o Twitter.
+    L'esempio supporta diverse opzioni di iscrizione. Queste opzioni includono l'uso di un provider di identità basato su social network o la creazione di un account locale tramite un indirizzo di posta elettronica. Per questo argomento di avvio rapido, usare un account di provider di identità basato su social network, ovvero un account di Facebook, Google o Microsoft.
 
 
-2. Azure AD B2C presenta una pagina di accesso personalizzata per un marchio fittizio denominato Wingtip Toys per l'app Web di esempio. Per iscriversi usando un provider di identità basato su social network, fare clic sul pulsante del provider di identità che si vuole usare.
+2. Azure AD B2C presenta una pagina di accesso per un'azienda fittizia denominata Fabrikam per l'applicazione Web di esempio. Per iscriversi usando un provider di identità basato su social network, fare clic sul pulsante del provider di identità che si vuole usare.
 
     ![Pagina di accesso o di iscrizione che mostra i provider di identità](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
@@ -66,7 +66,7 @@ Azure AD B2C offre funzionalità che consentono agli utenti di aggiornare il pro
 
     ![Pulsante Edit profile (Modifica profilo) evidenziato nell'app di esempio WPF](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
-2. Scegliere il provider di identità associato all'account creato. Se ad esempio per la creazione dell'account si è usato Twitter come provider di identità, scegliere Twitter per modificare i dettagli del profilo associato.
+2. Scegliere il provider di identità associato all'account creato. Se ad esempio per la creazione dell'account si è usato Facebook come provider di identità, scegliere Facebook per modificare i dettagli del profilo associato.
 
 3. Modificare **Display name** (Nome visualizzato) o **City** (Città) e quindi fare clic su **Continue** (Continua).
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/13/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: fbd86698438e09a0c94c06e0e79800b8d38b57c1
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: a7c02c92ed61e4c8c8bd6a634cc9c6ad3538396e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544798"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883688"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>Guida introduttiva: Libreria client di Personalizza esperienze per Node.js
 
@@ -46,6 +46,9 @@ Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risors
 
 * `PERSONALIZER_KEY` per la chiave della risorsa.
 * `PERSONALIZER_ENDPOINT` per l'endpoint della risorsa.
+
+Nel portale di Azure i valori della chiave e dell'endpoint sono disponibili nella pagina **Avvio rapido**.
+
 
 ### <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
 

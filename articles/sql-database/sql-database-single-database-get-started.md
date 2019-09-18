@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-ms.date: 07/29/2019
-ms.openlocfilehash: f9c2ed77075affdfdf464dbf8a468629fc2e610d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 09/09/2019
+ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640060"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845287"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Guida introduttiva: Creare un database singolo nel database SQL di Azure usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure
 
@@ -30,8 +30,8 @@ Per tutti i passaggi di questa guida introduttiva, accedere al [portale di Azure
 
 Un database singolo può essere creato al livello di elaborazione con provisioning o serverless (anteprima).
 
-- Un database singolo nel livello di elaborazione con provisioning dispone di una quantità definita di risorse di elaborazione preassegnate, oltre a un set di memoria e a risorse di archiviazione che usano uno dei due [modelli di acquisto](sql-database-purchase-models.md).
-- Un database singolo nel livello di elaborazione serverless dispone di una gamma di risorse di elaborazione che vengono ridimensionate automaticamente, oltre a una quantità specifica di memoria per core e a una quantità specifica di risorse di archiviazione, ed è disponibile solo nei [modelli di acquisto basati su vCore](sql-database-service-tiers-vcore.md).
+- A un database singolo nel livello di elaborazione con provisioning viene preassegnata una quantità fissa di risorse di elaborazione, incluse CPU e memoria, usando uno dei due [modelli di acquisto](sql-database-purchase-models.md).
+- Un database singolo nel livello di elaborazione serverless dispone di una gamma di risorse di elaborazione, comprendenti la CPU e la memoria che vengono ridimensionate automaticamente, ed è disponibile solo nei [modelli di acquisto basati su vCore](sql-database-service-tiers-vcore.md).
 
 Quando si crea un database singolo, si definisce anche un [server di database SQL](sql-database-servers.md) per gestirlo e lo si inserisce all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) in un'area geografica specificata.
 

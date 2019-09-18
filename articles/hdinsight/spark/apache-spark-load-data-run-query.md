@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight '
+title: 'Esercitazione: Caricare dati ed eseguire query in un cluster Apache Spark in Azure HDInsight'
 description: 'Esercitazione: Come caricare i dati ed eseguire query interattive nei cluster Spark in Azure HDInsight.'
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 05/16/2019
-ms.openlocfilehash: e4ed8bb2631b4dc2f760dc4d92247377db591160
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295701"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735282"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight
 

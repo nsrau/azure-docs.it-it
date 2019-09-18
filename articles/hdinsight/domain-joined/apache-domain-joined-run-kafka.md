@@ -1,18 +1,18 @@
 ---
-title: Esercitazione - Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package - Azure
+title: Esercitazione - Apache Kafka con Enterprise Security Package in Azure HDInsight
 description: Esercitazione - Informazioni su come configurare i criteri di Apache Ranger per Kafka in Azure HDInsight con Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 09/04/2019
+ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441378"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885947"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)
 
@@ -64,7 +64,7 @@ Creare un criterio di Ranger per **sales_user** e **marketing_user**.
    * "*" indica zero o più occorrenze del carattere.
    * "?" indica un carattere singolo.
 
-   ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   ![Creazione di un criterio 1 nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
    Attendere alcuni istanti per eseguire la sincronizzazione con Azure AD, se un utente di dominio non viene popolato automaticamente per **Seleziona utente**.
 
@@ -79,7 +79,7 @@ Creare un criterio di Ranger per **sales_user** e **marketing_user**.
    |Seleziona utente  |  marketing_user1 |
    |Autorizzazioni  | publish, consume, create |
 
-   ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   ![Creazione di un criterio 2 nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
 6. Selezionare **Aggiungi** per salvare il criterio.
 

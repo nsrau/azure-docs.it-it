@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: c795f1581ae36f100065c39cd47bc4efc564b9fe
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: a9c43e1d27a396a2c3e9123ce5ce538296c6870c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607895"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381829"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
 
@@ -24,7 +24,7 @@ Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-
 Se si vuole, è possibile scegliere un linguaggio di programmazione e/o un ambiente diverso:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In questo articolo, viene creata un'applicazione console C++ per Windows. Utilizzare i Servizi cognitivi [Speech SDK](speech-sdk.md) per trascrivere il riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 o versione successiva (qualsiasi edizione).
+In questo articolo, viene creata un'applicazione console C++ per Windows. Utilizzare i Servizi cognitivi [Speech SDK](speech-sdk.md) per trascrivere il riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2019 (qualsiasi edizione).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,7 +36,9 @@ Per completare questa guida di avvio rapido, è necessaria una chiave di sottosc
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 
-1. Aprire il file di origine *helloworld.cpp*. Sostituire tutto il codice seguente sotto l'istruzione iniziale di inclusione (`#include "stdafx.h"` o `#include "pch.h"`) con il codice seguente:
+1. Aprire il file di origine **helloworld.cpp**.
+
+1. Sostituire tutto il codice con il frammento di codice seguente:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
@@ -44,21 +46,17 @@ Per completare questa guida di avvio rapido, è necessaria una chiave di sottosc
 
 1. Sostituire la stringa `YourServiceRegion` con la [regione](regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
 
-1. Salvare le modifiche apportate al progetto.
+1. Dalla barra dei menu scegliere **File** > **Salva tutto**.
 
-## <a name="build-and-run-the-app"></a>Compilare ed eseguire l'app
+## <a name="build-and-run-the-application"></a>Compilare ed eseguire l'applicazione
 
-1. Compilare l'applicazione. Nella barra dei menu scegliere **Compila** > **Compila soluzione**. Il codice dovrebbe risultare compilato senza errori.
+1. Dalla barra dei menu scegliere **Compila** > **Compila soluzione** per compilare l'applicazione. Il codice dovrebbe ora risultare compilato senza errori.
 
-   ![Screenshot dell'applicazione Visual Studio, con l'opzione Compila soluzione selezionata](media/sdk/qs-cpp-windows-06-build.png)
+1. Scegliere **Debug** > **Avvia debug** o premere **F5** per avviare l'applicazione **helloworld**.
 
-1. Avviare l’applicazione. Nella barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
+1. Pronunciare una frase o un'espressione in inglese. L'applicazione trasmette il parlato ai servizi Voce, che effettuano la trascrizione in testo e lo inviano nuovamente all'applicazione per la visualizzazione.
 
-   ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug selezionata](media/sdk/qs-cpp-windows-07-start-debugging.png)
-
-1. Si apre una finestra della console che chiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. Il contenuto vocale viene trasmesso ai servizi Voce e trascritto in formato testo, che viene visualizzato nella stessa finestra.
-
-   ![Screenshot della console dopo il riconoscimento corretto](media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ![Output della console dopo il riconoscimento corretto](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -69,5 +67,4 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli linguistici](how-to-customize-language-model.md)
+- [Eseguire il training di un modello per Riconoscimento vocale personalizzato](how-to-custom-speech-train-model.md)

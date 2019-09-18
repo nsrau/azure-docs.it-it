@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: cfab883f9b9b063bd51b9fdb7306d45371449180
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 079f87dec67f98d502d135fc012b5523211d5957
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406111"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381798"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure
 
@@ -55,9 +55,9 @@ Creare un cluster di Esplora dati di Azure in un gruppo di risorse di Azure con 
     | Resource group | Gruppo di risorse in uso | Usare un gruppo di risorse esistente oppure crearne uno nuovo. |
     | Nome cluster | Nome univoco del cluster | Scegliere un nome univoco che identifica il cluster. Il nome di dominio *[area].kusto.windows.net* viene accodato al nome del cluster specificato. Il nome può contenere solo lettere minuscole e numeri. Deve avere una lunghezza compresa tra 4 e 22 caratteri.
     | Region | *Stati Uniti occidentali* o *Stati Uniti occidentali 2* | Per questa guida introduttiva selezionare *Stati Uniti occidentali* o *Stati Uniti occidentali 2* (se si usano le zone di disponibilità). Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze.
-    | Zone di disponibilità | *1*, *2* e/o *3* | Per le aree supportate con ridondanza delle zone, selezionare le zone in cui risiederanno le istanze (passaggio facoltativo). Per impostazione predefinita, i nodi del cluster vengono creati nello stesso data center. Usare [Zone di disponibilità di Azure](/azure/availability-zones/az-overview) per inserire le istanze del cluster in diverse zone di disponibilità nella stessa area. Selezionando diverse zone di disponibilità è possibile eliminare un singolo punto di guasto e garantire disponibilità elevata. 
+    | Zone di disponibilità | *1*, *2* e/o *3* | Inserire le istanze del cluster in diverse zone di disponibilità nella stessa area (facoltativo). Le [zone di disponibilità di Azure](/azure/availability-zones/az-overview) sono località fisiche univoche all'interno della stessa area di Azure. Proteggono un cluster di Esplora dati di Azure e i dati da errori parziali dell'area. Per impostazione predefinita, i nodi del cluster vengono creati nello stesso data center. Selezionando diverse zone di disponibilità è possibile eliminare un singolo punto di guasto e garantire disponibilità elevata. La distribuzione nelle zone di disponibilità è possibile solo durante la creazione del cluster e non può essere modificata in un secondo momento.
     | Specifiche dell'ambiente di calcolo | *D13_v2* | Per questa guida introduttiva, selezionare la specifica con il prezzo più basso. Per un sistema di produzione, selezionare la specifica più appropriata in base alle esigenze.
-    | | |
+    | | | |
 
 1. Selezionare **Rivedi e crea** per rivedere i dettagli del cluster e **Crea** per effettuarne il provisioning. Per il provisioning sono in genere necessari circa 10 minuti.
 

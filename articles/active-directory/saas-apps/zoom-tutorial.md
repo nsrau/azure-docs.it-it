@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/23/2019
+ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0d5a87d4723bcc21b75db1b31ada72823abdf02
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171367"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743975"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zoom
 
@@ -44,7 +44,8 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Zoom supporta l'accesso SSO avviato da **SP**
+* Zoom supporta l'accesso SSO avviato da **SP** e 
+* Zoom supporta il [provisioning utenti **automatizzato**](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial).
 
 ## <a name="adding-zoom-from-the-gallery"></a>Aggiunta di Zoom dalla raccolta
 
@@ -64,10 +65,10 @@ Configurare e testare l'accesso SSO di Azure AD con Zoom usando un utente di tes
 Per configurare e testare l'accesso SSO di Azure AD con Zoom, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 2. **[Configurare l'accesso Single Sign-On di Zoom](#configure-zoom-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Zoom](#create-zoom-test-user)** : per avere una controparte di B.Simon in Zoom collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare l'utente di test di Zoom](#create-zoom-test-user)** : per avere una controparte di B. Simon in Zoom collegata alla rappresentazione dell'utente in Azure AD.
 3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -87,7 +88,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `<companyname>.zoom.us`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Zoom](https://support.zoom.us/hc/en-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Zoom](https://support.zoom.us/hc/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -101,9 +102,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 > Per informazioni su come configurare il ruolo in Azure AD, vedere [Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
 > [!NOTE]
-> Zoom potrebbe prevedere un'attestazione basata su gruppo nel payload SAML. Se sono stati creati gruppi, contattare il [team di supporto clienti di Zoom](https://support.zoom.us/hc/en-us) e fornire le informazioni sui gruppi in modo che possano configurarli. È necessario fornire al [team di supporto clienti di Zoom](https://support.zoom.us/hc/en-us) anche l'ID oggetto per consentirne la configurazione. Per ottenere l'ID oggetto, vedere l'articolo sulla [configurazione di Zoom con Azure](https://support.zoom.us/hc/en-us/articles/115005887566).
+> Zoom potrebbe prevedere un'attestazione basata su gruppo nel payload SAML. Se sono stati creati gruppi, contattare il [team di supporto clienti di Zoom](https://support.zoom.us/hc/) e fornire le informazioni sui gruppi in modo che possano configurarli. È necessario fornire al [team di supporto clienti di Zoom](https://support.zoom.us/hc/) anche l'ID oggetto per consentirne la configurazione. Per ottenere l'ID oggetto, vedere l'articolo sulla [configurazione di Zoom con Azure](https://support.zoom.us/hc/articles/115005887566).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -113,9 +114,9 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
     1. Nel campo **Nome** immettere `B.Simon`.  
     1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
     1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-    1. Fare clic su **Create**(Crea).
+    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zoom.
 
@@ -172,30 +173,10 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="create-zoom-test-user"></a>Creare l'utente di test di Zoom
 
-Per consentire agli utenti di Azure AD di accedere a Zoom, è necessario effettuarne il provisioning in Zoom. Nel caso di Zoom, il provisioning è un'attività manuale.
-
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
-
-1. Accedere al sito aziendale di **Zoom** come amministratore.
-
-2. Fare clic sulla scheda **Gestione account** e quindi su **Gestione utente**.
-
-3. Nella sezione Gestione utente fare clic su **Aggiungi utenti**.
-
-    ![Gestione degli utenti](./media/zoom-tutorial/ic784703.png "Gestione degli utenti")
-
-4. Nella pagina **Aggiungi utenti** seguire la procedura seguente:
-
-    ![Aggiungere utenti](./media/zoom-tutorial/ic784704.png "Aggiungere utenti")
-
-    a. In **Tipo utente** selezionare **Basic**.
-
-    b. Nella casella di testo **Emails** (Messaggi di posta elettronica) digitare l'indirizzo e-mail di un account Azure AD di cui si vuole effettuare il provisioning.
-
-    c. Fare clic su **Aggiungi**.
+Questa sezione descrive come creare un utente di nome B.Simon in Zoom. Zoom supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial).
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente di Zoom per effettuare il provisioning degli account utente di Azure Active Directory.
+> Per creare un utente manualmente, è necessario contattare il [team di supporto per il client Zoom](https://support.zoom.us/hc/)
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

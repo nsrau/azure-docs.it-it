@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: d13e0b95d57e3063292319961d5e1138f994076e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312450"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812272"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando un'attività Spark in Azure Data Factory
 In questa esercitazione si usa il portale di Azure per creare una pipeline di Azure Data Factory. Questa pipeline trasforma i dati usando un'attività Spark e un servizio collegato su richiesta di Azure HDInsight. 
@@ -153,7 +153,7 @@ In questa sezione vengono creati due servizi collegati:
    
    e. Per **ID entità servizio** immettere l'ID dell'entità servizio autorizzata a creare un cluster HDInsight. 
    
-      Questa entità servizio deve essere un membro del ruolo Collaboratore della sottoscrizione o del gruppo di risorse in cui viene creato il cluster. Per altre informazioni, vedere [Creare un'applicazione e un'entità servizio di Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
+      Questa entità servizio deve essere un membro del ruolo Collaboratore della sottoscrizione o del gruppo di risorse in cui viene creato il cluster. Per altre informazioni, vedere [Creare un'applicazione e un'entità servizio di Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md). L'**ID entità servizio** equivale all'*ID applicazione* e una **chiave entità servizio** equivale al valore di un *segreto client*.
    
    f. Per **Chiave dell'entità servizio** immettere la chiave. 
    

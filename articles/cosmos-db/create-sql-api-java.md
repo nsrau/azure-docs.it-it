@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.custom: seo-java-august2019
-ms.openlocfilehash: 110c4a343909a81e092b147b79ed69d6bd5c2d9c
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.custom: seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: a34cb8e13d32cbeb6d289869dca3a8cb1391d68f
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981749"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390860"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Guida introduttiva: Compilare un'app Java per gestire i dati dell'API SQL di Azure Cosmos DB
 
@@ -26,7 +26,7 @@ ms.locfileid: "69981749"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Questa guida introduttiva spiega come creare e gestire le risorse di un account [API SQL](sql-api-introduction.md) di Azure Cosmos DB usando un'applicazione Java. Prima di tutto creare un account API SQL di Azure Cosmos DB usando il portale di Azure, creare un'app Java usando [SQL Java SDK](sql-api-sdk-async-java.md), aggiungere le risorse all'account Cosmos DB usando l'applicazione Java. Le istruzioni di questa guida introduttiva possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Java. Dopo aver completato questa guida si sarà acquisita familiarità con la creazione e la modifica di contenitori e database Cosmos nell'interfaccia utente o a livello di codice, in base alle proprie preferenze.
+Questo argomento di avvio rapido spiega come usare un'applicazione Java per creare e gestire un database di documenti dal proprio account API SQL di Azure Cosmos DB. Prima di tutto creare un account API SQL di Azure Cosmos DB usando il portale di Azure, creare un'applicazione Java usando SQL Java SDK e quindi aggiungere le risorse all'account Cosmos DB usando l'applicazione Java. Le istruzioni di questa guida introduttiva possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Java. Dopo aver completato questa guida si sarà acquisita familiarità con la creazione e la modifica di database e contenitori di Cosmos DB nell'interfaccia utente o a livello di codice, in base alle proprie preferenze.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

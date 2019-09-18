@@ -1,5 +1,5 @@
 ---
-title: 'Guida di avvio rapido per Java: Creare e caricare un indice ed eseguirvi query in Java'
+title: 'Guida introduttiva: Creare un indice di ricerca in Java con le API REST - Ricerca di Azure'
 description: Informazioni su come creare un indice, caricare dati ed eseguire query con Java e le API REST di Ricerca di Azure.
 author: lisaleib
 manager: nitinme
@@ -10,15 +10,15 @@ ms.service: search
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/11/2019
-ms.openlocfilehash: eec22d14c2d71a94f21a2403463315d477032ede
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 09/10/2019
+ms.openlocfilehash: 455f3dfdce93d0b39960f9ec87b0938060f87687
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186723"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881564"
 ---
-# <a name="quickstart-create-load-and-query-indexes-using-azure-search-rest-apis-with-java"></a>Guida introduttiva: Creare e caricare indici ed eseguire query su di essi con Java e le API REST di Ricerca di Azure
+# <a name="quickstart-create-an-azure-search-index-in-java-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca di Azure in Java con le API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)

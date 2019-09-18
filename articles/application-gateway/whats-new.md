@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 2a494b924107baeabbcf412af7e1bbdb1db0f753
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 6755825aa123b3d7d1eed23291790ff3dc477ac5
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752011"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382473"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Novità del gateway applicazione di Azure
 
@@ -27,6 +27,7 @@ Il gateway applicazione di Azure viene aggiornato regolarmente. Per stare al pas
 
 |Funzionalità  |DESCRIZIONE  |Data di aggiunta  |
 |---------|---------|---------|
+|Altre metriche |Sono state aggiunte le nuove metriche seguenti per facilitare il monitoraggio dello SKU del gateway applicazione v2: [Metriche temporali](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), stato della risposta back-end, byte ricevuti, byte inviati, protocollo TLS client e unità di calcolo correnti. Vedere [Metriche supportate dallo SKU del gateway applicazione V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Agosto 2019 |
 |Regole personalizzate di WAF |Il gateway applicazione WAF_v2 supporta ora la creazione di regole personalizzate. Vedere [Regole personalizzate del gateway applicazione](custom-waf-rules-overview.md). |Giugno 2019 |
 |Ridimensionamento automatico, ridondanza delle zone, disponibilità generale del supporto di VIP statici |Disponibilità generale dello SKU v2, che supporta dimensionamento automatico, ridondanza di zona, miglioramento delle prestazioni, indirizzi VIP statici, Key Vault, riscrittura dell'intestazione. Vedere la [documentazione sul ridimensionamento automatico del gateway applicazione](application-gateway-autoscaling-zone-redundant.md). |Aprile 2019 |
 |Integrazione di Key Vault |Il gateway applicazione supporta ora l'integrazione con Key Vault (in anteprima pubblica) per i certificati server associati a listener abilitati per HTTPS. Vedere [SSL termination with Key Vault certificates](key-vault-certs.md) (Terminazione SSL con certificati di Key Vault). |Aprile 2019 |

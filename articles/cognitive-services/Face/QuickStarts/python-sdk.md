@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: f0bd4a49a35392c25b8985aa68ad4e4b66be026c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 2a74dbe9c306c1bf2420fdaac78a9b9183cacab1
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306527"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376147"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Guida introduttiva: Libreria client dell'API Viso per Python
 
@@ -26,6 +26,7 @@ Usare la libreria client dell'API Viso per Python per:
 * Individuazione di visi simili
 * Creare ed eseguire il training di un gruppo di persone
 * Identificare un viso
+* Verificare i visi
 * Creare uno snapshot per la migrazione dei dati
 
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Pacchetto (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Esempi](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
@@ -90,6 +91,7 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 * [Individuare visi simili](#find-similar-faces)
 * [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group)
 * [Identificare un viso](#identify-a-face)
+* [Verificare i visi](#verify-faces)
 * [Creare uno snapshot per la migrazione dei dati](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
@@ -185,6 +187,32 @@ Il codice seguente cerca nella radice del progetto l'immagine _test-image-person
 Il metodo **identify** confronta una matrice di visi rilevati con un **PersonGroup**. Se riesce a stabilire una corrispondenza tra un viso rilevato e un oggetto **Person**, salva il risultato. Questo codice visualizza i risultati dettagliati delle corrispondenze nella console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
+
+## <a name="verify-faces"></a>Verificare i visi
+
+L'operazione di verifica si basa su un Face ID e su un altro Face ID o un oggetto **Person** per determinare se appartengono alla stessa persona.
+
+Il codice seguente rileva i visi in due immagini di origine e quindi li verifica a fronte di un viso rilevato da un'immagine di destinazione.
+
+### <a name="get-test-images"></a>Ottenere immagini di test
+
+I blocchi di codice seguenti dichiarano variabili che punteranno alle immagini di origine e di destinazione per l'operazione di verifica.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_baseurl)]
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_photos)]
+
+### <a name="detect-faces-for-verification"></a>Rilevare i visi per la verifica
+
+Il codice seguente rileva i visi nelle immagini di origine e di destinazione e li salva nelle variabili.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_detect)]
+
+### <a name="get-verification-results"></a>Ottenere i risultati della verifica
+
+Il codice seguente confronta ognuna delle immagini di origine con l'immagine di destinazione e stampa un messaggio che indica se appartengono alla stessa persona.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Creare uno snapshot per la migrazione dei dati
 

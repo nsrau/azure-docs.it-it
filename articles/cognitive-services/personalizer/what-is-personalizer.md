@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c21878fc23f3880f6c6e66b1e304c7dd2e9177c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 3132d31e9e45718fa95c39a1b8160ea303ded25d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306955"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883657"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
@@ -29,7 +29,7 @@ Personalizza esperienze di Azure è un servizio API basato sul cloud che consent
 
 ## <a name="how-does-personalizer-work"></a>Come funziona Personalizza esperienze?
 
-Personalizza esperienze usa modelli di Machine Learning per individuare l'azione di grado più alto in un contesto. L'applicazione client fornisce un elenco di possibili azioni, con informazioni su di esse, e informazioni sul contesto, che può includere informazioni sull'utente, sul dispositivo e così via. Personalizza esperienze determina l'azione da intraprendere. Una volta che l'applicazione client avrà usato l'azione scelta, fornirà il feedback a Personalizza esperienze sotto forma di punteggio. Dopo aver ricevuto il feedback, Personalizza esperienze aggiorna automaticamente il proprio modello usato per le classificazioni future.
+Personalizza esperienze usa modelli di Machine Learning per individuare l'azione di grado più alto in un contesto. L'applicazione client fornisce un elenco di possibili azioni, con informazioni su di esse, e informazioni sul contesto, che può includere informazioni sull'utente, sul dispositivo e così via. Personalizza esperienze determina l'azione da intraprendere. Una volta che l'applicazione client avrà usato l'azione scelta, fornirà il feedback a Personalizza esperienze sotto forma di punteggio. Dopo aver ricevuto il feedback, Personalizza esperienze aggiorna automaticamente il proprio modello usato per le classificazioni future. Con il tempo, Personalizza esperienze eseguirà il training di un modello che può suggerire l'azione migliore da scegliere in ogni contesto in base alle relative funzionalità.
 
 ## <a name="how-do-i-use-the-personalizer"></a>Come si usa Personalizza esperienze?
 
@@ -53,6 +53,8 @@ Ad esempio, l'applicazione client può aggiungere Personalizza esperienze per:
 * Scegliere la risposta di un chatbot per chiarire le finalità dell'utente o suggerire un'azione.
 * Classificare in ordine di priorità i suggerimenti dati a un utente riguardo il passaggio successivo in un processo aziendale.
 
+Personalizza esperienze non è un servizio per rendere permanenti e gestire le informazioni del profilo utente o per registrare la cronologia o le preferenze dei singoli utenti. Personalizza esperienze apprende dalle funzionalità di ogni interazione nell'azione, per un contesto, un singolo modello in grado di ottenere le massime ricompense quando vengono rilevate funzionalità simili. 
+
 ## <a name="personalization-for-developers"></a>Personalizzazione per sviluppatori
 
 Il servizio Personalizza esperienze è caratterizzato da due API:
@@ -64,9 +66,9 @@ Il servizio Personalizza esperienze è caratterizzato da due API:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: Creare un ciclo di feedback in C#](csharp-quickstart-commandline-feedback-loop.md)
-* [Guida introduttiva: Creare un ciclo di feedback in Node.js](quickstart-command-line-feedback-loop-nodejs-sdk.md)
-* [Guida introduttiva: Creare un ciclo di feedback in Python](python-quickstart-commandline-feedback-loop.md)
+* Vedere le informazioni sulle [novità di Personalizza esperienze](whats-new.md)
+* Vedere le informazioni sul [funzionamento di Personalizza esperienze](how-personalizer-works.md)
+* Vedere le informazioni su [cos'è l'apprendimento per rinforzo](concepts-reinforcement-learning.md)
 * [Informazioni sulle funzionalità e le azioni per la richiesta di classificazione](concepts-features.md)
 * [Informazioni su come determinare il punteggio per la richiesta di ricompensa](concept-rewards.md)
 * [Usare la demo interattiva](https://personalizationdemo.azurewebsites.net/)

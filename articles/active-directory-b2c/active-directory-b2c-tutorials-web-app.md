@@ -1,21 +1,21 @@
 ---
-title: "Esercitazione: Abilitare l'autenticazione in un'applicazione Web - Azure Active Directory B2C | Microsoft Docs"
+title: "Esercitazione: Abilitare l'autenticazione in un'applicazione Web - Azure Active Directory B2C"
 description: Esercitazione su come usare Azure Active Directory B2C per consentire l'accesso degli utenti a un'applicazione Web ASP.NET.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 09/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: bcfd1ef02c68de7709cb8642b94f23a6884ea156
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 2066a7848efaf067dddde3d5db1decfc88d94436
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464770"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914210"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione Web con Azure Active Directory B2C
 
@@ -32,8 +32,8 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare flussi utente](tutorial-create-user-flows.md) per abilitare le esperienze utente nell'applicazione.
-- Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
+* [Creare flussi utente](tutorial-create-user-flows.md) per abilitare le esperienze utente nell'applicazione.
+* Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
 
 ## <a name="update-the-application"></a>Aggiornare l'applicazione
 
@@ -58,15 +58,21 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 I due progetti inclusi nella soluzione di esempio sono i seguenti:
 
-- **TaskWebApp** crea e modifica un elenco attività. L'esempio usa il flusso utente di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti.
+- **TaskWebApp** crea e modifica un elenco attività. L'esempio usa il flusso utente di **iscrizione o accesso** per l'iscrizione e l'accesso degli utenti.
 - **TaskService** supporta le funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco attività. L'API è protetta da Azure AD B2C e viene chiamata da TaskWebApp.
 
-Modificare l'esempio per usare l'applicazione registrata nel tenant in uso, con l'ID applicazione e la chiave annotati in precedenza. Configurare anche i flussi utente creati. L'esempio definisce i valori di configurazione come impostazioni nel file Web.config. Per modificare le impostazioni:
+Modificare l'esempio per usare l'applicazione registrata nel tenant in uso, con l'ID applicazione e la chiave annotati in precedenza. Configurare anche i flussi utente creati. L'esempio definisce i valori di configurazione come impostazioni nel file *Web.config*.
+
+Aggiornare le impostazioni nel file Web.config per garantire il funzionamento con il flusso utente:
 
 1. Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
-2. Nel progetto **TaskWebApp** aprire il file **Web.config**. Sostituire il valore di `ida:Tenant` con il nome del tenant creato. Sostituire il valore di `ida:ClientId` con l'ID applicazione registrato. Sostituire il valore di `ida:ClientSecret` con la chiave registrata. È necessario codificare in XML il segreto client prima di aggiungerlo al file Web.config.
-3. Nel file **Web.config** sostituire il valore di `ida:SignUpSignInPolicyId` con `b2c_1_signupsignin1`. Sostituire il valore di `ida:EditProfilePolicyId` con `b2c_1_profileediting1`. Sostituire il valore di `ida:ResetPasswordPolicyId` con `b2c_1_passwordreset1`.
-
+1. Nel progetto **TaskWebApp** aprire il file **Web.config**.
+    1. Sostituire il valore di `ida:Tenant` e `ida:AadInstance` con il nome del tenant creato.
+    1. Sostituire il valore di `ida:ClientId` con l'ID applicazione registrato.
+    1. Sostituire il valore di `ida:ClientSecret` con la chiave registrata. È necessario codificare in XML il segreto client prima di aggiungerlo al file Web.config.
+    1. Sostituire il valore di `ida:SignUpSignInPolicyId` con `b2c_1_signupsignin1`.
+    1. Sostituire il valore di `ida:EditProfilePolicyId` con `b2c_1_profileediting1`.
+    1. Sostituire il valore di `ida:ResetPasswordPolicyId` con `b2c_1_passwordreset1`.
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 

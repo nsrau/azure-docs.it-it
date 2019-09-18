@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: bfdad0d81599035e7d8c270ec4e8ee8d6a45125e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997752"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858933"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Informazioni su Azure IoT Central (funzionalità di anteprima)
 
@@ -62,7 +62,8 @@ Questo articolo fornisce le informazioni seguenti su Azure IoT Central:
 - I tipi di schema della matrice non sono supportati.
 - L'esportazione di modelli dell'applicazione e la copia di applicazioni non sono supportate.
 - Sono supportati solo l'SDK per dispositivi C e gli SDK per dispositivi e servizi Node.js.
-- È disponibile solo in aree selezionate.
+- La disponibilità si limita all'Europa settentrionale e alle regioni degli Stati Uniti centrali.
+- I modelli di funzionalità di dispositivo devono includere tutte le interfacce definite inline nello stesso file.
 
 ## <a name="personas"></a>Utenti tipo
 

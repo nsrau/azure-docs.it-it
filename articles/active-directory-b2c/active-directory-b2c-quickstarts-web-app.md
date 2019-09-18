@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Configurare l'accesso per un'applicazione ASP.NET tramite Azure Active Directory B2C | Microsoft Docs"
+title: Avvio rapido - Configurare l'accesso per un'applicazione ASP.NET tramite Azure Active Directory B2C
 description: Eseguire un'app Web ASP.NET di esempio che usa Azure Active Directory B2C per fornire l'accesso all'account.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 647ea3bdeb914b97fe131d32078ddb610d4d163e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 5f5cae82e23fed6a30d5f7ac63a5718c2a057a7d
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835484"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914303"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'applicazione ASP.NET tramite Azure Active Directory B2C
 
@@ -26,14 +26,14 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
-- Un account di social networking di Facebook, Google, Microsoft o Twitter.
+- Un account di social networking di Facebook, Google o Microsoft.
 - [Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) o clonare l'applicazione Web di esempio da GitHub.
 
     ```
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
     ```
 
-    Nella soluzione di esempio sono inclusi i due progetti seguenti.
+    La soluzione di esempio contiene due progetti:
 
     - **TaskWebApp**: applicazione Web che crea e modifica un elenco attività. L'applicazione Web usa il flusso utente di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti.
     - **TaskService**: API Web che supporta le funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco attività. L'API Web è protetta da Azure AD B2C e viene chiamata dall'applicazione Web.
@@ -55,9 +55,9 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
     ![App Web ASP.NET di esempio nel browser con collegamento per iscrizione/accesso evidenziato](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
-    L'esempio supporta alcune opzioni di iscrizione, tra cui l'uso di un provider di identità di social networking o la creazione di un account locale tramite un indirizzo di posta elettronica. Per questa guida introduttiva, usare un account di provider di identità basato su social network, ovvero un account di Facebook, Google, Microsoft o Twitter.
+    L'esempio supporta alcune opzioni di iscrizione, tra cui l'uso di un provider di identità di social networking o la creazione di un account locale tramite un indirizzo di posta elettronica. Per questo argomento di avvio rapido, usare un account di provider di identità basato su social network, ovvero un account di Facebook, Google o Microsoft.
 
-2. Azure AD B2C presenta una pagina di accesso personalizzata di un marchio fittizio denominato Wingtip Toys per l'applicazione Web di esempio. Per iscriversi usando un provider di identità basato su social network, fare clic sul pulsante del provider di identità che si vuole usare.
+2. Azure AD B2C presenta una pagina di accesso per un'azienda fittizia denominata Fabrikam per l'applicazione Web di esempio. Per iscriversi usando un provider di identità basato su social network, fare clic sul pulsante del provider di identità che si vuole usare.
 
     ![Pagina di accesso o di iscrizione che mostra i pulsanti del provider di identità](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 

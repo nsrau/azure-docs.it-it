@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66fa7c2f61af250e4b63b67f6941bed768bd94c4
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541921"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915142"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Windows
 
@@ -194,13 +194,13 @@ L'esempio di codice C# disponibile con il modello di progetto usa la [classe Mod
 
 6. Trovare la proprietà **modules** nelle proprietà desiderate di $edgeAgent. 
 
-   Dovrebbero essere elencati due moduli. Il primo è **tempSensor**, incluso in tutti i modelli per impostazione predefinita per fornire dati di temperatura simulati che è possibile usare per testare i moduli. Il secondo è il modulo **IotEdgeModule1**, che è stato creato come parte di questo progetto.
+   Dovrebbero essere elencati due moduli. Il primo è **SimulatedTemperatureSensor**, incluso in tutti i modelli per impostazione predefinita per fornire dati di temperatura simulati che è possibile usare per testare i moduli. Il secondo è il modulo **IotEdgeModule1**, che è stato creato come parte di questo progetto.
 
    La proprietà di questo modulo dichiara quali moduli includere nella distribuzione in uno o più dispositivi. 
 
 7. Trovare la proprietà **routes** nelle proprietà desiderate di $edgeHub. 
 
-   Una delle funzioni del modulo dell'hub di IoT Edge è quella di instradare i messaggi tra tutti i moduli in una distribuzione. Esaminare i valori nella proprietà routes. La prima route, **IotEdgeModule1ToIoTHub**, usa un carattere jolly ( **\*** ) per includere tutti i messaggi provenienti da qualsiasi coda di output nel modulo IotEdgeModule1. Questi messaggi vengono inseriti in *$upstream*, un nome riservato che indica l'hub IoT. La seconda route, **sensorToIotEdgeModule1**, instrada i messaggi provenienti dal modulo tempSensor alla coda di input *input1* del modulo IotEdgeModule1. 
+   Una delle funzioni del modulo dell'hub di IoT Edge è quella di instradare i messaggi tra tutti i moduli in una distribuzione. Esaminare i valori nella proprietà routes. La prima route, **IotEdgeModule1ToIoTHub**, usa un carattere jolly ( **\*** ) per includere tutti i messaggi provenienti da qualsiasi coda di output nel modulo IotEdgeModule1. Questi messaggi vengono inseriti in *$upstream*, un nome riservato che indica l'hub IoT. La seconda route, **sensorToIotEdgeModule1**, instrada i messaggi provenienti dal modulo SimulatedTemperatureSensor alla coda di input *input1* del modulo IotEdgeModule1. 
 
    ![Esaminare le route in deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -284,14 +284,14 @@ Si è verificato che le immagini dei contenitori di cui è stata eseguita la com
 
 4. Espandere i dettagli per il dispositivo IoT Edge in Cloud Explorer per visualizzare i moduli nel dispositivo.
 
-5. Usare il pulsante **Aggiorna** per aggiornare lo stato del dispositivo e verificare che i moduli tempSensor e IotEdgeModule1 siano stati distribuiti nel dispositivo. 
+5. Usare il pulsante **Aggiorna** per aggiornare lo stato del dispositivo e verificare che i moduli SimulatedTemperatureSensor e IotEdgeModule1 siano stati distribuiti nel dispositivo. 
 
 
    ![Visualizzare i moduli in esecuzione nel dispositivo IoT Edge](./media/tutorial-develop-for-windows/view-running-modules.png)
 
 ## <a name="view-messages-from-device"></a>Visualizzare i messaggi dal dispositivo
 
-Il codice di IotEdgeModule1 riceve i messaggi tramite la coda di input e li passa attraverso la coda di output. Il manifesto della distribuzione ha dichiarato le route che hanno passato i messaggi da tempSensor a IotEdgeModule1 e quindi hanno inoltrato i messaggi da IotEdgeModule1 all'hub IoT. L'estensione Azure IoT Edge Tools per Visual Studio consente di visualizzare i messaggi che arrivano all'hub IoT dai singoli dispositivi. 
+Il codice di IotEdgeModule1 riceve i messaggi tramite la coda di input e li passa attraverso la coda di output. Il manifesto della distribuzione ha dichiarato le route che hanno passato i messaggi da SimulatedTemperatureSensor a IotEdgeModule1 e quindi hanno inoltrato i messaggi da IotEdgeModule1 all'hub IoT. L'estensione Azure IoT Edge Tools per Visual Studio consente di visualizzare i messaggi che arrivano all'hub IoT dai singoli dispositivi. 
 
 1. In Visual Studio Cloud Explorer selezionare il nome del dispositivo IoT Edge in cui è stata eseguita la distribuzione. 
 
@@ -315,7 +315,7 @@ I comandi in questa sezione sono destinati al dispositivo IoT Edge, non al compu
    iotedge list
    ```
 
-   Dovrebbero essere presenti quattro moduli: i due moduli del runtime IoT Edge, tempSensor e IotEdgeModule1. Tutti e quattro i moduli devono essere indicati come in esecuzione.
+   Dovrebbero essere presenti quattro moduli: i due moduli del runtime IoT Edge, SimulatedTemperatureSensor e IotEdgeModule1. Tutti e quattro i moduli devono essere indicati come in esecuzione.
 
 * Esaminare i log per un modulo specifico:
 
@@ -325,7 +325,7 @@ I comandi in questa sezione sono destinati al dispositivo IoT Edge, non al compu
 
    I moduli IoT Edge fanno distinzione tra maiuscole e minuscole. 
 
-   I log di tempSensor e IotEdgeModule1 devono visualizzare i messaggi in corso di elaborazione. Il modulo edgeAgent è responsabile dell'avvio degli altri moduli, quindi i relativi log conterranno le informazioni sull'implementazione del manifesto della distribuzione. Se un modulo non è elencato o non è in esecuzione, i log di edgeAgent conterranno probabilmente gli errori. Il modulo edgeHub è responsabile delle comunicazioni tra i moduli e l'hub IoT. Se i moduli sono in esecuzione, ma i messaggi non arrivano all'hub IoT, i log di edgeHub conterranno probabilmente gli errori. 
+   I log di SimulatedTemperatureSensor e IotEdgeModule1 devono visualizzare i messaggi in corso di elaborazione. Il modulo edgeAgent è responsabile dell'avvio degli altri moduli, quindi i relativi log conterranno le informazioni sull'implementazione del manifesto della distribuzione. Se un modulo non è elencato o non è in esecuzione, i log di edgeAgent conterranno probabilmente gli errori. Il modulo edgeHub è responsabile delle comunicazioni tra i moduli e l'hub IoT. Se i moduli sono in esecuzione, ma i messaggi non arrivano all'hub IoT, i log di edgeHub conterranno probabilmente gli errori. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

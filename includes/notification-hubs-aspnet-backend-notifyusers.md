@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227780"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934118"
 ---
 ## <a name="create-the-webapi-project"></a>Creare il progetto WebAPI
 
@@ -185,6 +185,9 @@ In questa sezione si aggiunge un nuovo controller al back-end WebAPI per gestire
         }
     }
     ```
+    > [!IMPORTANT]
+    > Immettere il **nome** e il valore **DefaultFullSharedAccessSignature** dell'hub prima di continuare. 
+    
 7. Creare quindi un nuovo controller denominato **RegisterController**. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Controller**, scegliere **Aggiungi** e quindi fare clic su **Controller**.
 
 8. Fare clic su **Controller Web API 2 - Vuoto** e selezionare **Aggiungi**.

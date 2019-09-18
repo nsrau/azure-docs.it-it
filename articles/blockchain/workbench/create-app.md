@@ -1,21 +1,21 @@
 ---
 title: Creare un'applicazione blockchain in Azure Blockchain Workbench
-description: Esercitazione su come creare un'applicazione blockchain in Azure Blockchain Workbench.
+description: Esercitazione su come creare un'applicazione blockchain nell'anteprima di Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/30/2019
+ms.date: 09/05/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b444ad799eaa356d654952c32ac58188de8d7131
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: adc47ecb06c0e2dbfcae7b85aeec284027315e5b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417379"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845166"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Esercitazione: Creare un'applicazione blockchain in Azure Blockchain Workbench
 

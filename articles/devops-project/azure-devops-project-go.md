@@ -1,28 +1,27 @@
 ---
-title: 'Guida introduttiva: Creare una pipeline CI/CD per il linguaggio di programmazione usando Azure DevOps Projects'
+title: 'Guida introduttiva: Creare una pipeline CI/CD per il linguaggio di programmazione Go usando Azure DevOps Projects'
 description: DevOps Projects consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app Web nel linguaggio di programmazione Go in un servizio di Azure.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: ca068b39c222a210e261234a132a0506f6b023bb
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: f7429a6de05a301b579354d722ad354b78ce6cbf
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263752"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899664"
 ---
 # <a name="create-a-cicd-pipeline-for-go-by-using-azure-devops-projects"></a>Creare una pipeline CI/CD per Go con Azure DevOps Projects
 

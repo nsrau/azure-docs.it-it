@@ -11,24 +11,27 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932969"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390314"
 ---
 # <a name="what-is-project-acoustics"></a>Informazioni su Project Acoustics
-Progetto Acustica è un motore di acustica delle onde per esperienze interattive 3D. Modella effetti d'onda come diffrazione, portaling e riverbero in scene complesse senza markup manuale delle zone. Include anche l'integrazione di motori di gioco e middleware audio. La filosofia di Progetto Acustica è simile all'illuminazione statica: si effettua il bake della fisica dettagliata offline per fornire una baseline fisica e si usa il runtime leggero con controlli di progettazione espressivi per soddisfare gli obiettivi artistici.
+Progetto Acustica è un motore di acustica delle onde per esperienze interattive 3D. Modella effetti d'onda come occlusione, ostruzione, portaling e riverbero in scene complesse senza richiedere markup manuale delle zone o ray tracing a elevato utilizzo della CPU. Include anche l'integrazione di motori di gioco e middleware audio. La filosofia di Progetto Acustica è simile all'illuminazione statica: si effettua il bake della fisica dettagliata offline per fornire una baseline fisica e si usa un runtime leggero con controlli di progettazione espressivi per realizzare gli obiettivi artistici per l'acustica del mondo virtuale.
 
 ![Screenshot di Gears of War 4 che mostra i voxel di Progetto Acustica](media/gears-with-voxels.jpg)
 
 ## <a name="using-wave-physics-for-interactive-acoustics"></a>Uso della fisica delle onde per l'acustica interattiva
-I metodi di acustica basati su raggi possono verificare l'occlusione usando un singolo cast del raggio da sorgente ad ascoltatore oppure pilotare il riverbero stimando il volume della scena locale con pochi raggi. Ma queste tecniche possono essere inaffidabili perché un sassolino occlude tanto quanto un masso. I raggi non tengono conto del modo in cui il suono devia intorno agli oggetti, un fenomeno noto come diffrazione. La simulazione di Progetto Acustica acquisisce questi effetti con una simulazione basata sulle onde. Il risultato è più prevedibile e affidabile.
+I metodi di acustica basati su raggi possono verificare l'occlusione usando un singolo cast del raggio da sorgente ad ascoltatore oppure pilotare il riverbero stimando il volume della scena locale con pochi raggi. Ma queste tecniche possono essere inaffidabili perché un sassolino occlude tanto quanto un masso. I raggi non tengono conto del modo in cui il suono devia intorno agli oggetti, un fenomeno noto come diffrazione. La simulazione di Progetto Acustica acquisisce questi effetti con una simulazione basata sulle onde. L'acustica è più prevedibile, accurata e integrata.
 
-L'innovazione chiave di Progetto Acustica consiste nell'abbinare la simulazione acustica ai concetti tradizionali di progettazione del suono. Converte i risultati della simulazione in parametri DSP audio tradizionali per occlusione, portaling e riverbero. Sono disponibili controlli da usare per questo processo di conversione. Per altri dettagli sulle tecnologie di base di Progetto Acustica, vedere la [pagina del progetto di ricerca](https://www.microsoft.com/en-us/research/project/project-triton/).
+L'innovazione chiave di Progetto Acustica consiste nell'abbinare la simulazione acustica basata su onde sonore reali ai concetti tradizionali di progettazione del suono. Converte i risultati della simulazione in parametri DSP audio tradizionali per occlusione, portaling e riverbero. Sono disponibili controlli da usare per questo processo di conversione. Per altri dettagli sulle tecnologie di base di Progetto Acustica, vedere la [pagina del progetto di ricerca](https://www.microsoft.com/en-us/research/project/project-triton/).
 
 ![Animazione che mostra una sezione 2D orizzontale della propagazione delle onde in una scena](media/wave-simulation.gif)
+
+## <a name="video-presentation-from-gdc-2019-30-min"></a>Presentazione video tratta da GDC 2019 (circa 30 minuti)
+[![Video su Progetto Acustica](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Fare clic per riprodurre il video")
 
 ## <a name="setup"></a>Configurazione
 [L'integrazione di Progetto Acustica con Unity](unity-integration.md) avviene mediante trascinamento della selezione e include un plug-in per motore audio Unity. È possibile potenziare i controlli della sorgente audio Unity collegando un componente di controlli C# di Progetto Acustica a ogni oggetto audio.

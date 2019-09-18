@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Sviluppo in team in Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: cb1cc62125e668544eb4af9f84b477b273bfe30e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0abfe655e30b62829a7d353b6da85bb51e378f6d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706266"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842593"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Guida introduttiva: Sviluppo in team in Kubernetes tramite Azure Dev Spaces
 
@@ -39,7 +39,7 @@ In questa guida si apprenderà come:
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 Il cluster *MyAKS* viene creato anche con un nodo usando la dimensione *Standard_DS2_v2* e con Controllo degli accessi in base al ruolo disabilitato.
@@ -146,12 +146,12 @@ Usare il comando `azds space list` per elencare tutti gli spazi di sviluppo e ve
 
 ```cmd
 $ azds space list
-Name            Selected
---------------  --------
-default         False
-dev             False
-dev/azureuser1  False
-dev/azureuser2  True
+   Name            DevSpacesEnabled
+-  --------------  ----------------
+   default         False
+   dev             True
+   dev/azureuser1  True
+*  dev/azureuser2  True
 ```
 
 Usare `azds list-uris` per visualizzare gli URL per l'applicazione di esempio nello spazio attualmente selezionato, ovvero *dev/azureuser2*.
@@ -201,6 +201,9 @@ Il comando crea ed esegue il servizio *bikesharingweb* nello spazio di sviluppo 
 Passare al servizio *bikesharingweb* per lo spazio di sviluppo *dev/azureuser2* aprendo l'URL pubblico visualizzato nell'output del comando `azds up`. Selezionare *Aurelia Briggs (customer)* come utente. Verificare che in alto a destra sia visualizzato il testo aggiornato. Se questa modifica non è immediatamente visibile, potrebbe essere necessario aggiornare la pagina o cancellare la cache del browser.
 
 ![Applicazione di esempio Bike Sharing di Azure Dev Spaces aggiornata](media/quickstart-team-development/bikeshare-update.png)
+
+> [!NOTE]
+> Quando si passa al servizio durante l'esecuzione di `azds up`, nell'output del comando `azds up` vengono visualizzate anche le tracce delle richieste HTTP. Queste tracce possono essere utili per la risoluzione dei problemi e per il debug del servizio. È possibile disabilitarle usando `--disable-http-traces` durante l'esecuzione di `azds up`.
 
 ## <a name="verify-other-dev-spaces-are-unchanged"></a>Verificare che gli altri spazi di sviluppo siano rimasti invariati
 

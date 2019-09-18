@@ -1,18 +1,18 @@
 ---
-title: Esercitazione - Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package - Azure
+title: 'Esercitazione: Configurare Apache HBase con Enterprise Security Package - Azure'
 description: Esercitazione - Informazioni su come configurare i criteri di Apache Ranger per HBase in Azure HDInsight con Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 09/04/2019
+ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274406"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885167"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Esercitazione: Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package
 
@@ -100,7 +100,7 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
 
 2. La schermata **List of Policies** (Elenco di criteri) mostrerà tutti i criteri Ranger creati per questo cluster. Potrebbe essere presente un criterio preconfigurato. Fare clic su **Add New Policy** (Aggiungi nuovi criteri).
 
-    ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Elenco dei criteri di Apache Ranger HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. Nella schermata **Create Policy** (Crea criterio) inserire i valori seguenti:
 
@@ -119,7 +119,7 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
    * `*` indica zero o più occorrenze di caratteri.
    * `?` indica un singolo carattere.
 
-   ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![Criteri di Apache Ranger - Creazione di sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >Attendere alcuni istanti per eseguire la sincronizzazione con Azure AD, se un utente di dominio non viene popolato automaticamente per **Seleziona utente**.
@@ -138,7 +138,7 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
    |Seleziona utente  | marketing_user1 |
    |Autorizzazioni  | Lettura |
 
-   ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![Criteri di Apache Ranger - Creazione di marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. Fare clic su **Aggiungi** per salvare il criterio.
 
@@ -146,7 +146,7 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
 
 In base ai criteri Ranger configurati, **sales_user1** può visualizzare tutti i dati per le colonne in entrambe le famiglie di colonne `Name` e `Contact`. **marketing_user1** può solo visualizzare i dati nella famiglia di colonne `Contact`.
 
-### <a name="access-data-as-salesuser1"></a>Accedere ai dati come sales_user1
+### <a name="access-data-as-sales_user1"></a>Accedere ai dati come sales_user1
 
 1. Aprire una nuova connessione SSH al cluster. Eseguire questo comando per accedere al cluster:
 
@@ -188,7 +188,7 @@ In base ai criteri Ranger configurati, **sales_user1** può visualizzare tutti i
     2 row(s) in 0.1000 seconds
     ```
 
-### <a name="access-data-as-marketinguser1"></a>Accedere ai dati come marketing_user1
+### <a name="access-data-as-marketing_user1"></a>Accedere ai dati come marketing_user1
 
 1. Aprire una nuova connessione SSH al cluster. Eseguire questo comando per accedere come **marketing_user1**:
 

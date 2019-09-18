@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire uno script R in un cluster ML Services in Azure HDInsight con la console R'
+title: 'Guida introduttiva: Eseguire uno script R in ML Services con la console R - Azure HDInsight'
 description: In questa guida introduttiva si eseguirà uno script R in un cluster ML Services in Azure HDInsight con la console R.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 682ee4f44dcdd2619668645fa7a8aa22cb645273
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 44bc90a4c556108b4b6874a2d1297a6467413824
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451512"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736354"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Guida introduttiva: Eseguire uno script R in un cluster ML Services in Azure HDInsight con la console R
 
-ML Services in Azure HDInsight consente agli script R di usare Apache Spark e Apache Hadoop MapReduce per eseguire i calcoli distribuiti. ML Services controlla l'esecuzione delle chiamate, impostando il contesto di calcolo. Il nodo perimetrale di un cluster offre una posizione pratica per connettersi al cluster ed eseguire gli script R. Con un nodo perimetrale è possibile eseguire le funzioni distribuite parallelizzate di RevoScaleR nei core del server del nodo perimetrale. È anche possibile eseguire tali funzioni tra i nodi del cluster usando contesti di calcolo Hadoop MapReduce o Apache Spark di RevoScaleR.
+ML Services in Azure HDInsight consente agli script R di usare Apache Spark e Apache Hadoop MapReduce per eseguire i calcoli distribuiti. ML Services controlla l'esecuzione delle chiamate impostando il contesto di calcolo. Il nodo perimetrale di un cluster offre una posizione pratica per connettersi al cluster ed eseguire gli script R. Con un nodo perimetrale è possibile eseguire le funzioni distribuite parallelizzate di RevoScaleR nei core del server del nodo perimetrale. È anche possibile eseguire tali funzioni tra i nodi del cluster usando contesti di calcolo Hadoop MapReduce o Apache Spark di RevoScaleR.
 
 Questa guida introduttiva illustra come eseguire uno script R con una console R che mostra l'uso di Spark per i calcoli R distribuiti. Si definirà un contesto di calcolo per l'esecuzione di calcoli in locale su un nodo perimetrale e nuovamente distribuiti tra i nodi del cluster HDInsight.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster ML Services in Azure HDInsight. Consultare [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
+* Un cluster ML Services in HDInsight. Consultare [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Test batch-LUIS
+title: 'Esercitazione: Test in batch - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e corregerli.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 08/20/2019
+ms.topic: tutorial
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 45520d39c822c734e3fc725bca3375e93983a118
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: MT
+ms.openlocfilehash: a0aa4d334dc5a42da8a3a8f269f70c874c9ad54d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637463"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375522"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Esercitazione: Eseguire test in batch dei set di dati
 
@@ -28,7 +28,7 @@ Requisiti per il test in batch:
 
 * Numero massimo di 1000 espressioni per ogni test. 
 * Assenza di duplicati. 
-* Tipi di entità consentiti: solo le entità apprese dal computer di semplici e composite. Il test in batch è utile solo per le finalità e le entità apprese in modo automatico.
+* Tipi di entità consentiti: solo entità di Machine Learning semplici e composite. Il test in batch è utile solo per le finalità e le entità apprese in modo automatico.
 
 Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* usare le espressioni di esempio già aggiunte a una finalità. 
 
@@ -40,7 +40,7 @@ Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* us
 > * Creare un file di test in batch 
 > * Eseguire un test in batch
 > * Esaminare i risultati del test
-> * Correggi errori 
+> * Correggere gli errori 
 > * Eseguire nuovamente il test in batch
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
@@ -83,7 +83,7 @@ Seguire questa procedura:
 
 5. Assegnare un nome al set di dati `intents only` e selezionare **Done** (Fatto).
 
-    ![Seleziona file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
+    ![Selezionare il file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
 6. Selezionare il pulsante **Run** (Esegui). 
 
@@ -95,7 +95,7 @@ Seguire questa procedura:
 
 ## <a name="review-batch-results"></a>Esaminare i risultati del batch
 
-Il grafico relativo al batch visualizza quattro quadranti d risultati. Nella parte destra del grafico è presente un filtro. Il filtro contiene Intent ed entità. Quando si seleziona una [sezione del grafico](luis-concept-batch-test.md#batch-test-results) oppure un punto nel grafico, le espressioni associate vengono visualizzate sotto il grafico. 
+Il grafico relativo al batch visualizza quattro quadranti d risultati. Nella parte destra del grafico è presente un filtro. Il filtro contiene finalità ed entità. Quando si seleziona una [sezione del grafico](luis-concept-batch-test.md#batch-test-results) oppure un punto nel grafico, le espressioni associate vengono visualizzate sotto il grafico. 
 
 Quando si passa il mouse sul grafico, la rotellina del mouse consente di ingrandire o ridurre la visualizzazione del grafico. Ciò è utile quando sono presenti molti punti nel grafico strettamente raggruppati. 
 
@@ -103,13 +103,13 @@ Il grafico è diviso in quattro quadranti, con due sezioni visualizzate in rosso
 
 ### <a name="getjobinformation-test-results"></a>Risultati del test GetJobInformation
 
-I risultati del test **GetJobInformation** visualizzati nel filtro mostrano che due delle quattro stime hanno avuto esito positivo. Selezionare il nome **false negative** nel quadrante in basso a sinistra per visualizzare le espressioni sotto il grafico. 
+I risultati del test **GetJobInformation** visualizzati nel filtro mostrano che due delle quattro stime hanno avuto esito positivo. Selezionare il nome **False negative** (Falso negativo) nel quadrante inferiore destro per visualizzare le espressioni sotto il grafico. 
 
-Utilizzare la tastiera, CTRL + E, per passare alla visualizzazione etichetta per visualizzare il testo esatto dell'espressione utente. 
+Usare CTRL + E sulla tastiera per passare alla visualizzazione etichetta e visualizzare il testo esatto dell'espressione utente. 
 
-L'espressione `Is there a database position open in Los Colinas?` è contrassegnata come _GetJobInformation_ , ma il modello corrente ha stimato l'espressione come _ApplyForJob_. 
+L'espressione `Is there a database position open in Los Colinas?` è contrassegnata come _GetJobInformation_, ma il modello corrente ha stimato l'espressione come _ApplyForJob_. 
 
-Ci sono quasi tre volte il numero di esempi per **ApplyForJob** rispetto a **GetJobInformation**. Questa uniformità degli enunciati di esempio pondera il vantaggio di **ApplyForJob** Intent, causando una stima errata. 
+Esistono esempi per **ApplyForJob** tre volte più numerosi rispetto a **GetJobInformation**. Questa disuguaglianza di espressioni di esempio è a favore della finalità **ApplyForJob**, dando origine a una stima errata. 
 
 Si noti che entrambe le finalità hanno lo stesso numero di errori. Una stima non corretta in una finalità influisce anche sull'altra. Entrambe presentano errori perché le espressioni sono state stimate in modo non corretto per una finalità e anche per l'altra. 
 
@@ -119,11 +119,11 @@ Si noti che entrambe le finalità hanno lo stesso numero di errori. Una stima no
 
 L'obiettivo di questa sezione è quello di avere tutte le espressioni stimate in modo corretto per **GetJobInformation** tramite la correzione dell'app. 
 
-Una correzione apparentemente rapida potrebbe essere quella di aggiungere queste espressioni di file batch alla finalità corretta. Questo non è ciò che si vuole fare. Si desidera che LUIS stimi in modo corretto tali espressioni senza aggiungerle come esempi. 
+Una correzione apparentemente rapida potrebbe essere quella di aggiungere queste espressioni di file batch alla finalità corretta. Questo risultato non è quello desiderato. Si desidera che LUIS stimi in modo corretto tali espressioni senza aggiungerle come esempi. 
 
 Può essere opportuno anche rimuovere le espressioni da **ApplyForJob** fino a quando la quantità di espressioni equivale a quella di **GetJobInformation**. In questo modo si potrebbero correggere i risultati del test, ma si impedisce a LUIS di stimare in modo preciso la finalità la volta successiva. 
 
-La correzione consiste nell'aggiungere più espressioni a **GetJobInformation**. Ricordarsi di variare la lunghezza dell'espressione, la scelta di parole e la disposizione di parole, pur continuando a individuare le informazioni sul processo, _non_ applicando il processo.
+La soluzione consiste nell'aggiungere altre espressioni a **GetJobInformation**. Ricordarsi di variare la lunghezza dell'espressione e la scelta e la disposizione delle parole mantenendo la finalità di cercare informazioni sul lavoro e _non_ di candidarsi per il lavoro.
 
 ### <a name="add-more-utterances"></a>Aggiungere altre espressioni
 
@@ -161,7 +161,7 @@ Per verificare che le espressioni del test in batch siano stimate correttamente 
 
 1. Selezionare **Test** nella barra di spostamento in alto. Se i risultati del batch sono ancora aperti, selezionare **Back to list** (Torna a elenco).  
 
-1. Selezionare il pulsante con i puntini di sospensione (***...***) a destra del nome del batch e selezionare **Esegui**. Attendere fino a quando il test in batch non viene completato. Si noti che il pulsante **See results** (Visualizza risultati) è ora di colore verde. Ciò significa che l'intero batch è stato eseguito correttamente.
+1. Selezionare i puntini di sospensione (***...*** ) a destra del nome del batch e selezionare **Run** (Esegui). Attendere fino a quando il test in batch non viene completato. Si noti che il pulsante **See results** (Visualizza risultati) è ora di colore verde. Ciò significa che l'intero batch è stato eseguito correttamente.
 
 1. Selezionare **See results** (Visualizza risultati). Per tutte le finalità, le icone a sinistra del nome devono essere verdi. 
 
@@ -200,11 +200,11 @@ Il valore di un'entità **Job**, indicato nelle espressioni di test, è composto
 
 ## <a name="review-entity-batch-results"></a>Esaminare i risultati del batch di entità
 
-Il grafico viene aperto con tutte le finalità stimate correttamente. Scorrere verso il basso nel filtro sul lato destro per individuare le stime dell'entità con errori. 
+Il grafico viene aperto con tutte le finalità stimate correttamente. Scorrere verso il basso nel filtro a destra per trovare le stime di entità con errori. 
 
 1. Selezionare l'entità **Job** nel filtro.
 
-    ![Stime delle entità di errore nel filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Stime di entità con errori nel filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     Il grafico viene modificato per visualizzare le stime di entità. 
 

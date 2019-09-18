@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b4e9b72be5d03e0b3441983ca991a16688f5f4cd
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085321"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916453"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurare un recinto virtuale con Mappe di Azure
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure 
 
-Per completare i passaggi di questa esercitazione è prima necessario vedere [Gestire l'account e le chiavi](how-to-manage-account-keys.md) per creare e gestire la sottoscrizione dell'account con il piano tariffario S1.
+Per completare i passaggi di questa esercitazione, seguire le istruzioni in [Gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](./tutorial-search-location.md#getkey) per ottenere la chiave di sottoscrizione primaria per l'account.
 
 ## <a name="upload-geofences"></a>Caricare i recinti virtuali
 

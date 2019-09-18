@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f5f2dc6babbca219f0efbb1d7013d4e6e3270e6
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663506"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873299"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -30,6 +30,10 @@ Questa esercitazione illustra come eseguire la migrazione di macchine virtuali A
 > * Eseguire un unico failover in Azure
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
+
+
+> [!NOTE]
+    > È ora possibile usare il servizio Azure Migrate per eseguire la migrazione di istanze di AWS ad Azure. [Altre informazioni](../migrate/tutorial-migrate-physical-virtual-machines.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Assicurarsi che nelle macchine virtuali di cui si vuole eseguire la migrazione sia in esecuzione una versione supportata del sistema operativo. Le versioni supportate includono: 
@@ -91,11 +95,11 @@ Le macchine virtuali di Azure create dopo la migrazione (failover) vengono aggiu
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Rete** >
    **Rete virtuale**.
 3. Per **Nome** immettere **myMigrationNetwork**.
-4. Lasciare il valore predefinito per **Spazio degli indirizzi**.
+4. Lasciare invariato il valore predefinito per **Spazio degli indirizzi** (è necessario immettere un valore).
 5. In **Sottoscrizione** selezionare la sottoscrizione che si vuole usare.
 6. Per **Gruppo di risorse** selezionare **Usa esistente** e quindi selezionare **migrationRG**.
 7. Per **Posizione** selezionare **Europa occidentale**.
-8. In **Subnet** lasciare i valori predefiniti per **Nome** e **Intervallo IP**.
+8. In **Subnet** lasciare invariati i valori predefiniti per **Nome** e **Intervallo IP** (è necessario immettere un valore).
 9. Aggiungere le istruzioni per le impostazioni di Protezione DDoS.
 10. Lasciare l'opzione **Endpoint di servizio** disabilitata.
 11. Aggiungere le istruzioni per le impostazioni di Firewall.

@@ -1,21 +1,21 @@
 ---
-title: Uso di applicazioni in Azure Blockchain Workbench
-description: Esercitazione su come usare i contratti applicazione in Azure Blockchain Workbench.
+title: Uso di applicazioni nell'anteprima di Azure Blockchain Workbench
+description: Esercitazione su come usare i contratti applicazione nell'anteprima di Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 89c83ed6d02a60978bd54fb97d37063e34f6c0c7
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: e1ba09c4fbba6492e2d5f870a6c31a3d5a6d8956
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578851"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845134"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Esercitazione: Uso di applicazioni in Azure Blockchain Workbench
 
@@ -50,7 +50,7 @@ Per creare un nuovo contratto, è necessario essere un membro specificato come *
 
     ![Pulsante Nuovo contratto](./media/use/contract-list.png)
 
-3. Viene visualizzato il riquadro **Nuovo contratto**. Specificare i valori dei parametri iniziali. Selezionare **Create**.
+3. Viene visualizzato il riquadro **Nuovo contratto**. Specificare i valori dei parametri iniziali. Selezionare **Create** (Crea).
 
     ![Riquadro Nuovo contratto](./media/use/new-contract.png)
 

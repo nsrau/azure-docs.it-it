@@ -1,22 +1,22 @@
 ---
 title: 'Guida introduttiva: Convertire uno script di testo - Traduzione testuale'
 titleSuffix: Azure Cognitive Services
-description: Questo argomento di avvio rapido descrive come traslitterare (convertire) un testo da uno script a un altro usando l'API REST Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
+description: Questo argomento di avvio rapido descrive come traslitterare (convertire) un testo da uno script a un altro usando l'API Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 08/19/2019
+ms.date: 09/05/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 1ed753e9fe24b729f2efeb32bd99f5a721a57083
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b1da3904c0081a7948adc233878a9a30727f3b37
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906533"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393908"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>Guida introduttiva: Usare l'API Traduzione testuale per traslitterare un testo
 

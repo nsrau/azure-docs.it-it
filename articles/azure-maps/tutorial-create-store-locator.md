@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 2b68da881edd0406a85692d6e0586427a57b7806
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478867"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916445"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -35,7 +35,7 @@ Passare all'[esempio attivo di localizzatore di punti vendita](https://azuremaps
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare le procedure disponibili in questa esercitazione, è prima di tutto necessario [creare un account Mappe di Azure](./tutorial-search-location.md#createaccount) e [ottenere la chiave di sottoscrizione per l'account](./tutorial-search-location.md#getkey).
+Per completare i passaggi di questa esercitazione, è prima di tutto necessario [creare l'account Mappe di Azure](./tutorial-search-location.md#createaccount) e seguire la procedura descritta in [Ottenere la chiave primaria](./tutorial-search-location.md#getkey) per ottenere la chiave di sottoscrizione primaria per l'account.
 
 ## <a name="design"></a>Progettazione
 

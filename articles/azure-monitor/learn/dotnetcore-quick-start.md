@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 931de532aa6e09b2cd00955df6ba1f05d7e4f42c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 313e0c6cb487ed986c38610131c4bc19f2eeb846
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428503"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916176"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET Core
 
@@ -70,7 +70,9 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
 3. Selezionare l'account e la sottoscrizione > selezionare la **risorsa esistente** creata nel portale di Azure > fare clic su **Registra**.
 
-4. Selezionare **Debug** > **Avvia senza eseguire debug** (CTRL+F5) per avviare l'app.
+4. Selezionare **Progetto** > **Gestisci pacchetti NuGet** > **Origine pacchetto: nuget.org** > **Aggiorna** per aggiornare i pacchetti di Application Insights SDK all'ultima versione stabile.
+
+5. Selezionare **Debug** > **Avvia senza eseguire debug** (CTRL+F5) per avviare l'app.
 
     ![Menu della panoramica di Application Insights](./media/dotnetcore-quick-start/3debug.png)
 

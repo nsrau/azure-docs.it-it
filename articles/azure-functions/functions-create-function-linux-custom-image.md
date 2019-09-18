@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1865b1b96b5b8794f1518d639825ccd2f1dcd090
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210188"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773143"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creare una funzione in Linux tramite un'immagine personalizzata
 
@@ -143,9 +143,8 @@ Quando l'immagine personalizzata è in esecuzione in un contenitore Docker local
 
 ![Testare l'app per le funzioni in locale.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-Facoltativamente, è possibile eseguire un nuovo test della funzione, questa volta nel contenitore locale usando l'URL seguente:
-
-`http://localhost:8080/api/myhttptrigger?name=<yourname>`
+> [!NOTE]
+> A questo punto, quando si tenta di chiamare la funzione HTTP specifica, si ottiene un errore HTTP 401 come risposta. Questo accade perché la funzione viene eseguita nel contenitore locale come avverrebbe in Azure, il che significa che è necessario il tasto funzione. Poiché il contenitore non è stato ancora pubblicato in un'app per le funzioni, non è disponibile alcun tasto funzione. In un secondo momento, quando si ricorrerà a Core Tools per pubblicare il contenitore, i tasti funzione verranno visualizzati. Se si vuole testare la funzione in esecuzione nel contenitore locale, è possibile impostare la [chiave di autorizzazione](functions-bindings-http-webhook.md#authorization-keys) su `anonymous`. 
 
 Dopo aver verificato l'app per le funzioni nel contenitore, arrestare l'esecuzione. A questo punto, è possibile propagare l'immagine personalizzata nel proprio account dell'hub Docker.
 

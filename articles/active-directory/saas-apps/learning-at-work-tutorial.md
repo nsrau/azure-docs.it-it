@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f04e6f8df55059e2aa2981f85f40e487c6f0f8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3249957fa20c208d0fd06c676200753163d4bfc8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823678"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376084"
 ---
 # <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>Esercitazione: Integrare Learning at Work con Azure Active Directory
 
@@ -85,18 +85,18 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.sabacloud.com/Saba/Web/<company code>`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.sabacloud.com/Saba/saml/SSO/alias/<company name>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<subdomain>.sabacloud.com/Saba/saml/SSO/alias/<company name>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Learning at Work](https://www.learninga-z.com/site/contact/support). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. L'applicazione Learning at Work prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui  **nameidentifier**  è associato a  **user.userprincipalname**.
+5. L'applicazione Learning at Work prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**.
 
-    È possibile aggiornare il valore di **nameidentifier** in Azure AD in base alla configurazione dell'organizzazione. Dato che questo valore deve corrispondere all'**ID utente** nel cloud SABA, è necessario modificare il mapping dell'attributo facendo clic sull'icona  **Modifica**  a tale scopo.
+    È possibile aggiornare il valore di **nameidentifier** in Azure AD in base alla configurazione dell'organizzazione. Dato che questo valore deve corrispondere all'**ID utente** nel cloud SABA, è necessario modificare il mapping dell'attributo facendo clic sull'icona **Modifica** a tale scopo.
 
     ![image](common/edit-attribute.png)
 
-4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML metadati federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
+4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -118,7 +118,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -140,7 +140,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="create-learning-at-work-test-user"></a>Creare un utente di test di Learning at Work
 
-In questa sezione si crea un utente di nome B.Simon in Learning at Work. Collaborare con il  [team di supporto di Learning at Work](https://www.learninga-z.com/site/contact/support) per aggiungere gli utenti alla piattaforma Learning at Work. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione si crea un utente di nome B.Simon in Learning at Work. Collaborare con il [team di supporto di Learning at Work](https://www.learninga-z.com/site/contact/support) per aggiungere utenti alla piattaforma Learning at Work. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO 
 
