@@ -35,8 +35,6 @@
   items:
     - name: Connettere dispositivi
       items:
-        - name: Generare una stringa di connessione per dispositivo
-          href: howto-generate-connection-string.md
         - name: Preparare e connettere un'applicazione Node.js (generica)
           href: howto-connect-nodejs.md
         - name: Preparare e connettere un MXChip IoT DevKit

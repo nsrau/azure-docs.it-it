@@ -63,19 +63,6 @@ sections:
             html: '<p>È possibile proteggere il database con l''autenticazione di Azure AD, le reti virtuali, i firewall e connessioni Always Encrypted. La sicurezza predefinita consente di identificare le minacce e le vulnerabilità.</p>'
             image:
               src: media/index/i_security.svg
-  - title: Funzionalità nuove e di anteprima
-    items:
-      - type: paragraph
-        text: 'Il database SQL viene costantemente migliorato con nuove funzionalità e il feedback degli utenti sulle nuove funzionalità seguenti sarà molto apprezzato:'
-      - type: list
-        style: unordered
-        items:
-          - html: (Anteprima) Livello <a href="sql-database-service-tier-hyperscale">Hyperscale</a> che supporta database fino a 100 TB e più repliche leggibili.
-          - html: '(Anteprima) Nuove funzionalità di <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">elaborazione query intelligente</a> di SQL Server 2019, ad esempio <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">compilazione posticipata delle variabili di tabella</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">modalità batch per tabelle rowstore</a> e <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json">inlining di funzioni definite dall''utente scalari</a>.'
-          - html: '(Anteprima) Nuove funzionalità del linguaggio Transact-SQL, ad esempio <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">aggregazione APPROX_COUNT_DISTINCT</a> e <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">importazione in blocco dall''archivio BLOB di Azure</a>.'
-          - html: '(Anteprima) Nuove operazioni di <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">compilazione</a> e ricompilazione dell''indice columnstore cluster di SQL Server 2019 Online.'
-          - html: '(Anteprima) Nuovi <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Machine Learning Services (con R) nel database SQL di Azure</a>.'
-          - html: '(Anteprima) Nuove <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">livello di calcolo senza server</a> offre scalabilità automatica calcolo e fatturazione al secondo per il calcolo utilizzato.'
   - title: Guide di avvio rapido di cinque minuti
     items:
       - type: paragraph
@@ -96,7 +83,7 @@ sections:
               src: media/index/logo_arm.svg
             title: Modello di Azure Resource Manager
         rows:
-          - title: Creazione di un database
+          - title: Creare un database
             values:
               - href: /azure/sql-database/sql-database-single-database-get-started
               - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
