@@ -95,8 +95,8 @@ Per app Azure Services, eseguire le operazioni seguenti:
 
 Key: `JAVA_OPTS`Valore`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0-BETA.jar`
 
-Per la versione più recente dell'agente Java, vedere qui [](https://github.com/Microsoft/ApplicationInsights-Java/releases
-)le versioni. 
+Per la versione più recente dell'agente Java, vedere [qui](https://github.com/Microsoft/ApplicationInsights-Java/releases
+) le versioni. 
 
 L'agente deve essere incluso nel pacchetto come risorsa nel progetto, in modo che finisca nella directory D:/Home/site/wwwroot/. È possibile verificare che l'agente si trovi nella directory del servizio app corretta passando a **strumenti** > di sviluppo**avanzati strumenti** > **console di debug** ed esaminando il contenuto della directory del sito.    
 
