@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d01e8ce894bfb1ece3555eddc714d2d3a80e44b5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 414dc4e69fda8ccd79b5a48b19bccee35bd11a45
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164844"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063697"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-In Azure Active Directory (Azure AD) B2C, il flusso delle credenziali password del proprietario della risorsa (ROPC) è un flusso di autenticazione standard OAuth. In questo flusso, un'applicazione, nota anche come relying party, scambia credenziali valide con token. Le credenziali includono un ID utente e una password. I token restituiti sono un token ID, un token di accesso e un token di aggiornamento.
+In Azure Active Directory B2C (Azure AD B2C), il flusso di credenziali password del proprietario della risorsa (ROPC) è un flusso di autenticazione OAuth standard. In questo flusso, un'applicazione, nota anche come relying party, scambia credenziali valide con token. Le credenziali includono un ID utente e una password. I token restituiti sono un token ID, un token di accesso e un token di aggiornamento.
 
 Nel flusso ROPC sono supportate le opzioni seguenti:
 
@@ -39,10 +39,10 @@ I flussi seguenti non sono supportati:
 
 Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="register-an-application"></a>Registrare un'applicazione
+## <a name="register-an-application"></a>Registra un'applicazione
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Selezionare **Applicazioni** e quindi **Aggiungi**.
 5. Immettere un nome per l'applicazione, ad esempio *ROPC_Auth_app*.
@@ -88,7 +88,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
           <OutputClaim ClaimTypeReferenceId="sub" TransformationClaimType="createdClaim" />
         </OutputClaims>
       </ClaimsTransformation>
-    
+
       <ClaimsTransformation Id="AssertRefreshTokenIssuedLaterThanValidFromDate" TransformationMethod="AssertDateTimeIsGreaterThan">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="refreshTokenIssuedOnDateTime" TransformationClaimType="leftOperand" />
@@ -140,7 +140,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
     </TechnicalProfile>
     ```
 
-    Sostituire il **DefaultValue** dei **client_id** con l'ID applicazione dell'applicazione ProxyIdentityExperienceFramework creato nell'esercitazione preliminare. Quindi sostituire **DefaultValue** dei **resource_id** con l'ID applicazione dell'applicazione IdentityExperienceFramework anche creato nell'esercitazione preliminare.  
+    Sostituire il **DefaultValue** di **client_id** con l'ID applicazione dell'applicazione ProxyIdentityExperienceFramework creata nell'esercitazione sui prerequisiti. Sostituire **DefaultValue** di **RESOURCE_ID** con l'ID applicazione dell'applicazione IdentityExperienceFramework creata anche nell'esercitazione sui prerequisiti.
 
 5. Aggiungere gli elementi **ClaimsProvider** seguenti con i relativi profili tecnici all'elemento **ClaimsProviders**:
 
@@ -235,7 +235,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 7. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
 8. Abilitare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *TrustFrameworkExtensions.xml*.
-9. Fare clic su **Carica**.
+9. Fare clic su **Upload**.
 
 ## <a name="create-a-relying-party-file"></a>Creare un file relying party
 
@@ -245,7 +245,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 2. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. L'ID criteri è il nome dei criteri. Ad esempio, **B2C_1A_ROPC_Auth**.
 3. Modificare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** con `ResourceOwnerPasswordCredentials`.
 4. Modificare l'elemento **OutputClaims** affinché contenga soltanto le attestazioni seguenti:
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
@@ -255,8 +255,8 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
     ```
 
 5. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
-6. Abilitare **Sovrascrivi il criterio se esistente**e quindi individuare e selezionare il *ROPC_Auth.xml* file.
-7. Fare clic su **Carica**.
+6. Abilitare **Sovrascrivi il criterio se esistente**, quindi individuare e selezionare il file *ROPC_Auth. XML* .
+7. Fare clic su **Upload**.
 
 ## <a name="test-the-policy"></a>Testare i criteri
 
@@ -269,7 +269,7 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 
 | Chiave | Value |
 | --- | ----- |
-| username | `user-account` |
+| userName | `user-account` |
 | password | `password1` |
 | grant_type | password |
 | scope | openid `application-id` offline_access |

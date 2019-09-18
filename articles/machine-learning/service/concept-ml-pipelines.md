@@ -1,6 +1,6 @@
 ---
 title: Che cosa sono le pipeline di ML
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: In questo articolo viene illustrata la pipeline di machine learning che è possibile compilare con SDK di Azure Machine Learning per Python e i vantaggi dell'uso di pipeline. Le pipeline di Machine learning (ML) vengono utilizzate dai data scientist per creare, ottimizzare e gestire i flussi di lavoro di apprendimento automatico.
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2547ca3af3039af53cb5fd5b244669b9152c21b3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 07efde7c3664ba1866e59f23c31b9c385ed9c366
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993294"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035499"
 ---
-# <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Che cosa sono le pipeline di ML nel servizio Azure Machine Learning?
+# <a name="what-are-ml-pipelines-in-azure-machine-learning"></a>Che cosa sono le pipeline di ML in Azure Machine Learning?
 
-Informazioni sulle pipeline di Machine Learning che è possibile creare e gestire con Azure Machine Learning servizio. 
+Informazioni sulle pipeline di Machine Learning che è possibile creare e gestire con Azure Machine Learning. 
 
 Tramite le pipeline di machine learning (ML), i data scientist, i data engineer e i professionisti IT possono collaborare alle fasi di:
 + Preparazione dei dati, ad esempio normalizzazioni e trasformazioni
@@ -30,7 +30,7 @@ Tramite le pipeline di machine learning (ML), i data scientist, i data engineer 
 
 Informazioni su come [creare la prima pipeline](how-to-create-your-first-pipeline.md).
 
-![Pipeline di apprendimento automatico nel servizio Azure Machine Learning](./media/concept-ml-pipelines/pipeline-flow.png)
+![Pipeline di Machine Learning in Azure Machine Learning](./media/concept-ml-pipelines/pipeline-flow.png)
 
 <a name="compare"></a>
 ### <a name="which-azure-pipeline-technology-should-i-use"></a>Quale tecnologia della pipeline di Azure è consigliabile usare?

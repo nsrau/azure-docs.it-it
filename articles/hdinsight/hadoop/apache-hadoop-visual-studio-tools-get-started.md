@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 706bcbed39ca2a3fe0a38eba864edb863c31b4ec
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 44a076ee6979e207ac3992f76d3b89cc188d53b8
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884100"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076304"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Usare Strumenti Data Lake per Visual Studio per connettersi ad Azure HDInsight ed eseguire query Apache Hive
 
@@ -83,7 +83,7 @@ Per connettersi alla sottoscrizione di Azure:
 
 4. Da Esplora server viene visualizzato un elenco di cluster HDInsight esistenti. Se non sono disponibili cluster, è possibile crearne uno usando il portale di Azure, Azure PowerShell o HDInsight SDK. Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-   ![Screenshot dell'elenco di cluster di Strumenti Data Lake per Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png "Elenco di cluster di Strumenti Data Lake per Visual Studio in Esplora server")
+   ![Elenco di cluster data Lake Tools per Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png "Elenco di cluster data Lake Tools per Visual Studio in Esplora server")
 
 5. Espandere un cluster HDInsight. Vengono visualizzati i **database hive**, un account di archiviazione predefinito, gli account di archiviazione collegati e il **log del servizio Hadoop** . È possibile espandere ulteriormente le entità.
 
@@ -113,11 +113,11 @@ Fare clic con il pulsante destro del mouse sul cluster collegato, scegliere **mo
 ## <a name="explore-linked-resources"></a>Esplorare risorse collegate
 Da Esplora server è possibile visualizzare l'account di archiviazione predefinito e qualsiasi account di archiviazione collegato. Se si espande l'account di archiviazione predefinito, è possibile visualizzare i contenitori presenti. L'account di archiviazione predefinito e il contenitore predefinito sono contrassegnati. Per visualizzare i contenuti dei contenitori, fare clic su uno dei contenitori con il pulsante destro del mouse.
 
-![Screenshot dell'elenco di risorse collegate di Strumenti Data Lake per Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png "Elenco di risorse collegate")
+![Strumenti di data Lake per le risorse collegate di Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png "Elencare le risorse collegate")
 
 Dopo aver aperto un contenitore, è possibile usare i pulsanti seguenti per caricare, eliminare e scaricare i BLOB:
 
-![Screenshot delle operazioni sui BLOB per Strumenti Data Lake per Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png "Caricare, eliminare e scaricare BLOB in Esplora server")
+![Strumenti Data Lake per le operazioni BLOB di Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png "Caricare, eliminare e scaricare BLOB in Esplora server")
 
 ## <a name="run-interactive-apache-hive-queries"></a>Eseguire query Interactive Apache Hive
 [Apache Hive](https://hive.apache.org) è un'infrastruttura di data warehouse basata su Hadoop. Hive viene usato per riepilogo, le query e l'analisi dei dati. È possibile usare Strumenti Data Lake per Visual Studio per eseguire query Hive da Visual Studio. Per altre informazioni su Hive, vedere [Usare Apache Hive con HDInsight](hdinsight-use-hive.md).
@@ -201,7 +201,7 @@ Per creare ed eseguire query ad hoc:
 
       Verificare che **batch** sia selezionato, quindi selezionare **Invia**.  Se si seleziona l'opzione di invio avanzato, configurare **nome processo**, **argomenti**, **configurazioni aggiuntive**e **directory di stato** per lo script.
 
-      ![Screenshot di query e batch](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)  
+      ![Opzioni query e batch di Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)  
 
       ![Screenshot di una query Hive Hadoop HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png "Inviare query")
 
@@ -224,7 +224,7 @@ Per creare ed eseguire una soluzione Hive:
 
 Il riepilogo del processo varia leggermente tra il **batch** e la modalità **interattiva** .
 
-![Riepilogo processi](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png "Riepilogo del processo hive")
+![Visualizzazione della scheda Riepilogo processi Apache hive](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png "Riepilogo del processo hive")
 
 Utilizzare il pulsante **Aggiorna** per aggiornare lo stato fino a quando lo stato del processo diventa **completato**.  
 
@@ -232,7 +232,7 @@ Utilizzare il pulsante **Aggiorna** per aggiornare lo stato fino a quando lo sta
 
 * Per informazioni dettagliate sul processo dalla modalità **interattiva** , vedere Tab **output** e **output HiveServer2**.
 
-  ![Dettagli processo](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png "Dettagli processo hive")
+  ![Dettagli del processo di Apache hive di Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png "Dettagli processo hive")
 
 ### <a name="view-job-graph"></a>Visualizzare il grafico del processo
 
@@ -242,14 +242,13 @@ Per visualizzare tutti gli operatori all'interno del vertice, fare doppio clic s
 
 Il grafico del processo potrebbe non essere visualizzato anche se Tez viene specificato come motore di esecuzione se non viene avviata alcuna applicazione Tez.  Questo problema può verificarsi perché il processo non contiene istruzioni DML oppure le istruzioni DML possono restituire senza avviare un'applicazione Tez. Ad esempio, `SELECT * FROM table1` non avvierà l'applicazione Tez.
 
-![Grafico del processo](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png "Riepilogo del processo hive")
-
+![Grafico del processo di Apache hive di Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png "Riepilogo del processo hive")
 
 ### <a name="task-execution-detail"></a>Dettagli esecuzione attività
 
 Dal grafico del processo è possibile selezionare i **Dettagli di esecuzione delle attività** per ottenere informazioni strutturate e visualizzate per i processi hive. Sono disponibili anche altri dettagli sui processi. Se si verificano problemi di prestazioni, è possibile usare la visualizzazione per ottenere altri dettagli sul problema. È ad esempio possibile ottenere informazioni sul funzionamento di ogni attività e informazioni dettagliate su ogni attività (lettura/scrittura dati, ora di pianificazione/inizio/fine e così via). Usare le informazioni per ottimizzare le configurazioni dei processi o l'architettura di sistema in base alle informazioni visualizzate.
 
-![Screenshot della finestra di visualizzazione dell'esecuzione dell'attività in Strumenti di Visual Studio di Data Lake](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-task-execution-view.png "Visualizzazione dell'esecuzione dell'attività")
+![Data Lake strumenti di Visual Studio finestra visualizzazione esecuzioni attività](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-task-execution-view.png "Visualizzazione esecuzione attività")
 
 
 ### <a name="view-hive-jobs"></a>Visualizzare processi Hive

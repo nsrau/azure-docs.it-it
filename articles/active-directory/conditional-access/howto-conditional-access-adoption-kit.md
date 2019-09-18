@@ -1,6 +1,6 @@
 ---
-title: Kit adozione di accesso condizionale - Azure Active Directory
-description: Adozione di accesso condizionale di Azure AD per accedere alle risorse
+title: Kit di adozione dell'accesso condizionale-Azure Active Directory
+description: Adozione Azure AD l'accesso condizionale per l'accesso alle risorse
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,70 +11,70 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cc4ff5fb528760be8c910f3da7d5691a6aae0d8
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: c75ec0ec212c99e474d13892178acbdc14e5f386
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387573"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075283"
 ---
-#  <a name="adopting-azure-ad-conditional-access"></a>Adozione di accesso condizionale di Azure AD
+#  <a name="adopting-azure-ad-conditional-access"></a>Adozione Azure AD l'accesso condizionale
 
-In un mondo incentrato su dispositivi mobili e cloud-first, gli utenti possono accedere alle risorse aziendali da qualsiasi posizione tramite diversi tipi di dispositivi e App. Di conseguenza, concentrarsi solo su chi può accedere a una risorsa non è più sufficiente. È possibile controllare chi può accedere e identificare dove l'utente è e quali dispositivi sono in uso e molto altro ancora.
+In un mondo per dispositivi mobili e cloud, gli utenti possono accedere alle risorse dell'organizzazione da qualsiasi luogo usando diversi tipi di dispositivi e app. Di conseguenza, concentrarsi solo su chi può accedere a una risorsa non è più sufficiente. È possibile controllare chi ha accesso e identificare dove si trova l'utente e quale dispositivo viene usato e molto altro ancora.
 
-Per questo controllo, fornire **accesso condizionale di Azure Active Directory (AD)** consente di specificare le condizioni di tutti gli utenti devono soddisfare per l'accesso a un'applicazione, ad esempio multi-Factor Authentication (MFA). Usando i criteri di accesso condizionale consente di controllare gli utenti autorizzati come (gli utenti che hanno ottenuti l'accesso a un'app cloud) accedere alle App cloud in condizioni specifiche. Fare riferimento a [qual è l'accesso condizionale in Azure Active Directory](overview.md#conditional-access-policies) per altre informazioni.
+Per fornire questo controllo, l' **accesso condizionale Azure Active Directory (ad)** consente di specificare le condizioni che devono essere soddisfatte da qualsiasi utente per l'accesso a un'applicazione, ad esempio multi-factor authentication (multi-factor authentication). L'uso di criteri di accesso condizionale controlla come gli utenti autorizzati (utenti a cui è stato concesso l'accesso a un'app Cloud) accedono alle app cloud in condizioni specifiche. Per ulteriori informazioni, vedere l'articolo relativo all' [accesso condizionale in Azure Active Directory](overview.md) .
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
-Vantaggi principali dell'uso di accesso condizionale di Azure AD sono:
+I vantaggi principali dell'uso di Azure AD l'accesso condizionale sono:
 
-* **Per aumentare la produttività:** I criteri di accesso (CA) condizionale consentono di assegnare il punto in cui gli utenti vengono richiesto di utilizzare autenticazione a più fattori, hanno accesso bloccato o sono necessari per usare un dispositivo attendibile. Ad esempio, è possibile impostare i criteri, ad esempio richiedendo solo agli utenti di MFA in un'applicazione quando si è connessi alla rete aziendale. Riducendo le richieste di autenticazione a più fattori consente di mantenere gli utenti più produttiva rispetto al se hanno autenticazione a più fattori ogni volta che effettuano l'accesso. Inoltre, l'accesso condizionale di Azure AD consente di specificare i criteri per ogni singolo utente e crea anche i criteri specifici dell'app.
-* **Gestire i rischi:** Abilitazione dei criteri di accesso condizionale offre la protezione dell'identità con scalabilità cloud, funzionalità di controllo di accesso basato sui rischi e supporto per l'autenticazione a più fattori nativa. Accoppiamento di accesso condizionale con identity protection consente di definire quando si è bloccato o controllato l'accesso a un'applicazione.
-* **Governance e conformità di indirizzo:** Il controllo delle richieste di accesso e delle approvazioni per l'applicazione e informazioni sull'utilizzo di applicazione nel suo complesso è più semplice con Azure AD, perché supporta i log di controllo nativo per ogni richiesta di accesso dell'applicazione eseguita. Il controllo include l'identità del richiedente, data richiesta, una motivazione aziendale, lo stato di approvazione e identità del responsabile approvazione. Questi dati sono inoltre disponibili da un'API, in modo da consentire l'importazione dei dati in un evento imprevisto della sicurezza e il sistema di monitoraggio di eventi (SIEM) preferito.
-* **Gestire i costi:** Lo spostamento di criteri di accesso ad Azure AD consente di ridurre affidamento personalizzate o soluzioni locali, ad esempio Active Directory Federation Services (ADFS) per l'accesso condizionale, riducendo i costi dell'esecuzione di tale infrastruttura.
+* **Aumentare la produttività:** I criteri di accesso condizionale consentono di specificare come destinazione il punto in cui agli utenti viene richiesto di usare l'autenticazione a più fattori, avere accesso bloccato o essere necessari per usare un dispositivo attendibile. Ad esempio, è possibile impostare criteri come richiedere solo agli utenti di eseguire l'autenticazione a più fattori in un'applicazione quando si è fuori dalla rete aziendale. La riduzione delle richieste di autenticazione a più fattori consente agli utenti di aumentare la produttività rispetto a ogni volta che eseguono l'accesso. Inoltre, Azure AD accesso condizionale consente di specificare i criteri per ogni utente e creare anche criteri specifici dell'app.
+* **Gestisci i rischi:** L'abilitazione dei criteri di accesso condizionale offre protezione delle identità a livello di cloud, funzionalità di controllo degli accessi in base al rischio e supporto nativo per l'autenticazione a più fattori. L'accoppiamento dell'accesso condizionale con Identity Protection consente di definire quando l'accesso a un'applicazione è bloccato o controllato.
+* **Conformità e governance degli indirizzi:** Il controllo delle richieste di accesso e delle approvazioni per l'applicazione e la comprensione dell'utilizzo complessivo delle applicazioni è più semplice con Azure AD perché supporta i log di controllo nativi per ogni richiesta di accesso alle applicazioni eseguita. Il controllo include identità del richiedente, data richiesta, motivazione aziendale, stato di approvazione e identità del responsabile approvazione. Questi dati sono disponibili anche da un'API, che consentirà l'importazione di questi dati in un sistema di monitoraggio degli eventi imprevisti e di sicurezza (SIEM).
+* **Gestione dei costi:** Lo stato di trasferimento dei criteri di accesso a Azure AD riduce la dipendenza da soluzioni personalizzate o locali come Active Directory Federation Services (ADFS) per l'accesso condizionale, riducendo il costo di esecuzione di tale infrastruttura.
 
 ## <a name="customer-case-studies"></a>Casi di studio sui clienti
 
-Scopri come la maggior parte delle organizzazioni usano l'accesso condizionale di Azure AD per definire e implementare il controllo di accesso automatizzato più accedere alle App cloud in base alle condizioni. Le storie in primo piano seguenti viene illustrato come vengono soddisfatte le esigenze dei clienti.
+Scopri in che modo la maggior parte delle organizzazioni USA Azure AD accesso condizionale per definire e implementare le decisioni di controllo di accesso automatico per accedere alle app cloud in base alle condizioni. Le storie in primo piano seguenti illustrano come vengono soddisfatte le esigenze dei clienti.
 
-* [**Wipro** contribuiscono alla produttività per dispositivi mobili con gli strumenti di sicurezza cloud Microsoft per migliorare impegni dei clienti.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) I criteri di accesso condizionale in Azure AD hanno consentito all'azienda di condividere documenti, risorse e le applicazioni con le entità esterne attendibili---che può usare le proprie credenziali---mantenendo il controllo sui propri dati aziendali.
-* [**Accenture** protegge il passaggio al cloud con Microsoft Cloud App security](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security) Accenture sta valutando il [Conditional Access App Control](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad) funzionalità di Cloud App Security, che usa Azure Active Accesso condizionale di directory per controllare l'accesso dell'applicazione in base a determinate condizioni. LePenske afferma che questa funzionalità può essere utile, ad esempio, abilitare l'accesso ai file di sola lettura mentre impedisce l'impiego di download.
-* [**Aramex** recapito limitato - aziendali globali di trasporti e logistica crea connesse al cloud di office con soluzione di gestione delle identità e degli accessi](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Per garantire l'accesso sicuro è stata particolarmente difficile con i dipendenti remoti dell'Aramex. La società è ora l'accesso condizionale per consentire a questi dipendenti remoti di accedere alle applicazioni SaaS dall'esterno della rete. La regola di accesso condizionale verrà decidere se imporre multi-Factor Authentication, che concede solo le persone autorizzate all'accesso a destra.
+* [**Wipro** guida la produttività dei dispositivi mobili con gli strumenti di sicurezza cloud Microsoft per migliorare il coinvolgimento dei clienti.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) I criteri di accesso condizionale in Azure AD hanno permesso alla società di condividere documenti, risorse e applicazioni con entità esterne attendibili---che possono usare le proprie credenziali---mantenendo al tempo stesso il controllo sui propri dati aziendali.
+* [**Accenture** protegge il suo passaggio al cloud con Microsoft cloud app Security](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security) Accenture sta valutando la funzionalità [controllo app per l'accesso condizionale](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad) di cloud app Security, che usa Azure Active Directory l'accesso condizionale a Gate accesso all'applicazione in base a determinate condizioni. LePenske afferma che questa funzionalità può essere utile, ad esempio, per abilitare l'accesso in sola lettura ai file durante il divieto di download.
+* [ **Aramex** recapito limitato: la società di trasporto e logistica globale crea uffici connessi al cloud con una soluzione di gestione delle identità e degli accessi](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Garantire l'accesso protetto era particolarmente difficile con i dipendenti remoti di Aramex. L'azienda ora sta applicando l'accesso condizionale per consentire a questi dipendenti remoti di accedere alle applicazioni SaaS dall'esterno della rete. La regola di accesso condizionale decide se applicare Multi-Factor Authentication, concedendo solo agli utenti appropriati il diritto di accesso.
 
-Per altre informazioni sulle esperienze dei clienti e partner sull'accesso condizionale di Azure AD, vedere - [vedere le grandi cose che stanno usando Azure](https://azure.microsoft.com/case-studies/?service=active-directory).
+Per altre informazioni sulle esperienze dei clienti e dei partner sull'accesso condizionale Azure AD, visitare: [vedere le straordinarie attività svolte dagli utenti con Azure](https://azure.microsoft.com/case-studies/?service=active-directory).
 
 ## <a name="announcements"></a>Annunci
 
-Azure AD viene regolarmente migliorato. Per rimanere aggiornati con gli sviluppi più recenti, vedere [novità in Azure Active Directory?](../fundamentals/whats-new.md)
+Azure AD viene regolarmente migliorato. Per rimanere sempre aggiornati sugli sviluppi più recenti, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md)
 
-Blog recenti dal Tech Community e Microsoft Identity Division:
+Blog recenti della community di tecnologia e della divisione di identità Microsoft:
 
-* 24 settembre 2018 [accesso condizionale di Azure Active Directory in Azure Databricks](https://azure.microsoft.com/updates/azure-active-directory-conditional-access-in-azure-databricks/)
-* 21 settembre 2018 [accesso condizionale di Azure AD, i controlli personalizzati sono in anteprima pubblica](https://azure.microsoft.com/updates/azure-ad-conditional-access-custom-controls-are-in-public-preview/)
-* 21 settembre 2018 [supporto dell'accesso condizionale di Azure AD per l'accesso limitato con Microsoft Cloud App Security è ora disponibile](https://azure.microsoft.com/updates/azure-ad-conditional-access-support-for-limited-access-with-microsoft-cloud-app-security-is-now-available/)
-* 21 settembre 2018 [l'accesso condizionale di Azure AD: Supporto browser per le piattaforme iOS/Android ora disponibile in anteprima gestiti](https://azure.microsoft.com/updates/azure-ad-conditional-access-managed-browser-support-for-ios-android-platforms-now-in-preview/)
-* 21 settembre 2018 [l'accesso condizionale di Azure AD per i codici paese è disponibile in anteprima pubblica](https://azure.microsoft.com/updates/azure-ad-conditional-access-for-country-codes-is-in-public-preview/)
-* 21 settembre 2018 [AD Azure le condizioni d'uso è ora disponibile](https://azure.microsoft.com/updates/azure-ad-terms-of-use-now-available/)
+* 24 settembre 2018, [Azure Active Directory l'accesso condizionale in Azure Databricks](https://azure.microsoft.com/updates/azure-active-directory-conditional-access-in-azure-databricks/)
+* 21 settembre 2018, [Azure ad i controlli personalizzati dell'accesso condizionale sono disponibili in anteprima pubblica](https://azure.microsoft.com/updates/azure-ad-conditional-access-custom-controls-are-in-public-preview/)
+* 21 settembre 2018, [Azure ad il supporto dell'accesso condizionale per l'accesso limitato con Microsoft cloud app Security è ora disponibile](https://azure.microsoft.com/updates/azure-ad-conditional-access-support-for-limited-access-with-microsoft-cloud-app-security-is-now-available/)
+* 21 settembre 2018, [Azure ad l'accesso condizionale: Supporto per Managed browser per piattaforme iOS/Android ora in anteprima](https://azure.microsoft.com/updates/azure-ad-conditional-access-managed-browser-support-for-ios-android-platforms-now-in-preview/)
+* 21 settembre 2018, [Azure ad l'accesso condizionale per i codici paese è in versione di anteprima pubblica](https://azure.microsoft.com/updates/azure-ad-conditional-access-for-country-codes-is-in-public-preview/)
+* 21 settembre 2018, [Azure ad le condizioni di utilizzo sono ora disponibili](https://azure.microsoft.com/updates/azure-ad-terms-of-use-now-available/)
 
 ## <a name="learning-resources"></a>Risorse di formazione
 
-Seguire i collegamenti seguenti per ottenere una panoramica delle funzioni di accesso condizionale AD Azure.
+Per una panoramica su come Azure AD funzioni di accesso condizionale, seguire i collegamenti seguenti.
 
-* Informazioni su "[qual è l'accesso condizionale in Azure Active Directory?](overview.md)"
-* Conoscere "[quali sono le condizioni in Active Directory accesso condizionale di Azure?](conditions.md)"
-* Conoscere "[qual è la condizione della posizione in Active Directory accesso condizionale di Azure?](location-condition.md)"
-* Conoscere "[quali sono l'accesso consente di controllare in Azure Active Directory condizionale Access?](controls.md)"
-* Trovare "[che cos'è la cosa se strumento in Azure Active Directory l'accesso condizionale?"](what-if-tool.md)
-* Seguire [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md)
+* Informazioni sull'[accesso condizionale in Azure Active Directory](overview.md)
+* Conoscere "[quali sono le condizioni in Azure Active Directory l'accesso condizionale?](conditions.md)"
+* Conoscere "[Qual è la condizione di posizione in Azure Active Directory l'accesso condizionale?](location-condition.md)"
+* Conoscere "[quali sono i controlli di accesso in Azure Active Directory l'accesso condizionale?](controls.md)"
+* Individuare "[Qual è lo strumento di simulazione di simulazione in Azure Active Directory l'accesso condizionale?"](what-if-tool.md)
+* Seguire le [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md)
 
-Inoltre, vedere i collegamenti seguenti per informazioni aggiuntive proteggere l'accesso a tutti i servizi che vengono integrate con Azure Active Directory.
+Inoltre, fare riferimento ai collegamenti seguenti per indicazioni su come proteggere l'accesso a tutti i servizi integrati con Azure Active Directory.
 
-* [Che cos'è la protezione di base (anteprima)?](baseline-protection.md) Protezione di base garantisce che almeno il livello di base di sicurezza abilitato Azure Active Directory nell'ambiente in uso.
-* [Identità e dispositivo di accedere alle configurazioni](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations). Viene descritto come configurare l'accesso sicuro ai servizi cloud tramite Enterprise Mobility + prodotti per la sicurezza mediante l'implementazione di un ambiente consigliato e la configurazione, incluso un set prestabilito di criteri di accesso condizionale e le funzionalità correlate.
-* [Riferimento alle impostazioni di accesso condizionale di Active Directory Azure](technical-reference.md). Informazioni su:
-   * Quali App usano l'accesso condizionale?
+* [Che cos'è la protezione baseline (anteprima)?](baseline-protection.md) La protezione di base garantisce che sia stato abilitato almeno il livello di sicurezza Baseline nell'ambiente Azure Active Directory.
+* [Configurazioni di identità e accesso ai dispositivi](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations). Viene descritto come configurare l'accesso sicuro ai servizi cloud tramite Enterprise Mobility + Security prodotti implementando un ambiente e una configurazione consigliati, incluso un set di criteri di accesso condizionale e funzionalità correlate.
+* Informazioni di [riferimento sulle impostazioni di accesso condizionale Azure Active Directory](technical-reference.md). Imparare
+   * Quali app usano l'accesso condizionale?
    * Quali servizi sono abilitati con l'accesso condizionale?
-* [Abilitare l'accesso condizionale di Azure Active Directory per l'accesso sicuro](https://www.youtube.com/watch?v=eLAYBwjCGoA). Guarda questo video per scoprire come svolge un ruolo di accesso condizionale nei carichi di lavoro di altri Enterprise Mobility Suite.
+* [Abilitare l'accesso condizionale Azure Active Directory per l'accesso sicuro agli utenti](https://www.youtube.com/watch?v=eLAYBwjCGoA). Guardare questo video per informazioni su come l'accesso condizionale svolge un ruolo in altri carichi di lavoro di Enterprise e Mobility Suite.
 
 ### <a name="training-videos"></a>Video relativi alla formazione
 
@@ -84,77 +84,77 @@ Inoltre, vedere i collegamenti seguenti per informazioni aggiuntive proteggere l
 **Accesso condizionale basato su dispositivo**
    > [!VIDEO https://www.youtube.com/embed/AdM0zYB-3WQ]
 
-**Abilitare Azure Active Directory per l'accesso condizionale per l'accesso sicuro**
+**Abilitare Azure Active Directory per l'accesso condizionale per l'accesso utente sicuro**
    > [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
 ### <a name="online-courses"></a>Corsi online
 
-Vedere i seguenti corsi di accesso condizionale e altro ancora su [Pluralsight.com](https://www.pluralsight.com/):
+Vedere i corsi di accesso condizionale e altre informazioni su [pluralsight.com](https://www.pluralsight.com/):
 
-* Sito Pluralsight.com: [Struttura Identity Management in Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design)
-   * "Questo corso illustra gli elementi chiave che devi sapere per progettare la soluzione di gestione identità con Azure AD." Accesso condizionale di Azure AD viene descritta in "Using ruoli e controllo di accesso con Azure AD" modulo.
+* Pluralsight.com: [Progettazione della gestione delle identità in Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design)
+   * "Questo corso guida l'utente attraverso gli elementi chiave che è necessario comprendere per progettare la soluzione di gestione delle identità con Azure AD". Azure AD l'accesso condizionale viene trattato nel modulo "uso di ruoli e controllo di accesso con Azure AD".
 
-* Sito Pluralsight.com: [Autenticazione di progettazione per Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design)
-   * "Questo corso illustra come usare Azure AD per risolvere tutti i requisiti dell'autenticazione cloud." Accesso condizionale di Azure AD è illustrata nel modulo "Requisiti per diversi scenari di autenticazione".
+* Pluralsight.com: [Progettazione dell'autenticazione per Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design)
+   * "Questo corso illustra come usare Azure AD per risolvere tutti i requisiti di autenticazione cloud". Azure AD l'accesso condizionale viene trattato nel modulo "requisiti di autenticazione per diversi scenari".
 
-* Sito Pluralsight.com: [Autorizzazione di progettazione per Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design)
-   * "Questo corso illustra le opzioni di autorizzazione disponibili con Azure e Azure AD." Accesso condizionale di Azure AD è illustrata nel modulo di "Autorizzazione con Azure AD e Azure Resource Manager".
+* Pluralsight.com: [Autorizzazione di progettazione per Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design)
+   * "Questo corso insegna le opzioni di autorizzazione disponibili con Azure e Azure AD". Azure AD l'accesso condizionale viene trattato nel modulo "autorizzazione con Azure Resource Manager e Azure AD".
 
-### <a name="books"></a>Documentazione
+### <a name="books"></a>Libri
 
-* O ' Reilly - [implementazione di soluzioni di Azure - Second Edition.](https://www.oreilly.com/library/view/implementing-azure-solutions/9781789343045/b7ead3db-eb1c-4ace-897e-86ee25ea86be.xhtml)
-   * "Ottieni operatività con servizi di Azure e Scopri come implementarle nella propria organizzazione. Accesso condizionale di Azure AD viene descritta nel capitolo [alla distribuzione e la sincronizzazione di Azure Active Directory](https://learning.oreilly.com/library/view/implementing-azure-solutions/9781789343045/02ca8bba-08cf-4691-a7d0-1b96e286e7ea.xhtml). "
+* Reilly- [implementazione di soluzioni di Azure-seconda edizione.](https://www.oreilly.com/library/view/implementing-azure-solutions/9781789343045/b7ead3db-eb1c-4ace-897e-86ee25ea86be.xhtml)
+   * "È possibile iniziare a usare i servizi di Azure per apprendere come implementarli nella propria organizzazione. Azure AD l'accesso condizionale viene trattato nel capitolo [distribuzione e sincronizzazione Azure Active Directory](https://learning.oreilly.com/library/view/implementing-azure-solutions/9781789343045/02ca8bba-08cf-4691-a7d0-1b96e286e7ea.xhtml). "
 
-* Wiley- [Mastering servizi infrastruttura di Microsoft Azure](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
-   * "Here is tutto quello che devi comprendere, valutare, distribuire e gestire ambienti che utilizzano Microsoft Azure."
+* Wiley- [mastering Microsoft Azure servizi infrastruttura](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
+   * "Ecco tutto quello che ti serve per comprendere, valutare, distribuire e gestire gli ambienti che usano Microsoft Azure".
 
 ## <a name="white-papers"></a>White paper
 
-* Pubblicato 18 dicembre 2018 [creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory](../authentication/concept-resilient-controls.md)
-   * Questo documento fornisce materiale sussidiario sulle strategie di un'organizzazione potrebbe adottare per garantire la resilienza per ridurre il rischio di errori di blocco durante interruzioni impreviste.
+* Pubblicata il 18 dicembre 2018, [creare una strategia di gestione del controllo di accesso resiliente con Azure Active Directory](../authentication/concept-resilient-controls.md)
+   * In questo documento vengono fornite indicazioni sulle strategie che un'organizzazione può adottare per fornire resilienza per ridurre il rischio di blocco durante le rotture impreviste.
 
-* Pubblicato il 18 settembre 2018 [risorse per la migrazione delle applicazioni ad Azure Active Directory](../manage-apps/migration-resources.md)
-   * Questo white paper include un elenco di risorse che consentono di eseguire la migrazione di accesso alle applicazioni e l'autenticazione ad Azure Active Directory (Azure AD).
+* Pubblicato il 18 settembre 2018, [risorse per la migrazione di applicazioni a Azure Active Directory](../manage-apps/migration-resources.md)
+   * Questo white paper include un elenco di risorse che consentono di eseguire la migrazione dell'accesso alle applicazioni e dell'autenticazione a Azure Active Directory (Azure AD).
 
-* Pubblicato il 12 luglio 2018 [Azure Security and Compliance Blueprint: Applicazione Web PaaS di Hosting per i carichi di lavoro ufficiale nel Regno Unito](../../security/blueprints/ukofficial-paaswa-overview.md)
+* Pubblicato il 12 luglio 2018 [progetto di sicurezza e conformità di Azure: Applicazione Web PaaS che ospita i carichi di lavoro ufficiali del Regno Unito](../../security/blueprints/ukofficial-paaswa-overview.md)
    * I progetti di Azure sono costituiti da documenti con linee guida e modelli di automazione che consentono di distribuire architetture basate sul cloud per offrire soluzioni per scenari con requisiti di accreditamento o di conformità.
 
 ## <a name="guidance-for-it-administrators"></a>Linee guida per gli amministratori IT
 
-Accedi per il [portale di Azure](https://portal.azure.com/) come un amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale. Fare riferimento a [autorizzazioni del ruolo amministratore in Azure Active Directory.](../users-groups-roles/directory-assign-admin-roles.md)
+Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale. Fare riferimento alle [autorizzazioni del ruolo amministratore in Azure Active Directory.](../users-groups-roles/directory-assign-admin-roles.md)
 
-Gli amministratori IT, utilizzare [accesso condizionale di Azure AD](overview.md) per richiedere agli utenti di eseguire l'autenticazione tramite Azure multi-Factor Authentication, accedere da una rete attendibile, o un dispositivo attendibile.
+In qualità di amministratore IT, usare [Azure ad accesso condizionale](overview.md) per richiedere agli utenti di eseguire l'autenticazione con multi-factor authentication di Azure, accedere da una rete attendibile o da un dispositivo attendibile.
 
-Ecco i collegamenti utili che consentono di iniziare:
+Di seguito sono riportati i collegamenti utili per iniziare:
 
-* [Le procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md)
-* [Verifiche di accesso di Usa Azure AD per gestire gli utenti che sono stati esclusi dai criteri di accesso condizionale](../governance/conditional-access-exclusion.md)
-* [Procedure: Pianificare la distribuzione di accesso condizionale in Azure Active Directory](plan-conditional-access.md)
-* [Avvio rapido: Richiedere l'autenticazione MFA per App specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md)
+* [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md)
+* [Usare le verifiche di accesso Azure AD per gestire gli utenti che sono stati esclusi dai criteri di accesso condizionale](../governance/conditional-access-exclusion.md)
+* [Procedura: Pianificare la distribuzione dell'accesso condizionale in Azure Active Directory](plan-conditional-access.md)
+* [Avvio rapido: Richiedere l'autenticazione a più fattori per app specifiche con Azure Active Directory accesso condizionale](app-based-mfa.md)
 * [Avvio rapido: Richiedere l'accettazione delle condizioni per l'utilizzo prima dell'accesso alle app cloud](require-tou.md)
-* [Avvio rapido: Bloccare l'accesso quando viene rilevato un rischio per la sessione con Azure Active Directory l'accesso condizionale](app-sign-in-risk.md)
-* [Domande frequenti sull'accesso condizionale di Azure AD](faqs.md)
-   * Per ulteriori domande, è anche possibile visualizzare il [forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&sort=relevancedesc&brandIgnore=True&searchTerm=password+reset+azure).
-   * Se non si trova la risposta a un problema, i team di supporto sono sempre disponibili per offrire maggiore assistenza. Uso [supporto tecnico Microsoft di contatto](../authentication/active-directory-passwords-troubleshoot.md#contact-microsoft-support).
+* [Avvio rapido: Blocca l'accesso quando viene rilevato un rischio di sessione con Azure Active Directory l'accesso condizionale](app-sign-in-risk.md)
+* [Domande frequenti sull'accesso condizionale Azure AD](faqs.md)
+   * Per altre domande, è anche possibile visualizzare il [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&sort=relevancedesc&brandIgnore=True&searchTerm=password+reset+azure).
+   * Se non si riesce a trovare la risposta a un problema, i team di supporto sono sempre disponibili per assistenza. Utilizzare [contattare il supporto tecnico Microsoft](../authentication/active-directory-passwords-troubleshoot.md#contact-microsoft-support).
 
 ### <a name="tutorials"></a>Esercitazioni
 
-* [**Avvio rapido: Richiedere l'autenticazione MFA per App specifiche con Azure Active Directory l'accesso condizionale**](app-based-mfa.md)
-   * Questa Guida introduttiva illustra come configurare un criterio di accesso condizionale di Azure AD che richiede l'autenticazione a più fattori per un'app cloud selezionate nell'ambiente in uso.
+* [**Avvio rapido: Richiedere l'autenticazione a più fattori per app specifiche con Azure Active Directory accesso condizionale**](app-based-mfa.md)
+   * Questa Guida introduttiva illustra come configurare un Azure AD criteri di accesso condizionale che richiedono l'autenticazione a più fattori per un'app Cloud selezionata nell'ambiente in uso.
 
-* [**Avvio rapido: Richiedere le condizioni d'uso da accettare prima di accedere all'App cloud**](require-tou.md)
-   * Questa Guida introduttiva illustra come configurare un criterio di accesso condizionale di Azure AD che richiede un ToU venga accettata per un'app cloud selezionate nell'ambiente in uso.
+* [**Avvio rapido: Richiedi l'accettazione delle condizioni per l'utilizzo prima di accedere alle app Cloud**](require-tou.md)
+   * Questa Guida introduttiva illustra come configurare un criterio di accesso condizionale Azure AD che richiede l'accettazione di una ToU per un'app Cloud selezionata nell'ambiente in uso.
 
-* [**Avvio rapido: Bloccare l'accesso quando viene rilevato un rischio per la sessione con Azure Active Directory l'accesso condizionale**](app-sign-in-risk.md)
-   * Questa Guida introduttiva illustra come configurare un criterio di accesso condizionale che blocca l'accesso quando viene rilevato un livello di rischio di accesso configurati.
+* [**Avvio rapido: Blocca l'accesso quando viene rilevato un rischio di sessione con Azure Active Directory l'accesso condizionale**](app-sign-in-risk.md)
+   * Questa Guida introduttiva illustra come configurare un criterio di accesso condizionale che blocca l'accesso quando è stato rilevato un livello di rischio di accesso configurato.
 
 * [Esercitazione: **Eseguire la migrazione di criteri classici che richiedono l'autenticazione a più fattori nel portale di Azure**](policy-migration-mfa.md)
-   * Questa esercitazione illustra come eseguire la migrazione di un criterio classico che richiede l'autenticazione a più fattori (MFA) per un'app cloud.
+   * Questa esercitazione illustra come eseguire la migrazione di criteri classici che richiedono l'autenticazione a più fattori per un'app cloud.
 
-## <a name="end-user-readiness-and-communication"></a>Comunicazione e la conformità degli utenti finali
+## <a name="end-user-readiness-and-communication"></a>Conformità e comunicazione per gli utenti finali
 
-Accesso condizionale Usa altre funzionalità di Azure AD che potrebbero incidere sull'esperienza dell'utente finale. Ad esempio, è possibile usare Azure multi-factor authentication per abilitare l'autenticazione avanzata per gli utenti. In tal caso, si utilizzerà i modelli di dati gestito dall'utente di Azure MFA.
+L'accesso condizionale usa altre funzionalità Azure AD che possono influire sull'esperienza dell'utente finale. Ad esempio, è possibile usare l'autenticazione a più fattori di Azure per abilitare l'autenticazione avanzata per gli utenti. In tal caso, si utilizzeranno i modelli dell'utente finale di autenticazione a più fattori di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Avviare la distribuzione con il [distribuzione di accesso condizionale documentazione sulla pianificazione](plan-conditional-access.md).
+* Avviare la distribuzione con la [documentazione relativa alla pianificazione della distribuzione dell'accesso condizionale](plan-conditional-access.md).

@@ -4,14 +4,14 @@ description: Prerequisiti per l'uso della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7bd1268784df50168e03673ac809b3a5854e2be7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 50c60e38b58815be04cfb892c3622b9579529e67
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775338"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036862"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -22,7 +22,7 @@ Prima di usare la portale di Azure per creare una nuova cache HPC di Azure, assi
 È consigliabile usare una sottoscrizione A pagamento.
 
 > [!NOTE]
-> Durante la versione di anteprima pubblica, il team di cache HPC di Azure deve aggiungere la sottoscrizione all'elenco di accesso prima di poterla usare per creare un'istanza della cache. Questa procedura consente di garantire che ogni cliente ottenga una risposta di alta qualità dalle cache di test. Compilare [questo modulo](https://aka.ms/onboard-hpc-cache) per richiedere l'accesso.
+> Durante la versione di anteprima, il team di cache HPC di Azure deve aggiungere la sottoscrizione all'elenco di accesso prima di poterla usare per creare un'istanza della cache. Questa procedura consente di garantire che ogni cliente ottenga una risposta di alta qualità dalle cache di test. Compilare [questo modulo](https://aka.ms/onboard-hpc-cache) per richiedere l'accesso.
 
 ## <a name="network-infrastructure"></a>Infrastruttura di rete
 

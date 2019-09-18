@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 2f0f3d70d51ff35e37506eab1082fc07b16e711c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4074f26cdefd650c1b927293f422623841dfff7d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018772"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073697"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB 
 
@@ -60,7 +60,7 @@ Il normale ciclo di vita di un'istanza dell'host è:
 1. Leggere il feed delle modifiche.
 1. Se non sono state apportate modifiche, sospendere per un periodo di tempo predefinito ( `WithPollInterval` personalizzabile con nel generatore) e passare a #1.
 1. Se sono presenti modifiche, inviarle al **delegato**.
-1. Al termine dell'elaborazione delle modifiche daparte del delegato, aggiornare l'archivio dei lease con l'ultimo momento elaborato e passare a #1.
+1. Al termine dell'elaborazione **delle modifiche da**parte del delegato, aggiornare l'archivio dei lease con l'ultimo momento elaborato e passare a #1.
 
 ## <a name="error-handling"></a>Gestione degli errori
 
@@ -92,8 +92,9 @@ Vengono addebitati i costi per le UR utilizzate, in quanto lo spostamento dei da
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile passare ad altre informazioni sul processore di feed di modifiche negli articoli seguenti:
+È ora possibile procedere ad acquisire altre informazioni sul processore di feed di modifiche negli articoli seguenti:
 
 * [Panoramica del feed di modifiche](change-feed.md)
-* [Uso dello strumento di stima del feed delle modifiche](how-to-use-change-feed-estimator.md)
-* [Ora di inizio del processore del feed di modifiche](how-to-configure-change-feed-start-time.md)
+* [Come eseguire la migrazione dalla libreria del processore dei feed delle modifiche](how-to-migrate-from-change-feed-library.md)
+* [Uso dello strumento di stima di feed di modifiche](how-to-use-change-feed-estimator.md)
+* [Ora di avvio del processore di feed di modifiche](how-to-configure-change-feed-start-time.md)

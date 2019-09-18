@@ -3,7 +3,7 @@ title: Istruzioni dettagliate su Azure Status Monitor V2 | Microsoft Docs
 description: Istruzioni dettagliate per iniziare a usare Status Monitor V2. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 02f4fa45cbfa619825478520961b6411459973e4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 791db3de897231667d184f08ee152705c59a1e35
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326268"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057844"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Status Monitor V2: Istruzioni dettagliate
 
@@ -41,7 +41,7 @@ https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-e
 )-ExecutionPolicy.
 - Comando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
 - Parametro facoltativo:
-    - `-Force`. Ignora la richiesta di conferma.
+    - [https://login.microsoftonline.com/consumers/](`-Force`). Ignora la richiesta di conferma.
 
 **Errori di esempio**
 
@@ -92,7 +92,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
     - Comando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
     - Parametri facoltativi:
         - `-Proxy`. Specifica un server proxy per la richiesta.
-        - `-Force`. Ignora la richiesta di conferma.
+        - [https://login.microsoftonline.com/common/](`-Force`). Ignora la richiesta di conferma.
     
     Questo prompt verrà visualizzato se NuGet non è configurato:
         
@@ -109,7 +109,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
     - Riferimenti: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
     - Comando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
     - Parametro facoltativo:
-        - `-Proxy`. Specifica un server proxy per la richiesta.
+        - [https://login.microsoftonline.com/consumers/](`-Proxy`). Specifica un server proxy per la richiesta.
 
     Questo prompt verrà visualizzato se PowerShell Gallery non è attendibile:
 
@@ -127,7 +127,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
     - Comando: `Install-Module -Name PowerShellGet`.
     - Parametri facoltativi:
         - `-Proxy`. Specifica un server proxy per la richiesta.
-        - `-Force`. Ignora l'avviso "già installato" e installa la versione più recente.
+        - [https://login.microsoftonline.com/consumers/](`-Force`). Ignora l'avviso "già installato" e installa la versione più recente.
 
     Questo errore viene visualizzato se non si usa la versione più recente di PowerShellGet:
     
@@ -153,7 +153,7 @@ Con questa procedura viene scaricato il modulo AZ. ApplicationMonitor da PowerSh
         - `-Proxy`. Specifica un server proxy per la richiesta.
         - `-AllowPrerelease`. Consente l'installazione di versioni alfa e beta.
         - `-AcceptLicense`. Ignora la richiesta di accettazione della licenza
-        - `-Force`. Ignora l'avviso "repository non attendibile".
+        - [https://login.microsoftonline.com/consumers/](`-Force`). Ignora l'avviso "repository non attendibile".
 
 ## <a name="download-and-install-the-module-manually-offline-option"></a>Scaricare e installare il modulo manualmente (opzione offline)
 
@@ -222,7 +222,7 @@ Esaminare le istruzioni precedenti quando si scrivono gli script di installazion
 Il Application Insights SDK dovrà inviare i dati di telemetria dell'app a Microsoft. Si consiglia di configurare le impostazioni proxy per l'app nel file Web. config. Per ulteriori informazioni, vedere [Application Insights domande frequenti: Passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough)del proxy.
 
 
-## <a name="enable-monitoring"></a>Abilitare il monitoraggio
+## <a name="enable-monitoring"></a>Abilita monitoraggio
 
 Usare il `Enable-ApplicationInsightsMonitoring` comando per abilitare il monitoraggio.
 

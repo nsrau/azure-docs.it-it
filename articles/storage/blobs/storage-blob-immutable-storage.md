@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: aa6bee9cceffc0252dd39d85ebe9d70625e33419
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941943"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036400"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
 
@@ -53,9 +53,9 @@ Anche l'eliminazione di contenitori e account non è consentita se sono presenti
 ### <a name="time-based-retention"></a>Conservazione basata sul tempo
 
 > [!IMPORTANT]
-> Un criterio di conservazione basato sul tempo deve essere *bloccato* affinché il BLOB sia in uno stato non modificabile conforme (scrittura ed eliminazione protetta) per i secondi 17a-4 (f) e altre normative di conformità. Si consiglia di bloccare il criterio in un periodo di tempo ragionevole, in genere inferiore a 24 ore. Lo stato iniziale di un criterio di conservazione basato sul tempo applicatoviene sbloccato, consentendo di testare la funzionalità e apportare modifiche ai criteri prima di bloccarlo. Sebbene lo stato sbloccato fornisca la protezione dell'immutabilità, non è consigliabile usare lo stato *sbloccato* per qualsiasi scopo, ad eccezione delle versioni di valutazione a breve termine delle funzionalità. 
+> Un criterio di conservazione basato sul tempo deve essere *bloccato* affinché il BLOB sia in uno stato non modificabile conforme (scrittura ed eliminazione protetta) per i secondi 17a-4 (f) e altre normative di conformità. Si consiglia di bloccare il criterio in un periodo di tempo ragionevole, in genere inferiore a 24 ore. Lo stato iniziale di un criterio di conservazione basato sul tempo applicato viene *sbloccato*, consentendo di testare la funzionalità e apportare modifiche ai criteri prima di bloccarlo. Sebbene lo stato *sbloccato* fornisca la protezione dell'immutabilità, non è consigliabile usare lo stato *sbloccato* per qualsiasi scopo, ad eccezione delle versioni di valutazione a breve termine delle funzionalità. 
 
-Quando vengono applicati criteri di conservazione basati sul tempo a un contenitore, tutti i BLOB nel contenitore rimangono nello stato non modificabile per la durata del periodo di conservazione *effettivo*. Il periodo di conservazione effettivo per i BLOB esistenti è uguale alla differenza tra l'ora di modifica del BLOB e l'intervallo di conservazione specificato dall'utente.
+Quando vengono applicati criteri di conservazione basati sul tempo a un contenitore, tutti i BLOB nel contenitore rimangono nello stato non modificabile per la durata del periodo di conservazione *effettivo*. Il periodo di conservazione effettivo per i BLOB esistenti è uguale alla differenza tra l'ora di creazione del BLOB e il periodo di conservazione specificato dall'utente.
 
 Per i nuovi BLOB, il periodo di conservazione effettivo è uguale all'intervallo di conservazione specificato dall'utente. Poiché gli utenti possono estendere l'intervallo di conservazione, l'archiviazione non modificabile usa il valore più recente dell'intervallo di conservazione specificato dall'utente per calcolare il periodo di conservazione effettivo.
 
@@ -175,7 +175,7 @@ Sì. Per documentare la conformità, Microsoft ha mantenuto una società di valu
 
 **La funzionalità si applica solo ai BLOB in blocchi o anche ai BLOB di pagine e di aggiunta?**
 
-L'archiviazione non modificabile può essere usata con qualsiasi tipo di BLOB perché è impostata a livello di contenitore, ma è consigliabile usare WORM per i contenitori che prevedono principalmente l'archiviazione di BLOB in blocchi. A differenza dei BLOB in blocchi, è necessario creare eventuali nuovi BLOB di pagine e BLOB di Accodamento all'esterno di un contenitore di WORM, quindi copiarli in. Dopo aver copiato questi BLOB in un contenitore WORM, non sono consentiti altri accodamenti a un BLOB di accodamento o modifiche a un BLOB di pagine. L'impostazione di un criterio WORM in un contenitore che archivia dischi rigidi virtuali (BLOB di pagine) per le macchine virtuali attive è pertanto fortemente sconsigliata perché bloccherà il disco della VM.
+L'archiviazione non modificabile può essere usata con qualsiasi tipo di BLOB perché è impostata a livello di contenitore, ma è consigliabile usare WORM per i contenitori che prevedono principalmente l'archiviazione di BLOB in blocchi. A differenza dei BLOB in blocchi, è necessario creare eventuali nuovi BLOB di pagine e BLOB di Accodamento all'esterno di un contenitore di WORM, quindi copiarli in. Dopo aver copiato questi BLOB in un contenitore WORM, non sono consentiti altri *accodamenti* a un BLOB di accodamento o modifiche a un BLOB di pagine. L'impostazione di un criterio WORM in un contenitore che archivia dischi rigidi virtuali (BLOB di pagine) per le macchine virtuali attive è pertanto fortemente sconsigliata perché bloccherà il disco della VM.
 
 **È necessario creare un nuovo account di archiviazione per usare questa funzionalità?**
 
@@ -189,7 +189,7 @@ Sì, un contenitore può avere contemporaneamente un criterio di conservazione e
 
 No, l'esenzione legale è solo il termine generico usato per un criterio di conservazione non basato sul tempo. Non è necessario usarlo solo per le procedure correlate ai contenziosi. I criteri di conservazione validi sono utili per disabilitare la sovrascrittura e le eliminazioni per la protezione di importanti dati WORM aziendali, in cui il periodo di conservazione è sconosciuto. È possibile usarlo come criterio aziendale per proteggere i carichi di lavoro di un WORM cruciale o usarlo come criterio di gestione temporanea prima che un trigger di evento personalizzato richieda l'uso di un criterio di conservazione basato sul tempo. 
 
-**È possibile rimuovere un criterio di conservazione basato sul tempo *bloccato* o un blocco legale?**
+**È possibile rimuovere un criterio di conservazione basato sul tempo _bloccato_ o un blocco legale?**
 
 Solo i criteri di conservazione basati sul tempo sbloccati possono essere rimossi da un contenitore. Quando un criterio di conservazione basato sul tempo è bloccato, non può essere rimosso. sono consentite solo le estensioni del periodo di memorizzazione effettivo. I tag di esenzione legali possono essere eliminati. Quando vengono eliminati tutti i tag legali, viene rimossa la tenuta legale.
 
@@ -211,7 +211,7 @@ In caso di mancato pagamento, verranno applicati i normali criteri di conservazi
 
 **È disponibile una versione di valutazione o un periodo di tolleranza per provare la funzionalità?**
 
-Sì. Quando un criterio di conservazione basato sul tempo viene creato per la prima volta, è in uno stato sbloccato. In questo stato è possibile apportare qualsiasi modifica all'intervallo di conservazione, ad esempio aumentandolo o riducendolo, ed è anche possibile eliminare i criteri. Dopo che sono stati bloccati, i criteri rimangono bloccati fino alla scadenza dell'intervallo di conservazione. Questo criterio bloccato impedisce l'eliminazione e la modifica dell'intervallo di conservazione. È consigliabile usare lo stato *sbloccato* solo per scopi di valutazione e bloccare i criteri entro un periodo di 24 ore. Ciò consente la conformità a SEC 17a-4(f) e altre normative.
+Sì. Quando un criterio di conservazione basato sul tempo viene creato per la prima volta, è in uno stato *sbloccato* . In questo stato è possibile apportare qualsiasi modifica all'intervallo di conservazione, ad esempio aumentandolo o riducendolo, ed è anche possibile eliminare i criteri. Dopo che sono stati bloccati, i criteri rimangono bloccati fino alla scadenza dell'intervallo di conservazione. Questo criterio bloccato impedisce l'eliminazione e la modifica dell'intervallo di conservazione. È consigliabile usare lo stato *sbloccato* solo per scopi di valutazione e bloccare i criteri entro un periodo di 24 ore. Ciò consente la conformità a SEC 17a-4(f) e altre normative.
 
 **È possibile usare l'eliminazione temporanea insieme ai criteri BLOB non modificabili?**
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94d34c8a9a3480032a79d100af883a85868d327e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 878e79097114f60aff084d60c835661196cec5ce
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478477"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076016"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -51,7 +51,7 @@ I requisiti minimi per un ruolo di lavoro ibrido per runbook di Linux sono i seg
 |Glibc |Libreria GNU C| 2.5-12 |
 |Openssl| Librerie OpenSSL | 1.0 (sono supportati TLS 1.1 e TLS 1.2)|
 |Curl | Client Web cURL | 7.15.5|
-|Python-ctypes | |
+|Python-ctypes | Python 2. x è obbligatorio |
 |PAM | Moduli di autenticazione modulare|
 | **Pacchetto facoltativo** | **Descrizione** | **Versione minima**|
 | PowerShell Core | Per eseguire i runbook di PowerShell, PowerShell deve essere installato. Vedere [installazione di PowerShell Core in Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) per informazioni su come installarlo.  | 6.0.0 |
@@ -62,7 +62,7 @@ Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è col
 
 1. Abilitare la soluzione **Ruolo di lavoro ibrido per runbook di Automazione** in Azure usando uno dei metodi seguenti:
 
-   * Aggiungi il **Automation Hybrid Worker** soluzioni alla sottoscrizione usando la procedura alla [aggiungere monitoraggio di Azure registra le soluzioni nell'area di lavoro](../log-analytics/log-analytics-add-solutions.md).
+   * Aggiungere la soluzione **ruolo di lavoro ibrido per Runbook di automazione** alla sottoscrizione usando la procedura descritta in [aggiungere soluzioni di log di monitoraggio di Azure all'area di lavoro](../log-analytics/log-analytics-add-solutions.md).
    * Eseguire il cmdlet seguente:
 
         ```azurepowershell-interactive
@@ -86,11 +86,11 @@ Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è col
 1. Dopo il completamento del comando, nella pagina **Gruppi di ruoli di lavoro ibridi** nel portale di Azure vengono visualizzati il nuovo gruppo e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo nell'elenco della pagina **Gruppi di ruoli di lavoro ibridi** e selezionare il riquadro **Ruoli di lavoro per runbook**. Nella pagina **Ruoli di lavoro per runbook** sono elencati i membri del gruppo.
 
 > [!NOTE]
-> Se si usa l'estensione di macchina virtuale di monitoraggio di Azure per Linux per una macchina virtuale di Azure è consigliabile impostare `autoUpgradeMinorVersion` su false come automaticamente l'aggiornamento di versioni può causare problemi di lavoro ibrido per Runbook. Per informazioni su come aggiornare manualmente l'estensione, vedere [distribuzione di Azure CLI ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+> Se si usa l'estensione della macchina virtuale di monitoraggio di Azure per Linux per una macchina virtuale di `autoUpgradeMinorVersion` Azure, è consigliabile impostare su false perché le versioni di aggiornamento automatico possono causare problemi al ruolo di lavoro ibrido per Runbook. Per informazioni su come aggiornare manualmente l'estensione, vedere [distribuzione dell'interfaccia ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)della riga di comando di Azure.
 
 ## <a name="turning-off-signature-validation"></a>Disattivazione della convalida della firma
 
-Per impostazione predefinita, i ruoli di lavoro ibridi per runbook di Linux richiedono la convalida della firma. Se si esegue un runbook non firmato su un ruolo di lavoro, viene visualizzato un errore che indica "Convalida firma non riuscita". Per disattivare la convalida della firma, eseguire il comando seguente. Sostituire il secondo parametro con l'ID. area di lavoro di log analitica
+Per impostazione predefinita, i ruoli di lavoro ibridi per runbook di Linux richiedono la convalida della firma. Se si esegue un runbook non firmato su un ruolo di lavoro, viene visualizzato un errore che indica "Convalida firma non riuscita". Per disattivare la convalida della firma, eseguire il comando seguente. Sostituire il secondo parametro con l'ID dell'area di lavoro di log Analytics.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>

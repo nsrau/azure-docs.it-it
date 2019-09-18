@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7683812c5ee98d21d5aa8191a88926669b2ed120
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6485b7c102977f4fb6963418084f4da050c68558
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102373"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036516"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Esercitazione: Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
@@ -81,6 +81,9 @@ Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di
    | Conferma |Usare le impostazioni predefinite a meno a meno che non si usino spazi di archiviazione. Vedere la nota che segue questa tabella. |
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Impostare l'indirizzo IP del cluster di failover di Windows Server
+
+  > [!NOTE]
+  > In Windows Server 2019, il cluster crea un **nome di server distribuito** anziché il **nome di rete del cluster**. Se si usa Windows Server 2019, ignorare tutti i passaggi che fanno riferimento al nome principale del cluster in questa esercitazione. È possibile creare un nome di rete cluster usando [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Esaminare il cluster [di failover del Blog: Oggetto](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) rete cluster per ulteriori informazioni. 
 
 1. In **Gestione cluster di failover** scorrere verso il basso fino a **Risorse principali del cluster** ed espandere i dettagli del cluster. Lo stato visualizzato di entrambe le risorse **Nome** e **Indirizzo IP** deve essere **Operazione non riuscita**. La risorsa indirizzo IP non può essere portata online perché al cluster è assegnato lo stesso indirizzo IP del computer, quindi si tratta di un indirizzo duplicato.
 
@@ -399,7 +402,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare il probe di integrità del listener nel modo seguente:
 
-   | Impostazione | Descrizione | Esempio
+   | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
@@ -442,7 +445,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare il probe di integrità dell'indirizzo IP principale del cluster WSFC come segue:
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | WSFCEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
@@ -456,7 +459,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare le regole di bilanciamento del carico dell'indirizzo IP principale del cluster come indicato di seguito.
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | WSFCEndPoint |
    | **Indirizzo IP front-end IP** | Scegli un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. Questo comportamento è diverso dall'indirizzo IP del listener |

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/01/2019
-ms.openlocfilehash: ed2ba70b803940700044e900a1b2bb6607c0f051
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/01/2019
+ms.openlocfilehash: dcb0fe4da968408a261e387c636cc548fa757a09
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934058"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036663"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -79,7 +79,7 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
 
 1. In **Crea gateway di connessione**fornire queste informazioni per la risorsa del gateway. Al termine, selezionare **Crea**.
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Descrizione |
    |----------|-------------|
    | **Nome risorsa** | Nome della risorsa del gateway, che può contenere solo lettere, numeri, trattini`-`(), caratteri di sottolineatura (`_`),`(`parentesi `)`(,) e punti`.`(). |
    | **Sottoscrizione** | La sottoscrizione di Azure, che deve corrispondere all'installazione del gateway e all'app per la logica. La sottoscrizione predefinita si basa sull'account di Azure usato per accedere. |
@@ -149,7 +149,7 @@ Per creare una risorsa del gateway diversa, collegare l'installazione del gatewa
 
 1. Se non è già selezionato, nel menu della risorsa del gateway selezionare **Gateway dati locale**. Sulla barra degli strumenti delle risorse del gateway selezionare **Elimina**.
 
-   Ad esempio:
+   Esempio:
 
    ![Elimina gateway](./media/logic-apps-gateway-connection/gateway-delete.png)
 

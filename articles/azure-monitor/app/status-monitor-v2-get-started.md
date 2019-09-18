@@ -3,7 +3,7 @@ title: Azure Status Monitor V2-introduzione | Microsoft Docs
 description: Guida introduttiva per Status Monitor V2. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: a0c836c8ef947e190a0090b3435eec1c53ded436
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d9c354edac3cbd3faccaa261654e56f858befdf6
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326250"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058245"
 ---
-# <a name="get-started-with-status-monitor-v2"></a>Introduzione a Status Monitor V2
+# <a name="get-started-with-status-monitor-v2"></a>Introduzione a Status Monitor v2
 
 Questo articolo contiene i comandi di avvio rapido che dovrebbero funzionare per la maggior parte degli ambienti.
 Le istruzioni dipendono dalla PowerShell Gallery per la distribuzione degli aggiornamenti.
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="download-and-install-via-powershell-gallery"></a>Scaricare e installare tramite PowerShell Gallery
 
-### <a name="install-prerequisites"></a>Installare i componenti prerequisiti
+### <a name="install-prerequisites"></a>Installazione dei prerequisiti
 Eseguire PowerShell come amministratore.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -48,7 +48,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ``` 
 
-### <a name="enable-monitoring"></a>Abilitare il monitoraggio
+### <a name="enable-monitoring"></a>Abilita monitoraggio
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -67,7 +67,7 @@ $pathToNupkg | rename-item -newname $pathToZip
 $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.ApplicationMonitor"
 Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
-### <a name="enable-monitoring"></a>Abilitare il monitoraggio
+### <a name="enable-monitoring"></a>Abilita monitoraggio
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```

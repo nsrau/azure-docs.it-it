@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3c728660f1a77c02f1e4b5fdeb467a7dbba4e36a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fec742766cebeb5b1d82655e09af77a888c375c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512650"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063683"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico autocertificato nei criteri personalizzati di Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Tutte le interazioni in Azure Active Directory (Azure AD) B2C in cui è previsto che l'utente immetta un input sono profili tecnici autocertificati, ad esempio una pagina di registrazione, una pagina di accesso o una pagina di reimpostazione della password.
+Tutte le interazioni in Azure Active Directory B2C (Azure AD B2C) in cui l'utente deve fornire l'input sono profili tecnici autocertificati. ad esempio una pagina di registrazione, una pagina di accesso o una pagina di reimpostazione della password.
 
 ## <a name="protocol"></a>Protocol
 
@@ -34,7 +34,7 @@ L'esempio seguente illustra un profilo tecnico autocertificato per l'iscrizione 
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 ```
- 
+
 ## <a name="input-claims"></a>Attestazioni di input
 
 In un profilo tecnico autocertificato è possibile usare gli elementi **InputClaims** e **InputClaimsTransformations** per popolare automaticamente il valore delle attestazioni che vengono visualizzate nella pagina autocertificata (attestazioni di output). Nei criteri del profilo di modifica ad esempio il percorso utente legge prima il profilo utente dal servizio directory di Azure AD B2C, quindi il profilo tecnico autocertificato imposta le attestazioni di input con i dati utente archiviati nel profilo utente. Queste attestazioni vengono raccolte dal profilo utente e successivamente presentate all'utente che può quindi modificare i dati esistenti.
@@ -55,7 +55,7 @@ In un profilo tecnico autocertificato è possibile usare gli elementi **InputCla
 
 L'elemento **OutputClaims** contiene un elenco di attestazioni da presentare per raccogliere i dati dall'utente. Per popolare automaticamente le attestazioni di output con alcuni valori, usare le attestazioni di input precedentemente descritte. L'elemento può contenere anche un valore predefinito. L'ordine delle attestazioni in **OutputClaims** controlla l'ordine in cui Azure AD B2C esegue il rendering delle attestazioni sullo schermo. L'attributo **DefaultValue** diventa effettivo solo se l'attestazione non è mai stata impostata prima. Se invece l'attestazione è stata impostata in un passaggio di orchestrazione precedente, anche se l'utente lascia vuoto il valore, il valore predefinito non diventa effettivo. Per forzare l'utilizzo di un valore predefinito, impostare l'attributo **AlwaysUseDefaultValue** su `true`. Per forzare l'utente a specificare un valore per un'attestazione di output specifica, impostare l'attributo **Required** dell'elemento **OutputClaims** su `true`.
 
-L'elemento **ClaimType** nella raccolta di **OutputClaims** deve impostare l'elemento **UserInputType** su un qualsiasi tipo di input utente supportato da Azure AD B2C, ad esempio `TextBox` o `DropdownSingleSelect`. In alternativa, l'elemento **OutputClaim** deve impostare un attributo **DefaultValue**.  
+L'elemento **ClaimType** nella raccolta di **OutputClaims** deve impostare l'elemento **UserInputType** su un qualsiasi tipo di input utente supportato da Azure AD B2C, ad esempio `TextBox` o `DropdownSingleSelect`. In alternativa, l'elemento **OutputClaim** deve impostare un attributo **DefaultValue**.
 
 L'elemento **OutputClaimsTransformations** può contenere una raccolta di elementi **OutputClaimsTransformation** che vengono usati per modificare le attestazioni di output o per generarne di nuove.
 
@@ -119,7 +119,7 @@ Se l'elemento **PersistedClaims** è assente, il profilo tecnico autocertificato
 
 ## <a name="validation-technical-profiles"></a>Profili tecnici di convalida
 
-Il profilo tecnico di convalida viene usato per convalidare alcune o tutte le attestazioni di output del profilo tecnico di riferimento. Le attestazioni di input del profilo tecnico di convalida devono apparire nelle attestazioni di output del profilo tecnico autocertificato. Il profilo tecnico di convalida esegue la convalida dell'input utente e può restituire un errore all'utente. 
+Il profilo tecnico di convalida viene usato per convalidare alcune o tutte le attestazioni di output del profilo tecnico di riferimento. Le attestazioni di input del profilo tecnico di convalida devono apparire nelle attestazioni di output del profilo tecnico autocertificato. Il profilo tecnico di convalida esegue la convalida dell'input utente e può restituire un errore all'utente.
 
 Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei criteri, ad esempio un profilo tecnico di [Azure Active Directory](active-directory-technical-profile.md) o di un'[API REST](restful-technical-profile.md). Nell'esempio precedente il profilo tecnico `LocalAccountSignUpWithLogonEmail` convalida che l'attributo signinName non esiste nella directory. In caso contrario, il profilo tecnico di convalida crea un account locale e restituisce il valore objectId, authenticationSource, newUser. Il profilo tecnico `SelfAsserted-LocalAccountSignin-Email` chiama il profilo tecnico di convalida `login-NonInteractive` per convalidare le credenziali utente.
 
@@ -127,13 +127,13 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | setting.showContinueButton | No | Visualizza il pulsante Continua. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.showCancelButton | No | Visualizza il pulsante Annulla. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.operatingMode | No | Per una pagina di accesso, questa proprietà controlla il comportamento del campo del nome utente, ad esempio i messaggi di errore e di convalida di input. I valori previsti sono: `Username` o `Email`. |
-| ContentDefinitionReferenceId | Yes | Identificatore della [definizione di contenuto](contentdefinitions.md) associata a questo profilo tecnico. |
-| EnforceEmailVerification | No | Per la registrazione o la modifica del profilo, applica la verifica tramite posta elettronica. I valori possibili sono: `true` (impostazione predefinita) o `false`. | 
+| ContentDefinitionReferenceId | Sì | Identificatore della [definizione di contenuto](contentdefinitions.md) associata a questo profilo tecnico. |
+| EnforceEmailVerification | No | Per la registrazione o la modifica del profilo, applica la verifica tramite posta elettronica. I valori possibili sono: `true` (impostazione predefinita) o `false`. |
 | setting.showSignupLink | No | Visualizza il pulsante di iscrizione. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.retryLimit | No | Controlla il numero di volte in cui un utente può provare a specificare i dati che vengono controllati rispetto a un profilo tecnico di convalida. Un utente tenta ad esempio di iscriversi con un account che esiste già e insiste fino a quando non raggiunge il limite.
 | SignUpTarget | No | Identificatore di scambio di destinazione dell'iscrizione. Quando l'utente fa clic sul pulsante di iscrizione, Azure AD B2C esegue l'identificatore di scambio specificato. |

@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 976cf55dd8f1c11d1ea605b25086fa644afec980
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d82f7fecfb35c63d586993fed73a83209782a890
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510809"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064221"
 ---
 # <a name="integer-claims-transformations"></a>Trasformazioni delle attestazioni integre
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo fornisce esempi per l'uso delle trasformazioni di attestazioni integre dello schema del framework di gestione delle identità di Azure Active Directory (Azure AD) B2C. Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+Questo articolo fornisce esempi per l'uso delle trasformazioni di attestazioni integer dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
-## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim 
+## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim
 
 Converte un tipo di dati lungo in un tipo di dati stringa.
 
@@ -49,6 +49,6 @@ In questo esempio, l'`numericUserId` attestazione con un tipo valore lungo viene
 
 - Attestazioni di input:
     - **inputClaim**: "12334" (valore lungo)
-- Attestazioni di output: 
+- Attestazioni di output:
     - **outputClaim**: "12334" (valore di stringa)
 

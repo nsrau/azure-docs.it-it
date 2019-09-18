@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 4357a91a87648885def69d8e75e19e38a5a3f751
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993713"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036636"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analisi per il Marketplace commerciale nel centro per i partner
 
@@ -250,7 +250,7 @@ Si riceverà una notifica popup e un messaggio di posta elettronica contenente u
 | Customer First Name| Cliente| Nome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente.| |
 | ID cliente | Cliente, ordine | Identificatore univoco assegnato a un cliente. Un cliente può avere zero o più sottoscrizioni di Azure Marketplace.|  |
 | Customer Postal Code  | Cliente| Il CAP fornito dal cliente. Il codice può essere diverso dal codice postale fornito nella sottoscrizione di Azure di un cliente.| |
-| Customer State| Cliente| Stato (indirizzo) fornito dal cliente. Lo stato potrebbe essere diverso dal cognome fornito nella sottoscrizione di Azure di un cliente.| |
+| Customer State| Cliente| Stato (indirizzo) fornito dal cliente. Lo stato potrebbe essere diverso da quello fornito nella sottoscrizione di Azure di un cliente.| |
 | Date Acquired| Cliente| La prima data in cui il cliente ha acquistato qualsiasi offerta pubblicata dall'utente.| |
 | Date Lost| Cliente| Ultima data in cui il cliente ha annullato l'ultima delle offerte acquistate in precedenza.||
 | È un nuovo cliente  | Ordine| Il valore identificherà un nuovo cliente che acquisisce una o più offerte per la prima volta (o meno). Il valore sarà "Sì" se rientra nello stesso mese di calendario per "data di acquisizione". Il valore sarà "No" Se il cliente ha acquistato una delle offerte prima del mese di calendario indicato. |

@@ -4,7 +4,7 @@ description: Informazioni su come controllare il routing in reti virtuali median
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: ca2b4638-8777-4d30-b972-eb790a7c804f
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1193145b315175e6394db4caf93ab2e76a942ed9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743922"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058778"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Controllare il routing e usare dispositivi virtuali di rete (distribuzione classica) mediante l'interfaccia della riga di comando di Azure
 
@@ -87,7 +87,7 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
         info:    Setting route "RouteToBackEnd" in a route table "UDR-FrontEnd"
         info:    network route-table route set command OK
    
-    Parametri
+    Parametri:
    
    * **-r (o --route-table-name)** . Nome della tabella di route in cui verrà aggiunta la route. Per questo scenario, *UDR-FrontEnd*.
    * **-a (o --address-prefix)** . Prefisso di indirizzo della subnet alla quale sono destinati i pacchetti. Per questo scenario, *192.168.2.0/24*.
@@ -112,7 +112,7 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
         data:      Routes:
         info:    network vnet subnet route-table add command OK    
    
-    Parametri
+    Parametri:
    
    * **-t (o --vnet-name)** . Nome della rete virtuale in cui si trova la subnet. Per questo scenario, *TestVNet*.
    * **-n (o --subnet-name**. Nome della subnet in cui verrà aggiunta la tabella di route. Per questo scenario, *FrontEnd*.

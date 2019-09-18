@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 031055dce66361cc128ed42a4d0c942ccb5a3b82
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: c2f26c1f672644edd4993010c64062ee4108ca40
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017971"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057812"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -55,8 +55,8 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
 |**Servizio di collegamento privato** (Servizio personalizzato)   |  Microsoft. Network/privateLinkServices       | vuoto |
 |**Database SQL di Azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
-|**Archiviazione di Azure**  | (Microsoft. storage/storageAccounts)    |  BLOB (BLOB, blob_secondary)<BR> Tabella (tabella, table_secondary)<BR> Coda (coda, queue_secondary)<BR> File (file, file_secondary)<BR> Web (Web, web_secondary)        |
-|**Azure Data Lake Storage Gen2**  | (Microsoft. storage/storageAccounts)    |  BLOB (BLOB, blob_secondary)       |
+|**Archiviazione di Azure**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabella (tabella, table_secondary)<BR> Coda (coda, queue_secondary)<BR> File (file, file_secondary)<BR> Web (Web, web_secondary)        |
+|**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)       |
  
  
 ## <a name="network-security-of-private-endpoints"></a>Sicurezza di rete degli endpoint privati 

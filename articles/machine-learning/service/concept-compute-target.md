@@ -1,7 +1,7 @@
 ---
 title: 'Destinazioni di calcolo: dove eseguire il training e distribuire i modelli'
-titleSuffix: Azure Machine Learning service
-description: Definire il punto in cui si vuole eseguire il training o distribuire il modello con Azure Machine Learning servizio.
+titleSuffix: Azure Machine Learning
+description: Definire il punto in cui si desidera eseguire il training o distribuire il modello con Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/10/2019
-ms.openlocfilehash: b2e4c9160ccad66b04dd30979f0568da68836d76
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fe60b740312ee49510ea931bba1346ceaef9f31a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860597"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035527"
 ---
-#  <a name="what-are-compute-targets-in-azure-machine-learning-service"></a>Che cosa sono le destinazioni di calcolo nel servizio Azure Machine Learning? 
+#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
 Una **destinazione di calcolo** è una risorsa o un ambiente di calcolo designato in cui si esegue lo script di training o si ospita la distribuzione del servizio. Questo percorso può essere il computer locale o una risorsa di calcolo basata sul cloud. L'uso di destinazioni di calcolo semplifica la modifica dell'ambiente di calcolo in un secondo momento senza dover modificare il codice.  
 
@@ -29,7 +29,7 @@ Le risorse di calcolo usate per le destinazioni di calcolo sono collegate a un' 
 
 ## <a name="train"></a>Training delle destinazioni di calcolo
 
-Il servizio Azure Machine Learning ha un supporto variabile tra le diverse risorse di calcolo.  È anche possibile aggiungere una risorsa di calcolo personalizzata, anche se il supporto per vari scenari può variare.
+Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo.  È anche possibile aggiungere una risorsa di calcolo personalizzata, anche se il supporto per vari scenari può variare.
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -46,7 +46,7 @@ Informazioni su [dove e come distribuire il modello in una destinazione di calco
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Calcolo Azure Machine Learning (gestito)
 
-Una risorsa di calcolo gestita viene creata e gestita dal servizio Azure Machine Learning. Questo calcolo è ottimizzato per i carichi di lavoro di machine learning. Azure Machine Learning calcolo è l'unico calcolo gestito a partire dal 30 maggio 2019. In futuro potrebbero essere aggiunte risorse di calcolo gestite aggiuntive.
+Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning. Questo calcolo è ottimizzato per i carichi di lavoro di machine learning. Azure Machine Learning calcolo è l'unico calcolo gestito a partire dal 30 maggio 2019. In futuro potrebbero essere aggiunte risorse di calcolo gestite aggiuntive.
 
 È possibile usare Azure Machine Learning calcolo per il training e l'inferenza in batch (anteprima).  Con questa risorsa di calcolo sono disponibili:
 
@@ -59,7 +59,7 @@ Una risorsa di calcolo gestita viene creata e gestita dal servizio Azure Machine
 
 ## <a name="unmanaged-compute"></a>Calcolo non gestito
 
-Una destinazione di calcolo *non gestita non* è gestita dal servizio Azure Machine Learning. Questo tipo di destinazione di calcolo viene creato all'esterno Azure Machine Learning, quindi collegato all'area di lavoro. Le risorse di calcolo non gestite possono richiedere passaggi aggiuntivi per la manutenzione o per migliorare le prestazioni dei carichi di lavoro di machine learning.
+Una destinazione di calcolo *non gestita non* è gestita da Azure Machine Learning. Questo tipo di destinazione di calcolo viene creato all'esterno Azure Machine Learning, quindi collegato all'area di lavoro. Le risorse di calcolo non gestite possono richiedere passaggi aggiuntivi per la manutenzione o per migliorare le prestazioni dei carichi di lavoro di machine learning.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

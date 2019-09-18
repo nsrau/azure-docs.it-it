@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 129f200bc9f61d70f4403b1154978d57e09fee26
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 1e5e3854f0b132ede38e182f99435a569c04d49e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917497"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076275"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Apache Hive usando gli strumenti Data Lake per Visual Studio
 
@@ -115,7 +115,7 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
 
 6. Dalla barra degli strumenti, selezionare il **Cluster HDInsight** che si desidera usare per la query. Selezionare **Invia** per eseguire le istruzioni come processo Hive.
 
-   ![Barra di invio](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
+   ![Invio della barra degli strumenti di Azure HDInsight](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
 
 7. Verrà visualizzata una finestra di **riepilogo del processo Hive** con informazioni relative al processo in esecuzione. Usare il collegamento **Aggiorna** per aggiornare le informazioni del processo finché il campo **Stato processo** non viene impostato su **Completato**.
 

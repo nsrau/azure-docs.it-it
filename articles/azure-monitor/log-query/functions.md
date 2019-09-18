@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 4b3116230a085bfbb9a6139fbada4179d802bf5e
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 75beb7b66863efd2fb3679f034a3663dca4a6d2f
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296077"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076709"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso delle funzioni nelle query di log di Monitoraggio di Azure
 
 Per usare una query di log con un'altra query è possibile salvarla come funzione. Questa possibililità consente di semplificare query complesse suddividendole in più parti e di riusare codice comune con più query.
 
-## <a name="create-a-function"></a>Creare una funzione
+## <a name="create-a-function"></a>Crea una funzione
 
-Creare una funzione con Log Analitica nel portale di Azure facendo clic **salvare** quindi fornendo le informazioni nella tabella seguente.
+Per creare una funzione con Log Analytics nel portale di Azure, fare clic su **Salva** e quindi fornire le informazioni riportate nella tabella seguente.
 
 | Impostazione | DESCRIZIONE |
 |:---|:---|
@@ -38,8 +38,6 @@ Creare una funzione con Log Analitica nel portale di Azure facendo clic **salvar
 > [!NOTE]
 > Una funzione in Monitoraggio di Azure non può contenere un'altra funzione.
 
-> [!NOTE]
-> Il salvataggio di una funzione è possibile per le query di log di Monitoraggio di Azure, ma attualmente non per le query di Application Insights.
 
 
 

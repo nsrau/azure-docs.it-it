@@ -1,7 +1,7 @@
 ---
 title: Che cos'è un'area di lavoro
-titleSuffix: Azure Machine Learning service
-description: L'area di lavoro è la risorsa di primo livello per il servizio Azure Machine Learning. Mantiene una cronologia di tutte le esecuzioni di training, inclusi i log, le metriche, l'output e uno snapshot degli script. Queste informazioni vengono utilizzate per determinare quale esecuzione di training produce il modello migliore
+titleSuffix: Azure Machine Learning
+description: L'area di lavoro è la risorsa di primo livello per Azure Machine Learning. Mantiene una cronologia di tutte le esecuzioni di training, inclusi i log, le metriche, l'output e uno snapshot degli script. Queste informazioni vengono utilizzate per determinare quale esecuzione di training produce il modello migliore
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: ef060c083109a7096b62ebb35f2b49bb37a371b8
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 84aad0f1a797bb7eccf1872bd291e72ecefa7eee
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860510"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035332"
 ---
-# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Che cos'è un'area di lavoro del servizio Azure Machine Learning?
+# <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
-L'area di lavoro è la risorsa di primo livello per il servizio Azure Machine Learning, che offre una posizione centralizzata per lavorare con tutti gli artefatti creati quando si usa Azure Machine Learning servizio.  L'area di lavoro mantiene una cronologia di tutte le esecuzioni di training, inclusi i log, le metriche, l'output e uno snapshot degli script. Queste informazioni consentono di determinare il training che produce il modello migliore.  
+L'area di lavoro è la risorsa di primo livello per Azure Machine Learning, che fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati quando si usa Azure Machine Learning.  L'area di lavoro mantiene una cronologia di tutte le esecuzioni di training, inclusi i log, le metriche, l'output e uno snapshot degli script. Queste informazioni consentono di determinare il training che produce il modello migliore.  
 
 Dopo aver creato un modello, è necessario registrarlo con l'area di lavoro. È quindi possibile usare il modello registrato e gli script di assegnazione dei punteggi per eseguire la distribuzione in istanze di contenitore di Azure, servizio Azure Kubernetes o in un FPGA (Field-Programmable Gate Array) come endpoint HTTP basato su REST. È anche possibile distribuire il modello in un dispositivo Azure IoT Edge come modulo.
 
@@ -103,9 +103,9 @@ Quando si crea una nuova area di lavoro, vengono create automaticamente diverse 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare con il servizio Azure Machine Learning, vedere:
+Per iniziare a usare Azure Machine Learning, vedere:
 
-+ [Panoramica sul servizio Azure Machine Learning](overview-what-is-azure-ml.md)
++ [Panoramica di Azure Machine Learning](overview-what-is-azure-ml.md)
 + [Creare un'area di lavoro](how-to-manage-workspace.md)
 + [Gestire un'area di lavoro](how-to-manage-workspace.md)
 + [Esercitazione: Eseguire il training di un modello](tutorial-train-models-with-aml.md)

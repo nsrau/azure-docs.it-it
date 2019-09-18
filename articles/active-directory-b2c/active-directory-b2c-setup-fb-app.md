@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 524e1e5f877fcb03d4252d79635ef855b9811f09
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c13f3166c50d9afc03125d66155ce654c84e5e0a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622086"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065243"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Facebook tramite Azure Active Directory B2C
 
 ## <a name="create-a-facebook-application"></a>Creare un'applicazione Facebook
 
-Per usare un account Facebook come [provider di identità](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, è necessario creare nel tenant un'applicazione che lo rappresenti. Se non si ha già un account Facebook, è possibile iscriversi all' [https://www.facebook.com/](https://www.facebook.com/)indirizzo.
+Per usare un account Facebook come [provider di identità](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory B2C (Azure ad B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si ha già un account Facebook, è possibile iscriversi all' [https://www.facebook.com/](https://www.facebook.com/)indirizzo.
 
 1. Accedere al [sito Web Facebook for developers](https://developers.facebook.com/) con le credenziali dell'account Facebook.
-1. Se non è ancora stato fatto, è necessario registrarsi come sviluppatore Facebook. A tale scopo, selezionare inizia nell'angolo superiore destro della pagina, accettare i criteri di Facebook e completare la procedura di registrazione.
+1. Se non è ancora stato fatto, è necessario registrarsi come sviluppatore Facebook. A tale scopo **, selezionare inizia nell'angolo** superiore destro della pagina, accettare i criteri di Facebook e completare la procedura di registrazione.
 1. Selezionare **app personali** e quindi **Aggiungi nuova app**.
 1. Inserire un **nome visualizzato** e una **email di contatto** valida.
 1. Fare clic su **Crea ID app**. Potrebbe essere necessario accettare i criteri della piattaforma Facebook e completare un controllo di sicurezza online.

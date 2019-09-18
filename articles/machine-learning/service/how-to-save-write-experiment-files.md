@@ -1,6 +1,6 @@
 ---
 title: Dove salvare & scrivere i file dell'esperimento
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su dove salvare i file di input dell'esperimento e su dove scrivere i file di output per evitare errori di limitazione dell'archiviazione e latenza degli esperimenti.
 services: machine-learning
 author: rastala
@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 7d5e147173e766d0da54aa3422faef4b6035b914
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 77f816400709262fab8cb9bd351bdcde73377e09
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114507"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034304"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dove salvare e scrivere file per esperimenti di Azure Machine Learning
 
@@ -33,7 +33,7 @@ Azure Machine Learning esegue gli script di training copiando l'intera cartella 
 
 Per questo motivo, è consigliabile:
 
-* **Archiviazione dei file in un [archivio dati](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)Azure Machine Learning.** In questo modo si evitano problemi di latenza dell'esperimento e si hanno i vantaggi di accedere ai dati da una destinazione di calcolo remota, ovvero l'autenticazione e il montaggio sono gestiti dal servizio Azure Machine Learning. Altre informazioni su come specificare un archivio dati come directory di origine e caricare i file nell'archivio dati nell'articolo accedere ai [dati dall'archivio dati](how-to-access-data.md) .
+* **Archiviazione dei file in un [archivio dati](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)Azure Machine Learning.** In questo modo si evitano problemi di latenza dell'esperimento e si hanno i vantaggi di accedere ai dati da una destinazione di calcolo remota, ovvero l'autenticazione e il montaggio vengono gestiti da Azure Machine Learning. Altre informazioni su come specificare un archivio dati come directory di origine e caricare i file nell'archivio dati nell'articolo accedere ai [dati dall'archivio dati](how-to-access-data.md) .
 
 * **Se sono necessari solo un paio di file di dati e script di dipendenza e non è possibile usare un archivio dati,** inserire i file nella stessa directory della cartella dello script di training. Specificare questa cartella come `source_directory` direttamente nello script di training o nel codice che chiama lo script di training.
 

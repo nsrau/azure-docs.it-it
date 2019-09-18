@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4c13c0b7601257c120c46ec341156a8e8bba332f
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: da9ab6eef98a602635e5e92dca3bd5628846ce62
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967779"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036344"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -95,7 +95,7 @@ Per informazioni su come creare una condivisione file Premium, vedere l'articolo
 Attualmente, non è possibile eseguire la conversione diretta tra una condivisione file standard e una condivisione file Premium. Se si desidera passare a uno dei livelli, è necessario creare una nuova condivisione file in tale livello e copiare manualmente i dati dalla condivisione originale alla nuova condivisione creata. A tale scopo, è possibile utilizzare uno degli strumenti di copia File di Azure supportati, ad esempio Robocopy o AzCopy.
 
 > [!IMPORTANT]
-> Le condivisioni file Premium sono disponibili solo con con ridondanza locale e sono disponibili nella maggior parte delle aree che offrono account di archiviazione. Per scoprire se le condivisioni file Premium sono attualmente disponibili nella propria area geografica, vedere la pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) per Azure.
+> Le condivisioni file Premium sono disponibili con con ridondanza locale nella maggior parte delle aree che offrono gli account di archiviazione e con ZRS in un subset più piccolo di aree. Per scoprire se le condivisioni file Premium sono attualmente disponibili nella propria area geografica, vedere la pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) per Azure. Per informazioni sulle aree che supportano ZRS, vedere [copertura del supporto e disponibilità a livello](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability)di area.
 
 #### <a name="provisioned-shares"></a>Condivisioni con provisioning
 
@@ -157,7 +157,7 @@ Le nuove condivisioni file iniziano con il numero completo di crediti nel bucket
 
 File di Azure condivisioni standard supporta quattro opzioni di ridondanza dei dati: archiviazione con ridondanza locale (con ridondanza locale), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza della zona geografica (GZRS) (anteprima).
 
-File di Azure le condivisioni Premium supportano solo archiviazione con ridondanza locale (con ridondanza locale).
+File di Azure le condivisioni Premium supportano sia con ridondanza locale che ZRS, ZRS è attualmente disponibile in un subset più piccolo di aree.
 
 Le sezioni seguenti descrivono le differenze tra le diverse opzioni di ridondanza:
 
@@ -208,7 +208,7 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 
 |Region |Ridondanza supportata |Supporta gli account di archiviazione esistenti |Supporto del portale * |
 |-------|---------|---------|---------|
-|Australia orientale |Archiviazione con ridondanza locale     |No    |Sì|
+|Australia orientale |Archiviazione con ridondanza locale     |No    |Yes|
 |Australia sud-orientale|Archiviazione con ridondanza locale     |No    |Non ancora|
 |India centrale  |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Asia orientale      |Archiviazione con ridondanza locale     |No    |Non ancora|
@@ -216,11 +216,11 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 |Francia centrale |CON RIDONDANZA LOCALE, ZRS|No    |CON ridondanza locale-Sì, ZRS-non ancora|
 |Francia meridionale   |Archiviazione con ridondanza locale     |No    |Sì|
 |India meridionale    |Archiviazione con ridondanza locale     |No    |Non ancora|
-|Asia sud-orientale |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
+|Asia sud-orientale |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
 |Stati Uniti centro-occidentali|Archiviazione con ridondanza locale     |No    |Non ancora|
 |Europa occidentale    |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
 |Stati Uniti occidentali        |Archiviazione con ridondanza locale     |No    |Non ancora|
-|Stati Uniti occidentali 2      |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
+|Stati Uniti occidentali 2      |CON RIDONDANZA LOCALE, ZRS|No    |Sì|
 
 
 \* Per le aree senza supporto per il portale, è comunque possibile usare PowerShell o l'interfaccia della riga di comando di Azure per creare più di 5 condivisioni TiB. In alternativa, creare una nuova condivisione tramite il portale senza specificare la quota. Verrà creata una condivisione con le dimensioni predefinite 100 TiB, che può essere aggiornata in un secondo momento tramite PowerShell o l'interfaccia della riga di comando di Azure.

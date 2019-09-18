@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 97972be655a6a03cfe29d8589a144d1e027b86fc
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 0d0329be0b7f864edbfc3c2aabc08f1742359670
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376085"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066769"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di Hyper-V
 
@@ -27,9 +27,9 @@ Nella tabella sono riepilogati gli scenari supportati per le macchine virtuali H
 **Distribuzione** | **Dettagli***
 --- | ---
 **Valutare le VM Hyper-V locali** | [Configurare](tutorial-prepare-hyper-v.md) la prima valutazione.<br/><br/> [Eseguire](scale-hyper-v-assessment.md) una valutazione su larga scala.
-**Eseguire la migrazione di VM Hyper-V ad Azure** | [Provare](tutorial-migrate-hyper-v.md) a eseguire la migrazione ad Azure. 
+**Eseguire la migrazione di VM Hyper-V ad Azure** | [Provare](tutorial-migrate-hyper-v.md) a eseguire la migrazione ad Azure.
 
-La migrazione dei server Hyper-V gestiti con System Center Virtual Machine Manager (VMM) non è supportata dalla migrazione Azure Migrate server. 
+La migrazione dei server Hyper-V gestiti con System Center Virtual Machine Manager (VMM) non è supportata dalla migrazione Azure Migrate server.
 
 ## <a name="azure-migrate-projects"></a>Progetti Azure Migrate
 
@@ -44,10 +44,13 @@ Geografia | È possibile creare progetti Azure Migrate in diverse aree geografic
   Azure per enti pubblici | US Gov Virginia
   Asia/Pacifico | Asia orientale o Asia sud-orientale
   Australia | Australia orientale o Australia sudorientale
+  Brasile | Brasile meridionale
   Canada | Canada centrale o Canada orientale
   Europa | Europa settentrionale o Europa occidentale
+  Francia | Francia centrale
   India | India centrale o India meridionale
   Giappone |  Giappone orientale o Giappone occidentale
+  Corea del Sud | Corea centrale o Corea del sud
   Regno Unito | Regno Unito meridionale o Regno Unito occidentale
   Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 

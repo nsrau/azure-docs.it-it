@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 0b78b05e30185487df0b06d861b60b63741dc938
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 217601a430b40772eaf1f24c8e1501bc4b4fcae5
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073198"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71055300"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -71,7 +71,7 @@ Per impostare il fuso orario del server per l'app Web:
     * Value = *fuso orario desiderato*
 3. Selezionare **Salva**.
 
-Per conoscere i valori accettati, vedere la colonna **Timezone** (Fuso orario) nell'articolo [Default Time Zones](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) (Fusi orari predefiniti).
+Per i servizi app eseguiti in Windows, vedere la colonna **TimeZone** nell'articolo [fusi orari predefiniti](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) per i valori accettati. Per i servizi app eseguiti in Linux, impostare il [nome del database TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) come valore del fuso orario. Di seguito è riportato un esempio di nome del database TZ: America/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Perché i processi Web continui talvolta hanno esito negativo?
 
@@ -96,7 +96,7 @@ Si noti che per utilizzare un indirizzo IP dedicato o riservato per le chiamate 
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>È possibile esportare il certificato del servizio app per utilizzarlo all'esterno di Azure, ad esempio per un sito Web ospitato in un'altra posizione? 
 
-I certificati del servizio app sono considerati risorse di Azure. Non sono progettati per l'utilizzo all'esterno dei servizi di Azure. Non è possibile esportarli per utilizzarli all'esterno di Azure. Per altre informazioni, vedere [Domande frequenti per i certificati del servizio app e i domini personalizzati](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Sì, è possibile esportarli in modo da usare all'esterno di Azure. Per altre informazioni, vedere [Domande frequenti per i certificati del servizio app e i domini personalizzati](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>È possibile esportare il certificato del servizio app per utilizzarli con altri servizi cloud di Azure?
 

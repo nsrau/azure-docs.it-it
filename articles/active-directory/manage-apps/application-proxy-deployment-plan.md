@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812844"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033637"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Pianificare una distribuzione del proxy di applicazione Azure AD
 
@@ -64,7 +64,7 @@ Per configurare e implementare Azure AD proxy di applicazione, è necessario sod
 
 *  **Onboarding di Azure**: Prima di distribuire il proxy di applicazione, le identità utente devono essere sincronizzate da una directory locale o create direttamente all'interno dei tenant Azure AD. La sincronizzazione delle identità consente ad Azure AD di preautenticare gli utenti prima di concedere loro l'accesso alle applicazioni pubblicate tramite proxy di applicazione e di ottenere le informazioni degli ID utente necessarie per eseguire l'accesso Single Sign-On (SSO).
 
-* **Requisiti di accesso condizionale**: Non è consigliabile usare il proxy di applicazione per l'accesso alla Intranet perché questa operazione aggiunge una latenza che avrà un effetto sugli utenti. Si consiglia di usare il proxy di applicazione con i criteri di pre-autenticazione e di accesso condizionale per l'accesso remoto da Internet.  Un approccio per fornire l'accesso condizionale per l'uso della Intranet consiste nel modernizzare le applicazioni in modo che possano diretly l'autenticazione con AAD. Per altre informazioni, vedere [risorse per la migrazione di applicazioni ad Aad](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
+* **Requisiti di accesso condizionale**: Non è consigliabile usare il proxy di applicazione per l'accesso alla Intranet perché questa operazione aggiunge una latenza che avrà un effetto sugli utenti. Si consiglia di usare il proxy di applicazione con i criteri di pre-autenticazione e di accesso condizionale per l'accesso remoto da Internet.  Un approccio per fornire l'accesso condizionale per l'uso della Intranet consiste nel modernizzare le applicazioni in modo che possano eseguire l'autenticazione direttamente con AAD. Per altre informazioni, vedere [risorse per la migrazione di applicazioni ad Aad](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
 
 * **Limiti del servizio**: Per evitare il sovraconsumo delle risorse da singoli tenant, sono impostati limiti di limitazione delle richieste per ogni applicazione e tenant. Per visualizzare questi limiti, fare riferimento a [limiti e restrizioni del servizio Azure ad](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Questi limiti di limitazione sono basati su un benchmark molto superiore al volume di utilizzo tipico e forniscono un ampio buffer per la maggior parte delle distribuzioni.
 
@@ -239,7 +239,7 @@ Verificare che l'applicazione sia accessibile tramite il proxy di applicazione c
 
 3. Nel campo **pre-autenticazione** usare l'elenco a discesa per selezionare **Azure Active Directory**e selezionare **Salva**.
 
-Con la pre-autenticazione abilitata, Azure AD consentirà agli utenti di eseguire prima l'autenticazione e, se Single Sign-On è configued, l'applicazione back-end verificherà anche l'utente prima che venga concesso l'accesso all'applicazione. Se si modifica la modalità di pre-autenticazione da Passthrough a Azure AD configura anche l'URL esterno con HTTPS, tutte le applicazioni inizialmente configurate per HTTP verranno ora protette con HTTPS.
+Con la pre-autenticazione abilitata, Azure AD consentirà agli utenti di eseguire prima l'autenticazione e, se Single Sign-On è configurato, l'applicazione back-end verificherà anche l'utente prima che l'accesso all'applicazione venga concesso. Se si modifica la modalità di pre-autenticazione da Passthrough a Azure AD configura anche l'URL esterno con HTTPS, tutte le applicazioni inizialmente configurate per HTTP verranno ora protette con HTTPS.
 
 ### <a name="enable-single-sign-on"></a>Abilitazione dell'accesso Single Sign-On
 
@@ -292,11 +292,11 @@ Tuttavia, gli utenti devono comunque eseguire operazioni con privilegi giornalie
 
 ### <a name="reporting-and-monitoring"></a>Monitoraggio e creazione di report
 
-Azure AD fornisce informazioni aggiuntive sull'utilizzo delle applicazioni e sull'integrità operativa dell'organizzazione tramite i [log di controllo e i report](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs). Il proxy di applicazione consente anche di monitorare facilmente i connettori dal portale Azure AD e dai registri eventi di Windows.
+Azure AD fornisce informazioni aggiuntive sull'utilizzo delle applicazioni e sull'integrità operativa dell'organizzazione tramite i [log di controllo e i report](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Il proxy di applicazione consente anche di monitorare facilmente i connettori dal portale Azure AD e dai registri eventi di Windows.
 
 #### <a name="application-audit-logs"></a>Log di controllo delle applicazioni
 
-Questi log forniscono informazioni dettagliate sugli accessi alle applicazioni configurate con il proxy di applicazione e il dispositivo e l'utente che accede all'applicazione. I [log di controllo](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) si trovano nella portale di Azure e nell'API di [controllo](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) per l'esportazione. Inoltre, i [report sull'utilizzo e le informazioni dettagliate](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) sono disponibili anche per l'applicazione.
+Questi log forniscono informazioni dettagliate sugli accessi alle applicazioni configurate con il proxy di applicazione e il dispositivo e l'utente che accede all'applicazione. I [log di controllo](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) si trovano nella portale di Azure e nell'API di [controllo](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) per l'esportazione. Inoltre, i [report sull'utilizzo e le informazioni dettagliate](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) sono disponibili anche per l'applicazione.
 
 #### <a name="application-proxy-connector-monitoring"></a>Monitoraggio del connettore del proxy di applicazione
 

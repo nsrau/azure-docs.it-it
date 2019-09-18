@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: bc7828b7926ea6e7f2d6bc3891ee231972ae3208
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622781"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063240"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: Aggiungere provider di identità alle applicazioni in Azure Active Directory B2C
 
-È possibile consentire agli utenti di accedere alle applicazioni con provider di identità diversi. Un *provider di identità* crea, mantiene e gestisce le informazioni sulle identità fornendo al contempo servizi di autenticazione alle applicazioni. È possibile aggiungere provider di identità supportati da Azure Active Directory (Azure AD) B2C ai propri [flussi utente](active-directory-b2c-reference-policies.md) usando il portale di Azure.
+È possibile consentire agli utenti di accedere alle applicazioni con provider di identità diversi. Un *provider di identità* crea, mantiene e gestisce le informazioni sulle identità fornendo al contempo servizi di autenticazione alle applicazioni. È possibile aggiungere i provider di identità supportati da Azure Active Directory B2C (Azure AD B2C) ai [flussi utente](active-directory-b2c-reference-policies.md) tramite il portale di Azure.
 
 In questo articolo viene spiegato come:
 
@@ -45,7 +45,7 @@ Le applicazioni di provider di identità forniscono l'identificatore e la chiave
 Per consentire agli utenti di accedere da Azure AD, è necessario registrare un'applicazione dall'interno del tenant di Azure AD. Il tenant di Azure AD non corrisponde al tenant di Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Assicurarsi di usare la directory contenente il tenant di Azure AD facendo clic sul **filtro per directory e sottoscrizione** nel menu in alto e scegliendo tale directory.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 1. Selezionare **Nuova registrazione**.
 1. Immettere un nome per l'applicazione. Ad esempio `Azure AD B2C App`.
@@ -71,7 +71,7 @@ Per consentire agli utenti di accedere da Azure AD, è necessario registrare un'
 Per usare un account Facebook come provider di identità in Azure AD B2C, è necessario creare un'applicazione di Facebook. Se non si possiede già un account Facebook, è possibile crearlo sul sito [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Accedere al [sito Web Facebook for developers](https://developers.facebook.com/) con le credenziali dell'account Facebook.
-1. Se non è ancora stato fatto, è necessario registrarsi come sviluppatore Facebook. A tale scopo, selezionare inizia nell'angolo superiore destro della pagina, accettare i criteri di Facebook e completare la procedura di registrazione.
+1. Se non è ancora stato fatto, è necessario registrarsi come sviluppatore Facebook. A tale scopo **, selezionare inizia nell'angolo** superiore destro della pagina, accettare i criteri di Facebook e completare la procedura di registrazione.
 1. Selezionare **app personali** e quindi **Crea app**.
 1. Inserire un **nome visualizzato** e una **email di contatto** valida.
 1. Fare clic su **Crea ID app**. Potrebbe essere necessario accettare i criteri della piattaforma Facebook e completare un controllo di sicurezza online.
@@ -86,7 +86,7 @@ Per usare un account Facebook come provider di identità in Azure AD B2C, è nec
 1. Selezionare il segno più accanto a **prodotti**, quindi in **account di accesso di Facebook**Selezionare **imposta**.
 1. In **Facebook login (accesso a Facebook** ) scegliere Settings ( **Impostazioni**) dal menu a sinistra.
 1. In **Valid OAuth redirect URIs** (URI di reindirizzamento OAuth valide) immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Sostituire `your-tenant-name` con il nome del tenant. Selezionare **Save Changes (Salva modifiche** ) nella parte inferiore della pagina.
-1. Per rendere disponibile l'applicazione Facebook per Azure AD B2C, fare clic sul selettore di **stato** nella parte superiore destra della pagina e accenderlo per rendere pubblica l'applicazione, quindi fare clic su **conferma**. A questo punto lo stato dovrebbe cambiare da **Sviluppo** a **Live**.
+1. Per rendere disponibile l'applicazione Facebook per Azure AD B2C, fare clic sul selettore di **stato** nella parte superiore destra della pagina e accenderlo per rendere pubblica l'applicazione, quindi fare **clic su** **conferma**. A questo punto lo stato dovrebbe cambiare da **Sviluppo** a **Live**.
 
 ## <a name="add-the-identity-providers"></a>Aggiungere i provider di identità
 
@@ -110,7 +110,7 @@ Dopo aver creato l'applicazione per il provider di identità che si vuole aggiun
 1. Per il **segreto client**, immettere il segreto client registrato in precedenza.
 1. Lasciare i valori predefiniti per **ambito**, **tipo di risposta**e **modalità di risposta**.
 1. Opzionale Immettere un valore per **Domain_hint**. Ad esempio, *ContosoAD*. Gli [hint di dominio](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) sono direttive incluse nella richiesta di autenticazione da un'applicazione. Possono essere usate per accelerare l'indirizzamento dell'utente alla rispettiva pagina di accesso dell'IdP federato. Oppure possono essere usati da un'applicazione multi-tenant per accelerare l'utente direttamente verso la pagina di accesso di Azure AD personalizzata per il suo tenant.
-1. In **mapping**delle attestazioni del provider di identità immettere i valori di mapping delle attestazioni seguenti:
+1. In **mapping delle attestazioni del provider di identità**immettere i valori di mapping delle attestazioni seguenti:
 
     * **ID utente**: *OID*
     * **Nome visualizzato**: *nome*

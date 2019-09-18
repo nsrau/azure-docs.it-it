@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 377fd5c2be9e49e077303aac2a48fa2a0b8288ef
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: ad5e5b766c38b2ce3c48c22e62dd1fd2b9a79853
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622118"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064955"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account WeChat tramite Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "69622118"
 
 ## <a name="create-a-wechat-application"></a>Creare un'applicazione WeChat
 
-Per usare un account WeChat come provider di identità in Azure Active Directory (Azure AD) B2C, è necessario creare nel tenant un'applicazione che lo rappresenti. Se non si dispone già di un account WeChat, è possibile ottenere informazioni [https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html)all'indirizzo.
+Per usare un account WeChat come provider di identità in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si dispone già di un account WeChat, è possibile ottenere informazioni [https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html)all'indirizzo.
 
 ### <a name="register-a-wechat-application"></a>Registrare un'applicazione WeChat
 

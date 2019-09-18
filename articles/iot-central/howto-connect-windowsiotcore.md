@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b14d6f70f4c4163f16c8275f4e071da6a9e0bc78
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 3513dc0a1928168d6313e9d49a8f3d5d27aca781
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019813"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066340"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo Windows IoT Core all'applicazione Azure IoT Central
 
@@ -43,13 +43,27 @@ Per informazioni dettagliate sulla configurazione del modello di dispositivo, ve
 
 ## <a name="add-a-real-device"></a>Aggiungere un dispositivo reale
 
-Nell'applicazione IoT Central di Azure, usare la pagina **Device Explorer** per aggiungere un dispositivo reale dal modello di dispositivo **Core di Windows 10** . Prendere nota dei dettagli della connessione del dispositivo (**ID ambito**, **ID dispositivo**e **chiave primaria**). Per ulteriori informazioni, vedere [ottenere le informazioni di connessione](howto-generate-connection-string.md#get-connection-information).
+Nell'applicazione IoT Central di Azure, usare la pagina **Device Explorer** per aggiungere un dispositivo reale dal modello di dispositivo **Core di Windows 10** . Prendere nota dei dettagli della connessione del dispositivo (**ID ambito**, **ID dispositivo**e **chiave primaria**).
 
 ## <a name="prepare-the-device"></a>Preparare il dispositivo
 
-Per la connessione del dispositivo a IoT Central, è necessaria una stringa di connessione.
+Per la connessione del dispositivo a IoT Central, è necessaria una stringa di connessione:
 
-[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
+1. Usare l'utilità della riga di comando `dps-keygen` per generare una stringa di connessione:
+
+    Per installare l'[utilità generatore di chiavi](https://github.com/Azure/dps-keygen), eseguire il comando seguente:
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+
+1. Per generare una stringa di connessione, eseguire il comando seguente usando i dettagli della connessione annotati in precedenza:
+
+    ```cmd/sh
+    dps-keygen -di:<Device ID> -dk:<Primary or Secondary Key> -si:<Scope ID>
+    ```
+
+1. Copiare la stringa di connessione dall'output di `dps-keygen` per usarla nel codice del dispositivo.
 
 Per il codice del dispositivo per accedere alla stringa di connessione, salvarla in un file denominato **Connection. String. iothub** nella `C:\Data\Users\DefaultAccount\Documents\` cartella del dispositivo Windows 10.
 
@@ -104,7 +118,7 @@ Impostazioni numeriche
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Velocità della ventola    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Proprietà
 
 | Type            | `Display name` | Nome campo | Tipo di dati |
 | --------------- | ------------ | ---------- | --------- |

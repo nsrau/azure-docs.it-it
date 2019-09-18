@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835200"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066218"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo illustra come aggiungere una nuova voce specificata dall'utente, un'attestazione, al percorso utente di registrazione in Azure Active Directory (Azure AD) B2C.  Configurare la voce come un elenco a discesa e definire se è obbligatorio.
+In questo articolo viene aggiunta una nuova voce fornita dall'utente (un'attestazione) al percorso utente di iscrizione in Azure Active Directory B2C (Azure AD B2C).  La voce viene configurata come elenco a discesa e viene definito se è obbligatoria.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,12 +29,12 @@ Completare la procedura descritta nell'articolo [Introduzione ai criteri persona
 
 ## <a name="add-claims"></a>Aggiungere le attestazioni
 
-La raccolta dei dati iniziali da parte degli utenti si ottiene usando il percorso utente di iscrizione o accesso. In un secondo momento è possibile raccogliere attestazioni aggiuntive usando il percorso utente di modifica del profilo. Ogni volta che Azure AD B2C raccoglie informazioni direttamente dall'utente in modo interattivo, il Framework dell'esperienza di identità usa il provider autocertificato.
+La raccolta dei dati iniziali da parte degli utenti si ottiene usando il percorso utente di iscrizione o accesso. In un secondo momento è possibile raccogliere attestazioni aggiuntive usando il percorso utente di modifica del profilo. Ogni volta che Azure AD B2C raccoglie informazioni direttamente dall'utente in modo interattivo, il Framework dell'esperienza di gestione delle identità usa il proprio provider autocertificato.
 
 
 ### <a name="define-the-claim"></a>Definire l'attestazione
 
-È possibile chiedere all'utente per la propria città. Aggiungere l'elemento seguente all'elemento **ClaimsSchema** nel file dei criteri TrustFrameworkBase:
+Chiedere all'utente la città. Aggiungere l'elemento seguente all'elemento **ClaimsSchema** nel file dei criteri TrustFrameworkBase:
 
 ```xml
 <ClaimType Id="city">
@@ -79,7 +79,7 @@ Vengono usati gli elementi seguenti per definire l'attestazione:
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![Controllo a discesa di selezione singola che mostra diverse opzioni](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Controllo DropDown a selezione singola che mostra diverse opzioni](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ Vengono usati gli elementi seguenti per definire l'attestazione:
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![Controllo casella di controllo selezione multipla che illustra diverse opzioni](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Controllo CheckBox a selezione più che mostra varie opzioni](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -261,7 +261,7 @@ Vengono usati gli elementi seguenti per definire l'attestazione:
 ## <a name="test-the-custom-policy"></a>Testare i criteri personalizzati
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory contenente il tenant di Azure AD facendo clic sul **filtro per directory e sottoscrizione** nel menu in alto e scegliendo tale directory.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 4. Selezionare **Identity Experience Framework (anteprima)** .
 5. Selezionare **Carica criteri personalizzati**e caricare i file dei due criteri modificati.

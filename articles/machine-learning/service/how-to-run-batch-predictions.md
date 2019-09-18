@@ -1,7 +1,7 @@
 ---
 title: Eseguire stime batch su dati di grandi dimensioni con pipeline
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come eseguire previsioni di batch in modo asincrono su grandi quantità di dati tramite il servizio Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come eseguire stime batch in modo asincrono su grandi quantità di dati usando Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: b0d8eef025efb6398f1d7c734ca558540b157fef
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128263"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034301"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Eseguire stime batch su set di dati di grandi dimensioni con pipeline di Azure Machine Learning
 
-Questo articolo illustra come eseguire stime su grandi quantità di dati in modo asincrono usando le pipeline ML con Azure Machine Learning servizio.
+Questo articolo illustra come eseguire stime su grandi quantità di dati in modo asincrono usando le pipeline ML con Azure Machine Learning.
 
 La previsione di batch (o punteggio batch) offre inferenza conveniente con velocità effettiva senza precedenti per le applicazioni asincrone. Le pipeline di previsione di batch possono essere scalate per eseguire l'inferenza su terabyte di dati di produzione. La previsione di batch è ottimizzata per previsioni fire-and-forget a velocità effettiva elevata per un'ampia raccolta di dati.
 
@@ -30,7 +30,7 @@ Nei passaggi seguenti viene creata una pipeline di [Machine Learning](concept-ml
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova la [versione gratuita o a pagamento del Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Configurare un ambiente di sviluppo per installare l'SDK di Azure Machine Learning. Per altre informazioni, vedere [Configurare un ambiente di sviluppo per Azure Machine Learning](how-to-configure-environment.md).
 

@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbb748e9856b6de9004d57e4393e205ddfcfffb4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c216512aef117a332d3aabfc83ec5615b70b202c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998836"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033821"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -50,9 +50,9 @@ Questa immagine di esempio dalla portale di Azure Mostra i dati acquisiti quando
 
 Il pannello Dettagli attività contiene le informazioni rilevanti seguenti:
 
-|`Section`|Campo|Descrizione|
+|`Section`|Campo|DESCRIZIONE|
 |-------|-----|-----------|
-| Attività | Name | Quale attività ha avuto luogo. Ad esempio, *emettere un token ID per l'applicazione*, che conclude l'effettivo accesso dell'utente. |
+| Attività | NOME | Quale attività ha avuto luogo. Ad esempio, *emettere un token ID per l'applicazione*, che conclude l'effettivo accesso dell'utente. |
 | Azione avviata da (attore) | ObjectId | **ID oggetto** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. Questo identificatore non è visibile nel portale di Azure, ma è accessibile tramite l'API Microsoft Graph. |
 | Azione avviata da (attore) | SPN | **ID applicazione** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. |
 | Destinazioni | ObjectId | **ID oggetto** dell'utente che sta effettuando l'accesso. |
@@ -92,12 +92,13 @@ Per consentire l'accesso basato su script o applicazione all'API di creazione di
 * Microsoft Graph
   * Applicazione Lettura di tutti i dati del log di controllo
 
-È possibile abilitare queste autorizzazioni per una registrazione esistente dell'applicazione all'interno del tenant B2C oppure crearne una nuova in modo specifico per l'uso con l'automazione dei log di controllo.
+È possibile abilitare queste autorizzazioni per una registrazione Azure Active Directory applicazione esistente all'interno del tenant B2C o crearne una nuova in modo specifico per l'uso con l'automazione dei log di controllo.
 
 Per creare una nuova applicazione, assegnare le autorizzazioni API necessarie e creare un segreto client, seguire questa procedura:
 
-1. Registra applicazione
-    1. Accedere al [portale di Azure](https://portal.azure.com), passare alla directory che contiene il tenant di Azure ad B2C, quindi passare a **Azure ad B2C**.
+1. Registrare l'applicazione in Azure Active Directory
+    1. Accedere al [portale di Azure](https://portal.azure.com) e passare alla directory che contiene il tenant del Azure ad B2C.
+    1. Selezionare **Azure Active Directory** (*non* Azure ad B2C) dal menu a sinistra. In alternativa, selezionare **tutti i servizi**, quindi cercare e selezionare **Azure Active Directory**.
     1. In **Gestisci** nel menu a sinistra selezionare **registrazioni app (legacy)** .
     1. Selezionare **registrazione nuova applicazione**
     1. Immettere un nome per l'applicazione. Ad esempio, *audit log app*.

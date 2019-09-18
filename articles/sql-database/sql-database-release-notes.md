@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: ed41ccea0754f3eeffdd0248bac567859db1492c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 21f80a2be09302e47817ccfd4223207bdcdd0413
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001517"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066817"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
@@ -26,6 +26,7 @@ Questo articolo elenca le funzionalità del database SQL attualmente disponibili
 
 | Funzionalità | Dettagli |
 | ---| --- |
+| [Collegamento privato di Azure](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Collegamento privato semplifica l'architettura di rete e protegge la connessione tra endpoint in Azure mantenendo i dati sulla rete di Azure ed eliminando quindi l'esposizione a Internet. Collegamento privato ti permette anche di creare ed eseguire il rendering di servizi personalizzati in Azure. |
 | Recupero accelerato del database con singoli database e pool elastici | Per informazioni, vedere [accelerazione del ripristino del database](sql-database-accelerated-database-recovery.md).|
 |Conteggio approssimativo Distinct|Per informazioni, vedere [conteggio approssimativo Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Modalità batch su rowstore (con livello di compatibilità 150)|Per informazioni, vedere [modalità batch su rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
@@ -55,6 +56,24 @@ Questo articolo elenca le funzionalità del database SQL attualmente disponibili
 | &nbsp; |
 
 ---
+
+## <a name="new-features"></a>Nuove funzionalità
+
+### <a name="managed-instance-h2-2019-updates"></a>Aggiornamenti dell'istanza gestita H2 2019
+
+- Configurare il comportamento dell'istanza gestita con i [flag di traccia globali](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
+
+### <a name="managed-instance-h1-2019-updates"></a>Aggiornamenti H1 2019 per istanza gestita
+
+Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istanza gestita in H1 2019:
+  - Supporto per le sottoscrizioni con <a href="https://aka.ms/sql-mi-visual-studio-subscribers">credito mensile di Azure per Sottoscrittori di Visual Studio</a> e maggiori [limiti a livello](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)di area.
+  - Supporto per <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e per <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
+  - Creare istanze con <a href="https://aka.ms/managed-instance-collation">regole di confronto a livello di server</a> e il <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso orario</a> desiderato.
+  - Le istanze gestite sono ora protette con il <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall incorporato</a>.
+  - Configurare le istanze per l'uso di [endpoint pubblici](sql-database-managed-instance-public-endpoint-configure.md), la connessione per [l'override del proxy](/sql-database-connectivity-architecture.md#connection-policy) per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update">4 vcore di generazione hardware quinta generazione</a> o <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurare la conservazione dei backup fino a 35 giorni per il</a> ripristino temporizzato. La conservazione dei backup a lungo termine (fino a 10 anni) non è ancora abilitata, quindi è possibile usare i <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backup di sola copia</a> come alternativa.
+  - Le nuove funzionalità consentono di eseguire <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">il ripristino geografico del database in un altro Data Center tramite PowerShell</a>, [Rename database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [Delete Virtual cluster](sql-database-managed-instance-delete-virtual-cluster.md).
+  - Il nuovo [ruolo Collaboratore istanza](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) incorporato consente la conformità alla separazione dei compiti (SOD) con i principi di sicurezza e la conformità agli standard aziendali.
+  - Istanza gestita è disponibile nelle aree di Azure per enti pubblici seguenti per la versione GA (US Gov Texas, US Gov Arizona), nonché in Cina settentrionale 2 e Cina orientale 2. È disponibile anche nelle aree pubbliche seguenti: Australia centrale, Australia centrale 2, Brasile meridionale, Francia meridionale, Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali, Sudafrica settentrionale, Sudafrica occidentale.
 
 ## <a name="fixed-known-issues"></a>Problemi noti risolti
 

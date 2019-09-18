@@ -1,7 +1,7 @@
 ---
 title: Come distribuire i modelli nel servizio Azure Kubernetes
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come distribuire i modelli di servizio Azure Machine Learning come servizio Web usando il servizio Azure Kubernetes.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando il servizio Azure Kubernetes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 302fad84a2f0443fb639e57d7bb0cfddef4c3443
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c32560f7bb182ac347e9e5a71b53b57cf80fac38
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858742"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034619"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 
-Informazioni su come usare il servizio Azure Machine Learning per distribuire un modello come servizio Web in Azure Kubernetes Service (AKS). Il servizio Azure Kubernetes è ideale per distribuzioni di produzione su vasta scala. Usare il servizio Azure Kubernetes se sono necessarie una o più delle funzionalità seguenti:
+Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web in Azure Kubernetes Service (AKS). Il servizio Azure Kubernetes è ideale per distribuzioni di produzione su vasta scala. Usare il servizio Azure Kubernetes se sono necessarie una o più delle funzionalità seguenti:
 
 - __Tempo di risposta rapido__.
 - __Scalabilità__ automatica del servizio distribuito.
@@ -30,15 +30,15 @@ Informazioni su come usare il servizio Azure Machine Learning per distribuire un
 
 Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribuito in un cluster AKS __connesso all'area di lavoro__. Esistono due modi per connettere un cluster AKS all'area di lavoro:
 
-* Creare il cluster AKS usando Azure Machine Learning Service SDK, l'interfaccia della riga di comando di Machine Learning, la [portale di Azure](https://portal.azure.com) o la [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com). Questo processo connette automaticamente il cluster all'area di lavoro.
-* Alleghi un cluster AKS esistente all'area di lavoro del servizio Azure Machine Learning. È possibile collegare un cluster usando Azure Machine Learning Service SDK, Machine Learning CLI o il portale di Azure.
+* Creare il cluster AKS usando il Azure Machine Learning SDK, l'interfaccia della riga di comando di Machine Learning, la [portale di Azure](https://portal.azure.com) o la [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com). Questo processo connette automaticamente il cluster all'area di lavoro.
+* Alleghi un cluster AKS esistente all'area di lavoro Azure Machine Learning. È possibile collegare un cluster usando il Azure Machine Learning SDK, l'interfaccia della riga di comando Machine Learning o il portale di Azure.
 
 > [!IMPORTANT]
 > Il processo di creazione o allegato è un'attività una sola volta. Quando un cluster AKS è connesso all'area di lavoro, è possibile usarlo per le distribuzioni. È possibile scollegare o eliminare il cluster AKS se non è più necessario. Una volta Detatched o eliminato, non sarà più possibile eseguire la distribuzione nel cluster.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'area di lavoro del servizio Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
+- Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
 - Un modello di apprendimento automatico registrato nell'area di lavoro. Se non si dispone di un modello registrato, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
@@ -117,7 +117,7 @@ Per ulteriori informazioni, vedere [AZ ml computetarget create Ask](https://docs
 Se è già presente un cluster AKS nella sottoscrizione di Azure ed è la versione 1.12. # #, è possibile usarlo per distribuire l'immagine.
 
 > [!TIP]
-> Il cluster AKS esistente può trovarsi in un'area di Azure rispetto all'area di lavoro del servizio Azure Machine Learning.
+> Il cluster AKS esistente può trovarsi in un'area di Azure rispetto all'area di lavoro Azure Machine Learning.
 >
 > Se si vuole proteggere il cluster AKS con una rete virtuale di Azure, è necessario creare prima la rete virtuale. Per altre informazioni, vedere la pagina relativa a [sperimentazione e inferenza sicure con rete virtuale di Azure](how-to-enable-virtual-network.md#aksvnet).
 
@@ -220,7 +220,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
 
-### <a name="using-vs-code"></a>Utilizzo di VS Code
+### <a name="using-vs-code"></a>Uso di VS Code
 
 Per informazioni sull'uso di VS Code, vedere [Deploy to AKS by the vs code Extension](how-to-vscode-tools.md#deploy-and-manage-models).
 

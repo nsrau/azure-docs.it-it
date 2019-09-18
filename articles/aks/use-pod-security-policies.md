@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: df8aa51558bc3aa456758510792c198a8bd9cf78
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 3c9e5185bfcaf99765ec29874cea407fe55bfb17
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061855"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058335"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Per migliorare la sicurezza del cluster AKS, è possibile limitare i pod che è 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
 È necessaria l'interfaccia della riga di comando di Azure versione 2.0.61 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [installare l'interfaccia][install-azure-cli]della riga di comando di Azure.
 
@@ -67,7 +67,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="overview-of-pod-security-policies"></a>Panoramica dei criteri di sicurezza di Pod
 
-In un cluster Kubernetes, un controller di ammissione viene usato per intercettare le richieste al server API quando è necessario creare una risorsa. Il controller di ammissione può quindi convalidare la richiesta di risorse in base a un set di regole o *mutare* la risorsa per modificare i parametri di distribuzione.
+In un cluster Kubernetes, un controller di ammissione viene usato per intercettare le richieste al server API quando è necessario creare una risorsa. Il controller di ammissione può quindi *convalidare* la richiesta di risorse in base a un set di regole o *mutare* la risorsa per modificare i parametri di distribuzione.
 
 *PodSecurityPolicy* è un controller di ammissione che convalida una specifica Pod soddisfa i requisiti definiti. Questi requisiti possono limitare l'uso di contenitori con privilegi, l'accesso a determinati tipi di archiviazione o l'utente o il gruppo con cui il contenitore può essere eseguito. Quando si tenta di distribuire una risorsa in cui le specifiche del Pod non soddisfano i requisiti indicati nei criteri di sicurezza Pod, la richiesta viene negata. Questa possibilità di controllare quali Pod è possibile pianificare nel cluster AKS impedisce alcune possibili vulnerabilità di sicurezza o escalation dei privilegi.
 
@@ -95,37 +95,36 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>Criteri AKS predefiniti
 
-Quando si abilitano i criteri di sicurezza Pod, AKS crea due criteri predefiniti denominati privileged e Restricted. Non modificare o rimuovere questi criteri predefiniti. In alternativa, creare criteri personalizzati che definiscono le impostazioni che si desidera controllare. Per prima cosa si esaminano i criteri predefiniti che influiscano sulle distribuzioni pod.
+Quando si abilitano i criteri di sicurezza Pod, AKS crea un criterio predefinito denominato *Privileged*. Non modificare o rimuovere i criteri predefiniti. In alternativa, creare criteri personalizzati che definiscono le impostazioni che si desidera controllare. Per prima cosa si esaminano i criteri predefiniti che influiscano sulle distribuzioni pod.
 
-Per visualizzare i criteri disponibili, usare il comando [kubectl Get PSP][kubectl-get] , come illustrato nell'esempio seguente. Nell'ambito dei criteri di *restrizione* predefiniti, all'utente viene negato l'uso di *priv* per l'escalation dei pod con privilegi e l'utente *MustRunAsNonRoot*.
+Per visualizzare i criteri disponibili, usare il comando [kubectl Get PSP][kubectl-get] , come illustrato nell'esempio seguente
 
 ```console
 $ kubectl get psp
 
 NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
-privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-restricted   false          RunAsAny   MustRunAsNonRoot   MustRunAs   MustRunAs   false            configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-Il criterio di sicurezza Pod con *restrizioni* viene applicato a qualsiasi utente autenticato nel cluster AKS. Questa assegnazione viene controllata da ClusterRoles e ClusterRoleBindings. Usare il comando [kubectl Get clusterrolebindings][kubectl-get] e cercare l' *impostazione predefinita:* Restricted: binding:
+Il criterio di sicurezza di Pod con *privilegi* viene applicato a qualsiasi utente autenticato nel cluster AKS. Questa assegnazione viene controllata da ClusterRoles e ClusterRoleBindings. Usare il comando [kubectl Get clusterrolebindings][kubectl-get] e cercare il *valore predefinito: privilegiato:* binding:
 
 ```console
-kubectl get clusterrolebindings default:restricted -o yaml
+kubectl get clusterrolebindings default:priviledged -o yaml
 ```
 
-Come illustrato nel seguente output condensato, il ClusterRole *PSP:* Restricted viene assegnato a qualsiasi *sistema: Authenticated* Users. Questa possibilità offre un livello di base per le restrizioni senza definire i propri criteri.
+Come illustrato nel seguente output condensato, il ClusterRole *PSP: Restricted* viene assegnato a qualsiasi *sistema: Authenticated* Users. Questa possibilità offre un livello di base per le restrizioni senza definire i propri criteri.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   [...]
-  name: default:restricted
+  name: default:priviledged
   [...]
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: psp:restricted
+  name: psp:priviledged
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
@@ -387,8 +386,7 @@ $ kubectl get psp
 
 NAME                  PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
 privileged            true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-restricted            false          RunAsAny   MustRunAsNonRoot   MustRunAs   MustRunAs   false            configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *          configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>Consenti all'account utente di usare i criteri di sicurezza Pod personalizzati

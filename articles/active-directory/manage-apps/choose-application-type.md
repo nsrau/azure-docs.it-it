@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 09/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: fb2c49d6436a14e9b6cbb0a92eb0dfba077c8e4d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: d5bd2397c345a4f670bde343f751cd69f825ecb9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424252"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056071"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Scelta del tipo di applicazione al momento dell'aggiunta di un'applicazione in Azure Active Directory
 
@@ -45,7 +45,7 @@ Le funzionalità seguenti sono supportate dai quattro tipi di applicazione indic
 
 - **Guida introduttiva** : iniziare a usare rapidamente un'applicazione seguendo [semplici passaggi di distribuzione](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
-- **Gestione generale delle proprietà**: consente di ottenere un [collegamento diretto](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) a un'applicazione, [la personalizzazione del marchio](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) di un'applicazione o di [disabilitare l'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) per tutti gli utenti.
+- **Gestione generale delle proprietà** : consente di ottenere un [collegamento diretto diretto](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) a un'applicazione, [personalizzare la](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) personalizzazione di un'applicazione o [disabilitare l'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) per tutti gli utenti.
 
 - **Gestione utenti e gruppi**: consente di [assegnare](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) o [rimuovere](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) utenti e gruppi da un'applicazione e, facoltativamente, assegnare i ruoli specifici dell'applicazione a cui gli utenti e i gruppi hanno accesso
 
@@ -106,7 +106,7 @@ Leggere [Guida per gli sviluppatori di Azure Active Directory](https://docs.micr
 
 ## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Come impostare la modalità Single Sign-On di un'applicazione
 
-Per impostare la modalità Single Sign-on di un'applicazione, seguire queste istruzioni:
+Per impostare la modalità di Single Sign-On di un'applicazione, seguire queste istruzioni:
 
 1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 1. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
@@ -124,9 +124,6 @@ Per impostare la modalità Single Sign-on di un'applicazione, seguire queste ist
 - **Provisioning manuale**: scegliere la modalità di provisioning [manuale](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) se si dispone di account esistenti o si desidera gestire gli account per l'applicazione all'esterno di Azure AD.
 
 - **Provisioning automatico**: scegliere la **modalità di provisioning** [automatica](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning)se si desidera abilitare il provisioning automatico basato su API e/o il deprovisioning degli account utente per questa applicazione 
-
-  >[!NOTE]
-  >Questa opzione è disponibile solo per le applicazioni all'interno della categoria **in primo piano** della [Raccolta di applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
 
 - **Provisioning automatico basato su SCIM**: usare il [provisioning automatico basato su SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) se un'applicazione supporta il protocollo SCIM per il rilevamento di modifiche a utenti e gruppi, emessi automaticamente per le modifiche a tutte le applicazioni integrate in Azure AD 
 

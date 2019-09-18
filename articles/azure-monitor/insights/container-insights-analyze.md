@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/17/2019
 ms.author: magoedte
-ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 945dc6c35eacab99db28172703e1aebed10bd58a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744583"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067078"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
 Con monitoraggio di Azure per i contenitori, è possibile usare i grafici delle prestazioni e lo stato di integrità per monitorare il carico di lavoro dei cluster di Azure Kubernetes Service (AKS) da due prospettive. È possibile monitorare direttamente da un cluster AKS oppure è possibile monitorare tutti i cluster AKS in una sottoscrizione da monitoraggio di Azure. La visualizzazione di istanze di contenitore di Azure è anche possibile quando si monitora un cluster AKS specifico.
@@ -170,9 +170,13 @@ Da un nodo espanso è possibile eseguire il drill-down dal Pod o dal contenitore
 
 Selezionare i controller o i contenitori nella parte superiore della pagina per esaminare lo stato e l'utilizzo delle risorse per tali oggetti. Per esaminare l'utilizzo della memoria, nell'elenco a discesa **metrica** selezionare **memoria RSS** o **memoria working set**. L'opzione **Memoria RSS** è supportata solo per Kubernetes versione 1.8 e successive. Se si usa un'altra versione, per i valori di **Min&nbsp;%** verrà visualizzato *NaN&nbsp;%* , ovvero un valore di tipo di dati numerico che indica un valore non definito o non rappresentabile.
 
-**Memoria working set** Mostra sia la memoria residente che la memoria virtuale (cache) inclusa ed è un totale delle operazioni utilizzate dall'applicazione. **RSS memoria** Mostra solo la memoria principale (che non è nient'altro che la memoria residente in altre parole). Questa metrica Mostra la capacità effettiva della memoria disponibile.
-
 ![Visualizzazione delle prestazioni dei nodi del contenitore](./media/container-insights-analyze/containers-node-metric-dropdown.png)
+
+**Memoria working set** Mostra sia la memoria residente che la memoria virtuale (cache) inclusa ed è un totale delle operazioni utilizzate dall'applicazione. **RSS memoria** Mostra solo la memoria principale (che non è nient'altro che la memoria residente in altre parole). Questa metrica Mostra la capacità effettiva della memoria disponibile. Qual è la differenza tra memoria residente e memoria virtuale?
+
+- Memoria residente o memoria principale, è la quantità effettiva di memoria del computer disponibile per i nodi del cluster.
+
+- La memoria virtuale è lo spazio su disco rigido riservato (cache) usato dal sistema operativo per scambiare dati dalla memoria al disco quando si verificano richieste di memoria e quindi recuperarli di nuovo in memoria, quando necessario.
 
 Per impostazione predefinita, i dati sulle prestazioni si basano sulle ultime sei ore, ma è possibile modificare la finestra utilizzando l'opzione **TimeRange** in alto a sinistra. È anche possibile filtrare i risultati all'interno dell'intervallo di tempo selezionando **min**, **AVG**, **cinquantesimo**, **90**, **95**e **Max** nel selettore percentile. 
 
@@ -219,9 +223,9 @@ Selezionare il valore nella colonna **nodo** per il controller specifico.
 
 Le informazioni visualizzate quando si visualizzano i controller sono descritte nella tabella seguente.
 
-| Colonna | DESCRIZIONE | 
+| Colonna | Descrizione | 
 |--------|-------------|
-| NOME | Nome del controller.|
+| Name | Nome del controller.|
 | Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%,&nbsp;90%,&nbsp;95%, max&nbsp;%| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
@@ -258,7 +262,7 @@ Le informazioni visualizzate quando si visualizzano i contenitori sono descritte
 
 | Colonna | Descrizione | 
 |--------|-------------|
-| NOME | Nome del controller.|
+| Name | Nome del controller.|
 | Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%,&nbsp;90%,&nbsp;95%, max&nbsp;% | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |

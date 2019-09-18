@@ -1,7 +1,7 @@
 ---
 title: Sicurezza aziendale
-titleSuffix: Azure Machine Learning service
-description: 'Usare in modo sicuro il servizio Azure Machine Learning: autenticazione, autorizzazione, sicurezza di rete, crittografia dei dati e monitoraggio.'
+titleSuffix: Azure Machine Learning
+description: 'Usare Azure Machine Learning in modo sicuro: autenticazione, autorizzazione, sicurezza di rete, crittografia dei dati e monitoraggio.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: e1029ad34a05d342e5aed5bb30407dee7c914f3c
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 309cef6ec058d8192bc7a6341b49a59c0000a305
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873570"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035552"
 ---
-# <a name="enterprise-security-for-the-azure-machine-learning-service"></a>Sicurezza aziendale per il servizio Azure Machine Learning
+# <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
-In questo articolo verranno fornite informazioni sulle funzionalità di sicurezza disponibili per il servizio Azure Machine Learning.
+In questo articolo vengono fornite informazioni sulle funzionalità di sicurezza disponibili per Azure Machine Learning.
 
 Quando si usa un servizio cloud, una procedura consigliata consiste nel limitare l'accesso solo agli utenti che lo richiedono. Per iniziare, è necessario comprendere il modello di autenticazione e autorizzazione utilizzato dal servizio. Potrebbe anche essere opportuno limitare l'accesso alla rete o unire in modo sicuro le risorse nella rete locale con il cloud. La crittografia dei dati è anche fondamentale, sia inattivi che durante lo spostamento dei dati tra i servizi. Infine, è necessario essere in grado di monitorare il servizio e produrre un log di controllo di tutte le attività.
 
@@ -28,10 +28,10 @@ Quando si usa un servizio cloud, una procedura consigliata consiste nel limitare
 La funzionalità autenticazione a più fattori è supportata se Azure Active Directory (Azure AD) è configurata per l'utilizzo. Ecco il processo di autenticazione:
 
 1. Il client accede per Azure AD e ottiene un token di Azure Resource Manager.  Gli utenti e le entità servizio sono completamente supportati.
-1. Il client presenta il token per Azure Resource Manager e per tutti i servizi di Azure Machine Learning.
+1. Il client presenta il token per Azure Resource Manager e per tutti i Azure Machine Learning.
 1. Il servizio Machine Learning fornisce un token di servizio Machine Learning alla destinazione di calcolo dell'utente, ad esempio ambiente di calcolo di Machine Learning. Questo token viene usato dalla destinazione di calcolo utente per richiamare il servizio Machine Learning al termine dell'esecuzione. L'ambito è limitato all'area di lavoro.
 
-[![Autenticazione nel servizio Azure Machine Learning](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
+[![Autenticazione in Azure Machine Learning](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>Autenticazione per la distribuzione del servizio Web
 
@@ -94,9 +94,9 @@ print(token)
 * Collaboratore
 * Reader
 
-Nella tabella seguente sono elencate alcune delle principali operazioni del servizio Azure Machine Learning e i ruoli che possono eseguirli:
+Nella tabella seguente sono elencate alcune delle principali operazioni di Azure Machine Learning e i ruoli che possono eseguirli:
 
-| Operazione del servizio Azure Machine Learning | Proprietario | Collaboratore | Reader |
+| Operazione Azure Machine Learning | Proprietario | Collaboratore | Reader |
 | ---- |:----:|:----:|:----:|
 | Crea area di lavoro | ✓ | ✓ | |
 | Condividere l'area di lavoro | ✓ | |  |
@@ -132,11 +132,11 @@ Per altre informazioni sulle identità gestite, vedere [identità gestite per le
 
 Non è consigliabile che gli amministratori revocano l'accesso dell'identità gestita alle risorse indicate nella tabella precedente. È possibile ripristinare l'accesso tramite l'operazione di risincronizzazione delle chiavi.
 
-Il servizio Azure Machine Learning crea un'applicazione aggiuntiva (il nome inizia `aml-` con `Microsoft-AzureML-Support-App-`o) con accesso a livello di collaboratore nella sottoscrizione per ogni area dell'area di lavoro. Se, ad esempio, si dispone di un'area di lavoro negli Stati Uniti orientali e di un'altra area di lavoro in Europa settentrionale nella stessa sottoscrizione, verranno visualizzate due di queste applicazioni. Queste applicazioni consentono al servizio Azure Machine Learning di semplificare la gestione delle risorse di calcolo.
+Azure Machine Learning crea un'applicazione aggiuntiva (il nome inizia `aml-` con `Microsoft-AzureML-Support-App-`o) con accesso a livello di collaboratore nella sottoscrizione per ogni area dell'area di lavoro. Se, ad esempio, si dispone di un'area di lavoro negli Stati Uniti orientali e di un'altra area di lavoro in Europa settentrionale nella stessa sottoscrizione, verranno visualizzate due di queste applicazioni. Queste applicazioni consentono Azure Machine Learning di gestire le risorse di calcolo.
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-Il servizio Azure Machine Learning si basa su altri servizi di Azure per le risorse di calcolo. Le risorse di calcolo (destinazioni di calcolo) vengono usate per eseguire il training e la distribuzione dei modelli. È possibile creare queste destinazioni di calcolo in una rete virtuale. Ad esempio, è possibile usare Data Science Virtual Machine di Azure per eseguire il training di un modello e quindi distribuire il modello in AKS.  
+Azure Machine Learning si basa su altri servizi di Azure per le risorse di calcolo. Le risorse di calcolo (destinazioni di calcolo) vengono usate per eseguire il training e la distribuzione dei modelli. È possibile creare queste destinazioni di calcolo in una rete virtuale. Ad esempio, è possibile usare Data Science Virtual Machine di Azure per eseguire il training di un modello e quindi distribuire il modello in AKS.  
 
 Per ulteriori informazioni, vedere [come eseguire esperimenti e inferenza in una rete virtuale](how-to-enable-virtual-network.md).
 
@@ -146,7 +146,7 @@ Per ulteriori informazioni, vedere [come eseguire esperimenti e inferenza in una
 
 #### <a name="azure-blob-storage"></a>Archivio BLOB di Azure
 
-Il servizio Azure Machine Learning archivia snapshot, output e log nell'account di archiviazione BLOB di Azure associato all'area di lavoro del servizio Azure Machine Learning e alla sottoscrizione. Tutti i dati archiviati nell'archivio BLOB di Azure vengono crittografati a riposo con le chiavi gestite da Microsoft.
+Azure Machine Learning archivia gli snapshot, l'output e i log nell'account di archiviazione BLOB di Azure associato all'area di lavoro Azure Machine Learning e alla sottoscrizione. Tutti i dati archiviati nell'archivio BLOB di Azure vengono crittografati a riposo con le chiavi gestite da Microsoft.
 
 Per informazioni su come usare le proprie chiavi per i dati archiviati nell'archivio BLOB di Azure, vedere [crittografia di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 
@@ -156,15 +156,15 @@ Per informazioni sulla rigenerazione delle chiavi di accesso per gli account di 
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Il servizio Azure Machine Learning archivia metriche e metadati nell'istanza Azure Cosmos DB associata a una sottoscrizione Microsoft gestita da Azure Machine Learning Service. Tutti i dati archiviati in Azure Cosmos DB vengono crittografati a riposo con chiavi gestite da Microsoft.
+Azure Machine Learning archivia metriche e metadati nell'istanza Azure Cosmos DB associata a una sottoscrizione Microsoft gestita da Azure Machine Learning. Tutti i dati archiviati in Azure Cosmos DB vengono crittografati a riposo con chiavi gestite da Microsoft.
 
 #### <a name="azure-container-registry"></a>Registro contenitori di Azure
 
-Tutte le immagini del contenitore nel registro di sistema (Container Registry di Azure) vengono crittografate a riposo. Azure crittografa automaticamente un'immagine prima di archiviarla e la decrittografa in tempo reale quando il servizio Azure Machine Learning estrae l'immagine.
+Tutte le immagini del contenitore nel registro di sistema (Container Registry di Azure) vengono crittografate a riposo. Azure crittografa automaticamente un'immagine prima di archiviarla e la decrittografa in tempo reale quando Azure Machine Learning estrae l'immagine.
 
 #### <a name="machine-learning-compute"></a>Ambiente di calcolo di Machine Learning
 
-Il disco del sistema operativo per ogni nodo di calcolo archiviato in archiviazione di Azure è crittografato con le chiavi gestite da Microsoft negli account di archiviazione del servizio Azure Machine Learning. Questa destinazione di calcolo è effimera e i cluster vengono in genere ridimensionati quando nessuna esecuzione viene accodata. Viene effettuato il deprovisioning della macchina virtuale sottostante e viene eliminato il disco del sistema operativo. Crittografia dischi di Azure non è supportata per il disco del sistema operativo.
+Il disco del sistema operativo per ogni nodo di calcolo archiviato in archiviazione di Azure viene crittografato con le chiavi gestite da Microsoft in Azure Machine Learning account di archiviazione. Questa destinazione di calcolo è effimera e i cluster vengono in genere ridimensionati quando nessuna esecuzione viene accodata. Viene effettuato il deprovisioning della macchina virtuale sottostante e viene eliminato il disco del sistema operativo. Crittografia dischi di Azure non è supportata per il disco del sistema operativo.
 
 Ogni macchina virtuale dispone anche di un disco temporaneo locale per le operazioni del sistema operativo. Se lo si desidera, è possibile utilizzare il disco per organizzare i dati di training. Il disco non è crittografato.
 Per altre informazioni sul funzionamento della crittografia dei dati inattivi in Azure, vedere la pagina relativa [alla crittografia dei dati](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)inattivi di Azure.
@@ -177,13 +177,13 @@ Per altre informazioni, vedere [usare SSL per proteggere un servizio Web tramite
 
 ### <a name="using-azure-key-vault"></a>Utilizzo di Azure Key Vault
 
-Il servizio Azure Machine Learning utilizza l'istanza Azure Key Vault associata all'area di lavoro per archiviare le credenziali di diversi tipi:
+Azure Machine Learning utilizza l'istanza Azure Key Vault associata all'area di lavoro per archiviare le credenziali di diversi tipi:
 
 * Stringa di connessione dell'account di archiviazione associato
 * Password per le istanze del repository contenitore di Azure
 * Stringhe di connessione agli archivi dati
 
-Le password e le chiavi SSH per le destinazioni di calcolo come Azure HDInsight e le macchine virtuali vengono archiviate in un insieme di credenziali delle chiavi separato associato alla sottoscrizione Microsoft. Il servizio Azure Machine Learning non archivia le password o le chiavi fornite dagli utenti. Al contrario, genera, autorizza e archivia le proprie chiavi SSH per connettersi alle macchine virtuali e HDInsight per eseguire gli esperimenti.
+Le password e le chiavi SSH per le destinazioni di calcolo come Azure HDInsight e le macchine virtuali vengono archiviate in un insieme di credenziali delle chiavi separato associato alla sottoscrizione Microsoft. Azure Machine Learning non archivia le password o le chiavi fornite dagli utenti. Al contrario, genera, autorizza e archivia le proprie chiavi SSH per connettersi alle macchine virtuali e HDInsight per eseguire gli esperimenti.
 
 A ogni area di lavoro è associata un'identità gestita assegnata dal sistema con lo stesso nome dell'area di lavoro. Questa identità gestita può accedere a tutte le chiavi, i segreti e i certificati nell'insieme di credenziali delle chiavi.
 
@@ -191,7 +191,7 @@ A ogni area di lavoro è associata un'identità gestita assegnata dal sistema co
 
 ### <a name="metrics"></a>metrics
 
-È possibile usare le metriche di monitoraggio di Azure per visualizzare e monitorare le metriche per l'area di lavoro del servizio Azure Machine Learning. Nella [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro e quindi selezionare **metrica**:
+È possibile usare le metriche di monitoraggio di Azure per visualizzare e monitorare le metriche per l'area di lavoro Azure Machine Learning. Nella [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro e quindi selezionare **metrica**:
 
 [![Screenshot che mostra le metriche di esempio per un'area di lavoro](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
@@ -220,9 +220,9 @@ I dettagli della richiesta di assegnazione dei punteggi vengono archiviati in Ap
 
 Il diagramma seguente illustra il flusso di lavoro Crea area di lavoro.
 
-* L'utente accede al Azure AD da uno dei client del servizio di Azure Machine Learning supportati (interfaccia della riga di comando di Azure, Python SDK, portale di Azure) e richiede il token di Azure Resource Manager appropriato.
+* L'utente accede al Azure AD da uno dei client Azure Machine Learning supportati (interfaccia della riga di comando di Azure, Python SDK, portale di Azure) e richiede il token di Azure Resource Manager appropriato.
 * L'utente chiama Azure Resource Manager per creare l'area di lavoro. 
-* Azure Resource Manager Contatta il provider di risorse del servizio Azure Machine Learning per il provisioning dell'area di lavoro.
+* Azure Resource Manager Contatta il provider di risorse Azure Machine Learning per eseguire il provisioning dell'area di lavoro.
 
 Le risorse aggiuntive vengono create nella sottoscrizione dell'utente durante la creazione dell'area di lavoro:
 
@@ -239,7 +239,7 @@ L'utente può anche effettuare il provisioning di altre destinazioni di calcolo 
 
 Il diagramma seguente illustra il flusso di lavoro snapshot del codice.
 
-Associate a un'area di lavoro del servizio Azure Machine Learning sono directory (esperimenti) che contengono il codice sorgente (script di training). Questi script vengono archiviati nel computer locale e nel cloud (nell'archivio BLOB di Azure per la sottoscrizione). Gli snapshot del codice vengono usati per l'esecuzione o l'ispezione per il controllo cronologico.
+Associate a un'area di lavoro Azure Machine Learning sono directory (esperimenti) che contengono il codice sorgente (script di training). Questi script vengono archiviati nel computer locale e nel cloud (nell'archivio BLOB di Azure per la sottoscrizione). Gli snapshot del codice vengono usati per l'esecuzione o l'ispezione per il controllo cronologico.
 
 [![Flusso di lavoro snapshot del codice](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
@@ -247,10 +247,10 @@ Associate a un'area di lavoro del servizio Azure Machine Learning sono directory
 
 Il diagramma seguente illustra il flusso di lavoro di training.
 
-* Il servizio Azure Machine Learning viene chiamato con l'ID dello snapshot del codice salvato nella sezione precedente.
-* Il servizio Azure Machine Learning crea un ID esecuzione (facoltativo) e un token del servizio Machine Learning, che verrà usato in seguito da destinazioni di calcolo come ambiente di calcolo di Machine Learning/VM per comunicare con il servizio Machine Learning.
+* Azure Machine Learning viene chiamato con l'ID dello snapshot del codice salvato nella sezione precedente.
+* Azure Machine Learning crea un ID esecuzione (facoltativo) e un token del servizio Machine Learning, che verrà usato in seguito da destinazioni di calcolo come ambiente di calcolo di Machine Learning/VM per comunicare con il servizio Machine Learning.
 * Per eseguire i processi di training, è possibile scegliere una destinazione di calcolo gestita, ad esempio ambiente di calcolo di Machine Learning, o una destinazione di calcolo non gestita, ad esempio macchine virtuali. Ecco i flussi di dati per entrambi gli scenari:
-   * VM/HDInsight, a cui si accede tramite credenziali SSH in un insieme di credenziali delle chiavi nella sottoscrizione Microsoft. Il servizio Azure Machine Learning esegue il codice di gestione nella destinazione di calcolo che:
+   * VM/HDInsight, a cui si accede tramite credenziali SSH in un insieme di credenziali delle chiavi nella sottoscrizione Microsoft. Azure Machine Learning esegue il codice di gestione nella destinazione di calcolo che:
 
    1. Prepara l'ambiente. (Docker è un'opzione per le macchine virtuali e i computer locali. Ambiente di calcolo di Machine Learning per informazioni sull'esecuzione di esperimenti sui contenitori Docker, vedere i passaggi seguenti.
    1. Scarica il codice.
@@ -266,7 +266,7 @@ Poiché ambiente di calcolo di Machine Learning è una destinazione di calcolo g
 
 #### <a name="querying-runs-and-metrics"></a>Esecuzione di query su esecuzioni e metriche
 
-Nel diagramma di flusso riportato di seguito questo passaggio si verifica quando la destinazione di calcolo di training scrive le metriche di esecuzione nel servizio Azure Machine Learning dalla risorsa di archiviazione nel database di Cosmos DB. I client possono chiamare il servizio Azure Machine Learning. Machine Learning effettuerà a sua volta il pull delle metriche dal database Cosmos DB e le restituirà al client.
+Nel diagramma di flusso riportato di seguito questo passaggio si verifica quando la destinazione di calcolo di training scrive le metriche di esecuzione in Azure Machine Learning dalla risorsa di archiviazione nel database di Cosmos DB. I client possono chiamare Azure Machine Learning. Machine Learning effettuerà a sua volta il pull delle metriche dal database Cosmos DB e le restituirà al client.
 
 [![Flusso di lavoro di training](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
@@ -292,7 +292,7 @@ Di seguito sono riportati i dettagli:
 * [Come eseguire previsioni in batch](how-to-run-batch-predictions.md)
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)
-* [SDK del servizio Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Usare il servizio Azure Machine Learning con rete virtuale di Azure](how-to-enable-virtual-network.md)
+* [SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Usare Azure Machine Learning con rete virtuale di Azure](how-to-enable-virtual-network.md)
 * [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders) (Procedure consigliate per creare sistemi di raccomandazione)
 * [Creare un'API per raccomandazioni in tempo reale in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

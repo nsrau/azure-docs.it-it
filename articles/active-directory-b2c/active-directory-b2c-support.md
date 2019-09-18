@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a4bb82665ecd9d04c097a127f46814bb7198f393
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: f7f2217677b81c6f3e87eaa2612880adf3b499c2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227183"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064934"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Inviare richieste di supporto
-È possibile inviare richieste di supporto per Azure Active Directory (AD) B2C nel portale di Azure seguendo questa procedura:
+È possibile archiviare le richieste di supporto per Azure Active Directory B2C (Azure AD B2C) nel portale di Azure usando la procedura seguente:
 
 1. Passare dal tenant B2C in un altro tenant a cui è associata una sottoscrizione di Azure. In genere, questa è il tenant di dipendente o il tenant predefinito creato automaticamente quando è stata eseguita l'iscrizione per una sottoscrizione di Azure. Per altre informazioni, vedere la [relazione tra una sottoscrizione di Azure e Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

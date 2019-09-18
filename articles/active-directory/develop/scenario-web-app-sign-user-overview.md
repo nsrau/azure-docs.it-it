@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95aeeacfd85dd79453bff4e365e5b050039f77b9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.openlocfilehash: 7b898a93b87811fa5139e148a3273d7051af851b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852457"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056284"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: App Web che offre l'accesso agli utenti
 
@@ -55,7 +55,7 @@ Come seconda fase è anche possibile consentire all'applicazione di chiamare le 
 
 ## <a name="specifics"></a>Specifiche
 
-- Durante la registrazione dell'applicazione, è necessario specificarne uno o diversi (se si distribuisce l'app in diversi percorsi) URI di risposta. In alcuni casi (ASP.NET/ASP.NET Core), è necessario abilitare il IDToken. Infine, è necessario configurare un URI di disconnessione in modo che l'applicazione reagisca alla sottoscrizione degli utenti.
+- Durante la registrazione dell'applicazione, è necessario specificarne uno o diversi (se si distribuisce l'app in diversi percorsi) URI di risposta. In alcuni casi (ASP.NET/ASP.NET Core), è necessario abilitare il token ID. Infine, è necessario configurare un URI di disconnessione in modo che l'applicazione reagisca alla sottoscrizione degli utenti.
 - Nel codice per l'applicazione, è necessario fornire l'autorità a cui l'app Web delega l'accesso. Potrebbe essere necessario personalizzare la convalida del token (in particolare negli scenari ISV).
 - Le applicazioni Web supportano qualsiasi tipo di account. Per altre informazioni, vedere [tipi di account supportati](v2-supported-account-types.md).
 

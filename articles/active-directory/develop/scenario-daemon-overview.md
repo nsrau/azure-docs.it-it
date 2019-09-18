@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b86841cc6889eb8e716df3f6d1ac9bc7b158992
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ae0912203f2427694d2a9b8611966a55e1e6889e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852713"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056393"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: Applicazione daemon che chiama le API Web
 
@@ -47,7 +47,7 @@ Un altro caso comune in cui le applicazioni non daemon usano le credenziali clie
 
 Applicazioni che acquisiscono un token per le proprie identità:
 
-- Sono applicazioni client riservate. Queste app, dato che accedono alle risorse indipendentemente da un utente, devono dimostrare la propria identità. Si tratta anche di app piuttosto sensibili, che devono essere approvate dagli amministratori del tenant di Azure Active Directory (Azure AD).
+- sono applicazioni client riservate. Queste app, dato che accedono alle risorse indipendentemente da un utente, devono dimostrare la propria identità. Si tratta anche di app piuttosto sensibili, che devono essere approvate dagli amministratori del tenant di Azure Active Directory (Azure AD).
 - Hanno registrato un segreto (password dell'applicazione o certificato) con Azure AD. Questo segreto viene passato durante la chiamata a Azure AD per ottenere un token.
 
 ## <a name="specifics"></a>Specifiche
@@ -60,7 +60,7 @@ Applicazioni che acquisiscono un token per le proprie identità:
 Per gli sviluppatori, l'esperienza end-to-end per questo scenario presenta gli aspetti seguenti:
 
 - Le applicazioni daemon possono funzionare solo in Azure AD tenant. Non avrebbe senso creare un'applicazione daemon che tenti di modificare gli account personali Microsoft. Gli sviluppatori di app line-of-business (LOB) creeranno l'app daemon nel tenant. Se si è un ISV, potrebbe essere necessario creare un'applicazione daemon multi-tenant. Dovrà essere acconsentito da ogni amministratore tenant.
-- Durante la [registrazione dell'applicazione](./scenario-daemon-app-registration.md), l' **URI di risposta** non è necessario. È necessario condividere segreti o certificati con Azure AD ed è necessario richiedere autorizzazioni per le applicazioni e concedere il consenso dell'amministratore per l'uso di tali autorizzazioni dell'app.
+- Durante la [registrazione dell'applicazione](./scenario-daemon-app-registration.md), l' **URI di risposta** non è necessario. È necessario condividere i segreti o i certificati o le asserzioni firmate con Azure AD ed è necessario richiedere le autorizzazioni per le applicazioni e concedere il consenso dell'amministratore per l'uso di tali autorizzazioni dell'app.
 - La [configurazione dell'applicazione](./scenario-daemon-app-configuration.md) deve fornire le credenziali client come condivise con Azure ad durante la registrazione dell'applicazione.
 - L' [ambito](scenario-daemon-acquire-token.md#scopes-to-request) usato per acquisire un token con il flusso di credenziali client deve essere un ambito statico.
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 59ae3b587751bd4af2c9e5ab0abefb8a5c3bf8e6
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0cae5166fbbba650b270829b9c8e3711b12a574e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843931"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073943"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
 I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate solo notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi.
 
-I budget mensili vengono valutati in base alla spesa ogni quattro ore. Tuttavia, i dati per le risorse utilizzate sono disponibili entro otto ore. Quando viene soddisfatta una soglia di budget, le notifiche tramite posta elettronica vengono normalmente ricevute in meno di 12 ore. 
+I dati relativi ai costi e all'utilizzo sono in genere disponibili entro 8-12 ore e i budget vengono valutati a fronte di questi costi ogni quattro ore. Le notifiche tramite posta elettronica vengono normalmente ricevute entro 12-16 ore.
 
 I budget vengono reimpostati automaticamente alla fine di un periodo (mensile, trimestrale o annuale) per lo stesso importo di budget quando si seleziona una data di scadenza nel futuro. Dato che vengono reimpostati con lo stesso importo di budget, è necessario creare budget distinti se gli importi in valuta previsti differiscono per periodi futuri.
 

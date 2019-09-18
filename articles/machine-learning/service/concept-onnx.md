@@ -1,6 +1,6 @@
 ---
 title: Inferenza tra piattaforme elevate e prestazioni con ONNX
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su ONNX e il runtime di ONNX per l'accelerazione dei modelli
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d97e2d2698c482b75f037dbd8cde1027c472125
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 4f6e9e6b44e4a8fcc52f6d8ae19af60d64972b3a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534888"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035413"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e Azure Machine Learning: Creare e accelerare i modelli ML
 
@@ -28,14 +28,14 @@ Microsoft e una community di partner hanno creato ONNX come standard aperto per 
 
 [ONNX Runtime](https://github.com/Microsoft/onnxruntime) è un motore di inferenza a prestazioni elevate per la distribuzione di modelli ONNX in produzione. È ottimizzato per cloud e Edge e funziona in Linux, Windows e Mac. Scritto in C++, dispone anche di C, Python e C# API. Il runtime di ONNX fornisce il supporto per tutte le specifiche ONNX-ML e si integra anche con gli acceleratori su hardware diversi, ad esempio TensorRT su GPU NVidia.
 
-Il runtime di ONNX viene usato in servizi Microsoft a scalabilità elevata, ad esempio Bing, Office e servizi cognitivi. I miglioramenti delle prestazioni dipendono da diversi fattori, ma questi servizi Microsoft hanno riscontrato un __miglioramento medio delle prestazioni della CPU__. Il runtime di ONNX viene usato anche come parte di Windows ML su centinaia di milioni di dispositivi. È possibile usare il runtime con Azure Machine Learning Services. Grazie al runtime di ONNX, è possibile trarre vantaggio dall'ampia gamma di ottimizzazioni del livello di produzione, dai test e dai miglioramenti continui.
+Il runtime di ONNX viene usato in servizi Microsoft a scalabilità elevata, ad esempio Bing, Office e servizi cognitivi. I miglioramenti delle prestazioni dipendono da diversi fattori, ma questi servizi Microsoft hanno riscontrato un __miglioramento medio delle prestazioni della CPU__. Il runtime di ONNX viene usato anche come parte di Windows ML su centinaia di milioni di dispositivi. È possibile usare il runtime con Azure Machine Learning. Grazie al runtime di ONNX, è possibile trarre vantaggio dall'ampia gamma di ottimizzazioni del livello di produzione, dai test e dai miglioramenti continui.
 
 [![Diagramma di flusso ONNX che mostra formazione, convertitori e distribuzione](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Ottenere modelli ONNX
 
 È possibile ottenere modelli ONNX in diversi modi:
-+ Eseguire il training di un nuovo modello ONNX nel servizio Azure Machine Learning (vedere gli esempi alla fine di questo articolo)
++ Eseguire il training di un nuovo modello ONNX in Azure Machine Learning (vedere gli esempi alla fine di questo articolo)
 + Convertire un modello esistente da un altro formato a ONNX (vedere le [esercitazioni](https://github.com/onnx/tutorials)) 
 + Ottenere un modello ONNX con training preliminare da [ONNX Model Zoo](https://github.com/onnx/models) (vedere gli esempi alla fine di questo articolo)
 + Generare un modello personalizzato di ONNX dal [Servizio visione artificiale personalizzato di Azure](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
@@ -44,7 +44,7 @@ Molti modelli, tra cui la classificazione di immagini, il rilevamento di oggetti
 
 ## <a name="deploy-onnx-models-in-azure"></a>Distribuire i modelli ONNX in Azure
 
-Con il servizio di Azure Machine Learning, è possibile distribuire, gestire e monitorare i propri modelli ONNX. Usando il [flusso di lavoro di distribuzione](concept-model-management-and-deployment.md) standard e ONNX Runtime, è possibile creare un endpoint REST ospitato nel cloud. Vedere gli esempi di notebook di Jupyter alla fine di questo articolo per provare a farlo da soli. 
+Con Azure Machine Learning è possibile distribuire, gestire e monitorare i modelli di ONNX. Usando il [flusso di lavoro di distribuzione](concept-model-management-and-deployment.md) standard e ONNX Runtime, è possibile creare un endpoint REST ospitato nel cloud. Vedere gli esempi di notebook di Jupyter alla fine di questo articolo per provare a farlo da soli. 
 
 ### <a name="install-and-use-onnx-runtime-with-python"></a>Installare e usare ONNX Runtime con Python
 

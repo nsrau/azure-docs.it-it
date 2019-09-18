@@ -1,7 +1,7 @@
 ---
 title: Usare e distribuire modelli esistenti
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare Azure Machine Learning servizio con i modelli di cui è stato eseguito il training all'esterno del servizio. È possibile registrare i modelli creati all'esterno del servizio Azure Machine Learning e quindi distribuirli come servizio Web o modulo di Azure IoT Edge.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare Azure Machine Learning con i modelli di cui è stato eseguito il training all'esterno del servizio. È possibile registrare i modelli creati all'esterno Azure Machine Learning e quindi distribuirli come un servizio Web o un modulo di Azure IoT Edge.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,32 +10,32 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: f30ac3d5e20b3f797e083972ac179fd29f6b1475
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 0de9284896900cb7430f42e1d0266a1c02fab20e
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182533"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034434"
 ---
-# <a name="use-an-existing-model-with-azure-machine-learning-service"></a>Usare un modello esistente con il servizio Azure Machine Learning
+# <a name="use-an-existing-model-with-azure-machine-learning"></a>Usare un modello esistente con Azure Machine Learning
 
-Informazioni su come usare un modello di apprendimento automatico esistente con il servizio Azure Machine Learning.
+Informazioni su come usare un modello di apprendimento automatico esistente con Azure Machine Learning.
 
-Se è stato eseguito il training di un modello di machine learning all'esterno del servizio Azure Machine Learning, è comunque possibile usare il servizio per distribuire il modello come servizio Web o in un dispositivo IoT Edge. 
+Se si dispone di un modello di apprendimento automatico di cui è stato eseguito il training all'esterno Azure Machine Learning, è comunque possibile usare il servizio per distribuire il modello come servizio Web o in un dispositivo IoT Edge. 
 
 > [!TIP]
-> Questo articolo fornisce informazioni di base sulla registrazione e sulla distribuzione di un modello esistente. Una volta distribuito, Azure Machine Learning servizio fornisce il monitoraggio per il modello. Consente inoltre di archiviare i dati di input inviati alla distribuzione, che possono essere utilizzati per l'analisi della deriva dei dati o per il training di nuove versioni del modello.
+> Questo articolo fornisce informazioni di base sulla registrazione e sulla distribuzione di un modello esistente. Una volta distribuito, Azure Machine Learning fornisce il monitoraggio per il modello. Consente inoltre di archiviare i dati di input inviati alla distribuzione, che possono essere utilizzati per l'analisi della deriva dei dati o per il training di nuove versioni del modello.
 >
 > Per altre informazioni sui concetti e i termini usati in questo articolo, vedere [gestire, distribuire e monitorare i modelli di Machine Learning](concept-model-management-and-deployment.md).
 >
-> Per informazioni generali sul processo di distribuzione, vedere [distribuire modelli con Azure Machine Learning servizio](how-to-deploy-and-where.md).
+> Per informazioni generali sul processo di distribuzione, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro del servizio Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro](how-to-manage-workspace.md).
+* Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro](how-to-manage-workspace.md).
 
     > [!TIP]
-    > Gli esempi di Python in questo articolo presuppongono che la variabile sia impostata sull' `ws` area di lavoro del servizio Azure Machine Learning.
+    > Gli esempi di Python in questo articolo presuppongono che la variabile sia impostata sull' `ws` area di lavoro Azure Machine Learning.
     >
     > Gli esempi dell'interfaccia della riga di `myworkspace` comando `myresourcegroup`usano un segnaposto di e. Sostituirli con il nome dell'area di lavoro e il gruppo di risorse che lo contiene.
 
@@ -46,7 +46,7 @@ Se è stato eseguito il training di un modello di machine learning all'esterno d
 * Un modello con training. Il modello deve essere salvato in modo permanente in uno o più file nell'ambiente di sviluppo.
 
     > [!NOTE]
-    > Per dimostrare la registrazione di un modello sottoposto a training all'esterno di Azure Machine Learning servizio, i frammenti di codice di esempio in questo articolo usano i modelli creati dal progetto [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)di analisi del sentimento Twitter di Paolo Ripamonti:.
+    > Per dimostrare la registrazione di un modello sottoposto a training all'esterno Azure Machine Learning, i frammenti di codice di esempio in questo articolo usano i modelli creati dal progetto di [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)analisi del sentimento Twitter di Paolo Ripamonti:.
 
 ## <a name="register-the-models"></a>Registrare il modello o i modelli
 
@@ -58,7 +58,7 @@ from azureml.core.model import Model
 #      only some of the files from the directory
 model = Model.register(model_path = "./models",
                        model_name = "sentiment",
-                       description = "Sentiment analysis model trained outside Azure Machine Learning service",
+                       description = "Sentiment analysis model trained outside Azure Machine Learning",
                        workspace = ws)
 ```
 
@@ -79,7 +79,7 @@ Per altre informazioni sulla registrazione dei modelli in generale, vedere [gest
 La configurazione dell'inferenza definisce l'ambiente utilizzato per eseguire il modello distribuito. La configurazione dell'inferenza fa riferimento alle entità seguenti, che vengono usate per eseguire il modello quando viene distribuito:
 
 * Uno script di immissione. Questo file (denominato `score.py`) carica il modello all'avvio del servizio distribuito. È anche responsabile della ricezione di dati, della relativa trasmissione al modello e della restituzione di una risposta.
-* [Ambiente](how-to-use-environments.md)del servizio Azure Machine Learning. Un ambiente definisce le dipendenze software necessarie per eseguire lo script del modello e della voce.
+* [Ambiente](how-to-use-environments.md)Azure Machine Learning. Un ambiente definisce le dipendenze software necessarie per eseguire lo script del modello e della voce.
 
 L'esempio seguente illustra come usare l'SDK per creare un ambiente e quindi usarlo con una configurazione di inferenza:
 
@@ -135,7 +135,7 @@ dependencies:
     - keras
 ```
 
-Per altre informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning servizio](how-to-deploy-and-where.md).
+Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### <a name="entry-script"></a>Script di immissione
 
@@ -220,7 +220,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-Per ulteriori informazioni sugli script di immissione, vedere la pagina relativa alla [distribuzione di modelli con Azure Machine Learning Service](how-to-deploy-and-where.md).
+Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="define-deployment"></a>Definire la distribuzione
 

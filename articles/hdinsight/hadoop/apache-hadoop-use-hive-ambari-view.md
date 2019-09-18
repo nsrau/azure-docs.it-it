@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917707"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077003"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usare la vista Hive di Apache Ambari con Apache Hadoop in HDInsight
 
@@ -34,7 +34,7 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
 
 3. Nell'elenco di viste selezionare __vista Hive__.
 
-    ![Vista Hive selezionata](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    ![Visualizzazione Apache Hive di Apache Ambari Select](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     La pagina Vista Hive è simile all'immagine seguente:
 
@@ -98,25 +98,25 @@ La vista **Visual Explain** (Spiegazione visiva) della query può essere utile p
 Per visualizzare l'interfaccia utente di TeZ per la query, selezionare la scheda **interfaccia utente di TeZ** al di sotto del foglio di foglio.
 
 > [!IMPORTANT]  
-> Tez non viene usato per risolvere tutte le query. Molte query possono essere risolte senza usare Tez. 
+> Tez non viene usato per risolvere tutte le query. Molte query possono essere risolte senza usare Tez.
 
 ## <a name="view-job-history"></a>Visualizzare la cronologia processo
 
 La scheda __Jobs__ (Processi) visualizza una cronologia delle query Hive.
 
-![Immagine della cronologia processo](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+![Cronologia della scheda dei processi di visualizzazione Apache Hive](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Tabelle di database
 
 È possibile usare la scheda __Tables__ (Tabelle) per utilizzare le tabelle in un database Hive.
 
-![Immagine della scheda delle tabelle](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+![Immagine della scheda tabelle Apache Hive](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>Query salvate
 
 Dalla scheda **Query** è facoltativamente possibile salvare le query. Dopo aver salvato una query, è possibile riusarla dalla scheda __Query salvate__.
 
-![Immagine della scheda delle query salvate](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![Apache Hive visualizzare la scheda query salvate](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Le query salvate vengono archiviate nell'archiviazione cluster predefinita. Le query salvate sono disponibili nel percorso `/user/<username>/hive/scripts`. Vengono archiviate come file `.hql` in testo normale.
@@ -129,7 +129,7 @@ Hive può essere esteso tramite funzioni definite dall'utente (UDF), che consent
 
 La scheda della **funzione definita dall'utente** nella parte superiore della vista Hive consente di dichiarare e salvare un set di funzioni definite dall'utente, che è possibile usare con **Query Editor**.
 
-![Immagine della scheda delle funzioni definite dall'utente](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+![Visualizzazione della scheda UDF di visualizzazione Apache Hive](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 Dopo avere aggiunto una funzione definita dall'utente alla visualizzazione Hive, verrà visualizzato un pulsante **Insert udfs** (Inserisci funzioni definite dall'utente) nella parte inferiore di **Query Editor**. Se si seleziona questa voce, verrà visualizzato un elenco di riepilogo a discesa di funzioni definite dall'utente nella vista Hive. La selezione di una funzione definita dall'utente aggiungerà istruzioni HiveQL alla query per abilitare la funzione definita dall'utente.
 

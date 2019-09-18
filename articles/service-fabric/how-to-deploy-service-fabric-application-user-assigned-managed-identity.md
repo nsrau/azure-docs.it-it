@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: atsenthi
-ms.openlocfilehash: f8dfaa39f02aefbdda1f34afa5011ce5fadbae49
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0cc1e51a4d5f9ad54866066a4247e1588da381a6
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624910"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037494"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Distribuire Service Fabric applicazione con un'identità gestita assegnata dall'utente (anteprima)
 
@@ -27,7 +27,7 @@ Per distribuire un'applicazione Service Fabric con identità gestita, l'applicaz
 
 ## <a name="user-assigned-identity"></a>Identità assegnata dall'utente
 
-Per abilitare l'applicazione con l'identità assegnata dall'utente, aggiungere prima di tutto la proprietà **Identity** alla risorsa dell'applicazione con il tipo **userAssigned** e le identità assegnate dall'utente a cui si fa riferimento. Aggiungere quindi una sezione **managedIdentities** all'interno della sezione **Properties (proprietà** ) per la risorsa **dell'applicazione** contenente un elenco di nomi descrittivi per il mapping di PrincipalId per ogni identità assegnata dall'utente.
+Per abilitare l'applicazione con l'identità assegnata dall'utente, aggiungere prima di tutto la proprietà **Identity** alla risorsa dell'applicazione con il tipo **userAssigned** e le identità assegnate dall'utente a cui si fa riferimento. Aggiungere quindi una sezione **managedIdentities** all'interno della sezione **Properties (proprietà** ) per la risorsa **dell'applicazione** contenente un elenco di nomi descrittivi per il mapping di PrincipalId per ogni identità assegnata dall'utente. Per altre informazioni sulle identità assegnate dall'utente [, vedere creare, elencare o eliminare un'identità gestita assegnata dall'utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell).
 
 ### <a name="application-template"></a>Modello di applicazione
 
@@ -90,7 +90,7 @@ Nell'esempio precedente il nome della risorsa dell'identità assegnata dall'uten
       </ServiceManifestImport>
     ```
 
-3. Aggiornare il manifesto del servizio per aggiungere un **ManagedIdentity** all'interno della sezione Resources con `ServiceIdentityRef` il nome `IdentityBindingPolicy` corrispondente a in del manifesto dell'applicazione:
+3. Aggiornare il manifesto del servizio per aggiungere un **ManagedIdentity** all'interno della sezione **Resources** con `ServiceIdentityRef` il nome `IdentityBindingPolicy` corrispondente a in del manifesto dell'applicazione:
 
     **ServiceManifest. XML**
 

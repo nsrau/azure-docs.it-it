@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37f8305d8ed212cf2c6678b35220d823611b9d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 642621e2e04d3e96dc6886b1bdb28c161560b28e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509028"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065452"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurare i requisiti di complessità delle password in Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C supporta la modifica dei requisiti di complessità delle password specificate da un utente finale durante la creazione di un account. Per impostazione predefinita, Azure AD B2C usa password di tipo `Strong`. Azure AD B2C supporta anche opzioni di configurazione per controllare la complessità delle password che i clienti possono usare.
+Azure Active Directory B2C (Azure AD B2C) supporta la modifica dei requisiti di complessità delle password specificate da un utente finale durante la creazione di un account. Per impostazione predefinita, Azure AD B2C usa password di tipo `Strong`. Azure AD B2C supporta anche opzioni di configurazione per controllare la complessità delle password che i clienti possono usare.
 
 ## <a name="password-rule-enforcement"></a>Applicazione delle regole delle password
 
-Durante la registrazione o la reimpostazione di una password, l'utente finale deve specificare una password che soddisfi le regole di complessità, che vengono applicate in base al flusso utente di riferimento. È possibile avere un solo flusso utente di richiedere un pin a quattro cifre, mentre un altro flusso utente richiede una stringa di otto caratteri durante l'iscrizione. È possibile, ad esempio, usare un flusso utente con una complessità delle password diversa per gli adulti e per i bambini.
+Durante la registrazione o la reimpostazione di una password, l'utente finale deve specificare una password che soddisfi le regole di complessità, che vengono applicate in base al flusso utente di riferimento. È possibile che un flusso utente richieda un pin a quattro cifre durante l'iscrizione mentre un altro flusso utente richiede una stringa di otto caratteri durante l'iscrizione. È possibile, ad esempio, usare un flusso utente con una complessità delle password diversa per gli adulti e per i bambini.
 
 La complessità delle password non viene mai applicata durante l'accesso. Durante la registrazione, infatti, agli utenti non viene mai chiesto di modificare la password perché non soddisfa i requisiti di complessità correnti.
 
@@ -37,7 +37,7 @@ Se si usano criteri personalizzati, è possibile [configurare la complessità de
 ## <a name="configure-password-complexity"></a>Configurare la complessità delle password
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Selezionare **Flussi utente**.
 2. Selezionare un flusso utente e fare clic su **Proprietà**.
@@ -48,7 +48,7 @@ Se si usano criteri personalizzati, è possibile [configurare la complessità de
 | Complessità | Descrizione |
 | --- | --- |
 | Semplice | Una password con un numero di caratteri compreso tra 8 e 64. |
-| Assoluta | Una password con un numero di caratteri compreso tra 8 e 64. Richiede almeno tre dei quattro tipi di carattere seguenti: lettere minuscole, lettere maiuscole, numeri e simboli. |
+| Alta | Una password con un numero di caratteri compreso tra 8 e 64. Richiede almeno tre dei quattro tipi di carattere seguenti: lettere minuscole, lettere maiuscole, numeri e simboli. |
 | Personalizzato | Questa opzione offre il massimo controllo sulle regole di complessità delle password.  Consente infatti di configurare una lunghezza personalizzata  o di accettare password solo numeriche (PIN). |
 
 ## <a name="custom-options"></a>Opzioni personalizzate
@@ -60,7 +60,7 @@ Consente di accettare solo cifre (PIN) o l'intero set di caratteri.
 - **Solo numeri** consente di immettere solo cifre (0-9) durante la configurazione di una password.
 - **Tutti** consente qualsiasi lettera, numero o simbolo.
 
-### <a name="length"></a>Length
+### <a name="length"></a>Lunghezza
 
 Consente di controllare i requisiti di lunghezza della password.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 50264b1364f40ff5e68ae4a93783d62837c167b3
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d881ffff81119167f54b5ef8f0c5e2c1ad1e4791
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898824"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075123"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
@@ -46,6 +46,10 @@ L'output di esempio seguente mostra che il cluster può essere aggiornato alle v
 Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
 -------  ----------------  ---------------  -----------------  ---------------
 default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
+```
+Se non è disponibile alcun aggiornamento, si otterrà quanto segue:
+```console
+ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio Azure Container

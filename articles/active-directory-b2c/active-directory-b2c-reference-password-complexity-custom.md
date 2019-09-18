@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04a37e6faf51787457d7ca4ab8434fd253deb2ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6454d380b0f34e940951e3de44d1dee0ff6b597f
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509148"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065542"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory (Azure AD) B2C è possibile configurare i requisiti di complessità delle password specificate da un utente durante la creazione di un account. Per impostazione predefinita, Azure AD B2C usa password di complessità **Alta**. Questo articolo illustra come configurare la complessità delle password usando [criteri personalizzati](active-directory-b2c-overview-custom.md). È anche possibile configurare la complessità delle password usando [flussi utente](active-directory-b2c-reference-password-complexity.md).
+In Azure Active Directory B2C (Azure AD B2C), è possibile configurare i requisiti di complessità per le password fornite da un utente durante la creazione di un account. Per impostazione predefinita, Azure AD B2C usa password di complessità **Alta**. Questo articolo illustra come configurare la complessità delle password usando [criteri personalizzati](active-directory-b2c-overview-custom.md). È anche possibile configurare la complessità delle password usando [flussi utente](active-directory-b2c-reference-password-complexity.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -112,12 +112,12 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 ### <a name="upload-the-files"></a>Caricare i file
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 5. Nella pagina dei criteri personalizzati, fare clic su **Carica criterio**.
 6. Selezionare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *SingUpOrSignInPasswordComplexity.xml*.
-7. Fare clic su **Carica**.
+7. Fare clic su **Upload**.
 
 ### <a name="run-the-policy"></a>Esegui il criterio
 

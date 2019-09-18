@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 679de2d3a5519e57978239ddd75a4b9fa2ffef3c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f90b69cde4a961457c987f004e2605e6884bf323
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998765"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063333"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui profili tecnici nei criteri personalizzati di Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un profilo tecnico offre un framework con un meccanismo predefinito per comunicare con diversi tipi di entità usando criteri personalizzati di Azure Active Directory (Azure AD) B2C. I profili tecnici vengono usati per comunicare con il tenant di Azure AD B2C, creare un utente o leggere un profilo utente. Un profilo tecnico può essere autocertificato per consentire l'interazione con l'utente, ad esempio per raccogliere le credenziali dell'utente per l'accesso e quindi eseguire il rendering della pagina di iscrizione o di reimpostazione della password.
+Un profilo tecnico fornisce un Framework con un meccanismo incorporato per la comunicazione con tipi diversi di entità mediante un criterio personalizzato in Azure Active Directory B2C (Azure AD B2C). I profili tecnici vengono usati per comunicare con il tenant di Azure AD B2C, creare un utente o leggere un profilo utente. Un profilo tecnico può essere autocertificato per consentire l'interazione con l'utente, ad esempio per raccogliere le credenziali dell'utente per l'accesso e quindi eseguire il rendering della pagina di iscrizione o di reimpostazione della password.
 
 ## <a name="type-of-technical-profiles"></a>Tipi di profili tecnici
 

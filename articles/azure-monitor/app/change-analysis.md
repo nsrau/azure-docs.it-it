@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: a08fc7d7822b4aeddafb588fdb73e86559ce2b12
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 84e423ac055c074028df217060a548b932823496
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849161"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033390"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -87,57 +87,39 @@ In monitoraggio di Azure, l'analisi delle modifiche è attualmente integrata nel
 
 ### <a name="enable-change-analysis-at-scale"></a>Abilitare l'analisi delle modifiche su larga scala
 
-Se la sottoscrizione include numerose app Web, l'abilitazione del servizio al livello dell'app Web risulterebbe inefficiente. In questo caso, seguire queste istruzioni alternative.
+Se la sottoscrizione include numerose app Web, l'abilitazione del servizio al livello dell'app Web risulterebbe inefficiente. Eseguire lo script seguente per abilitare tutte le app Web nella sottoscrizione.
 
-### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>Registrare il provider di risorse di analisi delle modifiche per la sottoscrizione
+Prerequisiti:
+* PowerShell AZ Module. Seguire le istruzioni in [installare il modulo Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-1. Registrare il flag della funzionalità di analisi delle modifiche (anteprima). Poiché il flag funzionalità è in anteprima, è necessario registrarlo per renderlo visibile alla sottoscrizione:
+Eseguire lo script seguente:
 
-   1. Aprire [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
+```PowerShell
+# Log in to your Azure subscription
+Connect-AzAccount
 
-      ![Screenshot delle modifiche Cloud Shell](./media/change-analysis/cloud-shell.png)
+# Get subscription Id
+$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
 
-   1. Modificare il tipo di shell in **PowerShell**.
+# Make Feature Flag visible to the subscription
+Set-AzContext -SubscriptionId $SubscriptionId
 
-      ![Screenshot delle modifiche Cloud Shell](./media/change-analysis/choose-powershell.png)
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
 
-   1. Eseguire il seguente comando PowerShell:
 
-        ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
-        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-        ```
+# Enable each web app
+$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
+foreach ($webapp in $webapp_list)
+{
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
+}
 
-1. Registrare il provider di risorse di analisi delle modifiche per la sottoscrizione.
+```
 
-   - Passare a **sottoscrizioni**e selezionare la sottoscrizione che si vuole abilitare nel servizio di modifica. Quindi selezionare provider di risorse:
 
-        ![Screenshot che illustra come registrare il provider di risorse di analisi delle modifiche](./media/change-analysis/register-rp.png)
-
-       - Selezionare **Microsoft. ChangeAnalysis**. Nella parte superiore della pagina selezionare **Register (registra**).
-
-       - Dopo l'abilitazione del provider di risorse, è possibile impostare un tag nascosto nell'app Web per rilevare le modifiche a livello di distribuzione. Per impostare un tag nascosto, seguire le istruzioni riportate in **non è possibile recuperare le informazioni sull'analisi delle modifiche**.
-
-   - In alternativa, è possibile usare uno script di PowerShell per registrare il provider di risorse:
-
-        ```PowerShell
-        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-        ```
-
-        Per usare PowerShell per impostare un tag nascosto in un'app Web, eseguire il comando seguente:
-
-        ```powershell
-        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-        $tags = $webapp.Tags
-        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-        ```
-
-     > [!NOTE]
-     > Dopo aver aggiunto il tag nascosto, potrebbe essere comunque necessario attendere fino a 4 ore prima di iniziare a visualizzare le modifiche. I risultati vengono posticipati perché l'analisi delle modifiche analizza l'app Web solo ogni 4 ore. La pianificazione di 4 ore limita l'effetto sulle prestazioni dell'analisi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 4554214b74b4d09fa40e355270208bebda4076b7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775260"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037235"
 ---
 # <a name="add-storage"></a>Aggiungere le risorse di archiviazione
 
@@ -27,13 +27,15 @@ Tenere presente che le esportazioni di archiviazione devono essere accessibili d
 
 Utilizzare la scheda **destinazioni di archiviazione** della creazione guidata cache per definire l'archiviazione nello stesso momento in cui si crea l'istanza della cache.
 
-![screenshot della pagina Destinazioni di archiviazione](media/create-targets.png)
+![screenshot della pagina delle destinazioni di archiviazione](media/hpc-cache-storage-targets-pop.png)
 
 Fare clic sul collegamento **Aggiungi destinazione di archiviazione** per aggiungere spazio di archiviazione.
 
 ## <a name="add-storage-targets-from-the-cache"></a>Aggiungere destinazioni di archiviazione dalla cache
 
 Dalla portale di Azure aprire l'istanza di cache e fare clic su **destinazioni di archiviazione** nella barra laterale sinistra. La pagina destinazione di archiviazione elenca tutte le destinazioni esistenti e fornisce un collegamento per aggiungerne una nuova.
+
+![screenshot del collegamento destinazioni di archiviazione nella barra laterale, sotto l'intestazione Configura, che è tra le impostazioni delle intestazioni di categoria e il monitoraggio](media/hpc-cache-storage-targets-sidebar.png)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Aggiungere una nuova destinazione di archiviazione BLOB di Azure
 
@@ -52,15 +54,13 @@ Per definire un contenitore BLOB di Azure, immettere queste informazioni.
 
 * **Percorso dello spazio dei nomi virtuale** : impostare il FilePath per il client per questa destinazione di archiviazione. Per ulteriori informazioni sulla funzionalità spazio dei nomi virtuale, vedere [configurare lo spazio dei nomi aggregato](hpc-cache-namespace.md) .
 
-<!--  The namespace path value must end with a slash (``/``) and should not start with one.  -->
-
 Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Aggiungere i ruoli di controllo di accesso all'account
 
 La cache HPC di Azure usa il [controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) per autorizzare l'applicazione della cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
 
-Il proprietario dell'account di archiviazione deve aggiungere in modo esplicito il collaboratore per l' [account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) Rolls e i [dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) per l'utente "StorageCache Resource Provider".
+Il proprietario dell'account di archiviazione deve aggiungere in modo esplicito i ruoli collaboratore [account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) e collaboratore [dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) per l'utente "StorageCache Resource Provider".
 
 È possibile eseguire questa operazione in anticipo oppure facendo clic su un collegamento nella pagina in cui si aggiunge una destinazione di archiviazione BLOB.
 

@@ -3,16 +3,17 @@ title: Usare un computer Windows con Hadoop in HDInsight - Azure
 description: Lavorare da un computer Windows in Hadoop in HDInsight. Gestire ed eseguire query sui cluster con gli strumenti di PowerShell, Visual Studio e Linux. Sviluppare soluzioni Big Data con .NET.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/24/2019
-ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 942ca2fe89441ab7497e98c6ffe1fffb9847da77
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926021"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076577"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Lavorare all'interno dell'ecosistema Apache Hadoop in HDInsight da un computer Windows
 
@@ -33,7 +34,7 @@ Attenersi alla procedura [installare e configurare Azure Powershell](https://doc
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilità che è possibile eseguire in un browser
 Le seguenti utilità hanno un'interfaccia utente Web che viene eseguita in un browser:
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)**  è una shell da riga di comando interattiva che viene eseguito nel browser e dal portale di Azure.
+* **[Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** è una shell interattiva della riga di comando che viene eseguita nel browser e dall'interno del portale di Azure.
 * **[Interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md)** è un'utilità di gestione e monitoraggio disponibile nel portale di Azure che può essere usata per gestire diversi tipi di processi, ad esempio:
     * [Usare Apache Ambari con l'API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Vista in Apache Ambari di Apache Hive](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -78,7 +79,7 @@ I cluster Apache Spark in HDInsight includono notebook e kernel Apache Zeppelin 
 
 Se si verifica una situazione in cui è necessario usare uno strumento o una tecnologia che è disponibile solo in Linux, considerare le opzioni seguenti:
 
-* **Bash in Ubuntu in Windows 10** fornisce un sottosistema Linux in Windows. Bash consente di eseguire direttamente le utilità di Linux senza dover gestire un'installazione di Linux dedicata. Visualizzare [sottosistema Windows per la Guida all'installazione di Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) per i passaggi di installazione.  Altri [shell Unix](https://www.gnu.org/software/bash/) funzioneranno anche.
+* **Bash in Ubuntu in Windows 10** fornisce un sottosistema Linux in Windows. Bash consente di eseguire direttamente le utilità di Linux senza dover gestire un'installazione di Linux dedicata. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).
 * **Docker per Windows** fornisce l'accesso a molti strumenti basati su Linux e può essere eseguito direttamente da Windows. Ad esempio è possibile usare Docker per eseguire il client Beeline per Hive direttamente da Windows. È possibile inoltre usare Docker per eseguire un notebook Jupyter locale e connettersi da remoto a Spark in HDInsight. [Introduzione a Docker per Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)**  consente di visualizzare graficamente il file system del cluster tramite una connessione SSH.
 

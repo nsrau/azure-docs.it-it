@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 130186af13b9207326cd52b46b880c1f13a16100
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 3633ffb09d71bd166cb7366f860662d9b91c7f07
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848087"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063405"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Esercitazione: Creare flussi utente in Azure Active Directory B2C
 
-Nelle applicazioni è possibile che siano presenti [flussi utente](active-directory-b2c-reference-policies.md) che consentono agli utenti di iscriversi, accedere o gestire il proprio profilo. È possibile creare più flussi utente di tipi diversi nel proprio tenant di Azure Active Directory (Azure AD) B2C e usarli nelle applicazioni in base alle esigenze. I flussi utente possono essere usati per più applicazioni.
+Nelle applicazioni è possibile che siano presenti [flussi utente](active-directory-b2c-reference-policies.md) che consentono agli utenti di iscriversi, accedere o gestire il proprio profilo. È possibile creare più flussi utente di tipi diversi nel tenant di Azure Active Directory B2C (Azure AD B2C) e usarli nelle applicazioni in base alle esigenze. I flussi utente possono essere usati per più applicazioni.
 
 In questo articolo viene spiegato come:
 
@@ -41,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Il flusso utente di iscrizione e accesso consente di gestire le esperienze di iscrizione e accesso tramite una singola configurazione. Gli utenti dell'applicazione vengono indirizzati sul percorso corretto a seconda del contesto.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
 
     ![Filtro di directory e sottoscrizione con tenant B2C selezionato](./media/tutorial-create-user-flows/switch-directories.PNG)
 

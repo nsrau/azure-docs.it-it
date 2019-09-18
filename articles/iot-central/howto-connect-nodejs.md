@@ -3,17 +3,17 @@ title: Connettere un'applicazione client Node.js generica ad Azure IoT Central |
 description: Come sviluppatore di dispositivi, come connettere un dispositivo node. js generico all'applicazione IoT Central di Azure.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2019
+ms.date: 09/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3b73344a233182fe8366795cfa111b706c6d06ac
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 75b900ecb37ae8d092d4e37129b7f39f801c470d
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876242"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066426"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connettere un'applicazione client generica all'applicazione Azure IoT Central (Node.js)
 
@@ -25,8 +25,8 @@ Questo articolo descrive come connettere, in qualità di sviluppatore di disposi
 
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
-1. Un'applicazione Azure IoT Central. Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
-1. Un computer di sviluppo con [Node.js](https://nodejs.org/) versione 4.0.0 o successiva installato. Per controllare la versione, è possibile eseguire `node --version` nella riga di comando. Node.js è disponibile per un'ampia gamma di sistemi operativi.
+- Un'applicazione Azure IoT Central. Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
+- Un computer di sviluppo con [Node.js](https://nodejs.org/) versione 4.0.0 o successiva installato. Per controllare la versione, è possibile eseguire `node --version` nella riga di comando. Node.js è disponibile per un'ampia gamma di sistemi operativi.
 
 ## <a name="create-a-device-template"></a>Creare un modello di dispositivo
 
@@ -125,11 +125,13 @@ Immettere i nomi dei campi esattamente come illustrato nelle tabelle nel modello
 
 Nell'applicazione IoT Central di Azure aggiungere un dispositivo reale al modello di dispositivo creato nella sezione precedente.
 
-Seguire quindi le istruzioni riportate nell'esercitazione "aggiungere un dispositivo" per [generare una stringa di connessione per il dispositivo reale](tutorial-add-device.md#generate-connection-string). Usare questa stringa di connessione nella sezione seguente:
+Prendere nota delle informazioni di connessione del dispositivo nella pagina **connessione del dispositivo** : **ID ambito**, **ID dispositivo**e **chiave primaria**. Questi valori vengono aggiunti nel codice del dispositivo più avanti in questa guida dettagliata:
+
+![Informazioni di connessione del dispositivo](./media/howto-connect-nodejs/device-connection.png)
 
 ### <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
 
-I passaggi seguenti illustrano come creare un'applicazione client che implementa il dispositivo reale aggiunto all'applicazione. In questo contesto, l'applicazione Node.js rappresenta il dispositivo reale. 
+I passaggi seguenti illustrano come creare un'applicazione client che implementa il dispositivo reale aggiunto all'applicazione. In questo contesto, l'applicazione Node.js rappresenta il dispositivo reale.
 
 1. Nel computer creare una cartella denominata `connected-air-conditioner-adv`. Aprire tale cartella nell'ambiente della riga di comando.
 
@@ -137,7 +139,7 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
 
     ```cmd/sh
     npm init
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
 1. Creare un file denominato **connectedAirConditionerAdv.js** nella cartella `connected-air-conditioner-adv`.
@@ -148,22 +150,31 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
     "use strict";
 
     // Use the Azure IoT device SDK for devices that connect to Azure IoT Central.
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
+    var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
+    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
+    var SymmetricKeySecurityClient = require('azure-iot-security-symmetric-key').SymmetricKeySecurityClient;
+    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
     ```
 
 1. Aggiungere le dichiarazioni di variabili seguenti al file:
 
     ```javascript
-    var connectionString = '{your device connection string}';
+    var provisioningHost = 'global.azure-devices-provisioning.net';
+    var idScope = '{your Scope ID}';
+    var registrationId = '{your Device ID}';
+    var symmetricKey = '{your Primary Key};
+    var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
+    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
+    var hubClient;
+
     var targetTemperature = 0;
     var locLong = -122.1215;
     var locLat = 47.6740;
-    var client = clientFromConnectionString(connectionString);
     ```
 
-    Aggiornare il segnaposto `{your device connection string}` con la [stringa di connessione del dispositivo](tutorial-add-device.md#generate-connection-string). In questo esempio, viene inizializzato `targetTemperature` su zero, è possibile usare la lettura corrente dal dispositivo o un valore del dispositivo gemello.
+    Aggiornare i segnaposto `{your Scope ID}`, `{your Device ID}`e `{your Primary Key}` con i valori annotati in precedenza. In questo esempio, viene inizializzato `targetTemperature` su zero, è possibile usare la lettura corrente dal dispositivo o un valore del dispositivo gemello.
 
 1. Per inviare le misurazioni di telemetria, stato, evento e località all'applicazione IoT Central di Azure, aggiungere la funzione seguente al file:
 
@@ -187,7 +198,7 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
             lat: locationLat }
         });
       var message = new Message(data);
-      client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
+      hubClient.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
         (res ? `; status: ${res.constructor.name}` : '')));
     }
@@ -262,14 +273,14 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
     // Handle countdown command
     function onCountdown(request, response) {
       console.log('Received call to countdown');
-
+    
       var countFrom = (typeof(request.payload.countFrom) === 'number' && request.payload.countFrom < 100) ? request.payload.countFrom : 10;
-
+    
       response.send(200, (err) => {
         if (err) {
           console.error('Unable to send method response: ' + err.toString());
         } else {
-          client.getTwin((err, twin) => {
+          hubClient.getTwin((err, twin) => {
             function doCountdown(){
               if ( countFrom >= 0 ) {
                 var patch = {
@@ -282,7 +293,7 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
                 setTimeout(doCountdown, 2000 );
               }
             }
-
+    
             doCountdown();
           });
         }
@@ -301,13 +312,13 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
         console.log('Device successfully connected to Azure IoT Central');
 
         // Create handler for countdown command
-        client.onDeviceMethod('countdown', onCountdown);
+        hubClient.onDeviceMethod('countdown', onCountdown);
 
         // Send telemetry measurements to Azure IoT Central every 1 second.
         setInterval(sendTelemetry, 1000);
 
         // Get device twin from Azure IoT Central.
-        client.getTwin((err, twin) => {
+        hubClient.getTwin((err, twin) => {
           if (err) {
             console.log(`Error getting device twin: ${err.toString()}`);
           } else {
@@ -325,8 +336,20 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
       }
     };
 
-    // Start the device (connect it to Azure IoT Central).
-    client.open(connectCallback);
+    // Start the device (register and connect to Azure IoT Central).
+    provisioningClient.register((err, result) => {
+      if (err) {
+        console.log('Error registering device: ' + err);
+      } else {
+        console.log('Registration succeeded');
+        console.log('Assigned hub=' + result.assignedHub);
+        console.log('DeviceId=' + result.deviceId);
+        var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
+        hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
+
+        hubClient.open(connectCallback);
+      }
+    });
     ```
 
 ## <a name="run-your-nodejs-application"></a>Eseguire l'applicazione Node.js

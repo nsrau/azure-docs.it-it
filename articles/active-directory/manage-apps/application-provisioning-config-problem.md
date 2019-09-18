@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42bffdc1960a87c931e914896e8e36de45991bd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a8eaa46b46551f9b6075ec10b38de80f84c22a0
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784121"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034166"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD
 
@@ -33,9 +33,9 @@ Per configurare il [provisioning utenti automatico](https://docs.microsoft.com/a
 
 Dopo aver configurato il servizio, sarà possibile ricavare la maggior parte delle informazioni dettagliate sul funzionamento del servizio in due posizioni:
 
--   **Log di controllo**: i log di controllo di provisioning registrano tutte le operazioni eseguite dal servizio di provisioning, ad esempio l'esecuzione in Azure AD di query sugli utenti assegnati che rientrano nell'ambito del provisioning, l'esecuzione nell'app di destinazione di query per l'esistenza di tali utenti, il confronto degli oggetti utente tra i sistemi e quindi l'aggiunta, l'aggiornamento o la disabilitazione dell'account utente nel sistema di destinazione in base al confronto. I log di controllo di provisioning sono accessibili nella scheda **Azure Active Directory &gt; App aziendali &gt; \[Nome applicazione\] &gt; Log di controllo** del Portale di Azure. Filtrare i log nella categoria **Provisioning account** per visualizzare solo gli eventi di provisioning per l'app specifica.
+-   **Log di provisioning (anteprima)** : i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) registrano tutte le operazioni eseguite dal servizio di provisioning, inclusa l'esecuzione di query Azure ad per gli utenti assegnati che rientrano nell'ambito del provisioning. l'esecuzione nell'app di destinazione di query per l'esistenza di tali utenti, il confronto degli oggetti utente tra i sistemi e quindi l'aggiunta, l'aggiornamento o la disabilitazione dell'account utente nel sistema di destinazione in base al confronto. È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; **log di provisioning** di **app** &gt; aziendali (anteprima) nella sezione **attività** .
 
--   **Stato del provisioning**: un riepilogo dell'ultimo provisioning eseguito per una specifica app è disponibile nella sezione **Azure Active Directory &gt; App aziendali &gt;\[Nome applicazione\]&gt;Provisioning** nella parte inferiore dello schermo in Impostazioni servizio. Questa sezione contiene un riepilogo del numero di utenti (e/o gruppi) attualmente sincronizzati tra i due sistemi e segnala la presenza di eventuali errori. I dettagli degli errori sono disponibili nei log di controllo. Si noti che lo stato di provisioning non verrà popolato fino al completamento di una sincronizzazione iniziale completa tra Azure AD e l'app.
+-   **Stato corrente:** Un riepilogo dell'ultimo esecuzione del provisioning per una determinata app può essere visualizzato nella sezione relativa al **provisioning\] di Azure Active Directory &gt; &gt;app &gt; \[aziendali** , nella parte inferiore del schermata sotto le impostazioni del servizio. La sezione stato corrente indica se un ciclo di provisioning ha avviato il provisioning degli account utente. È possibile controllare lo stato di avanzamento del ciclo, vedere il numero di utenti e gruppi di cui è stato effettuato il provisioning e verificare il numero di ruoli creati. Se sono presenti errori, è possibile trovare i dettagli nei [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Aree problematiche generali con provisioning da considerare
 
@@ -43,14 +43,14 @@ Di seguito è riportato un elenco delle aree problematiche generali che è possi
 
 * [Avvio non riuscito del servizio di provisioning](#provisioning-service-does-not-appear-to-start)
 * Impossibile salvare la configurazione a causa di un errore nelle credenziali dell'app
-* [I log di controllo indicano che gli utenti vengono "ignorati" e non sottoposti a provisioning, anche se assegnati](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+* [Log di provisioning: gli utenti vengono "ignorati" e non sottoposti a provisioning, anche se sono assegnati](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Avvio non riuscito del servizio di provisioning
 
-Se si imposta **Stato provisioning** su **Attivato** nella sezione **Azure Active Directory &gt; App aziendali &gt; \[Nome applicazione\] &gt;Provisioning** del Portale di Azure, ma in seguito a successivi ricaricamenti non vengono visualizzati altri dettagli nella pagina, il servizio potrebbe essere in esecuzione senza aver ancora completato una sincronizzazione iniziale. Esaminare i **log di controllo** descritti in precedenza per individuare le operazioni in esecuzione nel servizio e verificare la presenza di eventuali errori.
+Se si imposta **Stato provisioning** su **Attivato** nella sezione **Azure Active Directory &gt; App aziendali &gt; \[Nome applicazione\] &gt;Provisioning** del Portale di Azure, ma in seguito a successivi ricaricamenti non vengono visualizzati altri dettagli nella pagina, È probabile che il servizio sia in esecuzione, ma non ha ancora completato un ciclo iniziale. Controllare i **log di provisioning** descritti in precedenza per determinare le operazioni eseguite dal servizio e in caso di errori.
 
 >[!NOTE]
->Una sincronizzazione iniziale può richiedere da 20 minuti a diverse ore, a seconda delle dimensioni della directory di Azure AD e del numero di utenti inclusi nell'ambito del provisioning. Le sincronizzazioni successive a quella iniziale risultano più veloci, poiché il servizio di provisioning archivia i limiti che rappresentano lo stato di entrambi i sistemi dopo la sincronizzazione iniziale, migliorando le prestazioni delle sincronizzazioni successive.
+>Un ciclo iniziale può richiedere da 20 minuti a diverse ore, a seconda delle dimensioni della directory Azure AD e del numero di utenti nell'ambito del provisioning. Le sincronizzazioni successive dopo il ciclo iniziale risultano più veloci, poiché il servizio di provisioning archivia le filigrane che rappresentano lo stato di entrambi i sistemi dopo il ciclo iniziale, migliorando le prestazioni delle sincronizzazioni successive.
 >
 >
 
@@ -58,9 +58,9 @@ Se si imposta **Stato provisioning** su **Attivato** nella sezione **Azure Activ
 
 Ai fini del provisioning, Azure AD richiede credenziali valide che consentano di connettersi a un'API di gestione utenti fornita da tale app. Se queste credenziali non funzionano o non sono note, vedere l'esercitazione per configurare questa app, descritta in precedenza.
 
-## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>I log di controllo indicano che gli utenti vengono ignorati e non sottoposti a provisioning, anche se assegnati
+## <a name="provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Il provisioning dei log dice che gli utenti vengono ignorati e non sottoposti a provisioning anche se sono assegnati
 
-Quando un utente viene visualizzato come "ignorato" nei log di controllo, è essenziale leggere i dettagli estesi nel messaggio di log per determinarne il motivo. Di seguito sono elencati i motivi e le risoluzioni comuni:
+Quando un utente viene visualizzato come "ignorato" nei log di provisioning, è molto importante leggere i dettagli estesi nel messaggio del log per determinare il motivo. Di seguito sono elencati i motivi e le risoluzioni comuni:
 
 - **È stato configurato un filtro di definizione dell'ambito** **che esclude l'utente in base a un valore di attributo**. Per altre informazioni sui filtri di definizione dell'ambito, vedere <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
 

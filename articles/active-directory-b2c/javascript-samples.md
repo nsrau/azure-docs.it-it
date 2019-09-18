@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dfc1ef732c8456356de82f7fe026476fdfc075b
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227141"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064177"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Esempi JavaScript da usare in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-È possibile aggiungere codice lato server JavaScript personalizzato alle applicazioni Azure Active Directory (Azure AD) B2C. Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento ai [criteri personalizzati](active-directory-b2c-overview-custom.md), selezionare un [layout di pagina](page-layout.md)e usare [b2clogin.com](b2clogin.md) nelle richieste. Questo articolo descrive come è possibile modificare i criteri personalizzati per abilitare l'esecuzione di script.
+È possibile aggiungere il proprio codice JavaScript lato client alle applicazioni di Azure Active Directory B2C (Azure AD B2C). Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento ai [criteri personalizzati](active-directory-b2c-overview-custom.md), selezionare un [layout di pagina](page-layout.md)e usare [b2clogin.com](b2clogin.md) nelle richieste. Questo articolo descrive come è possibile modificare i criteri personalizzati per abilitare l'esecuzione di script.
 
 > [!NOTE]
 > Se si vuole abilitare JavaScript per i flussi utente, vedere la pagina relativa alle [versioni del layout di pagina e JavaScript in Azure Active Directory B2C](user-flow-javascript-overview.md).

@@ -4,14 +4,14 @@ description: Come connettere i client a un servizio cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0ccd256ed399fff7c364883ada45d2d15c75a120
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 46f221fd7c340b7f321d317f0e7493448d83177c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775351"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036925"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montare la cache HPC di Azure
 
@@ -19,13 +19,13 @@ Dopo la creazione della cache, i client NFS possono accedervi con un semplice co
 
 Usare gli indirizzi di montaggio elencati nella pagina Panoramica della cache e il percorso dello spazio dei nomi virtuale impostato al momento della creazione della destinazione di archiviazione. 
 
-![screenshot della pagina Panoramica dell'istanza di cache HPC di Azure, con una casella di evidenziazione intorno all'elenco degli indirizzi di montaggio in basso a destra](media/mount-addresses.png)
+![screenshot della pagina Panoramica dell'istanza di cache HPC di Azure, con una casella di evidenziazione intorno all'elenco degli indirizzi di montaggio in basso a destra](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
 > Gli indirizzi di montaggio della cache corrispondono alle interfacce di rete all'interno della subnet della cache. Queste schede di rete vengono visualizzate nel gruppo di risorse con `-cluster-nic-` i nomi che terminano con e un numero. Non modificare o eliminare queste interfacce oppure la cache non sarà più disponibile.
 
-I percorsi dello spazio dei nomi virtuali vengono visualizzati nella pagina **destinazioni di archiviazione** . 
-![screenshot del pannello destinazione di archiviazione della cache, con una casella di evidenziazione intorno a una voce nella colonna percorso della tabella](media/storage-target-path.png)
+I percorsi dello spazio dei nomi virtuali vengono visualizzati nella pagina **destinazioni di archiviazione** . Fare clic sul nome di destinazione per visualizzare i dettagli, incluso il percorso dello spazio dei nomi aggregato (o i percorsi) ad esso associato. 
+![screenshot del pannello destinazione di archiviazione della cache, con una casella di evidenziazione intorno a una voce nella colonna percorso della tabella](media/hpc-cache-view-namespace-paths.png)
 
 ## <a name="mount-command-syntax"></a>Sintassi del comando Mount
 

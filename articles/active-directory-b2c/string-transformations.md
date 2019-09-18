@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a06447aaa6579052285e7e2cd93bf40183ed173f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512597"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063448"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo contiene esempi per l'uso delle trasformazioni di attestazioni di stringa dello schema del framework di gestione delle identità di Azure Active Directory (Azure AD) B2C. Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+Questo articolo fornisce esempi per l'uso delle trasformazioni di attestazioni di stringa dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
-## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual 
+## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual
 
 Confronta due attestazioni e genera un'eccezione se non sono uguali in base agli elementi inputClaim1, inputClaim2 e stringComparison del confronto.
 
@@ -37,7 +37,7 @@ La trasformazione dell'asserzione **AssertStringClaimsAreEqual** viene sempre es
 
 ![Esecuzione di AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
 
-È possibile usare questa trasformazione per verificare che due elementi ClaimType abbiano lo stesso valore. In caso contrario, viene generato un messaggio di errore. L'esempio seguente controlla che l'elemento ClaimType **strongAuthenticationEmailAddress** sia uguale all'elemento ClaimType **email**. In caso contrario, viene generato un messaggio di errore. 
+È possibile usare questa trasformazione per verificare che due elementi ClaimType abbiano lo stesso valore. In caso contrario, viene generato un messaggio di errore. L'esempio seguente controlla che l'elemento ClaimType **strongAuthenticationEmailAddress** sia uguale all'elemento ClaimType **email**. In caso contrario, viene generato un messaggio di errore.
 
 ```XML
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -84,7 +84,7 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
   - **stringComparison**:  ordinalIgnoreCase
 - Risultato: errore generato
 
-## <a name="changecase"></a>ChangeCase 
+## <a name="changecase"></a>ChangeCase
 
 Modifica le maiuscole/minuscole dell'attestazione specificata a seconda dell'operatore.
 
@@ -94,7 +94,7 @@ Modifica le maiuscole/minuscole dell'attestazione specificata a seconda dell'ope
 | InputParameter | toCase | string | Uno dei valori seguenti: `LOWER` o `UPPER`. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
-Usare questa trasformazione per cambiare le maiuscole/minuscole di qualsiasi stringa ClaimType.  
+Usare questa trasformazione per cambiare le maiuscole/minuscole di qualsiasi stringa ClaimType.
 
 ```XML
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
@@ -119,7 +119,7 @@ Usare questa trasformazione per cambiare le maiuscole/minuscole di qualsiasi str
 - Attestazioni di output:
   - **email**: someone@contoso.com
 
-## <a name="createstringclaim"></a>CreateStringClaim 
+## <a name="createstringclaim"></a>CreateStringClaim
 
 Crea un'attestazione di stringa dal parametro di input specificato nei criteri.
 
@@ -224,7 +224,7 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
     - **inputClaim1**: v1
 - Parametri di input:
     - **compareTo**: V1
-    - **operator**: EQUAL 
+    - **operator**: EQUAL
     - **ignoreCase**:  true
 - Attestazioni di output:
     - **outputClaim**: true
@@ -258,7 +258,7 @@ L'esempio seguente genera un ID univoco globale. Questa trasformazione di attest
 
 - Parametri di input:
     - **randomGeneratorType**: GUID
-- Attestazioni di output: 
+- Attestazioni di output:
     - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 L'esempio seguente genera un valore intero casuale compreso tra 0 e 1000. Il valore viene formattato su OTP_{valore casuale}.
@@ -284,7 +284,7 @@ L'esempio seguente genera un valore intero casuale compreso tra 0 e 1000. Il val
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
     - **base64**: false
-- Attestazioni di output: 
+- Attestazioni di output:
     - **outputClaim**: OTP_853
 
 
@@ -298,7 +298,7 @@ Formatta un'attestazione in base alla stringa formato specificata. Questa trasfo
 | InputParameter | stringFormat | string | Formato della stringa, ad esempio il parametro {0}. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
-Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con un parametro {0}. L'esempio seguente crea un elemento **userPrincipalName**. Tutti i profili tecnici di provider di identità social, ad esempio `Facebook-OAUTH`, chiamano **CreateUserPrincipalName** per generare un elemento **userPrincipalName**.   
+Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con un parametro {0}. L'esempio seguente crea un elemento **userPrincipalName**. Tutti i profili tecnici di provider di identità social, ad esempio `Facebook-OAUTH`, chiamano **CreateUserPrincipalName** per generare un elemento **userPrincipalName**.
 
 ```XML
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
@@ -392,7 +392,7 @@ La trasformazione di attestazioni esegue la ricerca del testo dell'elemento e ne
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -431,7 +431,7 @@ L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="domainAppId" TransformationClaimType="outputClaim" />
   </OutputClaims>
-</ClaimsTransformation> 
+</ClaimsTransformation>
 ```
 
 ### <a name="example"></a>Esempio
@@ -513,7 +513,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 | OutputClaim | outputClaim2 | string | Se le stringhe sono uguali, l'attestazione di output contiene il valore del parametro di output `stringMatchMsgCode`. |
 | OutputClaim | stringCompareResultClaim | boolean | Tipo dell'attestazione di output del risultato del confronto che deve essere impostato come `true` o `false` in base al risultato del confronto. |
 
-È possibile usare questa trasformazione di attestazioni per controllare se un'attestazione è uguale a un valore specificato. La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **termsOfUseConsentVersion** è uguale a `v1`. In caso affermativo, impostare il valore su `v2`. 
+È possibile usare questa trasformazione di attestazioni per controllare se un'attestazione è uguale a un valore specificato. La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **termsOfUseConsentVersion** è uguale a `v1`. In caso affermativo, impostare il valore su `v2`.
 
 ```XML
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
@@ -539,7 +539,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
     - **inputClaim**: v1
 - Parametri di input:
     - **matchTo**: V1
-    - **stringComparison**: ordinalIgnoreCase 
+    - **stringComparison**: ordinalIgnoreCase
     - **stringMatchMsg**:  B2C_V1_90005
     - **stringMatchMsgCode**:  Il tipo di servizio è aggiornato alla versione 2
 - Attestazioni di output:
@@ -560,7 +560,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 | OutputClaim | outputClaim | string | Se le stringhe sono uguali, l'attestazione di output contiene il valore del parametro di output `outputClaimIfMatched`. Se le stringhe non corrispondono, il valore contenuto è null. |
 | OutputClaim | stringCompareResultClaim | boolean | Tipo dell'attestazione di output del risultato del confronto che deve essere impostato come `true` o `false` in base al risultato del confronto. |
 
-La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **ageGroup** è uguale a `Minor`. In caso affermativo, restituisce il valore a `B2C_V1_90001`. 
+La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **ageGroup** è uguale a `Minor`. In caso affermativo, restituisce il valore a `B2C_V1_90001`.
 
 ```XML
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
@@ -585,7 +585,7 @@ La trasformazione di attestazioni seguente, ad esempio, controlla se il valore d
     - **claimToMatch**: Minorenne
 - Parametri di input:
     - **matchTo**: Minorenne
-    - **stringComparison**: ordinalIgnoreCase 
+    - **stringComparison**: ordinalIgnoreCase
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Attestazioni di output:
     - **isMinorResponseCode**: B2C_V1_90001

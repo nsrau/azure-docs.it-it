@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5234835f5fbfd5617e6b0440ff38fa900051470a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 783d7fc8bc26ce2c715c774e63ecf60c5b75a439
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450116"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076266"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usare gli strumenti HDInsight per IntelliJ con Hortonworks Sandbox
 
@@ -55,7 +55,7 @@ In questa sezione verrà creato un progetto Scala di esempio usando IntelliJ IDE
       * **Maven**: per ottenere supporto per la creazione guidata di un progetto Scala.
       * **SBT**: per la gestione delle dipendenze e la compilazione per il progetto Scala.
 
-   ![Finestra di dialogo del nuovo progetto](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![IntelliJ creare un nuovo progetto scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Selezionare **Avanti**.
 3. Nella finestra di dialogo **New Project**(Nuovo progetto) successiva completare questi passaggi:
@@ -142,7 +142,7 @@ Per inviare un progetto a un emulatore:
 2. Completare questi passaggi:
 
     1. Nell'elenco a discesa **Spark cluster (Linux only)** (Cluster Spark - solo Linux) selezionare l'ambiente Hortonworks Sandbox locale.
-    2. Nella casella **Main class name** (Nome classe principale) scegliere o immettere il nome della classe principale. In questo articolo è il nome **GroupByTest**.
+    2. Nella casella **Main class name** (Nome classe principale) scegliere o immettere il nome della classe principale. Per questo articolo, il nome è **GroupByTest**.
 
 3. Selezionare **Submit** (Invia). I log di invio dei processi vengono visualizzati nella finestra degli strumenti di invio Spark.
 

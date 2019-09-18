@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a14c648e55c25c6244f1ba09d5b73bf31e5f7337
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b872fcfbc2ead2cebdd32ff718b582c13af314e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509304"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065570"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Abilitare l'autenticazione a più fattori in Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C si integra direttamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) per consentire l'aggiunta di un secondo livello di protezione alle esperienze di iscrizione e di accesso nelle applicazioni. È possibile abilitare l'autenticazione a più fattori senza scrivere una singola riga di codice. Se i flussi utente di iscrizione e accesso sono già stati creati, è ancora possibile abilitare l'autenticazione a più fattori.
+Azure Active Directory B2C (Azure AD B2C) si integra direttamente con [multi-factor authentication di Azure](../active-directory/authentication/multi-factor-authentication.md) , in modo che sia possibile aggiungere un secondo livello di sicurezza per l'iscrizione e l'accesso alle proprie applicazioni. È possibile abilitare l'autenticazione a più fattori senza scrivere una singola riga di codice. Se i flussi utente di iscrizione e accesso sono già stati creati, è ancora possibile abilitare l'autenticazione a più fattori.
 
 Questa funzionalità risulta utile per la gestione di scenari simili ai seguenti:
 
@@ -40,11 +40,11 @@ Un account utente viene creato nel tenant prima che venga eseguito il passaggio 
 
 ## <a name="add-multi-factor-authentication"></a>Aggiungere l'autenticazione a più fattori
 
-È possibile abilitare l'autenticazione a più fattori in un flusso utente precedentemente creato. 
+È possibile abilitare l'autenticazione a più fattori in un flusso utente precedentemente creato.
 
 Per abilitare l'autenticazione a più fattori:
 
-1. Aprire il flusso utente e quindi selezionare **Proprietà**. 
+1. Aprire il flusso utente e quindi selezionare **Proprietà**.
 2. Accanto a **Autenticazione a più fattori**, selezionare **Abilitato**.
 3. Fare clic su **Salva** nella parte superiore della pagina.
 

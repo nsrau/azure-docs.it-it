@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2019
+ms.date: 09/17/2019
 ms.author: magoedte
-ms.openlocfilehash: bd4016d91000ee23023eaa64872bff9a057058d1
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f3aca6f62ff529dc2ea8356e18a0162e7d9a85d8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916057"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067058"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Panoramica di Enable Monitoraggio di Azure per le macchine virtuali (Preview)
 
@@ -45,10 +45,13 @@ Monitoraggio di Azure per le macchine virtuali supporta un'area di lavoro Log An
 - Stati Uniti centro-occidentali
 - Stati Uniti occidentali 2<sup>1</sup>
 - East US
+- Uniti Est<sup>1</sup>
 - Canada centrale
 - Regno Unito meridionale
+- Europa settentrionale<sup>1</sup>
 - Europa occidentale
 - Asia sud-orientale
+- Giappone orientale<sup>1</sup>
 - Australia orientale<sup>1</sup>
 - Australia sudorientale<sup>1</sup>
 
@@ -92,10 +95,10 @@ Nella tabella seguente sono elencati i sistemi operativi Windows e Linux support
 |Windows 8.1 | X | X | |
 |Windows 8 | X | X | |
 |Windows 7 SP1 | X | X | |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| x |
+|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
 |Ubuntu 18,04, 16,04 | x | X | X |
 |CentOS Linux 7, 6 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X | x |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
 |Debian 9.4, 8 | X<sup>1</sup> | | X |
 
 <sup>1</sup> La funzionalità relativa alle prestazioni di Monitoraggio di Azure per le macchine virtuali è disponibile solo da Monitoraggio di Azure. Non è disponibile direttamente dal riquadro sinistro della macchina virtuale di Azure.

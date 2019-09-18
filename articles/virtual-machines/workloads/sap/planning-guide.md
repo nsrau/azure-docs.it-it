@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e87ea28f2454ec3c969574b21ef383e81b3148c2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b9476d8cc62585be7e7003d837607b502c8566
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098756"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067858"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -344,6 +344,7 @@ Nel documento vengono usati i termini seguenti.
 * Panorama applicativo SAP: questo termine si riferisce a tutte le risorse SAP presenti nell'ambiente IT di un cliente. Il panorama applicativo SAP include tutti gli ambienti di produzione e non produzione.
 * Sistema SAP: combinazione del livello DBMS e del livello applicazione, costituito ad esempio da un sistema di sviluppo SAP ERP, un sistema di test SAP BW, un sistema di produzione SAP CRM e così via. Nelle distribuzioni di Azure non è supportata la divisione di questi due livelli tra ambiente locale e Azure. Un sistema SAP deve quindi essere distribuito o in locale o in Azure. È tuttavia possibile distribuire i diversi sistemi di un panorama applicativo SAP in Azure o in locale. È ad esempio possibile distribuire i sistemi di sviluppo e test SAP CRM in Azure e il sistema di produzione SAP CRM in locale.
 * Cross-premise o ibrido: indica uno scenario in cui le VM vengono distribuite in una sottoscrizione di Azure con connettività da sito a sito, multisito o ExpressRoute tra i data center locali e Azure. Nella documentazione comune su Azure questi tipi di distribuzioni vengono definiti anche scenari cross-premise o ibridi. La connessione consente di estendere i domini locali, l'istanza locale di Active Directory/OpenLDAP e il DNS locale in Azure. Il panorama applicativo locale viene esteso alle risorse di Azure della sottoscrizione. Questa estensione consente alle macchine virtuali di fare parte del dominio locale. Gli utenti di dominio del dominio locale possono accedere ai server e possono eseguire servizi in queste VM, ad esempio i servizi DBMS. La comunicazione e la risoluzione dei nomi tra VM distribuite in locale e VM distribuite in Azure sono consentite. Questo è il caso più comune e quasi esclusivo di distribuzione delle risorse SAP in Azure. Per altre informazioni, vedere [questo][vpn-gateway-cross-premises-options] [articolo.][vpn-gateway-site-to-site-create]
+* Estensione di monitoraggio di Azure, monitoraggio avanzato e estensione di Azure per SAP: Descrivere uno e lo stesso elemento. Descrive un'estensione della macchina virtuale che deve essere distribuita dall'utente per fornire alcuni dati di base sull'infrastruttura di Azure all'agente host SAP. SAP nelle note SAP può farvi riferimento come estensione di monitoraggio o monitoraggio avanzato. In Azure, si fa riferimento ad esso come estensione di **Azure per SAP**.
 
 > [!NOTE]
 > Le distribuzioni cross-premise o ibride di sistemi SAP in cui le macchine virtuali di Azure che eseguono sistemi SAP sono membri di un dominio locale sono supportate per i sistemi SAP di produzione. Le configurazioni cross-premise o ibride sono supportate per la distribuzione parziale o completa di panorami applicativi SAP in Azure. Anche l'esecuzione del panorama applicativo SAP completo in Azure richiede che queste VM siano parte di un dominio locale e di ADS/OpenLDAP. 
@@ -799,7 +800,7 @@ In base all'esperienza dei clienti, finora PowerShell (PS) è risultato senza du
 Vedere l'esempio qui: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 
-La distribuzione dell'estensione di monitoraggio di Azure per SAP (vedere il capitolo [relativo alla soluzione di monitoraggio di Azure per SAP][planning-guide-9.1] in questo documento) è possibile solo tramite PowerShell o l'interfaccia della riga di comando. È quindi necessario installare e configurare PowerShell o l'interfaccia della riga di comando quando si distribuisce o si amministra un sistema SAP NetWeaver in Azure.  
+La distribuzione dell'estensione di Azure per SAP (vedere il capitolo [estensione di Azure per SAP][planning-guide-9.1] in questo documento) è possibile solo tramite PowerShell o l'interfaccia della riga di comando. È quindi necessario installare e configurare PowerShell o l'interfaccia della riga di comando quando si distribuisce o si amministra un sistema SAP NetWeaver in Azure.  
 
 Con l'introduzione di nuove funzionalità in Azure, verranno aggiunti nuovi cmdlet di PS che richiedono un aggiornamento dei cmdlet. Per questo motivo, è opportuno visitare il sito Download di Azure <https://azure.microsoft.com/downloads/> almeno una volta al mese per scaricare una nuova versione dei cmdlet. La nuova versione viene installata su quella precedente.
 
@@ -816,7 +817,7 @@ Per informazioni sull'installazione, la configurazione e l'uso dei comandi dell'
 * [Distribuire e gestire le macchine virtuali usando modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure][../../linux/create-ssh-secured-vm-from-template.md]
 * [Usare l'interfaccia della riga di comando di Azure classico per Mac, Linux e Windows con Azure Resource Manager][xplat-cli-azure-resource-manager]
 
-Vedere anche il capitolo dell'interfaccia della riga [di comando di Azure per VM Linux][deployment-guide-4.5.2] nella [Guida alla distribuzione][planning-guide] per informazioni su come usare l'interfaccia della riga di comando di Azure per distribuire l'estensione di monitoraggio
+Vedere anche il capitolo dell'interfaccia della riga [di comando di Azure per VM Linux][deployment-guide-4.5.2] nella [Guida alla distribuzione][planning-guide] per informazioni su come usare l'interfaccia della riga di comando di Azure per distribuire l'estensione Azure
 
 ## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Diversi modi per distribuire le macchine virtuali per SAP in Azure
 
@@ -1302,7 +1303,7 @@ La replica geografica di Azure funziona in locale in ogni disco rigido virtuale 
 ---
 ### <a name="final-deployment"></a>Distribuzione finale
 
-Per la distribuzione finale e la procedura esatta, in particolare per quanto riguarda la distribuzione di SAP Extended Monitoring, vedere la [Guida alla distribuzione][deployment-guide].
+Per la distribuzione finale e la procedura esatta, in particolare per quanto riguarda la distribuzione dell'estensione Azure per SAP, vedere la [Guida alla distribuzione][deployment-guide].
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Accesso ai sistemi SAP in esecuzione in macchine virtuali di Azure
 
@@ -1775,29 +1776,29 @@ Le istanze di SAP che si trovano in Azure devono accedere alle condivisioni file
 
 ## <a name="supportability"></a>Supporto
 
-### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Soluzione di monitoraggio di Azure per SAP
+### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Estensione di Azure per SAP
 
-Per abilitare il monitoraggio dei sistemi SAP mission-critical in Azure, gli strumenti di monitoraggio SAP SAPOSCOL o SAP Host Agent ricevono i dati dall'host di Azure con l'estensione di monitoraggio di Azure per SAP. Considerato che le esigenze di SAP erano specifiche per le applicazioni SAP, Microsoft ha deciso di non implementare genericamente la funzionalità richiesta in Azure, ma di lasciare che siano i clienti a occuparsi della distribuzione delle configurazioni e dei componenti di monitoraggio necessari per le loro macchine virtuali in esecuzione in Azure. Tuttavia, la gestione della distribuzione e del ciclo di vita dei componenti di monitoraggio verrà, nella maggior parte dei casi, automatizzata da Azure.
+Per inserire una parte delle informazioni sull'infrastruttura di Azure dei sistemi SAP cruciali per le istanze dell'agente host SAP, installate nelle VM, è necessario installare un'estensione di Azure (VM) per SAP per le macchine virtuali distribuite. Poiché le richieste da parte di SAP erano specifiche per le applicazioni SAP, Microsoft ha deciso di non implementare in modo generico la funzionalità richiesta in Azure, ma è possibile lasciare che i clienti distribuissero le configurazioni e le estensioni di VM necessarie alle macchine virtuali in esecuzione in Azure. Tuttavia, la distribuzione e la gestione del ciclo di vita dell'estensione VM di Azure per SAP verranno per lo più automatizzate da Azure.
 
 #### <a name="solution-design"></a>Progettazione della soluzione
 
-La soluzione sviluppata per abilitare il monitoraggio di SAP Monitoring si basa sull'architettura del framework dell'agente VM e delle estensioni VM di Azure. L'idea alla base del framework dell'agente VM e delle estensioni VM di Azure è di consentire l'installazione delle applicazioni software disponibili nella raccolta di estensioni VM di Azure all'interno di una VM. Il principio alla base di questo concetto è di consentire (in casi come l'estensione di monitoraggio di Azure per SAP), la distribuzione di funzionalità speciali in una VM e la configurazione del software in fase di distribuzione.
+La soluzione sviluppata per abilitare l'agente host SAP per ottenere le informazioni necessarie è basata sull'architettura dell'agente di macchine virtuali di Azure e del Framework di estensione. L'idea alla base del framework dell'agente VM e delle estensioni VM di Azure è di consentire l'installazione delle applicazioni software disponibili nella raccolta di estensioni VM di Azure all'interno di una VM. Il principio di base di questo concetto è quello di consentire (nei casi come l'estensione di Azure per SAP) la distribuzione di funzionalità speciali in una macchina virtuale e la configurazione di tale software in fase di distribuzione.
 
 L'agente VM di Azure che consente la gestione di specifiche estensioni VM di Azure all'interno della VM viene inserito nelle VM di Windows per impostazione predefinita durante la creazione di VM nel portale di Azure. Nel caso di SUSE o Red Hat o Oracle Linux, l'agente VM fa già parte dell'immagine di Azure Marketplace. Nel caso in cui si voglia caricare una VM Linux da locale in Azure, è necessario installare manualmente l'agente VM.
 
-I blocchi predefiniti di base della soluzione di monitoraggio in Azure per SAP hanno un aspetto simile al seguente:
+I blocchi predefiniti di base della soluzione per fornire informazioni sull'infrastruttura di Azure all'agente host SAP in Azure sono simili ai seguenti:
 
 ![Componenti dell'estensione di Microsoft Azure][planning-guide-figure-2400]
 
-Come illustrato nel diagramma a blocchi precedente, una parte della soluzione di monitoraggio per SAP è ospitata nell'immagine di macchina virtuale di Azure e nella raccolta di estensioni di Azure, che è un archivio replicato globalmente gestito da Azure Operations. È responsabilità del team congiunto SAP/MS impegnato nell'implementazione di SAP collaborare con Azure Operations alla pubblicazione di nuove versioni dell'estensione di monitoraggio di Azure per SAP.
+Come illustrato nel diagramma a blocchi precedente, una parte della soluzione è ospitata nell'immagine di macchina virtuale di Azure e nella raccolta di estensioni di Azure, ovvero un repository replicato a livello globale gestito da operazioni di Azure. È responsabilità del team SAP/MS comune che lavora sull'implementazione di Azure di SAP per lavorare con le operazioni di Azure per pubblicare nuove versioni dell'estensione di Azure per SAP.
 
-Quando si distribuisce una nuova macchina virtuale Windows, l'Agente di macchine virtuali di Azure viene aggiunto automaticamente alla macchina virtuale. Questo agente ha la funzione di coordinare il caricamento e la configurazione delle estensioni di Azure per il monitoraggio dei sistemi SAP NetWeaver. Per le macchine virtuali Linux, l'agente di macchine virtuali di Azure fa già parte dell'immagine del sistema operativo di Azure Marketplace.
+Quando si distribuisce una nuova macchina virtuale Windows, l'Agente di macchine virtuali di Azure viene aggiunto automaticamente alla macchina virtuale. La funzione di questo agente è coordinare il caricamento e la configurazione delle estensioni di Azure delle macchine virtuali. Per le macchine virtuali Linux, l'agente di macchine virtuali di Azure fa già parte dell'immagine del sistema operativo di Azure Marketplace.
 
 È presente, tuttavia, un passaggio che deve ancora essere eseguito dal cliente, cioè l'abilitazione e la configurazione della raccolta delle prestazioni. Il processo correlato alla configurazione viene automatizzato con uno script di PowerShell o un comando dell'interfaccia della riga di comando. Lo script di PowerShell può essere scaricato nel Microsoft Azure Script Center come descritto nella [Guida alla distribuzione][deployment-guide].
 
-L'architettura complessiva della soluzione di monitoraggio di Azure per SAP ha un aspetto simile al seguente:
+L'architettura complessiva dell'estensione di Azure per SAP ha un aspetto simile al seguente:
 
-![Soluzione di monitoraggio di Azure per SAP NetWeaver][planning-guide-figure-2500]
+![Estensione di Azure per SAP ][planning-guide-figure-2500]
 
 **Per i passaggi dettagliati relativi all'uso di questi cmdlet di PowerShell o del comando CLI durante le distribuzioni, seguire le istruzioni fornite nella Guida alla [distribuzione][deployment-guide].**
 

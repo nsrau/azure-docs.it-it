@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: a4cc11447686f81017332a3528019a54a5167c52
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 71f2357ba2c2d3e978e4f967ad09fee763586a7c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231991"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058303"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Creazione e utilizzo di regole personalizzate del Web Application Firewall V2
 
@@ -179,7 +179,7 @@ Regola CRS corrispondente:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:700
 
 ## <a name="example-3"></a>Esempio 3
 
-Per questo esempio, si vuole bloccare il *Evilbot*dell'agente utente e il traffico nell'intervallo 192.168.5.0/24. A tale scopo, è possibile creare due condizioni di corrispondenza separate e inserirle entrambe nella stessa regola. In questo modo si garantisce che sia *evilbot* nell'intestazione dell'agente utente **che** negli indirizzi IP dall'intervallo 192.168.5.0/24 siano bloccati.
+Per questo esempio, si vuole bloccare il *Evilbot*dell'agente utente e il traffico nell'intervallo 192.168.5.0/24. A tale scopo, è possibile creare due condizioni di corrispondenza separate e inserirle entrambe nella stessa regola. In questo modo si garantisce che se si verifica una corrispondenza tra *evilbot* nell'intestazione dell'agente utente **e** gli indirizzi IP dell'intervallo 192.168.5.0/24, la richiesta viene bloccata.
 
 Logica: p **e** q
 

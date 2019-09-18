@@ -9,18 +9,18 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 95002eb73277176d4a8aeaa40deea4d96c39a755
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82f78ba50a6717c1d14e4921bb3c46a3525ad2cf
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512400"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063508"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Soluzioni e training per Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C consente alle organizzazioni di implementare soluzioni aziendali che consentono di comunicare con i loro clienti. Le guide alla soluzione e la documentazione di training seguenti sono documenti scaricabili che illustrano queste soluzioni.
+Azure Active Directory B2C (Azure AD B2C) consente alle organizzazioni di implementare soluzioni aziendali che consentono loro di connettersi ai clienti. Le guide alla soluzione e la documentazione di training seguenti sono documenti scaricabili che illustrano queste soluzioni.
 
-| Title | Descrizione |
+| Titolo | Descrizione |
 | ----- | ----------- |
 | [Customer Identity Management with Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) (Gestione delle identità dei clienti con Azure AD B2C) | In questa panoramica del servizio, Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)) del team di Azure AD B2C offre una descrizione generale del funzionamento del servizio e spiega come sia possibile connettere rapidamente B2C a un'applicazione ASP.NET Core. |
 | [An overview of Azure Active Directory B2C](https://aka.ms/b2coverview) (Panoramica di Azure Active Directory B2C) | Comprendere i vantaggi e scenari comuni di Azure AD B2C e il modo in cui le applicazioni possono usare questo servizio di gestione delle identità e degli accessi per consumatori. |

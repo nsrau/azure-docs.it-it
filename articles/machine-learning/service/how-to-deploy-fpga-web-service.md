@@ -1,7 +1,7 @@
 ---
 title: Che cosa sono gli FPGA-come eseguire la distribuzione
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come distribuire un servizio Web con un modello in esecuzione in un FPGA con Azure Machine Learning servizio per inferenza di latenza estremamente bassa.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come distribuire un servizio Web con un modello in esecuzione in un FPGA con Azure Machine Learning per l'inferenza di latenza ultra-bassa.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8f95846844f9ff498b1b99a0b7a375f1c883457d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 929ca8e16db73be5cfa226b5d55a30dbb7b2bc99
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860474"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034460"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Informazioni su FPGA (Field-Programmable Gate Array) e su come eseguire la distribuzione
 
-Questo articolo fornisce un'introduzione a FPGA (Field-Programmable Gate Array) e illustra come distribuire i modelli usando Azure Machine Learning servizio in un FPGA di Azure. 
+Questo articolo fornisce un'introduzione a FPGA (Field-Programmable Gate Array) e illustra come distribuire i modelli usando Azure Machine Learning in un FPGA di Azure. 
 
 Un circuito FPGA contiene un array di blocchi programmabili per la logica e una gerarchia di interconnessioni riconfigurabili. Le interconnessioni consentono di configurare questi blocchi in diversi modi dopo la produzione. I circuiti FPGA offrono una combinazione di programmabilità e prestazioni superiore agli altri chip.
 
@@ -28,7 +28,7 @@ Un circuito FPGA contiene un array di blocchi programmabili per la logica e una 
 
 Il diagramma e la tabella seguenti evidenziano un confronto tra i circuiti FPGA e gli altri processori.
 
-![Diagramma di confronto dei dispositivi FPGA nel servizio Azure Machine Learning](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Diagramma del confronto Azure Machine Learning FPGA](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |Processore||DESCRIZIONE|
 |---|:-------:|------|
@@ -89,7 +89,7 @@ Negli scenari seguenti vengono usati gli FPGA:
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure.  Se non si ha un account, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+- Una sottoscrizione di Azure.  Se non si ha un account, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
 
 - Quota FPGA. Usare l'interfaccia della riga di comando di Azure per verificare se è presente una quota:
 
@@ -112,7 +112,7 @@ Negli scenari seguenti vengono usati gli FPGA:
 
     Se non si dispone della quota, inviare una richiesta all'indirizzo [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
 
-- Un'area di lavoro del servizio di Azure Machine Learning e Azure Machine Learning SDK per Python installato. Per altre informazioni, vedere [creare un'area di lavoro](how-to-manage-workspace.md).
+- Un'area di lavoro di Azure Machine Learning e Azure Machine Learning SDK per Python installata. Per altre informazioni, vedere [creare un'area di lavoro](how-to-manage-workspace.md).
  
 - Python SDK per i modelli con accelerazione hardware:
 

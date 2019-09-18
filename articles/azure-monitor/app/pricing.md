@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: dalek
-ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277001"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067025"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -151,7 +151,7 @@ In ogni record conservato, `itemCount` indica il numero di record originali che 
 ## <a name="change-the-data-retention-period"></a>Cambiare il periodo di conservazione dei dati
 
 > [!NOTE]
-> Questa funzionalità è stata temporaneamente rimossa quando si risolve un possibile problema.  Verrà restituito a metà settembre 2019.
+> Questa funzionalità è stata temporaneamente rimossa quando si risolve un possibile problema.  Il backup verrà eseguito entro la prima settimana del 2019 ottobre.
 
 La conservazione predefinita per Application Insights risorse è di 90 giorni. È possibile selezionare periodi di conservazione diversi per ogni risorsa Application Insights. Il set completo di periodi di conservazione disponibili è 30, 60, 90, 120, 180, 270, 365, 550 o 730 giorni. 
 

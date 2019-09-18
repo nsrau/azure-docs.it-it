@@ -4,23 +4,20 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 8a596293a5c1572b30ea6101dad16328c8db2634
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 935a6201e24e97deaa0a1a65e499310f74a49e2d
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180047"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059054"
 ---
-## <a name="what-is-queue-storage"></a>Informazioni sull'archiviazione di accodamento
-Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione.
+## <a name="what-is-queue-storage"></a>Che cos'è l'archiviazione code?
 
-Di seguito sono riportati gli utilizzi più comuni per il servizio di archiviazione di accodamento.
-
-* Creazione di un backlog di lavoro da elaborare in modo asincrono
-* Passaggio di messaggi da un ruolo Web di Azure a un ruolo di lavoro di Azure
+Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. L'archiviazione code viene spesso utilizzata per creare un backlog di lavoro da elaborare in modo asincrono.
 
 ## <a name="queue-service-concepts"></a>Concetti del servizio di accodamento
-Il servizio di accodamento contiene i componenti seguenti:
+
+Il Servizio di accodamento di Azure contiene i componenti seguenti:
 
 ![Queue1](./media/storage-queue-concepts-include/queue1.png)
 

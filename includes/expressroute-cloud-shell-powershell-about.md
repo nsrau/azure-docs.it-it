@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0074696fe61570b7595179cbf953308f75ed14bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ba8f98268f076710b120166ccb3a4440307cfbf
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730512"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059701"
 ---
 Questo articolo usa i cmdlet di PowerShell. Per eseguire i cmdlet è possibile usare Azure Cloud Shell, un ambiente di shell interattiva ospitato in Azure e usato tramite il browser. In Azure Cloud Shell sono preinstallati i cmdlet di Azure PowerShell.
 
@@ -23,8 +23,8 @@ Per eseguire il codice contenuto in questo articolo in Azure Cloud Shell, aprire
 
 |  |   |
 |-----------------------------------------------|---|
-| Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. Questa azione __non__ copia automaticamente il testo in Cloud Shell. | ![Esempio di Prova per Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
-| Aprire [shell.azure.com](https://shell.azure.com) nel browser. | [![Pulsante di avvio di Azure Cloud Shell](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com) |
-| Selezionare il pulsante **Cloud Shell** nel menu nell'angolo superiore destro del [portale di Azure](https://portal.azure.com). | ![Pulsante Cloud Shell nel portale di Azure](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+| Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. Questa azione __non__ copia automaticamente il testo in Cloud Shell. | ![Esempio di Prova per Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Aprire [shell.azure.com](https://shell.azure.com) nel browser. | [![Pulsante di avvio di Azure Cloud Shell](./media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Selezionare il pulsante **Cloud Shell** nel menu nell'angolo superiore destro del [portale di Azure](https://portal.azure.com). | ![Pulsante Cloud Shell nel portale di Azure](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
-Se non si desidera usare Azure Cloud Shell, installare Azure PowerShell in locale invece. Assicurarsi di installare la versione più recente del modulo Azure PowerShell Az per ottenere funzionalità aggiornate. Per altre informazioni, vedere [Installare Azure PowerShell](/powershell/azure/overview).
+Se non si vuole usare Azure Cloud Shell, installare invece Azure PowerShell localmente. Assicurarsi di installare la versione più recente del Azure PowerShell AZ Module per ottenere le funzionalità aggiornate. Per altre informazioni, vedere [Installare Azure PowerShell](/powershell/azure/overview).

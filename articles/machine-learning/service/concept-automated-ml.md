@@ -1,7 +1,7 @@
 ---
 title: Che cos'è il Machine Learning automatico/automl
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come il servizio Azure Machine Learning è in grado di scegliere automaticamente un algoritmo e, a partire da questo, generare un modello per consentire all'utente di risparmiare tempo. Tale scelta viene effettuata usando i parametri e i criteri specificati per selezionare l'algoritmo migliore per il modello.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come Azure Machine Learning possibile selezionare automaticamente un algoritmo e generare un modello da esso per risparmiare tempo usando i parametri e i criteri forniti per selezionare l'algoritmo migliore per il modello.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882026"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035712"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -39,7 +39,7 @@ I data scientist, gli analisti e gli sviluppatori di tutti i settori possono usa
 
 ## <a name="how-automated-ml-works"></a>Funzionamento del Machine Learning automatico
 
-Con il **servizio Azure Machine Learning**è possibile progettare ed eseguire gli esperimenti di training di Machine Learning automatici con i passaggi seguenti:
+Con **Azure Machine Learning**è possibile progettare ed eseguire gli esperimenti di training di Machine Learning automatici con i passaggi seguenti:
 
 1. **Identificare il problema di ml** da risolvere: classificazione, previsione o regressione
 
@@ -53,7 +53,7 @@ Con il **servizio Azure Machine Learning**è possibile progettare ed eseguire gl
 
   ![Machine Learning automatizzato](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
-Durante il training, il servizio Azure Machine Learning crea alcune pipeline parallele che tentano algoritmi e parametri diversi. Si arresterà quando si raggiungeranno i criteri di uscita definiti nell'esperimento.
+Durante il training, Azure Machine Learning crea alcune pipeline parallele che tentano algoritmi e parametri diversi. Si arresterà quando si raggiungeranno i criteri di uscita definiti nell'esperimento.
 
 È anche possibile esaminare le informazioni sull'esecuzione registrata, che [contengono le metriche](how-to-understand-automated-ml.md) raccolte durante l'esecuzione. L'esecuzione del training produce un oggetto (`.pkl` file) serializzato Python che contiene il modello e la pre-elaborazione dei dati.
 
@@ -74,7 +74,7 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono pre-elabor
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensionati o normalizzati automaticamente per consentire agli algoritmi di ottenere risultati ottimali.  Durante il training del modello, viene applicata una delle tecniche di ridimensionamento o di normalizzazione seguenti a ogni modello.
 
-|Normalizzazione scalabile&nbsp;&&nbsp;| Descrizione |
+|Normalizzazione scalabile&nbsp;&&nbsp;| DESCRIZIONE |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardizzare le funzionalità rimuovendo la media e il ridimensionamento in varianza unità  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Trasforma le funzionalità ridimensionando ogni funzionalità in base al valore minimo e massimo della colonna  |

@@ -1,7 +1,7 @@
 ---
 title: Rilevare la tendenza dei dati (anteprima) nelle distribuzioni AKS
-titleSuffix: Azure Machine Learning service
-description: Rilevare la tendenza dei dati nei modelli distribuiti del servizio Kubernetes di Azure nel servizio Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Rilevare la tendenza dei dati nei modelli distribuiti del servizio Kubernetes di Azure in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 09/13/2019
-ms.openlocfilehash: 80c5ad26150547263469c9f59366e270bf660335
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 59cce0b56a4e54208a454c9f71d9a4c8576b0a8b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993182"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034347"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 
-Questo articolo illustra come monitorare la tendenza dei dati tra il set di dati di training e i dati di inferenza di un modello distribuito. Nel contesto di Machine Learning, i modelli di apprendimento automatico sottoposti a training possono comportare una riduzione delle prestazioni di stima a causa della deviazione. Con il servizio Azure Machine Learning è possibile monitorare la tendenza dei dati e il servizio può inviare un avviso di posta elettronica quando viene rilevata una deriva.
+Questo articolo illustra come monitorare la tendenza dei dati tra il set di dati di training e i dati di inferenza di un modello distribuito. Nel contesto di Machine Learning, i modelli di apprendimento automatico sottoposti a training possono comportare una riduzione delle prestazioni di stima a causa della deviazione. Con Azure Machine Learning è possibile monitorare la tendenza dei dati e il servizio può inviare un avviso di posta elettronica quando viene rilevata una deriva.
 
 ## <a name="what-is-data-drift"></a>Che cos'è la deriva dei dati?
 
@@ -27,7 +27,7 @@ La tendenza ai dati si verifica quando i dati serviti a un modello in produzione
 
 ## <a name="what-can-i-monitor"></a>Che cosa è possibile monitorare?
 
-Con Azure Machine Learning servizio è possibile monitorare gli input per un modello distribuito in AKS e confrontare questi dati con il set di dati di training per il modello. A intervalli regolari, i dati di inferenza sono [snapshot e profilati](how-to-explore-prepare-data.md), quindi vengono calcolati in base al set di dati baseline per produrre un'analisi della deriva dei dati che: 
+Con Azure Machine Learning, è possibile monitorare gli input per un modello distribuito in AKS e confrontare questi dati con il set di dati di training per il modello. A intervalli regolari, i dati di inferenza sono [snapshot e profilati](how-to-explore-prepare-data.md), quindi vengono calcolati in base al set di dati baseline per produrre un'analisi della deriva dei dati che: 
 
 + Misura la grandezza della deviazione dei dati, denominata coefficiente di tendenza.
 + Misura il contributo alla derivazione dei dati per funzionalità, che informa quali funzionalità hanno causato la deriva dei dati.
@@ -38,20 +38,20 @@ Con Azure Machine Learning servizio è possibile monitorare gli input per un mod
 > [!Note]
 > Questo servizio è in (anteprima) e limitato nelle opzioni di configurazione. Per informazioni dettagliate e aggiornamenti, vedere la [documentazione dell'API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) e le [Note sulla versione](azure-machine-learning-release-notes.md) . 
 
-### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Modalità di monitoraggio della deviazione dei dati nel servizio Azure Machine Learning
+### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Modalità di monitoraggio della deviazione dei dati in Azure Machine Learning
 
-Utilizzando Azure Machine Learning servizio, la deriva dei dati viene monitorata tramite set di dati o distribuzioni. Per monitorare la deriva dei dati, viene specificato un set di dati di base, in genere il set di dati di training per un modello. Un secondo set di dati, in genere il modello di dati di input raccolti da una distribuzione, viene testato rispetto al set di dati di base. Entrambi i set di dati vengono profilati e vengono inseriti nel servizio di monitoraggio della deriva dati. Viene eseguito il training di un modello di apprendimento automatico per rilevare le differenze tra i due set di impostazioni. Le prestazioni del modello vengono convertite nel coefficiente di derivazione, che misura la grandezza della deviazione tra i due set di impostazioni. Grazie all' [interpretazione dei modelli](machine-learning-interpretability-explainability.md), vengono calcolate le funzionalità che contribuiscono al coefficiente di drifting. Dal profilo del set di dati vengono rilevate informazioni statistiche su ogni funzionalità. 
+Con Azure Machine Learning, la deriva dei dati viene monitorata tramite set di dati o distribuzioni. Per monitorare la deriva dei dati, viene specificato un set di dati di base, in genere il set di dati di training per un modello. Un secondo set di dati, in genere il modello di dati di input raccolti da una distribuzione, viene testato rispetto al set di dati di base. Entrambi i set di dati vengono profilati e vengono inseriti nel servizio di monitoraggio della deriva dati. Viene eseguito il training di un modello di apprendimento automatico per rilevare le differenze tra i due set di impostazioni. Le prestazioni del modello vengono convertite nel coefficiente di derivazione, che misura la grandezza della deviazione tra i due set di impostazioni. Grazie all' [interpretazione dei modelli](machine-learning-interpretability-explainability.md), vengono calcolate le funzionalità che contribuiscono al coefficiente di drifting. Dal profilo del set di dati vengono rilevate informazioni statistiche su ogni funzionalità. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Se non si ha un account, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+- Una sottoscrizione di Azure. Se non si ha un account, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
 
 - Installazione di Azure Machine Learning SDK per Python. Usare le istruzioni riportate in [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per eseguire queste operazioni:
 
     - Creare un ambiente Miniconda
     - Installare Azure Machine Learning SDK per Python
 
-- Un' [area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
+- [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
 - Un [file di configurazione](how-to-configure-environment.md#workspace)dell'area di lavoro.
 
@@ -173,7 +173,7 @@ Per visualizzare i risultati nell'area di lavoro nella [pagina di destinazione d
 
 Impostando la soglia di avviso per il coefficiente di tendenza e fornendo un indirizzo di posta elettronica, viene automaticamente inviato un avviso di posta elettronica di [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) ogni volta che il coefficiente di spostamento supera la soglia. 
 
-Per configurare gli avvisi e le azioni personalizzati, tutte le metriche di spostamento dei dati vengono archiviate nella risorsa [Application Insights](how-to-enable-app-insights.md) creata insieme all'area di lavoro del servizio Azure Machine Learning. È possibile seguire il collegamento nell'avviso di posta elettronica per la query Application Insights.
+Per configurare gli avvisi e le azioni personalizzati, tutte le metriche di spostamento dei dati vengono archiviate nella risorsa [Application Insights](how-to-enable-app-insights.md) creata insieme all'area di lavoro Azure Machine Learning. È possibile seguire il collegamento nell'avviso di posta elettronica per la query Application Insights.
 
 ![Avviso di posta elettronica Drift dei dati](media/how-to-monitor-data-drift/drift_email.png)
 

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bf8d4889c277d59d0c42894281a89345fbf90a84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1bfa945843d185a46f1f1d79fd4dab0e991c769
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716683"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063804"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L'elemento **RelyingParty** specifica il percorso utente da applicare per la richiesta corrente ad Azure Active Directory (Azure AD) B2C. Specifica inoltre l'elenco di attestazioni richiesto dall'applicazione relying party (RP) come parte del token emesso. Un'applicazione RP, ad esempio un'applicazione Web, mobile o desktop, chiama il file dei criteri RP. Il file dei criteri RP esegue un'attività specifica, ad esempio l'accesso, la reimpostazione di una password o la modifica di un profilo. Più applicazioni possono usare gli stessi criteri RP e una singola applicazione può usare più criteri. Tutte le applicazioni RP ricevono lo stesso token con attestazioni e l'utente segue lo stesso percorso.
+L'elemento **RelyingParty** specifica il percorso utente da applicare per la richiesta corrente Azure Active Directory B2C (Azure ad B2C). Specifica inoltre l'elenco di attestazioni richiesto dall'applicazione relying party (RP) come parte del token emesso. Un'applicazione RP, ad esempio un'applicazione Web, mobile o desktop, chiama il file dei criteri RP. Il file dei criteri RP esegue un'attività specifica, ad esempio l'accesso, la reimpostazione di una password o la modifica di un profilo. Più applicazioni possono usare gli stessi criteri RP e una singola applicazione può usare più criteri. Tutte le applicazioni RP ricevono lo stesso token con attestazioni e l'utente segue lo stesso percorso.
 
 L'esempio seguente mostra un elemento **RelyingParty** nel file dei criteri *B2C_1A_signup_signin*:
 
@@ -74,7 +74,7 @@ L'esempio seguente mostra un elemento **RelyingParty** nel file dei criteri *B2C
 
 L'elemento **RelyingParty** facoltativo contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | Percorso utente predefinito per l'applicazione RP. |
 | UserJourneyBehaviors | 0:1 | Ambito dei comportamenti del percorso utente. |
@@ -102,15 +102,15 @@ Criterio *B2C_1A_signup_signin*:
 
 L'elemento **DefaultUserJourney** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ReferenceId | Sì | Identificatore del percorso utente nei criteri. Per altre informazioni, consultare [Percorsi utente](userjourneys.md) |
+| ReferenceId | Yes | Identificatore del percorso utente nei criteri. Per altre informazioni, consultare [Percorsi utente](userjourneys.md) |
 
 ## <a name="userjourneybehaviors"></a>UserJourneyBehaviors
 
 L'elemento **UserJourneyBehaviors** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | Ambito del comportamento della sessione di Single Sign-On (SSO) di un percorso utente. |
 | SessionExpiryType |0:1 | Comportamento di autenticazione della sessione. I valori possibili sono: `Rolling` o `Absolute`. Il valore `Rolling` (predefinito) indica che l'utente rimane connesso, purché sia continuamente attivo nell'applicazione. Il valore `Absolute` indica che l'utente è obbligato a ripetere l'autenticazione una volta superato il periodo di tempo specificato dalla durata della sessione dell'applicazione. |
@@ -124,20 +124,20 @@ L'elemento **SingleSignOn** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| Ambito | Yes | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il valore `Suppressed` indica che il comportamento viene eliminato. Ad esempio, nel caso di una sessione di Single Sign-On, non viene mantenuta alcuna sessione per l'utente, a cui viene sempre richiesta la selezione di un provider di identità. Il valore `TrustFramework` indica che il comportamento viene applicato per tutti i criteri del framework attendibilità. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità non viene richiesto di selezionare un provider di identità. Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
-| KeepAliveInDays | Yes | Controlla per quanto tempo l'utente rimane connesso. Se si imposta il valore su 0, la funzionalità KMSI viene disattivata. Per altre informazioni, vedere [Mantenere l'accesso](active-directory-b2c-reference-kmsi-custom.md). |
+| Ambito | Sì | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il valore `Suppressed` indica che il comportamento viene eliminato. Ad esempio, nel caso di una sessione di Single Sign-On, non viene mantenuta alcuna sessione per l'utente, a cui viene sempre richiesta la selezione di un provider di identità. Il valore `TrustFramework` indica che il comportamento viene applicato per tutti i criteri del framework attendibilità. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità non viene richiesto di selezionare un provider di identità. Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
+| KeepAliveInDays | Sì | Controlla per quanto tempo l'utente rimane connesso. Se si imposta il valore su 0, la funzionalità KMSI viene disattivata. Per altre informazioni, vedere [Mantenere l'accesso](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
 L'elemento **JourneyInsights** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| TelemetryEngine | Yes | Il valore deve essere `ApplicationInsights`. |
-| InstrumentationKey | Yes | Stringa che contiene la chiave di strumentazione per l'elemento Application Insights. |
-| DeveloperMode | Yes | I valori possibili sono: `true` o `false`. Se il valore è `true`, Application Insights velocizza la telemetria nella pipeline di elaborazione. Questa impostazione è utile per lo sviluppo, ma vincolata a volumi elevati. I log attività dettagliati sono concepiti solo per supportare lo sviluppo di criteri personalizzati. Non usare la modalità di sviluppo in fase di produzione. I log raccolgono tutte le attestazioni inviate verso e dai provider di identità durante lo sviluppo. Se usato in fase di produzione, lo sviluppatore si assume la responsabilità delle informazioni personali raccolte nel log di App Insights di cui è proprietario. Questi log dettagliati vengono raccolti solo quando il valore è impostato su `true`.|
+| TelemetryEngine | Sì | Il valore deve essere `ApplicationInsights`. |
+| InstrumentationKey | Sì | Stringa che contiene la chiave di strumentazione per l'elemento Application Insights. |
+| DeveloperMode | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, Application Insights velocizza la telemetria nella pipeline di elaborazione. Questa impostazione è utile per lo sviluppo, ma vincolata a volumi elevati. I log attività dettagliati sono concepiti solo per supportare lo sviluppo di criteri personalizzati. Non usare la modalità di sviluppo in fase di produzione. I log raccolgono tutte le attestazioni inviate verso e dai provider di identità durante lo sviluppo. Se usato in fase di produzione, lo sviluppatore si assume la responsabilità delle informazioni personali raccolte nel log di App Insights di cui è proprietario. Questi log dettagliati vengono raccolti solo quando il valore è impostato su `true`.|
 | ClientEnabled | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia lo script di Application Insights lato client per tenere traccia della visualizzazione della pagina e degli errori del client. |
-| ServerEnabled | Yes | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights. |
+| ServerEnabled | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights. |
 | TelemetryVersion | Yes | Il valore deve essere `1.0.0`. |
 
 Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md)
@@ -152,7 +152,7 @@ L'esempio seguente passa un parametro denominato `campaignId` con un valore `haw
 
 L'elemento **ContentDefinitionParameters** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0:n | Stringa che contiene la coppia chiave-valore accodata alla stringa di query di un URI di caricamento della definizione del contenuto. |
 
@@ -168,16 +168,16 @@ Per altre informazioni, vedere [Configurare l'interfaccia utente con contenuto d
 
 L'elemento **TechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Il valore deve essere `PolicyProfile`. |
+| ID | Yes | Il valore deve essere `PolicyProfile`. |
 
 L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | Stringa contenente il nome del profilo tecnico visualizzato dagli utenti. |
-| Descrizione | 0:1 | Stringa contenente la descrizione del profilo tecnico visualizzato dagli utenti. |
+| DESCRIZIONE | 0:1 | Stringa contenente la descrizione del profilo tecnico visualizzato dagli utenti. |
 | Protocol | 1:1 | Protocollo usato per la federazione. |
 | Metadata | 0:1 | Raccolta di *Item* delle coppie chiave-valore usate dal protocollo di comunicazione con l'endpoint durante una transazione per configurare l'interazione tra la relying party e altri membri della community. |
 | OutputClaims | 0:1 | Elenco di tipi di attestazione eseguiti come output nel profilo tecnico. Ognuno di questi elementi contiene un riferimento a un **ClaimType** già definito nella sezione **ClaimsSchema** o in un criterio da cui eredita questo file di criteri. |
@@ -187,19 +187,19 @@ L'elemento **Protocol** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Name | Yes | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. I valori possibili sono: `OpenIdConnect` o `SAML2`. Il valore `OpenIdConnect` rappresenta lo standard del protocollo OpenID Connect 1.0 in base alla specifica di OpenID Foundation. `SAML2` rappresenta lo standard del protocollo SAML 2.0 in base alla specifica di OASIS. Non usare un token SAML nell'ambiente di produzione. |
+| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. I valori possibili sono: `OpenIdConnect` o `SAML2`. Il valore `OpenIdConnect` rappresenta lo standard del protocollo OpenID Connect 1.0 in base alla specifica di OpenID Foundation. `SAML2` rappresenta lo standard del protocollo SAML 2.0 in base alla specifica di OASIS. Non usare un token SAML nell'ambiente di produzione. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
 L'elemento **OutputClaims** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | Nome di un tipo di attestazione previsto nell'elenco supportato per i criteri a cui la relying party esegue la sottoscrizione. Questa attestazione viene usata come output per il profilo tecnico. |
 
 L'elemento **OutputClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | Riferimento a un **ClaimType** già definito nella sezione **ClaimsSchema** nel file dei criteri. |
 | DefaultValue | No | Valore predefinito che può essere usato se il valore dell'attestazione è vuoto. |
@@ -215,7 +215,7 @@ L'elemento **SubjectNamingInfo** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ClaimType | Yes | Riferimento all'elemento **PartnerClaimType** di un'attestazione di output. Le attestazioni di output devono essere definite nella raccolta **OutputClaims** di criteri della relying party. |
+| ClaimType | Sì | Riferimento all'elemento **PartnerClaimType** di un'attestazione di output. Le attestazioni di output devono essere definite nella raccolta **OutputClaims** di criteri della relying party. |
 
 Nell'esempio seguente viene illustrato come definire un relying party OpenID Connect. Le informazioni sul nome del soggetto sono configurate come `objectId`:
 

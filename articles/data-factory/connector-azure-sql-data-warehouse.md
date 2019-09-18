@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 29f5b9b704bcf4648e9c24516d8eff5429a0ce1d
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 78b74c1db5f331e7b74a730148d52b1ff7694ec0
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009963"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058990"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
@@ -233,7 +233,7 @@ Per copiare dati da o in Azure SQL Data Warehouse, sono supportate le proprietà
 
 | Proprietà  | Descrizione                                                  | Obbligatoria                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| type      | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Yes                         |
+| type      | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Sì                         |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
 | table | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
 | tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di `schema` lavoro `table`, utilizzare e. | No per l'origine, Sì per il sink |
@@ -444,6 +444,9 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
    7. `compression` può essere **no compression**, **GZip** o **Deflate**.
 
 3. Se l'origine è una cartella, `recursive` l'attività di copia deve essere impostata su true.
+
+>[!NOTE]
+>Se l'origine è una cartella, Nota: polibase recupera i file dalla cartella e tutte le relative sottocartelle e non recupera i dati dai file per i quali il nome del file inizia con una sottolineatura (_) o un punto (.), come descritto [qui-argomento della posizione](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
 
 ```json
 "activities":[

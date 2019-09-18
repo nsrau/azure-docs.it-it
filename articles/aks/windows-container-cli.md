@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 30587af098b5ced7962dc45d6a059184f8b5f319
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 8e00053d5ce7c481b026d2fe0ce590d7b8799d8a
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914887"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075445"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima: creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
 
@@ -149,7 +149,7 @@ az aks create \
 > Se viene ricevuto un errore di convalida della password, provare a creare il gruppo di risorse in un'altra area.
 > Quindi provare a creare il cluster con il nuovo gruppo di risorse.
 
-Il comando viene completato dopo pochi minuti e vengono restituite informazioni in formato JSON sul cluster.
+Il comando viene completato dopo pochi minuti e vengono restituite informazioni in formato JSON sul cluster. Occasionalmente, il provisioning del cluster può richiedere più di pochi minuti. In questi casi è consentito un massimo di 10 minuti. 
 
 ## <a name="add-a-windows-server-node-pool"></a>Aggiungere un pool di nodi di Windows Server
 
@@ -264,7 +264,7 @@ service/sample created
 
 ## <a name="test-the-application"></a>Testare l'applicazione
 
-Durante l'esecuzione dell'applicazione, un servizio Kubernetes espone il front-end dell'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti.
+Durante l'esecuzione dell'applicazione, un servizio Kubernetes espone il front-end dell'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti. Occasionalmente, il provisioning del servizio può richiedere più di pochi minuti. In questi casi è consentito un massimo di 10 minuti.
 
 Per monitorare lo stato, usare il comando [kubectl get service][kubectl-get] con l'argomento `--watch`.
 

@@ -359,7 +359,7 @@ Per la VM serie M di Azure la latenza di scrittura nel log delle transazioni pu�
   
 
 ### <a name="formatting-the-disks"></a>Formattazione dei dischi
-Per i dischi contenenti i file di dati e di log di SQL Server è necessario un blocco NTFS di dimensioni pari a 64 kB. Non è necessario formattare l'unità D:\ perché viene fornita preformattata.
+Per i dischi contenenti i file di dati e di log di SQL Server è necessario un blocco NTFS di dimensioni pari a 64 kB. Non è necessario formattare l'unità D:\, perché viene fornita preformattata.
 
 Per evitare che in seguito al ripristino o alla creazione di database i file di dati non vengano inizializzati e il loro contenuto venga azzerato, è necessario assicurarsi che per il contesto utente in cui viene eseguito il servizio SQL Server siano disponibili determinate autorizzazioni. Queste autorizzazioni sono in genere disponibili per gli utenti del gruppo Administrators di Windows. Se il servizio SQL Server viene eseguito nel contesto utente di un utente non appartenente al gruppo Administrators di Windows, è necessario assegnare a tale utente il diritto **Esecuzione attività di manutenzione volume**.  Per informazioni dettagliate, vedere l'articolo <https://support.microsoft.com/kb/2574695> di Microsoft Knowledge Base
 

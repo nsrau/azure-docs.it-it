@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9a026d205d3ab855ecbb51048e7464df6fb4a094
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff70b2f54304c83f70ff578e1947d752aafb34a7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510759"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064155"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo fornisce esempi per l'uso delle trasformazioni di attestazioni JSON dello schema del framework di gestione delle identità di Azure Active Directory (Azure AD) B2C. Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni JSON dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="getclaimfromjson"></a>GetClaimFromJson
 
@@ -55,7 +55,7 @@ Nell'esempio seguente la trasformazione delle attestazioni ha estratto l'element
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
 - Parametro di input:
     - **claimToExtract**: emailAddress
-- Attestazioni di output: 
+- Attestazioni di output:
   - **extractedClaim**: someone@example.com
 
 
@@ -70,7 +70,7 @@ Consente di ottenere un elenco di elementi specificati dai dati Json.
 | InputParameter | includeEmptyClaims | string | Specifica se includere attestazioni vuote. |
 | InputParameter | jsonSourceKeyName | string | Nome della chiave dell'elemento |
 | InputParameter | jsonSourceValueName | string | Nome del valore dell'elemento |
-| OutputClaim | Raccolta | string, int, boolean e datetime |Elenco di attestazioni da estrarre. Il nome dell'attestazione deve essere uguale a quello specificato nell'attestazione di input _jsonSourceClaim_. |
+| OutputClaim | Collection | string, int, boolean e datetime |Elenco di attestazioni da estrarre. Il nome dell'attestazione deve essere uguale a quello specificato nell'attestazione di input _jsonSourceClaim_. |
 
 Nell'esempio seguente la trasformazione delle attestazioni estrae le attestazioni seguenti: email (string), displayName (string), membershipNum (int), active (boolean) e birthdate (datetime) dai dati JSON.
 
@@ -97,7 +97,7 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae le attestazion
     <OutputClaim ClaimTypeReferenceId="birthdate" />
   </OutputClaims>
 </ClaimsTransformation>
-```    
+```
 
 - Attestazioni di input:
   - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
@@ -127,8 +127,8 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae l'elemento `id
 
 ```JSON
 {
-    "emailAddress": "someone@example.com", 
-    "displayName": "Someone", 
+    "emailAddress": "someone@example.com",
+    "displayName": "Someone",
     "id" : 6353399
 }
 ```
@@ -153,7 +153,7 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae l'elemento `id
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
 - Parametri di input
     - **claimToExtract**:  id
-- Attestazioni di output: 
+- Attestazioni di output:
     - **extractedClaim**: 6353399
 
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray
@@ -182,7 +182,7 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae il primo eleme
 
 - Attestazioni di input:
   - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
-- Attestazioni di output: 
+- Attestazioni di output:
   - **extractedClaim**: someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString

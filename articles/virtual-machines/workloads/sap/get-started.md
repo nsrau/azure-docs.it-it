@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/15/2019
+ms.date: 09/17/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44ee910aa1a5f3c1a703b9ed4202d395359970cb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dc1c6e4bf2e67d8945cf754aa47461b4ce8364a9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099944"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066836"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -31,7 +31,7 @@ Oltre a ospitare scenari di SAP NetWeaver con i diversi sistemi DBMS in Azure, �
 
 L'univocità di Azure per SAP HANA è un'offerta che consente di impostare Azure separatamente. Per consentire l'hosting di più risorse di memoria e CPU che richiedono scenari SAP che coinvolgono SAP HANA, Azure offre l'uso di hardware bare metal dedicato ai clienti. Usare questa soluzione per eseguire distribuzioni SAP HANA che richiedono fino a 24 TB (scalabilità orizzontale 120 TB) per S/4HANA o un altro carico di lavoro SAP HANA. 
 
-L'hosting di scenari di carico di lavoro SAP in Azure può anche creare requisiti per l'integrazione di identità e Single Sign-On. Questa situazione può verificarsi quando si usa Azure Active Directory (Azure AD) per connettere componenti SAP diversi e offerte SaaS (software-as-a-Service) di SAP o piattaforma distribuita come servizio (PaaS). Un elenco di questi scenari di integrazione e Single Sign-On con le entità Azure AD e SAP viene descritto e documentato nella sezione "integrazione delle identità e Single Sign-On di AAD SAP".
+L'hosting di scenari di carico di lavoro SAP in Azure può anche creare requisiti per l'integrazione delle identità e Single Sign-on. Questa situazione può verificarsi quando si usa Azure Active Directory (Azure AD) per connettere componenti SAP diversi e offerte SaaS (software-as-a-Service) di SAP o piattaforma distribuita come servizio (PaaS). Un elenco degli scenari di integrazione e Single Sign-on con le entità Azure AD e SAP viene descritto e documentato nella sezione "integrazione di identità e Single Sign-on di AAD SAP".
 
 ## <a name="changes-to-the-sap-workload-section"></a>Modifiche alla sezione del carico di lavoro SAP
 Alla fine di questo articolo sono elencate le modifiche apportate ai documenti nella sezione del carico di lavoro SAP in Azure.
@@ -101,7 +101,7 @@ Per informazioni sulla disponibilità elevata di un carico di lavoro SAP in Azur
 Questo documento fa riferimento a diversi altri documenti sull'architettura e sullo scenario. Nei documenti degli scenari successivi sono disponibili collegamenti a documenti tecnici dettagliati che illustrano la distribuzione e la configurazione dei diversi metodi di disponibilità elevata. I diversi documenti che illustrano come stabilire e configurare la disponibilità elevata per un carico di lavoro di SAP NetWeaver coprono i sistemi operativi Linux e Windows.
 
 
-Per informazioni sull'integrazione tra Azure Active Directory (Azure AD) e i servizi SAP e Single Sign-On, vedere:
+Per informazioni sull'integrazione tra Azure Active Directory (Azure AD) e i servizi SAP e Single Sign-on, vedere:
 
 - [Esercitazione: Integrazione di Azure Active Directory con SAP Cloud for Customer](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [Esercitazione: Integrazione di Azure Active Directory con SAP Cloud Platform Identity Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
@@ -109,7 +109,7 @@ Per informazioni sull'integrazione tra Azure Active Directory (Azure AD) e i ser
 - [Esercitazione: Integrazione di Azure Active Directory con SAP NetWeaver](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [Esercitazione: Integrazione di Azure Active Directory con SAP Business ByDesign](https://docs.microsoft.com/azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [Esercitazione: Integrazione di Azure Active Directory con SAP HANA](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Ambiente S/4HANA: Fiori Launchpad Launchpad Single Sign-On con Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
+- [Ambiente S/4HANA: L'accesso Single Sign-On SAML di fiori Launchpad con Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
 
 Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vedere:
 
@@ -120,6 +120,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 
 ## <a name="change-log"></a>Registro modifiche
+- 09/17/2019: Modificare la guida alla pianificazione e distribuzione di NetWeaver per unificare i termini relativi all'estensione della macchina virtuale per SAP
 - 08/22/2019: Modifiche nella [configurazione di pacemaker in SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) per aggiornare gli URL per la creazione di un ruolo personalizzato  
 - 08/16/2019: Modifiche nella [configurazione di pacemaker in Red Hat Enterprise Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) per ricordare ai clienti di aggiornare le azioni nel ruolo personalizzato, se aggiornate alla nuova versione dell'agente di recinzione di Azure  
 - 08/15/2019: Modifiche apportate alle [configurazioni di archiviazione delle macchine virtuali SAP Hana di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) per riflettere la disponibilità generale del disco Ultra (in precedenza ultra SSD)

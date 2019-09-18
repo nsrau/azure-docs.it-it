@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb4486c889dec29f81b57605c3ccee510242f832
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: bdb1e26d9f10ae9b9549421e72a99f2c4e5341c2
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035134"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056092"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a Power BI mobile con Azure AD proxy di applicazione
 
@@ -97,7 +97,7 @@ A questo punto si è pronti per configurare Azure AD proxy di applicazione.
 
    c. Impostare **Nome dell'entità servizio dell'applicazione interna** sul valore impostato in precedenza,  
 
-   d. Scegliere l' **identità** di accesso delegata per il connettore da usare per conto degli utenti. Per altre informazioni, vedere [uso di diverse identità locali e cloud](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
+   d. Scegliere l' **identità di accesso delegata**per il connettore da usare per conto degli utenti. Per altre informazioni, vedere [uso di diverse identità locali e cloud](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
    e. Fare clic su **Salva** per salvare le modifiche.
 
@@ -138,7 +138,7 @@ Prima che l'app per dispositivi mobili Power BI possa connettersi e accedere a s
 ## <a name="step-5-configure-intune-policy-for-managed-devices-optional"></a>Passaggio 5: Configurare i criteri di Intune per i dispositivi gestiti (facoltativo)
 
 > [!NOTE]
-> Questa funzionalità non sarà disponibile fino al 7/31/19.
+> Questa funzionalità è attualmente disponibile solo in iOS.
 
 È possibile usare Microsoft Intune per gestire le app client utilizzate dalla forza lavoro della società. Intune consente di usare funzionalità quali la crittografia dei dati e i requisiti di accesso aggiuntivi. Per altre informazioni sulla gestione delle app tramite Intune, vedere Gestione delle app di Intune. Per consentire all'applicazione Power BI per dispositivi mobili di usare i criteri di Intune, attenersi alla procedura seguente.
 

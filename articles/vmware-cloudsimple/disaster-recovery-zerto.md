@@ -8,19 +8,19 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ad2372f9a9f90e4502b304a08477771fd6ef385
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880384"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037416"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurare il cloud privato CloudSimple come sito di ripristino di emergenza per i carichi di lavoro VMware locali
 
 Il cloud privato CloudSimple può essere configurato come sito di ripristino per le applicazioni locali per garantire la continuità aziendale in caso di emergenza. La soluzione di ripristino si basa sulla replica virtuale Zerto come piattaforma di replica e orchestrazione. Le macchine virtuali dell'infrastruttura e delle applicazioni critiche possono essere replicate continuamente dall'ambiente vCenter locale al cloud privato. È possibile usare il cloud privato per i test di failover e per garantire la disponibilità dell'applicazione durante un'emergenza. È possibile seguire un approccio simile per configurare il cloud privato come sito primario protetto da un sito di ripristino in una posizione diversa.
 
 > [!NOTE]
-> Per le linee guida sul dimensionamento dell'ambiente di ripristino di emergenza, vedere Considerazioni sul dimensionamento dei documenti Zerto [per la replica virtuale Zerto](http://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) .
+> Per le linee guida sul dimensionamento dell'ambiente di ripristino di emergenza, vedere Considerazioni sul dimensionamento dei documenti Zerto [per la replica virtuale Zerto](https://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) .
 
 La soluzione CloudSimple:
 

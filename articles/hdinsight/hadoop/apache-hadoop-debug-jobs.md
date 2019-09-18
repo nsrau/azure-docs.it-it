@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882440"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059208"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analizzare i log di Apache Hadoop in Azure HDInsight
 
@@ -89,7 +89,7 @@ Ora è possibile usare Excel per filtrare e ordinare in base alle esigenze. È p
 3. In **Cloud Explorer** selezionare **Tipi di risorse**.  L'altra opzione disponibile è **Gruppi di risorse**.
 4. Espandere **Account di archiviazione**, l'account di archiviazione predefinito per il cluster e quindi **Tabelle**.
 5. Fare doppio clic su **hadoopservicelog**.
-6. Aggiungere un filtro. Ad esempio:
+6. Aggiungere un filtro. Esempio:
    
         TraceLevel eq 'ERROR'
    
@@ -110,7 +110,7 @@ Per altre informazioni sui registri applicazioni, vedere [Simplifying user-logs 
 ### <a name="access-the-ambari-ui"></a>Aprire l'interfaccia utente Ambari
 Nel portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**.
 
-![Avviare il dashboard del cluster](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
+![Dashboard del cluster di avvio di HDInsight](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### <a name="access-the-yarn-ui"></a>Accedere all'interfaccia utente di Yarn
@@ -120,7 +120,7 @@ Nel portale di Azure fare clic sul nome di un cluster HDInsight per aprire il re
 
 * **Ottenere lo stato del cluster**. Nel riquadro sinistro espandere **Cluster** e fare clic su **Informazioni**. Verranno visualizzate informazioni sullo stato del cluster, ad esempio la memoria totale allocata, i core usati, lo stato della gestione delle risorse del cluster, la versione del cluster e così via.
   
-    ![Avviare il dashboard del cluster Yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Avviare il dashboard del cluster Yarn")
+    ![HDInsight avviare il dashboard del cluster Yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight avviare il dashboard del cluster Yarn")
 * **Ottenere lo stato del nodo**. Nel riquadro sinistro espandere **Cluster** e fare clic su **Nodi**. Verranno elencati tutti i nodi del cluster, l'indirizzo HTTP di ogni nodo, le risorse allocate per ogni nodo e così via.
 * **Monitorare lo stato dei processi**. Nel riquadro sinistro espandere **Cluster** e quindi fare clic su **Applicazioni** per elencare tutti i processi del cluster. Se si desidera esaminare i processi con uno stato specifico (ad esempio processi nuovi, inviati, in esecuzione e così via), fare clic sul collegamento appropriato in **Applicazioni**. È possibile fare clic sul nome del processo per ottenere altre informazioni, ad esempio l'output, i log e così via.
 

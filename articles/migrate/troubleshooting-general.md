@@ -4,14 +4,14 @@ description: Viene fornita una panoramica dei problemi noti del servizio Azure M
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 16e0fe51137ce7e96cf98c0a8acf7c490e9087b3
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 49c43d393ef0722424088e0073942b56787f1bc7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232415"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067816"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -78,7 +78,7 @@ Per eliminare un progetto nella versione corrente di Azure Migrate:
 2. Nella pagina gruppo di risorse selezionare **Mostra tipi nascosti**.
 3. Selezionare il progetto di migrazione che si desidera eliminare. Il tipo di risorsa è Microsoft. migrate/migrateprojects e lo elimina.
 
-Per eliminare un progetto nella versione precedente di Azure Migrate: 
+Per eliminare un progetto nella versione precedente di Azure Migrate:
 
 1. Aprire il gruppo di risorse di Azure in cui è stato creato il progetto.
 2. Selezionare il progetto di migrazione che si desidera eliminare. Il tipo di risorsa è il progetto di migrazione e lo elimina.
@@ -90,7 +90,7 @@ Passare all'area di lavoro Log Analytics collegata al progetto.
 * Se il progetto Azure migrate non è stato eliminato, è possibile trovare il collegamento all'area di lavoro in **Essentials** > **Server Assessment**.
        ![Area di lavoro LA](./media/troubleshooting-general/loganalytics-workspace.png)
 
-     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it. 
+     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
 
 ## <a name="error-requests-must-contain-user-identity-headers"></a>Errore "le richieste devono contenere intestazioni di identità utente"
@@ -153,7 +153,7 @@ Se viene ricevuto questo errore di connessione, potrebbe non essere possibile co
 
 ## <a name="error-appliance-might-not-be-registered"></a>Errore: Il dispositivo potrebbe non essere registrato
 
-- Errore 60052, "l'appliance potrebbe non essere stata registrata correttamente nel progetto Azure Migrate" si verifica se l'account Azure usato per registrare l'appliance non dispone di autorizzazioni sufficienti. 
+- Errore 60052, "l'appliance potrebbe non essere stata registrata correttamente nel progetto Azure Migrate" si verifica se l'account Azure usato per registrare l'appliance non dispone di autorizzazioni sufficienti.
     - Assicurarsi che l'account utente di Azure usato per registrare il dispositivo disponga almeno delle autorizzazioni di collaboratore per la sottoscrizione.
     - [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) informazioni sui ruoli e sulle autorizzazioni di Azure richiesti.
 - Errore 60039: "è possibile che l'appliance non sia stata registrata correttamente nel progetto Azure Migrate" se la registrazione non riesce perché il progetto Azure Migrate usato per registrare l'appliance non è stato trovato.
@@ -162,7 +162,7 @@ Se viene ricevuto questo errore di connessione, potrebbe non essere possibile co
 
 ## <a name="error-key-vault-management-operation-failed"></a>Errore: Operazione di gestione Key Vault non riuscita
 
-Se viene visualizzato l'errore 60030 o 60031, "un'operazione di gestione Azure Key Vault non riuscita", eseguire le operazioni seguenti: 
+Se viene visualizzato l'errore 60030 o 60031, "un'operazione di gestione Azure Key Vault non riuscita", eseguire le operazioni seguenti:
 - Assicurarsi che l'account utente di Azure usato per registrare il dispositivo disponga almeno delle autorizzazioni di collaboratore per la sottoscrizione.
 - Verificare che l'account abbia accesso all'insieme di credenziali delle chiavi specificato nel messaggio di errore, quindi ripetere l'operazione.
 - Se il problema persiste, contattare il supporto tecnico Microsoft.
@@ -187,7 +187,7 @@ Errore 60025: "Un'operazione Azure AD non è riuscita. L'errore si è verificato
 
 ## <a name="discovered-vms-not-in-portal"></a>Macchine virtuali individuate non nel portale
 
-Se si avvia l'individuazione in modo che la **valutazione del server** e la **migrazione del server** mostrino l' **individuazione in corso**, ma non ancora le VM nel portale, tenere presente quanto segue: 
+Se si avvia l'individuazione in modo che la **valutazione del server** e la **migrazione del server** mostrino l' **individuazione in corso**, ma non ancora le VM nel portale, tenere presente quanto segue:
 
 - Dopo l'avvio dell'individuazione dal dispositivo, sono necessari circa 15 minuti per l'individuazione di una macchina virtuale VMware e circa due minuti per ogni host aggiunto per l'individuazione di macchine virtuali Hyper-V.
 - Se si continua a visualizzare l' **individuazione in corso** anche dopo questi periodi di attesa, selezionare **Aggiorna** nella scheda **server** . Verrà visualizzato il numero dei server individuati in **valutazione server** e **migrazione server**.
@@ -202,7 +202,7 @@ Se è stata distribuita un'appliance che individua continuamente l'ambiente loca
 
     1. In **Server** > **Azure migrate Assessment server**selezionare **Panoramica**.
     2. In **Gestisci**selezionare **integrità agente**
-    3. Selezionare **Aggiorna agente**. 
+    3. Selezionare **Aggiorna agente**.
     1. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate.
 
 ## <a name="vm-information-isnt-in-the-portal"></a>Le informazioni sulla macchina virtuale non sono presenti nel portale
@@ -212,7 +212,7 @@ Se è stata distribuita un'appliance che individua continuamente l'ambiente loca
 
     1. In **Server** > **Azure migrate Assessment server**selezionare **Panoramica**.
     2. In **Gestisci**selezionare **integrità agente**
-    3. Selezionare **Aggiorna agente**. 
+    3. Selezionare **Aggiorna agente**.
     1. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate.
 
 
@@ -240,7 +240,7 @@ Il tipo di avvio non è supportato | Azure non supporta le VM con un tipo di avv
 Sistema operativo Windows supportato in modo condizionale | Il sistema operativo ha superato la data di fine del supporto ed è necessario un contratto di supporto personalizzato (CSA) per il [supporto in Azure](https://aka.ms/WSosstatement). Prendere in considerazione l'aggiornamento prima di eseguire la migrazione ad Azure.
 Sistema operativo Windows non supportato | Azure supporta solo le [versioni del sistema operativo Windows selezionate](https://aka.ms/WSosstatement). Provare ad aggiornare il computer prima di eseguire la migrazione ad Azure.
 Sistema operativo Linux con approvazione condizionale | Azure approva solo le [versioni del sistema operativo Linux selezionate](../virtual-machines/linux/endorsed-distros.md). Provare ad aggiornare il computer prima di eseguire la migrazione ad Azure.
-Sistema operativo Linux non approvato | Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto per il sistema operativo. Prendere in considerazione l'aggiornamento a una [versione di Linux](../virtual-machines/linux/endorsed-distros.md) approvata prima di eseguire la migrazione ad Azure.
+Sistema operativo Linux non approvato | Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto per il sistema operativo. Prendere in considerazione l'aggiornamento a una [versione di Linux approvata](../virtual-machines/linux/endorsed-distros.md) prima di eseguire la migrazione ad Azure.
 Sistema operativo sconosciuto | Il sistema operativo della macchina virtuale è stato specificato come "altro" in server vCenter. Questo comportamento blocca Azure Migrate dalla verifica della conformità di Azure della macchina virtuale. Prima di eseguire la migrazione del computer, assicurarsi che il sistema operativo sia [supportato](https://aka.ms/azureoslist) da Azure.
 Versione bit non supportata | Le macchine virtuali con sistemi operativi a 32 bit possono essere avviate in Azure, ma è consigliabile eseguire l'aggiornamento a 64 bit prima di eseguire la migrazione ad Azure.
 Richiede una sottoscrizione di Microsoft Visual Studio | Il computer esegue un sistema operativo client Windows, che è supportato solo tramite una sottoscrizione di Visual Studio.
@@ -259,10 +259,6 @@ Non è stato possibile determinare l'idoneità della macchina virtuale a causa d
 Non è stato possibile determinare l'idoneità per uno o più dischi a causa di un errore interno | Provare a creare una nuova valutazione per il gruppo.
 Non è stato possibile determinare l'idoneità per una o più schede di rete a causa di un errore interno | Provare a creare una nuova valutazione per il gruppo.
 
-## <a name="cant-add-enterprise-agreement-ea-in-an-assessment"></a>Non è possibile aggiungere Enterprise Agreement (EA) in una valutazione
-
-Azure Migrate server Assessment non supporta attualmente i prezzi di Enterprise Agreement (EA). Per ovviare a questa limitazione, usare l'offerta con **pagamento in base** al consumo come offerta Azure e usare la proprietà **discount** per specificare gli sconti personalizzati ricevuti. [Informazioni](https://aka.ms/migrate/selfhelp/eapricing) su come personalizzare una valutazione.
-
 ## <a name="linux-vms-are-conditionally-ready"></a>Le VM Linux sono "predisposte in modo condizionale"
 
 Server Assessment contrassegna le VM Linux come "predisposte in modo condizionale" a causa di un gap noto nella valutazione del server.
@@ -279,7 +275,7 @@ Azure Migrate server Assessment potrebbe consigliare gli SKU di VM di Azure con 
 
 
 - La raccomandazione SKU della macchina virtuale dipende dalle proprietà di valutazione.
-- Questo problema è influenzato dal tipo di valutazione eseguito in server assessment: *Basato sulle prestazioni*o *come in locale*. 
+- Questo problema è influenzato dal tipo di valutazione eseguito in server assessment: *Basato sulle prestazioni*o *come in locale*.
 - Per le valutazioni basate sulle prestazioni, valutazione server considera i dati di utilizzo delle macchine virtuali locali (CPU, memoria, disco e utilizzo della rete) per determinare lo SKU di VM di destinazione appropriato per le macchine virtuali locali. Viene inoltre aggiunto un fattore di comfort quando si determina un utilizzo efficace.
 - Per il dimensionamento locale, i dati sulle prestazioni non vengono considerati e lo SKU di destinazione è consigliato in base all'allocazione locale.
 
@@ -288,14 +284,14 @@ Per illustrare il modo in cui questo può influire sulle raccomandazioni, si pre
 Abbiamo una macchina virtuale locale con quattro core e 8 GB di memoria, con un utilizzo della CPU del 50% e un utilizzo della memoria del 50% e un fattore di comfort specificato di 1,3.
 
 -  Se la valutazione è **come in locale**, è consigliabile usare uno SKU di VM di Azure con 4 core e 8 GB di memoria.
-- Se la valutazione è basata sulle prestazioni, in base all'utilizzo effettivo di CPU e memoria (50% di 4 core * 1,3 = 2,6 core e 50% di 8 GB di memoria * 1,3 = 5,3-GB di memoria), lo SKU di VM più economico di quattro core (numero di core supportato più vicino) e otto GB di memoria (supportata più vicina). è consigliabile usare le dimensioni della memoria. 
+- Se la valutazione è basata sulle prestazioni, in base all'utilizzo effettivo di CPU e memoria (50% di 4 core * 1,3 = 2,6 core e 50% di 8 GB di memoria * 1,3 = 5,3-GB di memoria), lo SKU di VM più economico di quattro core (numero di core supportato più vicino) e otto GB di memoria (supportata più vicina). è consigliabile usare le dimensioni della memoria.
 - [Altre](concepts-assessment-calculation.md#sizing) informazioni sul dimensionamento della valutazione.
 
 ## <a name="azure-disk-skus-bigger-than-on-premises"></a>SKU dischi di Azure di dimensioni maggiori rispetto a locali
 
 Azure Migrate server Assessment potrebbe consigliare un disco di dimensioni maggiori in base al tipo di valutazione.
 - Il dimensionamento del disco nella valutazione del server dipende da due proprietà di valutazione: criteri di ridimensionamento e tipo di archiviazione.
-- Se i criteri di ridimensionamento sono **basati sulle prestazioni**e il tipo di archiviazione è impostato su **automatico**, i valori di IOPS e velocità effettiva del disco vengono considerati quando si identifica il tipo di disco di destinazione (HDD standard, SDD standard o Premium). Viene quindi consigliato uno SKU del disco dal tipo di disco e la raccomandazione considera i requisiti di dimensioni del disco locale. 
+- Se i criteri di ridimensionamento sono **basati sulle prestazioni**e il tipo di archiviazione è impostato su **automatico**, i valori di IOPS e velocità effettiva del disco vengono considerati quando si identifica il tipo di disco di destinazione (HDD standard, SDD standard o Premium). Viene quindi consigliato uno SKU del disco dal tipo di disco e la raccomandazione considera i requisiti di dimensioni del disco locale.
 - Se i criteri di ridimensionamento sono **basati sulle prestazioni**e il tipo di archiviazione è **Premium**, è consigliabile usare uno SKU di dischi Premium in Azure in base ai requisiti di IOPS, velocità effettiva e dimensioni del disco locale. La stessa logica viene usata per eseguire il ridimensionamento del disco quando i criteri di ridimensionamento sono **locali** e il tipo di archiviazione è **HDD standard**, **SDD standard**o **Premium**.
 
 Ad esempio, se si dispone di un disco locale con 32 GB di memoria, ma le operazioni di i/o di lettura e scrittura aggregate per il disco sono 800 IOPS, server Assessment consiglia un disco Premium (a causa dei requisiti di IOPS più elevati), quindi consiglia uno SKU del disco in grado di supportare r ecessario IOPS e dimensioni. In questo esempio la corrispondenza più vicina sarebbe P15 (256 GB, 1.100 operazioni di I/O al secondo). Anche se le dimensioni richieste dal disco locale sono 32 GB, server Assessment consiglia un disco più grande a causa del requisito di IOPS elevato del disco locale.

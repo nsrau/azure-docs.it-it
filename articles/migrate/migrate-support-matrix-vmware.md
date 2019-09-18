@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: ecceb1177d7b7015afc92f10284a9372d0cfb4a2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a0ca483005cf1f5aaadcd7a6107b092d581d6773
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375306"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067763"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di VMware
 
@@ -43,10 +43,13 @@ Nella tabella sono riepilogati gli scenari supportati per le macchine virtuali V
 Azure per enti pubblici | US Gov Virginia
 Asia/Pacifico | Asia orientale o Asia sud-orientale
 Australia | Australia orientale o Australia sudorientale
+Brasile | Brasile meridionale
 Canada | Canada centrale o Canada orientale
 Europa | Europa settentrionale o Europa occidentale
+Francia | Francia centrale
 India | India centrale o India meridionale
 Giappone |  Giappone orientale o Giappone occidentale
+Corea del Sud | Corea centrale o Corea del sud
 Regno Unito | Regno Unito meridionale o Regno Unito occidentale
 Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
@@ -73,7 +76,7 @@ Azure Migrate esegue un'appliance Lightweight per individuare le macchine virtua
 
 **Supporto** | **Dettagli**
 --- | ---
-**Distribuzione dell'appliance** | Si distribuisce l'appliance come macchina virtuale VMware. Per allocare una macchina virtuale con 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un compartitore virtuale esterno, è necessario disporre di risorse sufficienti nel server vCenter.<br/><br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.<br/> La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva. 
+**Distribuzione dell'appliance** | Si distribuisce l'appliance come macchina virtuale VMware. Per allocare una macchina virtuale con 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un compartitore virtuale esterno, è necessario disporre di risorse sufficienti nel server vCenter.<br/><br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.<br/> La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva.
 **Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> È possibile valutare fino a 35.000 VM in un progetto.
 **Individuazione** | Un dispositivo può individuare fino a 10.000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a una singola server vCenter.
 **Gruppo di valutazione** | È possibile aggiungere fino a 35.000 computer in un singolo gruppo.

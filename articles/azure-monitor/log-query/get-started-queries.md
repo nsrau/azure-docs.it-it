@@ -13,24 +13,26 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: b03109ee5cdb76247bf3be6fda97e0cf6e434f17
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 6eb066e04cfa561a4fa443b8c8f9582e286a4d7b
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296097"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076750"
 ---
-# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introduzione alle query di log in Monitoraggio di Azure
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introduzione alle query di log in monitoraggio di Azure
 
 
 > [!NOTE]
-> È consigliabile completare [Introduzione a Azure Monitor Log Analitica](get-started-portal.md) prima di completare questa esercitazione.
+> Prima di completare questa esercitazione, è necessario completare [Introduzione a monitoraggio di Azure log Analytics](get-started-portal.md) .
 
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+> [!NOTE]
+> È possibile utilizzare questo esercizio nel proprio ambiente se si raccolgono dati da almeno una macchina virtuale. In caso contrario, usare l' [ambiente demo](https://portal.loganalytics.io/demo), che include moltissimi dati di esempio.
 
-In questa esercitazione si apprenderà a scrivere query di log in Monitoraggio di Azure. Si apprenderà come:
 
-- Comprendere la struttura di query
+In questa esercitazione si apprenderà come scrivere query di log in monitoraggio di Azure. Si apprenderà come:
+
+- Informazioni sulla struttura di query
 - Ordinare i risultati di query
 - Filtrare i risultati di query
 - Specificare un intervallo di tempo
@@ -38,8 +40,8 @@ In questa esercitazione si apprenderà a scrivere query di log in Monitoraggio d
 - Definire e usare campi personalizzati
 - Aggregare e raggruppare i risultati
 
-Per un'esercitazione sull'uso di Log Analitica nel portale di Azure, vedere [Introduzione a Azure Monitor Log Analitica](get-started-portal.md).<br>
-Per altre informazioni sulle ricerche log in Monitoraggio di Azure, vedere [Panoramica del log di query in Monitoraggio di Azure](log-query-overview.md).
+Per un'esercitazione sull'uso di Log Analytics nella portale di Azure, vedere [Introduzione a monitoraggio di Azure log Analytics](get-started-portal.md).<br>
+Per altre informazioni sulle query di log in monitoraggio di Azure, vedere [Panoramica delle query di log in monitoraggio di Azure](log-query-overview.md).
 
 ## <a name="writing-a-new-query"></a>Scrittura di una nuova query
 Le query possono iniziare con un nome di tabella o con il comando *search*. È consigliabile iniziare con un nome di tabella, perché definisce un chiaro ambito per la query e consente di migliorare sia le prestazioni di query che la pertinenza dei risultati.
@@ -74,7 +76,7 @@ search in (SecurityEvent) "Cryptographic"
 Questa query cerca nella tabella *SecurityEvent* i record che contengono il termine "Cryptographic". Di questi record, ne vengono restituiti e visualizzati 10. Se si omette la parte `in (SecurityEvent)` e si esegue solamente il comando `search "Cryptographic"`, la ricerca viene eseguita in *tutte* le tabelle e quindi richiede più tempo ed è meno efficiente.
 
 > [!WARNING]
-> Le query di ricerca sono in genere più lente rispetto alle query basate su tabelle perché hanno elaborare più dati. 
+> Le query di ricerca sono in genere più lente rispetto alle query basate su tabelle perché devono elaborare più dati. 
 
 ## <a name="sort-and-top"></a>Sort e top
 Sebbene **take** sia utile per ottenere pochi record, i risultati vengono selezionati e visualizzati senza alcun ordine particolare. Per ottenere una visualizzazione ordinata, è possibile usare il comando **sort**, per ordinare i risultati in base alla colonna preferita:
@@ -181,7 +183,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-Il comando **extend** mantiene tutte le colonne originali nel set di risultati e definisce colonne aggiuntive. La query seguente utilizza **estendere** per aggiungere il *EventCode* colonna. Si noti che questa colonna non vengano visualizzate alla fine dei risultati della tabella in questo caso è necessario espandere i dettagli di un record per la visualizzazione.
+Il comando **extend** mantiene tutte le colonne originali nel set di risultati e definisce colonne aggiuntive. La query seguente usa **extend** per aggiungere la colonna *eventCode* . Si noti che questa colonna potrebbe non essere visualizzata alla fine dei risultati della tabella, nel qual caso sarebbe necessario espandere i dettagli di un record per visualizzarlo.
 
 ```Kusto
 SecurityEvent
@@ -226,7 +228,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Riepilogare in base a una colonna temporale
 Il raggruppamento dei risultati può anche essere basato su una colonna temporale o un altro valore continuo. Un semplice riepilogo di tipo `by TimeGenerated`, tuttavia, creerebbe gruppi per ogni singolo millisecondo nell'intervallo di tempo, poiché si tratta di valori univoci. 
 
-Per creare gruppi basati su valori continui, è consigliabile suddividere l'intervallo in unità gestibili tramite **bin**. La query seguente analizza i record *Perf* che misurano la memoria libera (*Available MBytes*) in un computer specifico. Calcola il valore medio di ogni periodo di 1 ora negli ultimi 7 giorni:
+Per creare gruppi basati su valori continui, è consigliabile suddividere l'intervallo in unità gestibili tramite **bin**. La query seguente analizza i record *Perf* che misurano la memoria libera (*Available MBytes*) in un computer specifico. Consente di calcolare il valore medio di ogni periodo di 1 ora negli ultimi 7 giorni:
 
 ```Kusto
 Perf 

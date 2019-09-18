@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9465c1991418c7ebef8c4eed825affc7b1d93492
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 41caa5807ce837e1ff00ceadd3fe5aef958d01b6
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693336"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066042"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account LinkedIn usando criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo illustra come consentire agli utenti l'accesso da un account LinkedIn usando [criteri personalizzati](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
+Questo articolo illustra come abilitare l'accesso per gli utenti da un account LinkedIn usando [criteri personalizzati](active-directory-b2c-overview-custom.md) in Azure Active Directory B2C (Azure ad B2C).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,7 +39,7 @@ Per usare LinkedIn come provider di identità in Azure AD B2C, è necessario cre
 1. Selezionare **Crea app**.
 1. Immettere un **nome**per l'app.
 1. Immettere il nome di una **società** corrispondente a un nome di pagina di LinkedIn. Se non si dispone già di una pagina di LinkedIn, crearne una.
-1. Opzionale Immettere un URL per l'informativa **sulla privacy**. Deve essere un URL valido, ma non deve essere un endpoint raggiungibile.
+1. Opzionale Immettere un **URL per l'informativa sulla privacy**. Deve essere un URL valido, ma non deve essere un endpoint raggiungibile.
 1. Immettere un **messaggio di posta elettronica aziendale**.
 1. Caricare un'immagine del **logo dell'app** . L'immagine del logo deve essere quadrata e le dimensioni devono essere almeno 100x100 pixel.
 1. Lasciare le impostazioni predefinite nella sezione **prodotti** .
@@ -60,7 +60,7 @@ Per usare LinkedIn come provider di identità in Azure AD B2C, è necessario cre
 È necessario archiviare il segreto client registrato in precedenza nel tenant di Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il **filtro directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
 5. Selezionare **chiavi dei criteri** e quindi selezionare **Aggiungi**.
@@ -220,7 +220,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 La comunicazione con Azure AD B2C avviene tramite un'applicazione creata nel tenant. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il **filtro directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Selezionare **Applicazioni** e quindi **Aggiungi**.
 5. Immettere un nome per l'applicazione, ad esempio *apptest1*.

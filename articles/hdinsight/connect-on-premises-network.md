@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: ad43af0f6f9bd8d5d78cef78b26345436169c0fd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918562"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034139"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -40,7 +40,7 @@ Questa configurazione consente il comportamento seguente:
 
 Nel diagramma seguente le linee verdi sono richieste di risorse che terminano nel suffisso DNS della rete virtuale. Le linee blu sono richieste di risorse nella rete locale o nella rete Internet pubblica.
 
-![Diagramma della modalità di risoluzione delle richieste DNS nella configurazione usata in questo documento](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+![Diagramma del modo in cui le richieste DNS vengono risolte nella configurazione](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -96,7 +96,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
     |Subnet | Selezionare la subnet predefinita per la rete virtuale creata in precedenza. __Non__ selezionare la subnet usata dal gateway VPN.|
     |IP pubblico | Usare il valore popolato automaticamente.  |
 
-    ![Impostazioni della rete virtuale](./media/connect-on-premises-network/virtual-network-settings.png)
+    ![Impostazioni della rete virtuale HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)
 
     Per le altre voci lasciare i valori predefiniti e quindi selezionare la scheda **Rivedi e crea**.
 

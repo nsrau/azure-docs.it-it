@@ -2,17 +2,18 @@
 title: Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 description: Informazioni su come usare Azure Data Lake Storage Gen2 con i cluster HDInsight di Azure.
 author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: a8ef347b874bf01fc2832d0a785f6fcec58ef095
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: bd459998568287db767e98a2094d6f80a126ccde
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961174"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077107"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -99,7 +100,7 @@ Assegnare l'identità gestita al ruolo di **proprietario dei dati del BLOB di ar
 
 È possibile [scaricare un file modello di esempio](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) e [scaricare un file di parametri di esempio](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Prima di usare il modello e il frammento di codice dell'interfaccia della riga di comando di Azure, sostituire i segnaposto seguenti con i valori corretti:
 
-| Segnaposto | Descrizione |
+| Segnaposto | DESCRIZIONE |
 |---|---|
 | `<SUBSCRIPTION_ID>` | ID della sottoscrizione di Azure |
 | `<RESOURCEGROUPNAME>` | Il gruppo di risorse in cui si vuole creare il nuovo cluster e l'account di archiviazione. |

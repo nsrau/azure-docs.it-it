@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b631f078240821e79513c4bd944a33b4725bc52
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 6857697423e494c515bd052cb42af3ad1d9fe188
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207146"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057786"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegare attività in Azure AD gestione dei diritti (anteprima)
 
@@ -67,9 +67,9 @@ Ora i reparti di ricerca e marketing possono utilizzare la gestione dei diritti.
 
 La gestione dei diritti ha i seguenti ruoli specifici per la gestione dei diritti.
 
-| Role | Descrizione |
+| Role | DESCRIZIONE |
 | --- | --- |
-| Creatore del catalogo | Creare e gestire cataloghi. In genere un amministratore IT che non è un amministratore globale o un proprietario di risorse per una raccolta di risorse. La persona che crea un catalogo diventa automaticamente il primo proprietario del catalogo e può aggiungere altri proprietari del catalogo. |
+| Creatore del catalogo | Creare e gestire cataloghi. In genere un amministratore IT che non è un amministratore globale o un proprietario di risorse per una raccolta di risorse. La persona che crea un catalogo diventa automaticamente il primo proprietario del catalogo e può aggiungere altri proprietari del catalogo. Un autore del catalogo non può gestire o vedere cataloghi di cui non è proprietario e non può aggiungere risorse di cui non è proprietario per un catalogo. Se l'autore del catalogo deve gestire un altro catalogo o aggiungere risorse di cui non è proprietario, può richiedere di essere un comproprietario di tale catalogo o risorsa. |
 | Proprietario Catalogo | Modificare e gestire cataloghi esistenti. In genere un amministratore IT o proprietari di risorse oppure un utente designato dal proprietario del catalogo. |
 | Gestione pacchetti di Access | Modificare e gestire tutti i pacchetti di accesso esistenti all'interno di un catalogo. |
 
@@ -139,7 +139,15 @@ Se si desidera delegare la creazione del catalogo, aggiungere gli utenti al ruol
 
 ## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>Aggiungere un proprietario del catalogo o una gestione pacchetti di accesso
 
-Se si desidera delegare la gestione di un catalogo o di accedere ai pacchetti nel catalogo, è necessario aggiungere gli utenti al proprietario del catalogo o accedere ai ruoli di gestione pacchetti. Chi crea un catalogo diventa il primo proprietario del catalogo. Attenersi alla procedura seguente per assegnare un utente al ruolo di proprietario del catalogo o accedere a gestione pacchetti.
+Per delegare la gestione di un catalogo o di accedere ai pacchetti nel catalogo, è necessario aggiungere gli utenti al proprietario del catalogo o accedere ai ruoli di gestione pacchetti. Chi crea un catalogo diventa il primo proprietario del catalogo. 
+
+Il proprietario del catalogo assegnato o gestione pacchetti di accesso deve avere familiarità con il progetto. Il creatore del catalogo deve creare il pacchetto di accesso se è incluso nelle operazioni quotidiane del progetto e conosce le informazioni seguenti:
+- quali risorse sono necessarie
+- utenti che dovranno accedere
+- utenti che devono approvare l'accesso
+- per quanto tempo il progetto durerà
+
+Il creatore del catalogo deve delegare l'attività al responsabile del progetto, che creerà e gestirà il pacchetto di accesso, se non è incluso nelle operazioni quotidiane del progetto. Attenersi alla procedura seguente per assegnare un utente al ruolo di proprietario del catalogo o accedere a gestione pacchetti:
 
 **Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
 

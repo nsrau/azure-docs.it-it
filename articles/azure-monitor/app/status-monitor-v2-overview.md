@@ -3,21 +3,21 @@ title: Panoramica di Azure Status Monitor V2 | Microsoft Docs
 description: Panoramica di Status Monitor V2. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 0264cf3a972c35edb3ad6dc600ca39bdaa076dfd
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 3060659c5f870be60f1ac02e432dd0a8333f0900
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333695"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057842"
 ---
 # <a name="status-monitor-v2"></a>Status Monitor v2
 
@@ -47,7 +47,7 @@ Status Monitor V2 è disponibile qui: https://www.powershellgallery.com/packages
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
 - [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 - [Risoluzione dei problemi](status-monitor-v2-troubleshoot.md)
 - [Problemi noti](status-monitor-v2-troubleshoot.md#known-issues)
 
@@ -59,7 +59,15 @@ Status Monitor V2 è disponibile qui: https://www.powershellgallery.com/packages
   *Sì*. Sono disponibili diversi modi per scaricare Status Monitor V2. Se il computer dispone di accesso a Internet, è possibile eseguire l'onboarding `-Proxy` nel PowerShell Gallery usando i parametri.
 È anche possibile scaricare manualmente il modulo e installarlo nel computer o usarlo direttamente.
 Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md).
+
+- Status Monitor V2 supporta le applicazioni ASP.NET Core?
+
+  *No*. Per istruzioni sull'abilitazione del monitoraggio delle applicazioni ASP.NET Core, vedere [Application Insights per ASP.NET Core applicazioni](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). Non è necessario installare StatusMonitor per un'applicazione ASP.NET Core. Questo vale anche se ASP.NET Core applicazione è ospitata in IIS.
   
+Status Monitor V2 supporta le applicazioni ASP.NET Core? 
+
+  *No*. Seguire [queste](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) istruzioni per abilitare il monitoraggio per le applicazioni ASP.NET Core. Non è necessario installare StatusMonitor per un'applicazione ASP.NET Core. Questo vale anche se ASP.NET Core applicazione è ospitata in IIS.
+
 - Ricerca per categorie verificare l'esito positivo dell'abilitazione?
 
   - Il cmdlet [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) può essere usato per verificare che l'abilitazione sia stata completata.

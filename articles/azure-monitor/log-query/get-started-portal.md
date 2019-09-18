@@ -8,16 +8,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 950768326228960192f48d99e5c5fa849b2c2bda
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348074"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076818"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introduzione a Log Analytics in monitoraggio di Azure
 
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+> [!NOTE]
+> È possibile utilizzare questo esercizio nel proprio ambiente se si raccolgono dati da almeno una macchina virtuale. In caso contrario, usare l' [ambiente demo](https://portal.loganalytics.io/demo), che include moltissimi dati di esempio.
 
 In questa esercitazione si apprenderà come usare Log Analytics nel portale di Azure per scrivere query di log di monitoraggio di Azure. Si apprenderà come:
 
@@ -162,7 +163,7 @@ In un grafico del tempo, se si verifica un picco o una variazione improvvisa dei
 ![Diagnostica intelligente](media/get-started-portal/smart-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Aggiungi al dashboard
-Per aggiungere un diagramma o una tabella a uno dei dashboard di Azure condivisi, fare clic sull'icona a forma di puntina.
+Per aggiungere un diagramma o una tabella a uno dei dashboard di Azure condivisi, fare clic sull'icona a forma di puntina. Si noti che questa icona è stata spostata nella parte superiore della finestra di Log Analytics, diversa dalla schermata riportata di seguito.
 
 ![Aggiungi al dashboard](media/get-started-portal/pin-dashboard.png)
 

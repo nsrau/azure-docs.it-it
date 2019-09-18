@@ -8,22 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b7d09ebd9c6ef04aff4d750024216b51513c3cca
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576823"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037478"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gestire le macchine virtuali del cloud privato CloudSimple in Azure
 
-Per gestire le macchine virtuali [create per il cloud privato CloudSimple](azure-create-vm.md), accedere al [portale di Azure](http://portal.azure.com). Cercare e selezionare il virtuale (cercare tutti i **Servizi** o le **macchine virtuali** nel menu laterale).
+Per gestire le macchine virtuali [create per il cloud privato CloudSimple](azure-create-vm.md), accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare il virtuale (cercare tutti i **Servizi** o le **macchine virtuali** nel menu laterale).
 
 ## <a name="control-virtual-machine-operation"></a>Controllare l'operazione della macchina virtuale
 
 I controlli seguenti sono disponibili nella pagina **Panoramica** relativa alla macchina virtuale selezionata.
 
-| Control | DESCRIZIONE |
+| Control | Descrizione |
 | ------------ | ------------- |
 | Connetti | Connettersi alla macchina virtuale specificata.  |
 | Start | Avviare la macchina virtuale specificata.  |
@@ -51,7 +51,7 @@ Vengono visualizzati i grafici seguenti.
 
 Per aggiungere un disco della macchina virtuale, aprire la pagina **dischi** per la macchina virtuale selezionata. Per aggiungere un disco, fare clic su **Aggiungi disco**. Per configurare ognuna delle impostazioni seguenti, immettere o selezionare un'opzione inline. Fare clic su **Save**.
 
-   | Elemento | DESCRIZIONE |
+   | Elemento | Descrizione |
    | ------------ | ------------- |
    | Name | Immettere un nome per identificare il disco.  |
    | Dimensione | Selezionare una delle dimensioni disponibili.  |
@@ -64,7 +64,7 @@ Per eliminare un disco, selezionarlo e fare clic su **Elimina**.
 
 Per modificare la capacità della macchina virtuale, aprire la pagina **dimensioni** per la macchina virtuale selezionata. Specificare una delle opzioni seguenti e fare clic su **Salva**.
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | ------------ | ------------- |
 | Numero di core | Numero di core assegnati alla macchina virtuale.  |
 | Virtualizzazione hardware | Selezionare la casella di controllo per esporre la virtualizzazione hardware al sistema operativo guest. Vedere l'articolo VMware [esporre la virtualizzazione assistita con hardware VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html). |

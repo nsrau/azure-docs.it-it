@@ -3,20 +3,21 @@ title: Indirizzi IP di gestione di Azure HDInsight
 description: Informazioni sugli indirizzi IP da cui è necessario consentire il traffico in ingresso, in modo da configurare correttamente i gruppi di sicurezza di rete e le route definite dall'utente per la rete virtuale con Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 0a41d1d57257db8f88481766e65eb8ee7569da87
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3f0b31cd3d37c3040ff99a89c1a5201b413fd3fc
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479194"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076643"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Indirizzi IP di gestione di HDInsight
 
-Se si usano gruppi di sicurezza di rete (gruppi) o route definite dall'utente (UDR) per controllare il traffico in ingresso verso il cluster HDInsight, è necessario assicurarsi che il cluster sia in grado di comunicare con i servizi di gestione e integrità di Azure critici.  Alcuni degli indirizzi IP per questi servizi sono specifici dell'area e alcuni di essi si applicano a tutte le aree di Azure. Potrebbe anche essere necessario consentire il traffico dal servizio DNS di Azure se non si usa il DNS personalizzato.
+Se si usano gruppi di sicurezza di rete (gruppi) o route definite dall'utente (UDR) per controllare il traffico in ingresso verso il cluster HDInsight, è necessario assicurarsi che il cluster sia in grado di comunicare con i servizi di gestione e integrità di Azure critici.  Alcuni degli indirizzi IP per questi servizi sono specifici dell'area e alcuni di essi si applicano a tutte le aree di Azure. Potrebbe anche essere necessario consentire il traffico dal servizio DNS di Azure se non si usa un DNS personalizzato.
 
 Nelle sezioni seguenti vengono illustrati gli indirizzi IP specifici che devono essere consentiti.
 

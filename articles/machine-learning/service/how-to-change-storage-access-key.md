@@ -1,7 +1,7 @@
 ---
 title: Modificare le chiavi di accesso dell'account di archiviazione
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come modificare le chiavi di accesso per l'account di archiviazione di Azure usato dall'area di lavoro. Azure Machine Learning servizio usa un account di archiviazione di Azure per archiviare i dati e i modelli. Quando si rigenera la chiave di accesso per l'account di archiviazione, è necessario aggiornare il servizio Azure Machine Learning per usare le nuove chiavi.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come modificare le chiavi di accesso per l'account di archiviazione di Azure usato dall'area di lavoro. Azure Machine Learning usa un account di archiviazione di Azure per archiviare i dati e i modelli. Quando si rigenera la chiave di accesso per l'account di archiviazione, è necessario aggiornare Azure Machine Learning per usare le nuove chiavi.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,22 +10,22 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/16/2019
-ms.openlocfilehash: e386e34a8326a51753631ee9ea4215d01ba7ceb3
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 6c87d4553c7b0fd34513d761558a06cd527c4e3b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558219"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034960"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Rigenera le chiavi di accesso dell'account di archiviazione
 
-Informazioni su come modificare le chiavi di accesso per gli account di archiviazione di Azure usati dal servizio Azure Machine Learning. Azure Machine Learning possibile usare gli account di archiviazione per archiviare i dati o i modelli sottoposti a training.
+Informazioni su come modificare le chiavi di accesso per gli account di archiviazione di Azure usati da Azure Machine Learning. Azure Machine Learning possibile usare gli account di archiviazione per archiviare i dati o i modelli sottoposti a training.
 
 Per motivi di sicurezza, potrebbe essere necessario modificare le chiavi di accesso per un account di archiviazione di Azure. Quando si rigenera la chiave di accesso, è necessario aggiornare Azure Machine Learning per l'uso della nuova chiave. Azure Machine Learning possibile che utilizzino l'account di archiviazione sia per l'archiviazione del modello sia come archivio dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro del servizio Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
+* Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
 
 * [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -35,7 +35,7 @@ Per motivi di sicurezza, potrebbe essere necessario modificare le chiavi di acce
 
 ## <a name="what-needs-to-be-updated"></a>Cosa è necessario aggiornare
 
-Gli account di archiviazione possono essere usati dall'area di lavoro del servizio Azure Machine Learning (archiviando log, modelli, snapshot e così via) e come archivio dati. Il processo di aggiornamento dell'area di lavoro è un singolo comando dell'interfaccia della riga di comando di Azure e può essere eseguito dopo l'aggiornamento della chiave di archiviazione. Il processo di aggiornamento degli archivi dati è più necessario ed è necessario individuare gli archivi dati che usano attualmente l'account di archiviazione e quindi registrarli di nuovo.
+Gli account di archiviazione possono essere usati dall'area di lavoro Azure Machine Learning (archiviando log, modelli, snapshot e così via) e come archivio dati. Il processo di aggiornamento dell'area di lavoro è un singolo comando dell'interfaccia della riga di comando di Azure e può essere eseguito dopo l'aggiornamento della chiave di archiviazione. Il processo di aggiornamento degli archivi dati è più necessario ed è necessario individuare gli archivi dati che usano attualmente l'account di archiviazione e quindi registrarli di nuovo.
 
 > [!IMPORTANT]
 > Aggiornare l'area di lavoro usando l'interfaccia della riga di comando di Azure e gli archivi dati usando Python, allo stesso tempo. L'aggiornamento di un solo o l'altro non è sufficiente e può causare errori fino a quando non vengono aggiornati entrambi.
@@ -74,7 +74,7 @@ Se esiste una voce per l'account di archiviazione per cui si prevede di rigenera
 
 ## <a name="update-the-access-key"></a>Aggiornare la chiave di accesso
 
-Per aggiornare Azure Machine Learning servizio per l'utilizzo della nuova chiave, attenersi alla procedura seguente:
+Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi alla procedura seguente:
 
 > [!IMPORTANT]
 > Eseguire tutti i passaggi, aggiornare l'area di lavoro usando l'interfaccia della riga di comando e gli archivi dati usando Python. L'aggiornamento di un solo o l'altro può causare errori fino a quando non vengono aggiornati entrambi.

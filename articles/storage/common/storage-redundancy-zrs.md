@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f4e36edf86823453e663ed875c7d5e4ffdc2e524
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: f7639eb2807654aab38a4e849c2e58d77f15bc31
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016420"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036257"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS) per la creazione di applicazioni di archiviazione di Azure a disponibilità elevata
 
@@ -22,11 +22,11 @@ ms.locfileid: "69016420"
 
 ## <a name="support-coverage-and-regional-availability"></a>Copertura del supporto e disponibilità a livello di area
 
-L'archiviazione con ridondanza della zona attualmente supporta gli account di tipo v2 standard per utilizzo generico. Per altre informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md).
+ZRS supporta attualmente i tipi di account di archiviazione standard per utilizzo generico V2 e filestorage. Per altre informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md).
 
 L'archiviazione con ridondanza della zona è disponibile per BLOB in blocchi, BLOB di pagine non del disco, file, tabelle e code.
 
-L'archiviazione con ridondanza della zona è disponibile a livello generale nelle aree seguenti:
+Per gli account per utilizzo generico V2, ZRS è disponibile a livello generale nelle aree seguenti:
 
 - Asia sudorientale
 - Europa occidentale
@@ -38,6 +38,10 @@ L'archiviazione con ridondanza della zona è disponibile a livello generale nell
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti occidentali 2
+
+Per gli account filestorage, ZRS è disponibile a livello generale nelle aree seguenti:
+
+- Europa occidentale
 
 Microsoft continua ad abilitare l'archiviazione con ridondanza della zona in aree di Azure aggiuntive. Fare riferimento regolarmente alla pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/) per informazioni sulle nuove aree.
 
@@ -64,6 +68,9 @@ Per la migrazione a ZRS sono disponibili due opzioni principali:
 
 - Copiare o spostare manualmente i dati dall'account esistente a un nuovo account di archiviazione con ridondanza della zona.
 - Richiedere una migrazione in tempo reale.
+
+> [!IMPORTANT]
+> La migrazione in tempo reale non è attualmente supportata per le condivisioni file Premium. Attualmente sono supportati solo i dati copiati o spostati manualmente.
 
 Se è necessario completare la migrazione entro una determinata data, provare a eseguire una migrazione manuale. Una migrazione manuale offre maggiore flessibilità rispetto a una migrazione in tempo reale. Con una migrazione manuale, è possibile controllare le tempistiche.
 
@@ -94,7 +101,7 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 4. Specificare i valori seguenti nella sezione **Problema**: 
     - **Gravità**: lasciare il valore predefinito.
     - **Tipo di problema**: Selezionare **Migrazione dei dati**.
-    - **Categoria**: selezionare **Migrate to ZRS within a region** (Migrazione a ZRS in un'area).
+    - **Categoria**: Selezionare **migrate to ZRS**.
     - **Titolo**: digitare un titolo descrittivo, ad esempio **Migrazione di account ZRS**.
     - **Informazioni dettagliate**: digitare dettagli aggiuntivi nella casella **Dettagli**, ad esempio Vorrei eseguire la migrazione all'archiviazione con ridondanza locale da [LRS, GRS] nell'area \_\_. 
 5. Selezionare **Avanti**.
@@ -115,7 +122,7 @@ La migrazione non è associata ad alcuna perdita di dati. Durante il processo di
 
 **Sono necessari aggiornamenti per le applicazioni al termine della migrazione?**
 
-Al termine della migrazione, il tipo di replica degli account verrà modificato in "archiviazione con ridondanza della zona (ZRS)". Gli endpoint di servizio, le chiavi di accesso, le firme di accesso condiviso e altre opzioni di configurazione dell'account rimangono invariati e intatti.
+Al termine della migrazione, il tipo di replica degli account verrà modificato in "archiviazione con ridondanza della zona (ZRS)". Gli endpoint di servizio, le chiavi di accesso, la firma di accesso condiviso e altre opzioni di configurazione dell'account rimangono invariati e intatti.
 
 **È possibile richiedere una migrazione in tempo reale degli account per utilizzo generico V1 a ZRS?**
 

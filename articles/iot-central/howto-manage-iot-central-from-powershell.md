@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 85afb69a7656e96e2f7163ded5cb23ac1b2560ea
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: e91d2d487a8b3409c53a0a0731700c39cf56dd63
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70380976"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066364"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gestire IoT Central da Azure PowerShell
 
@@ -66,7 +66,7 @@ Lo script crea prima un gruppo di risorse nell'area Stati Uniti orientali per l'
 |Parametro         |Description |
 |------------------|------------|
 |ResourceGroupName |Gruppo di risorse che contiene l'applicazione. Questo gruppo di risorse deve già esistere nella sottoscrizione. |
-|Location |Per impostazione predefinita, questo cmdlet usa la località definita per il gruppo di risorse. Attualmente è possibile creare un'applicazione IoT Central nelle aree **Stati Uniti orientali**, **Stati Uniti occidentali**, **Europa settentrionale** ed **Europa occidentale**. |
+|Location |Per impostazione predefinita, questo cmdlet usa la località definita per il gruppo di risorse. Attualmente, è possibile creare un'applicazione IoT Central nelle aree **Stati Uniti orientali**, **Stati Uniti occidentali**, **Europa settentrionale**, Europa **occidentale** o **Australia** . |
 |Name              |Nome dell'applicazione nel portale di Azure. |
 |Sottodominio         |Sottodominio nell'URL dell'applicazione. In questo esempio l'URL dell'applicazione è https://mysubdomain.azureiotcentral.com. |
 |Sku               |L'unico valore attualmente disponibile è **S1** (livello standard). Vedere [Prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
@@ -75,7 +75,7 @@ Lo script crea prima un gruppo di risorse nell'area Stati Uniti orientali per l'
 
 **Modelli di applicazione**
 
-|Nome modello  |DESCRIZIONE |
+|Nome modello  |Descrizione |
 |---------------|------------|
 |iotc-default@1.0.0 |Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
 |iotc-demo@1.0.0    |Crea un'applicazione che include un modello di dispositivo già creato per un distributore automatico refrigerato. Usare questo modello per iniziare a esplorare Azure IoT Central. |

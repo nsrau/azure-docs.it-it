@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 246e00418c784ee463170d78543e4a9aae3d7da8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509062"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065389"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestione delle sessioni Single Sign-On in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La gestione delle sessioni Single sign-on (SSO) in Azure Active Directory (Azure AD) B2C consente agli amministratori di controllare le interazioni con un utente dopo che questi si è autenticato. L'amministratore può ad esempio controllare se verrà visualizzata la selezione dei provider di identità o se sarà necessario immettere nuovamente i dettagli dell'account locale. In questo articolo viene descritto come configurare le impostazioni di SSO per Azure AD B2C.
+La gestione delle sessioni Single Sign-on (SSO) in Azure Active Directory B2C (Azure AD B2C) consente a un amministratore di controllare l'interazione con un utente dopo che l'utente è già stato autenticato. L'amministratore può ad esempio controllare se verrà visualizzata la selezione dei provider di identità o se sarà necessario immettere nuovamente i dettagli dell'account locale. In questo articolo viene descritto come configurare le impostazioni di SSO per Azure AD B2C.
 
 La gestione della sessione SSO è costituita da due parti. La prima riguarda le interazioni dell'utente direttamente con Azure AD B2C, mentre l'altra riguarda le interazioni dell'utente con parti esterne, ad esempio Facebook. Azure AD B2C non esegue l'override né ignora le sessioni SSO che possono essere tenute da parti esterne. Il percorso attraverso Azure AD B2C per arrivare alla parte esterna viene invece "memorizzato", evitando così di chiedere di nuovo all'utente di selezionare i provider di identità basati su social network o aziendali. La decisione SSO finale spetta alla parte esterna.
 
@@ -63,7 +63,7 @@ Per aggiungere attestazioni alla sessione, usare l'elemento `<PersistedClaims>` 
 
 ## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-Questo provider viene usato per eliminare la schermata di selezione del provider di identità. Un riferimento a questo provider è in genere incluso in un profilo tecnico configurato per un provider di identità esterno, ad esempio Facebook. 
+Questo provider viene usato per eliminare la schermata di selezione del provider di identità. Un riferimento a questo provider è in genere incluso in un profilo tecnico configurato per un provider di identità esterno, ad esempio Facebook.
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
@@ -89,7 +89,7 @@ Questo provider viene usato per gestire le sessioni SAML di Azure AD B2C tra le 
 
 Il profilo tecnico presenta due elementi di metadati:
 
-| Elemento | Default Value | Valori possibili | Descrizione
+| Elemento | Default Value | Valori possibili | DESCRIZIONE
 | --- | --- | --- | --- |
 | IncludeSessionIndex | true | true/false | Indica al provider che l'indice della sessione deve essere archiviato. |
 | RegisterServiceProviders | true | true/false | Indica che il provider deve registrare tutti i provider di servizi SAML a cui sia stata rilasciata un'asserzione. |

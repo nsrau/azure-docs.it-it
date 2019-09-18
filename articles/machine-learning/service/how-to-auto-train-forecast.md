@@ -1,7 +1,7 @@
 ---
 title: Eseguire il training automatico di un modello di previsione delle serie temporali
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il servizio Azure Machine Learning per eseguire il training di un modello di regressione di previsione di serie temporali usando Machine Learning automatizzato.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare Azure Machine Learning per eseguire il training di un modello di regressione di previsione di serie temporali usando Machine Learning automatizzato.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -10,16 +10,16 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879050"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035054"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
 
-Questo articolo illustra come eseguire il training di un modello di regressione delle previsioni di serie temporali usando Machine Learning automatizzato nel servizio Azure Machine Learning. La configurazione di un modello di previsione è simile alla configurazione di un modello di regressione standard usando Machine Learning automatizzato, ma sono disponibili alcune opzioni di configurazione e passaggi di pre-elaborazione per l'uso di dati di serie temporali. Gli esempi seguenti illustrano come:
+Questo articolo illustra come eseguire il training di un modello di regressione delle previsioni di serie temporali usando Machine Learning automatizzato in Azure Machine Learning. La configurazione di un modello di previsione è simile alla configurazione di un modello di regressione standard usando Machine Learning automatizzato, ma sono disponibili alcune opzioni di configurazione e passaggi di pre-elaborazione per l'uso di dati di serie temporali. Gli esempi seguenti illustrano come:
 
 * Preparare i dati per la modellazione delle serie temporali
 * Configurare specifici parametri della serie temporale in un [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) oggetto
@@ -37,7 +37,7 @@ Le funzionalità estratte dai dati di training svolgono un ruolo fondamentale. I
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro del servizio Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
+* Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 * Questo articolo presuppone una conoscenza di base della configurazione di un esperimento di Machine Learning automatizzato. Seguire l' [esercitazione](tutorial-auto-train-models.md) o le [procedure](how-to-configure-auto-train.md) per visualizzare i modelli di progettazione degli esperimenti automatici di base di machine learning.
 
 ## <a name="preparing-data"></a>Preparazione dei dati
@@ -90,7 +90,7 @@ Per le attività di previsione, Machine Learning automatizzato USA operazioni di
 
 L' `AutoMLConfig` oggetto definisce le impostazioni e i dati necessari per un'attività automatica di machine learning. Analogamente a un problema di regressione, si definiscono parametri di training standard come il tipo di attività, il numero di iterazioni, i dati di training e il numero di convalide incrociate. Per le attività di previsione, è necessario impostare parametri aggiuntivi che interessano l'esperimento. La tabella seguente illustra ogni parametro e il relativo utilizzo.
 
-| Param | DESCRIZIONE | Obbligatoria |
+| Param | Descrizione | Obbligatoria |
 |-------|-------|-------|
 |`time_column_name`|Utilizzato per specificare la colonna DateTime nei dati di input utilizzati per compilare la serie temporale e dedurre la relativa frequenza.|✓|
 |`grain_column_names`|Nome/i che definisce i singoli gruppi di serie nei dati di input. Se la granularità non è definita, si presuppone che il set di dati sia una serie temporale.||

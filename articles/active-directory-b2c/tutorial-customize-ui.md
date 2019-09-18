@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da7ec020b6f3f4a3b1890695a78fb6bdb363d233
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 69279da93197bcaaf1bf600bc9406287253d74bb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849375"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063273"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Esercitazione: Personalizzare l'interfaccia delle esperienze utente in Azure Active Directory B2C
 
-Per esperienze utente più comuni, come l'iscrizione, l'accesso e la modifica del profilo, è possibile usare i [flussi utente](active-directory-b2c-reference-policies.md) di Azure Active Directory (Azure AD) B2C. Le informazioni fornite in questa esercitazione spiegano come [personalizzare l'interfaccia utente](customize-ui-overview.md) di queste esperienze usando i propri file HTML e CSS.
+Per esperienze utente più comuni, ad esempio iscrizione, accesso e modifica del profilo, è possibile usare i [flussi utente](active-directory-b2c-reference-policies.md) in Azure Active Directory B2C (Azure ad B2C). Le informazioni fornite in questa esercitazione spiegano come [personalizzare l'interfaccia utente](customize-ui-overview.md) di queste esperienze usando i propri file HTML e CSS.
 
 In questo articolo viene spiegato come:
 
@@ -43,7 +43,7 @@ Occorre creare un account di archiviazione e un contenitore di Azure e quindi in
 I file possono essere archiviati in diversi modi, ma per questa esercitazione si userà l'[archivio BLOB di Azure](../storage/blobs/storage-blobs-introduction.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene la sottoscrizione di Azure. Selezionare la **directory e il filtro di sottoscrizione** nel menu in alto e selezionare la directory che contiene la sottoscrizione. Questa directory è diversa da quella che contiene il tenant Azure B2C.
+2. Assicurarsi di usare la directory che contiene la sottoscrizione di Azure. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene la sottoscrizione. Questa directory è diversa da quella che contiene il tenant Azure B2C.
 3. Scegliere Tutti i servizi nell'angolo superiore sinistro del portale di Azure e quindi cercare e selezionare **Account di archiviazione**.
 4. Selezionare **Aggiungi**.
 5. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.

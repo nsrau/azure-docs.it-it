@@ -1,7 +1,7 @@
 ---
 title: Distribuire modelli di Machine Learning in app Azure Service (anteprima)
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il servizio Azure Machine Learning per distribuire un modello in un'app Web nel servizio app Azure.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare Azure Machine Learning per distribuire un modello in un'app Web nel servizio app Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,21 +10,21 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 20a90a70c66310f6838b41a40aa945308bf338d4
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 24ec49a0f23516638d1f525341ea44e204653fea
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147913"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034604"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuire un modello di machine learning nel servizio app Azure (anteprima)
 
-Informazioni su come distribuire un modello dal servizio Azure Machine Learning come app Web nel servizio app Azure.
+Informazioni su come distribuire un modello da Azure Machine Learning come app Web nel servizio app Azure.
 
 > [!IMPORTANT]
-> Sebbene sia il servizio Azure Machine Learning sia il servizio app Azure sono disponibili a livello generale, la possibilità di distribuire un modello dal servizio Machine Learning al servizio app è in anteprima.
+> Sebbene sia Azure Machine Learning che app Azure servizio siano disponibili a livello generale, la possibilità di distribuire un modello dal servizio Machine Learning al servizio app è in anteprima.
 
-Con Azure Machine Learning servizio è possibile creare immagini Docker da modelli di apprendimento automatico sottoposti a training. Questa immagine contiene un servizio Web che riceve i dati, li invia al modello e quindi restituisce la risposta. App Azure servizio può essere usato per distribuire l'immagine e fornisce le funzionalità seguenti:
+Con Azure Machine Learning, è possibile creare immagini Docker da modelli di apprendimento automatico sottoposti a training. Questa immagine contiene un servizio Web che riceve i dati, li invia al modello e quindi restituisce la risposta. App Azure servizio può essere usato per distribuire l'immagine e fornisce le funzionalità seguenti:
 
 * [Autenticazione](/azure/app-service/configure-authentication-provider-aad) avanzata per la sicurezza avanzata. I metodi di autenticazione includono sia Azure Active Directory che l'autenticazione a più fattori.
 * [Ridimensionamento](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) automatico senza dover ridistribuire.
@@ -37,7 +37,7 @@ Per altre informazioni sulle funzionalità fornite dal servizio app Azure, veder
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro del servizio Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
+* Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Un modello di apprendimento automatico sottoposto a training registrato nell'area di lavoro. Se non si dispone di un modello, usare l' [esercitazione relativa alla classificazione delle immagini: Train Model](tutorial-train-models-with-aml.md) per eseguire il training e la registrazione di un modello.
 
@@ -48,7 +48,7 @@ Per altre informazioni sulle funzionalità fornite dal servizio app Azure, veder
     > * `model`: Modello registrato che verrà distribuito.
     > * `inference_config`-Configurazione dell'inferenza per il modello.
     >
-    > Per altre informazioni sull'impostazione di queste variabili, vedere [distribuire modelli con il servizio Azure Machine Learning](how-to-deploy-and-where.md).
+    > Per altre informazioni sull'impostazione di queste variabili, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Preparare la distribuzione
 
@@ -66,11 +66,11 @@ Prima di distribuire, è necessario definire gli elementi necessari per eseguire
     >
     > Un'altra alternativa che può funzionare per lo scenario è la [stima in batch](how-to-run-batch-predictions.md), che fornisce l'accesso agli archivi dati quando si esegue il punteggio.
 
-    Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con il servizio Azure Machine Learning](how-to-deploy-and-where.md).
+    Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
 
-Queste entità sono incapsulate in una __configurazione__di inferenza. La configurazione dell'inferenza fa riferimento allo script di immissione e ad altre dipendenze.
+Queste entità sono incapsulate in una __configurazione di inferenza__. La configurazione dell'inferenza fa riferimento allo script di immissione e ad altre dipendenze.
 
 > [!IMPORTANT]
 > Quando si crea una configurazione di inferenza da usare con app Azure Service, è necessario usare un oggetto [Environment](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) . Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
@@ -89,7 +89,7 @@ Queste entità sono incapsulate in una __configurazione__di inferenza. La config
 
 Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md).
 
-Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con il servizio Azure Machine Learning](how-to-deploy-and-where.md).
+Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > Quando si esegue la distribuzione nel servizio app Azure, non è necessario creare una __configurazione di distribuzione__.
@@ -99,7 +99,7 @@ Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribu
 Per creare l'immagine Docker distribuita nel servizio app Azure, usare [Model. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). Il frammento di codice seguente illustra come compilare una nuova immagine dalla configurazione del modello e dell'inferenza:
 
 > [!NOTE]
-> Il frammento di codice `model` presuppone che contenga un modello registrato `inference_config` e che contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con il servizio Azure Machine Learning](how-to-deploy-and-where.md).
+> Il frammento di codice `model` presuppone che contenga un modello registrato `inference_config` e che contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -153,7 +153,7 @@ Quando `show_output=True`viene visualizzato l'output del processo di compilazion
     In questo esempio viene usato un piano tariffario`--sku B1`di base ().
 
     > [!IMPORTANT]
-    > Le immagini create dal servizio Azure Machine Learning usano Linux, quindi è necessario usare il `--is-linux` parametro.
+    > Le immagini create da Azure Machine Learning usano Linux, quindi è necessario usare `--is-linux` il parametro.
 
 1. Per creare l'app Web, usare il comando seguente. Sostituire `<app-name>` con il nome che si vuole usare. Sostituire `<acrinstance>` `package.location` e `<imagename>` con i valori restituiti in precedenza:
 

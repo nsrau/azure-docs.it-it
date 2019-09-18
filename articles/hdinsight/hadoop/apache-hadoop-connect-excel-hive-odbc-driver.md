@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: b1231a406ac20512e9ce92032379d697c3346af3
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c81c0de98442f576145f2c2e12f0b2053b80e83a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882790"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033611"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connettere Excel ad Apache Hadoop in HDInsight mediante Microsoft Hive ODBC Driver
 
@@ -32,9 +32,11 @@ Per eseguire le procedure descritte nell'articolo sono necessari gli elementi se
 * Una workstation con Office 2010 Professional Plus o versione successiva oppure Excel 2010 o versione successiva.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installare Microsoft Hive ODBC driver
+
 Scaricare e installare la versione di [Microsoft Hive ODBC driver](https://go.microsoft.com/fwlink/?LinkID=286698) che corrisponde alla versione dell'applicazione in cui verrà utilizzato il driver ODBC.  Per questo articolo, il driver viene usato per Office Excel.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Creare un'origine dati Apache Hive ODBC
+
 I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
 
 1. In Windows scegliere Start > Strumenti di amministrazione Windows > Origine dati (ODBC) (32 bit)/(64 bit).  Verrà aperta la finestra **Amministratore origine dati ODBC**.
@@ -65,7 +67,7 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
    |  Rows fetched per block |Quando si recupera un numero elevato di record, potrebbe essere necessario ottimizzare questo parametro per assicurare prestazioni ottimali. |
    |  Default string column length, Binary column length, Decimal column scale |Le lunghezze e le precisioni del tipo di dati potrebbero avere effetto sulla visualizzazione dei dati. In questo caso verranno restituite informazioni non corrette a causa della perdita di precisione e/o ai troncamenti. |
 
-    ![Opzioni avanzate](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Opzioni di configurazione DSN avanzate")
+    ![Opzioni avanzate di configurazione DSN](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Opzioni avanzate di configurazione DSN")
 
 1. Selezionare **Test** per testare l'origine dati. Quando l'origine dati è configurata correttamente, come risultato del test è indicato **Operazione riuscita**.  
 
@@ -83,7 +85,7 @@ La procedura seguente descrive come importare dati da una tabella Hive in una ca
 
 2. Nella scheda **Dati** passare a **Carica dati** > **Da altre origini** > **Da ODBC** per aprire la finestra **Da ODBC**.
 
-    ![Aprire la Connessione guidata dati](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Aprire la Connessione guidata dati")
+    ![Aprire la connessione guidata dati di Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Aprire la connessione guidata dati di Excel")
 
 3. Nell'elenco a discesa selezionare il nome dell'origine dati creato nell'ultima sezione e quindi fare clic su **OK**.
 
@@ -91,7 +93,7 @@ La procedura seguente descrive come importare dati da una tabella Hive in una ca
 
 5. In **Strumento di spostamento** passare a **HIVE** > **default** > **hivesampletable** e quindi selezionare **Carica**. L'importazione dei dati in Excel potrebbe richiedere alcuni istanti.
 
-    ![Strumento di spostamento per Hive ODBC in HDInsight](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Aprire Connessione guidata dati")
+    ![Strumento di navigazione ODBC hive HDInsight di Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Strumento di navigazione ODBC hive HDInsight di Excel")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

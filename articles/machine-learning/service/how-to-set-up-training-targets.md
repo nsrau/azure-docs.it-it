@@ -1,6 +1,6 @@
 ---
 title: Creare e usare destinazioni di calcolo per il training del modello
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Configurare gli ambienti di training (destinazioni di calcolo) per il training del modello di Machine Learning. Passare da un ambiente di training a un altro è facile. Iniziare a eseguire il training in locale. Se è necessario aumentare le risorse, passare a una destinazione di calcolo basata sul cloud.
 services: machine-learning
 author: heatherbshapiro
@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a34ccf5201b81a2c74c2eccd0ec3f311a1158ab
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7c3bae2fff9e20ed9427c72b5f5f632d975f9f94
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860532"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034421"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 
-Con il servizio Azure Machine Learning è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, collettivamente definiti [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-targets). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Machine Learning, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
+Con Azure Machine Learning, è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, chiamati collettivamente come [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-targets). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Machine Learning, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
 
-È possibile creare e gestire una destinazione di calcolo usando il Azure Machine Learning SDK, portale di Azure, la pagina di destinazione dell'area di lavoro (anteprima), l'interfaccia della riga di comando di Azure o l'estensione Azure Machine Learning VS Code. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle associandole all'area di lavoro del servizio Azure Machine Learning.
+È possibile creare e gestire una destinazione di calcolo usando il Azure Machine Learning SDK, portale di Azure, la pagina di destinazione dell'area di lavoro (anteprima), l'interfaccia della riga di comando di Azure o l'estensione Azure Machine Learning VS Code. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle collegandosi all'area di lavoro Azure Machine Learning.
  
 Questo articolo illustra come usare diverse destinazioni di calcolo per il training del modello.  I passaggi per tutte le destinazioni di calcolo seguono lo stesso flusso di lavoro:
 1. __Creare__ una destinazione di calcolo se non ne esiste già una.
@@ -35,7 +35,7 @@ Questo articolo illustra come usare diverse destinazioni di calcolo per il train
 
 ## <a name="compute-targets-for-training"></a>Destinazioni di calcolo per il training
 
-Il servizio Azure Machine Learning offre un supporto variabile per le diverse destinazioni di calcolo. Un tipico ciclo di vita di sviluppo modello inizia con lo sviluppo e la sperimentazione su una piccola quantità di dati. In questa fase è consigliabile usare un ambiente locale, ad esempio il computer locale o una macchina virtuale basata sul cloud. Quando il training viene eseguito su set di dati più grandi, o quando si esegue il training distribuito, è consigliabile usare l'ambiente di calcolo di Azure Machine Learning per creare un cluster a uno o più nodi che viene ridimensionato automaticamente ogni volta che viene inviata un'esecuzione. È possibile collegare la propria risorsa di calcolo, anche se il supporto per i diversi scenari può variare, come indicato di seguito:
+Azure Machine Learning ha un supporto variabile tra destinazioni di calcolo diverse. Un tipico ciclo di vita di sviluppo modello inizia con lo sviluppo e la sperimentazione su una piccola quantità di dati. In questa fase è consigliabile usare un ambiente locale, ad esempio il computer locale o una macchina virtuale basata sul cloud. Quando il training viene eseguito su set di dati più grandi, o quando si esegue il training distribuito, è consigliabile usare l'ambiente di calcolo di Azure Machine Learning per creare un cluster a uno o più nodi che viene ridimensionato automaticamente ogni volta che viene inviata un'esecuzione. È possibile collegare la propria risorsa di calcolo, anche se il supporto per i diversi scenari può variare, come indicato di seguito:
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -45,7 +45,7 @@ Il servizio Azure Machine Learning offre un supporto variabile per le diverse de
 
 ## <a name="whats-a-run-configuration"></a>Che cos'è una configurazione di esecuzione?
 
-Solitamente il training si avvia nel computer locale e in un secondo momento si esegue tale script di training in una destinazione di calcolo diversa. Con il servizio Azure Machine Learning è possibile eseguire lo script in diverse destinazioni di calcolo senza doverlo modificare.
+Solitamente il training si avvia nel computer locale e in un secondo momento si esegue tale script di training in una destinazione di calcolo diversa. Con Azure Machine Learning, è possibile eseguire lo script su varie destinazioni di calcolo senza dover modificare lo script.
 
 È sufficiente definire l'ambiente per ogni destinazione di calcolo all'interno di una configurazione di **esecuzione**.  Quindi, quando si vuole eseguire l'esperimento di training in una destinazione di calcolo diversa, specificare la configurazione di esecuzione per tale ambiente di calcolo. Per informazioni dettagliate su come specificare un ambiente e associarlo per eseguire la configurazione, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md).
 
@@ -143,7 +143,7 @@ Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il pa
 
 ### <a id="vm"></a>Macchine virtuali remote
 
-Azure Machine Learning consente di usare la risorsa di calcolo personale e di associarla all'area di lavoro. Una risorsa di questo tipo è una macchina virtuale remota arbitraria, purché sia accessibile dal servizio Azure Machine Learning. La risorsa può essere una macchina virtuale di Azure, un server remoto nell'organizzazione o in locale. In particolare, se si dispone dell'indirizzo IP e delle credenziali (nome utente e password o chiave SSH), è possibile usare qualsiasi macchina virtuale accessibile per le esecuzioni remote.
+Azure Machine Learning consente di usare la risorsa di calcolo personale e di associarla all'area di lavoro. Uno di questi tipi di risorse è una macchina virtuale remota arbitraria, purché sia accessibile da Azure Machine Learning. La risorsa può essere una macchina virtuale di Azure, un server remoto nell'organizzazione o in locale. In particolare, se si dispone dell'indirizzo IP e delle credenziali (nome utente e password o chiave SSH), è possibile usare qualsiasi macchina virtuale accessibile per le esecuzioni remote.
 
 È possibile usare un ambiente conda integrato nel sistema, un ambiente Python già esistente o un contenitore Docker. Per l'esecuzione in un contenitore Docker, è necessario che il motore Docker sia in esecuzione nella macchina virtuale. Questa funzionalità è particolarmente utile quando si preferisce un ambiente di sviluppo o sperimentazione basato sul cloud più flessibile rispetto al computer locale.
 
@@ -327,7 +327,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 ### <a id="portal-reuse"></a>Collegare destinazioni di calcolo
 
-Per usare le destinazioni di calcolo create al di fuori dell'area di lavoro del servizio Azure Machine Learning, è necessario collegarle. Il collegamento di una destinazione di calcolo rende quest'ultima disponibile nell'area di lavoro.
+Per usare le destinazioni di calcolo create all'esterno dell'area di lavoro Azure Machine Learning, è necessario collegarle. Il collegamento di una destinazione di calcolo rende quest'ultima disponibile nell'area di lavoro.
 
 Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di calcolo. Usare quindi i passaggi seguenti per collegare una destinazione di calcolo: 
 
@@ -356,7 +356,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 ## <a name="set-up-with-cli"></a>Configurare con l'interfaccia della riga di comando
 
-È possibile accedere alle destinazioni di calcolo collegate all'area di lavoro usando l'[estensione dell'interfaccia della riga di comando](reference-azure-machine-learning-cli.md) per il servizio Azure Machine Learning.  È possibile usare l'interfaccia della riga di comando per:
+È possibile accedere alle destinazioni di calcolo associate all'area di lavoro usando l' [estensione CLI](reference-azure-machine-learning-cli.md) per Azure Machine Learning.  È possibile usare l'interfaccia della riga di comando per:
 
 * Creare una destinazione di calcolo gestita
 * Aggiornare una destinazione di calcolo gestita
@@ -366,7 +366,7 @@ Per altre informazioni consultare [Gestione delle risorse](reference-azure-machi
 
 ## <a name="set-up-with-vs-code"></a>Configurare con VS Code
 
-È possibile accedere, creare e gestire le destinazioni di calcolo associate all'area di lavoro usando l' [estensione vs code](how-to-vscode-tools.md#create-and-manage-compute-targets) per Azure Machine Learning servizio.
+È possibile accedere, creare e gestire le destinazioni di calcolo associate all'area di lavoro usando l' [estensione vs code](how-to-vscode-tools.md#create-and-manage-compute-targets) per Azure Machine Learning.
 
 ## <a id="submit"></a>Inviare l'esecuzione del training usando Azure Machine Learning SDK
 
@@ -515,4 +515,4 @@ Consultare questi notebook per esempi di training con varie destinazioni di calc
 * Informazioni su come [ottimizzare in modo efficiente gli iperparametri](how-to-tune-hyperparameters.md) per creare modelli migliori.
 * Dopo aver creato un modello con training, consultare le informazioni su [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 * Consultare le informazioni sull'SDK di [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
-* [Usare il servizio Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)
+* [Usare Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)

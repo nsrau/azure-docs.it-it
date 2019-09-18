@@ -1,6 +1,6 @@
 ---
 title: Usare l'interfaccia ML automatizzata di Azure per eseguire il training dei modelli di distribuzione &
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Creazione, gestione e distribuzione di esperimenti automatici di Machine Learning nella pagina di destinazione dell'area di lavoro di Azure Machine Learning (anteprima).
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 3ee15b5485f4fc0f81788107ce2378c65085e000
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910428"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034822"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con la pagina di destinazione dell'area di lavoro di Azure Machine Learning (anteprima)
 
@@ -26,9 +26,9 @@ ms.locfileid: "70910428"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
 
-* Un'area di lavoro del servizio Azure Machine Learning. Vedere [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
+* Un'area di lavoro di Azure Machine Learning. Vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -55,7 +55,7 @@ In caso contrario, verrà visualizzato il dashboard di **Machine Learning automa
 
 1. Selezionare **Crea nuovo calcolo** per configurare il contesto di calcolo per questo esperimento.
 
-    Campo|DESCRIZIONE
+    Campo|Descrizione
     ---|---
     Nome dell'ambiente di calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
     Dimensioni delle macchine virtuali| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.

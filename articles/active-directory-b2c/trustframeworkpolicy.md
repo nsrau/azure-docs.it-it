@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 673807377914aabad5b90d1ac2ecc16623870d30
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592121"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063362"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -41,9 +41,9 @@ L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 | Attributo | Obbligatorio | Descrizione |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sì | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
-| TenantObjectId | No | L'identificatore di oggetto univoco del tenant di Azure Active Directory (Azure AD) B2C. |
+| TenantObjectId | No | Identificatore di oggetto univoco del tenant di Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Sì | L'identificatore univoco del tenant a cui appartiene questo criterio. |
-| `PolicyId` | Sì | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
+| `PolicyId` | Yes | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
 | PublicPolicyUri | Sì | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
 | DeploymentMode | No | I valori possibili sono: `Production`, `Debugging` o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | No | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
@@ -88,7 +88,7 @@ Per ereditare un criterio da un altro criterio, un elemento **BasePolicy** deve 
 
 L'elemento **BasePolicy** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Identificatore del tenant di Azure AD B2C. |
 | `PolicyId` | 1:1 | Identificatore del criterio padre. |

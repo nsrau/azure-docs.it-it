@@ -1,6 +1,6 @@
 ---
 title: Visualizzare esperimenti con TensorBoard
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Avviare TensorBoard per visualizzare le cronologie di esecuzione degli esperimenti e identificare le aree potenziali per l'ottimizzazione e la ripetizione del training degli iperparametri.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: 2e4527ba167076935505b668a7879e5f1446b25e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b96b80a735c0caee8a3aabaf19b04fd0e153ba6b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856063"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034327"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizzare le esecuzioni e le metriche degli esperimenti con TensorBoard e Azure Machine Learning
 
-Questo articolo illustra come visualizzare le esecuzioni dell'esperimento e le metriche in TensorBoard usando [il `tensorboard` pacchetto](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) nell'SDK principale del servizio Azure Machine Learning. Una volta esaminate le esecuzioni dell'esperimento, è possibile ottimizzare e ripetere il training dei modelli di machine learning.
+Questo articolo illustra come visualizzare le esecuzioni dell'esperimento e le metriche in TensorBoard usando [il `tensorboard` pacchetto](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) nell'SDK principale del Azure Machine Learning. Una volta esaminate le esecuzioni dell'esperimento, è possibile ottimizzare e ripetere il training dei modelli di machine learning.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) è una suite di applicazioni Web per esaminare e comprendere le prestazioni e la struttura dell'esperimento.
 
@@ -43,7 +43,7 @@ La modalità di avvio di TensorBoard con Azure Machine Learning esperimenti dipe
 
     * Il proprio server Juptyer notebook
           * [Installare l'SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) con `tensorboard` il
-          * [Creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).  
+          * [Creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).  
           * [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
@@ -71,7 +71,7 @@ if not path.exists(exp_dir):
 
 ### <a name="download-tensorflow-demo-experiment-code"></a>Scaricare il codice dell'esperimento demo di TensorFlow
 
-Il repository di TensorFlow include una demo MNIST con una vasta strumentazione TensorBoard. Non è necessario modificare il codice di questa demo per l'uso con il servizio Azure Machine Learning. Nel codice seguente viene scaricato il codice MNIST e salvato nella cartella dell'esperimento appena creata.
+Il repository di TensorFlow include una demo MNIST con una vasta strumentazione TensorBoard. Non è necessario modificare il codice di questa demo per l'uso con Azure Machine Learning. Nel codice seguente viene scaricato il codice MNIST e salvato nella cartella dell'esperimento appena creata.
 
 ```python
 import requests
@@ -287,4 +287,4 @@ tb.stop()
 In questa procedura, sono stati creati due esperimenti e si è appreso come avviare TensorBoard con le cronologie di esecuzione per identificare le aree per la potenziale ottimizzazione e la ripetizione del training. 
 
 * Se si è soddisfatti del modello, andare all'articolo [come distribuire un modello](how-to-deploy-and-where.md) . 
-* Altre informazioni sull' [ottimizzazione](how-to-tune-hyperparameters.md)degli iperparametri. 
+* Altre informazioni sull' [ottimizzazione degli iperparametri](how-to-tune-hyperparameters.md). 

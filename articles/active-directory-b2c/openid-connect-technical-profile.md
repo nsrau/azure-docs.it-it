@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1e8f03b17c5e8ea68affa9fe83875382fd5d8512
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1262d34f93ecbcdb71586fd551d28fde477f92a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716709"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063937"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenID Connect in un Azure Active Directory B2C criteri personalizzati
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C fornisce il supporto per il provider di identità del protocollo [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) . OpenID Connect 1.0 definisce un livello di identità su OAuth 2.0 e rappresenta i più avanzati protocolli di autenticazione moderni. Con un profilo tecnico di OpenID Connect, è possibile eseguire la Federazione con un provider di identità basato su OpenID Connect, ad esempio Azure AD. La Federazione con un provider di identità consente agli utenti di accedere con le identità aziendali o di social networking esistenti.
+Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per il provider di identità del protocollo [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) . OpenID Connect 1.0 definisce un livello di identità su OAuth 2.0 e rappresenta i più avanzati protocolli di autenticazione moderni. Con un profilo tecnico di OpenID Connect, è possibile eseguire la Federazione con un provider di identità basato su OpenID Connect, ad esempio Azure AD. La Federazione con un provider di identità consente agli utenti di accedere con le identità aziendali o di social networking esistenti.
 
 ## <a name="protocol"></a>Protocol
 
@@ -73,9 +73,9 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| client_id | Yes | L'identificatore dell'attestazione del provider di identità. |
+| client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
 | IdTokenAudience | No | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se il token è in un'attestazione restituita dal provider di identità ed è uguale a quello specificato. |
 | METADATI | Sì | Un URL che punta a un documento di configurazione JSON formattato in base alla specifica di OpenID Connect Discovery, noto anche come un endpoint di configurazione openid. |
 | ProviderName | No | Il nome del provider di identità. |

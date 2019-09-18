@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11a9fc521a7b17ae0ff2f579f173f4d43383bdd5
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c7fcbbbfcc2192160ca852538c015a365518e448
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880099"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065950"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Usare l'API Graph di Azure AD
 
 >[!NOTE]
 > Per gestire gli utenti in una directory di Azure AD B2C è richiesto l'uso dell'[API Graph di Azure AD](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview). Si tratta di un'API diversa dall'API Microsoft Graph. Fare clic [qui](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/) per altre informazioni.
 
-I tenant di Azure Active Directory (Azure AD) B2C tendono ad avere dimensioni molto grandi, il che significa che molte attività comuni di gestione dei tenant devono essere eseguite a livello di programmazione, ad esempio la gestione degli utenti. Potrebbe essere necessario eseguire la migrazione di un archivio utenti esistente in un tenant di B2C. Potrebbe essere necessario ospitare la registrazione degli utenti nella propria pagina e creare gli account utente nella directory Azure AD B2C in background. Questi tipi di attività richiedono la possibilità di creare, leggere, aggiornare ed eliminare gli account utente. È possibile eseguire queste attività usando l'API Graph di Azure AD.
+I tenant Azure Active Directory B2C (Azure AD B2C) tendono a essere molto grandi. il che significa che molte attività comuni di gestione dei tenant devono essere eseguite a livello di programmazione, ad esempio la gestione degli utenti. Potrebbe essere necessario eseguire la migrazione di un archivio utenti esistente in un tenant di B2C. Potrebbe essere necessario ospitare la registrazione degli utenti nella propria pagina e creare gli account utente nella directory Azure AD B2C in background. Questi tipi di attività richiedono la possibilità di creare, leggere, aggiornare ed eliminare gli account utente. È possibile eseguire queste attività usando l'API Graph di Azure AD.
 
 Per i tenant di B2C esistono essenzialmente due modalità di comunicazione con l'API Graph.
 
@@ -43,10 +43,10 @@ Dopo aver creato un tenant B2C, è necessario registrare l'applicazione usando i
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere il tenant di Azure AD B2C selezionando l'account nell'angolo superiore destro della pagina.
 3. Nel riquadro di spostamento a sinistra scegliere **tutti i servizi**, fare clic su registrazioni per l' **app**e quindi su **nuova registrazione**.
-4. Seguire le istruzioni e creare una nuova applicazione. 
+4. Seguire le istruzioni e creare una nuova applicazione.
     1. Aggiungere un nome appropriato
     2. Seleziona gli **account solo in questa directory organizzativa**
-    3. Selezionare **Web** come tipo di applicazione e specificare **un URL di accesso** , ad esempio `https://B2CGraphAPI`, perché non è pertinente per questo esempio.  
+    3. Selezionare **Web** come tipo di applicazione e specificare **un URL di accesso** , ad esempio `https://B2CGraphAPI`, perché non è pertinente per questo esempio.
     4. Fare clic su Registra.
 5. L'applicazione verrà mostrata nell'elenco delle applicazioni, fare clic su di essa per ottenere l'**ID applicazione** (noto anche come ID Client). Copiarlo in quanto sarà necessario in una sezione successiva.
 6. Scegliere **certificati & segreti**dal menu impostazioni.
@@ -65,8 +65,8 @@ A questo punto è disponibile un'applicazione con le autorizzazioni per creare, 
 
 > [!NOTE]
 > Il completamento dell'operazione di concessione delle autorizzazioni può richiedere alcuni minuti.
-> 
-> 
+>
+>
 
 ## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Configurare le autorizzazioni di eliminazione o aggiornamento delle password per l'applicazione
 L'autorizzazione per *leggere e scrivere i dati della directory* attualmente **NON** include la possibilità di eliminare o aggiornare le password degli utenti. Per consentire all'applicazione di eliminare gli utenti o aggiornare le password, è necessario eseguire questi passaggi aggiuntivi che coinvolgono PowerShell. In caso contrario è possibile passare alla sezione successiva.
@@ -132,8 +132,8 @@ Qualsiasi richiesta per l'API Graph necessita di un token di accesso per l'auten
 
 > [!NOTE]
 > Questo esempio di codice usa ADAL v2 per comunicare con l'API Graph.  Per ottenere token di accesso utilizzabili con l'API Graph di Azure AD, è necessario usare ADAL versione 2 o 3.
-> 
-> 
+>
+>
 
 Quando si esegue `B2CGraphClient`, si crea un'istanza della classe `B2CGraphClient`. Il costruttore per questa classe imposta uno scaffolding di autenticazione di ADAL:
 
@@ -260,8 +260,8 @@ Per informazioni sul modo in cui viene costruita la richiesta POST, vedere `B2CG
 
 > [!NOTE]
 > Se gli account di cui si vuole eseguire la migrazione da un archivio utenti esistente hanno un livello di complessità della password inferiore al [livello avanzato di complessità della password applicato da Azure AD B2C](/previous-versions/azure/jj943764(v=azure.100)), è possibile disabilitare il requisito per la password complessa usando il valore `DisableStrongPassword` nella proprietà `passwordPolicies`. È ad esempio possibile modificare la richiesta di creazione utente indicata in precedenza come segue: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
-> 
-> 
+>
+>
 
 ### <a name="update-consumer-user-accounts"></a>Aggiornare gli account utente consumer
 Quando si aggiornano gli oggetti utente, il processo è simile a quello per la creazione di oggetti utente, ma questo processo usa il metodo HTTP `PATCH`:

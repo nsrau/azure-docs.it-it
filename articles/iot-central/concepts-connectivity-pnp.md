@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 26f05e60761af0b8f0db9508488f28613b82293f
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 81e386be98f9c5684402c376372f43e90fefcb42
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880241"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066738"
 ---
 # <a name="device-connectivity-in-azure-iot-central-preview-features"></a>Connettività del dispositivo in IoT Central di Azure (funzionalità di anteprima)
 
@@ -34,15 +34,18 @@ L'uso di DPS Abilita:
 
 Questo articolo descrive i casi d'uso seguenti:
 
-1. [Connetti rapidamente un singolo dispositivo con SAS](#connect-a-single-device)
-1. [Connetti i dispositivi su larga scala con SAS](#connect-devices-at-scale-using-sas)
-1. [Connettere i dispositivi su larga scala usando i certificati X. 509](#connect-devices-using-x509-certificates) questo è l'approccio consigliato per gli ambienti di produzione.
-1. [Connettere i dispositivi senza prima registrarli](#connect-without-registering-devices)
-1. [Connettere i dispositivi usando le funzionalità Plug and Play](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Connetti rapidamente un singolo dispositivo con SAS](#connect-a-single-device)
+- [Connetti i dispositivi su larga scala con SAS](#connect-devices-at-scale-using-sas)
+- [Connettere i dispositivi su larga scala usando i certificati X. 509](#connect-devices-using-x509-certificates) questo è l'approccio consigliato per gli ambienti di produzione.
+- [Connettere i dispositivi senza prima registrarli](#connect-without-registering-devices)
+- [Connettere i dispositivi usando le funzionalità Plug and Play](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 ## <a name="connect-a-single-device"></a>Connettere un dispositivo
 
-Questo approccio è utile quando si sperimentano IoT Central o i dispositivi di testing. È possibile usare le informazioni di connessione del dispositivo dell'applicazione IoT Central per generare la stringa di connessione per un dispositivo. Per la procedura dettagliata, vedere [come generare una stringa di connessione del dispositivo per connettersi a un'applicazione IoT Central di Azure](howto-generate-connection-string.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Questo approccio è utile quando si sperimentano IoT Central o i dispositivi di testing. È possibile usare le informazioni di connessione del dispositivo dell'applicazione IoT Central per connettere un dispositivo all'applicazione IoT Central usando il servizio Device provisioning (DPS). È possibile trovare il codice client del dispositivo DPS di esempio per le lingue seguenti:
+
+- [C\#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device)
+- [Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/provisioning/Samples/device)
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Connetti i dispositivi su larga scala con SAS
 
@@ -140,7 +143,7 @@ I passaggi seguenti descrivono questo processo in modo più dettagliato. La proc
 
 1. Quindi accendere il dispositivo per connettersi all'applicazione IoT Central. Quando si passa a un dispositivo, si connette prima di tutto a DPS per recuperare le informazioni di registrazione IoT Central.
 
-1. Il dispositivo connesso viene inizialmente visualizzato come non **associato** nella pagina **dispositivi** . Lo stato di provisioning del dispositivo è **Registrato**. **Eseguire la migrazione** del dispositivo al modello di dispositivo appropriato e approvare il dispositivo per la connessione all'applicazione IoT Central. Il dispositivo può quindi recuperare una stringa di connessione dall'hub Internet e iniziare a inviare i dati. Il provisioning dei dispositivi è ora completo ed è stato effettuato il provisioning dello stato del provisioning.
+1. Il dispositivo connesso viene inizialmente visualizzato come non **associato** nella pagina **dispositivi** . Lo stato di provisioning del dispositivo è **Registrato**. **Eseguire la migrazione** del dispositivo al modello di dispositivo appropriato e approvare il dispositivo per la connessione all'applicazione IoT Central. Il dispositivo può quindi recuperare una stringa di connessione dall'hub Internet e iniziare a inviare i dati. Il provisioning dei dispositivi è ora completo ed è stato effettuato il **provisioning**dello stato del provisioning.
 
 ## <a name="connect-devices-with-iot-plug-and-play"></a>Connetti i dispositivi con Plug and Play
 
@@ -170,9 +173,9 @@ Quando un dispositivo reale si connette all'applicazione IoT Central, lo stato d
     - Viene aggiunto un nuovo dispositivo reale nella pagina **dispositivi** .
     - Viene aggiunto un set di dispositivi usando **Importa** nella pagina **dispositivi** .
 
-1. Lo stato del dispositivo cambia in provisioning eseguito quando il dispositivo che si connette all'applicazione IoT Central con credenziali valide completa il passaggio di provisioning. In questo passaggio il dispositivo recupera una stringa di connessione dall'hub Internet. Il dispositivo può ora connettersi all'hub Internet e iniziare a inviare i dati.
+1. Lo stato del dispositivo cambia in **provisioning** eseguito quando il dispositivo che si connette all'applicazione IoT Central con credenziali valide completa il passaggio di provisioning. In questo passaggio il dispositivo recupera una stringa di connessione dall'hub Internet. Il dispositivo può ora connettersi all'hub Internet e iniziare a inviare i dati.
 
-1. Un operatore può bloccare un dispositivo. Quando un dispositivo è bloccato, non può inviare dati all'applicazione IoT Central. I dispositivi bloccati hanno lo stato **bloccato**. Un operatore deve reimpostare il dispositivo prima di poter riprendere l'invio dei dati. Quando un operatore sblocca un dispositivo, lo stato torna al valore precedente, **registrato** o sottopostoa provisioning.
+1. Un operatore può bloccare un dispositivo. Quando un dispositivo è bloccato, non può inviare dati all'applicazione IoT Central. I dispositivi bloccati hanno lo stato **bloccato**. Un operatore deve reimpostare il dispositivo prima di poter riprendere l'invio dei dati. Quando un operatore sblocca un dispositivo, lo stato torna al valore precedente, **registrato** o sottoposto a **provisioning**.
 
 1. Lo stato del dispositivo è **in attesa di approvazione** , il che significa che l'opzione **auto approva** è disabilitata e richiede che tutti i dispositivi che si connettono a IOT Central essere approvati esplicitamente da un operatore. I dispositivi non registrati manualmente nella pagina **dispositivi** , ma connessi con credenziali valide avranno lo stato del dispositivo **in attesa di approvazione**. Gli operatori possono approvare questi dispositivi dalla pagina **dispositivi** usando il pulsante **approva** .
 
@@ -190,8 +193,6 @@ Gli SDK per dispositivi di Azure offrono il modo più semplice per implementare 
 - [Azure IoT SDK per Node.js](https://github.com/azure/azure-iot-sdk-node)
 - [Azure IoT SDK per Java](https://github.com/azure/azure-iot-sdk-java)
 - [Azure IoT SDK per .NET](https://github.com/azure/azure-iot-sdk-csharp)
-
-Ogni dispositivo si connette usando una stringa di connessione univoca che identifica il dispositivo stesso. Un dispositivo può connettersi solo all'hub delle cose in cui è registrato. Quando si crea un dispositivo reale nell'applicazione IoT Central di Azure, l'applicazione genera le informazioni necessarie per creare una stringa di connessione usando `dps-keygen`.
 
 ### <a name="sdk-features-and-iot-hub-connectivity"></a>Funzioni dell'SDK e connettività dell'hub IoT
 

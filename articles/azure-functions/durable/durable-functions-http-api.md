@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: c81eccaa2b3a4335f034b9667f6e7be317635f43
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 094ae511337556ef0c67c86f6d8692cae005430a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933396"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033957"
 ---
 # <a name="http-api-reference"></a>Informazioni di riferimento sulle API HTTP
 
@@ -28,7 +28,7 @@ Per tutte le API HTTP implementate dall'estensione sono necessari i parametri se
 | **`connection`** | Stringa di query    | **Nome** della stringa di connessione per l'account di archiviazione. Se non specificato, viene usata la stringa di connessione predefinita dell'app per le funzioni. |
 | **`systemKey`**  | Stringa di query    | Chiave di autorizzazione necessaria per richiamare l'API. |
 
-`systemKey`è una chiave di autorizzazione generata automaticamente dall'host di funzioni di Azure. In particolare, concede l'accesso alle API dell'estensione Durable Task e può essere gestita allo stesso modo di [altre chiavi di autorizzazione](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Il modo più semplice per individuare il valore `systemKey` consiste nell'usare l'API `CreateCheckStatusResponse` indicata in precedenza.
+`systemKey`è una chiave di autorizzazione generata automaticamente dall'host di funzioni di Azure. In particolare, concede l'accesso alle API dell'estensione Durable Task e può essere gestita allo stesso modo di [altre chiavi di autorizzazione](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). È possibile generare URL contenenti i valori corretti `taskHub` `connection`della stringa di `systemKey` query, e usando le API di [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) , `CreateCheckStatusResponse` `createCheckStatusResponse` ad esempio le API e `CreateHttpManagementPayload` in .NET, oppure e `createHttpManagementPayload` API in JavaScript.
 
 Le prossime sezioni illustrano le specifiche API HTTP supportate dall'estensione e offrono esempi su come possono essere usate.
 
@@ -58,7 +58,7 @@ POST /runtime/webhooks/durabletask/orchestrators/{functionName}/{instanceId?}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo              | Tipo di parametro  | DESCRIZIONE |
+| Campo              | Tipo di parametro  | Descrizione |
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | Nome della funzione dell'agente di orchestrazione da avviare. |
 | **`instanceId`**   | URL             | Parametro facoltativo. ID dell'istanza di orchestrazione. Se non specificato, la funzione dell'agente di orchestrazione inizierà con un ID istanza casuale. |
@@ -449,7 +449,7 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 Il payload di risposta per il case **HTTP 200** è un oggetto JSON con il campo seguente:
 
-| Campo                   | Tipo di dati | Descrizione |
+| Campo                   | Tipo di dati | DESCRIZIONE |
 |-------------------------|-----------|-------------|
 | **`instancesDeleted`**  | integer   | Numero di istanze eliminate. |
 
@@ -487,7 +487,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo             | Tipo di parametro  | DESCRIZIONE |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 | **`eventName`**   | URL             | Nome dell'evento atteso dall'istanza di orchestrazione di destinazione. |

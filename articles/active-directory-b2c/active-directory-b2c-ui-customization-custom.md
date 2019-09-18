@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a2189b2012f598542725acd2d5ebe3a7586bafd9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 88a8258a91237c7b3eadccc32a30c3fe8149eca5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880816"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064643"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -147,7 +147,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 
 ## <a name="upload-your-updated-custom-policy"></a>Caricare il criterio personalizzato aggiornato
 
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 1. Fare clic su **Tutti i criteri**.
@@ -171,7 +171,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 La cartella sample_templates/wingtip contiene i file HTML seguenti:
 
-| Modello HTML5 | Descrizione |
+| Modello HTML5 | DESCRIZIONE |
 |----------------|-------------|
 | *phonefactor.html* | Usare questo file come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Usare questo file come modello per una pagina Password dimenticata. |

@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91e638793d77a6d38f9813345829720d98545293
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 79c0cadc1b266a6d160cd36fc21dcaf36637a2b1
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002724"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076412"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Esegui il training e la registrazione dei modelli di Chainer su larga scala con Azure Machine Learning
 
@@ -84,7 +84,7 @@ In questa esercitazione, lo script di training **chainer_mnist. py** è già dis
 
 Per usare le funzionalità di rilevamento e metrica di Azure ML, aggiungere una piccola quantità di codice di Azure ML all'interno dello script di training.  Lo script di training **chainer_mnist. py** Mostra come registrare alcune metriche nell'esecuzione di Azure ml usando l' `Run` oggetto all'interno dello script.
 
-Lo script di training fornito usa i dati di esempio della `datasets.mnist.get_mnist` funzione Chainer.  Per i dati personali, potrebbe essere necessario usare passaggi come il caricamento di set di dati [e script](how-to-train-keras.md#upload-dataset-and-scripts) per rendere disponibili i dati durante il training.
+Lo script di training fornito usa i dati di esempio della `datasets.mnist.get_mnist` funzione Chainer.  Per i dati personali, potrebbe essere necessario usare passaggi come il caricamento di set di dati [e script](how-to-train-keras.md) per rendere disponibili i dati durante il training.
 
 Copiare lo script di training **chainer_mnist. py** nella directory del progetto.
 
