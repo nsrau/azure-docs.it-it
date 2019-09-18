@@ -9,43 +9,43 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: abe55007aa8a8719d6b6f1659e00a089a2e28771
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 8e9cc93a74c299be6fb4898b4af143a43fc079f5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303750"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067031"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorare la disponibilità di qualsiasi sito Web
 
-Dopo aver distribuito l'app web/siti Web, è possibile impostare i test ricorrente per monitorare la disponibilità e velocità di risposta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Può inviare un avviso se l'applicazione non risponde o se la risposta è troppo lenta.
+Dopo aver distribuito l'app Web o il sito Web, è possibile configurare test ricorrenti per monitorare la disponibilità e la velocità di risposta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Consente di avvisare l'utente se l'applicazione non risponde o se risponde troppo lentamente.
 
-È possibile configurare test di disponibilità per qualsiasi endpoint HTTP o HTTPS accessibile dalla rete Internet pubblica. Non è necessario apportare modifiche al sito Web che si sta testando. In effetti, anche non deve necessariamente essere un sito di cui che si è proprietari. È possibile testare la disponibilità di un'API REST che dipende dal servizio.
+È possibile configurare test di disponibilità per qualsiasi endpoint HTTP o HTTPS accessibile dalla rete Internet pubblica. Non è necessario apportare modifiche al sito Web che si sta testando. Infatti, non è nemmeno necessario che sia un sito di cui si è proprietari. È possibile verificare la disponibilità di un'API REST da cui dipende il servizio.
 
 ### <a name="types-of-availability-tests"></a>Tipi di test di disponibilità:
 
-Esistono tre tipi di test di disponibilità:
+Sono disponibili tre tipi di test di disponibilità:
 
 * [Test di ping URL](#create-a-url-ping-test): un semplice test che può essere creato nel portale di Azure.
-* [Test web in più passi](availability-multistep.md): Una registrazione di una sequenza di richieste web, che possono essere riprodotti per testare gli scenari più complessi. I test web in più passi vengono creati in Visual Studio Enterprise e caricati nel portale per l'esecuzione.
-* [Test di disponibilità di Track point personalizzati](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Il `TrackAvailability()` metodo può essere utilizzato per creare i propri test di disponibilità personalizzato.
+* [Test Web](availability-multistep.md)in più passaggi: Registrazione di una sequenza di richieste Web, che può essere riprodotta per testare scenari più complessi. I test Web in più passaggi vengono creati in Visual Studio Enterprise e caricati nel portale per l'esecuzione.
+* [Test di disponibilità del rilevamento personalizzati](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Il `TrackAvailability()` metodo può essere usato per creare test di disponibilità personalizzati.
 
-**È possibile creare fino a 100 test di disponibilità per ogni risorsa di Application Insights.**
+**È possibile creare fino a 100 test di disponibilità per ogni risorsa Application Insights.**
 
 ## <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
-Per creare un test di disponibilità, è necessario creare una risorsa di Application Insights. Se è stato già creato una risorsa, passare alla sezione successiva per [creare un test di Ping URL](#create-a-url-ping-test).
+Per creare un test di disponibilità, è prima di tutto necessario creare una risorsa Application Insights. Se è già stata creata una risorsa, passare alla sezione successiva per [creare un test di ping URL](#create-a-url-ping-test).
 
-Dal portale di Azure, selezionare **crea una risorsa** > **strumenti di sviluppo** > **Application Insights** e [creare un Risorsa di Application Insights](create-new-resource.md).
+Dal portale di Azure selezionare **Crea una risorsa** > **strumenti di sviluppo** > **Application Insights** e [creare una risorsa Application Insights](create-new-resource.md).
 
 ## <a name="create-a-url-ping-test"></a>Creare un test di ping URL
 
-Il nome "test di ping URL" è un po' impropria. Per maggiore chiarezza, questo test non esegue qualsiasi uso di ICMP (Internet Control Message Protocol) verso verificare la disponibilità del sito. Usa invece più avanzate funzionalità di richiesta HTTP per verificare se un endpoint risponde. Anche misura le prestazioni associate a tale risposta e aggiunge la possibilità di impostare criteri di successo personalizzato insieme a funzionalità più avanzate, ad esempio l'analisi delle richieste dipendenti e consentendo la ripetizione dei tentativi.
+Il nome "URL ping test" è un po' di un nome non appropriato. Per chiarire, questo test non sta utilizzando ICMP (Internet Control Message Protocol) per verificare la disponibilità del sito. USA invece una funzionalità di richiesta HTTP più avanzata per verificare se un endpoint sta rispondendo. Vengono inoltre misurate le prestazioni associate a tale risposta e viene aggiunta la possibilità di impostare criteri di riuscita personalizzati abbinati a funzionalità più avanzate, ad esempio l'analisi di richieste dipendenti e la possibilità di eseguire nuovi tentativi.
 
-Per creare la prima richiesta di disponibilità, aprire il riquadro disponibilità e selezionare **creazione di Test**.
+Per creare la prima richiesta di disponibilità, aprire il riquadro di disponibilità e selezionare **Crea test**.
 
 ![Fill at least the URL of your website](./media/monitor-web-app-availability/availability-create-test-001.png)
 
@@ -53,56 +53,56 @@ Per creare la prima richiesta di disponibilità, aprire il riquadro disponibilit
 
 |Impostazione| Spiegazione
 |----|----|----|
-|**URL** |  L'URL può essere qualsiasi pagina web da testare, ma deve essere visibile dalla rete internet pubblica. L'URL può includere una stringa di query. In questo modo, ad esempio, è possibile esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione viene effettuata fino a un numero massimo di 10 reindirizzamenti.|
-|**Analizza richieste dipendenti**| Test richiede immagini, script, file di stile e altri file che fanno parte della pagina web sottoposta a test. Il tempo di risposta registrato include il tempo impiegato per ottenere questi file. Il test non riesce se una di queste risorse non può essere scaricata correttamente entro il timeout per l'intero test. Se l'opzione non viene selezionata, il test richiede solo il file in corrispondenza dell'URL specificato. Abilitazione di questa opzione genera in un controllo più rigido. Il test potrebbe non riuscire per i casi, potrebbero non essere evidenti quando manualmente esplorando il sito.
-|**Abilita nuovi tentativi**|Quando il test ha esito negativo viene ripetuta dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni località di test. **Questa opzione è consigliata**. In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.|
-|**Frequenza di test**| impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza predefinita di cinque minuti e cinque località di test, il sito verrà testato in media ogni minuto.|
-|**Posizioni di test**| Sono le posizioni da cui i server inviano richieste web all'URL. **Il numero minimo di posizioni di test consigliata è pari a cinque** per assicurare che sia possibile distinguere i problemi nel sito Web da problemi di rete. È possibile selezionare fino a 16 località.
+|**URL** |  L'URL può essere qualsiasi pagina Web che si desidera testare, ma deve essere visibile dalla rete Internet pubblica. L'URL può includere una stringa di query. In questo modo, ad esempio, è possibile esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione viene effettuata fino a un numero massimo di 10 reindirizzamenti.|
+|**Analizza richieste dipendenti**| Test richiede immagini, script, file di stile e altri file che fanno parte della pagina Web sottoposta a test. Il tempo di risposta registrato include il tempo impiegato per ottenere questi file. Il test ha esito negativo se una di queste risorse non può essere scaricata correttamente entro il timeout per l'intero test. Se l'opzione non viene selezionata, il test richiede solo il file in corrispondenza dell'URL specificato. L'abilitazione di questa opzione comporta un controllo più restrittivo. Il test potrebbe non riuscire per i casi, che potrebbero non essere evidenti quando si esplorano manualmente il sito.
+|**Abilita tentativi**|Quando il test ha esito negativo, viene eseguito un nuovo tentativo dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni località di test. **Questa opzione è consigliata**. In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.|
+|**Frequenza test**| impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza predefinita di cinque minuti e cinque località di test, il sito verrà testato in media ogni minuto.|
+|**Percorsi test**| Sono le posizioni da cui i server inviano richieste Web all'URL. **Il numero minimo di posizioni di test consigliate è cinque** per garantire che sia possibile distinguere i problemi nel sito Web dai problemi di rete. È possibile selezionare fino a 16 località.
 
-**Se l'URL non è visibile dalla rete internet pubblica, è possibile scegliere di aprire in modo selettivo il firewall per consentire solo le transazioni di test tramite**. Per altre informazioni sulle eccezioni firewall per i suoi agenti di test di disponibilità, consultare il [Guida all'indirizzo IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+**Se l'URL non è visibile dalla rete Internet pubblica, è possibile scegliere di aprire selettivamente il firewall per consentire solo le transazioni di test tramite**. Per ulteriori informazioni sulle eccezioni del firewall per gli agenti di test di disponibilità, consultare la [Guida all'indirizzo IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
 
 > [!NOTE]
-> È consigliabile eseguire il test da più posizioni con **un minimo di cinque aree geografiche**. Questo serve a evitare falsi allarmi che possono essere dovuti a problemi temporanei di una località specifica. Inoltre sono state trovate che la configurazione ottimale è avere il **numero di posizioni di test essere uguale alla soglia località di avviso + 2**.
+> Si consiglia vivamente di eseguire test da più posizioni con **un minimo di cinque posizioni**. Questo serve a evitare falsi allarmi che possono essere dovuti a problemi temporanei di una località specifica. È stato inoltre rilevato che la configurazione ottimale prevede che il **numero di percorsi di test sia uguale alla soglia della posizione di avviso + 2**.
 
-### <a name="success-criteria"></a>Criteri di successo
+### <a name="success-criteria"></a>Criteri di superamento
 
 |Impostazione| Spiegazione
 |----|----|----|
 | **Timeout test** |ridurre questo valore per ricevere avvisi in merito alle risposte lente. Il test viene conteggiato come non riuscito se le risposte dal sito non sono state ricevute entro questo periodo. Se è stata selezionata l'opzione **Analizza richieste dipendenti**, è necessario che tutti gli script, i file di stile, le immagini e le altre risorse dipendenti siano stati ricevuti entro questo periodo.|
 | **Risposta HTTP** | codice di stato restituito che indica un'operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web.|
-| **Corrispondenza contenuto** | Una stringa, ad esempio "Benvenuto" Verifichiamo che in ogni risposta ci una corrispondenza esatta di maiuscolo e minuscolo. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa. **Sono supportati solo i caratteri in lingua inglese con corrispondenza contenuto** |
+| **Corrispondenza contenuto** | Stringa, ad esempio "Welcome!" Verifichiamo che in ogni risposta ci una corrispondenza esatta di maiuscolo e minuscolo. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa. **Con la corrispondenza del contenuto sono supportati solo i caratteri inglesi** |
 
 ### <a name="alerts"></a>Avvisi
 
 |Impostazione| Spiegazione
 |----|----|----|
-|**NEAR Real Time (anteprima)** | È consigliabile usare gli avvisi Near Real Time. Configurazione di questo tipo di avviso viene eseguita dopo aver creato il test di disponibilità.  |
-|**Classico** | Si consiglia di non più usando gli avvisi classici per nuovi test di disponibilità.|
-|**Soglia località di avviso**|Si consiglia un minimo di 3-5 posizioni. È la relazione tra località di avviso soglia e il numero di posizioni di test ottima **soglia località di avviso** = **numero di posizioni di test - 2, con un minimo di cinque posizioni di test.**|
+|**Quasi in tempo reale (anteprima)** | Si consiglia di usare gli avvisi near-realtime. La configurazione di questo tipo di avviso viene eseguita dopo la creazione del test di disponibilità.  |
+|**Classico** | Non è più consigliabile usare gli avvisi classici per i nuovi test di disponibilità.|
+|**Soglia posizione avviso**|Si consiglia un minimo di 3-5 posizioni. La relazione ottimale tra la soglia della posizione di avviso e il numero di percorsi di test è il numero **soglia** = **di posizioni di avviso per il percorso di test-2, con un minimo di cinque posizioni di test.**|
 
 ## <a name="see-your-availability-test-results"></a>Visualizzare i risultati del test di disponibilità
 
-Risultati dei test di disponibilità possono essere visualizzati con le visualizzazioni di tracciato di riga e a dispersione.
+I risultati del test di disponibilità possono essere visualizzati con visualizzazioni di tracciato a dispersione e a linee.
 
-Dopo alcuni minuti, fare clic su **Aggiorna** per visualizzare i risultati dei test.
+Dopo alcuni minuti, fare clic su **Aggiorna** per visualizzare i risultati del test.
 
-![Visualizzazione riga](./media/monitor-web-app-availability/availability-refresh-002.png)
+![Visualizzazione linea](./media/monitor-web-app-availability/availability-refresh-002.png)
 
-La visualizzazione grafico a dispersione mostra alcuni campioni dei risultati del test che includono dettagli passo di test diagnostici in essi contenuti. Il motore di test archivia i dettagli diagnostici per i test che hanno restituito errori. Per i test riusciti, vengono archiviati i dettagli diagnostici per un subset delle esecuzioni. Passare il mouse su uno qualsiasi dei punti verdi/rossi per visualizzare i test, test di nome e percorso.
+La vista scatterplot Mostra esempi dei risultati del test con i dettagli del passo del test diagnostici. Il motore di test archivia i dettagli diagnostici per i test che hanno restituito errori. Per i test riusciti, vengono archiviati i dettagli diagnostici per un subset delle esecuzioni. Passare il mouse su uno dei punti verdi/rossi per visualizzare il test, il nome del test e la posizione.
 
-![Visualizzazione riga](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
+![Visualizzazione linea](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
 
 Selezionare una posizione o un test specifico oppure ridurre il periodo di tempo per visualizzare più risultati riguardo all'intervallo desiderato. Usare Esplora ricerche per visualizzare i risultati di tutte le esecuzioni oppure usare query di analisi per eseguire report personalizzati per i dati.
 
 ## <a name="inspect-and-edit-tests"></a>Esaminare e modificare i test
 
-Per modificare, disabilitare temporaneamente o eliminare un test, fare clic sui puntini di sospensione accanto a un nome di test. Potrebbero occorrere fino a 20 minuti per le modifiche alla configurazione vengano propagate a tutti gli agenti di test dopo viene apportata una modifica.
+Per modificare, disabilitare temporaneamente o eliminare un test, fare clic sui puntini di sospensione accanto a un nome di test. Potrebbero essere necessari fino a 20 minuti per la propagazione delle modifiche della configurazione a tutti gli agenti di test dopo la modifica.
 
-![Visualizza i dettagli dei test. Modificare e disabilitare un test web](./media/monitor-web-app-availability/edit.png)
+![Visualizza i dettagli del test. Modificare e disabilitare un test Web](./media/monitor-web-app-availability/edit.png)
 
 Può essere necessario disabilitare i test di disponibilità o le regole di avviso associate ai test durante le operazioni di manutenzione del servizio.
 
-## <a name="if-you-see-failures"></a>Se si verificano errori
+## <a name="if-you-see-failures"></a>Se vengono visualizzati errori
 
 Fare clic su un punto rosso.
 
@@ -121,7 +121,7 @@ Fare clic sulla riga dell'eccezione per visualizzare i dettagli dell'eccezione l
 
 ![Diagnostica lato server](./media/monitor-web-app-availability/open-instance-4.png)
 
-Oltre a risultati non elaborati, è anche possibile visualizzare due metriche principali di disponibilità in [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
+Oltre ai risultati non elaborati, è anche possibile visualizzare due metriche di disponibilità chiave in [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
 
 1. Disponibilità: percentuale dei test riusciti rispetto a tutte le esecuzioni di test.
 2. Durata test: durata media dei test rispetto a tutte le esecuzioni di test.
@@ -131,13 +131,13 @@ Oltre a risultati non elaborati, è anche possibile visualizzare due metriche pr
 * [Usare script di PowerShell per configurare un test di disponibilità](../../azure-monitor/app/powershell.md#add-an-availability-test) automaticamente.
 * Configurare un [webhook](../../azure-monitor/platform/alerts-webhooks.md) che verrà chiamato quando viene generato un avviso.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Dedicata [risoluzione dei problemi di articolo](troubleshoot-availability.md).
+Articolo dedicato alla [risoluzione dei problemi](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Avvisi di disponibilità](availability-alerts.md)
-* [Test web in più passi](availability-multistep.md)
+* [Test Web in più passaggi](availability-multistep.md)
 
 

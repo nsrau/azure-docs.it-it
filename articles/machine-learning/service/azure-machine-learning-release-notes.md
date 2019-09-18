@@ -10,18 +10,67 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 26d66dad1e9953ddcbdbe0fd3b495bb3e418b3e7
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 5191f8b565762e9377f3718cc147c96e491f5a0d
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993435"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067725"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) . 
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2019-09-16"></a>2019-09-16
+
+### <a name="azure-machine-learning-sdk-for-python-v1062"></a>SDK di Azure Machine Learning per Python v 1.0.62
+
++ **Nuove funzionalità**
+  + Ha introdotto il tratto timeseries in TabularDataset. Questo tratto consente di filtrare facilmente i timestamp sui dati TabularDataset, ad esempio l'acquisizione di tutti i dati tra un intervallo di tempo o i dati più recenti. Per informazioni su questo tratto di timeseries in TabularDataset, vedere https://aka.ms/azureml-data per la documentazione o https://aka.ms/azureml-tsd-notebook per un notebook di esempio. 
+  + Training abilitato con TabularDataset e filedataset. Per un https://aka.ms/dataset-tutorial notebook di esempio, visitare. 
+  
+  + **azureml-train-core**
+    + Aggiunta del supporto per NCCL e Gloo in PyTorch Estimator
+  
++ **Correzioni di bug e miglioramenti**
+  + **azureml-automl-Core**
+    + L'impostazione AutoML ' lag_length ' e LaggingTransformer è stata deprecata.
+    + Correzione della corretta convalida dei dati di input se specificati in un formato di flusso di dati
+    + Il file fit_pipeline. py è stato modificato per generare il grafico JSON e caricare gli artefatti. 
+    + Rendering del grafico in userrun mediante Cytoscape.
+  + **azureml-core**
+    + È stata rivisitata la gestione delle eccezioni nel codice ADB e sono state apportate modifiche a in base alla nuova gestione degli errori
+    + Aggiunta dell'autenticazione MSI automatica per le macchine virtuali del notebook.
+    + Corregge il bug in cui è possibile caricare modelli danneggiati o vuoti a causa di tentativi non riusciti.
+    + Correzione del bug in `DataReference` cui il nome cambia `DataReference` quando viene modificata la modalità, ad `as_upload`esempio quando si `as_mount`chiama, `as_download`o.
+    + Make `mount_point` e `target_path` optional per `FileDataset.mount` e .`FileDataset.download`
+    + Eccezione che non è possibile trovare la colonna timestamp se l'API relativa alle serie temporali è chiamata senza una colonna di tipo timestamp assegnata o se le colonne timestamp assegnate vengono eliminate.
+    + Le colonne delle serie temporali devono essere assegnate con la colonna il cui tipo è date. in caso contrario, è prevista l'eccezione
+    + Le colonne delle serie temporali che assegnano l'API ' with_timestamp_columns ' possono assumere un nome di colonna timestamp fine o grossolano, che cancellerà le colonne timestamp assegnate in precedenza.
+    + L'eccezione viene generata quando viene eliminata una colonna con granularità grossolana o un timestamp con granularità fine indicante che l'eliminazione può essere eseguita dopo aver esclusa la colonna timestamp nell'elenco di eliminazione o la chiamata a with_time_stamp con valore None per rilasciare il timestamp colonne
+    + L'eccezione verrà generata quando una colonna a granularità grossolana o un timestamp con granularità fine non è inclusa nell'elenco Mantieni colonne con indicazione per l'utente che il mantenimento può essere eseguito dopo aver incluso la colonna timestamp in Mantieni elenco colonne o chiamare with_time_stamp con None valore per rilasciare le colonne timestamp.
+    + Aggiunta della registrazione per le dimensioni di un modello registrato.
+  + **azureml-explain-model**
+    + Correzione dell'avviso stampato sulla console quando non è installato il pacchetto python "packaging": "Se si usa una versione precedente a quella supportata di lightgbm, eseguire l'aggiornamento alla versione successiva alla 2.2.1"
+    + Correzione del modello di download con il partizionamento orizzontale per le spiegazioni globali con molte funzionalità
+    + Sono stati corretti alcuni esempi di inizializzazione nella spiegazione dell'output.
+    + Correzione di un errore immutabile nelle proprietà del set durante il caricamento con il client di spiegazione con due tipi diversi di modelli
+    + È stato aggiunto un parametro get_raw per l'assegnazione dei punteggi a Explainer. explain ().
+  + **azureml-train-automl**
+    + Sono state introdotte API pubbliche da AutoML per il supporto di spiegazioni di AutoML explain SDK, un metodo più recente per supportare le spiegazioni di AutoML disaccoppiando AutoML conteggi e spiegando il supporto per la spiegazione non elaborata integrata nell'SDK da azureml explain SDK per AutoML modelli.
+    + Rimozione di azureml-impostazioni predefinite dagli ambienti di training remoto.
+    + Il percorso predefinito dell'archivio cache è stato modificato da FileCacheStore basato su AzureFileCacheStore uno per AutoML nel percorso del codice AzureDatabricks.
+    + Correzione della corretta convalida dei dati di input se specificati in un formato di flusso di dati
+  + **azureml-train-core**
+    + La deprecazione source_directory_data_store è stata ripristinata.
+    + È stata aggiunta la possibilità di eseguire l'override delle versioni del pacchetto installato azureml. 
+    + Aggiunto il supporto di `environment_definition` dockerfile nel parametro negli estimatori.
+    + Parametri di training distribuiti semplificati negli estimatori.
+         ```py 
+        from azureml.train.dnn import TensorFlow, Mpi, ParameterServer 
+        ```
 
 ## <a name="2019-09-09"></a>2019-09-09
 
