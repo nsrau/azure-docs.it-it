@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 37f129526cb184a2eeee9e36028e8f00b5bbc247
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443467"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gestire i costi con i budget di Azure
@@ -277,8 +277,8 @@ Quando si crea il gruppo di azioni, è necessario definire un puntatore all'app 
 4.  Aggiungere e verificare quanto segue:
     - Nome gruppo di azione
     - Nome breve
-    - Sottoscrizione
-    - Gruppo di risorse
+    - Subscription
+    - Resource group
 
     ![Azure - App per la logica - Aggiungere un gruppo di azioni](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 
@@ -289,7 +289,7 @@ A questo punto sono stati creati tutti i componenti di supporto necessari per or
 
 ## <a name="create-the-azure-budget"></a>Creare il budget di Azure
 
-È possibile creare un budget nel portale di Azure usando la [funzionalità di budget](../cost-management/tutorial-acm-create-budgets.md) in gestione costi. In alternativa, è possibile creare un budget usando le API REST, i cmdlet di PowerShell o l'interfaccia della riga di comando. Nella procedura seguente si userà l'API REST. Prima di chiamare l'API REST, è necessario un token di autorizzazione. Per creare un token di autorizzazione, è possibile usare il progetto [ARMClient](https://github.com/projectkudu/ARMClient). **ARMClient** consente di eseguire l'autenticazione ad Azure Resource Manager e ottenere un token per chiamare le API.
+È possibile creare un budget nel portale di Azure usando la [funzionalità Budget](../cost-management/tutorial-acm-create-budgets.md) in Gestione costi. È altrimenti possibile creare un budget usando le API REST, i cmdlet di PowerShell oppure usando l'interfaccia della riga di comando. Nella procedura seguente si userà l'API REST. Prima di chiamare l'API REST, è necessario un token di autorizzazione. Per creare un token di autorizzazione, è possibile usare il progetto [ARMClient](https://github.com/projectkudu/ARMClient). **ARMClient** consente di eseguire l'autenticazione ad Azure Resource Manager e ottenere un token per chiamare le API.
 
 ### <a name="create-an-authentication-token"></a>Ottenere un token di autenticazione
 
@@ -328,7 +328,7 @@ In questa procedura si configurerà **Postman** per creare un budget chiamando l
 8.  In **Value** (Valore) impostare il token creato usando ArmClient alla fine della sezione precedente.
 9.  Selezionare la scheda **Body** (Corpo) all'interno di Postman.
 10. Selezionare il pulsante **Raw** (Non elaborato).
-11. Nella casella di testo incollare la definizione del budget di esempio seguente, tuttavia è necessario sostituire i parametri **SubscriptionId**, **budgetname**e **actiongroupname** con l'ID sottoscrizione, un nome univoco per il budget e il nome del gruppo di azioni. è stato creato sia nell'URL che nel corpo della richiesta:
+11. Nella casella di testo incollare la seguente definizione di budget di esempio, sostituendo però i parametri **subscriptionid**, **budgetname** e **actiongroupname** rispettivamente con l'ID della sottoscrizione, un nome univoco per il budget e il nome del gruppo di azioni creato sia nell'URL che nel corpo della richiesta:
 
     ```
         {
@@ -374,7 +374,7 @@ A questo punto sono state completate tutte le operazioni necessarie per chiamare
     - **filters**: i filtri consentono di limitare il budget a un set specifico di risorse all'interno dell'ambito selezionato. Un filtro può ad esempio essere costituito da una raccolta di gruppi di risorse per un budget definito a livello di sottoscrizione.
     - **notifications**: determina i dettagli e le soglie di notifica. È possibile impostare più soglie e specificare un indirizzo di posta elettronica o un gruppo di azioni per ricevere una notifica.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questa esercitazione si è appreso come:
 - Creare un runbook di Automazione di Azure per arrestare le macchine virtuali.

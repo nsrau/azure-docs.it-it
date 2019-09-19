@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi a una scheda rifiutata all'iscrizione ad Azure
-description: Risolvere la carta di credito rifiutata al momento dell'iscrizione ad Azure nel portale di Azure o nel centro account.
+title: Risolvere un problema di carta rifiutata all'iscrizione ad Azure
+description: Risolvere un problema di carta di credito rifiutata al momento dell'iscrizione ad Azure nel portale di Azure o nel Centro account.
 author: v-miegge
 manager: adpick
 editor: v-jesits
@@ -13,17 +13,17 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: banders
 ms.openlocfilehash: 730238d62e4ee4aad1807a4461c9b26ee1c8485d
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "69657060"
 ---
-# <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Risolvere i problemi relativi a una scheda rifiutata all'iscrizione ad Azure
+# <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Risolvere un problema di carta rifiutata all'iscrizione ad Azure
 
-Questo articolo consente di risolvere i problemi in cui una carta di credito viene rifiutata al momento dell'iscrizione ad Azure nel portale di Azure o nel centro account di Azure. Prima di iniziare la risoluzione del problema, controllare i punti seguenti:
+Questo articolo consente di risolvere i problemi in cui una carta di credito viene rifiutata al momento dell'iscrizione ad Azure nel portale di Azure o nel Centro account di Azure. Prima di iniziare la risoluzione del problema, controllare i punti seguenti:
 
-- Assicurarsi che le informazioni fornite per il profilo dell'account Azure, ad esempio indirizzo di posta elettronica di contatto, indirizzo e numero di telefono, siano corrette.
+- Assicurarsi che le informazioni fornite per il profilo dell'account di Azure, ad esempio indirizzo di posta elettronica di contatto, indirizzo e numero di telefono, siano corrette.
 - Assicurarsi che le informazioni della carta di credito siano corrette.
 - Assicurarsi che non sia già presente un account Microsoft con le stesse informazioni.
 - Le carte di debito non sono accettate
@@ -32,40 +32,40 @@ Questo articolo consente di risolvere i problemi in cui una carta di credito vie
 
 Di seguito sono elencati i problemi comuni che possono causare il rifiuto di una carta di credito all'iscrizione ad Azure.
 
-### <a name="the-credit-card-provider-is-not-accepted-for-your-country"></a>Il provider della carta di credito non è accettato per il paese
+### <a name="the-credit-card-provider-is-not-accepted-for-your-country"></a>L'istituto della carta di credito o debito non è accettato nel proprio paese
 
-Quando si sceglie una scheda, Azure Visualizza le opzioni della scheda valide nel paese selezionato. Contattare la banca o l'autorità emittente della carta per verificare che la carta di credito sia abilitata per le transazioni internazionali. Per altre informazioni sui paesi e sulle valute supportati, vedere le [domande frequenti sugli acquisti di Azure](https://azure.microsoft.com/pricing/faq/).
+Quando si sceglie una carta, Azure mostra solo le opzioni valide nel paese selezionato. Contattare la banca o l'autorità emittente della carta per verificare che la carta di credito sia abilitata per le transazioni internazionali. Per altre informazioni sui paesi e le valute supportati, vedere le [Domande frequenti relative agli acquisti di Azure](https://azure.microsoft.com/pricing/faq/).
 
 >[!Note]
->Le carte di credito American Express non sono attualmente supportate come strumento di pagamento in India. Non è previsto alcun intervallo di tempo in cui può essere una forma di pagamento accettata.
+>Le carte di credito American Express non sono attualmente supportate come strumento di pagamento in India. Al momento non vi sono previsioni per quando potrà essere una forma di pagamento accettata.
 
 ### <a name="youre-using-a-virtual-or-prepaid-card"></a>Si sta usando una carta prepagata o virtuale 
 
 Le carte di credito o debito virtuali o prepagate non sono accettate come opzione di pagamento per l'iscrizione ad Azure.
 
-### <a name="your-credit-information-is-inaccurate-or-incomplete"></a>Informazioni sul credito non corrette o incomplete 
+### <a name="your-credit-information-is-inaccurate-or-incomplete"></a>Le informazioni sulla carta di credito sono errate o incomplete 
 
-Il nome, l'indirizzo e il codice CVV immessi devono corrispondere esattamente a quanto stampato sulla scheda.
+Il nome, l'indirizzo e il codice CVV immessi devono corrispondere esattamente a quanto riportato sulla carta.
 
-### <a name="the-card-is-inactive-or-blocked"></a>La scheda è inattiva o bloccata 
+### <a name="the-card-is-inactive-or-blocked"></a>La carta è inattiva o bloccata 
 
-Contattare la banca per assicurarsi che la scheda sia attiva.
+Contattare la banca per assicurarsi che la carta sia attiva.
 
-È possibile che si verifichino altri problemi di iscrizione 
+Potrebbero verificarsi altri problemi di iscrizione 
 
-Per ulteriori informazioni su come risolvere i problemi relativi all'iscrizione ad Azure, vedere l'articolo della Knowledge Base seguente: 
+Per altre informazioni su come risolvere i problemi relativi all'iscrizione ad Azure, vedere l'articolo della Knowledge Base seguente: 
 
-[Non è possibile iscriversi ad Azure nel portale di Azure o nel centro account di Azure](billing-troubleshoot-azure-sign-up.md)
+[Non è possibile iscriversi nel portale di Azure o nel Centro account di Azure](billing-troubleshoot-azure-sign-up.md)
 
-### <a name="you-represent-a-business-that-doesnt-want-to-pay-by-card"></a>Si rappresenta un'azienda che non desidera pagare con carta 
+### <a name="you-represent-a-business-that-doesnt-want-to-pay-by-card"></a>L'utente rappresenta un'azienda che non vuole pagare con carta 
 
-Se si rappresenta un'azienda, è possibile usare i metodi di pagamento delle fatture, ad esempio i controlli, le verifiche notturne o i trasferimenti di rete per pagare la sottoscrizione di Azure. Dopo aver configurato l'account in modo da pagare tramite fattura, non è possibile passare a un'altra opzione di pagamento, a meno che non si disponga di un contratto Microsoft per i clienti ed è stata effettuata l'iscrizione ad Azure tramite il sito Web di Azure.
+Se l'utente rappresenta un'azienda, è possibile usare metodi di pagamento della fattura come assegni, assegni con pagamento in 24 ore e bonifici per pagare la sottoscrizione di Azure. Dopo aver configurato l'account in modo da pagare con fattura, non è possibile passare a un'altra opzione di pagamento, a meno che non si abbia un Contratto del cliente Microsoft e sia stata effettuata l'iscrizione ad Azure dal sito Web di Azure.
 
-Per altre informazioni su come pagare tramite fattura, vedere [inviare una richiesta di pagamento della sottoscrizione di Azure tramite fattura](billing-how-to-pay-by-invoice.md).
+Per altre informazioni sul pagamento con fattura, vedere [Inviare una richiesta per pagare una sottoscrizione di Azure tramite fattura](billing-how-to-pay-by-invoice.md).
 
-### <a name="your-credit-card-information-is-outdated"></a>Le informazioni sulla carta di credito sono obsolete 
+### <a name="your-credit-card-information-is-outdated"></a>Le informazioni sulla carta di credito sono scadute 
 
-Per informazioni su come gestire le informazioni sulla scheda, inclusa la modifica o la rimozione di una scheda, vedere [aggiungere, aggiornare o rimuovere un credito per Azure](billing-how-to-change-credit-card.md).
+Per informazioni su come gestire le informazioni sulla carta, inclusa la modifica o la rimozione, vedere [Aggiungere, aggiornare o rimuovere una carta di credito per Azure](billing-how-to-change-credit-card.md).
 
 ## <a name="additional-help-resources"></a>Risorse della guida aggiuntive
 
