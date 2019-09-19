@@ -4,7 +4,7 @@ description: Descrive le linee guida per l'uso dell'utilità Caricamento file pe
 services: ''
 documentationcenter: ''
 author: genlin
-manager: ''
+manager: dcscontentpm
 editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 949d6b00b4e04921ea745dd4efa1b8a58c49f534
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 088835f6983814bbe47afeeec210ac41964e7863
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995645"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121172"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Linee guida dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure
 Quando si [crea una richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support), l'utilità Caricamento file permette di caricare facilmente i file di diagnostica o qualsiasi altro file ritenuto rilevante per l'evento imprevisto.  

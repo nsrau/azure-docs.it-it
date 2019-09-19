@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4fb88cbed4e73a7cea2b0ccf01b1429a3ff321f3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018189"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129344"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funzionalità di sicurezza che consentono di proteggere i carichi di lavoro cloud che usano backup di Azure
 
@@ -122,9 +122,9 @@ L'annullamento dell'eliminazione seguito dall'operazione di ripresa proteggerà 
 
 Non è possibile eliminare l'insieme di credenziali di servizi di ripristino se sono presenti elementi di backup nello stato di eliminazione temporanea nell'insieme di credenziali. Gli elementi eliminati temporaneamente vengono eliminati definitivamente dopo 14 giorni dall'operazione di eliminazione. È possibile eliminare l'insieme di credenziali solo dopo che tutti gli elementi eliminati temporaneamente sono stati eliminati.  
 
-#### <a name="how-can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Come è possibile eliminare i dati prima del periodo di eliminazione temporanea di 14 giorni dopo l'eliminazione?
+#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>È possibile eliminare i dati prima del periodo di eliminazione temporanea di 14 giorni dopo l'eliminazione?
 
-Non è possibile eliminare i dati prima dei 14 giorni dopo l'eliminazione. Se si tratta di un blocco o di un problema di conformità, contattare il supporto tecnico Microsoft.
+No. Non è possibile forzare l'eliminazione degli elementi eliminati temporaneamente, che vengono eliminati automaticamente dopo 14 giorni. Questa funzionalità di sicurezza è abilitata per salvaguardare i dati di backup da eliminazioni accidentali o dannose.  È necessario attendere 14 giorni prima di eseguire qualsiasi altra azione nella macchina virtuale.  Gli elementi eliminati temporaneamente non verranno addebitati.  Se è necessario proteggere nuovamente le VM contrassegnate per l'eliminazione temporanea entro 14 giorni in un nuovo insieme di credenziali, contattare il supporto tecnico Microsoft.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>È possibile eseguire operazioni di eliminazione temporanea in PowerShell o nell'interfaccia della riga di comando?
 

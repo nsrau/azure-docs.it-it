@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 09/13/2019
-ms.openlocfilehash: 59cce0b56a4e54208a454c9f71d9a4c8576b0a8b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3b3fbce40c93389037435a7cdb1271e773163de3
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034347"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123275"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Questo articolo illustra come monitorare la tendenza dei dati tra il set di dati
 
 ## <a name="what-is-data-drift"></a>Che cos'è la deriva dei dati?
 
-La tendenza ai dati si verifica quando i dati serviti a un modello in produzione sono diversi da quelli utilizzati per il training del modello. Si tratta di uno dei motivi principali in cui l'accuratezza del modello diminuisce nel tempo, quindi il monitoraggio della deriva dei dati consente di rilevare i problemi di prestazioni del modello. 
+Nel contesto di Machine Learning, la deriva dei dati è la modifica dei dati di input del modello che comporta un peggioramento delle prestazioni del modello. Si tratta di uno dei motivi principali in cui l'accuratezza del modello diminuisce nel tempo, quindi il monitoraggio della deriva dei dati consente di rilevare i problemi di prestazioni del modello. 
 
 ## <a name="what-can-i-monitor"></a>Che cosa è possibile monitorare?
 

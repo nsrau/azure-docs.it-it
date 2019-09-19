@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 9922d347fae154a3a9b1c37e813014225c28442d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: d782c2d9dff45dc152cab2246c95dda063bfd900
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103173"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130396"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
 
@@ -67,15 +67,15 @@ Le opzioni di ottimizzazione automatica disponibili nel database SQL di Azure so
 
 | Opzione di ottimizzazione automatica | Supporto dei database singoli e in pool | Supporto del database dell'istanza |
 | :----------------------------- | ----- | ----- |
-| **Create index** : identifica gli indici che possono migliorare le prestazioni del carico di lavoro, crea gli indici e verifica automaticamente che le prestazioni delle query siano migliorate. | Sì | No | 
+| **Create index** : identifica gli indici che possono migliorare le prestazioni del carico di lavoro, crea gli indici e verifica automaticamente che le prestazioni delle query siano migliorate. | Yes | No | 
 | **Drop index** : identifica gli indici ridondanti e duplicati al giorno, tranne gli indici univoci e gli indici che non sono stati usati per molto tempo (> 90 giorni). Si noti che al momento l'opzione non è compatibile con le applicazioni che usano hint di indice e cambi di partizione. | Yes | No |
-| **Forza ultimo piano valido** (correzione automatica del piano): identifica le query SQL usando il piano di esecuzione più lento rispetto al piano corretto precedente e le query che usano l'ultimo piano valido noto anziché il piano regressione. | Sì | Sì |
+| **Forza ultimo piano valido** (correzione automatica del piano): identifica le query SQL usando il piano di esecuzione più lento rispetto al piano corretto precedente e le query che usano l'ultimo piano valido noto anziché il piano regressione. | Yes | Yes |
 
 L'ottimizzazione automatica identifica le opzioni **CREATE INDEX** (Crea indice), **DROP INDEX** (Elimina indice) e **FORCE LAST GOOD PLAN** (Forza piano valido più recente) che consentono di ottimizzare le prestazioni del database, di visualizzarle nel [portale di Azure](sql-database-advisor-portal.md) e di esporle tramite [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e l'[API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Per altre informazioni sull'ultimo piano valido e sulla configurazione delle opzioni di ottimizzazione automatica tramite T-SQL, vedere [ottimizzazione automatica introduce la correzione automatica del piano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 
 È possibile applicare manualmente le opzioni di ottimizzazione usando il portale o è possibile consentirne l'applicazione autonoma da parte dell'ottimizzazione automatica. I vantaggi di consentire al sistema di applicare in modo autonomo le opzioni di ottimizzazione consistono nella convalida automatica della presenza di un aumento delle prestazioni del carico di lavoro e, se non vengono rilevati miglioramenti significativi delle prestazioni, nel ripristino dello stato prima dell'applicazione delle opzioni di ottimizzazione. Si noti che, in caso di query interessate da opzioni di ottimizzazione che non vengono eseguite di frequente, la fase di convalida può richiedere fino a 72 ore per impostazione predefinita.
 
-Se si applicano le indicazioni di ottimizzazione tramite T-SQL, la convalida automatica delle prestazioni e i meccanismi di inversione non sono disponibili. Le raccomandazioni applicate in questo modo rimarranno attive e visualizzate nell'elenco delle raccomandazioni per l'ottimizzazione per 24-48 ore. prima del ritiro automatico del sistema. Se si vuole rimuovere prima una raccomandazione da questo elenco, è possibile eliminarla dalla portale di Azure.
+Se si applicano le indicazioni di ottimizzazione tramite T-SQL, la convalida automatica delle prestazioni e i meccanismi di inversione non sono disponibili. Le raccomandazioni applicate in questo modo rimarranno attive e visualizzate nell'elenco delle raccomandazioni per l'ottimizzazione per 24-48 ore. prima del ritiro automatico del sistema. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarla dalla portale di Azure.
 
 Le opzioni di ottimizzazione automatica possono essere abilitate o disabilitate in modo indipendente per ogni database, oppure possono essere configurate nei server di database SQL e applicate a ogni database che eredita le impostazioni dal server. I server di database SQL possono ereditare le impostazioni predefinite di Azure per le impostazioni di ottimizzazione automatica. Le impostazioni predefinite di Azure in questo momento sono FORCE_LAST_GOOD_PLAN (abilitata), CREATE_INDEX (abilitata) e DROP_INDEX (disabilitata).
 

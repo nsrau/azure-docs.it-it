@@ -4,7 +4,7 @@ description: Informazioni su come risolvere il problema per cui non è possibile
 services: api-management
 documentationcenter: ''
 author: genlin
-manager: cfowler
+manager: dcscontentpm
 editor: ''
 ms.service: api-management
 ms.workload: mobile
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 30dfd864c6c237024c72325da813691ac5043bd0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5d31ec21e341c46c2f2d0ab49fdb2d4302c29dc6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072082"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121528"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Non è stato possibile aggiornare i nomi host del servizio gestione API
 
@@ -43,11 +43,11 @@ Per risolvere il problema, seguire questa procedura:
 1. Selezionare **criteri di accesso**e verificare se esiste un'entità servizio che corrisponde al nome dell'istanza del servizio gestione API. In caso contrario, selezionare l'entità servizio e assicurarsi che disponga dell'autorizzazione **Get** elencata in **autorizzazioni segrete**.  
     ![Aggiunta dei criteri di accesso per l'entità servizio](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
 1. Se il servizio gestione API non è presente nell'elenco, selezionare **Aggiungi criteri di accesso**e quindi creare i criteri di accesso seguenti:
-    - **Configura da modello**: Nessuna
+    - **Configura da modello**: None
     - **Selezionare l'entità**di protezione: Cercare il nome del servizio gestione API e quindi selezionarlo dall'elenco
-    - **Autorizzazioni chiave**: Nessuna
-    - **Autorizzazioni segrete**: Recupera
-    - **Autorizzazioni**per i certificati: Nessuna
+    - **Autorizzazioni chiave**: None
+    - **Autorizzazioni segrete**: Get
+    - **Autorizzazioni**per i certificati: None
 1. Selezionare **OK** per creare i criteri di accesso.
 1. Selezionare **Salva** per salvare le modifiche.
 

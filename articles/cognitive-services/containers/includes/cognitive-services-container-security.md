@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2019
 ms.author: dapine
-ms.openlocfilehash: d8d069dddbce6ab6ddb541db460634ad3f6fa067
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 0e9fa9146292bf7dabbbf06d3bb436aa6cd2e6e2
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994942"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124083"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Sicurezza del contenitore dei servizi cognitivi di Azure
 
@@ -30,6 +30,23 @@ Il diagramma seguente illustra l'approccio predefinito e non **sicuro** :
 Come approccio alternativo e *sicuro* , i consumer di contenitori di servizi cognitivi possono aumentare un contenitore con un componente front-end, mantenendo privato l'endpoint contenitore. Si prenda in considerazione uno scenario in cui si usa [Istio][istio] come gateway di ingresso. Istio supporta HTTPS/SSL e l'autenticazione del certificato client. In questo scenario, il front-end Istio espone l'accesso al contenitore, presentando il certificato client inserito nell'elenco elementi consentiti in anticipo con Istio.
 
 [Nginx][nginx] è un'altra scelta comune nella stessa categoria. Sia Istio che Nginx fungono da mesh del servizio e offrono funzionalità aggiuntive, tra cui bilanciamento del carico, routing e controllo delle tariffe.
+
+### <a name="container-networking"></a>Rete del contenitore
+
+I contenitori di servizi cognitivi sono necessari per inviare le informazioni di misurazione per scopi di fatturazione. L'unica eccezione è che i contenitori non in *linea* seguono una metodologia di fatturazione diversa. Se non è possibile consentire l'elenco di diversi canali di rete su cui si basano i contenitori di servizi cognitivi, il contenitore non funzionerà.
+
+#### <a name="allow-list-cognitive-services-domains-and-ports"></a>Consenti elenco di domini e porte di servizi cognitivi
+
+L'host deve consentire la **porta elenco 443** e i domini seguenti:
+
+* `*.cognitive.microsoft.com`
+* `*.cognitiveservices.azure.com`
+
+#### <a name="disable-deep-packet-inspection"></a>Disabilitare l'ispezione approfondita dei pacchetti
+
+> [Ispezione approfondita dei pacchetti](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) è un tipo di elaborazione dei dati che esamina in dettaglio i dati inviati su una rete di computer e in genere interviene, bloccando, reindirizzando o registrando di conseguenza.
+
+Disabilitare DPI nei canali protetti creati dai contenitori di servizi cognitivi nei server Microsoft. In caso contrario, il contenitore non funzionerà correttamente.
 
 [istio]: https://istio.io/
 [nginx]: https://www.nginx.com

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 78db25fed7c284b31491bdc9e5498493da4c7479
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: dad37af030c456f9ba2cd814fa92a7811dce6aa1
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618854"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130318"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Pianificare e preparare la distribuzione del cluster autonomo di Service Fabric
 
@@ -65,10 +65,11 @@ Di seguito sono indicate le specifiche per ogni computer da aggiungere al cluste
 * Un minimo di 40 GB di spazio disponibile su disco
 * CPU 4 core o superiore
 * Connessione a una o più reti protette per tutti i computer
-* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709, 1803 o 2019
+* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709 o 1803. Service Fabric versione 6.4.654.9590 e successive supporta anche server 2019 e 1809.
 * [.NET Framework 4.5.1 o versione successiva](https://www.microsoft.com/download/details.aspx?id=40773), installazione completa
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere eseguito in tutti i computer.
+* Service Fabric unità di installazione deve essere un file system NTFS
 
 L'amministratore del cluster che distribuisce e configura il cluster deve disporre dei [privilegi di amministratore](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) in ogni computer. Non è possibile installare Service Fabric in un controller di dominio.
 

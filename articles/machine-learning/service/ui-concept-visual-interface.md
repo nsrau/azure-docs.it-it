@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: f560887a48ce4754b26a54ef0e18093c5577af34
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996515"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128813"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>Che cos'è l'interfaccia visiva per Azure Machine Learning? 
 
@@ -95,8 +95,8 @@ Per informazioni su come distribuire il modello, vedere [esercitazione: Distribu
 
 * Scopri le nozioni di base sull'analisi predittiva e [l'apprendimento automatico con l'esercitazione: Stimare il prezzo di un'automobile con l'interfaccia visiva grafica](ui-tutorial-automobile-price-train-score.md)
 * Usare uno degli esempi e modificare il gruppo in base alle esigenze:
-    * [Esempio 1: regressione: Prezzo stimato](ui-sample-regression-predict-automobile-price-basic.md)
-    * [Esempio 2: regressione: Stimare il prezzo e confrontare gli algoritmi](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [Esempio 3-classificazione: Stima del rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
-    * [Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [Esempio 5-classificazione: Prevedere varianza, appetency e vendita](ui-sample-classification-predict-churn.md)
+    * [Esempio 1: regressione: Prezzo stimato](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+    * [Esempio 2: regressione: Stimare il prezzo e confrontare gli algoritmi](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [Esempio 3-classificazione: Stima del rischio di credito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+    * [Esempio 4-Classificazione: Stimare il rischio di credito (costo sensibile)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [Esempio 5-classificazione: Prevedere varianza, appetency e vendita](how-to-ui-sample-classification-predict-churn.md)

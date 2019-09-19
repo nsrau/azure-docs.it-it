@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: 909b32890ea7ff33d6b5b5db3bb55f36f7007c6b
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b4c771b406d635410c22db5c1c4687a34a2e6eb0
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018669"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130009"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizzare CoreDNS con il servizio Azure Kubernetes
 
@@ -20,7 +20,7 @@ Azure Kubernetes Service (AKS) usa il progetto [CoreDNS][coredns] per la gestion
 
 Poiché AKS è un servizio gestito, non è possibile modificare la configurazione principale per CoreDNS ( *CoreFile*). Usare invece un *ConfigMap* Kubernetes per eseguire l'override delle impostazioni predefinite. Per visualizzare il valore predefinito di AKS CoreDNS ConfigMaps, `kubectl get configmaps --namespace=kube-system coredns -o yaml` usare il comando.
 
-Questo articolo illustra come usare ConfigMaps per le opzioni di personalizzazione di base di CoreDNS in AKS.
+Questo articolo illustra come usare ConfigMaps per le opzioni di personalizzazione di base di CoreDNS in AKS. Questo approccio è diverso dalla configurazione di CoreDNS in altri contesti, ad esempio l'uso di CoreFile. Verificare la versione di CoreDNS in esecuzione perché i valori di configurazione possono variare tra le versioni.
 
 > [!NOTE]
 > `kube-dns`offerte diverse [Opzioni di personalizzazione][kubednsblog] tramite una mappa di configurazione Kubernetes. CoreDNS **non** è compatibile con le versioni precedenti di Kube-DNS. Tutte le personalizzazioni usate in precedenza devono essere aggiornate per l'uso con CoreDNS.
@@ -31,7 +31,7 @@ Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è ne
 
 ## <a name="what-is-supportedunsupported"></a>Elementi supportati/non supportati
 
-Sono supportati tutti i plug-in CoreDNS predefiniti. Non sono supportati componenti aggiuntivi o plug-in di terze parti. 
+Sono supportati tutti i plug-in CoreDNS predefiniti. Non sono supportati componenti aggiuntivi o plug-in di terze parti.
 
 ## <a name="rewrite-dns"></a>Riscrivi DNS
 

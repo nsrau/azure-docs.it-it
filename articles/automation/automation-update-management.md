@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 20d8106f06b708527fc60e025a19c6b07656acb3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f4816ea2dc67df717e46df61c955d6d156b14d7e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102640"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129672"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -83,7 +83,7 @@ La tabella seguente elenca i sistemi operativi supportati:
 
 > [!NOTE]
 > I set di scalabilità di macchine virtuali di Azure possono essere gestiti con Gestione aggiornamenti. Gestione aggiornamenti funziona sulle istanze stesse e non sull'immagine di base. È necessario pianificare gli aggiornamenti in modo incrementale, perché non aggiornare tutte le istanze di macchina virtuale in una sola volta.
-> I nodi VMSS possono essere aggiunti attenendosi alla procedura descritta in [onbaord in un computer non Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
+> I nodi VMSS possono essere aggiunti attenendosi alla procedura descritta in [onboarding a computer non Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 

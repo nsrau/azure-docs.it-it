@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0e8dacb97b6ccfb57573fc21c3a4df3694cc7ec8
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 9e7d6a027a60590396446479aecf1644ef753ecf
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098392"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130161"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
@@ -164,6 +164,13 @@ Esistono due modi per eliminare i dati di backup di una macchina virtuale:
 
   > [!NOTE]
   > Quando si eliminano i dati di backup, vengono eliminati tutti i punti di ripristino associati. Non è possibile scegliere punti di ripristino specifici da eliminare.
+
+### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Elemento di backup in cui l'origine dati primaria non esiste più
+
+- Se le macchine virtuali di Azure configurate per backup di Azure vengono eliminate o spostate senza arrestare la protezione, i processi di backup pianificati e su richiesta (ad-hoc) avranno esito negativo con l'errore UserErrorVmNotFoundV2. Il controllo preliminare di backup verrà visualizzato come critico solo per i processi di backup ad hoc non riusciti (i processi pianificati non riusciti non vengono visualizzati). 
+- Questi elementi di backup rimangono attivi nel sistema rispettando i criteri di backup e conservazione impostati dall'utente. I dati di cui è stato eseguito il backup per queste macchine virtuali di Azure verranno conservati in base ai criteri di conservazione. I punti di ripristino scaduti, ad eccezione dell'ultimo punto di ripristino, vengono puliti in base al periodo di mantenimento dati impostato nei criteri di backup.
+- Si consiglia agli utenti di eliminare gli elementi di backup in cui l'origine dati primaria non esiste più per evitare costi aggiuntivi, se l'elemento o i dati di backup per le risorse di eliminazione non sono più necessari, perché l'ultimo punto di ripristino viene mantenuto per sempre e l'utente viene addebitato come per i prezzi di backup applicabili.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [eseguire il backup di macchine virtuali di Azure dalle impostazioni della macchina virtuale](backup-azure-vms-first-look-arm.md).

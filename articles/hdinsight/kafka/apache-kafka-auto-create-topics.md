@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 5d990a1c39495090fed1c78f1ddf5e879490e6c4
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 393087f4d5c5e7a52fd2dd10d20362a045a0075b
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960679"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122657"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Come configurare Apache Kafka in HDInsight per creare automaticamente gli argomenti
 
@@ -25,7 +25,7 @@ Per abilitare la creazione automatica di argomenti in un cluster esistente trami
 
 1. Dal [portale di Azure](https://portal.azure.com) selezionare il cluster Kafka.
 
-2. Da __Panoramica del cluster__ selezionare __Dashboard cluster__. 
+2. Da __Panoramica del cluster__ selezionare __Dashboard cluster__.
 
     ![Immagine del portale con il dashboard del cluster selezionato](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
 
@@ -35,15 +35,15 @@ Per abilitare la creazione automatica di argomenti in un cluster esistente trami
 
 3. Selezionare il servizio Kafka nell'elenco a sinistra della pagina.
 
-    ![Elenco di servizi](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
+    ![Scheda elenco dei servizi Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
 4. Selezionare Configs (Configurazioni) nella parte centrale della pagina.
 
-    ![Scheda di configurazione dei servizi](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
+    ![Scheda configs del servizio Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
-5. Nel campo Filter (Filtro) immettere il valore `auto.create`. 
+5. Nel campo Filter (Filtro) immettere il valore `auto.create`.
 
-    ![Immagine del campo di filtro](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
+    ![Campo filtro di ricerca di Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     In questo modo, l'elenco di proprietà verrà filtrato e verrà visualizzata l'impostazione `auto.create.topics.enable`.
 
@@ -53,7 +53,7 @@ Per abilitare la creazione automatica di argomenti in un cluster esistente trami
 
 7. Selezionare il servizio Kafka, __Restart__ (Riavvia) e quindi __Restart all affected__ (Riavvia tutti gli elementi interessati). Quando viene chiesto, selezionare __Confirm restart all__ (Conferma riavvio di tutte le istanze).
 
-    ![Immagine della selezione di riavvio](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
+    ![Riavvio di Apache Ambari tutti interessati](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]  
 > È possibile anche impostare i valori Ambari tramite l'API REST Ambari. In genere questa operazione è più difficile perché sono necessarie più chiamate REST per recuperare la configurazione corrente, modificarla e così via. Per altre informazioni, vedere il documento [Gestire i cluster HDInsight usando l'API REST di Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md).
@@ -77,7 +77,7 @@ Quando si crea un cluster Kafka usando un modello di Azure Resource Manager, è 
 }
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 In questo documento è stato appreso come abilitare la creazione automatica di argomenti per Apache Kafka in HDInsight. Per altre informazioni sull'utilizzo di Kafka, vedere i collegamenti seguenti:
 

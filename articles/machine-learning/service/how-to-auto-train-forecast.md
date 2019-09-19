@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 5339d963b84c5922138d53e44abe9340d55b4dde
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035054"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130239"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
 
@@ -95,10 +95,10 @@ L' `AutoMLConfig` oggetto definisce le impostazioni e i dati necessari per un'at
 |`time_column_name`|Utilizzato per specificare la colonna DateTime nei dati di input utilizzati per compilare la serie temporale e dedurre la relativa frequenza.|✓|
 |`grain_column_names`|Nome/i che definisce i singoli gruppi di serie nei dati di input. Se la granularità non è definita, si presuppone che il set di dati sia una serie temporale.||
 |`max_horizon`|Definisce l'orizzonte di previsione massimo desiderato in unità di frequenza di serie temporali. Le unità sono basate sull'intervallo di tempo dei dati di training, ad esempio ogni mese, settimanalmente che il Forecaster deve prevedere.|✓|
-|`target_lags`|*n* punti per i valori di destinazione del ritardo di avanzamento prima del training del modello.||
+|`target_lags`|Numero di righe in base ai valori di destinazione in base alla frequenza dei dati. Rappresentata come un elenco o un singolo Integer.||
 |`target_rolling_window_size`|*n* periodi cronologici da usare per generare valori previsti, < = dimensioni del set di training. Se omesso, *n* è la dimensione massima del set di training.||
 
-Creare le impostazioni della serie temporale come oggetto Dictionary. Impostare sul `time_column_name` `day_datetime` campo nel set di dati. Definire il `grain_column_names` parametro per assicurarsi che vengano creati **due gruppi di serie temporali distinti** per i dati, uno per i negozi a e B. Infine, impostare `max_horizon` su 50 per stimare l'intero set di test. Impostare una finestra previsioni su 10 punti con `target_rolling_window_size`e ritardare i valori di destinazione 2 punti con il `target_lags` parametro.
+Creare le impostazioni della serie temporale come oggetto Dictionary. Impostare sul `time_column_name` `day_datetime` campo nel set di dati. Definire il `grain_column_names` parametro per assicurarsi che vengano creati **due gruppi di serie temporali distinti** per i dati, uno per i negozi a e B. Infine, impostare `max_horizon` su 50 per stimare l'intero set di test. Impostare una finestra di previsione su 10 periodi `target_rolling_window_size`con e specificare un singolo ritardo sui valori di destinazione per 2 punti avanti con il `target_lags` parametro.
 
 ```python
 time_series_settings = {
@@ -111,8 +111,14 @@ time_series_settings = {
 }
 ```
 
+
+
 > [!NOTE]
 > I passaggi di pre-elaborazione di Machine Learning automatizzati (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione di valori di testo nel formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di pre-elaborazione applicati durante il training vengono automaticamente applicati ai dati di input.
+
+Definendo `grain_column_names` nel frammento di codice precedente, AutoML creerà due gruppi di serie temporali distinti, noti anche come più serie temporali. Se non è definito alcun oggetto Grain, AutoML presuppone che il set di dati sia una singola serie temporale. Per ulteriori informazioni sulle singole serie temporali, vedere [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+
+
 
 A questo punto, `AutoMLConfig` creare un oggetto standard `forecasting` , specificando il tipo di attività e inviare l'esperimento. Al termine del modello, recuperare l'iterazione di esecuzione migliore.
 

@@ -1,18 +1,18 @@
 ---
 title: Risolvere i problemi di YARN in Azure HDInsight
 description: Risposte alle domande frequenti sull'utilizzo di Apache Hadoop YARN e Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 107230a4d8c2e0427c2fcf2a8862559c707831a1
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a0eb0d15d931cf1b2f71740c7a9359cf16205481
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076575"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122525"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Risolvere i problemi di YARN di Apache Hadoop usando Azure HDInsight
 
@@ -28,30 +28,30 @@ In questo esempio è stata modificata la capacità dal 50% al 25% per due code e
 
 | Coda | Capacity | Capacità massima |
 | --- | --- | --- |
-| default | 25% | 50% |
+| predefinito | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | Spark | 50% | 50% |
 
 1. Selezionare l'icona **Visualizzazioni di Ambari** e scegliere il motivo di griglia. Selezionare quindi **YARN Queue Manager** (Gestore code YARN).
 
-    ![Selezionare l'icona Visualizzazioni di Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    ![Gestore code YARN di Apache Ambari dashboard](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Selezionare la coda **predefinita**.
 
-    ![Selezionare la coda predefinita](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    ![Apache Ambari YARN selezionare coda predefinita](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. Per la coda **predefinita**, modificare la **capacità** dal 50% al 25%. Per la coda **thriftsvr**, impostare la **capacità** sul 25%.
 
     ![Impostare la capacità sul 25% per la coda predefinita e la coda thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Per creare una nuova coda, fare clic su **Aggiungi coda**.
 
-    ![Selezionare Aggiungi coda](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    ![Coda di aggiunta del dashboard di Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Assegnare un nome alla nuova coda.
 
-    ![Assegnare alla coda il nome Spark](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    ![Coda nome dashboard di Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Lasciare i valori di **Capacità** al 50% e selezionare il pulsante **Azioni**.
 
-    ![Selezionare il pulsante Azioni](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    ![Azione di selezione di Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Selezionare **Save and Refresh Queues** (Salva e aggiorna code).
 
     ![Selezionare Save and Refresh Queues (Salva e aggiorna code)](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
@@ -64,7 +64,7 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Come si scaricano i log di YARN da un cluster?
 
-### <a name="resolution-steps"></a>Procedura per la risoluzione 
+### <a name="resolution-steps"></a>Procedura per la risoluzione
 
 1. Connettersi al cluster HDInsight con un client Secure Shell (SSH). Per altre informazioni, vedere [Informazioni aggiuntive](#additional-reading-2).
 

@@ -1,6 +1,6 @@
 ---
-title: Connettersi a endpoint HTTP o HTTPS da app per la logica di Azure
-description: Monitorare endpoint HTTP o HTTPS in attività automatizzate, processi e flussi di lavoro usando app per la logica di Azure
+title: Chiamare endpoint HTTP e HTTPS-app per la logica di Azure
+description: Inviare le richieste in uscita agli endpoint HTTP e HTTPS usando app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,18 +10,20 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 04d9beaef29e76d40c0bb3f9dcf0bb6f4fe3152d
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234339"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122706"
 ---
-# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>Chiamare endpoint HTTP o HTTPS usando app per la logica di Azure
+# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Inviare chiamate in uscita agli endpoint HTTP o HTTPS usando app per la logica di Azure
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il connettore HTTP incorporato è possibile automatizzare i flussi di lavoro che chiamano regolarmente qualsiasi endpoint HTTP o HTTPS compilando app per la logica. Ad esempio, è possibile monitorare l'endpoint del servizio per il sito Web controllando l'endpoint in base a una pianificazione specificata. Quando si verifica un evento specifico in corrispondenza di tale endpoint, ad esempio quando il sito Web si arresta, l'evento attiva il flusso di lavoro dell'app per la logica ed esegue le azioni specificate.
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'azione o il trigger http incorporato è possibile creare attività e flussi di lavoro automatizzati che inviano regolarmente richieste a qualsiasi endpoint HTTP o HTTPS. Per ricevere e rispondere invece alle chiamate HTTP o HTTPS in ingresso, usare il [trigger di richiesta o l'azione di risposta](../connectors/connectors-native-reqres.md)predefinita.
 
-Per controllare o  eseguire il polling di un endpoint in base a una pianificazione regolare, è possibile usare il trigger http come primo passaggio del flusso di lavoro. In ogni controllo, il trigger invia una chiamata o una *richiesta* all'endpoint. La risposta dell'endpoint determina se il flusso di lavoro dell'app per la logica è in esecuzione. Il trigger passa da qualsiasi contenuto, dalla risposta alle azioni, nell'app per la logica.
+Ad esempio, è possibile monitorare l'endpoint del servizio per il sito Web controllando l'endpoint in base a una pianificazione specificata. Quando si verifica un evento specifico in corrispondenza di tale endpoint, ad esempio quando il sito Web si arresta, l'evento attiva il flusso di lavoro dell'app per la logica ed esegue le azioni specificate.
+
+Per controllare o eseguire il polling di un endpoint in base a una pianificazione regolare, è possibile usare il trigger http come primo passaggio del flusso di lavoro. In ogni controllo, il trigger invia una chiamata o una *richiesta* all'endpoint. La risposta dell'endpoint determina se il flusso di lavoro dell'app per la logica è in esecuzione. Il trigger passa da qualsiasi contenuto, dalla risposta alle azioni, nell'app per la logica.
 
 È possibile usare l'azione HTTP come qualsiasi altro passaggio nel flusso di lavoro per chiamare l'endpoint quando si desidera. La risposta dell'endpoint determina l'esecuzione delle azioni rimanenti del flusso di lavoro.
 
@@ -142,7 +144,7 @@ Per ulteriori informazioni sui parametri trigger e Action, vedere le sezioni seg
 * [Parametri del trigger HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
 * [Parametri azione HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
 
-### <a name="output-details"></a>Dettagli dell'output
+### <a name="output-details"></a>Dettagli output
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP, che restituisce queste informazioni:
 
@@ -156,10 +158,10 @@ Di seguito sono riportate altre informazioni sugli output di un trigger o un'azi
 | status code | Descrizione |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Accepted |
+| 202 | Accettato |
 | 400 | Richiesta non valida |
-| 401 | Non autorizzata |
-| 403 | Accesso negato |
+| 401 | Non autorizzato |
+| 403 | Non consentito |
 | 404 | Non trovato |
 | 500 | Errore interno del server. Si è verificato un errore sconosciuto. |
 |||

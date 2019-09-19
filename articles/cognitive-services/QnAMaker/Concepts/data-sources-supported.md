@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5175dee24542c716b3d087412864ae7e6f056d18
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4e24246ec4ed30ec93bf8e113d659bc5e3600913
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615972"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130124"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -202,6 +202,15 @@ Nuova riga tra due frasi.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|!
 |Elenchi annidati|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>È possibile annidare insieme elenchi ordinati e non ordinati. La scheda, `\t`, indica il livello di rientro dell'elemento figlio.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato per un elenco non ordinato annidato](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato dell'elenco ordinato annidato](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 \* QnA Maker non elabora l'immagine in alcun modo. Si tratta del ruolo dell'applicazione client per il rendering dell'immagine. 
+
+Se si vuole aggiungere contenuto usando le API della Knowledge base di aggiornamento/sostituzione e il contenuto e il file contengono tag HTML, è possibile mantenere il codice HTML nel file assicurandosi che l'apertura e la chiusura dei tag vengano convertite nel formato codificato.
+
+| Mantieni HTML  | Rappresentazione nella richiesta API  | Rappresentazione in KB |
+|-----------|---------|-------------------------|
+| Yes | \&lt; br\&gt; | &lt;BR&gt; |
+| Yes | \&lt; H3\&gt; intestazione\&lt;/H3\&gt; | &lt;/H3&gt;intestazione&lt;H3&gt; |
+
+Inoltre, CR LF (\r\n) viene convertito in \n nella KB. LF (\n) viene mantenuto così com'è. Se si vuole eseguire l'escape di qualsiasi sequenza di escape come \t o \n, è possibile usare la barra rovesciata\\, ad esempio:'\\\\\\r\\n'è\\t'
 
 ## <a name="editing-your-knowledge-base-locally"></a>Modificare la knowledge base in locale
 

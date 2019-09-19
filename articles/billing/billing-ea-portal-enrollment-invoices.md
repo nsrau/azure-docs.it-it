@@ -8,12 +8,12 @@ ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: dccc9462c6c20f3bce239e3b61cafa3d61e3d383
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5e3a6249f19df7d16c7051c43eec4275ec6f4131
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901186"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090706"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione EA di Azure
 
@@ -43,7 +43,7 @@ Se viene firmata una modifica M503, è possibile cambiare la frequenza di fattur
 
 ## <a name="credits-and-adjustments"></a>Crediti e rettifiche
 
-Tutti i crediti o le rettifiche applicate alla registrazione sono visibili all'indirizzo [https://www.ea.azure.com](https://www.ea.azure.com) nella sezione **Report**. Per domande specifiche su un importo di credito effettivo, contattare il [Supporto per il portale di Azure EA](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c).
+Tutti i crediti o le rettifiche applicate alla registrazione sono visibili all'indirizzo [https://ea.azure.com](https://ea.azure.com) nella sezione **Report**. Per domande specifiche su un importo di credito effettivo, contattare il [Supporto per il portale di Azure EA](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c).
 
 ## <a name="request-an-invoice-copy"></a>Richiedere una copia della fattura
 

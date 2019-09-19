@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993458"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123094"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Database SQL di Azure senza server (anteprima)
 
@@ -33,7 +33,7 @@ Il livello di calcolo senza server per un singolo database è parametrizzato da 
 - Il valore **minimo di Vcore** e il **numero massimo di Vcore** sono parametri configurabili che definiscono l'intervallo di capacità di calcolo disponibile per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
 - Il **ritardo di sospensione** automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga sospeso automaticamente. Il database viene ripreso automaticamente quando si verifica il successivo accesso o un'altra attività.  In alternativa, è possibile disabilitare l'autosospensione.
 
-### <a name="cost"></a>Costi
+### <a name="cost"></a>Costo
 
 - Il costo di un database senza server è la somma del costo di calcolo e dei costi di archiviazione.
 - Quando l'utilizzo delle risorse di calcolo è compreso tra i limiti minimo e massimo configurati, il costo di calcolo è basato su vCore e sulla memoria usata.
@@ -160,6 +160,12 @@ La creazione di un nuovo database o lo trasferimento di un database esistente in
    |GP_S_Gen5_1|Utilizzo generico|Quinta generazione|1|
    |GP_S_Gen5_2|Utilizzo generico|Quinta generazione|2|
    |GP_S_Gen5_4|Utilizzo generico|Quinta generazione|4|
+   |GP_S_Gen5_6|Utilizzo generico|Quinta generazione|6|
+   |GP_S_Gen5_8|Utilizzo generico|Quinta generazione|8|
+   |GP_S_Gen5_10|Utilizzo generico|Quinta generazione|10|
+   |GP_S_Gen5_12|Utilizzo generico|Quinta generazione|12|
+   |GP_S_Gen5_14|Utilizzo generico|Quinta generazione|14|
+   |GP_S_Gen5_16|Utilizzo generico|Quinta generazione|16|
 
 2. Facoltativamente, specificare il ritardo min Vcore e autopause per modificare i valori predefiniti. La tabella seguente illustra i valori disponibili per questi parametri.
 

@@ -2,17 +2,17 @@
 title: File di inclusione
 description: File di inclusione
 services: logic-apps
-author: ecfan
 ms.service: logic-apps
-ms.topic: include
-ms.date: 05/14/2018
+author: ecfan
 ms.author: estfan
+ms.topic: include
+ms.date: 09/18/2019
 ms.custom: include file
-ms.openlocfilehash: 6594031aeccae4b9f0ea843e2d72cb01a67d492d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 1fbf8a8d83871fa4cbed3fa79d3c19d66406329d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179903"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121041"
 ---
-Per consentire all'app per la logica di accedere a un servizio, è prima necessario creare una *connessione* tra l'app per la logica e il servizio. Se la connessione non è stata creata in precedenza, le informazioni sulla connessione vengono chieste quando si aggiunge un trigger o un'azione per tale servizio all'app per la logica. Progettazione app per la logica consente di creare questa connessione in modo semplice direttamente dall'app per la logica.
+Quando si usa un trigger o un'azione che accede a un servizio per la prima volta, la finestra di progettazione di app per la logica richiede di creare una *connessione* a tale servizio. È quindi possibile fornire le informazioni di connessione necessarie direttamente dall'app per la logica all'interno della finestra di progettazione.

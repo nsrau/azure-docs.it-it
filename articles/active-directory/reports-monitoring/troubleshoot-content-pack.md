@@ -17,12 +17,12 @@ ms.date: 06/07/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a0a5b5306414eb50a1928ec8a1854f56055681
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9e50f2b92318ada729ad8e3405af8403f31d7b6e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987893"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129278"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Risoluzione dei problemi relativi ai pacchetti di contenuto dei log attività di Azure Active Directory 
 
@@ -47,7 +47,7 @@ Questo articolo offre informazioni sulle possibili cause e su come risolvere que
 | Causa | Modalità di correzione |
 | ---   | ---        |
 | Gli errori di aggiornamento non riuscito possono verificarsi quando le credenziali degli utenti che si connettono al pacchetto di contenuto sono state reimpostate ma non sono state aggiornate nelle impostazioni di connessione del pacchetto di contenuto. | Individuare in Power BI il set di dati corrispondente al dashboard dei log attività di Azure AD (**Log attività di Azure Active Directory**), scegliere Pianifica aggiornamenti e quindi immettere le credenziali di Azure AD. |
-| Un aggiornamento può avere esito negativo a causa di set di impostazioni di grandi dimensioni. | Attualmente, il pacchetto di contenuto Azure AD con Power BI può supportare solo set di dati di piccole dimensioni (inferiori a 500, 00 righe) a causa di alcune limitazioni relative ai timeout nel servizio di Power BI. Se si verificano errori di limitazione o se l'aggiornamento non riesce a causa di problemi di timeout, è possibile che si stia tentando di recuperare un set di dati di grandi dimensioni. Ridurre il periodo di tempo nella query e riprovare.|
+| Un aggiornamento può avere esito negativo a causa di set di impostazioni di grandi dimensioni. | Attualmente, il pacchetto di contenuto Azure AD con Power BI può supportare solo set di dati di piccole dimensioni (inferiori a 500.000 righe) a causa di alcune limitazioni relative ai timeout nel servizio di Power BI. Se si verificano errori di limitazione o se l'aggiornamento non riesce a causa di problemi di timeout, è possibile che si stia tentando di recuperare un set di dati di grandi dimensioni. Ridurre il periodo di tempo nella query e riprovare.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>L'aggiornamento delle credenziali dell'origine dati non è riuscito 

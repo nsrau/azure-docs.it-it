@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 2f5029ccbf80551721ecc363aa4c3930961d9154
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 8b3572182832dc7692f6475be44281f56cf58571
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993065"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122766"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Come creare e gestire le repliche di lettura nel database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure e l'API REST
 
@@ -44,7 +44,12 @@ Il comando `az mariadb server replica create` richiede i parametri seguenti:
 | name | mydemoreplicaserver | Nome del nuovo server di replica creato. |
 | source-server | mydemoserver | Nome o ID del server master esistente in base al quale eseguire la replica. |
 
-Per creare una replica di lettura tra aree, usare `--location` il parametro. L'esempio dell'interfaccia della riga di comando seguente crea la replica negli Stati Uniti occidentali.
+Per creare una replica di lettura tra aree, usare `--location` il parametro. 
+
+> [!NOTE]
+> La replica tra aree è in anteprima.
+
+L'esempio dell'interfaccia della riga di comando seguente crea la replica negli Stati Uniti occidentali.
 
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
@@ -66,7 +71,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 Il comando `az mariadb server replica list` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | DESCRIZIONE  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | server-name | mydemoserver | Nome o ID del server master. |

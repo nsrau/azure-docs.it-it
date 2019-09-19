@@ -7,16 +7,16 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 09/19/2019
 ms.author: dapine
-ms.openlocfilehash: e79717b15cabe815debfa9fd960c0b2623e8088e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5ec535fe2ce23a2ead1163e870aae97fd104ef09
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70847697"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130059"
 ---
-## <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>Distribuire il contenitore Estrazione frasi chiave in un cluster AKS
+### <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>Distribuire il contenitore Estrazione frasi chiave in un cluster AKS
 
 1. Aprire l'interfaccia della riga di comando di Azure e accedere ad Azure.
 

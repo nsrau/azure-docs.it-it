@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/24/2019
-ms.openlocfilehash: 8565ee03ddff67afb3700aa1cda91ae696a0fc93
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 270bc5401e58f4e5c99cae3c5ab06b4f03ae9543
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960220"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123251"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Usare MirrorMaker per replicare gli argomenti di Apache Kafka con Kafka in HDInsight
 
@@ -84,12 +84,12 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
     1. Fare clic su **Aggiungi**.
     1. Nella schermata **Aggiungi peering** immettere i dettagli, come illustrato nella schermata seguente.
 
-        ![aggiungere il peering VNET](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        ![HDInsight Kafka-aggiunta del peering VNET](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
 1. Configurare la pubblicità IP:
     1. Passare al dashboard di Ambari per il cluster primario: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
     1. Fare clic su **Servizi** > **Kafka**. Fare clic sulla scheda **Configurazioni** .
-    1. Aggiungere le seguenti righe di configurazione alla sezione del **modello Kafka-ENV** inferiore. Fare clic su **Save**.
+    1. Aggiungere le seguenti righe di configurazione alla sezione del **modello Kafka-ENV** inferiore. Fare clic su **Salva**.
     
         ```
         # Configure Kafka to advertise IP addresses instead of FQDN
@@ -104,18 +104,18 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
     1. Fare clic su **OK** in **Salva modifiche configurazione**.
     1. Fare clic **su Riavvia** **riavvio tutti interessati** nella notifica **riavvio richiesto.**  >  Fare clic su **Confirm restart all**.
 
-        ![riavviare i nodi Kafka](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+        ![Riavvio di Apache Ambari tutti interessati](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 1. Configurare Kafka per l'ascolto su tutte le interfacce di rete.
     1. Rimanere nella scheda **configs (configurazioni** ) in **Services** > **Kafka**. Nella sezione **Kafka broker** impostare la proprietà **Listeners** su `PLAINTEXT://0.0.0.0:9092`.
-    1. Fare clic su **Save**.
+    1. Fare clic su **Salva**.
     1. Fare clic su **Riavvia**e **confermare riavvia tutto**.
 
 1. Registrare gli indirizzi IP e gli indirizzi Zookeeper del broker per il cluster primario.
     1. Fare clic su **host** nel dashboard di Ambari.
     1. Prendere nota degli indirizzi IP per i broker e Zookeeper. I nodi **broker hanno come** prime due lettere del nome host e i nodi Zookeeper hanno **ZK** come prime due lettere del nome host.
 
-        ![Visualizza indirizzi IP](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+        ![Indirizzi IP del nodo di visualizzazione Apache Ambari](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. Ripetere i tre passaggi precedenti per il secondo cluster **Kafka-Secondary-cluster**: Configure IP Advertising, set Listeners e prendere nota degli indirizzi IP broker e Zookeeper.
 
@@ -251,7 +251,7 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
         6. Cambiare il valore di `auto.create.topics.enable` impostandolo su true e quindi selezionare __Salva__. Aggiungere una nota e selezionare di nuovo __Salva__.
         7. Selezionare il servizio __Kafka__, selezionare __Riavvia__ e quindi selezionare __Restart all affected__ (Riavvia tutte le istanze interessate). Quando viene chiesto, selezionare __Confirm restart all__ (Conferma riavvio di tutte le istanze).
 
-        ![Configura creazione automatica argomento](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        ![argomenti relativi alla creazione automatica di Kafka](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
 ## <a name="start-mirrormaker"></a>Avviare MirrorMaker
 
@@ -296,7 +296,7 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
 
 I passaggi descritti in questo documento hanno creato cluster in diversi gruppi di risorse di Azure. Per eliminare tutte le risorse create, è possibile eliminare i due gruppi di risorse creati: **Kafka-Primary-RG** e **Kafka-secondary_rg**. L'eliminazione dei gruppi di risorse consente di rimuovere tutte le risorse create seguendo questo documento, inclusi cluster, reti virtuali e account di archiviazione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 In questo documento è stato descritto come usare [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) per creare la replica di un cluster [Apache Kafka](https://kafka.apache.org/). Per trovare altri modi per lavorare con Kafka, vedere i collegamenti seguenti:
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3ddf5a1ab37ac0af25379394b4513627139fcbd5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: b2cfe8014e6ffbd7a6d5449192acde9780a2d303
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307943"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122893"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi all'API di servizi multimediali V3-.NET
 
@@ -45,7 +45,7 @@ L'app di esempio in questo argomento è `netcoreapp2.0`destinata a. Il codice US
 1. In Visual Studio selezionare **strumenti** >  > **Gestione pacchetti NuGet** **console di gestione NuGet**.
 2. Nella finestra **console di gestione pacchetti** usare `Install-Package` il comando per aggiungere i pacchetti NuGet seguenti. Ad esempio `Install-Package Microsoft.Azure.Management.Media`.
 
-|Pacchetto|DESCRIZIONE|
+|Pacchetto|Descrizione|
 |---|---|
 |`Microsoft.Azure.Management.Media`|SDK di servizi multimediali di Azure. <br/>Per assicurarsi di usare il pacchetto di servizi multimediali di Azure più recente, controllare [Microsoft. Azure. Management. Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
 |`Microsoft.Rest.ClientRuntime.Azure.Authentication`|ADAL Authentication Library per Azure SDK per NET|
@@ -69,7 +69,7 @@ Eseguire il `az ams account sp create` comando come descritto in [accedere alle 
 
 Per praticità, aggiungere un file di configurazione responsabile della lettura dei valori da "appSettings. JSON".
 
-1. Aggiungere una nuova classe. cs al progetto. Assegnargli il nome `ConfigWrapper`. 
+1. Aggiungere una nuova classe. cs al progetto. Denominarlo `ConfigWrapper`. 
 1. Incollare il codice seguente in questo file (in questo esempio si presuppone che lo spazio `ConsoleApp1`dei nomi sia).
 
 ```csharp
@@ -242,4 +242,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>Vedere anche
 
-[Riferimento .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [Riferimento .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* Per altri esempi di codice, vedere il repository degli [esempi di .NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) .

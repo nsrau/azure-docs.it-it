@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3f64bce34a1bdb11bdbebb99fe28cdf3ff16dfb8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515345"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128715"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -54,7 +54,7 @@ I livelli di servizio basati su vCore vengono principalmente distinti in base al
 | | Istanza gestita  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
 | **Velocità effettiva di I/O** | Database singolo** | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPs effettivi dipendono dal carico di lavoro. | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
 | | Istanza gestita | Dipende dalle dimensioni del file | N/D | Istanza gestita: Dipende dalle dimensioni del file|
-|**Disponibilità**|Tutti|1 replica, senza scalabilità in lettura, senza cache locale | Più repliche, fino a 15 repliche con scalabilità in lettura, cache locale parziale | 3 repliche, 1 replica con scalabilità in lettura, disponibilità elevata con ridondanza della zona, cache locale completa |
+|**Disponibilità**|Tutti|1 replica, senza scalabilità in lettura, senza cache locale | Più repliche, fino a 4 cache locale parziale con scalabilità in lettura | 3 repliche, 1 replica con scalabilità in lettura, disponibilità elevata con ridondanza della zona, cache locale completa |
 |**Backup**|Tutti|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)| RA-GRS, 7 giorni, ripristino temporizzato a tempo costante (ripristino temporizzato) | RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita) |
 
 \* Pool elastici non supportati nel livello di servizio Hyperscale
@@ -197,7 +197,7 @@ No
 
 ### <a name="is-database-compression-supported"></a>È supportata la compressione del database
 
-Sì
+Yes
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>In presenza di una tabella di grandi dimensioni, i dati della tabella vengono distribuiti in più file di dati
 
@@ -388,4 +388,4 @@ Dal momento in cui viene eseguito il commit di una transazione nel nodo primario
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul livello di servizio di iperscalabilità, vedere [livello di servizio](sql-database-service-tier-hyperscale.md)di iperscalabilità.
+Per altre informazioni sul livello di servizio di iperscalabilità, vedere [livello di servizio di iperscalabilità](sql-database-service-tier-hyperscale.md).

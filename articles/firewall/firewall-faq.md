@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 4b258df1711aa51ed4edee6ecd209fa39c7fde27
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018841"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130216"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -88,7 +88,7 @@ Vedere [prezzi di Azure firewall](https://azure.microsoft.com/pricing/details/az
 
 È possibile usare i metodi di *deallocazione* e *allocazione* di Azure PowerShell.
 
-Ad esempio:
+Esempio:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -163,3 +163,7 @@ Il firewall di Azure deve effettuare il provisioning di più istanze di macchine
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>È necessario modificare la dimensione della subnet del firewall con la scalabilità del servizio?
 
 No. Il firewall di Azure non necessita di una subnet maggiore di/26.
+
+## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Il firewall di Azure consente l'accesso alle Active Directory per impostazione predefinita?
+
+No. Il firewall di Azure blocca Active Directory accesso per impostazione predefinita. Per consentire l'accesso, configurare il tag del servizio AzureActiveDirectory. Per altre informazioni, vedere [tag del servizio firewall di Azure](service-tags.md).

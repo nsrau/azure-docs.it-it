@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 09/18/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: c4290473a7c1edce02d74a4a787c62ccf0d9c052
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 864b834fcc6810b52f067d8e67b4a48febd0f787
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924317"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123485"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuiti e peering ExpressRoute
 
@@ -22,7 +22,7 @@ I circuiti ExpressRoute connettono un'infrastruttura locale a Microsoft tramite 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> Peering pubblico di Azure è stato deprecato e non è disponibile per nuovi circuiti di ExpressRoute. Nuovi circuiti di supportano per il peering Microsoft e il peering privato.  
+> Il peering pubblico di Azure è stato deprecato e non è disponibile per i nuovi circuiti ExpressRoute. I nuovi circuiti supportano il peering Microsoft e il peering privato.  
 >
 
 ## <a name="circuits"></a>Circuiti ExpressRoute
@@ -55,14 +55,14 @@ I servizi di calcolo di Azure, ovvero le macchine virtuali (IaaS) e i servizi cl
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-La connettività verso Microsoft Online Services (i servizi Office 365, Dynamics 365 e Azure PaaS) viene attivata tramite peering Microsoft. La connettività bidirezionale tra la rete WAN e i servizi cloud Microsoft verrà abilitata tramite il dominio di routing di peering Microsoft. È necessario connettersi ai servizi cloud Microsoft solo tramite indirizzi IP pubblici di cui si è proprietari o di proprietà del proprio provider di connettività ed è necessario rispettare tutte le regole definite. Per altre informazioni, vedere la pagina [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
+La connettività a Microsoft Servizi online (Office 365 e i servizi PaaS di Azure) si verifica tramite il peering Microsoft. La connettività bidirezionale tra la rete WAN e i servizi cloud Microsoft verrà abilitata tramite il dominio di routing di peering Microsoft. È necessario connettersi ai servizi cloud Microsoft solo tramite indirizzi IP pubblici di cui si è proprietari o di proprietà del proprio provider di connettività ed è necessario rispettare tutte le regole definite. Per altre informazioni, vedere la pagina [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
 Per altre informazioni sui servizi supportati, sui costi e sui dettagli per la configurazione, vedere la [pagina relativa alle domande frequenti](expressroute-faqs.md) . Per informazioni sull'elenco di provider di connettività che offrono supporto per il peering Microsoft, vedere la pagina relativa alle [località per ExpressRoute](expressroute-locations.md) .
 
 ### <a name="publicpeering"></a>Peering pubblico di Azure (deprecato per i circuiti nuovi)
 
 > [!Note]
-> Peering pubblico di Azure ha 1 indirizzo IP NAT associato a ogni sessione BGP. Per maggiore di 2 indirizzi IP NAT, spostare il peering Microsoft. Il peering Microsoft consente di configurare proprie allocazioni NAT, nonché di utilizzare i filtri di route per gli annunci di prefisso selettiva. Per altre informazioni, vedere [spostare il peering Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> Il peering pubblico di Azure ha 1 indirizzo IP NAT associato a ogni sessione BGP. Per più di 2 indirizzi IP NAT, passare al peering Microsoft. Il peering Microsoft consente di configurare le proprie allocazioni NAT, nonché di usare i filtri di route per gli annunci con prefisso selettivo. Per altre informazioni, vedere [passare al peering Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 >
 
 I servizi quali Archiviazione, database SQL e Siti Web di Azure vengono offerti su indirizzi IP pubblici. È possibile connettersi privatamente ai servizi ospitati su indirizzi IP pubblici, inclusi gli indirizzi VIP dei servizi cloud, tramite il dominio di routing di peering pubblico. È possibile connettere il dominio di peering pubblico al DMZ e connettersi a tutti i servizi di Azure sui rispettivi indirizzi IP pubblici dalla rete WAN senza doversi connettere a Internet.
@@ -84,7 +84,7 @@ La tabella seguente confronta i tre peering:
 | **Requisiti del numero AS** |Numeri AS pubblici e privati. È necessario possedere un numero AS pubblico se si sceglie di usarne uno. |Numeri AS pubblici e privati. È tuttavia necessario dimostrare la proprietà degli indirizzi IP pubblici. |Numeri AS pubblici e privati. È tuttavia necessario dimostrare la proprietà degli indirizzi IP pubblici. |
 | **Protocolli IP supportati**| IPv4 |  IPv4, IPv6 | IPv4 |
 | **Indirizzi IP per l'interfaccia di routing** |Indirizzi IP pubblici e RFC1918 |Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing. |Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing. |
-| **Supporto per Hash MD5** |Yes |Sì |Yes |
+| **Supporto per Hash MD5** |Yes |Yes |Yes |
 
 È possibile scegliere di abilitare uno o più domini di routing come parte del circuito ExpressRoute. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN se si vuole combinarli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft alla rete perimetrale.
 

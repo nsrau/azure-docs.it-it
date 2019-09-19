@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9ab09c7215827369b3e1fc449af68be307881f51
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928020"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123063"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 ##  <a name="introduction"></a>Introduzione
@@ -128,19 +128,8 @@ Se in un'unità disco usata per l'archiviazione si verifica un errore hardware, 
 Microsoft Azure offre numerosi servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione. Tali istanze e servizi di calcolo offrono l'isolamento a più livelli per proteggere i dati senza sacrificare la flessibilità di configurazione richiesta dai clienti.
 
 ### <a name="isolated-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali con piano Isolato
-Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente.  Queste dimensioni delle macchine virtuali sono particolarmente adatte ai carichi di lavoro che richiedono un elevato livello di isolamento dagli altri clienti, per i carichi di lavoro con aspetti come i requisiti normativi e di conformità.  I clienti possono anche scegliere di suddividere ulteriormente le risorse di tali macchine virtuali con piano Isolato usando il [supporto di Azure per le macchine virtuali annidate](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
-L'utilizzo di dimensioni con piano Isolato garantisce che la macchina virtuale sia l'unica in esecuzione nella specifica istanza del server.  Le offerte di macchine virtuali con piano Isolato correnti includono:
-* Standard_E64is_v3
-* Standard_E64i_v3
-* Standard_M128ms
-* Standard_GS5
-* Standard_G5
-* Standard_DS15_v2
-* Standard_D15_v2
-* Standard_F72s_v2
-
-Altre informazioni su ogni dimensione con piano Isolato sono disponibili [qui](../../virtual-machines/windows/sizes-memory.md).
+[!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Isolamento Hyper-V e del sistema operativo radice tra VM radice e VM guest
 La piattaforma di calcolo di Azure si basa sulla virtualizzazione dei computer, ovvero tutto il codice del cliente viene eseguito in una macchina virtuale Hyper-V. In ogni nodo o endpoint di rete di Azure è presente un hypervisor che viene eseguito direttamente sull'hardware e suddivide il nodo in un numero variabile di macchine virtuali guest.
@@ -348,11 +337,11 @@ La distribuzione di Azure offre più livelli di isolamento della rete. Il diagra
 
 La [subnet](../../virtual-network/virtual-networks-overview.md) offre un livello di isolamento aggiuntivo nella rete virtuale in base a un intervallo di indirizzi IP. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare un [gruppo di sicurezza di rete (NSG)](../../virtual-network/virtual-networks-overview.md) per consentire o negare il traffico di rete verso un'istanza di macchina virtuale in base alle regole configurate nell'elenco di controllo di accesso (ACL) del gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Opzioni di isolamento della rete per le macchine nelle reti virtuali di Microsoft Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 
-Comprendono il tipico scenario di front-end e back-end in cui le macchine di una particolare rete back-end o subnet possono consentire solo ad alcuni client o altri computer di connettersi a un endpoint specifico in base a un elenco di indirizzi IP consentiti.
+Sono inclusi gli scenari di front-end e back-end classici in cui i computer in una rete back-end particolare o in una subnet possono consentire solo a determinati client o altri computer di connettersi a un determinato endpoint in base a un elenco di indirizzi IP consentiti.
 
 - [Isolamento del calcolo](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 

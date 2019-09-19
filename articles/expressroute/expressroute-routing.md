@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9d4822d07a95fcdec32c0c4146562884302fa4f8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308326"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123268"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -80,11 +80,11 @@ Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di pro
 
 ## <a name="public-ip-address-requirement"></a>Requisito dell'indirizzo IP pubblico
 
-### <a name="private-peering"></a>Peering privato
+### <a name="private-peering"></a>Peer privato
 È possibile scegliere di usare gli indirizzi IPv4 pubblici o privati per il peering privato. Microsoft offre un isolamento end-to-end del traffico, quindi la sovrapposizione degli indirizzi con altri clienti non si verifica in caso di peering privato. Questi indirizzi non vengono annunciati su Internet. 
 
-### <a name="microsoft-peering"></a>Peering Microsoft
-Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include i servizi di Office 365, ad esempio Exchange Online, SharePoint Online, Skype for business, Microsoft teams e Dynamics 365. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
+### <a name="microsoft-peering"></a>Peer Microsoft
+Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include i servizi di Office 365, ad esempio Exchange Online, SharePoint Online, Skype for business e Microsoft teams. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
 
 Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utente in uno dei registri seguenti:
 
@@ -193,8 +193,8 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | India occidentale | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
 | India centrale | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
 | **Corea del Sud** | |
-| Corea del Sud meridionale | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
-| Corea del Sud centrale | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
+| Corea meridionale | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
+| Corea centrale | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **Sud Africa**| |
 | Sudafrica settentrionale | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
 | Sudafrica occidentale | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
@@ -218,7 +218,6 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | Exchange Online | 12076:5010 |
 | SharePoint Online | 12076:5020 |
 | Skype for Business Online | 12076:5030 |
-| Dynamics 365 | 12076:5040 |
 | Servizi globali di Azure* | 12076:5050 |
 | Altri servizi online di Office 365 | 12076:5100 |
 
@@ -249,7 +248,6 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype for Business Online |12076:5130 |
-| Dynamics 365 |12076:5140 |
 | Altri servizi online di Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Passaggi successivi

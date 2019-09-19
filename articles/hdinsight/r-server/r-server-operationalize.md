@@ -1,19 +1,19 @@
 ---
 title: Rendere operativo ML Services in HDInsight - Azure
 description: Informazioni su come rendere operativo il modello di dati per eseguire stime con i servizi ML in Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4980b4d3a4ec7165a4aba3d02561f6c666150924
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967697"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123574"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
@@ -50,31 +50,31 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 1. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure ML Server for Operationalization**.
 
-    ![OP1 di una casella](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![Selezione dell'utilità di amministrazione di R server](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. Viene ora presentata l'opzione per scegliere come si vuole rendere operativo ML Server. Tra le opzioni presentate scegliere la prima immettendo **A**.
 
-    ![OP2 di una casella](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![Utilità di amministrazione di R server rendere operativo](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. Quando richiesto, immettere due volte la password per un utente amministratore locale.
 
 1. Verranno visualizzati gli output indicanti che l'operazione è riuscita. Viene anche chiesto di selezionare un'altra opzione dal menu. Selezionare E per tornare al menu principale.
 
-    ![OP3 di una casella](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![Utilità di amministrazione di R server riuscita](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. È facoltativamente possibile effettuare controlli diagnostici eseguendo un test di diagnostica, come illustrato di seguito:
 
     a. Dal menu principale selezionare **6** per eseguire i test diagnostici.
 
-    ![diagnostic1](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    ![Diagnostica utilità di amministrazione server R](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
     b. Dal menu Diagnostic Tests selezionare **A**. Quando richiesto, immettere la password specificata per l'utente amministratore locale.
 
-    ![diagnostic2](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    ![Test dell'utilità di amministrazione di R server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. Verificare che l'output indichi che il valore dell'integrità generale è pass.
 
-    ![diagnostic3](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    ![Passaggio dell'utilità di amministrazione di R server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. Tra le opzioni di menu presentate immettere **E** per tornare al menu principale e quindi immettere **8** per uscire dall'utilità di amministrazione.
 
@@ -148,7 +148,7 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
 1. Fare clic su **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **Hosts** (Host) > **Turn ON Maintenance Mode** (Attiva modalità di manutenzione). Ad esempio nell'immagine seguente i nodi selezionati per la rimozione delle autorizzazioni sono wn3 e wn4.  
 
-   ![Rimozione delle autorizzazioni dei nodi del ruolo di lavoro](./media/r-server-operationalize/get-started-operationalization.png)  
+   ![Attivazione della modalità manutenzione di Apache Ambari](./media/r-server-operationalize/get-started-operationalization.png)  
 
 * Selezionare **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **DataNodes** > fare clic su **Decommission** (Rimuovi autorizzazioni).
 * Selezionare **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **NodeManagers** > fare clic su **Decommission** (Rimuovi autorizzazioni).

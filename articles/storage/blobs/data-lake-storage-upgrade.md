@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 7c018ad15ee653bcdc903492028ec5ed058dbd14
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 4c01cd36d489d8e7128bed645c8cb1127c6c0c25
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992226"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130414"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Aggiornare le soluzioni di analisi dei Big Data da Azure Data Lake Storage Gen1 ad Azure Data Lake Storage Gen2
 
@@ -249,7 +249,7 @@ L'attività principale consiste nel tradurre gli URI con prefisso `adl://` in UR
 
 Lo schema URI dettagliato per Data Lake Storage Gen1 è riportato [qui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store), ma quello generale è *adl://mydatalakestore.azuredatalakestore.net/\<percorso_file\>.*
 
-Lo schema URI per l'accesso ai file di Data Lake Storage Gen2 è illustrato in dettaglio [qui](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), ma in generale è `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+Lo schema URI per l'accesso ai file di Data Lake Storage Gen2 è illustrato in dettaglio [qui](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), ma in generale è `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`.
 
 Sarà necessario esaminare le applicazioni esistenti e verificare di aver modificato correttamente gli URI in modo che puntino a quelli di Data Lake Storage Gen2. Sarà anche necessario aggiungere le credenziali appropriate. Infine, il modo in cui si ritirano le applicazioni originali e le si sostituiscono con la nuova applicazione dovrà essere strettamente allineato alla strategia di aggiornamento generale.
 

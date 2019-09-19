@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: d3d09d466e05c97de215542c66987aa6b723afce
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 9b78c18547ef61b388a56a1272b5621cada43806
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827981"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120497"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -23,13 +23,14 @@ Dopo aver creato un account Azure Cosmos nella sottoscrizione, è possibile gest
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Numero massimo di ur per contenitore (modalità di provisioning della[velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 1 milione per impostazione predefinita. È possibile aumentarlo inserendo [un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
-| Numero massimo di ur per database (modalità con provisioning della[velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 1 milione per impostazione predefinita. È possibile aumentarlo inserendo [un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
+| Numero massimo di ur per contenitore ([modalità di provisioning della velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 1 milione per impostazione predefinita. È possibile aumentarlo inserendo [un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
+| Numero massimo di ur per database ([modalità con provisioning della velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 1 milione per impostazione predefinita. È possibile aumentarlo inserendo [un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
 | Numero massimo di ur per chiave di partizione (logica) | 10,000 |
 | Archiviazione massima tra tutti gli elementi per ogni chiave di partizione (logica)| 10 GB |
 | Numero massimo di chiavi di partizione (logiche) distinte | Senza limitazioni |
 | Spazio di archiviazione massimo per contenitore | Senza limitazioni |
 | Spazio di archiviazione massimo per database | Senza limitazioni |
+| Dimensioni massime degli allegati per ogni account (la funzionalità degli allegati verrà ammortizzata) | 2 GB | 
 
 > [!NOTE]
 > Per le procedure consigliate per gestire i carichi di lavoro con chiavi di partizione che richiedono limiti più elevati per l'archiviazione o la velocità effettiva, vedere [progettazione di chiavi di partizione a caldo](synthetic-partition-keys.md)
@@ -40,7 +41,7 @@ Un contenitore Cosmos (o un database con velocità effettiva condivisa) deve ave
 * La velocità effettiva minima che è possibile impostare in un contenitore dipende dalla velocità effettiva massima di cui è stato effettuato il provisioning nel contenitore. Il servizio supporta la riduzione della velocità effettiva di un contenitore fino al 10% del valore massimo di cui è stato effettuato il provisioning. Se ad esempio la velocità effettiva è aumentata a 10000 ur, la velocità effettiva con provisioning più bassa possibile sarà 1000 ur
 * La velocità effettiva minima in un database di velocità effettiva condivisa dipende anche dal numero totale di contenitori creati in un database di velocità effettiva condivisa, misurato a 100 ur per ogni contenitore. Se, ad esempio, sono stati creati cinque contenitori all'interno di un database di velocità effettiva condivisa, la velocità effettiva deve essere almeno di 500 UR
 
-La velocità effettiva corrente e minima di un contenitore o di un database può essere recuperata dal portale di Azure o dagli SDK. Per altre informazioni, vedere provisioning della [velocità effettiva nei contenitori e nei database](set-throughput.md). 
+La velocità effettiva corrente e minima di un contenitore o di un database può essere recuperata dal portale di Azure o dagli SDK. Per altre informazioni, vedere [provisioning della velocità effettiva nei contenitori e nei database](set-throughput.md). 
 
 > [!NOTE]
 > In alcuni casi, potrebbe essere possibile ridurre la velocità effettiva a un valore inferiore al 10%. Usare l'API per ottenere le UR minime esatte per ogni contenitore.
@@ -50,15 +51,15 @@ In breve, di seguito sono riportati i limiti minimi di provisioning delle UR.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Numero minimo di ur per contenitore (modalità di provisioning della[velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Numero minimo di ur per database (modalità con provisioning della[velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Numero minimo di ur per contenitore ([modalità di provisioning della velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Numero minimo di ur per database ([modalità con provisioning della velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Unità richiesta minime per contenitore all'interno di un database di velocità effettiva condivisa | 100 |
 
 Cosmos DB supporta il ridimensionamento elastico della velocità effettiva (UR) per ogni contenitore o database tramite gli SDK o il portale. Ogni contenitore può essere ridimensionato in modo sincrono e immediatamente entro un intervallo di scala compreso tra 10 e 100 volte, tra i valori minimo e massimo. Se il valore della velocità effettiva richiesta non rientra nell'intervallo, il ridimensionamento viene eseguito in modo asincrono. Il completamento del ridimensionamento asincrono può richiedere minuti o ore, a seconda della velocità effettiva richiesta e delle dimensioni di archiviazione dei dati nel contenitore.  
 
 ## <a name="control-plane-operations"></a>Operazioni del piano di controllo
 
-È possibile eseguire il provisioning [e gestire l'account Azure Cosmos](how-to-manage-database-account.md) usando i modelli di portale di Azure, Azure PowerShell, interfaccia della riga di comando di azure e Azure Resource Manager. La tabella seguente elenca i limiti per sottoscrizione, account e numero di operazioni.
+È possibile eseguire il [provisioning e gestire l'account Azure Cosmos](how-to-manage-database-account.md) usando i modelli di portale di Azure, Azure PowerShell, interfaccia della riga di comando di azure e Azure Resource Manager. La tabella seguente elenca i limiti per sottoscrizione, account e numero di operazioni.
 
 | Risorsa | Limite predefinito |
 | --- | --- |

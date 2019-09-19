@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: 8158611678acc23d89bab377c170759c6bf9677f
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ac31a2945e59df3b57000a0ffdcbca8344e44c18
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962641"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122305"
 ---
 # <a name="animated-character-detection-preview"></a>Rilevamento di caratteri animati (anteprima)
 
@@ -91,7 +91,11 @@ Se si è proprietari di un account Video Indexer a pagamento, è necessario prim
     1. Dopo aver digitato il nuovo nome, fare clic sull'icona di controllo accanto al nuovo nome. In questo modo il nuovo nome viene salvato nel modello in Video Indexer.
     1. Al termine della modifica di tutti i nomi desiderati, è necessario eseguire il training del modello.
 
-        Aprire la pagina Personalizzazione e fare clic sulla scheda **caratteri animati** . Per il modello pertinente, fare clic sul collegamento **modifica in visione personalizzata** . Verrà quindi inviato alla pagina del modello in Visione personalizzata. Fare clic sul pulsante **Train (Train** ) per eseguire il training del modello. 
+        Aprire la pagina Personalizzazione e fare clic sulla scheda **caratteri animati** . Se si dispone di un account a pagamento, è possibile fare clic sul collegamento **Gestisci modelli in visione cliente** (come illustrato di seguito). Verrà quindi inviato alla pagina del modello in Visione personalizzata. Fare clic sul pulsante **Train (Train** ) per eseguire il training del modello. 
+        
+        ![Personalizzazione del modello di contenuto](./media/animated-characters-recognition/content-model-customization-tab.png)
+
+        Se si dispone di un account di valutazione, il collegamento **Gestisci modelli in visione cliente** non sarà presente. In questo caso, è possibile premere **Train** right nella pagina di **personalizzazione del modello di contenuto** .
     1. Una volta eseguito il training, qualsiasi video che verrà indicizzato o reindicizzato con tale modello riconoscerà i caratteri sottoposti a training. 
     Gli account a pagamento che hanno accesso al proprio account di Visione personalizzata possono visualizzare i modelli e le immagini con tag. Altre informazioni su come [migliorare il classificatore in visione personalizzata](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 

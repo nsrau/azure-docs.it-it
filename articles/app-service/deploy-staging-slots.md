@@ -12,14 +12,14 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: b86f08fbcb661ae4266658016de7aa92da785bf9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070591"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129705"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -48,7 +48,7 @@ Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione 
     ![Aggiungi un nuovo slot di distribuzione](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Se l'app non è già nel livello **standard**, **Premium**o **isolato** , viene visualizzato un messaggio che indica i livelli supportati per l'abilitazione della pubblicazione di gestione temporanea. A questo punto, è possibile selezionare **Aggiorna** e passare alla scheda scalabilità dell' app prima di continuare.
+   > Se l'app non è già nel livello **standard**, **Premium**o **isolato** , viene visualizzato un messaggio che indica i livelli supportati per l'abilitazione della pubblicazione di gestione temporanea. A questo punto, è possibile selezionare **Aggiorna** e passare alla scheda **scalabilità** dell'app prima di continuare.
    > 
 
 3. Nella finestra di dialogo **Aggiungi uno slot** assegnare un nome allo slot e selezionare se clonare una configurazione dell'app da un altro slot di distribuzione. Selezionare **Aggiungi** per continuare.
@@ -220,6 +220,9 @@ Per altre informazioni sulla personalizzazione dell' `applicationInitialization`
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Il percorso di ping per scaldare il sito. Aggiungere questa impostazione dell'app specificando un percorso personalizzato che inizi con una barra come valore. Un esempio è `/statuscheck`. Il valore predefinito è `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: codici di risposta HTTP validi per l'operazione di riscaldamento. Aggiungere questa impostazione dell'app con un elenco di codici HTTP separati da virgole. Un esempio è `200,202` . Se il codice di stato restituito non è presente nell'elenco, le operazioni di riscaldamento e scambio vengono interrotte. Per impostazione predefinita, sono validi tutti i codici di risposta.
 
+> [!NOTE]
+> `<applicationInitialization>`fa parte di ogni avvio di app, in cui le due impostazioni dell'app si applicano solo agli scambi di slot.
+
 In caso di problemi, vedere risolvere i problemi di [swap](#troubleshoot-swaps).
 
 ## <a name="monitor-a-swap"></a>Monitorare uno scambio
@@ -368,6 +371,8 @@ Di seguito sono riportati alcuni errori di scambio comuni:
     </conditions>
     ```
 - Alcune [regole di restrizione IP](app-service-ip-restrictions.md) potrebbero impedire all'operazione di scambio di inviare richieste HTTP all'app. Gli intervalli di indirizzi IPv4 che `10.` iniziano `100.` con e sono interni alla distribuzione. È necessario consentire la connessione all'app.
+
+- Dopo lo scambio di slot, l'app può riscontrare riavvii imprevisti. Questo è dovuto al fatto che dopo uno scambio la configurazione dell'associazione del nome host non viene sincronizzata, che non provoca il riavvio. Tuttavia, alcuni eventi di archiviazione sottostanti, ad esempio i failover del volume di archiviazione, possono rilevare tali discrepanze e forzare il riavvio di tutti i processi di lavoro. Per ridurre al minimo questi tipi di riavvii, impostare l' [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` impostazione dell'app](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) su tutti gli *slot*. Tuttavia, questa impostazione dell'app *non* funziona con le app Windows Communication Foundation (WCF).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Bloccare l'accesso a slot non di produzione](app-service-ip-restrictions.md)

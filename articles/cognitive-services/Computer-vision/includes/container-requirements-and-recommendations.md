@@ -1,27 +1,42 @@
 ---
-title: Requisiti del contenitore e consigli.
+title: Indicazioni e requisiti per i contenitori
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 8/26/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 5da088bf0356dd54d98ec5393fd2db8068f9c666
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 47c889a428ec2916dc8cad73e30ef5ff630372a7
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034482"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129808"
 ---
-La tabella seguente indica i core CPU minimi e consigliati e la memoria da allocare per ogni contenitore di Riconoscimento del testo.
+> [!NOTE]
+> I requisiti e le indicazioni sono basati sui benchmark con una singola richiesta al secondo, usando un'immagine di 8 MB di una lettera di business scansionata che contiene 29 righe e un totale di 803 caratteri.
+
+#### <a name="readtabread"></a>[Lettura](#tab/read)
+
+La tabella seguente descrive l'allocazione minima e consigliata delle risorse per ogni contenitore di lettura.
 
 | Contenitore | Minima | Consigliato |TPS<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
-|Riconoscimento del testo|1 core, 8 GB di memoria, 0,5 TPS|2 Core, 8 GB di memoria, 1 TPS|0,5, 1|
+| Leggi | 1 core, 8 GB di memoria, 0,24 TPS | 8 core, 16 GB di memoria, 1,17 TPS | 0,24, 1,17 |
+
+#### <a name="recognize-texttabrecognize-text"></a>[Riconoscimento del testo](#tab/recognize-text)
+
+La tabella seguente descrive l'allocazione minima e consigliata delle risorse per ogni contenitore riconoscimento del testo.
+
+| Contenitore | Minima | Consigliato |TPS<br>(Minimo, massimo)|
+|-----------|---------|-------------|--|
+| Riconoscimento del testo | 1 core, 8 GB di memoria, 0,12 TPS | 8 core, 16 GB di memoria, 0,60 TPS | 0,12, 0,60 |
+
+***
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
-* TPS - transazioni al secondo
+* TPS-transazioni al secondo.
 
 Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
