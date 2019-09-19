@@ -93,7 +93,7 @@ sections:
           - href: /azure/sql-database/sql-database-instance-pools
             html: <p>Usare i pool di istanze gestite come soluzione semplice ed economica per la distribuzione di più istanze gestite che condividono risorse e vengono ridimensionate rapidamente.</p>
             image:
-              src: media/index/i_instancepool.png
+              src: media/index/i-instancepools.svg
             title: Pool di istanze
   - title: Guide introduttive di 5 minuti
     items:
