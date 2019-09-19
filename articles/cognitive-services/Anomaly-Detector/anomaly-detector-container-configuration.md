@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4a961080bc124e53a8c5fe4dcc5f3cd6f21e9e5c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933002"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102563"
 ---
-# <a name="configure-anomaly-detector-containers"></a>Configurare i contenitori del rilevamento anomalie
+# <a name="configure-anomaly-detector-containers"></a>Configurare i contenitori di Rilevamento anomalie
 
 L' ambiente di runtime del contenitore del rilevatore `docker run` di anomalie viene configurato utilizzando gli argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
 
@@ -59,9 +59,9 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 * Portale di Azure: **Rilevamento anomalie** Panoramica, con etichetta`Endpoint`
 
-|Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -102,10 +102,12 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire il valore tra parentesi quadre, `{}`, con valori personalizzati:
 
-| Segnaposto | Valore | Formato o esempio |
+| Segnaposto | Value | Formato o esempio |
 |-------------|-------|---|
-|{API_KEY} | Chiave dell'endpoint della risorsa del rilevatore di anomalie. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | Il valore dell'endpoint di fatturazione inclusa la regione.|`https://westus2.api.cognitive.microsoft.com`|
+| **{API_KEY}** | Chiave dell'endpoint della `Anomaly Detector` risorsa nella pagina chiavi di Azure. `Anomaly Detector` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `Anomaly Detector` pagina Panoramica di Azure.| Vedere [raccolta di parametri obbligatori](anomaly-detector-container-howto.md#gathering-required-parameters) per esempi espliciti. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](anomaly-detector-container-howto.md#billing).

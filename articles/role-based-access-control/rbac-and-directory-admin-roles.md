@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: be37768a5cef38ae0dc49e12f1d83ba8005ab961
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: e9ce71f12d50aa414579e5fc7c2961156965a337
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194182"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037532"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Ruoli di amministratore sottoscrizione classico, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD
 
@@ -112,7 +112,7 @@ A livello generale, i ruoli di controllo dell'accesso in base al ruolo di Azure 
 | Ruoli di controllo degli accessi in base al ruolo di Azure | Ruoli di amministratore di Azure AD |
 | --- | --- |
 | Gestire l'accesso alle risorse di Azure | Gestire l'accesso alle risorse di Azure Active Directory |
-| Supportano i ruoli personalizzati | Non consentono di creare ruoli personalizzati |
+| Supportano i ruoli personalizzati | Supportano i ruoli personalizzati |
 | È possibile specificare l'ambito a più livelli (gruppo di gestione, sottoscrizione, gruppo di risorse, risorsa) | L'ambito è a livello di tenant |
 | Le informazioni sui ruoli sono accessibili nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, nei modelli di Azure Resource Manager, nell'API REST | Le informazioni sui ruoli sono accessibili nel portale di amministrazione di Azure, nell'interfaccia di amministrazione di Microsoft 365, in Microsoft Graph e in AzureAD PowerShell |
 

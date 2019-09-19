@@ -123,6 +123,14 @@
       href: load-balancer-query-metrics-rest-api.md
     - name: Configurare porte a disponibilità elevata per un servizio di bilanciamento del carico interno
       href: load-balancer-configure-ha-ports.md
+    - name: Spostarsi tra aree
+      items:
+        - name: Servizio di bilanciamento del carico esterno - Portale
+          href: move-across-regions-external-load-balancer-portal.md
+        - name: Servizio di bilanciamento del carico esterno - PowerShell
+          href: move-across-regions-external-load-balancer-powershell.md
+        - name: Servizio di bilanciamento del carico interno - PowerShell
+          href: move-across-regions-internal-load-balancer-powershell.md
     - name: Risolvere problemi
       items:
         - name: Risolvere i problemi di Azure Load Balancer

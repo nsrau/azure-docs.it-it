@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/13/2019
-ms.openlocfilehash: e500f08de414a5907a0f1aeeca90d8c2090adcdd
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 7cf83af52d5bedee5b4d57ee1b4dda2fb34d1b3f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137067"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960099"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Informazioni su Apache Kafka in Azure HDInsight
 
@@ -45,7 +45,7 @@ Di seguito sono illustrate le caratteristiche specifiche di Kafka in HDInsight:
 
 Il diagramma seguente mostra una configurazione tipica di Kafka che usa gruppi di consumer, partizionamento e replica per offrire la lettura parallela degli eventi con tolleranza di errore:
 
-![Diagramma di configurazione del cluster Kafka](./media/apache-kafka-introduction/kafka-cluster.png)
+![Diagramma di configurazione del cluster Kafka](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
 
 Apache ZooKeeper gestisce lo stato del cluster Kafka. Zookeeper è stato compilato per le transazioni simultanee, resilienti e a bassa latenza. 
 

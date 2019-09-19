@@ -1,45 +1,77 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione sul portale di Azure
+summary: Il portale di Azure è una console unificata basata sul Web che offre un'alternativa agli strumenti da riga di comando. È possibile usare il portale di Azure per gestire la sottoscrizione di Azure. Creare, gestire e monitorare praticamente tutto, da semplici app Web fino a complesse distribuzioni cloud. Creare dashboard personalizzati per una visualizzazione organizzata delle risorse e configurare le opzioni di accessibilità per un'esperienza ottimale.
 metadata:
-  description: Informazioni su come usare il portale di Azure per creare dashboard personalizzati.
-  services: azure portal
-  documentationcenter: ''
-  author: kfollis
-  manager: mtillman
-  editor: ''
-  ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
+  title: Documentazione sul portale di Azure
+  description: Informazioni su come gestire la sottoscrizione e le risorse di Azure con la console del portale di Azure basata sul Web.
+  services: Azure portal
   ms.service: azure-portal
-  ms.devlang: na
+  ms.subservice: 
   ms.topic: landing-page
-  ms.tgt_pltfrm: na
-  ms.workload: na
-  ms.date: 10/08/2018
+  ms.collection: collection
+  author: kfollis
   ms.author: kfollis
-abstract:
-  description: 'Il portale di Azure è una console unificata basata sul Web che consente di creare, gestire e monitorare qualsiasi elemento, da semplici app Web ad applicazioni cloud complesse. Include un dashboard personalizzabile e opzioni per l''accessibilità.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/azure-preview-portal-supported-browsers-devices
-            html: <p>È possibile eseguire il portale di Azure in tutti i moderni browser e dispositivi tablet e desktop.</p>
-            title: Browser e dispositivi supportati
-          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-            html: <p>È possibile modificare il contrasto o la combinazione di colori nel portale di Azure.</p>
-            title: Attivare il contrasto elevato
-          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-            html: <p>Informazioni sui tasti di scelta rapida disponibili nell'intero portale di Azure.</p>
-            title: Tasti di scelta rapida
-          - href: /azure/azure-portal/azure-portal-dashboards
-            html: <p>È possibile creare più dashboard e condividerli con altri utenti che hanno accesso alle sottoscrizioni di Azure.</p>
-            title: Creare e condividere dashboard di Azure
-          - href: /azure/azure-portal/azure-portal-dashboard-share-access
-            html: <p>È possibile pubblicare e condividere un dashboard con altri utenti dell'organizzazione.</p>
-            title: Condividere i dashboard con il Controllo degli accessi in base al ruolo
-          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-            html: <p>Creare e pubblicare a livello di codice i dashboard per l'organizzazione</p>
-            title: Creare i dashboard di Azure a livello di codice
+  ms.date: 09/17/2019
+  ms.openlocfilehash: 7fdd6f95ee2f84abc151f5c6e6e7929df2bc57a1
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71076647"
+landingContent:
+- title: Informazioni sul portale di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il portale di Azure?
+      url: azure-portal-overview.md
+    - text: Browser e dispositivi supportati
+      url: azure-portal-supported-browsers-devices.md
+- title: Personalizzare il portale di Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creare e condividere dashboard personalizzati
+      url: azure-portal-dashboards.md
+    - text: Gestire i preferiti
+      url: azure-portal-add-remove-sort-favorites.md
+- title: Gestire l'accesso al portale di Azure
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Aggiungere gli URL del portale di Azure nell'elenco di indirizzi attendibili
+      url: azure-portal-safelist-urls.md
+    - text: Controllo degli accessi in base al ruolo per i dashboard
+      url: azure-portal-dashboard-share-access.md
+  - linkListType: learn
+    links:
+    - text: Gestire le risorse in Azure
+      url: /learn/paths/manage-resources-in-azure/
+    - text: Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo
+      url: /learn//modules/secure-azure-resources-with-rbac/
+- title: Attività iniziali
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Eseguire l'onboarding con il Centro di avvio rapido di Azure
+      url: azure-portal-quickstart-center.md
+  - linkListType: how-to-guide
+    links:
+    - text: Serie di video di procedure per il portale di Azure
+      url: azure-portal-video-series.md
+  - linkListType: learn
+    links:
+    - text: Concetti fondamentali di Azure
+      url: /learn/paths/azure-fundamentals/
+    - text: Concetti cloud - Principi del cloud computing
+      url: /learn/modules/principles-cloud-computing/
+- title: Usare le opzioni di accessibilità
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Tasti di scelta rapida
+      url: azure-portal-keyboard-shortcuts.md
+  - linkListType: how-to-guide
+    links:
+    - text: Attivare il contrasto elevato
+      url: azure-portal-change-theme-high-contrast.md

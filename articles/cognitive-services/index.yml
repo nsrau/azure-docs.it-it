@@ -10,13 +10,13 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/12/2019
-  ms.openlocfilehash: 2bb26de076096ff47d38ddb12b1bc17f4aeafb34
-  ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+  ms.date: 09/16/2019
+  ms.openlocfilehash: f762586bf04ceab8cd0c81880a86df7d43507038
+  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/13/2019
-  ms.locfileid: "70965450"
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71087544"
 highlightedContent:
   items:
   - title: Informazioni su Servizi cognitivi
@@ -93,7 +93,7 @@ conceptualContent:
     - url: ./translator-speech/overview.md
       itemType: overview
       text: Traduzione vocale (ritiro)
-  - title: Servizi decisionali
+  - title: Decisione
     summary: Crea app che espongono raccomandazioni per un processo decisionale informato ed efficiente.
     links:
     - url: ./anomaly-detector/index.yml
@@ -138,12 +138,12 @@ conceptualContent:
     - url: ./bing-web-search/index.yml
       itemType: overview
       text: Ricerca Web
-  - title: Contenitori
+  - title: Contenitori di Servizi cognitivi
     summary: Il supporto dei contenitori in Servizi cognitivi di Azure consente agli sviluppatori di usare le stesse API avanzate disponibili in Azure e al tempo stesso di scegliere con flessibilità dove distribuire e ospitare i servizi inclusi nei contenitori Docker.
     links:
     - url: ./cognitive-services-container-support.md
       itemType: overview
-      text: Contenitori per Servizi cognitivi
+      text: Contenitori di Servizi cognitivi
     - url: ./containers/container-reuse-recipe.md
       itemType: overview
       text: Creare contenitori per il riutilizzo

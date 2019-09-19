@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/28/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8b20c54d2151afae227a085dd66a0d31f2b85305
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 2262948a8368f9448d876166b712ebaf670b5a56
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310664"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994368"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduzione ai registri per contenitori Docker privati in Azure
 
@@ -31,7 +31,7 @@ Effettuare il pull di immagini da un Registro Azure Container a varie destinazio
 * **Sistemi di orchestrazione scalabili** che gestiscono applicazioni in contenitori fra più cluster host, quali [Kubernetes](https://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/) e [Docker Swarm](https://docs.docker.com/swarm/).
 * **Servizi di Azure** che supportano la creazione e l'esecuzione di applicazioni su vasta scala, inclusi il [servizio Azure Kubernetes](../aks/index.yml), il [servizio app](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) e altri.
 
-Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un registro contenitori da uno strumento di distribuzione e recapito continui, come [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) o [Jenkins](https://jenkins.io/).
+Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un registro contenitori da uno strumento di distribuzione e recapito continui, come [Azure Pipelines](/azure/devops/pipelines/ecosystems/containers/acr-template) o [Jenkins](https://jenkins.io/).
 
 Configurare Attività del Registro Azure Container per ricompilare automaticamente le immagini dell'applicazione quando vengono aggiornate le immagini di base oppure automatizzare la compilazione di immagini quando il team esegue il commit di codice in un repository Git. Creare attività in più passaggi per automatizzare la compilazione, i test e l'applicazione di patch di più immagini del contenitore in parallelo nel cloud.
 

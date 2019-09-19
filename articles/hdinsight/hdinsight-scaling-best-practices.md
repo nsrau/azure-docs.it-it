@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: aabcf7ac6c7bf14264178831bb3e4f6670d29984
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: dad796c8a7a34a782a4f78260ac38bd966eddde9
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960894"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105404"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -37,7 +37,7 @@ Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 |[Interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)|il numero di istanze \<di destinazione del \<cluster HDInsight di Azure clustername > > |
 |[Portale di Azure](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
 
-![Ridimensiona cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
+![Opzione del cluster portale di Azure scale](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
 Usando uno di questi metodi, è possibile aumentare o ridurre il cluster HDInsight in pochi minuti.
 
@@ -112,7 +112,7 @@ Per visualizzare un elenco dei processi in sospeso e in esecuzione, è possibile
 3. Dall'interfaccia utente di Ambariri selezionare **Yarn** nell'elenco dei servizi nel menu a sinistra.  
 4. Dalla pagina YARN selezionare **Quick Links (collegamenti rapidi** ) e passare il mouse sul nodo head attivo e quindi selezionare **ResourceManager UI (interfaccia utente di ResourceManager**).
 
-    ![Interfaccia utente ResourceManager](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    ![Interfaccia utente di ResourceManager per i collegamenti rapidi di Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
 È possibile accedere direttamente all'interfaccia utente ResourceManager con `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
@@ -126,7 +126,7 @@ Per terminare manualmente l'applicazione in esecuzione, eseguire il comando segu
 yarn application -kill <application_id>
 ```
 
-Ad esempio:
+Esempio:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

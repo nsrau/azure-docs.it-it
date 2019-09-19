@@ -73,7 +73,7 @@ sections:
       - type: list
         style: cards
         className: cardsM
-        columns: 3
+        columns: 2
         items:
           - href: /azure/sql-database/sql-database-single-index
             html: <p>Usare un database singolo gestito da un server di database SQL per le applicazioni SaaS e i microservizi che richiedono un database singolo con prestazioni prevedibili.</p>
@@ -90,6 +90,11 @@ sections:
             image:
               src: media/index/i_mi.svg
             title: Istanza gestita
+          - href: /azure/sql-database/sql-database-instance-pools
+            html: <p>Usare i pool di istanze gestite come soluzione semplice ed economica per la distribuzione di più istanze gestite che condividono risorse e vengono ridimensionate rapidamente.</p>
+            image:
+              src: media/index/i_instancepool.png
+            title: Pool di istanze
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph
@@ -128,6 +133,12 @@ sections:
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
+          - title: Creare il pool di istanze
+            values:
+              - href: null
+              - href: null
+              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
+              - href: null
   - title: Esercitazioni dettagliate e materiali didattici
     items:
       - type: paragraph

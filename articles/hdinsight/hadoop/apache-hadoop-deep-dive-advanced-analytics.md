@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 4bec14cd3aa88d885f83142143c7a901ca82057b
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918228"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066988"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondimento - Analisi avanzata
 
@@ -23,17 +23,17 @@ HDInsight offre la possibilità di ottenere informazioni dettagliate importanti 
 
 ## <a name="advanced-analytics-process"></a>Processo di analisi avanzata
 
-![Process](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+![Flusso del processo di analisi avanzata](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
-Dopo aver identificato il problema aziendale e aver avviato la raccolta e l'elaborazione dei dati, è necessario creare un modello che rappresenti la domanda per cui generare una previsione. Il modello usa uno o più algoritmi di Machine Learning per creare il tipo di previsione più adatto alle esigenze aziendali specifiche.  La maggior parte dei dati deve essere usata per eseguire il training del modello, mentre i dati rimanenti vengono usati per testare o valutare il modello. 
+Dopo aver identificato il problema aziendale e aver avviato la raccolta e l'elaborazione dei dati, è necessario creare un modello che rappresenti la domanda per cui generare una previsione. Il modello usa uno o più algoritmi di Machine Learning per creare il tipo di previsione più adatto alle esigenze aziendali specifiche.  La maggior parte dei dati deve essere usata per eseguire il training del modello, mentre i dati rimanenti vengono usati per testare o valutare il modello.
 
-Dopo aver creato, caricato, testato e valutato il modello, il passaggio successivo è costituito dalla distribuzione del modello per iniziare a rispondere alle domande. L'ultimo passaggio consiste nel monitorare le prestazioni del modello e procedere all'ottimizzazione in base alle esigenze. 
+Dopo aver creato, caricato, testato e valutato il modello, il passaggio successivo è costituito dalla distribuzione del modello per iniziare a rispondere alle domande. L'ultimo passaggio consiste nel monitorare le prestazioni del modello e procedere all'ottimizzazione in base alle esigenze.
 
 ## <a name="common-types-of-algorithms"></a>Tipi di algoritmi comuni
 
 Le soluzioni di analisi avanzata offrono un set di algoritmi di Machine Learning. Di seguito è riportato un riepilogo delle categorie di algoritmi e dei casi d'uso aziendali comuni associati.
 
-![Casi d'uso di Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+![Riepiloghi della categoria Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 Insieme alla selezione degli algoritmi più adatti, è necessario considerare se devono essere forniti dati per il training. Gli algoritmi di Machine Learning sono suddivisi in categorie come indicato di seguito:
 
@@ -43,7 +43,7 @@ Insieme alla selezione degli algoritmi più adatti, è necessario considerare se
 * Rinforzo: l'algoritmo usa agenti software per determinare il comportamento ideale in un contesto specifico (tecnica spesso usata in robotica)
 
 
-| Categoria algoritmo| Utilizzo | Tipo di apprendimento | Algoritmi |
+| Categoria algoritmo| Uso | Tipo di apprendimento | Algoritmi |
 | --- | --- | --- | -- |
 | classificazione | Classificare oggetti o persone in gruppi | Supervisionato | Alberi delle decisioni, regressione logistica, reti neurali |
 | Clustering | Dividere un set di esempi in gruppi omogenei | Non supervisionato | Clustering K-Means |
@@ -98,7 +98,7 @@ Questo scenario di analisi avanzata prevede tre principali attività:
 
 Questo esempio è basato sul set di immagini CIFAR-10 compilato e distribuito da Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. Il set di dati 10 CIFAR contiene 60.000 immagini a colori 32x32 appartenenti a 10 classi che si escludono a vicenda:
 
-![Immagini](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+![Immagini di esempio Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 Per altri dettagli sul set di dati, vedere [Learning Multiple Layers of Features from Tiny Images](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf) (Apprendimento di più livelli di caratteristiche da immagini di piccole dimensioni) di Alex Krizhevsky.
 
@@ -111,7 +111,7 @@ Il set di dati è stato suddiviso in un set di training costituito da 50.000 imm
 
 L'intero processo di pre-elaborazione/riconoscimento delle 10.000 immagini dura meno di un minuto in un cluster con quattro nodi di lavoro. Il modello prevede con accuratezza le etichette di circa 9.100 immagini (91%). Una matrice di confusione illustra gli errori di classificazione più comuni, ad esempio l'inversione di etichettatura di cani e gatti che si verifica più spesso rispetto ad altre coppie di etichette.
 
-![Risultati](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+![Grafico risultati Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>Prova
 

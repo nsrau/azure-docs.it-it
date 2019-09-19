@@ -4,16 +4,17 @@ description: Introduzione a HDInsight, oltre che allo stack di tecnologie e ai c
 keywords: azure hadoop, hadoop azure, introduzione hadoop, intro hadoop, stack di tecnologie hadoop, intro a hadoop, introduzione a hadoop, informazioni sul cluster hadoop, info sul cluster hadoop, uso di hadoop
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 08/15/2019
-ms.openlocfilehash: 16845e5891117cc01bef5fae28cf4b36c0508651
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 193b8f59a805de4303bfc38d397a821cc068dcc0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899549"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088192"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Informazioni su Apache Hadoop in Azure HDInsight
 
@@ -30,6 +31,10 @@ Apache Hadoop MapReduce è un framework software per la scrittura di processi in
 * **Mapper**: usa i dati di input, li analizza (in genere mediante operazioni di filtro e ordinamento) e quindi genera tuple (coppie chiave-valore)
 
 * **Reducer**: usa le tuple generate dal Mapper ed esegue un'operazione di riepilogo che crea un risultato combinato più piccolo a partire dai dati del Mapper
+
+La figura seguente illustra un esempio di processo di base di conteggio parole in MapReduce.   
+
+ ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
 L'output del processo consentirà di conoscere il numero totale di occorrenze di ogni parola presente nel testo.
 
@@ -55,5 +60,3 @@ Per alcuni esempi sull'uso dello streaming di Hadoop con HDInsight, vedere il do
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un cluster Apache Hadoop in HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

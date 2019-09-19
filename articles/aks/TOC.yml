@@ -100,6 +100,8 @@
       href: acs-aks-migration.md
     - name: Versione di Kubernetes supportata
       href: supported-kubernetes-versions.md
+    - name: Protezione avanzata nel sistema operativo host
+      href: security-hardened-vm-host-image.md
 - name: Guide alle procedure
   items:
     - name: Operazioni del cluster
@@ -116,7 +118,7 @@
         - name: Eliminare un cluster del servizio Azure Container
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Creare un Registro Azure Container con un cluster del servizio Azure Kubernetes (anteprima)
+        - name: Creare un Registro Azure Container con un cluster del servizio Azure Kubernetes
           href: cluster-container-registry-integration.md
         - name: Creare nodi virtuali
           items:

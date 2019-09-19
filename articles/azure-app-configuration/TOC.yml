@@ -83,6 +83,8 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
         - name: Azure SDK per Python
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
+        - name: Azure SDK per JavaScript
+          href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
         - name: REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Gestione delle funzionalità

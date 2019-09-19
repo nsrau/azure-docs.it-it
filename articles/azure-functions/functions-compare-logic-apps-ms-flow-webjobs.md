@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9543e67d0f98836f760ac840fa12ec5718da037e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39c40f29f4548f2e7379472427a2c97f1a0b762c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086051"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932963"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Informazioni su Microsoft Flow, App per la logica, Funzioni e Processi Web
 
@@ -52,7 +52,7 @@ La tabella seguente consente di determinare se per una data integrazione è più
 
 Funzioni e App per la logica sono servizi di Azure che abilitano i carichi di lavoro senza server. Funzioni di Azure è un servizio di calcolo serverless, mentre App per la logica di Azure fornisce flussi di lavoro serverless. Entrambi consentono di creare complesse *orchestrazioni*. Un'orchestrazione è una raccolta di funzioni o passaggi, definiti *azioni* in App per la logica, che vengono eseguito per completare un'attività complessa. Per elaborare ad esempio un batch di ordini è possibile eseguire molte istanze di una funzione in parallelo, attendere il completamento di tutte le istanze e quindi eseguire una funzione che calcola un risultato sull'aggregazione.
 
-Per Funzioni di Azure è possibile sviluppare orchestrazioni scrivendo codice e usando l'[estensione Durable Functions](durable/durable-functions-concepts.md). Per App per la logica di Azure è possibile creare orchestrazioni usando un'interfaccia utente grafica o modificando i file di configurazione.
+Per Funzioni di Azure è possibile sviluppare orchestrazioni scrivendo codice e usando l'[estensione Durable Functions](durable/durable-functions-overview.md). Per App per la logica di Azure è possibile creare orchestrazioni usando un'interfaccia utente grafica o modificando i file di configurazione.
 
 È possibile combinare i servizi quando si compila un'orchestrazione, chiamando funzioni da app per la logica e chiamando app per la logica da funzioni. Scegliere il modo in cui compilare ogni orchestrazione in base alle funzionalità dei servizi o delle preferenze personali. La tabella seguente elenca alcune differenze essenziali tra questi servizi:
  
