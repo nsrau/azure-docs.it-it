@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 8/27/2019
+ms.date: 09/10/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5b78dc8b815802502cda5baf2bf5e9646922d671
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 194b90ab27d02c1fa3eb05bb3ddd78395d351599
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241438"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898184"
 ---
 ::: zone target="docs"
 
@@ -77,7 +77,7 @@ Assicurarsi che la copia dei dati sul dispositivo sia completa e che la **prepar
 
 ::: zone-end
 
-## <a name="ship-in-us-canada-europe"></a>Spedizione negli Stati Uniti, in Canada e in Europa
+## <a name="in-us-canada-europetabin-us-canada-europe"></a>[Stati Uniti, Canada o Europa](#tab/in-us-canada-europe)
 
 Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Uniti, in Canada on in Europa.
 
@@ -94,7 +94,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
 4. Dopo che il Data Box è stato ritirato ed esaminato dal corriere, lo stato dell'ordine nel portale diventa **Ritirato**. Viene visualizzato anche un ID di traccia.
 
 
-## <a name="ship-in-australia"></a>Spedizione in Australia
+## <a name="in-australiatabin-australia"></a>[Australia](#tab/in-australia)
 
 I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiuntiva. Tutte le spedizioni in ingresso devono prevedere una notifica anticipata. Seguire questa procedura per la spedizione in Australia.
 
@@ -126,7 +126,7 @@ Per richiedere informazioni riguardanti l'ordine al telefono:
 - Prima di tutto, inviare un messaggio di posta elettronica per il ritiro.
 - Fornire il nome dell'ordine al telefono.
 
-## <a name="ship-in-japan"></a>Spedizione in Giappone 
+## <a name="in-japantabin-japan"></a>[Giappone](#tab/in-japan) 
 
 1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
 2. Spegnere il dispositivo e rimuovere i cavi.

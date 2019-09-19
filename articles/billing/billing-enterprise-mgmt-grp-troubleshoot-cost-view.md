@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di visualizzazione dei costi aziendali di Azure
+title: Risolvere i problemi delle visualizzazioni dei costi aziendali di Azure
 description: Informazioni su come risolvere i problemi con le visualizzazioni dei costi aziendali nel portale di Azure.
 author: bandersmsft
 manager: amberb
@@ -12,10 +12,10 @@ ms.date: 07/01/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 83f7f424b265582a3830c02973cbbb9962ddfbfb
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67491267"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Risolvere i problemi delle visualizzazioni dei costi aziendali
@@ -39,7 +39,7 @@ Il problema può dipendere da una delle cause seguenti:
 
 ## <a name="asset-is-unavailable"></a>La risorsa non è disponibile.
 
-Se viene visualizzato un messaggio di errore indicante **questo asset non è disponibile** quando è stato effettuato un tentativo di accedere a una sottoscrizione o gruppo di gestione, quindi non è necessario il ruolo appropriato per visualizzare questo elemento.  
+Se viene visualizzato un messaggio di errore del tipo **Questa risorsa non è disponibile** quando si prova ad accedere a una sottoscrizione o a un gruppo di gestione, non si dispone del ruolo corretto per visualizzare questo elemento.  
 
 ![Screenshot con il messaggio indicante che la risorsa non è disponibile.](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 

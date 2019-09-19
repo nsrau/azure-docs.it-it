@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: banders
 ms.openlocfilehash: 3d06df9b9a90f26b39afc17b8fcd02c85da567a1
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443242"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scenari di automazione per la fatturazione e la gestione dei costi
@@ -52,7 +52,7 @@ In questo articolo vengono elencati gli scenari comuni per la fatturazione e la 
 | Raccomandazioni di prenotazione |                           |                  |           X          |                  |                    |           |
 | Dettagli di prenotazione         |                           |                  |           X          |         X        |                    |           |
 | Riepiloghi di prenotazioni       |                           |                  |           X          |         X        |                    |           |
-| Dettagli utilizzo               |             X             |         X        |           X          |         X        |          X         |     X     |
+| Dettagli sull'utilizzo               |             X             |         X        |           X          |         X        |          X         |     X     |
 | Periodi di fatturazione             |             X             |         X        |           X          |         X        |                    |           |
 | Fatture                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |
@@ -143,4 +143,4 @@ Queste API forniscono set simili di dati, ma hanno destinatari diversi:
 
 - Per confrontare la fattura con il file dettagliato sull'utilizzo giornaliero e i report di gestione dei costi nel portale di Azure, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
-- Per eventuali domande o per richiedere assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+- In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

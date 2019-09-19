@@ -1,5 +1,5 @@
 ---
-title: Servizio di mapping del misuratore per un account Azure gratuito
+title: Mapping del contatore di servizi per l'account gratuito di Azure
 description: Comprendere il mapping del misuratore di servizi per i servizi inclusi nell'account gratuito.
 author: amberbhargava
 manager: amberb
@@ -12,17 +12,17 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 8022c065d73aafc53d3dcb77e79c3e6320e0ce39
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490396"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Comprendere il mapping del misuratore di servizi gratuiti
 
-Tutti i servizi di Azure generano i dati di utilizzo con i misuratori che vengono usati dal sistema di fatturazione per addebitare i servizi all'utente. Per ottenere una migliore comprensione dell'utilizzo del servizio gratuito, diamo un'occhiata al servizio di mapping del misuratore per i servizi. Per informazioni su come creare i servizi gratuiti, vedere [Creare servizi gratuiti con l'account gratuito di Azure](billing-create-free-services-included-free-account.md).
+Tutti i servizi di Azure generano i dati di utilizzo con i misuratori che vengono usati dal sistema di fatturazione per addebitare i servizi all'utente. Per comprendere meglio l'utilizzo dei servizi gratuiti, verrà ora esaminato il mapping del contatore di servizi per i servizi. Per informazioni su come creare i servizi gratuiti, vedere [Creare servizi gratuiti con l'account gratuito di Azure](billing-create-free-services-included-free-account.md).
 
-## <a name="service-to-meter-mapping-for-eligible-services"></a>Servizio di mapping del misuratore per i servizi idonei
+## <a name="service-to-meter-mapping-for-eligible-services"></a>Mapping del contatore di servizi per i servizi idonei
 
 |    Service   | Nome misuratore nel portale di Azure | Nome misuratore nel file di dati di utilizzo/API | ID misuratore |
 | ------------ | -------------------------- | -------------------------| -------- |
@@ -44,15 +44,15 @@ Tutti i servizi di Azure generano i dati di utilizzo con i misuratori che vengon
 | Disco gestito <sup>1</sup>  | Operazioni disco gestito Standard (in decine di migliaia) | Operazioni disco gestito Standard (in decine di migliaia) - Gratuito | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
 | Disco gestito <sup>1</sup>  | Archiviazione Premium - BLOB di pagine/P6 (unità) - Ridondanza locale | Archiviazione Premium - BLOB di pagine/P6 (unità) - Gratuito | 2b98c168-27ca-4cc1-b509-e887dec87657
 | Database SQL | Giorni di database S0 Standard - Database SQL | Giorni di database S0 Standard - Gratuito | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
-| Condiviso - larghezza di banda <sup>2</sup> | Trasferimento dati in uscita (GB) | Trasferimento dati in uscita (GB) - Gratuito | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
+| Condiviso - Larghezza di banda <sup>2</sup> | Trasferimento dati in uscita (GB) | Trasferimento dati in uscita (GB) - Gratuito | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
 
-<sup>1</sup> se si crea una macchina virtuale Windows e si sceglie il disco gestito, si utilizzeranno misuratore del disco gestito come parte della macchina virtuale.
+<sup>1</sup> Se si crea una macchina virtuale Windows e si sceglie il disco gestito, il contatore del disco gestito verrà utilizzato come parte della macchina virtuale.
 
-<sup>2</sup> misuratori condivisi possono essere usati con più servizi. Ad esempio, sia le macchine virtuali che l'archiviazione generano i dati di utilizzo con il misuratore Trasferimento dati in uscita (GB).
+<sup>2</sup> I contatori condivisi possono essere utilizzati con più servizi. Ad esempio, sia le macchine virtuali che l'archiviazione generano i dati di utilizzo con il misuratore Trasferimento dati in uscita (GB).
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Aggiornare la sottoscrizione](billing-upgrade-azure-subscription.md)

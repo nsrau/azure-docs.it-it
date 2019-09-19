@@ -1,6 +1,6 @@
 ---
-title: Acquista prenotazioni di Azure con pagamenti anticipati o mensili
-description: Scopri in che modo puoi acquistare prenotazioni di Azure con pagamenti anticipati o mensili.
+title: Acquistare prenotazioni di Azure con pagamenti anticipati o mensili
+description: Informazioni su come acquistare prenotazioni di Azure con pagamenti anticipati o mensili.
 services: billing
 author: bandersmsft
 manager: yashar
@@ -9,73 +9,73 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: banders
 ms.openlocfilehash: d211334ad2aa760cd63b98c6827fb2512811a1d3
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "70806948"
 ---
-# <a name="purchase-reservations-with-monthly-payments"></a>Prenotazioni di acquisto con pagamenti mensili
+# <a name="purchase-reservations-with-monthly-payments"></a>Acquistare prenotazioni con pagamenti mensili
 
-Fino ad ora, le prenotazioni di Azure richiedono il pagamento anticipato. È ora possibile pagare le prenotazioni con pagamenti mensili. A differenza di un acquisto anticipato in cui si paga l'importo completo, l'opzione di pagamento mensile divide il costo totale della prenotazione in modo uniforme ogni mese del periodo. Il costo totale di prenotazioni anticipate e mensili è lo stesso e non vengono addebitate spese aggiuntive quando si sceglie di pagare mensilmente.
+Fino ad ora le prenotazioni di Azure richiedevano il pagamento anticipato. Da ora però è possibile pagare le prenotazioni con pagamenti mensili. A differenza di un acquisto anticipato, in cui si paga l'importo completo, l'opzione di pagamento mensile divide il costo totale della prenotazione in modo uniforme per ogni mese del periodo. Il costo totale delle prenotazioni con pagamento anticipato e mensile è lo stesso e non vengono addebitate spese aggiuntive quando si sceglie di pagare mensilmente.
 
-L'importo del pagamento mensile può variare a seconda del tasso di cambio di mercato del mese corrente per la valuta locale.
+Sono possibili variazioni all'importo del pagamento mensile in base al tasso di cambio del mese corrente per la valuta locale.
 
-Sono disponibili pagamenti mensili per:
+I pagamenti mensili sono disponibili per:
 
 - Macchine virtuali
 - Database SQL
 - SQL Data Warehouse
 - Cosmos DB
-- Tariffa del timbro del servizio app
+- Tariffa stamp del servizio app
 
-Prenotazioni di acquisto nel [portale di Azure](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
+Acquistare le prenotazioni nel [portale di Azure](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
 
-![Esempio che mostra l'acquisto della prenotazione](./media/billing-monthly-payments-reservations/purchase-reservation.png)
+![Esempio che mostra l'acquisto di una prenotazione](./media/billing-monthly-payments-reservations/purchase-reservation.png)
 
-Durante l'acquisto di una prenotazione, è possibile visualizzare la pianificazione dei pagamenti. Fare clic su **Visualizza pianificazione pagamenti completi**.
+Durante l'acquisto di una prenotazione, è possibile visualizzare la pianificazione dei pagamenti. Fare clic su **Visualizza la pianificazione completa del pagamento** .
 
-![Esempio che mostra la pianificazione del pagamento della prenotazione](./media/billing-monthly-payments-reservations/prepurchase-schedule.png)
+![Esempio che mostra la pianificazione dei pagamenti di una prenotazione](./media/billing-monthly-payments-reservations/prepurchase-schedule.png)
 
-Per visualizzare la pianificazione dei pagamenti dopo l'acquisto, selezionare una prenotazione, fare clic sull' **ID dell'ordine di prenotazione**e quindi fare clic sulla scheda **pagamenti** .
+Per visualizzare la pianificazione dei pagamenti dopo l'acquisto, selezionare una prenotazione, fare clic su **ID ordine prenotazione** e quindi fare clic sulla scheda **Pagamenti**.
 
-## <a name="view-payments-made"></a>Visualizza i pagamenti effettuati
+## <a name="view-payments-made"></a>Visualizzare i pagamenti effettuati
 
-È possibile visualizzare i pagamenti effettuati usando le API, i dati di utilizzo e l'analisi dei costi. Per le prenotazioni pagate per il mese, il valore Frequency viene visualizzato come **ricorrente** nell'API relativa ai dati di utilizzo e ai costi di prenotazione. Per le prenotazioni pagate in anticipo, il valore viene **visualizzato come una**volta.
+È possibile visualizzare i pagamenti effettuati usando le API, i dati di utilizzo e l'analisi dei costi. Per le prenotazioni pagate mensilmente, il valore della frequenza viene visualizzato come **ricorrente** nei dati di utilizzo e nell'API relativa agli addebiti della prenotazione. Per le prenotazioni pagate in anticipo, il valore viene visualizzato come **una tantum**.
 
-L'analisi dei costi Mostra gli acquisti mensili nella visualizzazione predefinita. Applicare il filtro di **acquisto** per il **tipo di addebito** e per la **frequenza** **per visualizzare** tutti gli acquisti. Per visualizzare solo le prenotazioni, applicare un filtro per la **prenotazione**.
+L'analisi dei costi mostra gli acquisti mensili nella visualizzazione predefinita. Applicare il filtro **acquisto** per **Tipo di addebito** e **ricorrente** per **Frequenza** per visualizzare tutti gli acquisti. Per visualizzare solo le prenotazioni, applicare un filtro per **Prenotazione**.
 
 ![Esempio che mostra i costi di acquisto della prenotazione nell'analisi dei costi](./media/billing-monthly-payments-reservations/cost-analysis.png)
 
-## <a name="switch-to-monthly-payments-at-renewal"></a>Passa a pagamenti mensili al rinnovo
+## <a name="switch-to-monthly-payments-at-renewal"></a>Passare ai pagamenti mensili al rinnovo
 
-Quando si rinnova una prenotazione, è possibile modificare la frequenza di fatturazione a ogni mese.
+Al rinnovo di una prenotazione, è possibile cambiare la frequenza di fatturazione in mensile.
 
-## <a name="exchange-and-refunds"></a>Exchange e rimborsi
+## <a name="exchange-and-refunds"></a>Cambio e rimborsi
 
-Analogamente ad altre prenotazioni, è possibile rimborsare o scambiare prenotazioni acquistate con una fatturazione mensile. Attualmente, è possibile inviare una richiesta di supporto per avviare uno scambio o un rimborso per una prenotazione acquistata con fatturazione mensile.
+Analogamente ad altre prenotazioni, è possibile scambiare le prenotazioni acquistate con la fatturazione mensile o ottenere un rimborso. Attualmente è possibile inviare una richiesta di supporto per avviare uno scambio o ottenere un rimborso per una prenotazione acquistata con fatturazione mensile.
 
-Quando si scambia una prenotazione pagata mensilmente, il costo di durata totale del nuovo acquisto deve essere superiore ai pagamenti rimanenti annullati per la prenotazione restituita. Non sono previsti altri limiti o tariffe per gli scambi. È possibile scambiare una prenotazione pagata in anticipo per acquistare una nuova prenotazione fatturata mensilmente. Il valore di durata della nuova prenotazione, tuttavia, deve essere maggiore del valore con prorata della prenotazione da restituire.
+Quando si scambia una prenotazione con pagamento mensile, il costo di durata totale del nuovo acquisto deve essere superiore ai pagamenti rimanenti annullati per la prenotazione restituita. Non sono previsti altri limiti o tariffe per gli scambi. È possibile scambiare una prenotazione pagata in anticipo per acquistare una nuova prenotazione fatturata mensilmente. Il valore di durata della nuova prenotazione, tuttavia, deve essere maggiore del valore ripartito in modo proporzionale della prenotazione da restituire.
 
-Se si annulla una prenotazione che viene pagata mensilmente, Microsoft potrebbe applicare una tariffa di annullamento ai pagamenti con commit futuri annullati. I pagamenti rimanenti di cui è stato eseguito il commit aumentano fino al limite di rimborso $50.000 USD.
+Se si annulla una prenotazione che viene pagata mensilmente, Microsoft potrebbe applicare una tariffa di annullamento ai pagamenti impegnati futuri che vengono annullati. I pagamenti impegnati rimanenti vengono accumulati fino al raggiungimento del limite di rimborso di 50.000 USD.
 
-Per ulteriori informazioni su Exchange e i rimborsi, vedere la pagina relativa agli [scambi self-service e ai rimborsi per le prenotazioni di Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
+Per altre informazioni su scambi e rimborsi, vedere [Scambi e rimborsi in modalità self-service per le prenotazioni di Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="faq"></a>Domande frequenti
 
-D: Azure offre "prenotazioni iniziali parziali"?<br>
-R. No. Poiché i costi per le prenotazioni pagate in anticipo e mensili sono gli stessi, Microsoft non supporta i pagamenti parziali iniziali.
+D: Azure offre "prenotazioni con pagamento anticipato parziale"?<br>
+R. No. Poiché i costi per le prenotazioni pagate in anticipo e mensilmente sono gli stessi, Microsoft non supporta i pagamenti anticipati parziali.
 
 D: Sono disponibili pagamenti mensili per il programma Microsoft Cloud Solution Provider (CSP)?<br>
-R. Sì, i partner possono acquistare prenotazioni per i clienti CSP nella portale di Azure. La possibilità di acquistare prenotazioni con fatturazione mensile non è disponibile nel centro per i partner.
+R. Sì, i partner possono acquistare prenotazioni per i clienti CSP nel portale di Azure. Nel Centro per i partner non è invece possibile acquistare prenotazioni con fatturazione mensile.
 
-D: Sono un cliente di Azure per enti pubblici, posso pagare mensilmente per gli acquisti di prenotazioni?<br>
+D: Gli utenti di Azure per enti pubblici negli Stati Uniti possono acquistare prenotazioni con pagamento mensile?<br>
 R. No, per il momento.
 
-D: Quando è possibile scambiare o rimborsare i portale di Azure, anziché creare un ticket di supporto?<br>
-R. No, per il momento. Le richieste di scambio e di rimborso con pagamenti mensili vengono gestite dal supporto tecnico di Azure.
+D: È possibile scambiare o ottenere un rimborso nel portale di Azure, invece di creare un ticket di supporto?<br>
+R. No, per il momento. Le richieste di scambio e di rimborso delle prenotazioni con pagamento mensile vengono gestite dal supporto tecnico di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulle prenotazioni, vedere [che cosa sono le prenotazioni di Azure?](billing-save-compute-costs-reservations.md)
-- Per informazioni sulle attività che è necessario eseguire prima di acquistare una prenotazione, vedere [determinare le dimensioni corrette della macchina virtuale prima di acquistare](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)
+- Per altre informazioni sulle prenotazioni, vedere [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md).
+- Per informazioni sulle attività da eseguire prima di acquistare una prenotazione, vedere [Determinare le dimensioni corrette delle macchine virtuali prima dell'acquisto](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/11/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390416"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910109"
 ---
 ::: zone target="chromeless"
 
@@ -52,7 +52,7 @@ Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i da
 
 I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo. Le istruzioni sono diverse per Stati Uniti, Canada, Unione Europea (UE), Australia o paesi asiatici.
 
-### <a name="pick-up-in-us-canada"></a>Ritiro negli Stati Uniti e in Canada
+### <a name="in-us-or-canadatabin-us-or-canada"></a>[Stati Uniti o Canada](#tab/in-us-or-canada)
 
 Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Uniti o in Canada.
 
@@ -68,7 +68,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
     - Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
     - Anziché pianificare il ritiro, è anche possibile consegnare Data Box Disk al più vicino punto di consegna.
 
-### <a name="pick-up-in-europe"></a>Ritiro in Europa
+### <a name="in-europetabin-europe"></a>[Europa](#tab/in-europe)
 
 Eseguire la procedura seguente se si restituisce il dispositivo in Europa.
 
@@ -81,7 +81,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo in Europa.
 4. Passare al sito Web di DHL Express del paese o area e scegliere **Prenota il ritiro di un reso > Richiedere ritiro**.    
 3. Specificare il numero di lettera di vettura e fare clic su **Schedule Pickup** (Pianifica ritiro) per organizzare il ritiro.
 
-### <a name="pick-up-in-australia"></a>Ritiro in Australia
+### <a name="in-australiatabin-australia"></a>[Australia](#tab/in-australia)
 
 I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiuntiva. Tutte le spedizioni in ingresso devono prevedere una notifica anticipata. Seguire questa procedura per il ritiro in Australia.
 
@@ -89,9 +89,9 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
 3. Applicare l'etichetta sulla scatola. 
 4. Prenotare un ritiro online al collegamento https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="pick-up-in-asia"></a>Ritiro in Asia
+### <a name="in-japan-koreatabin-japan-korea"></a>[Giappone e Corea](#tab/in-japan-korea)
 
-Le istruzioni di ritiro sono diverse per Giappone, Corea e Singapore.
+Di seguito sono riportate le istruzioni per il ritiro per Giappone e Corea.
 
 #### <a name="pick-up-in-japan"></a>Ritiro in Giappone
 
@@ -134,7 +134,8 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
     3. Qualora il corriere non si presenti, chiamare *Quantium Solutions International* per accordarsi in merito a un ritiro alternativo. 
     4. Se la richiesta viene eseguita tramite telefono, si riceverà una conferma verbale.
 
-#### <a name="pick-up-in-singapore"></a>Prelievo a Singapore
+
+### <a name="in-singaporetabin-singapore"></a>[Singapore](#tab/in-singapore)
 
 1. Stampare l'etichetta indirizzo e applicarla alla scatola. Se l'etichetta è danneggiata o è stata smarrita:
     - Passare a **Panoramica > Scarica etichetta di spedizione** e ottenere un'etichetta di spedizione per reso.

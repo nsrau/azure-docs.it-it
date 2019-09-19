@@ -15,69 +15,69 @@ ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 36430e9b0a4554761d53b537d3c32fa57068eabb
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490208"
 ---
 # <a name="view-billing-accounts-in-azure-portal"></a>Visualizzare gli account di fatturazione nel portale di Azure  
 
-Quando si effettua l'iscrizione usare Azure, viene creato un account di fatturazione. Si usa l'account di fatturazione per gestire le fatture, pagamenti e tenere traccia dei costi. È possibile accedere a più account di fatturazione. Ad esempio, è possibile che hanno effettuato l'iscrizione per Azure per i progetti personali. Si potrebbe avere anche accesso tramite un contratto Enterprise o contratto di Microsoft dei clienti della propria organizzazione. Per ognuno di questi scenari, è necessario un account di fatturazione separato.
+L'account di fatturazione viene creato quando ci si iscrive per usare Azure. Viene usato per gestire le fatture e i pagamenti, oltre che per tenere traccia dei costi. È possibile avere accesso a più account di fatturazione. Ad esempio, l'iscrizione ad Azure potrebbe essere stata eseguita per i progetti personali. Si potrebbe anche avere accesso tramite il contratto Enterprise Agreement o il Contratto del cliente Microsoft dell'organizzazione. Per ognuno di questi scenari, si avrà un account di fatturazione distinto.
 
-Portale di Azure supporta attualmente i seguenti tipi di account di fatturazione:
+Il portale di Azure attualmente supporta i tipi di account di fatturazione seguenti:
 
-- **Programma dei Microsoft Online Services**: Quando si effettua l'iscrizione ad Azure tramite il sito Web di Azure, viene creato un account di fatturazione per un programma Microsoft Online Services. Ad esempio, quando iscrive un [Account Azure gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/), [account con tariffe a consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) o come un [sottoscrittore di Visual studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+- **Programma dei Microsoft Online Services**: l'account di fatturazione per un programma dei Microsoft Online Services viene creato quando ci si iscrive ad Azure tramite il sito Web di Azure, ad esempio, quando ci si iscrive per ricevere un [account Azure gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/), un [account con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) o un account di [sottoscrittore di Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-- **Contratto Enterprise**: Un account di fatturazione per un contratto Enterprise viene creato quando l'organizzazione esegue un' [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) per usare Azure.
+- **Contratto Enterprise**: quando l'organizzazione firma un contratto [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) per l'uso di Azure, viene creato un apposito account di fatturazione.
 
-- **Contratto di Microsoft Customer**: Quando l'organizzazione lavora con un rappresentante Microsoft per firmare un contratto di Microsoft dal cliente, viene creato un account di fatturazione per un contratto di clienti Microsoft. Alcuni clienti in aree selezionate, che effettuano l'iscrizione tramite il sito Web di Azure per un [account con tariffe a consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) o l'aggiornamento loro [Account Azure gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/) potrebbe avere un account di fatturazione per un Microsoft Customer Nonché accordo. Per altre informazioni, vedere [inizia con l'account di fatturazione per Microsoft Customer contratto](billing-mca-overview.md).
+- **Contratto del cliente Microsoft**: quando l'organizzazione collabora con un rappresentante Microsoft per firmare un Contratto del cliente Microsoft, viene creato un apposito account di fatturazione. Anche alcuni clienti in specifiche aree che si iscrivono tramite il sito Web di Azure per ricevere un [account con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) oppure [aggiornano](https://azure.microsoft.com/offers/ms-azr-0044p/) il loro account Azure gratuito possono avere un account di fatturazione per un Contratto del cliente Microsoft. Per altre informazioni, vedere [Introduzione all'account di fatturazione per il Contratto del cliente Microsoft](billing-mca-overview.md).
 
 <!--Todo Add section to identify the type of accounts -->
 
-## <a name="scopes-for-billing-accounts"></a>Ambiti per l'account di fatturazione
-Un ambito è un nodo all'interno di un account di fatturazione utilizzate dagli utenti per visualizzare e gestire la fatturazione. È in cui gli utenti gestire i dati di fatturazione dei pagamenti, fatture e condurre una gestione degli account generale. 
+## <a name="scopes-for-billing-accounts"></a>Ambiti degli account di fatturazione
+Un ambito è un nodo all'interno di un account di fatturazione che gli utenti usano per visualizzare e gestire la fatturazione. Consente di gestire i dati di fatturazione, i pagamenti, le fatture e l'account in generale. 
 
 ### <a name="microsoft-online-services-program"></a>Programma dei Microsoft Online Services
 
-|`Scope`  |Definizione  |
+|Scope  |Definizione  |
 |---------|---------|
-|Account di fatturazione     | Rappresenta un solo proprietario (amministratore dell'Account) per uno o più sottoscrizioni di Azure. Un amministratore Account è autorizzato a eseguire diverse attività di fatturazione, ad esempio creare le sottoscrizioni, visualizzare le fatture o modificare la fatturazione per le sottoscrizioni.  |
-|Sottoscrizione     |  Rappresenta un raggruppamento di risorse di Azure. La fattura viene generata in questo ambito. Ha i propri metodi di pagamento che consentono di pagare la fattura.|
+|Account di fatturazione     | Rappresenta un singolo proprietario (amministratore account) per una o più sottoscrizioni di Azure. Un amministratore account è autorizzato a eseguire varie attività di fatturazione, ad esempio creare sottoscrizioni, visualizzare fatture o cambiare la fatturazione per le sottoscrizioni.  |
+|Subscription     |  Rappresenta un raggruppamento di risorse di Azure. La fattura viene generata in questo ambito. Prevede metodi specifici di pagamento della fattura corrispondente.|
 
 
 ### <a name="enterprise-agreement"></a>Enterprise Agreement
 
-|`Scope`  |Definizione  |
+|Scope  |Definizione  |
 |---------|---------|
-|Account di fatturazione    | Rappresenta un'iscrizione con contratto Enterprise. La fattura viene generata in questo ambito. È stata strutturata con i reparti e gli account di registrazione.  |
+|Account di fatturazione    | Rappresenta una registrazione del contratto Enterprise Agreement. La fattura viene generata in questo ambito. È strutturato tramite reparti e account di registrazione.  |
 |department     |  Raggruppamento facoltativo di account di registrazione.      |
-|Account di registrazione     |  Rappresenta il proprietario di un singolo account. Le sottoscrizioni di Azure vengono create in questo ambito.  |
+|Account di registrazione     |  Rappresenta un singolo proprietario dell'account. Le sottoscrizioni di Azure vengono create in questo ambito.  |
 
 
 ### <a name="microsoft-customer-agreement"></a>Contratto del cliente Microsoft
 
-|`Scope`  |Attività  |
+|Scope  |Attività  |
 |---------|---------|
-|Account di fatturazione     |   Rappresenta un contratto del cliente per più prodotti e servizi Microsoft. È strutturato usando i profili di fatturazione e nelle sezioni della fattura.   |
-|Profilo di fatturazione     |  Rappresenta una fattura e i relativi metodi di pagamento. La fattura viene generata in questo ambito. Ciò può avere più sezioni della fattura.      |
-|Sezione della fattura     |   Rappresenta un gruppo di costi in fattura. Le sottoscrizioni e gli altri acquisti vengono associati a questo ambito.    |
+|Account di fatturazione     |   Rappresenta un contratto del cliente per più prodotti e servizi Microsoft. È strutturato tramite profili di fatturazione e sezioni della fattura.   |
+|Profilo di fatturazione     |  Rappresenta una fattura e i relativi metodi di pagamento. La fattura viene generata in questo ambito. Può includere più sezioni della fattura.      |
+|Sezione della fattura     |   Rappresenta un gruppo di costi in una fattura. Le sottoscrizioni e altri acquisti sono associati a questo ambito.    |
 
 
-## <a name="switch-billing-scope-in-the-azure-portal"></a>L'ambito di fatturazione nel portale di Azure
+## <a name="switch-billing-scope-in-the-azure-portal"></a>Cambiare ambito di fatturazione nel portale di Azure
 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Cercare **costi di gestione e fatturazione**.
+2. Cercare **Gestione dei costi e fatturazione**.
 
    ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
 
-3. Selezionare **tutti gli ambiti fatturazione** dal lato sinistro.
+3. Selezionare **Tutti gli ambiti di fatturazione** sul lato sinistro.
 
    ![Screenshot che mostra tutti gli ambiti di fatturazione](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
-   \* * Non sarà visibile **tutti gli ambiti fatturazione** se si ha accesso solo a un ambito.
+   ** Se si ha accesso a un solo ambito, l'opzione **Tutti gli ambiti di fatturazione** non verrà visualizzata.
 
 4. Selezionare un ambito per visualizzare i dettagli.
 
@@ -85,7 +85,7 @@ Un ambito è un nodo all'interno di un account di fatturazione utilizzate dagli 
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come avviare [l'analisi dei costi](../cost-management/quick-acm-cost-analysis.md).
+- Informazioni su come iniziare ad [analizzare i costi](../cost-management/quick-acm-cost-analysis.md).

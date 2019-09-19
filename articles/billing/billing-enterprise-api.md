@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 04/25/2017
 ms.author: banders
 ms.openlocfilehash: f706ad86493981d5b38248ec209a7c8b936f6817
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443222"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Panoramica delle API di creazione di report per i clienti Enterprise
@@ -29,7 +29,7 @@ Le API di creazione di report consentono ai clienti Enterprise di Azure di estra
 * **Generare o recuperare la chiave API**: accedere a Enterprise Portal e passare a Report > Scarica utilizzo > API Access Key (Chiave di accesso API) per generare o recuperare la chiave API.
 * **Passare le chiavi nell'API** - La chiave API deve essere passata per ogni chiamata per l'autenticazione e l'autorizzazione. La proprietà seguente deve essere passata alle intestazioni HTTP:
 
-|Chiave intestazione necessaria | Value|
+|Chiave intestazione necessaria | Valore|
 |-|-|
 |Authorization| Specificare il valore nel formato: **bearer {API_KEY}** <br/> Esempio: bearer eyr....09| 
 
@@ -44,7 +44,7 @@ Per le API descritte di seguito, [qui](https://consumption.azure.com/swagger/ui/
 
 * **Elenco prezzi** - L'[API elenco prezzi](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) offre la tariffa applicabile per ogni contatore per la registrazione e il periodo di fatturazione specificati.
 
-* **Dettagli dell'istanza riservata** : l' [API di utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) dell'istanza riservata restituisce l'utilizzo degli acquisti di istanze riservate. L' [API riservata](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) addebiti per le istanze Mostra le transazioni di fatturazione effettuate. 
+* **Dettagli delle istanze riservate** - L'[API per l'utilizzo di istanze riservate](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) restituisce l'utilizzo degli acquisti di istanze riservate. L'[API per gli addebiti per istanze riservate](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) visualizza le transazioni di fatturazione effettuate. 
 
 ## <a name="data-freshness"></a>Aggiornamento dei dati
 Vengono restituiti ETag in risposta a tutte le API indicate in precedenza. Una modifica di ETag indica che i dati sono stati aggiornati.  Nelle chiamate successive alla stessa API tramite gli stessi parametri passare l'ETag acquisito con la chiave "If-None-Match" nell'intestazione della richiesta http. Il codice di stato della risposta sarà "NotModified" se i dati non sono stati aggiornati ulteriormente e non verrà restituito alcun dato. L'API restituirà il set di dati completo per il periodo richiesto a ogni modifica di ETag.
@@ -54,12 +54,12 @@ Vengono restituiti ETag in risposta a tutte le API indicate in precedenza. Una m
 
 
 ## <a name="api-response-codes"></a>Codici di risposta dell'API   
-|Codice di stato della risposta|Messaggio|DESCRIZIONE|
+|Codice di stato della risposta|Message|DESCRIZIONE|
 |-|-|-|
 |200| OK|Nessun errore|
-|401| Non autorizzato| Chiave API non trovata, non valida, scaduta e così via|
+|401| Non autorizzata| Chiave API non trovata, non valida, scaduta e così via|
 |404| Non disponibile| Endpoint del report non trovato|
-|400| Richiesta errata| Parametri non validi (intervalli di date, numeri EA e così via)|
+|400| Bad Request| Parametri non validi (intervalli di date, numeri EA e così via)|
 |500| Errore del server| Errore imprevisto nell'elaborazione della richiesta| 
 
 

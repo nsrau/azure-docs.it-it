@@ -1,6 +1,6 @@
 ---
-title: Ottimizzare i costi di Azure Databricks con un acquisto anticipato di
-description: Informazioni su come è possibile pagare in anticipo per gli addebiti di Azure Databricks con capacità riservata per risparmiare denaro.
+title: Ottimizzare i costi di Azure Databricks con un preacquisto
+description: Informazioni su come è possibile risparmiare pagando in anticipo gli addebiti di Azure Databricks con capacità riservata.
 services: billing
 author: yashesvi
 manager: yashar
@@ -9,67 +9,67 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: banders
 ms.openlocfilehash: 99eb4de86aa227d558bec54d011a0b1548d27cf0
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67811258"
 ---
-# <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Ottimizzare i costi di Azure Databricks con un acquisto anticipato di
+# <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Ottimizzare i costi di Azure Databricks con un preacquisto
 
-È possibile salvare in di Azure Databricks costi unitari (DBU) quando si pre-acquista Azure Databricks commit unità (DBCU) per uno o tre anni. È possibile usare il DBCUs pre-acquistate in qualsiasi momento durante il periodo di validità di acquisto. A differenza delle macchine virtuali, le unità di pre-acquistate non scadono su base oraria e usarle in qualsiasi momento durante il periodo di validità dell'acquisto.
+È possibile risparmiare sui costi delle unità Azure Databricks preacquistando unità di impegno in Azure Databricks per uno o tre anni. Le unità di impegno in Databricks preacquistate possono essere usate in qualsiasi momento durante il periodo dell'acquisto. A differenza delle VM, le unità preacquistate non hanno scadenza oraria e sono utilizzabili in qualsiasi momento nel corso del periodo dell'acquisto.
 
-Qualsiasi utilizzo di Azure Databricks detrae automaticamente dalle dBu pre-acquistate. Non è necessario ridistribuire o assegnare un piano di pre-acquistato per le aree di lavoro Azure Databricks per l'utilizzo DBU ottenere sconti preacquisto.
+Qualsiasi uso di Azure Databricks viene detratto automaticamente dalle unità Databricks preacquistate. Non è necessario ridistribuire o assegnare un piano preacquistato alle aree di lavoro di Azure Databricks per applicare gli sconti del preacquisto all'utilizzo delle unità Databricks.
 
-Lo sconto preacquisto si applica solo all'uso di DBU. Altri costi, ad esempio calcolo, archiviazione e rete vengono addebitati separatamente.
+Lo sconto del preacquisto si applica solo all'utilizzo di unità Databricks. Gli altri costi, ad esempio per il calcolo, l'elaborazione e la rete, vengono addebitati separatamente.
 
-## <a name="determine-the-right-size-to-buy"></a>Determinare le dimensioni corrette per l'acquisto
+## <a name="determine-the-right-size-to-buy"></a>Determinare le dimensioni corrette da acquistare
 
-Preacquisto Databricks si applica a tutti i livelli e i carichi di lavoro di Databricks. È possibile considerare il preacquisto come un pool di unità di commit Databricks prepagato. Utilizzo viene dedotto dal pool, indipendentemente dal carico di lavoro o a livelli. Utilizzo viene dedotto il rapporto tra i seguenti:
+Il preacquisto di Databricks si applica a tutti i carichi di lavoro e i livelli di Databricks. Il preacquisto può essere considerato come un pool di unità di impegno in Databricks prepagate. L'utilizzo viene detratto dal pool, indipendentemente dal carico di lavoro o dal livello, nel rapporto seguente:
 
-| **Carico di lavoro** | **Rapporto tra applicazioni le DBU - livello Standard** | **Rapporto tra applicazioni DBU-livello Premium** |
+| **Carico di lavoro** | **Rapporto di applicazione per unità Databricks - Livello Standard** | **Rapporto di applicazione per unità Databricks - Livello Premium** |
 | --- | --- | --- |
-| Analisi dei dati | 0,4 | 0.55 |
-| Ingegneria dei dati | 0,15 | 0.30 |
-| Data Engineering Light | 0,07 | 0.22 |
+| Analisi dei dati | 0,4 | 0,55 |
+| Ingegneria dei dati | 0,15 | 0,30 |
+| Ingegneria dei dati - Light | 0,07 | 0,22 |
 
-Ad esempio, quando una quantità di dati Analitica: livello Standard viene utilizzato, le unità di commit Databricks pre-acquistate vengono dedotti dal 0,4 unità di misura.
+Quando viene utilizzata una quantità di Analisi dei dati nel livello Standard, ad esempio, dalle unità di impegno in Databricks preacquistate vengono detratte 0,4 unità.
 
-Prima di acquistare, calcolare la quantità DBU totale usata per i livelli e carichi di lavoro diversi. Utilizzare i rapporti precedenti la denormalizzazione in DBCU e quindi eseguire una proiezione di uso totale accanto a uno o tre anni.
+Prima dell'acquisto, calcolare la quantità totale di unità Databricks utilizzata per i diversi carichi di lavoro e livelli. Usare i rapporti sopra indicati per la normalizzazione in unità di impegno in Databricks e quindi eseguire una proiezione dell'utilizzo totale nei prossimi uno o tre anni.
 
-## <a name="purchase-databricks-commit-units"></a>Acquistare unità di Databricks con commit
+## <a name="purchase-databricks-commit-units"></a>Acquistare unità di impegno in Databricks
 
-È possibile acquistare piani di Databricks nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Per acquistare capacità riservata, è necessario il ruolo di proprietario per enterprise almeno una sottoscrizione.
+È possibile acquistare piani di Databricks nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Per acquistare capacità riservata, è necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise.
 
-- Attualmente, preacquistare è disponibile solo per i clienti con contratto Enterprise.
-- È necessario essere un ruolo di proprietario per almeno una sottoscrizione Enterprise.
-- Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com/). In alternativa, se tale impostazione è disabilitata, è necessario essere amministratore della sottoscrizione con contratto Enterprise.
+- Il preacquisto è attualmente disponibile solo per i clienti con contratto Enterprise Agreement.
+- È necessario avere un ruolo di proprietario per almeno una sottoscrizione Enterprise.
+- Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com/). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore del contratto EA della sottoscrizione.
 
-**Per l'acquisto:**
+**Per effettuare l'acquisto:**
 
 1. Accedere al [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Selezionare una sottoscrizione. Usare la **sottoscrizione** elenco per selezionare la sottoscrizione che viene usata per pagare la capacità riservata. Il metodo di pagamento della sottoscrizione viene addebitato il costo iniziale per la capacità riservata. Gli addebiti sono detratto dal saldo dell'impegno monetario di registrazione o addebitati come eccedenze.
-1. Selezionare un ambito. Usare la **ambito** elenco per selezionare un ambito della sottoscrizione:
-    - **Singolo ambito di gruppo di risorse** , applica lo sconto di prenotazione per le risorse corrispondente nel solo il gruppo di risorse selezionato.
-    - **Ambito della sottoscrizione singola** , applica lo sconto di prenotazione per le risorse corrispondente nella sottoscrizione selezionata.
-    - **Ambito condiviso** : si applica lo sconto di prenotazione per le risorse nelle sottoscrizioni idonee che sono nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione.
-1. Selezionare il numero di unità Azure Databricks commit si vuole acquistare e completare l'acquisto.
+1. Selezionare una sottoscrizione. Usare l'elenco **Sottoscrizione** per selezionare la sottoscrizione usata per pagare la capacità riservata. I costi iniziali relativi alla capacità riservata vengono addebitati in base al metodo di pagamento della sottoscrizione. I costi vengono detratti dal saldo dell'impegno monetario della registrazione oppure addebitati come eccedenza.
+1. Selezionare un ambito. Usare l'elenco **Ambito** per selezionare un ambito della sottoscrizione.
+    - **Gruppo di risorse singolo**: lo sconto della prenotazione viene applicato solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
+    - **Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.
+    - **Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise Agreement, il contesto di fatturazione è la registrazione.
+1. Selezionare il numero di unità di impegno in Azure Databricks che si vuole acquistare e completare l'acquisto.
 
 
-![Esempio di acquisto di Azure Databricks nel portale di Azure](./media/billing-prepay-databricks-reserved-capacity/data-bricks-pre-purchase.png)
+![Esempio che mostra l'acquisto di Azure Databricks nel portale di Azure](./media/billing-prepay-databricks-reserved-capacity/data-bricks-pre-purchase.png)
 
-## <a name="change-scope-and-ownership"></a>Cambia ambito e la proprietà
+## <a name="change-scope-and-ownership"></a>Modificare ambito e proprietà
 
-È possibile apportare le seguenti modifiche a una prenotazione dopo l'acquisto:
+Dopo l'acquisto, a una prenotazione è possibile apportare i tipi di modifiche seguenti:
 
 - Aggiornare l'ambito della prenotazione
-- Accesso basato sui ruoli
+- Accessi in base al ruolo
 
-Non è possibile suddividere o unire di acquisto anticipato di commit unità Databricks. Per altre informazioni sulla gestione delle prenotazioni, vedere [gestire le prenotazioni dopo l'acquisto](billing-manage-reserved-vm-instance.md).
+Non è possibile dividere o unire il preacquisto di unità di impegno in Databricks. Per altre informazioni sulla gestione delle prenotazioni, vedere [Gestire le prenotazioni dopo l'acquisto](billing-manage-reserved-vm-instance.md).
 
 ## <a name="cancellations-and-exchanges"></a>Annullamenti e scambi
 
-Annullamento ed exchange non è supportata per i piani di acquisto anticipato di Databricks. Tutti gli acquisti sono finali.
+Per i piani di preacquisto di Databricks non sono supportati l'annullamento e lo scambio. Tutti gli acquisti sono definitivi.
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
@@ -79,5 +79,5 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 - Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
   - [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
-  - [Informazioni su come viene applicato uno sconto DBCU preacquisto Azure Databricks](billing-reservation-discount-databricks.md)
+  - [Informazioni sulle modalità di applicazione di uno sconto di preacquisto per unità di impegno in Azure Databricks](billing-reservation-discount-databricks.md)
   - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)

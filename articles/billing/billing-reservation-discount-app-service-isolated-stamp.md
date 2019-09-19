@@ -1,6 +1,6 @@
 ---
-title: Come vengono applicati gli sconti per le prenotazioni per app Azure timbri isolati del servizio
-description: Scopri in che modo gli sconti per la prenotazione si applicano agli indicatori isolati del servizio app Azure
+title: Modalità di applicazione degli sconti per le prenotazioni alle tariffe stamp per il servizio app Isolato di Azure
+description: Informazioni sulla modalità di applicazione degli sconti per le prenotazioni alle tariffe stamp per il servizio app Isolato di Azure.
 services: billing
 author: yashesvi
 manager: yashar
@@ -9,47 +9,47 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: banders
 ms.openlocfilehash: cb4b371deadb1ae9e6ae048c3157809aff857c9d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68298256"
 ---
-# <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Come vengono applicati gli sconti per le prenotazioni per app Azure timbri isolati del servizio
+# <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Modalità di applicazione degli sconti per le prenotazioni alle tariffe stamp per il servizio app Isolato di Azure
 
-Dopo aver acquistato la capacità riservata dello Stamp servizio app Isolato, lo sconto per la prenotazione viene applicato automaticamente alla tariffa di timbro in un'area. Lo sconto relativo alla prenotazione si applica all'utilizzo emesso dal contatore delle tariffe per gli Stamp isolati. I ruoli di lavoro, i front-end aggiuntivi e tutte le altre risorse associate al timbro continueranno a essere fatturati alla tariffa standard.
+Dopo aver acquistato la capacità riservata della tariffa stamp per il servizio app Isolato, lo sconto per la prenotazione viene applicato automaticamente alla tariffa stamp in un'area. Lo sconto per la prenotazione si applica ai dati di utilizzo generati dal contatore della tariffa stamp per ambiente isolato. I ruoli di lavoro, i front-end aggiuntivi ed eventuali altre risorse associate allo stamp continueranno a essere fatturati in base alla tariffa standard.
 
-## <a name="reservation-discount-application"></a>Applicazione sconto prenotazione
+## <a name="reservation-discount-application"></a>Applicazione dello sconto per la prenotazione
 
-Lo sconto sulla tariffa per il timbro servizio app Isolato viene applicato per l'esecuzione di timbri isolati su base oraria. Se non è stato distribuito un timbro per un'ora, la capacità riservata viene sprecata per quell'ora. Non viene ripreso.
+Lo sconto per la tariffa stamp per il servizio app Isolato viene applicato all'esecuzione di stamp per ambiente isolato su base oraria. Se non è presente uno stamp distribuito per un'ora, la capacità riservata risulta sprecata per tale ora e non viene mantenuta.
 
-Dopo l'acquisto, la prenotazione acquistata viene confrontata con un indicatore isolato in esecuzione in un'area specifica. Se si arresta tale timbro, gli sconti per le prenotazioni vengono applicati automaticamente a qualsiasi altro timbro in esecuzione nell'area. Quando non sono presenti timbri, la prenotazione viene applicata al timbro successivo creato nell'area.
+Dopo l'acquisto la prenotazione acquistata viene confrontata con uno stamp per ambiente isolato in esecuzione in un'area specifica. Se si arresta tale stamp, gli sconti per le prenotazioni vengono applicati automaticamente a qualsiasi altro stamp in esecuzione nell'area. Quando non sono presenti stamp, la prenotazione viene applicata allo stamp successivo creato nell'area.
 
-Quando i timbri non vengono eseguiti per un'ora completa, la prenotazione si applica automaticamente ad altri timbri corrispondenti nella stessa area durante la stessa ora.
+Quando gli stamp non vengono eseguiti per un'intera ora, la prenotazione viene applicata automaticamente ad altri stamp corrispondenti presenti nella stessa area nella stessa ora.
 
-## <a name="choose-a-stamp-type---windows-or-linux"></a>Scegliere un tipo di timbro: Windows o Linux
+## <a name="choose-a-stamp-type---windows-or-linux"></a>Scegliere un tipo di stamp: Windows o Linux
 
-Per impostazione predefinita, un timbro isolato vuoto emette il contatore Windows Stamp. Ad esempio, quando non viene distribuito alcun thread di lavoro. Continua a emettere il contatore quando vengono distribuiti i ruoli di lavoro di Windows. Se si distribuisce un ruolo di lavoro Linux, il misuratore passa al contatore di indicatori Linux. Il timbro emette il contatore Windows quando vengono distribuiti sia Linux che Windows Worker.
+Per impostazione predefinita, con uno stamp per ambiente isolato vuoto viene generato il contatore dello stamp Windows, ad esempio quando non viene distribuito alcun ruolo di lavoro. Continua a generare il contatore quando vengono distribuiti ruoli di lavoro di Windows. Se si distribuisce un ruolo di lavoro Linux, il contatore passa al contatore dello stamp Linux. Quando vengono distribuiti ruoli di lavoro sia Linux che Windows, lo stamp genera il contatore di Windows.
 
-Di conseguenza, il contatore dei timbri può variare tra Windows e Linux in base alla durata del timbro. Nel frattempo, le prenotazioni sono specifiche del sistema operativo. È necessario acquistare una prenotazione che supporti i thread di lavoro che si prevede di distribuire nell'indicatore. Per gli indicatori e i timbri solo Windows viene utilizzata la prenotazione di Windows. I timbri con solo i ruoli di lavoro Linux usano la prenotazione di Linux.
+Di conseguenza, il contatore dello stamp può quindi passare da Windows a Linux e viceversa durante il ciclo di vita dello stamp. Nel frattempo le prenotazioni sono specifiche del sistema operativo. È necessario acquistare una prenotazione che supporti i ruoli di lavoro che si prevede di distribuire nello stamp. Per gli stamp solo Windows e quelli misti viene usata la prenotazione di Windows. Per gli stamp con solo ruoli di lavoro Linux viene usata la prenotazione di Linux.
 
-L'unico momento in cui è necessario acquistare una prenotazione di Linux è quando si prevede di avere _solo_ i ruoli di lavoro Linux.
+Una prenotazione di Linux deve essere acquistata esclusivamente se si prevede che lo stamp conterrà _solo_ ruoli di lavoro di Linux.
 
 ## <a name="discount-examples"></a>Esempi di sconto
 
-Negli esempi seguenti viene illustrato il modo in cui viene applicato lo sconto dell'istanza riservata per la tassa dei timbri isolati, a seconda delle distribuzioni.
+Gli esempi seguenti illustrano la modalità di applicazione dello sconto per l'istanza riservata della tariffa stamp per ambiente isolato a seconda delle distribuzioni.
 
-- **Esempio 1**: Si acquista un'istanza di capacità di timbro riservata isolata in un'area senza servizio app Isolato timbri. Si distribuisce un nuovo timbro nell'area e si pagano le tariffe riservate per tale timbro.
-- **Esempio 2:** Si acquista un'istanza di capacità di timbro riservata isolata in un'area in cui è già distribuito un timbro servizio app Isolato. Si inizia a ricevere la tariffa riservata per l'indicatore distribuito.
-- **Esempio 3**: Si acquista un'istanza di capacità di timbro riservata isolata in un'area con un timbro servizio app Isolato già distribuito. Si inizia a ricevere la tariffa riservata nell'indicatore distribuito. Successivamente, eliminare il timbro e distribuirne uno nuovo. Si riceve la tariffa riservata per il nuovo timbro. Gli sconti non riportano le durate senza timbri distribuiti.
-- **Esempio 4**: Si acquista un'istanza di capacità di timbro riservata Linux isolata in un'area e quindi si distribuisce un nuovo timbro nell'area. Quando il timbro viene inizialmente distribuito senza thread di lavoro, emette il contatore Windows Stamp. Non viene ricevuto alcun sconto. Quando viene distribuito il timbro, il primo ruolo di lavoro Linux emette il contatore per gli Stamp Linux e viene applicato lo sconto relativo alla prenotazione. Se un ruolo di lavoro di Windows viene distribuito in un secondo momento, il contatore del timbro viene ripristinato in Windows. Non si riceve più uno sconto per la prenotazione di timbri riservati Linux isolata.
+- **Esempio 1**: si acquista un'istanza della capacità riservata per lo stamp per ambiente isolato in un'area senza stamp per il servizio app Isolato. Si distribuisce un nuovo stamp nell'area e si pagano le tariffe riservate per tale stamp.
+- **Esempio 2:** si acquista un'istanza della capacità riservata per lo stamp per ambiente isolato in un'area in cui è già distribuito uno stamp per il servizio app Isolato. Si inizia a ricevere la tariffa riservata per lo stamp distribuito.
+- **Esempio 3**: si acquista un'istanza della capacità riservata per lo stamp per ambiente isolato in un'area con uno stamp per il servizio app Isolato già distribuito. Si inizia a ricevere la tariffa riservata per lo stamp distribuito. Successivamente, si elimina lo stamp e se ne distribuisce uno nuovo. Si riceve la tariffa riservata per il nuovo stamp. Gli sconti non vengono mantenuti per l'intera durata senza stamp distribuiti.
+- **Esempio 4**: si acquista un'istanza della capacità riservata per lo stamp Linux per ambiente isolato in un'area e quindi si distribuisce un nuovo stamp nell'area. Quando lo stamp viene inizialmente distribuito senza ruoli di lavoro, viene generato il contatore di stamp Windows. Non viene ricevuto alcuno sconto. Quando nello stamp viene distribuito il primo ruolo di lavoro Linux, viene generato il contatore di stamp Linux e viene applicato lo sconto relativo alla prenotazione. Se successivamente nello stamp viene distribuito un ruolo di lavoro di Windows, viene ripristinato il contatore di stamp Windows. Non si riceve più uno sconto per la prenotazione dello stamp riservato Linux per ambiente isolato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come gestire una prenotazione, vedere [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md).
-- Per altre informazioni su come pre-acquisto servizio app Isolato la capacità riservata di timbro per risparmiare denaro, vedere [la pagina relativa alla tariffa per gli Stamp isolati con la capacità riservata di app Azure Service](billing-prepay-app-service-isolated-stamp.md).
+- Per altre informazioni sul preacquisto di capacità riservata dello stamp per il servizio app Isolato per risparmiare denaro, vedere [Pagare in anticipo la tariffa stamp per il servizio app Isolato di Azure con capacità riservata](billing-prepay-app-service-isolated-stamp.md).
 - Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
   - [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
   - [Gestire le prenotazioni in Azure](billing-manage-reserved-vm-instance.md)
-  - [Informazioni sull'utilizzo della prenotazione per una sottoscrizione con tariffe con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+  - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
   - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)

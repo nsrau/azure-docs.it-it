@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
 ms.openlocfilehash: f907ebcfc1efc2e6eb9b458f83ab11d868871946
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60615829"
 ---
 # <a name="create-an-additional-subscription-in-the-azure-portal"></a>Creare una sottoscrizione di Azure aggiuntiva nel portale di Azure
@@ -50,4 +50,4 @@ Se non si ha già una sottoscrizione di Azure, è possibile creare un [account g
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

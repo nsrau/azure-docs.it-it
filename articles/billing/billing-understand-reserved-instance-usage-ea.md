@@ -1,5 +1,5 @@
 ---
-title: Informazioni sull'utilizzo delle prenotazioni di Azure per i contratti Enterprise
+title: Informazioni sull'utilizzo delle prenotazioni di Azure per i contratti Enterprise Agreement
 description: Informazioni su come leggere l'utilizzo per comprendere come viene applicata la prenotazione di Azure per l'iscrizione Enterprise.
 author: bandersmsft
 manager: yashar
@@ -12,141 +12,141 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 507ad62a917120689bee3f1e293e23c9ab8b0f66
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68598090"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere Enterprise Agreement costi di prenotazione e utilizzo
+# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sui costi di prenotazione e l'utilizzo dei contratti Enterprise Agreement
 
-I costi di prenotazione e i dati di utilizzo sono disponibili per i clienti Enterprise Agreement nel portale di Azure e nelle API REST. Questo articolo consente di:
+I costi di prenotazione e i dati di utilizzo sono disponibili per gli utenti con contratto Enterprise Agreement nel portale di Azure e nelle API REST. Questo articolo offre informazioni utili per:
 
-- Ottenere i dati di acquisto della prenotazione
-- Conosce la sottoscrizione, il gruppo di risorse o la risorsa che ha usato la prenotazione
-- Chargeback per l'utilizzo della prenotazione
-- Calcolo risparmi prenotazione
-- Ottenere i dati di prenotazione in sottoutilizzo
+- Ottenere i dati sugli acquisti di prenotazioni
+- Individuare la sottoscrizione, il gruppo di risorse o la risorsa che ha usato la prenotazione
+- Effettuare il chargeback per l'utilizzo delle prenotazioni
+- Calcolare il risparmio delle prenotazioni
+- Ottenere i dati di sottoutilizzo della prenotazione
 - Ammortizzare i costi di prenotazione
 
-I prezzi del Marketplace sono consolidati nei dati di utilizzo. È possibile visualizzare gli addebiti per l'utilizzo, l'utilizzo del Marketplace e gli acquisti da parte di una singola origine dati.
+Gli addebiti per Marketplace sono consolidati nei dati di utilizzo. Vengono visualizzati gli addebiti per l'utilizzo proprietario, l'utilizzo del Marketplace e gli acquisti da una singola origine dati.
 
-## <a name="reservation-charges-in-azure-usage-data"></a>Addebiti di prenotazione nei dati di utilizzo di Azure
+## <a name="reservation-charges-in-azure-usage-data"></a>Addebiti delle prenotazioni nei dati di utilizzo di Azure
 
-I dati sono divisi in due set di dati separati: _Costo effettivo_ e _costo ammortizzato_. Differenze tra i due set di impostazioni:
+I dati sono divisi in due set di dati separati: _Costo effettivo_ e _Costo ammortizzato_. Ecco le differenze tra i due set di dati:
 
-**Costo effettivo** : fornisce i dati da riconciliare con la fattura mensile. Questi dati hanno i costi di acquisto della prenotazione e i dettagli dell'applicazione di prenotazione. Con questi dati, è possibile individuare la sottoscrizione o il gruppo di risorse o la risorsa che ha ricevuto lo sconto di prenotazione in un determinato giorno. Il valore di EffectivePrice per l'utilizzo che riceve lo sconto di prenotazione è zero.
+**Costo effettivo**: fornisce i dati da riconciliare con la fattura mensile. Questi dati includono i costi di acquisto della prenotazione e i dettagli sull'applicazione della stessa. Grazie a questi dati è possibile individuare la sottoscrizione, il gruppo di risorse o la risorsa che ha ricevuto lo sconto sulla prenotazione in un determinato giorno. Il valore di EffectivePrice per l'utilizzo che riceve lo sconto sulla prenotazione è pari a zero.
 
-**Costo ammortizzato** : questo set di dati è simile al set di dati dei costi effettivi, tranne per il fatto che il valore di EffectivePrice per l'utilizzo che ottiene lo sconto della prenotazione è il costo riordinato della prenotazione (anziché zero). Questo consente di individuare il valore monetario del consumo di prenotazione da parte di una sottoscrizione, di un gruppo di risorse o di una risorsa e di ricaricare internamente l'utilizzo della prenotazione. Il set di dati dispone anche di ore di prenotazione inutilizzate. Il set di dati non contiene record di acquisto della prenotazione. 
+**Costo ammortizzato**: questo set di dati è simile al set di dati dei costi effettivi, tranne per il fatto che il valore di EffectivePrice per l'utilizzo che ottiene lo sconto sulla prenotazione è il costo ripartito in modo proporzionale della prenotazione (anziché zero). Questo consente di conoscere il valore monetario del consumo della prenotazione da parte di una sottoscrizione, di un gruppo di risorse o di una risorsa e di stornare internamente l'addebito per l'utilizzo della prenotazione. Il set di dati dispone anche di ore di prenotazione inutilizzate. Non ha record di acquisto della prenotazione. 
 
-Confronto tra due set di dati:
+Ecco un confronto tra i due set di dati:
 
-| Data | Set di dati dei costi effettivi | Set di dati dei costi ammortizzati |
+| Dati | Set di dati Costo effettivo | Set di dati Costo ammortizzato |
 | --- | --- | --- |
-| Acquisti prenotazione | Disponibile in questa visualizzazione.<br><br>  Per ottenere questo filtro dei dati in ChargeType &quot;=&quot;purchase. <br><br> Per informazioni sulla prenotazione, vedere ReservationID o Reservationname.  | Non applicabile a questa visualizzazione. <br><br> I costi di acquisto non vengono forniti nei dati ammortizzati. |
-| EffectivePrice | Il valore è zero per l'utilizzo che ottiene lo sconto della prenotazione. | Il valore è il costo rivalutato per ora della prenotazione per l'utilizzo con lo sconto per la prenotazione. |
-| Prenotazione inutilizzata (indica il numero di ore in cui la prenotazione non è stata usata in un giorno e il valore monetario degli sprechi) | Non applicabile in questa visualizzazione. | Disponibile in questa visualizzazione.<br><br> Per ottenere questi dati, filtrare in ChargeType = &quot;UnusedReservation&quot;.<br><br>  Per informazioni sulla prenotazione sottoutilizzata, vedere ReservationID o Reservationname. Questa è la quantità di prenotazione sprecata per la giornata.  |
-| PrezzoUnitario (prezzo della risorsa dall'elenco prezzi) | Disponibile | Disponibile |
+| Acquisti di prenotazioni | Disponibili in questa visualizzazione.<br><br>  Per ottenere questi dati, filtrare per ChargeType = &quot;Purchase&quot;. <br><br> Fare riferimento a ReservationID o ReservationName per sapere a quale prenotazione è relativo l'addebito.  | Non applicabili a questa visualizzazione. <br><br> I costi di acquisto non vengono forniti nei dati ammortizzati. |
+| EffectivePrice | Il valore è zero per l'utilizzo che ottiene lo sconto sulla prenotazione. | Il valore è il costo orario ripartito in modo proporzionale della prenotazione per l'utilizzo con lo sconto per la prenotazione. |
+| Prenotazione inutilizzata (indica il numero di ore in cui la prenotazione non è stata usata in un giorno e il valore monetario dello spreco) | Non applicabili in questa visualizzazione. | Disponibili in questa visualizzazione.<br><br> Per ottenere questi dati, filtrare per ChargeType = &quot;UnusedReservation&quot;.<br><br>  Fare riferimento a ReservationID o ReservationName per sapere quale prenotazione è stata sottoutilizzata. Corrisponde alla quantità di prenotazione sprecata per la giornata.  |
+| UnitPrice (prezzo della risorsa dall'elenco prezzi) | Disponibile | Disponibile |
 
 Sono state modificate altre informazioni disponibili nei dati di utilizzo di Azure:
 
-- Informazioni sul prodotto e sul contatore: Azure non sostituisce il contatore utilizzato originariamente con ReservationId e Reservationname, come in precedenza.
-- ReservationId e Reservationname: si tratta dei propri campi nei dati. In precedenza, era disponibile solo in AdditionalInfo.
+- Informazioni sul prodotto e sul contatore: Azure non sostituisce il contatore utilizzato originariamente con ReservationId e ReservationName, come faceva in precedenza.
+- ReservationId e ReservationName: sono i campi dell'ID e del nome della prenotazione nei dati. In precedenza erano disponibili solo in AdditionalInfo.
 - ProductOrderId: ID dell'ordine di prenotazione, aggiunto come campo.
 - ProductOrderName: nome del prodotto della prenotazione acquistata.
-- Termine: 12 mesi o 36 mesi.
-- RINormalizationRatio-disponibile in AdditionalInfo. Questo è il rapporto in cui viene applicata la prenotazione al record di utilizzo. Se la flessibilità delle dimensioni dell'istanza è abilitata per la prenotazione, può essere applicata ad altre dimensioni. Il valore Mostra il rapporto a cui è stata applicata la prenotazione per il record di utilizzo.
+- Durata: 12 mesi o 36 mesi.
+- RINormalizationRatio: disponibile in AdditionalInfo. È il rapporto in base a cui la prenotazione viene applicata al record di utilizzo. Se la flessibilità delle dimensioni dell'istanza è abilitata per la prenotazione, può essere applicata ad altre dimensioni. Il valore mostra il rapporto a cui è stata applicata la prenotazione per il record di utilizzo.
 
-## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Ottenere il consumo di Azure e i dati di utilizzo delle prenotazioni usando l'API
+## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Ottenere i dati di consumo e di utilizzo delle prenotazioni di Azure tramite l'API
 
-È possibile ottenere i dati usando l'API o scaricarli dalla portale di Azure.
+È possibile ottenere i dati usando l'API o scaricarli dal portale di Azure.
 
-Per ottenere i nuovi dati, è necessario chiamare [l'API Details Usage](/rest/api/consumption/usagedetails/list) con la versione API &quot;2019-04-01-preview&quot;. Per informazioni dettagliate sulla terminologia, vedere [condizioni di utilizzo](billing-understand-your-usage.md). Il chiamante deve essere un amministratore dell'organizzazione per il contratto Enterprise Agreement usando il [portale EA](https://ea.azure.com). Gli amministratori dell'organizzazione di sola lettura possono anche ottenere i dati.
+Per ottenere i nuovi dati, chiamare l'[API Dettagli utilizzo](/rest/api/consumption/usagedetails/list) con l'API versione &quot;2019-04-01-(anteprima)&quot;. Per informazioni dettagliate sulla terminologia, vedere [Comprendere i termini di utilizzo nel file su utilizzo e costi di Azure](billing-understand-your-usage.md). Il chiamante deve essere un amministratore dell'organizzazione per il contratto Enterprise Agreement che usa [EA Portal](https://ea.azure.com). Anche gli amministratori dell'organizzazione in sola lettura possono ottenere i dati.
 
-I dati non sono disponibili nelle [API per la creazione di report per i clienti Enterprise-dettagli sull'utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+I dati non sono disponibili in [API di creazione di report per i clienti Enterprise - Dettagli di utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Di seguito è riportato un esempio di chiamata all'API:
+Ecco un esempio di chiamata all'API:
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
 ```
 
-Per altre informazioni su {enrollmentId} e {billingPeriodId}, vedere l'articolo relativo ai [Dettagli sull'utilizzo-API List](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) .
+Per altre informazioni su {enrollmentId} e {billingPeriodId}, vedere l'articolo [Dettagli utilizzo - Elenco](https://docs.microsoft.com/rest/api/consumption/usagedetails/list).
 
-Le informazioni riportate nella tabella seguente sulla metrica e sul filtro consentono di risolvere i problemi comuni di prenotazione.
+Le informazioni riportate nella tabella seguente sulla metrica e sul filtro possono essere utili per risolvere i problemi comuni delle prenotazioni.
 
-| **Tipo di dati API** | Azione chiamata API |
+| **Tipo di dati API** | Azione di chiamata API |
 | --- | --- |
-| **Tutti gli addebiti (utilizzo e acquisti)** | Sostituisci {Metric} con ActualCost |
-| **Utilizzo che ha ottenuto lo sconto sulla prenotazione** | Sostituisci {Metric} con ActualCost<br><br>Sostituire {Filter} con: Properties/reservationId% 20NE% 20 |
-| **Utilizzo che non ha ottenuto lo sconto sulla prenotazione** | Sostituisci {Metric} con ActualCost<br><br>Sostituire {Filter} con: Properties/reservationId% 20eq% 20 |
-| **Addebiti ammortizzati (utilizzo e acquisti)** | Sostituisci {Metric} con AmortizedCost |
-| **Report prenotazione non usato** | Sostituisci {Metric} con AmortizedCost<br><br>Sostituire {Filter} con: Properties/ChargeType% 20eq% 20' UnusedReservation ' |
-| **Acquisti prenotazione** | Sostituisci {Metric} con ActualCost<br><br>Sostituire {Filter} con: Properties/ChargeType% 20eq% 20' Purchase '  |
-| **Rimborsi** | Sostituisci {Metric} con ActualCost<br><br>Sostituire {Filter} con: Properties/ChargeType% 20eq% 20' restituzione ' |
+| **Tutti gli addebiti (utilizzo e acquisti)** | Sostituire {metric} con ActualCost |
+| **Utilizzo che ha ottenuto lo sconto per la prenotazione** | Sostituire {metric} con ActualCost<br><br>Sostituire {filter} con: properties/reservationId%20ne%20 |
+| **Utilizzo che non ha ottenuto lo sconto per la prenotazione** | Sostituire {metric} con ActualCost<br><br>Sostituire {filter} con: properties/reservationId%20eq%20 |
+| **Addebiti ammortizzati (utilizzo e acquisti)** | Sostituire {metric} con AmortizedCost |
+| **Report sulle prenotazioni non usate** | Sostituire {metric} con AmortizedCost<br><br>Sostituire {filter} con: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Acquisti di prenotazioni** | Sostituire {metric} con ActualCost<br><br>Sostituire {filter} con: properties/ChargeType%20eq%20'Purchase'  |
+| **Rimborsi** | Sostituire {metric} con ActualCost<br><br>Sostituire {filter} con: properties/ChargeType%20eq%20'Refund' |
 
-## <a name="download-the-usage-csv-file-with-new-data"></a>Scaricare il file CSV di utilizzo con nuovi dati
+## <a name="download-the-usage-csv-file-with-new-data"></a>Scaricare il file CSV dei dati di utilizzo con i nuovi dati
 
-Se si è un amministratore EA, è possibile scaricare il file CSV contenente i nuovi dati di utilizzo da portale di Azure. Questi dati non sono disponibili dal [portale EA](https://ea.azure.com).
+Gli amministratori EA possono scaricare il file CSV contenente i nuovi dati di utilizzo dal portale di Azure. Questi dati n sono disponibili in [EA Portal](https://ea.azure.com).
 
-Nella portale di Azure passare a [Gestione costi e fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
+Nel portale di Azure passare a [Gestione dei costi e fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
 1. Selezionare l'account di fatturazione.
-2. Fare clic su **utilizzo**e addebiti.
-3. Scegliere **Download**.  
-![Esempio che mostra dove scaricare il file di dati di utilizzo CSV nel portale di Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. In **Scarica utilizzo** e addebiti in **Dettagli utilizzo versione 2** Selezionare **tutti gli addebiti (utilizzo e acquisti)** , quindi fare clic su download. Si ripete per gli addebiti **ammortizzati (utilizzo e acquisti)** .
+2. Fare clic su **Utilizzo e addebiti**.
+3. Fare clic su **Download**.  
+![Esempio che mostra dove scaricare il file CSV dei dati di utilizzo nel portale di Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
+4. In **Scarica l'utilizzo e gli addebiti** selezionare **Tutti gli addebiti (utilizzo e acquisti)** in **Dettagli utilizzo - Versione 2**, quindi fare clic su Scarica. Ripetere per **Addebiti ammortizzati (utilizzo e acquisti)** .
 
-I file CSV scaricati contengono costi effettivi e costi ammortizzati.
+I file CSV scaricati contengono i costi effettivi e i costi ammortizzati.
 
 ## <a name="common-cost-and-usage-tasks"></a>Attività comuni relative a costi e utilizzo
 
-Le sezioni seguenti sono attività comuni utilizzate dalla maggior parte degli utenti per visualizzare i dati di utilizzo e i costi di prenotazione.
+Le sezioni seguenti descrivono attività comuni eseguite dalla maggior parte degli utenti per visualizzare i dati di utilizzo e i costi delle prenotazioni.
 
 ### <a name="get-reservation-purchase-costs"></a>Ottenere i costi di acquisto della prenotazione
 
-I costi di acquisto della prenotazione sono disponibili nei dati di costo effettivo. Filtro per _ChargeType = Purchase_. Per determinare l'ordine di prenotazione per l'acquisto, vedere ProductOrderID.
+I costi di acquisto della prenotazione sono disponibili nei dati di costo effettivo. Filtrare per _ChargeType = Purchase_. Fare riferimento a ProductOrderID per determinare l'ordine di prenotazione relativo all'acquisto.
 
-### <a name="get-underutilized-reservation-quantity-and-costs"></a>Ottenere la quantità di prenotazione e i costi sottoutilizzati
+### <a name="get-underutilized-reservation-quantity-and-costs"></a>Ottenere la quantità e i costi delle prenotazioni sottoutilizzate
 
-Ottenere i dati dei costi ammortizzati e filtrare per _ChargeType_ _= UnusedReservation_. Si ottiene la quantità di prenotazione giornaliera non utilizzata e il costo. È possibile filtrare i dati per un ordine di prenotazione o prenotazione usando rispettivamente i campi _ReservationId_ e _ProductOrderId_ . Se è stata utilizzata una prenotazione pari al 100%, il record ha una quantità di 0.
+Ottenere i dati di costo ammortizzato e filtrare per _ChargeType_ _= UnusedReservation_. Si ottiene la quantità e il costo giornalieri della prenotazione non utilizzata. È possibile filtrare i dati per una prenotazione o un ordine di prenotazione usando rispettivamente i campi _ReservationId_ e _ProductOrderId_. Se una prenotazione è stata utilizzata al 100%, il record ha una quantità pari a 0.
 
 ### <a name="amortize-reservation-costs"></a>Ammortizzare i costi di prenotazione
 
-Ottenere i dati dei costi ammortizzati e filtrare per un ordine di prenotazione usando _ProductOrderID_ per ottenere i costi giornalieri ammortizzati per una prenotazione.
+Ottenere i dati di costo ammortizzato e filtrare per un ordine di prenotazione usando _ProductOrderID_ per ottenere i costi ammortizzati giornalieri per una prenotazione.
 
-### <a name="chargeback-for-a-reservation"></a>Chargeback per una prenotazione
+### <a name="chargeback-for-a-reservation"></a>Effettuare il chargeback per una prenotazione
 
-È possibile usare la prenotazione di chargeback per le altre organizzazioni per sottoscrizione, gruppi di risorse o tag. I dati relativi ai costi ammortizzati forniscono il valore monetario dell'utilizzo di una prenotazione con i tipi di dati seguenti:
+È possibile effettuare il chargeback dell'uso della prenotazione ad altre organizzazioni per sottoscrizione, gruppi di risorse o tag. I dati relativi ai costi ammortizzati forniscono il valore monetario dell'utilizzo di una prenotazione con i tipi di dati seguenti:
 
 - Risorse (ad esempio una macchina virtuale)
-- Gruppo di risorse
+- Resource group
 - Tag
-- Sottoscrizione
+- Subscription
 
-### <a name="get-the-blended-rate-for-chargeback"></a>Ottenere la velocità di fusione per il chargeback
+### <a name="get-the-blended-rate-for-chargeback"></a>Ottenere il tasso misto per il chargeback
 
-Per determinare la frequenza di Blend, ottenere i dati dei costi ammortizzati e aggregare il costo totale. Per le macchine virtuali, è possibile usare le informazioni Metername o ServiceType dei dati JSON di AdditionalInfo. Dividere il costo totale per la quantità usata per ottenere la frequenza di Blend.
+Per determinare il tasso misto, aggregare ai dati dei costi ammortizzati il costo totale. Per le macchine virtuali è possibile usare le informazioni MeterName o ServiceType dei dati JSON AdditionalInfo. Dividere il costo totale per la quantità usata per ottenere il tasso misto.
 
-### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Controllare l'uso della prenotazione ottimale per la flessibilità delle dimensioni dell'istanza
+### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Controllare l'uso ottimale della prenotazione per la flessibilità delle dimensioni istanza
 
-Più la quantità con _RINormalizationRatio_, da AdditionalInfo. I risultati indicano il numero di ore di utilizzo della prenotazione applicato al record di utilizzo.
+Moltiplicare la quantità per _RINormalizationRatio_ da AdditionalInfo. I risultati indicano il numero di ore di utilizzo della prenotazione applicato al record di utilizzo.
 
-### <a name="determine-reservation-savings"></a>Determinare il risparmio di prenotazione
+### <a name="determine-reservation-savings"></a>Determinare il risparmio delle prenotazioni
 
 Ottenere i dati dei costi ammortizzati e filtrare i dati per un'istanza riservata. Quindi:
 
-1. Ottieni costi stimati con pagamento in base al consumo. Moltiplicare il valore _PrezzoUnitario_ con i valori di _quantità_ per ottenere i costi stimati con pagamento in base al consumo, se lo sconto per la prenotazione non è stato applicato.
-2. Ottenere i costi di prenotazione. Sommare i valori di _costo_ per ottenere il valore monetario di quello pagato per l'istanza riservata. Include i costi utilizzati e inutilizzati della prenotazione.
-3. Sottrarre i costi di prenotazione dai costi stimati con pagamento in base al consumo per ottenere il risparmio stimato.
+1. Ottenere i costi con pagamento in base al consumo stimati. Moltiplicare il valore _UnitPrice_ per i valori _Quantity_ per ottenere i costi con pagamento in base al consumo stimati, se lo sconto sulla prenotazione non è stato applicato all'utilizzo.
+2. Ottenere i costi di prenotazione. Sommare i valori _Cost_ per ottenere il valore monetario dell'importo pagato per l'istanza riservata. Include i costi per la prenotazione utilizzata e inutilizzata.
+3. Sottrarre i costi di prenotazione dai costi con pagamento in base al consumo stimati per ottenere il risparmio stimato.
 
-## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Acquisti di prenotazione e ammortamento nell'analisi dei costi
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Acquisti di prenotazioni e ammortamento nell'analisi dei costi
 
-I costi di prenotazione sono disponibili nell' [analisi dei costi](https://aka.ms/costanalysis). Per impostazione predefinita, l'analisidei costi Mostra i costi effettivi, ovvero il modo in cui i costi verranno visualizzati nella fattura. Per visualizzare gli acquisti di prenotazione suddivisi e associati alle risorse che hanno usato il vantaggio, passare al **costo ammortizzato**:
+I costi di prenotazione sono disponibili nell'[analisi dei costi](https://aka.ms/costanalysis). Per impostazione predefinita, l'analisi dei costi mostra il **costo effettivo**, ossia i costi che verranno visualizzati nella fattura. Per visualizzare gli acquisti di prenotazioni suddivisi e associati alle risorse che hanno usato il vantaggio, passare al **costo ammortizzato**:
 
 ![Esempio che mostra dove selezionare il costo ammortizzato nell'analisi dei costi](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Raggruppa per tipo di addebito per visualizzare un'interruzione dell'utilizzo, degli acquisti e dei rimborsi; o tramite prenotazione per una ripartizione della prenotazione e dei costi su richiesta. Tenere presente che gli unici costi di prenotazione che verranno visualizzati quando si esaminano i costi effettivi sono gli acquisti, ma i costi verranno allocati alle singole risorse che hanno usato il benfit quando si esaminano i costi ammortizzati. Quando si esamina il costo ammortizzato, viene visualizzato anche un nuovo tipo di addebito **UnusedReservation** .
+Raggruppare per tipo di addebito per visualizzare una ripartizione di utilizzo, acquisti e rimborsi. Raggruppare per prenotazione per una ripartizione dei costi della prenotazione e su richiesta. Tenere presente che gli unici costi di prenotazione che verranno visualizzati quando si esaminano i costi effettivi sono gli acquisti, mentre quando si esaminano i costi ammortizzati i costi verranno allocati alle singole risorse che hanno usato il vantaggio. Quando si esamina il costo ammortizzato, viene visualizzato anche un nuovo tipo di addebito **UnusedReservation**.
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

@@ -16,32 +16,32 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
 ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67491462"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Risolvere problemi relativi a un saldo dovuto non pagato per la sottoscrizione di Azure
 
-Se non viene ricevuto il pagamento o se non è possibile elaborare il pagamento, si potrebbe ottenere un messaggio di posta elettronica o visualizzi un avviso nel portale di Azure o centro Account.
-Se si è il [amministratore dell'Account](billing-subscription-transfer.md#whoisaa), è possibile pagare gli addebiti in sospeso [portale di Azure](https://portal.azure.com). Se si usa un metodo di pagamento con fattura, inviare il pagamento al destinatario elencato nella parte inferiore della fattura.
+Se il pagamento non viene ricevuto o non può essere elaborato, è possibile che si riceva un messaggio di posta elettronica oppure che si visualizzi un avviso nel portale di Azure o nel Centro account.
+L'[amministratore account](billing-subscription-transfer.md#whoisaa) può pagare gli addebiti in sospeso nel [portale di Azure](https://portal.azure.com). Se si usa un metodo di pagamento con fattura, inviare il pagamento al destinatario elencato nella parte inferiore della fattura.
 
 > [!IMPORTANT]
-> * Se si hanno più sottoscrizioni che usano la stessa carta di credito e sono tutti scaduti, è necessario sostenere il saldo inevaso intero in una sola volta.
-> * Lo strumento di pagamento che è usare per pagare gli addebiti in sospeso diventerà il nuovo metodo di pagamento attivo per tutte le sottoscrizioni che usava il metodo di pagamento non riuscito.
+> * Se si hanno più sottoscrizioni scadute, associate alla stessa carta di credito, è necessario pagare l'intero saldo scoperto in una sola volta.
+> * Lo strumento di pagamento usato per il pagamento degli addebiti in sospeso diventerà il nuovo metodo di pagamento attivo per tutte le sottoscrizioni per cui veniva usato il metodo di pagamento in errore.
 
-## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Risolvere scaduto saldo nel portale di Azure
+## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Risolvere il saldo scaduto nel portale di Azure
 
-1. Accedi per il [portale di Azure](https://portal.azure.com) come amministratore dell'Account.
-1. Cercare **costi di gestione e fatturazione**.
-1. Nella pagina Panoramica, si verrà visualizzato un elenco delle sottoscrizioni. Se lo stato della sottoscrizione è scaduto, fare clic sui **finalizzazione saldo** collegamento.
-    ![Screenshot che mostra stabilizzarsi collegamento saldo](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
-1. Il saldo totale riflette gli addebiti in sospeso in tutti i servizi di Microsoft usando il metodo di pagamento non riuscito.
-1. Selezionare un metodo di pagamento per pagare il saldo. Questo metodo di pagamento diventerà il metodo di pagamento attivo per tutte le sottoscrizioni attualmente utilizzando il metodo di pagamento non riuscito.
-    ![Screenshot che mostra i collegamenti di metodo di pagamento select](./media/billing-azure-subscription-past-due-balance/settle-balance-screen.png)
-1. Se il metodo di pagamento selezionati ha anche gli addebiti in sospeso per i servizi Microsoft, questo si rifletteranno nel saldo totale. Gli addebiti in sospeso, devi pagare troppo.
-1. Fare clic su **pagare**.
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
+1. Cercare **Gestione dei costi e fatturazione**.
+1. Nella pagina Panoramica verrà visualizzato l'elenco delle sottoscrizioni. Se lo stato della sottoscrizione è scaduto, fare clic sul collegamento **Liquidazione del saldo**.
+    ![Screenshot che mostra il collegamento Liquidazione del saldo](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
+1. Il saldo scoperto totale riflette gli addebiti in sospeso in tutti i servizi Microsoft per cui si usa il metodo di pagamento in errore.
+1. Selezionare un metodo di pagamento per pagare il saldo. Questo metodo di pagamento diventerà quello attivo per tutte le sottoscrizioni per cui attualmente si usa il metodo di pagamento in errore.
+    ![Screenshot che mostra il collegamento al metodo di pagamento selezionato](./media/billing-azure-subscription-past-due-balance/settle-balance-screen.png)
+1. Se sono presenti addebiti in sospeso per i servizi Microsoft anche con il metodo di pagamento selezionato, questa situazione si rifletterà anche nel saldo scoperto totale. È necessario pagare anche questi addebiti in sospeso.
+1. Fare clic su **Pagamento**.
 
 ## <a name="not-getting-billing-email-notifications"></a>Non si ricevono notifiche di posta elettronica relative alla fatturazione?
 
@@ -55,4 +55,4 @@ Se si è certi che il pagamento è stato elaborato, ma la sottoscrizione è anco
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
