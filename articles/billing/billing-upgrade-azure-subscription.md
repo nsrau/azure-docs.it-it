@@ -1,6 +1,6 @@
 ---
-title: Aggiornare la sottoscrizione di Azure gratuita
-description: Viene descritto come è possibile eseguire l'aggiornamento di una sottoscrizione gratuita.
+title: Aggiornare la sottoscrizione gratuita di Azure
+description: Descrive come aggiornare una sottoscrizione gratuita.
 keywords: pagamento a consumo
 author: bandersmsft
 manager: jureid
@@ -14,39 +14,39 @@ ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1a670976b199a558f7adedeb52811d465f644058
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490255"
 ---
-# <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-subscription"></a>Aggiornare l'account gratuito di Azure o Azure per la sottoscrizione Students Starter
+# <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-subscription"></a>Aggiornare l'account gratuito di Azure o la sottoscrizione di Azure for Students Starter
 
-Se si dispone di un [versione di valutazione gratuita](https://azure.microsoft.com/free/) o un' [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) sottoscrizione, è possibile eseguire l'aggiornamento a una [singola sottoscrizione con tariffe a consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) nel portale di Azure. Se si dispone di una sottoscrizione di Azure for Students Starter e sono idonei per una versione di valutazione gratuita, è possibile eseguire l'aggiornamento alla versione di valutazione gratuita.
+Se si dispone di una [versione di valutazione gratuita](https://azure.microsoft.com/free/) o di una sottoscrizione di [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/), è possibile eseguire l'aggiornamento a una [sottoscrizione singola con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) nel portale di Azure. Se si ha una sottoscrizione di Azure for Students Starter e si è idonei per una versione di valutazione gratuita, è possibile eseguire l'aggiornamento alla versione di valutazione gratuita.
 
 <a id="freetrial"></a>
 
-## <a name="upgrade-your-free-trial"></a>Aggiornare la versione di valutazione gratuita
+## <a name="upgrade-your-free-trial"></a>Eseguire l'aggiornamento di una versione di valutazione gratuita
 
 Quando si esegue l'aggiornamento da una sottoscrizione di prova gratuita, conservare il credito rimanente per 30 giorni dopo la creazione della sottoscrizione. Si dispone inoltre dell'accesso ai servizi gratuiti per 12 mesi.
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Cercare **sottoscrizioni.**
+1. Cercare **Sottoscrizioni.**
 
-    ![Screenshot che mostra Cerca](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+    ![Screenshot che mostra la ricerca](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
-1. Selezionare la sottoscrizione di valutazione gratuita.
-1. In panoramica della sottoscrizione, fare clic su **aggiornare la sottoscrizione** nella barra dei comandi.
+1. Selezionare la sottoscrizione di una versione di valutazione gratuita.
+1. Nella panoramica della sottoscrizione fare clic su **Aggiorna sottoscrizione** nella barra dei comandi.
 
     ![Screenshot che mostra il pulsante di aggiornamento](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
 
-1. Se si ha già un metodo di pagamento per la sottoscrizione della versione di valutazione gratuita, verrà richiesto per aggiungerne uno.
-1. Potrebbe essere necessario immettere un numero di telefono per verificare la tua identità.
-1. Digitare un nome per la sottoscrizione. Per impostazione predefinita, il nome è *pagamento a consumo.*
+1. Se non si dispone già di un metodo di pagamento per la sottoscrizione di una versione di valutazione gratuita, verrà richiesto di aggiungerne uno.
+1. Potrebbe essere necessario immettere un numero di telefono per verificare la propria identità.
+1. Digitare un nome per la sottoscrizione. Per impostazione predefinita, il nome *Pay-As-You-Go.*
 
-     ![Screenshot che Mostra nome](./media/billing-upgrade-azure-subscription/free-upgrade-name.png)
+     ![Screenshot che mostra il nome](./media/billing-upgrade-azure-subscription/free-upgrade-name.png)
 
-1. Scegliere un piano di supporto per la sottoscrizione. Per altre informazioni sui piani di supporto, vedere [piani di supporto tecnico di Azure](https://azure.microsoft.com/us/support/plans/).
+1. Scegliere un piano di supporto per la sottoscrizione. Per altre informazioni su piani di supporto, vedere [Piani di supporto per Azure](https://azure.microsoft.com/us/support/plans/).
 
 1. Fare clic su **Aggiorna**.
 
@@ -57,26 +57,26 @@ Se si vuole [trasferire la sottoscrizione](billing-subscription-transfer.md) dop
 
 <a id="student"></a>
 
-## <a name="upgrade-your-azure-for-students-starter-subscription"></a>Aggiornare la sottoscrizione di Azure for Students Starter
+## <a name="upgrade-your-azure-for-students-starter-subscription"></a>Eseguire l'aggiornamento di una sottoscrizione di Azure for Students Starter
 
-Seguendo questa procedura, è possibile eseguire l'aggiornamento a una versione di valutazione gratuita, se si è idonei.
+Seguendo la procedura riportata di seguito, se si è idonei è possibile eseguire l'aggiornamento a una versione di valutazione gratuita.
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Cercare **sottoscrizioni.**
+1. Cercare **Sottoscrizioni.**
 
-    ![Screenshot che mostra Cerca](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+    ![Screenshot che mostra la ricerca](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Selezionare la sottoscrizione di Azure for Students Starter.
-1. Nell'area di panoramica di sottoscrizione, fare clic su **aggiornare la sottoscrizione** nella barra dei comandi.
+1. Nell'area della panoramica della sottoscrizione fare clic su **Aggiorna sottoscrizione** nella barra dei comandi.
 
-    ![Screenshot che mostra il pulsante di aggiornamento per studenti](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
+    ![Screenshot che mostra il pulsante di aggiornamento per gli studenti](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
 
-1. Se si esegue l'aggiornamento a un account singolo con tariffe a consumo e si dispone già di un metodo di pagamento per la sottoscrizione, verrà richiesto per aggiungerne uno.
-1. Potrebbe essere necessario immettere un numero di telefono per verificare la tua identità.
+1. Se si sta eseguendo l'aggiornamento a un singolo account con pagamento in base al consumo e non si dispone già di un metodo di pagamento per la sottoscrizione, verrà richiesto di aggiungerne uno.
+1. Potrebbe essere necessario immettere un numero di telefono per verificare la propria identità.
 1. Digitare un nome per la sottoscrizione.
-1. Se esegue l'aggiornamento a un singolo account con tariffe a consumo, scegliere un piano di supporto per la sottoscrizione. Per altre informazioni sui piani di supporto, vedere [piani di supporto tecnico di Azure](https://azure.microsoft.com/us/support/plans/).
+1. Se si sta eseguendo l'aggiornamento a un singolo account con pagamento in base al consumo, scegliere un piano di supporto per la sottoscrizione. Per altre informazioni su piani di supporto, vedere [Piani di supporto per Azure](https://azure.microsoft.com/us/support/plans/).
 1. Fare clic su **Aggiorna**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto si dispone di una singola sottoscrizione con tariffe a consumo, vedere [evitare addebiti imprevisti con la gestione dei costi e fatturazione di Azure.](billing-getting-started.md)
+Ora che si ha una sottoscrizione singola con pagamento in base al consumo, vedere [Evitare addebiti imprevisti con la gestione dei costi e della fatturazione di Azure.](billing-getting-started.md)

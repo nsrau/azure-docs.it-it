@@ -13,21 +13,21 @@ ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 278e873d01eb3dd7d614d771e5b50b8fe624800a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490359"
 ---
-# <a name="understand-your-azure-external-services-charges"></a>Informazioni sugli addebiti di servizi esterni di Azure
-Servizi esterni vengono pubblicati da fornitori di software di terze parti in Azure marketplace. Ad esempio, SendGrid è un servizio esterno che è possibile acquistare in Azure, ma non è pubblicato da Microsoft. Alcuni prodotti Microsoft vengono venduti attraverso Azure marketplace, troppo.
+# <a name="understand-your-azure-external-services-charges"></a>Informazioni sugli addebiti per i servizi esterni di Azure
+I servizi esterni vengono pubblicati da fornitori di software di terze parti nel marketplace di Azure. Ad esempio, SendGrid è un servizio esterno che è possibile acquistare in Azure, ma che non viene pubblicato da Microsoft. Alcuni prodotti Microsoft vengono venduti anche tramite Azure Marketplace.
 
 ## <a name="how-external-services-are-billed"></a>Modalità di fatturazione dei servizi esterni
 
-- Se si dispone di un [contratto di Microsoft dal cliente](#check-access), vengono fatturati i servizi di terze parti con il resto dei servizi di Azure.
-- Se non hai un contratto di Microsoft dal cliente, i servizi esterni vengono fatturati separatamente da servizi di Azure.
-- Per ogni servizio esterno è previsto un modello di fatturazione diverso. Alcuni servizi vengono fatturati in modalità con pagamento a consumo, mentre altri sono corretti agli addebiti mensili.
-- Non è possibile usare i crediti gratuiti mensili per i servizi esterni. Se si usa una sottoscrizione di Azure che include [crediti gratuiti](https://azure.microsoft.com/pricing/spending-limits/), non possono essere applicati ai costi da servizi esterni. Durante il provisioning di un nuovo servizio esterno o di una nuova risorsa, viene visualizzato un avviso:
+- Se si dispone di un [Contratto del cliente Microsoft](#check-access), i servizi di terze parti vengono fatturati con il resto dei servizi di Azure.
+- Se non si dispone di un Contratto del cliente Microsoft, i servizi esterni vengono fatturati separatamente dai servizi di Azure.
+- Per ogni servizio esterno è previsto un modello di fatturazione diverso. Alcuni servizi vengono fatturati con pagamento in base al consumo, mentre altri prevedono addebiti mensili fissi.
+- Non è possibile usare i crediti gratuiti mensili per i servizi esterni. Se si usa una sottoscrizione di Azure che include [crediti gratuiti](https://azure.microsoft.com/pricing/spending-limits/), questi non possono essere applicati agli addebiti dei servizi esterni. Durante il provisioning di un nuovo servizio esterno o di una nuova risorsa, viene visualizzato un avviso:
 
     ![Avviso di acquisto di Marketplace](./media/billing-understand-your-azure-marketplace-charges/credit-warning.png)
 
@@ -48,31 +48,31 @@ You can view a list of the external services that are on each subscription withi
 
     ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
 
-## <a name="view-and-download-invoices"></a>Visualizzare e scaricare le fatture
+## <a name="view-and-download-invoices"></a>Visualizzare e scaricare fatture
 
-Se si dispone di un [contratto di Microsoft dal cliente](#check-access), i costi di terze parti vengono nella fattura stesso come i costi di Azure. Informazioni su come [consente di visualizzare e scaricare la fattura di Azure](billing-download-azure-invoice.md) dal portale di Azure per visualizzare gli addebiti di terze parti.
+Se si dispone di un [Contratto del cliente Microsoft](#check-access), gli addebiti di terze parti si trovano nella stessa fattura degli addebiti di Azure. Informazioni su come [visualizzare e scaricare la fattura di Azure](billing-download-azure-invoice.md) dal portale di Azure per vedere gli addebiti di terze parti.
 
-Se non hai un contratto di clienti Microsoft, hai fatture separate per gli addebiti di terze parti. È possibile visualizzare e scaricare le fatture di Azure Marketplace dal portale di Azure seguendo questa procedura:
+Se non si dispone di un Contratto del cliente Microsoft, si riceveranno fatture separate per gli addebiti di terze parti. È possibile visualizzare e scaricare le fatture di Azure Marketplace dal portale di Azure attenendosi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Cercare **costi di gestione e fatturazione**.
-1. Nel menu a sinistra, selezionare **fatture**.
-1. Fare clic sui **Azure Marketplace e le prenotazioni** scheda.  ![Immagine della scheda Azure marketplace e le prenotazioni](./media/billing-understand-your-azure-marketplace-charges/invoice-tabs.png)
-1. Nell'elenco a discesa sottoscrizione, selezionare la sottoscrizione che contiene i servizi esterni per visualizzare le fatture.
+1. Cercare **Gestione dei costi e fatturazione**.
+1. Nel menu a sinistra selezionare **Fatture**.
+1. Fare clic sulla scheda **Azure Marketplace e prenotazioni**.  ![Immagine della scheda Azure Marketplace e prenotazioni](./media/billing-understand-your-azure-marketplace-charges/invoice-tabs.png)
+1. Nell'elenco a discesa delle sottoscrizioni selezionare la sottoscrizione che contiene i servizi esterni per i quali si vogliono visualizzare le fatture.
 
-## <a name="external-spending-for-ea-customers"></a>External spesa per i clienti con contratto Enterprise
+## <a name="external-spending-for-ea-customers"></a>Spesa esterna per i clienti EA
 
 I clienti EA possono visualizzare la spesa dei servizi esterni e scaricare i report nel portale EA. Per iniziare, vedere [Azure Marketplace per i clienti EA](https://ea.azure.com/helpdocs/azureMarketplace).
 
 ## <a name="manage-payment-for-external-services"></a>Gestire i pagamenti per i servizi esterni
 
-Quando si acquista un servizio esterno, si sceglie una sottoscrizione di Azure per la risorsa. Il metodo di pagamento della sottoscrizione di Azure selezionato diventa il metodo di pagamento per il servizio esterno. Per modificare il metodo di pagamento per un servizio esterno, è necessario [modificare il metodo di pagamento della sottoscrizione di Azure](billing-how-to-change-credit-card.md) associato a tale servizio esterno. È possibile determinare quale sottoscrizione è associata l'ordine di servizio esterni a seguendo questa procedura:
+Quando si acquista un servizio esterno, è necessario scegliere una sottoscrizione di Azure per la risorsa. Il metodo di pagamento della sottoscrizione di Azure selezionata diventa il metodo di pagamento del servizio esterno. Per modificare il metodo di pagamento di un servizio esterno, è necessario [modificare il metodo di pagamento della sottoscrizione di Azure](billing-how-to-change-credit-card.md) associata al servizio esterno. È possibile individuare la sottoscrizione a cui è associato l'ordine del servizio esterno attenendosi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Fare clic su **tutte le risorse** nel menu di spostamento a sinistra.
+1. Fare clic su **Tutte le risorse** nel menu di spostamento a sinistra.
      ![screenshot della voce di menu tutte le risorse](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
 1. Cercare il servizio esterno.
-1. Cercare il nome della sottoscrizione nel **sottoscrizione** colonna.
+1. Cercare il nome della sottoscrizione nella colonna **Sottoscrizione**.
     ![screenshot del nome della sottoscrizione per la risorsa](./media/billing-understand-your-azure-marketplace-charges/sub-selected.png)
 1. Fare clic sul nome della sottoscrizione e [aggiornare il metodo di pagamento attivo](billing-how-to-change-credit-card.md).
 
@@ -98,14 +98,14 @@ Quando si acquista un servizio esterno, si sceglie una sottoscrizione di Azure p
 Se si desidera annullare l'ordine di servizio esterno, eliminare la risorsa nel [Portale di Azure](https://portal.azure.com).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Fare clic su **tutte le risorse** nel menu di spostamento a sinistra.
-    ![screenshot della voce di menu tutte le risorse](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
+1. Fare clic su **Tutte le risorse** nel menu di spostamento a sinistra.
+    ![Screenshot della voce di menu tutte le risorse](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
 1. Cercare il servizio esterno.
-1. Selezionare la casella accanto alla risorsa che si desidera eliminare.
-1. Selezionare **eliminare** nella barra dei comandi.
-    ![Screenshot del pulsante di eliminazione](./media/billing-understand-your-azure-marketplace-charges/delete-button.png)
-1. Tipo di *'Sì'* nel Pannello di conferma.
-    ![Elimina la risorsa](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
+1. Selezionare la casella accanto alla risorsa da eliminare.
+1. Selezionare **Elimina** nella barra dei comandi.
+    ![Schermata del pulsante elimina](./media/billing-understand-your-azure-marketplace-charges/delete-button.png)
+1. Digitare *Sì* nel pannello di conferma.
+    ![Eliminare una risorsa](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
 1. Fare clic su **Elimina**.
 
 ## <a name="check-access"></a>Verificare l'accesso
@@ -113,7 +113,7 @@ Se si desidera annullare l'ordine di servizio esterno, eliminare la risorsa nel 
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Avviare l'analisi dei costi](../cost-management/quick-acm-cost-analysis.md)
