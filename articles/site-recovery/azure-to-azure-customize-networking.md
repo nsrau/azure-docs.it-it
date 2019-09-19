@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rajanaki
-ms.openlocfilehash: 907a698a675a039dfdc852210adecb94c7bfab25
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1905d6afb023b1bed15f1359fed8477d815acb45
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886897"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087696"
 ---
-# <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizzare le configurazioni di rete della macchina virtuale di Azure di destinazione
+# <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizzare le configurazioni di rete della VM di Azure di destinazione
 
 Questo articolo fornisce informazioni aggiuntive sulla personalizzazione delle configurazioni di rete nella macchina virtuale di Azure di destinazione quando si esegue la replica e il ripristino di macchine virtuali di Azure da un'area a un'altra, usando [Azure Site Recovery](site-recovery-overview.md).
 
@@ -23,13 +23,16 @@ Questo articolo fornisce informazioni aggiuntive sulla personalizzazione delle c
 
 Informazioni sul ripristino di emergenza fornito da Site Recovery per [questo scenario](azure-to-azure-architecture.md).
 
-## <a name="support-networking-resources"></a>Supportare le risorse di rete
+## <a name="supported-networking-resources"></a>Risorse di rete supportate
 
 Per la macchina virtuale di failover è possibile specificare le configurazioni di risorse chiave seguenti durante la replica di macchine virtuali di Azure.
 
 - [Servizio di bilanciamento del carico interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
 - [IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) per la subnet e per la scheda di interfaccia di rete
+
+ > [!IMPORTANT]
+  > Queste impostazioni sono supportate solo nell'operazione di failover al momento e non per il failover di test.
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
@@ -52,7 +55,7 @@ Per la macchina virtuale di failover è possibile specificare le configurazioni 
 
 Site Recovery ora rispetta queste impostazioni e garantisce che la macchina virtuale in failover sia connessa alla risorsa selezionata tramite la NIC corrispondente.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="unable-to-view-or-select-a-resource"></a>Non è possibile visualizzare o selezionare una risorsa
 

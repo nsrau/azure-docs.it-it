@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b898a93b87811fa5139e148a3273d7051af851b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
-ms.translationtype: HT
+ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056284"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086564"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: App Web che offre l'accesso agli utenti
 
@@ -32,15 +32,35 @@ Scopri tutto quello che ti serve per creare un'app Web che esegue l'accesso agli
 
 ## <a name="getting-started"></a>Introduzione
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 Se si vuole creare le prime app Web portabili (ASP.NET Core) che eseguono l'accesso agli utenti, seguire questa Guida introduttiva:
 
 > [!div class="nextstepaction"]
 > [Avvio rapido: ASP.NET Core app Web per l'accesso degli utenti](quickstart-v2-aspnet-core-webapp.md)
 
-Se si preferisce rimanere in ASP.NET, provare l'esercitazione seguente:
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+per informazioni su come aggiungere l'accesso a un'applicazione Web ASP.NET legacy, provare l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
 > [Avvio rapido: App Web ASP.NET che esegue l'accesso agli utenti](quickstart-v2-aspnet-webapp.md)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Se si è uno sviluppatore Java, provare la Guida introduttiva seguente:
+
+> [!div class="nextstepaction"]
+> [Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Java](quickstart-v2-java-webapp.md)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Se si sviluppa con Python, provare:
+
+> [!div class="nextstepaction"]
+> [Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Python](quickstart-v2-python-webapp.md)
+
+---
 
 ## <a name="overview"></a>Panoramica
 
@@ -51,7 +71,7 @@ Aggiungere l'autenticazione all'app Web in modo che possa accedere agli utenti. 
 Come seconda fase è anche possibile consentire all'applicazione di chiamare le API Web per conto dell'utente che ha eseguito l'accesso. Questa fase successiva è uno scenario diverso, disponibile nell' [app Web chiama API Web](scenario-web-app-call-api-overview.md)
 
 > [!NOTE]
-> Per aggiungere l'accesso a un'app Web, è necessario proteggere l'app Web e convalidare un token utente, ovvero le librerie **middleware** . Questo scenario non richiede ancora le librerie di autenticazione Microsoft (MSAL), che stanno per acquisire un token per chiamare le API protette. Le librerie di autenticazione verranno introdotte solo nello scenario di completamento quando l'app Web deve chiamare le API Web.
+> Per aggiungere l'accesso a un'app Web, è necessario proteggere l'app Web e convalidare un token utente, ovvero le librerie **middleware** . Nel caso di .NET, questo scenario non richiede ancora le librerie di autenticazione Microsoft (MSAL), che stanno per acquisire un token per chiamare le API protette. Le librerie di autenticazione verranno introdotte solo nello scenario di completamento quando l'app Web deve chiamare le API Web.
 
 ## <a name="specifics"></a>Specifiche
 

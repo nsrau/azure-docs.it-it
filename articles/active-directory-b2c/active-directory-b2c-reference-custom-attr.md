@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a9ac3800d60b063c620cfc774d7a0c642f6f6821
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e6b0eac0b8cf7f61d76f90a4f769ba11abab6999
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835384"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065683"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definire attributi personalizzati in Azure Active Directory B2C
 
- Ogni applicazione che riguarda il cliente ha requisiti specifici per le informazioni che devono essere raccolte. Il tenant Azure Active Directory (Azure AD) B2C viene fornito con un set predefinito di informazioni archiviate in attributi, ad esempio nome, cognome, città e codice postale. Con Azure AD B2C, è possibile estendere il set di attributi archiviati in ogni account cliente.
+ Ogni applicazione che riguarda il cliente ha requisiti specifici per le informazioni che devono essere raccolte. Il tenant di Azure Active Directory B2C (Azure AD B2C) viene fornito con un set predefinito di informazioni archiviate negli attributi, ad esempio nome, cognome, città e codice postale specificati. Con Azure AD B2C, è possibile estendere il set di attributi archiviati in ogni account cliente.
 
  È possibile creare attributi personalizzati nel [portale di Azure](https://portal.azure.com/) e usarli nei flussi utente di iscrizione, nei flussi utente di iscrizione o accesso oppure nei flussi utente di modifica del profilo. Questi attributi possono anche essere scritti e letti usando l' [API Graph di Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md). Gli attributi personalizzati in Azure Active Directory B2C usano le [Estensioni dello schema di directory dell'API Graph di Azure AD](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 > [!NOTE]
-> Supporto per più recente [API Microsoft Graph](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) per le query di Azure AD B2C tenant è ancora in fase di sviluppo.
+> Il supporto per l' [API di Microsoft Graph](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) più recente per l'esecuzione di query Azure ad B2C tenant è ancora in fase di sviluppo.
 >
 
 ## <a name="create-a-custom-attribute"></a>Creare un attributo personalizzato
@@ -36,7 +36,7 @@ ms.locfileid: "67835384"
 
     Scegliere la directory contenente il tenant.
 
-    ![Tenant di B2C evidenziato nel filtro di Directory e sottoscrizione](./media/active-directory-b2c-reference-custom-attr/select-directory.PNG)
+    ![Tenant B2C evidenziato nel filtro di directory e sottoscrizione](./media/active-directory-b2c-reference-custom-attr/select-directory.PNG)
 
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 4. Selezionare **Attributi utente**, quindi selezionare **Aggiungi**.
@@ -56,5 +56,5 @@ L'attributo personalizzato è ora disponibile nell'elenco degli **Attributi uten
 5. Fare clic su **Attestazioni dell'applicazione** e selezionare l'attributo personalizzato.
 6. Fare clic su **Save**.
 
-Dopo aver creato un nuovo utente utilizzando un flusso utente che usa l'attributo personalizzato appena creato, l'oggetto può essere interrogata [Azure AD Graph Explorer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart). In alternativa è possibile usare la [ **eseguire il flusso utente** ](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) funzionalità sulla base del flusso utente per verificare l'esperienza dei clienti. Ora si dovrebbe vedere **ShoeSize** nell'elenco di attributi che vengono raccolti durante il percorso dell'utente e nel token inviato all'applicazione.
+Dopo aver creato un nuovo utente usando un flusso utente che usa l'attributo personalizzato appena creato, è possibile eseguire query sull'oggetto in [Azure AD Graph Explorer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart). In alternativa, è possibile usare la funzionalità [**Esegui flusso utente**](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) nel flusso utente per verificare l'esperienza del cliente. Ora si dovrebbe vedere **ShoeSize** nell'elenco di attributi che vengono raccolti durante il percorso dell'utente e nel token inviato all'applicazione.
 

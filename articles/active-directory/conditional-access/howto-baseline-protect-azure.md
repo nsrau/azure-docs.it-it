@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8095b4fa6e52b7c34cedaea35b129ab68dddc65
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 06b3a3f12b2955ae97c43b0caf6a4ac13c9b770a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532948"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086737"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Criteri di base: Richiedi autenticazione a più fattori per la gestione dei servizi (anteprima)
 
@@ -50,7 +50,7 @@ Se l'interfaccia della riga di comando può aprire il browser predefinito, esegu
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 
-Poiché il criterio Richiedi autenticazione a più fattori **per la gestione dei servizi** si applica a tutti gli utenti di Azure Resource Manager, è necessario tenere presenti alcune considerazioni per garantire una distribuzione uniforme. Queste considerazioni includono l'identificazione degli utenti e dei principi di servizio in Azure AD che non possono o non devono eseguire l'autenticazione a più fattori, nonché le applicazioni e i client usati dall'organizzazione che non supportano l'autenticazione moderna.
+I criteri Richiedi autenticazione a più fattori **per la gestione dei servizi** si applicano a tutti gli utenti Azure Resource Manager.
 
 ## <a name="enable-the-baseline-policy"></a>Abilitare i criteri di base
 

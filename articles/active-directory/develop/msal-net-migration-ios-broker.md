@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 609aeeada78985466cb7c254cab32864e5d84b0e
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
-ms.translationtype: MT
+ms.openlocfilehash: 689e1c8912c567e466d2834172b5d2b98cfbc32c
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70875653"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086851"
 ---
 # <a name="migrating-ios-applications-using-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrazione di applicazioni iOS con Microsoft Authenticator da ADAL.NET a MSAL.NET
 
@@ -36,7 +36,7 @@ Questo documento presuppone che sia già presente un'app Novell iOS integrata co
 
 ### <a name="what-are-brokers"></a>Che cosa sono i broker?
 
-I broker sono applicazioni, fornite da Microsoft, in Android e iOS ([Microsoft Authenticator](https://www.microsoft.com/account/authenticator) in iOS e Android portale aziendale Intune in Android). 
+I broker sono applicazioni, fornite da Microsoft, in Android e iOS ([Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) in iOS e Android portale aziendale Intune in Android). 
 
 Consentono di:
 

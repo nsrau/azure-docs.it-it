@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5d618f12b2a83b0aee145470aff900e26241b705
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 80a38767121f5c54afe51a7d4d788716fe9547e2
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147273"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091353"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Informazioni sulle funzionalità estese offline per IoT Edge dispositivi, moduli e dispositivi figlio
 
@@ -110,7 +110,7 @@ Un modo per creare questa relazione di trust è descritto in dettaglio negli art
 
 ## <a name="specify-dns-servers"></a>Specificare i server DNS 
 
-Per migliorare l'affidabilità, è consigliabile specificare gli indirizzi del server DNS utilizzati nell'ambiente in uso. Vedere due opzioni per [impostare il server DNS nell'articolo sulla risoluzione dei problemi](troubleshoot.md#resolution-7).
+Per migliorare l'affidabilità, è consigliabile specificare gli indirizzi del server DNS utilizzati nell'ambiente in uso. Per impostare il server DNS per IoT Edge, vedere la risoluzione del [modulo dell'agente perimetrale segnala continuamente ' file di configurazione vuoto ' e nessun modulo viene avviato nel dispositivo](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) nell'articolo sulla risoluzione dei problemi.
 
 ## <a name="optional-offline-settings"></a>Impostazioni facoltative per la modalità offline
 
@@ -145,11 +145,11 @@ Per configurare l'archiviazione nel sistema host, creare le variabili di ambient
 È possibile configurare le variabili di ambiente e le opzioni di creazione per il modulo dell'hub di IoT Edge nel portale di Azure, nella sezione **Configura impostazioni avanzate per il runtime di IoT Edge**, 
 
 1. Per entrambi IoT Edge Hub e IoT Edge Agent, aggiungere una variabile di ambiente denominata **StorageFolder** che punta a una directory del modulo.
-1. Per IoT Edge Hub e IoT Edge Agent, aggiungere binding per connettere una directory locale nel computer host a una directory del modulo. Ad esempio: 
+1. Per IoT Edge Hub e IoT Edge Agent, aggiungere binding per connettere una directory locale nel computer host a una directory del modulo. Esempio: 
 
    ![Aggiungere le opzioni di creazione e le variabili di ambiente per l'archiviazione locale](./media/offline-capabilities/offline-storage.png)
 
-In alternativa, è possibile configurare l'archiviazione locale direttamente nel manifesto della distribuzione. Ad esempio: 
+In alternativa, è possibile configurare l'archiviazione locale direttamente nel manifesto della distribuzione. Esempio: 
 
 ```json
 "systemModules": {
@@ -193,19 +193,19 @@ Sostituire `<HostStoragePath>` e`<ModuleStoragePath>` con il percorso di archivi
 
 Ad esempio, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` indica che la directory **/etc/iotedge/storage** nel sistema host è mappata alla directory **/iotedge/storage/** nel contenitore. Un altro esempio per i sistemi Windows è `"Binds":["C:\\temp:C:\\contemp"]` e indica che la directory **C:\\temp** nel sistema host è mappata alla directory **C:\\contemp** nel contenitore. 
 
-Nei dispositivi Linux, verificare che il profilo utente dell'hub IoT Edge, UID 1000, disponga delle autorizzazioni di lettura, scrittura ed esecuzione per la directory del sistema host. Queste autorizzazioni sono necessarie in modo che l'hub IoT Edge possa archiviare i messaggi nella directory e recuperarli in un secondo momento. L'agente IoT Edge funziona come root, quindi non necessita di autorizzazioni aggiuntive. Sono disponibili diversi modi per gestire le autorizzazioni di directory nei sistemi Linux, `chown` incluso l'utilizzo di per modificare il `chmod` proprietario della directory e quindi modificare le autorizzazioni. Ad esempio:
+Nei dispositivi Linux, verificare che il profilo utente dell'hub IoT Edge, UID 1000, disponga delle autorizzazioni di lettura, scrittura ed esecuzione per la directory del sistema host. Queste autorizzazioni sono necessarie in modo che l'hub IoT Edge possa archiviare i messaggi nella directory e recuperarli in un secondo momento. L'agente IoT Edge funziona come root, quindi non necessita di autorizzazioni aggiuntive. Sono disponibili diversi modi per gestire le autorizzazioni di directory nei sistemi Linux, `chown` incluso l'utilizzo di per modificare il `chmod` proprietario della directory e quindi modificare le autorizzazioni. Esempio:
 
 ```bash
 sudo chown 1000 <HostStoragePath>
 sudo chmod 700 <HostStoragePath>
 ```
 
-Per altre informazioni su come creare opzioni, vedere la [documentazione](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)di Docker.
+Per altre informazioni su come creare opzioni, vedere la [documentazione di Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su come configurare un gateway trasparente per le connessioni del dispositivo padre/figlio: 
 
 * [Configurare un dispositivo IoT Edge come gateway trasparente](how-to-create-transparent-gateway.md)
-* [Autenticare un dispositivo downstream nell'hub Azure.](how-to-authenticate-downstream-device.md)
+* [Autenticare un dispositivo downstream sull'hub IoT di Azure](how-to-authenticate-downstream-device.md)
 * [Connettere un dispositivo downstream a un gateway Azure IoT Edge](how-to-connect-downstream-device.md)

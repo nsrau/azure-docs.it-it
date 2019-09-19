@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 5aa2d694c2c74b493a7fd1a2a89d39866928d1d4
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843864"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090625"
 ---
 # <a name="streaming-ingestion-preview"></a>Inserimento di flussi (anteprima)
 
@@ -41,8 +41,9 @@ Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la 
  
 1. Nell' [interfaccia utente Web](https://dataexplorer.azure.com/), definire i criteri di inserimento del [flusso](/azure/kusto/concepts/streamingingestionpolicy) per le tabelle o i database che riceveranno i dati in streaming. 
 
-    > [!TIP]
-    > Se il criterio viene definito a livello di database, tutte le tabelle nel database sono abilitate per l'inserimento di flussi.
+    > [!NOTE]
+    > * Se il criterio viene definito a livello di database, tutte le tabelle nel database sono abilitate per l'inserimento di flussi.
+    > * I criteri applicati possono fare riferimento solo ai dati appena inseriti e non alle altre tabelle del database.
 
 ## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>Usare l'inserimento di flussi per inserire i dati nel cluster
 

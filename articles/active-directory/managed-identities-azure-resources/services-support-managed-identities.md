@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5f271f75a4faa7067f8a52d63a34772780c6448
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 37eba245933bc94e9fb631abd3b4ff495f8c6d67
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959922"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087608"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -220,7 +220,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://servicebus.azure.net`  | Disponibile |
-| Azure Government |  | Non disponibile |
+| Azure Government |  | Disponibile |
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 

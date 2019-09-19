@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8bb6ca0483a7bc0a5af63a1fae7e5e5a5415abba
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: dfe531f8b298be1d90df45f57918f87744912949
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810318"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077069"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure
 
@@ -40,7 +40,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
 
 **Menu in alto:**  
 
-| Elemento| DESCRIZIONE |
+| Elemento| Descrizione |
 |---|---|
 |Sposta|sposta il cluster in una sottoscrizione o un gruppo di risorse diverso.|
 |Eliminare|elimina il cluster. |
@@ -72,7 +72,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
     |Azioni script|esegue script Bash nel cluster. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).|
     |Metastore esterni|visualizza i metastore [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). I metastore possono essere configurati solo durante il processo di creazione dei cluster.|
     |Partner HDInsight|consente di aggiungere/rimuovere il partner HDInsight corrente.|
-    |Properties|visualizza le [proprietà del cluster](#properties).|
+    |Proprietà|visualizza le [proprietà del cluster](#properties).|
     |Blocchi|aggiunge un blocco per impedire la modifica o l'eliminazione del cluster.|
     |Esporta modello|visualizza ed esporta il modello di Azure Resource Manager per il cluster. Attualmente è possibile esportare solo l'account di archiviazione di Azure dipendente. Vedere [Creare cluster Apache Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
@@ -87,7 +87,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
 
   - **Menu Supporto e risoluzione dei problemi**
 
-    | Elemento| Descrizione |
+    | Elemento| DESCRIZIONE |
     |---|---|
     |Integrità risorsa|vedere [Panoramica di Integrità risorse di Azure](../service-health/resource-health-overview.md).|
     |Nuova richiesta di supporto|consente di creare un ticket di supporto con il supporto Microsoft.|
@@ -96,7 +96,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
 
 Dalla [home page del cluster](#homePage), selezionare **Proprietà** in **Impostazioni**.
 
-|Elemento | Descrizione |
+|Elemento | DESCRIZIONE |
 |---|---|
 |HOSTNAME|Nome del cluster.|
 |URL CLUSTER|URL per l'interfaccia Web Ambari.|
@@ -170,7 +170,7 @@ Dalla [home page del cluster](#homePage):
 
 1. Selezionare **Dashboard cluster**.
 
-    ![Menu del cluster Hadoop di HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    ![Menu del cluster Apache Hadoop HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
 
 1. Selezionare **Ambari home** dalla nuova pagina.
 1. Immettere il nome utente e la password del cluster.  Il nome utente predefinito del cluster è _admin_.
@@ -211,7 +211,7 @@ La password viene modificata in tutti i nodi del cluster.
 4. Nella pagina **azioni script** selezionare **Invia nuova**.
 5. Nella pagina **Invia azione script** immettere le informazioni seguenti:
 
-   | Campo | Valore |
+   | Campo | Value |
    | --- | --- |
    | Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
    | Name |"Change ssh password" |

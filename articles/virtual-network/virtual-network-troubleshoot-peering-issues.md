@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: fc01a20a077a1c624ed490600db919fe3197556c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 68d4f55d4a382f59386e72779a5f60cfc2a65338
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901763"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091109"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Risolvere i problemi di peering di rete virtuale
 
@@ -58,7 +58,7 @@ Per ulteriori informazioni, vedere i [requisiti e i vincoli](https://docs.micros
 Per configurare il peering di rete virtuale per le reti virtuali in sottoscrizioni o Active Directory tenant diversi, seguire i passaggi descritti in [creare un peering in sottoscrizioni diverse per l'interfaccia](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)della riga di comando di Azure.
 
 > [!Note]
-> Per configurare il peering di rete, è necessario disporre delle autorizzazioni di **collaboratore rete** in entrambe le sottoscrizioni. Per altre informazioni, vedere [autorizzazioni per il peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions).
+> Per configurare il peering di rete, è necessario disporre delle autorizzazioni di **collaboratore rete** in entrambe le sottoscrizioni. Per altre informazioni, vedere [autorizzazioni per il peering](virtual-network-manage-peering.md#permissions).
 
 ## <a name="scenario-2-configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Scenario 2: Configurare il peering di rete virtuale con la topologia hub-spoke che usa le risorse locali
 
@@ -104,7 +104,7 @@ Per ulteriori informazioni sui requisiti e i vincoli di peering globali, vedere 
 
 ## <a name="scenario-4-i-have-a-connectivity-issue-between-two-peered-virtual-networks"></a>Scenario 4: Si è riscontrato un problema di connettività tra due reti virtuali con peering
 
-Accedere al [portale di Azure](https://portal.azure.com/) con un account che disponga dei [ruoli e delle autorizzazioni](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions)necessari. Selezionare la rete virtuale, selezionare **peering**, quindi controllare il campo **stato** . Qual è lo stato?
+Accedere al [portale di Azure](https://portal.azure.com/) con un account che disponga dei [ruoli e delle autorizzazioni](virtual-network-manage-peering.md#permissions)necessari. Selezionare la rete virtuale, selezionare **peering**, quindi controllare il campo **stato** . Qual è lo stato?
 
 ### <a name="connection-type-1-the-peering-status-shows-connected"></a>Tipo di connessione 1: Lo stato del peering Mostra ' Connected '
 

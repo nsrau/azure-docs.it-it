@@ -3,17 +3,18 @@ title: Domande frequenti sulla migrazione di Archiviazione di Azure | Microsoft 
 description: Risposte alle domande comuni sulla migrazione di Archiviazione di Azure
 services: storage
 author: genlin
+manager: dcscontentpm
 ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 2ba09496ed8c110e3bf0e431da20f09c82d5ea0b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985580"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090809"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -68,7 +69,7 @@ Dopo avere eseguito questo comando, i file contenitore vengono spostati nell'acc
 
 **Come si spostano i dati da un contenitore di archiviazione a un altro?**
 
-Attenersi ai passaggi riportati di seguito.
+A tale scopo, seguire questa procedura:
 
 1.  Creare il contenitore (cartella) nel BLOB di destinazione.
 
@@ -120,7 +121,7 @@ Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-u
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Attenersi ai passaggi riportati di seguito.
+A tale scopo, seguire questa procedura:
 
 1.  Arrestare la macchina virtuale a cui è collegato il disco gestito.
 
@@ -201,7 +202,7 @@ Per accedere all'archiviazione ridondante, è necessaria l'archiviazione con rid
 
 **Come si effettua il downgrade da un account di archiviazione Premium a un account di archiviazione Standard?**
 
-Attenersi ai passaggi riportati di seguito.
+A tale scopo, seguire questa procedura:
 
 1.  Creare un account di archiviazione standard. In alternativa, usare un account di archiviazione standard esistente nella sottoscrizione.
 

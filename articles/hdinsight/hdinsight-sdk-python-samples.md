@@ -2,16 +2,17 @@
 title: 'Azure HDInsight: Esempi per Python'
 description: Trovare gli esempi Python di GitHub per le attività comuni che usano HDInsight SDK per Python.
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: e8e5afa0a29136dd4f266f4356f082365c3f6c22
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9afb65b320b440920a1fca1dec7146073ba05821
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712605"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074921"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Esempi per Python
 

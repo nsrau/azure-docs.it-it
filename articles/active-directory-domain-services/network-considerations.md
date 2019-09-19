@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: 506967fc4cecd322c694d31789cf09bec22ad3d4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617318"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086576"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure AD Domain Services
 
@@ -36,7 +36,7 @@ Quando si progetta la rete virtuale per Azure AD DS, si applicano le considerazi
     * Per ridurre al minimo la latenza, lasciare le applicazioni core vicine o nella stessa area della subnet della rete virtuale per il dominio gestito di Azure AD DS. È possibile usare il peering di rete virtuale o le connessioni VPN (Virtual Private Network) tra le reti virtuali di Azure.
 * La rete virtuale non può basarsi su servizi DNS diversi da quelli forniti da Azure AD DS.
     * Azure AD DS fornisce il proprio servizio DNS. La rete virtuale deve essere configurata per l'uso di questi indirizzi del servizio DNS. La risoluzione dei nomi per altri spazi dei nomi può essere eseguita usando i server d'inoltri condizionali.
-    * Non è possibile usare le impostazioni del server DNS personalizzato per indirizzare le query ad altri server DNS, incluse le macchine virtuali. Le risorse nella rete virtuale devono usare il servizio DNS fornito da Azure AD DS.
+    * Non è possibile usare le impostazioni del server DNS personalizzato per indirizzare le query da altri server DNS, incluse le macchine virtuali. Le risorse nella rete virtuale devono usare il servizio DNS fornito da Azure AD DS.
 
 > [!IMPORTANT]
 > Non è possibile spostare Azure AD DS in una rete virtuale diversa dopo l'abilitazione del servizio.
@@ -109,7 +109,7 @@ Le seguenti regole del gruppo di sicurezza di rete sono necessarie per Azure AD 
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sì      | Sincronizzazione con il tenant del Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Sì      | Gestione del dominio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sì      | Gestione del dominio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Gestione del dominio. |
 | 636         | TCP      | Any                                | Any         | Allow  | No       | Abilitato solo quando si configura LDAP sicuro (LDAPs). |
 
 > [!WARNING]

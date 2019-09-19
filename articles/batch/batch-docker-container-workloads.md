@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 08/09/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: c8fc8e7d5888f9a0b080c0ca1d24e53068b543be
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095182"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090744"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
@@ -89,7 +89,7 @@ Altre considerazioni sull'uso di un'immagine Linux personalizzata:
 
 ## <a name="container-configuration-for-batch-pool"></a>Configurazione del contenitore per il pool di Batch
 
-Per abilitare un pool Batch a eseguire carichi di lavoro del contenitore, è necessario specificare le impostazioni di [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) nell'oggetto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) del pool. Questo articolo contiene i collegamenti alla documentazione di riferimento sull'API Batch .NET. Nell'API [Python per Batch](/python/api/azure.batch) si trovano impostazioni corrispondenti.
+Per abilitare un pool Batch a eseguire carichi di lavoro del contenitore, è necessario specificare le impostazioni di [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) nell'oggetto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) del pool. Questo articolo contiene i collegamenti alla documentazione di riferimento sull'API Batch .NET. Nell'API [Python per Batch](/python/api/overview/azure/batch) si trovano impostazioni corrispondenti.
 
 È possibile creare un pool abilitato per il contenitore con o senza le immagini del contenitore prelette, come illustrato negli esempi seguenti. Il processo di pull, o di prelettura, consente di precaricare le immagini del contenitore dall'hub Docker o da un altro registro contenitori in Internet. Per prestazioni ottimali, usare un [Registro Azure Container](../container-registry/container-registry-intro.md) nella stessa area dell'account Batch.
 

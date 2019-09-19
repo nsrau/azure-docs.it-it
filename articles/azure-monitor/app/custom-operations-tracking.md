@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91467f99e7932ce7ffcd5b3300f8544fb848ccfa
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: d966ff3bc00d5190ebc163d4f4bfa35ba73d21ab
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019067"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087667"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
@@ -354,7 +354,7 @@ Quando si instrumenta l'eliminazione di un messaggio, assicurarsi di impostare g
 
 ### <a name="dependency-types"></a>Tipi di dipendenza
 
-Application Insights usa il tipo di dipendenza per le esperienze dell'interfaccia utente di penna. Per le code, riconosce i tipi seguenti `DependencyTelemetry` di che migliorano l' [esperienza di diagnostica delle transazioni](/azure-monitor/app/transaction-diagnostics):
+Application Insights usa il tipo di dipendenza per le esperienze dell'interfaccia utente di penna. Per le code, riconosce i tipi seguenti `DependencyTelemetry` di che migliorano l' [esperienza di diagnostica delle transazioni](/azure/azure-monitor/app/transaction-diagnostics):
 - `Azure queue`per le code di archiviazione di Azure
 - `Azure Event Hubs`per hub eventi di Azure
 - `Azure Service Bus`per il bus di servizio di Azure

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: f002a4d67ee782b11cd8f39784eb48b136328c89
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 48095a2d446c8f85bab9d9268e924e29fe9a9f21
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876700"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003902"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Esercitazione: Usare una macchina virtuale Linux e un'app Python per archiviare segreti in Azure Key Vault
 
@@ -30,7 +30,7 @@ In questa esercitazione viene configurata un'applicazione Web di Azure per legge
 > * Concedere le autorizzazioni necessarie per l'applicazione console per la lettura di dati dall'insieme di credenziali delle chiavi
 > * Recuperare un segreto dall'insieme di credenziali delle chiavi
 
-Prima di continuare, assicurarsi di acquisire familiarità con i [concetti di base su Key Vault](key-vault-whatis.md#basic-concepts).
+Prima di continuare, assicurarsi di acquisire familiarità con i [concetti di base su Key Vault](basic-concepts.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

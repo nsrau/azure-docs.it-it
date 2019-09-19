@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 5fe1b2c720bbc55e8e245f9592755e046e0b04a3
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 6b16cc0423d2e6c45e399fd332ecd8cfca8c2933
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968436"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091284"
 ---
 # <a name="scenario-reducer-is-slow-in-azure-hdinsight"></a>Scenario: Il riduttore è lento in Azure HDInsight
 

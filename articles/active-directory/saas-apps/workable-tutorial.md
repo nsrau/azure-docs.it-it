@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1341f0def306a1167e1e4876365c70901cf89cd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc1f6434bea8f75c7bcc7859c6f90d7abdd031b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086995"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Esercitazione: Integrazione di Azure Active Directory con Workable
 
@@ -142,7 +142,7 @@ Per abilitare il Single Sign-On in Workable, contattare l'account manager dedica
 
 3. URL di chiusura sessione
 
-Una volta abilitato il Single Sign-On, l'account manager di Workable lo comunicherà e si potrà usare la [pagina dell'accesso Single Sign-On di Workable](https://id.workable.com/sso/signin) per accedere tramite il sottodominio dell'account Workable.
+Una volta abilitato il Single Sign-On, l'account manager di Workable lo comunicherà e si potrà usare la [pagina dell'accesso Single Sign-On di Workable](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro) per accedere tramite il sottodominio dell'account Workable.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -166,7 +166,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

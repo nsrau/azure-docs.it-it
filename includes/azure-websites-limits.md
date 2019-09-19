@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
 ms.openlocfilehash: 1080e3488483610af0f0c9afadaf000895021821
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "69657805"
 ---
 | Risorsa | Gratuito | Condiviso | Basic | Standard | Premium (v2) | Isolato </th> |
@@ -29,12 +29,12 @@ ms.locfileid: "69657805"
 | Domini personalizzati per applicazione</a> |0 (solo sottodominio azurewebsites.net)|500 |500 |500 |500 |500 |
 | Supporto per il dominio personalizzato [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Non supportato. il certificato con caratteri jolly per *. azurewebsites.net è disponibile per impostazione predefinita|Non supportato. il certificato con caratteri jolly per *. azurewebsites.net è disponibile per impostazione predefinita|Connessioni SNI SSL senza limiti |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse | Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse|
 | Bilanciamento del carico integrato | |x |X |X |X |X<sup>9</sup> |
-| [Always On](../articles/app-service/configure-common.md) | | |x |X |X |X |
+| [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Backup pianificati](../articles/app-service/manage-backup.md) | | | | Backup pianificati ogni 2 ore, un massimo di 12 backup al giorno (manuale + pianificato) | Backup pianificati ogni ora, un massimo di 50 backup al giorno (manuale + pianificato) | Backup pianificati ogni ora, un massimo di 50 backup al giorno (manuale + pianificato) |
 | [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
-| [Processi Web](../articles/app-service/webjobs-create.md)<sup>8</sup> |x |X |X |X |X |X |
-| [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
-| [Monitoraggio endpoint](../articles/app-service/web-sites-monitor.md) | | |x |X |X |X |
+| [Processi Web](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |
+| [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) | |x |X |X |X |X |
+| [Monitoraggio endpoint](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Slot di staging](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
 | Contratto di servizio | |  |99,95%|99,95%|99,95%|99,95%|  
 

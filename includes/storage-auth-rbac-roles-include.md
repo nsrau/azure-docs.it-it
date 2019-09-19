@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 4f9a828e5233c88db2106bc648c07578927e0d29
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c2b409f0eefe5efa389432cbb007cc08e0c6ae1e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514876"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71078257"
 ---
 Azure fornisce i seguenti ruoli predefiniti di controllo degli accessi in base al ruolo per autorizzare l'accesso ai dati BLOB e di accodamento tramite Azure AD e OAuth:
 
@@ -26,4 +26,6 @@ Azure fornisce i seguenti ruoli predefiniti di controllo degli accessi in base a
 - [Mittente messaggio dati coda di archiviazione](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Usare per concedere le autorizzazioni Aggiungi ai messaggi nelle code di archiviazione di Azure.
 
 > [!NOTE]
-> Tenere presente che le assegnazioni di ruolo RBAC possono richiedere fino a cinque minuti per la propagazione.
+> Le assegnazioni di ruolo RBAC possono richiedere fino a cinque minuti per la propagazione.
+>
+> Solo i ruoli definiti in modo esplicito per l'accesso ai dati consentono a un'entità di sicurezza di accedere ai dati BLOB o Queue. I ruoli, ad esempio **proprietario**, **collaboratore**e **collaboratore account di archiviazione** , consentono a un'entità di sicurezza di gestire un account di archiviazione, ma non di fornire l'accesso ai dati del BLOB o della coda all'interno di tale account.
