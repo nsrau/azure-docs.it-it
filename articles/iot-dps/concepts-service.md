@@ -3,17 +3,17 @@ title: Concetti relativi al servizio Azure Device Provisioning in hub IoT | Micr
 description: Descrive i concetti relativi al provisioning del servizio specifici dei dispositivi con il servizio Device Provisioning e l'hub IoT
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51486da6b34c0ff1e9b6d05558c2132a416913e9
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745809"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104369"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Concetti relativi al servizio Device Provisioning in hub IoT
 
@@ -57,7 +57,7 @@ Il servizio Device Provisioning supporta due tipi di registrazione:
 
 ### <a name="enrollment-group"></a>Gruppo di registrazione
 
-Un gruppo di registrazione è un gruppo di dispositivi che condividono un meccanismo di attestazione specifico. Tutti i dispositivi nel gruppo di registrazione presentano certificati X.509 che sono stati firmati dalla stessa autorità di certificazione radice o intermedia. I gruppi di registrazione possono usare solo il meccanismo di attestazione X.509. Il nome del gruppo di registrazione e il nome di certificato devono essere alfanumerici, in caratteri minuscoli e possono contenere segni meno.
+Un gruppo di registrazione è un gruppo di dispositivi che condividono un meccanismo di attestazione specifico. I gruppi di registrazione supportano sia X. 509 sia simmetrico. Tutti i dispositivi del gruppo di registrazione X. 509 presentano certificati X. 509 che sono stati firmati dalla stessa autorità di certificazione radice o intermedia (CA). Ogni dispositivo nel gruppo di registrazione di chiavi simmetriche presenta token SAS derivati dalla chiave simmetrica del gruppo. Il nome del gruppo di registrazione e il nome di certificato devono essere alfanumerici, in caratteri minuscoli e possono contenere segni meno.
 
 > [!TIP]
 > È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant.

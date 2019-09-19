@@ -2,18 +2,18 @@
 title: Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 description: Informazioni su come usare Azure Data Lake Storage Gen2 con i cluster HDInsight di Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: hrasheed
-ms.openlocfilehash: bd459998568287db767e98a2094d6f80a126ccde
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: f6bee53268ea99e99d79e218eaf7a5ae9fcb1d05
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077107"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104473"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -90,9 +90,9 @@ Assegnare l'identità gestita al ruolo di **proprietario dei dati del BLOB di ar
         ![Impostazioni di archiviazione per l'uso di Data Lake Storage Gen2 con Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
     
     * In **Identity (identità**) selezionare la sottoscrizione corretta e l'identità gestita assegnata dall'utente appena creata.
-        
-        ![Impostazioni di identità per l'uso di Data Lake Storage Gen2 con Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
-        
+
+        ![Impostazioni di identità per l'uso di Data Lake Storage Gen2 con HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+
 > [!Note]
 > Per aggiungere un account di Data Lake Storage Gen2 secondario, a livello di account di archiviazione, è sufficiente assegnare l'identità gestita creata in precedenza al nuovo account di archiviazione di Data Lake Storage Gen2 che si desidera aggiungere. Si noti che l'aggiunta di un account di Data Lake Storage Gen2 secondario tramite il pannello "account di archiviazione aggiuntivi" in HDInsight non è supportata. 
 

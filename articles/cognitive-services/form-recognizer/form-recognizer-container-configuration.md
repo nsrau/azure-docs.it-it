@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 4a490e8a9f111985df9c9e8c9f73bc36d686cc2a
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: af30719ead8464d0420734818203b8070eb5d145
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348701"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105111"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurare i contenitori di Riconoscimento modulo
 
@@ -47,7 +47,7 @@ Questa impostazione si trova nel portale di Azure, nella sezione **Endpoint** di
 
 |Obbligatoria| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
+|Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -74,7 +74,7 @@ Per il contenitore di Riconoscimento modulo è necessario un montaggio di input 
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](form-recognizer-container-howto.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni dell'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host.
 
-|Facoltativo| NOME | Tipo di dati | DESCRIZIONE |
+|Facoltativo| Name | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Obbligatoria| `Input` | String | Destinazione del montaggio di input. Il valore predefinito è `/input`.    <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
 |Obbligatoria| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`.  <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -88,18 +88,19 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_argument_name_} nella tabella seguente con i propri valori:
 
-| Placeholder | Value |
+| Segnaposto | Value |
 |-------------|-------|
-|{FORM_RECOGNIZER_API_KEY} | La chiave usata per avviare il contenitore. È disponibile nella pagina Form Recognizer Keys (Chiavi di Riconoscimento modulo) del portale di Azure.  |
-|{FORM_RECOGNIZER_ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina Form Recognizer Overview (Panoramica di Riconoscimento modulo) del portale di Azure.|
-|{COMPUTER_VISION_API_KEY}| La chiave è disponibile nella pagina Computer Vision API Keys (Chiavi dell'API Visione artificiale) del portale di Azure.|
-|{COMPUTER_VISION_ENDPOINT_URI}|L'endpoint di fatturazione. Se si usa una risorsa di Visione artificiale basata sul cloud, il valore dell'URI è disponibile nella pagina Computer Vision API Overview (Panoramica dell'API Visione artificiale) del portale di Azure. Se si usa un contenitore *cognitive-services-recognize-text*, usare l'URL dell'endpoint di fatturazione passato al contenitore nel comando `docker run`.|
+| **{FORM_RECOGNIZER_API_KEY}** | La chiave usata per avviare il contenitore. È disponibile nella pagina Form Recognizer Keys (Chiavi di Riconoscimento modulo) del portale di Azure. |
+| **{FORM_RECOGNIZER_ENDPOINT_URI}** | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina Form Recognizer Overview (Panoramica di Riconoscimento modulo) del portale di Azure.|
+| **{COMPUTER_VISION_API_KEY}** | La chiave è disponibile nella pagina Computer Vision API Keys (Chiavi dell'API Visione artificiale) del portale di Azure.|
+| **{COMPUTER_VISION_ENDPOINT_URI}** | L'endpoint di fatturazione. Se si usa una risorsa di Visione artificiale basata sul cloud, il valore dell'URI è disponibile nella pagina Computer Vision API Overview (Panoramica dell'API Visione artificiale) del portale di Azure. Se si usa un contenitore *cognitive-Services-Recognize-text* , usare l'URL dell'endpoint di fatturazione passato al contenitore nel `docker run` comando. |
+
+Per informazioni dettagliate su come ottenere questi valori, vedere [raccolta dei parametri obbligatori](form-recognizer-container-howto.md#gathering-required-parameters) .
+
+[!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Per eseguire il contenitore, specificare le opzioni `Eula`, `Billing` e `ApiKey`. In caso contrario, il contenitore non si avvia. Per altre informazioni, vedere[Fatturazione](#billing-configuration-setting).
-
-> [!NOTE] 
-> Il valore ApiKey è la **chiave** derivante dalla pagina delle chiavi della risorsa Riconoscimento modulo di Azure.
 
 ## <a name="form-recognizer-container-docker-examples"></a>Esempi relativi ai contenitori di Riconoscimento modulo in Docker
 

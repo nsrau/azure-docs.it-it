@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9b74491c76747bd635547f6f22964fe792dbf01a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931942"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104076"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Criteri di base: Blocca autenticazione legacy (anteprima)
 
@@ -106,11 +106,11 @@ Criteri di **base dei criteri: Blocca autenticazione legacy (anteprima)** è pre
 
 Per abilitare questo criterio e proteggere l'organizzazione:
 
-1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
 1. Nell'elenco dei criteri selezionare **criteri di base: Blocca l'autenticazione legacy (anteprima**).
 1. Impostare **Abilita criterio** per **usare immediatamente i criteri**.
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

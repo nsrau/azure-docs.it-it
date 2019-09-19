@@ -1,18 +1,18 @@
 ---
 title: Creazione di un servizio di collegamento privato di Azure tramite l'interfaccia della riga di comando
 description: Informazioni su come creare un servizio di collegamento privato Azure con l'interfaccia della riga di comando di Azure
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 6955e1147bbe7b3e777ce4f06ac64901b0392f42
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 87d0f08d67dbbe6a0fa1725aba850c8d9b6c5619
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018075"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104711"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Creare un servizio di collegamento privato usando l'interfaccia della riga di comando
 Questo articolo illustra come creare un servizio di collegamento privato in Azure usando l'interfaccia della riga di comando di Azure.
@@ -20,7 +20,7 @@ Questo articolo illustra come creare un servizio di collegamento privato in Azur
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se invece si decide di installare e usare l'interfaccia della riga di comando di Azure localmente, questa Guida introduttiva richiede l'uso della versione più recente dell'interfaccia della riga di comando Per trovare la versione installata, eseguire `az --version`. Per informazioni sull'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-## <a name="create-a-private-link-service"></a>Creazione di un servizio di collegamento privato
+## <a name="create-a-private-link-service"></a>Creare un servizio Collegamento privato
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Per poter creare una rete virtuale, è prima necessario creare un gruppo di risorse per l'hosting della rete virtuale. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). Questo esempio crea un gruppo di risorse denominato *myResourceGroup* nella località *westcentralus* :
@@ -88,7 +88,7 @@ Il servizio di collegamento privato richiede un indirizzo IP da qualsiasi subnet
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
 ```
  
-## <a name="create-a-private-link-service"></a>Creazione di un servizio di collegamento privato  
+## <a name="create-a-private-link-service"></a>Creare un servizio Collegamento privato  
  
 Creare un servizio di collegamento privato usando Load Balancer Standard configurazione IP front [-end con AZ network private-Link-Service create](/cli/azure/network/az-network-private-link-service-create). Questo esempio crea un servizio di collegamento privato denominato *myPLS* usando Load Balancer standard denominato *myLoadBalancer* nel gruppo di risorse denominato *myResourceGroup*. 
  

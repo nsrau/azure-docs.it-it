@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 0c2ff2c745ebed8385df0d351c6d43faf5ab1b9d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 339aab3ffe228d306738d3c17394bd322ab5e06c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050068"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103764"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Installare ed eseguire contenitori di rilevatori di anomalie
+# <a name="install-and-run-anomaly-detector-containers"></a>Installare ed eseguire contenitori di Rilevamento anomalie
 
 Il rilevatore di anomalie presenta il contenitore seguente: 
 
@@ -39,6 +39,8 @@ Prima di usare i contenitori dei rilevatori di anomalie, è necessario soddisfar
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
 |Risorsa rilevamento anomalie |Per usare questi contenitori, è necessario avere:<br><br>Risorsa di _Rilevamento anomalie_ di Azure per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine relative alla panoramica del rilevatore di anomalie del portale di Azure e alle pagine delle chiavi e sono necessarie per avviare il contenitore.<br><br>**{API_KEY}** : Una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : Endpoint fornito nella pagina **Panoramica**|
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
@@ -80,7 +82,6 @@ For a full description of available tags, such as `latest` used in the preceding
 -->
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-
 ### <a name="docker-pull-for-the-anomaly-detector-container"></a>Pull di Docker per il contenitore del rilevatore di anomalie
 
 ```Docker
@@ -96,14 +97,9 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
-Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti:
+Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i `{ENDPOINT_URI}` valori e `{API_KEY}` , vedere raccolta dei [parametri obbligatori](#gathering-required-parameters) .
 
-| Segnaposto | Value |
-|-------------|-------|
-|{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina chiavi del rilevatore di anomalie portale di Azure.  |
-|{ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile nella pagina Panoramica del rilevatore di anomalie del portale di Azure.|
-
-Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente.
+Sono disponibili [esempi](anomaly-detector-container-configuration.md#example-docker-run-commands) di comando `docker run`.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

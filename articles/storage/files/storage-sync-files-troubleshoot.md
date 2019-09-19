@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 78e113f881d1f62c9848ba40f039fa19eeb09055
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e07d154ce5dae8a461bf9db19303db685f8a4152
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996461"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103069"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -293,6 +293,7 @@ Per visualizzare questi errori, eseguire lo script **FileSyncErrorsReport.ps1** 
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | Impossibile sincronizzare il file a causa di un errore imprevisto. | Se l'errore viene mantenuto per diversi giorni, aprire un caso di supporto. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Impossibile sincronizzare il file perché è in uso. Il file verrà sincronizzato quando non sarà più in uso. | Non è necessaria alcuna azione. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Il file è stato modificato durante la sincronizzazione, quindi è necessario sincronizzarlo di nuovo. | Non è necessaria alcuna azione. |
+| 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Impossibile sincronizzare il file perché è stato raggiunto il numero massimo di file in conflitto. Sincronizzazione file di Azure supporta 100 file di conflitti per ogni file. Per ulteriori informazioni sui conflitti di file, vedere Sincronizzazione file di Azure [domande frequenti](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | Per risolvere questo problema, ridurre il numero di file in conflitto. Il file verrà sincronizzato quando il numero di file in conflitto è inferiore a 100. |
 
 #### <a name="handling-unsupported-characters"></a>Gestione dei caratteri non supportati
 Se lo script di PowerShell **FileSyncErrorsReport. ps1** Mostra errori a causa di caratteri non supportati (codice errore 0x8007007b o 0x80c80255), è necessario rimuovere o rinominare i caratteri in errore dai rispettivi nomi file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-cmdlet) per identificare i caratteri non supportati.
@@ -370,7 +371,7 @@ Questo errore si verifica in genere quando un'applicazione di backup crea uno sn
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimale)** | -2134364065 |
 | **Stringa di errore** | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore si verifica perché l'agente Sincronizzazione file di Azure non accede alla condivisione di file di Azure, possibilmente poiché la condivisione file di Azure o l'account di archiviazione che lo ospita non è più presente. È possibile risolvere questo errore eseguendo questa procedura:
 
@@ -386,7 +387,7 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non ac
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (decimale)** | -2134364064 |
 | **Stringa di errore** | ECS_E_STORAGE_ACCOUNT_NAME_UNRESOLVED |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 1. Verificare che sia possibile risolvere il nome DNS di archiviazione dal server.
 
@@ -403,7 +404,7 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non ac
 | **HRESULT** | 0x80c8308a |
 | **HRESULT (decimale)** | -2134364022 |
 | **Stringa di errore** | ECS_E_STORAGE_ACCOUNT_UNKNOWN_ERROR |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 1. [Verificare l'esistenza dell'account di archiviazione.](#troubleshoot-storage-account)
 2. [Verificare che le impostazioni del firewall e della rete virtuale nell'account di archiviazione siano configurate correttamente (se abilitate)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
@@ -415,7 +416,7 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non ac
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (decimale)** | -1906441138 |
 | **Stringa di errore** | JET_errWriteConflict |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore si verifica quando è presente un problema con il database interno usato da Sincronizzazione file di Azure. Quando si verifica questo problema, creare una richiesta di supporto per ricevere assistenza durante la risoluzione del problema.
 
@@ -426,7 +427,7 @@ Questo errore si verifica quando è presente un problema con il database interno
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (decimale)** | -2134364053 |
 | **Stringa di errore** | ECS_E_AGENT_VERSION_BLOCKED |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore si verifica se la versione dell'agente di Sincronizzazione file di Azure installata nel server non è supportata. Per risolvere questo problema, eseguire l'[aggiornamento]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) a una [versione dell'agente supportata]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
@@ -490,7 +491,7 @@ Questo errore si verifica quando viene sospesa la sottoscrizione di Azure. La si
 | **HRESULT** | 0x80c8306c |
 | **HRESULT (decimale)** | -2134364052 |
 | **Stringa di errore** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore si verifica quando la condivisione file di Azure è inaccessibile a causa di un firewall di account di archiviazione o perché l'account di archiviazione appartiene a una rete virtuale. Verificare che le impostazioni del firewall e della rete virtuale nell'account di archiviazione siano configurate correttamente. Per altre informazioni, vedere [configurare le impostazioni del firewall e della rete virtuale](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
 
@@ -517,7 +518,7 @@ Se il problema persiste per più di due ore, creare una richiesta di supporto pe
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (decimale)** | -2146762487 |
 | **Stringa di errore** | CERT_E_UNTRUSTEDROOT |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore può verificarsi se l'organizzazione usa un proxy di terminazione SSL o se un'entità dannosa intercetta il traffico tra il server e il servizio Sincronizzazione file di Azure. Se si è certi che questo comportamento sia previsto (perché l'organizzazione usa un proxy di terminazione SSL ), ignorare la verifica dei certificati con un override del registro di sistema.
 
@@ -648,12 +649,12 @@ Questo errore si verifica perché sono state apportate modifiche nella condivisi
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (decimale)** | -2134375877 |
 | **Stringa di errore** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimale)** | -2134375908 |
 | **Stringa di errore** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 | | |
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimale)** | -2134375853 |
@@ -672,7 +673,7 @@ Nei casi in cui sono presenti numerosi errori di sincronizzazione file, le sessi
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (decimale)** | -2134376423 |
 | **Stringa di errore** | ECS_E_SYNC_INVALID_PATH |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Assicurarsi che il percorso esista, che si trovi in un volume NTFS locale e che non sia un reparse point o un endpoint server esistente.
 
@@ -738,7 +739,7 @@ Questo errore si verifica a causa di un problema interno con il database di sinc
 | **HRESULT** | 0x80c83088 |
 | **HRESULT (decimale)** | -2134364024 | 
 | **Stringa di errore** | ECS_E_INVALID_AAD_TENANT |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Questo errore si verifica perché Sincronizzazione file di Azure attualmente non supporta lo stato di trasferimento della sottoscrizione a un tenant Azure Active Directory diverso.
  

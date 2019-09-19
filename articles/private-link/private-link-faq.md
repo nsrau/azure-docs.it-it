@@ -1,18 +1,18 @@
 ---
 title: Domande frequenti sul collegamento privato di Azure
 description: Informazioni sul collegamento privato di Azure.
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7e08c91636089abf25e46e1303097fc27b2d75b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 32e570e098c9a3f95dfc5393348cccb1ebe1fb60
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037503"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104593"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Domande frequenti sul collegamento privato di Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "71037503"
 - **[Endpoint privato di Azure](private-endpoint-overview.md)** : Endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro a un servizio basato sul collegamento privato di Azure. È possibile usare endpoint privati per connettersi a un servizio Azure PaaS che supporta il collegamento privato o al servizio di collegamento privato.
 - **[Servizio di collegamento privato di Azure](private-link-service-overview.md)** : Il servizio di collegamento privato di Azure è un servizio creato da un provider di servizi. Attualmente, un servizio di collegamento privato può essere collegato alla configurazione IP front-end di un Load Balancer Standard. 
 
-### <a name="how-is-traffic-being-send-when-using-private-link"></a>In che modo viene inviato il traffico quando si usa un collegamento privato?
+### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Come viene inviato il traffico quando si usa un collegamento privato?
 Il traffico viene inviato privatamente usando la backbone Microsoft. Non attraversa Internet.  
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Qual è la differenza tra gli endpoint di servizio e gli endpoint privati?

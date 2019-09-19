@@ -2,18 +2,18 @@
 title: Panoramica dell'apprendimento automatico - Azure HDInsight
 description: Panoramica delle opzioni di Big Data Machine Learning per i cluster in Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0fecb41c3417d5b43e0638815d6a7d274ba461b0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 139d82079b5946b0628760f5b05bb08d208cae6f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961986"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105407"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning in HDInsight
 
@@ -39,7 +39,7 @@ Con ML Services su HDInsight con Spark, è possibile parallelizzare il training 
 
 Azure Machine Learning offre strumenti per modellare l'analisi predittiva, insieme a un servizio completamente gestito che può essere usato per distribuire i modelli predittivi come servizi Web pronti per l'uso. Azure Machine Learning è una soluzione di analisi predittiva completa nel cloud che è possibile usare per creare, testare, rendere operativi e gestire i modelli predittivi. È possibile selezionare gli algoritmi da una libreria di grandi dimensioni, usare un ambiente basato sul Web per creare modelli e distribuire con facilità il modello come servizio Web.
 
-![Rendere l'analisi avanzata accessibile ad Hadoop con Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+![Panoramica di Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
 Creare funzionalità per i dati in un cluster Hadoop di HDInsight usando [query Hive](../machine-learning/team-data-science-process/create-features-hive.md). La *progettazione di funzionalità* tenta di aumentare la capacità predittiva degli algoritmi di apprendimento tramite la creazione di funzionalità da dati non elaborati per semplificare il processo di apprendimento. È possibile eseguire query HiveQL da Azure Machine Learning Studio e accedere ai dati elaborati in Hive e archiviati nell'archiviazione BLOB usando il [modulo Import Data (Importa dati)](../machine-learning/studio/import-data.md).
 

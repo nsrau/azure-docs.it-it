@@ -6,29 +6,29 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: f9fd346d4c4eaed0797d564fe52dd44e9f0e240a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd51cc2d5f95598154b76b5da8e3fc9e4801100d
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65795660"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104941"
 ---
-# <a name="mapping-data-flow-conditional-split-transformation"></a>Dati flusso del mapping condizionale trasformazione Suddivisione
+# <a name="mapping-data-flow-conditional-split-transformation"></a>Trasformazione Suddivisione condizionale flusso di dati mapping
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Conditional split della casella degli strumenti](media/data-flow/conditionalsplit2.png "conditional split della casella degli strumenti")
+![casella degli strumenti Suddivisione condizionale](media/data-flow/conditionalsplit2.png "casella degli strumenti Suddivisione condizionale")
 
 La trasformazione Suddivisione condizionale può indirizzare le righe di dati a flussi diversi a seconda del contenuto dei dati. L'implementazione della trasformazione Suddivisione condizionale è simile a una struttura decisionale CASE in un linguaggio di programmazione. La trasformazione valuta le espressioni e, in base ai risultati, indirizza la riga di dati al flusso specificato. Questa trasformazione prevede inoltre un output predefinito, in modo che se una riga non corrisponde ad alcuna espressione venga indirizzata all'output predefinito.
 
-![Suddivisione condizionale](media/data-flow/conditionalsplit1.png "conditional split opzioni")
+![Suddivisione condizionale](media/data-flow/conditionalsplit1.png "Opzioni di Suddivisione condizionale")
 
 ## <a name="multiple-paths"></a>Percorsi multipli
 
 Per aggiungere altre condizioni, selezionare "Add Stream" (Aggiungi flusso) nel riquadro di configurazione in basso e fare clic nella casella di testo del generatore di espressioni per creare l'espressione.
 
-![Conditional split multi](media/data-flow/conditionalsplit3.png "conditional split multi")
+![Suddivisione condizionale multifunzione](media/data-flow/conditionalsplit3.png "Suddivisione condizionale multifunzione")
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Trasformazioni del flusso dei dati comuni usate con suddivisione condizionale: [Aggiungere transformation](data-flow-join.md), [trasformazione Loopup](data-flow-lookup.md), [selezionare trasformazione](data-flow-select.md)
+Trasformazioni comuni del flusso di dati utilizzate con Suddivisione condizionale: [Trasformazione join](data-flow-join.md), [trasformazione Ricerca](data-flow-lookup.md), [selezione trasformazione](data-flow-select.md)

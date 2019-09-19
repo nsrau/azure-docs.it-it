@@ -1,20 +1,20 @@
 ---
 title: Alta disponibilità per Hadoop - Azure HDInsight
 description: Informazioni su come i cluster HDInsight migliorano l'affidabilità e la disponibilità tramite l'uso di un nodo head aggiuntivo. Informazioni su come questo influisce sui servizi di Hadoop come Ambari e Hive, e anche su come connettersi singolarmente a ogni nodo head tramite SSH.
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 keywords: alta disponibilità di hadoop
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: hrasheed
-ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 615b1e4c5684084b6c5f88d26293b993c1efbf1f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68405984"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104415"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight
 
@@ -106,7 +106,7 @@ L'interfaccia Web utente di Ambari può essere visualizzata all'indirizzo `https
 
 Nella pagina di Ambari i servizi installati sono elencati a sinistra.
 
-![Servizi installati](./media/hdinsight-high-availability-linux/services.png)
+![Servizi installati di Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 Esistono molte icone che possono essere visualizzate accanto a un servizio per indicare lo stato. È possibile visualizzare eventuali avvisi relativi a un servizio utilizzando il collegamento **Avvisi** nella parte superiore della pagina.  Ambari offre diversi avvisi predefiniti.
 
@@ -155,11 +155,11 @@ Gli avvisi seguenti consentono di monitorare la disponibilità di un cluster:
 
 La pagina del servizio fornisce informazioni sullo stato e sulla configurazione di ogni servizio, ma non indica su quale nodo head esso è in esecuzione. Per visualizzare questa informazione,  utilizzare il collegamento **Host** nella parte superiore della pagina. La pagina visualizza gli host del cluster, inclusi i nodi head.
 
-![elenco di host](./media/hdinsight-high-availability-linux/hosts.png)
+![Elenco degli host nodo head di Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 Quando si seleziona il collegamento per uno dei nodi head, vengono visualizzati i servizi e i componenti in esecuzione su tale nodo.
 
-![Stato dei componenti](./media/hdinsight-high-availability-linux/nodeservices.png)
+![Stato del componente Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight mediante l'uso dell'interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -241,7 +241,7 @@ Per un elenco di comandi disponibili, immettere `help` al prompt `sftp>`.
 
 Dall'interfaccia utente Web di Ambari, selezionare il servizio di cui si vogliono visualizzare i log, ad esempio, YARN. Usare quindi **Collegamenti rapidi** per selezionare il nodo head di cui visualizzare i log.
 
-![Utilizzo dei collegamenti rapidi per visualizzare i log](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Utilizzo dei collegamenti rapidi per visualizzare i log](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>Come configurare le dimensioni del nodo
 
@@ -251,7 +251,7 @@ Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Le i
 
 * **Portale di Azure**: Quando si crea un cluster, è possibile impostare le dimensioni dei nodi usati dal cluster:
 
-    ![Immagine della creazione guidata di cluster con la selezione delle dimensioni del nodo](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![Immagine della creazione guidata di cluster con la selezione delle dimensioni del nodo](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
 
 * **Interfaccia della riga di comando di Azure**: Quando si usa il comando [AZ HDInsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) , è possibile impostare le dimensioni dei nodi head, Worker e ZooKeeper usando i `--headnode-size`parametri, `--workernode-size`e. `--zookeepernode-size`
 

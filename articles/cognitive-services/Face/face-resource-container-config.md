@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 752613becb92711866d520e6fcd46ed3a320353f
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a07f088f7f5699a2698c0ea8fb0e853b3d287572
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860260"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101944"
 ---
 # <a name="configure-face-docker-containers"></a>Configurare i contenitori di Viso Docker
 
@@ -53,7 +53,7 @@ Ricordarsi di aggiungere il routing del _volto_ all'URI dell'endpoint, come illu
 
 |Obbligatoria| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 <!-- specific to face only -->
 
@@ -61,7 +61,7 @@ Ricordarsi di aggiungere il routing del _volto_ all'URI dell'endpoint, come illu
 
 Le impostazioni di configurazione nella sezione `CloudAI` forniscono le opzioni specifiche per il contenitore proprie del rispettivo contenitore. Gli oggetti e le impostazioni seguenti sono supportati per il contenitore Viso nella sezione `CloudAI`
 
-| Name | Tipo di dati | Descrizione |
+| NOME | Tipo di dati | Descrizione |
 |------|-----------|-------------|
 | `Storage` | Object | Lo scenario di archiviazione usato dal contenitore Viso. Per altre informazioni sugli scenari di archiviazione e sulle impostazioni associate per l'oggetto `Storage`, vedere [Impostazioni di uno scenario di archiviazione](#storage-scenario-settings) |
 
@@ -80,7 +80,7 @@ Il contenitore Viso archivia BLOB, cache, metadati e dati della coda, a seconda 
 
 Gli scenari di archiviazione e le impostazioni di configurazione associate sono gestite dall'oggetto `Storage`, sotto la sezione di configurazione `CloudAI`. Le impostazioni di configurazione seguenti sono disponibili nell'oggetto `Storage`:
 
-| Name | Tipo di dati | Descrizione |
+| Name | Tipo di dati | DESCRIZIONE |
 |------|-----------|-------------|
 | `StorageScenario` | String | Lo scenario di archiviazione supportato dal contenitore. Sono disponibili i valori seguenti<br/>`Memory` - Valore predefinito. Il contenitore usa l'archiviazione non permanente, non distribuita e in memoria, per l'utilizzo temporaneo in un singolo nodo. Se il contenitore viene arrestato o rimosso, l'archiviazione per tale contenitore viene eliminata definitivamente.<br/>`Azure` - Il contenitore utilizza le risorse di Azure per l'archiviazione. Se il contenitore viene arrestato o rimosso, l'archiviazione per tale contenitore viene salvata in modo permanente.|
 | `ConnectionStringOfAzureStorage` | String | La stringa di connessione per la risorsa di archiviazione di Azure usata dal contenitore.<br/>Questa impostazione si applica solo se `Azure` viene specificato per l'impostazione di configurazione `StorageScenario`. |
@@ -138,8 +138,8 @@ Sostituire {_nome_argomento_} con i propri valori:
 
 | Segnaposto | Value | Formato o esempio |
 |-------------|-------|---|
-|{API_KEY} | Chiave dell'endpoint della risorsa Servizi cognitivi. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | Valore dell'URL dell'endpoint.|`https://myresourcename.cognitive.microsoft.com/face/v1.0`|
+| **{API_KEY}** | Chiave dell'endpoint della `Face` risorsa nella pagina chiavi di Azure. `Face` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `Face` pagina Panoramica di Azure.| Vedere [raccolta di parametri obbligatori](face-how-to-install-containers.md#gathering-required-parameters) per esempi espliciti. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 

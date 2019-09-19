@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: ced2c888a412a72643bb0c12fceb7e83d39936cf
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
-ms.translationtype: HT
+ms.openlocfilehash: d036e56a4ccf826ccd19fb7424b7b76568839b23
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098739"
+ms.locfileid: "71104527"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
@@ -34,7 +34,7 @@ La tabella seguente riepiloga i servizi di archiviazione di Azure supportati con
 |Archiviazione di Azure| Archiviazione BLOB * * | Object | BLOB in blocchi | Standard | Frequente, ad accesso sporadico, archivio | Tutti | Tutti |
 |Azure Data Lake Storage Gen1| N/D | Gerarchico (filesystem) | N/D | N/D | N/D | solo 3,6 | Tutti tranne HBase |
 
-\* * Per i cluster HDInsight, solo gli account di archiviazione secondari possono essere di tipo BlobStorage.
+\* * Per i cluster HDInsight, solo gli account di archiviazione secondari possono essere di tipo BlobStorage e il BLOB di pagine non è un'opzione di archiviazione supportata.
 
 Per altre informazioni sui tipi di account di archiviazione di Azure, vedere [Panoramica dell'account di archiviazione di Azure](../storage/common/storage-account-overview.md)
 
@@ -48,7 +48,7 @@ Per altre informazioni sui livelli di accesso di archiviazione di Azure [, veder
 | 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen2 | No |
 | 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen1 | Sì |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Sì |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
 | 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sì |
 | 3.6 | Data Lake Storage Gen1 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |

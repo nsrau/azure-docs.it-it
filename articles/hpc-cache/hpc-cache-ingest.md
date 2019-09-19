@@ -4,14 +4,14 @@ description: Come popolare l'archivio BLOB di Azure per l'uso con la cache HPC d
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/18/2019
 ms.author: v-erkell
-ms.openlocfilehash: 07a97b1afa8049ace97f1589393cd76c24f21368
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 0a71efdc0479a69aed8fecc22a6c89c506279d57
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775650"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105319"
 ---
 # <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache"></a>Spostare i dati nell'archivio BLOB di Azure per la cache HPC di Azure
 
@@ -31,15 +31,17 @@ Se non si vuole usare l'utilità di caricamento o si vuole aggiungere contenuto 
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Pre-caricare i dati nell'archivio BLOB con CLFSLoad
 
-È possibile usare l'utilità [CLFSLoad](https://aka.ms/avere-clfsload) per copiare i dati in un nuovo contenitore di archiviazione BLOB prima di aggiungerli come destinazione di archiviazione. Questa utilità viene eseguita in una macchina virtuale Linux e scrive i dati nel formato proprietario necessario per la cache HPC di Azure. Questo è il modo più efficiente per popolare un contenitore di archiviazione BLOB da usare con la cache.
+È possibile utilizzare il <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Usare l'utilità CLFSLoad per copiare i dati in un nuovo contenitore di archiviazione BLOB prima di aggiungerli come destinazione di archiviazione. Questa utilità viene eseguita in un singolo sistema Linux e scrive i dati nel formato proprietario necessario per la cache HPC di Azure. CLFSLoad è il modo più efficiente per popolare un contenitore di archiviazione BLOB da usare con la cache.
+
+L'utilità CLFSLoad è disponibile in base alla richiesta del team di cache HPC di Azure. Chiedere al contatto del team o aprire un ticket di supporto per richiedere assistenza.
 
 Questa opzione funziona solo con nuovi contenitori vuoti. Creare il contenitore prima di usare CLFSLoad.
 
-Informazioni dettagliate sono incluse nel [file Leggimi CLFSLoad](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). <!-- caution literal link -->
+Informazioni dettagliate sono incluse nella distribuzione CLFSLoad, disponibile su richiesta dal team di cache HPC di Azure. <!-- [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). --><!-- caution literal link -->
 
 Panoramica generale del processo:
 
-1. Preparare un sistema Linux (fisico o macchina virtuale) con Python versione 3,6 o successiva. È consigliabile usare Python 3,7 per ottenere prestazioni migliori.
+1. Preparare un sistema Linux (VM o fisico) con Python versione 3,6 o successiva. È consigliabile usare Python 3,7 per ottenere prestazioni migliori.
 1. Installare il software CLFSLoad nel sistema Linux.
 1. Eseguire il trasferimento dalla riga di comando di Linux.
 
@@ -50,7 +52,7 @@ L'utilità CLFSLoad ha bisogno delle informazioni seguenti:
 * Un token di firma di accesso condiviso che consente all'utilità di scrivere nel contenitore
 * Un percorso locale per l'origine dati, ovvero una directory locale che contiene i dati da copiare o un percorso locale a un sistema remoto montato con i dati.
 
-I requisiti sono descritti in dettaglio nel [file Leggimi CLFSLoad](https://aka.ms/avere-clfsload).
+<!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 
 ## <a name="copy-data-through-the-azure-hpc-cache"></a>Copiare dati tramite la cache HPC di Azure
 

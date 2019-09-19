@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 5d287165e77597943d298178689c216497361570
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: e9ecc34566e6e534b7489c934c0d5fa3b34e219b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879646"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104487"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
 
@@ -45,7 +45,7 @@ Se si sceglie di proteggere l'account di archiviazione con le restrizioni relati
 ## <a name="hdinsight-storage-architecture"></a>Architettura di archiviazione di HDInsight
 Nel diagramma seguente viene mostrata una visualizzazione astratta dell'architettura di archiviazione HDInsight dell'uso di Archiviazione di Azure:
 
-I ![cluster Hadoop usano l'API HDFS per accedere e archiviare dati strutturati e non strutturati nell'archiviazione BLOB.](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "Architettura di archiviazione di HDInsight")
+![I cluster Hadoop usano l'API HDFS per accedere e archiviare i dati nell'archivio BLOB](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "Architettura archiviazione HDInsight")
 
 HDInsight offre accesso al file system distribuito collegato localmente ai nodi di calcolo. Il file system è accessibile tramite l'URI completo, ad esempio:
 
@@ -73,6 +73,7 @@ Più processi WebHCat, inclusi Apache Hive, MapReduce, lo streaming Apache Hadoo
 I BLOB possono essere usati per i dati strutturati e non strutturati. I contenitori BLOB archiviano i dati come coppie chiave-valore e non esiste una gerarchia di directory. È tuttavia possibile usare il carattere barra ( / ) all'interno del nome della chiave per far sembrare che un file sia archiviato in una struttura di directory. Ad esempio, la chiave di un BLOB potrebbe essere *input/log1.txt*. Non esiste realmente una directory *input* ma, grazie alla presenza del carattere barra, il nome della chiave ha l'aspetto di un percorso di file.
 
 ## <a id="benefits"></a>Vantaggi di Archiviazione di Azure
+
 Il costo implicito in termini di prestazioni di non condivisione dei cluster di calcolo e delle risorse di archiviazione è mitigato dal modo in cui i cluster di calcolo vengono creati vicino alle risorse dell'account di archiviazione all'interno dell'area di Azure, in cui la rete ad alta velocità lo rende efficace per il nodi di calcolo per accedere ai dati all'interno di archiviazione di Azure.
 
 L'archiviazione dei dati in Archiviazione di Azure anziché in HDFS offre numerosi vantaggi:
@@ -93,6 +94,7 @@ Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non
 > La maggior parte dei comandi Hadoop Distributed File System, ad esempio `ls`, `copyFromLocal` e `mkdir`, funziona come previsto. Solo i comandi specifici dell'implementazione Hadoop Distributed File System nativa (denominata DFS), ad esempio `fschk` e `dfsadmin`, hanno un comportamento diverso in Archiviazione di Azure.
 
 ## <a name="address-files-in-azure-storage"></a>Accedere ai file in Archiviazione di Azure
+
 Lo schema URI per l'accesso ai file in Archiviazione di Azure da HDInsight è il seguente:
 
 ```config
@@ -125,6 +127,7 @@ example/jars/hadoop-mapreduce-examples.jar
 > Quando si usano i BLOB al di fuori di HDInsight, la maggior parte delle utilità non riconosce il formato WASB e richiede invece un formato del percorso di base, ad esempio `example/jars/hadoop-mapreduce-examples.jar`.
 
 ##  <a name="blob-containers"></a>Contenitori BLOB
+
 Per usare i BLOB, è necessario creare prima un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). Come parte della procedura, è necessario specificare l'area di Azure in cui viene creato l'account di archiviazione. L'account di archiviazione deve trovarsi nella stessa area del cluster. Il database di SQL Server del metastore Hive, inoltre, deve trovarsi nella stessa area del database di SQL Server del metastore Apache Oozie.
 
 Ovunque si trovi, ogni oggetto BLOB creato appartiene a un contenitore presente nell'account di archiviazione di Azure. Può trattarsi di un contenitore BLOB esistente, creato all'esterno di HDInsight, oppure di un contenitore creato per un cluster HDInsight.

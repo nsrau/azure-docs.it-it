@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 0fe893ae95b31b1b676a982a60166041a0ad964d
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: cc827f52d227ee36620bd215dfcba96b433804d3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015911"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103062"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -100,7 +100,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
    
     \<NomeFileSenzaEstensione\>-\<NomeComputer\>\[-#\].\<est\>  
 
-    Ad esempio, il primo conflitto per ReportAziendale.docx diventerebbe ReportAziendale-ServerCentrale.docx se ServerCentrale è il computer in cui è stata eseguita l'operazione di scrittura meno recente. Il nome per il secondo conflitto sarebbe ReportAziendale-ServerCentrale-1.docx.
+    Ad esempio, il primo conflitto per ReportAziendale.docx diventerebbe ReportAziendale-ServerCentrale.docx se ServerCentrale è il computer in cui è stata eseguita l'operazione di scrittura meno recente. Il nome per il secondo conflitto sarebbe ReportAziendale-ServerCentrale-1.docx. Sincronizzazione file di Azure supporta 100 file di conflitti per ogni file. Una volta raggiunto il numero massimo di file in conflitto, il file non verrà sincronizzato finché il numero di file in conflitto non sarà inferiore a 100.
 
 * <a id="afs-storage-redundancy"></a>
   **L'archiviazione con ridondanza geografica è supportata per Sincronizzazione file di Azure?**  
@@ -344,7 +344,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="need-larger-share"></a>
 **Quali dimensioni sono disponibili per le condivisioni file di Azure?**  
-    Le dimensioni della condivisione file di Azure (Premium e standard) possono essere scalate fino a 100 TiB. Le condivisioni file Premium con dimensioni fino a 100 TiB sono disponibili come offerta GA. Le condivisioni file standard con dimensioni fino a 5 TiB sono disponibili come offerta GA, mentre le dimensioni fino a 100 TiB sono disponibili in anteprima. Vedere la sezione onboarding [to large file Shares (livello standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) della Guida alla pianificazione per le istruzioni di onboarding nell'anteprima delle condivisioni file più grandi per il livello standard.
+    Le dimensioni della condivisione file di Azure (Premium e standard) possono essere scalate fino a 100 TiB. Le condivisioni file Premium con dimensioni fino a 100 TiB sono disponibili come offerta GA. Le condivisioni file standard con dimensioni fino a 5 TiB sono disponibili come offerta GA, mentre le dimensioni fino a 100 TiB sono disponibili in anteprima. Vedere la sezione [onboarding to large file Shares (livello standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) della Guida alla pianificazione per le istruzioni di onboarding nell'anteprima delle condivisioni file più grandi per il livello standard.
 
 * <a id="open-handles-quota"></a>
 **Quanti client possono accedere allo stesso file contemporaneamente?**    

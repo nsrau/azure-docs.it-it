@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: 123e63fb79ba966e4e17b0c55440049a79add905
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d8925f1c31b7a0c8f45e65e783077e8f5e2b0add
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931178"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103250"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servizio DNS in Azure Service Fabric
 Il servizio DNS è un servizio di sistema facoltativo che è possibile abilitare nel cluster per individuare altri servizi usando il protocollo DNS. 
@@ -73,16 +73,16 @@ Quando si dispone di un modello, è possibile abilitare il servizio DNS seguendo
 
    - Per abilitare il servizio DNS con le impostazioni predefinite, aggiungerlo alla sezione `addonFeatures` all'interno della sezione `properties`, come illustrato nell'esempio seguente:
 
-       ```json
-           "properties": {
-              ...
-
-              "addonFeatures": [
-                "DnsService"
+        ```json
+          "properties": {
+            ...
+            "addonFeatures": [
+              "DnsService"
               ],
-              ...
-           }
-       ```
+            ...
+          }
+        ```
+
    - Per abilitare il servizio con impostazioni diverse da quelle predefinite, aggiungere una sezione `DnsService` alla sezione `fabricSettings` all'interno della sezione `properties`. In questo caso, non è necessario aggiungere DnsService a `addonFeatures`. Per altre informazioni sulle proprietà che è possibile impostare per il servizio DNS, vedere [Impostazioni del servizio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
@@ -111,7 +111,10 @@ Quando si dispone di un modello, è possibile abilitare il servizio DNS seguendo
               ]
             }
        ```
-1. Dopo avere aggiornato il modello di cluster con le modifiche, applicarle e consentire il completamento dell'aggiornamento. Al termine dell'aggiornamento, il servizio di sistema DNS viene avviato nel cluster. Il nome del servizio è `fabric:/System/DnsService`, e sarà possibile trovarlo nella sezione **Sistema** del servizio in Service Fabric Explorer. 
+3. Dopo avere aggiornato il modello di cluster con le modifiche, applicarle e consentire il completamento dell'aggiornamento. Al termine dell'aggiornamento, il servizio di sistema DNS viene avviato nel cluster. Il nome del servizio è `fabric:/System/DnsService`, e sarà possibile trovarlo nella sezione **Sistema** del servizio in Service Fabric Explorer. 
+
+> [!NOTE]
+> Quando si aggiorna DNS da disabilitato ad abilitato, Service Fabric Explorer possibile che non rifletta il nuovo stato. Per risolvere il problemi, riavviare i nodi modificando il UpgradePolicy nel modello di Azure Resource Manager. Per ulteriori informazioni, vedere il [riferimento al modello di Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
 
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Impostazione del nome DNS del servizio

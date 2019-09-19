@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 3cad1a73dd98928ed12748e2acffaea158dc5924
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 594edab4e6a69edb49c8a1ce407c9fd943d11f2b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010288"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103163"
 ---
 # <a name="azure-sql-database-features"></a>Funzionalità del database SQL di Azure
 
@@ -43,25 +43,25 @@ Nella tabella seguente sono elencate le principali funzionalità di SQL Server e
 | [Funzioni predefinite](https://docs.microsoft.com/sql/t-sql/functions/functions) | Supportate per la maggior parte. Vedere le singole funzioni | Sì, vedere le [differenze relative a stored procedure, funzioni e trigger](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) | 
 | [Istruzione BULK INSERT](https://docs.microsoft.com/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Sì, ma solo dall'archiviazione BLOB di Azure come origine. | Sì, ma solo dall'archiviazione BLOB di Azure come origine, vedere [differenze](sql-database-managed-instance-transact-sql-information.md#bulk-insert--openrowset). |
 | [Certificati e chiavi asimmetriche](https://docs.microsoft.com/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Sì, senza l'accesso alla file System `BACKUP` per `CREATE` le operazioni e. | Sì, senza l'accesso alla file System `BACKUP` per `CREATE` le operazioni e, vedere [differenze tra i certificati](sql-database-managed-instance-transact-sql-information.md#certificates). | 
-| [Change Data Capture-CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Yes |
+| [Change Data Capture-CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Sì |
 | [Regole di confronto - server/istanza](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | No, le regole di confronto `SQL_Latin1_General_CP1_CI_AS` predefinite del server logico vengono sempre utilizzate. | Sì, può essere impostato al momento della [creazione dell'istanza](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) e non può essere aggiornato in un secondo momento. |
 | [Indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sì, [livello Premium, livello Standard; S3 e versioni successive, livello Utilizzo generico e livelli Business Critical](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sì |
 | [Common Language Runtime-CLR](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Sì, ma senza accesso a file System nell' `CREATE ASSEMBLY` istruzione, vedere [differenze CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Credenziali](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/credentials-database-engine) | Sì, ma solo le [credenziali con ambito database](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Sì, ma solo **Azure Key Vault** e `SHARED ACCESS SIGNATURE` sono supportati vedere [i dettagli](sql-database-managed-instance-transact-sql-information.md#credential) |
 | [Query sul nome tra database/tre parti](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No, vedere [Query elastiche](sql-database-elastic-query-overview.md) | Sì, oltre a [Query elastiche](sql-database-elastic-query-overview.md) |
 | [Transazioni tra database](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No | Sì, all'interno dell'istanza. Vedere [differenze tra server collegati](sql-database-managed-instance-transact-sql-information.md#linked-servers) per le query tra istanze. |
-| [Posta elettronica database-DbMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | No | Yes |
+| [Posta elettronica database-DbMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | No | Sì |
 | [Mirroring del database](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | No | [No](sql-database-managed-instance-transact-sql-information.md#database-mirroring) |
 | [Snapshot del database](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | No | No |
 | [Istruzioni DBCC](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | Supportate per la maggior parte. Vedere le singole istruzioni | Sì, vedere le [differenze relative a DBCC](sql-database-managed-instance-transact-sql-information.md#dbcc) |
 | [Istruzioni DDL](https://docs.microsoft.com/sql/t-sql/statements/statements) | Supportate per la maggior parte. Vedere le singole istruzioni | Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md) |
-| [Trigger DDL](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Solo database |  Yes |
-| [Viste partizionate distribuite](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | No | Sì |
+| [Trigger DDL](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Solo database |  Sì |
+| [Viste partizionate distribuite](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | No | Yes |
 | [Transazioni distribuite - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No. Vedere [Transazioni elastiche](sql-database-elastic-transactions-overview.md) |  No. vedere [differenze tra server collegati](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
-| [Trigger DML](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Supportate per la maggior parte. Vedere le singole istruzioni |  Sì |
+| [Trigger DML](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Supportate per la maggior parte. Vedere le singole istruzioni |  Yes |
 | [Viste a gestione dinamica](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Supportate nella maggior parte dei casi, vedere singole viste a gestione dinamica |  Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Notifiche degli eventi](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | No. Vedere [Avvisi](sql-database-insights-alerts-portal.md) | No |
-| [Espressioni](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Yes | Yes |
+| [Espressioni](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Sì | Yes |
 | [Eventi estesi (XEvent)](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Supportati in alcuni casi. Vedere [Eventi estesi nel database SQL](sql-database-xevent-db-diff-from-svr.md) | Sì - vedere le [differenze relative agli eventi estesi](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Stored procedure estese](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | No | No |
 | [File e gruppi di file](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Solo gruppi di file primari | Sì. I percorsi dei file vengono assegnati automaticamente e il percorso del file non `ALTER DATABASE ADD FILE` può essere specificato nell' [istruzione](sql-database-managed-instance-transact-sql-information.md#alter-database-statement).  |
@@ -85,7 +85,7 @@ Nella tabella seguente sono elencate le principali funzionalità di SQL Server e
 | [Notifiche della query](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Sì |
 | [Servizi R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Sì, in [anteprima pubblica](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
 | [Modelli di recupero](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) | È supportato solo il ripristino completo che garantisce la disponibilità elevata. Non sono disponibili modelli di recupero con registrazione minima e con registrazione minima delle operazioni bulk. | È supportato solo il ripristino completo che garantisce la disponibilità elevata. Non sono disponibili modelli di recupero con registrazione minima e con registrazione minima delle operazioni bulk. | 
-| [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | No | Yes |
+| [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | No | Sì |
 | [Istruzioni RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | Sì, con le `FROM URL` opzioni obbligatorie per i file di backup inseriti nell'archiviazione BLOB di Azure. Vedere [differenze di ripristino](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Ripristino del database da backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Solo da backup automatici, vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md) | Dai backup automatici, vedere [ripristino del database SQL](sql-database-recovery-using-backups.md) e da backup completi posizionati nell'archiviazione BLOB di Azure. vedere [differenze di backup](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Ripristinare il database SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | No. Usare BACPAC o BCP anziché il ripristino nativo. | No, perché SQL Server motore di database usato in Istanza gestita ha una versione superiore rispetto a qualsiasi versione RTM di SQL Server usata in locale. Utilizzare invece BACPAC, BCP o la replica transazionale. |
@@ -114,15 +114,15 @@ La piattaforma Azure offre una serie di funzionalità PaaS che vengono aggiunte 
 
 | **Funzionalità della piattaforma** | **Database singoli e pool elastici** | **Istanze gestite e pool di istanze** |
 | --- | --- | --- |
-| [Replica geografica attiva](sql-database-active-geo-replication.md) | Sì-tutti i livelli di servizio diversi dall'iperscalabilità | No, vedere [gruppi di failover automatico (anteprima)](sql-database-auto-failover-group.md) come alternativa |
-| [Gruppi di failover automatico](sql-database-auto-failover-group.md) | Sì-tutti i livelli di servizio diversi dall'iperscalabilità | Sì, in [anteprima pubblica](sql-database-auto-failover-group.md)|
+| [Replica geografica attiva](sql-database-active-geo-replication.md) | Sì-tutti i livelli di servizio diversi dall'iperscalabilità | No, vedere [gruppi di failover automatico](sql-database-auto-failover-group.md) come alternativa |
+| [Gruppi di failover automatico](sql-database-auto-failover-group.md) | Sì-tutti i livelli di servizio diversi dall'iperscalabilità | Sì, vedere [gruppi di failover automatico](sql-database-auto-failover-group.md)|
 | Scalabilità automatica | Sì, ma solo in un [modello senza server](sql-database-serverless.md). Nel modello senza server, la modifica del livello di servizio (modifica di vCore, storage o DTU) è veloce e online. La modifica del livello di servizio richiede minimo o nessun tempo di inattività. | No, è necessario scegliere risorse di calcolo e archiviazione riservate. La modifica del livello di servizio (vCore o Max Storage) è online e richiede un tempo di inattività minimo o minimo. |
 | [Backup automatici](sql-database-automated-backups.md) | Sì. I backup completi vengono eseguiti ogni 7 giorni, 12 ore differenziali e backup del log ogni 5-10 min. | Sì. I backup completi vengono eseguiti ogni 7 giorni, 12 ore differenziali e backup del log ogni 5-10 min. |
 | [Ottimizzazione automatica (indici)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sì](sql-database-automatic-tuning.md)| No |
-| [zone di disponibilità](/azure/availability-zones/az-overview) | Yes | No |
+| [zone di disponibilità](/azure/availability-zones/az-overview) | Sì | No |
 | [Integrità risorse di Azure](/azure/service-health/resource-health-overview) | Sì | No |
 | Conservazione backup | Sì. 7 giorni per impostazione predefinita, massimo 35 giorni. | Sì. 7 giorni per impostazione predefinita, massimo 35 giorni. |
-| [Servizio Migrazione del database](https://docs.microsoft.com/sql/dma/dma-overview) | Sì | Sì |
+| [Servizio Migrazione del database](https://docs.microsoft.com/sql/dma/dma-overview) | Yes | Sì |
 | Accesso al file System | No. Usare [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) per accedere ai dati e caricarli dall'archiviazione BLOB di Azure come alternativa. | No. Usare [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) per accedere ai dati e caricarli dall'archiviazione BLOB di Azure come alternativa. |
 | [Ripristino geografico](sql-database-recovery-using-backups.md#geo-restore) | Sì-tutti i livelli di servizio diversi dall'iperscalabilità | Sì, usando [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Architettura con iperscalabilità](sql-database-service-tier-hyperscale.md) | Sì | No |
@@ -134,7 +134,7 @@ La piattaforma Azure offre una serie di funzionalità PaaS che vengono aggiunte 
 | Pool di risorse | Sì, come [pool elastici](sql-database-elastic-pool.md) | Sì. Una singola istanza gestita può avere più database che condividono lo stesso pool di risorse. Inoltre, è possibile distribuire più istanze gestite nei [pool di istanze (anteprima)](sql-database-instance-pools.md) in grado di condividere le risorse. |
 | Scalabilità verticale (in linea) | Sì, è possibile modificare DTU o Vcore riservati o l'archiviazione massima con tempi di inattività minimi. | Sì, è possibile modificare il valore di Vcore riservato o l'archiviazione massima con tempi di inattività minimi. |
 | Alias SQL | Sì, vedere [alias DNS](dns-alias-overview.md) | No |
-| [Analisi SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Sì | Yes |
+| [Analisi SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Sì | Sì |
 | [Sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md) | Sì | No |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) è un servizio cloud di Azure separato. | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) è un servizio cloud di Azure separato. |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sì, con SSIS gestito nell'ambiente di Azure Data Factory in cui i pacchetti vengono archiviati nel database SSISDB ospitato dal database SQL di Azure ed eseguiti nel runtime di integrazione SSIS di Azure vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Per confrontare le funzioni SSIS nel server di database SQL e in Istanza gestita, vedere [Compare Azure SQL Database single databases/elastic pools and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance) (Confrontare i singoli database SQL di Azure/pool elastici e Istanza gestita). | Sì, con SSIS gestito nell'ambiente di Azure Data Factory in cui i pacchetti vengono archiviati nel database SSISDB ospitato da Istanza gestita ed eseguiti nel runtime di integrazione SSIS di Azure vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Per comparare le funzioni SSIS nel database SQL come parte di un'istanza gestita, vedere [Confrontare database singoli/pool elastici e Istanza gestita di database SQL di Azure](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). |
@@ -148,19 +148,19 @@ Il database SQL di Azure supporta diversi strumenti di dati che consentono di ge
 
 | **Strumento** | **Database singoli e pool elastici** | **Istanze gestite e pool di istanze** |
 | --- | --- | --- |
-| Portale di Azure | Sì | Yes |
-| Interfaccia della riga di comando di Azure | Sì | Yes|
-| [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Sì | Yes |
-| Azure Powershell | Sì | Yes |
+| Portale di Azure | Sì | Sì |
+| Interfaccia della riga di comando di Azure | Sì | Sì|
+| [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Yes | Yes |
+| Azure Powershell | Yes | Sì |
 | [File BACPAC (esportazione)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sì. Vedere [Esportazione di un database SQL](sql-database-export.md) | Sì. Vedere [Esportazione di un database SQL](sql-database-export.md) |
 | [File BACPAC (importazione)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sì. Vedere [Importazione di un database SQL](sql-database-import.md) | Sì. Vedere [Importazione di un database SQL](sql-database-import.md) |
 | [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | No | No |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | No | No |
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [Sì](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | Sì [versione 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
-| [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Sì | Yes |
-| [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Sì [versione 18,0 e successive](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+| [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes | Sì |
+| [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sì | Sì [versione 18,0 e successive](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sì | Sì |
-| [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No. Vedere [Eventi estesi](sql-database-xevent-db-diff-from-svr.md) | Yes |
+| [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No. Vedere [Eventi estesi](sql-database-xevent-db-diff-from-svr.md) | Sì |
 | [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Sì](https://www.microsoft.com/download/details.aspx?id=38829) | No |
 
 ## <a name="migration-methods"></a>Metodi di migrazione

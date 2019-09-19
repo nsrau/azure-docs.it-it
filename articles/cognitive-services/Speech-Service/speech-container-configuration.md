@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: c4598e5e99012694a798e44c0d37e9578486751b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f7e2e95b553039b88267f730787fbbac82099948
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932114"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105178"
 ---
 # <a name="configure-speech-service-containers"></a>Configurare i contenitori di servizi vocali
 
@@ -50,7 +50,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 * Portale di Azure: **Sintesi vocale** Panoramica, con etichetta`Endpoint`
 
-|Obbligatoria| Name | Tipo di dati | Descrizione |
+|Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
 |Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
@@ -90,12 +90,14 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 * **Carattere di continuazione di riga**: I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
 * **Ordine degli argomenti**: Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
 
-Sostituire { _} con i propri valori:
+Sostituire {_nome_argomento_} con i propri valori:
 
-| Segnaposto | Valore | Formato o esempio |
+| Segnaposto | Value | Formato o esempio |
 |-------------|-------|---|
-|{API_KEY} | Chiave API della risorsa di sintesi vocale. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | Valore dell'endpoint che include l'area.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+| **{API_KEY}** | Chiave dell'endpoint della `Speech` risorsa nella pagina chiavi di Azure. `Speech` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `Speech` pagina Panoramica di Azure.| Vedere [raccolta di parametri obbligatori](speech-container-howto.md#gathering-required-parameters) per esempi espliciti. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing-configuration-setting).

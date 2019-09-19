@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 40170540458b7bc7ddb30f88117d472858937e8c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 0bbe0e9718a25fdff76e591bf388bf829518502e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962942"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105620"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -166,43 +166,28 @@ La creazione di report viene effettuata in base al valore partner (ID partner Mi
 
 I GUID devono essere registrati per consentire l'attribuzione dell'utilizzo da parte del cliente.
 
-Tutte le registrazioni per i modelli GUID vengono eseguite tramite il portale Cloud Partner (CPP) di Azure Marketplace.
+Tutte le registrazioni per i GUID del modello vengono eseguite all'interno del centro per i partner.
 
-Dopo aver aggiunto il GUID per il modello o nell'agente utente e registrato il GUID nel CPP vengono tracciate tutte le distribuzioni.
+Dopo aver aggiunto il GUID al modello o all'agente utente e aver registrato il GUID in Partner Center, viene tenuta traccia di tutte le distribuzioni.
 
-1. Registrarsi ad [Azure Marketplace](https://aka.ms/listonazuremarketplace) e accedere al CPP.
+1. Iscriversi come [editore del Marketplace commerciale](https://aka.ms/JoinMarketplace).
 
-   * Ai partner è richiesto di [avere un profilo in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). Si consiglia di inserire l'offerta in Azure Marketplace o AppSource.
+   * È necessario che i partner [dispongano di un profilo nel centro per i partner](https://docs.microsoft.com/azure/marketplace/become-publisher). Si consiglia di inserire l'offerta in Azure Marketplace o AppSource.
    * I partner possono registrare più GUID.
    * I partner possono un GUID per i modelli e le offerte di soluzioni non di Marketplace.
 
-1. Accedere al [Portale per Cloud Partner](https://cloudpartner.azure.com/).
+1. Accedere al centro per i [partner](https://partner.microsoft.com/dashboard).
 
-1. Nell'angolo in alto a destra selezionare l’icona dell’account e quindi scegliere il **profilo di pubblicazione**.
+1. Nell'angolo in alto a destra selezionare l'icona dell'ingranaggio impostazioni e quindi selezionare **Impostazioni sviluppatore**.
 
-   ![Selezionare il profilo di pubblicazione](media/marketplace-publishers-guide/guid-image-for-lu.png)
+1. Nella **pagina Impostazioni account**selezionare **Aggiungi GUID di rilevamento.**
 
-1. Nella **pagina Profilo** selezionare **Aggiungi GUID di rilevamento.**
-
-   ![Selezionare Aggiungi GUID di rilevamento](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
-
-1. Nel riquadro del **GUID di rilevamento** immettere il GUID di rilevamento. Immettere solo il GUID senza il prefisso **pid-** . Nella casella della **descrizione personalizzata**, immettere il nome o la descrizione dell'offerta.
-
-   ![Pagina del profilo](media/marketplace-publishers-guide/guid-dev-center-login.png)
-
-   ![Immettere GUID e descrizione dell'offerta](media/marketplace-publishers-guide/guid-dev-center-example.png)
+1. Nella casella **GUID** immettere il GUID di rilevamento. Immettere solo il GUID senza il prefisso **pid-** . Nella casella **Descrizione** immettere il nome dell'offerta o la descrizione.
 
 1. Per registrare più GUID, selezionare di nuovo **Add Tracking GUID** (Aggiungi GUID di rilevamento). Nella pagina verranno visualizzate finestre aggiuntive.
 
-   ![Selezionare di nuovo Aggiungi GUID di rilevamento](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
-
-   ![Immettere un altro GUID e una descrizione dell'offerta](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
-
 1. Selezionare **Salva**.
 
-   ![Selezionare Salva](media/marketplace-publishers-guide/guid-dev-center-save.png)
-
-Dopo aver aggiunto il GUID per il modello o nell'agente utente e registrato il GUID nel CPP vengono tracciate tutte le distribuzioni.
 
 ## <a name="verify-the-guid-deployment"></a>Verificare la distribuzione GUID
 

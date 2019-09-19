@@ -1,18 +1,18 @@
 ---
 title: Connettersi privatamente a un account di archiviazione usando un endpoint privato di Azure
 description: Informazioni su come connettersi privatamente a un account di archiviazione in Azure usando un endpoint privato.
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: d11e035be2e343128caaadcb0b1b2c4a24165330
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
-ms.translationtype: HT
+ms.openlocfilehash: bb0c6e9d20c12df3532a52df1fe4d9574344d4b3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091080"
+ms.locfileid: "71104723"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connettersi privatamente a un account di archiviazione usando un endpoint privato di Azure
 Endpoint privato di Azure è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato.
@@ -36,7 +36,7 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Name | Immettere *MyVirtualNetwork*. |
+    | NOME | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Sottoscrizione | Selezionare la propria sottoscrizione.|
     | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
@@ -125,7 +125,7 @@ In questa sezione verrà creato un account di archiviazione privato utilizzando 
     | Sottoscrizione | Selezionare la propria sottoscrizione. |
     | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     |Location|Selezionare **WestCentralUS**.|
-    |Name|Immettere *myPrivateEndpoint*.  |
+    |NOME|Immettere *myPrivateEndpoint*.  |
     |Sottorisorsa di archiviazione|Lasciare il **BLOB**predefinito. |
     | **RETE** |  |
     | Rete virtuale  | Selezionare *MyVirtualNetwork* dal gruppo di risorse *myResourceGroup*. |

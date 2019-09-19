@@ -4,15 +4,15 @@ description: Questo articolo descrive come usare il ripartizionamento per ottimi
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 07/26/2019
+ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 9c802e6d23daf502da351549c66a7dae1247c068
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517436"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101501"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Usare il partizionamento per ottimizzare l'elaborazione con analisi di flusso di Azure
 
@@ -54,7 +54,17 @@ Sperimentare e osservare l'utilizzo delle risorse del processo per determinare i
 
 ## <a name="repartitions-for-sql-output"></a>Ripartizionamenti per l'output SQL
 
-Quando il processo utilizza il database SQL per l'output, utilizzare il partizionamento esplicito in modo che corrisponda al numero di partizioni ottimale per ottimizzare la velocità effettiva. Poiché SQL funziona al meglio con otto writer, il partizionamento del flusso a otto prima dello scaricamento o in un altro upstream può trarre vantaggio dalle prestazioni dei processi. Per altre informazioni, consultare [Output di Analisi di flusso di Azure in Database SQL di Azure](stream-analytics-sql-output-perf.md).
+Quando il processo utilizza il database SQL per l'output, utilizzare il partizionamento esplicito in modo che corrisponda al numero di partizioni ottimale per ottimizzare la velocità effettiva. Poiché SQL funziona al meglio con otto writer, il partizionamento del flusso a otto prima dello scaricamento o in un altro upstream può trarre vantaggio dalle prestazioni dei processi. 
+
+Quando sono presenti più di 8 partizioni di input, ereditare l'input dello schema di partizione potrebbe non essere una scelta appropriata. Si consiglia di usare [into](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) nella query per specificare in modo esplicito il numero di writer di output. 
+
+Nell'esempio seguente viene letta dall'input, indipendentemente dal fatto che sia partizionata in modo naturale e il flusso viene ripartizionato di dieci volte in base alla dimensione DeviceID e vengono scaricati i dati nell'output. 
+
+```sql
+SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
+```
+
+Per altre informazioni, consultare [Output di Analisi di flusso di Azure in Database SQL di Azure](stream-analytics-sql-output-perf.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

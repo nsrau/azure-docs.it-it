@@ -1,18 +1,18 @@
 ---
 title: Creare un endpoint privato di Azure usando l'interfaccia della riga di comando di Azure | Microsoft Docs
 description: Informazioni sull'endpoint privato di Azure
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7d27cb58bfbe0669bf1e6d0e0f0d696e3e85d38a
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 33383f42c3731d8a5aefdcde5008d706d5a9eed8
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017958"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104791"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Creare un endpoint privato usando l'interfaccia della riga di comando
 L'endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato. In questa Guida introduttiva si apprenderà come creare una VM in una rete virtuale, un server di database SQL con un endpoint privato usando l'interfaccia della riga di comando di Azure. Quindi, è possibile accedere alla macchina virtuale e accedere in modo sicuro alla risorsa di collegamento privato (un server di database SQL di Azure privato in questo esempio). 

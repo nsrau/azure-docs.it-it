@@ -1,18 +1,18 @@
 ---
 title: Creare un servizio di collegamento privato di Azure usando Azure PowerShell | Microsoft Docs
 description: Informazioni su come creare un servizio di collegamento privato di Azure usando Azure PowerShell
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 496f3d177446e6c3a4a086f89f15bf5cd66fefed
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 09158a935aac023382049d3aa9ce23a711972023
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018952"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104753"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Creare un servizio di collegamento privato utilizzando Azure PowerShell
 Questo articolo illustra come creare un servizio di collegamento privato in Azure usando Azure PowerShell.

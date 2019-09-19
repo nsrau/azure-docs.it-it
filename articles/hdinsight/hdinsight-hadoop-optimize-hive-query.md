@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: d545cd997b35cfa5e7fec58b17507ce63097fd20
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 7624f15e878e13a93b5b5f395ef9cf9af48c95e4
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898784"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104523"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Ottimizzare le query Apache Hive in Azure HDInsight
 
@@ -29,11 +29,11 @@ Se si aumenta il numero di nodi del ruolo di lavoro in un cluster HDInsight, si 
 
 * Durante la creazione del cluster, è possibile specificare il numero di nodi del ruolo di lavoro usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando.  Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La schermata seguente mostra la configurazione dei nodi del ruolo di lavoro nel portale di Azure:
   
-    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
-    
+    ![Nodi dimensioni del cluster portale di Azure](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
+
 * Dopo avere creato il cluster, è possibile anche modificare il numero di nodi del ruolo di lavoro per scalare orizzontalmente il cluster senza ricrearne uno:
 
-    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
+    ![Dimensioni del cluster portale di Azure scala](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 Per altre informazioni sulla scalabilità di HDInsight, vedere [Scale HDInsight clusters](hdinsight-scaling-best-practices.md) (Scalare i cluster HDInsight)
 
@@ -41,7 +41,7 @@ Per altre informazioni sulla scalabilità di HDInsight, vedere [Scale HDInsight 
 
 [Apache Tez](https://tez.apache.org/) è un motore di esecuzione alternativo al motore di MapReduce. I cluster HDInsight basati su Linux hanno Tez abilitato per impostazione predefinita.
 
-![tez_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+![Diagramma della Panoramica di HDInsight Apache Tez](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 Tez è più veloce perché:
 
@@ -55,9 +55,9 @@ Per altre informazioni su questi concetti, vedere [Apache TEZ](https://tez.apach
 
 È possibile eseguire qualsiasi query Hive per cui Tez è abilitato anteponendovi il comando set seguente:
 
-   ```hive
-   set hive.execution.engine=tez;
-   ```
+```hive
+set hive.execution.engine=tez;
+```
 
 ## <a name="hive-partitioning"></a>Partizionamento Hive
 
@@ -65,7 +65,7 @@ Le operazioni di I/O rappresentano il principale collo di bottiglia nelle presta
 
 Il partizionamento Hive viene implementato riorganizzando i dati non elaborati in nuove directory. Ogni partizione ha una propria directory di file ed è definita dall'utente. Il diagramma seguente illustra il partizionamento di una tabella Hive mediante la colonna *Anno*. Viene creata una nuova directory per ogni anno.
 
-![Partizionamento Hive](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+![Partizionamento Apache Hive HDInsight](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 Alcune considerazioni sul partizionamento:
 
@@ -75,32 +75,32 @@ Alcune considerazioni sul partizionamento:
 
 Per creare una tabella di partizione, usare la clausola *Partizionato da* :
 
-   ```hive
-   CREATE TABLE lineitem_part
-       (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
-        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
-        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
-   PARTITIONED BY(L_SHIPDATE STRING)
-   ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-   STORED AS TEXTFILE;
-   ```
-   
+```sql
+CREATE TABLE lineitem_part
+      (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
+      L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+      L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
+      L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
+PARTITIONED BY(L_SHIPDATE STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE;
+```
+
 Una volta creata la tabella partizionata, è possibile creare il partizionamento statico o il partizionamento dinamico.
 
 * Il **partizionamento statico** indica che sono già presenti dati partizionati nelle directory appropriate. Con le partizioni statiche, si aggiungono partizioni Hive manualmente in base al percorso di directory. Il frammento di codice seguente rappresenta un esempio.
   
-   ```hive
+   ```sql
    INSERT OVERWRITE TABLE lineitem_part
    PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
    SELECT * FROM lineitem 
    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
-   
+
    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
    ```
-   
+
 * **Partizionamento dinamico** indica che si desidera che Hive crei le partizioni automaticamente per l'utente. Poiché la tabella di partizionamento è già stata creata dalla tabella di gestione temporanea, occorre solo inserire i dati nella tabella partizionata:
   
    ```hive
@@ -117,7 +117,7 @@ Una volta creata la tabella partizionata, è possibile creare il partizionamento
        L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE, 
        L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
    ```
-   
+
 Per altre informazioni, vedere [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) (Tabelle partizionate).
 
 ## <a name="use-the-orcfile-format"></a>Utilizzare il formato ORCFile
@@ -136,40 +136,40 @@ Il formato ORC (Optimized Row Columnar) è un modo particolarmente efficace per 
 
 Per abilitare il formato ORC, creare innanzitutto una tabella con la clausola *Archiviato come ORC*:
 
-   ```hive
-   CREATE TABLE lineitem_orc_part
-       (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
-        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
-        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
-   PARTITIONED BY(L_SHIPDATE STRING)
-   STORED AS ORC;
-   ```
-   
-Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. Ad esempio:
+```sql
+CREATE TABLE lineitem_orc_part
+      (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
+      L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+      L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
+      L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
+PARTITIONED BY(L_SHIPDATE STRING)
+STORED AS ORC;
+```
 
-   ```hive
-   INSERT INTO TABLE lineitem_orc
-   SELECT L_ORDERKEY as L_ORDERKEY, 
-          L_PARTKEY as L_PARTKEY , 
-          L_SUPPKEY as L_SUPPKEY,
-          L_LINENUMBER as L_LINENUMBER,
-          L_QUANTITY as L_QUANTITY, 
-          L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-          L_DISCOUNT as L_DISCOUNT,
-          L_TAX as L_TAX,
-          L_RETURNFLAG as L_RETURNFLAG,
-          L_LINESTATUS as L_LINESTATUS,
-          L_SHIPDATE as L_SHIPDATE,
-           L_COMMITDATE as L_COMMITDATE,
-           L_RECEIPTDATE as L_RECEIPTDATE, 
-           L_SHIPINSTRUCT as L_SHIPINSTRUCT,
-           L_SHIPMODE as L_SHIPMODE,
-           L_COMMENT as L_COMMENT
-    FROM lineitem;
-   ```
-   
+Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. Esempio:
+
+```sql
+INSERT INTO TABLE lineitem_orc
+SELECT L_ORDERKEY as L_ORDERKEY, 
+         L_PARTKEY as L_PARTKEY , 
+         L_SUPPKEY as L_SUPPKEY,
+         L_LINENUMBER as L_LINENUMBER,
+         L_QUANTITY as L_QUANTITY, 
+         L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+         L_DISCOUNT as L_DISCOUNT,
+         L_TAX as L_TAX,
+         L_RETURNFLAG as L_RETURNFLAG,
+         L_LINESTATUS as L_LINESTATUS,
+         L_SHIPDATE as L_SHIPDATE,
+         L_COMMITDATE as L_COMMITDATE,
+         L_RECEIPTDATE as L_RECEIPTDATE, 
+         L_SHIPINSTRUCT as L_SHIPINSTRUCT,
+         L_SHIPMODE as L_SHIPMODE,
+         L_COMMENT as L_COMMENT
+FROM lineitem;
+```
+
 Altre informazioni sul formato ORC sono disponibili nel [manuale del linguaggio Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## <a name="vectorization"></a>Vettorizzazione
@@ -178,13 +178,14 @@ La vettorizzazione consente ad Hive di elaborare un batch di 1024 righe insieme 
 
 Per abilitare la vettorizzazione, anteporre alla query Hive la seguente impostazione:
 
-   ```hive
-    set hive.vectorized.execution.enabled = true;
-   ```
+```hive
+set hive.vectorized.execution.enabled = true;
+```
 
 Per altre informazioni, vedere [Esecuzione di query vettorizzate](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
 
 ## <a name="other-optimization-methods"></a>Altri metodi di ottimizzazione
+
 Esistono altri metodi di ottimizzazione che è possibile considerare, ad esempio:
 
 * **Hive bucket:** una tecnica che consente di raggruppare o segmentare grandi set di dati per ottimizzare le prestazioni delle query.
@@ -192,6 +193,7 @@ Esistono altri metodi di ottimizzazione che è possibile considerare, ad esempio
 * **Aumento dei reducer**.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 In questo articolo sono stati illustrati vari metodi di ottimizzazione delle query comuni di Hive. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Usare Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)

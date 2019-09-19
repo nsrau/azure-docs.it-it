@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141784"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105504"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Fatturazione a consumo con il servizio di misurazione del Marketplace
 
@@ -55,7 +55,7 @@ Ad esempio, Contoso è un server di pubblicazione con un servizio SaaS denominat
     * Oltre i messaggi di posta elettronica 50000, pagare $0,5 per ogni 100 e-mail
     * Oltre i 10000 testi, pagare $0,01 per ogni testo
 
-Un cliente di Azure che sottoscrive il servizio CNS potrà inviare la quantità inclusa di testo e messaggi di posta elettronica al mese in base al piano selezionato.  Quando i clienti utilizzano più della quantità inclusa, non è necessario modificare i piani o eseguire operazioni diverse.  Contoso misura l'eccedenza oltre la quantità inclusa e inizia a creare eventi di utilizzo a Microsoft per un utilizzo aggiuntivo con l' [API del servizio di misurazione del Marketplace](./marketplace-metering-service-apis.md).  Microsoft addebiterà a sua volta il cliente per l'utilizzo aggiuntivo specificato dall'editore.
+Un cliente di Azure che sottoscrive il servizio CNS potrà inviare la quantità inclusa di testo e messaggi di posta elettronica al mese in base al piano selezionato.  Contoso misura l'utilizzo fino alla quantità inclusa senza inviare eventi di utilizzo a Microsoft.  Quando i clienti utilizzano più della quantità inclusa, non è necessario modificare i piani o eseguire operazioni diverse.  Contoso misura l'eccedenza oltre la quantità inclusa e inizia a creare eventi di utilizzo a Microsoft per un utilizzo aggiuntivo con l' [API del servizio di misurazione del Marketplace](./marketplace-metering-service-apis.md).  Microsoft addebiterà a sua volta il cliente per l'utilizzo aggiuntivo specificato dall'editore.
 
 ## <a name="billing-dimensions"></a>Dimensioni di fatturazione
 
@@ -73,7 +73,7 @@ Le dimensioni di fatturazione vengono condivise tra tutti i piani per un'offerta
 Gli attributi che definiscono la dimensione sono condivisi tra tutti i piani per un'offerta.  Prima di pubblicare l'offerta, una modifica apportata a questi attributi dal contesto di qualsiasi piano influirà sulla definizione della dimensione in tutti i piani.  Dopo la pubblicazione dell'offerta, questi attributi non saranno più modificabili.  Questi attributi sono:
 
 * Identificatore
-* Name
+* NOME
 * Unità di misura
 
 Gli altri attributi di una dimensione sono specifici di ogni piano e possono avere valori diversi dal piano al piano.  Prima di pubblicare il piano è possibile modificare questi valori e solo questo piano sarà interessato.  Una volta pubblicato il piano, questi attributi non saranno più modificabili.  Questi attributi sono:
@@ -103,7 +103,7 @@ Poiché una dimensione utilizzata con il servizio di misurazione del Marketplace
 Una volta pubblicata un'offerta con una dimensione, non è più possibile modificare i dettagli a livello di offerta per tale dimensione:
 
 * Identificatore
-* NOME
+* Name
 * Unità di misura
 
 Una volta pubblicato un piano, non è più possibile modificare i dettagli a livello di piano:

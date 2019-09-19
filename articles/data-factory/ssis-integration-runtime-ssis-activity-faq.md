@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: a7ad0f3be754029c654b04d19750aab7bbcd210d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8e800ec8a7a2dd52e052547efa51deaad8c9bb45
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933645"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104911"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Risolvere i problemi di esecuzione del pacchetto in SSIS Integration Runtime
 
@@ -29,7 +29,7 @@ Usare il portale di Azure Data Factory per controllare l'output dell'attività d
 
 Usare il catalogo SSIS (SSISDB) per controllare i log di dettaglio per l'esecuzione. Per informazioni dettagliate, vedere [monitorare i pacchetti in esecuzione e altre operazioni](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017).
 
-## <a name="common-errors-causes-and-solutions"></a>Errori, cause e soluzioni comuni
+## <a name="common-errors-causes-and-solutions"></a>Errori comuni, cause e soluzioni
 
 ### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>Messaggio di errore: "Timeout connessione scaduto" o "il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprovare ".
 
@@ -37,7 +37,7 @@ Ecco le possibili cause e le azioni consigliate:
 * L'origine dati o la destinazione è sottoposto a overload. Controllare il carico sull'origine dati o sulla destinazione e verificare se la capacità è sufficiente. Ad esempio, se è stato usato il database SQL di Azure, valutare la possibilità di aumentare le prestazioni in caso di timeout del database.
 * La rete tra il runtime di integrazione SSIS e l'origine dati o la destinazione è instabile, soprattutto quando la connessione è tra più aree o tra l'ambiente locale e Azure. Applicare il modello di ripetizione dei tentativi nel pacchetto SSIS attenendosi alla procedura seguente:
   * Assicurarsi che i pacchetti SSIS possano essere rieseguiti in caso di errore senza effetti collaterali, ad esempio perdita di dati o duplicazione dei dati.
-  * Configurare l'intervallo tra tentativi e **tentativi** per l'attività **Esegui pacchetto SSIS** nella scheda **generale** . ![Impostare le proprietà nella scheda generale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+  * Configurare **l'intervallo tra tentativi e** **tentativi** per l'attività **Esegui pacchetto SSIS** nella scheda **generale** . ![Impostare le proprietà nella scheda generale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
   * Per un ADO.NET e OLE DB un componente di origine o destinazione, impostare **ConnectRetryCount** e **ConnectRetryInterval** nella gestione connessione nel pacchetto SSIS o nell'attività SSIS.
 
 ### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>Messaggio di errore: "L'origine ADO NET non è stata in grado di acquisire la connessione '.. .'" con "si è verificato un errore specifico dell'istanza o relativo alla rete durante il tentativo di stabilire una connessione a SQL Server. Il server non è stato trovato o non è accessibile. "
@@ -55,11 +55,11 @@ La potenziale cause è che il provider ADO.NET usato nel pacchetto non è instal
 
 ### <a name="error-message-the-connection--is-not-found"></a>Messaggio di errore: "Connection '.. .' non trovato "
 
-L'errore può essere causato da un problema noto nelle versioni precedenti di SQL Server Management Studio (SSMS). Se il pacchetto contiene un componente personalizzato (ad esempio, SSIS Azure Feature Pack o componenti partner) non installato nel computer in cui è usato SSMS per la distribuzione, SSMS rimuoverà il componente causando l'errore. Aggiornare [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) alla versione più recente in cui è stato risolto il problema.
+L'errore può essere causato da un problema noto nelle versioni precedenti di SQL Server Management Studio (SSMS). Se il pacchetto contiene un componente personalizzato (ad esempio, SSIS Azure Feature Pack o componenti partner) non installato nel computer in cui è usato SSMS per la distribuzione, SSMS rimuoverà il componente causando l'errore. Aggiornare [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) alla versione più recente, in cui il problema è risolto.
 
 ### <a name="error-messagessis-executor-exit-code--1073741819"></a>Messaggio di errore: "codice di uscita di SSIS Executor:-1073741819".
 
-* Causa potenziale & azione consigliata:
+* Possibile causa e azione consigliata:
   * Questo errore può essere causato dalla limitazione dell'origine e della destinazione di Excel quando più origini o destinazioni Excel sono in esecuzione in parallelo in più thread. Per ovviare a questa limitazione, modificare i componenti di Excel in modo che vengano eseguiti in sequenza oppure separarli in pacchetti diversi e attivarli tramite l'attività Esegui pacchetto con la proprietà ExecuteOutOfProcess impostata su true.
 
 ### <a name="error-message-there-is-not-enough-space-on-the-disk"></a>Messaggio di errore: "Lo spazio su disco non è sufficiente"
@@ -70,7 +70,7 @@ Questo errore indica che il disco locale viene utilizzato nel nodo del runtime d
 
 ### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>Messaggio di errore: "Non è stato possibile recuperare la risorsa dal master. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Codice: 300004. Descrizione: caricamento del file "* * *" non riuscito. "
 
-* Causa potenziale & azione consigliata:
+* Possibile causa e azione consigliata:
   * Se l'attività SSIS sta eseguendo il pacchetto da file system (file di pacchetto o di progetto), questo errore si verificherà se il progetto, il pacchetto o il file di configurazione non è accessibile con le credenziali di accesso del pacchetto fornite nell'attività SSIS
     * Se si usa file di Azure:
       * Il percorso del file deve iniziare \\con il nome\>dell'account\\di \\ \<archiviazione. percorso condivisione file file.Core.Windows.NET\<\>
@@ -81,7 +81,7 @@ Questo errore indica che il disco locale viene utilizzato nel nodo del runtime d
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Messaggio di errore: "Nome file"... " specificato nella connessione non valido "
 
-* Causa potenziale & azione consigliata:
+* Possibile causa e azione consigliata:
   * È stato specificato un nome file non valido
   * Assicurarsi di usare il nome di dominio completo (FQDN) invece di un breve intervallo di tempo nella gestione connessione
 
@@ -107,7 +107,7 @@ Se molti pacchetti sono in esecuzione in parallelo nel runtime di integrazione S
 L'errore è causato principalmente da un problema temporaneo, quindi provare a eseguire di nuovo l'esecuzione del pacchetto. Applicare il modello di ripetizione dei tentativi nel pacchetto SSIS attenendosi alla procedura seguente:
 
 * Assicurarsi che i pacchetti SSIS possano essere rieseguiti in caso di errore senza effetti collaterali, ad esempio perdita di dati o duplicazione dei dati.
-* Configurare l'intervallo tra tentativi e **tentativi** per l'attività **Esegui pacchetto SSIS** nella scheda **generale** . ![Impostare le proprietà nella scheda generale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+* Configurare **l'intervallo tra tentativi e** **tentativi** per l'attività **Esegui pacchetto SSIS** nella scheda **generale** . ![Impostare le proprietà nella scheda generale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 * Per un ADO.NET e OLE DB un componente di origine o destinazione, impostare **ConnectRetryCount** e **ConnectRetryInterval** nella gestione connessione nel pacchetto SSIS o nell'attività SSIS.
 
 ### <a name="error-message-there-is-no-active-worker"></a>Messaggio di errore: "Non è presente alcun lavoro attivo".
@@ -120,19 +120,47 @@ Questo errore si verifica quando SSIS Integration Runtime non è in grado di acc
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Messaggio di errore: "Provider Microsoft OLE DB per Analysis Services. HRESULT Descrizione di 0x80004005:' Errore COM: Errore COM: mscorlib; Eccezione generata dalla destinazione di una chiamata "
 
-Una causa potenziale è che il nome utente o la password con Azure Multifactor Authentication abilitato è configurato per l'autenticazione Azure Analysis Services. Questa autenticazione non è supportata in SSIS Integration Runtime. Provare a usare un'entità servizio per l'autenticazione Azure Analysis Services:
+Una delle possibili cause è che il nome utente o la password con Azure Multi-Factor Authentication abilitato è configurato per l'autenticazione Azure Analysis Services. Questa autenticazione non è supportata in SSIS Integration Runtime. Provare a usare un'entità servizio per l'autenticazione Azure Analysis Services:
 1. Preparare un'entità servizio come descritto in [automazione con entità servizio](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal).
 2. In gestione connessione configurare **Usa nome utente e password specifici**: impostare **AppID** come nome utente e **clientSecret** come password.
 
-### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Messaggio di errore: "L'origine ADONET non è riuscita ad acquisire la connessione {GUID} con il seguente messaggio di errore: Accesso non riuscito per l'utente ' NT AUTHORITY\ANONYMOUS LOGON ' "quando si usa un'identità gestita
+### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Messaggio di errore: "L'origine ADONET non è riuscita ad acquisire la connessione {GUID} con il messaggio di errore seguente: Accesso non riuscito per l'utente ' NT AUTHORITY\ANONYMOUS LOGON ' "quando si usa un'identità gestita
 
 Assicurarsi di non configurare il metodo di autenticazione di gestione connessione come **Active Directory autenticazione della password** quando il parametro *ConnectUsingManagedIdentity* è **true**. In alternativa, è possibile configurarlo come **autenticazione SQL** , che viene ignorato se è impostato *ConnectUsingManagedIdentity* .
 
+### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>Messaggio di errore: "Richiedi attività di gestione temporanea con GUID operazione... esito negativo a partire dall'errore: Impossibile inviare l'operazione di gestione temporanea con il messaggio di errore: Microsoft. SqlServer. IntegrationServices. AisAgentCore. AisAgentException: Non è stato possibile caricare il proxy dati ".
+
+Verificare che il runtime di integrazione SSIS di Azure sia configurato con il runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md).
+
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>Messaggio di errore: "Stato attività di gestione temporanea: non riuscito. Errore dell'attività di gestione temporanea: ErrorCode 2010, ErrorMessage: Integration Runtime self-hosted... offline "
+
+Verificare che il runtime di integrazione self-hosted sia installato e avviato. Altre informazioni sono disponibili in [creare e configurare un runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md)
+
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>Messaggio di errore: "Errore attività di gestione temporanea: ErrorCode 2906, ErrorMessage: Esecuzione del pacchetto non riuscita. output: {"OperationErrorMessages": "Error: Provider OLE DB richiesto... non è registrato. Se il driver a 64 bit non è installato, eseguire il pacchetto in modalità a 32 bit... "
+
+Verificare che il provider corrispondente usato dai connettori OLE DB nel pacchetto sia installato correttamente nel computer del runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Messaggio di errore: "Errore attività di gestione temporanea: ErrorCode 2906, ErrorMessage: Esecuzione del pacchetto non riuscita. output: {"OperationErrorMessages": "Error: System.IO.FileLoadException: Non è stato possibile caricare il file o l'assembly ' Microsoft. WindowsAzure. storage, Version =..., Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. La definizione del manifesto dell'assembly individuato non corrisponde al riferimento all'assembly. ..."
+
+Una delle possibili cause è che il runtime di integrazione self-hosted non è installato o aggiornato in modo corretto. Suggerire di scaricare e reinstallare il runtime di integrazione self-hosted più recente. Altre informazioni sono disponibili in [creare e configurare un runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md#installation-best-practices)
+
+### <a name="error-message-a-connection-is-required-when-requesting-metadata-if-you-are-working-offline-uncheck-work-offline-on-the-ssis-menu-to-enable-the-connection"></a>Messaggio di errore: "È necessaria una connessione per la richiesta di metadati. Se si lavora offline, deselezionare offline dal menu SSIS per abilitare la connessione ".
+
+* Possibile causa e azione consigliata:
+  * Se è presente anche un messaggio di avviso "il componente non supporta l'utilizzo di gestione connessione con l'impostazione del valore ConnectByProxy true" nel log di esecuzione, ciò significa che una gestione connessione viene utilizzata su un componente che non ha ancora supportato "ConnectByProxy". I componenti supportati sono disponibili in configurare il runtime di integrazione [self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
+  * Il log di esecuzione è disponibile nel [report di SSMS](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) o nella cartella dei log specificata nell'attività di esecuzione del pacchetto SSIS.
+  * vNet può essere usato anche per accedere ai dati locali come alternativa. Altre informazioni sono disponibili in [aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md)
+
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Messaggio di errore: "Stato attività di gestione temporanea: non riuscito. Errore dell'attività di gestione temporanea: ErrorCode 2906, ErrorMessage: Esecuzione del pacchetto non riuscita. output: {"OperationErrorMessages": "Codice di uscita di SSIS Executor:-1. \ n", "LogLocation": "... \\SSISTelemetryExecutionLog.\\.. "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"\\
+
+Verificare che Visual C++ Runtime sia installato nel computer del runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>Sono state attivate più esecuzioni di pacchetti in modo imprevisto
 
-* Causa potenziale & azione consigliata:
-  * L'attività stored procedure di ADF viene utilizzata per attivare l'esecuzione del pacchetto SSIS. Il comando t-SQL può raggiungere un problema temporaneo e attivare la riesecuzione che provocherebbe più esecuzioni di pacchetti.
+* Possibile causa e azione consigliata:
+  * L'attività di ricerca stored procedure ADF viene utilizzata per attivare l'esecuzione del pacchetto SSIS. Il comando t-SQL può raggiungere un problema temporaneo e attivare la riesecuzione che provocherebbe più esecuzioni di pacchetti.
   * Usare invece l'attività ExecuteSSISPackage per garantire che l'esecuzione del pacchetto non venga rieseguita a meno che l'utente non riscontri il numero di tentativi I dettagli sono disponibili all'indirizzo[https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+  * Affinare il comando t-SQL per poter eseguire di nuovo verificando che un'esecuzione sia già stata attivata
 
 ### <a name="package-execution-takes-too-long"></a>L'esecuzione del pacchetto richiede troppo tempo
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: mlearned
-ms.openlocfilehash: 5dabbb6458d0d0d4af51490bea0c3f38a7c5c41d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542901"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103780"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes
 
@@ -86,7 +86,7 @@ Viene applicata la prima applicazione Azure AD per ottenere l'appartenenza a un 
 
     e. Selezionare **Aggiungi autorizzazioni** per salvare gli aggiornamenti.
 
-    f. In **Concedi consenso**selezionare **concedi il consenso dell'amministratore**. Questo pulsante non è disponibile se l'account corrente non è un amministratore tenant.
+    f. In **Concedi consenso**selezionare **concedi il consenso dell'amministratore**. Questo pulsante non sarà disponibile. l'account corrente usato non è elencato come amministratore tenant.
 
     Quando le autorizzazioni vengono concesse correttamente, nel portale viene visualizzata la notifica seguente:
 
@@ -180,7 +180,7 @@ Per la creazione di un cluster AKS sono necessari alcuni minuti.
 
 Prima di usare un account di Azure Active Directory con un cluster AKS, è necessario creare un'associazione di ruoli o un'associazione di ruoli del cluster. I ruoli definiscono le autorizzazioni da concedere e le associazioni le applicano agli utenti desiderati. Queste assegnazioni possono essere applicate a uno spazio dei nomi specifico o all'intero cluster. Per ulteriori informazioni, vedere [utilizzo dell'autorizzazione RBAC][rbac-authorization].
 
-Usare prima di tutto il comando [AZ AKS Get-][az-aks-get-credentials] credentials `--admin` con l'argomento per accedere al cluster con accesso amministrativo.
+Usare prima di tutto il comando [AZ AKS Get-credentials][az-aks-get-credentials] con l' `--admin` argomento per accedere al cluster con accesso amministrativo.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: e6a13688bba1c3a0e62e427e078e78c8f8dd4e70
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9760475886ecb0f20d9f0f3981eab8246643da21
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560622"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101990"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurare i contenitori Docker di Language Understanding 
 
@@ -28,10 +28,10 @@ Questo contenitore ha le impostazioni di configurazione seguenti:
 
 |Obbligatoria|Impostazione|Scopo|
 |--|--|--|
-|Sì|[ApiKey](#apikey-setting)|Si usa per rilevare le informazioni di fatturazione.|
+|Yes|[ApiKey](#apikey-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
 |Sì|[Fatturazione](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
-|Yes|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
+|Sì|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
 |No|[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
 |No|[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
 |No|[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
@@ -67,7 +67,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 Ricordarsi di includere `luis/v2.0` il routing nell'URL, come illustrato nella tabella seguente:
 
 
-|Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
 |Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
@@ -97,7 +97,7 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 La tabella seguente descrive le impostazioni supportate.
 
-|Obbligatoria| NOME | Tipo di dati | Descrizione |
+|Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
 |-------|------|-----------|-------------|
 |Sì| `Input` | String | Destinazione del montaggio di input. Il valore predefinito è `/input`. Questo è il percorso del file del pacchetto LUIS. <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
 |No| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log di query LUIS e i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -106,7 +106,7 @@ La tabella seguente descrive le impostazioni supportate.
 
 Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`.  Quando è in esecuzione, il contenitore continua l'esecuzione finché non lo si [arresta](luis-container-howto.md#stop-the-container).
 
-* Questi esempi usano la directory `c:` dall'unità per evitare conflitti di autorizzazione in Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker. 
+* Questi esempi usano la directory `C:` dall'unità per evitare conflitti di autorizzazione in Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker. 
 * Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
 * Se si utilizza un sistema operativo diverso, utilizzare la console/terminale, la sintassi di cartella per i montaggi e il carattere di continuazione di riga corretti per il sistema. In questi esempi si presuppone una console di Windows con un `^`carattere di continuazione di riga. Poiché il contenitore è un sistema operativo Linux, il montaggio di destinazione usa una sintassi di cartella di tipo Linux.
 
@@ -114,13 +114,15 @@ Ricordarsi di includere `luis/v2.0` il routing nell'URL, come illustrato nella t
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Segnaposto | Valore | Formato o esempio |
+| Segnaposto | Value | Formato o esempio |
 |-------------|-------|---|
-|{API_KEY} | La chiave di endpoint dell'applicazione LUIS di cui si esegue il training. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URL} | Il valore dell'endpoint di fatturazione è disponibile nella `Cognitive Services` pagina Panoramica di Azure. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
+| **{API_KEY}** | Chiave dell'endpoint della `LUIS` risorsa nella pagina chiavi di Azure. `LUIS` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `LUIS` pagina Panoramica di Azure.| Vedere [raccolta di parametri obbligatori](luis-container-howto.md#gathering-required-parameters) per esempi espliciti. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](luis-container-howto.md#billing).
+> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia. Per altre informazioni, vedere[Fatturazione](luis-container-howto.md#billing).
 > Il valore APIKEY è la **chiave** della pagina chiavi ed endpoint nel portale Luis ed è disponibile anche nella pagina chiavi di risorsa di `Cognitive Services` Azure. 
 
 ### <a name="basic-example"></a>Esempio di base

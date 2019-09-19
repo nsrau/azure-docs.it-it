@@ -1,53 +1,23 @@
 ---
 title: Come compilare il modulo delle informazioni tecniche
-description: Illustra come immettere i valori per il modulo delle informazioni tecniche per una nuova app Dynamics 365 Business Central.
+description: Deprecato e collegato agli articoli del PC corrispondenti; was "spiega come immettere i valori nel modulo informazioni tecniche per una nuova app Dynamics 365 business Central."
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 09/18/2019
 ms.author: pabutler
-ms.openlocfilehash: dbc38fab5bd8e55f6dd280ecc46af1b1a5ae7ede
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c59bf5aa4518d556de36b7aa4ea4ef91fa244dea
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935049"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105560"
 ---
-<a name="how-to-fill-out-the-technical-info-form"></a>Come compilare il modulo delle informazioni tecniche
-===========================================
+# <a name="how-to-fill-out-the-technical-info-form"></a>Come compilare il modulo delle informazioni tecniche
 
-1.  Nella sezione **Choose Application Type** (Scegli il tipo di applicazione) caricare il file del pacchetto dell'estensione (.app) ed eventuali file del pacchetto di estensione da cui l'estensione ha una dipendenza.
+Il [portale cloud partner](https://cloudpartner.azure.com/) non supporta più la creazione e la gestione delle offerte di Dynamics 365 business Central. Questa funzionalità è stata invece spostata nel portale del [centro](https://partner.microsoft.com/)per i partner Microsoft. Per altre informazioni, vedere [creare una nuova offerta di Dynamics 365 business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer).
 
-    ![Informazioni sul pacchetto dell'applicazione](./media/d365-financials/image015.png)
+## <a name="next-steps"></a>Passaggi successivi
 
--   **Extension Package File** (File pacchetto estensione): obbligatorio, è il file del pacchetto dell'estensione (.app).
-
--   **Dependency package file** (File pacchetto dipendenza): obbligatorio se l'app ha una dipendenza da un'altra app pubblicata in AppSource. È il file .app di un'estensione già pubblicata in AppSource, da cui dipende l'app corrente. 
-
--   **Library Package File** (File pacchetto libreria): obbligatorio se l'app ha una dipendenza da un'altra app che *non* è stata pubblicata in AppSource. È il file .app di un'app esistente, ma che non è stata e non sarà pubblicata in AppSource.
-
--   **App Test Automation** (Automazione test app): obbligatorio, è il pacchetto di test con VS Code che è necessario creare per il test automatico delle estensioni.
-
-1. Nella sezione **Additional information for the app extension** (Informazioni aggiuntive per estensione app) caricare le informazioni aggiuntive per l'estensione. Queste informazioni vengono usate durante la convalida.
-
-   ![Modulo delle informazioni aggiuntive per l'estensione dell'app](./media/d365-financials/image016.png)
-
-
--   **URL to Product Documentation** (URL documentazione prodotto): obbligatorio, è l'URL della documentazione per l'estensione.
-
--   **Key Usage Scenarios** (Scenari di utilizzo chiave): obbligatorio, è un documento che elenca i dettagli di configurazione e di utilizzo dell'estensione. Un esempio è disponibile nell'articolo [User Scenario Documentation](https://docs.microsoft.com/dynamics-nav/compliance/apptest-userscenario/) (Documentazione sullo scenario utente).
-
--   **Target Release** (Versione di destinazione): obbligatorio, selezionare la versione in cui distribuire l'app. Selezionare **current** (corrente) per eseguire la distribuzione nella versione corrente. Selezionare **next minor** (secondaria successiva) per eseguire la distribuzione nella versione secondaria successiva da rilasciare. Selezionare **next major** (principale successiva) per eseguire la distribuzione nella versione principale successiva da rilasciare.
-
--   **Requires Premium SKU** (SKU Premium necessario): facoltativo, selezionare il pulsante Premium se l'app richiede il codice SKU Premium. Gestione assistenza e Produzione sono disponibili solo con Premium. Informazioni dettagliate sulle differenze tra i piani Essential e Premium sono disponibili nell'articolo [Modifica delle funzionalità visualizzate](https://docs.microsoft.com/dynamics365/financials/ui-experiences).
-
--   **Explanation for Code Analysis Errors** (Spiegazione errori di analisi codice): facoltativo, è un documento che elenca e spiega eventuale codice che non soddisfa i requisiti.
-
--   **Explanation of Impacted Core Functionality** (Spiegazione funzionalità principali interessate): facoltativo, è un documento che elenca e spiega tutte le funzionalità principali limitate dall'estensione.
-
--   **Test Accounts** (Account di test): facoltativo, account utente per servizi remoti, siti Web e così via che saranno necessari per completare il test di utilizzo finale.
-
--   **UX requirements exceptions** (Eccezioni requisiti UX): facoltativo, è un documento che elenca e spiega eventuali requisiti dell'esperienza utente non soddisfatti dall'estensione.
-
-Il passaggio successivo consiste nell'aggiungere i dati da visualizzare nella vetrina per l'offerta.
+Prima di creare una nuova offerta di Dynamics 365 business Central, è necessario leggere [creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner e quindi aprire il [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/directory) con la pagina **Panoramica** selezionata. Per creare l'offerta, seguire le istruzioni riportate in [creare una nuova offerta di Dynamics 365 business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) .

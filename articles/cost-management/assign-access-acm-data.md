@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/04/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 332ec3930a7654fd5aecf1fc71ccb55c16df127f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493762"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105128"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
@@ -23,7 +23,7 @@ Per gli utenti con contratti Enterprise di Azure, una combinazione di autorizzaz
 
 L'ambito selezionato dall’utente viene usato in Gestione costi per fornire il consolidamento dei dati e per controllare l'accesso alle informazioni sui costi. Quando si usano gli ambiti, gli utenti non possono selezionarne più di uno. Possono tuttavia selezionare un ambito più ampio al quale si riferiscono ambiti secondari e quindi filtrare i contenuti che desiderano visualizzare. È importante comprendere il consolidamento dei dati perché alcuni utenti non devono avere accesso a un ambito padre a cui appartengono ambiti figlio.
 
-Guarda il [come assegnare l'accesso con gestione costi di Azure](https://www.youtube.com/watch?v=J997ckmwTa8) video per ulteriori informazioni sull'assegnazione di accedere e visualizzare i costi e i costi con controllo degli accessi in base al ruolo di Azure.
+Per informazioni sull'assegnazione dell'accesso per visualizzare i costi e gli addebiti con il controllo degli accessi in base al ruolo di Azure, vedere il video su [come assegnare l'accesso con gestione costi di Azure](https://www.youtube.com/watch?v=J997ckmwTa8) .
 
 >[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
@@ -129,7 +129,7 @@ Dopo aver completato i passaggi precedenti, l'account utente diventa un account 
 
 ## <a name="assign-management-group-scope-access"></a>Assegnare l'accesso all’ambito Gruppo di gestione
 
-Per l'accesso all'ambito Gruppo di gestione è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile configurare le autorizzazioni per un gruppo di gestione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di gestione. Per gli account di Azure EA, è inoltre necessario abilitare l'impostazione **AO view charges** (Visualizzazione addebiti per proprietari dell'account) nel portale EA.
+L'accesso per visualizzare l'ambito del gruppo di gestione richiede almeno l'autorizzazione di lettura (o lettura) per la gestione dei costi. È possibile configurare le autorizzazioni per un gruppo di gestione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di gestione. Per gli account di Azure EA, è inoltre necessario abilitare l'impostazione **AO view charges** (Visualizzazione addebiti per proprietari dell'account) nel portale EA.
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Gruppi di gestione_, quindi selezionare **Gruppi di gestione**.
@@ -173,9 +173,9 @@ Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore
 
 ## <a name="cross-tenant-authentication-issues"></a>Problemi di autenticazione tra tenant
 
-Attualmente, gestione costi di Azure include supporto limitato per l'autenticazione tra i tenant. In alcuni casi quando si prova a eseguire l'autenticazione tra i tenant, potrebbe ricevere un **accesso negato** errore nell'analisi dei costi. Questo problema può verificarsi se si configura il controllo di accesso basato sui ruoli (RBAC) alla sottoscrizione di un altro tenant e quindi provare a visualizzare i dati di costo.
+Attualmente, gestione costi di Azure ha un supporto limitato per l'autenticazione tra tenant. In alcuni casi, quando si tenta di eseguire l'autenticazione tra i tenant, è possibile che venga visualizzato un errore di **accesso negato** nell'analisi dei costi. Questo problema può verificarsi se si configura il controllo degli accessi in base al ruolo (RBAC) per la sottoscrizione di un altro tenant e quindi si prova a visualizzare i dati sui costi.
 
-*Per ovviare al problema*: Dopo aver configurato RBAC tra tenant, attendere un'ora. Quindi, provare a visualizzare i costi di analisi dei costi o concedere l'accesso di gestione dei costi per gli utenti in entrambi i tenant.  
+*Per ovviare al problema*: Dopo aver configurato il controllo degli accessi in base al ruolo tra tenant, attendere un'ora. Provare quindi a visualizzare i costi nell'analisi dei costi o concedere l'accesso di gestione costi agli utenti in entrambi i tenant.  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

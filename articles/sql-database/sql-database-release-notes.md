@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 21f80a2be09302e47817ccfd4223207bdcdd0413
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 232f8b13174aed19477ee0b139c83fba439049ac
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066817"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101540"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
@@ -48,7 +48,6 @@ Questo articolo elenca le funzionalità del database SQL attualmente disponibili
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pool di istanze</a> | Un modo pratico ed economicamente conveniente per eseguire la migrazione di istanze SQL più piccole al cloud. |
 | <a href="https://aka.ms/managed-instance-tde-byok">Transparent Data Encryption (Transparent Data Encryption) con Bring Your Own Key (BYOK)</a> |Per informazioni, vedere [Transparent Data Encryption SQL di Azure con chiavi gestite dal cliente in Azure Key Vault: Supporto](transparent-data-encryption-byok-azure-sql.md)Bring your own key.|
-| <a href="https://aka.ms/managed-instance-failover-groups">Gruppi di failover con distribuzione geografica</a> | Mantenere una copia dell'istanza di in un'altra area e assicurarsi che i dati saranno disponibili anche nello scenario di emergenza a livello di area. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Entità del server Azure AD a livello di istanza (account di accesso)</a> | Creare account di accesso a livello di server utilizzando l'istruzione <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">create login from External provider</a> . |
 | [Replica transazionale](sql-database-managed-instance-transactional-replication.md) | Replicare le modifiche dalle tabelle in altri database posizionati in istanze gestite, database singoli o istanze di SQL Server o aggiornare le tabelle quando alcune righe vengono modificate in altre istanze gestite o SQL Server istanza. Per informazioni, vedere [configurare la replica in un database dell'istanza gestita di database SQL di Azure](replication-with-sql-database-managed-instance.md). |
 | Rilevamento delle minacce |Per informazioni, vedere [configurare il rilevamento delle minacce in istanza gestita di database SQL di Azure](sql-database-managed-instance-threat-detection.md).|

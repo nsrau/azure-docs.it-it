@@ -1,18 +1,18 @@
 ---
 title: Gestire una connessione all'endpoint privato in Azure
 description: Informazioni su come gestire le connessioni agli endpoint privati in Azure
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 16654662665607f86aa08d1f9c5638daf2cbc251
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 012b236e997ef9144eaab43862f5f4dd2b324fff
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018924"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104640"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Gestire una connessione all'endpoint privato
 Il collegamento privato di Azure funziona in un modello di flusso di chiamate di approvazione, in cui il consumer del servizio di collegamento privato può richiedere una connessione al provider di servizi per l'utilizzo del servizio. Il provider di servizi può quindi decidere se consentire al consumer di connettersi o meno. Il collegamento privato di Azure consente ai provider di servizi di gestire la connessione all'endpoint privato sulle risorse. Questo articolo fornisce istruzioni su come gestire le connessioni agli endpoint privati.
