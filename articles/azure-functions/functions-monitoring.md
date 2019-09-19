@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 7220c72625697490d9c42dab7e18ca4bf64d3f43
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8092108ef13f4b86f20cf5a8a0b41b49d75aa626
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085618"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098694"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -610,7 +610,7 @@ Durante lo sviluppo di un'applicazione, spesso si vuole sapere cosa viene scritt
 
 Esistono due modi per visualizzare un flusso di file di log generati dalle esecuzioni di funzioni.
 
-* **Streaming di log predefinito**: la piattaforma del servizio app consente di visualizzare un flusso dei file di log dell'applicazione. Questa operazione equivale all'output visualizzato quando si esegue il debug delle funzioni durante [lo sviluppo locale](functions-develop-local.md) e quando si usa la scheda **test** nel portale. Vengono visualizzate tutte le informazioni basate su log. Per altre informazioni, vedere [Procedura: Eseguire lo streaming dei log](../app-service/troubleshoot-diagnostic-logs.md#streamlogs). Questo metodo di streaming supporta solo una singola istanza e non può essere usato con un'app in esecuzione su Linux in un piano a consumo.
+* **Streaming di log predefinito**: la piattaforma del servizio app consente di visualizzare un flusso dei file di log dell'applicazione. Questa operazione equivale all'output visualizzato quando si esegue il debug delle funzioni durante [lo sviluppo locale](functions-develop-local.md) e quando si usa la scheda **test** nel portale. Vengono visualizzate tutte le informazioni basate su log. Per altre informazioni, vedere [flussi di log](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Questo metodo di streaming supporta solo una singola istanza e non può essere usato con un'app in esecuzione su Linux in un piano a consumo.
 
 * **Live Metrics Stream**: quando l'app per le funzioni è [connessa a Application Insights](#enable-application-insights-integration), è possibile visualizzare i dati di log e altre metriche quasi in tempo reale nel portale di Azure usando [Live Metrics Stream](../azure-monitor/app/live-stream.md). Usare questo metodo quando si monitorano le funzioni in esecuzione in più istanze o in Linux in un piano a consumo. Questo metodo usa [i dati campionati](#configure-sampling).
 
@@ -632,9 +632,9 @@ In questo modo l'app viene connessa al servizio di streaming di log e i log dell
 
 #### <a name="live-metrics-stream"></a>Flusso metriche attive
 
-Per visualizzare i Live Metrics Stream per l'app, selezionare la scheda **Panoramica** dell'app per le funzioni. Quando è abilitata la Application Insights, viene visualizzato un collegamento **Application Insights** in **funzionalità**configurate. Questo collegamento consente di portarsi alla pagina Application Insights per l'app.
+Per visualizzare i Live Metrics Stream per l'app, selezionare la scheda **Panoramica** dell'app per le funzioni. Quando è abilitata la Application Insights, viene visualizzato un collegamento **Application Insights** in **funzionalità configurate**. Questo collegamento consente di portarsi alla pagina Application Insights per l'app.
 
-In Application Insights selezionare **Live Metrics Stream**. Le [voci di log campionate](#configure-sampling) vengono visualizzate sotto la telemetria di **esempio**.
+In Application Insights selezionare **Live Metrics Stream**. Le [voci di log campionate](#configure-sampling) vengono visualizzate sotto la **telemetria di esempio**.
 
 ![Visualizzare Live Metrics Stream nel portale](./media/functions-monitoring/live-metrics-stream.png) 
 

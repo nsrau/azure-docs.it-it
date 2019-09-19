@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 948cdb2ab1af3fe93566497186c025f7f8f39b2e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f0bcf12a43a4732b371dd2d64c0b174a0087bea9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877085"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098951"
 ---
 # <a name="understand-iot-hub-metrics"></a>Comprendere le metriche dell'hub IoT
 
@@ -81,7 +81,7 @@ L'hub IoT offre diverse metriche per fornire una panoramica dell'integrità dell
 |c2d<br>.methods<br>.failure|Chiamate a metodi diretti non riuscite|Conteggio|Totale|Numero di tutte le chiamate a metodi diretti non riuscite.|Nessuna dimensione|
 |c2d<br>.methods<br>.requestSize|Dimensioni delle richieste di chiamate a metodi diretti|Byte|Average|Dimensioni medie, minime e massime delle richieste di chiamate a metodi diretti riuscite.|Nessuna dimensione|
 |c2d<br>.methods<br>.responseSize|Dimensioni delle risposte a chiamate a metodi diretti|Byte|Average|Dimensioni medie, minime e massime delle risposte a chiamate a metodi diretti riuscite.|Nessuna dimensione|
-|c2d<br>.twin<br>.read<br>.success|Letture dei dispositivi gemelli completate dal back-end|Conteggio|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal back-end completate.|Nessuna dimensione|
+|c2d<br>.twin<br>.read<br>.success|Letture dei dispositivi gemelli completate dal back-end|Conteggio|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal back-end completate. Questo conteggio non include le letture gemelle avviate dalle query gemelle.|Nessuna dimensione|
 |c2d<br>.twin<br>.read<br>.failure|Letture dei dispositivi gemelli non riuscite per il back-end|Conteggio|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal back-end non riuscite.|Nessuna dimensione|
 |c2d<br>.twin<br>.read<br>.size|Dimensioni delle risposte di letture dei dispositivi gemelli dal back-end|Byte|Average|Numero medio, minimo e massimo di letture dei dispositivi gemelli avviate dal back-end completate.|Nessuna dimensione|
 |c2d<br>.twin<br>.update<br>.success|Aggiornamenti dei dispositivi gemelli completati dal back-end|Conteggio|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal back-end completati.|Nessuna dimensione|

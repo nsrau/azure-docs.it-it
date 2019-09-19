@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 2ecb19f86c665e89e9326c160596a8f14a169dba
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 39c03058970a412a9bc312f99c239377898e5073
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009416"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092108"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Copiare dati da Dynamics AX tramite Azure Data Factory (anteprima)
 
@@ -27,7 +27,7 @@ Questo articolo descrive come usare l'attività di copia in Azure Data Factory p
 
 Questo connettore Dynamics AX è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Dynamics AX in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati dall'attività di copia come origini e sink, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -62,11 +62,11 @@ Per il servizio collegato di Dynamics AX sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su: **DynamicsAX**. |Sì |
-| url | L'istanza dell'endpoint OData di Dynamics AX (o Dynamics 365 Finance and Operations). |Sì |
+| url | L'istanza dell'endpoint OData di Dynamics AX (o Dynamics 365 Finance and Operations). |Yes |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
-| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione. Ad esempio, se è l'URL di Dynamics è `https://sampledynamics.sandbox.operations.dynamics.com/data/`, la risorsa AAD corrispondente è in genere `https://sampledynamics.sandbox.operations.dynamics.com`. | Yes |
+| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione. Ad esempio, se è l'URL di Dynamics è `https://sampledynamics.sandbox.operations.dynamics.com/data/`, la risorsa AAD corrispondente è in genere `https://sampledynamics.sandbox.operations.dynamics.com`. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile scegliere tra Azure Integration Runtime e un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 **Esempio**
@@ -105,8 +105,8 @@ Per copiare dati da Dynamics AX, impostare la proprietà **type** del set di dat
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su: **DynamicsAXResource**. | Yes |
-| path | Percorso di entità OData Dynamics AX. | Sì |
+| type | La proprietà **type** del set di dati deve essere impostata su: **DynamicsAXResource**. | Sì |
+| path | Percorso di entità OData Dynamics AX. | Yes |
 
 **Esempio**
 
@@ -139,7 +139,7 @@ Per copiare dati da Dynamics AX, impostare il tipo di **origine** nell'attività
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **DynamicsAXSource**. | Sì |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **DynamicsAXSource**. | Yes |
 | query | Opzioni di query OData per filtrare i dati. Esempio: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: il connettore copia dati dall'URL combinato: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Per altre informazioni, vedere [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) (Componenti dell'URL di OData). | No |
 
 **Esempio**

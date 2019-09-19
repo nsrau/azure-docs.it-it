@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 43fee2ce25e358bbcff915d2fbef96bf4b7c1a0c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 590757f78086be894cdc2384bb4a4df380e91c27
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233110"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098596"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Distribuisci Python in funzioni di Azure con Visual Studio Code
 
@@ -24,7 +24,7 @@ In questa esercitazione si imparerà a:
 > [!div class="checklist"]
 > * Installare l'estensione Funzioni di Azure
 > * Creare una funzione attivata tramite HTTP
-> * Esegui debug localmente
+> * Eseguire il debug in locale
 > * Sincronizzare le impostazioni dell'applicazione
 > * Visualizzare i log in streaming
 > * Connettersi ad archiviazione di Azure
@@ -45,7 +45,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi adesso](https://azure.micr
 
 Installare il software seguente:
 
-- Python 3.6. x come richiesto da funzioni di Azure. [Python 3.6.8 tramite](https://www.python.org/downloads/release/python-368/) è la versione 3.6. x più recente.
+- Python 3.6. x come richiesto da funzioni di Azure. [Python 3.6.9](https://www.python.org/downloads/release/python-369/) è la versione 3.6. x più recente.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - L' [estensione Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) come descritto in [Visual Studio Code i prerequisiti dell'esercitazione su Python](https://code.visualstudio.com/docs/python/python-tutorial).
 - [Estensione funzioni di Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). Per informazioni generali, visitare il [repository GitHub VSCODE-azurefunctions](https://github.com/Microsoft/vscode-azurefunctions).
@@ -205,7 +205,7 @@ Di seguito sono riportate le parti importanti del codice:
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=03-examine-code-files)
 
-## <a name="debug-locally"></a>Esegui debug localmente
+## <a name="debug-locally"></a>Eseguire il debug in locale
 
 1. Quando si crea il progetto di funzioni, l'estensione Visual Studio Code crea anche una configurazione di `.vscode/launch.json` avvio in che contiene una singola configurazione denominata **Connetti alle funzioni di Python**. Questa configurazione significa che è possibile selezionare **F5** o utilizzare Esplora debug per avviare il progetto:
 
@@ -428,7 +428,7 @@ In questa sezione viene aggiunta un'associazione di archiviazione alla funzione 
 
     | Prompt | Valore da fornire |
     | --- | --- |
-    | Imposta direzione associazione | uscita |
+    | Imposta direzione associazione | fo |
     | Selezionare Binding con direzione in uscita | Archiviazione code di Azure |
     | Nome usato per identificare questa associazione nel codice | messaggio |
     | Coda a cui verrà inviato il messaggio | outqueue |
@@ -444,6 +444,18 @@ In questa sezione viene aggiunta un'associazione di archiviazione alla funzione 
           "queueName": "outqueue",
           "connection": "AzureWebJobsStorage"
         }
+    ```
+
+1. Sostituire il contenuto del file *host. JSON* con il codice seguente, aggiungendo il [riferimento ai bundle di estensione](functions-bindings-register.md#extension-bundles).
+
+    ```json
+    {
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[1.*, 2.0.0)"
+        }
+    }
     ```
 
 1. Ora che è stata configurata l'associazione, è possibile usarla nel codice della funzione. Anche in questo caso, l'associazione appena definita viene visualizzata nel codice come argomento `main` della funzione  *\_in\_ \_\_init. py*. Ad esempio, è possibile modificare il  *\_ \_file\_init\_. py* in HttpExample in modo che corrisponda a quanto segue, `msg` che mostra l'uso dell'argomento per scrivere un messaggio con timestamp con il nome usato nel richiesta. I commenti illustrano le modifiche specifiche:

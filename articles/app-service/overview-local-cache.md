@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9102d6f3ce3be44107268419517dc9ebe434ac7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098452"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097653"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 
@@ -49,7 +49,7 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 * La cache locale contiene una copia eseguita una sola volta delle cartelle _/site_ e _/siteextensions_ dell'archivio del contenuto condiviso rispettivamente in _D:\home\site_ e _D:\home\ siteextensions_. I file vengono copiati nella cache locale all'avvio dell'app. La dimensione delle due cartelle per ogni app è limitata a 300 MB per impostazione predefinita, ma può essere aumentata fino a 2 GB.
 * La cache locale è di lettura/scrittura. Le eventuali modifiche vengono tuttavia rimosse quando l'app sposta le macchine virtuali o viene riavviata. Non usare la cache locale per le app che archiviano dati mission-critical nell'archivio del contenuto.
 * _D:\home\LogFiles_ e _D:\home\Data_ contengono i file di log e i dati delle app. Le due sottocartelle vengono archiviate in locale nell'istanza della macchina virtuale e vengono copiate periodicamente nell'archivio del contenuto condiviso. Le app possono salvare in modo permanente i dati e i file di log, scrivendoli in queste cartelle. Tuttavia, la copia nell'archivio del contenuto condiviso è di tipo massimo sforzo e quindi i dati e i file di log potrebbero andare persi a seguito di un arresto anomalo improvviso del sistema dell'istanza di una macchina virtuale.
-* La copia di tipo massimo sforzo influisce sul [flusso di registrazione](troubleshoot-diagnostic-logs.md#streamlogs). Si può verificare un ritardo massimo di un minuto per i log inviati nel flusso.
+* La copia di tipo massimo sforzo influisce sul [flusso di registrazione](troubleshoot-diagnostic-logs.md#stream-logs). Si può verificare un ritardo massimo di un minuto per i log inviati nel flusso.
 * Nell'archivio del contenuto condiviso è stata modificata la struttura delle cartelle _LogFiles_ e _Data_ delle app che usano la cache locale. Le cartelle includono ora sottocartelle che seguono il modello di denominazione "identificatore univoco" + timestamp. Ogni sottocartella corrisponde a un'istanza di macchina virtuale in cui l'app è o era in esecuzione.
 * Le altre cartelle _D:\home_ rimangono nella cache locale e non vengono copiate nell'archivio del contenuto condiviso.
 * La distribuzione di app con un qualsiasi metodo supportato implica la pubblicazione direttamente nell'archivio durevole del contenuto condiviso. Per aggiornare le cartelle _D:\home\site_ e _D:\home\siteextensions_ nella cache locale, è necessario riavviare l'app. vedere le informazioni più avanti in questo articolo per rendere il ciclo di vita più lineare.

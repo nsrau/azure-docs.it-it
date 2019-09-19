@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a2b62cc0548b0bbedae35f6a0d72ac327723e60
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
-ms.translationtype: MT
+ms.openlocfilehash: daa075518c569e257fd86a478809a1d1650d4345
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743828"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098113"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -75,8 +75,8 @@ La tabella seguente elenca i sistemi operativi supportati:
 
 |Sistema operativo  |Note  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/datacenter core/standard)<br><br>Windows Server 2016 (Datacenter/datacenter core/standard)<br><br>Windows Server 2012 R2 (Datacenter/standard)<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)|**Valutazioni aggiornamenti**: Supportato<br><br>Applicazione di **patch**: Richiede un ruolo di lavoro ibrido per Runbook. Vedere i requisiti del ruolo di [lavoro ibrido per Runbook](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
-|CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede "yum" per restituire i dati sulla sicurezza che non sono predefiniti in CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione su CentOS, vedere [classificazioni degli aggiornamenti in Linux](#linux-2)          |
+|Windows Server 2019 (Datacenter/datacenter core/standard)<br><br>Windows Server 2016 (Datacenter/datacenter core/standard)<br><br>Windows Server 2012 R2 (Datacenter/standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)|**Valutazioni aggiornamenti**: Supportato<br><br>Applicazione di **patch**: Richiede un ruolo di lavoro ibrido per Runbook. Vedere i requisiti del ruolo di [lavoro ibrido per Runbook](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
+|CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede "yum" per restituire i dati sulla sicurezza che non sono predefiniti in CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione su CentOS, vedere classificazioni degli [aggiornamenti in Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
@@ -186,7 +186,7 @@ Se l'agente non è in grado di comunicare con i log di monitoraggio di Azure e l
 
 Gli agenti Linux appena aggiunti visualizzano lo stato **Aggiornato** dopo l'esecuzione di una valutazione. Il processo può richiedere fino a 6 ore.
 
-Per verificare che un gruppo di gestione di Operations Manager comunichi con i log di monitoraggio di Azure, vedere [Convalidare Operations Manager integrazione con i log di monitoraggio di Azure](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
+Per verificare che un gruppo di gestione di Operations Manager comunichi con i log di monitoraggio di Azure, vedere convalidare [Operations Manager integrazione con i log di monitoraggio di Azure](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
 ## <a name="data-collection"></a>Raccolta dei dati
 

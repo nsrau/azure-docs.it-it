@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "68669703"
 ---
 È possibile aggiungere un numero di dischi dati a una macchina virtuale di Azure. In base agli obiettivi di scalabilità e prestazioni per i dischi dati di una macchina virtuale, è possibile determinare il numero e il tipo di disco necessari per soddisfare i requisiti di prestazioni e capacità.

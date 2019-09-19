@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: e552b90a4c98eff7b04cbeaef26aa10749ce672c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ccd84042d11b586d524d4eb76eba03111e0b3c5
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493406"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71099017"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse
 
@@ -20,7 +20,7 @@ Questo articolo illustrerà come creare avvisi del registro delle attività di i
 Integrità risorse di Azure comunica lo stato di integrità attuale e cronologico delle risorse di Azure. Integrità risorse di Azure invia una notifica quasi in tempo reale quando tali risorse subiscono una modifica al loro stato di integrità. Creare avvisi di Integrità risorse di Azure a livello di codice consente agli utenti di creare e personalizzare gli avvisi in blocco.
 
 > [!NOTE]
-> Gli avvisi di integrità risorse sono attualmente in anteprima.
+> Gli avvisi Integrità risorse sono attualmente in anteprima.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -76,7 +76,7 @@ Per seguire le istruzioni riportate in questa pagina, è necessario configurare 
 
 Se si intende automatizzare completamente questo processo, è sufficiente modificare il modello di Gestione risorse per non richiedere i valori nel passaggio 5.
 
-## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Opzioni del modello di Resource Manager per gli avvisi di integrità delle risorse
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Opzioni del modello di Gestione risorse per gli avvisi di Integrità risorse
 
 È possibile usare questo modello di base come punto iniziale per la creazione di avvisi di Integrità risorse di Azure. Questo modello funziona come descritto in precedenza ed effettuerà l'iscrizione per ricevere avvisi per tutti gli eventi di integrità risorse appena attivati in ogni risorsa presente in una sottoscrizione.
 
@@ -286,11 +286,11 @@ Tuttavia, quando una risorsa segnala lo stato "Sconosciuto", è probabile che lo
 
 In questo esempio, si sta solo inviando una notifica sugli eventi in cui lo stato di integrità corrente e quello precedente non sono "Sconosciuti". Questa modifica può costituire un'aggiunta utile se gli avvisi sono inviati direttamente al telefono cellulare o tramite messaggio di posta elettronica. 
 
-Si noti che è possibile per le proprietà currentHealthStatus e previousHealthStatus sia null. in alcuni eventi. Ad esempio, quando un evento di aggiornamento si verifica è probabile che lo stato di integrità della risorsa non è stato modificato dopo l'ultimo report, solo tali informazioni evento aggiuntivo sono disponibile (ad esempio, causare). Pertanto, tramite la clausola sopra può comportare alcuni avvisi non attivate, in quanto i valori properties.currentHealthStatus e properties.previousHealthStatus verranno impostati su null.
+Si noti che è possibile che le proprietà currentHealthStatus e previousHealthStatus siano null in alcuni eventi. Ad esempio, quando si verifica un evento aggiornato è probabile che lo stato di integrità della risorsa non sia stato modificato dopo l'ultimo report, ma solo che siano disponibili informazioni aggiuntive sull'evento, ad esempio causa. Pertanto, l'utilizzo della clausola precedente può causare l'attivazione di alcuni avvisi, perché i valori Properties. currentHealthStatus e Properties. previousHealthStatus verranno impostati su null.
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Modifica dell'avviso per evitare gli eventi avviati dall'utente
 
-Gli eventi di Integrità risorse di Azure possono essere attivati da eventi avviati dalla piattaforma o dall'utente. Potrebbe essere senato inviare solo una notifica quando l'evento di integrità è provocato dalla piattaforma di Azure.
+Gli eventi Integrità risorse possono essere attivati da eventi avviati dalla piattaforma e avviati dall'utente. Potrebbe essere senato inviare solo una notifica quando l'evento di integrità è provocato dalla piattaforma di Azure.
 
 Configurare l'avviso per filtrare solo questi tipi di eventi è semplice:
 
@@ -306,11 +306,11 @@ Configurare l'avviso per filtrare solo questi tipi di eventi è semplice:
     ]
 }
 ```
-Si noti che è possibile che il campo causa sia null. in alcuni eventi. Vale a dire, una transizione di stato viene eseguita (ad esempio, può non disponibile) e la registrazione dell'evento immediatamente per evitare che notifica ritardata. Pertanto, tramite la clausola sopra può comportare un avviso non viene attivato, perché il valore di proprietà properties.clause verrà impostato su null.
+Si noti che è possibile che il campo della cause sia null in alcuni eventi. In altre termini, viene effettuata una transizione di integrità (ad esempio, disponibile per non disponibile) e l'evento viene registrato immediatamente per evitare ritardi di notifica. Pertanto, l'utilizzo della clausola precedente può comportare l'attivazione di un avviso, perché il valore della proprietà Properties. clause verrà impostato su null.
 
-## <a name="complete-resource-health-alert-template"></a>Modello di avviso di integrità delle risorse completa
+## <a name="complete-resource-health-alert-template"></a>Modello di avviso completo Integrità risorse
 
-Usa le regolazioni diversi descritte nella sezione precedente, ecco un modello di esempio che è configurato per ottimizzare il rapporto tra il segnale. Tenere presente le raccomandazioni indicate in precedenza in cui il currentHealthStatus previousHealthStatus e i valori delle proprietà causa possono essere null. in alcuni eventi.
+Utilizzando le diverse regolazioni descritte nella sezione precedente, di seguito è riportato un modello di esempio configurato per massimizzare il rapporto tra segnale e rumore. Tenere presente le avvertenze indicate sopra in cui i valori delle proprietà currentHealthStatus, previousHealthStatus e cause possono essere null in alcuni eventi.
 
 ```json
 {
@@ -445,4 +445,4 @@ Altre informazioni su Integrità risorse:
 
 Creare avviso di integrità dei servizi di Azure:
 -  [Configurare gli avvisi per Integrità dei servizi di Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
--  [Schema di eventi del Log attività di Azure](../azure-monitor/platform/activity-log-schema.md)
+-  [Schema degli eventi del log attività di Azure](../azure-monitor/platform/activity-log-schema.md)

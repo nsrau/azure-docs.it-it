@@ -14,11 +14,11 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e0648ff9aab12ad6a579fc7f6e45b98a9d6d03
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c2eff9c0edf6797c08d0ef9732c903a81a6c764a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "70861166"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
@@ -71,19 +71,13 @@ Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non p
 Il ruolo di amministratore dell'autenticazione è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
-> gli utenti con questo ruolo possono modificare le credenziali di utenti che possono avere accesso a dati sensibili, informazioni private o configurazioni critiche sia all'interno che all'esterno di Azure Active Directory. La modifica delle credenziali di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
+> gli utenti con questo ruolo possono modificare le credenziali di utenti che possono avere accesso a dati sensibili, informazioni private o configurazioni critiche sia all'interno che all'esterno di Azure Active Directory. La modifica delle credenziali di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Esempio:
 
 * Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero avere autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli amministratori dell'autenticazione. Attraverso questo percorso, un amministratore di autenticazione potrebbe essere in grado di assumere l'identità del proprietario di un'applicazione e quindi di assumere ulteriormente l'identità di un'applicazione con privilegi aggiornando le credenziali per l'applicazione.
 * Proprietari di sottoscrizioni Azure, che potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche di Azure.
 * Proprietari di gruppi di sicurezza e di gruppi di Office 365, che possono gestire l'appartenenza al gruppo. Tali gruppi potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche in Azure Active Directory o altrove.
 * Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
 * Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
-
-### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Amministratore di Azure DevOps](#azure-devops-administrator-permissions)
-
-Gli utenti con questo ruolo possono gestire i criteri di Azure DevOps per limitare la creazione di nuove organizzazioni DevOps di Azure a un set di utenti configurabili/gruppi AAD. Gli utenti con questo ruolo possono gestire questo criterio tramite qualsiasi organizzazione DevOps di Azure supportata dalla Azure AD della società.
-
-In futuro, tutti i criteri di Azure DevOps aziendali verranno gestiti dagli utenti in questo ruolo.
 
 ### <a name="azure-information-protection-administratorazure-information-protection-administrator-permissions"></a>[Amministratore Azure Information Protection](#azure-information-protection-administrator-permissions)
 
@@ -130,7 +124,7 @@ gli utenti con questo ruolo possono abilitare, disabilitare ed eliminare disposi
 
 gli utenti con questo ruolo hanno le autorizzazioni necessarie per gestire le funzionalità relative alla conformità nel Centro conformità Microsoft 365, nell'interfaccia di amministrazione di Microsoft 365, in Azure e nel Centro sicurezza e conformità di Office 365. Gli assegnatari possono anche gestire tutte le funzionalità nell'interfaccia di amministrazione di Exchange e i team & i centri di amministrazione di Skype for business e creare ticket di supporto per Azure e Microsoft 365. Per altre informazioni, vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-In | Operazione consentita
+In ingresso | Operazione consentita
 ----- | ----------
 [Centro conformità Microsoft 365](https://protection.office.com) | Proteggere e gestire i dati dell'organizzazione in tutti i servizi di Microsoft 365<br>Gestire gli avvisi di conformità
 [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Monitorare, assegnare e verificare le attività di conformità alle normative dell'organizzazione
@@ -142,7 +136,7 @@ In | Operazione consentita
 
 Gli utenti con questo ruolo dispongono delle autorizzazioni per tenere traccia dei dati nel centro Microsoft 365 Compliance, nell'interfaccia di amministrazione di Microsoft 365 e in Azure. Gli utenti possono anche tenere traccia dei dati di conformità nell'interfaccia di amministrazione di Exchange, in Compliance Manager e nei team & interfaccia di amministrazione di Skype for business e creare ticket di supporto per Azure e Microsoft 365.
 
-In | Operazione consentita
+In ingresso | Operazione consentita
 ----- | ----------
 [Centro conformità Microsoft 365](https://protection.office.com) | Monitorare i criteri correlati alla conformità nei servizi Microsoft 365<br>Gestire gli avvisi di conformità
 [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Monitorare, assegnare e verificare le attività di conformità alle normative dell'organizzazione
@@ -226,7 +220,7 @@ gli utenti con questo ruolo possono modificare le password, invalidare i token d
 * Ruolo con autorizzazioni di lettura per i report
 
 > [!IMPORTANT]
-> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Esempio:
+> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
 
 * Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero disporre di autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli utenti con ruolo di Amministratore supporto tecnico. Ciò significa che un Amministratore supporto tecnico potrebbe assumere l'identità del proprietario di un'applicazione e quindi quella di un'applicazione con privilegi aggiornando le credenziali dell'applicazione.
 * Proprietari di sottoscrizioni Azure, che potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche di Azure.
@@ -312,7 +306,7 @@ Gli utenti con questo ruolo possono creare, gestire ed eliminare contenuto per M
 
 gli utenti con questo ruolo hanno le autorizzazioni necessarie per gestire le funzionalità relative alla sicurezza nel Centro sicurezza Microsoft 365, in Azure Active Directory Identity Protection, in Azure Information Protection e nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-In | Operazione consentita
+In ingresso | Operazione consentita
 --- | ---
 [Centro sicurezza Microsoft 365](https://protection.office.com) | Monitorare i criteri correlati alla sicurezza in tutti i servizi di Microsoft 365<br>Gestire gli avvisi e le minacce alla sicurezza<br>Visualizzazione dei report
 Identity Protection Center | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Inoltre, eseguire tutte le operazioni di Identity Protection Center, tranne la reimpostazione delle password
@@ -329,7 +323,7 @@ Windows Defender ATP ed EDR | Assegnare ruoli<br>Gestire i gruppi di computer<br
 
 Gli utenti con questo ruolo possono gestire gli avvisi e avere accesso di sola lettura globale alla funzionalità relativa alla sicurezza, incluse tutte le informazioni in Microsoft 365 Centro sicurezza, Azure Active Directory, Identity Protection, Privileged Identity Management e Office 365 Centro sicurezza e conformità. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
-In | Operazione consentita
+In ingresso | Operazione consentita
 --- | ---
 [Centro sicurezza Microsoft 365](https://protection.office.com) | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Visualizzare, analizzare e rispondere agli avvisi relativi alle minacce per la sicurezza
 Identity Protection Center | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Inoltre, eseguire tutte le operazioni di Identity Protection Center, tranne la reimpostazione delle password
@@ -344,7 +338,7 @@ Windows Defender ATP ed EDR | Tutte le autorizzazioni del ruolo con autorizzazio
 
 gli utenti con questo ruolo hanno accesso globale di sola lettura alle funzionalità relative alla sicurezza, incluse tutte le informazioni nel Centro sicurezza Microsoft 365, in Azure Active Directory, Identity Protection e Privileged Identity Management, oltre alla possibilità di accedere in lettura ai log di controllo e ai report di accesso di Azure Active Directory, e nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-In | Operazione consentita
+In ingresso | Operazione consentita
 --- | ---
 [Centro sicurezza Microsoft 365](https://protection.office.com) | Visualizzare i criteri correlati alla sicurezza in tutti i servizi di Microsoft 365<br>Visualizzare gli avvisi e le minacce alla sicurezza<br>Visualizzazione dei report
 Identity Protection Center | Leggere tutte le informazioni sulle impostazioni e sui report di sicurezza per le funzionalità di sicurezza<br><ul><li>Filtro posta indesiderata<li>Crittografia<li>Prevenzione della perdita dei dati<li>Antimalware<li>Protezione avanzata dalle minacce<li>Anti-phishing<li>Regole del flusso di posta
@@ -406,7 +400,7 @@ Gli utenti con questo ruolo possono creare utenti e gestire tutti gli aspetti de
 |Solo sugli utenti non amministratori o in uno dei seguenti ruoli di amministratore con limitazioni:<ul><li>Ruolo con autorizzazioni di lettura nella directory<li>Mittente dell'invito guest<li>Amministratore supporto tecnico<li>Ruolo con autorizzazioni di lettura per il Centro messaggi<li>Ruolo con autorizzazioni di lettura per i report<li>Amministratore utenti|<p>Eliminare e ripristinare</p><p>Disattivare e attivare</p><p>Invalidare i token di aggiornamento</p><p>Gestire tutte le proprietà utente, incluso il Nome dell'entità utente</p><p>Reimposta password</p><p>Aggiornare le chiavi dispositivo (FIDO)</p>
 
 > [!IMPORTANT]
-> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Esempio:
+> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
 
 * Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero avere autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli utenti con ruolo di amministratore degli utenti. Ciò significa che un amministratore degli utenti potrebbe assumere l'identità del proprietario di un'applicazione e quindi quella di un'applicazione con privilegi aggiornando le credenziali dell'applicazione.
 * Proprietari di sottoscrizioni Azure, che potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche di Azure.
@@ -497,19 +491,6 @@ Può creare registrazioni di applicazioni indipendentemente dall'impostazione 'G
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | Microsoft. Directory/utenti/password/aggiornamento | Aggiornare le password per tutti gli utenti dell'organizzazione Office 365. Per informazioni dettagliate, vedere la documentazione online. |
-
-### <a name="azure-devops-administrator-permissions"></a>Autorizzazioni di amministratore di Azure DevOps
-
-Consente di gestire le impostazioni e i criteri dell'organizzazione DevOps di Azure.
-
-> [!NOTE]
-> Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per ulteriori informazioni, vedere la [Descrizione del ruolo](#azure-devops-administrator) sopra.
->
->
-
-| **Actions** | **Descrizione** |
-| --- | --- |
-| Microsoft. Azure. devOps/allEntities/allTasks | Leggere e configurare Azure DevOps. |
 
 ### <a name="azure-information-protection-administrator-permissions"></a>Autorizzazioni di amministratore di Azure Information Protection
 
@@ -1515,7 +1496,6 @@ DisplayName grafico | Nome visualizzato portale di Azure | directoryRoleTemplate
 Amministratore applicazione | Amministratore applicazione | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Sviluppatore applicazione | Sviluppatore applicazione | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Amministratore autenticazione | Amministratore autenticazione | c4e39bd9-1100-46d3-8c65-fb160da0071f
-Amministratore di Azure DevOps | Amministratore di Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Amministratore Azure Information Protection | Amministratore Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Amministratore flusso utente B2C | Amministratore flusso utente B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Amministratore attributi flussi utente B2C | Amministratore attributi flussi utente B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e

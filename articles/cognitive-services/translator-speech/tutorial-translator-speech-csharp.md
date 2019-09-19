@@ -3,20 +3,20 @@ title: 'Esercitazione: API Traduzione vocale C#'
 titleSuffix: Azure Cognitive Services
 description: Usare l'API Traduzione vocale per tradurre il testo in tempo reale.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3853dd810182948e12b578c33b8cb91bef4b1cf
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 669322aefb152729cc120abc0d7a52ce9d1151da
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445592"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965292"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Esercitazione: Applicazione Traduzione vocale in C#
 

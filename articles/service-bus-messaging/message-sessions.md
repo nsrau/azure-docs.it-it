@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951879"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091822"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessioni di messaggi: First In, First Out (FIFO) 
 
@@ -40,6 +40,9 @@ La funzionalità di sessione nel bus di servizio consente un'operazione di ricez
 Nel portale impostare il flag con la casella di controllo seguente:
 
 ![][2]
+
+> [!NOTE]
+> Quando le sessioni sono abilitate in una coda o in una sottoscrizione, le applicazioni client ***non possono più*** inviare/ricevere messaggi regolari. Tutti i messaggi devono essere inviati come parte di una sessione (impostando l'ID sessione) e ricevuti ricevendo la sessione.
 
 Le API per le sessioni sono presenti nei client di accodamento e di sottoscrizione. Esiste un modello imperativo che controlla quando vengono ricevuti i messaggi e le sessioni e un modello basato su gestore, simile a *OnMessage*, che nasconde la complessità di gestione del ciclo di ricezione.
 
@@ -83,7 +86,7 @@ La definizione del numero di recapiti per messaggio nel contesto delle sessioni 
 
 | Scenario | Conteggio recapito del messaggio incrementato |
 |----------|---------------------------------------------|
-| La sessione viene accettata, ma il blocco della sessione scade (a causa del timeout) | Yes |
+| La sessione viene accettata, ma il blocco della sessione scade (a causa del timeout) | Sì |
 | La sessione viene accettata, i messaggi all'interno della sessione non vengono completati (anche se sono bloccati) e la sessione viene chiusa. | No |
 | La sessione viene accettata, i messaggi vengono completati e la sessione viene chiusa in modo esplicito | N/d (questo è il flusso standard. Qui i messaggi vengono rimossi dalla sessione. |
 

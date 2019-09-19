@@ -7,14 +7,14 @@ manager: carmonm
 keywords: ripristinare il backup; come ripristinare; punto di ripristino.
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3d7497b7afd44a05f3691d3e3094e84c3dd73747
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: c479249a3a09b625e37fb80e7b73dcc8a1268622
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983927"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098373"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati delle macchine virtuali di Azure in portale di Azure
 
@@ -188,7 +188,27 @@ Esistono diversi aspetti di cui tenere conto dopo il ripristino di una macchina 
 - Se la macchina virtuale sottoposta a backup era associata a un indirizzo IP statico, la macchina virtuale ripristinata avrà un indirizzo IP dinamico per evitare conflitti. È possibile [aggiungere un indirizzo IP statico alla macchina virtuale ripristinata](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 - Una macchina virtuale ripristinata non ha un set di disponibilità. Se si usa l'opzione Ripristina disco, è possibile [specificare un set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) quando si crea una macchina virtuale dal disco usando il modello fornito o PowerShell.
 - Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/linux/reset-password.md) nella VM ripristinata, usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni in modo da non dover reimpostare la password dopo il ripristino.
+- Se non si riesce ad accedere alla macchina virtuale dopo il ripristino a causa di una relazione di macchina virtuale con il controller di dominio, attenersi alla procedura seguente per visualizzare la macchina virtuale:
+    - Alleghi il disco del sistema operativo come disco dati a una macchina virtuale ripristinata.
+    - Installare manualmente l'agente VM se è stato rilevato che l'agente di Azure non risponde seguendo questo [collegamento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+    - Abilitare l'accesso alla console seriale nella macchina virtuale per consentire l'accesso dalla riga di comando alla macchina virtuale
+    
+  ```
+    bcdedit /store <drive letter>:\boot\bcd /enum
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} bootems yes
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<<BOOT LOADER IDENTIFIER>>} ON
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+    ```
+    - Quando la macchina virtuale viene ricompilata, usare portale di Azure per reimpostare l'account e la password dell'amministratore locale
+    - Usare console seriale Access e CMD per separare la VM dal dominio
 
+    ```
+    cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force" 
+    ```
+
+- Una volta che la macchina virtuale è stata riavviata e riavviata, sarà possibile eseguire correttamente la connessione RDP alla macchina virtuale con le credenziali di amministratore locale e aggiungere nuovamente la macchina virtuale al dominio.
 
 ## <a name="backing-up-restored-vms"></a>Backup di macchine virtuali ripristinate
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 5cb3b5c2d36707875c87bd589e3d96c0a2f4f939
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: MT
+ms.openlocfilehash: ced2c888a412a72643bb0c12fceb7e83d39936cf
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885211"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098739"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
@@ -51,7 +51,7 @@ Per altre informazioni sui livelli di accesso di archiviazione di Azure [, veder
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sì |
-| 3.6 | Data Lake Storage Gen1 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
+| 3.6 | Data Lake Storage Gen1 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
 | 4.0 | Data Lake Storage Gen1 | Qualsiasi | No |
 
@@ -129,7 +129,7 @@ Se si sceglie di proteggere l'account di archiviazione con le restrizioni relati
 
 Nel diagramma seguente viene sintetizzata l'architettura HDInsight di Archiviazione di Azure:
 
-![Diagramma che mostra il modo in cui i cluster Hadoop usano l'API HDFS per accedere ai dati strutturati e non strutturati e archiviarli nell'archiviazione BLOB](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Architettura di Archiviazione HDInsight")
+![Architettura archiviazione HDInsight](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Architettura archiviazione HDInsight")
 
 HDInsight offre accesso al file system distribuito collegato localmente ai nodi di calcolo. Il file system è accessibile tramite l'URI completo, ad esempio:
 

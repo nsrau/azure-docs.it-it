@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d277786fd08e1448b3d5ccf4fd45055fe069e4c0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119527"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097767"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -28,12 +28,12 @@ ms.locfileid: "62119527"
 Questo argomento mostra come usare l'SDK del server back-end .NET in scenari chiave di App per dispositivi mobili del servizio app di Azure. Azure Mobile Apps SDK aiuta a lavorare con i client mobili dall'applicazione ASP.NET.
 
 > [!TIP]
-> L'[SDK del server .NET per App per dispositivi mobili][2] di Azure è open source su GitHub. Il repository contiene tutto il codice sorgente, incluso l'intero gruppo di unit test dell'SDK del server, e alcuni progetti di esempio.
+> [.NET Server SDK per app per dispositivi mobili di Azure][2] è open source su GitHub. Il repository contiene tutto il codice sorgente, incluso l'intero gruppo di unit test dell'SDK del server, e alcuni progetti di esempio.
 >
 >
 
 ## <a name="reference-documentation"></a>Documentazione di riferimento
-La documentazione di riferimento per l'SDK del server è disponibile qui: [Informazioni di riferimento su .NET per app per dispositivi mobili di Azure][1].
+La documentazione di riferimento per l'SDK del server è disponibile qui: [Riferimento .NET per app per dispositivi mobili di Azure][1].
 
 ## <a name="create-app"></a>Procedura: creare un back-end dell'app per dispositivi mobili .NET
 Se si inizia un nuovo progetto, è possibile creare un'applicazione del servizio app usando il [portale di Azure] o Visual Studio. È possibile eseguire l'applicazione del servizio app localmente o pubblicare il progetto nell'app per dispositivi mobili del servizio app basata sul cloud.
@@ -41,7 +41,7 @@ Se si inizia un nuovo progetto, è possibile creare un'applicazione del servizio
 Se si devono aggiungere funzionalità per dispositivi mobili a un progetto esistente, vedere la sezione [Scaricare e inizializzare l'SDK](#install-sdk) .
 
 ### <a name="create-a-net-backend-using-the-azure-portal"></a>Creare un back-end .NET usando il portale di Azure
-Per creare un back-end per dispositivi mobili del servizio app, seguire l'[esercitazione introduttiva][3] oppure questi passaggi:
+Per creare un back-end per dispositivi mobili del servizio app, seguire l' [esercitazione introduttiva][3] o attenersi alla procedura seguente:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -62,7 +62,7 @@ Installare il carico di lavoro di Azure tramite il Programma di installazione di
 
 ### <a name="create-a-net-backend-using-visual-studio-2015"></a>Creare un back-end .NET usando Visual Studio 2015
 
-Per creare un progetto App per dispositivi mobili di Azure in Visual Studio, installare [Azure SDK per .NET][4] (versione 2.9.0 o successiva). Dopo avere installato l'SDK, creare un'applicazione ASP.NET seguendo questa procedura:
+Installare [Azure SDK per .NET][4] (versione 2.9.0 o successiva) per creare un progetto di app per dispositivi mobili di Azure in Visual Studio. Dopo avere installato l'SDK, creare un'applicazione ASP.NET seguendo questa procedura:
 
 1. Aprire la finestra di dialogo **Nuovo progetto** (da **File** > **Nuovo** > **Progetto...** ).
 2. Espandere **Modelli** > **Visual C#** e selezionare **Web**.
@@ -410,7 +410,7 @@ Hub di notifica consente di inviare notifiche mirate a registrazioni specifiche 
 
 I tag forniti dal client durante la registrazione per le notifiche push vengono ignorati dal back-end durante la creazione dell'installazione. Per consentire a un client di aggiungere tag all'installazione, è necessario creare un'API personalizzata che aggiunge tag usando il modello precedente.
 
-Per un esempio, vedere [Client-added push notification tags][5] (Tag di notifica push aggiunti dal client) nell'esempio di avvio rapido completato di app per dispositivi mobili del servizio app.
+Per un esempio, vedere i [tag di notifica push aggiunti dal client][5] nell'esempio di Guida introduttiva per le app per dispositivi mobili del servizio app.
 
 ## <a name="push-user"></a>Procedura: inviare notifiche push agli utenti autenticati
 Se un utente autenticato esegue la registrazione per le notifiche push, viene automaticamente aggiunto un tag con l'ID utente. Usando questo tag, è possibile inviare notifiche push a tutti i dispositivi registrati da tale persona. Il codice seguente ottiene il SID dell'utente che esegue la richiesta e invia un modello di notifica push a ogni registrazione del dispositivo per tale persona:
@@ -426,7 +426,7 @@ Se un utente autenticato esegue la registrazione per le notifiche push, viene au
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-Durante la registrazione per le notifiche push da un client autenticato, assicurarsi che l'autenticazione sia stata completata prima di tentare la registrazione. Per altre informazioni, vedere [Push to users][6] (Eseguire il push agli utenti) nell'esempio di avvio rapido completato per le app per dispositivi mobili del servizio app per back-end .NET.
+Durante la registrazione per le notifiche push da un client autenticato, assicurarsi che l'autenticazione sia stata completata prima di tentare la registrazione. Per ulteriori informazioni, vedere l'esempio relativo [al push agli utenti][6] nell'esempio di Guida introduttiva alle app per dispositivi mobili del servizio app
 
 ## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>Procedura: eseguire il debug e risolvere i problemi di .NET Server SDK
 Il servizio app di Azure offre diverse tecniche di debug e risoluzione dei problemi per le applicazioni ASP.NET:
@@ -440,7 +440,7 @@ Il servizio app di Azure offre diverse tecniche di debug e risoluzione dei probl
 
 Per abilitare la diagnostica e scrivere nei log:
 
-1. Seguire i passaggi in [Come abilitare la diagnostica](../app-service/troubleshoot-diagnostic-logs.md#enablediag).
+1. Attenersi alla procedura descritta in [abilitare la registrazione delle applicazioni (Windows)](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows).
 2. Aggiungere l'istruzione using seguente al file del codice:
 
         using System.Web.Http.Tracing;
@@ -449,7 +449,7 @@ Per abilitare la diagnostica e scrivere nei log:
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Ripubblicare il progetto server e accedere al back-end di App per dispositivi mobili per eseguire il percorso del codice con la registrazione.
-5. Scaricare e valutare i log, come descritto in [Procedura: scaricare i log](../app-service/troubleshoot-diagnostic-logs.md#download).
+5. Scaricare e valutare i log, come descritto in [accedere ai file di log](../app-service/troubleshoot-diagnostic-logs.md#access-log-files).
 
 ### <a name="local-debug"></a>Debug locale con autenticazione
 È possibile eseguire l'applicazione in locale per testare le modifiche prima di pubblicarle nel cloud. Per la maggior parte dei back-end di App per dispositivi mobili di Azure, premere *F5* in Visual Studio. Esistono però alcune considerazioni aggiuntive quando si usa l'autenticazione.

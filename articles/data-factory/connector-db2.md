@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 033d25d6ff2da580523e13e25771faef14cfe5a9
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d89b4018da7c50127fc38219c6cb799a89509258
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009449"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092118"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiare dati da DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -30,7 +30,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Questo connettore di database DB2 è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da un database DB2 in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -111,7 +111,7 @@ Per copiare dati da DB2, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **Db2Table** | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **Db2Table** | Yes |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
 | tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
@@ -146,7 +146,7 @@ Per copiare dati da DB2, nella sezione **origine** dell'attività di copia sono 
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **Db2Source** | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **Db2Source** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

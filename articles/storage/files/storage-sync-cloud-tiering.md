@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 078582b98bca2137a7d25fa3a0833a4707565170
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 36b09ce8ece010ff24345ddb96654f75542cc9a5
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699367"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098957"
 ---
 # <a name="cloud-tiering-overview"></a>Panoramica della suddivisione in livelli nel cloud
 La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file archiviato a livelli include sia l'attributo "offline" sia l'attributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS impostato in NTFS, in modo che le applicazioni di terze parti possano identificare in modo sicuro questo tipo di file.
@@ -100,10 +100,10 @@ Il modo più semplice per richiamare un file su disco è aprirlo. Il filtro del 
 
 È anche possibile usare PowerShell per forzare il richiamo di un file. Questa opzione potrebbe essere utile per richiamare più file contemporaneamente, ad esempio tutti i file all'interno di una cartella. Aprire una sessione di PowerShell per il nodo server in cui è installato Sincronizzazione file di Azure e quindi eseguire i comandi di PowerShell seguenti:
     
-    ```powershell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
-    ```
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
+```
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Perché la proprietà *Dimensioni su disco* per un file non corrisponde alla proprietà *Dimensioni* dopo l'uso di Sincronizzazione file di Azure? 
@@ -113,10 +113,10 @@ Esplora file di Windows espone due proprietà per rappresentare le dimensioni di
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Come è possibile forzare l'archiviazione a livelli di un file o una directory?
 Quando la funzionalità di suddivisione in livelli nel cloud è abilitata, i file vengono archiviati automaticamente a livelli in base all'ora dell'ultimo accesso e dell'ultima modifica per ottenere la percentuale di spazio disponibile nel volume specificata nell'endpoint cloud. Tuttavia, a volte potrebbe essere necessario forzare manualmente l'archiviazione a livelli di un file. Ciò potrebbe essere utile se si salva un file di grandi dimensioni che non si intende riutilizzare per molto tempo e si vuole destinare lo spazio libero sul volume ad altri file e cartelle. È possibile forzare la suddivisione in livelli con i comandi seguenti di PowerShell:
 
-    ```powershell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-    ```
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
+```
 
 ## <a name="next-steps"></a>Fasi successive
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md) (Pianificazione della distribuzione di Sincronizzazione file di Azure)

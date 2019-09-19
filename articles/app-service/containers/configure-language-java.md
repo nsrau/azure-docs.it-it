@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: f0cbb8d19d2a7d60fdfd3c10a8c9914ffa79e0a3
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8e47365f74668ba2b93bad2b65a9dc9e83080832
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034911"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098132"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java Linux per il servizio app Azure
 
@@ -49,11 +49,11 @@ Nel portale di Azure sono disponibili report sulle prestazioni, visualizzazioni 
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-Per altre informazioni, vedere [Streaming dei log con l'interfaccia della riga di comando di Azure](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
+Per ulteriori informazioni, vedere la pagina relativa ai [log di flusso in cloud Shell](../troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
 ### <a name="app-logging"></a>Registrazione dell'app
 
-Abilitare la [registrazione dell'applicazione](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag) tramite il portale di Azure o l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/log#az-webapp-log-config) per configurare il servizio app per scrivere l'output della console standard dell'applicazione e i flussi di errori della console standard nel file system locale o in Archiviazione BLOB di Azure. La registrazione nell'istanza del file system del servizio app locale viene disabilitata 12 ore dopo la configurazione. Se è necessario un periodo di conservazione più lungo, configurare l'applicazione per scrivere l'output in un contenitore di archiviazione BLOB. I log delle app Java e Tomcat sono reperibili nella directory */Home/LogFiles/Application/*
+Abilitare la [registrazione dell'applicazione](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) tramite il portale di Azure o l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/log#az-webapp-log-config) per configurare il servizio app per scrivere l'output della console standard dell'applicazione e i flussi di errori della console standard nel file system locale o in Archiviazione BLOB di Azure. La registrazione nell'istanza del file system del servizio app locale viene disabilitata 12 ore dopo la configurazione. Se è necessario un periodo di conservazione più lungo, configurare l'applicazione per scrivere l'output in un contenitore di archiviazione BLOB. I log delle app Java e Tomcat sono reperibili nella directory */Home/LogFiles/Application/*
 
 Se l'applicazione usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) per la traccia, è possibile inoltrare queste tracce per la revisione ad Azure Application Insights usando le istruzioni di configurazione del framework di registrazione illustrate in [Esplorare i log di traccia Java in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -696,13 +696,13 @@ Per usare Tomcat con Redis, è necessario configurare l'app per l'uso di un'impl
 
 3. Usare FTP per caricare il file JAR del gestore sessioni nell'istanza del servizio app, inserendolo nella directory */Home/Tomcat/lib* Per altre informazioni, vedere [distribuire l'app nel servizio app Azure tramite FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
 
-4. Disabilitare il [cookie](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) di affinità di sessione per l'istanza del servizio app. È possibile eseguire questa operazione dal portale di Azure passando all'app e quindi impostando **configurazione > Impostazioni generali > affinità arr** su **disattivato**. In alternativa, è possibile usare il comando seguente:
+4. Disabilitare il [cookie di affinità di sessione](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) per l'istanza del servizio app. È possibile eseguire questa operazione dal portale di Azure passando all'app e quindi impostando **configurazione > Impostazioni generali > affinità arr** su **disattivato**. In alternativa, è possibile usare il comando seguente:
 
     ```azurecli
     az webapp update -g <resource group> -n <webapp name> --client-affinity-enabled false
     ```
 
-    Per impostazione predefinita, il servizio App utilizzerà i cookie di affinità di sessione per garantire che le richieste client con sessioni esistenti vengano indirizzate alla stessa istanza dell'applicazione. Questo comportamento predefinito non richiede alcuna configurazione ma non può mantenere lo stato della sessione utente quando l'istanza dell'app viene riavviata o quando il traffico viene reindirizzato a un'altra istanza. Quando si [Disabilita la](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configurazione di affinità dell'istanza di Arr esistente per disattivare il routing basato su cookie di sessione, l'archivio di sessioni configurato funziona senza interferenze.
+    Per impostazione predefinita, il servizio App utilizzerà i cookie di affinità di sessione per garantire che le richieste client con sessioni esistenti vengano indirizzate alla stessa istanza dell'applicazione. Questo comportamento predefinito non richiede alcuna configurazione ma non può mantenere lo stato della sessione utente quando l'istanza dell'app viene riavviata o quando il traffico viene reindirizzato a un'altra istanza. Quando si [Disabilita la configurazione di affinità dell'istanza di Arr esistente](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) per disattivare il routing basato su cookie di sessione, l'archivio di sessioni configurato funziona senza interferenze.
 
 5. Passare alla sezione delle **Proprietà** dell'istanza del servizio app e trovare **altri indirizzi IP in uscita**. Rappresentano tutti i possibili indirizzi IP in uscita per l'app. Copiarli per l'uso nel passaggio successivo.
 
@@ -712,7 +712,7 @@ Per usare Tomcat con Redis, è necessario configurare l'app per l'uso di un'impl
 
 8. Aggiornare la `azure-webapp-maven-plugin` configurazione nel file *POM. XML* dell'app per fare riferimento alle informazioni dell'account Redis. Questo file usa le variabili di ambiente impostate in precedenza per evitare che le informazioni dell'account siano presenti nei file di origine.
 
-    Se necessario, passare `1.7.0` alla versione corrente del plug-in [Maven per app Azure servizio](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+    Se necessario, sostituire `1.7.0` con la versione corrente del [plug-in Maven per il servizio app di Azure](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
     ```xml
     <plugin>

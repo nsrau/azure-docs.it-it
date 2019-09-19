@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fc0f259a4866f7eb2438938c7a10989db9200aa4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 997651887c3c378e4791553d5ff05f585ad169ea
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976966"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000656"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
@@ -35,7 +35,7 @@ Usare questa esercitazione per un'introduzione alla registrazione dell'insieme d
 > Questo articolo fornisce istruzioni per l'aggiornamento della registrazione diagnostica per Azure PowerShell. È anche possibile aggiornare la registrazione diagnostica usando Monitoraggio di Azure nella sezione **Log di diagnostica** del portale di Azure. 
 >
 
-Per informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-whatis.md). Per informazioni sulla disponibilità di Key Vault, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
+Per informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-overview.md). Per informazioni sulla disponibilità di Key Vault, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

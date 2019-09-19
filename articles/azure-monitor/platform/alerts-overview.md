@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: ae3e45ece1bd53846ab7728c29c0da1b709fe42c
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: eab6e7e0fb834447a55b67dfc9a17c470e9e3361
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915954"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091765"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -80,7 +80,7 @@ Nelle versioni precedenti, per le metriche di Monitoraggio di Azure, Application
 
 Sono supportati i tipi di avviso seguenti.
 
-| Stato | DESCRIZIONE |
+| Stato | Descrizione |
 |:---|:---|
 | Nuovo | Il problema è stato appena rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato l'avviso e ha iniziato a lavorare a esso. |
@@ -150,7 +150,7 @@ Per visualizzare la pagina **tutti gli avvisi** , selezionare **Total Alerts**. 
 
 È possibile filtrare la visualizzazione selezionando i valori seguenti nei menu a discesa nella parte superiore della pagina:
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 |:---|:---|
 | Sottoscrizione | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
@@ -171,7 +171,7 @@ Quando si seleziona un avviso, in questa pagina vengono forniti i dettagli dell'
 
 Nella pagina Dettagli avviso sono incluse le seguenti sezioni:
 
-| `Section` | DESCRIZIONE |
+| `Section` | Descrizione |
 |:---|:---|
 | Riepilogo | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
@@ -202,9 +202,9 @@ La richiesta di esempio seguente all'API restituisce il numero di avvisi all'int
   }
 }
 ```
-È possibile eseguire una query sugli avvisi per i campi [essenziali](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) .
+È possibile eseguire una query sugli avvisi per i campi [essenziali](alerts-common-schema-definitions.md#essentials) .
 
-Usare l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) per ottenere altre informazioni su avvisi specifici, inclusi i relativi campi di [contesto degli avvisi](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) .
+Usare l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) per ottenere altre informazioni su avvisi specifici, inclusi i relativi campi di [contesto degli avvisi](alerts-common-schema-definitions.md#alert-context) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
