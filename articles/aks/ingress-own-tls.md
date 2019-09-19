@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 2b30ade9971ede6f9544b618504033553392e9bd
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: fc7f2180e4166070fe44863aed2b12135b0db8ee
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "67615427"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097852"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS e usare i propri certificati TLS nel servizio Azure Kubernetes
 
@@ -40,7 +40,7 @@ Per creare il controller di ingresso, usare `Helm` per installare *Ingresso ngin
 Il controller di ingresso deve anche essere pianificato in un nodo Linux. I nodi di Windows Server (attualmente in anteprima in AKS) non devono eseguire il controller di ingresso. Un selettore di nodo viene `--set nodeSelector` specificato con il parametro per indicare all'utilità di pianificazione di Kubernetes di eseguire il controller di ingresso nginx in un nodo basato su Linux.
 
 > [!TIP]
-> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate ingress *-Basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non è abilitato per il controllo `--set rbac.create=false` degli accessi in base al ruolo, aggiungere ai comandi Helm.
+> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non è abilitato per il controllo `--set rbac.create=false` degli accessi in base al ruolo, aggiungere ai comandi Helm.
 
 > [!TIP]
 > Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for*. Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through SSL non funzionerà.
@@ -133,7 +133,7 @@ Entrambe le applicazioni sono ora in esecuzione nel cluster Kubernetes, anche se
 Nell'esempio seguente il traffico verso l'indirizzo `https://demo.azure.com/` viene instradato al servizio denominato `aks-helloworld`. Il traffico verso l'indirizzo `https://demo.azure.com/hello-world-two` viene instradato al servizio `ingress-demo`. In questo articolo non è necessario modificare i nomi host di demo. Per l'uso in produzione, fornire i nomi specificati come parte del processo di richiesta e generazione del certificato.
 
 > [!TIP]
-> Se il nome host specificato durante il processo di richiesta del certificato, il nome CN, non corrisponde all'host definito nella route di ingresso, il controller di ingresso visualizza un *Certificato finto del controller di ingresso Kubernetes*. Assicurarsi che i nomi host del certificato e della route di ingresso corrispondano.
+> Se il nome host specificato durante il processo di richiesta di certificato, il nome del CN non corrisponde all'host definito nella route di ingresso, il controller di ingresso Visualizza un avviso del *certificato Fake del controller di ingresso Kubernetes* . Assicurarsi che i nomi host del certificato e della route di ingresso corrispondano.
 
 La sezione *tls* indica la route di ingresso per la quale usare il segreto denominato *aks-ingress-tls* per l'host *demo.azure.com*. Anche in questo caso, per l'uso in produzione specificare il proprio indirizzo host.
 

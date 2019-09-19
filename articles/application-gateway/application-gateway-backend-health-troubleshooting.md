@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: ce1d0542530c4f190ace52d45e2369d6ecc18772
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1fd4e9156e29133b1db4fe9ab9a0825eb1aa3b55
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384086"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097585"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Risolvere i problemi di integrità back-end nel gateway applicazione
 ==================================================
@@ -81,10 +81,10 @@ Una volta visualizzato lo stato del server back-end come non integro per tutti i
 Il messaggio visualizzato nella colonna dettagli della scheda integrità back-end fornisce informazioni dettagliate sul problema e, in base a tali informazioni, è possibile iniziare la risoluzione del problema.
 
 > [!NOTE]
-> La richiesta di probe predefinita viene inviata nel formato <protocol>://127.0.0.1:<port>/, ad esempio, <http://127.0.0.1/> per un probe http sulla porta 80 e considera solo una risposta dei codici di stato HTTP 200-399 come risposta integro. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione cerchi un protocollo, un nome host o un percorso diverso e accetti un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
+> La richiesta di probe predefinita viene inviata nel formato \<protocollo\>://127.0.0.1:\<porta\>/, ad esempio, <http://127.0.0.1/> per un probe http sulla porta 80 e considera solo una risposta dei codici di stato HTTP 200-399 come risposta integro. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione cerchi un protocollo, un nome host o un percorso diverso e accetti un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
 
-### <a name="error-messages"></a>Messaggi di errore
-
+<a name="error-messages"></a>Messaggi di errore
+------------------------
 #### <a name="backend-server-timeout"></a>Timeout server back-end
 
 **Messaggio:** Il tempo impiegato dal back-end per rispondere al\'Probe di integrità del gateway applicazione è superiore alla soglia di timeout nell'impostazione del probe.

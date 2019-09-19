@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82fe917f911be45d7f68662e956fe3bd14f92267
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959888"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097561"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protezione password di Azure AD locale - Domande frequenti
 
@@ -136,6 +136,10 @@ No.
 **D: Perché Azure AD continuano a rifiutare password vulnerabili anche se i criteri sono stati configurati in modalità di controllo?**
 
 La modalità di controllo è supportata solo nell'ambiente di Active Directory locale. Azure AD è sempre in modo implicito in modalità "applica" quando valuta le password.
+
+**D: Gli utenti visualizzano il messaggio di errore di Windows tradizionale quando una password viene rifiutata da Azure AD la protezione con password. È possibile personalizzare questo messaggio di errore in modo che gli utenti conoscano effettivamente cosa è successo?**
+
+No. Il messaggio di errore visualizzato dagli utenti quando una password viene rifiutata da un controller di dominio viene controllata dal computer client, non dal controller di dominio. Questo comportamento si verifica se una password viene rifiutata dai criteri predefiniti Active Directory password o da una soluzione basata su filtro password, ad esempio Azure AD la protezione delle password.
 
 ## <a name="additional-content"></a>Contenuto aggiuntivo
 

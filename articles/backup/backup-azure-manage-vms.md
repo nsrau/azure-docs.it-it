@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 025052a5005702232eb9eaf255e6aac2c58fec98
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 0e8dacb97b6ccfb57573fc21c3a4df3694cc7ec8
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735579"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098392"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
@@ -132,11 +132,11 @@ Per arrestare la protezione ed eliminare i dati di una macchina virtuale:
 
 ## <a name="resume-protection-of-a-vm"></a>Riprendere la protezione di una macchina virtuale
 
-Se è stata scelta l'opzione [Interrompi protezione e Mantieni dati di backup](#stop-protection-and-retain-backup-data) durante l'arresto della protezione della macchina virtuale, è possibile usare Riprendi **backup**. Questa opzione non è disponibile se si sceglie [Interrompi protezione ed Elimina dati di backup](#stop-protection-and-delete-backup-data) o [Elimina dati di backup](#delete-backup-data).
+Se è stata scelta l'opzione [Interrompi protezione e Mantieni dati di backup](#stop-protection-and-retain-backup-data) durante l'arresto della protezione della macchina virtuale, è possibile usare **Riprendi backup**. Questa opzione non è disponibile se si sceglie [Interrompi protezione ed Elimina dati di backup](#stop-protection-and-delete-backup-data) o [Elimina dati di backup](#delete-backup-data).
 
 Per riprendere la protezione per una macchina virtuale:
 
-1. Nel [Dashboard dell'elemento](#view-vms-on-the-dashboard)dell'insieme di credenziali fare clic su Riprendi **backup**.
+1. Nel [Dashboard dell'elemento](#view-vms-on-the-dashboard)dell'insieme di credenziali fare clic su **Riprendi backup**.
 
 2. Seguire i passaggi in [gestire i criteri di backup](#manage-backup-policy-for-a-vm) per assegnare i criteri per la macchina virtuale. Non è necessario scegliere i criteri di protezione iniziale della macchina virtuale.
 3. Dopo aver applicato i criteri di backup alla macchina virtuale, viene visualizzato il messaggio seguente:

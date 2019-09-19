@@ -6,43 +6,28 @@ author: mlearned
 manager: gwallace
 ms.service: container-service
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: 3c11367945b74db9be20ade86c7bc26901440e4d
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ab744efd205d826cb7ae2c3eda7bba28f4a9bee0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305155"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097812"
 ---
-# <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Anteprima-eseguire l'autenticazione con Container Registry di Azure dal servizio Azure Kubernetes
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes
 
 Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è necessario definire un meccanismo di autenticazione. Questo articolo illustra in dettaglio le configurazioni consigliate per l'autenticazione tra questi due servizi di Azure.
 
 Con l'interfaccia della riga di comando di Azure è possibile configurare l'integrazione da AKS a ACR con pochi semplici comandi.
-
-> [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
->
-> * [Criteri di supporto AKS](support-policies.md)
-> * [Domande frequenti relative al supporto tecnico Azure](faq.md)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 È necessario disporre di quanto segue:
 
 * **Proprietario** o ruolo di **amministratore dell'account di Azure** nella sottoscrizione di **Azure**
-* È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e l'estensione AKS-Preview 0.4.8
+* È necessaria anche l'interfaccia della riga di comando di Azure 2.0.73 o versione successiva
 * È necessario che [Docker sia installato](https://docs.docker.com/install/) nel client ed è necessario accedere all' [Hub Docker](https://hub.docker.com/)
-
-## <a name="install-latest-aks-cli-preview-extension"></a>Installare la versione di anteprima dell'interfaccia della riga di comando AKS
-
-È necessaria l'estensione **0.4.13 di AKS-Preview** o successiva.
-
-```azurecli
-az extension remove --name aks-preview 
-az extension add -y --name aks-preview
-```
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Creare un nuovo cluster AKS con l'integrazione con ACR
 
@@ -52,7 +37,7 @@ az login
 az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
 az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
 ```
-\* * L'ID di una risorsa ACR ha il formato seguente: 
+**Un ID di risorsa ACR ha il formato seguente:** 
 
 /Subscriptions/< Subscription-d >/resourceGroups/< Resource-Group-Name >/providers/Microsoft.ContainerRegistry/registries/{name} 
   

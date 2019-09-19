@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4c6499cd0e105e28954b6d4df667c71a51b9ccff
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 432d81b4282e45bc2f33d098e618f2edd152628b
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017764"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098017"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -28,7 +28,7 @@ La prossima versione di Analisi del sentiment è ora disponibile per l'anteprima
 * Assegnazione automatica di etichette per diversi sentimenti nel testo.
 * Analisi dei sentimenti e output a livello di documento e di frase. 
 
-Supporta l'inglese, il giapponese e il cinese semplificato ed è disponibile nelle aree seguenti `Australia East`: `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US` , , `UK South`,e .`West US 2` `West Europe`
+Supporta inglese, francese, italiano, giapponese, `Australia East`cinese semplificato e cinese tradizionale ed è disponibile nelle aree seguenti:, `Central Canada`, `Central US`, `East Asia`, `East US`,, `North Europe` `East US 2` , `Southeast Asia`, `South Central US`, `UK South`, e.`West Europe` `West US 2`
 
 > [!div class="nextstepaction"]
 > [Altre informazioni su Analisi del sentiment V3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)

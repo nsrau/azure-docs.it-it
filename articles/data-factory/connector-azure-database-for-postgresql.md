@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: d6b860f43abae2283b4889bff0913bac25c821f5
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4cb6f420b6d084539dc98a09632d0760a1344012
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017770"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092182"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copiare dati da e verso il database di Azure per PostgreSQL usando Azure Data Factory
 
@@ -29,7 +29,7 @@ Questo connettore è specializzato per il [servizio database di Azure per Postgr
 
 Questo connettore di database di Azure per PostgreSQL è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine supportata](copy-activity-overview.md)
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare i dati dal Database di Azure per PostgreSQL a un qualsiasi archivio dati sink supportato. In alternativa, è possibile copiare dati da qualsiasi archivio dati di origine supportato a database di Azure per PostgreSQL. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -54,7 +54,7 @@ Per il servizio collegato Database di Azure per PostgreSQL sono supportate le pr
 
 Una stringa di connessione tipica è `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Altre proprietà che è possibile impostare per il case:
 
-| Proprietà | Descrizione | Opzioni | Obbligatoria |
+| Proprietà | DESCRIZIONE | Opzioni | Obbligatoria |
 |:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| Il metodo usato dal driver per crittografare i dati inviati tra il driver e il server di database. Ad esempio,`EncryptionMethod=<0/1/6>;`| 0 (Nessuna crittografia) **(impostazione predefinita)** / 1 (SSL) / 6 (RequestSSL) | No |
 | ValidateServerCertificate (VSC) | Determina se il driver convalida il certificato inviato dal server di database quando è abilitata la crittografia SSL (metodo di crittografia = 1). Ad esempio,`ValidateServerCertificate=<0/1>;`| 0 (disabilitato) **(impostazione predefinita)** / 1 (abilitato) | No |
@@ -138,7 +138,7 @@ Per copiare i dati da un Database di Azure per PostgreSQL, impostare il tipo di 
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AzurePostgreSqlSource** | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AzurePostgreSqlSource** | Yes |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
@@ -179,7 +179,7 @@ Per copiare dati in database di Azure per PostgreSQL, nella sezione **sink** del
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su: **AzurePostgreSQLSink** | Yes |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su: **AzurePostgreSQLSink** | Sì |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nel database di Azure per PostgreSQL a ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. | No |
 | writeBatchSize | Inserisce i dati nella tabella di database di Azure per PostgreSQL quando la dimensione del buffer raggiunge writeBatchSize.<br>Il valore consentito è Integer che rappresenta il numero di righe. | No (il valore predefinito è 10.000) |
 | writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br>I valori consentiti sono un intervallo di tempo. Ad esempio "00:30:00" (30 minuti). | No (il valore predefinito è 00:00:30) |

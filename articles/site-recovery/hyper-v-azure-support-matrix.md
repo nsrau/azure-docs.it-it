@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: 75a8207cd214a63258ddb167b887fe83b7aa032a
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 784bf15a58e25ba4cba18494adc295343d0c175a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008835"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098886"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -58,16 +58,16 @@ Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportati. 
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Rete host: gruppo NIC | Yes | Sì
-Rete host: VLAN | Sì | Yes
+Rete host: gruppo NIC | Yes | Yes
+Rete host: VLAN | Yes | Sì
 Rete host: IPv4 | Sì | Yes
 Rete host: IPv6 | No | No
 Rete macchine virtuali guest: gruppo NIC | No | No
 Rete macchine virtuali guest: IPv4 | Sì | Yes
-Rete macchine virtuali guest: IPv6 | No | Yes
-Rete macchine virtuali guest: IP statico (Windows) | Sì | Yes
+Rete macchine virtuali guest: IPv6 | No | Sì
+Rete macchine virtuali guest: IP statico (Windows) | Sì | Sì
 Rete macchine virtuali guest: IP statico (Linux) | No | No
-Rete macchine virtuali guest: Più NIC | Sì | Yes
+Rete macchine virtuali guest: Più NIC | Sì | Sì
 
 
 
@@ -75,15 +75,15 @@ Rete macchine virtuali guest: Più NIC | Sì | Yes
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Azure ExpressRoute | Yes | Sì
-ILB | Yes | Sì
+Azure ExpressRoute | Sì | Yes
+ILB | Sì | Yes
 ELB | Sì | Sì
-Gestione traffico di Azure | Yes | Yes
-Più NIC | Sì | Yes
+Gestione traffico di Azure | Sì | Sì
+Più NIC | Sì | Sì
 IP riservato | Sì | Sì
 IPv4 | Sì | Yes
-Conservazione indirizzo IP di origine | Yes | Yes
-Endpoint servizio di rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì | Yes
+Conservazione indirizzo IP di origine | Sì | Yes
+Endpoint servizio di rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì | Sì
 Rete accelerata | No | No
 
 
@@ -93,17 +93,17 @@ Rete accelerata | No | No
 --- | --- | --- 
 NFS | ND | ND
 SMB 3.0 | Yes | Sì
-SAN (iSCSI) | Sì | Yes
-Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Sì | Sì
+SAN (iSCSI) | Sì | Sì
+Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Yes | Sì
 
 ## <a name="hyper-v-vm-guest-storage"></a>Archiviazione VM guest Hyper-V
 
 **Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
 VMDK | ND | ND
-VHD/VHDX | Yes | Sì
+VHD/VHDX | Sì | Yes
 VM Gen 2 | Sì | Sì
-EFI/UEFI| Yes | Sì
+EFI/UEFI| Sì | Sì
 Disco cluster condiviso | No | No
 Disco crittografato | No | No
 NFS | ND | ND
@@ -111,28 +111,28 @@ SMB 3.0 | No | No
 RDM | ND | ND
 Disco superiore a 1 TB | Sì, fino a 4.095 GB | Sì, fino a 4.095 GB
 Disco: dimensioni logiche e fisiche di settore a 4 KB | Non supportato: Gen 1/Gen 2 | Non supportato: Gen 1/Gen 2
-Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Sì |  Yes
+Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Sì |  Sì
 Gestione volumi logici (LVM). LVM è supportata solo nei dischi dati. Azure ha un solo disco di sistema operativo. | Yes | Sì
 Volume con disco con striping superiore a 1 TB | Yes | Sì
 Spazi di archiviazione | No | No
 Aggiunta/rimozione a caldo disco | No | No
-Esclusione disco | Sì | Yes
-Percorsi multipli (MPIO) | Sì | Sì
+Esclusione disco | Sì | Sì
+Percorsi multipli (MPIO) | Sì | Yes
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Archiviazione con ridondanza locale | Sì | Yes
+Archiviazione con ridondanza locale | Sì | Sì
 Archiviazione con ridondanza geografica | Yes | Sì
 Archiviazione con ridondanza geografica e accesso in lettura | Sì | Sì
 Archiviazione ad accesso sporadico | No | No
 Archiviazione ad accesso frequente| No | No
 BLOB in blocchi | No | No
-Crittografia per dati inattivi (SSE)| Sì | Sì
-Archiviazione Premium | Yes | Yes
+Crittografia per dati inattivi (SSE)| Yes | Sì
+Archiviazione Premium | Sì | Yes
 Servizio di importazione/esportazione | No | No
-Account di archiviazione di Azure con firewall abilitato | No  | Sì. Per l'archiviazione e la cache di destinazione.
+Account di archiviazione di Azure con firewall abilitato | Sì. Per l'archiviazione e la cache di destinazione. | Sì. Per l'archiviazione e la cache di destinazione.
 Modifica account di archiviazione | No. L'account di archiviazione di Azure di destinazione non può essere modificato dopo l'abilitazione della replica. Per modificare, disabilitare e quindi riabilitare il ripristino di emergenza. | No
 
 
@@ -140,7 +140,7 @@ Modifica account di archiviazione | No. L'account di archiviazione di Azure di d
 
 **Funzionalità** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Set di disponibilità | Sì | Sì
+Set di disponibilità | Sì | Yes
 HUB | Sì | Sì  
 Dischi gestiti | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti. | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti.
 

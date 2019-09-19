@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d42c961054927581e7cc43b6f467e5d3e23c4e
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 395957099a19d11d26fb5bdd2a1eecdd5590dd64
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996733"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056141"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 
@@ -33,13 +33,13 @@ Usare il portale di Azure Active Directory per visualizzare e gestire tutte le a
 1. Aprire il [portale di Azure Active Directory](https://aad.portal.azure.com).
 1. Selezionare **applicazioni aziendali** dal riquadro sinistro. Viene visualizzato un elenco di tutte le app configurate, incluse le app aggiunte dalla raccolta.
 1. Selezionare un'app per caricare il riquadro delle risorse, in cui è possibile visualizzare i report e gestire le impostazioni dell'app.
-1. Selezionare il provisioning per gestire le impostazioni di provisioning degli account utente per l'app selezionata.
+1. Selezionare il **provisioning** per gestire le impostazioni di provisioning degli account utente per l'app selezionata.
 
    ![Schermata di provisioning per gestire le impostazioni di provisioning degli account utente](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modalità di provisioning
 
-Il riquadro provisioning inizia con un menu **modalità** , che mostra le modalità di provisioning supportate per un'applicazione aziendale e consente di configurarle. Le opzioni disponibili includono:
+Il riquadro **provisioning** inizia con un menu **modalità** , che mostra le modalità di provisioning supportate per un'applicazione aziendale e consente di configurarle. Le opzioni disponibili includono:
 
 * **Automatico** : questa opzione viene visualizzata se Azure ad supporta il provisioning automatico basato su API o il deprovisioning degli account utente in questa applicazione. Selezionare questa modalità per visualizzare un'interfaccia che consente agli amministratori di:
 
@@ -79,16 +79,16 @@ Le personalizzazioni supportate includono:
 
 ### <a name="settings"></a>Impostazioni
 
-È possibile avviare e arrestare il servizio di provisioning Azure AD per l'applicazione selezionata nell'area **Impostazioni** della schermata di provisioning. È anche possibile scegliere di cancellare la cache di provisioning e riavviare il servizio.
+È possibile avviare e arrestare il servizio di provisioning Azure AD per l'applicazione selezionata nell'area **Impostazioni** della schermata di **provisioning** . È anche possibile scegliere di cancellare la cache di provisioning e riavviare il servizio.
 
-Se il provisioning viene abilitato per la prima volta per un'applicazione, attivare il servizio impostando **Stato del provisioning** su **Sì**. Questa modifica fa in modo che il servizio di provisioning di Azure AD esegua una sincronizzazione iniziale. Vengono letti gli utenti assegnati nella sezione **utenti e gruppi** , viene eseguita una query sull'applicazione di destinazione, quindi vengono eseguite le azioni di provisioning definite nella sezione **mapping** Azure ad. Durante questo processo, il servizio di provisioning archivia i dati memorizzati nella cache sugli account utente che gestisce, quindi gli account non gestiti nelle applicazioni di destinazione che non si trovano mai nell'ambito dell'assegnazione non sono interessati dalle operazioni di deprovisioning. Dopo la sincronizzazione iniziale, il servizio di provisioning sincronizza automaticamente gli oggetti utente e gruppo a intervalli di dieci minuti.
+Se il provisioning viene abilitato per la prima volta per un'applicazione, attivare il servizio impostando **Stato del provisioning** su **Sì**. Questa modifica determina l'esecuzione di un ciclo iniziale da parte del servizio Azure AD provisioning. Vengono letti gli utenti assegnati nella sezione **utenti e gruppi** , viene eseguita una query sull'applicazione di destinazione, quindi vengono eseguite le azioni di provisioning definite nella sezione **mapping** Azure ad. Durante questo processo, il servizio di provisioning archivia i dati memorizzati nella cache sugli account utente che gestisce, quindi gli account non gestiti nelle applicazioni di destinazione che non si trovano mai nell'ambito dell'assegnazione non sono interessati dalle operazioni di deprovisioning. Dopo il ciclo iniziale, il servizio di provisioning sincronizza automaticamente gli oggetti utente e gruppo in un intervallo di 10 minuti.
 
-Impostare **stato** del provisioning su **disattivato** per sospendere il servizio di provisioning. In questo stato, Azure non crea, aggiorna o rimuove gli oggetti utente o gruppo nell'app. Ripristinare lo stato **su on** e il servizio preleva il punto da cui è stato interrotto.
+Impostare **stato del provisioning** su **disattivato** per sospendere il servizio di provisioning. In questo stato, Azure non crea, aggiorna o rimuove gli oggetti utente o gruppo nell'app. Ripristinare lo stato **su on** e il servizio preleva il punto da cui è stato interrotto.
 
 Selezionare la casella di controllo **Cancella lo stato corrente e riavvia la sincronizzazione** e selezionare **Salva** in:
 
 * Arrestare il servizio di provisioning
 * Dump dei dati memorizzati nella cache sugli account che Azure AD gestisce
-* Riavviare i servizi ed eseguire di nuovo la sincronizzazione iniziale
+* Riavviare i servizi ed eseguire di nuovo il ciclo iniziale
 
 Questa opzione consente agli amministratori di avviare di nuovo il processo di distribuzione del provisioning.

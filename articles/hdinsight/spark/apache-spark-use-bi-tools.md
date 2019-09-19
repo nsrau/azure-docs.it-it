@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/16/2019
-ms.openlocfilehash: 319668ac81b390f9a8bf70da36dd3cf1508f5c37
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bb803861fa64beb0b4afe2202230209493f42a1d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885169"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003649"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Esercitazione: Analizzare dati di Apache Spark usando Power BI in HDInsight
 
@@ -46,7 +46,7 @@ Il [notebook Jupyter](https://jupyter.org/) creato nell'[esercitazione precedent
 
     L'output è simile al seguente:
 
-    ![Mostra tabelle in Spark](./media/apache-spark-use-bi-tools/show-tables.png)
+    ![Mostra tabelle in Spark](./media/apache-spark-use-bi-tools/apache-spark-show-tables.png)
 
     Se il notebook è stato chiuso prima di iniziare questa esercitazione, `hvactemptable` è stato eliminato e non è stato quindi incluso nell'output.  Dagli strumenti BI è possibile accedere solo alle tabelle Hive archiviate nel metastore (indicato da **False** nella colonna **isTemporary**). In questa esercitazione si esegue la connessione alla tabella **hvac** creata.
 
@@ -59,7 +59,7 @@ Il [notebook Jupyter](https://jupyter.org/) creato nell'[esercitazione precedent
 
     L'output è simile al seguente:
 
-    ![Visualizzazione delle righe dalla tabella hvac in Spark](./media/apache-spark-use-bi-tools/select-limit.png)
+    ![Visualizzazione delle righe dalla tabella hvac in Spark](./media/apache-spark-use-bi-tools/apache-spark-select-limit.png)
 
 3. Nel menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Arrestare il notebook per rilasciare le risorse.
 
@@ -127,31 +127,32 @@ I primi passaggi nell'uso di Spark sono la connessione al cluster in Power BI De
 Il servizio Power BI consente di condividere report e dashboard nell'organizzazione. In questa sezione prima si pubblicano i set di dati e il report, quindi si aggiunge il report a un dashboard. I dashboard sono in genere usati per concentrare l'attenzione su un subset di dati di un report. Nel report in uso è presente solo una visualizzazione, ma è comunque utile eseguire i passaggi.
 
 1. Aprire Power BI Desktop.
-2. Nella scheda **Home** fare clic su **Pubblica**.
+
+1. Nella scheda **Home** fare clic su **Pubblica**.
 
     ![Pubblicazione da Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Pubblicazione da Power BI Desktop")
 
-2. Selezionare un'area di lavoro in cui pubblicare il set di dati e il report e quindi fare clic su **Seleziona**. Nella figura seguente è selezionato il valore predefinito **Area di lavoro personale**.
+1. Selezionare un'area di lavoro in cui pubblicare il set di dati e il report e quindi fare clic su **Seleziona**. Nella figura seguente è selezionato il valore predefinito **Area di lavoro personale**.
 
     ![Selezionare l'area di lavoro in cui pubblicare il set di dati e il report](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Selezionare l'area di lavoro in cui pubblicare il set di dati e il report") 
 
-3. Al termine della pubblicazione, fare clic su **Apri 'BuildingTemperature.pbix' in Power BI**.
+1. Al termine della pubblicazione, fare clic su **Apri 'BuildingTemperature.pbix' in Power BI**.
 
     ![Pubblicazione riuscita, fare clic per immettere le credenziali](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Pubblicazione riuscita, fare clic per immettere le credenziali") 
 
-4. Nel servizio Power BI fare clic su **Immettere le credenziali**.
+1. Nel servizio Power BI fare clic su **Immettere le credenziali**.
 
     ![Immettere le credenziali nel servizio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Immettere le credenziali nel servizio Power BI")
 
-5. Fare clic su **Modifica credenziali**.
+1. Fare clic su **Modifica credenziali**.
 
     ![Modificare le credenziali nel servizio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Modificare le credenziali nel servizio Power BI")
 
-6. Immettere le informazioni account di accesso HDInsight e quindi fare clic su **Accedi**. Il nome account predefinito è *admin*.
+1. Immettere le informazioni account di accesso HDInsight e quindi fare clic su **Accedi**. Il nome account predefinito è *admin*.
 
     ![Accesso al cluster Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Accesso al cluster Spark")
 
-7. Nel riquadro a sinistra passare ad **Aree di lavoro** > **Area di lavoro personale** > **REPORT** e quindi fare clic su **BuildingTemperature**.
+1. Nel riquadro a sinistra passare ad **Aree di lavoro** > **Area di lavoro personale** > **REPORT** e quindi fare clic su **BuildingTemperature**.
 
     ![Report elencato tra i report nel riquadro a sinistra](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Report elencato tra i report nel riquadro a sinistra")
 
@@ -159,15 +160,15 @@ Il servizio Power BI consente di condividere report e dashboard nell'organizzazi
 
     L'oggetto visivo creato in Power BI Desktop è ora disponibile nel servizio Power BI. 
 
-8. Passare il cursore sopra la visualizzazione e quindi fare clic sull'icona della puntina nell'angolo in alto a destra.
+1. Passare il cursore sopra la visualizzazione e quindi fare clic sull'icona della puntina nell'angolo in alto a destra.
 
     ![Report nel servizio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Report nel servizio Power BI")
 
-9. Selezionare "Nuovo dashboard", immettere il nome `Building temperature` e quindi fare clic su **Aggiungi**.
+1. Selezionare "Nuovo dashboard", immettere il nome `Building temperature` e quindi fare clic su **Aggiungi**.
 
     ![Aggiunta al nuovo dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Aggiunta al nuovo dashboard")
 
-10. All'interno del report fare clic su **Vai al dashboard**. 
+1. All'interno del report fare clic su **Vai al dashboard**.
 
 L'oggetto visivo è stato aggiunto al dashboard. È possibile aggiungere altri oggetti visivi al report e aggiungerli poi allo stesso dashboard. Per altre informazioni su report e dashboard, vedere [Report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) e [Dashboard in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 

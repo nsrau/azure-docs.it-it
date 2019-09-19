@@ -2,18 +2,18 @@
 title: Strumenti Data Lake per Visual Studio con Hortonworks Sandbox - Azure HDInsight
 description: Informazioni su come usare gli strumenti Azure Data Lake per VIsual Studio con Sandbox di Hortonworks (in esecuzione su una macchina virtuale locale). Grazie a questi strumenti è possibile creare ed eseguire i processi Hive e Pig in Sandbox, oltre a visualizzare l'output del processo e la cronologia.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: hrasheed
-ms.openlocfilehash: a80cc44dbc4be0728ad632eefd8b9ed62f7f86b1
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 1edab776ec93f057ebf7e37ac887747f86a27db9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962176"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098766"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usare gli strumenti Azure Data Lake per Visual Studio con Sandbox di Hortonworks
 
@@ -41,7 +41,7 @@ Assicurarsi che l'ambiente Hortonworks Sandbox sia in esecuzione. Seguire la pro
 
 2. In **Esplora server** fare clic con il pulsante destro del mouse sulla voce **HDInsight** e quindi scegliere **Connect to HDInsight Emulator** (Connetti a HDInsight Emulator).
 
-    ![Schermata di Esplora Server con Connetti a HDInsight Emulator evidenziato](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
+    ![Esplora server, con Connetti all'emulatore di HDInsight evidenziato](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
 
 3. Nella finestra di dialogo **Connect to HDInsight Emulator** (Connetti a HDInsight Emulator) immettere la password configurata per Ambari.
 
@@ -112,7 +112,7 @@ Hive fornisce un linguaggio di query simile a SQL (HiveQL) per la gestione dei d
     > [!NOTE]  
     > Si tratta delle stesse informazioni accessibili dal collegamento **Log processo** dopo il completamento del processo.
 
-    ![Schermata del log di output](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output-box.png)
+    ![Screenshot dell'output di HiveServer2](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output-box.png)
 
 ## <a name="create-a-hive-project"></a>Creare un progetto Hive
 
@@ -122,7 +122,7 @@ Inoltre, è possibile creare un progetto che contiene più script Hive. Usare un
 
 2. Nell'elenco dei progetti espandere **Modelli** e **Azure Data Lake**, quindi selezionare **HIVE (HDInsight)** . Nell'elenco dei modelli selezionare **Hive Sample** (Esempio Hive). Immettere un nome e un percorso e quindi selezionare **OK**.
 
-    ![Screenshot della finestra Nuovo progetto, con Azure Data Lake, HIVE, Hive Sample e OK evidenziati](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
+    ![Finestra nuovo progetto, con Azure Data Lake, esempio hive e OK](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
 
 Il progetto **Hive Sample** (Esempio Hive) contiene due script, **WebLogAnalysis.hql** e **SensorDataAnalysis.hql**. È possibile inviare gli script usando lo stesso pulsante **Invia** nella parte superiore della finestra.
 
@@ -179,7 +179,7 @@ Gli strumenti Data Lake consentono anche di visualizzare facilmente le informazi
 
 2. L'espansione della consente di visualizzare le colonne presenti in essa. Per visualizzare rapidamente i dati fare clic con il pulsante destro del mouse su una tabella e scegliere **Visualizza prime 100 righe**.
 
-    ![Schermata di Esplora server con tabella espansa e opzione Visualizza prime 100 righe selezionata](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
+    ![Esplora server, con tabella espansa e visualizza le prime 100 righe selezionate](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
 
 ### <a name="database-and-table-properties"></a>Proprietà del database e della tabella
 

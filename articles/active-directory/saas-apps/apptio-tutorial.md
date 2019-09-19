@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07a978004ee8d2e25772f0d393529cbb509380a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d0ac86dcdb698c554c40325d6a20d6d27de908f8
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967219"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104375"
 ---
 # <a name="tutorial-integrate-apptio-with-azure-active-directory"></a>Esercitazione: Integrare Apptio con Azure Active Directory
 
@@ -85,7 +85,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     Nella casella di testo **Identificatore** digitare il valore `urn:federation:apptio`
 
-5. L'applicazione Apptio prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su  **Modifica** per aprire la finestra di dialogo Attributi utente.
+5. L'applicazione Apptio prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     ![image](common/edit-attribute.png)
 
@@ -130,7 +130,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
     1. Nel campo **Nome** immettere `B.Simon`.  
     1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
     1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-    1. Fare clic su **Create**(Crea).
+    1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -156,7 +156,7 @@ Per configurare l'accesso Single Sign-On sul lato **Apptio**, è necessario invi
 
 ### <a name="create-apptio-test-user"></a>Creare un utente di test di Apptio
 
-In questa sezione viene creato un utente di nome B.Simon in Apptio. Per aggiungere utenti nella piattaforma Apptio, rivolgersi al  [team di supporto di Apptio](https://www.apptio.com/about/contact). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B.Simon in Apptio. Collaborare con il [team di supporto di Apptio](https://www.apptio.com/about/contact) per aggiungere gli utenti alla piattaforma Apptio. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

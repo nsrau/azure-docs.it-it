@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/23/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 651c15c8206f7956bb35520f9c5837cb0c9308f9
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 06b2c273f41bfa74ee968b6fd6676e83767ce8b2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980699"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063265"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Esercitazione: Registrare un'applicazione in Azure Active Directory B2C
 
-Prima che le [applicazioni](active-directory-b2c-apps.md) possano interagire con Azure Active Directory (Azure AD) B2C, devono essere registrate in un tenant gestito. Questa esercitazione mostra come registrare un'applicazione Web usando il portale di Azure.
+Prima che le [applicazioni](active-directory-b2c-apps.md) possano interagire con Azure Active Directory B2C (Azure ad B2C), devono essere registrate in un tenant gestito dall'utente. Questa esercitazione mostra come registrare un'applicazione Web usando il portale di Azure.
 
 In questo articolo viene spiegato come:
 
@@ -35,7 +35,7 @@ Se non è ancora stato creato un [tenant Azure AD B2C](tutorial-create-tenant.md
 
 ## <a name="register-a-web-application"></a>Registrare un'applicazione Web
 
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Applicazioni** e quindi **Aggiungi**.
 1. Immettere un nome per l'applicazione. Ad esempio, *webapp1*.

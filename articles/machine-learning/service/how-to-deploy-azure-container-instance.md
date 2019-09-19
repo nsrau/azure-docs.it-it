@@ -1,7 +1,7 @@
 ---
 title: Come distribuire i modelli in istanze di contenitore di Azure
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come distribuire i modelli di servizio Azure Machine Learning come servizio Web usando istanze di contenitore di Azure.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando istanze di contenitore di Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: cb80cb92ef93132aae3c57e74c108293da3a7834
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279147"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034640"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuire un modello in istanze di contenitore di Azure
 
-Informazioni su come usare il servizio Azure Machine Learning per distribuire un modello come servizio Web in istanze di contenitore di Azure (ACI). Usare istanze di contenitore di Azure se si verifica una delle condizioni seguenti:
+Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web in istanze di contenitore di Azure (ACI). Usare istanze di contenitore di Azure se si verifica una delle condizioni seguenti:
 
 - È necessario distribuire e convalidare rapidamente il modello. Non è necessario creare in anticipo i contenitori ACI. Vengono creati come parte del processo di distribuzione.
 - Si sta eseguendo il test di un modello in fase di sviluppo. 
@@ -28,7 +28,7 @@ Per informazioni sulla disponibilità di quote e aree per ACI, vedere l'articolo
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'area di lavoro del servizio Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro del servizio Azure Machine Learning](how-to-manage-workspace.md).
+- Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
 - Un modello di apprendimento automatico registrato nell'area di lavoro. Se non si dispone di un modello registrato, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
@@ -78,7 +78,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
 
-## <a name="using-vs-code"></a>Utilizzo di VS Code
+## <a name="using-vs-code"></a>Uso di VS Code
 
 Vedere [distribuire i modelli con vs code](how-to-vscode-tools.md#deploy-and-manage-models).
 

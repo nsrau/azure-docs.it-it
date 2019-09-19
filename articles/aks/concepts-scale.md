@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4fc34ed5cdd53977aa20bef84200ba2bf5386979
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899480"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097834"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
-Quando si eseguono applicazioni nel servizio Azure Kubernetes può risultare necessario aumentare o ridurre la quantità di risorse di calcolo. Se cambia il numero di istanze dell'applicazione necessarie, potrebbe risultare necessario cambiare anche il numero di nodi Kubernetes sottostanti. Potrebbe anche nascere l'esigenza di effettuare rapidamente il provisioning di un numero elevato di istanze aggiuntive dell'applicazione.
+Quando si eseguono applicazioni nel servizio Azure Kubernetes può risultare necessario aumentare o ridurre la quantità di risorse di calcolo. Se cambia il numero di istanze dell'applicazione necessarie, potrebbe risultare necessario cambiare anche il numero di nodi Kubernetes sottostanti. Potrebbe anche essere necessario effettuare rapidamente il provisioning di un numero elevato di istanze di applicazioni aggiuntive.
 
 Questo articolo introduce i principali concetti utili per gestire il ridimensionamento delle applicazioni nel servizio Azure Kubernetes:
 
@@ -27,7 +27,7 @@ Questo articolo introduce i principali concetti utili per gestire il ridimension
 
 ## <a name="manually-scale-pods-or-nodes"></a>Ridimensionare manualmente i pod o i nodi
 
-È possibile ridimensionare manualmente le repliche (pod) e i nodi per verificare come risponde l'applicazione a una modifica delle risorse disponibili e dello stato. Il ridimensionamento manuale delle risorse consente anche di definire una quantità specifica di risorse da usare per mantenere un costo fisso, ad esempio il numero di nodi. Per il ridimensionamento manuale occorre definire il numero di repliche o di nodi e l'API di Kubernetes pianifica la creazione di pod aggiuntivi o lo svuotamento dei nodi.
+È possibile ridimensionare manualmente le repliche (pod) e i nodi per verificare come risponde l'applicazione a una modifica delle risorse disponibili e dello stato. Il ridimensionamento manuale delle risorse consente anche di definire una quantità specifica di risorse da usare per mantenere un costo fisso, ad esempio il numero di nodi. Per eseguire manualmente la scalabilità, è necessario definire la replica o il numero di nodi. L'API Kubernetes pianifica quindi la creazione di Pod aggiuntivi o lo svuotamento dei nodi in base alla replica o al numero di nodi.
 
 Per iniziare a ridimensionare manualmente i pod e i nodi, vedere [ridimensionare le applicazioni in AKS][aks-scale].
 
@@ -43,15 +43,15 @@ Per iniziare a usare il servizio di scalabilità automatica di Pod orizzontali i
 
 ### <a name="cooldown-of-scaling-events"></a>Raffreddamento degli eventi di ridimensionamento
 
-Dato che il ridimensionamento automatico orizzontale dei pod controlla l'API Metriche ogni 30 secondi, è possibile che eventi di ridimensionamento precedenti non siano stati completati prima dell'esecuzione del controllo successivo. A causa di questo comportamento, il ridimensionamento automatico orizzontale dei pod potrebbe modificare il numero di repliche prima che l'evento di ridimensionamento precedente sia riuscito a ricevere il carico di lavoro dell'applicazione e le richieste di risorse da modificare di conseguenza.
+Dato che il ridimensionamento automatico orizzontale dei pod controlla l'API Metriche ogni 30 secondi, è possibile che eventi di ridimensionamento precedenti non siano stati completati prima dell'esecuzione del controllo successivo. Questo comportamento potrebbe causare la modifica del numero di repliche prima che l'evento di scalabilità precedente possa ricevere il carico di lavoro dell'applicazione e la necessità di modificare di conseguenza la risorsa.
 
-Per ridurre al minimo questi eventi di corsa, vengono impostati i valori di ricarica o ritardo. Questi valori indicano il tempo di attesa di un evento di ridimensionamento da parte del ridimensionamento automatico orizzontale dei pod prima che possa essere attivato un altro evento di ridimensionamento. Questo comportamento consente al nuovo numero di repliche di diventare effettivo e all'API Metriche di rispecchiare il carico di lavoro distribuito. Per impostazione predefinita, il ritardo per gli eventi di aumento delle risorse è di 3 minuti e il ritardo per gli eventi di riduzione delle risorse è di 5 minuti.
+Per ridurre al minimo questi eventi di corsa, vengono impostati i valori di ricarica o ritardo. Questi valori indicano il tempo di attesa di un evento di ridimensionamento da parte del ridimensionamento automatico orizzontale dei pod prima che possa essere attivato un altro evento di ridimensionamento. Questo comportamento consente di rendere effettivo il nuovo conteggio delle repliche e l'API metrica per riflettere il carico di lavoro distribuito. Per impostazione predefinita, il ritardo per gli eventi di aumento delle risorse è di 3 minuti e il ritardo per gli eventi di riduzione delle risorse è di 5 minuti.
 
 Attualmente, non è possibile ottimizzare i valori di cooldown dal valore predefinito.
 
 ## <a name="cluster-autoscaler"></a>Ridimensionamento automatico del cluster
 
-Per rispondere alle mutevoli richieste di Pod, Kubernetes dispone di un cluster AutoScaler (attualmente disponibile in anteprima in AKS) che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il servizio di scalabilità automatica del cluster controlla il server API metrica ogni 10 secondi per eventuali modifiche necessarie nel numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
+Per rispondere alle mutevoli richieste di Pod, Kubernetes dispone di un cluster AutoScaler, attualmente disponibile in anteprima in AKS, che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il servizio di scalabilità automatica del cluster controlla il server API metrica ogni 10 secondi per eventuali modifiche necessarie nel numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
 
 ![Ridimensionamento automatico del cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
@@ -63,15 +63,15 @@ Per iniziare a usare il servizio di scalabilità automatica del cluster in AKS, 
 
 ### <a name="scale-up-events"></a>Eventi di aumento delle risorse
 
-Se un nodo non ha risorse di calcolo sufficienti per eseguire un pod richiesto, quel pod non può procedere nel processo di pianificazione. Il pod non può essere avviato a meno che non siano disponibili risorse di calcolo aggiuntive all'interno del pool di nodi.
+Se un nodo non dispone di risorse di calcolo sufficienti per eseguire un pod richiesto, il Pod non può avanzare durante il processo di pianificazione. Il Pod non può essere avviato se non sono disponibili risorse di calcolo aggiuntive nel pool di nodi.
 
-Quando il ridimensionamento automatico del cluster rileva pod non pianificabili a causa dei vincoli di risorse del pool di nodi, il numero di nodi all'interno del pool viene aumentato per fornire risorse di calcolo aggiuntive. Dopo la distribuzione corretta di tali nodi aggiuntivi e quando sono disponibili per l'uso all'interno del pool di nodi, i pod vengono quindi pianificati per l'esecuzione su tali nodi.
+Quando il servizio di scalabilità automatica del cluster rileva i pod che non possono essere pianificati a causa dei vincoli delle risorse del pool di nodi, il numero di nodi all'interno del pool di nodi viene aumentato per fornire le risorse di calcolo aggiuntive. Dopo la distribuzione corretta di tali nodi aggiuntivi e quando sono disponibili per l'uso all'interno del pool di nodi, i pod vengono quindi pianificati per l'esecuzione su tali nodi.
 
 Se l'applicazione deve essere ridimensionata rapidamente, alcuni pod potrebbero rimanere in attesa di pianificazione fino a quando i nodi aggiuntivi distribuiti dal ridimensionamento automatico del cluster non possono accettare i pod pianificati. Per le applicazioni con richieste burst elevate, è possibile gestire il ridimensionamento con nodi virtuali e Istanze di Azure Container.
 
 ### <a name="scale-down-events"></a>Eventi di riduzione delle risorse
 
-Il ridimensionamento automatico del cluster esegue il monitoraggio anche dello stato di pianificazione dei pod per i nodi che non hanno ricevuto di recente nuove richieste di pianificazione. Questo scenario indica che il pool di nodi ha più risorse di calcolo del necessario e che il numero di nodi può essere ridotto.
+Il servizio di scalabilità automatica del cluster monitora anche lo stato di pianificazione dei pod per i nodi che non hanno ricevuto di recente nuove richieste di pianificazione. Questo scenario indica che il pool di nodi ha più risorse di calcolo di quelle richieste e il numero di nodi può essere ridotto.
 
 Un nodo che supera una soglia perché non è più richiesto per 10 minuti viene pianificato per l'eliminazione per impostazione predefinita. Quando si verifica questa situazione, i pod vengono pianificati per l'esecuzione su altri nodi all'interno del pool di nodi e il ridimensionamento automatico del cluster riduce il numero di nodi.
 

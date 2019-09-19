@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 689926d0dbaebaaf56c8238e8fed7a691e8cacf4
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: cd8a6c7e7f5ddf781fcd63f3969eedd8f45424bc
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882588"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058611"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Apache Hive tramite il driver JDBC in HDInsight
 
@@ -67,7 +67,7 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 4. Nella parte superiore della finestra di dialogo **Drivers** (Driver) selezionare l'icona **+** per creare un driver.
 
-    ![Icone Drivers](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png)
+    ![Icona dei driver dell'applicazione SQL SQuirreL](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png)
 
 5. Nella finestra di dialogo di aggiunta del driver aggiungere le informazioni seguenti:
 
@@ -76,13 +76,13 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
     * **Extra Class Path** (Percorso classe aggiuntiva): Usare il pulsante **Aggiungi** per aggiungere tutti i file jar scaricati in precedenza
     * **Class Name** (Nome classe): org.apache.hive.jdbc.HiveDriver
 
-   ![finestra di dialogo add driver](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png)
+   ![finestra di dialogo Aggiungi driver con parametri](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png)
 
    Selezionare **OK** per salvare le impostazioni.
 
 6. Nella parte sinistra della finestra di SQL SQuirreL selezionare **Aliases** (Alias). Quindi selezionare l' **+** icona per creare un alias di connessione.
 
-    ![aggiungere un nuovo alias](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
+    ![Finestra di dialogo Aggiungi nuovo alias di SQuirreL SQL](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
 
 7. Usare i valori seguenti per la finestra di dialogo **Add Alias** (Aggiungi alias).
 
@@ -98,16 +98,16 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
     * **Password**: password per l'account di accesso del cluster.
 
-   ![finestra di dialogo add alias](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
+   ![finestra di dialogo Aggiungi alias con parametri](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > Usare il pulsante **Test** per verificare il funzionamento della connessione. Quando viene visualizzata la finestra di dialogo **Connect to: Hive o HDInsight** (Connetti a: Hive in HDInsight), selezionare **Connect** (Connetti) per eseguire il test. Se il test ha esito positivo, verrà visualizzata la finestra di dialogo **Connection successful** (Connessione riuscita). Se si verifica un errore, vedere [Risoluzione dei problemi](#troubleshooting).
 
     Usare il pulsante **OK** nella parte inferiore della finestra di dialogo **Add Alias** (Aggiungi alias) per salvare l'alias di connessione.
 
 8. Nell'elenco a discesa **Connect to** (Connetti a) nella parte superiore di SQL SQuirreL selezionare **Hive on HDInsight** (Hive in HDInsight). Quando richiesto, selezionare **Connect** (Connetti).
 
-    ![finestra di dialogo di connessione](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
+    ![finestra di dialogo di connessione con parametri](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
 
 9. Una volta stabilita la connessione, immettere la query seguente nella finestra di dialogo query SQL e quindi selezionare l'icona **Esegui** (persona in esecuzione). Nell'area dei risultati dovrebbero comparire i risultati della query.
 
