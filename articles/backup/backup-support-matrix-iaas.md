@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
 ms.openlocfilehash: 1b7e3a8a937682559440086e90af18bfc85b8f75
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "71018677"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
@@ -213,10 +213,10 @@ Sicurezza dei dati:
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Yes][green]
-Macchine virtuali di Azure | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con DPM | ![Yes][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
+Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
+Macchine virtuali di Azure | ![Sì][green] | ![Yes][green]
+Computer locali/VM di Azure con DPM | ![Sì][green] | ![Yes][green]
+Computer locali/VM di Azure con MABS | ![Yes][green] | ![Sì][green]
 
 
 
@@ -229,10 +229,10 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Comprimi nell'insieme di credenziali (HTTPS)**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | ND | ![Yes][green]
+Computer Windows locali senza DPM/MABS | ND | ![Sì][green]
 Macchine virtuali di Azure | ND | ND
 Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Yes][green]
+Computer locali/VM di Azure con MABS | ![Yes][green] | ![Sì][green]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

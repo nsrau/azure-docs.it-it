@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: c4a3fc20e806ec91ed2646e6131f682bf5c80e38
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: eb7a7eb8e1bdacae4b74e3a0019a376c440fe4d5
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140844"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091971"
 ---
 # <a name="templates"></a>Modelli
 
@@ -56,7 +56,7 @@ Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipe
 
     -   Copia da \<origine\> a \<destinazione\>
 
-        -   Da Amazon S3 ad Azure Data Lake Storage di seconda generazione
+        -   [Da Amazon S3 a Azure Data Lake Store generazione 2](solution-template-migration-s3-azure.md)
 
         -   Da Google Big Query ad Azure Data Lake Storage di seconda generazione
 

@@ -1,6 +1,6 @@
 ---
-title: Come integrare schema comune di avviso con App per la logica
-description: Informazioni su come creare un'app per la logica che utilizza lo schema comune degli avvisi per gestire tutti gli avvisi.
+title: Come integrare lo schema di avviso comune con le app per la logica
+description: Informazioni su come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.
 author: ananthradhakrishnan
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,32 +8,32 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: 13cb3880662e1665b03dd63f009645acbe97fc75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f431e5e5f4537d1a5f889457eb81b881e47ee178
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734896"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091793"
 ---
-# <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Come integrare schema comune di avviso con App per la logica
+# <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Come integrare lo schema di avviso comune con le app per la logica
 
-Questo articolo illustra come creare un'app per la logica che utilizza lo schema comune degli avvisi per gestire tutti gli avvisi.
+Questo articolo illustra come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.
 
 ## <a name="overview"></a>Panoramica
 
-Il [common schema avviso](https://aka.ms/commonAlertSchemaDocs) fornisce uno schema JSON standardizzato ed estensibile in tutti i diversi tipi di avviso. Lo schema comune degli avvisi è molto utile se usato a livello di codice, tramite i webhook, runbook e le App per la logica. In questo articolo viene illustrato come un'app per la logica singolo può essere creata per gestire tutti gli avvisi. Possono applicare gli stessi principi ad altri metodi a livello di codice. L'app per la logica descritta in questo articolo consente di creare variabili ben definite per il [campi 'essenziali'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)e viene inoltre descritto come gestire [tipo di avviso](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) specifici per la logica.
+Lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs) fornisce uno schema JSON standardizzato ed estendibile in tutti i diversi tipi di avviso. Lo schema di avviso comune è particolarmente utile quando viene usato a livello di codice, tramite webhook, manuali operativi e app per la logica. Questo articolo illustra come è possibile creare una singola app per la logica per gestire tutti gli avvisi. Gli stessi principi possono essere applicati ad altri metodi a livello di codice. L'app per la logica descritta in questo articolo crea variabili ben definite per i [campi ' Essential '](alerts-common-schema-definitions.md#essentials)e descrive anche come è possibile gestire la logica specifica del [tipo di avviso](alerts-common-schema-definitions.md#alert-context) .
 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-Questo articolo si presuppone che il lettore abbia familiarità con 
-* Configurare le regole di avviso ([metric](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [log attività](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
+In questo articolo si presuppone che il lettore abbia familiarità con 
+* Impostazione delle regole di avviso ([metrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [log attività](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
 * Configurazione di [gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* Abilitazione di [common schema avviso](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema#how-do-i-enable-the-common-alert-schema) all'interno di gruppi di azioni
+* Abilitazione dello [schema di avviso comune](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema#how-do-i-enable-the-common-alert-schema) dall'interno di gruppi di azioni
 
-## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>Creare un'app per la logica usando lo schema comune degli avvisi
+## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>Creare un'app per la logica usando lo schema di avviso comune
 
-1. Seguire le [descritto in questa procedura per creare app per la logica](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
+1. Seguire i [passaggi descritti per creare l'app per la logica](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
 
 1.  Selezionare il trigger: **Alla ricezione di una richiesta HTTP**.
 
@@ -117,24 +117,24 @@ Questo articolo si presuppone che il lettore abbia familiarità con
 
     ![Aggiungere un'azione](media/action-groups-logic-app/add-action.png "Aggiungere un'azione")
 
-1. In questa fase, è possibile aggiungere un'ampia gamma di connettori (Microsoft Teams, Slack, Salesforce e così via) in base alle esigenze aziendali specifiche. È possibile usare il 'campi fondamentali' out-of-the-box. 
+1. In questa fase è possibile aggiungere un'ampia gamma di connettori (Microsoft teams, Slack, Salesforce e così via) in base ai requisiti aziendali specifici. È possibile usare il campo "Essential Fields". 
 
-    ![Campi fondamentali](media/alerts-common-schema-integrations/logic-app-essential-fields.png "campi fondamentali")
+    ![Campi essenziali](media/alerts-common-schema-integrations/logic-app-essential-fields.png "Campi essenziali")
     
-    In alternativa, è possibile creare la logica condizionale in base al tipo di avviso tramite l'opzione 'Expression'.
+    In alternativa, è possibile creare la logica condizionale basata sul tipo di avviso utilizzando l'opzione ' Expression '.
 
-    ![Espressione di app per la logica](media/alerts-common-schema-integrations/logic-app-expressions.png "espressione di app per la logica")
+    ![Espressione app] per la logica (media/alerts-common-schema-integrations/logic-app-expressions.png "Espressione app") per la logica
     
-     Il [campo 'monitoringService'](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) consente di identificare in modo univoco il tipo di avviso basate su cui è possibile creare la logica condizionale.
+     Il [campo ' monitoringService '](alerts-common-schema-definitions.md#alert-context) consente di identificare in modo univoco il tipo di avviso, in base al quale è possibile creare la logica condizionale.
 
     
-    Ad esempio, il seguente frammento di codice controlla se l'avviso è un avviso di log di Application Insights in base e caso in questo consente di stampare i risultati della ricerca. In caso contrario, viene stampato "ND".
+    Il frammento di codice seguente, ad esempio, controlla se l'avviso è un avviso di log basato su Application Insights e, in caso affermativo, stampa i risultati della ricerca. In caso contrario, stampa "NA".
 
     ```text
       if(equals(triggerBody()?['data']?['essentials']?['monitoringService'],'Application Insights'),triggerBody()?['data']?['alertContext']?['SearchResults'],'NA')
     ```
     
-     Altre informazioni sulle [scrittura di espressioni di app per la logica](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions).
+     Altre informazioni sulla [scrittura di espressioni di app](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions)per la logica.
 
     
 

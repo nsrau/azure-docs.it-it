@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: 8a8feb0f12fbf5eadcddf239ff2e13c058a566fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4af8c6dbbcbb877351018eb881f4d3b0b447bbce
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693310"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098969"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Aggiungere, modificare o eliminare le subnet di rete virtuale
 
@@ -72,7 +72,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
     - **Utenti**: è possibile controllare l'accesso alla subnet tramite i ruoli predefiniti o i ruoli personalizzati. Per altre informazioni sull'assegnazione di ruoli e utenti per l'accesso alla subnet, leggere l'articolo [Usare l'assegnazione del ruolo per gestire l'accesso alle risorse di Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Gruppo di sicurezza di rete** e **Tabella di route**: Vedere il passaggio 5 di [Aggiungere una subnet](#add-a-subnet).
     - **Endpoint di servizio**: vedere gli endpoint di servizio nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet). Quando si abilita un endpoint di servizio per una subnet esistente, assicurarsi che non vi siano attività critiche in esecuzione in nessuna risorsa nella subnet. Gli endpoint del servizio cambiano le route in ogni interfaccia di rete nella subnet dall'uso della route predefinita con il prefisso dell'indirizzo *0.0.0.0/0* e il tipo dell'hop successivo di *Internet*, all'uso di una nuova route con i prefissi dell'indirizzo del servizio e un tipo di hop successivo di *VirtualNetworkServiceEndpoint*. Durante il cambio, tutte le connessioni TCP aperte possono essere terminate. L'endpoint di servizio non è attivato fino a quando i flussi di traffico al servizio per tutte le interfacce di rete non vengono aggiornati con la nuova route. Per altre informazioni sul routing, vedere [Panoramica sul routing](virtual-networks-udr-overview.md).
-    - **Delega di subnet**: vedere gli endpoint di servizio nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet). Una delega di subnet può essere modificata per avere da zero a più deleghe abilitate. Se una risorsa per un servizio è già distribuita nella subnet, la delega di subnet non può essere rimossa fino a quando non vengono rimosse tutte le risorse per il servizio. Per la delega per un altro servizio, selezionare il servizio che si desidera delegare dall'elenco **Servizi**.
+    - **Delega di subnet**: vedere gli endpoint di servizio nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet). Una delega di subnet può essere modificata per avere da zero a più deleghe abilitate. Se una risorsa per un servizio è già distribuita nella subnet, la delega della subnet non può essere aggiunta o rimossa fino a quando non vengono rimosse tutte le risorse per il servizio. Per la delega per un altro servizio, selezionare il servizio che si desidera delegare dall'elenco **Servizi**.
 5. Selezionare **Salva**.
 
 **Comandi**
