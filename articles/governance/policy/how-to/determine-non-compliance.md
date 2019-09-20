@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2b36e7c333521e9438e76bfbe53a26dce23c2e8a
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: a0faaeee369a2227f6018141e5aa5d18c9037e9d
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194683"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161988"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -20,7 +20,7 @@ Quando una risorsa di Azure viene determinata come non conforme a una regola dei
 
 > [!div class="checklist"]
 > - [Dettagli conformità](#compliance-details)
-> - [Cronologia modifiche (anteprima)](#change-history-preview)
+> - [Cronologia modifiche (anteprima)](#change-history)
 
 ## <a name="compliance-details"></a>Dettagli conformità
 
@@ -47,7 +47,7 @@ Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
 
    ![Riquadro dei dettagli di conformità e motivi per la mancata conformità](../media/determine-non-compliance/compliance-details-pane.png)
 
-   Per una definizione dei criteri **auditIfNotExists** o **deployIfNotExists** , i dettagli includono la proprietà Details **. Type** e tutte le proprietà facoltative. Per un elenco, vedere [Proprietà auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [Proprietà deployIfNotExists](../concepts/effects.md#deployifnotexists-properties). L' **ultima risorsa valutata** è una risorsa correlata dalla sezione dei **Dettagli** della definizione.
+   Per una definizione dei criteri **auditIfNotExists** o **deployIfNotExists** , i dettagli includono la proprietà **Details. Type** e tutte le proprietà facoltative. Per un elenco, vedere [Proprietà auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [Proprietà deployIfNotExists](../concepts/effects.md#deployifnotexists-properties). L' **ultima risorsa valutata** è una risorsa correlata dalla sezione dei **Dettagli** della definizione.
 
    Esempio di definizione di **deployIfNotExists** parziale:
 
@@ -79,7 +79,7 @@ Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
 > [!NOTE]
 > Per proteggere i dati, quando il valore di una proprietà è un _segreto_ , il valore corrente Visualizza gli asterischi.
 
-Questi dettagli spiegano il motivo per cui una risorsa non è attualmente conforme, ma non Mostra quando è stata apportata la modifica alla risorsa che lo ha causato come non conforme. Per informazioni, vedere la [cronologia delle modifiche (anteprima)](#change-history-preview) riportata di seguito.
+Questi dettagli spiegano il motivo per cui una risorsa non è attualmente conforme, ma non Mostra quando è stata apportata la modifica alla risorsa che lo ha causato come non conforme. Per informazioni, vedere la [cronologia delle modifiche (anteprima)](#change-history) riportata di seguito.
 
 ### <a name="compliance-reasons"></a>Motivi di conformità
 
@@ -91,7 +91,7 @@ Nella matrice seguente viene eseguito il mapping di ogni _motivo_ possibile alla
 |Il valore corrente deve contenere il valore di destinazione. |contiene o **non** notContains |
 |Il valore corrente deve essere uguale al valore di destinazione. |uguale a o **non** notEquals |
 |Il valore corrente deve essere minore del valore di destinazione. |minore o **non** greaterOrEquals |
-|Il valore corrente deve essere maggiore o uguale al valore di destinazione. |greaterOrEquals o meno |
+|Il valore corrente deve essere maggiore o uguale al valore di destinazione. |greaterOrEquals o **meno** |
 |Il valore corrente deve essere maggiore del valore di destinazione. |maggiore o **non** lessOrEquals |
 |Il valore corrente deve essere minore o uguale al valore di destinazione. |lessOrEquals o **non** superiore |
 |Il valore corrente deve esistere. |esiste |
@@ -113,7 +113,7 @@ Nella matrice seguente viene eseguito il mapping di ogni _motivo_ possibile alla
 
 Per i criteri _auditIfNotExists_ nella categoria _configurazione Guest_ , è possibile che vengano valutate più impostazioni nella macchina virtuale e che sia necessario visualizzare i dettagli per ogni impostazione. Se, ad esempio, si esegue il controllo per un elenco di criteri password e solo uno di essi ha lo stato _non conforme_, è necessario stabilire quali criteri password specifici non sono conformi e perché.
 
-Inoltre, potrebbe non essere possibile accedere direttamente alla macchina virtuale, ma è necessario segnalare il motivo per cui la macchina virtuale _non_è conforme.
+Inoltre, potrebbe non essere possibile accedere direttamente alla macchina virtuale, ma è necessario segnalare il motivo per cui la macchina virtuale _non è conforme_.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -148,7 +148,7 @@ Audit that an application is installed inside Windows VMs                 {[Inst
 Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
 ```
 
-Per visualizzare solo la frase del _motivo_ che descrive il motivo per cui la macchina virtuale _non_è conforme, restituire solo il motivo della proprietà figlio.
+Per visualizzare solo la frase del _motivo_ che descrive il motivo per cui la macchina virtuale _non è conforme_, restituire solo il motivo della proprietà figlio.
 
 ```azurepowershell-interactive
 Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason

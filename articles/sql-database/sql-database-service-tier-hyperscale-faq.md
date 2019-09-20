@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 3f64bce34a1bdb11bdbebb99fe28cdf3ff16dfb8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128715"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162261"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -361,6 +361,11 @@ Per impostazione predefinita, vengono create 2 repliche per i database con ipers
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Come è possibile stabilire la connessione ai nodi di calcolo secondari
 
 È possibile connettersi a questi nodi di calcolo aggiuntivi di sola lettura impostando l'argomento `ApplicationIntent` nella stringa di connessione su `readonly`. Tutte le connessioni contrassegnate con `readonly` vengono indirizzate automaticamente a uno dei nodi di calcolo di sola lettura aggiuntivi.  
+
+### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>Ricerca per categorie verificare se è stata stabilita la connessione al nodo di calcolo secondario usando SSMS/altri strumenti client?
+
+È possibile eseguire la query T-SQL seguente usando SSMS/altri strumenti client: `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
+Il risultato è `READ_ONLY` se la connessione fa riferimento al nodo secondario di sola lettura o `READ_WRITE` se la connessione fa riferimento al nodo primario.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>È possibile creare un endpoint dedicato per la replica con scalabilità in lettura
 

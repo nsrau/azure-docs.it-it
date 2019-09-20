@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 49658e3e57748ffb7542508530940aa5331f5db1
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995222"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162416"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi ai dispositivi ibridi Azure Active Directory aggiunti 
 
@@ -92,7 +92,7 @@ WamDefaultAuthority: organizations
 
 Esaminare i campi seguenti e assicurarsi che siano presenti i valori previsti:
 
-#### <a name="domainjoined--yes"></a>DomainJoined: YES  
+#### <a name="domainjoined--yes"></a>DomainJoined: Sì  
 
 Questo campo mostra se il dispositivo è aggiunto a un dominio Active Directory locale. Se il valore è **NO**, il dispositivo non riesce a eseguire un'aggiunta all'identità ibrida di Azure AD.  
 
@@ -100,7 +100,7 @@ Questo campo mostra se il dispositivo è aggiunto a un dominio Active Directory 
 
 Questo campo mostra se il dispositivo è registrato con Azure AD come dispositivo personale, contrassegnato come *aggiunto correttamente* all'area di lavoro. Questo valore deve essere **NO** per un computer aggiunto al dominio che è anche aggiunto all'identità ibrida di Azure AD. Se il valore è **YES**, è stato aggiunto un account aziendale o dell'istituto di istruzione prima del completamento dell'aggiunta all'identità ibrida di Azure AD. In questo caso l'account viene ignorato quando si usa la versione anniversario dell'aggiornamento di Windows 10 (1607).
 
-#### <a name="azureadjoined--yes"></a>AzureAdJoined: YES  
+#### <a name="azureadjoined--yes"></a>AzureAdJoined: Sì  
 
 Questo campo mostra se il dispositivo è aggiunto ad Azure AD. Se il valore è **NO**, l'aggiunta ad Azure AD non è ancora completata. 
 
@@ -110,7 +110,7 @@ Per ulteriori operazioni di risoluzione dei problemi, procedere con i passaggi s
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 e versioni successive
 
-Cercare la sottosezione "registrazione precedente" nella sezione "dati di diagnostica" dell'output dello stato del join.
+Cercare la sottosezione "registrazione precedente" nella sezione "dati di diagnostica" dell'output dello stato del join. Questa sezione viene visualizzata solo se il dispositivo è aggiunto a un dominio e non è in grado di ibrido Azure AD join.
 Il campo ' Error Phase ' indica la fase dell'errore di join mentre ' client ErrorCode ' indica il codice di errore dell'operazione di join.
 
 ```
@@ -181,7 +181,7 @@ Per trovare il codice di errore per il codice di errore di individuazione, utili
 
 ##### <a name="windows-10-1803-and-above"></a>Windows 10 1803 e versioni successive
 
-Cercare "DRS Discovery test" nella sezione "dati di diagnostica" dell'output dello stato del join.
+Cercare "DRS Discovery test" nella sezione "dati di diagnostica" dell'output dello stato del join. Questa sezione viene visualizzata solo se il dispositivo è aggiunto a un dominio e non è in grado di ibrido Azure AD join.
 
 ```
 +----------------------------------------------------------------------+
@@ -305,7 +305,7 @@ Individuare il tipo di registrazione e cercare il codice di errore nell'elenco s
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 e versioni successive
 
-Cercare la sottosezione "registrazione precedente" nella sezione "dati di diagnostica" dell'output dello stato del join.
+Cercare la sottosezione "registrazione precedente" nella sezione "dati di diagnostica" dell'output dello stato del join. Questa sezione viene visualizzata solo se il dispositivo è aggiunto a un dominio e non è in grado di ibrido Azure AD join.
 Il campo ' Registration Type ' indica il tipo di join eseguito.
 
 ```
@@ -396,7 +396,7 @@ Ottenere gli script pubblici qui: [ https://1drv.ms/u/s! AkyTjQ17vtfagYkZ6VJzPg7
 
 ### <a name="retrieve-the-join-status"></a>Recuperare lo stato delle aggiunte 
 
-#### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet Sì e AzureADPrt: YES
+#### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet Sì e AzureADPrt: Sì
   
 Questi campi indicano se l'utente è autenticato correttamente in Azure AD durante l'accesso al dispositivo. Se i valori sono **NO**, il motivo potrebbe essere:
 

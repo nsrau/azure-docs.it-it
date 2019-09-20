@@ -1,5 +1,5 @@
 ---
-title: Creare, usare e gestire gli ambienti per il training e la distribuzione dei modelli
+title: Creare ambienti ML riutilizzabili
 titleSuffix: Azure Machine Learning
 description: Creare e gestire gli ambienti per il training e la distribuzione dei modelli. Gestire i pacchetti Python e altre impostazioni per l'ambiente.
 services: machine-learning
@@ -9,16 +9,15 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.custom: seodec18
-ms.openlocfilehash: 242f3cec0ac766e537bd0483725ba51685bb7ced
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 09/16/2019
+ms.openlocfilehash: b46ca59bc93477c338001009ff7eeeddc7248684
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996626"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147322"
 ---
-# <a name="create-and-manage-environments-for-training-and-deployment"></a>Creazione e gestione di ambienti per il training e la distribuzione
+# <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Creazione e gestione di ambienti riutilizzabili per il training e la distribuzione con Azure Machine Learning.
 
 In questo articolo viene illustrato come creare e gestire [ambienti](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) di Azure Machine Learning in modo da tenere traccia e riprodurre le dipendenze del software dei progetti man mano che si evolvono.
 

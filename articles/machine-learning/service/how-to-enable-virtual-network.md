@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: f12c77a25bad9781d5f23b9563f6684997a2a6c4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 9299959eef24f6890218dc2d2aa733cc227e1a32
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002784"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162573"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 
@@ -252,7 +252,7 @@ Al termine del processo di creazione, è necessario eseguire il training del mod
 
 Per usare una macchina virtuale o un cluster Azure HDInsight in una rete virtuale con l'area di lavoro, seguire questa procedura:
 
-1. Creare una VM o un cluster HDInsight usando il portale di Azure o l'interfaccia della riga di comando di Azure e inserire il cluster in una rete virtuale di Azure. Per altre informazioni, vedere i seguenti articoli:
+1. Creare una VM o un cluster HDInsight usando il portale di Azure o l'interfaccia della riga di comando di Azure e inserire il cluster in una rete virtuale di Azure. Per altre informazioni, vedere gli articoli seguenti:
     * [Creare e gestire reti virtuali di Azure per macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
     * [Estendere Azure HDInsight usando Rete virtuale di Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
@@ -345,6 +345,22 @@ aks_target = ComputeTarget.create(workspace=ws,
 ```
 
 Al termine del processo di creazione, è possibile eseguire l'inferenza o il punteggio del modello in un cluster AKS dietro una rete virtuale. Per altre informazioni, vedere [Come eseguire la distribuzione nel servizio Azure Kubernetes](how-to-deploy-to-aks.md).
+
+## <a name="use-azure-firewall"></a>Usare il firewall di Azure
+
+Quando si usa il firewall di Azure, è necessario configurare una regola di rete per consentire il traffico da e verso gli indirizzi seguenti:
+
+- `*.batchai.core.windows.net`
+- `ml.azure.com`
+- `*.azureml.ms`
+- `*.experiments.azureml.net`
+- `*.modelmanagement.azureml.net`
+- `mlworkspace.azure.ai`
+- `*.aether.ms`
+
+Quando si aggiunge la regola, impostare il __protocollo__ su Any e le porte su `*`.
+
+Per altre informazioni sulla configurazione di una regola di rete, vedere [distribuire e configurare il firewall di Azure](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

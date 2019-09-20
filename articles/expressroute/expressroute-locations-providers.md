@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 17d1a8e2e98f1b2967b4f2e33e14ee187a765190
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3867e4c59f541fb50c536850e89e03d49a831e42
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995729"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162079"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -49,7 +49,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | **Area geopolitica** | **Zona** | **Aree di Azure** | **Località per ExpressRoute** |
 | --- | --- | --- | --- |
 | **Australia Government** | 1 | Australia centrale, Australia centrale 2 |Canberra, Canberra2 |
-| **Europa** | 1 |Francia centrale, Francia meridionale, Europa settentrionale, Europa occidentale, Regno Unito occidentale, Regno Unito meridionale |Amsterdam, Amsterdam2, Copenaghen, Dublino, Francoforte, Londra, London2, Marsiglia, Newport (Galles), Parigi, Stoccolma, Zurigo |
+| **Europa** | 1 |Francia centrale, Francia meridionale, Europa settentrionale, Europa occidentale, Regno Unito occidentale, Regno Unito meridionale |Amsterdam, Amsterdam2, Copenaghen, Dublino, Francoforte, Londra, London2, Marsiglia, Newport (Galles), Parigi, Stoccolma, Zurigo, Monaco |
 | **America del Nord** | 1 |Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
 | **Asia** | 2 |Asia orientale, Asia sudorientale |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **India** | 2 |India occidentale, India centrale, India Meridionale |Chennai, Chennai2, Mumbai, Mumbai2 |
@@ -58,7 +58,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | **Corea del Sud** | 2 |Corea del Sud centrale, Corea del Sud meridionale |Busan, Seoul|
 | **EMIRATI ARABI UNITI** | 3 | Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali | Dubai, Dubai2 |
 | **Sud Africa** | 3 |Sudafrica occidentale, Sudafrica settentrionale |Città del Capo, Johannesburg |
-| **America del Sud** | 3 |Brasile meridionale |San Paolo |
+| **America del Sud** | 3 |Brasile meridionale |Sao Paulo |
 
 ## <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Aree di Azure e confini geopolitici per cloud nazionali
 Nella tabella seguente vengono fornite informazioni su aree e confini geopolitici per cloud nazionali.
@@ -86,7 +86,7 @@ Le **aree di Azure locali** sono quelle che possono accedere a [ExpressRoute loc
 | **Amsterdam2** | [AMS8 Interxion](https://www.interxion.com/Locations/amsterdam/schiphol/) | Europa occidentale | CenturyLink Cloud Connect, DE-CIX, Colt, Interxion, Vodafone |
 | **Atlanta** | [AT2 Equinix](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | n/d | Equinix, Megaport |
 | **Auckland** | [Gruppo Vocus NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | n/d | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
-| **Busan** | [LG CNS](https://datacenter.lgcns.com/Contents/En/Menu_1/Locations_1.aspx) | Corea del Sud meridionale | LG CNS |
+| **Busan** | [LG CNS](https://datacenter.lgcns.com/Contents/En/Menu_1/Locations_1.aspx) | Corea meridionale | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | Australia centrale | CDC |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | Australia centrale 2| CDC |
 | **Città del Capo** | [CT1 teraco](https://www.teraco.co.za/data-centre-locations/cape-town/) | Sudafrica occidentale | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
@@ -122,7 +122,7 @@ Le **aree di Azure locali** sono quelle che possono accedere a [ExpressRoute loc
 | **San Antonio** | [SA1 CyrusOne](https://cyrusone.com/locations/texas/san-antonio-texas/) | Stati Uniti centro-meridionali | CenturyLink Cloud Connect, Megaport |
 | **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | Brasile meridionale | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **Seattle** | [SE2 Equinix](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | Stati Uniti occidentali 2 | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
-| **Seoul** | [IDC KINX Gasan](https://www.kinx.net/support/location/?lang=en) | Corea del Sud centrale | KINX, LG CNS, Sejong Telecom |
+| **Seoul** | [IDC KINX Gasan](https://www.kinx.net/support/location/?lang=en) | Corea centrale | KINX, LG CNS, Sejong Telecom |
 | **Silicon Valley** | [SV1 Equinix](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | Stati Uniti occidentali | Aryaka Networks, AT & T NetBond, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, intercloud, Internet2, IX REACH, Packet, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Valley2 Silicon** | [SV7 Coresite](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | Stati Uniti occidentali | Coresite | 
 | **Singapore** | [Equinix SG1](https://www.equinix.com/locations/asia-colocation/singapore-colocation/singapore-data-center/sg1/) | Asia sud-orientale | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |

@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ee8a17846495a122f7432e66c3e343a00dd0a015
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0c1c3470ae18b2a600af0d5e930b6fc114123728
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194617"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161940"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Come creare i criteri di configurazione Guest
 
@@ -54,9 +54,47 @@ La configurazione Guest usa il modulo della risorsa **GuestConfiguration** per l
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## <a name="create-custom-guest-configuration-configuration"></a>Creare una configurazione personalizzata per la configurazione Guest
+## <a name="create-custom-guest-configuration-configuration-and-resources"></a>Creazione di risorse e configurazione personalizzate per la configurazione Guest
 
 Il primo passaggio per la creazione di un criterio personalizzato per la configurazione Guest consiste nel creare la configurazione DSC. Per una panoramica dei concetti e della terminologia DSC, vedere [Panoramica di PowerShell DSC](/powershell/dsc/overview/overview).
+
+Se la configurazione richiede solo risorse compilate con l'installazione dell'agente di configurazione Guest, è sufficiente creare un file MOF di configurazione. Se è necessario eseguire script aggiuntivi, sarà necessario creare un modulo di risorse personalizzato.
+
+### <a name="requirements-for-guest-configuration-custom-resources"></a>Requisiti per le risorse personalizzate di configurazione Guest
+
+Quando la configurazione Guest controlla una macchina, viene eseguita `Test-TargetResource` prima per determinare se è nello stato corretto.  Il valore booleano restituito dalla funzione determina se lo stato del Azure Resource Manager per l'assegnazione Guest deve essere conforme/non conforme.  Se il valore booleano è `$false` per qualsiasi risorsa nella configurazione, il provider verrà eseguito. `Get-TargetResource`
+Se il valore `$true` booleano `Get-TargetResource` non viene chiamato.
+
+La funzione `Get-TargetResource` presenta requisiti speciali per la configurazione Guest che non sono stati necessari per la configurazione dello stato desiderato di Windows.
+
+- La tabella hash restituita deve includere una proprietà denominata **reasons**.
+- La proprietà reasons deve essere una matrice.
+- Ogni elemento nella matrice deve essere una tabella hash con chiavi denominate **Code** e **Phrase**.
+
+La proprietà reasons viene usata dal servizio per standardizzare il modo in cui le informazioni vengono presentate quando un computer non è conforme.
+È possibile considerare ogni elemento come un "motivo" che la risorsa non è conforme. La proprietà è una matrice perché una risorsa potrebbe non essere conforme per più di un motivo.
+
+Il **codice** e la **frase** delle proprietà sono previsti dal servizio. Quando si crea una risorsa personalizzata, impostare il testo (in genere stdout) da mostrare come il motivo per cui la risorsa non è conforme come valore per la **frase**.  Il **codice** presenta requisiti di formattazione specifici, quindi la creazione di report consente di visualizzare chiaramente le informazioni sulla risorsa utilizzata per eseguire il controllo. Questa soluzione rende estendibile la configurazione Guest. È possibile eseguire qualsiasi comando per controllare un computer purché l'output possa essere acquisito e restituito come valore stringa per la proprietà **Phrase** .
+
+- **Codice** (stringa): Nome della risorsa, ripetuto, quindi nome breve senza spazi come identificatore per il motivo.  Questi tre valori devono essere delimitati da due punti senza spazi.
+    - Un esempio è' Registry: Registry: keynotpresent '.
+- **Frase** (stringa): Testo leggibile per spiegare il motivo per cui l'impostazione non è conforme.
+    - Un esempio è' la chiave del registro di sistema $key non è presente nel computer '.
+
+```powershell
+$reasons = @()
+$reasons += @{
+  Code = 'Name:Name:ReasonIdentifer'
+  Phrase = 'Explain why the setting is not compliant'
+}
+return @{
+    reasons = $reasons
+}
+```
+
+#### <a name="scaffolding-a-guest-configuration-project"></a>Impalcatura di un progetto di configurazione Guest
+
+Per gli sviluppatori che desiderano accelerare il processo di introduzione e di utilizzo del codice di esempio, un progetto community denominato **progetto di configurazione Guest** esiste come modello per il modulo di PowerShell per [gesso](https://github.com/powershell/plaster) .  Questo strumento può essere usato per eseguire il patibolo di un progetto, tra cui una configurazione funzionante e una risorsa di esempio, e un set di test [Pester](https://github.com/pester/pester) per convalidare il progetto.  Il modello include anche gli esecutori di attività per Visual Studio Code per automatizzare la compilazione e la convalida del pacchetto di configurazione Guest. Per altre informazioni, vedere il progetto di [configurazione Guest](https://github.com/microsoft/guestconfigurationproject)di GitHub Project.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configurazione personalizzata della configurazione Guest in Linux
 
@@ -141,10 +179,10 @@ Nella configurazione Guest di criteri di Azure, il modo migliore per gestire i s
 
 Per prima cosa, creare un'identità gestita assegnata dall'utente in Azure. L'identità viene usata dai computer per accedere ai segreti archiviati in Key Vault. Per i passaggi dettagliati, vedere [creare, elencare o eliminare un'identità gestita assegnata dall'utente con Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
-Successivamente, creare un'istanza di Key Vault. Per i passaggi dettagliati, vedere [impostare e recuperare un segreto-PowerShell](../../../key-vault/quick-create-powershell.md).
+Creare un'istanza di Key Vault. Per i passaggi dettagliati, vedere [impostare e recuperare un segreto-PowerShell](../../../key-vault/quick-create-powershell.md).
 Assegnare le autorizzazioni all'istanza per concedere all'identità assegnata dall'utente l'accesso ai segreti archiviati in Key Vault. Per i passaggi dettagliati, vedere [impostare e recuperare un segreto-.NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
 
-Assegnare quindi l'identità assegnata dall'utente al computer. Per i passaggi dettagliati, vedere [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure con PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
+Assegnare l'identità assegnata dall'utente al computer. Per i passaggi dettagliati, vedere [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure con PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
 A livello di scala, assegnare questa identità usando Azure Resource Manager tramite criteri di Azure. Per i passaggi dettagliati, vedere [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure usando un modello](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
 Infine, all'interno della risorsa personalizzata usare l'ID client generato in precedenza per accedere Key Vault usando il token disponibile dal computer. L' `client_id` URL e per l'istanza di Key Vault può essere passato alla risorsa come [proprietà](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) in modo che la risorsa non debba essere aggiornata per più ambienti o se è necessario modificare i valori.
@@ -318,7 +356,7 @@ Con le definizioni di criteri e iniziative create in Azure, l'ultimo passaggio c
 
 Dopo aver pubblicato un criterio personalizzato di Azure usando il pacchetto di contenuto personalizzato, è necessario aggiornare due campi se si vuole pubblicare una nuova versione.
 
-- **Versione**: Quando si esegue il `New-GuestConfigurationPolicy` cmdlet è necessario specificare un numero di versione maggiore di quello attualmente pubblicato.  Tramite la proprietà viene aggiornata la versione dell'assegnazione di configurazione Guest nel nuovo file dei criteri in modo che l'estensione riconosca che il pacchetto è stato aggiornato.
+- **Versione**: Quando si esegue il `New-GuestConfigurationPolicy` cmdlet, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato.  Tramite la proprietà viene aggiornata la versione dell'assegnazione di configurazione Guest nel nuovo file dei criteri in modo che l'estensione riconosca che il pacchetto è stato aggiornato.
 - **contentHash**: Questa proprietà viene aggiornata automaticamente dal `New-GuestConfigurationPolicy` cmdlet.  Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`.  La proprietà deve essere corretta per il `.zip` file pubblicato.  Se viene aggiornata `contentUri` solo la proprietà, ad esempio nel caso in cui un utente possa apportare una modifica manuale alla definizione dei criteri dal portale, l'estensione non accetterà il pacchetto di contenuto.
 
 Il modo più semplice per rilasciare un pacchetto aggiornato consiste nel ripetere il processo descritto in questo articolo e fornire un numero di versione aggiornato.
@@ -334,7 +372,7 @@ Una volta che il contenuto è stato convertito, i passaggi precedenti per creare
 
 ## <a name="optional-signing-guest-configuration-packages"></a>FACOLTATIVO: Firma dei pacchetti di configurazione Guest
 
-Per impostazione predefinita, i criteri personalizzati di configurazione Guest usano l'hash SHA256 per verificare che il pacchetto dei criteri non sia stato modificato da quando è stato pubblicato in quando viene letto dal server sottoposto a controllo.
+Per impostazione predefinita, i criteri personalizzati di configurazione Guest usano l'hash SHA256 per convalidare che il pacchetto di criteri non è stato modificato da quando è stato pubblicato in quando viene letto dal server sottoposto a controllo.
 Facoltativamente, i clienti possono anche usare un certificato per firmare i pacchetti e forzare l'estensione di configurazione Guest in modo che consenta solo il contenuto firmato.
 
 Per abilitare questo scenario, è necessario completare due passaggi. Eseguire il cmdlet per firmare il pacchetto di contenuto e aggiungere un tag ai computer che devono richiedere la firma del codice.

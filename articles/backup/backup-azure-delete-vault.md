@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 719f7f1c30a79b9057f25d6137423451cc606bfa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5f10bb2062d7c805b485d5cfbfe8989a6aee0995
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088410"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162218"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -33,6 +33,9 @@ Non è possibile eliminare un insieme di credenziali di servizi di ripristino co
 
   ![Eliminare l'errore del server protetto.](./media/backup-azure-delete-vault/error-message.jpg)
 
+- Se gli elementi di backup sono in stato di eliminazione temporanea al di sotto del messaggio di avviso, sarà necessario attendere che vengano eliminati definitivamente. Per altre informazioni, fare riferimento a [questo articolo](https://aka.ms/SoftDeleteCloudWorkloads).
+
+   ![Eliminare l'errore dell'insieme di credenziali.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
 Per eliminare l'insieme di credenziali, scegliere lo scenario che corrisponde alla configurazione e seguire le procedure consigliate:
 
