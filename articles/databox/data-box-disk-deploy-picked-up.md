@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910109"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128694"
 ---
 ::: zone target="chromeless"
 
@@ -89,11 +89,7 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
 3. Applicare l'etichetta sulla scatola. 
 4. Prenotare un ritiro online al collegamento https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="in-japan-koreatabin-japan-korea"></a>[Giappone e Corea](#tab/in-japan-korea)
-
-Di seguito sono riportate le istruzioni per il ritiro per Giappone e Corea.
-
-#### <a name="pick-up-in-japan"></a>Ritiro in Giappone
+### <a name="in-japantabin-japan"></a>[Giappone](#tab/in-japan)
 
 1. Sulla lettera di vettura, nelle informazioni sul mittente, indicare il nome dell'azienda e l'indirizzo.
 2. Inviare un messaggio di posta elettronica a Quantium Solutions usando il modello di messaggio di posta elettronica seguente.
@@ -120,7 +116,7 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 - Posta elettronica：Customerservice.JP@quantiumsolutions.com 
 - Telefono：03-5755-0150 
 
-#### <a name="pick-up-in-korea"></a>Ritiro in Corea
+### <a name="in-koreatabin-korea"></a>[Corea del Sud](#tab/in-korea)
 
 1. Assicurarsi di includere la lettera di vettura per il reso.
 2. Per richiedere il prelievo quando è presente la lettera di vettura:
