@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120b5606dd6b6f4451b563843f112bd614341eac
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 94c2ac1d662851b5a0b44ec475becb5f5e0403c4
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914786"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146388"
 ---
 # <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>Scaricare in blocco i membri di un gruppo (anteprima) in Azure Active Directory
 
@@ -26,10 +26,6 @@ Usando il portale di Azure Active Directory (Azure AD), è possibile eseguire il
 
 > [!NOTE]
 > Azure AD operazioni bulk sono una funzionalità di anteprima pubblica di Azure AD e sono disponibili con qualsiasi piano di licenza Azure AD a pagamento. Per ulteriori informazioni sui termini di utilizzo dell'anteprima, vedere [condizioni supplementari per l'utilizzo di Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="bulk-download-service-limits"></a>Limiti del servizio di download bulk
-
-Ogni attività bulk per il download di un elenco di membri del gruppo può essere eseguita per un massimo di un'ora. In questo modo è possibile scaricare un elenco di almeno 500.000 membri.
 
 ## <a name="to-bulk-download-group-membership"></a>Per scaricare in blocco l'appartenenza al gruppo
 
@@ -45,6 +41,10 @@ Ogni attività bulk per il download di un elenco di membri del gruppo può esser
 È possibile visualizzare lo stato di tutte le richieste bulk in sospeso nella pagina **risultati operazione bulk (anteprima)** .
 
    ![La pagina Risultati operazioni bulk Mostra lo stato della richiesta bulk](./media/groups-bulk-download-members/bulk-center.png)
+
+## <a name="bulk-download-service-limits"></a>Limiti del servizio di download bulk
+
+Ogni attività bulk per il download di un elenco di membri del gruppo può essere eseguita per un massimo di un'ora. In questo modo è possibile scaricare un elenco di almeno 500.000 membri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

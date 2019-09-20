@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: juliako
-ms.openlocfilehash: a30fa858ea7befa2363e0ac2742e16d46037d0e0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
-ms.translationtype: HT
+ms.openlocfilehash: a4b7ccf6ece8ed40d6f6c6a22410d4bbe99e590a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123523"
+ms.locfileid: "71146481"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
@@ -54,10 +54,13 @@ Di seguito è riportato l'elenco di informazioni dettagliate che è possibile re
 * **Rilevamento fotogramma nero**: identifica i fotogrammi neri presentati nel video.
 * **Estrazione di fotogrammi chiave**: rileva i fotogrammi chiave stabili in un video.
 * **Crediti in sequenza**: identificare l'inizio e la fine dei crediti in corso alla fine della TV e dei film.
+* **Rilevamento di caratteri animati** (anteprima): rilevamento, raggruppamento e riconoscimento dei caratteri nel contenuto animato tramite l'integrazione con la [visione personalizzata di servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Per ulteriori informazioni, vedere [rilevamento dei caratteri animati](animated-characters-recognition.md).
+* **Rilevamento del tipo di ripresa editoriale**: assegnazione di tag in base al tipo (ad esempio, grandangolo, medio colpo, chiusura, estrema chiusura, due colpi, più persone, esterno e interno e così via). Per ulteriori informazioni, vedere il [rilevamento del tipo di ripresa editoriale](scenes-shots-keyframes.md#editorial-shot-type-detection).
 
 ### <a name="audio-insights"></a>Informazioni dettagliate sui contenuti audio
 
 * **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese brasiliano. Se la lingua non può essere identificata in tutta sicurezza, Video Indexer presuppone che la lingua parlata sia l'inglese. Per altre informazioni, vedere [modello di identificazione della lingua](language-identification-model.md).
+* **Identificazione e trascrizione di riconoscimento vocale multilingue** (anteprima): Identifica automaticamente la lingua parlata in segmenti diversi dall'audio, inviando ogni segmento del file multimediale da trascrivere e combinando di nuovo la trascrizione con una trascrizione unificata. Per altre informazioni, vedere [identificare e trascrivere automaticamente contenuti multilingue](multi-language-identification-transcription.md).
 * **Trascrizione audio**: converte la voce in testo in 12 lingue diverse e consente le estensioni. Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, arabo, russo, Portoghese brasiliano, Hindi e coreano.
 * **Sottotitoli**: consente di creare sottotitoli in tre formati: VTT, TTML e SRT.
 * **Elaborazione a due canali**: rileva automaticamente trascrizioni separate e le unisce in una singola sequenza temporale.
@@ -75,6 +78,7 @@ Di seguito è riportato l'elenco di informazioni dettagliate che è possibile re
 Quando si esegue l'indicizzazione in base a un canale, sarà disponibile il risultato parziale per tali modelli
 
 * **Estrazione di parole chiave**: estrae parole chiave dal parlato e dal testo visivo.
+* **Estrazione entità denominate**: Estrae le marche, le località e gli utenti da testo vocale e visivo tramite la PNL (Natural Language Processing).
 * **Estrazione di marchi**: estrae i marchi da parlato e testo visivo.
 * **Inferenza dell'argomento**: deduce gli argomenti principali dalle trascrizioni. È inclusa la tassonomia IPTC di primo livello.
 * **Artefatti**: estrae un ampio set di artefatti con "livello di dettaglio successivo" per ognuno dei modelli.

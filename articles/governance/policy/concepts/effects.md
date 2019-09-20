@@ -1,18 +1,18 @@
 ---
 title: Comprendere il funzionamento degli effetti
-description: La definizione di Criteri di Azure ha diversi effetti che determinano in che modo viene gestita e segnalata la conformità.
+description: Le definizioni di criteri di Azure hanno diversi effetti che determinano la modalità di gestione e di segnalazione della conformità.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1ac0e70700b4b093fad09b4d10c6bdcf2e06adac
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 06a5ffbef2b841acc7ea7ecc82d05dfccbc0cab1
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231536"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147007"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -27,13 +27,14 @@ Questi effetti sono attualmente supportati in una definizione dei criteri:
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabilitato](#disabled)
 - [EnforceRegoPolicy](#enforceregopolicy) anteprima
+- [Modificare](#modify)
 
 ## <a name="order-of-evaluation"></a>Ordine di valutazione
 
 Le richieste di creazione o aggiornamento di una risorsa tramite Azure Resource Manager vengono valutate prima in base ai criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi effetti prima di passare la richiesta al provider di risorse appropriato. Questa operazione impedisce l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance designati di criteri di Azure.
 
 - **Disabled** viene verificato per primo, per determinare se valutare la regola dei criteri.
-- Successivamente viene valutato **Append**. Dal momento che Append può alterare la richiesta, una modifica apportata da Append potrebbe impedire l'attivazione di un effetto Audit o Deny.
+- Vengono quindi valutate le **aggiunte** e le **modifiche** . Poiché potrebbe modificare la richiesta, una modifica apportata potrebbe impedire l'attivazione di un controllo o di un effetto negato.
 - Successivamente viene valutato **Deny**. La valutazione di Deny prima di Audit impedisce la doppia registrazione di una risorsa non desiderata.
 - **Audit** viene quindi valutato prima che la richiesta venga passata al provider di risorse.
 
@@ -47,7 +48,10 @@ Questo effetto è utile per gli scenari di test o quando la definizione dei crit
 
 ## <a name="append"></a>Aggiungi
 
-Append viene usato per aggiungere altri campi alla risorsa richiesta durante la creazione o l'aggiornamento. Un esempio comune è l'aggiunta di tag a risorse come costCenter o la specifica di indirizzi IP consentiti per una risorsa di archiviazione.
+Append viene usato per aggiungere altri campi alla risorsa richiesta durante la creazione o l'aggiornamento. Un esempio comune è la specifica di indirizzi IP consentiti per una risorsa di archiviazione.
+
+> [!IMPORTANT]
+> L'aggiunta è destinata all'uso con proprietà non di tag. Sebbene Append possa aggiungere tag a una risorsa durante una richiesta di creazione o aggiornamento, è consigliabile usare invece l'effetto di [modifica](#modify) per i tag.
 
 ### <a name="append-evaluation"></a>Valutazione di Append
 
@@ -61,36 +65,7 @@ Un effetto Append ha solo una matrice **details** obbligatoria. Essendo una matr
 
 ### <a name="append-examples"></a>Esempi di Append
 
-Esempio 1: coppia **campo/valore** singola per accodare un tag.
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-        "field": "tags.myTag",
-        "value": "myTagValue"
-    }]
-}
-```
-
-Esempio 2 due coppie **campo/valore** per accodare un set di tag.
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-            "field": "tags.myTag",
-            "value": "myTagValue"
-        },
-        {
-            "field": "tags.myOtherTag",
-            "value": "myOtherTagValue"
-        }
-    ]
-}
-```
-
-Esempio 3: Coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) non **\*[]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
+Esempio 1: Coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) non **\*[]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
 
 ```json
 "then": {
@@ -105,7 +80,7 @@ Esempio 3: Coppia **campo/valore** singola che usa un [alias](definition-structu
 }
 ```
 
-Esempio 4: coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Usando l'alias **[\*]** , l'effetto accoda il **valore** a una matrice potenzialmente già esistente. Se non esiste ancora, la matrice verrà creata.
+Esempio 2 coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Usando l'alias **[\*]** , l'effetto accoda il **valore** a una matrice potenzialmente già esistente. Se la matrice non esiste ancora, verrà creata.
 
 ```json
 "then": {
@@ -117,6 +92,122 @@ Esempio 4: coppia **campo/valore** singola che usa un [alias](definition-structu
             "action": "Allow"
         }
     }]
+}
+```
+
+## <a name="modify"></a>Modifica
+
+La modifica viene utilizzata per aggiungere, aggiornare o rimuovere tag in una risorsa durante la creazione o l'aggiornamento. Un esempio comune è l'aggiornamento di tag per le risorse, ad esempio costCenter. Un criterio di modifica deve essere `mode` sempre impostato su _indicizzato_. È possibile correggere le risorse non conformi esistenti con un' [attività di correzione](../how-to/remediate-resources.md).
+Una singola regola di modifica può avere un numero qualsiasi di operazioni.
+
+> [!IMPORTANT]
+> La modifica è attualmente disponibile solo per l'uso con tag. Se si gestiscono i tag, è consigliabile usare modifica anziché Accodamento come modifica fornisce tipi di operazione aggiuntivi e la possibilità di correggere le risorse esistenti. Tuttavia, è consigliabile aggiungere se non si è in grado di creare un'identità gestita.
+
+### <a name="modify-evaluation"></a>Modifica valutazione
+
+Modifica valuta prima che la richiesta venga elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Modificare aggiungere o aggiornare i tag in una risorsa quando viene soddisfatta la condizione **if** della regola dei criteri.
+
+Quando una definizione dei criteri che usa l'effetto modifica viene eseguita come parte di un ciclo di valutazione, non modifica le risorse già esistenti. Al contrario, contrassegna qualsiasi risorsa che soddisfi la condizione **if** come non conforme.
+
+### <a name="modify-properties"></a>Modifica proprietà
+
+La proprietà **Details** dell'effetto di modifica include tutte le sottoproprietà che definiscono le autorizzazioni necessarie per la correzione e le **operazioni** usate per aggiungere, aggiornare o rimuovere i valori dei tag.
+
+- **roleDefinitionIds** [required]
+  - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
+  - Il ruolo definito deve includere tutte le operazioni concesse al ruolo [collaboratore](../../../role-based-access-control/built-in-roles.md#contributor) .
+- **operazioni** di necessaria
+  - Matrice di tutte le operazioni di tag da completare sulle risorse corrispondenti.
+  - Proprietà:
+    - **operazione** di necessaria
+      - Definisce l'azione da intraprendere su una risorsa corrispondente. Le opzioni sono: _addOrReplace_, _Aggiungi_, _Rimuovi_. _Add_ si comporta in modo analogo all'effetto [Append](#append) .
+    - **campo** di necessaria
+      - Tag da aggiungere, sostituire o rimuovere. I nomi di tag devono rispettare la stessa convenzione di denominazione per gli altri [campi](./definition-structure.md#fields).
+    - **valore** di opzionale
+      - Valore su cui impostare il tag.
+      - Questa proprietà è obbligatoria se l' **operazione** è _addOrReplace_ o _Add_.
+
+### <a name="modify-operations"></a>Modificare le operazioni
+
+La matrice di proprietà **Operations** consente di modificare diversi tag in modi diversi rispetto a una singola definizione di criteri. Ogni operazione è costituita da proprietà **Operation**, **Field**e **value** . L'operazione determina l'attività di monitoraggio e aggiornamento per i tag, il campo determina quale tag viene modificato e il valore definisce la nuova impostazione per il tag. L'esempio seguente apporta le modifiche seguenti ai Tag:
+
+- Imposta il `environment` tag su "test", anche se esiste già con un valore diverso.
+- Rimuove il tag `TempResource`.
+- Imposta il `Dept` tag sul parametro del criterio _deptname_ configurato nell'assegnazione dei criteri.
+
+```json
+"details": {
+    ...
+    "operations": [
+        {
+            "operation": "addOrReplace",
+            "field": "tags['environment']",
+            "value": "Test"
+        },
+        {
+            "operation": "Remove",
+            "field": "tags['TempResource']",
+        },
+        {
+            "operation": "addOrReplace",
+            "field": "tags['Dept']",
+            "field": "[parameters('DeptName')]"
+        }
+    ]
+}
+```
+
+Per la proprietà **Operation** sono disponibili le opzioni seguenti:
+
+|Operazione |Descrizione |
+|-|-|
+|addOrReplace |Aggiunge il tag e il valore definiti alla risorsa, anche se il tag esiste già con un valore diverso. |
+|Aggiungi |Aggiunge il tag e il valore definiti alla risorsa. |
+|Rimuovi |Rimuove il tag definito dalla risorsa. |
+
+### <a name="modify-examples"></a>Modificare esempi
+
+Esempio 1: Aggiungere il `environment` tag e sostituire i `environment` tag esistenti con "test":
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "Test"
+            }
+        ]
+    }
+}
+```
+
+Esempio 2 Rimuovere il `env` tag e aggiungere il `environment` tag o sostituire i `environment` tag esistenti con un valore con parametri:
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "Remove",
+                "field": "tags['env']"
+            },
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
 }
 ```
 
@@ -144,7 +235,7 @@ Esempio: uso dell'effetto Deny.
 }
 ```
 
-## <a name="audit"></a>Audit
+## <a name="audit"></a>Controllo
 
 Audit viene usato per creare un evento di avviso nel log attività quando viene valutata una risorsa non conforme, ma non arresta la richiesta.
 
@@ -234,7 +325,7 @@ Esempio: valuta le macchine virtuali per determinare se esiste l'estensione anti
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
-Analogamente ad AuditIfNotExists, DeployIfNotExists esegue una distribuzione di modelli quando la condizione viene soddisfatta.
+Analogamente a AuditIfNotExists, una definizione dei criteri DeployIfNotExists esegue una distribuzione modello quando viene soddisfatta la condizione.
 
 > [!NOTE]
 > I [Modelli nidificati](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) sono supportati con **deployIfNotExists** ma i [Modelli collegati](../../../azure-resource-manager/resource-group-linked-templates.md) non sono attualmente supportati.
@@ -247,7 +338,7 @@ Durante un ciclo di valutazione, le definizioni dei criteri con un effetto Deplo
 
 ### <a name="deployifnotexists-properties"></a>Proprietà di DeployIfNotExists
 
-La proprietà **details** degli effetti DeployIfNotExists ha tutte le sottoproprietà che definiscono le risorse correlate a cui corrispondere e la distribuzione di modelli da eseguire.
+La proprietà **Details** dell'effetto DeployIfNotExists include tutte le sottoproprietà che definiscono le risorse correlate da confrontare e la distribuzione del modello da eseguire.
 
 - **Type** [obbligatorio]
   - Specifica il tipo della risorsa correlata a cui corrispondere.
@@ -353,7 +444,7 @@ Ogni 5 minuti, viene completata un'analisi completa del cluster e i risultati ve
 
 ### <a name="enforceregopolicy-properties"></a>Proprietà di EnforceRegoPolicy
 
-La proprietà Details dell'effetto EnforceRegoPolicy include le sottoproprietà che descrivono la regola di controllo dell'ammissione di rego.
+La proprietà **Details** dell'effetto EnforceRegoPolicy include le sottoproprietà che descrivono la regola di controllo dell'ammissione di rego.
 
 - **policyId** necessaria
   - Un nome univoco passato come parametro alla regola di controllo dell'ammissione rego.

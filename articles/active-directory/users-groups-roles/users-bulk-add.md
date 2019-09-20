@@ -1,5 +1,5 @@
 ---
-title: Importazione bulk per aggiungere utenti (anteprima) nel portale di Azure Active Directory | Microsoft Docs
+title: Creare utenti in blocco (anteprima) nel portale di Azure Active Directory | Microsoft Docs
 description: Aggiungere utenti in blocco nell'interfaccia di amministrazione di Azure AD in Azure Active Directory
 services: active-directory
 author: curtand
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a22052117448cdb71bbc16e1df7899e6d3eb764e
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 87c62cbe71f2e02c6f2c09620a8470a97ae57392
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901490"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146332"
 ---
-# <a name="bulk-import-users-preview-in-azure-active-directory"></a>Importazione in blocco degli utenti (anteprima) in Azure Active Directory
+# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Creazione bulk di utenti (anteprima) in Azure Active Directory
 
 Azure Active Directory (Azure AD) supporta operazioni di creazione ed eliminazione di utenti in blocco, invito bulk per Guest e supporto per il download di elenchi di utenti, gruppi e membri del gruppo.
 
@@ -37,6 +37,9 @@ Per creare in blocco gli utenti nel portale di amministrazione, è necessario ef
 1. [Accedere all'organizzazione Azure ad](https://aad.portal.azure.com) con un account amministratore dell'organizzazione.
 1. In Azure ad selezionare **utenti** > **creazione bulk**.
 1. Nella pagina **Crea utente in blocco** selezionare **Scarica** per ricevere un file con valori delimitati da virgole (CSV) di proprietà utente e quindi aggiungere i nuovi utenti.
+
+   ![Il file CSV contiene i nomi e gli ID degli utenti da creare](./media/users-bulk-add/add-csv-file.png)
+
 1. Al termine della modifica del file CSV o se si è pronti per il caricamento, selezionare il file in **caricare il file CSV** da convalidare.
 
    ![Selezionare un file CSV locale in cui elencare gli utenti che si desidera aggiungere](./media/users-bulk-add/upload-button.png)

@@ -1,22 +1,22 @@
 ---
 title: Correggere le risorse non conformi
-description: Questa guida procedurale descrive come correggere le risorse che non sono conformi ai criteri di Criteri di Azure.
+description: Questa guida illustra la correzione di risorse non conformi ai criteri in criteri di Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 40658412f19c444cfa06f5663f567a78453c7e9a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: d6ca7827200815cf9b9b1c7ac697d06f9c6b306d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241145"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147057"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
-Le risorse che non sono conformi ai criteri **deployIfNotExists** possono essere messe in stato di conformità attraverso una **correzione**. La correzione viene eseguita indicando a criteri di Azure di eseguire l'effetto **deployIfNotExists** del criterio assegnato alle risorse esistenti. Questo articolo illustra i passaggi necessari per comprendere ed eseguire la correzione con criteri di Azure.
+Le risorse non conformi a un criterio di **deployIfNotExists** o di **modifica** possono essere inserite in uno stato conforme tramite **correzione**. La correzione viene eseguita indicando a criteri di Azure di eseguire l'effetto **deployIfNotExists** o le **operazioni** di tag del criterio assegnato nelle risorse esistenti. Questo articolo illustra i passaggi necessari per comprendere ed eseguire la correzione con criteri di Azure.
 
 ## <a name="how-remediation-security-works"></a>Funzionamento della sicurezza della correzione
 
@@ -26,11 +26,11 @@ Criteri di Azure crea un'identità gestita per ogni assegnazione, ma deve avere 
 ![Entità gestita - ruolo mancante](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Se una risorsa modificata da **deployIfNotExists** non rientra nell'ambito dell'assegnazione di criteri o il modello accede a proprietà in risorse che non rientrano nell'ambito dell'assegnazione di criteri, all'identità gestita dell'assegnazione deve essere [concesso l'accesso manualmente](#manually-configure-the-managed-identity), altrimenti la distribuzione della correzione avrà esito negativo.
+> Se una risorsa modificata da **deployIfNotExists** o **Modify** esula dall'ambito dell'assegnazione di criteri oppure il modello accede alle proprietà delle risorse al di fuori dell'ambito dell'assegnazione dei criteri, l'identità gestita dell'assegnazione deve essere [ l'accesso è stato concesso manualmente](#manually-configure-the-managed-identity) o la distribuzione di monitoraggio e aggiornamento avrà esito negativo.
 
 ## <a name="configure-policy-definition"></a>Configurare la definizione dei criteri
 
-Il primo passaggio consiste nel definire i ruoli che devono essere presenti nella definizione dei criteri affinché **deployIfNotExists** distribuisca correttamente il contenuto del modello incluso. Nella proprietà **details** aggiungere una proprietà **roleDefinitionIds**. Questa proprietà è una matrice di stringhe che corrispondono ai ruoli nell'ambiente in uso. Per un esempio completo, vedere l'[esempio di deployIfNotExists](../concepts/effects.md#deployifnotexists-example).
+Il primo passaggio consiste nel definire i ruoli che **deployIfNotExists** e **modificare** le esigenze nella definizione dei criteri per distribuire correttamente il contenuto del modello incluso. Nella proprietà **details** aggiungere una proprietà **roleDefinitionIds**. Questa proprietà è una matrice di stringhe che corrispondono ai ruoli nell'ambiente in uso. Per un esempio completo, vedere l' [esempio deployIfNotExists](../concepts/effects.md#deployifnotexists-example) o gli [esempi di modifica](../concepts/effects.md#modify-examples).
 
 ```json
 "details": {
@@ -42,7 +42,7 @@ Il primo passaggio consiste nel definire i ruoli che devono essere presenti nell
 }
 ```
 
-La proprietà **roleDefinitionIds** usa l'identificatore di risorsa completo e non accetta il **roleName** breve del ruolo. Per ottenere l'ID per il ruolo 'Collaboratore' nell'ambiente in uso, usare il codice seguente:
+La proprietà **roleDefinitionIds** usa l'identificatore di risorsa completo e non accetta il **ruolo** ShortName del ruolo. Per ottenere l'ID per il ruolo 'Collaboratore' nell'ambiente in uso, usare il codice seguente:
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
@@ -126,7 +126,7 @@ Per aggiungere un ruolo all'identità gestita dell'assegnazione, seguire questa 
 
 ### <a name="create-a-remediation-task-through-portal"></a>Creare un'attività di correzione tramite il portale
 
-Durante la valutazione l'assegnazione dei criteri con effetto **deployIfNotExists** determina se sono presenti risorse non conformi. Quando vengono rilevate risorse non conformi, vengono visualizzati i dettagli nella pagina **Correzione**. Insieme all'elenco di criteri con risorse non conformi è disponibile l'opzione per attivare un'**attività di correzione**. Questa opzione crea una distribuzione dal modello **deployIfNotExists**.
+Durante la valutazione, l'assegnazione dei criteri con **deployIfNotExists** o **modifica** effetti determina se sono presenti risorse non conformi. Quando vengono rilevate risorse non conformi, vengono visualizzati i dettagli nella pagina **Correzione**. Insieme all'elenco di criteri con risorse non conformi è disponibile l'opzione per attivare un'**attività di correzione**. Questa opzione consente di creare una distribuzione dal modello **deployIfNotExists** o dalle operazioni di **modifica** .
 
 Per creare un'**attività di correzione**, seguire questa procedura:
 
@@ -138,7 +138,7 @@ Per creare un'**attività di correzione**, seguire questa procedura:
 
    ![Seleziona monitoraggio e aggiornamento nella pagina Criteri](../media/remediate-resources/select-remediation.png)
 
-1. Tutte le assegnazioni dei criteri **deployIfNotExists** con risorse non conformi vengono incluse nella scheda **Criteri da correggere** nella tabella di dati. Fare clic sui criteri con risorse non conformi. Verrà visualizzata la pagina **Nuova attività di correzione**.
+1. Tutti i **deployIfNotExists** e le assegnazioni **di criteri con** risorse non conformi sono inclusi nei **criteri per correggere** la scheda e la tabella dati. Fare clic sui criteri con risorse non conformi. Verrà visualizzata la pagina **Nuova attività di correzione**.
 
    > [!NOTE]
    > Un modo alternativo per aprire la pagina dell'**attività di correzione** consiste nell'individuare e selezionare i criteri nella pagina **Conformità** e quindi fare clic sul pulsante **Crea attività di correzione**.
@@ -161,7 +161,7 @@ Le risorse distribuite tramite un'**attività di correzione** vengono aggiunte n
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Creare un'attività di correzione tramite l'interfaccia della riga di comando di Azure
 
-Per creare un' **attività di correzione** con l'interfaccia della riga di comando `az policy remediation` di Azure, usare i comandi. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con l'ID di assegnazione dei criteri **deployIfNotExists** .
+Per creare un' **attività di correzione** con l'interfaccia della riga di comando `az policy remediation` di Azure, usare i comandi. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con il **deployIfNotExists** o **modificare** l'ID di assegnazione dei criteri.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -174,7 +174,7 @@ Per altri comandi ed esempi di monitoraggio e aggiornamento, vedere i comandi [A
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Creare un'attività di correzione tramite Azure PowerShell
 
-Per creare un' **attività di correzione** con Azure PowerShell, usare i `Start-AzPolicyRemediation` comandi. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con l'ID di assegnazione dei criteri **deployIfNotExists** .
+Per creare un' **attività di correzione** con Azure PowerShell, usare i `Start-AzPolicyRemediation` comandi. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con il **deployIfNotExists** o **modificare** l'ID di assegnazione dei criteri.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

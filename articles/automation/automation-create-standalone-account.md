@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32fafaeb6332ca0e76dbc8d72f11872a82ca1cbe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cdea358daa3bd0f9e738a0454613ea774a0e6dc
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779148"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146655"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 
@@ -28,7 +28,6 @@ Quando si crea un account di Automazione nel portale di Azure, vengono creati au
   * Crea un'entità servizio in Azure Active Directory (Azure AD).
   * Crea un certificato.
   * Assegna il controllo degli accessi in base al ruolo Collaboratore, che permette di gestire le risorse di Azure Resource Manager usando i runbook.
-* **Account RunAs classico**. Questo account carica un certificato di gestione. Il certificato gestisce le risorse classiche tramite runbook.
 
 Con questi account già creati è possibile iniziare rapidamente la compilazione e distribuzione di runbook per supportare le esigenze di automazione.
 
@@ -97,14 +96,13 @@ Quando la creazione dell'account di Automazione viene completata, vengono create
 | AzureRunAsCertificate |Asset di certificato creato automaticamente quando si crea un account di Automazione o si usa lo script di PowerShell per un account esistente. Il certificato esegue l'autenticazione con Azure per poter gestire le risorse di Azure Resource Manager dai runbook. La durata di questo certificato è di un anno. |
 | AzureRunAsConnection |Asset di connessione creato automaticamente quando si crea un account di Automazione o si usa lo script di PowerShell per un account esistente. |
 
-La tabella seguente offre un riepilogo delle risorse per l'account RunAs classico.
+## <a name="classic-run-as-accounts"></a>Account RunAs classici
 
-| Risorsa | DESCRIZIONE |
-| --- | --- |
-| Runbook AzureClassicAutomationTutorial |Runbook grafico di esempio. Il runbook ottiene tutte le macchine virtuali classiche in una sottoscrizione tramite l'account RunAs classico (certificato). Visualizza quindi i nomi e lo stato delle macchine virtuali. |
-| Runbook di script AzureClassicAutomationTutorial |Runbook di PowerShell di esempio. Il runbook ottiene tutte le macchine virtuali classiche in una sottoscrizione tramite l'account RunAs classico (certificato). Visualizza quindi i nomi e lo stato delle macchine virtuali. |
-| AzureClassicRunAsCertificate |Asset del certificato creato automaticamente. Il certificato esegue l'autenticazione con Azure per poter gestire le risorse classiche di Azure dai runbook. La durata di questo certificato è di un anno. |
-| AzureClassicRunAsConnection |Asset di connessione creato automaticamente. L'asset esegue l'autenticazione con Azure per poter gestire le risorse classiche di Azure dai runbook. |
+Per impostazione predefinita, quando si crea un account di automazione di Azure, gli account RunAs classici non vengono più creati. Se è ancora necessario un account RunAs classico, seguire questa procedura.
+
+1. Dalla pagina **account di automazione** selezionare **account RunAs** in **Impostazioni account**.
+2. Selezionare l' **account RunAs classico di Azure**.
+3. Fare clic su **Crea** per procedere con la creazione dell'account RunAs classico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

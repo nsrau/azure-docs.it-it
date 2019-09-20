@@ -4,6 +4,7 @@ description: Come risolvere i problemi relativi ai profili di Gestione traffico 
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
+manager: dcscontentpm
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: f8f457623dff7840ca839ef57580b744a4d916c7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8f043b11c9319d61c4413d01b008b324103ca6c3
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565874"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155206"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
@@ -37,7 +38,7 @@ Se lo stato di integrità di Gestione traffico è **Inattivo**, entrambi gli end
 * Una procedura consigliata consiste nell'impostare il percorso Probe su un elemento con una logica sufficiente per determinare se il sito è attivo o inattivo. Nell'esempio precedente, impostando il percorso su "/favicon.ico", si verifica solo che w3wp.exe risponda. Questo probe non indica necessariamente che l'applicazione Web è integra. Un'opzione migliore prevede di impostare un percorso su un valore simile a "/Probe.aspx", che è dotato della logica necessaria a determinare l'integrità del sito. Ad esempio, si potrebbero usare i contatori delle prestazioni per verificare l'utilizzo della CPU o misurare il numero di richieste con esito negativo, o tentare di accedere a risorse come lo stato del database o della sessione per assicurarsi che l'applicazione Web funzioni correttamente.
 * Se tutti gli endpoint di un profilo sono danneggiati, Gestione traffico li gestirà come integri e indirizzerà il traffico a tutti gli endpoint. In questo modo si evita che eventuali problemi con il meccanismo di probe non comportino un'interruzione completa del servizio.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Per risolvere gli errori di probe, è necessario uno strumento che mostri il codice di stato HTTP restituito dall'URL del probe. Sono disponibili numerosi strumenti che mostrano la risposta HTTP non elaborata.
 
@@ -78,7 +79,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 [Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 

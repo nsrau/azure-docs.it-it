@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 00753ee8d7d128222e9fb773f00a23720813a237
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914766"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146453"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
@@ -88,14 +88,11 @@ Quando si verifica la proprietà del nome di dominio, Azure AD lo rimuove dal te
 ### <a name="support-for-external-admin-takeover"></a>Supporto per l'acquisizione esterna della proprietà da parte dell'amministratore
 L'acquisizione esterna della proprietà da parte dell'amministratore è supportata dai servizi online seguenti:
 
-- Power BI
 - Azure Rights Management
 - Exchange Online
 
 I piani di servizio supportati includono:
 
-- Power BI gratuito
-- Power BI Pro
 - PowerApps gratuito
 - PowerFlow gratuito
 - RMS per utenti singoli
@@ -113,10 +110,6 @@ Per [RMS per utenti singoli](/azure/information-protection/rms-for-individuals),
 La chiave e i modelli non vengono invece spostati quando il tenant si trova in un'area diversa, Ad esempio, se il tenant non gestito si trova in Europa e l'organizzazione di cui si è proprietari è in America del Nord.
 
 Anche se RMS per utenti singoli è progettato per supportare l'autenticazione Azure AD per l'apertura di contenuti protetti, non impedisce agli utenti di proteggere a loro volta il contenuto. Se gli utenti hanno protetto il contenuto con la sottoscrizione RMS per utenti singoli e la chiave e i modelli non sono stati spostati, il contenuto non sarà accessibile dopo l'acquisizione del dominio.
-
-#### <a name="more-information-about-power-bi"></a>Altre informazioni su Power BI
-
-Quando si esegue un'acquisizione esterna, il contenuto di Power BI creato prima dell'acquisizione viene inserito in un'[area di lavoro contenuto archiviato di Power BI](/power-bi/service-admin-power-bi-archived-workspace). È necessario eseguire manualmente la migrazione di qualsiasi contenuto che si vuole usare nel nuovo tenant.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlet di Azure AD PowerShell per l'opzione ForceTakeover
 È possibile visualizzare questi cmdlet usati in [Esempio di PowerShell](#powershell-example).

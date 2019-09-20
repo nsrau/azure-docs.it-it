@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d0f94e9cf9b91bc365586dafc147dc73b17876
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 76aafa978732b3f4bae82f8ad3c09e67caf297ae
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914764"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146294"
 ---
 # <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>Scaricare in blocco un elenco di gruppi (anteprima) in Azure Active Directory
 
@@ -26,10 +26,6 @@ Usando il portale di Azure Active Directory (Azure AD), è possibile eseguire il
 
 > [!NOTE]
 > Azure AD operazioni bulk sono una funzionalità di anteprima pubblica di Azure AD e sono disponibili con qualsiasi piano di licenza Azure AD a pagamento. Per ulteriori informazioni sui termini di utilizzo dell'anteprima, vedere [condizioni supplementari per l'utilizzo di Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="bulk-download-service-limits"></a>Limiti del servizio di download bulk
-
-Ogni attività bulk per il download di un elenco di gruppi può essere eseguita per un massimo di un'ora. In questo modo è possibile scaricare un elenco di almeno 300.000 gruppi.
 
 ## <a name="to-download-a-list-of-groups"></a>Per scaricare un elenco di gruppi
 
@@ -44,6 +40,10 @@ Ogni attività bulk per il download di un elenco di gruppi può essere eseguita 
 È possibile visualizzare lo stato di tutte le richieste bulk in sospeso nella pagina **risultati operazione bulk (anteprima)** .
 
    ![La pagina Risultati operazioni bulk Mostra lo stato della richiesta bulk](./media/groups-bulk-download/bulk-center.png)
+
+## <a name="bulk-download-service-limits"></a>Limiti del servizio di download bulk
+
+Ogni attività bulk per il download di un elenco di gruppi può essere eseguita per un massimo di un'ora. In questo modo è possibile scaricare un elenco di almeno 300.000 gruppi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

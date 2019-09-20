@@ -14,36 +14,36 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 92ea3c71dda011c5f7b19682d9bdea6c226ae5d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d958202ee42b1edec5e1b65c120536c656823ecf
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992073"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147246"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Come usare le code del bus di servizio con PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-In questa esercitazione descrive come creare applicazioni PHP per inviare e ricevere messaggi da una coda del Bus di servizio. 
+In questa esercitazione si apprenderà come creare applicazioni PHP per inviare e ricevere messaggi da una coda del bus di servizio. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Se non si dispone di una coda per lavorare con, seguire i passaggi nel [portale di Azure Usa per creare una coda del Bus di servizio](service-bus-quickstart-portal.md) articolo creare una coda.
-    1. Leggere la rapida **overview** del Bus di servizio **code**. 
-    2. Creare un Bus di servizio **dello spazio dei nomi**. 
-    3. Ottenere il **stringa di connessione**. 
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se non si ha una coda da usare, seguire i passaggi nell'articolo [usare portale di Azure per creare una](service-bus-quickstart-portal.md) coda del bus di servizio per creare una coda.
+    1. Leggere la breve **Panoramica** delle **Code**del bus di servizio. 
+    2. Creare uno **spazio dei nomi**del bus di servizio. 
+    3. Ottenere la **stringa di connessione**. 
 
         > [!NOTE]
-        > Si creerà una **coda** nello spazio dei nomi del Bus di servizio con PHP in questa esercitazione. 
-3. [Azure SDK per PHP](../php-download-sdk.md)
+        > In questa esercitazione verrà creata una **coda** nello spazio dei nomi del bus di servizio tramite PHP. 
+3. [Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## <a name="create-a-php-application"></a>Creare un'applicazione PHP
-Per creare un'applicazione PHP che acceda al servizio BLOB di Azure, è sufficiente fare riferimento alle classi in [Azure SDK per PHP](../php-download-sdk.md) dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo o il Blocco note.
+Per creare un'applicazione PHP che acceda al servizio BLOB di Azure, è sufficiente fare riferimento alle classi in [Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php) dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo o il Blocco note.
 
 > [!NOTE]
 > L'installazione di PHP deve avere anche l'[estensione OpenSSL](https://php.net/openssl) installata e abilitata.
 
-In questa Guida, si userà la funzionalità di servizio, che può essere chiamata da un'applicazione PHP in locale o nel codice in esecuzione all'interno di un ruolo web di Azure, un ruolo di lavoro o un sito Web.
+In questa guida si useranno le funzionalità del servizio, che possono essere chiamate dall'interno di un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Acquisire le librerie client di Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
@@ -51,7 +51,7 @@ In questa Guida, si userà la funzionalità di servizio, che può essere chiamat
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Per usare le API delle code del bus di servizio, procedere come segue:
 
-1. Fare riferimento al file autoloader mediante l'istruzione [require_once][require_once].
+1. Fare riferimento al file autoloader mediante l'istruzione [require_once][require_once] .
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe `ServicesBuilder`.
@@ -96,7 +96,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageShare
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="create-a-queue"></a>Creare una coda
+## <a name="create-a-queue"></a>Crea una coda
 È possibile eseguire operazioni di gestione per le code del bus di servizio usando la classe `ServiceBusRestProxy`. Un oggetto `ServiceBusRestProxy` è costruito tramite il metodo factory `ServicesBuilder::createServiceBusService` con una stringa di connessione appropriata che incapsula le autorizzazioni di token per gestirlo.
 
 L'esempio seguente mostra come creare un'istanza di `ServiceBusRestProxy` e chiamare il metodo `ServiceBusRestProxy->createQueue` per creare una coda denominata `myqueue` in uno spazio dei nomi del servizio `MySBNamespace`:
@@ -163,9 +163,9 @@ catch(ServiceException $e){
 }
 ```
 
-I messaggi inviati (e ricevuti dalle) del Bus di servizio coda sono istanze della [BrokeredMessage][BrokeredMessage] classe. Gli oggetti [BrokeredMessage][BrokeredMessage] includono un set di proprietà e metodi standard usati per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione.
+I messaggi inviati a e ricevuti dalle code del bus di servizio sono istanze della classe [BrokeredMessage][BrokeredMessage] . Gli oggetti [BrokeredMessage][BrokeredMessage] includono un set di proprietà e metodi standard usati per contenere proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione.
 
-Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e pari a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Il limite massimo della dimensione di una coda è di 5 GB.
+Le code del bus di servizio supportano messaggi di dimensioni fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Il limite massimo della dimensione di una coda è di 5 GB.
 
 ## <a name="receive-messages-from-a-queue"></a>Ricevere messaggi da una coda
 

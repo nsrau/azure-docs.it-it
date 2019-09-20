@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485417"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154201"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento 
 
@@ -58,9 +58,9 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Origine:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Data:** *data e ora* <br />
 **ID evento:**      1058 <br />
-**Categoria attività:** Nessuna <br />
-**Livello:**         Tipi di errore <br />
-**Parole chiave:**      Classico <br />
+**Categoria attività:** Nessun elemento <br />
+**Livello:**         Errore <br />
+**Parole chiave:**      Versione classica <br />
 **Utente:**          N/D <br />
 **Computer:** *computer* <br />
 **Descrizione:** il server host sessione Desktop remoto non è riuscito a sostituire il certificato autofirmato scaduto usato per l'autenticazione del server host sessione Desktop remoto durante le connessioni SSL. Il codice di stato pertinente era Accesso negato.
@@ -69,9 +69,9 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Origine:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Data:** *data e ora* <br />
 **ID evento:**      1058 <br />
-**Categoria attività:** Nessuna <br />
-**Livello:**         Tipi di errore <br />
-**Parole chiave:**      Classico <br />
+**Categoria attività:** Nessun elemento <br />
+**Livello:**         Errore <br />
+**Parole chiave:**      Versione classica <br />
 **Utente:**          N/D <br />
 **Computer:** *computer* <br />
 **Descrizione:** il server host sessione Desktop remoto non è riuscito a creare un nuovo certificato autofirmato da usare per l'autenticazione del server host sessione Desktop remoto durante le connessioni SSL. Il codice di stato pertinente era L'oggetto esiste già.
@@ -80,9 +80,9 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Origine:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Data:** *data e ora* <br />
 **ID evento:**      1057 <br />
-**Categoria attività:** Nessuna <br />
-**Livello:**         Tipi di errore <br />
-**Parole chiave:**      Classico <br />
+**Categoria attività:** Nessun elemento <br />
+**Livello:**         Errore <br />
+**Parole chiave:**      Versione classica <br />
 **Utente:**          N/D <br />
 **Computer:** *computer* <br />
 **Descrizione:** il server host sessione Desktop remoto non è riuscito a creare un nuovo certificato autofirmato da usare per l'autenticazione del server host sessione Desktop remoto durante le connessioni SSL. Il codice di stato pertinente era Keyset does not exist (Il set di chiavi non esiste).
@@ -98,8 +98,8 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Origine:**        SChannel <br />
 **Data**: - <br />
 **ID evento:**      36870 <br />
-**Categoria attività:** Nessuna <br />
-**Livello:**         Tipi di errore <br />
+**Categoria attività:** Nessun elemento <br />
+**Livello:**         Errore <br />
 **Parole chiave:**       <br />
 **Utente:**          SYSTEM <br />
 **Computer:** *computer* <br />
@@ -220,8 +220,8 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Origine:**        SChannel <br />
 **Data**: - <br />
 **ID evento:**      36871 <br />
-**Categoria attività:** Nessuna <br />
-**Livello:**         Tipi di errore <br />
+**Categoria attività:** Nessun elemento <br />
+**Livello:**         Errore <br />
 **Parole chiave:**       <br />
 **Utente:**          SYSTEM <br />
 **Computer:** *computer* <br />
@@ -251,7 +251,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 **Data:** *data e ora* <br />
 **ID evento:**      2056 <br />
 **Categoria attività:** (109) <br />
-**Livello:**         Tipi di errore <br />
+**Livello:**         Errore <br />
 **Parole chiave:**       <br />
 **Utente:**          NETWORK SERVICE <br />
 **Computer:** *FQDN del computer* <br />
@@ -267,7 +267,7 @@ L'accesso al database non è riuscito.
 **Data:** *data e ora* <br />
 **ID evento:**      1296 <br />
 **Categoria attività:** (104) <br />
-**Livello:**         Tipi di errore <br />
+**Livello:**         Errore <br />
 **Parole chiave:**       <br />
 **Utente:**          NETWORK SERVICE <br />
 **Computer:** *FQDN del computer* <br />
@@ -288,7 +288,7 @@ Il nome host ha voci e dipendenze in Database interno di Windows, che è necessa
 
 Per risolvere questo problema, è necessario reinstallare il ruolo Gestore connessione Desktop remoto e Database interno di Windows.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 [Schannel Events (Eventi di Schannel)](https://technet.microsoft.com/library/dn786445(v=ws.11).aspx)
 

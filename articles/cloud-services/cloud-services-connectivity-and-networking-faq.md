@@ -4,7 +4,7 @@ description: Questo articolo elenca le domande frequenti relative alla connettiv
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: eef99c7d7a108618b570988dd5d7ec9c2fdb8db4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941746"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154881"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di connettività e rete per servizi cloud di Azure: Domande frequenti (FAQ)
 
@@ -103,7 +103,7 @@ Per assicurarsi che l'indirizzo IP pubblico del servizio cloud (noto anche come 
 - [Riservare l'indirizzo IP di un servizio cloud esistente](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associare un indirizzo IP riservato a un servizio cloud usando un file cscfg](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Se si dispone di più di un'istanza per i ruoli, l'associazione di RIP al servizio cloud non dovrebbe causare alcun tempo di inattività. In alternativa, è possibile includere nell'elenco elementi consentiti l'intervallo IP del Data Center di Azure. È possibile trovare tutti gli intervalli IP di Azure nell' [area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Se si dispone di più di un'istanza per i ruoli, l'associazione del RIP con il servizio cloud non dovrebbe causare alcun tempo di inattività. In alternativa, è possibile aggiungere l'intervallo IP del Data Center di Azure a un elenco Consenti. È possibile trovare tutti gli intervalli IP di Azure nell'[Area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 Questo file contiene gli intervalli di indirizzi IP, inclusi gli intervalli di calcolo, SQL e archiviazione, usati nei data center di Azure. Ogni settimana viene pubblicato un file aggiornato che riflette gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana. Scaricare il nuovo file con estensione xml ogni settimana e apportare le modifiche necessarie nel sito per identificare correttamente i servizi in esecuzione in Azure. Gli utenti di Azure ExpressRoute potrebbero notare che questo file viene usato per aggiornare l'annuncio BGP dello spazio di Azure la prima settimana del mese.
 

@@ -15,20 +15,22 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: bc8e8219c8f8de75b01c584a2a5ce13cc1429fec
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: f677d6b8edfe60646c6368acce9d47b23a35237d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991766"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146881"
 ---
-# <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco di indirizzi IP POP Verizon corrente per la rete CDN di Azure
+# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco di indirizzi IP POP correnti per la rete CDN di Azure
+
+## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco di indirizzi IP POP Verizon corrente per la rete CDN di Azure
 
 È possibile usare l'API REST per recuperare il set di indirizzi IP per i server POP (point of presence) di Verizon. Questi server POP effettuano richieste ai server di origine associati agli endpoint della rete per la distribuzione di contenuti di Azure (CDN) in un profilo Verizon (**Rete CDN Standard di Azure fornita da Verizon** o **Rete CDN Premium di Azure fornita da Verizon**). Si noti che questo set di indirizzi IP è diverso dagli indirizzi IP che un client visualizza quando si effettuano richieste ai POP. 
 
 Per la sintassi dell'operazione dell'API REST per il recupero dell'elenco POP, vedere [Edge Nodes - List](https://docs.microsoft.com/rest/api/cdn/edgenodes/list) (Nodi perimetrali - Elenco).
 
-# <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco Microsoft POP IP corrente per la rete CDN di Azure
+## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco Microsoft POP IP corrente per la rete CDN di Azure
 
 Per bloccare l'applicazione in modo che accetti il traffico solo dalla rete CDN di Azure di Microsoft, è necessario configurare gli ACL IP per il back-end. È anche possibile limitare il set di valori accettati per l'intestazione ' X-Inoltred-host ' inviata dalla rete CDN di Azure da Microsoft. Questi passaggi sono descritti di seguito:
 

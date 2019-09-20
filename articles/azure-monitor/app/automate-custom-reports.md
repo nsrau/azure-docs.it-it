@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3becf5ef579acdc52a51f9ad618e37460491c2ec
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067653"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146754"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
 
@@ -95,7 +95,9 @@ availabilityResults
 5. Selezionare il **_modello digest pianificato di Application Insights_** .
 
      > [!NOTE]
-     > Per impostazione predefinita, App per le funzioni vengono creati con la versione 2.x. È necessario [versione di runtime di funzioni di Azure di destinazione](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x a usare Application Insights pianificata modello digest.
+     > Per impostazione predefinita, le app per le funzioni vengono create con la versione 2. x del runtime. È necessario fare [riferimento al runtime di funzioni di Azure versione](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** per usare il modello di digest pianificato Application Insights.  ![schermata di runtime](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+
+
 
    ![Screenshot del modello di Application Insights per la nuova app per le funzioni](./media/automate-custom-reports/function-app-04.png)
 

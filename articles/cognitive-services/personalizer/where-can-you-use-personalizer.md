@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 87065709b16a5a0c7076584e8fc33c3830319e4f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 246e76a0ab94624945723b500ef136e038ab40ec
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999638"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155237"
 ---
 # <a name="where-can-you-use-personalizer"></a>In quali situazioni è possibile usare Personalizza esperienze?
 
@@ -33,7 +33,7 @@ Personalizza esperienze usa l'apprendimento automatico per selezionare l'azione 
 * La scelta migliore può e deve essere appresa in base al comportamento collettivo degli utenti e al punteggio totale.
 * L'uso dell'apprendimento automatico per la personalizzazione segue le [linee guida per l'uso responsabile](ethics-responsible-use.md) e le scelte personali.
 * La decisione contestuale può essere espressa classificando la migliore opzione (azione) in un set di scelte limitato.
-* Sarà quindi possibile determinare la validità della scelta classificata valutando alcuni aspetti del comportamento degli utenti ed esprimendoli con un _punteggio_, espresso con un numero compreso tra -1 e 1.
+* Il modo in cui la scelta di classificazione è stata elaborata per l'applicazione può essere determinata dalla misurazione di un aspetto del comportamento dell'utente e dall'espressa in un _[Punteggio di ricompensa](concept-rewards.md)_ .
 * Il punteggio non introduce troppi fattori esterni o di confusione. La durata dell'esperimento è abbastanza ridotta da poter calcolare il punteggio finché è ancora pertinente.
 * È possibile esprimere il contesto per le classificazione sotto forma di elenco di almeno 5 [funzioni](concepts-features.md) che si ritiene possano orientare verso la scelta giusta, escludendo le informazioni personali .
 * Sono disponibili informazioni su ciascuna scelta di contenuto, _azione_, come elenco di almeno 5 [funzioni](concepts-features.md) che si ritiene aiutino Personalizza esperienze a operare la scelta giusta.

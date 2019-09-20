@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: bb9a9c1d67e52c21d2cb039832d27547a023da9f
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663387"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154675"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>I punteggi di ricompensa indicano il grado di successo della personalizzazione
 
@@ -25,7 +25,7 @@ Personalizza esperienze esegue il training dei modelli di Machine Learning valut
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Usare l'API Ricompensa per inviare il punteggio di ricompensa a Personalizza esperienze
 
-Le ricompense vengono inviate a Personalizza esperienze dall'[API Ricompensa](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). Una ricompensa è un numero compreso tra -1 e 1. Personalizza esperienze esegue il training del modello per ottenere la somma più alta possibile di ricompense nel tempo.
+Le ricompense vengono inviate a Personalizza esperienze dall'[API Ricompensa](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). In genere, una ricompensa è un numero compreso tra 0 e 1. Un premio negativo, con valore pari a-1, è possibile in determinati scenari e deve essere usato solo se si ha esperienza con l'apprendimento di rinforzo (RL). Personalizza esperienze esegue il training del modello per ottenere la somma più alta possibile di ricompense nel tempo.
 
 Le ricompense vengono inviate dopo che si è verificato il comportamento degli utenti, che può avvenire alcuni giorni più tardi. Il tempo massimo di attesa prima che Personalizza esperienze consideri un evento come evento senza ricompensa, o con una ricompensa predefinita, viene configurato con [Reward Wait Time](#reward-wait-time) (Tempo di attesa ricompense) nel portale di Azure.
 
@@ -56,7 +56,7 @@ Se non viene ricevuta alcuna ricompensa nel tempo indicato per [Reward Wait Time
 
 ## <a name="building-up-rewards-with-multiple-factors"></a>Creazione di ricompense con più fattori  
 
-Per una personalizzazione valida, è possibile creare il punteggio di ricompensa (qualsiasi numero compreso tra -1 e 1) in base a più fattori. 
+Per una personalizzazione efficace, è possibile creare il Punteggio di ricompensa in base a più fattori. 
 
 È ad esempio possibile applicare queste regole per la personalizzazione di un elenco di contenuti video:
 
@@ -78,9 +78,9 @@ Impostazioni di aggregazione:
 *  **Primo**: accetta il primo punteggio di ricompensa ricevuto per l'evento e rimuove il resto.
 * **Somma**: accetta tutti i punteggi di ricompensa raccolti per il corrispondente eventId e li somma.
 
-Tutte le ricompense di un evento che vengono ricevute dopo il tempo specificato per **Reward Wait Time** (Tempo di attesa ricompense) vengono ignorate e non hanno effetto sul training dei modelli.
+Tutte le ricompense di un evento che vengono ricevute dopo il tempo specificato per **Tempo di attesa per la ricompensa** vengono ignorate e non hanno effetto sul training dei modelli.
 
-Sommando i punteggi di ricompensa, è possibile che una ricompensa finale risulti maggiore di 1 o minore di -1. Questo risultato non comporta l'esito negativo del servizio.
+Con l'aggiunta di punteggi Reward, il premio finale potrebbe non essere compreso nell'intervallo previsto per i punteggi. Questo risultato non comporta l'esito negativo del servizio.
 
 <!--
 @edjez - is the number ignored if it is outside the acceptable range?

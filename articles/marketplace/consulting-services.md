@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876683"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147296"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servizi di consulenza per Azure Marketplace e AppSource
 I Servizi di consulenza in Azure Marketplace e AppSource consentono ai partner Microsoft di connettere i clienti con servizi per supportare ed estendere l'uso di Azure e gli obiettivi aziendali. 
@@ -24,15 +24,17 @@ Queste offerte dei servizi di consulenza sono impegni specifici del cliente. Gli
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Servizi di consulenza in Azure Marketplace e AppSource Storefront
 Le vetrine del marketplace sono organizzate in base a gruppi di destinatari e prodotti cloud Microsoft per consentire ai clienti di trovare la soluzione di cui hanno bisogno. Ogni vetrina offre specifiche opzioni di pubblicazione che consentono agli editori di sfruttare al massimo l'investimento nella pubblicazione, come illustrato in sintesi nella tabella seguente:
 
-|         |Azure Marketplace  |AppSource |
+|         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
 |**Destinatari**   |**Professionisti IT e sviluppatori cloud**|**Utenti aziendali/Line-of-Business decision makers**|
 |Pertinenza delle soluzioni     |Applicazioni tecniche create per o in Azure|Applicazioni aziendali che sfruttano/estendono D365, Power BI, Office 365, Azure. (applicazioni completate per componente aggiuntivo)|
-|Opzioni di pubblicazione     |Contattami, prova, transazione o servizi di consulenza|Contattami, prova o servizi di consulenza|
+|Opzioni di pubblicazione     |Contattaci, versione di valutazione, transazioni o servizi per Azure|Contattami, versione di valutazione o servizi per Dynamics 365 e Power BI|
 |In Esperienza di prodotto      |Portale di gestione di Azure|Office 365, Dynamics 365, app client di Office| 
-|Altro      |Pubblicazione locale tramite Azure Stack|Servizi di consulenza per Dynamics e Power BI|
+|Altro      |Pubblicazione locale tramite Azure Stack, servizi di consulenza per Azure, servizi gestiti per Azure|Servizi di consulenza per Dynamics e Power BI|
 
-Le offerte di servizio basate su Microsoft Dynamics 365, Office 365 e Power BI sono idonee a essere inserite in AppSource. Per altre informazioni, vedere [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Linee guida all'inserzione di servizi di consulenza in Microsoft AppSource). 
+Le offerte di servizi di consulenza basate su Microsoft Dynamics 365 e Power BI sono idonee per l'elenco Microsoft AppSource. Per altre informazioni, vedere [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Linee guida all'inserzione di servizi di consulenza in Microsoft AppSource). 
+
+I servizi di consulenza e le offerte di servizi gestiti basati su Microsoft Azure sono idonei per l'elenco in Azure Marketplace. Per altre informazioni, vedere gli articoli sulla [pubblicazione di un servizio di consulenza Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) e [la pubblicazione di un'offerta di servizi gestiti in Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
 > I servizi di consulenza in Azure Marketplace devono sfruttare le offerte rivolte a un **pubblico tecnico focalizzato sulle *soluzioni e i servizi tecnici di Azure*. ** I servizi di consulenza in AppSource devono sfruttare le offerte rivolte agli esperti di sviluppo di soluzioni di qualità per Dynamics 365, Power BI o PowerApps per elencare le offerte di servizi di consulenza in AppSource
@@ -62,7 +64,7 @@ I partner devono avere **competenze Silver o Gold** nell'area pertinente al serv
 |Dynamics 365 for Finance and Operations, Enterprise edition  |  Competenza Silver o Gold di [Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e un fatturato minimo di $ 25.000 derivante dalle operazioni cloud degli ultimi 12 mesi.       |
 |Dynamics 365 for Finance and Operations, Business edition  |  Aver operato come [Provider di servizi Cloud (CSP)](https://partner.microsoft.com/cloud-solution-provider) o come [Digital POR (Partner of Record)](https://partner.microsoft.com/membership/digital-partner-of-record) per almeno un cliente      |
 |Power BI, oggetti visivi personalizzati di Power BI | Soddisfare i [criteri di Partner di soluzioni](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Avere pubblicato una soluzione di [presentazione dei partner](https://appsource.microsoft.com/partners)
+|PowerApp | Avere pubblicato una soluzione di [presentazione dei partner](https://appsource.microsoft.com/partners)
 
 <b> Per altre informazioni, vedere [Competenze in Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
@@ -149,7 +151,7 @@ Esempi:
 
 Durante la revisione delle descrizioni e dei riepiloghi delle offerte, il team applicherà i criteri seguenti:
 
-|Tipo di offerta  |Obbligatoria |Consigliato  |
+|Tipo di offerta  |Richiesti |Consigliati  |
 |---------|---------|---------|
 |**Valutazione**    |   Includere un'agenda dettagliata delle valutazioni di più giorni o più settimane e descrivere in modo articolato il risultato finale che il cliente può aspettarsi      |    Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca     |
 |**Briefing**    |   Descrivere in modo articolato il risultato finale che il cliente può aspettarsi. Tenere presente che un briefing deve essere offerto di persona. Se si fornisce un servizio virtuale, scegliere un tipo di offerta diverso    |  Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca       |

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877179"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147367"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -25,13 +25,17 @@ Il routing dei messaggi consente di inviare messaggi dai dispositivi ai servizi 
 
 * **Filtrare i dati prima del routing a vari endpoint** applicando query complesse. Il routing dei messaggi consente di eseguire query sulle proprietà dei messaggi e sul corpo del messaggio, nonché sui tag e sulle proprietà del dispositivo gemello. Altre informazioni sull'uso delle [query nel routing dei messaggi](iot-hub-devguide-routing-query-syntax.md).
 
-Hub IoT richiede l'accesso in scrittura a questi endpoint di servizio affinché il routing dei messaggi funzioni correttamente. Se si configurano gli endpoint tramite il Portale di Azure, verranno aggiunte le autorizzazioni necessarie. Accertarsi di configurare i servizi per supportare la velocità effettiva prevista. Durante la prima configurazione della soluzione IoT, potrebbe essere necessario monitorare gli endpoint aggiuntivi e quindi apportare le modifiche necessarie per il carico effettivo.
+Hub IoT richiede l'accesso in scrittura a questi endpoint di servizio affinché il routing dei messaggi funzioni correttamente. Se si configurano gli endpoint tramite il Portale di Azure, verranno aggiunte le autorizzazioni necessarie. Accertarsi di configurare i servizi per supportare la velocità effettiva prevista. Ad esempio, se si usa hub eventi come endpoint personalizzato, è necessario configurare le unità di **velocità effettiva** per tale hub eventi in modo da poter gestire l'ingresso degli eventi che si intende inviare tramite il routing dei messaggi dell'hub Internet. Analogamente, quando si usa una coda del bus di servizio come endpoint, è necessario configurare la **dimensione massima** per assicurarsi che la coda possa conservare tutti i dati in ingresso, fino a quando non viene uscita dai consumer. Durante la prima configurazione della soluzione IoT, potrebbe essere necessario monitorare gli endpoint aggiuntivi e quindi apportare le modifiche necessarie per il carico effettivo.
 
 L'hub IoT definisce un [formato comune](iot-hub-devguide-messages-construct.md) per tutta la messaggistica da dispositivo a cloud per l'interoperabilità tra i protocolli. Se un messaggio corrisponde a più route che puntano allo stesso endpoint, l'hub IoT invia il messaggio a questo endpoint una sola volta. Pertanto, non è necessario configurare la deduplicazione nella coda o nell'argomento del bus di servizio. Nelle code partizionate, l'affinità della partizione garantisce l'ordinamento dei messaggi. Usare questa esercitazione per imparare a [configurare il routing dei messaggi](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Endpoint di routing
 
-Un hub IoT ha un endpoint incorporato predefinito (**messaggi/eventi**) compatibile con Hub eventi. È possibile creare [endpoint personalizzati](iot-hub-devguide-endpoints.md#custom-endpoints) per indirizzare i messaggi collegando altri servizi nella sottoscrizione all'hub IoT. L'hub IoT supporta attualmente i servizi seguenti come endpoint personalizzati:
+Un hub IoT ha un endpoint incorporato predefinito (**messaggi/eventi**) compatibile con Hub eventi. È possibile creare [endpoint personalizzati](iot-hub-devguide-endpoints.md#custom-endpoints) per indirizzare i messaggi collegando altri servizi nella sottoscrizione all'hub IoT. 
+
+Ogni messaggio viene indirizzato a tutti gli endpoint le cui query di routing corrispondono. In altre parole, è possibile indirizzare un messaggio a più endpoint.
+
+L'hub IoT supporta attualmente i servizi seguenti come endpoint personalizzati:
 
 ### <a name="built-in-endpoint"></a>Endpoint predefinito
 
@@ -43,9 +47,9 @@ L'hub Internet delle cose supporta la scrittura di dati nell'archivio BLOB di Az
 
 ![Codifica dell'endpoint di archiviazione BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-L'hub Internet delle cose supporta anche il routing dei messaggi agli account ADLS Gen2, ovvero account di archiviazione gerarchici abilitati per gli [spazi dei nomi](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)basati sull'archiviazione BLOB. Questa funzionalità è disponibile in anteprima pubblica per i nuovi account ADLS Gen2 negli Stati Uniti occidentali 2 e negli Stati Uniti centro-occidentali. Questa funzionalità verrà implementata a breve da tutte le aree cloud.
+L'hub Internet delle cose supporta anche il routing dei messaggi agli account Gen2 [Azure Data Lake storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS), che sono account di archiviazione gerarchici abilitati per gli [spazi dei nomi](../storage/blobs/data-lake-storage-namespace.md)basati su archiviazione BLOB. Questa funzionalità è disponibile in anteprima pubblica per i nuovi account ADLS Gen2 negli Stati Uniti occidentali 2 e negli Stati Uniti centro-occidentali. [Iscriversi](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) per visualizzare l'anteprima. Questa funzionalità verrà implementata a breve da tutte le aree cloud. 
 
-L'hub IoT crea batch di messaggi e scrive i dati in un BLOB non appena il batch raggiunge una determinata dimensione oppure dopo che è trascorso un determinato intervallo di tempo. Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente:
+L'hub IoT crea batch di messaggi e scrive i dati in un BLOB non appena il batch raggiunge una determinata dimensione oppure dopo che è trascorso un determinato intervallo di tempo. Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente: 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -119,7 +123,7 @@ Nella maggior parte dei casi, l'aumento medio della latenza è inferiore a 500 m
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoraggio e risoluzione dei problemi
 
-L'hub Internet delle cose offre diverse metriche relative al routing e agli endpoint per offrire una panoramica dell'integrità dell'hub e dei messaggi inviati. È possibile combinare le informazioni da più metriche per individuare la causa radice dei problemi. Usare, ad esempio, **routing metrica: messaggi** di telemetria eliminati o **D2C. telemetria. in uscita. Dropped** per identificare il numero di messaggi eliminati quando non corrispondono a query su una delle route e la route di fallback è stata disabilitata. In [Metriche di Hub IoT](iot-hub-metrics.md) sono elencate tutte le metriche abilitate per impostazione predefinita per l'hub IoT.
+L'hub Internet delle cose offre diverse metriche relative al routing e agli endpoint per offrire una panoramica dell'integrità dell'hub e dei messaggi inviati. È possibile combinare le informazioni da più metriche per individuare la causa radice dei problemi. Usare, ad esempio, **routing metrica: messaggi di telemetria eliminati** o **D2C. telemetria. in uscita. Dropped** per identificare il numero di messaggi eliminati quando non corrispondono a query su una delle route e la route di fallback è stata disabilitata. In [Metriche di Hub IoT](iot-hub-metrics.md) sono elencate tutte le metriche abilitate per impostazione predefinita per l'hub IoT.
 
 È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere [lo stato di integrità](iot-hub-devguide-endpoints.md#custom-endpoints) degli endpoint. Si consiglia di usare le [metriche dell'hub](iot-hub-metrics.md) delle cose correlate alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint è inattiva o non integro. Per il tipo di endpoint Hub eventi, ad esempio, è possibile monitorare **D2C. Endpoints. latence. eventHubs**. Lo stato di un endpoint non integro verrà aggiornato a integro quando lo stato di integrità dell'hub Internet è stabile.
 

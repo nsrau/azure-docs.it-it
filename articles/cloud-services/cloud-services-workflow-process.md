@@ -4,7 +4,7 @@ description: Questo articolo fornisce una panoramica dei processi del flusso di 
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: Willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 383f4d26d44871936ccc910f15575db5aec3ec8c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945333"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162156"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Flusso di lavoro dell'architettura di macchine virtuali di Windows Azure classico 
 Questo articolo fornisce una panoramica dei processi del flusso di lavoro che si verificano quando si distribuisce o si aggiorna una risorsa di Azure, ad esempio una macchina virtuale. 
@@ -37,15 +37,16 @@ Il diagramma seguente illustra l'architettura delle risorse di Azure.
 
 **B**. Il controller di infrastruttura è responsabile della gestione e del monitoraggio di tutte le risorse nel data center. Comunica con gli agenti host dell'infrastruttura nel sistema operativo dell'infrastruttura che invia informazioni quali la versione del sistema operativo guest, il pacchetto del servizio, la configurazione del servizio e lo stato del servizio.
 
-**C**. L'agente host risiede nell'host OSsystem ed è responsabile della configurazione del sistema operativo guest e della comunicazione con l'agente Guest (WindowsAzureGuestAgent) per aggiornare il ruolo verso uno stato obiettivo previsto ed eseguire verifiche di heartbeat con l'agente guest. Se l'agente host non riceve risposta heartbeat per 10 minuti, l'agente host riavvia il sistema operativo guest.
+**C**. L'agente host risiede nel sistema operativo host ed è responsabile della configurazione del sistema operativo guest e della comunicazione con l'agente Guest (WindowsAzureGuestAgent) per aggiornare il ruolo verso uno stato obiettivo previsto ed eseguire controlli heartbeat con l'agente guest. Se l'agente host non riceve risposta heartbeat per 10 minuti, l'agente host riavvia il sistema operativo guest.
 
 **C2**. WaAppAgent è responsabile dell'installazione, della configurazione e dell'aggiornamento di WindowsAzureGuestAgent. exe.
 
 **D**.  WindowsAzureGuestAgent è responsabile per gli elementi seguenti:
 
-1. Configurazione del sistema operativo guest, tra cui firewall, ACL, risorse LocalStorage, pacchetto e configurazione del servizio e certificati. Impostazione del SID per l'account utente con cui viene eseguito il ruolo.
-2. Comunicare lo stato del ruolo all'infrastruttura.
-3. Avviare WaHostBootstrapper e monitorarlo per verificare che il ruolo sia in stato obiettivo.
+1. Configurazione del sistema operativo guest, tra cui firewall, ACL, risorse LocalStorage, pacchetto e configurazione del servizio e certificati.
+2. Impostazione del SID per l'account utente con cui viene eseguito il ruolo.
+3. Comunicare lo stato del ruolo all'infrastruttura.
+4. Avviare WaHostBootstrapper e monitorarlo per verificare che il ruolo sia in stato obiettivo.
 
 **E**. WaHostBootstrapper è responsabile di:
 
@@ -76,7 +77,7 @@ Il diagramma seguente illustra l'architettura delle risorse di Azure.
 
 ## <a name="workflow-processes"></a>Processi del flusso di lavoro
 
-1. Un utente effettua una richiesta, ad esempio il caricamento di file con estensione cspkg e cscfg, indicando a una risorsa di arrestare o apportare una modifica alla configurazione e così via. Questa operazione può essere eseguita tramite il portale di Azure o uno strumento che usa il API Gestione dei servizi, ad esempio la funzionalità di pubblicazione di Visual Studio. Questa richiesta passa a RDFE per eseguire tutte le operazioni correlate alla sottoscrizione e quindi comunica la richiesta a FFE. Il resto di questi passaggi del flusso di lavoro consiste nel distribuire un nuovo pacchetto e avviarlo.
+1. Un utente effettua una richiesta, ad esempio il caricamento di file ". cspkg" e ". cscfg", indicando a una risorsa di arrestare o apportare una modifica alla configurazione e così via. Questa operazione può essere eseguita tramite il portale di Azure o uno strumento che usa il API Gestione dei servizi, ad esempio la funzionalità di pubblicazione di Visual Studio. Questa richiesta passa a RDFE per eseguire tutte le operazioni correlate alla sottoscrizione e quindi comunica la richiesta a FFE. Il resto di questi passaggi del flusso di lavoro consiste nel distribuire un nuovo pacchetto e avviarlo.
 2. FFE trova il pool di computer corretto (in base all'input del cliente, ad esempio il gruppo di affinità o la posizione geografica più l'input dall'infrastruttura, ad esempio la disponibilità del computer) e comunica con il controller di infrastruttura master nel pool di computer.
 3. Il controller di infrastruttura trova un host che dispone di core CPU disponibili (oppure avvia un nuovo host). Il pacchetto e la configurazione del servizio vengono copiati nell'host e il controller di infrastruttura comunica con l'agente host nel sistema operativo host per distribuire il pacchetto (configurare DIP, porte, sistema operativo guest e così via).
 4. L'agente host avvia il sistema operativo guest e comunica con l'agente Guest (WindowsAzureGuestAgent). L'host invia heartbeat al Guest per assicurarsi che il ruolo stia lavorando allo stato dell'obiettivo.

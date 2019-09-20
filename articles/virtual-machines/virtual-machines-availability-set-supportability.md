@@ -4,7 +4,7 @@ description: Supporto dell'aggiunta di macchine virtuali di Azure a un set di di
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 7a5e97b66fec040b4ec32caa8d58cf9b50169a33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3954df389516aa7199022d713dc63d62dda961ae
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60443705"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155449"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Supporto dell'aggiunta di macchine virtuali di Azure a un set di disponibilità esistente
 
@@ -27,7 +27,7 @@ ms.locfileid: "60443705"
 
 Di seguito si riporta la matrice di supporto per combinare diversi tipi di macchine virtuali:
 
-Serie e set di disponibilità|Seconda macchina virtuale|Una|Av2|D|Dv2|Dv3|
+Serie e set di disponibilità|Seconda macchina virtuale|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |Prima macchina virtuale|||||||
 |Una||OK|OK|OK|OK|OK|
@@ -38,4 +38,4 @@ Serie e set di disponibilità|Seconda macchina virtuale|Una|Av2|D|Dv2|Dv3|
 
 Tutte le altre serie potrebbero non trovarsi nello stesso set di disponibilità perché richiedono un hardware specifico.
 
-Dimensioni della macchina virtuale a8 e A9 non possono essere combinate a causa di un requisito in rete di back-end RDMA dedicata.
+Le dimensioni della macchina virtuale A8/A9 non possono essere combinate a causa del requisito sulla rete back-end RDMA dedicata.

@@ -1,5 +1,5 @@
 ---
-title: Offerta di servizio di Azure e Dynamics 365 consulting | Azure Marketplace
+title: Offerta del servizio di consulenza di Azure e Dynamics 365 | Azure Marketplace
 description: Guida alla definizione e alla pubblicazione di un'offerta di servizi di consulenza per Dynamics 365 o Azure nel portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pabutler
-ms.openlocfilehash: a033ad80b59dc29b6d08624dee400d496eb28005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c75664e558602429250420f1896b75a74546e67
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942857"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145450"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Offerta di servizi di consulenza per Azure e Dynamics 365
 
@@ -33,11 +33,12 @@ Questa sezione descrive gli elementi della pubblicazione di un'offerta di un ser
 
 - [Prerequisiti dei servizi di consulenza](./cpp-consulting-service-prerequisites.md) elenca i requisiti per la pubblicazione di un'offerta di servizio di consulenza per:
  
+    - Microsoft Azure
     - Dynamics 365 for Customer Engagement 
     - Dynamics 365 for Finance and Operations 
     - Dynamics 365 Business Central 
     - Power BI 
-    - PowerApps
+    - PowerApp
 - [Creare una nuova offerta](./cpp-consulting-service-create-offer.md) elenca i passaggi necessari per creare la voce dell'offerta di un servizio di consulenza usando il portale Cloud Partner:
     - [Definire le impostazioni dell'offerta](./cpp-consulting-service-define-offer-settings.md).
     - [Immettere i dettagli della vetrina e la preferenza in merito alla pubblicazione in Azure Marketplace o in AppSource.](./cpp-consulting-service-storefront-details.md)
