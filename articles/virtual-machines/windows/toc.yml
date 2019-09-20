@@ -102,6 +102,8 @@
         - name: Generazioni precedenti
           href: sizes-previous-gen.md
           displayName: D-series Ds-series A-series Basic
+        - name: Dimensioni per ambiente isolato
+          href: isolation.md
         - name: Unità di calcolo di Azure
           href: acu.md
         - name: Punteggi di benchmark

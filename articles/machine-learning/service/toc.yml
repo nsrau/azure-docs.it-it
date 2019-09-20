@@ -31,7 +31,7 @@
             - name: Eseguire il training automatico di un modello di Machine Learning
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
-        - name: Assegnare punteggi in batch con le pipeline (opzione avanzata)
+        - name: Pipeline di Machine Learning (avanzato)
           items:
             - name: Assegnare un punteggio in batch a un modello di classificazione
               displayName: pipelines

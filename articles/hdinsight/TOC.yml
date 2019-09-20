@@ -117,7 +117,7 @@
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
             - name: Procedure consigliate - Sicurezza e DevOps
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
-        - name: Gestire
+        - name: Gestisci
           items:
             - name: Gestire i cluster con l'interfaccia utente Web di Apache Ambari
               href: ./hdinsight-hadoop-manage-ambari.md
@@ -271,6 +271,14 @@
           href: ./spark/apache-spark-ipython-notebook-machine-learning.md
         - name: Creare un'app Apache Spark in IntelliJ
           href: ./spark/apache-spark-create-standalone-application.md
+    - name: Concetti
+      items:
+        - name: Procedure consigliate di Spark in HDInsight
+          href: ./spark/spark-best-practices.md
+        - name: Configurare le impostazioni di Apache Spark
+          href: ./spark/apache-spark-settings.md
+        - name: Ottimizzare i processi Apache Spark
+          href: ./spark/apache-spark-perf.md
     - name: Procedure
       items:
         - name: Usare gli strumenti
@@ -317,16 +325,12 @@
                   href: ./hdinsight-using-spark-query-hbase.md
                 - name: Analizzare i log di Application Insights Telemetry
                   href: ./spark/apache-spark-analyze-application-insight-logs.md
-        - name: Gestire
+        - name: Gestisci
           items:
             - name: Gestire le risorse cluster
               href: ./spark/apache-spark-resource-manager.md
             - name: Gestire le applicazioni Apache Spark tramite il Server cronologia esteso
               href: ./spark/apache-azure-spark-history-server.md
-            - name: Configurare le impostazioni di Apache Spark
-              href: ./spark/apache-spark-settings.md
-            - name: Ottimizzare i processi Apache Spark
-              href: ./spark/apache-spark-perf.md
             - name: Abilitare la memorizzazione nella cache con IO Cache
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Usare i notebook con Apache Spark
@@ -454,7 +458,7 @@
                   href: ./hadoop/apache-hadoop-mahout-linux-mac.md
                 - name: Analisi avanzate per HDInsight
                   href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
-        - name: Gestire
+        - name: Gestisci
           items:
             - name: Usare nodi perimetrali vuoti
               href: ./hdinsight-apps-use-edge-node.md
@@ -545,7 +549,7 @@
                   href: ./hdinsight-apache-spark-with-kafka.md
                 - name: Usare Kafka con il servizio Azure Container
                   href: ./kafka/apache-kafka-azure-container-services.md
-        - name: Gestire
+        - name: Gestisci
           items:
             - name: Usare Apache Kafka in una rete virtuale
               href: ./kafka/apache-kafka-connect-vpn-gateway.md
@@ -591,7 +595,7 @@
               href: ./hbase/apache-hbase-using-phoenix-query-server-rest-sdk.md
             - name: Caricamento bulk di dati in Apache Phoenix tramite psql
               href: ./hbase/apache-hbase-phoenix-psql.md
-        - name: Gestire
+        - name: Gestisci
           items:
             - name: Scritture accelerate
               href: ./hbase/apache-hbase-accelerated-writes.md
@@ -675,7 +679,7 @@
               href: ./hadoop/apache-hadoop-hive-java-udf.md
             - name: Query Hive con PowerShell e ODBC
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
-        - name: Gestire
+        - name: Gestisci
           items:
             - name: Eseguire la migrazione di carichi di lavoro Hive ad HDInsight 4.0
               href: ./interactive-query/apache-hive-migrate-workloads.md
@@ -733,7 +737,7 @@
               href: ./r-server/r-server-compute-contexts.md
             - name: ScaleR e SparkR
               href: ./hdinsight-hadoop-r-scaler-sparkr.md
-        - name: Gestire
+        - name: Gestisci
           items:
             - name: Gestire cluster ML Services
               href: ./r-server/r-server-hdinsight-manage.md
@@ -779,7 +783,7 @@
                   href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
                 - name: 'Hub eventi e Apache Storm (C# e Java)'
                   href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
-        - name: Gestire
+        - name: Gestisci
           items:
             - name: Monitorare le topologie
               href: ./storm/apache-storm-deploy-monitor-topology-linux.md

@@ -129,6 +129,8 @@
           href: move-across-regions-external-load-balancer-portal.md
         - name: Servizio di bilanciamento del carico esterno - PowerShell
           href: move-across-regions-external-load-balancer-powershell.md
+        - name: Servizio di bilanciamento del carico interno - Portale
+          href: move-across-regions-internal-load-balancer-portal.md
         - name: Servizio di bilanciamento del carico interno - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Risolvere problemi

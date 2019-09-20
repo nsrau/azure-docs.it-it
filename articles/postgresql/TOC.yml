@@ -232,7 +232,7 @@
       items:
         - name: Gestire le repliche in lettura nel portale di Azure
           href: howto-read-replicas-portal.md
-        - name: Gestire le repliche in lettura con l'interfaccia della riga di comando di Azure
+        - name: Gestire le repliche in lettura con l'interfaccia della riga di comando di Azure e l'API REST
           href: howto-read-replicas-cli.md
 - name: riferimento
   items:

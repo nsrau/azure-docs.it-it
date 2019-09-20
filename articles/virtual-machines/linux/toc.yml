@@ -103,6 +103,8 @@
           href: sizes-hpc.md
         - name: Generazioni precedenti
           href: sizes-previous-gen.md
+        - name: Dimensioni per ambiente isolato
+          href: isolation.md
         - name: Unità di calcolo di Azure
           href: acu.md
         - name: Quote vCPU

@@ -118,7 +118,7 @@
         - name: Eliminare un cluster del servizio Azure Container
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Creare un Registro Azure Container con un cluster del servizio Azure Kubernetes
+        - name: Integrare un Registro Azure Container con un cluster del servizio Azure Kubernetes
           href: cluster-container-registry-integration.md
         - name: Creare nodi virtuali
           items:
