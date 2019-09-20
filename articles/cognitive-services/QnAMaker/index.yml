@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentazione di QnA Maker
   description: QnA Maker è un servizio API basato sul cloud che crea un livello di domande e risposte simile a una conversazione sui dati. QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti. Il servizio QnA Maker risponde alle domande degli utenti in un linguaggio naturale associandole alle migliori risposte possibili presenti nelle domande e risposte della knowledge base.
-  ms.openlocfilehash: 36b1c69ba1b94afadd105117ee5ac9dabcdd64a7
-  ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+  ms.openlocfilehash: 8e47211194be3653c3d0ba060b573bad446162ba
+  ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/19/2019
-  ms.locfileid: "71122997"
+  ms.lasthandoff: 09/20/2019
+  ms.locfileid: "71155099"
 landingContent:
 - title: Informazioni su QnA Maker
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
     links:
     - text: Che cos'è QnA Maker
       url: overview/overview.md
+    - text: Portale di QnA Maker
+      url: https://www.qnamaker.ai
   - linkListType: concept
     links:
     - text: Ciclo di vita di sviluppo
@@ -54,14 +56,6 @@ landingContent:
       url: how-to/chit-chat-knowledge-base.md
     - text: Aggiungere un'origine dati di SharePoint protetta
       url: how-to/add-sharepoint-datasources.md
-- title: Testare e pubblicare
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Testare la knowledge base in modo interattivo
-      url: how-to/test-knowledge-base.md
-    - text: Pubblicare una knowledge base
-      url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
 - title: Ottenere risposte da una knowledge base
   linkLists:
   - linkListType: get-started
@@ -78,6 +72,14 @@ landingContent:
     links:
     - text: Ottenere una risposta con i metadati
       url: how-to/metadata-generateanswer-usage.md
+- title: Testare e pubblicare
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Testare la knowledge base in modo interattivo
+      url: how-to/test-knowledge-base.md
+    - text: Pubblicare una knowledge base
+      url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
 - title: Migliorare la knowledge base
   linkLists:
   - linkListType: how-to-guide
@@ -112,3 +114,13 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
     - text: interfaccia della riga di comando di Azure
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+- title: Guida e feedback
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: risoluzione dei problemi
+      url: troubleshooting.md
+    - text: Inviare domande a Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/QnAMaker
+    - text: Influire sul servizio con UserVoice
+      url: https://cognitive.uservoice.com/forums/578689-qna-maker-api

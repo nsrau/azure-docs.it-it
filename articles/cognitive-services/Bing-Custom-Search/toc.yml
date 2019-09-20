@@ -31,6 +31,8 @@
               href: sdk-csharp-quick-start.md
             - name: Uso di Python
               href: sdk-python-quickstart.md
+            - name: Uso di Java
+              href: sdk-java-quickstart.md
 - name: Esercitazioni
   items:
     - name: Compilare una pagina Web di Ricerca personalizzata

@@ -92,6 +92,10 @@
           href: create-certificate-scenarios.md
 - name: Guide alle procedure
   items:
+    - name: Security
+      items:
+        - name: Consigli
+          href: security-recommendations.md
     - name: Usare un'identità gestita nel servizio app
       href: managed-identity.md
     - name: Registrazione di Azure Key Vault
