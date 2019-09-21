@@ -6,14 +6,14 @@ author: vermagit
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/29/2018
-ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
+ms.author: azcspmt;jonbeck;cynthn;amverma
 ms.custom: include file
-ms.openlocfilehash: 88d9491bae1fcc6acb7ab631514aa4f6244f593d
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 0930fa371500125c15cd969b9e9f4b7a2853612e
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538039"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174964"
 ---
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 * **Sottoscrizione di Azure**: per distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
@@ -29,11 +29,11 @@ ms.locfileid: "67538039"
 * **Ridimensionamento**: a causa dell'hardware specializzato, è possibile ridimensionare solo le istanze a elevato uso di calcolo nella stessa famiglia di dimensioni (serie H o serie A a elevato uso di calcolo). Ad esempio, è possibile ridimensionare una VM della serie H solo da una dimensione della serie H a un'altra. Inoltre, non è supportato il ridimensionamento da una dimensione non a elevato uso di calcolo.  
 
 ## <a name="rdma-capable-instances"></a>Istanze con supporto per RDMA
-Un subset delle istanze a elevato utilizzo di calcolo (A8, A9, H16r, H16mr, HB e connessione ibrida) offrono un'interfaccia di rete per la connettività diretto a memoria remota (RDMA) di accesso. Dimensioni della serie N selezionate con 'r' designate, ad esempio le configurazioni NC24rs (NC24rs_v2 e NC24rs_v3) sono anche con supporto per RDMA. Questa interfaccia è un'aggiunta all'interfaccia di rete di Azure standard disponibile per gli altri formati di VM. 
+Un subset delle istanze a elevato utilizzo di calcolo (A8, A9, H16r, H16mr, HB e HC) è caratterizzato da un'interfaccia di rete per la connettività di accesso diretto a memoria remota (RDMA). Anche le dimensioni selezionate della serie N designate con ' r ', ad esempio le configurazioni NC24rs (NC24rs_v2 e NC24rs_v3), sono compatibili con RDMA. Questa interfaccia è un'aggiunta all'interfaccia di rete di Azure standard disponibile per gli altri formati di VM. 
   
-Questa interfaccia consente le istanze con supporto per RDMA di comunicare attraverso una rete InfiniBand (IB) operano in base alle tariffe EDR per HB, la connessione ibrida, FDR tariffe per le macchine virtuali H16r, H16mr e serie N con supporto per RDMA e a velocità QDR per macchine virtuali A8 e A9. Queste funzionalità RDMA possono migliorare la scalabilità e le prestazioni di determinate applicazioni di interfaccia MPI (Message Passing Interface). Per altre informazioni su velocità, vedere i dettagli nelle tabelle in questa pagina.
+Questa interfaccia consente alle istanze con supporto per RDMA di comunicare attraverso una rete InfiniBand (IB), che opera a tariffe EDR per HB, HC, le tariffe FDR per H16r, H16mr e le macchine virtuali serie N con supporto per RDMA e le tariffe QDR per le macchine virtuali a8 e A9. Queste funzionalità RDMA possono migliorare la scalabilità e le prestazioni di determinate applicazioni di interfaccia MPI (Message Passing Interface). Per ulteriori informazioni sulla velocità, vedere i dettagli nelle tabelle in questa pagina.
 
 > [!NOTE]
-> In Azure, IP over IB è supportato solo su SR-IOV è abilitato le macchine virtuali (SR-IOV per InfiniBand, attualmente HB e connessione ibrida). RDMA over IB è supportato per tutte le istanze con supporto per RDMA.
+> In Azure, IP over IB è supportato solo nelle VM abilitate per SR-IOV (SR-IOV per InfiniBand, attualmente HB e HC). RDMA su IB è supportato per tutte le istanze con supporto per RDMA.
 >
 

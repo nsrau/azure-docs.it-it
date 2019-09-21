@@ -3,7 +3,7 @@ title: Creare una VM Linux usando l'interfaccia della riga di comando classica d
 description: Creare una VM Linux in Azure tramite l'interfaccia della riga di comando classica di Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: vlivech
+author: cynthn
 manager: gwallace
 editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: gwallace
-ms.openlocfilehash: 116811a8b4d8e61a2a727cd4606344f2b169be96
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ce3419ab4f40023b6288a3cf44be2129180dc8eb
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091607"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168691"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Creare una VM Linux usando l'interfaccia della riga di comando classica di Azure
 
@@ -49,21 +49,21 @@ La seguente procedura riguarda la distribuzione di una VM UbuntuLTS, passo passo
 
 Per scegliere rapidamente una distribuzione è possibile usare gli alias dell'interfaccia della riga di comando di Azure con mapping alle distribuzioni di sistemi operativi più diffuse. La tabella seguente elenca gli alias, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Per impostazione predefinita, tutte le distribuzioni che usano `quick-create` fanno uso di macchine virtuali con risorse di archiviazione basate su unità SSD, che garantiscono un provisioning più veloce e accesso al disco a prestazioni elevate. Questi alias rappresentano una minima parte delle distribuzioni disponibili in Azure. Per trovare altre immagini in Azure Marketplace, è possibile [cercare un'immagine in PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [sul Web](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) o [caricare un'immagine personalizzata](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-| Alias | Pubblicato da | Offerta | SKU | Versione |
+| Alias | Autore | Offerta | SKU | Versione |
 |:--- |:--- |:--- |:--- |:--- |
-| CentOS |OpenLogic |CentOS |7.2 |latest |
-| CoreOS |CoreOS |CoreOS |Stabile |latest |
-| Debian |credativ |Debian |8 |latest |
-| openSUSE |SUSE |openSUSE |13.2 |latest |
-| RHEL |Red Hat |RHEL |7.2 |latest |
-| UbuntuLTS |Canonico |Ubuntu Server |14.04.4-LTS |latest |
+| CentOS |OpenLogic |CentOS |7.2 |più recente |
+| CoreOS |CoreOS |CoreOS |Stabile |più recente |
+| Debian |credativ |Debian |8 |più recente |
+| openSUSE |SUSE |openSUSE |13.2 |più recente |
+| RHEL |Red Hat |RHEL |7.2 |più recente |
+| UbuntuLTS |Canonico |Ubuntu Server |14.04.4-LTS |più recente |
 
 Le sezioni seguenti illustrano come usare l'alias `UbuntuLTS` per l'opzione **ImageURN** (`-Q`) per distribuire Ubuntu Server 14.04.4 LTS.
 
 L'esempio `quick-create` precedente ha solo chiamato il flag `-M` per identificare la chiave pubblica SSH da caricare durante la disabilitazione delle password SSH. Viene quindi chiesto di specificare gli argomenti seguenti:
 
 * Nome del gruppo di risorse: per il primo gruppo di risorse di Azure in genere viene accettata una stringa qualsiasi.
-* Nome della VM.
+* Nome VM
 * posizione. `westus` o `westeurope` sono valori predefiniti idonei
 * Linux: per indicare ad Azure quale sistema operativo viene usato.
 * userName

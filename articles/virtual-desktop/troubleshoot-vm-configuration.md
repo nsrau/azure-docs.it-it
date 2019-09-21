@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/29/2019
+ms.date: 09/20/2019
 ms.author: helohr
-ms.openlocfilehash: 03a8e8063f1a66b929311f09bf8e20cd4b951e43
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f919ff1efcb094dec4c810f51a1810f2383ea09d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163308"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174104"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Commenti e suggerimenti
 
 Al momento non vengono accettati casi di supporto mentre Desktop virtuale Windows è in anteprima. Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -76,7 +76,7 @@ Se si verificano problemi durante l'aggiunta di macchine virtuali al dominio, se
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Il caricatore di avvio di Windows Virtual Desktop Agent e Windows Virtual Desktop non sono installati
 
-Il modo consigliato per eseguire il provisioning di macchine virtuali consiste nell'usare il modello di Azure Resource Manager creare ed effettuare il provisioning del **pool di host** Il modello installa automaticamente l'agente desktop virtuale di Windows e il caricatore di avvio dell'agente desktop virtuale di Windows.
+Il modo consigliato per eseguire il provisioning di macchine virtuali consiste nell'usare il modello di Azure Resource Manager **creare ed effettuare il provisioning del pool di host** Il modello installa automaticamente l'agente desktop virtuale di Windows e il caricatore di avvio dell'agente desktop virtuale di Windows.
 
 Seguire queste istruzioni per confermare che i componenti sono installati e per verificare la presenza di messaggi di errore.
 
@@ -179,7 +179,7 @@ Lo stack side-by-side di desktop virtuale Windows viene installato automaticamen
 
 Esistono tre modi principali per installare o abilitare lo stack affiancato nelle macchine virtuali del pool host della sessione:
 
-- Con il Azure Resource Manager creare ed effettuare il provisioning di un nuovo modello di **pool host per desktop virtuali Windows**
+- Con il Azure Resource Manager **creare ed effettuare il provisioning di un nuovo modello di pool host per desktop virtuali Windows**
 - Con l'inclusione e l'abilitazione nell'immagine master
 - Installato o abilitato manualmente in ogni macchina virtuale (o con estensioni/PowerShell)
 
@@ -296,17 +296,76 @@ Se il sistema operativo è Microsoft Windows 10, continuare con le istruzioni se
 
 16. Al termine dell'esecuzione dei cmdlet, riavviare la macchina virtuale con lo stack side-by-side non funzionante.
 
-## <a name="remote-licensing-model-is-not-configured"></a>Il modello di gestione licenze remota non è configurato
+## <a name="remote-licensing-model-isnt-configured"></a>Il modello di gestione licenze remote non è configurato
 
-Se si accede a una multisessione Enterprise di Windows 10 con un account amministrativo, è possibile che venga visualizzata una notifica che indica che la modalità di gestione licenze Desktop remoto non è configurata, Servizi Desktop remoto smetterà di funzionare tra X giorni. Nel server Gestore connessione usare Server Manager per specificare la modalità di gestione licenze Desktop remoto ". Se viene visualizzato questo messaggio, significa che è necessario configurare manualmente la modalità di gestione licenze per **ogni utente**.
+Se si accede a una multisessione Enterprise di Windows 10 con un account amministrativo, è possibile che venga visualizzata una notifica che indica che la modalità di gestione licenze Desktop remoto non è configurata, Servizi Desktop remoto smetterà di funzionare tra X giorni. Nel server Gestore connessione usare Server Manager per specificare la modalità di gestione licenze Desktop remoto ".
 
-Per configurare manualmente la modalità di gestione licenze:  
+Se il limite di tempo scade, verrà visualizzato un messaggio di errore che indica che la sessione remota è stata disconnessa perché non sono disponibili Desktop remoto licenze di accesso client per questo computer.
 
-1. Passare alla casella di ricerca del **menu Start** , quindi individuare e aprire **gpedit. msc** per accedere all'editor di criteri di gruppo locale. 
-2. Passare a **configurazione** > computer**modelli amministrativi** > **componenti di Windows** **Servizi Desktop remoto** host sessione Desktop remoto >  >  >  **Gestione delle licenze**. 
-3. Selezionare **imposta la modalità di gestione licenze Desktop remoto** e modificarla in per **utente**.
+Se viene visualizzato uno di questi messaggi, significa che è necessario aprire l'Editor Criteri di gruppo e configurare manualmente la modalità di gestione licenze per **ogni utente**. Il processo di configurazione manuale varia a seconda della versione di Windows 10 Enterprise multisessione in uso. Le sezioni seguenti illustrano come verificare il numero di versione e le operazioni da eseguire per ognuno di essi.
 
-Attualmente si esaminano i problemi di timeout del periodo di notifica e di tolleranza e si prevede di risolverli in un aggiornamento futuro. 
+>[!NOTE]
+>Desktop virtuale Windows richiede solo una licenza CAL (Client Access License) RDS quando il pool host contiene host sessione Windows Server. Per informazioni su come configurare una licenza CAL Servizi Desktop remoto, vedere [concedere in licenza la distribuzione di Servizi Desktop remoto con licenze di accesso client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identificare la versione di Windows 10 Enterprise multisessione in uso
+
+Per verificare la versione di Windows 10 Enterprise con più sessioni:
+
+1. Accedere con l'account amministratore.
+2. Immettere "about" nella barra di ricerca accanto al menu Start.
+3. Selezionare **informazioni sul computer**.
+4. Controllare il numero accanto a "Version". Il numero deve essere "1809" o "1903", come illustrato nella figura seguente.
+   
+    ![Screenshot della finestra delle specifiche di Windows. Il numero di versione è evidenziato in blu.](media/windows-specifications.png)
+
+Ora che si conosce il numero di versione, passare alla sezione pertinente.
+
+### <a name="version-1809"></a>Versione 1809
+
+Se il numero di versione indica "1809", è possibile eseguire l'aggiornamento a Windows 10 Enterprise Multisession, versione 1903 o ridistribuire il pool host con l'immagine più recente.
+
+Per eseguire l'aggiornamento a Windows 10, versione 1903:
+
+1. Se non è già stato fatto, scaricare e installare l' [aggiornamento 2019 di Windows 10](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
+2. Accedere al computer con l'account amministratore.
+3. Eseguire **gpedit. msc** per aprire l'Editor criteri di gruppo.
+4. In configurazione computer passare a **modelli amministrativi** > **componenti** > di Windows**Servizi Desktop remoto** > licenze**host sessione Desktop remoto** > .
+5. Selezionare **imposta la modalità di gestione licenze Desktop remoto**.
+6. Nella finestra visualizzata selezionare prima **abilitato**, quindi in Opzioni specificare la modalità di gestione licenze per il server Host sessione Desktop remoto come **per utente**, come illustrato nella figura seguente.
+    
+    ![Screenshot della finestra "impostare la modalità di gestione licenze Desktop remoto" configurata in base alle istruzioni riportate nel passaggio 6.](media/group-policy-editor-per-user.png)
+
+7. Selezionare **Applica**.
+8. Scegliere **OK**.
+9.  Riavviare il computer.
+
+Per ridistribuire il pool host con l'immagine più recente:
+
+1. Seguire le istruzioni riportate in [creare un pool di host usando Azure Marketplace](create-host-pools-azure-marketplace.md) fino a quando non viene richiesto di scegliere una versione del sistema operativo dell'immagine. È possibile scegliere Windows 10 Enterprise multisessione con o senza Office365 ProPlus.
+2. Accedere al computer con l'account amministratore.
+3. Eseguire **gpedit. msc** per aprire l'Editor criteri di gruppo.
+4. In configurazione computer passare a **modelli amministrativi** > **componenti** > di Windows**Servizi Desktop remoto** > licenze**host sessione Desktop remoto** > .
+5. Selezionare **imposta la modalità di gestione licenze Desktop remoto**.
+6. Nella finestra visualizzata selezionare prima **abilitato**, quindi in Opzioni specificare la modalità di gestione licenze per il server Host sessione Desktop remoto come **utente singolo**.
+7. Selezionare **Applica**.
+8. Scegliere **OK**.
+9.  Riavviare il computer.
+
+### <a name="version-1903"></a>Versione 1903
+
+Se il numero di versione dice "1903", seguire queste istruzioni:
+
+1. Accedere al computer con l'account amministratore.
+2. Eseguire **gpedit. msc** per aprire l'Editor criteri di gruppo.
+3. In configurazione computer passare a **modelli amministrativi** > **componenti** > di Windows**Servizi Desktop remoto** > licenze**host sessione Desktop remoto** > .
+4. Selezionare **imposta la modalità di gestione licenze Desktop remoto**.
+6. Nella finestra visualizzata selezionare prima **abilitato**, quindi in Opzioni specificare la modalità di gestione licenze per il server Host sessione Desktop remoto come **per utente**, come illustrato nella figura seguente.
+    
+    ![Screenshot della finestra "impostare la modalità di gestione licenze Desktop remoto" configurata in base alle istruzioni riportate nel passaggio 6.](media/group-policy-editor-per-user.png)
+
+7. Selezionare **Applica**.
+8. Scegliere **OK**.
+9.  Riavviare il computer.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

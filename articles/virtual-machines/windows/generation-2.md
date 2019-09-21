@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: lahugh
-ms.openlocfilehash: 5e342418dc6cc9ed0a3bbbfaad42801d5ffe9e9d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e4572ac6041caffc6c77d74dcbb2cf52f9f0aed0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900246"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173806"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Supporto per le macchine virtuali di seconda generazione (anteprima) in Azure
 
@@ -49,7 +49,7 @@ Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni
 * [Serie Mv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 * Serie [NCv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) e [serie NCv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
 * [Serie ND](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
-* [Serie NVv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
+* [Serie NVv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Immagini di macchine virtuali di seconda generazione in Azure Marketplace
 
@@ -88,12 +88,13 @@ Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V 
 
 | Capacità | Prima generazione | Generazione 2 |
 |------------|--------------|--------------|
-| Disco del sistema operativo > 2 TB                    | :x:                        | :heavy_check_mark: |
-| Sistema operativo disco/immagine/scambio personalizzato         | :heavy_check_mark:         | :heavy_check_mark: |
-| Supporto del set di scalabilità di macchine virtuali | :heavy_check_mark:         | :heavy_check_mark: |
-| ASR/backup                        | :heavy_check_mark:         | :x:                |
-| Raccolta immagini condivisa              | :heavy_check_mark:         | :x:                |
-| Crittografia dischi di Azure             | :heavy_check_mark:         | :x:                |
+| Disco del sistema operativo > 2 TB                    | :x:                | :heavy_check_mark: |
+| Sistema operativo disco/immagine/scambio personalizzato         | :heavy_check_mark: | :heavy_check_mark: |
+| Supporto del set di scalabilità di macchine virtuali | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Backup/ripristino                    | :heavy_check_mark: | :heavy_check_mark: |
+| Raccolta immagini condivisa              | :heavy_check_mark: | :x:                |
+| Crittografia dischi di Azure             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Creazione di una macchina virtuale di seconda generazione
 
@@ -101,14 +102,37 @@ Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V 
 
 Nel portale di Azure o nell'interfaccia della riga di comando di Azure è possibile creare macchine virtuali di seconda generazione da un'immagine del Marketplace che supporta l'avvio UEFI.
 
-L' `windowsserver-gen2preview` offerta contiene solo le immagini di Windows generazione 2. Questo packaging evita confusione tra le immagini di generazione 1 e generazione 2. Per creare una macchina virtuale di seconda generazione, selezionare **Immagini** dall'offerta e seguire il processo standard per creare la macchina virtuale.
+#### <a name="azure-portal"></a>Portale di Azure
 
-Attualmente Marketplace offre le seguenti immagini di Windows generazione 2:
+Le immagini di generazione 2 per Windows e SLES sono incluse nella stessa offerta server delle immagini Gen1. Ciò significa che, dal punto di vista del flusso, si seleziona l'offerta e lo SKU dal portale per la VM. Se lo SKU supporta le immagini di prima e di seconda generazione, è possibile scegliere di creare una VM di seconda generazione dalla scheda *Avanzate* nel flusso di creazione della macchina virtuale.
 
-* 2019-datacenter-Gen2
-* 2016-datacenter-Gen2
-* 2012-r2-datacenter-gen2
-* 2012-Datacenter-Gen2
+Attualmente, gli SKU seguenti supportano sia immagini di generazione 1 che di generazione 2:
+
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server 2019
+
+Quando si seleziona uno SKU di Windows Server come offerta, nella scheda **Avanzate** è disponibile un'opzione per creare una VM di **generazione 1** (BIOS) o di **generazione 2** (UEFI). Se si seleziona **generazione 2**, verificare che le dimensioni della macchina virtuale selezionate nella scheda **nozioni di base** siano [supportate per le macchine virtuali di seconda generazione](#generation-2-vm-sizes).
+
+![Selezionare la VM di generazione 1 o di generazione 2](./media/generation-2/gen1-gen2-select.png)
+
+#### <a name="powershell"></a>PowerShell
+
+È anche possibile usare PowerShell per creare una VM facendo direttamente riferimento allo SKU di generazione 1 o di seconda generazione.
+
+Ad esempio, usare il cmdlet di PowerShell seguente per ottenere un elenco degli SKU nell' `WindowsServer` offerta.
+
+```powershell
+Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+Se si crea una macchina virtuale con Windows Server 2012 come sistema operativo, verrà selezionato lo SKU della VM di generazione 1 (BIOS) o di generazione 2 (UEFI), che è simile al seguente:
+
+```powershell
+2012-Datacenter
+2012-datacenter-gensecond
+```
 
 Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la sezione [funzionalità e funzionalità](#features-and-capabilities) .
 
@@ -116,7 +140,7 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
 
 È possibile creare una macchina virtuale di seconda generazione da un'immagine gestita o da un disco gestito nello stesso modo in cui si crea una macchina virtuale di prima generazione.
 
-### <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
+### <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
 
 È anche possibile creare macchine virtuali di seconda generazione usando i set di scalabilità di macchine virtuali. Nell'interfaccia della riga di comando di Azure usare i set di scalabilità di Azure per creare VM di seconda generazione.
 
@@ -131,7 +155,7 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
 * **Si dispone di un file con estensione VHD della macchina virtuale locale di seconda generazione. È possibile usare il file con estensione VHD per creare una macchina virtuale di seconda generazione in Azure?**
   Sì, è possibile importare il file con estensione VHD di generazione 2 in Azure e usarlo per creare una macchina virtuale di seconda generazione. Per eseguire questa operazione, attenersi alla procedura seguente:
     1. Caricare il file VHD in un account di archiviazione nella stessa area in cui si vuole creare la macchina virtuale.
-    1. Creare un disco gestito dal file con estensione vhd. Impostare la proprietà di generazione HyperV su V2. I comandi di PowerShell seguenti impostano la proprietà di generazione HyperV durante la creazione del disco gestito.
+    1. Creare un disco gestito dal file con estensione vhd. Impostare la proprietà di generazione Hyper-V su V2. I comandi di PowerShell seguenti impostano la proprietà di generazione Hyper-V durante la creazione del disco gestito.
 
         ```powershell
         $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>
@@ -141,7 +165,7 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
         ```
 
     1. Quando il disco è disponibile, creare una VM connettendo questo disco. La macchina virtuale creata sarà una macchina virtuale di seconda generazione.
-    Quando viene creata la macchina virtuale di seconda generazione, è possibile generalizzare l'immagine della macchina virtuale. Generalizzando l'immagine è possibile usarla per creare più macchine virtuali.
+    Quando viene creata la macchina virtuale di seconda generazione, è possibile generalizzare l'immagine della macchina virtuale. Generalizzando l'immagine, è possibile usarla per creare più macchine virtuali.
 
 * **Ricerca per categorie aumentare le dimensioni del disco del sistema operativo?**  
   I dischi del sistema operativo di dimensioni superiori a 2 TB sono nuovi per le macchine virtuali di seconda generazione. Per impostazione predefinita, i dischi del sistema operativo sono inferiori a 2 TB per le macchine virtuali di seconda generazione. È possibile aumentare le dimensioni del disco fino a un massimo consigliato di 4 TB. Usare l'interfaccia della riga di comando di Azure o l'portale di Azure per aumentare le dimensioni del disco del sistema operativo. Per informazioni su come espandere i dischi a livello di codice, vedere [ridimensionare un disco](expand-os-disk.md).

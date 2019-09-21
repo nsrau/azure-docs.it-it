@@ -1,26 +1,26 @@
 ---
-title: Provider personalizzato C# riferimento all'endpoint REST - Azure
-description: Questo articolo è un riferimento di base per un provider personalizzato C# endpoint RESTful.
+title: Riferimento all' C# endpoint RESTful del provider personalizzato-Azure
+description: Questo articolo è un riferimento di base per un endpoint C# RESTful del provider personalizzato.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: ed10e0c62684e3013ac759000e74847d521a105e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 8007c92c832ab7621d0192f924b15abf8bda9262
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800107"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172901"
 ---
-# <a name="custom-provider-c-restful-endpoint-reference"></a>Provider personalizzato C# riferimento all'endpoint RESTful
+# <a name="custom-provider-c-restful-endpoint-reference"></a>Riferimento all' C# endpoint RESTful del provider personalizzato
 
-Questo articolo è un riferimento di base per un provider personalizzato C# endpoint RESTful. Se non si ha familiarità con i provider personalizzati di Azure, vedere [la panoramica sul provider di risorse personalizzati](./custom-providers-overview.md).
+Questo articolo è un riferimento di base per un endpoint C# RESTful del provider personalizzato. Se non si ha familiarità con i provider personalizzati di Azure, vedere [la panoramica sui provider di risorse personalizzati](./custom-providers-overview.md).
 
-## <a name="azure-function-restful-endpoint"></a>Endpoint RESTful di funzione di Azure
+## <a name="azure-function-app-restful-endpoint"></a>Endpoint RESTful dell'app per le funzioni di Azure
 
-Il codice seguente funziona con una funzione di Azure. Per informazioni su come configurare una funzione di Azure per lavorare con i provider personalizzati, vedere [impostazione di funzioni di Azure per i provider personalizzati di Azure](./tutorial-custom-providers-function-setup.md)
+Il codice seguente funziona con un'app per le funzioni di Azure. Per informazioni su come configurare un'app per le funzioni di Azure da usare con i provider personalizzati di Azure, vedere [l'esercitazione sulla configurazione di funzioni di Azure per i provider personalizzati di Azure](./tutorial-custom-providers-function-setup.md).
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -50,12 +50,12 @@ public class CustomResource : TableEntity
 }
 
 /// <summary>
-/// Entry point for the Azure Function webhook and acts as the service behind a custom provider.
+/// Entry point for the Azure Function webhook that acts as the service behind a custom provider.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
+/// <param name="requestMessage">The HTTP request message.</param>
 /// <param name="log">The logger.</param>
-/// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <returns>The http response for the custom Azure API.</returns>
+/// <param name="tableStorage">The Azure Table storage account.</param>
+/// <returns>The HTTP response for the custom Azure API.</returns>
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log, CloudTable tableStorage)
 {
     // Get the unique Azure request path from request headers.
@@ -84,7 +84,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 
     switch (req.Method)
     {
-        // Action request for an custom action.
+        // Action request for a custom action.
         case HttpMethod m when m == HttpMethod.Post && !isResourceRequest:
             return await TriggerCustomAction(
                 requestMessage: req);
@@ -129,10 +129,10 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 }
 
 /// <summary>
-/// Triggers a custom action with some side effect.
+/// Triggers a custom action with some side effects.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
-/// <returns>The http response result of the custom action.</returns>
+/// <param name="requestMessage">The HTTP request message.</param>
+/// <returns>The HTTP response result of the custom action.</returns>
 public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMessage requestMessage)
 {
     var myCustomActionRequest = await requestMessage.Content.ReadAsStringAsync();
@@ -147,11 +147,11 @@ public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMes
 /// <summary>
 /// Enumerates all the stored custom resources for a given type.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
-/// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
+/// <param name="requestMessage">The HTTP request message.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="resourceType">The resource type of the enumeration.</param>
-/// <returns>The http response containing a list of resources stored under 'value'.</returns>
+/// <returns>The HTTP response containing a list of resources stored under 'value'.</returns>
 public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string resourceType)
 {
     // Generate upper bound of the query.
@@ -179,11 +179,11 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 /// <summary>
 /// Retrieves a custom resource.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
-/// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
+/// <param name="requestMessage">The HTTP request message.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
-/// <returns>The http response containing the existing custom resource.</returns>
+/// <returns>The HTTP response containing the existing custom resource.</returns>
 public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string rowKey)
 {
     // Attempt to retrieve the Existing Stored Value
@@ -200,17 +200,17 @@ public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequest
 }
 
 /// <summary>
-/// Creates a custom resource and saves it to table storage.
+/// Creates a custom resource and saves it to Table storage.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
-/// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="azureResourceId">The parsed Azure resource Id.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
+/// <param name="requestMessage">The HTTP request message.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
+/// <param name="azureResourceId">The parsed Azure resource ID.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
-/// <returns>The http response containing the created custom resource.</returns>
+/// <returns>The HTTP response containing the created custom resource.</returns>
 public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, ResourceId azureResourceId, string partitionKey, string rowKey)
 {
-    // Construct the new resource from the request body and adds the Azure Resource Manager fields.
+    // Constructs the new resource from the request body and adds the Azure Resource Manager fields.
     var myCustomResource = JObject.Parse(await requestMessage.Content.ReadAsStringAsync());
     myCustomResource["name"] = azureResourceId.Name;
     myCustomResource["type"] = azureResourceId.FullResourceType;
@@ -234,14 +234,14 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 /// <summary>
 /// Removes an existing custom resource.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
-/// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
+/// <param name="requestMessage">The HTTP request message.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
-/// <returns>The http response containing the result of the delete.</returns>
+/// <returns>The HTTP response containing the result of the deletion.</returns>
 public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string rowKey)
 {
-    // Attempt to retrieve the Existing Stored Value
+    // Attempt to retrieve the existing stored value
     var tableQuery = TableOperation.Retrieve<CustomResource>(partitionKey, rowKey);
     var existingCustomResource = (CustomResource)(await tableStorage.ExecuteAsync(tableQuery)).Result;
 
@@ -257,7 +257,7 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica sui provider di risorse personalizzati di Azure](./custom-providers-overview.md)
-- [Esercitazione: Creare il Provider di risorse personalizzati di Azure e distribuire le risorse personalizzate](./create-custom-provider.md)
-- [Procedure: Aggiunta di azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
-- [Informazioni di riferimento: Riferimento a una risorsa personalizzata della Cache](./custom-providers-proxy-cache-resource-endpoint-reference.md)
+- [Panoramica dei provider di risorse personalizzati di Azure](./custom-providers-overview.md)
+- [Esercitazione: Creare un provider di risorse personalizzato di Azure e distribuire le risorse personalizzate](./create-custom-provider.md)
+- [Procedura: Aggiunta di azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
+- [Informazioni di riferimento: Riferimento alla cache delle risorse personalizzate](./custom-providers-proxy-cache-resource-endpoint-reference.md)

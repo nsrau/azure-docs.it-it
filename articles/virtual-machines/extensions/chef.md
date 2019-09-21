@@ -3,7 +3,7 @@ title: Estensione Chef per macchine virtuali di Azure | Microsoft Docs
 description: Distribuire Chef Client in una macchina virtuale usando l'estensione macchina virtuale Chef.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: roiyz
-ms.openlocfilehash: 0ed042b3b004fd43bc03304c3042c2ac3e1a6482
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: e82a5fefcc7f582df65d945735d9840fc3e49829
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092561"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169140"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Estensione macchina virtuale Chef per Linux e Windows
 
@@ -67,7 +67,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 
 ### <a name="core-property-values"></a>Valori delle proprietà principali
 
-| Name | Valore/Esempio | Tipo di dati
+| Attività | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
@@ -76,7 +76,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 
 ### <a name="settings"></a>Impostazioni
 
-| Name | Valore/Esempio | Tipo di dati | Obbligatorio?
+| Attività | Valore/Esempio | Tipo di dati | Obbligatorio?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
@@ -84,7 +84,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 
 ### <a name="protected-settings"></a>Impostazioni protette
 
-| Name | Esempio | Tipo di dati | Obbligatorio?
+| Attività | Esempio | Tipo di dati | Obbligatorio?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
 
@@ -100,7 +100,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 | ---- | ---- | ---- |
 -->
 
-## <a name="template-deployment"></a>Distribuzione del modello
+## <a name="template-deployment"></a>Distribuzione modello
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. È possibile usare i modelli per distribuire una o più macchine virtuali, installare il client Chef, connettersi al server Chef e quindi eseguire la configurazione iniziale nel server come definito da [Run-list](https://docs.chef.io/run_lists.html)
 
@@ -146,7 +146,7 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 
 ### <a name="error-codes-and-their-meanings"></a>Codici di errore e relativi significati
 
-| Codice di errore | Significato | Azione possibile |
+| Codice errore | Significato | Azione possibile |
 | :---: | --- | --- |
 | 51 | Questa estensione non è supportata nel sistema operativo della macchina virtuale | |
 

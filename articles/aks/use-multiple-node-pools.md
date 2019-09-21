@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 7a58e8559587ddcb307c338f5ce87cd6b8e52021
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996888"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171500"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Anteprima: creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -79,6 +79,7 @@ Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, s
 * Non è possibile eliminare il pool di nodi predefinito (primo).
 * Non è possibile usare il componente aggiuntivo routing applicazione HTTP.
 * Non è possibile aggiungere o eliminare pool di nodi usando un modello di Gestione risorse esistente come per la maggior parte delle operazioni. Usare invece [un modello di gestione risorse separato](#manage-node-pools-using-a-resource-manager-template) per apportare modifiche ai pool di nodi in un cluster AKS.
+* Il nome di un pool di nodi deve iniziare con una lettera minuscola e può contenere solo caratteri alfanumerici. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.
 
 Quando questa funzionalità è in anteprima, si applicano le seguenti limitazioni aggiuntive:
 
@@ -130,6 +131,9 @@ az aks nodepool add \
     --node-count 3 \
     --kubernetes-version 1.12.7
 ```
+
+> [!NOTE]
+> Il nome di un pool di nodi deve iniziare con una lettera minuscola e può contenere solo caratteri alfanumerici. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.
 
 Per visualizzare lo stato dei pool di nodi, usare il comando [AZ AKS node pool list][az-aks-nodepool-list] e specificare il gruppo di risorse e il nome del cluster:
 
@@ -580,8 +584,8 @@ L'aggiornamento del cluster AKS potrebbe richiedere alcuni minuti in base alle i
 
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Assegnare un indirizzo IP pubblico per nodo in un pool di nodi
 
-> [!NOTE]
-> Durante l'anteprima dell'assegnazione di un indirizzo IP pubblico per nodo, non può essere usato con lo *SKU Load Balancer standard in AKS* a causa di possibili regole del servizio di bilanciamento del carico in conflitto con il provisioning delle macchine virtuali. In anteprima usare lo *SKU Basic Load Balancer* se è necessario assegnare un indirizzo IP pubblico per ogni nodo.
+> [!WARNING]
+> Durante l'anteprima dell'assegnazione di un indirizzo IP pubblico per nodo, non può essere usato con lo *SKU Load Balancer standard in AKS* a causa di possibili regole del servizio di bilanciamento del carico in conflitto con il provisioning delle macchine virtuali. Durante l'anteprima è necessario usare lo *SKU Basic Load Balancer* se è necessario assegnare un indirizzo IP pubblico per ogni nodo.
 
 I nodi AKS non richiedono indirizzi IP pubblici per la comunicazione. Tuttavia, in alcuni scenari potrebbe essere necessario che i nodi in un pool di nodi dispongano di indirizzi IP pubblici. Un esempio è il gioco, in cui una console deve effettuare una connessione diretta a una macchina virtuale cloud per ridurre al minimo i luppoli. Per ottenere questo risultato, è possibile registrarsi per una funzionalità di anteprima separata, ovvero l'indirizzo IP pubblico del nodo (anteprima).
 

@@ -13,17 +13,22 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 0c2a28462633d47ad1d3f247793e3fcf6f4d40c0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: b6ecf1e9cece51635afc0bf0f8025b6e117438ee
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795454"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169445"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights per le applicazioni console .NET
+
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) consente di monitorare la disponibilità, le prestazioni e l'uso dell'applicazione Web.
 
 È necessaria una sottoscrizione a [Microsoft Azure](https://azure.com). È possibile accedere con un account Microsoft, che in genere si ottiene per Windows, XBox Live o altri servizi cloud Microsoft. Se il team ha una sottoscrizione di Azure per l'organizzazione, chiedere al proprietario di aggiungere l'utente alla sottoscrizione usando il rispettivo account Microsoft.
+
+> [!NOTE]
+> È disponibile un nuovo SDK di Application Insights beta denominato [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , che può essere usato per abilitare Application Insights per qualsiasi applicazione console. È consigliabile usare questo pacchetto e le istruzioni associate da [qui](../../azure-monitor/app/worker-service.md). Questo pacchetto è [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)destinato a, quindi può essere usato in .NET Core 2,0 o versione successiva e .NET Framework 4.7.2 o versione successiva.
+Questo documento verrà deprecato dopo il rilascio di una versione stabile del nuovo pacchetto.
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -96,7 +101,7 @@ Un esempio completo del file di configurazione potrebbe essere disponibile insta
 
 ### <a name="configuring-telemetry-collection-from-code"></a>Configurazione della raccolta di dati di telemetria dal codice
 > [!NOTE]
-> Lettura del file config non è supportata in .NET Core. È consigliabile utilizzare [Application Insights SDK per ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
+> La lettura del file di configurazione non è supportata in .NET Core. È possibile prendere in considerazione l'uso [di Application Insights SDK per ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 
 * Durante l'avvio dell'applicazione, creare e configurare l'istanza di `DependencyTrackingTelemetryModule`, che deve essere singleton ed essere conservata per la durata dell'applicazione.
 
@@ -125,13 +130,13 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-Se è stata creata con normale configurazione `TelemetryConfiguration()` costruttore, è necessario abilitare anche il supporto di correlazione. **Non è necessaria** se si legge configurazione dal file, usato `TelemetryConfiguration.CreateDefault()` o `TelemetryConfiguration.Active`.
+Se è stata creata la configurazione `TelemetryConfiguration()` con un costruttore semplice, è necessario abilitare anche il supporto per la correlazione. **Non è necessario** se si legge la configurazione da file, usato `TelemetryConfiguration.CreateDefault()` o `TelemetryConfiguration.Active`.
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* È anche possibile installare e inizializzare il modulo dell'agente di raccolta del contatore delle prestazioni come descritto [qui](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* È anche possibile installare e inizializzare il modulo dell'agente di raccolta contatori delle prestazioni, come descritto [qui](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
 
 #### <a name="full-example"></a>Esempio completo

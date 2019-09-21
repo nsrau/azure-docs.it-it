@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91c747b8b4ca58e7714dc101777bad51f9f0286f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 85ca03bee728ec075383566be14d2484dd7431af
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035586"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170444"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funzionamento di Azure Machine Learning: Architettura e concetti
 
@@ -63,10 +63,10 @@ Usare questi strumenti per Azure Machine Learning:
 + <a href="#compute-targets">Destinazioni di calcolo</a>
 + <a href="#training-scripts">Script di training</a>
 + <a href="#runs">Run</a>
++ <a href="#environments">Ambienti</a>
 + <a href="#github-tracking-and-integration">Rilevamento git</a>
 + <a href="#snapshots">Snapshot</a>
 + <a href="#activities">Attività</a>
-+ <a href="#images">Immagine</a>
 + <a href="#deployment">Distribuzione</a>
 + <a href="#web-service-deployments">Servizi Web</a>
 + <a href="#iot-module-deployments">Moduli delle cose</a>
@@ -120,7 +120,7 @@ Per facilitare il training del modello con i Framework più diffusi, la classe E
 
 Per le attività PyTorch, TensorFlow e Chainer, Azure Machine Learning fornisce anche i rispettivi estimatori [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) per semplificare l'uso di questi Framework.
 
-Per altre informazioni, vedere i seguenti articoli:
+Per altre informazioni, vedere gli articoli seguenti:
 
 * [Training di modelli ml con estimatori](how-to-train-ml-models.md).
 * Esegui il [training di modelli di Deep Learning Pytorch su larga scala con Azure Machine Learning](how-to-train-pytorch.md).
@@ -180,28 +180,15 @@ Un'attività rappresenta un'operazione a esecuzione prolungata. Le operazioni se
 
 Le attività possono fornire notifiche tramite l'SDK o l'interfaccia utente Web in modo da poter facilmente monitorare l'avanzamento di queste operazioni.
 
-### <a name="images"></a>Immagini
+### <a name="environments"></a>Ambienti
 
-Le immagini consentono di distribuire in modo affidabile un modello e tutti i componenti necessari per il suo utilizzo. Un'immagine contiene i seguenti elementi:
+Gli ambienti di Azure ML vengono usati per specificare la configurazione (Docker/Python/Spark/ecc.) usata per creare un ambiente riproducibile per la preparazione dei dati, il training del modello e il servizio del modello. Sono entità gestite e con versione all'interno dell'area di lavoro Azure Machine Learning che consentono flussi di lavoro riproducibili, controllabili e portatili di Machine Learning tra destinazioni di calcolo diverse.
 
-* Un modello.
-* Uno script di punteggio o applicazione. Questo script viene usato per passare l'input al modello e per restituire l'output del modello.
-* Le dipendenze necessarie per il modello, lo script di punteggio o l'applicazione. Ad esempio, è possibile includere un file di ambiente Conda che elenca le dipendenze dei pacchetti Python.
+È possibile usare un oggetto ambiente nel calcolo locale per sviluppare lo script di training, riutilizzare lo stesso ambiente in Azure Machine Learning calcolo per il training dei modelli su larga scala e persino distribuire il modello con lo stesso ambiente. 
 
-Azure Machine Learning può creare due tipi di immagine:
+Informazioni [su come creare e gestire un ambiente ml riutilizzabile per il](how-to-use-environments.md) training e l'inferenza.
 
-* **Immagine FPGA**: usata durante la distribuzione in un dispositivo FPGA (Field-Programmable Gate Array) in Azure.
-* **Immagine docker**: usata durante la distribuzione in destinazioni di calcolo diverse da FPGA. Alcuni esempi sono le Istanze di Azure Container e il servizio Azure Kubernetes.
 
-Azure Machine Learning fornisce un'immagine di base, che viene utilizzata per impostazione predefinita. È anche possibile fornire immagini personalizzate.
-
-### <a name="image-registry"></a>Registro delle immagini
-
-Le immagini vengono catalogate nel **Registro immagini** dell'area di lavoro. È possibile specificare tag di metadati aggiuntivi quando si crea l'immagine, in modo che sia possibile eseguire una query per trovare l'immagine in un secondo momento.
-
-Per un esempio di creazione di un'immagine, vedere [Distribuire un modello di classificazione delle immagini in Istanze di Azure Container](tutorial-deploy-models-with-aml.md).
-
-Per un esempio di distribuzione di un modello usando un'immagine personalizzata, vedere [come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md).
 
 ### <a name="deployment"></a>Distribuzione
 
