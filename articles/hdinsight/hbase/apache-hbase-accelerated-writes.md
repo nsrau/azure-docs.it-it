@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: c24ed7efe9e046a36a05ec5924cbd61d218b1b01
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091739"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179083"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Scritture accelerate di Azure HDInsight per Apache HBase
 
@@ -54,6 +54,12 @@ flush 'mytable'
 ```
 disable 'mytable'
 ```
+
+Seguire una procedura simile per la scalabilità verticale del cluster: svuotare le tabelle e disabilitare le tabelle per arrestare i dati in ingresso. Non è possibile ridimensionare il cluster a meno di tre nodi.
+
+Seguendo questa procedura si garantisce una corretta riduzione delle prestazioni ed evitare la possibilità di un NameNode di passare alla modalità provvisoria a causa di file temporanei o sottoreplicati.
+
+Se il NameNode passa in modalità provvisoria dopo una riduzione, usare i comandi di HDFS per rireplicare i blocchi sottoreplicati e ottenere HDFS fuori dalla modalità provvisoria. Questa nuova replica consentirà di riavviare correttamente HBase.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242335"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176684"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Accesso Single Sign-On facile di Azure Active Directory: Approfondimento tecnico
 
@@ -39,12 +39,12 @@ Questa sezione è composta da tre parti:
 
 L'accesso SSO facile viene abilitato con Azure AD Connect, come illustrato [qui](how-to-connect-sso-quick-start.md). Durante l'abilitazione della funzionalità, si verificano i passaggi seguenti:
 
-- Un account computer (`AZUREADSSOACC`) viene creato in locale Active Directory (AD) in ogni foresta di Active Directory che si sincronizza con Azure AD (tramite Azure AD Connect).
-- Inoltre, viene creato un numero di nomi dell'entità Kerberos servizio (SPN) da utilizzare durante il processo di accesso di Azure AD.
-- La chiave di decrittografia Kerberos dell'account computer viene condivisa in modo sicuro con Azure AD. Se sono presenti più foreste Active Directory, ogni account computer avrà la propria chiave di decrittografia Kerberos univoca.
+- Un account computer (`AZUREADSSOACC`) viene creato nel Active Directory locale (ad) in ogni foresta di Active Directory sincronizzata con Azure ad (usando Azure ad Connect).
+- Inoltre, vengono creati diversi nomi dell'entità servizio (SPN) Kerberos da usare durante il processo di accesso Azure AD.
+- La chiave di decrittografia Kerberos dell'account computer viene condivisa in modo sicuro con Azure AD. Se sono presenti più foreste di Active Directory, ogni account computer avrà una propria chiave di decrittografia Kerberos univoca.
 
 >[!IMPORTANT]
-> Il `AZUREADSSOACC` account computer deve essere fortemente protetto per motivi di sicurezza. Solo gli amministratori di dominio devono essere in grado di gestire l'account del computer. Assicurarsi che la delega Kerberos sull'account del computer è disabilitata e che nessun altro account in Active Directory disponga delle autorizzazioni di delega `AZUREADSSOACC` account del computer... Store l'account del computer in un'unità Organizzativa in cui siano sicure da eliminazioni accidentali e solo gli amministratori di dominio hanno accesso. La chiave di decrittografia Kerberos dell'account computer deve essere considerata come sensibili. È consigliabile [rinnovare la chiave di decrittografia di Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) dell'account computer `AZUREADSSOACC` almeno ogni 30 giorni.
+> Per `AZUREADSSOACC` motivi di sicurezza, l'account computer deve essere fortemente protetto. Solo gli amministratori di dominio devono essere in grado di gestire l'account computer. Verificare che la delega Kerberos nell'account computer sia disabilitata e che nessun altro account in Active Directory disponga delle autorizzazioni di delega `AZUREADSSOACC` per l'account computer. Archiviare l'account computer in un'unità organizzativa in cui sono protetti da eliminazioni accidentali e in cui solo gli amministratori di dominio hanno accesso. La chiave di decrittografia Kerberos nell'account computer deve anche essere considerata sensibile. È consigliabile [rinnovare la chiave di decrittografia di Kerberos](how-to-connect-sso-faq.md) dell'account computer `AZUREADSSOACC` almeno ogni 30 giorni.
 
 Una volta completata l'installazione, l'accesso SSO facile funziona esattamente come qualsiasi altro accesso che usa l'autenticazione integrata di Windows (NTLM).
 
@@ -57,7 +57,7 @@ Il flusso di accesso in un browser Web è il seguente:
 3. L'utente digita il nome utente nella pagina di accesso di Azure AD.
 
    >[!NOTE]
-   >Per [determinate applicazioni](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso) i passaggi 2 e 3 vengono ignorati.
+   >Per [determinate applicazioni](./how-to-connect-sso-faq.md) i passaggi 2 e 3 vengono ignorati.
 
 4. Tramite l'uso di JavaScript in background, Azure AD richiede al browser, tramite una risposta di tipo 401 Non autorizzato, di specificare un ticket Kerberos.
 5. Il browser, a sua volta, richiede un ticket ad Active Directory per l'account computer `AZUREADSSOACC` che rappresenta Azure AD.

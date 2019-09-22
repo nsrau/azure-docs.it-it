@@ -1,25 +1,25 @@
 ---
-title: Serie di migrazione di Contoso | Microsoft Docs
+title: Serie di migrazione di contoso | Microsoft Docs
 description: Presenta una panoramica della strategia e degli scenari usati da Contoso per eseguire la migrazione del proprio data center locale ad Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/22/2019
 ms.author: raynew
-ms.openlocfilehash: 82585a6f1df369e299bd9df4d57f6106aad4ead7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d20c0be47f44cdce8ea895007494565d37f5923f
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696212"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179154"
 ---
 # <a name="contoso-migration-series"></a>Serie di migrazione Contoso
 
 
-È disponibile una serie di articoli che illustra come l'organizzazione fittizia, Contoso esegue la migrazione infrastruttura locale per il [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) cloud. 
+È presente una serie di articoli che illustrano in che modo l'organizzazione fittizia Contoso esegue la migrazione dell'infrastruttura locale al cloud [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) . 
 
-La serie include informazioni e scenari che illustrano come configurare la migrazione di un'infrastruttura ed eseguire diversi tipi di migrazioni. Scenari di aumentano della complessità durante il passaggio. Negli articoli viene illustrata la strategia adottata da Contoso per completare la migrazione, ma al tempo stesso vengono fornite anche nozioni di carattere più generale e istruzioni specifiche.
+La serie include informazioni e scenari che illustrano come configurare la migrazione di un'infrastruttura ed eseguire diversi tipi di migrazioni. Gli scenari crescono in modo più complesso durante l'avanzamento. Negli articoli viene illustrata la strategia adottata da Contoso per completare la migrazione, ma al tempo stesso vengono fornite anche nozioni di carattere più generale e istruzioni specifiche.
 
 ## <a name="migration-articles"></a>Articoli sulla migrazione
 
@@ -41,14 +41,11 @@ Nella tabella seguente sono riepilogati gli articoli della serie.
 [Articolo 9: Eseguire il refactoring di un'app in un'app Web di Azure e un database SQL di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant.     
 [Articolo 10: Eseguire il refactoring di un'app Linux in un'app Web di Azure e Database di Azure per MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql) | Contoso esegue la migrazione dell'app osTicket di Linux a un'app Web di Azure in più aree di Azure usando Gestione traffico di Azure, integrato con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. 
 [Articolo 11: Eseguire il refactoring di Team Foundation Server in Azure DevOps Services](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure.
-[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. 
-[Articolo 13: Ricompilare un'app in Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui il servizio app di Azure, servizio Azure Kubernetes, Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB.  
-[Articolo 14: Passare a una migrazione completa in Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. 
-
-
-    
+[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure.
+[Articolo 13: Ricompilare un'app in Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui il servizio app di Azure, servizio Azure Kubernetes, Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB.
+[Articolo 14: Passare a una migrazione completa in Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni su](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) migrazione cloud. 
-
+- [Scopri di più sulla](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) migrazione cloud.
+- Informazioni sulle strategie di migrazione per altri scenari (coppie di origine/destinazione) nella [Guida alla migrazione del database](https://datamigration.microsoft.com/).

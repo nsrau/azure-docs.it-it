@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 7/9/2019
+ms.date: 9/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: a2cfd7937bff10dae4601cb9727cfe43e4d61ca0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515424"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178269"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -64,7 +64,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
 
     Lo spazio degli indirizzi per la rete virtuale in cui è distribuito Azure NetApp Files deve essere aggiunto a un sito di Active Directory nuovo o esistente (in cui si trova un controller di dominio raggiungibile da Azure NetApp Files). 
 
-* I server DNS specificati devono essere raggiungibili dalla [subnet](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) delegata di Azure NetApp files.  
+* I server DNS specificati devono essere raggiungibili dalla [subnet delegata](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) di Azure NetApp files.  
 
     Vedere [linee guida per la pianificazione della rete Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) per le topologie di rete supportate.
 
@@ -118,7 +118,9 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
     * **Nome volume**      
         Specificare il nome per il volume che si sta creando.   
 
-        Un nome di volume deve essere univoco all'interno di ogni pool di capacità. Deve essere composto da almeno tre caratteri. È possibile utilizzare qualsiasi carattere alfanumerico.
+        Un nome di volume deve essere univoco all'interno di ogni pool di capacità. Deve essere composto da almeno tre caratteri. È possibile utilizzare qualsiasi carattere alfanumerico.   
+
+        Non è possibile `default` utilizzare come nome del volume.
 
     * **Pool di capacità**  
         Specificare il pool di capacità in cui si desidera creare il volume.

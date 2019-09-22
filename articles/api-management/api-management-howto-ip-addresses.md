@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 6e12a16b221a8f31d82a002fbc93b090d6f0c577
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7224c6a77df496624903830f0a2cbd8d193517cc
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861262"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178184"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Indirizzi IP di gestione API di Azure
 
@@ -61,7 +61,7 @@ Nelle [distribuzioni](api-management-howto-deploy-multi-region.md)in più aree o
 
 Se il servizio gestione API si trova all'interno di una rete virtuale, avrà due tipi di indirizzi IP: Public e private.
 
-Gli indirizzi IP pubblici vengono usati per la comunicazione interna `3443` sulla porta, per la gestione della configurazione (ad esempio, tramite Azure Resource Manager). Inoltre, quando una richiesta viene inviata da gestione API a un back-end pubblico (con connessione Internet), un indirizzo IP pubblico sarà visibile come origine della richiesta.
+Gli indirizzi IP pubblici vengono usati per la comunicazione interna `3443` sulla porta, per la gestione della configurazione (ad esempio, tramite Azure Resource Manager). Nella configurazione External VNET vengono usati anche per il traffico API di Runtime. Quando una richiesta viene inviata da gestione API a un back-end pubblico (con connessione Internet), un indirizzo IP pubblico sarà visibile come origine della richiesta.
 
 Gli indirizzi IP virtuali privati (VIP) vengono usati per connettersi dall'interno della rete agli endpoint di gestione API: Gateway, portale per sviluppatori e il piano di gestione per l'accesso diretto all'API. È possibile usarli per configurare i record DNS all'interno della rete.
 

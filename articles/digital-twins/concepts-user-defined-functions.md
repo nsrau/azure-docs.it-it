@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: f4aa7e6660e3febdca6e0e5b1ad9f11bebaa48ea
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638464"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178261"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
 
@@ -23,7 +23,7 @@ Gemelli digitali di Azure offre funzionalità di calcolo avanzate. Gli sviluppat
 
 Quando i dispositivi inviano dati di telemetria a Gemelli digitali di Azure, gli sviluppatori possono elaborare i dati in quattro fasi: *convalida*, *associazione*, *calcolo* e *invio*.
 
-![Flusso di elaborazione dei dati di Gemelli digitali di Azure][1]
+[![Flusso di elaborazione dati dei gemelli digitali di Azure](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. La fase di convalida trasforma il messaggio di telemetria in ingresso in un formato di [oggetto di trasferimento dati](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) comunemente riconoscibile. Questa fase esegue anche la convalida di dispositivi e sensori.
 1. La fase di associazione trova le funzioni definite dall'utente appropriate da eseguire. I matcher predefiniti trovano le funzioni definite dall'utente in base alle informazioni su dispositivi, sensori e spazi dal messaggio di telemetria in ingresso.
@@ -34,9 +34,7 @@ Quando i dispositivi inviano dati di telemetria a Gemelli digitali di Azure, gli
 
 L'elaborazione dei dati in Gemelli digitali di Azure consiste nella definizione di tre oggetti: *matcher*, *funzioni definite dall'utente* e *assegnazioni di ruolo*.
 
-![Oggetti di elaborazione dei dati di Gemelli digitali di Azure][2]
-
-<div id="matcher"></div>
+[![Oggetti di elaborazione dati di dispositivi gemelli digitali di Azure](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Matcher
 
@@ -92,7 +90,7 @@ I matcher definiscono un set di condizioni che valutano quali azioni vengono ese
 
 ### <a name="user-defined-functions"></a>Funzioni definite dall'utente
 
-Una funzione definita dall'utente è una funzione personalizzata eseguita all'interno di un ambiente di Gemelli digitali di Azure isolato. Le funzioni definite dall'utente hanno accesso al messaggio di telemetria del sensore non elaborato al momento della ricezione. Hanno inoltre accesso al grafico spaziale e al servizio dispatcher. Dopo che la funzione definita dall'utente viene registrata in un grafico, deve venire creato un matcher (descritto in dettaglio [sopra](#matcher)) per specificare quando viene eseguita la funzione. Ad esempio, quando Gemelli digitali di Azure riceve nuovi dati di telemetria da un sensore specifico, la funzione definita dall'utente associata può calcolare una media mobile delle ultime letture del sensore.
+Una funzione definita dall'utente è una funzione personalizzata eseguita all'interno di un ambiente di Gemelli digitali di Azure isolato. Le funzioni definite dall'utente hanno accesso al messaggio di telemetria del sensore non elaborato al momento della ricezione. Hanno inoltre accesso al grafico spaziale e al servizio dispatcher. Dopo che la funzione definita dall'utente viene registrata in un grafico, deve venire creato un matcher (descritto in dettaglio [sopra](#matchers)) per specificare quando viene eseguita la funzione. Ad esempio, quando Gemelli digitali di Azure riceve nuovi dati di telemetria da un sensore specifico, la funzione definita dall'utente associata può calcolare una media mobile delle ultime letture del sensore.
 
 Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi helper interagiscono con il grafico nell'ambiente di esecuzione definito dall'utente. Gli sviluppatori possono eseguire frammenti di codice personalizzati sui messaggi di telemetria dei sensori. Ecco alcuni esempi:
 
@@ -103,14 +101,11 @@ Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi 
 
 Per altre informazioni, vedere [Come usare le funzioni definite dall'utente](./how-to-user-defined-functions.md).
 
-
 #### <a name="examples"></a>Esempi
 
 Il [repository GitHub per l'esempio C# di Gemelli digitali](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contiene alcuni esempi delle funzioni definite dall'utente:
 - [Questa funzione](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) cerca i valori relativi ad anidride carbonica, movimento e temperatura per determinare se una stanza è disponibile con questi valori compresi nell'intervallo. Le [esercitazioni per Gemelli digitali](tutorial-facilities-udf.md) illustrano più in dettaglio questa funzione. 
 - [Questa funzione](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) cerca i dati di più sensori di movimento e determina che lo spazio è disponibile se nessuno di essi rileva movimenti. È possibile sostituire facilmente la funzione definita dall'utente usata nell'argomento di [avvio rapido](quickstart-view-occupancy-dotnet.md) o nelle [esercitazioni](tutorial-facilities-setup.md), apportando le modifiche indicate nella sezione del file relativa ai commenti. 
-
-
 
 ### <a name="role-assignment"></a>Assegnazione di ruolo
 
@@ -125,7 +120,3 @@ Le azioni di una funzione definita dell'utente sono soggette al [controllo degli
 - Per altre informazioni su come creare matcher, funzioni definite dall'utente e assegnazioni di ruolo, vedere [Guide for using user-defined functions](./how-to-user-defined-functions.md) (Guida per l'uso di funzioni definite dall'utente).
 
 - Esaminare la [documentazione di riferimento della libreria client della funzione definita dall'utente](./reference-user-defined-functions-client-library.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-data-processing-flow.png
-[2]: media/concepts/digital-twins-user-defined-functions.png

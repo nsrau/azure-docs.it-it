@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 06733103980086fad0975514ae3489c3652e428a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 45164acd89fc9634d6929bafb35e64a5dc9f2b86
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846737"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178230"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creare un volume NFS per Azure NetApp Files
 
@@ -44,7 +44,9 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
     * **Nome volume**      
         Specificare il nome per il volume che si sta creando.   
 
-        Un nome di volume deve essere univoco all'interno di ogni pool di capacità. Deve essere composto da almeno tre caratteri. È possibile utilizzare qualsiasi carattere alfanumerico.
+        Un nome di volume deve essere univoco all'interno di ogni pool di capacità. Deve essere composto da almeno tre caratteri. È possibile utilizzare qualsiasi carattere alfanumerico.   
+
+        Non è possibile `default` utilizzare come nome del volume.
 
     * **Pool di capacità**  
         Specificare il pool di capacità in cui si desidera creare il volume.
@@ -65,9 +67,9 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
         
         Se non è stata delegata una subnet, fare clic su **Crea nuovo** nella pagina di creazione di un volume. Nella pagina di creazione della subnet, specificare le informazioni relative alla stessa e selezionare **Microsoft.NetApp/volumi** per delegarla ad Azure NetApp Files. In ogni VNET è possibile delegare una sola subnet a Azure NetApp Files.   
  
-        ![Creazione di un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Crea un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
-        ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+        ![Crea subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
 4. Fare clic su **Protocollo** e quindi selezionare **NFS** come tipo di protocollo per il volume.   
     * Specificare il **percorso del file** che verrà usato per creare il percorso di esportazione del nuovo volume. Il percorso di esportazione viene usato per montare il volume e accedervi.

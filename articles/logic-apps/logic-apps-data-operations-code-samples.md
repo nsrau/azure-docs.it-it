@@ -1,31 +1,31 @@
 ---
-title: Esempi di operazioni sui dati - App per la logica di Azure | Microsoft Docs
-description: Esempi di codice per le definizioni di azioni di operazioni sui dati in App per la logica di Azure
+title: Esempi di operazioni sui dati-app per la logica di Azure
+description: Esempi di codice per le azioni di operazione sui dati in app per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 07/25/2018
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 8de70e8df50b79f27c19c74307d9321ff8cd1eb5
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.topic: reference
+ms.date: 09/01/2019
+ms.openlocfilehash: d692d943249c9fc6b46ed6eb1ddff3f07152f5b6
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203109"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179159"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Esempi di codice per operazioni sui dati per App per la logica di Azure
 
 Di seguito sono riportati gli esempi di codice per le definizioni delle azioni di operazioni sui dati illustrate nell'articolo [Eseguire operazioni sui dati](../logic-apps/logic-apps-perform-data-operations.md). È possibile usare questi codici quando si vuole provare gli esempi forniti con le connessioni API, la sottoscrizione di Azure e la definizione del flusso di lavoro sottostante della propria app per la logica. È sufficiente copiare e incollare queste definizioni di azioni nell'editor della visualizzazione Codice per la definizione del flusso di lavoro dell'app per la logica e quindi modificare le definizioni per il flusso di lavoro specifico. 
 
-In base agli standard JSON (JavaScript Object Notation), queste definizioni di azioni vengono visualizzate in ordine alfabetico. In Progettazione App per la logica, tuttavia, ogni definizione viene visualizzata nella sequenza corretta all'interno del flusso di lavoro, poiché ogni proprietà `runAfter` della definizione di azione specifica l'ordine di esecuzione. 
+In base agli standard JSON (JavaScript Object Notation), queste definizioni di azioni vengono visualizzate in ordine alfabetico. In Progettazione App per la logica, tuttavia, ogni definizione viene visualizzata nella sequenza corretta all'interno del flusso di lavoro, poiché ogni proprietà `runAfter` della definizione di azione specifica l'ordine di esecuzione.
 
 <a name="compose-action-example"></a>
 
-## <a name="compose"></a>Composizione
+## <a name="compose"></a>Componi
 
 Per provare l'[esempio dell'azione **Componi**](../logic-apps/logic-apps-perform-data-operations.md#compose-action), è possibile usare le definizioni di azioni seguenti:
 
@@ -326,7 +326,7 @@ Per provare l'[esempio dell'azione **Analizza JSON**](../logic-apps/logic-apps-p
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>Select
+## <a name="select"></a>Selezione
 
 Per provare l'[esempio dell'azione **Seleziona**](../logic-apps/logic-apps-perform-data-operations.md#select-action), è possibile usare le definizioni di azioni seguenti:
 
@@ -366,11 +366,6 @@ Per provare l'[esempio dell'azione **Seleziona**](../logic-apps/logic-apps-perfo
    }
 },
 ```
-
-## <a name="get-support"></a>Supporto
-
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
