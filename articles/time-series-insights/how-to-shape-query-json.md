@@ -93,7 +93,7 @@ Payload JSON di esempio:
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
    | FXXX | LINE\_DATA | EU |
-   | FYYY | LINE\_DATA | Stati Uniti |
+   | FYYY | LINE\_DATA | US |
 
 * Time Series Insights tabella eventi, dopo l'appiattimento:
 
@@ -101,7 +101,7 @@ Payload JSON di esempio:
    | --- | --- | --- | --- | --- | --- |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
-   | FYYY | LINE\_DATA | Stati Uniti | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
+   | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 Note sulle due tabelle seguenti:
 
