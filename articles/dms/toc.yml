@@ -47,6 +47,7 @@
     - name: Eseguire la migrazione di pacchetti SSIS a un'istanza gestita del database SQL di Azure
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Risorse
+  expanded: true
   items:
     - name: Stato dello scenario di migrazione del database
       href: resource-scenario-status.md
