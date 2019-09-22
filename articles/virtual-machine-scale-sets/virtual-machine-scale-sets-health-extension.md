@@ -74,7 +74,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità 
 
 | Name | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
-| protocollo | `http` o `tcp` | string |
+| protocol | `http` o `tcp` | string |
 | port | Facoltativo se il protocollo è `http`, obbligatorio se il protocollo è `tcp` | int |
 | requestPath | Obbligatorio se il protocollo è `http`, non consentito se il protocollo è `tcp` | string |
 
