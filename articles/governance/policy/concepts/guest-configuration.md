@@ -3,16 +3,16 @@ title: Informazioni su come controllare il contenuto di un computer
 description: Informazioni su come i criteri di Azure usano la configurazione Guest per controllare le impostazioni all'interno di una macchina di Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/04/2019
+ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bfa7f7486a9fa5ef62e8bf9e01dbe39d675d8d27
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 733b7fd8ef5b302df754fc7299b420739baff153
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308562"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172471"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -76,14 +76,14 @@ Il client della configurazione guest verifica la presenza di nuovi contenuti ogn
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
-|Pubblicato da|Name|Versioni|
+|Autore|Attività|Versioni|
 |-|-|-|
 |Canonico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 datacenter, 2019 Datacenter|
 |Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux.|7.4, 7.5|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
@@ -130,7 +130,7 @@ I criteri di configurazione Guest attualmente supportano solo l'assegnazione del
 
 ## <a name="built-in-resource-modules"></a>Moduli di risorse predefiniti
 
-Quando si installa l'estensione di configurazione Guest, il modulo di PowerShell ' GuestConfiguration ' è incluso nella versione più recente dei moduli di risorse DSC. È possibile scaricare questo modulo dal PowerShell Gallery usando il collegamento "download manuale" della pagina del modulo [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
+Quando si installa l'estensione di configurazione Guest, il modulo di PowerShell ' GuestConfiguration ' è incluso nella versione più recente dei moduli di risorse DSC. È possibile scaricare questo modulo dal PowerShell Gallery usando il collegamento "download manuale" della pagina del modulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/).
 Il formato del file ". nupkg" può essere rinominato in ". zip" per decomprimere ed esaminare.
 
 ## <a name="client-log-files"></a>File di log del client
@@ -175,7 +175,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 Gli esempi per la configurazione Guest per i criteri sono disponibili nei percorsi seguenti:
 
 - [Indice degli esempi-configurazione Guest](../samples/index.md#guest-configuration)
-- [Repository GitHub degli esempi di criteri di Azure](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
+- [Repository GitHub degli esempi di criteri di Azure](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -184,5 +184,5 @@ Gli esempi per la configurazione Guest per i criteri sono disponibili nei percor
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
+- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/index.md).

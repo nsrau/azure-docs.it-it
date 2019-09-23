@@ -4,30 +4,30 @@ ms.service: storage
 ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 368f08272173b019873dfe20e1164d6baf72ff5e
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542638"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71180055"
 ---
-#### <a name="additional-premium-file-share-level-limits"></a>Limiti dei livelli di condivisione file premium aggiuntive
+#### <a name="additional-premium-file-share-level-limits"></a>Limiti aggiuntivi a livello di condivisione file Premium
 
 |Area  |Destinazione  |
 |---------|---------|
-|Aumentare o ridurre la dimensione minima    |1 GiB      |
-|Operazioni di I/O al secondo di base    |1 IOPS GiB, fino a 100.000|
-|IOPS bursting    |3 x IOPS per GiB, fino a 100.000|
-|Velocità in uscita         |60 MiB/s + 0,06 * provisioning GiB        |
-|Velocità in ingresso| 40 MiB/s + 0,04 * provisioning GiB |
+|Aumento/riduzione dimensioni minime    |1 GiB      |
+|Operazioni di I/O al secondo di base    |1 IOPS per GiB, fino a 100.000|
+|Picchi di IOPS    |3 IOPS per GiB, fino a 100.000|
+|Velocità in uscita         |60 MiB/s + 0,06 * GiB con provisioning        |
+|Velocità in ingresso| 40 MiB/s + 0,04 * GiB con provisioning |
 
 #### <a name="file-level-limits"></a>Limiti a livello di file
 
 |Area  |File Premium  |File standard |
 |---------|---------|---------|
-|Dimensione                  |1 TiB         |1 TiB|
-|IOPS Max per ogni file     |5\.000         |1\.000|
+|Size                  |1 TiB         |1 TiB|
+|Numero massimo di IOPS per file     |5\.000         |1\.000|
 |Handle simultanei    |2\.000         |2\.000|
-|Ingress  |300 MiB/sec|      Visualizzare i valori di velocità effettiva di file standard|
-|Egress   |200 Mib/sec| Visualizzare i valori di velocità effettiva di file standard|
-|Velocità effettiva| Vedere i valori dei dati in ingresso/uscita file premium| Fino a 60 MiB/sec|
+|Egress  |300 MiB/sec|      Vedere valori di velocità effettiva del file standard|
+|Ingress  |200 MiB/sec| Vedere valori di velocità effettiva del file standard|
+|Velocità effettiva| Vedere valori in ingresso/uscita file Premium| Fino a 60 MiB/sec|

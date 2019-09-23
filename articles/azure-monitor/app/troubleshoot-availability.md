@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: c3f3d9437a6e796cc91ff1782b3a0774382c5f8b
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067066"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146589"
 ---
 # <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -46,10 +46,9 @@ Questo articolo consente di risolvere i problemi comuni che possono verificarsi 
 
 ## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Errore intermittente del test con errore di violazione del protocollo
 
-|Sintomo/messaggio di errore| Possibili cause|
-|----|---------|
-la violazione del protocollo CR deve essere seguita da LF | Questo errore si verifica quando vengono rilevate intestazioni in formato non valido. In particolare, è possibile che alcune intestazioni non usino CRLF per indicare la fine della riga, che viola la specifica HTTP e pertanto non riuscirà a eseguire la convalida a livello di WebRequest .NET.
- || Questo problema può essere causato anche da bilanciamenti del carico o CDNs.
+|Sintomo/messaggio di errore| Possibili cause| Possibili soluzioni |
+|----|---------|-----|
+|Il server ha eseguito il commit di una violazione del protocollo. Section = ResponseHeader detail = CR deve essere seguito da LF | Questo errore si verifica quando vengono rilevate intestazioni in formato non valido. In particolare, è possibile che alcune intestazioni non usino CRLF per indicare la fine della riga, violando la specifica HTTP. Application Insights impone questa specifica HTTP e non genera risposte con intestazioni in formato non valido.| a. Contattare il provider host del sito Web o il provider della rete CDN per correggere i server difettosi. <br> b. Se le richieste non riuscite sono risorse (ad esempio, file di stile, immagini, script), è possibile disabilitare l'analisi delle richieste dipendenti. Tenere presente che, se si esegue questa operazione, si perderà la possibilità di monitorare la disponibilità di tali file.
 
 > [!NOTE]
 > l'errore dell'URL potrebbe non verificarsi in browser con una convalida delle intestazioni HTTP meno rigida. Per una spiegazione dettagliata del problema, vedere questo post di blog: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  

@@ -251,18 +251,18 @@
               href: knowledge-store-connect-power-bi.md
     - name: Eseguire query su documenti
       items:
-        - name: Creare una query di base
+        - name: Tipi di query e composizione
           href: search-query-overview.md
-        - name: Esplora ricerche (portale)
+        - name: Creare una query semplice
+          href: search-query-simple-examples.md
+        - name: Usare la sintassi Lucene completa
+          href: search-query-lucene-examples.md
+        - name: Usare Esplora ricerche (portale)
           href: search-explorer.md
         - name: Sintassi di query semplice
           href: query-simple-syntax.md
         - name: Sintassi completa della query Lucene
           href: query-lucene-syntax.md
-        - name: Esempi (sintassi semplice)
-          href: search-query-simple-examples.md
-        - name: Esempi (sintassi completa Lucene)
-          href: search-query-lucene-examples.md
         - name: moreLikeThis (anteprima)
           href: search-more-like-this.md
     - name: Applicare filtri

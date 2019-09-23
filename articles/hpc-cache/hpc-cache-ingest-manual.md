@@ -1,19 +1,19 @@
 ---
-title: Inserimento di dati nella cache HPC di Azure-copia manuale
+title: Inserimento dati anteprima cache HPC di Azure-copia manuale
 description: Come usare i comandi CP per spostare i dati in una destinazione di archiviazione BLOB nella cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 2d89a74d4b79e74c2bc6667a5f76c2348ca3c274
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 217f976d53a7be8931be9f8d21b000549a9ed68a
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775234"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180999"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Inserimento di dati nella cache HPC di Azure-metodo di copia manuale
+# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Inserimento di dati nella cache HPC di Azure (anteprima)-metodo di copia manuale
 
 Questo articolo fornisce istruzioni dettagliate per la copia manuale dei dati in un contenitore di archiviazione BLOB per l'uso con la cache HPC di Azure. USA operazioni parallele multithread per ottimizzare la velocità di copia.
 

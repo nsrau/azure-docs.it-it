@@ -1,19 +1,19 @@
 ---
-title: Prerequisiti della cache HPC di Azure
+title: Prerequisiti della cache HPC di Azure (anteprima)
 description: Prerequisiti per l'uso della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 50c60e38b58815be04cfb892c3622b9579529e67
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 29dc5256424ea4fe7c3a72624ce8d1b3d9e59f3c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036862"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180904"
 ---
-# <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
+# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Prerequisiti per cache HPC di Azure (anteprima)
 
 Prima di usare la portale di Azure per creare una nuova cache HPC di Azure, assicurarsi che l'ambiente soddisfi questi requisiti.
 
@@ -52,14 +52,14 @@ Se è necessario accedere solo all'archiviazione BLOB, è possibile usare il ser
 
 Per altre informazioni sulle reti virtuali di Azure e sulle configurazioni del server DNS, vedere [risoluzione dei nomi per le risorse nelle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>Permissions
 
 Verificare questi prerequisiti relativi alle autorizzazioni prima di iniziare a creare la cache.
 
 * La cache HPC di Azure deve essere in grado di creare interfacce di rete virtuali (NIC). Per creare schede di interfaccia di rete, l'utente che crea la cache deve disporre di privilegi sufficienti nella sottoscrizione.
 <!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
-* Se si usa l'archiviazione BLOB, l'istanza della cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. È possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: Collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione. Seguire le istruzioni riportate in [aggiungere spazio di archiviazione alla cache](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account).
+* Se si usa l'archiviazione BLOB, l'istanza della cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. È possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: Collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione. Seguire le istruzioni riportate in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account).
 
 ## <a name="storage-infrastructure"></a>Infrastruttura di archiviazione
 
@@ -86,7 +86,7 @@ Per creare un account di archiviazione compatibile, usare le impostazioni seguen
 
 È consigliabile usare un account di archiviazione nella stessa posizione della cache.
 
-È anche necessario concedere all'applicazione cache l'accesso all'account di archiviazione di Azure. Seguire la descrizione in [aggiungere spazio di archiviazione alla cache](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) per assegnare alla cache i ruoli di accesso account di archiviazione collaboratore e collaboratore dati BLOB di archiviazione. Se non si è il proprietario dell'account di archiviazione, chiedere al proprietario di eseguire questo passaggio.
+È anche necessario concedere all'applicazione cache l'accesso all'account di archiviazione di Azure. Seguire la descrizione in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) per assegnare alla cache il collaboratore per l'account di archiviazione per i ruoli di accesso e i dati BLOB di archiviazione. Se non si è il proprietario dell'account di archiviazione, chiedere al proprietario di eseguire questo passaggio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

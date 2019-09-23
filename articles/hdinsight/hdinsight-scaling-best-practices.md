@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: dad796c8a7a34a782a4f78260ac38bd966eddde9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4a1d835ebe47ec36bb839da8dcbcd107ffcb9c4c
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105404"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161969"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -42,7 +42,7 @@ Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 Usando uno di questi metodi, è possibile aumentare o ridurre il cluster HDInsight in pochi minuti.
 
 > [!IMPORTANT]  
-> * L'interfaccia della riga di comando di Aure classica è deprecata e deve essere usata solo con il modello di distribuzione classica. Per tutte le altre distribuzioni, usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * L'interfaccia della riga di comando di Azure classico è deprecata e deve essere usata solo con il modello di distribuzione classica. Per tutte le altre distribuzioni, usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
 > * Il modulo AzureRM di PowerShell è deprecato.  Usare il [modulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) quando possibile.
 
 ## <a name="impact-of-scaling-operations"></a>Effetti delle operazioni di ridimensionamento

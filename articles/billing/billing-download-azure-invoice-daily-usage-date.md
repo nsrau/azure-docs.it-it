@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 45f4a45828501afea52f0ad522c3f3f6777f7ccd
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491413"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057719"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure
 
 Per la maggior parte delle sottoscrizioni, è possibile scaricare la fattura dal [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o richiedere l'invio tramite posta elettronica. I clienti di Azure con un contratto Enterprise (clienti EA) non possono scaricare le fatture della loro organizzazione. Le fatture vengono inviate a chiunque sia configurato per la ricezione delle fatture per la registrazione.
 
-Se si è un cliente EA o si ha un [Contratto del cliente Microsoft](#check-access-to-a-microsoft-customer-agreement), è possibile scaricare i dati di utilizzo nel [portale di Azure](https://portal.azure.com/). Per altre sottoscrizioni, visitare il [Centro account di Azure](https://account.azure.com/Subscriptions) per scaricare tale file.
+Se si è un cliente EA o si ha un [Contratto del cliente Microsoft](#check-access-to-a-microsoft-customer-agreement), è possibile scaricare i dati di utilizzo nel [portale di Azure](https://portal.azure.com/).
 
 Solo determinati ruoli sono autorizzati a ottenere informazioni sull'utilizzo e sulla fatturazione, ad esempio l'amministratore account o l'amministratore dell'organizzazione. Per altre informazioni sull'accesso alle informazioni di fatturazione, vedere [Manage access to Azure billing using roles](billing-manage-access.md) (Gestire l'accesso alla fatturazione di Azure usando i ruoli).
 
@@ -46,11 +46,13 @@ Per la maggior parte delle sottoscrizioni è possibile scaricare la fattura dal 
 
     ![Schermata che mostra l'opzione Fatturazione e utilizzo](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. Fare clic su **Scarica fattura** per visualizzare una copia della fattura in formato PDF. Se l'indicazione è **Non disponibile**, vedere [Perché non viene visualizzata una fattura per l'ultimo periodo di fatturazione?](#noinvoice)
+3. Fare clic sul pulsante di download per scaricare una copia della fattura PDF e quindi selezionare **Scarica fattura**. Se l'indicazione è **Non disponibile**, vedere [Perché non viene visualizzata una fattura per l'ultimo periodo di fatturazione?](#noinvoice)
 
-    ![Schermata che mostra i periodi di fatturazione, l'opzione per il download e gli addebiti totali per ogni periodo di fatturazione](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
+    ![Schermata che mostra i periodi di fatturazione, l'opzione per il download e gli addebiti totali per ogni periodo di fatturazione](./media/billing-download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
-4. Per visualizzare l'uso giornaliero, fare clic sul periodo di fatturazione.
+4. È anche possibile scaricare un dettaglio giornaliero delle quantità utilizzate e degli addebiti stimati facendo clic su **Scarica il file CSV**.
+
+    ![Schermata che mostra la pagina per scaricare la fattura e i dati di utilizzo](./media/billing-download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
 Per altre informazioni sulla fattura, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md). Per informazioni sulla gestione dei costi, vedere [Evitare costi imprevisti con la gestione dei costi e la fatturazione di Azure](billing-getting-started.md).
 
@@ -62,7 +64,7 @@ Le fatture vengono generate per ogni [profilo di fatturazione](billing-mca-overv
 2. Selezionare un profilo di fatturazione.
 3. Selezionare **Fatture**.
 4. Nella griglia della fattura trovare la riga della fattura da scaricare.
-5. Fare clic sui puntini di sospensione (`...`) alla fine della riga.
+5. Fare clic sul pulsante di download alla fine della riga.
 6. Nel menu di scelta rapida Download selezionare **Fattura**.
 
 Se non viene visualizzata alcuna fattura per l'ultimo periodo di fatturazione, vedere **Informazioni aggiuntive**. <!-- Fix this -->
@@ -119,37 +121,19 @@ Se si ha un Contratto del cliente Microsoft, è possibile acconsentire esplicita
 
 Per rifiutare esplicitamente di ricevere la fattura tramite posta elettronica, seguire la procedura precedente e fare clic su **Rifiuta esplicitamente**. Tutti gli utenti con il ruolo di proprietario, collaboratore, lettore o gestione fatture potranno anche scegliere di non ricevere la fattura tramite posta elettronica. Se si è un lettore, non è possibile modificare la preferenza per la fattura tramite posta elettronica.
 
-## <a name="download-usage"></a>Scaricare informazioni sull'utilizzo
+## <a name="download-usage-in-azure-portal"></a>Scaricare i dati di utilizzo nel portale di Azure
 
- Per la maggior parte delle sottoscrizioni, il file di utilizzo giornaliero è disponibile nel [Centro account di Azure](https://account.azure.com/Subscriptions). Se si è un cliente EA o si ha un Contratto del cliente Microsoft, è possibile scaricare i dati di utilizzo nel [portale di Azure](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships-->
+ Per la maggior parte delle sottoscrizioni seguire questa procedura per ottenere i dati relativi all'utilizzo giornaliero:
 
-### <a name="download-usage-from-the-account-center-csv"></a>Scaricare i dati di utilizzo dal Centro account (CSV)
+1. Selezionare la sottoscrizione nella [pagina Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) del portale di Azure come [utente con accesso alle fatture](billing-manage-access.md).
 
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/subscriptions) come amministratore account.
+2. Selezionare **Fatture**.
 
-2. Selezionare la sottoscrizione per cui si desiderano le informazioni delle fatture e degli utilizzi.
+    ![Schermata che mostra l'opzione Fatturazione e utilizzo](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. Selezionare **Cronologia di fatturazione**.
+3. Fare clic sul pulsante di download relativo a un periodo di fatturazione che si intende controllare.
 
-    ![Schermata che mostra l'opzione Cronologia di fatturazione](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
-
-4. Vengono elencati i rendiconti per gli ultimi sei periodi di fatturazione e il periodo corrente non ancora fatturato.
-
-    ![Schermata che mostra i periodi di fatturazione, le opzioni per il download della fattura e dei dati di utilizzo giornalieri e gli addebiti totali per ogni periodo di fatturazione](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)
-
-5. Selezionare **Visualizza estratto conto corrente** per visualizzare una stima degli addebiti fino al momento in cui è stata generata la stima. Queste informazioni vengono aggiornate solo una volta al giorno e potrebbero non includere tutti gli utilizzi effettuati. È possibile che la fattura mensile non corrisponda a questa stima.
-
-    ![Schermata che mostra l'opzione Visualizza estratto conto corrente](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)
-
-    ![Schermata che mostra la stima degli addebiti correnti](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)
-
-6. Selezionare **Scarica utilizzo** per scaricare i dati di utilizzo giornalieri come file CSV. Se vengono visualizzate due versioni disponibili, scaricare la versione 2.
-
-    ![Schermata che mostra l'opzione Scarica utilizzo](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
-
-Solo l'amministratore account può accedere al Centro account di Azure. Gli altri amministratori della fatturazione, ad esempio il proprietario, possono ottenere le informazioni sull'uso tramite le [API di fatturazione](billing-usage-rate-card-overview.md).
-
-Per altre informazioni sui dati di utilizzo giornalieri, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md). Per informazioni sulla gestione dei costi, vedere [Evitare costi imprevisti con la gestione dei costi e la fatturazione di Azure](billing-getting-started.md).
+4. Per scaricare un dettaglio giornaliero delle quantità utilizzate e degli addebiti stimati, fare clic su **Scarica il file CSV**.  Questa operazione potrebbe richiedere alcuni minuti per preparare il file CSV.
 
 ### <a name="download-usage-for-ea-customers"></a>Scaricare informazioni sull'utilizzo per i clienti EA
 

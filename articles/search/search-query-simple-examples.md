@@ -1,33 +1,35 @@
 ---
-title: Esempi di query che usano la sintassi di ricerca "Simple"-ricerca di Azure
-description: Esempi di query semplici per la ricerca full-text, la ricerca con filtro, la ricerca con geolocalizzazione, la ricerca basata su facet e altre stringhe di query usate per eseguire query in un indice di Ricerca di Azure.
+title: 'Creare una query semplice: ricerca di Azure'
+description: Per informazioni sull'esecuzione di query in base alla semplice sintassi per la ricerca full-text, la ricerca di filtri, la ricerca geografica e la ricerca in base a facet in un indice di ricerca di Azure.
 author: HeidiSteen
 manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c4aeef07d34159e01f188effae77926895e2857
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647625"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179198"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Esempi di query che usano la sintassi di ricerca semplice in ricerca di Azure
+# <a name="create-a-simple-query-in-azure-search"></a>Creare una query semplice in ricerca di Azure
 
-La [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) richiama il parser di query predefinito per eseguire query di ricerca full-text in un indice di Ricerca di Azure. L'analizzatore di query semplice è rapido e gestisce scenari comuni in Ricerca di Azure, incluse la ricerca full-text, la ricerca con filtro e facet e la ricerca con geolocalizzazione. In questo articolo vedere gli esempi che dimostrano le operazioni di query disponibili con la sintassi semplice.
+In ricerca di Azure, la [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) richiama il parser di query predefinito per l'esecuzione di query di ricerca full-text su un indice. Questo parser è veloce e gestisce scenari comuni, tra cui ricerca full-text, ricerca filtrata e sfaccettata e ricerca geografica. 
 
-La sintassi di query alternativa è [la sintassi di query Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), che supporta strutture di query più complesse come la ricerca fuzzy e con caratteri jolly la cui elaborazione richiede più tempo. Per ulteriori informazioni ed esempi che dimostrano la sintassi completa, vedere [gli esempi di query con sintassi Lucene](search-query-lucene-examples.md).
+In questo articolo vengono usati esempi per illustrare la sintassi semplice.
+
+Una sintassi di query alternativa è [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), che supporta strutture di query più complesse, come la ricerca fuzzy e la ricerca con caratteri jolly, che può richiedere ulteriore tempo per l'elaborazione. Per altre informazioni ed esempi che illustrano la sintassi completa, vedere [usare la sintassi Lucene completa](search-query-lucene-examples.md).
 
 ## <a name="formulate-requests-in-postman"></a>Formulare richieste in Postman
 
 Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opportunità di lavoro disponibili in base a un set di dati fornito dall'iniziativa [City of New York OpenData](https://nycopendata.socrata.com/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessario disporre di una sottoscrizione di Azure o di Ricerca di Azure per provare queste query.
 
-È necessario disporre di Postman o di uno strumento equivalente per rilasciare una richiesta HTTP su GET. Per altre informazioni, vedere [Esplorare con client REST](search-get-started-postman.md).
+È necessario disporre di Postman o di uno strumento equivalente per rilasciare una richiesta HTTP su GET. Per altre informazioni, vedere [Avvio rapido: Esplorare l'API REST di ricerca di Azure](search-get-started-postman.md)con il post.
 
 ### <a name="set-the-request-header"></a>Impostare l'intestazione della richiesta
 

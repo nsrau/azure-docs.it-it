@@ -183,8 +183,8 @@
       href: /rest/api/mariadb
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.dbformariadb/allversions
-    - name: Stored procedure per la replica di dati in ingresso
-      href: reference-data-in-stored-procedures.md
+    - name: Stored procedure di Azure
+      href: reference-stored-procedures.md
 - name: Risorse
   items:
     - name: Modelli di distribuzione

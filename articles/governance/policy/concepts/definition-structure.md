@@ -3,23 +3,23 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrizione di come la definizione dei criteri delle risorse viene usata da Criteri di Azure per stabilire le convenzioni per le risorse all'interno dell'organizzazione grazie alla definizione di quando i criteri vengono applicati e dell'azione da eseguire.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1999a47d18fd3ce6388d6177be85c7debd3c1e97
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b2b38fe2d9a2bf4c645e5b1cda4b8fba356353d3
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239178"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181195"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
 Le definizioni dei criteri delle risorse vengono usati da Criteri di Azure per stabilire le convenzioni delle risorse. Ogni definizione descrive la conformità della risorsa e le azioni da intraprendere quando una risorsa non è conforme.
 Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
 
-Lo schema usato dai Criteri di Azure è reperibile qui: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+Lo schema usato dai Criteri di Azure è reperibile qui: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
 
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
@@ -398,6 +398,7 @@ Criteri di Azure supporta i seguenti tipi di effetto:
 - **DeployIfNotExists**: distribuisce una risorsa se non esiste già
 - **Disabled**: non valuta le risorse per garantire la conformità alla regola dei criteri
 - **EnforceRegoPolicy**: configura il controller di ammissione dell'agente criteri aperto nel servizio Azure Kubernetes (anteprima)
+- **Modifica**: aggiunge, aggiorna o rimuove i tag definiti da una risorsa
 
 In caso di **aggiunta**, è necessario specificare questi dettagli:
 
@@ -424,6 +425,8 @@ L'effetto **DeployIfNotExists** richiede la proprietà **roleDefinitionId** nell
     ]
 }
 ```
+
+In modo analogo, la **modifica** richiede la proprietà **roleDefinitionId** nella parte relativa ai **Dettagli** della regola dei criteri per l' [attività di correzione](../how-to/remediate-resources.md). Per **modificare** è necessaria anche una matrice di **operazioni** per definire le azioni da intraprendere sui tag delle risorse.
 
 Per informazioni complete su ogni effetto, ordine di valutazione, proprietà ed esempi, vedere [informazioni sugli effetti dei criteri di Azure](effects.md).
 
@@ -507,7 +510,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]** . Ad esempio:
+Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]** . Esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
@@ -622,5 +625,5 @@ L'esempio seguente illustra come creare un'iniziativa per la gestione di due tag
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
+- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

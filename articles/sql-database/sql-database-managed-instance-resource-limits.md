@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: d0356ff61ec8073e7fe69c3b09cbbdd8845fb787
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
-ms.translationtype: HT
+ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128907"
+ms.locfileid: "71146796"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -55,11 +55,11 @@ Istanza gestita ha due livelli di servizio: [Per utilizzo generico](sql-database
 | Memoria massima | Quarta generazione: 56 GB-168 GB (7 GB/vCore)<br/>Quinta generazione: 20,4 GB-408 GB (5.1 GB/vCore)<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. | Quarta generazione: 56 GB-168 GB (7 GB/vCore)<br/>Quinta generazione: 20,4 GB-408 GB (5.1 GB/vCore)<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. |
 | Dimensioni massime archiviazione istanze (riservate) | -2 TB per 4 Vcore (solo quinta generazione)<br/>-8 TB per altre dimensioni | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>-1 TB per 4, 8, 16 vcore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
 | Dimensioni massime del database | Fino alla dimensione dell'istanza attualmente disponibile (max 2 TB-8 TB, a seconda del numero di VCore). | Fino alla dimensione dell'istanza attualmente disponibile (max 1 TB-4 TB a seconda del numero di VCore). |
-| Dimensioni max di tempDB | Limitato a 24 GB/vCore (96-1.920 GB) e alle dimensioni dell'istanza attualmente disponibili.<br/>Aggiungere altri Vcore per ottenere ulteriore spazio in TempDB. | Fino alle dimensioni dell'istanza attualmente disponibili. Le dimensioni del file di log TempDB sono attualmente limitate a 24 GB/vCore. |
+| Dimensioni max di tempDB | Limitato a 24 GB/vCore (96-1.920 GB) e alle dimensioni di archiviazione dell'istanza attualmente disponibili.<br/>Aggiungere altri Vcore per ottenere ulteriore spazio in TempDB. | Fino alle dimensioni di archiviazione dell'istanza attualmente disponibili. Le dimensioni del file di log TempDB sono attualmente limitate a 24 GB/vCore. |
 | Numero massimo di database per istanza | 100, a meno che non sia stato raggiunto il limite per le dimensioni di archiviazione dell'istanza. | 100, a meno che non sia stato raggiunto il limite per le dimensioni di archiviazione dell'istanza. |
 | Numero massimo di file di database per istanza | Fino a 280, a meno che non sia stata raggiunta la dimensione di archiviazione dell'istanza o il limite di [spazio di allocazione di archiviazione su disco Premium](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) | 32.767 file per database, a meno che non sia stato raggiunto il limite delle dimensioni di archiviazione dell'istanza. |
-| Dimensioni massime file | Limitato a 8 TB, dimensioni attualmente disponibili per le istanze (max 2 TB-8 TB) e [spazio di allocazione dell'archiviazione su disco Premium di Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitato a 4 TB e dimensioni delle istanze attualmente disponibili (fino a 1 TB-4 TB). |
-| Dimensioni massime file di log | Limitato a 2 TB, dimensioni dell'istanza attualmente disponibili e [spazio di allocazione dell'archiviazione su disco Premium di Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitato a 2 TB e alle dimensioni dell'istanza attualmente disponibili. |
+| Dimensioni massime file di dati | Limitato alle dimensioni di archiviazione delle istanze attualmente disponibili (max 2 TB-8 TB) e [allo spazio di allocazione dell'archiviazione su disco Premium di Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitato alle dimensioni di archiviazione delle istanze attualmente disponibili (fino a 1 TB-4 TB). |
+| Dimensioni massime file di log | Limitato a 2 TB e alle dimensioni di archiviazione dell'istanza attualmente disponibili. | Limitato a 2 TB e alle dimensioni di archiviazione dell'istanza attualmente disponibili. |
 | Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[Aumentare le dimensioni del file per ottenere più IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375/vCore)<br/>Aggiungere altri Vcore per ottenere prestazioni di i/o migliori. |
 | Limite velocità effettiva scrittura log (per istanza) | 3 MB/s per ogni vCore<br/>Massimo 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[Aumentare le dimensioni del file per ottenere prestazioni di i/o migliori](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Non limitato. |
@@ -69,6 +69,7 @@ Istanza gestita ha due livelli di servizio: [Per utilizzo generico](sql-database
 | [Repliche di sola lettura](sql-database-read-scale-out.md) | 0 | 1 (incluso nel prezzo) |
 
 > [!NOTE]
+> - Le **dimensioni di archiviazione dell'istanza attualmente disponibili** sono la differenza tra le dimensioni delle istanze riservate e lo spazio di archiviazione usato.
 > - La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include la dimensione dei dati e dei file di log presenti sia nel database utenti che in quello di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
 > - La velocità effettiva e IOPS dipendono anche dalle dimensioni di pagina non esplicitamente limitate dall'istanza gestita.
 > È possibile creare un'altra replica leggibile in un'area di Azure diversa usando i gruppi di failover automatico.
@@ -109,7 +110,7 @@ La tabella seguente illustra i **limiti internazionali predefiniti** per i tipi 
 |CSP |8 (15 in alcune aree * *)|960 (1440 in alcune aree * *)|
 |Sviluppo/test con pagamento in base al consumo|3|320|
 |Sviluppo/test Enterprise|3|320|
-|EA|8 (15 in alcune aree * *)|960 (1440 in alcune aree * *)|
+|Contratto Enterprise|8 (15 in alcune aree * *)|960 (1440 in alcune aree * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e MSDN Platforms|2|32|
 
@@ -124,7 +125,7 @@ Per avviare il processo di acquisizione di una quota maggiore:
 
 1. Aprire **Guida e supporto** e fare clic su **Nuova richiesta di supporto**.
 
-   ![Guida e supporto tecnico](media/sql-database-managed-instance-resource-limits/help-and-support.png)
+   ![Guida e supporto](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. Nella scheda Generale per la nuova richiesta di supporto:
    - Per **Tipo di problema** selezionare **Limiti del servizio e della sottoscrizione (quote)** .
    - In **Sottoscrizione** selezionare la propria sottoscrizione.

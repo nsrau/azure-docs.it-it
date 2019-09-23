@@ -5,14 +5,14 @@ services: terraform
 author: tomarchermsft
 ms.service: azure
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9b447f4f4dc9d0ee090da9729e483cc17ac7c15
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693303"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169939"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Archiviare lo stato Terraform in Archiviazione di Azure
 
@@ -28,7 +28,7 @@ Terraform include il concetto di back-end di stato, ovvero l'archiviazione remot
 
 Prima di usare Archiviazione di Azure come back-end, è necessario creare un account di archiviazione. L'account di archiviazione può essere creato con il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure o Terraform stesso. Usare l'esempio seguente per configurare l'account di archiviazione con l'interfaccia della riga di comando di Azure.
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 RESOURCE_GROUP_NAME=tstate
@@ -67,21 +67,21 @@ Ognuno di questi valori può essere specificato nel file di configurazione di Te
 
 Creare una variabile di ambiente denominata `ARM_ACCESS_KEY` con il valore della chiave di accesso di Archiviazione di Azure.
 
-```console
+```bash
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-Per proteggere ulteriormente la chiave di accesso dell'account di Archiviazione di Azure, salvarla in Azure Key Vault. La variabile di ambiente può quindi essere impostata usando un comando simile al seguente. Per altre informazioni su Azure Key Vault, vedere la [documentazione di Azure Key Vault][azure-key-vault].
+Per proteggere ulteriormente la chiave di accesso dell'account di Archiviazione di Azure, salvarla in Azure Key Vault. La variabile di ambiente può quindi essere impostata usando un comando simile al seguente. Per ulteriori informazioni su Azure Key Vault, vedere la [documentazione di Azure Key Vault][azure-key-vault].
 
-```console
+```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
 Per configurare Terraform per l'uso del back-end, includere una configurazione *back-end* con un tipo *azurerm* all'interno della configurazione di Terraform. Aggiungere i valori *storage_account_name*, *container_name* e *key* al blocco di configurazione.
 
-Nell'esempio seguente configura un back-end di Terraform e crea un gruppo di risorse di Azure. Sostituire i valori con i valori del proprio ambiente.
+Nell'esempio seguente viene configurato un back-end di bonifica e viene creato un gruppo di risorse di Azure. Sostituire i valori con i valori del proprio ambiente.
 
-```json
+```hcl
 terraform {
   backend "azurerm" {
     storage_account_name  = "tstate09762"
@@ -100,9 +100,9 @@ A questo punto, inizializzare la configurazione con il comando *init di Terrafor
 
 ## <a name="state-locking"></a>Blocco dello stato
 
-Quando si usa un BLOB del servizio di archiviazione di Azure per archiviare lo stato, il BLOB viene automaticamente bloccato prima di qualsiasi operazione che scrive lo stato. Questa configurazione impedisce l'esecuzione simultanea di più operazioni sullo stato, che possono causare danni. Per altre informazioni, vedere la sezione relativa al [blocco dello stato][terraform-state-lock] nella documentazione di Terraform.
+Quando si usa un BLOB del servizio di archiviazione di Azure per archiviare lo stato, il BLOB viene automaticamente bloccato prima di qualsiasi operazione che scrive lo stato. Questa configurazione impedisce l'esecuzione simultanea di più operazioni sullo stato, che possono causare danni. Per ulteriori informazioni, vedere [blocco dello stato][terraform-state-lock] nella documentazione di bonifica.
 
-Il blocco può essere visualizzato quando si esaminano i blob tramite il portale di Azure o altri strumenti di gestione di Azure.
+Il blocco può essere visualizzato quando si esamina il BLOB tramite il portale di Azure o altri strumenti di gestione di Azure.
 
 ![BLOB di Azure con blocco](media/terraform-backend/lock.png)
 
@@ -110,11 +110,11 @@ Il blocco può essere visualizzato quando si esaminano i blob tramite il portale
 
 Per impostazione predefinita, i dati archiviati in un BLOB di Azure vengono crittografati prima di diventare persistenti nell'infrastruttura di archiviazione. Quando Terraform richiede lo stato, questo viene recuperato dal back-end e archiviato in memoria nel sistema di sviluppo. In questa configurazione lo stato è protetto in Archiviazione di Azure e non viene scritto sul disco locale.
 
-Per altre informazioni sulla crittografia di Archiviazione di Azure, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi][azure-storage-encryption].
+Per altre informazioni sulla crittografia di archiviazione di Azure, vedere [crittografia del servizio di archiviazione di Azure per i dati][azure-storage-encryption]inattivi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla configurazione del back-end Terraform sono disponibili nella [documentazione del back-end Terraform][terraform-backend].
+Per altre informazioni, vedere la documentazione del [back-end][terraform-backend]di bonifica.
 
 <!-- LINKS - internal -->
 [azure-key-vault]: ../key-vault/quick-create-cli.md

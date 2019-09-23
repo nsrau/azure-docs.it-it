@@ -7,73 +7,57 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 30c3b233a1454d04fb281e049376b2b3aafe1879
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/20/2019
+ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647962"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178031"
 ---
-# <a name="how-to-compose-a-query-in-azure-search"></a>Come comporre una query in Ricerca di Azure
+# <a name="query-types-and-composition-in-azure-search"></a>Tipi di query e composizione in Ricerca di Azure
 
-In Ricerca di Azure, una query è una specifica completa di un'operazione di andata e ritorno. I parametri nella richiesta forniscono i criteri di corrispondenza per la ricerca di documenti in un indice, le istruzioni di esecuzione per il motore e le direttive per la forma della risposta. 
+In Ricerca di Azure, una query è una specifica completa di un'operazione di andata e ritorno. I parametri della richiesta forniscono i criteri di corrispondenza per la ricerca di documenti in un indice, i campi da includere o escludere, le istruzioni di esecuzione passate al motore e le direttive per la definizione della risposta. Non specificato (`search=*`), una query viene eseguita su tutti i campi ricercabili come operazione di ricerca full-text, restituendo un set di risultati non punteggiato in ordine arbitrario.
 
-Una richiesta di query è un costrutto avanzato che specifica quali campi sono inclusi nell'ambito, come eseguire una ricerca, quali campi restituire, se ordinare o filtrare e così via. Se non viene specificata, una query viene eseguita rispetto a tutti i campi disponibili per la ricerca come un'operazione di ricerca full-text che restituisce un set di risultati senza punteggio in un ordine arbitrario.
-
-## <a name="apis-and-tools-for-testing"></a>API e strumenti di test
-
-La tabella seguente elenca le API e i metodi basati su strumenti per inviare query.
-
-| Metodologia | Descrizione |
-|-------------|-------------|
-| [Esplora ricerche (portale)](search-explorer.md) | Fornisce opzioni e una barra di ricerca per selezioni indice e versione API. I risultati vengono restituiti come documenti JSON. <br/>[Altre informazioni.](search-get-started-portal.md#query-index) | 
-| [Postman o Fiddler](search-get-started-postman.md) | Gli strumenti di test Web sono un'ottima scelta per formulare le chiamate REST. L'API REST supporta tutte le operazioni possibili in Ricerca di Azure. In questo articolo viene spiegato come configurare l'intestazione e il corpo di una richiesta HTTP per l'invio di richieste a Ricerca di Azure.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client che può essere usato per eseguire una query in un indice di Ricerca di Azure.  <br/>[Altre informazioni.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Cerca documenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Metodi GET o POST su un indice, usando i parametri di query per un input aggiuntivo.  |
-
-## <a name="a-first-look-at-query-requests"></a>Una prima occhiata alle richieste di query
-
-Gli esempi sono utili per introdurre nuovi concetti. Come una query rappresentativa costruita nell’[API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), questo esempio fa riferiemnto all’[indice demo immobiliare](search-get-started-portal.md) e include i parametri comuni.
+L'esempio seguente è una query rappresentativa costruita nell' [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Questo esempio è destinato all' [Indice demo degli hotel](search-get-started-portal.md) e include parametri comuni.
 
 ```
 {
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"",
-    "searchFields": "description, city",
-    "count": "true",
-    "select": "listingId, street, status, daysOnMarket, description",
+    "search": "+New York +restaurant",
+    "searchFields": "Description, Address/City, Tags",
+    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
     "top": "10",
-    "orderby": "daysOnMarket"
+    "count": "true",
+    "orderby": "Rating desc"
 }
 ```
 
-+ **`queryType`** imposta il parser, che in Ricerca di Azure può essere il [parser predefinito di query semplice](search-query-simple-examples.md) (ottimale per la ricerca full-text), o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per i costrutti di query avanzate, come le espressioni regolari, ricerca per prossimità, fuzzy e ricerca con caratteri jolly, per citarne alcuni.
++ **`queryType`** imposta il parser, ovvero il parser di [query semplice predefinito](search-query-simple-examples.md) (ottimale per la ricerca full-text) o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per costrutti di query avanzati come le espressioni regolari, la ricerca per prossimità, la ricerca fuzzy e con caratteri jolly, per denominare un pochi.
 
 + **`search`** fornisce la corrispondenza ai criteri, in genere testo ma spesso accompagnato da operatori booleani. I termini singoli autonomi sono query *termine*. Le query in più parti racchiuse tra virgolette sono query *frasi chiave*. La ricerca può essere non definita, come in **`search=*`** , ma è più probabile che sia costituita da termini, frasi e operatori simili a quanto visualizzato nell'esempio.
 
-+ **`searchFields`** è facoltativo, usato per limitare l'esecuzione di query a campi specifici.
++ **`searchFields`** vincola l'esecuzione di query a campi specifici. Qualsiasi campo attribuito come *ricercabile* nello schema dell'indice è un candidato per questo parametro.
 
-Le risposte sono anche delineate dai parametri da includere nella query. Nell'esempio, il set di risultati è costituito da campi elencati nell’istruzione **`select`** . In questa query, vengono restituiti solo i primi 10 risultati ma **`count`** indica il numero di documenti corrispondenti complessivi. In questa query le righe vengono ordinate per daysOnMarket.
+Le risposte sono anche delineate dai parametri da includere nella query. Nell'esempio, il set di risultati è costituito da campi elencati nell’istruzione **`select`** . In un'istruzione $select possono essere utilizzati solo i campi contrassegnati come *recuperabili* . Inoltre, in questa **`top`** query vengono restituiti solo i 10 riscontri, **`count`** mentre indica il numero di documenti corrispondenti, che possono essere maggiori di quelli restituiti. In questa query le righe vengono ordinate in base alla classificazione in ordine decrescente.
 
 Nella Ricerca di Azure, l'esecuzione della query avviene sempre rispetto a un indice e l'autenticazione viene eseguita con una chiave API fornita nella richiesta. In REST, entrambi vengono forniti nelle intestazioni della richiesta.
 
 ### <a name="how-to-run-this-query"></a>Come eseguire questa query
 
-Per eseguire questa query, utilizzare [Cerca explorer e l'indice di demo immobiliare](search-get-started-portal.md). 
+Per eseguire questa query, usare [Esplora ricerche e l'indice demo degli hotel](search-get-started-portal.md). 
 
-È possibile incollare questa stringa di query nella barra di ricerca della finestra di esplorazione: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
+È possibile incollare questa stringa di query nella barra di ricerca della finestra di esplorazione: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Modo in cui le operazioni di query sono abilitate dall'indice
 
 La progettazione di indici e query di progettazione sono strettamente collegati in Ricerca di Azure. Un aspetto essenziale da conoscere fin dall'inizio è che lo *schema dell'indice*, con gli attributi in ogni campo, determina il tipo di query che è possibile compilare. 
 
-Gli attributi dell'indice in un campo impostano le operazioni consentite - se un campo è *ricercabile* nell'indice *recuperabile* nei risultati *ordinabile*,  *filtrabile*e così via. Nella stringa di query di esempio, `"$orderby": "daysOnMarket"` funziona solo perché il campo daysOnMarket è contrassegnato come *ordinabile* nello schema dell'indice. 
+Gli attributi dell'indice in un campo impostano le operazioni consentite - se un campo è *ricercabile* nell'indice *recuperabile* nei risultati *ordinabile*,  *filtrabile*e così via. Nella stringa di query di esempio `"$orderby": "Rating"` , funziona solo perché il campo rating è contrassegnato come *ordinabile* nello schema dell'indice. 
 
-![Indicizzare la definizione per l'esempio immobiliare](./media/search-query-overview/realestate-sample-index-definition.png "Indicizzare la definizione per l'esempio immobiliare")
+![Definizione di indice per l'esempio di Hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definizione di indice per l'esempio di Hotel")
 
-Lo screenshot precedente è un elenco parziale degli attributi di indice per l'esempio di mercato immobiliare. È possibile visualizzare lo schema dell'intero indice nel portale. Per ulteriori informazioni sugli attributi dell’indice, vedere [Creare indice API REST](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Lo screenshot precedente è un elenco parziale degli attributi di indice per l'esempio di Hotel. È possibile visualizzare lo schema dell'intero indice nel portale. Per ulteriori informazioni sugli attributi dell’indice, vedere [Creare indice API REST](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
 > Alcune funzionalità di query sono abilitate a livello di indice anziché in base al campo. Queste funzionalità includono: [mappe sinonimi](search-synonyms.md), [analizzatori personalizzati](index-add-custom-analyzers.md), [costrutti del suggerimento (per il completamento automatico e query suggerite)](index-add-suggesters.md), [logica di assegnazione dei punteggi per i risultati di rango](index-add-scoring-profiles.md).
@@ -92,22 +76,33 @@ Gli elementi obbligatori in una richiesta di query includono i componenti seguen
 
 Tutti gli altri parametri di ricerca sono facoltativi. Per l'elenco completo degli attributi, vedere [Creare l’indice (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Per informazioni dettagliate sul modo in cui i parametri vengono utilizzati durante l'elaborazione, vedere [come funziona la ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md).
 
+## <a name="choose-apis-and-tools"></a>Scegliere le API e gli strumenti
+
+La tabella seguente elenca le API e i metodi basati su strumenti per inviare query.
+
+| Metodologia | Descrizione |
+|-------------|-------------|
+| [Esplora ricerche (portale)](search-explorer.md) | Fornisce opzioni e una barra di ricerca per selezioni indice e versione API. I risultati vengono restituiti come documenti JSON. Consigliato per l'esplorazione, il test e la convalida. <br/>[Altre informazioni.](search-get-started-portal.md#query-index) | 
+| [Postazione o altri strumenti REST](search-get-started-postman.md) | Gli strumenti di test Web sono un'ottima scelta per formulare le chiamate REST. L'API REST supporta tutte le operazioni possibili in Ricerca di Azure. In questo articolo viene spiegato come configurare l'intestazione e il corpo di una richiesta HTTP per l'invio di richieste a Ricerca di Azure.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client che può essere usato per eseguire una query in un indice di Ricerca di Azure.  <br/>[Altre informazioni.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Cerca documenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Metodi GET o POST su un indice, usando i parametri di query per un input aggiuntivo.  |
+
 ## <a name="choose-a-parser-simple--full"></a>Scegliere un parser: semplice | completo
 
 Ricerca di Azure si basa su Apache Lucene e consente di scegliere tra due parser di query per la gestione di query tipiche e specializzate. Le richieste che usano il parser semplice vengono formulate tramite il [la sintassi di query semplice](query-simple-syntax.md), selezionata come predefinita per la velocità e l'efficienza nelle query di testo in formato libero. Questa sintassi supporta diversi operatori di ricerca comuni, tra cui AND, OR, NOT, frase, suffisso e operatori di precedenza.
 
 La [sintassi di query Lucene completa](query-Lucene-syntax.md#bkmk_syntax), che viene abilitata quando si aggiunge `queryType=full` alla richiesta, espone il linguaggio di query espressivo e ampiamente usato sviluppato come parte di [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). La Sintassi completa estende la sintassi semplice. Qualsiasi query scritta per la sintassi semplice viene eseguita con il parser di Lucene full. 
 
-Gli esempi seguenti illustrano il punto: eseguire una query, ma con impostazioni queryType diverse, genera risultati diversi. Nella prima query, `^3` viene considerato come parte del termine di ricerca.
+Gli esempi seguenti illustrano il punto: eseguire una query, ma con impostazioni queryType diverse, genera risultati diversi. Nella prima query il `^3` metodo after `historic` viene considerato come parte del termine di ricerca. Il risultato in primo piano per questa query è "Marquis Plaza & Suites", che ha l' *oceano* nella descrizione
 
 ```
-queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-La stessa query che utilizza il parser di Lucene completo interpreta l'aumento di priorità nel campo su "ramo", che consente di migliorare la classificazione delle ricerche di risultati che contengono tale termine specifico.
+La stessa query `^3` che usa il parser Lucene completo interpreta come un richiamo di termine nel campo. Il passaggio dei parser comporta la modifica del rango, con risultati che contengono il termine spostamento *cronologico* verso l'alto.
 
 ```
-queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
 <a name="types-of-queries"></a>

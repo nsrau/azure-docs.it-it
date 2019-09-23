@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 24c2e8b9600b3d622d3d6b42b3bc3615a87ff853
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43208636fb275c38573f820ef8245d7652b4aa86
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686637"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181174"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usare una funzione definita dall'utente Java con Apache Hive in HDInsight
 
@@ -24,7 +24,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 * Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) versione 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) correttamente [installato](https://maven.apache.org/install.html) in base alle indicazioni di Apache.  Maven è un sistema di compilazione per progetti Java.
-* Il [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria cluster. Il risultato sarà wasb: / / per archiviazione di Azure, abfs: / / per Azure Data Lake archiviazione Gen2 o adl: / / per Azure Data Lake archiviazione Gen1. Se il trasferimento protetto è abilitato per l'archiviazione di Azure o Data Lake Storage Gen2, l'URI sarà wasbs: / / o abfss: / /, vedere rispettivamente anche [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
+* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Si tratta di wasb://per archiviazione di Azure, abfs://per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI `wasbs://`è.  Vedere anche [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 
 * Un editor di testo o ambiente IDE Java
 
@@ -32,7 +32,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
     > Se si creano i file Python in un client Windows, è necessario usare un editor che usa LF come terminazione di riga. Se non si è certi se l'editor usa LF o CRLF, vedere la sezione [Risoluzione dei problemi](#troubleshooting) , che include passaggi per la rimozione del carattere CR.
 
 ## <a name="test-environment"></a>Ambiente di test
-L'ambiente usato per questo articolo è stato un computer che eseguono Windows 10.  I comandi sono stati eseguiti in un prompt dei comandi e i vari file sono stati modificati con blocco note. Modificare in modo appropriato per l'ambiente.
+L'ambiente usato per questo articolo è un computer che esegue Windows 10.  I comandi sono stati eseguiti in un prompt dei comandi e i vari file sono stati modificati con blocco note. Modificare di conseguenza per l'ambiente in uso.
 
 Da un prompt dei comandi, immettere i comandi seguenti per creare un ambiente di lavoro:
 
@@ -51,20 +51,20 @@ cd C:\HDI
 
     Questo comando crea una directory denominata `exampleudf`, che contiene il progetto Maven.
 
-2. Dopo aver creato il progetto, eliminare il `exampleudf/src/test` directory in cui è stato creato come parte del progetto immettendo il comando seguente:
+2. Una volta creato il progetto, eliminare `exampleudf/src/test` la directory creata come parte del progetto immettendo il comando seguente:
 
     ```cmd
     cd ExampleUDF
     rmdir /S /Q "src/test"
     ```
 
-3. Apri `pom.xml` immettendo il comando seguente:
+3. Aprire `pom.xml` immettendo il comando seguente:
 
     ```cmd
     notepad pom.xml
     ```
 
-    Quindi sostituire il `<dependencies>` voce con il codice XML seguente:
+    Sostituire quindi la voce `<dependencies>` esistente con il codice XML seguente:
 
     ```xml
     <dependencies>
@@ -149,7 +149,7 @@ cd C:\HDI
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    Quindi copiare e incollare il codice java seguente nel nuovo file. Quindi chiudere il file.
+    Quindi copiare e incollare il codice Java riportato di seguito nel nuovo file. Chiudere quindi il file.
 
     ```java
     package com.microsoft.examples;
@@ -180,9 +180,9 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>Compilare e installare la UDF
 
-I comandi seguenti, sostituire `sshuser` con il nome utente effettivo se diverso. Sostituire `mycluster` con il nome effettivo del cluster.
+Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diverso. Sostituire `mycluster` con il nome del cluster effettivo.
 
-1. Per compilare e creare un pacchetto la UDF immettendo il comando seguente:
+1. Compilare e creare il pacchetto della funzione definita dall'utente immettendo il comando seguente:
 
     ```cmd
     mvn compile package
@@ -202,7 +202,7 @@ I comandi seguenti, sostituire `sshuser` con il nome utente effettivo se diverso
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-4. Dalla sessione SSH aperta, copiare il file con estensione jar all'archiviazione di HDInsight.
+4. Dalla sessione SSH aperta copiare il file jar nell'archiviazione HDInsight.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -210,7 +210,7 @@ I comandi seguenti, sostituire `sshuser` con il nome utente effettivo se diverso
 
 ## <a name="use-the-udf-from-hive"></a>Utilizzare la UDF da Hive
 
-1. Avviare il client Beeline dalla sessione SSH immettendo il comando seguente:
+1. Avviare il client di controllo della connessione dalla sessione SSH immettendo il comando seguente:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -231,7 +231,7 @@ I comandi seguenti, sostituire `sshuser` con il nome utente effettivo se diverso
     SELECT tolower(state) AS ExampleUDF, state FROM hivesampletable LIMIT 10;
     ```
 
-    Questa query Seleziona lo stato della tabella, convertire la stringa per caso inferiore e quindi visualizzarli insieme al nome senza modifiche. L'output appare simile al seguente testo:
+    Questa query consente di selezionare lo stato della tabella, convertire la stringa in lettere minuscole e quindi visualizzarli insieme al nome non modificato. L'output appare simile al seguente testo:
 
         +---------------+---------------+--+
         |  exampleudf   |     state     |
@@ -248,7 +248,7 @@ I comandi seguenti, sostituire `sshuser` con il nome utente effettivo se diverso
         | colorado      | Colorado      |
         +---------------+---------------+--+
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Quando si esegue il processo hive, è possibile riscontrare un errore simile al testo seguente:
 

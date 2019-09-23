@@ -27,7 +27,7 @@
           href: tutorial-create-populate-tsi-environment.md
     - name: Anteprima di Time Series Insights
       items:
-        - name: Esercitazione sull'Anteprima di Azure Time Series Insights
+        - name: Configurare un ambiente di anteprima
           href: time-series-insights-update-create-environment.md
 - name: Concetti
   items:

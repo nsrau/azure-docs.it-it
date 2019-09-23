@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: d036e56a4ccf826ccd19fb7424b7b76568839b23
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: b73810b37020bf01c1088f194bd426e93fd95d2c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104527"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180778"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
@@ -26,11 +26,11 @@ Questo articolo offre una panoramica di questi tipi di archiviazione e delle rel
 
 La tabella seguente riepiloga i servizi di archiviazione di Azure supportati con diverse versioni di HDInsight:
 
-| Servizio di archiviazione | Tipo di account | Tipo di spazio dei nomi | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati | HDInsight Version | Tipo di cluster |
+| Servizio di archiviazione | Tipo di account | Tipo di spazio dei nomi | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati | Versione HDInsight | Tipo di cluster |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Utilizzo generico v2 | Gerarchico (filesystem) | BLOB | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
-|Archiviazione di Azure| Utilizzo generico v2 | Oggetto | BLOB | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
-|Archiviazione di Azure| Utilizzo generico v1 | Oggetto | BLOB | Standard | N/D | Tutti | Tutti |
+|Azure Data Lake Storage Gen2| Utilizzo generico v2 | Gerarchico (filesystem) | Blob | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
+|Archiviazione di Azure| Utilizzo generico v2 | Object | Blob | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
+|Archiviazione di Azure| Utilizzo generico v1 | Object | Blob | Standard | N/D | Tutti | Tutti |
 |Archiviazione di Azure| Archiviazione BLOB * * | Object | BLOB in blocchi | Standard | Frequente, ad accesso sporadico, archivio | Tutti | Tutti |
 |Azure Data Lake Storage Gen1| N/D | Gerarchico (filesystem) | N/D | N/D | N/D | solo 3,6 | Tutti tranne HBase |
 
@@ -42,18 +42,18 @@ Per altre informazioni sui livelli di accesso di archiviazione di Azure [, veder
 
 È possibile creare un cluster usando diverse combinazioni di servizi per l'archiviazione secondaria primaria e facoltativa. Nella tabella seguente sono riepilogate le configurazioni di archiviazione del cluster attualmente supportate in HDInsight:
 
-| HDInsight Version | Risorsa di archiviazione primaria | Archiviazione secondaria | Supportato |
+| Versione HDInsight | Archiviazione primaria | Archiviazione secondaria | Supportato |
 |---|---|---|---|
-| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
+| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
 | 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen2 | No |
-| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen1 | Sì |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Sì |
+| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen1 | Yes |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Yes |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
 | 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sì |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
 | 3.6 | Data Lake Storage Gen1 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
-| 4.0 | Data Lake Storage Gen1 | Qualsiasi | No |
+| 4.0 | Data Lake Storage Gen1 | Any | No |
 
 \* = Può trattarsi di uno o più account Data Lake Storage Gen2, purché tutti i set di impostazioni usino la stessa identità gestita per l'accesso al cluster.
 
@@ -95,9 +95,9 @@ Per altre informazioni, vedere [Driver del file system del BLOB di Azure: un dri
 
 Azure Data Lake Storage Gen2 usa un nuovo schema URI per accedere ai file in Archiviazione di Azure da HDInsight:
 
-`abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+`abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
 
-Lo schema URI offre l'accesso con crittografia SSL (prefisso `abfss://`) e l'accesso non crittografato (prefisso `abfs://`). Se possibile, usare `abfss` anche per accedere ai dati presenti nella stessa area di Azure.
+Lo schema URI fornisce l'accesso crittografato tramite SSL.
 
 `<FILE_SYSTEM_NAME>` identifica il percorso del file system di Data Lake Storage Gen2.
 
@@ -108,8 +108,8 @@ Lo schema URI offre l'accesso con crittografia SSL (prefisso `abfss://`) e l'acc
 Se i valori per `<FILE_SYSTEM_NAME>` e `<ACCOUNT_NAME>` non vengono specificati, viene usato il file system predefinito. Per i file presenti nel file system predefinito, usare un percorso relativo o un percorso assoluto. Ad esempio, è possibile fare riferimento al file `hadoop-mapreduce-examples.jar` incluso nei cluster HDInsight usando uno dei percorsi seguenti:
 
 ```
-abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
+abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
 > [!Note]

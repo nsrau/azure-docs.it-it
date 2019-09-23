@@ -36,27 +36,25 @@
   items:
     - name: Gestire gli utenti
       items:
-        - name: Aggiungere nuovi utenti ad Azure AD
+        - name: Creare gli utenti
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Creazione di utenti in blocco (anteprima)
+          href: users-bulk-add.md
         - name: Gestire i profili utente
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Operazioni in blocco (anteprima)
-          items:
-            - name: Scaricare utenti (anteprima)
-              href: users-bulk-download.md
-            - name: Importazione di utenti in blocco (anteprima)
-              href: users-bulk-add.md
-            - name: Eliminazione di utenti in blocco (anteprima)
-              href: users-bulk-delete.md
-            - name: Ripristino di utenti in blocco (anteprima)
-              href: users-bulk-restore.md
+        - name: Scaricare le informazioni utente (anteprima)
+          href: users-bulk-download.md
         - name: Condividere gli account utente
           href: users-sharing-accounts.md
         - name: Assegnare utenti a ruoli amministrativi
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Eliminazione di utenti in blocco (anteprima)
+          href: users-bulk-delete.md
         - name: ripristinare un utente eliminato
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Chiudere l'account in una directory non gestita
+        - name: Ripristino di utenti in blocco (anteprima)
+          href: users-bulk-restore.md
+        - name: Chiudere un account in una directory non gestita
           href: users-close-account.md
         - name: Aggiungere utenti B2B
           href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -86,28 +84,26 @@
           href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Eseguire ricerche in elenchi di gruppi e membri (anteprima)
           href: groups-members-owners-search.md
+        - name: Creare un gruppo (portale di Azure)
+          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Gestire i gruppi con PowerShell per Graph (v2)
           href: groups-settings-v2-cmdlets.md
         - name: Gestire i gruppi con PowerShell MSOnline
           href: groups-settings-cmdlets.md
-        - name: Gestire i membri dei gruppi
+        - name: Aggiungere o rimuovere membri di un gruppo
           href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Aggiunta di membri in blocco (anteprima)
+          href: groups-bulk-import-members.md
+        - name: Rimozione di membri in blocco (anteprima)
+          href: groups-bulk-remove-members.md
+        - name: Download dell'elenco di membri in blocco (anteprima)
+          href: groups-bulk-download-members.md
         - name: Gestire i proprietari dei gruppi
           href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Operazioni in blocco (anteprima)
-          items:
-            - name: Importazione di membri in blocco (anteprima)
-              href: groups-bulk-import-members.md
-            - name: Download di membri in blocco (anteprima)
-              href: groups-bulk-download-members.md
-            - name: Rimozione di membri in blocco (anteprima)
-              href: groups-bulk-remove-members.md
-            - name: Download di un elenco di gruppi in blocco (anteprima)
-              href: groups-bulk-download.md
+        - name: Download dell'elenco di gruppi in blocco (anteprima)
+          href: groups-bulk-download.md
         - name: Gestire i gruppi in gruppi
           href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Creare un gruppo (portale di Azure)
-          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Aggiungere l'accesso dei gruppi alle app SaaS
           href: groups-saasapps.md
         - name: Informazioni di riferimento sulla denominazione dei gruppi

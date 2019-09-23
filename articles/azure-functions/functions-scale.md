@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c39ee29b9a4449000d44e44bc6feae407cf4cd38
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874943"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180115"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -62,6 +62,8 @@ Il piano a consumo è l'opzione di hosting predefinita e offre i vantaggi seguen
 * Aumento automatico del numero di istanze anche in periodo di carico elevato
 
 Le app per le funzioni nella stessa area possono essere assegnate allo stesso piano a consumo. Non ci sono svantaggi o conseguenze per l'esecuzione di più app nello stesso piano a consumo. L'assegnazione di più app allo stesso piano a consumo non ha alcun effetto sulla resilienza, la scalabilità o l'affidabilità di ogni app.
+
+Per altre informazioni su come stimare i costi durante l'esecuzione in un piano a consumo, vedere [informazioni sui costi del piano a consumo](functions-consumption-costs.md).
 
 ## <a name="premium-plan"></a>Piano Premium (anteprima)
 
@@ -129,7 +131,9 @@ Quando l'output di questo comando è `dynamic`, l'app per le funzioni è nel pia
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 
-In qualsiasi piano, un'app per le funzioni richiede un account di archiviazione di Azure generale che supporta archiviazione BLOB, code, file e tabelle di Azure. Questo perché le funzioni si basano sull'archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione delle esecuzioni di funzioni, ma alcuni account di archiviazione non supportano code e tabelle. Questi account, che includono l'archiviazione solo BLOB (tra cui Archiviazione premium) e gli account di archiviazione per utilizzo generico con replica di archiviazione con ridondanza della zona, vengono esclusi dalle selezioni di **Account di archiviazione** esistenti quando si crea un'app per le funzioni.
+In qualsiasi piano, un'app per le funzioni richiede un account di archiviazione di Azure generale che supporta archiviazione BLOB, code, file e tabelle di Azure. Il motivo è che Funzioni si basa su Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione di funzioni, ma alcuni account di archiviazione non supportano code e tabelle. Questi account, che includono l'archiviazione solo BLOB (tra cui Archiviazione premium) e gli account di archiviazione per utilizzo generico con replica di archiviazione con ridondanza della zona, vengono esclusi dalle selezioni di **Account di archiviazione** esistenti quando si crea un'app per le funzioni.
+
+Lo stesso account di archiviazione usato dall'app per le funzioni può essere usato anche dai trigger e dalle associazioni per archiviare i dati dell'applicazione. Tuttavia, per le operazioni con utilizzo intensivo di archiviazione, è necessario usare un account di archiviazione separato.   
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 

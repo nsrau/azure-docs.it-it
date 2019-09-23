@@ -18,7 +18,7 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Creare un'istanza di Load Balancer Standard - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Creare un'istanza di Load Balancer Standard - Modello di Azure Resource Manager
+    - name: Creare un'istanza di Load Balancer Standard - Modello
       displayName: ARM
       href: quickstart-load-balancer-standard-public-template.md
 - name: Esercitazioni

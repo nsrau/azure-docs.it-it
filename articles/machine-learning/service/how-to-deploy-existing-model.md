@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: 0de9284896900cb7430f42e1d0266a1c02fab20e
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a864ec8c9bbdf90f04c98c8d9656c863fb32b653
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034434"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162479"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Usare un modello esistente con Azure Machine Learning
 
@@ -105,7 +105,7 @@ inference_config = InferenceConfig(entry_script="score.py",
                                    environment=myenv)
 ```
 
-Per altre informazioni, vedere i seguenti articoli:
+Per altre informazioni, vedere gli articoli seguenti:
 
 + [Come usare gli ambienti](how-to-use-environments.md).
 + Riferimento [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) .
@@ -147,13 +147,13 @@ Lo script di immissione dispone solo di due funzioni `init()` obbligatorie `run(
 Il codice Python seguente è uno script di immissione di`score.py`esempio ():
 
 ```python
+import os
 import pickle
 import json
 import time
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
 from gensim.models.word2vec import Word2Vec
-from azureml.core.model import Model
 
 # SENTIMENT
 POSITIVE = "POSITIVE"
@@ -169,8 +169,8 @@ def init():
     global encoder
     global w2v_model
 
-    # Get the path where the model(s) registered as the name 'sentiment' can be found.
-    model_path = Model.get_model_path('sentiment')
+    # Get the path where the deployed model can be found.
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), './models')
     # load models
     model = load_model(model_path + '/model.h5')
     w2v_model = Word2Vec.load(model_path + '/model.w2v')

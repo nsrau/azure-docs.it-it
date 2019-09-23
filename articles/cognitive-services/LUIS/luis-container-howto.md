@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/20/2019
 ms.author: dapine
-ms.openlocfilehash: 9d1a6ab698ceb6ac1c0a4fc635b5a8fe1e68b0c6
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: b15ab7be5467d35b774dce643d6bb3910560ae01
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102028"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172316"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
-Il contenitore LUIS (Language Understanding) carica un modello Language Understanding sottoposto a training o pubblicato, noto anche come [app LUIS](https://www.luis.ai), in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nuovamente nell'app Language Understanding per migliorare l'accuratezza della stima dell'app.
+Il contenitore Language Understanding (LUIS) carica il modello di Language Understanding sottoposto a training o pubblicato. Come [app Luis](https://www.luis.ai), il contenitore Docker fornisce l'accesso alle stime delle query dagli endpoint API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nuovamente nell'app Language Understanding per migliorare l'accuratezza della stima dell'app.
 
 Il video seguente illustra l'uso di questo contenitore.
 
@@ -30,13 +30,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire il contenitore LUIS, è necessario quanto segue: 
+Per eseguire il contenitore LUIS, tenere presente i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Richiesto|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Risorsa `Cognitive Services` di Azure e file di [app in pacchetto](luis-how-to-start-new-app.md#export-app-for-containers) Luis |Per usare il contenitore, è necessario disporre di:<br><br>* Una risorsa di Azure _Servizi cognitivi_ e la chiave di fatturazione associata l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore. È necessario aggiungere il `luis/v2.0` routing all'URI dell'endpoint, come illustrato nell'esempio BILLING_ENDPOINT_URI seguente. <br>* Un'app pubblicata o sottoposta a training inserita in un pacchetto come input montato per il contenitore con il relativo ID app associato. È possibile ottenere il file in pacchetto dal portale LUIS o dalle API di creazione. Se si sta ricevendo un'app in pacchetto LUIS dalle [API di creazione](#authoring-apis-for-package-file), sarà necessaria anche la _chiave di creazione_.<br><br>Questi requisiti vengono usati per passare gli argomenti della riga di comando per le variabili seguenti:<br><br>**{AUTHORING_KEY}** : questa chiave viene usata per ottenere il pacchetto dell'app dal servizio LUIS nel cloud e caricare i log di query nel cloud. Il formato è `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : questo ID viene usato per selezionare l'app. Il formato è `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}** : Questa chiave viene usata per avviare il contenitore. È possibile trovare la chiave dell'endpoint in due posizioni. Il primo è la portale di Azure all'interno dell'elenco chiavi della risorsa _Servizi cognitivi_ . La chiave dell'endpoint è anche disponibile nel portale di LUIS nella pagina relativa a impostazioni dell'endpoint e chiavi. Non usare la chiave di avvio.<br><br>**{ENDPOINT_URI}** : Endpoint fornito nella pagina Overview.<br><br>La [chiave di creazione e la chiave dell'endpoint](luis-boundaries.md#key-limits) hanno scopi diversi. Non usarle in modo intercambiabile. |
+|Risorsa `Cognitive Services` di Azure e file di [app in pacchetto](luis-how-to-start-new-app.md#export-app-for-containers) Luis |Per usare il contenitore, è necessario disporre di:<br><br>* Una risorsa di Azure _Servizi cognitivi_ e la chiave di fatturazione associata l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore. <br>* Un'app pubblicata o sottoposta a training inserita in un pacchetto come input montato per il contenitore con il relativo ID app associato. È possibile ottenere il file in pacchetto dal portale LUIS o dalle API di creazione. Se si sta ricevendo un'app in pacchetto LUIS dalle [API di creazione](#authoring-apis-for-package-file), sarà necessaria anche la _chiave di creazione_.<br><br>Questi requisiti vengono usati per passare gli argomenti della riga di comando per le variabili seguenti:<br><br>**{AUTHORING_KEY}** : questa chiave viene usata per ottenere il pacchetto dell'app dal servizio LUIS nel cloud e caricare i log di query nel cloud. Il formato è `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : questo ID viene usato per selezionare l'app. Il formato è `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}** : Questa chiave viene usata per avviare il contenitore. È possibile trovare la chiave dell'endpoint in due posizioni. Il primo è la portale di Azure all'interno dell'elenco chiavi della risorsa _Servizi cognitivi_ . La chiave dell'endpoint è anche disponibile nel portale di LUIS nella pagina relativa a impostazioni dell'endpoint e chiavi. Non usare la chiave di avvio.<br><br>**{ENDPOINT_URI}** : Endpoint fornito nella pagina Overview.<br><br>La [chiave di creazione e la chiave dell'endpoint](luis-boundaries.md#key-limits) hanno scopi diversi. Non usarle in modo intercambiabile. |
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -57,7 +57,7 @@ Il contenitore supporta i valori minimi e consigliati seguenti per le impostazio
 
 |Contenitore| Minima | Consigliato | TPS<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
-|LUIS|1 core, 2 GB di memoria|1 core, 4 GB di memoria|20,40|
+|LUIS|1 core, 2 GB di memoria|1 core, 4 GB di memoria|20, 40|
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 * TPS - transazioni al secondo
@@ -85,7 +85,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 ![Procedura per l'uso del contenitore Language Understanding (LUIS)](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
 1. [Esportare il pacchetto](#export-packaged-app-from-luis) per il contenitore dal portale di LUIS o tramite le API LUIS.
-1. Spostare il file del pacchetto nella directory di **input** richiesta nel [computer host](#the-host-computer). Non rinominare, modificare, sovrascrivere o decomprimere il file di pacchetto LUIS.
+1. Spostare il file del pacchetto nella directory di **input** richiesta nel [computer host](#the-host-computer). Non rinominare, modificare, sovrascrivere o decomprimere il file del pacchetto LUIS.
 1. [Eseguire il contenitore](##run-the-container-with-docker-run), con il _punto di montaggio di input_ e le impostazioni di fatturazione richiesti. Sono disponibili altri [esempi](luis-container-configuration.md#example-docker-run-commands) del comando `docker run`. 
 1. [Eseguire query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint). 
 1. Dopo aver completato le operazioni con il contenitore, [importare i log dell'endpoint](#import-the-endpoint-logs-for-active-learning) dal punto di montaggio di output nel portale di LUIS e [arrestare](#stop-the-container) il contenitore.
@@ -109,9 +109,9 @@ La directory di montaggio di input può contenere contemporaneamente le versioni
 
 |Tipo di pacchetto|API endpoint di query|Disponibilità query|Formato nome file pacchetto|
 |--|--|--|--|
-|Con training|Get, Post|Solo contenitore|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Gestione temporanea|Get, Post|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
-|Produzione|Get, Post|Azure e contenitore|`{APPLICATION_ID}_PRODUCTION.gz`|
+|Con training|GET, POST|Solo contenitore|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
+|Gestione temporanea|GET, POST|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
+|Produzione|GET, POST|Azure e contenitore|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
 > Non rinominare, modificare, sovrascrivere o decomprimere i file del pacchetto LUIS.
@@ -170,12 +170,12 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 
 | Segnaposto | Value |
 |-------------|-------|
-|{APPLICATION_ID} | ID applicazione dell'app LUIS pubblicata. |
-|{APPLICATION_ENVIRONMENT} | Ambiente dell'app LUIS pubblicata. Usare uno dei valori seguenti:<br/>`PRODUCTION`<br/>`STAGING` |
-|{AUTHORING_KEY} | Chiave di creazione dell'account LUIS per l'app LUIS pubblicata.<br/>È possibile ottenere la chiave di creazione nella pagina **User Settings** (Impostazioni utente) nel portale di LUIS. |
-|{AZURE_REGION} | Area di Azure appropriata:<br/><br/>`westus` - Stati Uniti occidentali<br/>`westeurope` - Europa occidentale<br/>`australiaeast` - Australia orientale |
+| **{APPLICATION_ID}** | ID applicazione dell'app LUIS pubblicata. |
+| **{APPLICATION_ENVIRONMENT}** | Ambiente dell'app LUIS pubblicata. Usare uno dei valori seguenti:<br/>`PRODUCTION`<br/>`STAGING` |
+| **{AUTHORING_KEY}** | Chiave di creazione dell'account LUIS per l'app LUIS pubblicata.<br/>È possibile ottenere la chiave di creazione nella pagina **User Settings** (Impostazioni utente) nel portale di LUIS. |
+| **{AZURE_REGION}** | Area di Azure appropriata:<br/><br/>`westus` - Stati Uniti occidentali<br/>`westeurope` - Europa occidentale<br/>`australiaeast` - Australia orientale |
 
-Per scaricare il pacchetto pubblicato, vedere la documentazione dell' [API qui][download-published-package]. Se il download è stato completato correttamente, la risposta è un file di pacchetto LUIS. Salvare il file nella posizione di archiviazione specificata per il punto di montaggio di input del contenitore. 
+Per scaricare il pacchetto pubblicato, vedere la [documentazione dell'API qui][download-published-package]. Se il download è stato completato correttamente, la risposta è un file di pacchetto LUIS. Salvare il file nella posizione di archiviazione specificata per il punto di montaggio di input del contenitore. 
 
 ### <a name="export-trained-apps-package-from-api"></a>Esportare il pacchetto dell'app sottoposta a training dall'API
 
@@ -189,12 +189,12 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 
 | Segnaposto | Value |
 |-------------|-------|
-|{APPLICATION_ID} | ID dell'applicazione LUIS sottoposta a training. |
-|{APPLICATION_VERSION} | Versione dell'applicazione LUIS sottoposta a training. |
-|{AUTHORING_KEY} | Chiave di creazione dell'account LUIS per l'app LUIS pubblicata.<br/>È possibile ottenere la chiave di creazione nella pagina **User Settings** (Impostazioni utente) nel portale di LUIS.  |
-|{AZURE_REGION} | Area di Azure appropriata:<br/><br/>`westus` - Stati Uniti occidentali<br/>`westeurope` - Europa occidentale<br/>`australiaeast` - Australia orientale |
+| **{APPLICATION_ID}** | ID applicazione dell'app LUIS sottoposta a training. |
+| **{APPLICATION_VERSION}** | Versione dell'applicazione dell'app LUIS sottoposta a training. |
+| **{AUTHORING_KEY}** | Chiave di creazione dell'account LUIS per l'app LUIS pubblicata.<br/>È possibile ottenere la chiave di creazione nella pagina **User Settings** (Impostazioni utente) nel portale di LUIS. |
+| **{AZURE_REGION}** | Area di Azure appropriata:<br/><br/>`westus` - Stati Uniti occidentali<br/>`westeurope` - Europa occidentale<br/>`australiaeast` - Australia orientale |
 
-Per scaricare il pacchetto sottoposto a training, consultare la [documentazione dell'API qui][download-trained-package]. Se il download è stato completato correttamente, la risposta è un file di pacchetto LUIS. Salvare il file nella posizione di archiviazione specificata per il punto di montaggio di input del contenitore. 
+Per scaricare il pacchetto sottoposto a training, fare riferimento alla [documentazione dell'API qui][download-trained-package]. Se il download è stato completato correttamente, la risposta è un file di pacchetto LUIS. Salvare il file nella posizione di archiviazione specificata per il punto di montaggio di input del contenitore. 
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
@@ -247,8 +247,8 @@ Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
 |Tipo di pacchetto|Metodo|Route|Parametri di query|
 |--|--|--|--|
-|Pubblicato|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
-|Con training|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
+|Pubblicato|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
+|Con training|GET, POST|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
@@ -286,7 +286,7 @@ Il nome della versione può essere composto da un massimo di 10 caratteri e deve
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importare i log dell'endpoint per l'apprendimento attivo
 
-Se viene specificato un punto di montaggio di output per il contenitore LUIS, i file di log di query dell'app vengono salvati nella directory di output, dove {INSTANCE_ID} è l'ID del contenitore. Il log di query dell'app contiene la query, la risposta e i timestamp per ogni query di stima inviata al contenitore LUIS. 
+Se viene specificato un montaggio di output per il contenitore Luis, i file di log delle query dell'app vengono salvati nella `{INSTANCE_ID}` directory di output, dove è l'ID del contenitore. Il log di query dell'app contiene la query, la risposta e i timestamp per ogni query di stima inviata al contenitore LUIS. 
 
 Il percorso seguente indica la struttura di directory nidificata per i file di log del contenitore.
 ```
@@ -330,7 +330,7 @@ Il contenitore più recente, rilasciato alle 2019 Build, supporterà:
 
 ## <a name="unsupported-dependencies-for-latest-container"></a>Dipendenze non supportate per `latest` il contenitore
 
-Se l'app LUIS ha dipendenze non supportate, non sarà possibile [esportare per il contenitore](#export-packaged-app-from-luis) fino a quando non si rimuovono le funzionalità non supportate. Quando si tenta di esportare per il contenitore, il portale LUIS riporta le funzionalità non supportate che è necessario rimuovere.
+Per [esportare per il contenitore](#export-packaged-app-from-luis), è necessario rimuovere le dipendenze non supportate dall'app Luis. Quando si tenta di esportare per il contenitore, il portale LUIS segnala le funzionalità non supportate che è necessario rimuovere.
 
 È possibile usare un'applicazione LUIS se **non include** le dipendenze seguenti:
 

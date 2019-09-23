@@ -3,7 +3,7 @@ title: Installare e configurare la bonifica per il provisioning delle risorse di
 description: Informazioni su come installare e configurare Terraform per la creazione di risorse di Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
+author: tomarchermsft
 manager: gwallace
 editor: na
 tags: azure-resource-manager
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: cd6052db1328fce5ef1a846fbab94fd7066079f6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090728"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168727"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Installare e configurare la bonifica per il provisioning delle risorse di Azure
  
@@ -37,7 +37,7 @@ Per installare Terraform, [scaricare](https://www.terraform.io/downloads.html) i
 
 Per verificare la configurazione del percorso, usare il comando `terraform`. Viene visualizzato un elenco delle opzioni Terraform disponibili, come nell'output di esempio di seguito:
 
-```bash
+```console
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
@@ -94,7 +94,7 @@ export ARM_ENVIRONMENT=public
 
 Creare un file `test.tf` in una directory vuota e incollare al suo interno lo script seguente.
 
-```tf
+```hcl
 provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
@@ -111,7 +111,7 @@ terraform init
 
 L'output è simile all'esempio seguente:
 
-```bash
+```console
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
@@ -125,7 +125,7 @@ terraform apply
 
 L'output è simile all'esempio seguente:
 
-```bash
+```console
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create

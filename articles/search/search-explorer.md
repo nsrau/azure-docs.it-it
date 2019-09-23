@@ -1,33 +1,30 @@
 ---
-title: Esplora ricerche nel portale di Azure per le query dei dati - Ricerca di Azure
-description: Usare gli strumenti del portale di Azure come Esplora ricerche per eseguire query negli indici in Ricerca di Azure. Immettere termini di ricerca o stringhe di ricerca complete con sintassi avanzata.
+title: Usare lo strumento Esplora ricerche per eseguire query sui dati in portale di Azure-ricerca di Azure
+description: Esplora ricerche è integrato nella portale di Azure, utile per l'esplorazione del contenuto e la convalida delle query in ricerca di Azure. Immettere stringhe per la ricerca di termini o frasi o espressioni di ricerca complete con sintassi avanzata.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e941e487adaac38c4ec3bd61a58b4b0c61f4c80a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649962"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178143"
 ---
-# <a name="search-explorer-for-querying-data-in-azure-search"></a>Esplora ricerche nel portale di Azure per le query dei dati in Ricerca di Azure 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Usare Esplora ricerche nell'portale di Azure per eseguire query sui documenti in ricerca di Azure 
 
-Questo articolo illustra come eseguire query in un indice di Ricerca di Azure esistente usando **Esplora ricerche** nel portale di Azure. È possibile usare Esplora ricerche per inviare stringhe di query Lucene semplici o complete a qualsiasi indice nel servizio. 
+Questo articolo illustra come eseguire query in un indice di Ricerca di Azure esistente usando **Esplora ricerche** nel portale di Azure. È possibile avviare Esplora ricerche dalla barra dei comandi per inviare espressioni di query Lucene semplici o complete a qualsiasi indice esistente nel servizio. 
 
    ![Comando Esplora ricerche nel portale](./media/search-explorer/search-explorer-cmd2.png "Comando Esplora ricerche nel portale")
 
-
-Per informazioni su come iniziare, vedere [Avviare Esplora ricerche](#start-search-explorer).
-
 ## <a name="basic-search-strings"></a>Stringhe di ricerca di base
 
-Gli esempi seguenti presuppongono che venga usato l'indice di esempio realestate predefinito. Per informazioni sulla creazione dell'indice, vedere [Avvio rapido: Importare, indicizzare ed eseguire query nel portale di Azure](search-get-started-portal.md).
+Gli esempi seguenti presuppongono l'indice di esempio Real Immobiliare incorporato. È possibile creare questo indice usando la procedura guidata Importa dati nel portale, scegliendo **esempi** come origine dati.
 
 ### <a name="example-1---empty-search"></a>Esempio 1: ricerca vuota
 

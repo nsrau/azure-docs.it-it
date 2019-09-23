@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 64bf8f5c8de5f56ee1140e91d0472a33b35570cf
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d8cb8fdebb5a7e4bcbc9f979c98085e90ebd4c68
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878782"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147165"
 ---
 # <a name="handling-event-grid-events"></a>Gestione degli eventi di Griglia di eventi
 
@@ -38,6 +38,9 @@ Per le applicazioni che gestiscono gli eventi di Servizi multimediali è consigl
 * Controllare anche che il tipo di evento che si verifica, eventType, sia un oggetto che si è preparati a elaborare e non presupporre che tutti gli eventi che si ricevono siano dei tipi previsti.
 * Ignorare i campi che non si conoscono.  Questa procedura consentirà di rimanere flessibili alle nuove funzionalità che potrebbero essere aggiunte in futuro.
 * Usare le corrispondenze di prefisso e suffisso "subject" per limitare gli eventi a un determinato evento.
+
+> [!NOTE]
+> Gli eventi sono soggetti alla Contratto di servizio di griglia di eventi [(SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Per ottenere le notifiche degli eventi usando le API, vedere esempi su come utilizzare gli eventi con [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/ContentProtection/BasicAESClearKey) o [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicAESClearKey).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

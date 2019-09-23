@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 3fa68cf3996efa047b7573306749acb56b4c9411
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 77805b15d0061d0ab4b6ef2185c2f7f1c3459f0c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "70744094"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172044"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare funzioni di Azure usando Visual Studio Code
 
@@ -90,7 +90,7 @@ Il modello di progetto crea un progetto nella lingua scelta e installa le dipend
     >[!IMPORTANT]
     >Poiché il file local. Settings. JSON può contenere segreti, è necessario escluderlo dal controllo del codice sorgente del progetto.
 
-A questo punto, è possibile aggiungere associazioni di input e di output alla funzione [modificando il file function. JSON](#javascript-2) o [aggiungendo un parametro a una C# funzione della libreria di classi](#c-class-library-2).
+A questo punto, è possibile aggiungere associazioni di input e di output alla funzione [modificando il file function. JSON](#add-a-function-to-your-project) o [aggiungendo un parametro a una C# funzione della libreria di classi](#add-a-function-to-your-project).
 
 È anche possibile [aggiungere una nuova funzione al progetto](#add-a-function-to-your-project).
 
@@ -98,11 +98,11 @@ A questo punto, è possibile aggiungere associazioni di input e di output alla f
 
 Ad eccezione dei trigger HTTP e timer, le associazioni sono implementate nei pacchetti di estensione. È necessario installare i pacchetti di estensione per i trigger e le associazioni per cui sono necessari. Il processo per l'installazione delle estensioni di binding dipende dalla lingua del progetto.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### <a name="c-class-library"></a>Libreria di classi C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Eseguire il comando [DotNet Add Package](/dotnet/core/tools/dotnet-add-package) nella finestra del terminale per installare i pacchetti di estensione necessari nel progetto. Il comando seguente installa l'estensione di archiviazione di Azure, che implementa le associazioni per l'archiviazione BLOB, di Accodamento e tabelle.
 
@@ -110,19 +110,23 @@ Eseguire il comando [DotNet Add Package](/dotnet/core/tools/dotnet-add-package) 
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+---
+
 ## <a name="add-a-function-to-your-project"></a>Aggiungere una funzione al progetto
 
 È possibile aggiungere una nuova funzione a un progetto esistente usando uno dei modelli di trigger di funzioni predefinite. Per aggiungere un nuovo trigger di funzione, selezionare F1 per aprire il riquadro comandi, quindi cercare ed eseguire il comando **funzioni di Azure: Funzione**create. Seguire le istruzioni per scegliere il tipo di trigger e definire gli attributi obbligatori del trigger. Se il trigger richiede una chiave di accesso o una stringa di connessione per connettersi a un servizio, prepararla prima di creare il trigger di funzione.
 
 I risultati di questa azione dipendono dalla lingua del progetto:
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Nel progetto viene creata una nuova cartella. La cartella contiene un nuovo file function. JSON e il nuovo file di codice JavaScript.
 
-### <a name="c-class-library"></a>Libreria di classi C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Un nuovo C# file di libreria di classi (con estensione CS) verrà aggiunto al progetto.
+
+---
 
 ## <a name="add-input-and-output-bindings"></a>Aggiungere binding di input e di output
 
@@ -130,7 +134,7 @@ Un nuovo C# file di libreria di classi (con estensione CS) verrà aggiunto al pr
 
 Gli esempi seguenti si connettono a una `outqueue`coda di archiviazione denominata, `MyStorageConnection` in cui la stringa di connessione per l'account di archiviazione viene impostata nell'impostazione dell'applicazione in local. Settings. JSON.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code consente di aggiungere binding al file function. JSON attenendosi a un set di istruzioni appropriato. Per creare un'associazione, fare clic con il pulsante destro del mouse (Ctrl + clic su macOS) nel file **Function. JSON** nella cartella della funzione e selezionare **Aggiungi binding**:
 
@@ -168,7 +172,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 Per altre informazioni, vedere riferimento dell' [associazione di output dell'archiviazione code](functions-bindings-storage-queue.md#output---javascript-example) .
 
-### <a name="c-class-library"></a>Libreria di classi C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Aggiornare il metodo Function per aggiungere il parametro seguente alla definizione `Run` del metodo:
 
@@ -181,6 +185,8 @@ Per questo codice è necessario aggiungere l'istruzione `using` seguente:
 ```cs
 using Microsoft.Azure.WebJobs.Extensions.Storage;
 ```
+
+---
 
 Il parametro `msg` è un tipo `ICollector<T>`, che rappresenta una raccolta di messaggi scritti in un binding di output al completamento della funzione. Si aggiungono uno o più messaggi alla raccolta. Questi messaggi vengono inviati alla coda al termine della funzione.
 

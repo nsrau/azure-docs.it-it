@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 3d08105e78274300eb7ee0a8c0ad146a737d0ffa
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 562ad0e5e6088c2fbadc853779b7533c5398e079
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644961"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176638"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Abilitare Desktop remoto per le macchine virtuali Linux in un Lab in Azure Lab Services
 Questo articolo illustra come eseguire le attività seguenti:
@@ -31,12 +31,13 @@ Durante la creazione del Lab, gli insegnanti possono abilitare la **Connessione 
 
 ![Abilitare la connessione Desktop remoto per un'immagine Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
-Nella finestra di messaggio abilitazione di **Connessione desktop remoto** selezionare **continua con desktop remoto**. 
+Nella finestra di messaggio **Abilitazione di connessione Desktop remoto** selezionare **continua con desktop remoto**. 
 
 ![Abilitare la connessione Desktop remoto per un'immagine Linux](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
-> L'abilitazione di **Connessione desktop remoto** apre solo la porta **RDP** nei computer Linux. L'utente, in qualità di insegnante, si connette al computer Linux usando SSH per la prima volta e installa i pacchetti RDP e GUI per potersi connettere al computer Linux usando RDP in un secondo momento. Quindi, si **pubblica** l'immagine in modo che gli studenti possano usare il protocollo RDP per le macchine virtuali Linux per studenti. 
+> L'abilitazione di **Connessione desktop remoto** apre solo la porta **RDP** nei computer Linux. Se RDP è già installato e configurato nell'immagine della macchina virtuale, ad esempio: Ubuntu Data Science Virtual Machine Image), gli studenti possono connettersi alle macchine virtuali tramite RDP senza seguire ulteriori passaggi.
+> Se l'immagine di macchina virtuale non dispone di RDP installato e configurato, è necessario connettersi al computer Linux usando SSH per la prima volta e installare i pacchetti RDP e GUI in modo che gli studenti possano connettersi al computer Linux usando RDP in un secondo momento. Quindi, si pubblica l'immagine in modo che gli studenti possano usare il protocollo RDP per le macchine virtuali Linux per studenti.
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 Attualmente, la connessione Desktop remoto è supportata per i sistemi operativi seguenti:

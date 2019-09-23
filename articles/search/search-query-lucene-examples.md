@@ -1,5 +1,5 @@
 ---
-title: Esempi di query Lucene - Ricerca di Azure
+title: Usare la sintassi di query Lucene completa-ricerca di Azure
 description: Sintassi di query Lucene per la ricerca fuzzy, la ricerca per prossimità, l'aumento priorità termini, la ricerca basata su espressioni regolari e le ricerche con caratteri jolly in un servizio Ricerca di Azure.
 author: HeidiSteen
 manager: nitinme
@@ -7,17 +7,17 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f6a39129db9e8c43a5e2de68d919ba1037c3f5c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fcfc668022d0d8fc74258657bb93642aec49bd08
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648228"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178149"
 ---
-# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Esempi di query che usano la sintassi di ricerca Lucene "completa" (query avanzate in ricerca di Azure)
+# <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Usare la sintassi di ricerca Lucene "completa" (query avanzate in ricerca di Azure)
 
 Quando si costruiscono query per Ricerca di Azure, è possibile sostituire il [parser di query semplice](query-simple-syntax.md) predefinito con il [parser di query Lucene in Ricerca di Azure](query-lucene-syntax.md), più ampio, per formulare definizioni di query avanzate e specializzate. 
 

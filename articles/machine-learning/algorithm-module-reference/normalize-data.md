@@ -82,7 +82,7 @@ Con questo modulo è possibile applicare un solo metodo di normalizzazione alla 
   
       I valori nella colonna vengono trasformati utilizzando la formula seguente:
   
-      ![distribuzione normale&#45;di log] delle formule (media/module/aml-normalization-lognormal.png "AML_normalization-lognormale")
+      ![distribuzione normale&#45;di log delle formule](media/module/aml-normalization-lognormal.png "AML_normalization-lognormale")
     
       Qui μ e σ sono i parametri della distribuzione, calcolati empiricamente dai dati come stime di probabilità massima, per ogni colonna separatamente.  
   

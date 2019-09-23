@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 759c804fd4128d7b28cbba078cab5e9d7e6453f6
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: f9d4b933bc9c6e11dde8168d9797a1b6196e6f47
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208305"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170695"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data Science con Linux Data Science Virtual Machine in Azure
 
@@ -30,7 +30,7 @@ Prima di poter usare un DSVM Linux, è necessario che siano soddisfatti i prereq
 
 * **Sottoscrizione di Azure**. Per ottenere una sottoscrizione di Azure, vedere [creare subito il tuo account Azure gratuito](https://azure.microsoft.com/free/).
 * [**Data Science Virtual Machine Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Per informazioni sul provisioning della macchina virtuale, vedere effettuare il provisioning [del Data Science Virtual Machine Linux](linux-dsvm-intro.md).
-* [**X2go**](https://wiki.x2go.org/doku.php) installato nel computer con una sessione di Xfce aperta. Per ulteriori informazioni, vedere [Install and configure the X2Go Client](linux-dsvm-intro.md#install-and-configure-the-x2go-client).
+* [**X2go**](https://wiki.x2go.org/doku.php) installato nel computer con una sessione di Xfce aperta. Per ulteriori informazioni, vedere [Install and configure the X2Go Client](linux-dsvm-intro.md#x2go).
 * Per un'esperienza di scorrimento più uniforme, nel Web browser Firefox di DSVM, impostare il `gfx.xrender.enabled` flag in. `about:config` [Altre informazioni](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Si consiglia inoltre `mousewheel.enable_pixel_scrolling` di `False`impostare su. [Altre informazioni](https://support.mozilla.org/questions/981140)
 * **Azure Machine Learning account**. Se non si dispone già di un account, iscriversi per ottenere un nuovo account nel [home page Azure Machine Learning](https://studio.azureml.net/). Per iniziare, è possibile provarlo gratuitamente.
 
@@ -370,21 +370,21 @@ Per caricare e configurare il set di dati:
 1. Per caricare il file, selezionare la scheda **dati** .
 1. Scegliere il selettore accanto a **nomefile**, quindi selezionare **spambaseHeaders. Data**.
 1. Per caricare il file, Selezionare **Esegui**. Verrà visualizzato un riepilogo di ogni colonna, incluso il tipo di dati identificato. indica se si tratta di un input, di una destinazione o di un altro tipo di variabile; e il numero di valori univoci.
-1. Rattle ha identificato correttamente la colonna **spam** come destinazione. Selezionare la colonna **posta** indesiderata, quindi impostare il tipo di **dati di destinazione** su **categorico**.
+1. Rattle ha identificato correttamente la colonna **spam** come destinazione. Selezionare la colonna **posta indesiderata** , quindi impostare il **tipo di dati di destinazione** su **categorico**.
 
 Per esplorare i dati:
 
 1. Selezionare la scheda **Explore** (Esplora).
 1. Per visualizzare informazioni sui tipi di variabile e alcune statistiche di riepilogo, selezionare **Riepilogo** > **Esegui**.
-1. Per visualizzare altri tipi di statistiche su ciascuna variabile, selezionare altre opzioni, ad esempio **Descrizione** o nozioni di **base**.
+1. Per visualizzare altri tipi di statistiche su ciascuna variabile, selezionare altre opzioni, ad esempio **Descrizione** o **nozioni di base**.
 
 È anche possibile usare la scheda **Esplora** per generare tracciati approfonditi. Per tracciare un istogramma dei dati:
 
 1. Scegliere **Distributions**(Distribuzioni).
 1. Per **word_freq_remove** e **word_freq_you**Selezionare **istogramma**.
-1. Scegliere **Execute**(Esegui). Verranno visualizzati entrambi i tracciati di densità in un'unica finestra del grafico, in cui è chiaro che la parola che viene visualizzata molto più spesso nei messaggi di posta elettronica è la _rimozione_.
+1. Scegliere **Execute**(Esegui). Verranno visualizzati entrambi i tracciati di densità in un'unica finestra del grafico, in cui è chiaro che _la parola che_ viene visualizzata molto più spesso nei messaggi di posta elettronica è la _rimozione_.
 
-Sono inoltre interessanti i tracciati di correlazione. Per creare un tracciato:
+Sono inoltre interessanti i tracciati di **correlazione** . Per creare un tracciato:
 
 1. Per **tipo**selezionare **correlazione**.
 1. Scegliere **Execute**(Esegui).
@@ -392,7 +392,7 @@ Sono inoltre interessanti i tracciati di correlazione. Per creare un tracciato:
 
 Sono disponibili alcune correlazioni interessanti: la _tecnologia_ è strettamente correlata a _HP_ e _Labs_, ad esempio. È anche strettamente correlato a _650_ perché il prefisso del set di dati è 650.
 
-I valori numerici per le correlazioni tra le parole sono disponibili nella finestra **Esplora** . È interessante notare, ad esempio, che la _tecnologia_ è correlata negativamente al denaro e al _denaro_.
+I valori numerici per le correlazioni tra le parole sono disponibili nella finestra **Esplora** . È interessante notare, ad esempio, che la _tecnologia_ è correlata negativamente al denaro _e_ al _denaro_.
 
 Rattle può trasformare il set di dati per gestire alcuni problemi comuni. Ad esempio, è possibile ridimensionare le funzionalità, imputare i valori mancanti, gestire gli outlier e rimuovere variabili o osservazioni con dati mancanti. Rattle può anche identificare le regole di associazione tra osservazioni e variabili. Queste schede non sono descritte in questa procedura dettagliata introduttiva.
 
@@ -493,11 +493,11 @@ Per iniziare, aprire SQuirreL SQL dal menu **applicazioni** . Per configurare il
 Per configurare la connessione al server locale:
 
 1. Selezionare**gli alias di visualizzazione** di **Windows** > .
-1. Selezionare il **+** pulsante per creare un nuovo alias. Per il nuovo nome alias, immettere **database di posta**indesiderata. 
+1. Selezionare il **+** pulsante per creare un nuovo alias. Per il nuovo nome alias, immettere **database di posta indesiderata**. 
 1. Per **driver**selezionare **PostgreSQL**.
 1. Impostare l'URL su **jdbc:postgresql://localhost/spam**.
 1. Immettere nome utente e password.
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 1. Per aprire la finestra **Connection** (Connessione), fare doppio clic sull'alias **Spam database** (Database di posta indesiderata).
 1. Selezionare **Connessione**.
 

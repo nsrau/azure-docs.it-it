@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 87dca4cf06bd8c5982e5f83a2498496c4bec69fd
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984867"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173575"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 
@@ -121,7 +121,7 @@ Sono necessari alcuni parametri per configurare i flussi di dati dagli hub event
 | Codifica | Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON. |
 | Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta vari delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 | Formato | Applicabile solo per la serializzazione JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON. Questa matrice viene chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON delimitati da righe, perché non richiede alcuna gestione speciale mentre è ancora in corso la scrittura del file di output. |
-| Colonne delle proprietà | facoltativo. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Altre informazioni su questa funzionalità sono illustrate nella sezione [proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
+| Colonne delle proprietà | facoltativo. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Ulteriori informazioni su questa funzionalità sono contenute nella sezione [proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI
 
@@ -209,7 +209,8 @@ Nella tabella seguente sono elencati i nomi delle proprietà e le relative descr
 | Codifica |Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON. |
 | Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta vari delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 | Formato |Applicabile solo per il tipo JSON. **Delimitato da righe** specifica che l'output viene formattato in base a ogni oggetto JSON separato da una nuova riga. **Array** specifica che l'output viene formattato come una matrice di oggetti JSON. |
-| Colonne delle proprietà | facoltativo. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Altre informazioni su questa funzionalità sono illustrate nella sezione [proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
+| Colonne delle proprietà | facoltativo. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Ulteriori informazioni su questa funzionalità sono contenute nella sezione [proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
+| Colonne delle proprietà di sistema | facoltativo. Coppie chiave-valore delle proprietà di sistema e nomi di colonna corrispondenti che devono essere allegati al messaggio in uscita anziché al payload. Altre informazioni su questa funzionalità sono contenute nella sezione [proprietà di sistema per gli output della coda e dell'argomento del bus di servizio](#system-properties-for-service-bus-queue-and-topic-outputs)  |
 
 Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.
 
@@ -228,7 +229,8 @@ La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per
 | Formato di serializzazione eventi |Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro. |
 | Codifica |Se si usa il formato CSV o JSON, è necessario specificare una codifica. Al momento, UTF-8 è l'unico formato di codifica supportato. |
 | Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta vari delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
-| Colonne delle proprietà | facoltativo. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Altre informazioni su questa funzionalità sono illustrate nella sezione [proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
+| Colonne delle proprietà | facoltativo. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Ulteriori informazioni su questa funzionalità sono contenute nella sezione [proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
+| Colonne delle proprietà di sistema | facoltativo. Coppie chiave-valore delle proprietà di sistema e nomi di colonna corrispondenti che devono essere allegati al messaggio in uscita anziché al payload. Altre informazioni su questa funzionalità sono contenute nella sezione [proprietà di sistema per gli output della coda e dell'argomento del bus di servizio](#system-properties-for-service-bus-queue-and-topic-outputs) |
 
 Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.
 
@@ -295,6 +297,25 @@ La schermata seguente mostra le proprietà dei messaggi di output ispezionate in
 
 ![Proprietà personalizzate dell'evento](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
 
+## <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>Proprietà di sistema per gli output della coda e dell'argomento del bus di servizio 
+È possibile aggiungere colonne di query come [proprietà di sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) ai messaggi della coda o dell'argomento del bus di servizio in uscita. Queste colonne non entrano nel payload, bensì la [proprietà di sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) BrokeredMessage corrispondente viene popolata con i valori della colonna della query.
+Queste proprietà di `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`sistema sono supportate.
+I valori stringa di queste colonne vengono analizzati come tipo di valore della proprietà di sistema corrispondente e gli eventuali errori di analisi vengono considerati come errori di dati.
+Questo campo viene fornito come formato oggetto JSON. I dettagli su questo formato sono i seguenti:
+* Racchiuso tra parentesi graffe {}.
+* Scritto in coppie chiave/valore.
+* Le chiavi e i valori devono essere stringhe.
+* Key è il nome della proprietà di sistema e value è il nome della colonna della query.
+* Chiavi e valori sono separati da due punti.
+* Ogni coppia chiave/valore è separata da una virgola.
+
+Viene illustrato come usare questa proprietà:
+
+* Query: `select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* Colonne proprietà di sistema:`{ "MessageId": "column1", "PartitionKey": "column2"}`
+
+Imposta i messaggi `MessageId` della coda del bus di servizio `column1`con i valori di e PartitionKey viene `column2`impostato con i valori di.
+
 ## <a name="partitioning"></a>Partizionamento
 
 Nella tabella seguente viene riepilogato il supporto della partizione e il numero di writer di output per ogni tipo di output:
@@ -310,7 +331,7 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 | Argomento del bus di servizio di Azure | Yes | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.| Corrisponde al numero di partizioni nell'argomento di output.  |
 | Coda del bus di servizio di Azure | Yes | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.| Corrisponde al numero di partizioni nella coda di output. |
 | Azure Cosmos DB | Sì | In base alla clausola PARTITION BY nella query. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
-| Funzioni di Azure | Sì | In base alla clausola PARTITION BY nella query. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
+| Funzioni di Azure | Yes | In base alla clausola PARTITION BY nella query. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 
 Il numero di writer di output può essere controllato anche `INTO <partition count>` usando la clausola (see [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) nella query, che può essere utile per ottenere una topologia di lavoro desiderata. Se l'adattatore di output non è partizionato, la mancanza di dati in una partizione di input causerà un ritardo fino alla quantità di tempo di arrivo in ritardo. In questi casi, l'output viene unito a un singolo writer, che potrebbe causare colli di bottiglia nella pipeline. Per altre informazioni sui criteri di arrivo in ritardo, vedere [considerazioni sull'ordine degli eventi di analisi di flusso di Azure](stream-analytics-out-of-order-and-late-events.md).
 

@@ -83,7 +83,7 @@ Di seguito sono riportate le descrizioni delle proprietà:
 | publisher | Microsoft.Azure.ServiceFabric | --- | nome del server di pubblicazione dell'estensione di Service Fabric |
 | clusterEndpont | string | --- | URI: porta per l'endpoint di gestione |
 | nodeTypeRef | string | --- | nome di nodeType |
-| Durabilità | bronzo, argento, oro, platino | --- | tempo consentito per sospendere un'infrastruttura di Azure non modificabile |
+| durabilityLevel | bronze, silver, gold, platinum | --- | tempo consentito per sospendere un'infrastruttura di Azure non modificabile |
 | enableParallelJobs | true o false | --- | Abilitare ParallelJobs di calcolo, ad esempio rimuovere una macchina virtuale e riavviare la macchina virtuale nello stesso set di scalabilità in parallelo |
 | nicPrefixOverride | string | --- | Prefisso della subnet, ad esempio "10.0.0.0/24" |
 | commonNames | string[] | --- | Nomi comuni dei certificati del cluster installati |

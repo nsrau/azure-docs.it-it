@@ -55,8 +55,8 @@ Nella tabella seguente viene descritto il significato di ogni log. A seconda del
 | ResourceProvider | Nome del provider di risorse. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | URI della risorsa |
-| Risorsa | Nome del server |
-| Categoria | `PostgreSQLLogs` |
+| Resource | Nome del server |
+| Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Livello di registrazione, esempio: LOG, ERROR, NOTICE |
 | Message | Messaggio di log primario | 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: a48c2fdcce5126747f00cd3b901839864d438346
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9e14a9f3f2f27112a591f14e9a93580f66aadef7
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058271"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169558"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -29,14 +29,14 @@ L'esempio che verrà usato qui è un' [applicazione MVC](https://docs.microsoft.
 
 Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) monitorare le applicazioni, indipendentemente da dove o come vengono eseguite. Se l'applicazione è in esecuzione e ha la connettività di rete ad Azure, è possibile raccogliere i dati di telemetria. Il monitoraggio Application Insights è supportato ovunque sia supportato .NET Core. Supporto tecnico:
 * **Sistema operativo**: Windows, Linux o Mac.
-* **Metodo di hosting**: In-process o out-of-process. 
+* **Metodo di hosting**: In-process o out-of-process.
 * **Metodo di distribuzione**: Dipendente dal Framework o autonomo.
-* **Server Web**: IIS (Internet Information Server) o gheppio. 
+* **Server Web**: IIS (Internet Information Server) o gheppio.
 * **Piattaforma di hosting**: La funzionalità app Web di app Azure servizio, VM di Azure, Docker, Azure Kubernetes Service (AKS) e così via.
 * **IDE**: Visual Studio, VS Code o riga di comando.
 
 > [!NOTE]
-> Se si usa ASP.NET Core 3,0-Preview insieme Application Insights, usare la versione [2.8.0-beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2) o successiva. Questa è l'unica versione nota per funzionare correttamente con ASP.NET Core 3,0. Inoltre, l'onboarding basato su Visual Studio non è ancora supportato per le app ASP.NET Core 3,0.
+> Se si usa ASP.NET Core 3,0-Preview insieme a Application Insights, usare la versione [2.8.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta3) o una versione successiva. Questa è l'unica versione nota per funzionare correttamente con ASP.NET Core 3,0. Inoltre, l'onboarding basato su Visual Studio non è ancora supportato per le app ASP.NET Core 3,0.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -241,7 +241,7 @@ Elenco completo delle impostazioni in`ApplicationInsightsServiceOptions`
 |AddAutoCollectedMetricExtractor | Abilita/Disabilita AutoCollectedMetrics Extractor, ovvero un TelemetryProcessor che invia metriche pre-aggregate relative a richieste/dipendenze prima che venga eseguita il campionamento. | true
 |RequestCollectionOptions.TrackExceptions | Abilitare/disabilitare la creazione di report per il rilevamento delle eccezioni non gestite da parte del modulo di raccolta della richiesta. | false in NETSTANDARD 2.0 (poiché le eccezioni vengono rilevate con ApplicationInsightsLoggerProvider); in caso contrario, true.
 
-Per l'elenco più aggiornato, vedere le [impostazioni `ApplicationInsightsServiceOptions` configurabili in](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs) .
+Per l'elenco più aggiornato, vedere le [impostazioni `ApplicationInsightsServiceOptions` configurabili in](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) .
 
 ### <a name="sampling"></a>campionamento
 

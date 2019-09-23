@@ -1,6 +1,6 @@
 ---
 title: Limiti delle risorse per Azure NetApp Files | Microsoft Docs
-description: Descrive i limiti per le risorse di Azure NetApp Files, inclusi i limiti per account NetApp, pool di capacità, volumi, snapshot e la subnet delegata.
+description: Vengono descritti i limiti per le risorse Azure NetApp Files e come richiedere un aumento del limite di risorse.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 15d0a584d88045f6020162a88124cd9d6a4735bf
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: f7213ddee5d7bdfd41508f5fee66de63cde5b7c4
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984012"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170031"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
 
@@ -31,19 +31,36 @@ La tabella seguente descrive i limiti delle risorse per Azure NetApp Files:
 
 |  Risorsa  |  Limite predefinito  |  Modificabile tramite richiesta di supporto  |
 |----------------|---------------------|--------------------------------------|
-|  Numero di account NetApp per sottoscrizione di Azure   |  10    |  Sì   |
-|  Numero di pool di capacità per account NetApp   |    25     |   Sì   |
-|  Numero di volumi per pool di capacità     |    500   |    Sì     |
+|  Numero di account NetApp per sottoscrizione di Azure   |  10    |  Yes   |
+|  Numero di pool di capacità per account NetApp   |    25     |   Yes   |
+|  Numero di volumi per pool di capacità     |    500   |    Yes     |
 |  Numero di snapshot per volume       |    255     |    No        |
 |  Numero di subnet delegate a Azure NetApp Files (Microsoft. NetApp/volumes) per rete virtuale di Azure    |   1   |    No    |
-|  Numero di indirizzi IP in un VNet (incluso reti virtuali con peering) che possono accedere Azure NetApp Files   |    1000   |    Sì   |
+|  Numero di indirizzi IP in un VNet (incluso reti virtuali con peering) che possono accedere Azure NetApp Files   |    1000   |    Yes   |
 |  Dimensioni minime di un singolo pool di capacità   |  4 TiB     |    No  |
 |  Dimensioni massime di un singolo pool di capacità    |  500 TiB   |   No   |
 |  Dimensioni minime di un singolo volume    |    100 GiB    |    No    |
-|  Dimensioni massime di un singolo volume     |    100 TiB    |    No       |
-|  Numero massimo di file (inode) per volume     |    50 milioni    |    No    |    
+|  Dimensioni massime di un singolo volume     |    100 TiB    |    No    |
+|  Numero massimo di file ([maxfiles](#maxfiles)) per volume     |    100 milioni    |    Yes    |    
+|  Dimensioni massime di un singolo file     |    16 TiB    |    No    |    
 
-## <a name="request-limit-increase"></a>Incremento limite richieste 
+## Limiti di maxfiles<a name="maxfiles"></a> 
+
+I volumi Azure NetApp Files hanno un limite denominato *maxfiles*. Il limite maxfiles è il numero di file che possono essere contenuti in un volume. Il limite di maxfiles per un volume Azure NetApp Files viene indicizzato in base alla dimensione (quota) del volume. Il limite di maxfiles per un volume aumenta o diminuisce alla velocità di 20 milioni file per TiB delle dimensioni del volume di cui è stato effettuato il provisioning. 
+
+Il servizio regola dinamicamente il limite di maxfiles per un volume in base alle dimensioni di cui è stato effettuato il provisioning. Ad esempio, un volume configurato inizialmente con una dimensione di 1 TiB avrà un limite di maxfiles pari a 20 milioni. Le successive modifiche alle dimensioni del volume comporteranno una riregolazione automatica del limite di maxfiles in base alle regole seguenti: 
+
+|    Dimensioni del volume (quota)     |  Riregolazione automatica del limite maxfiles    |
+|----------------------------|-------------------|
+|    < 1 TiB                 |    20 milioni     |
+|    > = 1 TiB ma < 2 TiB    |    40 milioni     |
+|    > = 2 TiB ma < 3 TiB    |    60 milioni     |
+|    > = 3 TiB ma < 4 TiB    |    80 milioni     |
+|    > = 4 TiB                |    100 milioni    |
+
+Per qualsiasi dimensione del volume, è possibile avviare una [richiesta di supporto](#limit_increase) per aumentare il limite di maxfiles oltre 100 milioni.
+
+## Incremento limite richieste<a name="limit_increase"></a> 
 
 È possibile creare una richiesta di supporto di Azure per aumentare i limiti regolabili della tabella precedente. 
 
@@ -64,6 +81,7 @@ Dal piano di navigazione portale di Azure:
         |  Account |  *ID sottoscrizione*   |  *Nuovo numero di **conto** massimo richiesto*    |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |
         |  Pool    |  *ID sottoscrizione, URI account*  |  *Numero massimo di **pool** richiesti*   |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |
         |  Volume  |  *ID sottoscrizione, URI dell'account, URI del pool*   |  *Numero massimo di **volumi** massimo richiesto*     |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |
+        |  Maxfiles  |  *ID sottoscrizione, URI dell'account, URI del pool, URI del volume*   |  *Numero massimo di **maxfiles** richiesto*     |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |    
 
     2. Specificare il metodo di supporto appropriato e fornire le informazioni sul contratto.
 

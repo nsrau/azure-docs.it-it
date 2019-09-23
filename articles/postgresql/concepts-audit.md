@@ -6,19 +6,20 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 8b4cbe309e310ef1fc384224c952a6f04385b1dd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 198ab5f567652a76d209168041f305b9da4d0b43
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092261"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147178"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registrazione di controllo nel database di Azure per PostgreSQL-server singolo
 
 Registrazione di controllo delle attività del database nel database di Azure per PostgreSQL: il server singolo è disponibile tramite l'estensione di controllo PostgreSQL: [pgAudit](https://www.pgaudit.org/). pgAudit fornisce la registrazione dettagliata della sessione e/o del controllo degli oggetti.
 
 > [!NOTE]
-> pgAudit può essere abilitato solo nei server per utilizzo generico e con ottimizzazione per la memoria.
+> pgAudit è in anteprima nel database di Azure per PostgreSQL.
+> L'estensione può essere abilitata solo nei server per utilizzo generico e con ottimizzazione per la memoria.
 
 ## <a name="usage-considerations"></a>Considerazioni sull'utilizzo
 Per impostazione predefinita, le istruzioni di log di pgAudit vengono emesse insieme alle istruzioni log regolari usando la funzionalità di registrazione standard di postgres. In database di Azure per PostgreSQL è possibile scaricare questi file con estensione log tramite il portale di Azure o l'interfaccia della riga di comando. Lo spazio di archiviazione massimo per la raccolta di file è 1 GB e ogni file è disponibile per un massimo di sette giorni (il valore predefinito è tre giorni). Questo servizio è un'opzione di archiviazione a breve termine.

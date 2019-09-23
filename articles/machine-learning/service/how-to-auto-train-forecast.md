@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 5339d963b84c5922138d53e44abe9340d55b4dde
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 03c5d46221dc385a390e840381270c01c40bdc6d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130239"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170394"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
 
@@ -90,13 +90,15 @@ Per le attività di previsione, Machine Learning automatizzato USA operazioni di
 
 L' `AutoMLConfig` oggetto definisce le impostazioni e i dati necessari per un'attività automatica di machine learning. Analogamente a un problema di regressione, si definiscono parametri di training standard come il tipo di attività, il numero di iterazioni, i dati di training e il numero di convalide incrociate. Per le attività di previsione, è necessario impostare parametri aggiuntivi che interessano l'esperimento. La tabella seguente illustra ogni parametro e il relativo utilizzo.
 
-| Param | Descrizione | Obbligatoria |
+| Param | Descrizione | Richiesto |
 |-------|-------|-------|
 |`time_column_name`|Utilizzato per specificare la colonna DateTime nei dati di input utilizzati per compilare la serie temporale e dedurre la relativa frequenza.|✓|
 |`grain_column_names`|Nome/i che definisce i singoli gruppi di serie nei dati di input. Se la granularità non è definita, si presuppone che il set di dati sia una serie temporale.||
 |`max_horizon`|Definisce l'orizzonte di previsione massimo desiderato in unità di frequenza di serie temporali. Le unità sono basate sull'intervallo di tempo dei dati di training, ad esempio ogni mese, settimanalmente che il Forecaster deve prevedere.|✓|
-|`target_lags`|Numero di righe in base ai valori di destinazione in base alla frequenza dei dati. Rappresentata come un elenco o un singolo Integer.||
-|`target_rolling_window_size`|*n* periodi cronologici da usare per generare valori previsti, < = dimensioni del set di training. Se omesso, *n* è la dimensione massima del set di training.||
+|`target_lags`|Numero di righe in base ai valori di destinazione in base alla frequenza dei dati. Rappresentata come un elenco o un singolo Integer. È necessario utilizzare lag quando la relazione tra le variabili indipendenti e la variabile dipendente non corrisponde per impostazione predefinita o correlata. Ad esempio, quando si tenta di prevedere la richiesta di un prodotto, la richiesta in ogni mese può dipendere dal prezzo di prodotti specifici 3 mesi prima. In questo esempio, è possibile che si desideri ritardare la destinazione (richiesta) negativamente di 3 mesi, in modo che il modello sia in grado di eseguire il training sulla relazione corretta.||
+|`target_rolling_window_size`|*n* periodi cronologici da usare per generare valori previsti, < = dimensioni del set di training. Se omesso, *n* è la dimensione massima del set di training. Specificare questo parametro quando si desidera considerare solo una certa quantità di cronologia durante il training del modello.||
+
+Per ulteriori informazioni, vedere la [documentazione di riferimento](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) .
 
 Creare le impostazioni della serie temporale come oggetto Dictionary. Impostare sul `time_column_name` `day_datetime` campo nel set di dati. Definire il `grain_column_names` parametro per assicurarsi che vengano creati **due gruppi di serie temporali distinti** per i dati, uno per i negozi a e B. Infine, impostare `max_horizon` su 50 per stimare l'intero set di test. Impostare una finestra di previsione su 10 periodi `target_rolling_window_size`con e specificare un singolo ritardo sui valori di destinazione per 2 punti avanti con il `target_lags` parametro.
 

@@ -4,7 +4,7 @@ description: Questo articolo elenca le domande frequenti relative alla configura
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 480ca33f02242499bdf9fff3fa35695e7d4841a0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945461"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154714"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: Domande frequenti (FAQ)
 
@@ -110,7 +110,7 @@ La richiesta di firma del certificato è semplicemente un file di testo. Non è 
 
 Questo certificato viene usato per crittografare le chiavi computer nei ruoli Web di Azure. Per altre informazioni, vedere [questo avviso](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
-Per altre informazioni, vedere i seguenti articoli:
+Per altre informazioni, vedere gli articoli seguenti:
 - [Come configurare ed eseguire attività di avvio per un servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Attività di avvio comuni del servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
@@ -148,7 +148,7 @@ Per altre informazioni, vedere i documenti seguenti:
 Per ottenere le impostazioni di Diagnostica di Microsoft Azure corrente del servizio cloud, è possibile usare il comando [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) di PowerShell oppure è possibile visualizzarle tramite il portale dal pannello "Servizi cloud --> Estensioni".
 
 
-## <a name="network-configuration"></a>Configurazione di rete
+## <a name="network-configuration"></a>Configurazione rete
 
 ### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>Come si imposta il timeout di inattività per Azure Load Balancer?
 È possibile specificare il timeout nel file di definizione del servizio (con estensione csdef) analogo al seguente:
@@ -207,11 +207,11 @@ Per altre informazioni, vedere:
 Dopo questa operazione è possibile verificare l'abilitazione del protocollo HTTP/2 usando uno dei metodi seguenti:
 
 - Abilitare la versione del protocollo nei log di IIS ed esaminare i log di IIS. HTTP/2 verrà indicato nei log. 
-- Abilitare lo strumento di sviluppo F12 in Internet Explorer o Microsoft Edge e passare alla scheda Rete per controllare il protocollo. 
+- Abilitare lo strumento di sviluppo F12 in Internet Explorer o Microsoft Edge e passare alla scheda rete per verificare il protocollo. 
 
 Per altre informazioni, vedere [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 in IIS).
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>Permissions
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Come si implementa l'accesso in base al ruolo per Servizi cloud?
 Servizi cloud non supporta il modello di controllo degli accessi in base al ruolo, perché non è un servizio basato su Azure Resource Manager.
@@ -310,7 +310,7 @@ Per altre informazioni sugli scenari di distribuzione dell'estensione Antimalwar
     
 Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslFlags potrebbe assumere uno dei valori seguenti:
 
-|Valore|Significato|
+|Value|Significato|
 ------|------
 |0|Nessuna indicazione nome server|
 |1|Indicazione nome server abilitata |

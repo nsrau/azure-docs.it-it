@@ -3,7 +3,7 @@ title: Esportazione di gruppi di risorse di Azure contenenti estensioni macchina
 description: Esportare modelli di Resource Manager che includono estensioni macchina virtuale.
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
-ms.author: roiyz
-ms.openlocfilehash: 6ac3a19d12b99c61dd0607b07b4659114f52400e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: 652ed732a7fe8f08e48aba6fc4bd1b52164d1fa0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084609"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169055"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Esportazione di gruppi di risorse contenenti estensioni macchina virtuale
 
@@ -33,7 +33,7 @@ Sono disponibili molte estensioni macchina virtuale. Non tutte le estensioni pos
 
 Le estensioni seguenti possono essere esportate con la funzionalità di script di automazione.
 
-| Estensione ||||
+| Interno ||||
 |---|---|---|---|
 | Acronis Backup | Datadog Windows Agent | OS Patching For Linux | VM Snapshot Linux
 | Acronis Backup Linux | Estensione Docker | Puppet Agent |
@@ -41,7 +41,7 @@ Le estensioni seguenti possono essere esportate con la funzionalità di script d
 | BMC CTM Agent Linux | Dynatrace Linux | Site 24x7 Linux Server |
 | BMC CTM Agent Windows | Dynatrace Windows | Site 24x7 Windows Server |
 | Chef Client | HPE Security Application Defender | Trend Micro DSA |
-| Script personalizzato | IaaS Antimalware | Trend Micro DSA Linux |
+| Custom Script | IaaS Antimalware | Trend Micro DSA Linux |
 | Estensione di script personalizzati | IaaS Diagnostics | VM Access For Linux |
 | Custom Script for Linux | Linux Chef Client | VM Access For Linux |
 | Datadog Linux Agent | Linux Diagnostic | VM Snapshot |

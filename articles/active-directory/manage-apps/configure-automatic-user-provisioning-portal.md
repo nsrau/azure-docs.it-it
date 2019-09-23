@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395957099a19d11d26fb5bdd2a1eecdd5590dd64
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ba51e10503a3aab7afa2e9639453448d03b91852
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056141"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170468"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 
@@ -81,7 +81,7 @@ Le personalizzazioni supportate includono:
 
 È possibile avviare e arrestare il servizio di provisioning Azure AD per l'applicazione selezionata nell'area **Impostazioni** della schermata di **provisioning** . È anche possibile scegliere di cancellare la cache di provisioning e riavviare il servizio.
 
-Se il provisioning viene abilitato per la prima volta per un'applicazione, attivare il servizio impostando **Stato del provisioning** su **Sì**. Questa modifica determina l'esecuzione di un ciclo iniziale da parte del servizio Azure AD provisioning. Vengono letti gli utenti assegnati nella sezione **utenti e gruppi** , viene eseguita una query sull'applicazione di destinazione, quindi vengono eseguite le azioni di provisioning definite nella sezione **mapping** Azure ad. Durante questo processo, il servizio di provisioning archivia i dati memorizzati nella cache sugli account utente che gestisce, quindi gli account non gestiti nelle applicazioni di destinazione che non si trovano mai nell'ambito dell'assegnazione non sono interessati dalle operazioni di deprovisioning. Dopo il ciclo iniziale, il servizio di provisioning sincronizza automaticamente gli oggetti utente e gruppo in un intervallo di 10 minuti.
+Se il provisioning viene abilitato per la prima volta per un'applicazione, attivare il servizio impostando **Stato del provisioning** su **Sì**. Questa modifica determina l'esecuzione di un ciclo iniziale da parte del servizio Azure AD provisioning. Vengono letti gli utenti assegnati nella sezione **utenti e gruppi** , viene eseguita una query sull'applicazione di destinazione, quindi vengono eseguite le azioni di provisioning definite nella sezione **mapping** Azure ad. Durante questo processo, il servizio di provisioning archivia i dati memorizzati nella cache sugli account utente che gestisce, quindi gli account non gestiti nelle applicazioni di destinazione che non si trovano mai nell'ambito dell'assegnazione non sono interessati dalle operazioni di deprovisioning. Dopo il ciclo iniziale, il servizio di provisioning sincronizza automaticamente gli oggetti utente e gruppo in un intervallo di 40 minuti.
 
 Impostare **stato del provisioning** su **disattivato** per sospendere il servizio di provisioning. In questo stato, Azure non crea, aggiorna o rimuove gli oggetti utente o gruppo nell'app. Ripristinare lo stato **su on** e il servizio preleva il punto da cui è stato interrotto.
 

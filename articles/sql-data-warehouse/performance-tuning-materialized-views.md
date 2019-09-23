@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 85c2607ae163ab2d29a53440cd65672bdbe0fddf
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985350"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172779"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Ottimizzazione delle prestazioni con viste materializzate 
 Le viste materializzate in Azure SQL Data Warehouse forniscono un metodo di manutenzione basso per le query analitiche complesse per ottenere prestazioni rapide senza alcuna modifica di query. Questo articolo illustra le linee guida generali sull'uso delle viste materializzate.
@@ -32,9 +32,9 @@ La maggior parte dei requisiti di una vista standard è ancora applicabile a una
 
 
 
-| Confronto                     | Visualizza                                         | Vista materializzata             
+| Confronto                     | visualizzazione                                         | Vista materializzata             
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------| 
-|Visualizza definizione                 | Archiviato in data warehouse di Azure.              | Archiviato in data warehouse di Azure.    
+|Visualizzare la definizione                 | Archiviato in data warehouse di Azure.              | Archiviato in data warehouse di Azure.    
 |Visualizza contenuto                    | Generato ogni volta che viene utilizzata la visualizzazione.   | Pre-elaborati e archiviati in Azure data warehouse durante la creazione della visualizzazione. Aggiornato quando i dati vengono aggiunti alle tabelle sottostanti.                                             
 |Aggiornamento dati                    | Sempre aggiornato                               | Sempre aggiornato                          
 |Velocità di recupero dei dati di visualizzazione da query complesse     | Lento                                         | Veloce  
@@ -84,19 +84,21 @@ Ecco le linee guida generali sull'uso delle viste materializzate per migliorare 
 
 **Progettazione per il carico di lavoro**
 
-- Prima di iniziare a creare viste materializzate, è importante avere una conoscenza approfondita del carico di lavoro in termini di modelli di query, importanza, frequenza e dimensioni dei dati risultanti.  
+Prima di iniziare a creare viste materializzate, è importante avere una conoscenza approfondita del carico di lavoro in termini di modelli di query, importanza, frequenza e dimensioni dei dati risultanti.  
 
-- Gli utenti possono eseguire EXPLAIN WITH_RECOMMENDATIONS < SQL_statement > per le visualizzazioni materializzate consigliate dal Query Optimizer.  Poiché queste raccomandazioni sono specifiche della query, una vista materializzata che avvantaggia una singola query potrebbe non essere ottimale per le altre query nello stesso carico di lavoro.  Valutare queste raccomandazioni con le esigenze del carico di lavoro.  Le visualizzazioni materializzate ideali sono quelle che sfruttano le prestazioni del carico di lavoro.  
+Gli utenti possono eseguire EXPLAIN WITH_RECOMMENDATIONS < SQL_statement > per le visualizzazioni materializzate consigliate dal Query Optimizer.  Poiché queste raccomandazioni sono specifiche della query, una vista materializzata che avvantaggia una singola query potrebbe non essere ottimale per le altre query nello stesso carico di lavoro.  Valutare queste raccomandazioni con le esigenze del carico di lavoro.  Le visualizzazioni materializzate ideali sono quelle che sfruttano le prestazioni del carico di lavoro.  
 
 **Tenere presente il compromesso tra query più veloci e i costi** 
 
-- Per ogni vista materializzata, è previsto un costo di archiviazione e un costo per la manutenzione della visualizzazione da parte del motore di Tuple. È presente un motore di tupla per ogni istanza di Azure SQL Data Warehouse server.  Quando sono presenti troppe visualizzazioni materializzate, il carico di lavoro del motore di Tuple aumenterà e le prestazioni delle query che sfruttano le visualizzazioni materializzate potrebbero peggiorare se il motore di tuple non può spostare i dati in segmenti di indice in modo sufficientemente rapido.  Gli utenti devono verificare se il costo sostenuto da tutte le visualizzazioni materializzate può essere offset in base al miglioramento delle prestazioni delle query.  Eseguire questa query per l'elenco di viste materializzate in un database: 
+Per ogni vista materializzata, è previsto un costo di archiviazione dei dati e un costo per la gestione della visualizzazione.  Man mano che vengono apportate modifiche ai dati nelle tabelle di base, le dimensioni della vista materializzata aumentano e viene modificata anche la struttura fisica.  Per evitare il calo delle prestazioni delle query, ogni vista materializzata viene gestita separatamente dal motore di data warehouse, tra cui lo spostamento delle righe dall'archivio Delta ai segmenti di indice columnstore e il consolidamento delle modifiche dei dati.  Il carico di lavoro di manutenzione diventa superiore quando aumenta il numero di viste materializzate e le modifiche alla tabella di base.   Gli utenti devono verificare se il costo sostenuto da tutte le visualizzazioni materializzate può essere offset in base al miglioramento delle prestazioni delle query.  
+
+È possibile eseguire questa query per l'elenco di viste materializzate in un database: 
 
 ```sql
 SELECT V.name as materialized_view, V.object_id 
 FROM sys.views V 
 JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
-```
+``` 
 
 Opzioni per ridurre il numero di viste materializzate: 
 
@@ -104,7 +106,7 @@ Opzioni per ridurre il numero di viste materializzate:
 
 - Eliminare le viste materializzate che hanno un utilizzo ridotto o che non sono più necessarie.  Una vista materializzata disabilitata non viene mantenuta, ma comporta comunque un costo di archiviazione.  
 
-- Combinare viste materializzate create sulla stessa tabella di base o analoghe anche se i dati non si sovrappongono.  La pettinatura di viste materializzate può comportare una visualizzazione di dimensioni maggiori rispetto alla somma delle visualizzazioni separate, tuttavia il costo di manutenzione della vista dovrebbe ridursi.  Ad esempio:
+- Combinare viste materializzate create sulla stessa tabella di base o analoghe anche se i dati non si sovrappongono.  La pettinatura di viste materializzate può comportare una visualizzazione di dimensioni maggiori rispetto alla somma delle visualizzazioni separate, tuttavia il costo di manutenzione della vista dovrebbe ridursi.  Esempio:
 
 ```sql
 

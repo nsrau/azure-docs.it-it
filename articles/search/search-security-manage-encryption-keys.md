@@ -112,7 +112,7 @@ Per consentire al servizio di ricerca di usare la chiave di Key Vault, è necess
 
 1. Fare clic su **Seleziona entità** e selezionare il servizio ricerca di Azure. È possibile cercarlo in base al nome o all'ID oggetto visualizzato dopo aver abilitato l'identità gestita.
 
-   ![Selezionare l'entità criteri di accesso] dell'insieme di credenziali delle chiavi (./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Selezionare l'entità criteri di accesso") dell'insieme di credenziali delle chiavi
+   ![Selezionare l'entità criteri di accesso dell'insieme di credenziali delle chiavi](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Selezionare l'entità criteri di accesso dell'insieme di credenziali delle chiavi")
 
 1. Fare clic su **autorizzazioni chiave** e selezionare *Get*, *Unwrap Key* e *Wrap Key*. È possibile usare il modello di *archiviazione Azure Data Lake storage o Azure* per selezionare rapidamente le autorizzazioni necessarie.
 

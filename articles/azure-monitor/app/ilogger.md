@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 925264bb69093ab70465665e1d2da615a7a3e53d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: acc7a218d40ec7b752d9495bd48e5f37436d736d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261764"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169469"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider per i log ILogger di .NET Core
 
@@ -220,6 +220,10 @@ Le versioni dell'SDK Microsoft. ApplicationInsights. AspNet precedenti a 2.7.0-b
 > Il nuovo provider è disponibile per le applicazioni destinate a NETSTANDARD 2.0 o versioni successive. Se l'applicazione è destinata a versioni precedenti di .NET Core, ad esempio .NET Core 1,1 o se è destinata alla .NET Framework, continuare a usare il provider precedente.
 
 ## <a name="console-application"></a>Applicazione console
+
+> [!NOTE]
+> È disponibile un nuovo SDK di Application Insights beta denominato [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , che può essere usato per abilitare Application Insights (ILogger e altri dati di telemetria Application Insights) per qualsiasi applicazione console. È consigliabile usare questo pacchetto e le istruzioni associate da [qui](../../azure-monitor/app/worker-service.md).
+L'esempio seguente sarà deprecato dopo il rilascio della versione stabile del nuovo pacchetto.
 
 Il codice seguente illustra un'applicazione console di esempio configurata per l'invio di tracce ILogger a Application Insights.
 

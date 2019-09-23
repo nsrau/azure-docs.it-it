@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1904ab07a188e4e877a4fb2f2b7682d923c08fb2
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 7f97348999f2cab6509afeb44bc704d5109ee0f7
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441987"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181116"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
@@ -124,11 +124,9 @@ Quando si usa __Archiviazione di Azure__, usare uno degli schemi URI seguenti:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Usato durante la comunicazione con un account di archiviazione non predefinito. ad esempio quando si dispone di un account di archiviazione aggiuntivo o quando si accede a dati archiviati in un account di archiviazione pubblicamente accessibile.
 
-Quando si usa __Azure Data Lake Storage Gen2__, usare uno degli schemi URI seguenti:
+Quando si utilizza __Azure Data Lake storage Gen2__, utilizzare lo schema URI seguente:
 
-* `abfs:///`: Accesso allo spazio di archiviazione predefinito usando la comunicazione non crittografata.
-
-* `abfss:///`: Accesso allo spazio di archiviazione predefinito usando la comunicazione crittografata.  Lo schema abfss è supportato solo da HDInsight versione 3.6 o successiva.
+* `abfs://`: Accesso allo spazio di archiviazione predefinito usando la comunicazione crittografata.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Usato durante la comunicazione con un account di archiviazione non predefinito. ad esempio quando si dispone di un account di archiviazione aggiuntivo o quando si accede a dati archiviati in un account di archiviazione pubblicamente accessibile.
 
@@ -213,7 +211,7 @@ Se si usa __Azure Data Lake Storage__, vedere i collegamenti seguenti per inform
 
 ## <a name="scaling"></a>Ridimensionamento del cluster
 
-La funzionalità di ridimensionamento del cluster consente di modificare il numero di nodi dati usati da un cluster in modo dinamico. È possibile eseguire operazioni di ridimensionamento mentre altri processi sono in esecuzione nel cluster.  Vedere anche ridimensionare i [cluster HDInsight](./hdinsight-scaling-best-practices.md)
+La funzionalità di ridimensionamento del cluster consente di modificare il numero di nodi dati usati da un cluster in modo dinamico. È possibile eseguire operazioni di ridimensionamento mentre altri processi sono in esecuzione nel cluster.  Vedere anche [ridimensionare i cluster HDInsight](./hdinsight-scaling-best-practices.md)
 
 L'operazione di ridimensionamento può influire sui tipi di cluster come indicato di seguito:
 
