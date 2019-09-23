@@ -49,7 +49,7 @@ Gli indicizzatori che elaborano volumi elevati di dati possono richiedere molto 
 
 È possibile visualizzare lo stato corrente di tutti gli indicizzatori nell'elenco **indicizzatori** della pagina di panoramica del servizio di ricerca.
 
-   ![Elenco] di indicizzatori (media/search-monitor-indexers/indexers-list.png "Elenco") di indicizzatori
+   ![Elenco di indicizzatori](media/search-monitor-indexers/indexers-list.png "Elenco di indicizzatori")
 
 Quando un indicizzatore è in esecuzione, lo stato nell'elenco viene visualizzato **in corso**e il valore **docs succeeded** indica il numero di documenti elaborati fino a questo momento. Potrebbero essere necessari alcuni minuti prima che il portale aggiorni i valori di stato e i conteggi dei documenti dell'indicizzatore.
 
@@ -59,7 +59,7 @@ Se l'esecuzione più recente è terminata con un errore, lo stato viene visualiz
 
 Fare clic su un indicizzatore nell'elenco per visualizzare altri dettagli sulle esecuzioni correnti e recenti dell'indicizzatore.
 
-   ![Riepilogo e cronologia di esecuzione] dell'indicizzatore (media/search-monitor-indexers/indexer-summary.png "Riepilogo e cronologia di esecuzione") dell'indicizzatore
+   ![Riepilogo e cronologia di esecuzione dell'indicizzatore](media/search-monitor-indexers/indexer-summary.png "Riepilogo e cronologia di esecuzione dell'indicizzatore")
 
 Nel grafico di **Riepilogo** dell'indicizzatore viene visualizzato un grafico del numero di documenti elaborati nelle esecuzioni più recenti.
 

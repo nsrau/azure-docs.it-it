@@ -93,7 +93,7 @@ Ora è possibile usare Excel per filtrare e ordinare in base alle esigenze. È p
    
         TraceLevel eq 'ERROR'
    
-    ![HDInsight Hadoop logs scegliere le colonne rispetto] a (./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "HDInsight Hadoop logs scegliere le colonne rispetto") a
+    ![HDInsight Hadoop logs scegliere le colonne rispetto a](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "HDInsight Hadoop logs scegliere le colonne rispetto a")
    
     Per altre informazioni sulla costruzione di filtri, vedere [Creazione di stringhe di filtro per Progettazione tabelle](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
