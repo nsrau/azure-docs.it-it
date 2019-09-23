@@ -9,12 +9,22 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Risoluzione dei nomi - Portale
-      href: dns-getstarted-portal.md
-    - name: Risoluzione dei nomi - PowerShell
-      href: dns-getstarted-powershell.md
-    - name: Risoluzione dei nomi - Interfaccia della riga di comando
-      href: dns-getstarted-cli.md
+    - name: DNS pubblico
+      items:
+        - name: Creare una zona pubblica - Portale
+          href: dns-getstarted-portal.md
+        - name: Creare una zona pubblica - PowerShell
+          href: dns-getstarted-powershell.md
+        - name: Creare una zona pubblica - Interfaccia della riga di comando
+          href: dns-getstarted-cli.md
+    - name: DNS privato
+      items:
+        - name: Creare una zona privata - Portale
+          href: private-dns-getstarted-portal.md
+        - name: Creare una zona privata - Interfaccia della riga di comando
+          href: private-dns-getstarted-cli.md
+        - name: Creare una zona privata - PowerShell
+          href: private-dns-getstarted-powershell.md
 - name: Esercitazioni
   items:
     - name: DNS pubblico
@@ -29,10 +39,6 @@
           href: tutorial-alias-pip.md
         - name: Record alias per record di zona
           href: tutorial-alias-rr.md
-    - name: DNS privato
-      items:
-        - name: Creare una zona privata e un record DNS
-          href: private-dns-portal.md
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -63,12 +69,6 @@
           href: private-dns-scenarios.md
 - name: Procedure
   items:
-    - name: DNS privato
-      items:
-        - name: Creare una zona privata - Interfaccia della riga di comando
-          href: private-dns-getstarted-cli.md
-        - name: Creare una zona privata - PowerShell
-          href: private-dns-getstarted-powershell.md
     - name: DNS pubblico
       items:
         - name: Record alias per app Web con carico bilanciato

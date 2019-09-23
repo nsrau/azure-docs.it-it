@@ -17,9 +17,9 @@
   items:
     - name: Creare flussi di lavoro basati su pianificazione
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
-    - name: Gestire le richieste delle liste di distribuzione
+    - name: Creare flussi di lavoro basati su approvazione
       href: tutorial-process-mailing-list-subscriptions-workflow.md
-    - name: Elaborare gli allegati di posta elettronica
+    - name: Creare flussi di lavoro di Archiviazione di Azure e Funzioni di Azure
       href: tutorial-process-email-attachments-workflow.md
 - name: Esempi
   items:
@@ -31,7 +31,7 @@
   items:
     - name: Connettori per App per la logica
       href: ../connectors/apis-list.md
-    - name: Pianificare flussi di lavoro ricorrenti automatizzati
+    - name: Pianificare flussi di lavoro ricorrenti
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Senza server con Azure
       href: logic-apps-serverless-overview.md
@@ -111,6 +111,12 @@
           href: logic-apps-enterprise-integration-partners.md
         - name: Contratti
           href: logic-apps-enterprise-integration-agreements.md
+        - name: Schemi per la convalida XML
+          href: logic-apps-enterprise-integration-schemas.md
+        - name: Mappe per la trasformazione XML
+          href: logic-apps-enterprise-integration-maps.md
+        - name: Certificati
+          href: logic-apps-enterprise-integration-certificates.md
         - name: Metadati degli elementi
           href: logic-apps-enterprise-integration-metadata.md
         - name: Ricevere messaggi B2B
@@ -141,20 +147,14 @@
           href: logic-apps-scenario-edi-send-batch-messages.md
         - name: Elaborare file flat
           href: logic-apps-enterprise-integration-flatfile.md
+        - name: Trasformare XML
+          href: logic-apps-enterprise-integration-transform.md
         - name: Elaborare XML
           href: logic-apps-enterprise-integration-xml.md
         - name: Convalidare XML
           href: logic-apps-enterprise-integration-xml-validation.md
-        - name: Aggiungere schemi per la convalida XML
-          href: logic-apps-enterprise-integration-schemas.md
-        - name: Trasformare XML
-          href: logic-apps-enterprise-integration-transform.md
-        - name: Aggiungere mappe per la trasformazione XML
-          href: logic-apps-enterprise-integration-maps.md
         - name: Trasformare JSON
           href: logic-apps-enterprise-integration-liquid-transform.md
-        - name: Aggiungere certificati di sicurezza
-          href: logic-apps-enterprise-integration-certificates.md
         - name: Risolvere gli errori B2B
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: Compilare un piano di ripristino di emergenza

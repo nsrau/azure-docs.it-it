@@ -192,6 +192,8 @@
           href: functions-deployment-slots.md
         - name: Compilare e distribuire con Azure Pipelines
           href: functions-how-to-azure-devops.md
+        - name: Compilare e distribuire con azioni di GitHub
+          href: functions-how-to-github-actions.md
         - name: Distribuzione di file ZIP
           href: deployment-zip-push.md
         - name: Eseguire dal pacchetto

@@ -4,16 +4,16 @@ description: Questo articolo descrive le API REST da usare con la registrazione 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 4b56ef09525473920c5f5925485aae9c793ecc04
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a8cf0d2eb87a823ee4b1d27484e7ea8d89c1abfc
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900863"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105450"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST Azure Enterprise
 
@@ -31,7 +31,7 @@ I clienti di Microsoft Azure Enterprise possono ottenere informazioni sull'utili
 
 **Addebito di Marketplace Store**: l'[API Addebito di Marketplace Store](billing-enterprise-api-marketplace-storecharge.md) restituisce gli addebiti giornalieri dettagliati in base all'utilizzo per il Marketplace per il periodo di fatturazione specificato o per le date di inizio e fine indicate. Per altre informazioni, vedere [API di creazione report per clienti Enterprise - Addebito di Marketplace Store](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
 
-**Elenco prezzi**: l'[API Elenco prezzi](/billing-enterprise-api-pricesheet.md) fornisce la tariffa applicabile per ogni contatore per un periodo di registrazione e fatturazione. Per altre informazioni, vedere [API di creazione di report per clienti Enterprise - Elenco prezzi](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
+**Elenco prezzi**: l'[API Elenco prezzi](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fornisce la tariffa applicabile per ogni contatore per un periodo di registrazione e fatturazione. Per altre informazioni, vedere [API di creazione di report per clienti Enterprise - Elenco prezzi](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
 
 **Periodi di fatturazione**: l'[API Periodi di fatturazione](billing-enterprise-api-billing-periods.md) restituisce un elenco di periodi di fatturazione contenenti i dati di consumo per una registrazione in ordine cronologico inverso. Ogni periodo contiene una proprietà che punta alla route API per i quattro set di dati, ovvero BalanceSummary, UsageDetails, MarketplaceCharges e PriceSheet. Per altre informazioni, vedere [API di creazione report per clienti Enterprise - Periodi di fatturazione](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
@@ -68,7 +68,7 @@ Se si vuole assegnare le chiavi di accesso API a utenti che non sono amministrat
 
 Passare la chiave API per ogni chiamata per l'autenticazione e l'autorizzazione. Passare la proprietà seguente alle intestazioni HTTP:
 
-| Chiave intestazione necessaria | Valore |
+| Chiave di intestazione della richiesta | Valore |
 | --- | --- |
 | Authorization | Specificare il valore nel formato: **bearer {API\_KEY}**
 Esempio: bearer \&lt;APIKey\&gt; |

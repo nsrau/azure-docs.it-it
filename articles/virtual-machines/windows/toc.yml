@@ -134,8 +134,10 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Automatizzazione dell'infrastruttura
       href: infrastructure-automation.md
-    - name: Sicurezza e criteri
-      href: security-policy.md
+    - name: Security
+      items:
+        - name: Sicurezza e criteri
+          href: security-policy.md
     - name: Stati e ciclo di vita
       href: states-lifecycle.md
     - name: Monitoraggio
@@ -183,6 +185,8 @@
           href: windows-desktop-multitenant-hosting-deployment.md
     - name: Proteggere le macchine virtuali
       items:
+        - name: Consigli
+          href: security-recommendations.md
         - name: Accesso just-in-time
           href: ../../security-center/security-center-just-in-time.md
         - name: Crittografare il contenuto
@@ -259,6 +263,14 @@
           href: instance-metadata-service.md
         - name: Abilitare la virtualizzazione annidata
           href: nested-virtualization.md
+    - name: Monitorare le VM
+      items:
+        - name: Monitoraggio di Azure per le macchine virtuali
+          href: ../../azure-monitor/insights/vminsights-overview.md
+        - name: Creare avvisi delle metriche
+          href: ../../azure-monitor/platform/alerts-metric.md
+        - name: Creare avvisi di log
+          href: ../../azure-monitor/platform/alerts-log.md
     - name: Gestire i costi
       items:
         - name: Pagare in anticipo le macchine virtuali - Prenotazioni di Azure
