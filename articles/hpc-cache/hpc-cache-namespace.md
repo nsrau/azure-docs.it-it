@@ -1,22 +1,21 @@
 ---
-title: Creare una cache HPC di Azure
+title: Creare una cache HPC di Azure (anteprima)
 description: Come creare un'istanza di Cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: c3d14eaefaa1f317cb061273866ffee83747f12b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 677d42dfa1c468417f18ba4222cb0d5fd3ebb189
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036854"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180981"
 ---
-# <a name="configure-aggregated-namespace"></a>Configura spazio dei nomi aggregato
-<!-- change link in GUI -->
+# <a name="plan-the-aggregated-namespace"></a>Pianificare lo spazio dei nomi aggregato
 
-La cache HPC di Azure consente ai client di accedere a un'ampia gamma di sistemi di archiviazione tramite uno spazio dei nomi virtuale che nasconde i dettagli del sistema di archiviazione back-end.
+Cache HPC di Azure (anteprima) consente ai client di accedere a un'ampia gamma di sistemi di archiviazione tramite uno spazio dei nomi virtuale che nasconde i dettagli del sistema di archiviazione back-end.
 
 Quando si aggiunge una destinazione di archiviazione, è necessario impostare il FilePath per il client. I computer client montano questo FilePath. È possibile modificare la destinazione di archiviazione associata a tale percorso. Ad esempio, è possibile sostituire un sistema di archiviazione hardware con archiviazione cloud senza che sia necessario riscrivere le procedure rivolte ai client.
 
@@ -31,7 +30,7 @@ I dati del modello vengono archiviati in un Data Center e le informazioni necess
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
 
-Il sistema di archiviazione dei Data Center espone le esportazioni seguenti: 
+Il sistema di archiviazione dei Data Center espone le esportazioni seguenti:
 
     /
     /goldline
@@ -41,7 +40,7 @@ I dati da analizzare sono stati copiati in un contenitore di archiviazione BLOB 
 
 Per semplificare l'accesso tramite la cache, provare a creare destinazioni di archiviazione con questi percorsi dello spazio dei nomi virtuali:
 
-| FilePath NFS back-end o contenitore BLOB | Percorso dello spazio dei nomi virtuale |
+| FilePath NFS back-end o contenitore BLOB | Percorso spazio dei nomi virtuale |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |

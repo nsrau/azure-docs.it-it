@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4ebdf1d14b1f8721a3709a7e8c90f2a1db76b6fc
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 8a1bb4f0315be70cfe8debab0ee9eb1e4b576738
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259137"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181122"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usare il client Apache Beeline con Apache Hive
 
@@ -111,7 +111,7 @@ Quando ci si connette direttamente dal nodo head del cluster o da una risorsa al
 
 * Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Si noti lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria del cluster. Ad esempio `wasb://` , per archiviazione di Azure `abfs://` , per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure o data Lake storage Gen2, l' `wasbs://` URI `abfss://`è rispettivamente o. Per altre informazioni, vedere [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
+* Si noti lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria del cluster. Ad esempio `wasb://` , per archiviazione di Azure `abfs://` , per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l' `wasbs://`URI è. Per altre informazioni, vedere [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 
 
 * Opzione 1: Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). La maggior parte dei passaggi di questo documento presuppongono che si usi Beeline da una sessione SSH al cluster.

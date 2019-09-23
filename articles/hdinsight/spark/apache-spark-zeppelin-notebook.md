@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 6801f2b3bca1fbfa221ec2eba07f51b76712b4ff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813983"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180742"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Usare i notebook di Apache Zeppelin con cluster Apache Spark in Azure HDInsight
 
@@ -23,7 +23,7 @@ I cluster HDInsight Spark includono notebook [Apache Zeppelin](https://zeppelin.
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Schema URI per l'archiviazione primaria del cluster. Si tratta `abfs://` `adl://` di un archivio BLOB di Azure, per Azure Data Lake storage Gen2 o Azure Data Lake storage Gen1. `wasb://` Se il trasferimento sicuro è abilitato per l'archiviazione BLOB o data Lake storage Gen2, l'URI `wasbs://` è `abfss://`rispettivamente o.  Per ulteriori informazioni, vedere anche [richiedere il trasferimento sicuro in archiviazione di Azure](../../storage/common/storage-require-secure-transfer.md) .
+* Schema URI per l'archiviazione primaria del cluster. Si tratta `abfs://` `adl://` di un archivio BLOB di Azure, per Azure Data Lake storage Gen2 o Azure Data Lake storage Gen1. `wasb://` Se il trasferimento sicuro è abilitato per l'archiviazione BLOB, l'URI `wasbs://`è.  Per ulteriori informazioni, vedere anche [richiedere il trasferimento sicuro in archiviazione di Azure](../../storage/common/storage-require-secure-transfer.md) .
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Avviare un notebook di Apache Zeppelin
 
@@ -118,7 +118,7 @@ I cluster HDInsight Spark includono notebook [Apache Zeppelin](https://zeppelin.
 
 10. Scorrere fino a **Tito**, quindi selezionare **Riavvia**.  Selezionare **OK** al prompt.
 
-    ![Riavviare l'interprete Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Riavviare l'interprete Zeppelin")
+    ![Riavviare l'interprete Livio](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Riavviare l'interprete Zeppelin")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Come usare pacchetti esterni con il notebook
 È possibile configurare il notebook di Zeppelin nel cluster Apache Spark in HDInsight per l'uso di pacchetti esterni creati dalla community che non sono inclusi nel cluster. Per un elenco completo dei pacchetti disponibili, è possibile eseguire ricerche nel [repository Maven](https://search.maven.org/) . È anche possibile ottenere un elenco dei pacchetti disponibili da altre origini. Ad esempio, un elenco completo dei pacchetti creati dalla community è disponibile nel sito Web [spark-packages.org](https://spark-packages.org/).
@@ -169,7 +169,7 @@ In tal caso, per poter eseguire processi dal notebook Zeppelin è prima necessar
 
 2. Scorrere fino a **Tito**, quindi selezionare **Riavvia**.
 
-    ![Riavviare l'interprete Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Riavviare l'interprete Zeppelin")
+    ![Riavviare l'interprete Livio](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Riavviare l'interprete Zeppelin")
 
 3. Eseguire una cella di codice da un notebook Zeppelin esistente. Verrà così creata una nuova sessione di Livy nel cluster HDInsight.
 
@@ -193,7 +193,7 @@ In tal caso, per poter eseguire processi dal notebook Zeppelin è prima necessar
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Gestire risorse
+### <a name="manage-resources"></a>Gestisci risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)
 

@@ -1,19 +1,19 @@
 ---
-title: Aggiungere spazio di archiviazione a una cache HPC di Azure
+title: Aggiungere spazio di archiviazione a una cache HPC di Azure (anteprima)
 description: Come definire le destinazioni di archiviazione in modo che la cache HPC di Azure possa usare il sistema NFS locale o i contenitori BLOB di Azure per l'archiviazione di file a lungo termine
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a17952e193f3e03becaab044f55637372bac7b0d
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037235"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181001"
 ---
-# <a name="add-storage"></a>Aggiungere le risorse di archiviazione
+# <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
 Le *destinazioni di archiviazione* sono archiviazione back-end per i file a cui si accede tramite un'istanza di cache HPC di Azure. È possibile aggiungere l'archiviazione NFS, ad esempio un sistema hardware locale, o archiviare i dati nel BLOB di Azure.
 
@@ -112,8 +112,8 @@ Per ogni esportazione, immettere i valori seguenti:
 
 Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
 
-### <a name="choose-a-usage-model"></a>Scegliere un modello di utilizzo 
-<!-- link in GUI to this heading -->
+### <a name="choose-a-usage-model"></a>Scegliere un modello di utilizzo
+<!-- referenced from GUI - update aka.ms link if you change this heading -->
 
 Quando si crea una destinazione di archiviazione che punta a un sistema di archiviazione NFS, è necessario scegliere il *modello di utilizzo* per tale destinazione. Questo modello determina il modo in cui i dati vengono memorizzati nella cache.
 

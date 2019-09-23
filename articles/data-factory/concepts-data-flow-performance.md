@@ -5,13 +5,13 @@ author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 05/16/2019
-ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/22/2019
+ms.openlocfilehash: e4b3e08c0cc7fc1ead2aed551c228c6a1165c3b6
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992343"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180847"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione del flusso di dati
 
@@ -90,6 +90,13 @@ Se si fa clic su tale icona, viene visualizzato il piano di esecuzione e il prof
 * All'interno della finestra di progettazione del flusso di dati, utilizzare la scheda Anteprima dati sulle trasformazioni per visualizzare i risultati della logica di trasformazione.
 * Eseguire unit test dei flussi di dati da Progettazione pipeline inserendo un'attività flusso di dati nell'area di disegno della progettazione della pipeline e usare il pulsante "debug" per eseguire il test.
 * I test in modalità di debug funzioneranno in un ambiente cluster attivo, senza dover attendere l'avvio di un cluster JIT.
+* Durante il debug dell'anteprima dei dati all'interno dell'esperienza della finestra di progettazione del flusso di dati, è possibile limitare la quantità di dati da testare per ogni origine impostando il limite di righe dal collegamento Impostazioni di debug nell'interfaccia utente della finestra di progettazione del flusso di dati. Si noti che per prima cosa è necessario attivare la modalità di debug.
+
+![Impostazioni di debug](media/data-flow/debug-settings.png "Impostazioni di debug")
+
+* Quando si verificano i flussi di dati da un'esecuzione del debug della pipeline, è possibile limitare il numero di righe usate per il test impostando le dimensioni del campionamento in ognuna delle origini. Assicurarsi di disabilitare il campionamento quando si pianificano le pipeline in base a una pianificazione regolare.
+
+![Campionamento righe](media/data-flow/source1.png "Campionamento righe")
 
 ### <a name="disable-indexes-on-write"></a>Disabilita indici durante la scrittura
 * Utilizzare una pipeline ADF stored procedure attività prima dell'attività flusso di dati che disabilita gli indici nelle tabelle di destinazione in cui viene eseguita la scrittura dal sink.
@@ -140,6 +147,10 @@ Se, ad esempio, si dispone di un elenco di file di dati da luglio 2019 che si de
 ```DateFiles/*_201907*.txt```
 
 Ciò consente di ottenere prestazioni migliori rispetto a una ricerca nell'archivio BLOB in una pipeline che quindi scorre tutti i file corrispondenti utilizzando ForEach con un'attività Esegui flusso di dati all'interno di.
+
+### <a name="increase-the-size-of-your-debug-cluster"></a>Aumentare le dimensioni del cluster di debug
+
+Per impostazione predefinita, l'attivazione del debug userà il runtime di integrazione di Azure predefinito creato automaticamente per ogni data factory. Questa Azure IR predefinita è impostata su 8 core, 4 per un nodo driver e 4 per un nodo di lavoro, usando le proprietà di calcolo generali. Quando si esegue il test con dati di dimensioni maggiori, è possibile aumentare le dimensioni del cluster di debug creando un nuovo Azure IR con configurazioni più grandi e scegliere questa nuova Azure IR quando si passa al debug. In questo modo si indicherà ad ADF di usare questo Azure IR per l'anteprima dei dati e il debug della pipeline con flussi di dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

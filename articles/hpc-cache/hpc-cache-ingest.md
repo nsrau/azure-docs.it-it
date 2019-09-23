@@ -1,19 +1,19 @@
 ---
-title: Spostare i dati in un contenitore cloud di cache HPC di Azure
+title: Spostare i dati in un contenitore cloud di cache HPC di Azure (anteprima)
 description: Come popolare l'archivio BLOB di Azure per l'uso con la cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0a71efdc0479a69aed8fecc22a6c89c506279d57
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 103470861383ff411cfaa670d70412086045a418
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105319"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180712"
 ---
-# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache"></a>Spostare i dati nell'archivio BLOB di Azure per la cache HPC di Azure
+# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache-preview"></a>Spostare i dati nell'archivio BLOB di Azure per la cache HPC di Azure (anteprima)
 
 Se il flusso di lavoro include lo stato di trasferimento dei dati nell'archiviazione BLOB di Azure, assicurarsi di usare una strategia efficace per copiare i dati tramite la cache HPC di Azure.
 
@@ -33,7 +33,7 @@ Se non si vuole usare l'utilità di caricamento o si vuole aggiungere contenuto 
 
 È possibile utilizzare il <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Usare l'utilità CLFSLoad per copiare i dati in un nuovo contenitore di archiviazione BLOB prima di aggiungerli come destinazione di archiviazione. Questa utilità viene eseguita in un singolo sistema Linux e scrive i dati nel formato proprietario necessario per la cache HPC di Azure. CLFSLoad è il modo più efficiente per popolare un contenitore di archiviazione BLOB da usare con la cache.
 
-L'utilità CLFSLoad è disponibile in base alla richiesta del team di cache HPC di Azure. Chiedere al contatto del team o aprire un ticket di supporto per richiedere assistenza.
+L'utilità CLFSLoad è disponibile in base alla richiesta del team di cache HPC di Azure. Chiedere al team il contatto o aprire un ticket di [supporto](hpc-cache-support-ticket.md) per richiedere assistenza.
 
 Questa opzione funziona solo con nuovi contenitori vuoti. Creare il contenitore prima di usare CLFSLoad.
 
@@ -60,7 +60,7 @@ Se non si vuole usare l'utilità CLFSLoad o se si vuole aggiungere una grande qu
 
 ![Diagramma che mostra lo spostamento dei dati multi-client e multithread: in alto a sinistra, da un'icona per la risorsa di archiviazione hardware locale partono più frecce. Le frecce puntano a quattro computer client. Da ogni computer client tre frecce puntano verso la cache HPC di Azure. Dalla cache HPC di Azure, più frecce puntano all'archiviazione BLOB.](media/hpc-cache-parallel-ingest.png) 
 
-I ``cp`` comandi ``copy`` o usati in genere per trasferire i dati da un sistema di archiviazione a un altro sono processi a thread singolo che copiano un solo file alla volta. Questo significa che il file server riceve un solo file alla volta, il che rappresenta uno spreco di risorse del cluster.
+I ``cp`` comandi ``copy`` o usati in genere per trasferire i dati da un sistema di archiviazione a un altro sono processi a thread singolo che copiano un solo file alla volta. Ciò significa che il file server inserisce un solo file alla volta, ovvero uno spreco di risorse della cache.
 
 Questa sezione illustra le strategie per la creazione di un sistema di copia di file multiclient multithread per spostare i dati nell'archivio BLOB con la cache HPC di Azure. Spiega i concetti relativi al trasferimento di file e le decisioni da prendere per una copia dei dati efficiente usando più client e semplici comandi di copia.
 

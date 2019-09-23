@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 49fd69c124ff9053f3934aefd349e039b437df0d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: de738461776be7bdfd1abc45dde24dc1202d3a3c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354967"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180760"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight
 
@@ -29,15 +29,15 @@ HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jy
 
 * **Un cluster Hadoop in HDInsight**. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](apache-hadoop-linux-tutorial-get-started.md).
 * **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Si tratta di wasb://per archiviazione di Azure, abfs://per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure o Data Lake Storage Gen2, l'URI è wasbs://o abfss://, rispettivamente, vedere anche [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
+* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Per l'archiviazione di Azure, `abfs://` per Azure Data Lake storage Gen2 o ADL://per Azure Data Lake storage Gen1. `wasb://` Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è wasbs://.  Vedere anche [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 * **Possibile modifica della configurazione dell'archiviazione.**  Vedere [configurazione dell'archiviazione](#storage-configuration) se si usa il `BlobStorage`tipo di account di archiviazione.
 * facoltativo.  Se si prevede di usare PowerShell, è necessario installare il [modulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) .
 
 > [!NOTE]  
 > L'account di archiviazione usato in questo articolo è stato l'archiviazione di Azure con [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md) abilitato e quindi `wasbs` viene usato in tutto l'articolo.
 
-## <a name="storage-configuration"></a>Configurazione dell'archiviazione
-Non è richiesta alcuna azione se l'account di archiviazione usato è `Storage (general purpose v1)` di `StorageV2 (general purpose v2)`tipo o.  Il processo in questo articolo produrrà almeno l'output `/tezstaging`.  Una configurazione `/tezstaging` Hadoop predefinita conterrà nella variabile `fs.azure.page.blob.dir` di configurazione in `core-site.xml` per il `HDFS`servizio.  Questa configurazione provocherà l'output della directory come BLOB di pagine, che non sono supportati per il tipo `BlobStorage`di account di archiviazione.  Per usare `BlobStorage` per questo articolo, rimuovere `/tezstaging` dalla `fs.azure.page.blob.dir` variabile di configurazione.  È possibile accedere alla configurazione dall' [interfaccia utente](../hdinsight-hadoop-manage-ambari.md)di Ambariri.  In caso contrario, verrà visualizzato il messaggio di errore:`Page blob is not supported for this account type.`
+## <a name="storage-configuration"></a>Configurazione archiviazione
+Non è richiesta alcuna azione se l'account di archiviazione usato è `Storage (general purpose v1)` di `StorageV2 (general purpose v2)`tipo o.  Il processo in questo articolo produrrà almeno l'output `/tezstaging`.  Una configurazione `/tezstaging` Hadoop predefinita conterrà nella variabile `fs.azure.page.blob.dir` di configurazione in `core-site.xml` per il `HDFS`servizio.  Questa configurazione provocherà l'output della directory come BLOB di pagine, che non sono supportati per il tipo `BlobStorage`di account di archiviazione.  Per usare `BlobStorage` per questo articolo, rimuovere `/tezstaging` dalla `fs.azure.page.blob.dir` variabile di configurazione.  È possibile accedere alla configurazione dall' [interfaccia utente di Ambariri](../hdinsight-hadoop-manage-ambari.md).  In caso contrario, verrà visualizzato il messaggio di errore:`Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > La procedura in questo documento parte dai presupposti seguenti:  
