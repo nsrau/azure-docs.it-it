@@ -10,17 +10,56 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/4/2019
+ms.date: 9/20/2019
 ms.author: raiye
-ms.openlocfilehash: 71febe6544a4f53215ec4dbee2bcef86bda23386
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 6168e877022eccd9cbe818c20e81266cc3ea1f69
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275513"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169358"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="september-2019-guest-os"></a>Sistema operativo guest di settembre 2019
+
+>[!NOTE]
+>Il sistema operativo guest di settembre è attualmente in fase di implementazione in macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di settembre. L'elenco è soggetto a variazioni.
+
+| Categoria prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  2,90, 3,77, 4,70  |  10 settembre 2019  |
+|  Rel 19-09   |  [4516115]  |  Lampeggiante   |  2,90, 3,77, 4,70, 5,35, 6,11  |  10 settembre 2019  |
+|  Rel 19-09   |  [4512578]  |  Aggiornamento cumulativo più recente   |  6.11  |  10 settembre 2019  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3,5 e 4.7.2   |  6.11  |  10 settembre 2019  |
+|  Rel 19-09   |  [4516044]  |  Aggiornamento cumulativo più recente   |  5,35  |  10 settembre 2019  |
+|  Rel 19-09   |  [4516064]  |  Windows Security   |  4,7  |  10 settembre 2019  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  4,7  |  10 settembre 2019  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  4,7  |  10 settembre 2019  |
+|  Rel 19-09   |  [4516062]  |  Windows Security   |  3,77  |  10 settembre 2019  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  3,77  |  10 settembre 2019  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  3,77  |  10 settembre 2019  |
+|  Rel 19-09   |  [4516033]  |  Windows Security   |  2,9  |  12 settembre 2019  |
+|  Rel 19-09   |  [4512488]  |  Non-sicurezza   |  4,7  |  13 agosto, 2019  |
+|  Rel 19-09   |  [4512518]  |  Non-sicurezza   |  3,77  |  13 agosto, 2019  |
+|  Rel 19-09   |  [4512506]  |  Non-sicurezza   |  2,9  |  13 agosto, 2019  |
+
+[4516046]: https://support.microsoft.com/kb/4516046
+[4516115]: https://support.microsoft.com/kb/4516115
+[4512578]: https://support.microsoft.com/kb/4512578
+[4514366]: https://support.microsoft.com/kb/4514366
+[4516044]: https://support.microsoft.com/kb/4516044
+[4516064]: https://support.microsoft.com/kb/4516064
+[4514350]: https://support.microsoft.com/kb/4514350
+[4514341]: https://support.microsoft.com/kb/4514341
+[4516062]: https://support.microsoft.com/kb/4516062
+[4514349]: https://support.microsoft.com/kb/4514349
+[4514342]: https://support.microsoft.com/kb/4514342
+[4516033]: https://support.microsoft.com/kb/4516033
+[4512488]: https://support.microsoft.com/kb/4512488
+[4512518]: https://support.microsoft.com/kb/4512518
+[4512506]: https://support.microsoft.com/kb/4512506
 
 
 ## <a name="august-2019-guest-os"></a>Sistema operativo guest 2019 agosto
@@ -1118,7 +1157,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-075 |[3072633] |Le vulnerabilità in OLE potrebbero consentire l'elevazione dei privilegi |4.22, 3.29, 2.41 |14 luglio 2015 |
 | MS15-076 |[3067505] |La vulnerabilità in Windows Remote Procedure Call potrebbe consentire l'elevazione dei privilegi |4.22, 3.29, 2.41 |14 luglio 2015 |
 | MS15-077 |[3077657] |La vulnerabilità in ATM Font Driver potrebbe consentire l'elevazione dei privilegi |4.22, 3.29, 2.41 |14 luglio 2015 |
-| ND |[3057154] |Aggiornamento per limitare l'uso della crittografia DES |4.22, 3.29, 2.41 |14 luglio 2015 |
+| NA |[3057154] |Aggiornamento per limitare l'uso della crittografia DES |4.22, 3.29, 2.41 |14 luglio 2015 |
 
 ## <a name="june-2015-guest-os"></a>Sistema operativo guest di giugno 2015
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -1151,7 +1190,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-040 |[3045711] |La vulnerabilità in ADFS potrebbe consentire la diffusione di informazioni |4.20, 3.27, 2.39 |17 aprile 2015 |
 | MS15-041 |[3048010] |La vulnerabilità in.NET Framework potrebbe consentire la diffusione di informazioni |4.20, 3.27, 2.39 |17 aprile 2015 |
 | MS15-042 |[3047234] |La vulnerabilità in Windows Hyper V potrebbe consentire un attacco Denial of Service |4.20, 3.27, 2.39 |17 aprile 2015 |
-| ND |[3045755] |Aggiornamento per migliorare l'autenticazione PKU2U |4.20, 3.27, 2.39 |17 aprile 2015 |
+| NA |[3045755] |Aggiornamento per migliorare l'autenticazione PKU2U |4.20, 3.27, 2.39 |17 aprile 2015 |
 
 ## <a name="april-2015-guest-os"></a>Sistema operativo guest di aprile 2015
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
