@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: a24263e80f50d880be269238441545785e2f51e8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 054289de296488036dd0855d228d272fdea18baf
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967623"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219418"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Usare Java per inviare o ricevere eventi da Hub eventi di Azure
 
@@ -174,18 +174,18 @@ Il codice in questa esercitazione si basa sul [codice EventProcessorSample in Gi
 
 **EventProcessorHost** è una classe Java che semplifica la ricezione di eventi da Hub eventi tramite la gestione di checkpoint persistenti e ricezioni parallele da tali hub. Usando EventProcessorHost è possibile suddividere gli eventi tra più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare EventProcessorHost per un ricevitore singolo.
 
-### <a name="create-a-storage-account"></a>Creare un account di archiviazione
+### <a name="create-a-storage-account"></a>Crea un account di archiviazione
 
 Per usare EventProcessorHost, è necessario disporre di un [account di archiviazione di Azure] [account di archiviazione di Azure]:
 
 1. Accedere al [portale di Azure](https://portal.azure.com)e selezionare **Crea una risorsa** sul lato sinistro della schermata.
 2. Selezionare **archiviazione**e quindi **account di archiviazione**. Nella finestra **Crea account di archiviazione** digitare un nome per l'account di archiviazione. Completare il resto dei campi, selezionare l'area desiderata e quindi fare clic su **Crea**.
    
-    ![Creare un account di archiviazione](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Creare un account di archiviazione in portale di Azure](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-azure-storage-account.png)
 
 3. Selezionare l'account di archiviazione appena creato e quindi selezionare **chiavi di accesso**:
    
-    ![Ottenere le chiavi di accesso](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Ottenere le chiavi di accesso in portale di Azure](./media/event-hubs-dotnet-framework-getstarted-receive-eph/select-azure-storage-access-keys.png)
 
     Copiare il valore key1 in una posizione temporanea. perché sarà usato più avanti in questa esercitazione.
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 447aa4f5bb3c274900beddcef8c89db88d3f3ee9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: fe4317c193e8aa6c6723556ef36d6111df6f51cd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688040"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240858"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Risolvere i problemi della soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -44,6 +44,14 @@ The subscription is not registered to use namespace 'Microsoft.Insights'.
 The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
 ```
 
+```error
+A parameter cannot be found that matches parameter name 'TagName'
+```
+
+```error
+Start-AzureRmVm : Run Login-AzureRmAccount to login
+```
+
 ### <a name="cause"></a>Causa
 
 Gli errori delle distribuzioni possono essere causati da uno dei motivi seguenti:
@@ -52,6 +60,7 @@ Gli errori delle distribuzioni possono essere causati da uno dei motivi seguenti
 2. È applicato un criterio che non consente la distribuzione della soluzione Avvio/Arresto di macchine virtuali.
 3. I tipi di risorse `Microsoft.OperationsManagement`, `Microsoft.Insights` o `Microsoft.Automation` non sono registrati.
 4. Esiste un blocco per l'area di lavoro Log Analytics.
+5. Si dispone di una versione obsoleta dei moduli AzureRM o della soluzione di avvio/arresto.
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -66,6 +75,7 @@ Esaminare l'elenco seguente per individuare possibili soluzioni al problema o po
 
    Per altre informazioni sugli errori di registrazione dei provider, vedere[Risolvere gli errori di registrazione del provider di risorse](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 4. Se è presente un blocco sull'area di lavoro Log Analytics, passare all'area di lavoro nel portale di Azure e rimuovere tutti i blocchi sulla risorsa.
+5. Se le risoluzioni precedenti non consentono di risolvere il problema, seguire le istruzioni in [aggiornare la soluzione](../automation-solution-vm-management.md#update-the-solution) per ridistribuire la soluzione di avvio/arresto.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: non è possibile avviare o arrestare tutte le macchine virtuali
 
@@ -210,7 +220,7 @@ Durante l'uso della soluzione Avvio/Arresto di macchine virtuali durante gli ora
 Spesso gli errori possono essere causati dall'uso di una versione vecchia e non aggiornata della soluzione.
 
 > [!NOTE]
-> La soluzione avvio/arresto di macchine virtuali durante gli orari di indisponibilità è stata testata con i moduli di Azure che sono stati importati nell'account di automazione quando si distribuisce la soluzione. La soluzione attualmente non funziona con le versioni più recenti del modulo Azure. Questa operazione ha effetto solo sull'account di automazione usato per eseguire la soluzione avvia/arresta macchine virtuali durante gli orari di indisponibilità. È comunque possibile usare le versioni più recenti del modulo Azure negli altri account di automazione, come descritto in [come aggiornare i moduli Azure PowerShell in automazione di Azure](../automation-update-azure-modules.md)
+> La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività è stata testata con i moduli di Azure che sono stati importati nell'account di automazione quando si distribuisce la soluzione. La soluzione attualmente non funziona con le versioni più recenti del modulo Azure. Questa operazione ha effetto solo sull'account di automazione usato per eseguire la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività. È comunque possibile usare le versioni più recenti del modulo Azure negli altri account di automazione, come descritto in [come aggiornare i moduli Azure PowerShell in automazione di Azure](../automation-update-azure-modules.md)
 
 ### <a name="resolution"></a>Risoluzione
 

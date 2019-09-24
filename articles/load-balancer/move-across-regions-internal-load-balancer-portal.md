@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: allensu
-ms.openlocfilehash: 2e8f1cd32bc0b57faf7b2365e100064be78a37a2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 88aedb97f659725887026d0c83be88cbde27ae4f
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106255"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219671"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Spostare Load Balancer interni di Azure in un'altra area usando il portale di Azure
 
@@ -27,7 +27,7 @@ I bilanciamenti del carico interno di Azure non possono essere spostati da un'ar
 - Non è possibile spostare i bilanciamenti del carico interno di Azure tra le aree.  È necessario associare il nuovo servizio di bilanciamento del carico alle risorse nell'area di destinazione.
 
 - Per esportare una configurazione del servizio di bilanciamento del carico interno e distribuire un modello per creare un servizio di bilanciamento del carico interno in un'altra area, è necessario il ruolo Collaboratore rete o versione successiva.
-   
+
 - Identificare il layout di rete di origine e tutte le risorse attualmente in uso, Questo layout include ma non è limitato a bilanciamento del carico, gruppi di sicurezza di rete, macchine virtuali e reti virtuali.
 
 - Verificare che la sottoscrizione di Azure consenta di creare bilanciamenti del carico interno nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
@@ -43,13 +43,13 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 ### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>Esportare il modello di rete virtuale e distribuirlo dalla portale di Azure
 
-1. Accedere ai**gruppi di risorse** [portale di Azure](http://portal.azure.com) > .
+1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > .
 2. Individuare il gruppo di risorse che contiene la rete virtuale di origine e fare clic su di esso.
 3. Selezionare > **Impostazioni** > **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
 5. Fare clic su **modello** > **modifica parametri** per aprire il file **Parameters. JSON** nell'editor online.
 6. Per modificare il parametro del nome della rete virtuale, modificare la proprietà **value** in **Parameters**:
-    
+
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -65,8 +65,8 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 8. Fare clic su **Salva** nell'editor.
 
-9. Fare clic **su modello** **modifica modello** per aprire il file **template. JSON** nell'editor online. >  
-    
+9. Fare clic **su modello** **modifica modello** per aprire il file **template. JSON** nell'editor online. > 
+
 10. Per modificare l'area di destinazione in cui verrà spostato il VNET, modificare la proprietà **location** in Resources:
 
     ```json
@@ -86,9 +86,9 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                         },
 
     ```
-  
+
 11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
-    
+
 12. È anche possibile modificare altri parametri nel file **template. JSON** se si sceglie e sono facoltativi in base ai requisiti:
 
     * **Spazio degli indirizzi** : lo spazio degli indirizzi di VNET può essere modificato prima del salvataggio modificando la sezione **Resources** > **addressSpace** e modificando la proprietà **addressPrefixes** nel file **template. JSON** :
@@ -182,7 +182,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 14. Fare clic su**sottoscrizione** di **base** > per scegliere la sottoscrizione in cui verrà distribuita la VNET di destinazione.
 
-15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito il VNET di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il VNET di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del VNET esistente. 
+15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito il VNET di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il VNET di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del VNET esistente.
 
 16. Il**percorso** di **base** > della verifica è impostato sul percorso di destinazione in cui si desidera distribuire il vnet.
 
@@ -194,7 +194,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 ### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Esportare il modello del servizio di bilanciamento del carico interno e distribuirlo da Azure PowerShell
 
-1. Accedere ai**gruppi di risorse** [portale di Azure](http://portal.azure.com) > .
+1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > .
 2. Individuare il gruppo di risorse che contiene il servizio di bilanciamento del carico interno di origine e fare clic su di esso.
 3. Selezionare > **Impostazioni** > **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
@@ -215,15 +215,15 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
              "type": "String"
              }
     ```
- 
+
 6. Per modificare il valore della rete virtuale di destinazione spostata sopra, è innanzitutto necessario ottenere l'ID risorsa e quindi copiarlo e incollarlo nel file **Parameters. JSON** . Per ottenere l'ID:
-    
-    1. Accedere ai**gruppi di risorse** [portale di Azure](http://portal.azure.com) > in un'altra scheda o finestra del browser.
+
+    1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > in un'altra scheda o finestra del browser.
     2. Individuare il gruppo di risorse di destinazione che contiene la rete virtuale spostata nei passaggi precedenti e fare clic su di essa.
     3. Selezionare >**Proprietà** **Impostazioni** > .
     4. Nel pannello a destra evidenziare l' **ID risorsa** e copiarlo negli Appunti.  In alternativa, è possibile fare clic sul pulsante **copia negli Appunti** a destra del percorso dell' **ID risorsa** .
     5. Incollare l'ID risorsa nella proprietà **DefaultValue** nell'editor **modifica parametri** aperto nell'altra finestra o scheda del browser:
-   
+
         ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
          "contentVersion": "1.0.0.0",
@@ -256,9 +256,9 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
     ```
 
 9.  Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
-    
+
 10. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
-    
+
     * **SKU** : è possibile modificare lo SKU del servizio di bilanciamento del carico interno nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel file **template. JSON** :
 
         ```json
@@ -374,12 +374,12 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         }
         ```
         Per ulteriori informazioni sulle regole NAT in ingresso, vedere [che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
-    
+
 12. Fare clic su **Salva** nell'editor online.
-    
+
 13. Fare clic su**sottoscrizione** di **base** > per scegliere la sottoscrizione in cui verrà distribuito il servizio di bilanciamento del carico interno di destinazione.
 
-15. Fare clic su**gruppo di risorse** di **base** > per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico interno di destinazione oppure scegliere il gruppo di risorse esistente creato in precedenza per la rete virtuale.  Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico interno di origine esistente. 
+15. Fare clic su**gruppo di risorse** di **base** > per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico interno di destinazione oppure scegliere il gruppo di risorse esistente creato in precedenza per la rete virtuale.  Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico interno di origine esistente.
 
 16. Il**percorso** di **base** > della verifica è impostato sul percorso di destinazione in cui si desidera distribuire il servizio di bilanciamento del carico interno.
 
@@ -389,7 +389,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 19. Fare clic sul pulsante **Acquista** per distribuire la rete virtuale di destinazione.
 
-## <a name="discard"></a>Annulla 
+## <a name="discard"></a>Annulla
 
 Se si vuole rimuovere la rete virtuale di destinazione e il servizio di bilanciamento del carico interno, eliminare il gruppo di risorse che contiene la rete virtuale di destinazione e il servizio di bilanciamento del carico interno.  A tale scopo, selezionare il gruppo di risorse dal dashboard nel portale e selezionare **Elimina** nella parte superiore della pagina Overview (panoramica).
 

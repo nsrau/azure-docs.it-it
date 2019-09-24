@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a681daa60503ff08320b25155e201ca0e7a4a001
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2d6976e872223cbb66682b9a02ce343487bec35d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952987"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240268"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -155,7 +155,7 @@ Seguire questa procedura per configurare il rilevamento delle chiavi del Registr
 |Attivato     | Determina se l'impostazione viene applicata.        |
 |Nome elemento     | Nome descrittivo della chiave del Registro di sistema da rilevare.        |
 |Group     | Nome del gruppo per il raggruppamento logico delle chiavi del Registro di sistema.        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare la chiave del Registro di sistema. Ad esempio:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare la chiave del Registro di sistema. Esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -198,7 +198,7 @@ La tabella seguente illustra i limiti dell'elemento di rilevamento per ogni macc
 |---|---|---|
 |File|500||
 |Registro|250||
-|Software Windows|250|Non include gli aggiornamenti software|
+|Software Windows|250|Non include hotfix software|
 |Pacchetti Linux|1250||
 |Servizi|250||
 |Daemon|250||

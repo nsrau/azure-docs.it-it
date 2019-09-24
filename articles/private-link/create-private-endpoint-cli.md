@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 46c08f48efc00c1e4d88ceccb680c0cfd1671b2f
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 30994133b19c4f59ae9e8be26caffe14348638f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203571"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219376"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Creare un endpoint privato usando l'interfaccia della riga di comando
 L'endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato. In questa Guida introduttiva si apprenderà come creare una VM in una rete virtuale, un server di database SQL con un endpoint privato usando l'interfaccia della riga di comando di Azure. Quindi, è possibile accedere alla macchina virtuale e accedere in modo sicuro alla risorsa di collegamento privato (un server di database SQL di Azure privato in questo esempio). 
@@ -129,7 +129,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
-1. Aprire il file con estensione RDP scaricato.
+1. Aprire il file con estensione rdp scaricato.
 
     1. Quando richiesto, selezionare **Connetti**.
 
@@ -144,11 +144,11 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
 
-## <a name="access-dql-database-server-privately-from-the-vm"></a>Accedere al server di database DQL privatamente dalla macchina virtuale
+## <a name="access-sql-database-server-privately-from-the-vm"></a>Accedere al server di database SQL privatamente dalla macchina virtuale
 
 In questa sezione si effettuerà la connessione al server di database SQL dalla macchina virtuale usando l'endpoint privato.
 
- 1. Nel Desktop remoto di *myVM*aprire PowerShell.
+ 1. Nel desktop remoto di  *myVM* aprire PowerShell.
  2. Immettere nslookup MyServer.database.Windows.NET  verrà visualizzato un messaggio simile al seguente: 
 
 ```

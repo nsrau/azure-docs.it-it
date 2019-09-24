@@ -3,23 +3,25 @@ title: Esempi di hub di notifica di Azure
 description: Elenco degli SDK di Hub di notifica Azure disponibili
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.author: jowargo
 ms.date: 03/28/2019
-ms.openlocfilehash: 1d035513418147b8fae1d8e2f217d20d19f02f2e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/28/2019
+ms.openlocfilehash: 5c7c2b073d0684d908b677d3dda1586f6baa8f61
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60559926"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213314"
 ---
 # <a name="azure-notification-hubs-samples"></a>Esempi di hub di notifica di Azure
-Questo articolo vengono forniti collegamenti a esempi che dimostrano le funzionalità principali di hub di notifica di Azure.
+Questo articolo fornisce collegamenti a esempi che illustrano le funzionalità principali di hub di notifica di Azure.
 
 ## <a name="samples"></a>Esempi
 
@@ -30,4 +32,4 @@ Questo articolo vengono forniti collegamenti a esempi che dimostrano le funziona
 - [iOS](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere le esercitazioni nel **esercitazioni** sezione del sommario (sommario).
+Vedere esercitazioni nella sezione **esercitazioni** del sommario (sommario).

@@ -1,5 +1,5 @@
 ---
-title: Funzionalità di ricerca nell'anteprima di Azure Sentinel | Microsoft Docs
+title: Funzionalità di ricerca in Sentinel di Azure | Microsoft Docs
 description: Questo articolo descrive come usare le funzionalità di ricerca di Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780454"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240605"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Cercare le minacce con nell'anteprima di Azure Sentinel
+# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Cercare le minacce con in Sentinel di Azure
 
-> [!IMPORTANT]
-> Azure Sentinel è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Se sei un investigatore che vuole essere proattivo per la ricerca di minacce per la sicurezza, Azure Sentinel Cerca potenti strumenti di ricerca e query per cercare le minacce alla sicurezza nelle origini dati dell'organizzazione. Tuttavia, i sistemi e le appliance di sicurezza generano montagne di dati che possono risultare difficili da analizzare e filtrare in eventi significativi. Per aiutare gli analisti della sicurezza a cercare in modo proattivo nuove anomalie che non sono state rilevate dalle app per la sicurezza, le query di ricerca predefinite di Azure Sentinel consentono di porre le domande appropriate per individuare i problemi nei dati già presenti nella rete. 
 
@@ -41,8 +39,7 @@ Con Azure Sentinel Hunting è possibile sfruttare le funzionalità seguenti:
 
 - Linguaggio di query avanzato con IntelliSense: Basato su un linguaggio di query che ti offre la flessibilità necessaria per passare al livello successivo.
 
-- Creare segnalibri personalizzati: Durante il processo di ricerca, è possibile che si trovino corrispondenze o risultati, dashboard o attività che hanno un aspetto insolito o sospetto. Per contrassegnare gli elementi in modo da poterli tornare in futuro, usare la funzionalità di segnalibro. I segnalibri consentono di salvare gli elementi per un momento successivo, da usare per creare un evento imprevisto per l'analisi. Per ulteriori informazioni sui segnalibri, vedere Use [Bookmarks in Hunting].
-
+- Creare segnalibri personalizzati: Durante il processo di ricerca, è possibile che si trovino corrispondenze o risultati, dashboard o attività che hanno un aspetto insolito o sospetto. Per contrassegnare gli elementi in modo da poterli tornare in futuro, usare la funzionalità di segnalibro. I segnalibri consentono di salvare gli elementi per un momento successivo, da usare per creare un evento imprevisto per l'analisi. Per ulteriori informazioni sui segnalibri, vedere [Use Bookmarks in Hunting](hunting.md).
 - Usare i notebook per automatizzare l'analisi: I notebook sono simili a schemi Step-by-step che è possibile compilare per esaminare i passaggi di un'indagine e una ricerca.  I notebook incapsulano tutti i passaggi di caccia in un PlayBook riutilizzabile che può essere condiviso con altri utenti dell'organizzazione. 
 - Eseguire una query sui dati archiviati: I dati sono accessibili nelle tabelle in cui è possibile eseguire una query. Ad esempio, è possibile eseguire query su creazione di processi, eventi DNS e molti altri tipi di evento.
 
@@ -50,7 +47,7 @@ Con Azure Sentinel Hunting è possibile sfruttare le funzionalità seguenti:
  
 ## <a name="get-started-hunting"></a>Inizia a cercare
 
-1. Nel portale di Azure Sentinel fare clicsu Hunting.
+1. Nel portale di Azure Sentinel fare clic su **Hunting**.
   ![Azure Sentinel avvia la ricerca](media/tutorial-hunting/hunting-start.png)
 
 2. Quando si apre la pagina di **ricerca** , tutte le query di ricerca vengono visualizzate in un'unica tabella. La tabella elenca tutte le query scritte dal team Microsoft degli analisti di sicurezza, nonché qualsiasi query aggiuntiva creata o modificata. Ogni query fornisce una descrizione di ciò che cerca e del tipo di dati in cui viene eseguito. Questi modelli sono raggruppati in base alle varie tattiche, ovvero le icone a destra categorizzano il tipo di minaccia, ad esempio l'accesso iniziale, la persistenza e la exfiltration. È possibile filtrare i modelli di query di caccia usando uno dei campi. È possibile salvare qualsiasi query nei Preferiti. Salvando una query nei Preferiti, la query viene eseguita automaticamente ogni volta che si accede alla pagina di **ricerca** . È possibile creare una query di ricerca personalizzata o clonare e personalizzare un modello di query di ricerca esistente. 
@@ -63,7 +60,7 @@ Con Azure Sentinel Hunting è possibile sfruttare le funzionalità seguenti:
 
 5. Tornare quindi alla pagina principale di **Hunting** e fare clic sulla scheda **segnalibri** per visualizzare tutte le attività sospette. 
 
-6. Selezionare un segnalibro e quindi fare clic su Cerca per aprire l'esperienza di analisi. È possibile filtrare i segnalibri. Ad esempio, se si sta esaminando una campagna, è possibile creare un tag per la campagna, quindi filtrare tutti i segnalibri in base alla campagna.
+6. Selezionare un segnalibro e quindi **fare clic su Cerca** per aprire l'esperienza di analisi. È possibile filtrare i segnalibri. Ad esempio, se si sta esaminando una campagna, è possibile creare un tag per la campagna, quindi filtrare tutti i segnalibri in base alla campagna.
 
 1. Dopo aver individuato la query di ricerca che fornisce informazioni dettagliate sul valore di possibili attacchi, è anche possibile creare regole di rilevamento personalizzate basate sulla query e far emergere tali informazioni come avvisi per i risponditori degli eventi imprevisti della sicurezza.
 
@@ -122,7 +119,7 @@ Il linguaggio di query è potente ed è dotato di molti operatori disponibili. d
 
 È possibile creare o modificare una query e salvarla come query o condividerla con utenti che si trovano nello stesso tenant.
 
-   ![Salvare la query](./media/tutorial-hunting/save-query.png)
+   ![Salva query](./media/tutorial-hunting/save-query.png)
 
 Creare una nuova query di ricerca:
 

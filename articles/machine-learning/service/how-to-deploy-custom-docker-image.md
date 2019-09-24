@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 04d81f8e16a3f34f7abf15c9606833002fafb39c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a9992fbaa20b0137fd503992fc9efba11c2dfd3b
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034540"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213501"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuire un modello usando un'immagine di base Docker personalizzata
 
@@ -223,9 +223,9 @@ Per usare un'immagine da un __Registro contenitori privato__ che non si trova ne
 
 ```python
 # Set the container registry information
-myenv.docker.base_image_repository.address = "myregistry.azurecr.io"
-myenv.docker.base_image_repository.username = "username"
-myenv.docker.base_image_repository.password = "password"
+myenv.docker.base_image_registry.address = "myregistry.azurecr.io"
+myenv.docker.base_image_registry.username = "username"
+myenv.docker.base_image_registry.password = "password"
 ```
 
 Dopo aver definito l'ambiente, usarlo con un oggetto [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) per definire l'ambiente di inferenza in cui verrà eseguito il modello e il servizio Web.

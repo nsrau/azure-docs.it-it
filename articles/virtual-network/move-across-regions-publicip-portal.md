@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 0ee3a386c6044abe834b901ce43795df68bd37c6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2610afe9df06d28f2b75bd0023f7ec5a3fe9e56c
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059333"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219216"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Spostare l'IP pubblico di Azure in un'altra area usando il portale di Azure
 
@@ -27,7 +27,7 @@ Gli indirizzi IP pubblici di Azure sono specifici dell'area e non possono essere
 - Gli indirizzi IP pubblici di Azure non possono essere spostati tra le aree.  È necessario associare il nuovo indirizzo IP pubblico alle risorse nell'area di destinazione.
 
 - Per esportare una configurazione IP pubblica e distribuire un modello per creare un indirizzo IP pubblico in un'altra area, è necessario il ruolo Collaboratore rete o versione successiva.
-   
+
 - Identificare il layout di rete di origine e tutte le risorse attualmente in uso, Questo layout include, tuttavia, non è limitato a bilanciamento del carico, gruppi di sicurezza di rete (gruppi) e reti virtuali.
 
 - Verificare che la sottoscrizione di Azure consenta di creare indirizzi IP pubblici nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
@@ -40,13 +40,13 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
 
 ### <a name="export-the-template-and-deploy-from-a-script"></a>Esportare il modello e distribuirlo da uno script
 
-1. Accedere ai**gruppi di risorse** [portale di Azure](http://portal.azure.com) > .
+1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > .
 2. Individuare il gruppo di risorse che contiene l'indirizzo IP pubblico di origine e fare clic su di esso.
 3. Selezionare > **Impostazioni** > **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
 5. Fare clic su **modello** > **modifica parametri** per aprire il file **Parameters. JSON** nell'editor online.
 8. Per modificare il parametro del nome dell'indirizzo IP pubblico, modificare la proprietà in **parametro** > **valore** dal nome IP pubblico di origine al nome dell'indirizzo IP pubblico di destinazione, verificare che il nome sia racchiuso tra virgolette:
-    
+
     ```json
             {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -61,7 +61,7 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
     ```
 8.  Fare clic su **Salva** nell'editor.
 
-9.  Fare clic **su modello** **modifica modello** per aprire il file **template. JSON** nell'editor online. >  
+9.  Fare clic **su modello** **modifica modello** per aprire il file **template. JSON** nell'editor online. > 
 
 10. Per modificare l'area di destinazione in cui verrà spostato l'IP pubblico, modificare la proprietà **location** in **Resources**:
 
@@ -86,11 +86,11 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
                 "ipTags": []
                }
                }
-             ]             
+             ]
     ```
-  
+
 11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
-    
+
 12. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
 
     * **SKU** : è possibile modificare lo SKU dell'indirizzo IP pubblico nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel file **template. JSON** :
@@ -131,17 +131,17 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
-        
+
         ```
 
         Per ulteriori informazioni sui metodi di allocazione e i valori di timeout di inattività, vedere [creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
- 
+
 13. Fare clic su **Salva** nell'editor online.
 
 14. Fare clic su**sottoscrizione** di **base** > per scegliere la sottoscrizione in cui verrà distribuito l'IP pubblico di destinazione.
 
-15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito l'IP pubblico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per l'indirizzo IP pubblico di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine dell'IP pubblico di origine esistente. 
+15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito l'IP pubblico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per l'indirizzo IP pubblico di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine dell'IP pubblico di origine esistente.
 
 16. Il**percorso** di **base** > della verifica è impostato sul percorso di destinazione in cui si desidera distribuire l'indirizzo IP pubblico.
 
@@ -151,7 +151,7 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
 
 19. Fare clic sul pulsante **Acquista** per distribuire l'indirizzo IP pubblico di destinazione.
 
-## <a name="discard"></a>Annulla 
+## <a name="discard"></a>Annulla
 
 Se si vuole rimuovere l'indirizzo IP pubblico di destinazione, eliminare il gruppo di risorse che contiene l'indirizzo IP pubblico di destinazione.  A tale scopo, selezionare il gruppo di risorse dal dashboard nel portale e selezionare **Elimina** nella parte superiore della pagina Overview (panoramica).
 

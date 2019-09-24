@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2019
+ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2a875e028a38c085d45d062984764cd840983fc3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097605"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212321"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -46,7 +46,13 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 ## <a name="14x0"></a>1.4. X. 0
 
 >[!IMPORTANT]
->In precedenza, i computer di livello inferiore di Windows aggiunti ad Active Directory locale venivano erroneamente sincronizzati nel cloud in alcune circostanze. Ad esempio, il valore dell'attributo userCertificate per i dispositivi Windows di livello inferiore in Active Directory viene popolato. Tuttavia, questi dispositivi in Azure AD sempre rimasti nello stato "in sospeso" perché queste versioni del sistema operativo non sono state progettate per essere registrate con Azure AD tramite AAD Sync. In questa versione di Azure AD Connect, AAD Sync arresterà la sincronizzazione dei computer di livello inferiore di Windows per Azure AD e rimuoverà anche i dispositivi Windows di livello inferiore sincronizzati in precedenza dal Azure AD. Si noti che questa modifica non eliminerà i dispositivi Windows di livello inferiore che sono stati registrati correttamente con Azure AD usando il pacchetto MSI. I dispositivi continueranno a funzionare come previsto ai fini dell'accesso condizionale basato su dispositivo. Alcuni clienti potrebbero vedere che alcuni o tutti i dispositivi Windows di livello inferiore scompaiono da Azure AD. Questo non è un problema, perché queste identità dei dispositivi non sono mai state effettivamente usate da Azure AD durante l'autorizzazione dell'accesso condizionale. Questi clienti potrebbero dover rivedere https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan e ottenere i dispositivi Windows di livello inferiore registrati correttamente per assicurarsi che tali dispositivi possano partecipare completamente all'accesso condizionale basato su dispositivo. Si noti che se vengono visualizzate queste eliminazioni di oggetti computer/dispositivo legacy in Azure AD superando la soglia di eliminazione dell'esportazione, è consigliabile che il cliente consenta di eseguire queste eliminazioni.
+>I computer Windows registrati come Azure AD ibrido Uniti sono rappresentati in Azure AD come oggetti dispositivo. Questi oggetti dispositivo possono essere utilizzati per l'accesso condizionale. I computer Windows 10 vengono sincronizzati con il cloud tramite Azure AD Connect, i computer Windows di livello inferiore vengono registrati direttamente usando AD FS o seamless Single Sign-on.
+>
+>Solo i computer Windows 10 con un valore dell'attributo userCertificate specifico configurato da Aggiunta ad Azure AD ibrido devono essere sincronizzati con il Cloud Azure AD Connect.  Nelle versioni precedenti di Azure AD Connect questo requisito non è stato applicato rigorosamente, causando la Azure AD di oggetti dispositivo non necessari. Tali dispositivi in Azure AD sempre rimasti nello stato "in sospeso" perché questi computer non erano destinati alla registrazione con Azure AD.
+>
+>Con questa versione di Azure AD Connect verranno sincronizzati solo i computer Windows 10 configurati correttamente per essere Azure AD ibrido Uniti in join. Azure AD Connect non devono mai sincronizzare i [dispositivi Windows di livello inferiore](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Tutti i dispositivi in Azure AD precedentemente sincronizzati in modo non corretto verranno eliminati da Azure AD.  Questa modifica, tuttavia, non eliminerà i dispositivi Windows registrati correttamente con Azure AD per Aggiunta ad Azure AD ibrido. 
+>
+>Alcuni o tutti i dispositivi Windows potrebbero scomparire da Azure AD. Questo non è un problema, poiché queste identità dei dispositivi non vengono usate da Azure AD durante l'autorizzazione dell'accesso condizionale. È possibile che alcuni clienti debbano [rivedere come: Pianificare l'implementazione](../../active-directory/devices/hybrid-azuread-join-plan.md) ibrida di Azure Active Directory join per ottenere la registrazione corretta dei computer Windows e assicurarsi che tali dispositivi possano partecipare completamente all'accesso condizionale basato su dispositivo. Se Azure AD Connect sta tentando di eliminare i [dispositivi Windows di livello inferiore](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices) , il dispositivo non è quello creato da [Microsoft workplace join per i computer non Windows 10 MSI](https://www.microsoft.com/download/details.aspx?id=53554) e non può essere utilizzato da altre funzionalità di Azure ad.  Se vengono visualizzate le eliminazioni di oggetti computer/dispositivo in Azure AD superando la soglia di eliminazione dell'esportazione, è consigliabile che il cliente consenta di eseguire queste eliminazioni.
 
 ### <a name="release-status"></a>Stato della versione
 9/10/2019: Rilasciato solo per l'aggiornamento automatico
@@ -450,18 +456,18 @@ Bloccare l'accesso all'account di Active Directory Domain Services implementando
 *   Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF. Le autorizzazioni predefinite devono rimanere inalterate per SELF.
 *   Assegnare le autorizzazioni specifiche seguenti:
 
-Type     | NOME                          | Accesso               | Si applica a
+Type     | Attività                          | Accesso               | Si applica a
 ---------|-------------------------------|----------------------|--------------|
-CONSENTI    | SYSTEM                        | Controllo completo         | Questo oggetto  |
-CONSENTI    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
-CONSENTI    | Domain Admins                 | Controllo completo         | Questo oggetto  |
-CONSENTI    | Administrators                | Controllo completo         | Questo oggetto  |
-CONSENTI    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
-CONSENTI    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
-CONSENTI    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
-CONSENTI    | Utenti autenticati           | Contenuto elenco        | Questo oggetto  |
-CONSENTI    | Utenti autenticati           | Leggi tutte le proprietà  | Questo oggetto  |
-CONSENTI    | Utenti autenticati           | Autorizzazioni di lettura     | Questo oggetto  |
+Allow    | SYSTEM                        | Controllo completo         | Questo oggetto  |
+Allow    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
+Allow    | Domain Admins                 | Controllo completo         | Questo oggetto  |
+Allow    | Amministratori                | Controllo completo         | Questo oggetto  |
+Allow    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
+Allow    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
+Allow    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
+Allow    | Utenti autenticati           | Contenuto elenco        | Questo oggetto  |
+Allow    | Utenti autenticati           | Leggi tutte le proprietà  | Questo oggetto  |
+Allow    | Utenti autenticati           | Autorizzazioni di lettura     | Questo oggetto  |
 
 Per restringere le impostazioni per l'account di Active Directory Domain Services è possibile eseguire [questo script di PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Lo script di PowerShell consentirà di assegnare le autorizzazioni indicate sopra all'account di Active Directory Domain Services.
 
@@ -475,7 +481,7 @@ Per usare lo script di PowerShell per applicare queste impostazioni a un account
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Where 
+Dove 
 
 **$ObjectDN** = account Active Directory di cui restringere le autorizzazioni.
 
@@ -550,7 +556,7 @@ Stato: 19 ottobre 2017
 
 ### <a name="azure-ad-connect-sync"></a>Servizio di sincronizzazione Azure AD Connect
 > [!NOTE]
-> Note: il servizio di sincronizzazione ha un'interfaccia WMI che consente di sviluppare un'utilità di pianificazione personalizzata. Questa interfaccia è ora obsoleta e verrà rimossa dalle versioni future di Azure AD Connect spedite dopo il 30 giugno 2018. I clienti che desiderano personalizzare la pianificazione della sincronizzazione devono usare l' [utilità di pianificazione predefinita](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Nota: il servizio di sincronizzazione ha un'interfaccia WMI che consente di sviluppare un'utilità di pianificazione personalizzata. Questa interfaccia è ora obsoleta e verrà rimossa dalle versioni future di Azure AD Connect spedite dopo il 30 giugno 2018. I clienti che desiderano personalizzare la pianificazione della sincronizzazione devono usare l' [utilità di pianificazione predefinita](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Problemi risolti
 * Quando la procedura guidata di Azure AD Connect crea l'account AD Connector necessario per sincronizzare le modifiche da Active Directory in locale, non assegna correttamente all'account l'autorizzazione necessaria per leggere gli oggetti PublicFolder. Questo problema riguarda sia l'installazione rapida sia l'installazione personalizzata. Questa modifica risolve il problema.
@@ -794,13 +800,13 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Select|
-    |CertKeyAlgorithmParams|CertHashString|Where|
+    |CertKeyAlgorithmParams|CertHashString|Dove|
     |||With|
 
 * Le modifiche seguenti dello schema sono state introdotte per consentire ai clienti di creare regole di sincronizzazione personalizzate per includere nel flusso gli attributi sAMAccountName, domainNetBios e domainFQDN per gli oggetti gruppo e l'attributo distinguishedName per gli oggetti utente:
 
   * Gli attributi seguenti sono stati aggiunti allo schema Metaverse:
-    * Gruppo: AccountName
+    * Gruppo: Nome dell'account
     * Group: domainNetBios
     * Group: domainFQDN
     * Person: distinguishedName
@@ -874,7 +880,7 @@ Servizio di sincronizzazione Azure AD Connect
 * Azure AD Connect supporta ora la sincronizzazione delle cartelle pubbliche abilitate alla posta elettronica da AD locale ad Azure AD. È possibile abilitare la funzionalità tramite la procedura guidata di Azure AD Connect, in Funzionalità facoltative. Per altre informazioni su questa funzionalità, vedere l'articolo [Office 365 Directory Based Edge Blocking support for on-premises Mail Enabled Public Folders](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders) (Supporto del blocco Edge basato sulla directory di Office 365 per le cartelle pubbliche abilitate alla posta elettronica in locale).
 * Azure AD Connect richiede un account AD DS per la sincronizzazione da AD locale. In precedenza, se era stato installato Azure AD Connect usando la modalità rapida, era possibile fornire le credenziali di un account amministratore Enterprise e Azure AD Connect creava quindi l'account Active Directory Domain Services necessario. Tuttavia, per le installazioni personalizzate e per l'aggiunta di foreste a una distribuzione esistente, era necessario invece fornire l'account Active Directory Domain Services. Ora è possibile specificare le credenziali di un account amministratore Enterprise durante un'installazione personalizzata e lasciare che Azure AD Connect crei l'account di AD DS necessario.
 * Azure AD Connect supporta ora SQL AOA. È necessario abilitare SQL AOA prima di installare Azure AD Connect. Durante l'installazione, Azure AD Connect rileva se l'istanza SQL specificata è abilitata per SQL AOA oppure no. Se SQL AOA è abilitato, Azure AD Connect rileva quindi se SQL AOA è configurato per usare la replica sincrona o asincrona. Quando si configura il listener del gruppo di disponibilità, è consigliabile impostare la proprietà RegisterAllProvidersIP su 0. Ciò perché Azure AD Connect usa SQL Native Client per connettersi a SQL e SQL Native Client non supporta l'uso della proprietà MultiSubNetFailover.
-* Se si usa LocalDB come database di Azure AD Connect ed è stato raggiunto il limite di 10 GB, il servizio di sincronizzazione non si avvia. In precedenza, era necessario eseguire l'operazione ShrinkDatabase su LocalDB per recuperare lo spazio sufficiente per l'avvio del servizio di sincronizzazione. Dopo questa operazione, era possibile usare Synchronization Service Manager per eliminare la cronologia dell'esecuzione e recuperare spazio per il database. Ora è possibile usare il cmdlet ADSyncPurgeRunHistory per eseguire la pulizia dei dati della cronologia di esecuzione da LocalDB e recuperare spazio per il database. Questo cmdlet supporta una modalità offline (specificando il parametro -offline) che può essere usata quando il servizio di sincronizzazione non è in esecuzione. Note: la modalità offline può essere usata solo se il servizio di sincronizzazione non è in esecuzione e se il database in uso è Local DB.
+* Se si usa LocalDB come database di Azure AD Connect ed è stato raggiunto il limite di 10 GB, il servizio di sincronizzazione non si avvia. In precedenza, era necessario eseguire l'operazione ShrinkDatabase su LocalDB per recuperare lo spazio sufficiente per l'avvio del servizio di sincronizzazione. Dopo questa operazione, era possibile usare Synchronization Service Manager per eliminare la cronologia dell'esecuzione e recuperare spazio per il database. Ora è possibile usare il cmdlet ADSyncPurgeRunHistory per eseguire la pulizia dei dati della cronologia di esecuzione da LocalDB e recuperare spazio per il database. Questo cmdlet supporta una modalità offline (specificando il parametro -offline) che può essere usata quando il servizio di sincronizzazione non è in esecuzione. Nota: la modalità offline può essere usata solo se il servizio di sincronizzazione non è in esecuzione e se il database in uso è Local DB.
 * Per ridurre lo spazio di archiviazione necessario, Azure AD Connect consente ora di comprimere i dettagli degli errori di sincronizzazione prima di archiviarli nei database LocalDB/SQL. Durante l'aggiornamento da una versione precedente di Azure AD Connect a questa versione, Azure AD Connect esegue una singola compressione dei dettagli di errore di sincronizzazione esistenti.
 * In precedenza, dopo l'aggiornamento della configurazione del filtro dell'unità organizzativa, era necessario eseguire manualmente l'importazione completa per verificare che gli oggetti esistenti fossero correttamente inclusi/esclusi dalla sincronizzazione della directory. Ora Azure AD Connect attiva automaticamente l'importazione completa durante il ciclo di sincronizzazione successivo. Inoltre, l'importazione completa viene applicata soltanto ai connettori AD interessati dall'aggiornamento. Nota: questo miglioramento è applicabile agli aggiornamenti del filtro dell'unità organizzativa, eseguiti soltanto con la procedura guidata di Azure AD Connect. Non è applicabile all'aggiornamento del filtro dell'unità organizzativa eseguito tramite Synchronization Service Manager.
 * In precedenza, il filtro basato sui gruppi supportava soltanto oggetti utenti, gruppi e contatti. Ora il filtro supporta anche gli oggetti computer.
@@ -957,7 +963,7 @@ Autenticazione pass-through
 * Risolto un problema che causava un errore nella procedura guidata di Azure AD Connect se si selezionava Autenticazione pass-through ma la registrazione del relativo connettore aveva esito negativo.
 * Risolto un problema che causava il bypass dei controlli di convalida da parte di Azure AD Connect sul metodo di accesso selezionato con la funzionalità Desktop SSO attivata.
 
-Reimpostazione delle password
+Reimpostazione password
 * Correzione di un problema che potrebbe causare il mancato tentativo di riconnessione da parte del server Azure AAD Connect, se la connessione è stata terminata da un firewall o un proxy.
 
 **Nuove funzionalità o miglioramenti:**
@@ -972,7 +978,7 @@ Gestione di AD FS.
 * È ora possibile specificare un gMSA (account del servizio gestito di gruppo) durante l'installazione di AD FS.
 * È ora possibile configurare SHA-256 come algoritmo di hash della firma per il trust della relying party di Azure AD.
 
-Reimpostazione delle password
+Reimpostazione password
 * Miglioramenti per consentire al prodotto di funzionare in ambienti con regole più severe del firewall.
 * Migliore affidabilità della connessione al bus di servizio.
 
@@ -1272,7 +1278,7 @@ Resa disponibile: Dicembre 2014
 **Nuove funzionalità:**
 
 * È ora supportata l'esecuzione della sincronizzazione delle password con filtri basati sugli attributi. Per informazioni dettagliate, vedere [Sincronizzazione delle password con i filtri](how-to-connect-sync-configure-filtering.md).
-* L'attributo ms-DS-ExternalDirectoryObjectID viene scritto di nuovo in Active Directory. Questa funzionalità aggiunge il supporto per applicazioni di Office 365. Usa OAuth2 per accedere alle cassette postali online e locali in una distribuzione ibrida di Exchange.
+* L'attributo ms-DS-ExternalDirectoryObjectID viene scritto di nuovo in Active Directory. Questa funzionalità aggiunge il supporto per applicazioni di Office 365. USA OAuth2 per accedere alle cassette postali online e locali in una distribuzione ibrida di Exchange.
 
 **Problemi di aggiornamento risolti:**
 

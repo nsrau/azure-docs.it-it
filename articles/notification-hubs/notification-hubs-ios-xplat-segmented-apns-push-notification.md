@@ -3,9 +3,9 @@ title: Eseguire il push di notifiche a dispositivi iOS specifici con Hub di noti
 description: In questa esercitazione si apprende come usare Hub di notifica di Azure per inviare notifiche push a dispositivi iOS specifici.
 services: notification-hubs
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/28/2019
-ms.author: jowargo
-ms.openlocfilehash: f83afa62859dee5963749daf2555af08cf6a0e0b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 07/28/2019
+ms.openlocfilehash: 8299725cf6977ca309d57b40f4792ff9b074a8cb
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663830"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213221"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche a dispositivi iOS specifici con Hub di notifica di Azure
 

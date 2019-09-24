@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 5d0c43fbcc1c59c3281f412aad96a3942a5c79b1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 58a741b369231a353a6b8e282a6e604a63a5727d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70392888"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71210253"
 ---
 **Volume e conservazione della raccolta dati** 
 
@@ -64,6 +64,19 @@ ms.locfileid: "70392888"
 | Numero massimo di caratteri per il nome della colonna | 500 | |
 | Aree alla capacità | Stati Uniti centro-occidentali | Attualmente non è possibile creare una nuova area di lavoro in questa area perché si trova al limite di capacità temporanea. Questo limite è pianificato per essere risolto entro la fine dell'ottobre 2019. |
 | Esportazione dati | Attualmente non disponibile | Usare funzioni di Azure o app per la logica per aggregare ed esportare dati. | 
+
+**Velocità di inserimento dati**
+
+Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. La soglia della frequenza di inserimento predefinita è impostata su **500 MB/min** per area di lavoro. Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro aprendo una richiesta di supporto.
+ 
+Per ricevere una notifica su tale evento nell'area di lavoro, creare una [regola di avviso di log](../articles/azure-monitor/platform/alerts-log.md) usando la query seguente con la logica di avviso base su numero di risultati maggiore di zero.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 >[!NOTE]
 >A seconda di quanto tempo si utilizza Log Analytics, è possibile che si disponga dell'accesso ai piani tariffari legacy. Scopri di più sui [log Analytics piani tariffari legacy](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

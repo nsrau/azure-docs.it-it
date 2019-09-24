@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/18/2019
 ms.author: raynew
-ms.openlocfilehash: 867a2dc9739e839a6957190f93311a811556df15
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: c54273e0ca8c88a6fe47d5611950acd38f50b4c0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010252"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212804"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -22,7 +22,7 @@ Il servizio [Azure Site Recovery](site-recovery-overview.md) viene aggiornato e 
 
 ## <a name="supported-updates"></a>Aggiornamenti supportati
 
-Per Site Recovery componenti, sono supportate le versioni N-4, dove N è la versione rilasciata più recente. Questi report sono riepilogati nella tabella seguente.
+Per Site Recovery componenti, sono supportate le versioni N-4, dove N è la versione rilasciata più recente. Questi sono riepilogati nella tabella seguente.
 
 **Aggiornamento** |  **Configurazione unificata** | **OVA del server di configurazione** | **Agente del servizio Mobility** | **Provider di Site Recovery** | **Agente di Servizi di ripristino**
 --- | --- | --- | --- | --- | ---

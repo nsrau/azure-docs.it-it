@@ -50,6 +50,16 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matrice di supporto per l'agente MARS
           href: backup-support-matrix-mars-agent.md
+    - name: Security
+      items:
+        - name: Controllo degli accessi in base al ruolo
+          href: backup-rbac-rs-vault.md
+        - name: Sicurezza per i carichi di lavoro cloud
+          href: backup-azure-security-feature-cloud.md
+        - name: Sicurezza per i backup ibridi
+          href: backup-azure-security-feature.md
+        - name: Criteri di sicurezza integrati
+          href: backup-security-controls.md
     - name: Domande frequenti
       items:
         - name: Domande frequenti - Insieme di credenziali di Servizi di ripristino
@@ -68,20 +78,12 @@
           href: backup-azure-monitor-alert-faq.md
     - name: Architettura del backup
       href: backup-architecture.md
-    - name: Controllo degli accessi in base al ruolo
-      href: backup-rbac-rs-vault.md
-    - name: Sicurezza per i carichi di lavoro cloud
-      href: backup-azure-security-feature-cloud.md
-    - name: Sicurezza per i backup ibridi
-      href: backup-azure-security-feature.md
     - name: Configurare il backup offline
       href: backup-azure-backup-import-export.md
     - name: Backup offline per DPM e server di Backup di Azure
       href: backup-azure-backup-server-import-export-.md
     - name: Sostituire la libreria di nastri
       href: backup-azure-backup-cloud-as-tape.md
-    - name: Criteri di sicurezza integrati
-      href: backup-security-controls.md
 - name: Procedure
   items:
     - name: Server di backup di Azure

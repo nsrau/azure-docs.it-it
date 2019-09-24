@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615677"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219900"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed di modifiche in Azure Cosmos DB - panoramica
 
@@ -35,14 +35,14 @@ La funzionalità è attualmente supportata dalle API e dagli SDK client Cosmos D
 
 | **Driver client** | **Interfaccia della riga di comando di Azure** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin**|**API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | ND | Sì | No | No | Sì | No |
-|Java|ND|Sì|No|No|Sì|No|
-|Python|ND|Yes|No|No|Sì|No|
-|Node/JS|ND|Sì|No|No|Sì|No|
+| .NET | NA | Yes | No | No | Yes | No |
+|Java|NA|Yes|No|No|Yes|No|
+|Python|NA|Yes|No|No|Yes|No|
+|Node/JS|NA|Yes|No|No|Yes|No|
 
 ## <a name="change-feed-and-different-operations"></a>Feed di modifiche e operazioni diverse
 
-Oggi, si vedranno tutte le operazioni nel feed di modifiche. La funzionalità con cui è possibile controllare il feed di modifiche per operazioni specifiche, ad esempio solo gli aggiornamenti e non gli inserimenti non è ancora disponibile. È possibile aggiungere un "soft marker" sull'elemento per aggiornamenti e filtrare in base a esso durante l'elaborazione di elementi nel feed di modifiche. Attualmente, le eliminazioni non vengono registrate nel feed di modifiche. In modo simile all'esempio precedente, è possibile aggiungere un soft marker per gli elementi da eliminare, ad esempio, è possibile aggiungere all'elemento un attributo denominato "eliminato" e impostarlo su "true" e impostare un TTL nell'elemento, in modo che possa essere eliminato automaticamente. È possibile leggere il feed di modifiche per gli elementi cronologici, ad esempio, gli elementi che sono stati aggiunti cinque anni fa. Se il documento non è stato eliminato, è possibile leggere il feed di modifiche fino all'origine del contenitore.
+Oggi, si vedranno tutte le operazioni nel feed di modifiche. La funzionalità con cui è possibile controllare il feed di modifiche per operazioni specifiche, ad esempio solo gli aggiornamenti e non gli inserimenti non è ancora disponibile. È possibile aggiungere un "soft marker" sull'elemento per aggiornamenti e filtrare in base a esso durante l'elaborazione di elementi nel feed di modifiche. Attualmente, le eliminazioni non vengono registrate nel feed di modifiche. In modo simile all'esempio precedente, è possibile aggiungere un soft marker per gli elementi da eliminare, ad esempio, è possibile aggiungere all'elemento un attributo denominato "eliminato" e impostarlo su "true" e impostare un TTL nell'elemento, in modo che possa essere eliminato automaticamente. È possibile leggere il feed delle modifiche per gli elementi cronologici (la modifica più recente corrispondente all'elemento, non include le modifiche intermedie), ad esempio gli elementi che sono stati aggiunti cinque anni fa. Se il documento non è stato eliminato, è possibile leggere il feed di modifiche fino all'origine del contenitore.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>Ordinamento degli elementi nel feed di modifiche
 
@@ -126,4 +126,4 @@ Il feed di modifiche è disponibile per ogni chiave di partizione logica nel con
 
 * [Opzioni per la lettura di feed di modifiche](read-change-feed.md)
 * [Feed di modifiche con Funzioni di Azure](change-feed-functions.md)
-* [Uso del processore del feed delle modifiche](change-feed-processor.md)
+* [Uso del processore dei feed di modifiche](change-feed-processor.md)

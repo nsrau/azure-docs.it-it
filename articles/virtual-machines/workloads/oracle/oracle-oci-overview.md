@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 4628955998ab8b289a429cdfb85e23f7f97b0b40
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101422"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241011"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluzioni di applicazioni Oracle che integrano Microsoft Azure e l'infrastruttura cloud Oracle (anteprima)
 
@@ -28,7 +28,7 @@ Microsoft e Oracle hanno collaborato per offrire connettività tra cloud a bassa
 Grazie a questa connettività tra cloud, è possibile partizionare un'applicazione multilivello per eseguire il livello di database in Oracle Cloud Infrastructure (OCI) e l'applicazione e altri livelli in Microsoft Azure. L'esperienza è simile all'esecuzione dell'intero stack della soluzione in un unico Cloud. 
 
 > [!IMPORTANT]
-> Questa funzionalità tra cloud è attualmente in anteprima e le [limitazioni si applicano](#preview-limitations). Per abilitare la connettività a bassa latenza tra Azure e OCI, per questa funzionalità è necessario che la sottoscrizione di Azure sia prima elencata in bianco. È necessario iscriversi all'anteprima completando questo breve [modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)di questionario. Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. È anche possibile contattare il rappresentante Microsoft per abilitare questa versione di anteprima. L'accesso alla funzionalità di anteprima è soggetto alla disponibilità e limitato da Microsoft a sua esclusiva discrezione. Il completamento del sondaggio non garantisce l'accesso. Questa versione di anteprima viene fornita senza un contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per informazioni dettagliate, vedere le condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per Microsoft Azure anteprime. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Questa funzionalità tra cloud è attualmente in anteprima e le [limitazioni si applicano](#preview-limitations). Per abilitare la connettività a bassa latenza tra Azure e OCI, per questa funzionalità è necessario che la sottoscrizione di Azure sia prima elencata in bianco. È necessario iscriversi all'anteprima completando questo breve [modulo di questionario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. È anche possibile contattare il rappresentante Microsoft per abilitare questa versione di anteprima. L'accesso alla funzionalità di anteprima è soggetto alla disponibilità e limitato da Microsoft a sua esclusiva discrezione. Il completamento del sondaggio non garantisce l'accesso. Questa versione di anteprima viene fornita senza un contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per informazioni dettagliate, vedere le condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per Microsoft Azure anteprime. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 Se si è interessati alla distribuzione di soluzioni Oracle interamente nell'infrastruttura di Azure, vedere [le immagini di VM Oracle e la relativa distribuzione in Microsoft Azure](oracle-vm-solutions.md).
 
@@ -50,7 +50,7 @@ Il diagramma seguente è una panoramica di alto livello della soluzione connessa
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
-* La connettività tra cloud in anteprima è limitata all'area Stati Uniti orientali di Azure (eastus) e all'area OCI Ashburn (US-Ashburn-1).
+* La connettività tra cloud in versione di anteprima è limitata alle aree degli Stati Uniti orientali di Azure (eastus) & Regno Unito meridionale (uksouth) e di Ashburn (Stati Uniti orientali) & Londra (Regno Unito meridionale). Per Regno Unito meridionale, usare il dominio di disponibilità 1 (AD 1) in OCI quando si distribuisce l'interconnessione per le latenze più basse.
 
 ## <a name="networking"></a>Rete
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c38b23849eef535b17657f48c1c50cc998f72f
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 412bfee12e50b66a780f33b2bca8c4ecc61d83f7
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155015"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219345"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -62,13 +62,11 @@ gli utenti in questo ruolo possono creare registrazioni di applicazioni quando l
 
 Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non password e aggiornare le password per tutti gli utenti. Gli amministratori dell'autenticazione possono richiedere agli utenti di eseguire di nuovo la registrazione con credenziali non basate su password esistenti (ad esempio, l'autenticazione a più fattori o FIDO) e revocare l'autenticazione **a più**fattori nel dispositivo, che richiede l'autenticazione a più fattori al successivo accesso degli utenti che non sono amministratori o assegnati solo i ruoli seguenti:
 
-* Amministratore dell'autenticazione
-* Ruoli con autorizzazioni di lettura nella directory
+* Amministratore autenticazione
+* Ruolo con autorizzazioni di lettura nella directory
 * Mittente dell'invito guest
 * Ruolo con autorizzazioni di lettura per il Centro messaggi
-* Lettore di report
-
-Il ruolo di amministratore dell'autenticazione è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Ruolo con autorizzazioni di lettura per i report
 
 > [!IMPORTANT]
 > gli utenti con questo ruolo possono modificare le credenziali di utenti che possono avere accesso a dati sensibili, informazioni private o configurazioni critiche sia all'interno che all'esterno di Azure Active Directory. La modifica delle credenziali di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Esempio:
@@ -219,11 +217,11 @@ gli utenti con questo ruolo possono gestire gli inviti per gli utenti guest di A
 
 gli utenti con questo ruolo possono modificare le password, invalidare i token di aggiornamento, gestire le richieste di servizio e monitorare l'integrità dei servizi. Invalidando un token di aggiornamento si impone all'utente di eseguire di nuovo l'accesso. Gli amministratori del supporto tecnico possono reimpostare le password e invalidare i token di aggiornamento di altri utenti che non sono amministratori o assegnati solo ai ruoli seguenti:
 
-* Ruoli con autorizzazioni di lettura nella directory
+* Ruolo con autorizzazioni di lettura nella directory
 * Mittente dell'invito guest
 * Amministratore del supporto tecnico
 * Ruolo con autorizzazioni di lettura per il Centro messaggi
-* Lettore di report
+* Ruolo con autorizzazioni di lettura per i report
 
 > [!IMPORTANT]
 > gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Esempio:
@@ -274,7 +272,7 @@ Non usare. Questo ruolo è deprecato e verrà rimosso da Azure AD in futuro. Il 
 
 Gli utenti con questo ruolo hanno la possibilità di gestire le password in modo limitato. Questo ruolo non concede la possibilità di gestire le richieste di servizio o di monitorare l'integrità del servizio. Gli amministratori delle password possono reimpostare le password di altri utenti che non sono amministratori o membri dei soli ruoli seguenti:
 
-* Ruoli con autorizzazioni di lettura nella directory
+* Ruolo con autorizzazioni di lettura nella directory
 * Mittente dell'invito guest
 * Amministratore password
 
@@ -403,7 +401,7 @@ Gli utenti con questo ruolo possono creare utenti e gestire tutti gli aspetti de
 | --- | --- |
 |Autorizzazioni generiche|<p>Creare utenti e gruppi</p><p>Creare e gestire visualizzazioni utente</p><p>Gestire ticket di supporto di Office<p>Aggiornare i criteri di scadenza delle password|
 |<p>Su tutti gli utenti, inclusi tutti gli amministratori</p>|<p>Gestire licenze</p><p>Gestire tutte le proprietà utente, ad eccezione del Nome dell'entità utente</p>
-|Solo sugli utenti non amministratori o in uno dei seguenti ruoli di amministratore con limitazioni:<ul><li>Ruoli con autorizzazioni di lettura nella directory<li>Mittente dell'invito guest<li>Amministratore del supporto tecnico<li>Ruolo con autorizzazioni di lettura per il Centro messaggi<li>Lettore di report<li>Amministratore utenti|<p>Eliminare e ripristinare</p><p>Disattivare e attivare</p><p>Invalidare i token di aggiornamento</p><p>Gestire tutte le proprietà utente, incluso il Nome dell'entità utente</p><p>Reimposta password</p><p>Aggiornare le chiavi dispositivo (FIDO)</p>
+|Solo sugli utenti non amministratori o in uno dei seguenti ruoli di amministratore con limitazioni:<ul><li>Ruolo con autorizzazioni di lettura nella directory<li>Mittente dell'invito guest<li>Amministratore del supporto tecnico<li>Ruolo con autorizzazioni di lettura per il Centro messaggi<li>Ruolo con autorizzazioni di lettura per i report<li>Amministratore utenti|<p>Eliminare e ripristinare</p><p>Disattivare e attivare</p><p>Invalidare i token di aggiornamento</p><p>Gestire tutte le proprietà utente, incluso il Nome dell'entità utente</p><p>Reimposta password</p><p>Aggiornare le chiavi dispositivo (FIDO)</p>
 
 > [!IMPORTANT]
 > gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Esempio:
@@ -1512,31 +1510,31 @@ Gli ID dei modelli di ruolo vengono usati principalmente dagli utenti API Graph 
 
 DisplayName grafico | Nome visualizzato portale di Azure | directoryRoleTemplateId
 ----------------- | ------------------------- | -------------------------
-Amministratore di applicazioni | Amministratore di applicazioni | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
-Sviluppatore di applicazioni | Sviluppatore di applicazioni | CF1C38E5-3621-4004-A7CB-879624DCED7C
-Amministratore dell'autenticazione | Amministratore autenticazione | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Amministratore applicazione | Amministratore applicazione | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
+Sviluppatore applicazione | Sviluppatore applicazione | CF1C38E5-3621-4004-A7CB-879624DCED7C
+Amministratore autenticazione | Amministratore autenticazione | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Amministratore Azure Information Protection | Amministratore di Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Amministratore flusso utente B2C | Amministratore flusso utente B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
-Amministratore attributi flussi utente B2C | Amministratore attributi flussi utente B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
-Amministratore keyset IEF B2C | Amministratore keyset IEF B2C | aaf43236-0c0d-4d5f-883a-6955382ac081
-Amministratore criteri IEF B2C | Amministratore criteri IEF B2C | 3edaf663-341e-4475-9f94-5c398ef6c070
+Amministratore degli attributi dei flussi utente B2C | Amministratore degli attributi dei flussi utente B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
+Amministratore dei set di chiavi IEF B2C | Amministratore dei set di chiavi IEF B2C | aaf43236-0c0d-4d5f-883a-6955382ac081
+Amministratore dei criteri IEF B2C | Amministratore dei criteri IEF B2C | 3edaf663-341e-4475-9f94-5c398ef6c070
 Amministratore fatturazione | Amministratore fatturazione | b0f54661-2d74-4c50-afa3-1ec803f12efe
-Amministratore applicazione cloud | Amministratore di applicazioni cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
+Amministratore applicazione cloud | Amministratore applicazione cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
 Amministratore dispositivo cloud | Amministratore dispositivo cloud | 7698a772-787b-4ac8-901f-60d6b08affd2
 Amministratore società | Amministratore globale | 62e90394-69f5-4237-9190-012177145e10
 Amministratore di conformità | Amministratore di conformità | 17315797-102d-40b4-93e0-432062caca18
 Amministratore dei dati sulla conformità | Amministratore dei dati sulla conformità | e6d1a23a-da11-4be4-9570-befc86d067a7
-Amministratore di accesso condizionale | Amministratore di accesso condizionale | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
+Amministratore accesso condizionale | Amministratore accesso condizionale | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 Amministratore del servizio CRM | Amministratore di Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
-Responsabile approvazione per l'accesso a Customer Lockbox | Responsabile approvazione per l'accesso a Customer Lockbox | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+Responsabile approvazione accesso a Customer Lockbox | Responsabile approvazione per l'accesso a Customer Lockbox | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Amministratore di Desktop Analytics | Amministratore di Desktop Analytics | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-Amministratori di dispositivi | Amministratori di dispositivi | 9f06204d-73c1-4d4c-880a-6edb90606fd8
+Amministratori dispositivo | Amministratori di dispositivi | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Aggiunta di dispositivi | Aggiunta al dispositivo | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Gestione dispositivi | Gestione dispositivi | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Utenti di dispositivi | Utenti dispositivo | d405c6df-0af8-4e3b-95e4-4d06e542189e
-Ruoli con autorizzazioni di lettura nella directory | Ruoli con autorizzazioni di lettura nella directory | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
+Ruolo con autorizzazioni di lettura nella directory | Ruoli con autorizzazioni di lettura nella directory | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Account di sincronizzazione della directory | Account di sincronizzazione della directory | d29b2b05-8046-44ba-8758-1e26182fcf32
-Writer di directory | Writer di directory | 9360feb5-f418-4baa-8175-e2a00bac4301
+Ruolo con autorizzazioni di scrittura nella directory | Ruolo con autorizzazioni di scrittura nella directory | 9360feb5-f418-4baa-8175-e2a00bac4301
 Amministratore del servizio Exchange | Amministratore di Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Amministratore dei provider di identità esterni | Amministratore dei provider di identità esterni | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Mittente dell'invito guest | Mittente dell'invito guest | 95e79109-95c0-4d8e-aee3-d01accf2d47b
@@ -1552,18 +1550,18 @@ Supporto partner - Livello 2 | Supporto partner - Livello 2 | e00e864a-17c5-4a4b
 Amministratore password | Amministratore password | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Amministratore del servizio Power BI | Amministratore di Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
 Amministratore autenticazione con privilegi | Amministratore autenticazione con privilegi | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
-Amministratore dei ruoli con privilegi | Amministratore dei ruoli con privilegi | e8611ab8-c189-46e8-94e1-60213ab1f814
-Lettore di report | Lettore di report | 4a5d8f65-41da-4de4-8968-e035b65339cf
+Amministratore ruolo con privilegi | Amministratore ruolo con privilegi | e8611ab8-c189-46e8-94e1-60213ab1f814
+Ruolo con autorizzazioni di lettura per i report | Ruolo con autorizzazioni di lettura per i report | 4a5d8f65-41da-4de4-8968-e035b65339cf
 Amministratore della ricerca | Amministratore della ricerca | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
 Editor della ricerca | Editor della ricerca | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
-Amministratore della sicurezza | Amministratore della sicurezza | 194ae4cb-b126-40b2-bd5b-6091b380977d
+Amministratore della protezione | Amministratore della protezione | 194ae4cb-b126-40b2-bd5b-6091b380977d
 Operatore per la sicurezza | Operatore per la sicurezza | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Ruolo con autorizzazioni di lettura per la sicurezza | Ruolo con autorizzazioni di lettura per la sicurezza | 5d6b6bb7-de71-4623-b4af-96380a352509
-Amministratore del supporto servizio | Amministratore dei servizi | f023fd81-a637-4b56-95fd-791ac0226033
+Amministratore del supporto servizio | Amministratore del servizio | f023fd81-a637-4b56-95fd-791ac0226033
 Amministratore del servizio SharePoint | Amministratore di SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Amministratore comunicazioni Teams | Amministratore comunicazioni Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
-Tecnico di supporto comunicazioni Teams | Tecnico di supporto comunicazioni Teams | f70938a0-fc10-4177-9e90-2178f8765737
-Specialista di supporto comunicazioni Teams | Specialista di supporto comunicazioni Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
+Tecnico supporto comunicazioni Teams | Tecnico supporto comunicazioni Teams | f70938a0-fc10-4177-9e90-2178f8765737
+Specialista supporto comunicazioni Teams | Specialista supporto comunicazioni Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Amministratore del servizio Teams | Amministratore del servizio Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Utente | Utente | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Amministratore account utente | Amministratore utenti | fe930be7-5e62-47db-91af-98c3a49a38b1
@@ -1573,7 +1571,7 @@ Aggiunta di dispositivi all'area di lavoro | Aggiunta di dispositivi all'area di
 
 I ruoli seguenti non devono essere usati. Questi ruoli sono stati deprecati e verranno rimossi da Azure Active Directory in futuro.
 
-* Amministratore di licenze ad hoc
+* Amministratore licenze ad hoc
 * Aggiunta di dispositivi
 * Gestione dispositivi
 * Utenti di dispositivi

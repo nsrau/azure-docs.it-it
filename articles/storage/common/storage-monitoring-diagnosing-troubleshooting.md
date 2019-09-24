@@ -4,16 +4,16 @@ description: Usare funzionalità quali l'analisi dell'archiviazione, la registra
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2017
+ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 08c19daa0af226834ea70db8847e1637c2373351
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 34aa4ff6c54b34acf865af0b57c3dfa7945a637c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855360"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212828"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -101,6 +101,8 @@ La sezione "[Appendici]" include informazioni sull'utilizzo di altri strumenti q
 Per chi ha familiarità con il monitoraggio delle prestazioni di Windows, le metriche di archiviazione di Azure corrispondono ai contatori di Windows Performance Monitor. Metriche di archiviazione comprende un set completo di metriche (contatori nella terminologia di Performance Monitor di Windows), tra cui la disponibilità del servizio, il numero totale di richieste al servizio e la percentuale di richieste eseguite correttamente. Per l'elenco completo delle metriche disponibili, vedere [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/azure/hh343264.aspx). È possibile specificare se si vuole che il servizio di archiviazione raccolga e aggreghi le metriche ogni ora o ogni minuto. Per altre informazioni sulle modalità di abilitazione delle metriche e sul monitoraggio degli account di archiviazione, vedere [Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica](https://go.microsoft.com/fwlink/?LinkId=510865).
 
 È possibile scegliere quali metriche orarie visualizzare nel [portale di Azure](https://portal.azure.com) e configurare le regole che inviano una notifica agli amministratori ogni volta che una metrica oraria supera una soglia particolare. Per altre informazioni, vedere [Ricevere notifiche di avviso](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
+
+È consigliabile esaminare [monitoraggio di Azure per l'archiviazione](../../azure-monitor/insights/storage-insights-overview.md) (anteprima). Si tratta di una funzionalità di monitoraggio di Azure che offre un monitoraggio completo degli account di archiviazione di Azure offrendo una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di archiviazione di Azure. Non è necessario abilitare o configurare elementi ed è possibile visualizzare immediatamente queste metriche dai grafici interattivi predefiniti e da altre visualizzazioni incluse.
 
 Il servizio di archiviazione raccoglie le metriche usando la procedura migliore, ma potrebbe non registrare tutte le operazioni di archiviazione.
 
@@ -520,7 +522,7 @@ Voci del log:
 | 07b26a5d-... |Risposta ricevuta. Codice stato = 200, ID richiesta = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione. |
 | 07b26a5d-... |Download del corpo della risposta. |
-| 07b26a5d-... |Operazione completata. |
+| 07b26a5d-... |Operazione completata correttamente. |
 | 07b26a5d-... |Avvio di richieste sincrone in https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |In attesa di risposta. |
@@ -538,7 +540,7 @@ Voci del log:
 | e2d06d78-... |Risposta ricevuta. Codice stato = 404, ID richiesta = 353ae3bc-..., Content-MD5 = , ETag =. |
 | e2d06d78-... |Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione. |
 | e2d06d78-... |Download del corpo della risposta. |
-| e2d06d78-... |Operazione completata. |
+| e2d06d78-... |Operazione completata correttamente. |
 | e2d06d78-... |Avvio di richieste asincrone in https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |In attesa di risposta. |
@@ -560,7 +562,7 @@ Se l'applicazione client tenta di usare una chiave SAS che non include le autori
 
 La tabella che segue mostra un esempio di messaggio del log lato server generato dal file di log della registrazione dell'archiviazione:
 
-| NOME | Valore |
+| Attività | Value |
 | --- | --- |
 | Orario di inizio richiesta | 2014-05-30T06:17:48.4473697Z |
 | Tipo di operazione     | GetBlobProperties            |

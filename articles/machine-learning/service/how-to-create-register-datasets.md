@@ -11,20 +11,20 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: d2b9e53fc6c58f0477e252c751e25a99bdbfba42
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 7a6a2c35360f59c8c2e3d0a75e646ae76c0c9de2
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200094"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218293"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creare e accedere ai set di impostazioni (anteprima) in Azure Machine Learning
 
 In questo articolo si apprenderà come creare set di dati Azure Machine Learning (anteprima) e come accedere ai dati da esperimenti locali o remoti.
 
-Con Azure Machine Learning set di impostazioni è possibile: 
+Con Azure Machine Learning set di impostazioni è possibile:
 
-* **Conservare una sola copia dei dati nella risorsa di archiviazione a** cui fanno riferimento i set di dati. 
+* **Conservare una sola copia dei dati nella risorsa di archiviazione a** cui fanno riferimento i set di dati.
 
 * **Accedere facilmente ai dati durante il training del modello** senza doversi preoccupare delle stringhe di connessione o dei percorsi dati.
 
@@ -34,7 +34,7 @@ Con Azure Machine Learning set di impostazioni è possibile:
 
 Per creare e usare i set di impostazioni, è necessario:
 
-* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
+* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md)
 
@@ -45,7 +45,7 @@ Per creare e usare i set di impostazioni, è necessario:
 
 ## <a name="dataset-types"></a>Tipi di set di dati
 
-I set di impostazioni sono suddivisi in due tipi in base al modo in cui gli utenti li utilizzano nel training. 
+I set di impostazioni sono suddivisi in due tipi in base al modo in cui gli utenti li utilizzano nel training.
 
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. Questo consente di materializzare i dati in un frame di dati Pandas o Spark. Un `TabularDataset` oggetto può essere creato da file CSV, TSV, parquet, risultati della query SQL e così via. Per un elenco completo, consultare la [documentazione](https://aka.ms/tabulardataset-api-reference).
 
@@ -53,7 +53,7 @@ I set di impostazioni sono suddivisi in due tipi in base al modo in cui gli uten
 
 Per ulteriori informazioni sulle modifiche future dell'API, vedere [qui](https://aka.ms/tabular-dataset).
 
-## <a name="create-datasets"></a>Creare set di dati 
+## <a name="create-datasets"></a>Creare set di dati
 
 Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. I dati rimangono nella posizione esistente, pertanto non è previsto alcun costo aggiuntivo per l'archiviazione.
 
@@ -81,9 +81,9 @@ datastore = Datastore.get(workspace, datastore_name)
 
 ### <a name="create-tabulardatasets"></a>Crea TabularDatasets
 
-TabularDatasets può essere creato tramite l'SDK o usando la pagina di destinazione dell'area di lavoro (anteprima). Un timestamp può essere specificato da una colonna nei dati oppure i dati del modello di percorso vengono archiviati in per abilitare un tratto timeseries, che consente un filtro semplice ed efficiente in base al tempo. 
+TabularDatasets può essere creato tramite l'SDK o usando la pagina di destinazione dell'area di lavoro (anteprima). Un timestamp può essere specificato da una colonna nei dati oppure i dati del modello di percorso vengono archiviati in per abilitare un tratto timeseries, che consente un filtro semplice ed efficiente in base al tempo.
 
-#### <a name="using-the-sdk"></a>Uso dell'SDK 
+#### <a name="using-the-sdk"></a>Uso dell'SDK
 
 Usare il [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) metodo sulla `TabularDatasetFactory` classe per leggere i file in formato CSV o TSV e creare un TabularDataset non registrato. Se si esegue la lettura da più file, i risultati verranno aggregati in una rappresentazione tabulare.
 
@@ -120,7 +120,7 @@ from azureml.core import Dataset, Datastore
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
-Usare il [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) metodo sulla `TabularDataset` classe per consentire un filtro semplice ed efficiente in base al tempo. Altri esempi e dettagli sono disponibili [qui](http://aka.ms/azureml-tsd-notebook). 
+Usare il [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) metodo sulla `TabularDataset` classe per consentire un filtro semplice ed efficiente in base al tempo. Altri esempi e dettagli sono disponibili [qui](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
 # create a TabularDataset with timeseries trait
@@ -132,20 +132,20 @@ dataset = Dataset.Tabular.from_parquet_files(path=datastore_path, partition_form
 # set coarse timestamp to the virtual column created, and fine grain timestamp from a column in the data
 dataset = dataset.with_timestamp_columns(fine_grain_timestamp='datetime', coarse_grain_timestamp='coarse_time')
 
-# filter with timeseries trait specific methods 
+# filter with timeseries trait specific methods
 data_slice = dataset.time_before(datetime(2019, 1, 1))
 data_slice = dataset.time_after(datetime(2019, 1, 1))
-data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1)) 
-data_slice = dataset.time_recent(timedelta(weeks=1, days=1))                  
+data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
+data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### <a name="using-the-workspace-landing-page"></a>Uso della pagina di destinazione dell'area di lavoro 
+#### <a name="using-the-workspace-landing-page"></a>Uso della pagina di destinazione dell'area di lavoro
 
 Accedere alla pagina di [destinazione dell'area di lavoro](https://ml.azure.com) per creare un set di dati tramite l'esperienza Web. Attualmente, la pagina di destinazione dell'area di lavoro supporta solo la creazione di TabularDatasets.
 
-Nell'animazione seguente viene illustrato come creare un set di dati nella pagina di destinazione dell'area di lavoro. 
+Nell'animazione seguente viene illustrato come creare un set di dati nella pagina di destinazione dell'area di lavoro.
 
-Per prima cosa, selezionare **set di impostazioni** nella sezione **Asset** del riquadro sinistro. Selezionare quindi **+ Crea set di dati** per scegliere l'origine del set di dati. può provenire da file locali, archivio dati o URL Web pubblici. Le **Impostazioni e l'anteprima** e i moduli **dello schema** vengono popolati in modo intelligente in base al tipo di file. Selezionare **Avanti** per esaminarli o per configurare ulteriormente il set di dati prima della creazione. Selezionare **fine** per completare la creazione del set di dati. 
+Per prima cosa, selezionare **set di impostazioni** nella sezione **Asset** del riquadro sinistro. Selezionare quindi **+ Crea set di dati** per scegliere l'origine del set di dati. può provenire da file locali, archivio dati o URL Web pubblici. Le **Impostazioni e l'anteprima** e i moduli **dello schema** vengono popolati in modo intelligente in base al tipo di file. Selezionare **Avanti** per esaminarli o per configurare ulteriormente il set di dati prima della creazione. Selezionare **fine** per completare la creazione del set di dati.
 
 ![Creare un set di dati con l'interfaccia utente](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
@@ -166,7 +166,7 @@ animal_ds = Dataset.File.from_files(path=datastore_paths)
 web_paths = [
             'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
-           ]          
+           ]
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
@@ -183,11 +183,11 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ```
 
 >[!Note]
-> I set di impostazioni creati tramite la pagina di destinazione dell'area di lavoro vengono registrati automaticamente nell'area di lavoro. 
+> I set di impostazioni creati tramite la pagina di destinazione dell'area di lavoro vengono registrati automaticamente nell'area di lavoro.
 
 ## <a name="version-datasets"></a>Set di impostazioni di versione
 
-È possibile registrare un nuovo set di dati con lo stesso nome creando una nuova versione. La versione del set di dati è un modo per aggiungere segnalibri allo stato dei dati, in modo da poter applicare una versione specifica del set di dati per la sperimentazione o la riproduzione futura. Scenari tipici da considerare per il controllo delle versioni: 
+È possibile registrare un nuovo set di dati con lo stesso nome creando una nuova versione. La versione del set di dati è un modo per aggiungere segnalibri allo stato dei dati, in modo da poter applicare una versione specifica del set di dati per la sperimentazione o la riproduzione futura. Scenari tipici da considerare per il controllo delle versioni:
 * Quando sono disponibili nuovi dati per la ripetizione del training.
 * Quando si applicano approcci diversi per la preparazione dei dati o la progettazione di funzionalità.
 
@@ -196,7 +196,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
-           ]          
+           ]
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_paths)
 
 # create a new version of titanic_ds

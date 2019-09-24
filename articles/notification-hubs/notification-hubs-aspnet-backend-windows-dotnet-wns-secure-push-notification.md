@@ -2,9 +2,9 @@
 title: Push sicuro degli hub di notifica di Azure
 description: Informazioni su come inviare notifiche push sicure in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET.
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
 ms.service: notification-hubs
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 2f18b4793d205cfa019f501549dedfcd62f501e7
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 5d1cf2a74d4fe85bb85eb244da3e3757f36fba0a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348599"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212041"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Inviare notifiche push in modo sicuro da Hub di notifica di Azure
 
@@ -168,7 +170,7 @@ Il passaggio successivo consiste nella creazione del componente push in backgrou
     ![][13]
 16. Scegliere **Save All** (Salva tutto) nel menu **File**.
 
-## <a name="run-the-application"></a>Esecuzione dell'applicazione
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
 Per eseguire l'applicazione, eseguire le operazioni seguenti:
 

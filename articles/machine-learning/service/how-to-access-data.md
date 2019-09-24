@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: eaed6e7b0ea044ba39a1055ad14de13d5deb9b05
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: ecd1212385473e33d05f38f67db5708bff060daa
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035302"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218251"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accedere ai dati nei servizi di archiviazione di Azure
 
@@ -60,7 +60,7 @@ Gli esempi seguenti illustrano come registrare un contenitore BLOB di Azure o un
                                                       create_if_not_exists=True)
   ```
 
-+ Per un **archivio dati della condivisione file**di Azure [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-), usare. Ad esempio: 
++ Per un **archivio dati della condivisione file**di Azure [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-), usare. Esempio: 
   ```Python
   datastore = Datastore.register_azure_file_share(workspace=ws, 
                                                   datastore_name='your datastore name', 
@@ -132,7 +132,7 @@ Il `target_path` parametro specifica il percorso nella condivisione file o nel c
 
 In alternativa, caricare un elenco di singoli file nell'archivio dati tramite `upload_files()` il metodo.
 
-### <a name="download"></a>Download
+### <a name="download"></a>Scarica
 
 Analogamente, è possibile scaricare dati da un archivio dati al file system locale.
 
@@ -147,14 +147,15 @@ Il `target_path` parametro è il percorso della directory locale in cui scaricar
 <a name="train"></a>
 ## <a name="access-your-data-during-training"></a>Accedi ai dati durante il training
 
-Per accedere ai dati durante il training, è possibile scaricare o montare i dati dai servizi di archiviazione di Azure nella destinazione di calcolo tramite archivi dati.
+> [!IMPORTANT]
+> L'uso di [Azure Machine Learning set di dati (anteprima)](how-to-create-register-datasets.md) è il nuovo metodo consigliato per accedere ai dati nel training. I set di dati forniscono funzioni che caricano dati tabulari in Pandas o dataframe di Spark e la possibilità di scaricare o montare file di qualsiasi formato da BLOB di Azure, file di Azure, Azure Data Lake generazione 1, Azure Data Lake generazione 2, Azure SQL, Azure PostgreSQL. Altre informazioni su [come eseguire il training con i set di impostazioni](how-to-train-with-datasets.md).
 
 La tabella seguente elenca i metodi che indicano alla destinazione di calcolo come usare gli archivi dati durante le esecuzioni. 
 
 Modo|Metodo|Descrizione|
 ----|-----|--------
 Montaggio| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Usare per montare l'archivio dati nella destinazione di calcolo.
-Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Usare per scaricare il contenuto dell'archivio dati nel percorso specificato da `path_on_compute`. <br> Questo download si verifica prima dell'esecuzione.
+Scarica|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Usare per scaricare il contenuto dell'archivio dati nel percorso specificato da `path_on_compute`. <br> Questo download si verifica prima dell'esecuzione.
 Caricamento|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| Usare per caricare un file dal percorso specificato da `path_on_compute` nell'archivio dati. <br> Questo caricamento si verifica dopo l'esecuzione.
 
 Per fare riferimento a una cartella o un file specifico nell'archivio dati e renderlo disponibile nella destinazione di calcolo, usare il metodo [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#path-path-none--data-reference-name-none-) datastore.
@@ -234,7 +235,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Azure Machine Learning offre diversi modi per usare i modelli per l'assegnazione dei punteggi. Alcuni di questi metodi non forniscono l'accesso agli archivi dati. Usare la tabella seguente per informazioni sui metodi che consentono di accedere agli archivi dati durante il Punteggio:
 
-| Metodo | Accesso all'archivio dati | DESCRIZIONE |
+| Metodo | Accesso all'archivio dati | Descrizione |
 | ----- | :-----: | ----- |
 | [Stima in batch](how-to-run-batch-predictions.md) | ✔ | Eseguire stime su grandi quantità di dati in modo asincrono. |
 | [Servizio Web](how-to-deploy-and-where.md) | &nbsp; | Distribuire i modelli come servizio Web. |

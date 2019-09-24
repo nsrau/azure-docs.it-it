@@ -1,32 +1,29 @@
 ---
-title: Connettere i dati di Office 365 ad Anteprima di Azure Sentinel | Microsoft Docs
+title: Connettere i dati di Office 365 ad Azure Sentinel | Microsoft Docs
 description: Informazioni su come connettere i dati di Office 365 ad Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: ff7c862e-2e23-4a28-bd18-f2924a30899d
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 39245cb43dacfeec2b647936d5e5790d4a185467
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 481acfdccb54077f18c1f4bf0375c0dc66e66007
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019008"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240658"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Connettere i dati dai log di Office 365
 
-> [!IMPORTANT]
-> Azure Sentinel è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 È possibile trasmettere i log di controllo da [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) ad Azure Sentinel con un solo clic. È possibile trasmettere i log di controllo da più tenant a una singola area di lavoro in Sentinel di Azure. Il connettore log attività di Office 365 fornisce informazioni approfondite sulle attività dell'utente in corso. Si otterranno informazioni su varie azioni utente, amministratore, sistema e criteri ed eventi di Office 365. Connettendo i log di Office 365 ad Azure Sentinel è possibile usare questi dati per visualizzare i dashboard, creare avvisi personalizzati e migliorare il processo di analisi.
 
@@ -36,8 +33,8 @@ ms.locfileid: "70019008"
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario essere un amministratore globale o un amministratore della sicurezza nel tenant
-- Nel computer da cui è stato eseguito l'accesso ad Azure Sentinel per creare la connessione, assicurarsi che la porta 4433 sia aperta per il traffico Web.
-- Se il tenant non ha una licenza Office 365 E3 o Office 365 E5, è necessario abilitare il controllo unificato per la tenda usando uno di questi processi:
+- Nel computer da cui è stato eseguito l'accesso ad Azure Sentinel per creare la connessione, assicurarsi che la porta 4433 sia aperta per il traffico Web. Questa porta può essere chiusa nuovamente dopo che la connessione è stata eseguita correttamente.
+- Se il tenant non ha una licenza Office 365 E3 o Office 365 E5, è necessario abilitare il controllo unificato nel tenant usando uno di questi processi:
     - [Usare il cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) e abilitare il parametro "UnifiedAuditLogIngestionEnabled").
     - [O usando l'interfaccia utente di Centro sicurezza e conformità](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
 
@@ -58,5 +55,5 @@ ms.locfileid: "70019008"
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Office 365 ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

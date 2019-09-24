@@ -1,6 +1,6 @@
 ---
-title: Connetti i dati di Symantec ICDx all'anteprima di Azure Sentinel | Microsoft Docs
-description: Informazioni su come connettere dati Symantec ICDx Sentinel di Azure.
+title: Connettere i dati di Symantec ICDx ad Azure Sentinel | Microsoft Docs
+description: Informazioni su come connettere i dati di Symantec ICDx ad Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,71 +13,69 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/04/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 74169b4bd2654fb0ff7ec4cdb2f2b02c0f4cc6e8
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 0250780c85041c07fabf7d5ed268d1f3cdb63e18
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673743"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240644"
 ---
-# <a name="connect-your-symantec-icdx-appliance"></a>Connettersi all'appliance Symantec ICDx 
+# <a name="connect-your-symantec-icdx-appliance"></a>Connettere il dispositivo Symantec ICDx 
 
-> [!IMPORTANT]
-> Azure Sentinel è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Symantec ICDx connector consente di connettere facilmente tutti i log della soluzione sicurezza Symantec con la Sentinel di Azure, per visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi. Questo ti offre informazioni più dettagliate sulla rete dell'organizzazione e migliorare le funzionalità di sicurezza. L'integrazione tra Symantec ICDx e Azure Sentinel vengono utilizzate le API REST.
+
+Symantec ICDx Connector consente di connettere facilmente tutti i log della soluzione Symantec Security con la sentinella di Azure, di visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi. In questo modo è possibile ottenere informazioni più dettagliate sulla rete dell'organizzazione e migliorare le funzionalità di sicurezza. L'integrazione tra Symantec ICDx e Azure Sentinel usa l'API REST.
 
 
 > [!NOTE]
-> I dati verranno archiviati nella posizione geografica dell'area di lavoro in cui in esecuzione Azure Sentinel.
+> I dati verranno archiviati nella posizione geografica dell'area di lavoro in cui viene eseguito Azure Sentinel.
 
-## <a name="configure-and-connect-symantec-icdx"></a>Configurare e connettersi Symantec ICDx 
+## <a name="configure-and-connect-symantec-icdx"></a>Configura e connetti Symantec ICDx 
 
-Symantec ICDx può integrare ed esportare i log direttamente da Azure Sentinel.
+Symantec ICDx può integrare ed esportare i log direttamente in Sentinel di Azure.
 
-1. Aprire la Console di gestione ICDx per aggiungere i server d'inoltro con Microsoft Azure Sentinel (Log Analitica).
-2. Nella barra di spostamento ICDx, fare clic su **configurazione**. 
-3. In cima il **Configuration** schermata, fare clic su **server d'inoltro**.
-4. Sotto **i server d'inoltro**, accanto a Microsoft Azure Sentinel (Log Analitica), fare clic su **Add**. 
-4. Nel **Microsoft Azure (Log Analitica) di Sentinel** finestra, fare clic su **Mostra avanzate**. 
-5. Nella parte superiore di espansa della finestra di Microsoft Azure Sentinel (Log Analitica), eseguire le operazioni seguenti:
-    -   **Nome**: Digitare un nome per il server d'inoltro con non più di 30 caratteri. Scegliere un nome univoco e significativo. Questo nome viene visualizzato nell'elenco dei server d'inoltro nel **Configuration** dello schermo e nei dashboard nel **Dashboard** dello schermo. Ad esempio:  Microsoft Azure Log Analitica orientale. Questo campo è obbligatorio.
-    -   **Descrizione**: Digitare una descrizione per il server d'inoltro. Questa descrizione viene visualizzata anche nell'elenco dei server d'inoltro sul **configurazione** dello schermo. Include dettagli quali il tipo di eventi inoltrati e il gruppo che è necessario esaminare i dati.
-    -   **Tipo di avvio**: Selezionare il metodo di avvio per la configurazione del server d'inoltro. Le opzioni disponibili sono manuali e automatici.<br>Il valore predefinito è automatico. 
-6. Sotto **eventi**, eseguire le operazioni seguenti: 
-    - **Origine**: Selezionare uno o più archivi da cui inoltrare gli eventi. È possibile selezionare archivi dell'agente di raccolta attivo, inclusi l'archivio comune, isolati (orfani) gli archivi dell'agente di raccolta (vale a dire, gli archivi per gli agenti di raccolta che sono stati eliminati), gli archivi ricevitore ICDx o l'archivio di sistema. <br>Il valore predefinito è un archivio comune.
+1. Aprire la console di gestione di ICDx per aggiungere Microsoft Azure server d'inoltri Sentinel (Log Analytics).
+2. Sulla barra di spostamento di ICDx fare clic su **configurazione**. 
+3. Nella parte superiore della schermata di **configurazione** fare clic su **server d'inoltri**.
+4. In **Server**d'installazione, accanto a Microsoft Azure Sentinel (log Analytics), fare clic su **Aggiungi**. 
+4. Nella finestra **Microsoft Azure Sentinel (log Analytics)** fare clic su **Mostra avanzate**. 
+5. Nella parte superiore della finestra espansa a Microsoft Azure Sentinel (Log Analytics) eseguire le operazioni seguenti:
+    -   **Nome**: Digitare un nome per il server d'inoltre che non contenga più di 30 caratteri. Scegliere un nome univoco e significativo. Questo nome viene visualizzato nell'elenco dei server d'inoltri nella schermata di **configurazione** e nei dashboard nella schermata del **Dashboard** . Esempio: Microsoft Azure Log Analytics est. Questo campo è obbligatorio.
+    -   **Descrizione**: Digitare una descrizione per il server d'avanzamento. Questa descrizione viene visualizzata anche nell'elenco dei server d'inoltri nella schermata di **configurazione** . Includere i dettagli, ad esempio il tipo di evento da trasmettere e il gruppo che deve ispezionare i dati.
+    -   **Tipo di avvio**: Selezionare il metodo di avvio per la configurazione del server d'avvio. Le opzioni disponibili sono manuale e automatico.<br>Il valore predefinito è Automatic. 
+6. In **eventi**eseguire le operazioni seguenti: 
+    - **Origine**: Selezionare uno o più archivi da cui inviare gli eventi. È possibile selezionare gli archivi degli agenti di raccolta attivi (incluso l'archivio comune), gli archivi degli agenti di raccolta orfani (ovvero gli archivi per gli agenti di raccolta eliminati), gli archivi del ricevitore ICDx o l'archivio di sistema. <br>Il valore predefinito è archivio comune.
       > [!NOTE]
-      > Gli archivi ricevitore ICDx vengono elencati separatamente, in base al nome. 
+      > Gli archivi del ricevitore ICDx sono elencati separatamente, in base al nome. 
  
-    - **Filtro**: Aggiungere un filtro che specifica il subset di eventi da inoltrare. Eseguire una di queste operazioni:
-        - Per selezionare una condizione di filtro, fare clic su un tipo, attributo, operatore e valore. 
-        - Nel campo del filtro, esaminare la condizione di filtro. È possibile modificarlo direttamente nel campo o eliminarlo in base alle esigenze.
-        - Fare clic su e o o da aggiungere alla condizione di filtro.
+    - **Filtro**: Aggiungere un filtro che specifichi il subset di eventi da trasmettere. Eseguire una di queste operazioni:
+        - Per selezionare una condizione di filtro, fare clic su un tipo, un attributo, un operatore e un valore. 
+        - Nel campo filtro esaminare la condizione di filtro. È possibile modificarlo direttamente nel campo o eliminarlo, se necessario.
+        - Fare clic su AND o OR per aggiungere alla condizione di filtro.
         - È anche possibile fare clic su query salvate per applicare una query salvata.
-    - **Inclusi gli attributi**: Digitare l'elenco delimitato da virgole di attributi da includere nei dati inoltrati. Gli attributi inclusi hanno la precedenza sugli attributi esclusi.
-    - **Attributi esclusi**: Digitare l'elenco delimitato da virgole di attributi da escludere dai dati inoltrati.
-    - **Dimensioni batch**: Selezionare il numero di eventi da inviare al batch. Le opzioni sono 10, 50, 100, 500 e 1000.<br>Il valore predefinito è 100. 
-    - **Limite di frequenza**: Selezionare la frequenza con cui vengono inoltrati gli eventi, espressa in eventi al secondo. Le opzioni disponibili sono illimitate, 500, 1000, 10000, 5000. <br> Il valore predefinito è 5000. 
-7. Sotto **destinazione Azure**, eseguire le operazioni seguenti: 
-    - **ID area di lavoro**: Incollare l'ID dell'area di lavoro dal codice seguente. Questo campo è obbligatorio.
-    - **Chiave primaria**: Incollare la chiave primaria dal codice seguente. Questo campo è obbligatorio.
-    - **Nome Log personalizzato**: Digitare il nome log personalizzato in Microsoft Azure portale Log Analitica area di lavoro a cui si desidera inoltrare gli eventi. Il valore predefinito è SymantecICDx. Questo campo è obbligatorio.
-8. Fare clic su *salvare* per completare la configurazione di server d'inoltro. 
-9. Per avviare il server d'inoltro, sotto **le opzioni**, fare clic su **ulteriori** e quindi **avviare**.
-10. Per usare lo schema appropriato nel Log Analitica per gli eventi di Symantec ICDx, cercare **SymantecICDx_CL**.
+    - **Attributi inclusi**: Digitare l'elenco delimitato da virgole di attributi da includere nei dati di cui è stato inviato il server. Gli attributi inclusi hanno la precedenza sugli attributi esclusi.
+    - **Attributi esclusi**: Digitare l'elenco delimitato da virgole di attributi da escludere dai dati di cui è stato inviato il server.
+    - **Dimensioni batch**: Consente di selezionare il numero di eventi da inviare per batch. Le opzioni disponibili sono 10, 50, 100, 500 e 1000.<br>Il valore predefinito è 100. 
+    - **Limite di velocità**: Consente di selezionare la frequenza con cui vengono trasmessi gli eventi, espressi come eventi al secondo. Le opzioni disponibili sono illimitato, 500, 1000, 5000, 10000. <br> Il valore predefinito è 5000. 
+7. In **destinazione di Azure**eseguire le operazioni seguenti: 
+    - **ID area di lavoro**: Incollare l'ID area di lavoro riportato di seguito. Questo campo è obbligatorio.
+    - **Chiave primaria**: Incollare la chiave primaria riportata di seguito. Questo campo è obbligatorio.
+    - **Nome log personalizzato**: Digitare il nome del registro personalizzato nella portale di Microsoft Azure area di lavoro Log Analytics in cui si intende eseguire l'invio degli eventi. Il valore predefinito è SymantecICDx. Questo campo è obbligatorio.
+8. Fare clic su *Salva* per completare la configurazione del server d'avanzamento. 
+9. Per avviare il server d'avvio, in **Opzioni**fare clic su **altro** e quindi su **Avvia**.
+10. Per usare lo schema pertinente in Log Analytics per gli eventi di Symantec ICDx, cercare **SymantecICDx_CL**.
 
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività
 
-Potrebbero occorrere fino a 20 minuti fino a quando i log di avvio venga visualizzato nel Log Analitica. 
+Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log Analytics. 
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento è stato descritto come connettere Azure Sentinel di Symantec ICDx. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-- Informazioni su come [ottenere la visibilità di dati e le potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a usare [rilevando minacce con Azure Sentinel](tutorial-detect-threats.md).
+In questo documento si è appreso come connettere Symantec ICDx ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
+- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
+- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

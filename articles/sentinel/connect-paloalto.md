@@ -1,5 +1,5 @@
 ---
-title: Connettere i dati di Palo Alto Networks ad Azure Sentinel Preview | Microsoft Docs
+title: Connettere i dati di Palo Alto Networks ad Azure Sentinel | Microsoft Docs
 description: Informazioni su come connettere i dati di Palo Alto Networks a Sentinel di Azure.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5860e1b1b817985aafd95f6f63d39553489482b9
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 659f36a036d8a165b0c2b28830ae2312adb56c56
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679223"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240232"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Connettere il dispositivo Palo Alto Networks
 
-> [!IMPORTANT]
-> Azure Sentinel è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 È possibile connettere la sentinella di Azure a qualsiasi Appliance Palo Alto Networks salvando i file di log in formato di errore comune syslog. L'integrazione con Sentinel di Azure consente di eseguire facilmente analisi e query nei dati dei file di log da Palo Alto Networks. Per altre informazioni sul modo in cui Azure Sentinel inserisce i dati CEF, vedere [connettere le appliance CEF](connect-common-event-format.md).
 
@@ -47,7 +45,7 @@ Per visualizzare un diagramma di rete di entrambe le opzioni, vedere [Connect Da
 
 ### <a name="deploy-the-agent"></a>Distribuire l'agente 
 
-1. Nel portale di Azure Sentinel fare clic su **connettori dati** e selezionare **Palo Alto Networks** e quindi aprire la **pagina Connector**. 
+1. Nel portale di Azure Sentinel fare clic su **connettori dati** e selezionare **Palo Alto Networks** e quindi **aprire la pagina Connector**. 
 
 1. In **scaricare e installare l'agente syslog**selezionare il tipo di computer, ovvero Azure o in locale. 
 1. Nella schermata **macchine virtuali** visualizzata selezionare il computer che si vuole usare e fare clic su **Connetti**.
@@ -141,5 +139,5 @@ Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log A
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Appliance Palo Alto Networks ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

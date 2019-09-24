@@ -1,6 +1,6 @@
 ---
-title: Connetti i dati di Azure AD all'anteprima di Azure Sentinel | Microsoft Docs
-description: Informazioni su come connettere i dati di Azure Active Directory per Azure Sentinel.
+title: Connettere i dati Azure AD ad Azure Sentinel | Microsoft Docs
+description: Informazioni su come connettere Azure Active Directory dati ad Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5784101c9f2e0dc238ac48c5d0f6fbe4c0dc596f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 43405bd3e97dbee325f0a5ed82c5848880775eee
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620670"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240809"
 ---
-# <a name="connect-data-from-azure-active-directory"></a>Connetti i dati da Azure Active Directory
+# <a name="connect-data-from-azure-active-directory"></a>Connettere i dati da Azure Active Directory
 
-> [!IMPORTANT]
-> Azure Sentinel è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Sentinel Azure consente di raccogliere i dati dai [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) e trasmetterlo in Sentinel di Azure. È possibile scegliere di flusso [i log di accesso](../active-directory/reports-monitoring/concept-sign-ins.md) e [log di controllo](../active-directory/reports-monitoring/concept-audit-logs.md) .
+
+Azure Sentinel consente di raccogliere dati da [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) e di trasmettere i dati in Azure Sentinel. È possibile scegliere di eseguire lo streaming dei log di [accesso](../active-directory/reports-monitoring/concept-sign-ins.md) e dei [log di controllo](../active-directory/reports-monitoring/concept-audit-logs.md) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se si desidera esportare i dati di accesso da Active Directory, è necessario avere una licenza Azure AD P1 o P2.
+- Se si desidera esportare i dati di accesso da Active Directory, è necessario disporre di una licenza Azure AD P1 o P2.
 
-- Utente con global admin o della sicurezza le autorizzazioni di amministratore nel tenant di cui che si vuole trasmettere i log dal.
+- Utente con autorizzazioni di amministratore globale o di amministratore della sicurezza per il tenant da cui si vogliono trasmettere i log.
 
-- Per essere in grado di visualizzare lo stato della connessione, è necessario disporre dell'autorizzazione per accedere ai log di diagnostica di Azure AD. 
+- Per poter visualizzare lo stato della connessione, è necessario disporre dell'autorizzazione per accedere ai log di diagnostica Azure AD. 
 
 
 ## <a name="connect-to-azure-ad"></a>Connessione ad Azure AD
 
-1. In Azure Sentinel, selezionare **connettori di dati** e quindi fare clic sui **Azure Active Directory** riquadro.
+1. In Sentinel di Azure selezionare **connettori dati** , quindi fare clic sul riquadro **Azure Active Directory** .
 
-2. Accanto i log si vuole trasmettere in Sentinel di Azure, fare clic su **Connect**.
+1. Accanto ai log che si vuole trasmettere in Azure Sentinel, fare clic su **Connetti**.
 
-6. Per usare lo schema appropriato nel Log Analitica per gli avvisi di Azure AD, cercare **SigninLogs** e **AuditLogs**.
+1. È possibile scegliere se si desidera che gli avvisi Azure AD generino automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti** selezionare **Abilita** per abilitare la regola analitica predefinita che crea automaticamente gli eventi imprevisti dagli avvisi generati nel servizio di sicurezza connesso. È quindi possibile modificare questa regola in **Analytics** e quindi **le regole attive**.
+
+1. Per utilizzare lo schema pertinente in Log Analytics per gli avvisi di Azure AD, cercare **SigninLogs** e **AuditLogs**.
 
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento è stato descritto come connettere Azure AD per Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-- Informazioni su come [ottenere la visibilità di dati e le potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a usare [rilevando minacce con Azure Sentinel](tutorial-detect-threats.md).
+In questo documento si è appreso come connettere Azure AD ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
+- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
+- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).

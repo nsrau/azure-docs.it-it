@@ -3,9 +3,9 @@ title: Sicurezza di Hub di notifica
 description: In questo argomento viene illustrata la sicurezza degli hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 6506177c-e25c-4af7-8508-a3ddca9dc07c
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: jowargo
-ms.openlocfilehash: 73a6d0eaab286dec9d02bb55eb75f0781bcffcc4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 05/31/2019
+ms.openlocfilehash: 753493100bbdb34255574656a47217560e2d321a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891579"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213052"
 ---
 # <a name="notification-hubs-security"></a>Sicurezza di Hub di notifica
 
@@ -43,7 +45,7 @@ Analogamente ad altre entità, le operazioni degli hub di notifica sono consenti
 
 | Attestazione   | Descrizione                                          | Operazioni consentite |
 | ------- | ---------------------------------------------------- | ------------------ |
-| Ascolto  | Creare o aggiornare, leggere ed eliminare singole registrazioni | Creare o aggiornare una registrazione<br><br>Leggere una registrazione<br><br>Leggere tutte le registrazioni per un handle<br><br>Eliminare una registrazione |
+| Essere in ascolto  | Creare o aggiornare, leggere ed eliminare singole registrazioni | Creare o aggiornare una registrazione<br><br>Leggere una registrazione<br><br>Leggere tutte le registrazioni per un handle<br><br>Eliminare una registrazione |
 | Invio    | Inviare messaggi all'hub di notifica                | Invia messaggio |
 | Gestisci  | CRUD negli hub di notifica (incluso l'aggiornamento delle credenziali PNS e le chiavi di sicurezza) e lettura delle registrazioni basata sui tag |Hub di notifica di creazione, aggiornamento, lettura ed eliminazione<br><br>Leggere le registrazioni per tag |
 

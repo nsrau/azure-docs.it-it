@@ -8,26 +8,26 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: heidist
-ms.openlocfilehash: 44a8136c4e02d4eceb5b11231bbbfed010159e75
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: e3240ca40b9dcf866c5e4a5cf570b5575b7586d8
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172866"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240363"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Come indicizzare set di dati di grandi dimensioni in Ricerca di Azure
 
-Man mano che i volumi di dati crescono o si modificano le esigenze, è possibile che le strategie di indicizzazione semplici o predefinite non siano più produttive. Ricerca di Azure offre diversi metodi per gestire set di dati di grandi dimensioni, dalla strutturazione di una richiesta di caricamento dati all'uso di un indicizzatore specifico dell'origine per carichi di lavoro pianificati e distribuiti.
+Man mano che i volumi di dati crescono o si modificano le esigenze, è possibile che le strategie di indicizzazione semplici o predefinite non siano più pratiche. Ricerca di Azure offre diversi metodi per gestire set di dati di grandi dimensioni, dalla strutturazione di una richiesta di caricamento dati all'uso di un indicizzatore specifico dell'origine per carichi di lavoro pianificati e distribuiti.
 
-Le stesse tecniche usate per le grandi quantità di dati sono valide anche per i processi a esecuzione prolungata. In particolare, i passaggi descritti nell'[indicizzazione parallela](#parallel-indexing) sono utili per le operazioni di indicizzazione che fanno un uso intensivo di risorse di calcolo, come l'analisi delle immagini o l'elaborazione del linguaggio naturale nelle [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md).
+Le stesse tecniche si applicano anche ai processi con esecuzione prolungata. In particolare, i passaggi descritti nell'[indicizzazione parallela](#parallel-indexing) sono utili per le operazioni di indicizzazione che fanno un uso intensivo di risorse di calcolo, come l'analisi delle immagini o l'elaborazione del linguaggio naturale nelle [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md).
 
 Nelle sezioni seguenti vengono esaminate tre tecniche per l'indicizzazione di grandi quantità di dati.
 
 ## <a name="option-1-pass-multiple-documents"></a>Opzione 1: Passare più documenti
 
-Uno dei meccanismi più semplici per l'indicizzazione di set di dati di grandi dimensioni consiste nell'inviare più documenti o record in un'unica richiesta. Se le dimensioni dell'intero payload sono inferiori a 16 MB, una richiesta può gestire fino a 1000 documenti in un'operazione di caricamento in blocco. Questi limiti si applicano se si usa l' [API REST](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) o [INDEXBATCH](https://docs.microsoft.com/otnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) in .NET SDK. Per entrambe le API, è necessario creare il pacchetto di 1000 documenti nel corpo di ogni richiesta.
+Uno dei meccanismi più semplici per l'indicizzazione di set di dati di grandi dimensioni consiste nell'inviare più documenti o record in un'unica richiesta. Se le dimensioni dell'intero payload sono inferiori a 16 MB, una richiesta può gestire fino a 1000 documenti in un'operazione di caricamento in blocco. Questi limiti si applicano se si usa la classe [Add Documents (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) o [index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) in .NET SDK. Per entrambe le API, è necessario creare il pacchetto di 1000 documenti nel corpo di ogni richiesta.
 
-L'indicizzazione batch viene implementata per le singole richieste tramite REST o .NET o mediante gli indicizzatori. Alcuni indicizzatori funzionano con limitazioni diverse. In particolare, l'indicizzazione BLOB di Azure limita le dimensioni dei batch a 10 documenti in considerazione delle dimensioni medie superiori dei documenti. Per gli indicizzatori basati sull'[API REST di creazione indicizzatore](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), è possibile impostare l'argomento `BatchSize` per personalizzare questa impostazione in base alle caratteristiche dei dati. 
+L'indicizzazione batch viene implementata per le singole richieste tramite REST o .NET o mediante gli indicizzatori. Alcuni indicizzatori funzionano con limitazioni diverse. In particolare, l'indicizzazione BLOB di Azure limita le dimensioni dei batch a 10 documenti in considerazione delle dimensioni medie superiori dei documenti. Per gli indicizzatori basati su [Crea indicizzatore (REST)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), è possibile impostare l' `BatchSize` argomento per personalizzare questa impostazione in modo che corrisponda meglio alle caratteristiche dei dati. 
 
 > [!NOTE]
 > Per ridurre le dimensioni del documento, evitare di aggiungere dati non Queryable a un indice. Le immagini e altri dati binari non sono direttamente disponibili per la ricerca e non devono quindi essere archiviati nell'indice. Per integrare i dati non disponibili per query nei risultati della ricerca, occorre definire un campo non disponibile per la ricerca che archivia un riferimento URL alla risorsa.
@@ -40,11 +40,11 @@ L'aumento delle repliche e delle partizioni è costituito da eventi fatturabili 
 
 ## <a name="option-3-use-indexers"></a>Opzione 3: Usare gli indicizzatori
 
-Gli [indicizzatori](search-indexer-overview.md) vengono usati per eseguire la ricerca per indicizzazione delle origini dati esterne sulle piattaforme dati di Azure supportate per il contenuto ricercabile Sebbene non siano appositamente destinati all'indicizzazione su larga scala, diverse funzionalità degli indicizzatori sono particolarmente utili in presenza di set di dati di grandi dimensioni:
+Gli [indicizzatori](search-indexer-overview.md) vengono usati per eseguire la ricerca per indicizzazione delle origini dati di Azure supportate. Sebbene non siano appositamente destinati all'indicizzazione su larga scala, diverse funzionalità degli indicizzatori sono particolarmente utili in presenza di set di dati di grandi dimensioni:
 
 + Le utilità di pianificazione consentono di suddividere l'indicizzazione in intervalli regolari in modo da distribuirne l'esecuzione nel tempo.
 + L'indicizzazione pianificata può ripartire dall'ultimo punto di arresto noto. Se una ricerca per indicizzazione su un'origine dati non viene completata in 24 ore, l'indicizzatore riprenderà l'indicizzazione il secondo giorno a partire dal punto di interruzione.
-+ Il partizionamento dei dati in singole origini dati di dimensioni inferiori consente l'elaborazione parallela. È possibile suddividere un set di dati di grandi dimensioni in set di dati più piccoli, quindi creare più definizioni di origini dati indicizzatore che possono essere indicizzate in parallelo.
++ Il partizionamento dei dati in singole origini dati di dimensioni inferiori consente l'elaborazione parallela. È possibile suddividere un set di dati di grandi dimensioni in set di dati più piccoli della piattaforma dati di origine (ad esempio, archiviazione BLOB di Azure o database SQL di Azure) e quindi creare più [oggetti origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) in ricerca di Azure che possono essere indicizzati in parallelo.
 
 > [!NOTE]
 > Gli indicizzatori sono specifici dell'origine dati, quindi l'uso di indicizzatori è possibile solo per origini dati selezionate in Azure: [database SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [archivio BLOB](search-howto-indexing-azure-blob-storage.md), [archivio tabelle](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).

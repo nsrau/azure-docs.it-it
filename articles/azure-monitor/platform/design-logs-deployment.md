@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: 5d6e68b4b17c31056ed1f96a779823fc856962fb
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034730"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211989"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di monitoraggio di Azure
 
@@ -36,6 +36,8 @@ Un'area di lavoro Log Analytics offre:
 
 Questo articolo fornisce una panoramica dettagliata delle considerazioni relative alla progettazione e alla migrazione, alla panoramica del controllo di accesso e alla comprensione delle implementazioni di progettazione consigliate per l'organizzazione IT.
 
+
+
 ## <a name="important-considerations-for-an-access-control-strategy"></a>Considerazioni importanti per una strategia di controllo di accesso
 
 Identificare il numero di aree di lavoro necessarie è influenzato da uno o più dei requisiti seguenti:
@@ -47,7 +49,7 @@ Identificare il numero di aree di lavoro necessarie è influenzato da uno o più
 Oggi le organizzazioni IT sono modellate in seguito a un ibrido centralizzato, decentralizzato o tra due strutture. Di conseguenza, i modelli di distribuzione dell'area di lavoro seguenti sono stati comunemente utilizzati per eseguire il mapping a una di queste strutture organizzative:
 
 * **Centralizzata**: Tutti i log vengono archiviati in un'area di lavoro centrale e amministrati da un singolo team, con monitoraggio di Azure che fornisce l'accesso differenziato per Team. In questo scenario, è facile da gestire, eseguire ricerche tra le risorse e i log correlati tra loro. L'area di lavoro può aumentare in modo significativo a seconda della quantità di dati raccolti da più risorse nella sottoscrizione, con un sovraccarico amministrativo aggiuntivo per mantenere il controllo di accesso a utenti diversi.
-* Decentralizzata: Ogni team ha una propria area di lavoro creata in un gruppo di risorse che possiede e gestisce e i dati di log vengono separati per ogni risorsa. In questo scenario, l'area di lavoro può essere mantenuta sicura e il controllo degli accessi è coerente con l'accesso alle risorse, ma è difficile correlare i log. Gli utenti che necessitano di un'ampia visualizzazione di molte risorse non possono analizzare i dati in modo significativo.
+* **Decentralizzata**: Ogni team ha una propria area di lavoro creata in un gruppo di risorse che possiede e gestisce e i dati di log vengono separati per ogni risorsa. In questo scenario, l'area di lavoro può essere mantenuta sicura e il controllo degli accessi è coerente con l'accesso alle risorse, ma è difficile correlare i log. Gli utenti che necessitano di un'ampia visualizzazione di molte risorse non possono analizzare i dati in modo significativo.
 * **Ibrido**: I requisiti di conformità del controllo di sicurezza complicano ulteriormente questo scenario perché molte organizzazioni implementano entrambi i modelli di distribuzione in parallelo. Ciò comporta in genere una configurazione complessa, costosa e difficile da gestire con gap nel code coverage dei log.
 
 Quando si usano gli agenti di Log Analytics per raccogliere dati, è necessario comprendere quanto segue per pianificare la distribuzione dell'agente:
@@ -129,6 +131,19 @@ La *modalità di controllo di accesso* è un'impostazione in ogni area di lavoro
     > Se un utente dispone solo delle autorizzazioni di risorse per l'area di lavoro, può accedere solo all'area di lavoro usando la modalità del contesto delle risorse, presupponendo che la modalità di accesso all'area di lavoro sia impostata per l' **uso delle autorizzazioni di risorse o**
 
 Per informazioni su come modificare la modalità di controllo di accesso nel portale, con PowerShell o usando un modello di Gestione risorse, vedere [configurare la modalità di controllo di accesso](manage-access.md#configure-access-control-mode).
+
+## <a name="ingestion-volume-rate-limit"></a>Limite di velocità del volume di inserimento
+
+Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. La soglia della frequenza di inserimento predefinita è impostata su **500 MB/min** per area di lavoro. Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro aprendo una richiesta di supporto.
+ 
+Per ricevere una notifica su tale evento nell'area di lavoro, creare una [regola di avviso di log](alerts-log.md) usando la query seguente con la logica di avviso base su numero di risultati maggiore di zero.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 ## <a name="recommendations"></a>Consigli
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: fbb87843462e7e830fc357e178b41f7262b80e70
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 572255cfcd34b97a6ba0f784f7fc7ed1c0df040a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70099576"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213261"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SUSE Linux Enterprise Server con Azure NetApp Files per le applicazioni SAP
 
@@ -33,15 +33,15 @@ ms.locfileid: "70099576"
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
-[2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -65,20 +65,20 @@ Questo articolo illustra come ottenere la disponibilità elevata per l'applicazi
 Leggere prima di tutto i documenti e le note SAP seguenti:
 
 * [Documentazione di Azure NetApp Files][anf-azure-doc] 
-* Nota SAP [1928533], contenente:  
+* Nota SAP [1928533][1928533], contenente:  
   * Elenco delle dimensioni delle VM di Azure supportate per la distribuzione di software SAP
   * Importanti informazioni sulla capacità per le dimensioni delle VM di Azure
   * Software SAP e combinazioni di sistemi operativi e database supportati
   * Versione del kernel SAP richiesta per Windows e Linux in Microsoft Azure
-* La nota SAP [2015553] elenca i prerequisiti per le distribuzioni di software SAP supportate da SAP in Azure.
-* La nota SAP [2205917] contiene le impostazioni consigliate del sistema operativo per SUSE Linux Enterprise Server for SAP Applications
-* La nota SAP [1944799] contiene linee guida per SAP HANA per SUSE Linux Enterprise Server for SAP Applications
-* La nota SAP [2178632] contiene informazioni dettagliate su tutte le metriche di monitoraggio segnalate per SAP in Azure.
-* La nota SAP [2191498] contiene la versione dell'agente host SAP per Linux necessaria in Azure.
-* La nota SAP [2243692] contiene informazioni sulle licenze SAP in Linux in Azure.
-* La nota SAP [1984787] contiene informazioni generali su SUSE Linux Enterprise Server 12.
-* La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
-* [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
+* La nota SAP [2015553][2015553] elenca i prerequisiti per le distribuzioni di software SAP supportate da SAP in Azure.
+* La nota SAP [2205917][2205917] contiene le impostazioni consigliate del sistema operativo per SUSE Linux Enterprise Server for SAP Applications
+* La nota SAP [1944799][1944799] contiene linee guida per SAP HANA per SUSE Linux Enterprise Server for SAP Applications
+* La nota SAP [2178632][2178632] contiene informazioni dettagliate su tutte le metriche di monitoraggio segnalate per SAP in Azure.
+* La nota SAP [2191498][2191498] contiene la versione dell'agente host SAP per Linux necessaria in Azure.
+* La nota SAP [2243692][2243692] contiene informazioni sulle licenze SAP in Linux in Azure.
+* La nota SAP [1984787][1984787] contiene informazioni generali su SUSE Linux Enterprise Server 12.
+* La nota SAP [1999351][1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
+* SAP community wiki] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) include tutte le note SAP necessarie per Linux.
 * [Pianificazione e implementazione di macchine virtuali di Azure per SAP in Linux][planning-guide]
 * [Distribuzione di macchine virtuali di Azure per SAP in Linux][deployment-guide]
 * [Distribuzione DBMS di macchine virtuali di Azure per SAP in Linux][dbms-guide]
@@ -786,7 +786,7 @@ Gli elementi seguenti sono preceduti da **[a]** -applicabile sia a pas sia a AAS
 
 ## <a name="install-database"></a>Installare il database
 
-In questo esempio, SAP NetWeaver è installato in SAP HANA. Per questa installazione è possibile usare qualsiasi database supportato. Per altre informazioni su come installare SAP HANA in Azure, vedere. For a list of supported databases, see [SAP Note 1928533][1928533] [disponibilità elevata di SAP Hana in macchine virtuali (VM) di Azure][sap-hana-ha].
+In questo esempio, SAP NetWeaver è installato in SAP HANA. Per questa installazione è possibile usare qualsiasi database supportato. Per altre informazioni su come installare SAP HANA in Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali (VM) di Azure][sap-hana-ha]. Per un elenco dei database supportati, vedere la [Nota SAP 1928533][1928533].
 
 * Eseguire l'installazione dell'istanza del database SAP
 

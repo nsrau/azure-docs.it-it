@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ef501af63628b47bc52d416930c90057569b5de
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 4d4a3eae9ea3931ceb720785bbf458f54689be6e
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035034"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213514"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 
@@ -202,7 +202,7 @@ Di seguito sono riportati alcuni esempi:
         n_cross_validations=5)
     ```
 
-I tre valori `task` di parametro diversi determinano l'elenco di algoritmi da applicare.  Usare i parametri `whitelist` o `blacklist` per modificare ulteriormente le iterazioni con gli algoritmi disponibili da includere o escludere. L'elenco dei modelli supportati è disponibile nella [classe SupportedAlgorithms](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
+I tre valori `task` di parametro diversi determinano l'elenco dei modelli da applicare.  Usare i `whitelist` parametri `blacklist` o per modificare ulteriormente le iterazioni con i modelli disponibili da includere o escludere. L'elenco dei modelli supportati è disponibile nella [classe SupportedModels](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### <a name="primary-metric"></a>Metrica primaria
 Metrica primaria; come illustrato negli esempi precedenti, determina la metrica da usare durante il training del modello per l'ottimizzazione. La metrica primaria che è possibile selezionare è determinata dal tipo di attività scelto. Di seguito è riportato un elenco delle metriche disponibili.
@@ -369,7 +369,7 @@ best_run, fitted_model = automl_run.get_output()
 
 Vedere l'elenco delle funzionalità di pre-elaborazione e di [progettazione automatica delle funzioni](concept-automated-ml.md#preprocess) che si verificano quando pre-elaborazione = true.
 
-Si consideri l'esempio seguente:
+Considerare questo esempio:
 + Sono disponibili 4 funzionalità di input: A (numerico), B (numerico), C (numerico), D (DateTime)
 + La funzione numerica C viene eliminata perché è una colonna ID con tutti i valori univoci
 + Le funzionalità numeriche A e B presentano valori mancanti e pertanto vengono imputate per mezzo

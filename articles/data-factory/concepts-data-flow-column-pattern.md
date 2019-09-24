@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 4df831c1329ab13f19e6ecf979e404d4a90e5f72
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775216"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219755"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Mapping dei flussi di dati modelli di colonna
 
@@ -57,5 +57,5 @@ Compilare le regole usando il generatore di espressioni. Le espressioni restitui
 * `position`posizione ordinale delle colonne nel flusso di dati
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sul [linguaggio delle espressioni](http://aka.ms/dataflowexpressions) del flusso di dati del mapping di ADF per le trasformazioni dei dati
+* Altre informazioni sul [linguaggio delle espressioni](https://aka.ms/dataflowexpressions) del flusso di dati del mapping di ADF per le trasformazioni dei dati
 * Usare i modelli di colonna nella [trasformazione sink](data-flow-sink.md) e [selezionare trasformazione](data-flow-select.md) con mapping basato su regole

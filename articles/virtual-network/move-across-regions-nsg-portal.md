@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 0dd460f7ed829bf82c285b80e59778dacd882404
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 839e608aa4bba26712ae5b0c160da40db279bbc9
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059320"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219195"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Spostare il gruppo di sicurezza di rete di Azure (NSG) in un'altra area usando il portale di Azure
 
@@ -27,7 +27,7 @@ I gruppi di sicurezza di Azure non possono essere spostati da un'area all'altra.
 - I gruppi di sicurezza di rete di Azure non possono essere spostati tra le aree.  È necessario associare il nuovo NSG alle risorse nell'area di destinazione.
 
 - Per esportare una configurazione NSG e distribuire un modello per creare un NSG in un'altra area, è necessario il ruolo Collaboratore rete o versione successiva.
-   
+
 - Identificare il layout di rete di origine e tutte le risorse attualmente in uso, Questo layout include ma non è limitato a bilanciamento del carico, indirizzi IP pubblici e reti virtuali.
 
 - Verificare che la sottoscrizione di Azure consenta di creare gruppi nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
@@ -41,7 +41,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Esportare il modello e distribuirlo dal portale
 
-1. Accedere ai**gruppi di risorse** [portale di Azure](http://portal.azure.com) > .
+1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > .
 2. Individuare il gruppo di risorse che contiene il NSG di origine e fare clic su di esso.
 3. Selezionare > **Impostazioni** > **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
@@ -77,19 +77,19 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
             "location": "<target-region>",
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78", 
+                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78",
              }
             }
            ]
 
     ```
-  
+
 11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
-    
+
 12. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
 
     * **Regole di sicurezza** : è possibile modificare le regole distribuite nel NSG di destinazione aggiungendo o rimuovendo regole nella sezione **SecurityRules** del file **template. JSON** :
-    
+
         ```json
            "resources": [
             {
@@ -155,7 +155,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
 
 14. Fare clic su**sottoscrizione** di **base** > per scegliere la sottoscrizione in cui verrà distribuita la NSG di destinazione.
 
-15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito il NSG di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il NSG di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del NSG esistente. 
+15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito il NSG di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il NSG di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del NSG esistente.
 
 16. Il**percorso** di **base** > della verifica è impostato sul percorso di destinazione in cui si desidera distribuire il NSG.
 
@@ -165,7 +165,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
 
 19. Fare clic sul pulsante **Acquista** per distribuire il gruppo di sicurezza di rete di destinazione.
 
-## <a name="discard"></a>Annulla 
+## <a name="discard"></a>Annulla
 
 Se si vuole rimuovere il NSG di destinazione, eliminare il gruppo di risorse che contiene il NSG di destinazione.  A tale scopo, selezionare il gruppo di risorse dal dashboard nel portale e selezionare **Elimina** nella parte superiore della pagina Overview (panoramica).
 

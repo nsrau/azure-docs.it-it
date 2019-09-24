@@ -1,5 +1,5 @@
 ---
-title: Connettere i dati F5 ad Anteprima di Azure Sentinel | Microsoft Docs
+title: Connettere i dati F5 ad Azure Sentinel | Microsoft Docs
 description: Informazioni su come connettere i dati F5 a Sentinel di Azure.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7ad95515ff58e2990102fa2b71d0ce66d4377617
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 64ea16b6e5a2821db4f053928e4b95ba80d177dd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679287"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240019"
 ---
 # <a name="connect-your-f5-appliance"></a>Connettere il dispositivo F5
 
-> [!IMPORTANT]
-> Azure Sentinel è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 È possibile connettere Azure Sentinel a qualsiasi Appliance F5 salvando i file di log come syslog CEF. L'integrazione con Sentinel di Azure consente di eseguire facilmente analisi e query nei dati dei file di log da F5. Per altre informazioni sul modo in cui Azure Sentinel inserisce i dati CEF, vedere [connettere le appliance CEF](connect-common-event-format.md).
 
@@ -130,5 +128,5 @@ Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log A
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere le appliance F5 ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

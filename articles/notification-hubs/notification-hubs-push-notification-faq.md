@@ -3,9 +3,9 @@ title: 'Hub di notifica di Azure: Domande frequenti | Microsoft Docs'
 description: Domande frequenti su progettazione/implementazione di soluzioni di Hub di notifica
 services: notification-hubs
 documentationcenter: mobile
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 keywords: notifica push, notifiche push, notifiche push iOS, notifiche push android, push ios, push android
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: jowargo
-ms.openlocfilehash: a434101a806a810218927cbf0bc24fa0d22c5628
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 5de8c9523e05411a4751766c836b8e99ebb977c1
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488657"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213138"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push con Hub di notifica di Azure: Domande frequenti
 
@@ -69,7 +71,7 @@ Gli SDK server sono disponibili per .NET, Java, Node.js, PHP e Python. Le API di
 
 ### <a name="which-client-platforms-do-you-support"></a>Quali piattaforme client sono supportate?
 
-Le notifiche push sono supportate per [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China ( via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android, e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Esercitazioni introduttive si Hub di notifica].
+Sono supportate le notifiche push per [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Novell ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Esercitazioni introduttive si Hub di notifica].
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Sono supportate le notifiche via SMS, messaggi di posta elettronica o Web?
 
@@ -85,7 +87,7 @@ Se si ha già un back-end dell'app per dispositivi mobili e si vuole solo aggiun
 
 Per informazioni dettagliate sul numero di dispositivi supportati, vedere la pagina [Prezzi di Hub di notifica].
 
-Se ti serve supporto per più di 10 milioni di dispositivi registrati, è necessario partizionare i dispositivi in più istanze di hub.
+Se è necessario il supporto per più di 10 milioni dispositivi registrati, è necessario partizionare i dispositivi su più hub.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Quante notifiche push si può inviare?
 
@@ -195,10 +197,10 @@ Hub di notifica di Azure fornisce numerose funzionalità per la risoluzione dei 
 
 Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel [portale di Azure]. Per informazioni dettagliate sulle metriche, vedere la pagina relativa alle [metriche di Hub di notifica].
 
-È possibile accedere anche a livello di codice le metriche. Per altre informazioni, vedere gli articoli seguenti:
+È anche possibile accedere alle metriche a livello di codice. Per altre informazioni, vedere gli articoli seguenti:
 
-- [Recuperare le metriche di monitoraggio di Azure con .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Questo esempio Usa il nome utente e password. Per usare un certificato, eseguire l'overload del metodo FromServicePrincipal per fornire un certificato come illustrato nella [in questo esempio](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
-- [Recupero di log attività e le metriche per una risorsa](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
+- [Recuperare le metriche di monitoraggio di Azure con .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). In questo esempio vengono utilizzati il nome utente e la password. Per usare un certificato, eseguire l'overload del metodo FromServicePrincipal per fornire un certificato, come illustrato in [questo esempio](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
+- [Recupero di metriche e log attività per una risorsa](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
 - [Procedura dettagliata sull'API REST di monitoraggio di Azure](../azure-monitor/platform/rest-api-walkthrough.md)
 
 

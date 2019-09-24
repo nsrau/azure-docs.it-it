@@ -1,5 +1,5 @@
 ---
-title: Funzionalità di caccia usando i notebook nell'anteprima di Azure Sentinel | Microsoft Docs
+title: Funzionalità di caccia usando i notebook in Sentinel di Azure | Microsoft Docs
 description: Questo articolo descrive come usare i notebook con le funzionalità di ricerca di Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -16,19 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6372a7958caf108903321e5ee87ea6bf1a42271c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5b90ecc1db686b698668b07bd839304b425445ca
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689555"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240535"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Usare i notebook di Jupyter per cercare minacce per la sicurezza
-
-> [!IMPORTANT]
-> Azure Sentinel è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 La base di Azure Sentinel è l'archivio dati. combina le query a prestazioni elevate, lo schema dinamico e le scale a volumi di dati di grandi dimensioni. Il portale di Azure Sentinel e tutti gli strumenti di Azure Sentinel usano un'API comune per accedere a questo archivio dati. La stessa API è disponibile anche per strumenti esterni, ad esempio [Jupyter](https://jupyter.org/) notebook e Python. Mentre molte attività comuni possono essere eseguite nel portale, Jupyter estende l'ambito delle operazioni che è possibile eseguire con questi dati. Combina la programmabilità completa con una vasta raccolta di librerie per l'apprendimento automatico, la visualizzazione e l'analisi dei dati. Questi attributi rendono Jupyter uno strumento accattivante per l'analisi della sicurezza e la ricerca.
 
@@ -74,7 +69,7 @@ Nell'esempio seguente viene creato un progetto Azure Notebooks dal portale di Az
 
    ![Importa notebook](./media/notebooks/sentinel-notebooks-clone.png)
 
-3. Quando si crea un nuovo progetto, è necessario assegnare un nome al progetto. utilizzare il nome predefinito o il tipo in un nuovo progetto. Non selezionare l'opzione **clona** in modo ricorsivo. questa opzione fa riferimento ai repository GitHub collegati. Facendo clic su **Importa** viene avviata la clonazione del contenuto GitHub, che può richiedere alcuni minuti per il completamento.
+3. Quando si crea un nuovo progetto, è necessario assegnare un nome al progetto. utilizzare il nome predefinito o il tipo in un nuovo progetto. Non selezionare l'opzione Clona in modo **ricorsivo** . questa opzione fa riferimento ai repository GitHub collegati. Facendo clic su **Importa** viene avviata la clonazione del contenuto GitHub, che può richiedere alcuni minuti per il completamento.
 
    ![Importa notebook](./media/notebooks/sentinel-create-project.png)
 

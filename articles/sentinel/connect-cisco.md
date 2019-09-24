@@ -1,5 +1,5 @@
 ---
-title: Connettere i dati Cisco ad Anteprima di Azure Sentinel | Microsoft Docs
+title: Connettere i dati Cisco ad Azure Sentinel | Microsoft Docs
 description: Informazioni su come connettere i dati Cisco a Sentinel di Azure.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: e4df594128a119f38c66796d7b00a30420a2a0bd
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 6218d3a53df38e938b7d7805c45facd30f850105
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679336"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240155"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Connettere il dispositivo Cisco ASA 
 
-> [!IMPORTANT]
-> Azure Sentinel è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 È possibile connettere Azure Sentinel a qualsiasi Appliance Cisco ASA. Cisco ASA è integrato in modo nativo con Sentinel di Azure per l'inserimento dei dati. in questo modo, anche se l'appliance Cisco non salva i log come CEF, Azure Sentinel li inserisce nello stesso modo in cui gestisce i log CEF. L'integrazione con Sentinel di Azure consente di eseguire facilmente analisi e query nei dati dei file di log da Cisco ASA. 
 
@@ -131,5 +129,5 @@ Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log A
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Appliance Cisco ASA ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

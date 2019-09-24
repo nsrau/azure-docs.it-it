@@ -1,5 +1,5 @@
 ---
-title: Creare un asset tecnici per un'offerta di macchina virtuale per Azure Marketplace
+title: Creare risorse tecniche per un'offerta di macchina virtuale per Azure Marketplace
 description: Spiega come creare le risorse tecniche necessarie per un'offerta di macchina virtuale in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
-ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1ef00f846dfad76629b0603ab79fba17249417c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938419"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224519"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Creare risorse tecniche per un'offerta di macchina virtuale
 
@@ -34,7 +34,7 @@ Un'immagine di macchina virtuale contiene un disco del sistema operativo e zero 
 
 ## <a name="fundamental-technical-knowledge"></a>Conoscenze tecniche fondamentali
 
-La progettazione, la compilazione e il test di queste risorse richiedono tempo e conoscenze tecniche sia della piattaforma di Azure che delle tecnologie usate per creare l'offerta. Oltre alle conoscenze relative al dominio della soluzione, il team tecnico deve avere il livello di conoscenza delle tecnologie Microsoft indicato di seguito: 
+La progettazione, la compilazione e il test di questi asset richiedono tempo e richiedono conoscenze tecniche sulla piattaforma Azure e sulle tecnologie usate per creare l'offerta. Oltre al dominio della soluzione, il team di progettazione deve conoscere le tecnologie Microsoft seguenti: 
 -   Conoscenza di base di [Servizi di Azure](https://azure.microsoft.com/services/) 
 -   Capacità di [progettare applicazioni di Azure per architetture diverse](https://azure.microsoft.com/solutions/architecture/)
 -   Conoscenza pratica di [Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/), [Archiviazione di Azure](https://azure.microsoft.com/services/?filter=storage) e [Rete di Azure](https://azure.microsoft.com/services/?filter=networking)

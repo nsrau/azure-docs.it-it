@@ -6,21 +6,20 @@ documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 28def73926294a025d70844e535a0856153ae30a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 25ae54ea8dd75fae74d4578b33146483ade53e4c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611925"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240756"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connettere la soluzione esterna usando il formato di evento comune
 
@@ -33,7 +32,7 @@ ms.locfileid: "69611925"
 > [!NOTE] 
 > I dati vengono archiviati nella posizione geografica dell'area di lavoro in cui viene eseguito Azure Sentinel.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 La connessione tra Sentinel di Azure e l'appliance CEF si verifica in tre passaggi:
 
@@ -148,5 +147,5 @@ Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log A
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Appliance CEF ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

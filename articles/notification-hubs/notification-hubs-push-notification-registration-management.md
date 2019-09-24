@@ -3,23 +3,25 @@ title: Gestione delle registrazioni
 description: In questo argomento viene illustrato come registrare i dispositivi con gli hub di notifica al fine di ricevere notifiche push.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: fffa6784702f239e0af0e9e88a4b9937d20b86ed
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 04/08/2019
+ms.openlocfilehash: 0725b4fc80fc3a41491bdb9ed084d33b36b490b8
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488637"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213082"
 ---
 # <a name="registration-management"></a>Gestione delle registrazioni
 
@@ -36,7 +38,7 @@ La registrazione del dispositivo con un hub di notifica viene eseguita tramite u
 La registrazione associa l'handle del servizio di notifica della piattaforma (PNS) per un dispositivo con tag ed eventualmente un modello. L'handle PNS può essere un valore di ChannelURI, un token di dispositivo o un ID di registrazione FCM. I tag vengono usati per instradare le notifiche al set corretto di handle di dispositivo. Per altre informazioni, vedere [Routing ed espressioni tag](notification-hubs-tags-segment-push-message.md). I modelli vengono usati per implementare una trasformazione a livello di singola registrazione. Per altre informazioni, vedere [Modelli](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
-> Hub di notifica di Azure supporta un massimo di 60 tag per ogni dispositivo.
+> Hub di notifica di Azure supporta un massimo di 60 Tag per dispositivo.
 
 ### <a name="installations"></a>Installazioni
 
@@ -45,7 +47,7 @@ Un'installazione è una registrazione avanzata che include un contenitore di pro
 Ecco alcuni vantaggi chiave dell'uso delle installazioni:
 
 - La creazione o l'aggiornamento di un'installazione è completamente idempotente. È quindi possibile riprovare a eseguire l'operazione senza preoccuparsi di registrazioni duplicate.
-- Il modello di installazione supporta un formato di tag speciale (`$InstallationId:{INSTALLATION_ID}`) che consente l'invio di una notifica diretta al dispositivo specifico. Ad esempio, se il codice dell'app imposta un ID di installazione di `joe93developer` per questo dispositivo specifico, uno sviluppatore può di destinazione il dispositivo quando si invia una notifica per il `$InstallationId:{joe93developer}` tag. In questo modo è possibile definire un dispositivo specifico senza dover scrivere codice aggiuntivo.
+- Il modello di installazione supporta un formato di tag`$InstallationId:{INSTALLATION_ID}`speciale () che consente l'invio di una notifica direttamente al dispositivo specifico. Se, ad esempio, il codice dell'app imposta un ID di `joe93developer` installazione per questo particolare dispositivo, uno sviluppatore può fare riferimento `$InstallationId:{joe93developer}` a questo dispositivo quando invia una notifica al tag. In questo modo è possibile fare riferimento a un dispositivo specifico senza dover eseguire altre operazioni di codifica.
 - L'uso delle installazioni consente inoltre di eseguire aggiornamenti parziali delle registrazioni. L'aggiornamento parziale di un'installazione è richiesto con un metodo PATCH che usa lo [standard JSON-Patch](https://tools.ietf.org/html/rfc6902). Questo è utile quando si intende aggiornare i tag nella registrazione. Non è necessario disattivare l'intera registrazione e quindi inviare di nuovo tutti i tag precedenti.
 
 Un'installazione può contenere le proprietà seguenti. Per un elenco completo delle proprietà di installazione, vedere [Creare o sovrascrivere un'installazione con API REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) o [Proprietà Installation](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation).
@@ -92,7 +94,7 @@ Un'installazione può contenere le proprietà seguenti. Per un elenco completo d
 Le registrazioni e le installazioni devono contenere un handle PNS valido per ogni dispositivo/canale. Poiché gli handle PNS possono essere ottenuti solo in un'app client sul dispositivo, un modello consiste nell'eseguire la registrazione direttamente sul dispositivo con l'app client. D'altra parte, le considerazioni sulla sicurezza e la logica di business relativa ai tag potrebbero richiedere di gestire la registrazione del dispositivo nel back-end dell'app.
 
 > [!NOTE]
-> L'API di installazioni non supporta il servizio di Baidu (sebbene l'API di registrazioni non). 
+> L'API di installazione non supporta il servizio Baidu (anche se l'API di registrazione). 
 
 ### <a name="templates"></a>Modelli
 
@@ -317,7 +319,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Codice di esempio per la registrazione con un hub di notifica da un dispositivo tramite un ID di registrazione
 
-Dal back-end dell'app è possibile eseguire operazioni CRUD di base sulle registrazioni. Ad esempio:
+Dal back-end dell'app è possibile eseguire operazioni CRUD di base sulle registrazioni. Esempio:
 
 ```
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");

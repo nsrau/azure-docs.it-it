@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: eda0d6e8fe56b985c3b29fa80cee880444d63741
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: ad7e4c5aaa20722e6158973571fb95eb8d853f4d
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105299"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219799"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-the-azure-portal"></a>Spostare Load Balancer esterni di Azure in un'altra area usando il portale di Azure
 
@@ -27,7 +27,7 @@ I bilanciamenti del carico esterno di Azure non possono essere spostati da un'ar
 - I bilanciamenti del carico esterno di Azure non possono essere spostati tra le aree.  È necessario associare il nuovo servizio di bilanciamento del carico alle risorse nell'area di destinazione.
 
 - Per esportare una configurazione del servizio di bilanciamento del carico esterno e distribuire un modello per creare un servizio di bilanciamento del carico esterno in un'altra area, è necessario il ruolo Collaboratore rete o versione successiva.
-   
+
 - Identificare il layout di rete di origine e tutte le risorse attualmente in uso, Questo layout include ma non è limitato a bilanciamento del carico, gruppi di sicurezza di rete, indirizzi IP pubblici e reti virtuali.
 
 - Verificare che la sottoscrizione di Azure consenta di creare bilanciamenti del carico esterni nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
@@ -43,7 +43,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 ### <a name="export-the-public-ip-template-and-deploy-from-the-portal"></a>Esportare il modello IP pubblico e distribuirlo dal portale
 
-1. Accedere ai**gruppi di risorse** [portale di Azure](http://portal.azure.com) > .
+1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > .
 2. Individuare il gruppo di risorse che contiene l'indirizzo IP pubblico di origine e fare clic su di esso.
 3. Selezionare > **Impostazioni** > **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
@@ -65,7 +65,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
     Fare clic su **Salva** nell'editor.
 
-9.  Fare clic **su modello** **modifica modello** per aprire il file **template. JSON** nell'editor online. >  
+9.  Fare clic **su modello** **modifica modello** per aprire il file **template. JSON** nell'editor online. > 
 
 10. Per modificare l'area di destinazione in cui verrà spostato l'IP pubblico, modificare la proprietà **location** in **Resources**:
 
@@ -90,11 +90,11 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                 "ipTags": []
                }
                }
-             ]             
+             ]
     ```
-  
+
 11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
-    
+
 12. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
 
     * **SKU** : è possibile modificare lo SKU dell'indirizzo IP pubblico nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel file **template. JSON** :
@@ -135,17 +135,17 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
-        
+
         ```
 
         Per ulteriori informazioni sui metodi di allocazione e i valori di timeout di inattività, vedere [creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
- 
+
 13. Fare clic su **Salva** nell'editor online.
 
 14. Fare clic su**sottoscrizione** di **base** > per scegliere la sottoscrizione in cui verrà distribuito l'IP pubblico di destinazione.
 
-15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito l'IP pubblico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per l'indirizzo IP pubblico di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine dell'IP pubblico di origine esistente. 
+15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito l'IP pubblico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per l'indirizzo IP pubblico di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine dell'IP pubblico di origine esistente.
 
 16. Il**percorso** di **base** > della verifica è impostato sul percorso di destinazione in cui si desidera distribuire l'indirizzo IP pubblico.
 
@@ -158,7 +158,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 ### <a name="export-the-external-load-balancer-template-and-deploy-from-the-azure-portal"></a>Esportare il modello del servizio di bilanciamento del carico esterno e distribuirlo dalla portale di Azure
 
-1. Accedere ai**gruppi di risorse** [portale di Azure](http://portal.azure.com) > .
+1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > .
 2. Individuare il gruppo di risorse che contiene il servizio di bilanciamento del carico esterno di origine e fare clic su di esso.
 3. Selezionare > **Impostazioni** > **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
@@ -180,8 +180,8 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
     ```
 
 6.  Per modificare il valore dell'indirizzo IP pubblico di destinazione spostato in precedenza, è innanzitutto necessario ottenere l'ID risorsa e quindi copiarlo e incollarlo nel file **Parameters. JSON** . Per ottenere l'ID:
-    
-    1. Accedere ai**gruppi di risorse** [portale di Azure](http://portal.azure.com) > in un'altra scheda o finestra del browser.
+
+    1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > in un'altra scheda o finestra del browser.
     2. Individuare il gruppo di risorse di destinazione che contiene l'indirizzo IP pubblico spostato dai passaggi precedenti e fare clic su di esso.
     3. Selezionare >**Proprietà** **Impostazioni** > .
     4. Nel pannello a destra evidenziare l' **ID risorsa** e copiarlo negli Appunti.  In alternativa, è possibile fare clic sul pulsante **copia negli Appunti** a destra del percorso dell' **ID risorsa** .
@@ -201,7 +201,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
         ```
     6. Fare clic su **Salva** nell'editor online.
-   
+
 
 7.  Se sono state configurate le regole NAT in uscita e in uscita per il servizio di bilanciamento del carico, in questo file sarà presente una terza voce per l'ID esterno per l'IP pubblico in uscita.  Ripetere i passaggi precedenti nell' **area di destinazione** per ottenere l'ID per l'indirizzo IP pubblico in uscita e incollare tale voce nel file **Parameters. JSON** :
 
@@ -211,15 +211,15 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
             "parameters": {
                 "loadBalancers_myLoadbalancer_ext_name": {
                 "value": "<target-external-lb-name>",
-                
+
             },
                 "publicIPAddresses_myPubIP_in_externalid": {
                 "value": "<target-publicIP-resource-ID>",
-                
+
             },
                 "publicIPAddresses_myPubIP_out_externalid": {
                 "defaultValue": "<target-publicIP-outbound-resource-ID>",
-                
+
             }
         },
     ```
@@ -243,7 +243,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 10. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
 
 11. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
-    
+
     * **SKU** : è possibile modificare lo SKU del servizio di bilanciamento del carico esterno nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel file **template. JSON** :
 
         ```json
@@ -389,10 +389,10 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
          Per ulteriori informazioni sulle regole in uscita, vedere [Load Balancer regole in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
 
 12. Fare clic su **Salva** nell'editor online.
-    
+
 13. Fare clic su**sottoscrizione** di **base** > per scegliere la sottoscrizione in cui verrà distribuito il servizio di bilanciamento del carico esterno di destinazione.
 
-15. Fare clic su**gruppo di risorse** di **base** > per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico esterno di destinazione o scegliere il gruppo di risorse esistente creato in precedenza per l'indirizzo IP pubblico.  Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico esterno di origine esistente. 
+15. Fare clic su**gruppo di risorse** di **base** > per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico esterno di destinazione o scegliere il gruppo di risorse esistente creato in precedenza per l'indirizzo IP pubblico.  Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico esterno di origine esistente.
 
 16. Il**percorso** di **base** > della verifica è impostato sul percorso di destinazione in cui si desidera distribuire il servizio di bilanciamento del carico esterno.
 
@@ -402,7 +402,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 19. Fare clic sul pulsante **Acquista** per distribuire l'indirizzo IP pubblico di destinazione.
 
-## <a name="discard"></a>Annulla 
+## <a name="discard"></a>Annulla
 
 Se si vuole rimuovere l'indirizzo IP pubblico di destinazione e il servizio di bilanciamento del carico esterno, eliminare il gruppo di risorse che contiene l'indirizzo IP pubblico di destinazione e il servizio di bilanciamento del carico esterno.  A tale scopo, selezionare il gruppo di risorse dal dashboard nel portale e selezionare **Elimina** nella parte superiore della pagina Overview (panoramica).
 
