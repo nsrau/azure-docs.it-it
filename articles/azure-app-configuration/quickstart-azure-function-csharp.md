@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5eb9d0631a4d5f4221b5184198290a5109655408
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a15b4e10938c39ba599ffb1ce7437feb788b1115
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326575"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075954"
 ---
 # <a name="quickstart-create-an-azure-function-with-azure-app-configuration"></a>Guida introduttiva: Creare una funzione di Azure con Configurazione app di Azure
 
@@ -55,9 +55,10 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
     Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
-2. Aprire *Function1.cs* e aggiungere un riferimento al provider di Configurazione app .NET Core.
+2. Aprire *Function1.cs* e aggiungere un riferimento al provider di configurazione generale .NET Core e al provider di Configurazione app .NET Core.
 
     ```csharp
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 

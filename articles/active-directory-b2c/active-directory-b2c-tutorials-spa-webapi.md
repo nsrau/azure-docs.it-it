@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b53ce30f4c49580bcd8ad3e259adf0300d8bd4a6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369316"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064685"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'applicazione a pagina singola con Azure Active Directory B2C
 
-Questa esercitazione illustra come chiamare una risorsa API Web ASP.NET Core protetta da Azure Active Directory (Azure AD) B2C da un'applicazione a pagina singola.
+Questa esercitazione illustra come chiamare una risorsa API Web ASP.NET Core protetta da Azure Active Directory B2C (Azure AD B2C) da un'applicazione a pagina singola.
 
 In questa esercitazione si apprenderà come:
 
@@ -41,7 +41,7 @@ In questa esercitazione si apprenderà come:
 Per poter accettare e rispondere a richieste di risorse protette da parte di applicazioni client che presentano un token di accesso, le risorse API Web devono prima essere registrate nel tenant.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Applicazioni** e quindi **Aggiungi**.
 1. Immettere un nome per l'applicazione. Ad esempio, *webapi1*.

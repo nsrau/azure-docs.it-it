@@ -41,7 +41,7 @@ https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-e
 )-ExecutionPolicy.
 - Comando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
 - Parametro facoltativo:
-    - [https://login.microsoftonline.com/consumers/](`-Force`). Ignora la richiesta di conferma.
+    - `-Force`. Ignora la richiesta di conferma.
 
 **Errori di esempio**
 
@@ -92,7 +92,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
     - Comando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
     - Parametri facoltativi:
         - `-Proxy`. Specifica un server proxy per la richiesta.
-        - [https://login.microsoftonline.com/common/](`-Force`). Ignora la richiesta di conferma.
+        - `-Force`. Ignora la richiesta di conferma.
     
     Questo prompt verrà visualizzato se NuGet non è configurato:
         
@@ -109,7 +109,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
     - Riferimenti: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
     - Comando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
     - Parametro facoltativo:
-        - [https://login.microsoftonline.com/consumers/](`-Proxy`). Specifica un server proxy per la richiesta.
+        - `-Proxy`. Specifica un server proxy per la richiesta.
 
     Questo prompt verrà visualizzato se PowerShell Gallery non è attendibile:
 
@@ -127,7 +127,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
     - Comando: `Install-Module -Name PowerShellGet`.
     - Parametri facoltativi:
         - `-Proxy`. Specifica un server proxy per la richiesta.
-        - [https://login.microsoftonline.com/consumers/](`-Force`). Ignora l'avviso "già installato" e installa la versione più recente.
+        - `-Force`. Ignora l'avviso "già installato" e installa la versione più recente.
 
     Questo errore viene visualizzato se non si usa la versione più recente di PowerShellGet:
     
@@ -153,7 +153,7 @@ Con questa procedura viene scaricato il modulo AZ. ApplicationMonitor da PowerSh
         - `-Proxy`. Specifica un server proxy per la richiesta.
         - `-AllowPrerelease`. Consente l'installazione di versioni alfa e beta.
         - `-AcceptLicense`. Ignora la richiesta di accettazione della licenza
-        - [https://login.microsoftonline.com/consumers/](`-Force`). Ignora l'avviso "repository non attendibile".
+        - `-Force`. Ignora l'avviso "repository non attendibile".
 
 ## <a name="download-and-install-the-module-manually-offline-option"></a>Scaricare e installare il modulo manualmente (opzione offline)
 

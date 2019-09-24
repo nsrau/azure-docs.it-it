@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4e36362fd42a147ee900005d84b0af1b4839aae1
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019196"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965141"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
 
@@ -94,7 +94,7 @@ resources:
      cpu: 500m
 ```
 
-L'esempio seguente usa il comando [kubectl autoscale][kubectl-autoscale] per ridimensionare automaticamente il numero di pod nella distribuzione *azure-vote-front*. Se l'utilizzo della CPU supera il 50%, la scalabilità automatica aumenta il numero di pod fino a un massimo di *10* istanze. Viene quindi definito un minimo di *3* istanze per la distribuzione:
+L'esempio seguente usa il comando [kubectl autoscale][kubectl-autoscale] per ridimensionare automaticamente il numero di pod nella distribuzione *azure-vote-front*. Se l'utilizzo medio della CPU tra tutti i pod supera il 50% dell'utilizzo richiesto, la scalabilità automatica aumenta il numero di pod fino a un massimo di *10* istanze. Viene quindi definito un minimo di *3* istanze per la distribuzione:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 09/16/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d4e0d632fe476df159710f800eca3a2a283f7908
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743390"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018296"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
@@ -83,10 +83,22 @@ Per altre informazioni sull'aggiunta di un amministratore di Active Directory, v
 
 ## <a name="set-up-visual-studio"></a>Configurare Visual Studio
 
-Per abilitare lo sviluppo e il debug in Visual Studio, aggiungere l'utente di Azure AD in Visual Studio scegliendo **File** > **Impostazioni account** dal menu e facendo clic su **Aggiungi un account**.
+### <a name="windows"></a>Windows
+Visual Studio per Windows è integrato con Autenticazione di Azure AD. Per abilitare lo sviluppo e il debug in Visual Studio, aggiungere l'utente di Azure AD in Visual Studio scegliendo **File** > **Impostazioni account** dal menu e facendo clic su **Aggiungi un account**.
 
 Per impostare l'utente di Azure AD per l'autenticazione dei servizi di Azure, scegliere **Strumenti** > **Opzioni** dal menu, quindi selezionare **Azure Service Authentication (Autenticazione servizi di Azure)**  > **Selezione account**. Selezionare l'utente di Azure AD aggiunto e fare clic su **OK**.
 
+A questo punto è possibile iniziare a sviluppare l'app ed eseguirne il debug con il database SQL come back-end, usando l'autenticazione di Azure AD.
+
+### <a name="macos"></a>MacOS
+
+Visual Studio per Mac è integrato con Autenticazione di Azure AD. La libreria [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) che si userà in un secondo momento può però usare i token dell'interfaccia della riga di comando di Azure. Per abilitare lo sviluppo e il debug in Visual Studio, è prima necessario [installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nel computer locale.
+
+Dopo aver installato l'interfaccia della riga di comando di Azure nel computer locale, accedere all'interfaccia della riga di comando di Azure con il comando seguente usando l'utente di Azure AD:
+
+```bash
+az login --allow-no-subscriptions
+```
 A questo punto è possibile iniziare a sviluppare l'app ed eseguirne il debug con il database SQL come back-end, usando l'autenticazione di Azure AD.
 
 ## <a name="modify-your-project"></a>Modificare il progetto

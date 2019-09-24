@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 479adf9419cdd6b04e50fa479d47b56762b2bdc6
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e1b69f17d964647944f23f4d16a0a1a5f112b60d
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774624"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036989"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creare una cache HPC di Azure
 
@@ -21,7 +21,7 @@ Usare il portale di Azure per creare la cache.
 
 ## <a name="define-basic-details"></a>Definire i dettagli di base
 
-![screenshot della pagina dei dettagli del progetto nel portale di Azure](media/create-1.png)
+![screenshot della pagina dei dettagli del progetto nel portale di Azure](media/hpc-cache-create-basics.png)
 
 In **Dettagli progetto** selezionare la sottoscrizione e il gruppo di risorse in cui verrà ospitata la cache HPC di Azure. Assicurarsi che la sottoscrizione sia presente nell'elenco di [accesso all'anteprima](hpc-cache-prereqs.md#azure-subscription).
 
@@ -47,7 +47,7 @@ Tenere presente che la velocità effettiva di trasferimento dei dati dipende dal
 
 Per l'archiviazione nella cache, Cache HPC di Azure determina quali file vengono memorizzati nella cache e precaricati per massimizzare le percentuali di riscontri nella cache. Il contenuto della cache viene valutato continuamente e i file vengono spostati nello spazio di archiviazione a lungo termine se vi si accede con minore frequenza. Scegliere una dimensione di archiviazione della cache in grado di ospitare comodamente il set attivo di file di lavoro con spazio aggiuntivo per i metadati e altro overhead.
 
-![screenshot della pagina di determinazione delle dimensioni della cache](media/create-cache-iops.png)
+![screenshot della pagina di determinazione delle dimensioni della cache](media/hpc-cache-create-iops.png)
 
 ## <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -55,19 +55,21 @@ Le destinazioni di archiviazione costituiscono lo spazio di archiviazione back-e
 
 È possibile definire le destinazioni di archiviazione durante la creazione della cache, ma è anche possibile aggiungerle successivamente con il collegamento nella sezione **Configura** della pagina della cache nel portale.
 
-![screenshot della pagina delle destinazioni di archiviazione](media/create-targets.png)
+![screenshot della pagina delle destinazioni di archiviazione](media/hpc-cache-storage-targets-pop.png)
 
 Fare clic sul collegamento **Add storage target** (Aggiungi destinazione archiviazione) per definire i sistemi di archiviazione back-end. Lo spazio di archiviazione può essere costituito da contenitori BLOB di Azure o da sistemi NFS locali.
 
 È possibile definire fino a dieci destinazioni di archiviazione diverse.
 
-Per istruzioni dettagliate sull'aggiunta di una destinazione di archiviazione, vedere [Aggiungere spazio di archiviazione.](hpc-cache-add-storage.md) La procedura è diversa a seconda che si tratti dell'archiviazione BLOB o di esportazioni NFS.
+Le istruzioni dettagliate sull'aggiunta di una destinazione di archiviazione sono incluse in [Aggiungere spazio di archiviazione](hpc-cache-add-storage.md). La procedura è diversa a seconda che si tratti dell'archiviazione BLOB o di esportazioni NFS.
 
-Per entrambi i tipi di archiviazione, è necessario specificare come trovare il sistema di archiviazione back-end (un indirizzo NFS o il nome di un contenitore BLOB) e il percorso dello spazio dei nomi lato client.
+Ecco alcuni suggerimenti: 
 
-Quando si crea una destinazione di archiviazione BLOB, assicurarsi che la cache disponga delle autorizzazioni di accesso all'account di archiviazione, come descritto in [Aggiungere i ruoli di controllo di accesso](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account). Se non si è certi che la configurazione del ruolo abbia esito positivo, creare prima la cache e quindi aggiungere l'archivio BLOB in un secondo momento.
+* Per entrambi i tipi di archiviazione, è necessario specificare come trovare il sistema di archiviazione back-end (un indirizzo NFS o il nome di un contenitore BLOB) e il percorso dello spazio dei nomi lato client.
 
-Quando si crea una destinazione di archiviazione NFS, specificare un [modello di utilizzo](hpc-cache-add-storage.md#choose-a-usage-model). L'impostazione di tale modello consente alla cache di ottimizzare il flusso di lavoro.
+* Quando si crea una destinazione di archiviazione BLOB, assicurarsi che la cache disponga delle autorizzazioni di accesso all'account di archiviazione, come descritto in [Aggiungere i ruoli di controllo di accesso](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account). Se non si è certi che la configurazione del ruolo abbia esito positivo, creare prima la cache e quindi aggiungere l'archivio BLOB in un secondo momento.
+
+* Quando si crea una destinazione di archiviazione NFS, specificare un [modello di utilizzo](hpc-cache-add-storage.md#choose-a-usage-model). L'impostazione di tale modello consente alla cache di ottimizzare il flusso di lavoro.
 
 ## <a name="add-resource-tags-optional"></a>Aggiungere tag di risorsa (facoltativo)
 
@@ -77,11 +79,13 @@ La pagina **Tag** consente di aggiungere [tag di risorsa](https://go.microsoft.c
 
 Dopo aver configurato la nuova cache, fare clic sulla scheda **Rivedi e crea**. Il portale convalida le selezioni e consente di esaminare le scelte effettuate. Se tutte le voci sono state impostate correttamente, fare clic su **Crea**. 
 
-La creazione della cache richiede circa 10 minuti. È possibile monitorare l'avanzamento dell'operazione nel pannello delle notifiche del portale di Azure. Al termine, viene visualizzata una notifica con un collegamento alla nuova istanza di Cache HPC di Azure. 
+La creazione della cache richiede circa 10 minuti. È possibile monitorare l'avanzamento dell'operazione nel pannello delle notifiche del portale di Azure. 
 
-La cache è visibile anche nell'elenco **Risorse** della sottoscrizione. 
+![screenshot delle pagine "distribuzione in corso" e "notifiche" della creazione della cache nel portale](media/hpc-cache-deploy-status.png)
 
-![screenshot dell'istanza di Cache HPC di Azure nel portale di Azure](media/finished-hpc-cache.png)
+Al termine dell'operazione di creazione, viene visualizzata una notifica con un collegamento alla nuova istanza di Cache HPC di Azure e la cache viene visualizzata nell'elenco **Risorse** della sottoscrizione. 
+
+![screenshot dell'istanza di Cache HPC di Azure nel portale di Azure](media/hpc-cache-new-overview.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

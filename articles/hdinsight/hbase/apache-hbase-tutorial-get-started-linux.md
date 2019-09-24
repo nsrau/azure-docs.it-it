@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: df216c4d634ac20365cc5a1cc6e26fbd78be7ab9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917396"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077149"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Esercitazione: Usare Apache HBase in Azure HDInsight
 
@@ -41,7 +41,7 @@ La procedura seguente usa un modello di Azure Resource Manager per creare un clu
 
 1. Selezionare l'immagine seguente per aprire il modello nel portale di Azure. Il modello è disponibile in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. Compilare i campi seguenti del pannello **Distribuzione personalizzata**:
 
@@ -68,11 +68,11 @@ Dopo l'eliminazione di un cluster HBase, è possibile creare un altro cluster HB
 
 Per la maggior parte delle persone, i dati vengono visualizzati in formato tabulare:
 
-![Tabella con dati HBase di HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
+![Dati tabulari Apache HBase in HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
 
 In HBase, che rappresenta un'implementazione di [Cloud BigTable](https://cloud.google.com/bigtable/), gli stessi dati sono simili a:
 
-![Dati BigTable HBase di HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
+![Dati BigTable Apache HBase in HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
 
 **Per usare la shell HBase**
 
@@ -115,7 +115,7 @@ In HBase, che rappresenta un'implementazione di [Cloud BigTable](https://cloud.g
     scan 'Contacts'
     ```
 
-    ![Shell HBase Hadoop di HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+    ![Shell HBase Apache Hadoop in HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
 
 1. Usare il comando `get` per recuperare il contenuto di una riga. Immettere il comando seguente:
 
@@ -284,7 +284,7 @@ HBase in HDInsight viene fornito con un'interfaccia utente Web per il monitoragg
 
 1. Selezionare **Collegamenti rapidi** nella parte superiore della pagina, scegliere il collegamento del nodo Zookeeper attivo e quindi selezionare **HBase Master UI** (Interfaccia utente HBase Master).  L'interfaccia utente viene aperta in un'altra scheda del browser:
 
-   ![Interfaccia utente master HBase di HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![Interfaccia utente HMaster Apache HBase in HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
    L'interfaccia utente master HBase contiene le sezioni seguenti:
 

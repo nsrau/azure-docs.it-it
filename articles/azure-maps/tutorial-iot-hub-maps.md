@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d355ec1784b3b613369e90cd5fac99d3d69a6
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916397"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933211"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementare l'analisi spaziale di IoT con Mappe di Azure
 
@@ -167,7 +167,7 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
     
     Il valore "geojson" del parametro `dataFormat` nel percorso URL rappresenta il formato dei dati caricati.
 
-3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore subscription-key con la chiave di sottoscrizione di Mappe di Azure.
+3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore subscription-key con la chiave di sottoscrizione primaria di Mappe di Azure.
    
     ![Parametri chiave-valore di Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
@@ -224,7 +224,7 @@ Funzioni di Azure è un servizio di calcolo serverless che consente di eseguire 
 6. Copiare il [codice c#](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) nella funzione e fare clic su **Salva**.
  
 7. Nello script c# sostituire i parametri seguenti:
-    * Sostituire il valore **SUBSCRIPTION-KEY** con la chiave di sottoscrizione dell'account Mappe di Azure.
+    * Sostituire il valore **SUBSCRIPTION-KEY** con la chiave di sottoscrizione primaria dell'account Mappe di Azure.
     * Sostituire l'**UDID** con l'udid del recinto virtuale caricato. 
     * La funzione **CreateBlobAsync** nello script crea un BLOB per ogni evento nell'account di archiviazione dati. Sostituire **ACCESS_KEY**, **ACCOUNT_NAME** e **STORAGE_CONTAINER_NAME** con il nome account e la chiave di accesso dell'account di archiviazione e il contenitore di archiviazione dati.
 

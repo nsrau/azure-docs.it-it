@@ -1,25 +1,25 @@
 ---
-title: "Esercitazione: Concedere l'accesso a un'API Web ASP.NET - Azure Active Directory B2C | Microsoft Docs"
+title: "Esercitazione: Concedere l'accesso a un'API Web ASP.NET - Azure Active Directory B2C"
 description: Esercitazione su come usare Active Directory B2C per proteggere un'API Web ASP.NET e chiamarla da un'applicazione Web ASP.NET.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 09/19/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 339b118e48a01469312a40e6b0652a4ffb90291a
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 87d46fad1c0a5494910a8218c4e40994fc140386
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347139"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103390"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Esercitazione: Concedere l'accesso a un'API Web ASP.NET con Azure Active Directory B2C
 
-Questa esercitazione illustra come chiamare una risorsa API Web protetta in Azure Active Directory (Azure AD) B2C da un'applicazione Web ASP.NET.
+Questa esercitazione illustra come chiamare una risorsa API Web protetta in Active Directory B2C (Azure AD B2C) da un'applicazione Web ASP.NET.
 
 In questa esercitazione si apprenderà come:
 
@@ -40,7 +40,7 @@ Completare i passaggi e i prerequisiti riportati in [Esercitazione: Abilitare l'
 Per poter accettare e rispondere a richieste di risorse protette da parte di applicazioni client che presentano un token di accesso, le risorse API Web devono prima essere registrate nel tenant.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Selezionare **Applicazioni** e quindi **Aggiungi**.
 5. Immettere un nome per l'applicazione. Ad esempio, *webapi1*.
@@ -82,20 +82,20 @@ La soluzione di esempio contiene due progetti:
 
 I due progetti inclusi nella soluzione di esempio sono i seguenti:
 
-- **TaskWebApp** crea e modifica un elenco attività. L'esempio usa il flusso utente di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti.
-- **TaskService** supporta le funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco attività. L'API è protetta da Azure AD B2C e viene chiamata da TaskWebApp.
+* **TaskWebApp** crea e modifica un elenco attività. L'esempio usa il flusso utente di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti.
+* **TaskService** supporta le funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco attività. L'API è protetta da Azure AD B2C e viene chiamata da TaskWebApp.
 
 ### <a name="configure-the-web-application"></a>Configurare l'applicazione Web
 
 1. Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
-2. Aprire **Web.config** nel progetto **TaskWebApp**.
-3. Per eseguire l'API in locale, usare l'impostazione localhost per **api:TaskServiceUrl**. Modificare il file Web.config come segue: 
+1. Nel progetto **TaskWebApp** aprire **Web.config**.
+1. Per eseguire l'API in locale, usare l'impostazione localhost per **api:TaskServiceUrl**. Modificare il file Web.config come segue:
 
     ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
-3. Configurare l'URI dell'API. È l'URI usato dall'applicazione Web per effettuare la richiesta API. Configurare anche le autorizzazioni richieste.
+1. Configurare l'URI dell'API. È l'URI usato dall'applicazione Web per effettuare la richiesta API. Configurare anche le autorizzazioni richieste.
 
     ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
@@ -105,26 +105,27 @@ I due progetti inclusi nella soluzione di esempio sono i seguenti:
 
 ### <a name="configure-the-web-api"></a>Configurare l'API Web
 
-1. Aprire **Web.config** nel progetto **TaskService**.
-2. Configurare l'API per l'uso del tenant.
+1. Nel progetto **TaskService** aprire **Web.config**.
+1. Configurare l'API per l'uso del tenant.
 
     ```csharp
+    <add key="ida:AadInstance" value="https://<Your tenant name>.b2clogin.com/{0}/{1}/v2.0/.well-known/openid-configuration" />
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
-3. Per l'ID client usare l'ID dell'applicazione registrata per l'API.
+1. Impostare l'ID client sull'ID applicazione dell'applicazione API Web registrata *webapi1*.
 
     ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
-4. Aggiornare l'impostazione del flusso utente con il nome del flusso utente di iscrizione e accesso.
+1. Aggiornare l'impostazione del flusso utente con il nome del flusso utente di iscrizione e accesso *B2C_1_signupsignin1*.
 
     ```csharp
-    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_signupsignin1" />
     ```
 
-5. Configurare l'impostazione degli ambiti in modo che corrisponda a quella creata nel portale.
+1. Configurare l'impostazione degli ambiti in modo che corrisponda a quelli creati nel portale.
 
     ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
@@ -133,19 +134,20 @@ I due progetti inclusi nella soluzione di esempio sono i seguenti:
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
-È necessario eseguire entrambi i progetti, ovvero **TaskWebApp** e **TaskService**. 
+È necessario eseguire entrambi i progetti, ovvero **TaskWebApp** e **TaskService**.
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio...** . 
-2. Selezionare **Progetti di avvio multipli**.
-3. Modificare il valore di **Azione** in entrambi i progetti in **Avvia**.
-4. Fare clic su **OK** per salvare la configurazione.
-5. Premere **F5** per eseguire entrambe le applicazioni. Ogni applicazione viene aperta in una scheda del browser separata. `https://localhost:44316/` è l'applicazione Web.
-    `https://localhost:44332/` è l'API Web.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio...** .
+1. Selezionare **Progetti di avvio multipli**.
+1. Modificare il valore di **Azione** in entrambi i progetti in **Avvia**.
+1. Fare clic su **OK** per salvare la configurazione.
+1. Premere **F5** per eseguire entrambe le applicazioni. Ogni applicazione viene visualizzata in una finestra del browser separata.
+    * `https://localhost:44316/` corrisponde all'applicazione Web.
+    * `https://localhost:44332/` è l'API Web.
 
-6. Nell'applicazione Web fare clic su **sign-up / sign-in** per accedere all'applicazione Web. Usare l'account creato in precedenza. 
-7. Dopo l'accesso fare clic su **To-do list** e creare un elemento elenco attività.
+1. Nell'applicazione Web selezionare **sign-up / sign-in** per accedere all'applicazione Web. Usare l'account creato in precedenza.
+1. Dopo l'accesso selezionare **To-do list** e creare un elemento elenco attività.
 
-Quando si crea un elemento elenco attività, l'applicazione Web invia una richiesta all'API Web per la generazione dell'elemento. L'applicazione Web protetta chiama l'API Web protetta nel tenant di Azure AD B2C.
+Quando si crea un elemento elenco attività, l'applicazione Web invia una richiesta all'API Web per la generazione dell'elemento. L'applicazione Web protetta chiama l'API Web protetta da Azure AD B2C.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

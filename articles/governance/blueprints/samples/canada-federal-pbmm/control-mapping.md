@@ -3,16 +3,16 @@ title: Esempio - Progetto Canada Federal PBMM - Mapping dei controlli
 description: Mapping dei controlli dell'esempio di progetto Canada Federal PBMM in Criteri di Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 068e3253dbcb7ef8d0a5c0191ac1a0b75bd8c0e9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: baafb0fbcf1dba1cadfff1d5f5e02e2df4f34a25
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918776"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002905"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Canada Federal PBMM
 
@@ -310,6 +310,12 @@ Questo progetto consente di monitorare il sistema controllando e imponendo la re
 > La disponibilità di specifiche definizioni di Criteri di Azure può variare in Azure per enti pubblici e in altri cloud nazionali. 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+È stato esaminato il mapping dei controlli dell'esempio di progetto Canada Federal PBMM. Vedere gli articoli seguenti per informazioni sulla panoramica e su come distribuire questo esempio:
+
+> [!div class="nextstepaction"]
+> [Progetto Canada Federal PBMM - Panoramica](./control-mapping.md)
+> [Progetto Canada Federal PBMM - Procedure di distribuzione](./deploy.md)
 
 Altri articoli sui progetti e su come usarli:
 

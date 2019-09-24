@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 23c10fbed751e05fea2a95030c720f622e195f40
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 875db0d34932dca1c7eae7e3650acf01856c6413
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534232"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934420"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -24,7 +24,7 @@ Questa soluzione sfrutta le API native SQL per eseguire i backup dei database SQ
 
 * Dopo aver specificato la macchina virtuale di SQL Server da proteggere e aver eseguito la query per trovare i database al suo interno, il servizio Backup di Azure installerà un'estensione di backup di carichi di lavoro nella macchina virtuale denominata `AzureBackupWindowsWorkload`.
 * Questa estensione è costituita da un coordinatore e da un plug-in SQL. Mentre il coordinatore è responsabile di attivare i flussi di lavoro per varie operazioni, come la configurazione del backup, il backup e il ripristino, il plug-in gestisce il flusso di dati effettivo.
-* Per individuare i database in questa VM, Backup di Azure crea l'account `NT SERVICE\AzureWLBackupPluginSvc`. Questo account viene usato per il backup e il ripristino e richiede le autorizzazioni sysadmin SQL. Backup di Azure sfrutta l'account `NT AUTHORITY\SYSTEM` per l'individuazione o l'interrogazione dei database, quindi questo account deve essere un account di accesso pubblico in SQL. Se la VM SQL Server non è stata creata da Azure Marketplace, è possibile ricevere un errore **UserErrorSQLNoSysadminMembership**. In tal caso [seguire queste istruzioni](backup-azure-sql-database.md).
+* Per individuare i database in questa VM, Backup di Azure crea l'account `NT SERVICE\AzureWLBackupPluginSvc`. Questo account viene usato per il backup e il ripristino e richiede le autorizzazioni sysadmin SQL. Backup di Azure sfrutta l'account `NT AUTHORITY\SYSTEM` per l'individuazione o l'interrogazione dei database, di conseguenza questo account deve essere un account di accesso pubblico in SQL. Se la VM SQL Server non è stata creata da Azure Marketplace, è possibile ricevere un errore **UserErrorSQLNoSysadminMembership**. In tal caso [seguire queste istruzioni](#set-vm-permissions).
 * Dopo l'attivazione della configurazione della protezione nei database selezionati, il servizio di backup configura il coordinatore con le pianificazioni di backup e altri dettagli sui criteri, che l'estensione memorizza nella cache locale della VM.
 * Nell'orario pianificato il coordinatore comunica con il plug-in, che avvia lo streaming dei dati di backup dal server SQL tramite VDI.  
 * Il plug-in invia i dati direttamente all'insieme di credenziali dei servizi di ripristino, eliminando così la necessità di una posizione per la gestione temporanea. I dati vengono crittografati e archiviati dal servizio Backup di Azure negli account di archiviazione.
@@ -58,8 +58,7 @@ Backup di Azure ha di recente annunciato il supporto per le [versioni EOS (End o
 2. .NET Framework 4.5.2 o versione successiva installato nella macchina virtuale
 3. Il backup dell'istanza del cluster di failover e i database con mirroring non sono supportati
 
-Agli utenti non verranno addebitati i costi per questa funzionalità fino al momento della disponibilità generale. Tutte le altre [considerazioni e limitazioni relative alle funzionalità](#feature-consideration-and-limitations) si applicano anche a queste versioni. Vedere i [prerequisiti](backup-sql-server-database-azure-vms.md#prerequisites) prima di configurare la protezione in SQL Server 2008 e 2008 R2, compresa l'impostazione della [chiave del Registro di sistema](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (questo passaggio non sarà necessario quando la funzionalità sarà disponibile a livello generale).
-
+Agli utenti non verranno addebitati i costi per questa funzionalità fino al momento della disponibilità generale. Tutte le altre [considerazioni e limitazioni relative alle funzionalità](#feature-consideration-and-limitations) si applicano anche a queste versioni. Per configurare la protezione in SQL Server 2008 e 2008 R2, vedere i [prerequisiti](backup-sql-server-database-azure-vms.md#prerequisites).
 
 ## <a name="feature-consideration-and-limitations"></a>Considerazioni e limitazioni della funzionalità
 

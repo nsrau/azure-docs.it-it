@@ -1,19 +1,19 @@
 ---
-title: Avvio rapido - Creare un cluster del servizio Azure Kubernetes
+title: 'Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes'
 description: Informazioni su come creare rapidamente un cluster Kubernetes, distribuire un'applicazione e monitorare le prestazioni nel servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure.
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 05/20/2019
+ms.date: 09/13/2019
 ms.author: mlearned
-ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 8a5fb9313fca2a8d787d0fbde47401f6d3e1d229
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019
+ms.openlocfilehash: 0ad1bb4acf27ff542b94b2e6f4aef82705f4b46a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68880671"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097996"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure
 
@@ -30,6 +30,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento di avvio rapido è necessario usare la versione 2.0.64 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+
+> [!Note]
+> Se si eseguono i comandi in questo avvio rapido in locale (anziché con Azure Cloud Shell), assicurarsi di eseguire i comandi come amministratore.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -58,15 +61,10 @@ L'output di esempio seguente mostra il gruppo di risorse creato correttamente:
 
 ## <a name="create-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Viene inoltre abilitato Monitoraggio di Azure per i contenitori mediante il parametro *--enable-addons monitoring*.
+Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Viene inoltre abilitato Monitoraggio di Azure per i contenitori mediante il parametro *--enable-addons monitoring*.  Questa operazione richiede alcuni minuti.
 
 ```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --node-count 1 \
-    --enable-addons monitoring \
-    --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
 
 Il comando viene completato dopo pochi minuti e vengono restituite informazioni in formato JSON sul cluster.
@@ -234,30 +232,11 @@ Per osservare l'app Azure Vote in azione, aprire un Web browser all'indirizzo IP
 
 ![Immagine del passaggio ad Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## <a name="monitor-health-and-logs"></a>Monitoraggio di stato e log
-
-Quando è stato creato il cluster del servizio Azure Kubernetes, è stato abilitato Monitoraggio di Azure per i contenitori, in modo da acquisire le metriche di integrità sia per i pod sia per i nodi del cluster. Queste metriche di integrità sono disponibili nel portale di Azure.
-
-Per visualizzare lo stato corrente, i tempi di attività e l'utilizzo delle risorse per i pod di Azure Vote, seguire questa procedura:
-
-1. In un Web browser passare al portale di Azure [https://portal.azure.com][azure-portal].
-1. Selezionare il gruppo di risorse, ad esempio *myResourceGroup*, quindi selezionare il cluster del servizio Azure Kubernetes, ad esempio *myservizio Azure KubernetesCluster*.
-1. In **Monitoraggio** a sinistra selezionare **Informazioni dettagliate**.
-1. Nella parte superiore selezionare **+ Aggiungi filtro**.
-1. Selezionare *Spazio dei nomi* come proprietà e quindi scegliere *\<Tutti tranne kube-system\>* .
-1. Selezionare **Contenitori**.
-
-Verranno visualizzati i contenitori *azure-vote-back* e *azure-vote-front*, come mostrato in questo esempio:
-
-![Visualizzare l'integrità dei contenitori in esecuzione nel servizio Azure Kubernetes](media/kubernetes-walkthrough/monitor-containers.png)
-
-Per visualizzare i log per il pod `azure-vote-back`, scegliere l'opzione **Visualizza in Analisi** e quindi selezionare il collegamento **Visualizza log contenitori** a destra dell'elenco di contenitori. Questi log includono i flussi *stdout* e *stderr* del contenitore.
-
-![Visualizzare i log dei contenitori nel servizio Azure Kubernetes](media/kubernetes-walkthrough/monitor-container-logs.png)
+Quando è stato creato il cluster del servizio Azure Kubernetes, è stato abilitato [Monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-overview.md), in modo da acquisire le metriche di integrità sia per i pod sia per i nodi del cluster. Queste metriche di integrità sono disponibili nel portale di Azure.
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 
-Quando il cluster non è più necessario, usare il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
+Per evitare addebiti per Azure, è necessario eliminare le risorse non necessarie.  Quando il cluster non è più necessario, usare il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

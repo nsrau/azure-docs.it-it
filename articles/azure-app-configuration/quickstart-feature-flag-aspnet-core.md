@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6f9094a52ff3558fa8d1f2fee1d80ed8eb09a416
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347921"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076332"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Guida introduttiva: Aggiungere i flag di funzionalità a un'app ASP.NET Core
 
@@ -36,7 +36,7 @@ Le librerie di Gestione funzionalità di .NET Core estendono il framework con il
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Gestione funzionalità** >  **+Crea** per aggiungere i flag di funzionalità seguenti:
+6. Selezionare **Gestione funzionalità** >  **+Aggiungi** per aggiungere i flag di funzionalità seguenti:
 
     | Chiave | Stato |
     |---|---|
@@ -81,10 +81,11 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
-1. Aggiungere il riferimento al pacchetto NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` eseguendo il comando seguente:
+1. Aggiungere il riferimento ai pacchetti NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` e `Microsoft.FeatureManagement.AspNetCore` eseguendo i comandi seguenti:
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
 1. Eseguire il comando seguente per ripristinare i pacchetti per il progetto:
@@ -266,6 +267,8 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
     |---|---|
     | Beta | Attivato |
 
+1. Per riavviare l'applicazione, tornare al prompt dei comandi e premere `Ctrl-C` per annullare il processo `dotnet` in esecuzione e quindi eseguire di nuovo `dotnet run`.
+
 1. Aggiornare la pagina del browser per visualizzare le nuove impostazioni di configurazione.
 
     ![Guida introduttiva: avvio dell'app in locale](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
@@ -281,3 +284,4 @@ In questo argomento di avvio rapido è stato creato un nuovo archivio di Configu
 - Altre informazioni sulla [gestione delle funzionalità](./concept-feature-management.md).
 - [Gestire i flag di funzionalità](./manage-feature-flags.md).
 - [Usare i flag di funzionalità in un'app ASP.NET Core](./use-feature-flags-dotnet-core.md).
+- [Usare la configurazione dinamica in un'app ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)

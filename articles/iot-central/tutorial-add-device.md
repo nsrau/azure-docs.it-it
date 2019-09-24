@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8731d66c9d2dca0043307ac2f6a0d1828aeaa275
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 192374971e92bae282c5092dd8c5e7261fce0c5f
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050531"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066378"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Esercitazione: Aggiungere un dispositivo reale all'applicazione Azure IoT Central
 
@@ -24,8 +24,8 @@ Questa esercitazione illustra come aggiungere e configurare un dispositivo reale
 
 Questa esercitazione è costituita da due parti:
 
-1. L'operatore apprenderà prima come aggiungere e configurare un dispositivo reale nell'applicazione Azure IoT Central. Al termine di questa parte, recupererà una stringa di connessione da usare nella seconda parte.
-2. Verranno quindi fornite informazioni per lo sviluppatore di dispositivi riguardanti il codice del dispositivo reale. La stringa di connessione recuperata nella prima parte verrà aggiunta al codice di esempio.
+* L'operatore apprenderà prima come aggiungere e configurare un dispositivo reale nell'applicazione Azure IoT Central. Al termine di questa parte, recupererà una stringa di connessione da usare nella seconda parte.
+* Verranno quindi fornite informazioni per lo sviluppatore di dispositivi riguardanti il codice del dispositivo reale. La stringa di connessione recuperata nella prima parte verrà aggiunta al codice di esempio.
 
 In questa esercitazione si apprenderà come:
 
@@ -39,7 +39,6 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, il generatore deve completare almeno la prima esercitazione per creare l'applicazione Azure IoT Central: [Definire un nuovo tipo di dispositivo](tutorial-define-device-type.md) (obbligatorio)
-
 
 Installare [Node.js](https://nodejs.org/) versione 8.0.0 o successiva nel computer di sviluppo. Per controllare la versione, è possibile eseguire `node --version` nella riga di comando. Node.js è disponibile per un'ampia gamma di sistemi operativi.
 
@@ -75,10 +74,6 @@ Il dispositivo reale viene creato sulla base del modello di dispositivo **Connec
 
 3. È possibile visualizzare le pagine **Misurazioni**, **Regole** e **Dashboard** per il dispositivo reale.
 
-## <a name="generate-connection-string"></a>Generare la stringa di connessione
-
-Uno sviluppatore di dispositivi deve incorporare la *stringa di connessione* del dispositivo reale nel codice che viene eseguito sul dispositivo. La stringa di connessione consente al dispositivo di connettersi in modo sicuro all'applicazione. I passaggi seguenti mostrano come generare la stringa di connessione e preparare il client del codice Node.js.
-
 ## <a name="prepare-the-client-code"></a>Preparare il codice client
 
 L'esempio di codice riportato in questo articolo è scritto in [Node.js](https://nodejs.org/) e consente di:
@@ -101,13 +96,9 @@ La procedura seguente illustra come preparare l'esempio [Node.js](https://nodejs
 
    ![Pagina con il collegamento alle informazioni di connessione](media/tutorial-add-device/connectionlink.png)
 
-1. Nella pagina Connessione del dispositivo prendere nota dei valori di **ID ambito**, **ID dispositivo** e **Chiave primaria**. Questi valori verranno usati nel passaggio successivo.
+1. Nella pagina Connessione del dispositivo prendere nota dei valori di **ID ambito**, **ID dispositivo** e **Chiave primaria**. Questi valori vengono usati più avanti nell'esercitazione.
 
    ![Dettagli della connessione](media/tutorial-add-device/device-connect.png)
-
-### <a name="generate-the-connection-string"></a>Generare la stringa di connessione
-
-[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
 ### <a name="prepare-the-nodejs-project"></a>Preparare il progetto Node.js
 
@@ -124,7 +115,7 @@ La procedura seguente illustra come preparare l'esempio [Node.js](https://nodejs
 1. Per installare i pacchetti necessari, eseguire questo comando:
 
     ```cmd/sh
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
 1. Usando un editor di testo, creare un file denominato **ConnectedAirConditioner.js** nella cartella `connectedairconditioner`.
@@ -134,21 +125,26 @@ La procedura seguente illustra come preparare l'esempio [Node.js](https://nodejs
     ```javascript
     'use strict';
 
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
+    var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
+    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
+    var SymmetricKeySecurityClient = require('azure-iot-security-symmetric-key').SymmetricKeySecurityClient;
+    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
     ```
 
-1. Aggiungere le dichiarazioni di variabili seguenti al file:
+1. Aggiungere le dichiarazioni di variabili seguenti al file. Sostituire i segnaposto `{your Scope ID}`, `{your Device ID}`e `{your Primary Key}` con le informazioni di connessione del dispositivo annotate in precedenza:
 
     ```javascript
-    var connectionString = '{your device connection string}';
+    var provisioningHost = 'global.azure-devices-provisioning.net';
+    var idScope = '{your Scope ID}';
+    var registrationId = '{your Device ID}';
+    var symmetricKey = '{your Primary Key};
+    var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
+    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
+    var hubClient;
     var targetTemperature = 0;
-    var client = clientFromConnectionString(connectionString);
     ```
-
-    > [!NOTE]
-    > Il segnaposto `{your device connection string}` verrà aggiornato in un passaggio successivo.
 
 1. Salvare le modifiche apportate finora, ma lasciare aperto il file.
 
@@ -165,12 +161,12 @@ Nella sezione precedente è stato creato uno scheletro di progetto Node.js per u
 1. Per inviare dati di telemetria sulla temperatura all'applicazione Azure IoT Central, aggiungere il codice seguente al file **ConnectedAirConditioner.js**:
 
     ```javascript
-    // Send device telemetry.
+    // Send device measurements.
     function sendTelemetry() {
       var temperature = targetTemperature + (Math.random() * 15);
       var data = JSON.stringify({ temperature: temperature });
       var message = new Message(data);
-      client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
+      hubClient.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
         (res ? `; status: ${res.constructor.name}` : '')));
     }
@@ -187,7 +183,7 @@ Nella sezione precedente è stato creato uno scheletro di progetto Node.js per u
         firmwareVersion: "9.75",
         serialNumber: "10001"
       };
-      twin.properties.reported.update(properties, (errorMessage) => 
+      twin.properties.reported.update(properties, (errorMessage) =>
       console.log(` * Sent device properties ` + (errorMessage ? `Error: ${errorMessage.toString()}` : `(success)`)));
     }
     ```
@@ -266,43 +262,53 @@ Nella sezione precedente è stato creato uno scheletro di progetto Node.js per u
         console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
       } else {
         console.log('Device successfully connected to Azure IoT Central');
+
+        // Create handler for countdown command
+        hubClient.onDeviceMethod('echo', onCommandEcho);
+
         // Send telemetry measurements to Azure IoT Central every 1 second.
         setInterval(sendTelemetry, 1000);
-        // Setup device command callbacks
-        client.onDeviceMethod('echo', onCommandEcho);
+
         // Get device twin from Azure IoT Central.
-        client.getTwin((err, twin) => {
+        hubClient.getTwin((err, twin) => {
           if (err) {
             console.log(`Error getting device twin: ${err.toString()}`);
           } else {
-            // Send device properties once on device start up
+            // Send device properties once on device start up.
             sendDeviceProperties(twin);
+
             // Apply device settings and handle changes to device settings.
             handleSettings(twin);
           }
         });
       }
     };
-
-    client.open(connectCallback);
     ```
 
-1. Salvare le modifiche apportate finora, ma lasciare aperto il file.
-
-## <a name="configure-client-code"></a>Configurare il codice client
-
-<!-- Add the connection string to the sample code, build, and run -->
-Per configurare il codice client per la connessione all'applicazione Azure IoT Central, è necessario aggiungere la stringa di connessione del dispositivo reale annotata in precedenza in questa esercitazione.
-
-1. Nel file **ConnectedAirConditioner.js** individuare la riga di codice seguente:
+1. Registrare il dispositivo e connetterlo all'applicazione Azure IoT Central:
 
     ```javascript
-    var connectionString = '{your device connection string}';
+    // Start the device (connect it to Azure IoT Central).
+    provisioningClient.register((err, result) => {
+      if (err) {
+        console.log("error registering device: " + err);
+      } else {
+        console.log('registration succeeded');
+        console.log('assigned hub=' + result.assignedHub);
+        console.log('deviceId=' + result.deviceId);
+        var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
+        hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
+
+        hubClient.open(connectCallback);
+      }
+    });
     ```
 
-1. Sostituire `{your device connection string}` con la stringa di connessione del dispositivo reale. È stata copiata la stringa di connessione generata in un passaggio precedente.
+1. Salvare le modifiche apportate.
 
-1. Salvare le modifiche apportate al file **ConnectedAirConditioner.js**.
+## <a name="run-the-client-code"></a>Eseguire il codice client
+
+A questo punto è possibile eseguire il codice client e verificarne l'interazione con l'applicazione IoT Central:
 
 1. Per eseguire l'esempio, immettere il comando seguente nell'ambiente della riga di comando:
 
