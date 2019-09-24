@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 7a58e8559587ddcb307c338f5ce87cd6b8e52021
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 93eddc0ff8f1a1af8b485fcdb891f72d874b5c0a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171500"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202956"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Anteprima: creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ Questo articolo illustra come creare e gestire più pool di nodi in un cluster A
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-Per usare più pool di nodi, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.12 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] ::
+Per usare più pool di nodi, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.16 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -178,7 +178,9 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > Le operazioni di aggiornamento e ridimensionamento in un cluster o in un pool di nodi non possono essere eseguite simultaneamente, se si tenta di restituire un errore. Al contrario, ogni tipo di operazione deve essere completato sulla risorsa di destinazione prima della richiesta successiva sulla stessa risorsa. Per altre informazioni, vedere la [Guida alla risoluzione dei problemi](https://aka.ms/aks-pending-upgrade).
 
-Quando il cluster AKS è stato creato inizialmente nel primo passaggio, è `--kubernetes-version` stato specificato un di *1.13.10* . Questo imposta la versione di Kubernetes sia per il piano di controllo che per il pool di nodi predefinito. I comandi in questa sezione illustrano come aggiornare un singolo pool di nodi specifico. La relazione tra l'aggiornamento della versione Kubernetes del piano di controllo e il pool di nodi è illustrata nella [sezione seguente](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Quando il cluster AKS è stato creato inizialmente nel primo passaggio, è `--kubernetes-version` stato specificato un di *1.13.10* . Questo imposta la versione di Kubernetes sia per il piano di controllo che per il pool di nodi predefinito. I comandi in questa sezione illustrano come aggiornare un singolo pool di nodi specifico.
+
+La relazione tra l'aggiornamento della versione Kubernetes del piano di controllo e il pool di nodi è illustrata nella [sezione seguente](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > La versione dell'immagine del sistema operativo del pool di nodi è associata alla versione Kubernetes del cluster. Si otterranno solo gli aggiornamenti delle immagini del sistema operativo, in seguito a un aggiornamento del cluster.
@@ -193,9 +195,6 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.10 \
     --no-wait
 ```
-
-> [!Tip]
-> Per aggiornare il piano di controllo a *1.14.6*, `az aks upgrade -k 1.14.6`eseguire. Altre informazioni sugli [aggiornamenti del piano di controllo con più pool di nodi](#upgrade-a-cluster-control-plane-with-multiple-node-pools)sono disponibili qui.
 
 Elencare nuovamente lo stato dei pool di nodi usando il comando [AZ AKS node pool list][az-aks-nodepool-list] . L'esempio seguente mostra che *mynodepool* è in stato di *aggiornamento* a *1.13.10*:
 
@@ -232,7 +231,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Sono necessari alcuni minuti per aggiornare i nodi alla versione specificata.
 
-Come procedura consigliata, è consigliabile aggiornare tutti i pool di nodi in un cluster AKS alla stessa versione di Kubernetes. La possibilità di aggiornare singoli pool di nodi consente di eseguire un aggiornamento in sequenza e pianificare i pod tra i pool di nodi per mantenere i tempi di esecuzione dell'applicazione nei vincoli indicati in precedenza.
+Come procedura consigliata, è consigliabile aggiornare tutti i pool di nodi in un cluster AKS alla stessa versione di Kubernetes. Il comportamento predefinito di `az aks upgrade` consiste nell'aggiornare tutti i pool di nodi insieme al piano di controllo per ottenere questo allineamento. La possibilità di aggiornare singoli pool di nodi consente di eseguire un aggiornamento in sequenza e pianificare i pod tra i pool di nodi per mantenere i tempi di esecuzione dell'applicazione nei vincoli indicati in precedenza.
 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Aggiornare un piano di controllo cluster con più pool di nodi
 
@@ -243,11 +242,12 @@ Come procedura consigliata, è consigliabile aggiornare tutti i pool di nodi in 
 > * La versione del pool di nodi può essere una versione secondaria minore della versione del piano di controllo.
 > * La versione del pool di nodi può essere qualsiasi versione patch, purché vengano seguiti gli altri due vincoli.
 
-Un cluster AKS ha due oggetti risorsa cluster. Il primo è una versione del piano di controllo Kubernetes. Il secondo è un pool di agenti con una versione di Kubernetes. Un piano di controllo è mappato a uno o più pool di nodi e ognuno ha una propria versione Kubernetes. Il comportamento di un'operazione di aggiornamento dipende dalla risorsa di destinazione e dalla versione dell'API sottostante chiamata.
+Un cluster AKS ha due oggetti risorsa cluster con le versioni Kubernetes associate. Il primo è una versione del piano di controllo Kubernetes. Il secondo è un pool di agenti con una versione di Kubernetes. Un piano di controllo è mappato a uno o più pool di nodi. Il comportamento di un'operazione di aggiornamento dipende dal comando dell'interfaccia della riga di comando di Azure usato.
 
 1. Per l'aggiornamento del piano di controllo è necessario usare`az aks upgrade`
-   * Questa operazione aggiornerà anche tutti i pool di nodi del cluster
-1. Aggiornamento con`az aks nodepool upgrade`
+   * Questa operazione aggiornerà la versione del piano di controllo e tutti i pool di nodi nel cluster
+   * Passando `az aks upgrade` con il `--control-plane-only` flag si aggiornerà solo il piano di controllo cluster e nessuno dei pool di nodi associati * il `--control-plane-only` flag sarà disponibile nell' **estensione AKS-Preview v 0.4.16** o versione successiva
+1. Per aggiornare i singoli pool di nodi è necessario usare`az aks nodepool upgrade`
    * Verrà aggiornato solo il pool di nodi di destinazione con la versione specificata di Kubernetes
 
 La relazione tra le versioni di Kubernetes contenute nei pool di nodi deve anche seguire un set di regole.

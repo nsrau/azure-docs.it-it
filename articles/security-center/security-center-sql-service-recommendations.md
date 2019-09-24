@@ -3,9 +3,8 @@ title: Proteggere i servizi di archiviazione e dati di Azure nel centro sicurezz
 description: Questo documento illustra le raccomandazioni presenti nel Centro sicurezza di Azure che facilitano la protezione dei dati e del servizio SQL di Azure e garantiscano la conformità ai criteri di sicurezza.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 5f34f5e0c622ff107da880d9a4a77c63568b63b0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: memildin
+ms.openlocfilehash: 80611fe0c37af7dfd27b561186f3e967ad3159b4
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100929"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201028"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Proteggere i servizi di archiviazione e dati di Azure nel centro sicurezza di Azure
 Questo argomento illustra come visualizzare e implementare le raccomandazioni sulla sicurezza per i dati e le risorse di archiviazione. Il Centro sicurezza di Azure ha rilevato questi consigli durante l'analisi dello stato di sicurezza delle risorse di Azure.
@@ -61,14 +60,14 @@ Da questa pagina è possibile:
 
 ## <a name="data-and-storage-recommendations"></a>Raccomandazioni per i dati e l'archiviazione
 
-|Tipo di risorsa|Punteggio di sicurezza|Recommendation|Descrizione|
+|Tipo di risorsa|Punteggio di sicurezza|Indicazione|Descrizione|
 |----|----|----|----|
 |Account di archiviazione|20|Il trasferimento sicuro negli account di archiviazione deve essere abilitato|Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). HTTPS assicura l'autenticazione tra il server e il servizio e protegge i dati in transito da attacchi a livello di rete, ad esempio Man-in-the-Middle, intercettazione e Hijack della sessione.|
 |Redis|20|Devono essere abilitate solo connessioni sicure alla Cache Redis|Consenti solo connessioni sicure alla Cache Redis di Azure tramite SSL. L'uso di connessioni sicure garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione.|
 |SQL|15|Transparent Data Encryption deve essere abilitata nei database SQL|Abilitare Transparent Data Encryption per proteggere i dati inattivi e rispettare i requisiti di conformità.|
 |SQL|15|Il controllo di SQL Server deve essere abilitato|Abilitare il controllo per i server SQL. (Solo servizio Azure SQL. Non include istanze di SQL in esecuzione nelle macchine virtuali.)|
-|Data Lake Analytics|5|I log di diagnostica in Data Lake Analytics devono essere abilitati|Abilitare i log e conservarli fino a un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
-|Data Lake Store|5|I log di diagnostica in Azure Data Lake Store devono essere abilitati|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Data Lake Analytics|5|I log di diagnostica in Data Lake Analytics devono essere abilitati|Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Data Lake Store|5|I log di diagnostica in Azure Data Lake Store devono essere abilitati|Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |SQL|30|Le vulnerabilità dei database SQL devono essere risolte|La valutazione della vulnerabilità di SQL analizza il database per individuare le vulnerabilità di sicurezza ed espone eventuali deviazioni dalle procedure consigliate, ad esempio configurazioni errate, autorizzazioni eccessive e dati sensibili non protetti. La risoluzione delle vulnerabilità rilevate può migliorare significativamente il livello di sicurezza del database.|
 |SQL|20|Effettua il provisioning di un amministratore di Azure AD per SQL Server|Effettuare il provisioning di un amministratore di Azure AD per il server SQL per abilitare l'autenticazione di Azure AD. Questo tipo di autenticazione consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.|
 |Account di archiviazione|15|L'accesso agli account di archiviazione con configurazioni del firewall e della rete virtuale deve essere limitato|Controllare l'accesso alla rete senza restrizioni nelle impostazioni del firewall dell'account di archiviazione. Configurare invece regole di rete in modo che l'account di archiviazione sia accessibile solo alle applicazioni provenienti da reti consentite. Per consentire le connessioni da client Internet o locali specifici, è possibile concedere l'accesso al traffico da reti virtuali di Azure specifiche o a intervalli di indirizzi IP Internet pubblici.|

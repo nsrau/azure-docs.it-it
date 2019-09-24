@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 6ba252ccf7a46e93b2057b6822f2aae298f537d1
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991636"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203532"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Domande frequenti su Azure Red Hat OpenShift
 
@@ -71,7 +71,7 @@ Sì. Un amministratore di Azure Red Hat OpenShift può gestire gli utenti e le q
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>È possibile limitare un cluster solo a determinati utenti di Azure AD?
 
-Sì. È possibile limitare il Azure AD gli utenti possono accedere a un cluster configurando l'applicazione Azure AD. Per informazioni dettagliate, vedere [Procedura: Limitare l'app a un set di utenti](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+Sì. È possibile limitare il Azure AD gli utenti possono accedere a un cluster configurando l'applicazione Azure AD. Per informazioni dettagliate, [vedere Procedura: Limitare l'app a un set di utenti](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Un cluster può avere nodi di calcolo in più aree di Azure?
 
@@ -164,3 +164,45 @@ Per altri dettagli, vedere la [documentazione di upstream OpenShift](https://doc
 Azure Red Hat OpenShift supporta il peering VNET e consente al cliente di fornire un VNET a peer con e un CIDR VNET in cui la rete OpenShift funzionerà.
 
 Il VNET creato da ARO verrà protetto e non accetterà modifiche di configurazione. Il VNET di cui è stato utilizzato il peering è controllato dal cliente e risiede nella sottoscrizione.
+
+## <a name="does-the-cluster-reside-in-a-customer-subscription"></a>Il cluster si trova in una sottoscrizione del cliente? 
+
+L'applicazione gestita di Azure si trova in un gruppo di risorse bloccato con la sottoscrizione del cliente. Il cliente può visualizzare gli oggetti in tale RG ma non modificarli.
+
+## <a name="is-the-sdn-module-configurable"></a>Il modulo SDN è configurabile?
+
+SDN è OpenShift-OVS-networkpolicy e non è configurabile.
+
+## <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Quali diritti UNIX (in IaaS) sono disponibili per i nodi master/infra/app?
+
+Non applicabile a questa offerta. Accesso al nodo non consentito.
+
+## <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Quali sono i diritti di OCP? Amministrazione cluster Project-amministratore?
+
+Per informazioni dettagliate, vedere [Cenni preliminari sull'amministrazione del cluster](https://docs.openshift.com/aro/admin_guide/index.html)Red Hat OpenShift di Azure.
+
+## <a name="which-kind-of-federation-with-ldap"></a>Quale tipo di federazione con LDAP?
+
+Questa operazione viene eseguita tramite l'integrazione Azure AD. 
+
+## <a name="is-there-any-element-in-aro-shared-with-other-customers-or-is-everything-independent"></a>È presente un elemento in ARO condiviso con altri clienti? O è tutto indipendente?
+
+Ogni cluster Azure Red Hat OpenShift è dedicato a un determinato cliente e si trova all'interno della sottoscrizione del cliente. 
+
+## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>È possibile scegliere qualsiasi soluzione di archiviazione permanente. OCS? 
+
+È possibile scegliere tra due classi di archiviazione: Disco di Azure e file di Azure.
+
+## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>In che modo viene aggiornato un cluster, inclusi i principali e i minorenni a causa di vulnerabilità?
+
+Vedere [Qual è il processo di aggiornamento generale?](https://docs.microsoft.com/azure/openshift/openshift-faq#what-is-the-general-upgrade-process)
+
+## <a name="what-azure-load-balancer-is-used-by-aro-is-it-standard-or-basic-and-is-it-configurable"></a>Quale servizio di bilanciamento del carico di Azure viene usato da ARO?  È standard o Basic ed è configurabile?
+
+ARO USA Azure Load Balancer standard e non è configurabile.
+
+## <a name="can-aro-use-netapp-based-storage"></a>Gli ARO possono usare l'archiviazione basata su NetApp?
+
+Al momento le uniche opzioni di archiviazione supportate sono le classi del disco di Azure e di archiviazione file di Azure. 
+
+

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: bdf81eb447596c8f580809eed99004186a81eacf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9a758ce56356da21fc94f426d575a55f7dc762a0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065926"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200329"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -32,18 +32,17 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     La modalità di connessione di un client ad Azure Cosmos DB influisce significativamente sulle prestazioni, in particolare in termini di latenza lato client osservata. Sono disponibili due impostazioni di configurazione chiave per la configurazione dei criteri di connessione client, ovvero la *modalità* di connessione e il *protocollo* di connessione.  Le due modalità disponibili sono:
 
-   * Modalità gateway (predefinita)
+   * Modalità gateway
       
-     La modalità gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata. Se l'applicazione è in esecuzione in una rete aziendale con limitazioni rigide del firewall, la modalità gateway è la scelta migliore, perché usa la porta HTTPS standard e un singolo endpoint. A livello di prestazioni, tuttavia, la modalità Gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. La modalità diretta offre quindi prestazioni migliori grazie al numero minore di hop di rete. La modalità di connessione gateway è consigliabile anche quando si eseguono applicazioni in ambienti con un numero limitato di connessioni socket, ad esempio quando si usa un piano a consumo o Funzioni di Azure. 
+     La modalità Gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata per [Microsoft. Azure. DOCUMENTDB SDK](sql-api-sdk-dotnet.md). Se l'applicazione viene eseguita all'interno di una rete aziendale con restrizioni rigide del firewall, la modalità Gateway è la scelta migliore perché usa la porta HTTPS standard e un singolo endpoint. Il compromesso in termini di prestazioni, tuttavia, è che la modalità Gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. La modalità diretta offre quindi prestazioni migliori grazie al numero minore di hop di rete. La modalità di connessione del gateway è consigliata anche quando si eseguono applicazioni in ambienti con un numero limitato di connessioni socket. 
+
+     Quando si usa l'SDK in funzioni di Azure, in particolare nel [piano a consumo](../azure-functions/functions-scale.md#consumption-plan), tenere presenti i [limiti correnti nelle connessioni](../azure-functions/manage-connections.md). In tal caso, è consigliabile usare la modalità gateway se si usano anche altri client basati su HTTP all'interno dell'applicazione funzioni di Azure.
 
    * Modalità diretta
 
-     La modalità diretta supporta la connettività tramite protocolli TCP e HTTPS. Se si usa la versione più recente di .NET SDK, la modalità di connettività diretta è supportata in .NET Standard 2,0 e .NET Framework. Quando si usa la modalità diretta, sono disponibili due opzioni del protocollo:
+     La modalità diretta supporta la connettività tramite protocolli TCP e HTTPS ed è la modalità di connettività predefinita se si usa [Microsoft. Azure. Cosmos/.NET V3 SDK](sql-api-sdk-dotnet-standard.md).
 
-     * TCP
-     * HTTPS
-
-     In modalità Gateway, Cosmos DB usa la porta 443 e le porte 10250, 10255 e 10256 quando viene usata l'API di Azure Cosmos DB per MongoDB. La porta 10250 viene associata a un'istanza di MongoDB predefinita senza replica geografica e le porte 10255/10256 vengono associate all'istanza di MongoDB con funzionalità di replica geografica. Quando si usa TCP in modalità diretta, oltre alle porte gateway è necessario verificare che le porte nell'intervallo tra 10000 e 20000 siano aperte perché Azure Cosmos DB usa porte TCP dinamiche. Se queste porte non sono aperte e si tenta di usare TCP, si riceverà un errore 503 (Servizio non disponibile). La tabella seguente illustra le modalità di connettività disponibili per API diverse e l'utente delle porte di servizio per ogni API:
+     Quando si usa la modalità Gateway, Cosmos DB usa la porta 443 e le porte 10250, 10255 e 10256 quando si usa l'API Azure Cosmos DB per MongoDB. La porta 10250 viene associata a un'istanza di MongoDB predefinita senza replica geografica e le porte 10255/10256 vengono associate all'istanza di MongoDB con funzionalità di replica geografica. Quando si usa TCP in modalità diretta, oltre alle porte gateway è necessario verificare che le porte nell'intervallo tra 10000 e 20000 siano aperte perché Azure Cosmos DB usa porte TCP dinamiche. Se queste porte non sono aperte e si tenta di usare TCP, si riceverà un errore 503 (Servizio non disponibile). La tabella seguente illustra le modalità di connettività disponibili per API diverse e l'utente delle porte di servizio per ogni API:
 
      |Modalità di connessione  |Protocollo supportato  |SDK supportati  |API/porta servizio  |
      |---------|---------|---------|---------|
@@ -53,7 +52,20 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
      Azure Cosmos DB offre un modello di programmazione RESTful su HTTPS semplice e aperto. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Sia il protocollo TCP diretto che il protocollo HTTPS usano SSL per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
 
-     La modalità di connessione viene configurata durante la creazione dell'istanza di DocumentClient con il parametro ConnectionPolicy. Se si usa la modalità diretta, è possibile configurare il protocollo entro il parametro ConnectionPolicy.
+     Per SDK V3, la modalità di connettività viene configurata durante la creazione dell'istanza di CosmosClient, come parte di CosmosClientOptions.
+
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = "your authKey from the Azure portal";
+     CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+     new CosmosClientOptions
+     {
+        ConnectionMode = ConnectionMode.Direct,
+        ConnectionProtocol = Protocol.Tcp
+     });
+     ```
+
+     Per Microsoft. Azure. DocumentDB SDK, la modalità di connettività viene configurata durante la costruzione dell'istanza di DocumentClient con il parametro ConnectionPolicy. Se si usa la modalità diretta, è possibile configurare il protocollo entro il parametro ConnectionPolicy.
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -66,15 +78,19 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
      });
      ```
 
-     Poiché TCP è supportato solo in modalità diretta, se si usa la modalità gateway viene usato sempre il protocollo HTTPS per comunicare con il gateway e il valore del protocollo in ConnectionPolicy viene ignorato.
+     Poiché TCP è supportato solo in modalità diretta, se si usa la modalità Gateway, il protocollo HTTPS viene sempre usato per comunicare con il gateway e il valore del protocollo in ConnectionPolicy viene ignorato.
 
      ![Illustrazione dei criteri di connessione di Azure Cosmos DB](./media/performance-tips/connection-policy.png)
 
 2. **Chiamare OpenAsync per evitare la latenza di avvio alla prima richiesta**
 
-    Per impostazione predefinita, la prima richiesta ha una latenza più elevata perché deve recuperare la tabella di routing degli indirizzi. Per evitare questa latenza di avvio alla prima richiesta, è necessario chiamare OpenAsync() una volta durante l'inizializzazione, come indicato di seguito.
+    Per impostazione predefinita, la prima richiesta ha una latenza più elevata perché deve recuperare la tabella di routing degli indirizzi. Quando si usa l' [SDK v2](sql-api-sdk-dotnet.md), per evitare questa latenza di avvio alla prima richiesta, è necessario chiamare OpenAsync () una volta durante l'inizializzazione, come indicato di seguito.
 
         await client.OpenAsync();
+
+    > [!NOTE] 
+    > Il metodo OpenAsync genererà richieste per ottenere la tabella di routing degli indirizzi per tutti i contenitori nell'account. Per gli account che dispongono di molti contenitori ma la loro applicazione accede a un subset di tali contenitori, viene generata una quantità di traffico superflua che rende l'inizializzazione lenta. Pertanto, l'utilizzo del metodo OpenAsync potrebbe non essere utile in questo scenario, perché rallenta l'avvio dell'applicazione.
+
    <a id="same-region"></a>
 3. **Collocare i client nella stessa area di Azure per ottenere prestazioni migliori**
 
@@ -95,15 +111,22 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 1. **Installare l'SDK più recente**
 
     Agli SDK di Azure Cosmos DB vengono apportati continui miglioramenti per offrire prestazioni ottimali. Per determinare la versione di SDK più recente e verificare i miglioramenti, vedere le pagine relative agli [SDK di Azure Cosmos DB](sql-api-sdk-dotnet-standard.md).
-2. **Usare un client Azure Cosmos DB singleton per la durata dell'applicazione**
 
-    Ogni istanza di DocumentClient è thread-safe ed esegue la gestione efficiente delle connessioni e la memorizzazione nella cache degli indirizzi quando viene usata la modalità diretta. Per consentire una gestione efficiente delle connessioni e prestazioni migliori da parte di DocumentClient, è consigliabile usare una singola istanza di DocumentClient per ogni AppDomain per la durata dell'applicazione.
+2. **Usare le API di flusso**
+
+    [.NET SDK V3](sql-api-sdk-dotnet-standard.md) contiene API di flusso che possono ricevere e restituire dati senza serializzazione. 
+
+    Le applicazioni di livello intermedio che non utilizzano direttamente le risposte dall'SDK, ma le inviano ad altri livelli applicazione possono trarre vantaggio dalle API del flusso. Per esempi sulla gestione del flusso, vedere gli esempi di [gestione degli elementi](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement) .
+
+3. **Usare un client Azure Cosmos DB singleton per la durata dell'applicazione**
+
+    Ogni istanza di DocumentClient e CosmosClient è thread-safe ed esegue la gestione efficiente delle connessioni e la memorizzazione nella cache degli indirizzi quando si opera in modalità diretta. Per consentire una gestione efficiente delle connessioni e prestazioni migliori da parte del client SDK, è consigliabile usare una singola istanza per AppDomain per la durata dell'applicazione.
 
    <a id="max-connection"></a>
-3. **Aumentare il valore di System.Net MaxConnections per host se si usa la modalità Gateway**.
+4. **Aumentare il valore di System.Net MaxConnections per host se si usa la modalità Gateway**.
 
     Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST e sono soggette ai limiti di connessione predefiniti per ogni nome host o indirizzo IP. Può essere necessario impostare MaxConnections su un valore più alto (100-1000) in modo che la libreria client possa usare più connessioni simultanee a Azure Cosmos DB. In .NET SDK 1.8.0 e versioni successive il valore predefinito per [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) è 50 e per modificare il valore è possibile impostare [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) su un valore più elevato.   
-4. **Ottimizzazione delle query parallele per le raccolte partizionate**
+5. **Ottimizzazione delle query parallele per le raccolte partizionate**
 
      SQL .NET SDK versione 1.9.0 e versioni successive supportano le query parallele, che consentono di eseguire query su una raccolta partizionata in parallelo. Per altre informazioni, vedere [esempi di codice](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) correlati all'utilizzo con gli SDK. Le query parallele sono state concepite per migliorare la velocità e la latenza delle query sulle loro controparti seriali. Mettono a disposizione due parametri che gli utenti possono ottimizzare in funzione dei requisiti, ovvero (a) MaxDegreeOfParallelism per definire il numero massimo di partizioni sulle quali è possibile eseguire query in parallelo e (b) MaxBufferedItemCount per definire il numero di risultati di prelettura.
 
@@ -114,10 +137,10 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     (b) ***Ottimizzazione di MaxBufferedItemCount\:*** la query parallela è progettata per la prelettura dei risultati mentre il client elabora il batch di risultati corrente. La prelettura consente il miglioramento complessivo della latenza di una query. MaxBufferedItemCount è il parametro che consente di limitare il numero di risultati di prelettura. L'impostazione di MaxBufferedItemCount sul numero previsto di risultati restituiti (o un numero più alto) consente alla query di ottenere il massimo vantaggio dalla prelettura.
 
     La prelettura funziona allo stesso modo indipendentemente dall'impostazione di MaxDegreeOfParallelism e dalla presenza di un solo buffer per i dati di tutte le partizioni.  
-5. **Attivare GC sul lato server**
+6. **Attivare GC sul lato server**
 
     In alcuni casi, può essere utile ridurre la frequenza di Garbage Collection. In .NET impostare [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) su true.
-6. **Implementare il backoff in corrispondenza di intervalli RetryAfter**
+7. **Implementare il backoff in corrispondenza di intervalli RetryAfter**
 
     Durante il test delle prestazioni, è necessario aumentare il carico fino a limitare un numero ridotto di richieste. Se limitata, l'applicazione client deve eseguire il backoff sulla limitazione per l'intervallo tra tentativi specificato dal server. Rispettando il backoff si garantiscono tempi di attesa minimi tra i tentativi. Il supporto dei criteri di ripetizione dei tentativi è incluso nella versione 1.8.0 e versioni successive degli SDK [.NET](sql-api-sdk-dotnet.md) e [Java](sql-api-sdk-java.md), nella versione 1.9.0 e versioni successive degli SDK [Node.js](sql-api-sdk-node.md) e [Python](sql-api-sdk-python.md) e in tutte le versioni supportate degli SDK [.NET Core](sql-api-sdk-dotnet-core.md) di SQL. Per altre informazioni, [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
@@ -127,15 +150,15 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     readDocument.RequestDiagnosticsString 
     ```
     
-7. **Aumentare il carico di lavoro client**
+8. **Aumentare il carico di lavoro client**
 
     Se si sta eseguendo il test a livelli di velocità effettiva elevati (> 50.000 UR/sec), l'applicazione client può diventare un collo di bottiglia a causa della limitazione di utilizzo della CPU o della rete. In questo caso, è possibile continuare a effettuare il push dell'account Azure Cosmos DB aumentando il numero di istanze delle applicazioni client in più server.
-8. **Memorizzare nella cache gli URI dei documenti per una minore latenza di lettura**
+9. **Memorizzare nella cache gli URI dei documenti per una minore latenza di lettura**
 
     Memorizzare nella cache gli URI dei documenti quando possibile per ottenere prestazioni di lettura ottimali. È necessario definire la logica per memorizzare nella cache il valore ResourceId quando si crea la risorsa. Le ricerche basate sul valore ResourceId sono più veloci rispetto alle ricerche basate sul nome, per cui la memorizzazione nella cache di questi valori migliora le prestazioni. 
 
    <a id="tune-page-size"></a>
-1. **Modificare le dimensioni di pagina per le query o i feed di lettura per ottenere prestazioni migliori**
+10. **Modificare le dimensioni di pagina per le query o i feed di lettura per ottenere prestazioni migliori**
 
    Quando si esegue una lettura in blocco di documenti usando la funzionalità dei feed di lettura, ad esempio ReadDocumentFeedAsync, oppure quando si emette una query SQL, i risultati vengono restituiti in modo segmentato se il set di risultati è troppo grande. Per impostazione predefinita, i risultati vengono restituiti in blocchi di 100 elementi o 1 MB, a seconda del limite che viene raggiunto prima.
 
@@ -144,7 +167,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    > [!NOTE] 
    > La proprietà maxItemCount non deve essere usata solo per finalità di impaginazione. Si tratta di un utilizzo principale per migliorare le prestazioni delle query riducendo il numero massimo di elementi restituiti in una singola pagina.  
 
-   È anche possibile impostare le dimensioni della pagina usando gli SDK Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in FeedOptions consente di impostare il numero massimo di elementi da restituire nell'operazione di applicazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale a seconda delle dimensioni del documento. Ad esempio:
+   È anche possibile impostare le dimensioni della pagina usando gli SDK Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in FeedOptions consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale a seconda delle dimensioni del documento. Esempio:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -152,11 +175,11 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     
    Quando viene eseguita una query, i dati risultanti vengono inviati all'interno di un pacchetto TCP. Se si specifica un valore troppo basso `maxItemCount`per, il numero di corse necessarie per inviare i dati all'interno del pacchetto TCP è elevato, che influisca negativamente sulle prestazioni. Se non si è certi del valore da impostare per `maxItemCount` la proprietà, è consigliabile impostarlo su-1 e consentire all'SDK di scegliere il valore predefinito. 
 
-10. **Aumentare il numero di thread/attività**
+11. **Aumentare il numero di thread/attività**
 
     Vedere [Aumentare il numero di thread/attività](#increase-threads) nella sezione Rete.
 
-11. **Usare processi host a 64 bit**
+12. **Usare processi host a 64 bit**
 
     L'SDK di SQL funziona in un processo host a 32 bit quando si usa SQL .NET SDK versione 1.11.4 e versioni successive. Tuttavia, se si usano query tra partizioni, è consigliabile usare l'elaborazione dell'host a 64 bit per migliorare le prestazioni. I tipi seguenti di applicazioni dispongono di un processo host a 32 bit per impostazione predefinita; per passare a un processo a 64 bit, seguire questi passaggi in base al tipo di applicazione:
 

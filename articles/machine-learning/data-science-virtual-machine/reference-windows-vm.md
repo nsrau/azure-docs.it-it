@@ -1,5 +1,5 @@
 ---
-title: 'Riferimenti: Windows DSVM'
+title: 'Riferimenti: DSVM Windows'
 description: Informazioni dettagliate sugli strumenti inclusi nel Data Science VM Windows
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 8ed083ad39c3ace3a0f66a61936974b462ed418f
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: be4397de477891f2a698c9f7dcb131da79479529
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174695"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200022"
 ---
 # <a name="reference-windows-data-science-virtual-machine"></a>Riferimenti: Data Science Virtual Machine di Windows
 
@@ -132,4 +132,6 @@ Python SDK è preinstallato nella macchina virtuale di data science di Microsoft
 > [!NOTE]
 > Nelle edizioni per Windows Server 2012 e Windows Server 2016 della DSVM, precedenti a marzo 2018, l'ambiente Anaconda predefinito è Python 2.7. L'ambiente secondario è Python 3.5, nella directory C:\Anaconda\envs\py35.
 
+## <a name="next-steps"></a>Passaggi successivi
 
+Per altre domande, Prendere in considerazione la creazione di un [ticket di supporto](https://azure.microsoft.com/support/create-ticket/).

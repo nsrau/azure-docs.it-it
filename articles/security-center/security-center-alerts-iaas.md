@@ -3,23 +3,19 @@ title: Rilevamento delle minacce per VM e server nel centro sicurezza di Azure |
 description: Questo argomento presenta gli avvisi relativi alla macchina virtuale e al server disponibili nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: dd2eb069-4c76-4154-96bb-6e6ae553ef46
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 7/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 055b578c1d976b7f85c65ab4e028f9d609861cd4
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 07/02/2019
+ms.author: memildin
+ms.openlocfilehash: 0070ab94196dfe752e048e97dd40a8f69cf98373
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013321"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202601"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Rilevamento delle minacce per VM e server nel centro sicurezza di Azure
 
@@ -83,7 +79,7 @@ Per esempi e altre informazioni sul rilevamento del Centro sicurezza, vedere:
 
 ## Linux <a name="linux-machines"></a>
 
-Il Centro sicurezza raccoglie i record di controllo dai computer Linuxusando auditd, uno dei framework di controllo di Linux più comuni. il controllo risiede nel kernel principale. 
+Il Centro sicurezza raccoglie i record di controllo dai computer Linux usando **auditd**, uno dei framework di controllo di Linux più comuni. il controllo risiede nel kernel principale. 
 
 ### Integrazione di Microsoft Monitoring Agent e avvisi controllati da Linux (MMA)<a name="linux-auditd"></a>
 

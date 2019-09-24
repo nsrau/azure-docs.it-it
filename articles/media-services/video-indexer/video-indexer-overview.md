@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: juliako
-ms.openlocfilehash: a4b7ccf6ece8ed40d6f6c6a22410d4bbe99e590a
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: d346f68534a9fdbc286cd5521c00d81c2a5fec78
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146481"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203548"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
@@ -79,7 +79,6 @@ Quando si esegue l'indicizzazione in base a un canale, sarà disponibile il risu
 
 * **Estrazione di parole chiave**: estrae parole chiave dal parlato e dal testo visivo.
 * **Estrazione entità denominate**: Estrae le marche, le località e gli utenti da testo vocale e visivo tramite la PNL (Natural Language Processing).
-* **Estrazione di marchi**: estrae i marchi da parlato e testo visivo.
 * **Inferenza dell'argomento**: deduce gli argomenti principali dalle trascrizioni. È inclusa la tassonomia IPTC di primo livello.
 * **Artefatti**: estrae un ampio set di artefatti con "livello di dettaglio successivo" per ognuno dei modelli.
 * **Analisi del sentiment**: identifica sentiment positivi, negativi e neutri dal parlato e dal testo visivo.

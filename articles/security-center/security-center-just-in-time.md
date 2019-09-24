@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9948f4d9e6287530004b073adf10bb723899e96d
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 2abe917d1713bbc5f5844aced5e688baacc7d397
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910613"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202008"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)
 
@@ -38,7 +38,7 @@ Un modo per ridurre l'esposizione agli attacchi di forza bruta consiste nel limi
 
 Quando è abilitata la funzionalità JIT, Centro sicurezza protegge il traffico in ingresso alle macchine virtuali di Azure creando una regola NSG. Selezionare le porte nella macchina virtuale per cui proteggere il traffico in ingresso. Queste porte sono controllate dalla soluzione JIT.
 
-Quando un utente richiede l'accesso a una macchina virtuale, Centro sicurezza controlla che l'utente disponga delle autorizzazioni di [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) che consentono di richiedere l'accesso alla VM. Se la richiesta viene approvata, il Centro sicurezza configura automaticamente i gruppi di sicurezza di rete (gruppi) e il firewall di Azure per consentire il traffico in ingresso alle porte selezionate e gli intervalli o gli indirizzi IP di origine richiesti per il periodo di tempo specificato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. Le connessioni ancora attive non vengono tuttavia interrotte.
+Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza verifica che l'utente disponga delle autorizzazioni di [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/role-assignments-portal.md) per tale macchina virtuale. Se la richiesta viene approvata, il Centro sicurezza configura automaticamente i gruppi di sicurezza di rete (gruppi) e il firewall di Azure per consentire il traffico in ingresso alle porte selezionate e gli intervalli o gli indirizzi IP di origine richiesti per il periodo di tempo specificato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. Le connessioni ancora attive non vengono tuttavia interrotte.
 
  > [!NOTE]
  > Se una richiesta di accesso JIT viene approvata per una macchina virtuale dietro un firewall di Azure, il Centro sicurezza modifica automaticamente le regole dei criteri NSG e firewall. Per la quantità di tempo specificata, le regole consentono il traffico in ingresso verso le porte selezionate e gli indirizzi IP o gli intervalli di origine richiesti. Al termine del periodo di tempo, il Centro sicurezza Ripristina le regole firewall e NSG agli stati precedenti.
@@ -108,7 +108,7 @@ Da ASC è possibile configurare un criterio JIT e richiedere l'accesso a una mac
 
      3. Fare clic su **OK**.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 > [!NOTE]
 >Quando è abilitata l'accesso JIT alla macchina virtuale per una macchina virtuale, il Centro sicurezza di Azure crea le regole di "nega tutto il traffico in ingresso" per le porte selezionate nei gruppi di sicurezza di rete associati e nel firewall di Azure. Se sono state create altre regole per le porte selezionate, le regole esistenti hanno la priorità sulla nuova regola "nega tutto il traffico in ingresso". Se non sono presenti regole esistenti sulle porte selezionate, la nuova regola "nega tutto il traffico in ingresso" ha la priorità nei gruppi di sicurezza di rete e nel firewall di Azure.

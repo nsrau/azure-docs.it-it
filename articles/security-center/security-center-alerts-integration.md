@@ -3,23 +3,19 @@ title: Integrazione dei prodotti per la sicurezza di Azure nel centro sicurezza 
 description: Questo argomento presenta i prodotti di sicurezza di Azure che sono stati integrati con il Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: ad4b0373-08ee-46ca-a573-638ed93a647c
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 7/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: beac7d08a973dd8dc7e450840669bfd5687e76ed
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 07/02/2019
+ms.author: memildin
+ms.openlocfilehash: 6560db7e2f1cb363e0b8ca7af3a08f6babd9b36b
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013315"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202420"
 ---
 # <a name="integration-of-azure-security-products-in-azure-security-center"></a>Integrazione dei prodotti per la sicurezza di Azure nel centro sicurezza di Azure
 
@@ -46,7 +42,7 @@ Protezione DDoS Standard consente di mitigare i seguenti tipi di attacchi:
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|DESCRIZIONE|
+|Avviso|Descrizione|
 |---|---|
 |**Attacco volumetrico rilevato**|L'obiettivo di questo attacco è quello di inondare il livello di rete con una notevole quantità di traffico apparentemente legittimo. Sono inclusi attacchi flood UDP, attacchi flood con amplificazione e attacchi flood con pacchetti falsificati. Protezione DDoS standard attenua questi potenziali attacchi a più gigabyte mediante l'assorbimento e lo scrubbing, con scalabilità di rete globale, automaticamente.|
 |**Attacco del protocollo rilevato**|Questi attacchi rendono inaccessibile una destinazione, sfruttando un punto debole negli stack di protocolli di livello 3 e 4. Include gli attacchi SYN flood, gli attacchi di reflection e altri attacchi del protocollo. Protezione DDoS Standard mitiga questi attacchi distinguendo tra traffico dannoso e legittimo tramite l'interazione con il client e bloccando il traffico dannoso.|

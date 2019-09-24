@@ -3,23 +3,22 @@ title: Punteggio di sicurezza nel Centro sicurezza di Azure | Microsoft Docs
 description: " Definire la priorità delle raccomandazioni sulla sicurezza con il punteggio di sicurezza nel Centro sicurezza di Azure. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: v-mohabe
-ms.openlocfilehash: c23c9a2b9af1947c397b96431ae3c3bcd0e30aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/15/2019
+ms.author: memildin
+ms.openlocfilehash: 0a39fd1870ae803f2cf694e01c67d125fc96cac9
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968295"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200966"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Migliorare il punteggio di sicurezza nel Centro sicurezza di Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2019
 ms.author: haroldw
-ms.openlocfilehash: ab8814f1620cc019a0bee872c7b8f42cbb427365
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dae521902d0568f2d79725bad792d4df64daa1c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091730"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204019"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift in Azure
 
@@ -116,7 +116,7 @@ Creare un'entità servizio:
 scope=`az group show --name openshiftrg --query id`
 az ad sp create-for-rbac --name openshiftsp \
       --role Contributor --password {Strong Password} \
-      --scopes $scope
+      --scopes $scope \
 ```
 Se si usa Windows, eseguire ```az group show --name openshiftrg --query id``` e usare l'output al posto di $scope.
 
@@ -147,7 +147,7 @@ Per impostazione predefinita, il modello consente di distribuire un cluster Open
 
 È necessario archiviare questi file in Key Vault segreti.  Usare lo stesso Key Vault di quello usato per la chiave privata.  Anziché richiedere 6 input aggiuntivi per i nomi dei segreti, il modello è hardcoded per l'uso di nomi di segreti specifici per ogni file di certificato SSL.  Archiviare i dati del certificato usando le informazioni riportate nella tabella seguente.
 
-| Nome del segreto      | File di certificato   |
+| Nome segreto      | File del certificato   |
 |------------------|--------------------|
 | mastercafile     | file CA Master     |
 | mastercertfile   | file certificato Master   |

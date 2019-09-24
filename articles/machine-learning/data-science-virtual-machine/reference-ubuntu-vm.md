@@ -1,5 +1,5 @@
 ---
-title: 'Riferimenti: Ubuntu DSVM'
+title: 'Riferimenti: DSVM Ubuntu'
 description: Informazioni dettagliate sugli strumenti inclusi in Ubuntu Data Science Virtual Machine
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 20fe027ddf47ba98cef41cdc40a1b2e0d387c2a5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0c48b8ba28f67ac7f38d6f636728abe7c5a6bd4e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174708"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204029"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Riferimenti: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -342,3 +342,6 @@ Si apre un'interfaccia grafica con un set di schede. Seguire questi passaggi di 
 
 È possibile uscire da Rattle e R. A questo punto è possibile modificare lo script R generato. In alternativa, usare lo script così com'è ed eseguirlo in qualsiasi momento per ripetere tutti i passaggi eseguiti nell'interfaccia utente di Rattle. Si tratta di un modo rapido, specialmente per gli utenti meno esperti di R, per eseguire funzioni di analisi e Machine Learning in un'interfaccia grafica semplice, generando automaticamente codice in R da modificare o per l'apprendimento.
 
+## <a name="next-steps"></a>Passaggi successivi
+
+Per altre domande, Prendere in considerazione la creazione di un [ticket di supporto](https://azure.microsoft.com/support/create-ticket/).

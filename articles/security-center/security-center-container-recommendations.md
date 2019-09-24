@@ -3,9 +3,8 @@ title: Raccomandazioni per i contenitori nel Centro sicurezza di Azure | Microso
 description: Questo documento illustra le raccomandazioni visualizzate nel Centro sicurezza di Azure per proteggere i contenitori.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2e76c7f7-a3dd-4d9f-add9-7e0e10e9324d
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: rkarlin
-ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 96efe5271b91f87e30ba26aabe69a0de76e1a791
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60705272"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202404"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Informazioni sulle raccomandazioni per i contenitori nel Centro sicurezza di Azure
 
@@ -43,7 +42,7 @@ Il Centro sicurezza di Azure offre le funzionalità seguenti per consentire di p
 ## <a name="recommendations"></a>Consigli
 Usare le tabelle seguenti come riferimento per conoscere i contenitori disponibili ospitati in computer IaaS Linux e la valutazione della sicurezza delle loro configurazioni Docker.
 
-| Recommendation | Descrizione | Correzione |
+| Indicazione | Descrizione | Correzione |
 | --- | --- | --- |
 |Correggere le vulnerabilità nelle configurazioni di sicurezza dei contenitori |Correggere le vulnerabilità nelle configurazioni di sicurezza dei contenitori basandosi sulle procedure consigliate per la configurazione.| Per correggere le vulnerabilità nelle configurazioni di sicurezza dei contenitori:<br>1. Esaminare l'elenco delle regole non riuscite.<br>2. Correggere ogni regola secondo le istruzioni specificate.|
 

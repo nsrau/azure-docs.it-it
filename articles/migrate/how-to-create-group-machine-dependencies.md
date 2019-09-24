@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: c48323bb4c8798a0f36d3fda99a4c659187e0e81
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8e793891ea646ae8c91077ead36be9b84c1b08c8
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906384"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200197"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configurare la visualizzazione delle dipendenze per la valutazione
 
@@ -61,7 +61,7 @@ Alleghi un'area di lavoro come segue:
 
     ![Aggiungi area di lavoro](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    - Dopo aver specificato un nome per una nuova area di lavoro, questo viene creato nella stessa area geografica del progetto Azure Migrate.
+    - Dopo aver specificato un nome per una nuova area di lavoro, è possibile scegliere l' [area](https://azure.microsoft.com/global-infrastructure/regions/) in cui verrà creata l'area di lavoro.
     - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione.
     - Per poter essere collegato, è necessario l'accesso in lettura all'area di lavoro.
     - Non è possibile modificare l'area di lavoro associata a un progetto dopo che è stata collegata.
@@ -83,7 +83,7 @@ Scaricare e installare gli agenti in ogni computer locale che si vuole visualizz
 Per installare l'agente in un computer Windows:
 
 1. Fare doppio clic sull'agente scaricato.
-2. Nella pagina di **benvenuto** fare clic su **Avanti**. Nella pagina **Condizioni di licenza** fare clic su **Accetto** per accettare la licenza.
+2. Nella pagina **iniziale** fare clic su **Avanti**. Nella pagina **Condizioni di licenza** fare clic su **Accetto** per accettare la licenza.
 3. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
 5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.

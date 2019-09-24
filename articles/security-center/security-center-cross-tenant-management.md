@@ -3,9 +3,8 @@ title: Gestione tra tenant nel centro sicurezza di Azure | Microsoft Docs
 description: " Informazioni su come abilitare la raccolta dati nel Centro sicurezza di Azure. "
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 7d51291a-4b00-4e68-b872-0808b60e6d9c
 ms.service: security-center
 ms.devlang: na
@@ -13,17 +12,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
-ms.author: v-mohabe
-ms.openlocfilehash: d6b5b528c3021bfb62bc30ad5910524db36e7e95
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.author: memildin
+ms.openlocfilehash: 178911390a4cb694171adf6c807369cab0c0499a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950541"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202364"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestione tra tenant nel centro sicurezza
 
-La gestione tra tenant consente di visualizzare e gestire il comportamento di sicurezza di più tenant nel centro sicurezza sfruttando la [gestione delle risorse](../lighthouse/concepts/azure-delegated-resource-management.md) delegate di Azure. Gestire più tenant in modo efficiente, da una singola visualizzazione senza dover accedere alla directory di ogni tenant.
+La gestione tra tenant consente di visualizzare e gestire il comportamento di sicurezza di più tenant nel centro sicurezza sfruttando la [gestione delle risorse delegate di Azure](../lighthouse/concepts/azure-delegated-resource-management.md) . Gestire più tenant in modo efficiente, da una singola visualizzazione senza dover accedere alla directory di ogni tenant.
 
 - I provider di servizi possono gestire il comportamento di sicurezza delle risorse, per più clienti, dall'interno del proprio tenant.
 
@@ -31,7 +30,7 @@ La gestione tra tenant consente di visualizzare e gestire il comportamento di si
 
 ## <a name="set-up-cross-tenant-management"></a>Configurare la gestione tra tenant
 
-Configurare la gestione tra tenant delegando l'accesso alle risorse dei tenant gestiti al tenant usando la [gestione delle risorse](../lighthouse/concepts/azure-delegated-resource-management.md)delegata di Azure.
+Configurare la gestione tra tenant delegando l'accesso alle risorse dei tenant gestiti al tenant usando la [gestione delle risorse delegata di Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
 
 > [!NOTE]
 > La gestione risorse delegate di Azure è uno dei componenti principali di Azure Lighthouse.

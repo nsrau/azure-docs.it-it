@@ -3,9 +3,8 @@ title: Monitorare identità e accesso nel Centro sicurezza di Azure | Microsoft 
 description: Informazioni su come usare le funzionalità per identità e accesso nel Centro sicurezza di Azure per monitorare l'attività di accesso degli utenti e i problemi correlati all'identità.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: v-mohabe
-ms.openlocfilehash: 1ef4d8e76b54b995a09decdfaf9974f0929c8ed9
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.author: memildin
+ms.openlocfilehash: d035dc4e8f77bb64a9e845a9dae0668365a6aacb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905333"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202270"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorare identità e accesso nel Centro sicurezza di Azure (anteprima)
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso degli utenti.
@@ -108,7 +107,7 @@ In **Sottoscrizioni** è presente un elenco di sottoscrizioni. La prima colonna 
 ## <a name="recommendations"></a>Consigli
 Usare la tabella seguente come riferimento per comprendere i consigli relativi a Identità e accesso disponibili e gli effetti che producono se si decide di metterli in pratica.
 
-|Tipo di risorsa|Punteggio di sicurezza|Recommendation|Descrizione|
+|Tipo di risorsa|Punteggio di sicurezza|Indicazione|Descrizione|
 |----|----|----|----|
 |Sottoscrizione|50|L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di amministratore per impedire una violazione degli account o delle risorse.|
 |Sottoscrizione|40|Autenticazione a più fattori deve essere abilitata per gli account di sottoscrizione con autorizzazioni di scrittura|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di scrittura per impedire una violazione degli account o delle risorse.|
@@ -119,7 +118,7 @@ Usare la tabella seguente come riferimento per comprendere i consigli relativi a
 |Sottoscrizione|5|Gli account deprecati devono essere rimossi dalla sottoscrizione|Rimuovere gli account deprecati dalle sottoscrizioni correnti per consentire l'accesso solo agli utenti connessi. |
 |Sottoscrizione|5|Alla sottoscrizione deve essere assegnato più di un proprietario|Designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore.|
 |Sottoscrizione|5|Per la sottoscrizione devono essere designati al massimo 3 proprietari|Designare meno di 3 proprietari di sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.|
-|Insieme di credenziali delle chiavi|5|I log di diagnostica in Key Vault devono essere abilitati|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Insieme di credenziali delle chiavi|5|I log di diagnostica in Key Vault devono essere abilitati|Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Sottoscrizione|15|Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con privilegi di lettura in modo da evitare l'accesso non monitorato.| 
 
 > [!NOTE]

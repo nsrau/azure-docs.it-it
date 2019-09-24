@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: de9e0a936c68f181665e44ea6115f60c6dc60e98
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 2ade270011ad5c1e1e5f5940ca305687e52bba86
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179061"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200310"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF
 Questo articolo descrive come eseguire pacchetti SQL Server Integration Services (SSIS) in Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) con il runtime di integrazione self-hosted configurato come proxy.  Questa funzionalità consente di accedere ai dati in locale senza [aggiungerli alla Azure-SSIS IR a una rete virtuale](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Questa operazione è utile quando la rete aziendale ha un criterio eccessivamente complesso di configurazione/restrittiva per inserire i Azure-SSIS IR al suo interno.
@@ -86,10 +86,11 @@ Le prime attività di staging in esecuzione sul runtime di integrazione self-hos
 Le seconde attività di gestione temporanea in esecuzione nel Azure-SSIS IR non verranno fatturate separatamente, ma la Azure-SSIS IR in esecuzione verrà fatturata come specificato nell'articolo [sui prezzi di Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/) .
 
 ## <a name="current-limitations"></a>Limitazioni correnti
-- Attualmente sono supportate solo le gestioni connessioni file flat e OLEDB o le origini file flat.
+
+- Attualmente sono supportate solo le gestioni connessioni file flat e OLEDB o le origini file flat. 
 - Attualmente sono supportati solo i servizi collegati di archiviazione BLOB di Azure configurati con l'autenticazione dell'**entità servizio** **URI**/della **chiave**/dell'account.
 - È attualmente supportato solo il runtime di integrazione self-hosted con provisioning nello stesso ADF in cui è stato eseguito il provisioning del Azure-SSIS IR.
-- Variabili e parametri SSIS non supportati.
+- Non è supportato l'uso di parametri/variabili SSIS all'interno delle proprietà delle origini file e delle gestioni connessioni di OLEDB/flat.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver configurato il runtime di integrazione self-hosted come proxy per la Azure-SSIS IR, è possibile distribuire ed eseguire i pacchetti per accedere ai dati locali come attività Esegui pacchetto SSIS nelle pipeline di ADF, vedere [eseguire pacchetti SSIS come attività Esegui pacchetto SSIS nelle pipeline di ADF ](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

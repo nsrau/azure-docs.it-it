@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
-ms.reviewer: yagup
-ms.openlocfilehash: dbc0829adc29848c9047368295a2ade589834e8b
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.reviewer: vinigam
+ms.openlocfilehash: 6c11f415fc1ea3a578893f6d14a60dfc1c4fddb0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031866"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203003"
 ---
-# <a name="traffic-analytics"></a>Analisi del traffico
+# <a name="traffic-analytics"></a>Traffic Analytics
 
 Analisi del traffico è una soluzione basata sul cloud che fornisce visibilità delle attività di utenti e applicazioni nelle reti cloud. Analisi del traffico analizza i log dei flussi dei gruppi di sicurezza di rete di Network Watcher per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. Con Analisi del traffico è possibile:
 
@@ -30,6 +30,8 @@ Analisi del traffico è una soluzione basata sul cloud che fornisce visibilità 
 - Conoscere i modelli di flusso di traffico nelle aree di Azure e in Internet per ottimizzare le prestazioni e la capacità della distribuzione della rete.
 - Trovare le configurazioni di rete errate che comportano connessioni non riuscite nella rete.
 
+> [!NOTE]
+> Analisi del traffico supporta ora la raccolta dei dati dei log di flusso NSG a una frequenza maggiore di 10 minuti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -46,7 +48,7 @@ Le reti virtuali di Azure hanno i log dei flussi dei gruppi di sicurezza di rete
 - **Gruppo di sicurezza di rete**: contiene un elenco di regole di sicurezza che consentono o rifiutano il traffico di rete verso le risorse connesse a Rete virtuale di Microsoft Azure. I gruppi di sicurezza di rete possono essere associati a subnet, singole VM (distribuzione classica) o singole interfacce di rete collegate a VM (Resource Manager). Per altre informazioni, vedere [Panoramica dei gruppi di sicurezza di rete](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Log dei flussi del gruppo di sicurezza di rete (NSG)** : Consente di visualizzare le informazioni sul traffico IP in ingresso e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita per ogni regola, la scheda di rete a cui si applica il flusso, informazioni a cinque tuple relative al flusso (indirizzo IP di origine/destinazione, porta di origine/destinazione e protocollo) e se il traffico è consentito o meno. Per altre informazioni sui log dei flussi dei gruppi di sicurezza di rete, vedere [Log dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: servizio di Azure che raccoglie i dati di monitoraggio e li archivia in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API di Azure. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. Le applicazioni di monitoraggio, ad esempio monitoraggio prestazioni rete e analisi del traffico, vengono create usando i log di monitoraggio di Azure come base. Per altre informazioni, vedere [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Area di lavoro di Log Analytics**: Un'istanza dei log di monitoraggio di Azure, in cui vengono archiviati i dati relativi a un account Azure. Per ulteriori informazioni sulle aree di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **area di lavoro Log Analytics**: Un'istanza dei log di monitoraggio di Azure, in cui vengono archiviati i dati relativi a un account Azure. Per ulteriori informazioni sulle aree di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: servizio a livello di area che permette di monitorare e diagnosticare le condizioni al livello di scenario di rete in Azure. Con Network Watcher è possibile attivare e disattivare i log dei flussi dei gruppi di sicurezza di rete. Per altre informazioni, vedere [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Come funziona Analisi del traffico
@@ -61,7 +63,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 
 * Canada centrale
 * Stati Uniti centro-occidentali
-* Stati Uniti orientali
+* East US
 * Stati Uniti orientali 2
 * Stati Uniti centro-settentrionali
 * Stati Uniti centro-meridionali
@@ -78,7 +80,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 * Australia sud-orientale
 * Asia orientale
 * Asia sud-orientale
-* Corea del Sud centrale
+* Corea centrale
 * India centrale
 * India meridionale
 * Giappone orientale 
@@ -90,7 +92,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 * Canada centrale
 * Stati Uniti centro-occidentali
-* Stati Uniti orientali
+* East US
 * Stati Uniti orientali 2
 * Stati Uniti centro-meridionali
 * Stati Uniti occidentali
@@ -104,7 +106,7 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 * Australia sud-orientale
 * Asia orientale
 * Asia sud-orientale
-* Corea del Sud centrale
+* Corea centrale
 * India centrale
 * Giappone orientale
 * US Gov Virginia
@@ -115,12 +117,12 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 
 L'account deve essere un membro di uno de seguenti [ruoli predefiniti](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) di Azure:
 
-|Modello di distribuzione   | Ruolo                   |
+|Modello di distribuzione   | Role                   |
 |---------          |---------               |
-|Gestione risorse   | Proprietario                  |
+|Resource Manager   | Proprietario                  |
 |                   | Collaboratore            |
-|                   | Reader                 |
-|                   | Collaboratore di rete    |
+|                   | Lettore                 |
+|                   | Collaboratore Rete    |
 
 Se l'account non è assegnato a uno dei ruoli predefiniti, deve essere assegnato a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) al quale vengono assegnate le seguenti azioni, a livello di sottoscrizione:
 
@@ -181,7 +183,7 @@ Selezionare le opzioni seguenti, come illustrato nell'immagine:
 > [!IMPORTANT]
 > Attualmente si verifica un problema per cui [i log dei flussi del gruppo di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. Se è impostato un criterio di conservazione diverso da zero, è consigliabile eliminare periodicamente i BLOB di archiviazione che superano il periodo di conservazione per evitare eventuali addebiti. Per altre informazioni su come eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete, vedere [Eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete](network-watcher-delete-nsg-flow-log-blobs.md).
 5. Selezionare *Sì* per **Stato di Analisi del traffico**.
-6. Selezionare intervallo di elaborazione. In base alla scelta effettuata, i log dei flussi verranno raccolti dall'account di archiviazione ed elaborati dal Analisi del traffico. È possibile scegliere l'intervallo di elaborazione ogni 1 ora o ogni 10 minuti.
+6. Selezionare intervallo di elaborazione. In base alla scelta effettuata, i log dei flussi verranno raccolti dall'account di archiviazione ed elaborati dal Analisi del traffico. È possibile scegliere l'intervallo di elaborazione ogni 1 ora o ogni 10 minuti. 
 7. Selezionare un'area di lavoro di Log Analytics (OMS) esistente oppure selezionare **Crea una nuova area di lavoro** per crearne una nuova. Un'area di lavoro Log Analytics viene usata da Analisi del traffico per archiviare i dati aggregati e indicizzati che vengono quindi usati per generare l'analisi. Se si seleziona un'area di lavoro esistente, deve esistere in una delle [aree supportate](#supported-regions-log-analytics-workspaces) ed essere stata aggiornata al nuovo linguaggio di query. Se non si vuole aggiornare un'area di lavoro esistente o non si ha un'area di lavoro in un'area supportata, crearne una nuova. Per altre informazioni sui linguaggi di query, vedere [Aggiornamento di Azure Log Analytics alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     Non è necessario che l'area di lavoro Log Analytics che ospita la soluzione Analisi del traffico e i gruppi di sicurezza di rete si trovino nella stessa area. È ad esempio possibile avere Analisi del traffico in un'area di lavoro nell'area Europa occidentale e i gruppi di sicurezza di rete in Stati Uniti orientali e Stati Uniti occidentali. È possibile configurare più gruppi di sicurezza di rete nella stessa area di lavoro.
@@ -189,7 +191,7 @@ Selezionare le opzioni seguenti, come illustrato nell'immagine:
 
     ![Selezione dell'account di archiviazione, dell'area di lavoro Log Analytics e dell'abilitazione di Analisi del traffico](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Ripetere i passaggi precedenti per qualsiasi altro gruppo di sicurezza di rete per il quale si vuole abilitare Analisi del traffico. I dati dai log dei flussi vengono inviati all'area di lavoro, quindi assicurarsi che le leggi locali e le normative in vigore nel proprio paese consentano l'archiviazione dei dati nell'area in cui è presente l'area di lavoro. Se sono stati impostati intervalli di elaborazione diversi per gruppi diversi, i dati verranno raccolti a intervalli diversi. Ad esempio:  È possibile scegliere di abilitare l'intervallo di elaborazione di 10 minuti per reti virtuali critici e 1 ora per reti virtuali non critici.
+Ripetere i passaggi precedenti per qualsiasi altro gruppo di sicurezza di rete per il quale si vuole abilitare Analisi del traffico. I dati dai log dei flussi vengono inviati all'area di lavoro, quindi assicurarsi che le leggi locali e le normative in vigore nel proprio paese consentano l'archiviazione dei dati nell'area in cui è presente l'area di lavoro. Se sono stati impostati intervalli di elaborazione diversi per gruppi diversi, i dati verranno raccolti a intervalli diversi. Esempio: È possibile scegliere di abilitare l'intervallo di elaborazione di 10 minuti per reti virtuali critici e 1 ora per reti virtuali non critici.
 
 È anche possibile configurare analisi del traffico usando il cmdlet di PowerShell [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) in Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 

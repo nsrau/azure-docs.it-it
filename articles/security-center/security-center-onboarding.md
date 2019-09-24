@@ -3,9 +3,8 @@ title: Caricamento del livello Standard di Centro sicurezza di Azure per la sicu
 description: " Informazioni su come caricare il livello Standard del Centro sicurezza di Azure per la sicurezza avanzata. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
-ms.author: v-mohabe
-ms.openlocfilehash: e5d93d2f1f1c082610cb14a5ea621e0919a41866
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.author: memildin
+ms.openlocfilehash: 7448516e464a379e27abd45834b31760fca3fedd
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589010"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201859"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Caricamento del livello Standard di Centro sicurezza di Azure per la sicurezza avanzata
 Eseguire l'aggiornamento al livello Standard di Centro sicurezza di Azure per la sicurezza avanzata per sfruttare i vantaggi della gestione della sicurezza avanzata e la protezione dalle minacce per i carichi di lavoro cloud ibridi.  È possibile provare gratuitamente il livello Standard. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
@@ -33,7 +32,7 @@ Il livello Standard del Centro sicurezza include:
 ## <a name="detecting-unprotected-resources"></a>Rilevamento delle risorse non protette     
 Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro di Azure non abilitate per il livello Standard del Centro sicurezza di Azure. Sono incluse le sottoscrizioni Azure che usano il livello Gratuito del Centro di sicurezza e le aree di lavoro che non dispongono della soluzione di sicurezza abilitata.
 
-È possibile eseguire l'aggiornamento di un'intera sottoscrizione di Azure al livello Standard, che viene ereditato da tutte le risorse supportate all'interno della sottoscrizione. Applicazione dello Standard a livelli a un'area di lavoro si applica a tutte le risorse di creazione di report all'area di lavoro.
+È possibile aggiornare un'intera sottoscrizione di Azure al livello standard, che viene ereditato da tutte le risorse supportate nella sottoscrizione. Applicare il livello standard a un'area di lavoro si applica a tutte le risorse che inviano report all'area di lavoro.
 
 > [!NOTE]
 > Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti. Il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) consente di applicare un ambito alla soluzione e avere come target un sottoinsieme di computer nell'area di lavoro.  Se si usa una soluzione di targeting, il Centro sicurezza di Azure elenca l'area di lavoro come priva di una soluzione.
@@ -53,7 +52,7 @@ Per aggiornare una sottoscrizione o area di lavoro al livello Standard:
 
 
    > [!NOTE]
-   > Funzionalità gratuite del Centro sicurezza vengono applicate solo alle macchine virtuali di Azure e VMSS. Non vengono applicate ai computer non Azure. Se si seleziona Standard, le funzionalità Standard vengono applicate a tutte le macchine virtuali di Azure, set di scalabilità di macchine Virtuali e computer non Azure che creano report all'area di lavoro. Si consiglia di applicare il piano Standard per fornire la sicurezza avanzata per le risorse Azure e non Azure.
+   > Le funzionalità gratuite del Centro sicurezza vengono applicate solo alle macchine virtuali di Azure e VMSS. Non vengono applicate ai computer non Azure. Se si seleziona standard, le funzionalità standard vengono applicate a tutte le macchine virtuali di Azure, ai set di scalabilità di VM e ai computer non Azure che inviano report all'area di lavoro. Si consiglia di applicare il piano Standard per fornire la sicurezza avanzata per le risorse Azure e non Azure.
    >
    >
 

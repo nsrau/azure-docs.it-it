@@ -3,23 +3,19 @@ title: Avvisi di sicurezza nel centro sicurezza di Azure | Microsoft Docs
 description: In questo argomento vengono illustrati gli avvisi di sicurezza e i diversi tipi disponibili nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/25/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 1a3ce29750351d6037b376ebb93eb73e141c0727
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 08/25/2019
+ms.author: memildin
+ms.openlocfilehash: 3b4b02574c028822d25d841376b127a718243b2e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047574"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202571"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -97,7 +93,7 @@ Gli argomenti seguenti illustrano come il Centro sicurezza usa i diversi dati di
 
 ## <a name="what-are-security-incidents"></a>Che cosa sono gli eventi imprevisti della sicurezza?
 
-Un evento imprevisto di sicurezza è una raccolta di avvisi correlati, anziché elencare singolarmente ogni avviso. Il Centro sicurezza usa la correlazione degli avvisi [cloud](security-center-alerts-cloud-smart.md) per correlare avvisi diversi e segnali di fedeltà bassa in eventi imprevisti della sicurezza.
+Un evento imprevisto di sicurezza è una raccolta di avvisi correlati, anziché elencare singolarmente ogni avviso. Il Centro sicurezza usa la [correlazione](security-center-alerts-cloud-smart.md) degli avvisi cloud per correlare avvisi diversi e segnali di fedeltà bassa in eventi imprevisti della sicurezza.
 
 Con gli eventi imprevisti, il Centro sicurezza offre un'unica visualizzazione di una campagna di attacco e di tutti gli avvisi correlati. Questa visualizzazione consente di comprendere rapidamente le azioni intraprese dall'utente malintenzionato e le risorse interessate. Per ulteriori informazioni, vedere [correlazione tra Smart Alert cloud](security-center-alerts-cloud-smart.md).
 

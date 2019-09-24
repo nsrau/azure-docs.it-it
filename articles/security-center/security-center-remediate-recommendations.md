@@ -3,9 +3,8 @@ title: Correggere le raccomandazioni nel centro sicurezza di Azure | Microsoft D
 description: Questo documento illustra come correggere le raccomandazioni nel centro sicurezza di Azure per proteggere le risorse di Azure e rimanere in conformità con i criteri di sicurezza.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 8be947cc-cc86-421d-87a6-b1e23077fd50
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2019
-ms.author: v-mohabe
-ms.openlocfilehash: a32e344ffe33f411bae85763ae3b919040c1109b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.author: memildin
+ms.openlocfilehash: 9bd1586193d2e36c370217e37b77409298821a67
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575577"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201009"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Correggere le raccomandazioni nel centro sicurezza di Azure
 
@@ -46,7 +45,7 @@ Per implementare la correzione con un clic:
 
    ![Selezionare la correzione con un clic](./media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)
 
-2. Dalla scheda **risorse** non integre selezionare le risorse su cui si desidera implementare l'indicazione e quindi fare clic su Correggi. 
+2. Dalla scheda **risorse non integre** selezionare le risorse su cui si desidera implementare l'indicazione e **quindi fare clic su Correggi**. 
 
     > [!NOTE]
     > Alcune delle risorse elencate potrebbero essere disabilitate, perché non si dispone delle autorizzazioni appropriate per modificarle.
@@ -56,7 +55,7 @@ Per implementare la correzione con un clic:
    ![Correzione con un clic](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
-    > Le implicazioni sono elencate nella casella grigio della finestra Correggi **risorse** che viene visualizzata dopo aver fatto clicsu Correggi. Elencano le modifiche che si verificano quando si procede con la correzione con un clic.
+    > Le implicazioni sono elencate nella casella grigio della finestra Correggi **risorse** che viene visualizzata dopo aver **fatto clic su**Correggi. Elencano le modifiche che si verificano quando si procede con la correzione con un clic.
 
 4. Inserire i parametri rilevanti, se necessario, e approvare la correzione.
 
@@ -72,10 +71,10 @@ Per applicare la configurazione nella risorsa, l'operazione di monitoraggio e ag
 
 ## <a name="recommendations-with-one-click-remediation"></a>Suggerimenti con correzione con un clic
 
-|Recommendation|Modo implicito|
+|Indicazione|Modo implicito|
 |---|---|
 |Il controllo sui server SQL deve essere abilitato|Questa azione consentirà il controllo SQL su questi server e i relativi database. <br>**Nota**: <ul><li>Per ogni area dei server SQL selezionati, un account di archiviazione per il salvataggio dei log di controllo verrà creato e condiviso da tutti i server in tale area.</li><li>Per garantire un controllo appropriato, non eliminare o rinominare il gruppo di risorse o gli account di archiviazione.</li></ul>|
-|È necessario abilitare la sicurezza dei dati avanzata nelle istanze di SQL gestite|Questa azione Abilita SQL Advanced Data Security (ADS) per le istanze gestite di SQL selezionate. <br>**Nota**: <ul><li>Per ogni area e gruppo di risorse delle istanze di SQL gestite selezionate, un account di archiviazione per il salvataggio dei risultati dell'analisi verrà creato e condiviso da tutte le istanze di tale area.</li><li> ADS viene addebitato a $15 per istanza gestita di SQL.</li></ul>|
+|La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL|Questa azione Abilita SQL Advanced Data Security (ADS) per le istanze gestite di SQL selezionate. <br>**Nota**: <ul><li>Per ogni area e gruppo di risorse delle istanze di SQL gestite selezionate, un account di archiviazione per il salvataggio dei risultati dell'analisi verrà creato e condiviso da tutte le istanze di tale area.</li><li> ADS viene addebitato a $15 per istanza gestita di SQL.</li></ul>|
 |È necessario abilitare la valutazione della vulnerabilità nelle istanze gestite di SQL|Questa azione consentirà la valutazione della vulnerabilità SQL nelle istanze di SQL gestite selezionate. <br>**Nota**:<ul><li>La valutazione della vulnerabilità SQL fa parte del pacchetto SQL Advanced Data Security (ADS). Se ADS non è già abilitato, verrà abilitato automaticamente nell'istanza gestita.</li><li>Per ogni area e gruppo di risorse delle istanze di SQL gestite selezionate, viene creato un account di archiviazione per archiviare i risultati dell'analisi che verranno condivisi da tutte le istanze di tale area.</li><li>ADS viene addebitato a $15 per SQL Server.</li></ul>||
 |È necessario abilitare la sicurezza dei dati avanzata in SQL Server|Questa azione Abilita la sicurezza avanzata dei dati (ADS) sui server selezionati e i relativi database. <br>**Nota**:<ul><li>Per ogni area e gruppo di risorse dei server SQL selezionati, un account di archiviazione per archiviare i risultati dell'analisi verrà creato e condiviso da tutti i server in tale area. <</li><li>ADS viene addebitato a $15 per SQL Server.</li></ul>||
 |È necessario abilitare la valutazione della vulnerabilità in SQL Server|Questa azione consentirà la valutazione della vulnerabilità SQL su questi server selezionati e i relativi database. <br>**Nota**:<ul><li>La valutazione della vulnerabilità SQL fa parte del pacchetto SQL Advanced Data Security (ADS). Se ADS non è già abilitato, verrà abilitato automaticamente in SQL Server.</li><li>Per ogni area e gruppo di risorse dei server SQL selezionati, un account di archiviazione per archiviare i risultati dell'analisi verrà creato e condiviso da tutte le istanze di tale area.</li><li>ADS viene addebitato a $15 per SQL Server.</li></ul>||

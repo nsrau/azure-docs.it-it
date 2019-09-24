@@ -3,9 +3,8 @@ title: Confrontare le linee di base con il monitoraggio dell'integrità dei file
 description: Informazioni su come confrontare le basi di riferimento con il monitoraggio dell'integrità dei file nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: afc03baa71f17deb0b923f483fde214a86c5e9b4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 116f295365084e7570ed9afc493d9179ea2dfb5a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296479"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202148"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Confrontare le linee di base usando il monitoraggio dell'integrità dei file
 
@@ -37,7 +36,7 @@ Infatti, molti standard di conformità normativi, come PCI-DSS & ISO 17799, rich
 
 Le impostazioni predefinite hive del registro di sistema FIM rappresentano un modo pratico per monitorare le modifiche ricorsive all'interno di aree di sicurezza comuni.  Ad esempio, un antagonista può configurare uno script da eseguire nel contesto LOCAL_SYSTEM configurando un'esecuzione all'avvio o all'arresto.  Per monitorare le modifiche di questo tipo, abilitare il controllo predefinito.  
 
-![Registro](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
+![Registro di sistema](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
 > I controlli ricorsivi si applicano solo agli hive di sicurezza consigliati e non ai percorsi del registro di sistema personalizzati.  

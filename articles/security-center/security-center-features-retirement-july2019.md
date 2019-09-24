@@ -1,34 +1,33 @@
 ---
 title: Ritiro delle funzionalità del Centro sicurezza (luglio 2019) | Microsoft Docs
-description: Questo articolo descrive le funzionalità del Centro sicurezza che verranno ritirate il 31 luglio 2019.
+description: Questo articolo descrive le funzionalità del Centro sicurezza ritirate il 31 luglio 2019.
 services: security-center
-author: yoavfrancis
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: article
-ms.date: 4/16/2019
-ms.author: yoafr
-ms.openlocfilehash: 5ffa77a05e6019ee6b5e29c5af5ed0130e027cae
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876510"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202201"
 ---
+# <a name="retirement-of-security-center-features-july-2019"></a>Ritiro delle funzionalità del Centro sicurezza (luglio 2019)
+
 > [!NOTE]
 > Questo documento illustra in dettaglio l'elenco delle funzionalità che sono state ritirate dal centro sicurezza di Azure il 31 luglio 2019.
 >
 >
 
+Sono stati apportati diversi [miglioramenti](https://azure.microsoft.com/updates/?product=security-center) al centro sicurezza di Azure nel corso dei sei mesi fino al 2019 luglio.
+Con queste funzionalità ottimizzate, abbiamo rimosso alcune funzionalità ridondanti e le API correlate dal centro sicurezza il 31 luglio 2019.
 
-# <a name="retirement-of-security-center-features-july-2019"></a>Ritiro delle funzionalità del Centro sicurezza (luglio 2019)
+La maggior parte di queste funzionalità ritirate può essere sostituita con altre funzionalità del Centro sicurezza di Azure o di Azure Log Analytics. Altre funzionalità possono essere implementate con [Azure Sentinel (Preview)](https://azure.microsoft.com/services/azure-sentinel/).
 
-Sono stati apportati diversi [miglioramenti](https://azure.microsoft.com/updates/?product=security-center) al centro sicurezza di Azure negli ultimi sei mesi.
-Con queste funzionalità migliorate, le funzionalità ridondanti e le API correlate vengono rimosse dal centro sicurezza il 31 luglio 2019.  
-
-La maggior parte di queste funzionalità di ritiro può essere sostituita con nuove funzionalità del Centro sicurezza di Azure o di Azure Log Analytics. Altre funzionalità possono essere implementate con [Azure Sentinel (Preview)](https://azure.microsoft.com/services/azure-sentinel/).
-
-Le funzionalità del Centro sicurezza da ritirate includono:
+Le funzionalità del Centro sicurezza ritirate includono:
 
 - [Dashboard eventi](#menu_events)
 - [Voce di menu Cerca](#menu_search)
@@ -46,7 +45,7 @@ Questo articolo fornisce informazioni dettagliate per ogni funzionalità ritirat
 
 Il Centro sicurezza USA Microsoft Monitoring Agent per raccogliere diverse configurazioni ed eventi correlati alla sicurezza dai computer. Questi eventi vengono archiviati nelle aree di lavoro. Il [dashboard degli eventi](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) consente di visualizzare i dati e fornisce un punto di ingresso per log Analytics.
 
-È in corso il ritiro del dashboard eventi visualizzato quando si seleziona un'area di lavoro:
+Il dashboard degli eventi è stato ritirato quando è stata selezionata un'area di lavoro:
 
 ![Dashboard Eventi][2]
 
@@ -60,7 +59,7 @@ Se sono stati creati eventi rilevanti personalizzati nel centro sicurezza, saran
 
 ## Voce di menu Cerca<a name="menu_search"></a>
 
-Il Centro sicurezza di Azure usa attualmente la ricerca nei log di monitoraggio di Azure per recuperare e analizzare i dati di sicurezza. Questa schermata funge da finestra per Log Analytics pagina di ricerca e consente agli utenti di eseguire query di ricerca nell'area di lavoro selezionata. Per altre informazioni, vedere [ricerca nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-search). Questa finestra di ricerca è in fase di ritiro:
+Il Centro sicurezza di Azure usa attualmente la ricerca nei log di monitoraggio di Azure per recuperare e analizzare i dati di sicurezza. Questa schermata funge da finestra per Log Analytics pagina di ricerca e consente agli utenti di eseguire query di ricerca nell'area di lavoro selezionata. Per altre informazioni, vedere [ricerca nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-search). Questa finestra di ricerca è stata ritirata:
 
 ![Pagina di ricerca][4]
 
@@ -86,7 +85,7 @@ L'esperienza di accesso & di identità classica nel centro sicurezza attualmente
 
    ![Pagina identità-dashboard][8]
 
-Verranno ritirate tutte e tre le schermate illustrate nei passaggi precedenti. I dati rimarranno disponibili nella soluzione di sicurezza Log Analytics e non verranno modificati o rimossi.
+Sono state ritirate tutte e tre le schermate illustrate nei passaggi precedenti. I dati rimangono disponibili nella soluzione Log Analytics sicurezza e non sono stati modificati o rimossi.
 
 ### <a name="classic-identity--access-preview---the-new-experience"></a>Accesso all'identità classica & (anteprima): nuova esperienza
 
@@ -100,19 +99,19 @@ Tutte le funzionalità del dashboard **identity & Access** in log Analytics poss
 
 Il Centro sicurezza fornisce una [Mappa degli avvisi di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) per identificare le minacce alla sicurezza. Il pulsante **Vai al mapping degli eventi di sicurezza** in tale mappa apre un dashboard che consente di visualizzare gli eventi di sicurezza non elaborati nell'area di lavoro selezionata.
 
-È in corso la rimozione del pulsante **Vai al mapping degli eventi di sicurezza** e del dashboard per area di lavoro.
+È stato rimosso il pulsante **Vai al mapping eventi di sicurezza** e il dashboard per area di lavoro.
 
 ![Mappa avvisi di sicurezza-pulsante][10]
 
-Quando si seleziona il pulsante **Vai al mapping degli eventi di sicurezza** , si apre il dashboard di intelligence per le minacce. Il dashboard di intelligence per le minacce verrà ritirato.  
+Quando si seleziona il pulsante **Vai al mapping degli eventi di sicurezza** , viene aperto il dashboard di intelligence per le minacce (ora ritirato).
 
 ![Dashboard Intelligence per le minacce][11]
 
-Quando si sceglie un'area di lavoro per visualizzare il dashboard di intelligence per le minacce, è possibile aprire la schermata Mappa avvisi di sicurezza (anteprima) in Log Analytics. Questa schermata viene ritirata.
+Quando si sceglie un'area di lavoro per visualizzare il dashboard di intelligence per le minacce, è stata aperta la schermata (ora ritirata) della mappa degli avvisi di sicurezza (anteprima) in Log Analytics.
 
 ![Mappa degli avvisi di sicurezza in Log Analytics][12]
 
-I dati esistenti rimarranno disponibili nella soluzione di sicurezza Log Analytics e non verranno modificati né rimossi.
+I dati esistenti rimangono disponibili nella soluzione Log Analytics sicurezza e non sono stati modificati o rimossi.
 
 ### <a name="security-events-map---the-new-experience"></a>Mappa degli eventi di sicurezza: nuova esperienza
 
@@ -120,10 +119,10 @@ Si consiglia di usare la funzionalità mappa avvisi integrata nel centro sicurez
 
 ## Regole di avviso personalizzate (anteprima)<a name="menu_customalerts"></a>
 
-[L'esperienza di avvisi personalizzati](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) verrà ritirata il 30 giugno 2019 perché l'infrastruttura sottostante sta per essere disattivata. Fino ad allora, è possibile modificare le regole di avviso personalizzate esistenti, ma non è possibile aggiungerne di nuove. Dopo la data di ritiro, eventuali avvisi personalizzati definiti non diverranno effettivi e gli avvisi di sicurezza basati su tali regole non verranno generati.
+[L'esperienza di avvisi personalizzati](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) è stata ritirata il 30 giugno 2019 perché l'infrastruttura sottostante è stata ritirata. Dopo la data di ritiro, non vengono più generati avvisi di sicurezza personalizzati.
 Si consiglia di abilitare [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) e di ricreare gli avvisi personalizzati in tale posizione. In alternativa, è possibile creare gli avvisi con gli avvisi del log di monitoraggio di Azure.
 
-Per mantenerne gli avvisi esistenti e crearli con Sentinel di Azure:
+Per creare avvisi personalizzati con Azure Sentinel:
 
 1. [Aprire Sentinel di Azure](https://portal.azure.com/#create/Microsoft.ASI/preview) e selezionare l'area di lavoro in cui sono archiviati gli avvisi personalizzati
 1. Selezionare **Analytics** dal menu
@@ -137,30 +136,30 @@ Per altre informazioni sul ritiro degli avvisi personalizzati, vedere [regole di
 
 ## Analisi degli avvisi di sicurezza<a name="menu_investigate"></a>
 
-[La funzionalità di indagine](https://docs.microsoft.com/azure/security-center/security-center-investigation) nel centro sicurezza consente di valutare un potenziale evento imprevisto di sicurezza. La funzionalità consente di comprendere l'ambito di un evento imprevisto e di individuare la causa radice. Questa funzionalità viene rimossa dal centro sicurezza perché è stata sostituita con un'esperienza migliorata in [Sentinel di Azure](https://azure.microsoft.com/services/azure-sentinel/).
+[La funzionalità di indagine](https://docs.microsoft.com/azure/security-center/security-center-investigation) nel centro sicurezza consente di valutare un potenziale evento imprevisto di sicurezza. La funzionalità consente di comprendere l'ambito di un evento imprevisto e di individuare la causa radice. Questa funzionalità è stata rimossa dal centro sicurezza perché è stata sostituita con un'esperienza migliorata in [Sentinel di Azure](https://azure.microsoft.com/services/azure-sentinel/).
 
 ![Evento imprevisto della sicurezza][14]
 
-Quando si seleziona il pulsante **analizza** da una schermata **evento imprevisto di sicurezza** , si apre il dashboard di analisi (anteprima) in log Analytics. Il dashboard di analisi verrà ritirato.  
+Quando si seleziona il pulsante **analizza** da una schermata **evento imprevisto di sicurezza** , si apre il dashboard di analisi (anteprima) in log Analytics. Il dashboard di analisi è stato ritirato.
 
-I dati esistenti rimarranno disponibili nella soluzione di sicurezza Log Analytics e non verranno modificati né rimossi.
+I dati esistenti rimangono disponibili nella soluzione Log Analytics sicurezza e non sono stati modificati o rimossi.
 
 ![Dashboard di analisi in Log Analytics][15]
 
 ### <a name="investigation---the-new-experience"></a>Analisi: nuova esperienza
 
-Si consiglia di passare ad [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) per un'esperienza di analisi avanzata. Azure Sentinel fornisce potenti strumenti di ricerca e query per cercare le minacce alla sicurezza nelle origini dati dell'organizzazione.  
+Si consiglia di passare ad [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) per un'esperienza di analisi avanzata. Azure Sentinel fornisce potenti strumenti di ricerca e query per cercare le minacce alla sicurezza nelle origini dati dell'organizzazione.
 
 ## Subset di soluzioni di sicurezza<a name="menu_solutions"></a>
 
-Il Centro sicurezza può abilitare [soluzioni di sicurezza integrate in Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). Stiamo ritirando le soluzioni dei partner seguenti dal centro sicurezza. Queste soluzioni sono abilitate in [Sentinel di Azure](https://azure.microsoft.com/services/azure-sentinel/) insieme a diverse origini dati aggiuntive.
+Il Centro sicurezza può abilitare [soluzioni di sicurezza integrate in Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). Sono state ritirate le soluzioni dei partner seguenti dal centro sicurezza. Queste soluzioni sono abilitate in [Sentinel di Azure](https://azure.microsoft.com/services/azure-sentinel/) insieme a diverse origini dati aggiuntive.
 
 - [Soluzioni di web application firewall e firewall di nuova generazione](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
 - [Integrazione di soluzioni di sicurezza che supportano il formato di evento comune (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
 - [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-Al termine del ritiro non sarà possibile aggiungere o modificare i tipi di soluzione indicati nell'elenco precedente, dall'interfaccia utente o dall'API. Il Centro sicurezza di Azure non troverà più le nuove istanze delle soluzioni partner sopra indicate.
+Al termine del ritiro, non è possibile aggiungere o modificare i tipi di soluzione indicati nell'elenco precedente, dall'interfaccia utente o dall'API. Il Centro sicurezza di Azure non troverà più le nuove istanze di queste soluzioni partner.
 
 Se si hanno soluzioni connesse esistenti, si consiglia di passare ad Azure Sentinel.
 
@@ -168,9 +167,9 @@ Se si hanno soluzioni connesse esistenti, si consiglia di passare ad Azure Senti
 
 ## Modificare le configurazioni di sicurezza per i criteri di sicurezza<a name="menu_securityconfigurations"></a>
 
-Il Centro sicurezza di Azure monitora le configurazioni di sicurezza applicando un set di [più di 150 regole consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). per la protezione avanzata del sistema operativo. Queste regole riguardano firewall, controllo, criteri password e altro ancora. Se in un computer viene trovata una configurazione vulnerabile, il Centro sicurezza genera una raccomandazione di sicurezza. La [schermata Modifica configurazione sicurezza](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) consente ai clienti di personalizzare la configurazione di sicurezza del sistema operativo predefinita nel centro sicurezza.
+Il Centro sicurezza di Azure monitora le configurazioni di sicurezza applicando un set di [più di 150 regole consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per la protezione avanzata del sistema operativo. Queste regole riguardano firewall, controllo, criteri password e altro ancora. Se in un computer viene trovata una configurazione vulnerabile, il Centro sicurezza genera una raccomandazione di sicurezza. La [schermata Modifica configurazione sicurezza](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) consente ai clienti di personalizzare la configurazione di sicurezza del sistema operativo predefinita nel centro sicurezza.
 
-Questa funzionalità di anteprima viene ritirata. Se, dopo la data di ritiro, si vuole reimpostare i valori predefiniti per le configurazioni di sicurezza, è possibile eseguire questa operazione tramite l'API o PowerShell usando le istruzioni riportate di [seguito](https://aka.ms/ascresetsecurityconfigurations) .
+Questa funzionalità di anteprima è stata ritirata. Per ripristinare i valori predefiniti delle configurazioni di sicurezza dopo la data di ritiro, eseguire questa operazione tramite l'API o PowerShell usando le [istruzioni seguenti](https://aka.ms/ascresetsecurityconfigurations)
 
 ![Modifica le configurazioni di sicurezza][17]
 
@@ -180,7 +179,7 @@ Si intende abilitare il Centro sicurezza per supportare l' [agente di configuraz
 
 ## Dashboard sicurezza e controllo per aree di lavoro Log Analytics<a name="menu_securityomsdashboard"></a>
 
-Il dashboard sicurezza e controllo è stato originariamente usato nel portale di OMS. In Log Analytics, il dashboard offre una panoramica per area di lavoro di eventi di sicurezza e minacce rilevanti, una mappa di intelligence per le minacce e una valutazione dell'identità e dell'accesso degli eventi di sicurezza salvati nell'area di lavoro. Il dashboard è stato rimosso. Come è già stato consigliato nell'interfaccia utente del dashboard, è consigliabile eseguire la transizione al centro sicurezza di Azure.
+Il dashboard sicurezza e controllo è stato originariamente usato nel portale di OMS. In Log Analytics, il dashboard offre una panoramica per area di lavoro di eventi di sicurezza e minacce rilevanti, una mappa di intelligence per le minacce e una valutazione dell'identità e dell'accesso degli eventi di sicurezza salvati nell'area di lavoro. Il dashboard è stato rimosso. Come è già stato consigliato nell'interfaccia utente del dashboard, si consiglia di passare al centro sicurezza di Azure.
 
 ![Dashboard di sicurezza Log Analytics][18]
 

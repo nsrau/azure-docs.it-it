@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 18864a662464f77d799e54d583092a371bc2d137
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8d7bb201a9d01725f933105a4a0beb85c82ca105
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999973"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203705"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Scegliere il livello di hub IoT più adatto per la soluzione
 
@@ -37,16 +37,17 @@ Per ogni hub IoT è possibile scegliere un solo tipo di [edizione](https://azure
 
 | Capacità | Piano Basic | Livello gratuito/standard |
 | ---------- | ---------- | ------------- |
-| [Telemetria da dispositivo a cloud](iot-hub-devguide-messaging.md) | Sì | Yes |
-| [Identità per dispositivo](iot-hub-devguide-identity-registry.md) | Yes | Sì |
-| [Routing di messaggi](iot-hub-devguide-messages-read-custom.md) e [integrazione con Griglia di eventi](iot-hub-event-grid.md) | Yes | Sì |
-| [Protocolli HTTP, AMQP e MQTT](iot-hub-devguide-protocols.md) | Sì | Sì |
-| [Servizio Device Provisioning](../iot-dps/about-iot-dps.md) | Sì | Sì |
-| [Monitoraggio e diagnostica](iot-hub-monitor-resource-health.md) | Sì | Yes |
-| [Messaggistica da cloud a dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sì |
+| [Telemetria da dispositivo a cloud](iot-hub-devguide-messaging.md) | Yes | Yes |
+| [Identità per dispositivo](iot-hub-devguide-identity-registry.md) | Yes | Yes |
+| [Routing di messaggi](iot-hub-devguide-messages-read-custom.md) e [integrazione con Griglia di eventi](iot-hub-event-grid.md) | Yes | Yes |
+| [Protocolli HTTP, AMQP e MQTT](iot-hub-devguide-protocols.md) | Yes | Yes |
+| [Servizio Device Provisioning](../iot-dps/about-iot-dps.md) | Yes | Yes |
+| [Monitoraggio e diagnostica](iot-hub-monitor-resource-health.md) | Yes | Yes |
+| [Messaggistica da cloud a dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Yes |
 | [Dispositivi gemelli](iot-hub-devguide-device-twins.md), [Moduli gemelli](iot-hub-devguide-module-twins.md) e [Gestione dei dispositivi](iot-hub-device-management-overview.md) |   | Yes |
-| [Flussi del dispositivo (anteprima)](iot-hub-device-streams-overview.md) |   | Sì |
+| [Flussi del dispositivo (anteprima)](iot-hub-device-streams-overview.md) |   | Yes |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Yes |
+| [Plug and Play anteprima](../iot-pnp/overview-iot-plug-and-play.md) |   | Yes |
 
 L'hub IoT offre inoltre un livello gratuito adatto per il testing e la valutazione. Include tutte le funzionalità del livello standard, ma offre un supporto limitato delle funzionalità di messaggistica. Non è possibile eseguire l'aggiornamento dal livello gratuito al livello Basic o Standard.
 
@@ -71,37 +72,37 @@ La differenza a livello di funzionalità supportate tra i livelli Basic e Standa
 
 | API | Piano Basic | Livello gratuito/standard |
 | --- | ---------- | ------------- |
-| [Eliminazione dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Yes | Sì |
-| [Recupero dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Sì | Sì |
-| [Elimina modulo](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Sì | Sì |
-| [Ottenere il modulo](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Sì | Sì |
-| [Recupero statistiche del Registro di sistema](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Sì | Sì |
-| [Recupero statistiche dei servizi](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Sì | Yes |
-| [Crea o Aggiorna dispositivo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Sì | Yes |
-| [Crea o Aggiorna modulo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Yes | Sì |
-| [Query su hub IoT](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Sì | Yes |
-| [Creazione URI di firma di accesso condiviso per il caricamento di file](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Sì | Sì |
-| [Ricezione notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Sì | Sì |
-| [Invio evento dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sì | Yes |
+| [Eliminazione dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Yes | Yes |
+| [Recupero dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Yes | Yes |
+| [Elimina modulo](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Yes | Yes |
+| [Ottenere il modulo](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Yes | Yes |
+| [Recupero statistiche del Registro di sistema](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Yes | Yes |
+| [Recupero statistiche dei servizi](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Yes | Yes |
+| [Crea o Aggiorna dispositivo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Yes | Yes |
+| [Crea o Aggiorna modulo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Yes | Yes |
+| [Query su hub IoT](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Yes | Yes |
+| [Creazione URI di firma di accesso condiviso per il caricamento di file](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Yes | Yes |
+| [Ricezione notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Yes | Yes |
+| [Invio evento dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
 | Invio evento modulo | Solo AMQP e MQTT | Solo AMQP e MQTT |
-| [Aggiornamento stato di caricamento file](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sì | Sì |
+| [Aggiornamento stato di caricamento file](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
 | [Operazioni in blocco su dispositivi](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Sì, ad eccezione delle funzionalità di IoT Edge | Yes |
-| [Annulla processo di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | Sì | Sì |
-| [Crea processo di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | Sì | Yes |
-| [Ottenere il processo di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | Sì | Yes |
+| [Annulla processo di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | Yes | Yes |
+| [Crea processo di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | Yes | Yes |
+| [Ottenere il processo di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | Yes | Yes |
 | [Ottenere i processi di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | Yes | Yes |
 | [Eliminazione coda di comandi](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Yes |
-| [Recupero dispositivo gemello](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Sì |
-| [Ottenere il modulo gemello](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Sì |
-| [Richiamo metodo dispositivo](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Sì |
-| [Aggiornamento dispositivo gemello](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Sì |
+| [Recupero dispositivo gemello](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Yes |
+| [Ottenere il modulo gemello](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Yes |
+| [Richiamo metodo dispositivo](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Yes |
+| [Aggiornamento dispositivo gemello](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Yes |
 | [Aggiorna il modulo gemello](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | Yes |
 | [Abbandono notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Yes |
 | [Completamento notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Yes |
-| [Annullamento processo](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Sì |
-| [Creazione processo](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | Sì |
+| [Annullamento processo](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Yes |
+| [Creazione processo](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | Yes |
 | [Recupero processo](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | Yes |
-| [Query sui processi](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | Sì |
+| [Query sui processi](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | Yes |
 
 ## <a name="message-throughput"></a>Velocità effettiva dei messaggi
 

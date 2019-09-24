@@ -2,18 +2,18 @@
 title: Definizioni di criteri di Azure monitorate nel Centro sicurezza di Azure | Microsoft Docs
 description: Definizioni di criteri di Azure monitorate nel Centro sicurezza di Azure.
 services: security-center
-author: monhaber
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 8/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: 892b33f52788bd37d430f221f14ba4c98f764cfb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910363"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201673"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Criteri di sicurezza di Azure monitorati dal centro sicurezza
 Questo articolo fornisce un elenco di definizioni di criteri di Azure che è possibile monitorare nel centro sicurezza di Azure. Per altre informazioni sui criteri di sicurezza, vedere [Utilizzo dei criteri di sicurezza](tutorial-security-policy.md).

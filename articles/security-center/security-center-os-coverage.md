@@ -3,23 +3,22 @@ title: Piattaforme supportate dal centro sicurezza di Azure | Microsoft Docs
 description: Questo documento fornisce un elenco delle piattaforme supportate dal centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: c094ef5f3e7c7bfa96f95264e137fd8938296bb4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.date: 08/29/2019
+ms.author: memildin
+ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232213"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201627"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
@@ -93,14 +92,14 @@ Le risorse PaaS di Azure seguenti sono supportate dal centro sicurezza di Azure:
 * SQL
 * PostGreSQL
 * MySQL
-* Cosmos DB
+* CosmosDB
 * Account di archiviazione
 * Servizio app
 * Funzione
 * Servizio cloud
 * Rete virtuale
 * Subnet
-* NIC
+* Scheda di interfaccia di rete
 * Gruppo di sicurezza di rete
 * Account Batch
 * Account di Service Fabric

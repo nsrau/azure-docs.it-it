@@ -3,9 +3,8 @@ title: Sicurezza dei dati avanzata per IaaS nel centro sicurezza di Azure | Micr
 description: " Informazioni su come abilitare la sicurezza dei dati avanzata per IaaS nel centro sicurezza di Azure. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 ms.assetid: ba46c460-6ba7-48b2-a6a7-ec802dd4eec2
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0b83575baa2221f0b502abbf919654492c7ab6cf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 287da68617a9527bc398df577cf8d10773fa8557
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295763"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202182"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Sicurezza dei dati avanzata per SQL Server in macchine virtuali di Azure (anteprima pubblica)
 La protezione avanzata dei dati per SQL Server in macchine virtuali di Azure è un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. Attualmente (in anteprima pubblica) include funzionalità per l'emersione e la mitigazione di potenziali vulnerabilità del database e il rilevamento di attività anomale che potrebbero indicare una minaccia per il database. 
@@ -79,7 +78,7 @@ La procedura seguente illustra come iniziare a usare Advanced Data Security per 
      > [!NOTE]
      > Se le **aree di lavoro di log Analytics** non vengono visualizzate nel menu a sinistra, fare clic su **tutti i servizi**e cercare le **aree di lavoro di log Analytics**.
 
-    1. Assicurarsi che le colonne visualizzino il  piano tariffario e le colonne **WorkspaceID** . (Le**aree di lavoro** > di log Analytics modificano le**colonne**, aggiungono il piano **tariffario** e **WorkspaceID**.)
+    1. Assicurarsi che le colonne visualizzino il piano tariffario e le colonne **WorkspaceID** . (Le**aree di lavoro** > di log Analytics modificano le**colonne**, aggiungono il piano **tariffario** e **WorkspaceID**.)
 
      ![Modifica colonne](./media/security-center-advanced-iaas-data/edit-columns.png)
 
@@ -102,7 +101,7 @@ La procedura seguente illustra come iniziare a usare Advanced Data Security per 
 1. Scegliere **notifiche tramite posta elettronica**dal menu **Impostazioni** . 
 1. Nella casella di testo **indirizzo di posta elettronica** immettere gli indirizzi di posta elettronica per ricevere le notifiche. È possibile immettere più di un indirizzo di posta elettronica separando gli indirizzi di posta elettronica con una virgola (,).  Ad esempio admin1@mycompany.comadmin2@mycompany.com,,admin3@mycompany.com
 
-      ![Impostazioni di posta elettronica](./media/security-center-advanced-iaas-data/email-settings.png)
+      ![Impostazioni posta elettronica](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. Nelle impostazioni di **notifica tramite posta elettronica** impostare le opzioni seguenti:
   
@@ -130,7 +129,7 @@ Il dashboard della valutazione della vulnerabilità fornisce una panoramica dei 
 
     ![Imposta ultimi 7 giorni](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
 
-1. Per eseguire il drill-down per altri dettagli, fare clic su uno degli elementi del dashboard. Ad esempio:
+1. Per eseguire il drill-down per altri dettagli, fare clic su uno degli elementi del dashboard. Esempio:
 
    1. Fare clic su un controllo della vulnerabilità nella sezione **Riepilogo controlli non riusciti** per visualizzare una tabella log Analytics con i risultati per questo controllo in tutti i database. Quelli con risultati vengono elencati per primi.
 

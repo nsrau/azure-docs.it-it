@@ -3,9 +3,8 @@ title: Uso dei criteri di sicurezza | Microsoft Docs
 description: Questo articolo descrive come usare i criteri di sicurezza nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/18/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 1820c31053c13a0f3039812b31df415bc9fa4fdc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.date: 07/18/2019
+ms.author: memildin
+ms.openlocfilehash: 11e1c837e416a5d2105f494c43823298edfd4355
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910369"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200489"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
 
@@ -114,7 +113,7 @@ Per ulteriori informazioni sulle raccomandazioni, vedere [gestione delle raccoma
 1. Nella sezione **parametri** cercare i criteri che richiamano la raccomandazione che si desidera disabilitare e nell'elenco a discesa selezionare **disabilitato**
 
    ![disabilitare i criteri](./media/tutorial-security-policy/disable-policy.png)
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
    > [!Note]
    > Per rendere effettive le modifiche ai criteri di disabilitazione possono essere necessarie fino a 12 ore.
 

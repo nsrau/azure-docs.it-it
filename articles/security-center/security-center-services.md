@@ -3,9 +3,8 @@ title: Funzionalità supportate disponibili nel centro sicurezza di Azure | Micr
 description: Questo documento fornisce un elenco dei servizi supportati dal centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0d2b417dd01e26f0f93722be66d82972b52aca83
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.author: memildin
+ms.openlocfilehash: 97708fa3211aa203aab56253b1c7720d04329014
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234582"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200822"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funzionalità supportate disponibili nel centro sicurezza di Azure
 
@@ -41,22 +40,22 @@ Le sezioni seguenti illustrano le funzionalità del Centro sicurezza disponibili
 |**Environment**|**Azure**||**Non Azure**|**Azure**||**Non Azure**||
 ||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**|
 |Avvisi di rilevamento minacce VMBA|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
-|Avvisi di rilevamento delle minacce di rete|✔|✔|X|✔|✔|X|Standard|
-|Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|X|X|X|Standard|
+|Avvisi di rilevamento delle minacce di rete|✔|✔|x|✔|✔|x|Standard|
+|Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|x|X|x|Standard|
 |Patch mancanti|✔|✔|✔|✔|✔|✔|Gratuito|
 |Configurazioni della sicurezza|✔|✔|✔|✔|✔|✔|Gratuito|
-|Valutazione di Endpoint Protection|✔|✔|✔|X|X|X|Gratuito|
-|Accesso JIT alle VM|✔|X|x|✔|X|x|Standard|
-|Controlli applicazione adattivi|✔|X|✔|✔|X|✔|Standard|
+|Valutazione di Endpoint Protection|✔|✔|✔|x|X|x|Gratuito|
+|Accesso JIT alle VM|✔|x|x|✔|x|x|Standard|
+|Controlli applicazione adattivi|✔|x|✔|✔|x|✔|Standard|
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |Valutazione della crittografia del disco|✔|✔|x|✔|✔|x|Gratuito|
 |Distribuzione di terze parti|✔|x|x|✔|x|x|Gratuito|
-|Valutazione NSG|✔|✔|x|✔|✔|X|Gratuito|
+|Valutazione NSG|✔|✔|x|✔|✔|x|Gratuito|
 |Rilevamento delle minacce senza file|✔|✔|✔|x|X|x|Standard|
-|Mappa di rete|✔|✔|X|✔|✔|X|Standard|
-|Controlli adattivi della rete|✔|✔|X|✔|✔|X|Standard|
+|Mappa di rete|✔|✔|x|✔|✔|x|Standard|
+|Controlli adattivi della rete|✔|✔|x|✔|✔|x|Standard|
 |Dashboard di conformità normativa & report|✔|✔|✔|✔|✔|✔|Standard|
-|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|X|X|X|✔|✔|✔|Standard|
+|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|x|X|x|✔|✔|✔|Standard|
 
 ### Soluzioni di Endpoint Protection supportate<a name="endpoint-supported"></a>
 
@@ -72,7 +71,7 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| Yes |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Yes |
 | Tendenza Micro-tutte le versioni * | Famiglia Windows Server  | No | Yes |
-| Symantec v12.1.1100+| Famiglia Windows Server  | No | Sì |
+| Symantec v12.1.1100+| Famiglia Windows Server  | No | Yes |
 | McAfee v10+ | Famiglia Windows Server  | No | Yes |
 | McAfee v10+ | Famiglia di server Linux  | No | Sì **\*** |
 | Sophos V9 +| Famiglia di server Linux  | No | Sì **\***  |
@@ -94,30 +93,30 @@ Le risorse PaaS seguenti sono supportate dal centro sicurezza di Azure:
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|CosmosDB|X| ✔|
+|CosmosDB|x| ✔|
 |Archiviazione BLOB|✔| ✔|
-|Account di archiviazione|✔| ND|
+|Account di archiviazione|✔| NA|
 |Servizio app|✔| ✔|
 |Funzione|✔| x|
 |Servizio cloud|✔| x|
-|Rete virtuale|✔| ND|
-|Subnet|✔| ND|
-|NIC|✔| ND|
-|Gruppo di sicurezza di rete|✔| ND|
+|Rete virtuale|✔| NA|
+|Subnet|✔| NA|
+|Scheda di interfaccia di rete|✔| NA|
+|Gruppo di sicurezza di rete|✔| NA|
 |Sottoscrizione|✔ **| ✔|
-|Account Batch|✔| X|
+|Account Batch|✔| x|
 |Account di Service Fabric|✔| x|
 |Account di Automazione|✔| x|
-|Servizio di bilanciamento del carico|✔| X|
-|Cerca|✔| X|
-|Spazio dei nomi del bus di servizio|✔| X|
+|Servizio di bilanciamento del carico|✔| x|
+|Cerca|✔| x|
+|Spazio dei nomi del bus di servizio|✔| x|
 |Analisi di flusso|✔| x|
-|Spazio dei nomi dell'hub eventi|✔| X|
+|Spazio dei nomi dell'hub eventi|✔| x|
 |App per la logica|✔| x|
-|Redis|✔| ND|
-|Data Lake Analytics|✔| X|
+|Redis|✔| NA|
+|Data Lake Analytics|✔| x|
 |Data Lake Store|✔| x|
-|Insieme di credenziali delle chiavi|✔| X|
+|Insieme di credenziali delle chiavi|✔| x|
 
 \* Queste funzionalità sono attualmente supportate in anteprima pubblica.
 

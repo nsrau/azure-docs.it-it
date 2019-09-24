@@ -6,14 +6,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e7b69e57d4e01c292a2c6d032ba995d1936b88dc
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142895"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202907"
 ---
-# <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
+# <a name="dependency-visualization"></a>Visualizzazione dipendenze
 
 Azure Migrate: Server Assessment valuta i gruppi di computer locali per la migrazione ad Azure. Per creare i gruppi, è possibile usare la funzionalità di visualizzazione delle dipendenze in server assessment. Questo articolo contiene informazioni su questa funzionalità.
 
@@ -44,11 +44,14 @@ Azure Migrate usa la soluzione [mapping dei servizi](../operations-management-su
     ![Aggiungi area di lavoro](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - Durante l'associazione di un'area di lavoro si avrà la possibilità di creare una nuova area di lavoro o di collegarne una esistente:
-  - Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
+  - Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. È possibile scegliere l' [area](https://azure.microsoft.com/global-infrastructure/regions/) in cui verrà creata l'area di lavoro.
   - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione. Sono elencate solo le aree di lavoro create in un'area geografica in cui [è supportato il mapping dei servizi](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Per poter collegare un'area di lavoro è necessario avere l'accesso in lettura all'area di lavoro.
 
   > [!NOTE]
   > Dopo aver collegato un'area di lavoro a un progetto, non è più possibile modificarla.
+
+  > [!NOTE]
+  > Azure Migrate supporta attualmente la creazione dell'area di lavoro OMS nelle aree Stati Uniti orientali, Asia sudorientale ed Europa occidentale. Se l'area di lavoro viene creata all'esterno di Azure Migrate in un'altra area, attualmente non può essere associata a un progetto Azure Migrate. 
 
 - L'area di lavoro associata è contrassegnata con la chiave **Progetto di migrazione** e con il valore **Nome progetto**, che è possibile usare per eseguire la ricerca nel portale di Azure.
 - Per passare all'area di lavoro associata al progetto è possibile passare alla sezione **Essentials** della pagina **Panoramica** del progetto e accedere all'area di lavoro

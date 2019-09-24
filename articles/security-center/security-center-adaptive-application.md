@@ -3,9 +3,8 @@ title: Controlli delle applicazioni adattivi nel Centro sicurezza di Azure | Mic
 description: Questo documento aiuta a usare il controllo delle applicazioni adattivo nel Centro sicurezza di Azure per inserire nell'elenco elementi consentiti le applicazioni in esecuzione nelle macchine virtuali di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
@@ -13,19 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 4a8a241df38c258dc1747f04c6079d29ee25b3ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 46ab2fc5c796d960de8b1c5e3391a6356563b50a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968852"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202804"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il controllo delle applicazioni nel Centro sicurezza di Azure.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Cosa sono i controlli delle applicazioni adattivi nel Centro sicurezza?
-Il controllo delle applicazioni adattivo è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata del Centro sicurezza di Azure. Consente di controllo quali applicazioni possono essere eseguite in Azure e non - macchine virtuali di Azure (Windows e Linux), che, tra gli altri vantaggi, consente di rafforzare la protezione delle macchine virtuali contro il malware. Il Centro sicurezza usa la funzione Machine Learning per analizzare le applicazioni in esecuzione nelle macchine virtuali e, grazie a questa funzionalità intelligente, consente di applicare specifiche regole di inserimento nell'elenco elementi consentiti. Questa funzionalità semplifica notevolmente il processo di configurazione e gestione dei criteri di inserimento delle applicazioni negli elenchi elementi consentiti, permettendo di:
+Il controllo delle applicazioni adattivi è una soluzione end-to-end intelligente e automatizzata del Centro sicurezza di Azure che consente di controllare quali applicazioni possono essere eseguite nelle macchine virtuali di Azure e non Azure (Windows e Linux). Tra gli altri vantaggi, questo semplifica la protezione delle macchine virtuali da malware. Il Centro sicurezza USA Machine Learning per analizzare le applicazioni in esecuzione nelle macchine virtuali e crea un elenco di accesso consentito da questa intelligence. Questa funzionalità semplifica notevolmente il processo di configurazione e gestione dei criteri dell'elenco Consenti applicazioni, consentendo di:
 
 - Bloccare i tentativi di esecuzione di applicazioni dannose, inclusi quelli che potrebbero altrimenti non venire rilevati dalle soluzioni antimalware oppure inviare un avviso per tali tentativi.
 - Rispettare i criteri di sicurezza dell'organizzazione che impongono l'uso solo di software concesso in licenza.
@@ -35,10 +34,10 @@ Il controllo delle applicazioni adattivo è una soluzione per l'inserimento dell
 - Consentire al personale IT di controllare l'accesso ai dati sensibili tramite l'utilizzo delle app.
 
 > [!NOTE]
-> Per le VM di Linux e Non Azure, sono supportati i controlli applicazione adattivi in modalità di controllo solo.
+> Per le macchine virtuali non Azure e Linux, i controlli delle applicazioni adattivi sono supportati solo in modalità di controllo.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Come si abilitano i controlli delle applicazioni adattivi?
-I controlli delle applicazioni adattivi consentono di definire un set di applicazioni che è possibile eseguire in gruppi configurati di VM. Questa funzionalità è disponibile per Azure e non - Azure Windows (tutte le versioni, modello di distribuzione classica o Azure Resource Manager) e le macchine virtuali Linux e i server. La procedura seguente può essere usata per configurare l'inserimento delle applicazioni nell'elenco elementi consentiti nel Centro sicurezza:
+I controlli delle applicazioni adattivi consentono di definire un set di applicazioni che è possibile eseguire in gruppi configurati di VM. Questa funzionalità è disponibile per le macchine virtuali e i server di Azure e non Azure (tutte le versioni, classiche o Azure Resource Manager) e Linux. Usare la procedura seguente per configurare gli elenchi di Consenti applicazione:
 
 1. Aprire il dashboard **Centro sicurezza**.
 2. Nel riquadro a sinistra selezionare **Controlli applicazione adattivi** in **Difesa cloud avanzata**.
@@ -67,10 +66,10 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
 
    L'elenco include:
 
-   - **Nome del gruppo**: Il nome della sottoscrizione e gruppo
-   - **Macchine virtuali e computer**: Il numero di macchine virtuali nel gruppo
+   - **Nome gruppo**: Nome della sottoscrizione e del gruppo
+   - **VM e computer**: Il numero di macchine virtuali nel gruppo
    - **Stato**: lo stato delle raccomandazioni
-   - **Gravità**: il livello di gravità delle raccomandazioni
+   - **Gravità**: livello di gravità delle raccomandazioni
 
 2. Fare clic su un gruppo per accedere all'opzione **Crea le regole di controllo delle applicazioni**.
 
@@ -85,11 +84,11 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
 
    - **NOME**: informazioni sul certificato o il percorso completo di un'applicazione
    - **TIPI DI FILE**: tipo di file dell'applicazione. Può trattarsi di file EXE, Script, file MSI o qualsiasi permutazione di questi tipi.
-   - **SFRUTTABILE**: un'icona di avviso indica se un'applicazione specifica può essere usata da un utente malintenzionato per aggirare una soluzione di inserimento delle applicazioni nell'elenco elementi consentiti. È consigliabile esaminare queste applicazioni prima di approvarle.
+   - **Sfruttabile**: un'icona di avviso indica se un'applicazione specifica può essere usata da un utente malintenzionato per ignorare un elenco di applicazioni consentite. È consigliabile esaminare queste applicazioni prima di approvarle.
    - **UTENTI**: utenti ai quali è consigliabile consentire l'esecuzione di un'applicazione
 
 5. Dopo avere selezionato le opzioni desiderate, scegliere **Crea**. <br>
-   Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le regole appropriate sopra la soluzione predefinita di inserimento delle applicazioni nell'elenco elementi consentiti disponibile nei server Windows (AppLocker).
+   Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le regole appropriate nella parte superiore della soluzione di elenco Consenti applicazione predefinita disponibile nei server Windows (AppLocker).
 
 > [!NOTE]
 > - Il Centro sicurezza si basa su almeno due settimane di dati per creare una baseline e popolare le raccomandazioni univoche per ogni gruppo di VM. In base al comportamento previsto per i nuovi clienti del livello Standard del Centro sicurezza, i gruppi di VM vengono prima visualizzati nella scheda *Nessuna raccomandazione*.
@@ -99,15 +98,15 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Modifica e monitoraggio di un gruppo configurato con il controllo delle applicazioni
 
-1. Per modificare e monitorare un gruppo configurato con i criteri di inserimento delle applicazioni nell'elenco elementi consentiti, tornare alla pagina **Controlli applicazione adattivi** e selezionare **CONFIGURATO** in **Gruppi di macchine virtuali**:
+1. Per modificare e monitorare un gruppo configurato con un criterio Consenti elenco applicazioni, tornare alla pagina **controlli applicazione adattivi** e selezionare **configurato** in **gruppi di macchine virtuali**:
 
    ![Gruppi](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
    L'elenco include:
 
-   - **Nome del gruppo**: il nome della sottoscrizione e gruppo
-   - **Macchine virtuali e computer**: il numero di macchine virtuali nel gruppo
-   - **Modalità**: la modalità di controllo registra i tentativi di eseguire applicazioni non inserite nell'elenco elementi consentiti, mentre la modalità Applica impedisce l'esecuzione delle applicazioni non inserite nell'elenco elementi consentiti
+   - **Nome gruppo**: nome della sottoscrizione e del gruppo
+   - **VM e computer**: numero di macchine virtuali nel gruppo
+   - **Modalità**: La modalità di controllo registra i tentativi di esecuzione di applicazioni che non sono presenti nell'elenco Consenti; Imponi non consentirà l'esecuzione delle applicazioni a meno che non si trovino nell'elenco Consenti
    - **Avvisi**: qualsiasi violazione corrente
 
 2. Fare clic su un gruppo per apportare le modifiche nella pagina **Modifica il criterio del controllo applicazione**.
@@ -124,7 +123,7 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
    > - Come indicato in precedenza, per impostazione predefinita i nuovi criteri di controllo delle applicazioni vengono sempre configurati in modalità *Controllo*. 
    >
 
-4. In **Estensione dei criteri** aggiungere il percorso di qualsiasi applicazione da consentire. Dopo aver aggiunto tali percorsi, il Centro sicurezza aggiorna i criteri di inserimento nell'elenco elementi consentiti nelle macchine virtuali all'interno del gruppo selezionato e crea le regole appropriate per queste applicazioni, oltre a quelle già presenti.
+4. In **Estensione dei criteri** aggiungere il percorso di qualsiasi applicazione da consentire. Dopo aver aggiunto questi percorsi, il Centro sicurezza aggiorna i criteri di elenco delle macchine virtuali all'interno del gruppo selezionato di macchine virtuali e crea le regole appropriate per queste applicazioni, oltre alle regole già presenti.
 
 5. Esaminare le violazioni correnti elencate nella sezione **Avvisi recenti**. Fare clic su ogni riga da reindirizzare alla pagina **Avvisi** all'interno di Centro sicurezza di Azure e visualizzare tutti gli avvisi che sono stati rilevati dal Centro sicurezza di Azure nelle macchine virtuali associate.
    - **Avvisi**: eventuali violazioni registrate.
@@ -146,33 +145,33 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
 
 Il Centro sicurezza propone i criteri di inserimento delle applicazioni nell'elenco elementi consentiti solo per le macchine virtuali che eseguono un set stabile di applicazioni. Non vengono create raccomandazioni se le applicazioni nelle macchine virtuali associate continuano a cambiare.
 
-![Recommendation](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
+![Indicazione](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 L'elenco contiene:
-- **Nome del gruppo**: il nome della sottoscrizione e gruppo
-- **Macchine virtuali e computer**: il numero di macchine virtuali nel gruppo
+- **Nome gruppo**: nome della sottoscrizione e del gruppo
+- **VM e computer**: numero di macchine virtuali nel gruppo
 
 Centro sicurezza di Azure consente di definire criteri di inserimento delle applicazioni nell'elenco elementi consentiti anche per gruppi non consigliati di macchine virtuali. Per configurare i criteri di inserimento delle applicazioni nell'elenco elementi consentiti anche per tali gruppi, seguire gli stessi principi delineati in precedenza.
 
-## <a name="move-a-vm-from-one-group-to-another"></a>Spostare una macchina virtuale da un gruppo a un'altra
+## <a name="move-a-vm-from-one-group-to-another"></a>Spostare una macchina virtuale da un gruppo a un altro
 
- Quando si sposta una macchina virtuale da un gruppo a un altro, i criteri di controllo dell'applicazione applicato le modifiche alle impostazioni del gruppo spostato in. È anche possibile spostare una macchina virtuale da un gruppo configurato per un gruppo non configurate, con conseguente rimozione dei criteri di controllo qualsiasi applicazione in precedenza è stato applicato alla macchina virtuale.
+ Quando si sposta una macchina virtuale da un gruppo a un altro, il criterio di controllo delle applicazioni applicato viene modificato in base alle impostazioni del gruppo in cui è stato spostato. È anche possibile spostare una macchina virtuale da un gruppo configurato a un gruppo non configurato, che comporta la rimozione di tutti i criteri di controllo delle applicazioni applicati in precedenza alla macchina virtuale.
 
- 1. Dal **controlli applicazione adattivi** pagina, dalle **configurata** scheda, scegliere il gruppo a cui appartiene la macchina virtuale da spostare attualmente.
-1. Fare clic su **configurate macchine virtuali e computer**.
-1. Fare clic sui tre puntini nella riga della macchina virtuale da spostare e fare clic su **spostare**. Il **spostamento computer al gruppo diverso** verrà visualizzata la finestra.
+ 1. Dalla scheda **configurato** della pagina **controlli applicazione adattivi** fare clic sul gruppo a cui attualmente appartiene la macchina virtuale da spostare.
+1. Fare clic su **macchine virtuali e computer configurati**.
+1. Fare clic sui tre puntini nella riga della macchina virtuale da spostare, quindi fare clic su **Sposta**. Verrà visualizzata la finestra **Sposta computer in un gruppo diverso** .
 
     ![Protezione](./media/security-center-adaptive-application/adaptive-application-move-group.png)
 
- 1. Selezionare il gruppo per spostare la macchina virtuale e fare clic su **Computer spostare**, fare clic su **salvare**.
+ 1. Selezionare il gruppo in cui spostare la macchina virtuale e fare clic su **Sposta computer**, quindi fare clic su **Salva**.
 
     ![Protezione](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
 
  > [!NOTE]
-> Assicurarsi di fare clic su **salvare** dopo aver fatto clic **spostare Computer**. Se non si sceglie **salvare**, quindi il computer non verrà spostato.
+> Assicurarsi di fare clic su **Salva** dopo aver fatto clic su **Sposta computer**. Se non si fa clic su **Salva**, il computer non verrà spostato.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento è stato descritto come usare controllo delle applicazioni adattivo nel Centro sicurezza di Azure a elenco elementi consentiti le applicazioni in esecuzione in Azure e macchine virtuali Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
+In questo documento si è appreso come usare il controllo delle applicazioni adattivi nel centro sicurezza di Azure per le applicazioni whitelist in esecuzione in Azure e nelle macchine virtuali non di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
