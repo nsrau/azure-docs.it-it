@@ -89,7 +89,7 @@ Di seguito sono riportate le descrizioni delle proprietà:
 | commonNames | string[] | --- | Nomi comuni dei certificati del cluster installati |
 | X509StoreName | string | --- | Nome dell'archivio in cui si trova il certificato del cluster installato |
 | typeHandlerVersion | 1.1 | --- | Versione dell'estensione. 1,0 versione classica dell'estensione consigliata per l'aggiornamento a 1,1 |
-| Percorso dati | string | --- | Percorso dell'unità utilizzata per salvare lo stato per Service Fabric i servizi di sistema e i dati dell'applicazione. 
+| dataPath | string | --- | Percorso dell'unità utilizzata per salvare lo stato per Service Fabric i servizi di sistema e i dati dell'applicazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere la [panoramica della funzionalità "Distribuzione in qualsiasi ambiente" e un confronto con i cluster gestiti da Azure](service-fabric-deploy-anywhere.md).
