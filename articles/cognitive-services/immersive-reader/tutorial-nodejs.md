@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ea9728ac54ae357925bd666ffecf270172137f77
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e0c85dba22a7c689631a853bc22d58d1cc4093aa
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991113"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104997"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Esercitazione: Avviare lo strumento di lettura immersiva (Node.js)
 
@@ -85,7 +85,7 @@ Aprire quindi _app.js_ e aggiungere il codice seguente all'inizio del file. Verr
 require('dotenv').config();
 ```
 
-Aprire il file _routes\index.js_ e inserire quanto segue all'inizio del file:
+Aprire il file _routes\index.js_ e aggiungere il codice seguente all'inizio del file:
 
 ```javascript
 var request = require('request');

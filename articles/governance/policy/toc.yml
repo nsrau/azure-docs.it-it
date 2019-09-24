@@ -257,6 +257,12 @@
     - name: Informazioni sugli effetti di Criteri
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Struttura di assegnazione di Criteri di Azure
+      displayName: 'parameters, enforcementmode, policyDefinitionId'
+      href: ./concepts/assignment-structure.md
+    - name: Valutare l'effetto di un nuovo criterio
+      displayName: 'audit, enforcementmode, compliance'
+      href: ./concepts/evaluate-impact.md
     - name: Criteri di Azure per Kubernetes
       displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
       href: ./concepts/rego-for-aks.md

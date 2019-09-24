@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 53409769fc85422f4c34a14d22e7c44b2d5cce35
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e7a63d09c3116c7504e9d409b32a44be140d8fe4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443843"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074132"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Guida introduttiva: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con Python
 
@@ -38,7 +38,7 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 
 Per eseguire il training di un modello di riconoscimento modulo con i documenti del contenitore BLOB di Azure, chiamare l'API **Train** eseguendo il codice Python seguente. Prima di eseguire il codice, apportare queste modifiche:
 
-1. Sostituire `<Endpoint>` con l'URL dell'endpoint per la risorsa di riconoscimento modulo nell'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+1. Sostituire `<Endpoint>` con l'URL dell'endpoint relativo alla risorsa di Riconoscimento modulo.
 1. Sostituire `<Subscription key>` con la chiave di sottoscrizione copiata nel passaggio precedente.
 1. Sostituire `<SAS URL>` con l'URL della firma di accesso condiviso (SAS) del contenitore di archiviazione BLOB di Azure. Per recuperare l'URL SAS, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: b61dab28ff3fb6710e59e6209282c71a8f52f674
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914866"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996633"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Guida introduttiva: Libreria client di Azure Key Vault per .NET
 
@@ -26,7 +26,6 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 - Usare moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 2.
 
 [Documentazione di riferimento dell'API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -118,26 +117,14 @@ Questa operazione restituisce una serie di coppie chiave-valore.
 }
 ```
 
-Prendere nota dei valori di clientId, clientSecret, subscriptionId e tenantId, perché verranno usati nel passaggio [Eseguire l'autenticazione con l'insieme di credenziali delle chiavi](#authenticate-to-your-key-vault) seguente.
-
-È anche necessario il valore di appID dell'entità servizio. Per trovarlo, eseguire [az ad sp list](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) con il parametro `--show-mine`:
-
-```azurecli
-az ad sp list --show-mine
-```
-
-Il valore di `appID` viene visualizzato nel codice JSON restituito:
-
-```json
-    "appId": "2cf5aa18-0100-445a-9438-0b93e577a3ed",
-```
+Prendere nota dei valori di clientId e clientSecret, perché si useranno nel successivo passaggio [Eseguire l'autenticazione con l'insieme di credenziali delle chiavi](#authenticate-to-your-key-vault).
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>Concedere all'entità servizio l'accesso all'insieme di credenziali delle chiavi
 
-Creare un criterio di accesso per l'insieme di credenziali delle chiavi che concede l'autorizzazione per l'entità servizio. A tale scopo, eseguire il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy). All'entità servizio verranno concesse le autorizzazioni get, list e set sia per le chiavi che per i segreti.
+Creare un criterio di accesso per l'insieme di credenziali delle chiavi che conceda l'autorizzazione all'entità servizio, passando il valore di clientId al comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy). Concedere all'entità servizio le autorizzazioni get, list e set sia per le chiavi che per i segreti.
 
 ```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
 ## <a name="object-model"></a>Modello a oggetti
@@ -164,10 +151,6 @@ Prima di compilare ed eseguire l'app, usare il comando `setx` per impostare le v
 setx akvClientId <your-clientID>
 
 setx akvClientSecret <your-clientSecret>
-
-setx akvTenantId <your-tentantId>
-
-setx akvSubscriptionId <your-subscriptionId>
 ````
 
 Ogni volta che si chiama `setx`, si dovrebbe ottenere la risposta "OPERAZIONE RIUSCITA: valore specificato salvato".

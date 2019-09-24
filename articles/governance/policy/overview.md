@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b0c2d8060756c23cc69325ab88803d0423ba45b9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807443"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002301"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Panoramica del servizio Criteri di Azure
 
@@ -112,7 +112,7 @@ Si consideri ad esempio uno scenario con una definizione di iniziativa, **initia
 In questo scenario, per la definizione dei parametri dell'iniziativa **initiativeC** sono disponibili tre opzioni:
 
 - Usare i parametri delle definizioni di criteri incluse nell'iniziativa: In questo esempio *allowedLocations* e *allowedSingleLocation* diventano i parametri dell'iniziativa **initiativeC**.
-- Specificare valori per i parametri delle definizioni di criteri incluse nella definizione di iniziativa. In questo esempio, è possibile specificare un elenco di località per il **parametro allowedLocations di policyA** e il **parametro allowedSingleLocation di policyB**. È anche possibile specificare i valori quando si assegna l'iniziativa.
+- Specificare valori per i parametri delle definizioni di criteri incluse nella definizione di iniziativa. In questo esempio è possibile specificare un elenco di località per il **parametro allowedLocations di policyA** e il **parametro allowedSingleLocation di policyB**. È anche possibile specificare i valori quando si assegna l'iniziativa.
 - Specificare un elenco di opzioni di *valore* utilizzabili durante l'assegnazione dell'iniziativa. Quando si assegna l'iniziativa, i parametri ereditati dalle definizioni di criteri incluse nell'iniziativa possono contenere solo valori presenti nell'elenco specificato.
 
 Durante la creazione di opzioni di valori in una definizione di iniziativa, non è possibile a immettere un valore diverso durante l'assegnazione dell'iniziativa perché non è incluso nell'elenco.

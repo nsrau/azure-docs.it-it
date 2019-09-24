@@ -42,10 +42,12 @@
               href: tutorial-python-windows-virtual-machine.md
     - name: Chiavi dell'account di archiviazione
       items:
-        - name: Chiavi dell'account di archiviazione gestite di Azure con l'interfaccia della riga di comando di Azure
+        - name: Gestire le chiavi degli account di archiviazione con l'interfaccia della riga di comando di Azure
           href: key-vault-ovw-storage-keys.md
-        - name: Chiavi dell'account di archiviazione gestite con PowerShell
+        - name: Gestire le chiavi degli account di archiviazione con PowerShell
           href: key-vault-overview-storage-keys-powershell.md
+        - name: Recuperare i token della firma di accesso condiviso nel codice
+          href: storage-keys-sas-tokens-code.md
     - name: Contenitori di Azure
       href: ../container-instances/container-instances-managed-identity.md
     - name: Modello di Azure Resource Manager

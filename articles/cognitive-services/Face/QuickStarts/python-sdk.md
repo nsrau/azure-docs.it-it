@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 2a74dbe9c306c1bf2420fdaac78a9b9183cacab1
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f237af58bb98f667d4481a88bbb4daa77657468c
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376147"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966918"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Guida introduttiva: Libreria client dell'API Viso per Python
 
@@ -285,7 +285,7 @@ Se è stata eseguita la migrazione dei dati usando la funzionalità Snapshot in 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come usare la libreria dell'API Viso per Java per eseguire attività di base. Successivamente, esplorare la documentazione di riferimento per altre informazioni sulla libreria.
+In questa guida di avvio rapido si è appreso come usare la libreria dell'API Viso per Python per eseguire attività di base. Successivamente, esplorare la documentazione di riferimento per altre informazioni sulla libreria.
 
 > [!div class="nextstepaction"]
 > [Informazioni di riferimento per l'API Viso (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)

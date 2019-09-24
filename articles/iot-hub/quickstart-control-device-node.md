@@ -1,5 +1,5 @@
 ---
-title: Controllare un dispositivo dalla guida introduttiva di Hub IoT di Azure (Node.js) | Microsoft Docs
+title: 'Guida introduttiva: Controllare un dispositivo da Azure IoT (Node.js)'
 description: In questa guida introduttiva vengono eseguite due applicazioni Node.js di esempio. Una è un'applicazione back-end che può controllare in remoto i dispositivi connessi all'hub. L'altra applicazione simula un dispositivo connesso all'hub che può essere controllato in remoto.
 author: wesmc7777
 manager: philmea
@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: ba49709e6cab2d3e6a752fb7b529da7edb9f642e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: ab064798d21dd6d6ba87f2f2d093dfc0849c1cb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877156"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967168"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Node.js)
 

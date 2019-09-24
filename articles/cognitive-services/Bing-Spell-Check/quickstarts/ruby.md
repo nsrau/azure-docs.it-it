@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4c324bc013ccf339d19bb9dd7681909c4331db60
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: bf038b97335db20349577f754bfa41e1b98ee9b7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500330"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996738"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Ruby
 
@@ -49,7 +49,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="send-a-spell-check-request"></a>Inviare una richiesta di controllo ortografico
 
-1. Creare un URI dalla stringa con uri, percorso e parametri dell'host. Impostare la query in modo che contenga il testo di cui si vuole controllare l'ortografia.
+1. Creare un URI dalla stringa con uri, percorso e parametri dell'host. Impostarne la query in modo che contenga il testo di cui si vuole controllare l'ortografia.
 
    ```ruby
    uri = URI(uri + path + params)

@@ -120,6 +120,9 @@
     - name: Gemelli digitali di Azure
       tocHref: /azure/digital-twins/
       topicHref: /azure/digital-twins/
+    - name: Cache HPC di Azure
+      tocHref: /azure/hpc-cache/
+      topicHref: /azure/hpc-cache/
     - name: Azure Lighthouse
       tocHref: /azure/lighthouse/
       topicHref: /azure/lighthouse/
@@ -593,6 +596,9 @@
     - name: Raccolte di aree di lavoro di Power BI
       tocHref: /azure/power-bi-workspace-collections/
       topicHref: /azure/power-bi-workspace-collections/
+    - name: Collegamento privato
+      tocHref: /azure/private-link/
+      topicHref: /azure/private-link/
     - name: Cache Redis di Azure
       tocHref: /azure/azure-cache-for-redis/
       topicHref: /azure/azure-cache-for-redis/

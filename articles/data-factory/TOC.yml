@@ -538,6 +538,8 @@
       items:
         - name: Eseguire pacchetti SSIS in Azure da SSDT
           href: how-to-invoke-ssis-package-ssdt.md
+        - name: Eseguire pacchetti SSIS con dtexec abilitata per Azure
+          href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
         - name: Eseguire pacchetti SSIS tramite attività Esecuzione del pacchetto SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Eseguire pacchetti SSIS tramite attività stored procedure

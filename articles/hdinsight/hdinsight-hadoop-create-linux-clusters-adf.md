@@ -2,17 +2,17 @@
 title: 'Esercitazione: Cluster Apache Hadoop on demand in Azure HDInsight - Data Factory'
 description: 'Esercitazione: Informazioni su come creare cluster Apache Hadoop su richiesta in HDInsight con Azure Data Factory.'
 author: hrasheed-msft
-ms.reviewer: jasonh
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: de12725952a2bac6a0b86b1d2e239428c0eaa709
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0b3062e14873ec971163c125fccd6852d8662663
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736172"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098716"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Esercitazione: Creare cluster Apache Hadoop on demand in HDInsight con Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -203,7 +203,7 @@ In questo articolo viene configurata l'attività Hive per la creazione di un clu
 
 6. Selezionare **Crea e monitora** per avviare il portale di creazione e monitoraggio di Azure Data Factory.
 
-    ![Panoramica di Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Panoramica di Azure Data Factory")
+    ![Panoramica del portale di Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Panoramica di Azure Data Factory")
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
@@ -352,7 +352,7 @@ In alternativa, è possibile eliminare l'intero gruppo di risorse creato per que
 1. Nel riquadro **Risorse** dovrebbe essere indicato l'account di archiviazione predefinito e l'istanza Data Factory, a meno che il gruppo di risorse non sia condiviso con altri progetti.
 1. Selezionare **Elimina gruppo di risorse**. In questo modo si eliminano l'account di archiviazione e i dati in esso archiviati.
 
-    ![Eliminare il gruppo di risorse](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "Eliminare il gruppo di risorse")
+    ![Eliminare il gruppo di risorse nel portale di Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "Eliminare il gruppo di risorse")
 
 1. Immettere il nome del gruppo di risorse per confermare l'eliminazione e quindi fare clic su **Elimina**.
 

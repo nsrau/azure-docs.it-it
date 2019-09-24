@@ -4,15 +4,15 @@ description: Informazioni su come pubblicare un'offerta di servizio gestito che 
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/29/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c0c2ccf03292434b3f23b26857ec0d2b3fc3ceed
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 4a1adf1be8798f4bb21b89ff0654287a2958146e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165260"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105253"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizi gestiti in Azure Marketplace
 
@@ -71,7 +71,7 @@ Completare infine la sezione **Manifest Details** (Dettagli del manifesto). Verr
   - **ID oggetto Azure AD**: identificatore Azure AD di un utente, un gruppo utenti o un'applicazione a cui vengono concesse determinate autorizzazioni (come indicato dalla definizione del ruolo) per le risorse dei clienti.
   - **Azure AD Object Display Name** (Nome visualizzato dell'oggetto Azure AD): nome descrittivo per aiutare il cliente a comprendere lo scopo di questa autorizzazione. Questo nome verrà visualizzato dal cliente durante la delega delle risorse.
   - **Role Definition** (Definizione ruolo): selezionare uno dei ruoli predefiniti di Azure AD disponibili nell'elenco. Questo ruolo determinerà le autorizzazioni che l'utente indicato nel campo **ID oggetto Azure AD** avrà per le risorse dei clienti. Per informazioni su questi ruoli, vedere [Ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-  - **Assignable Roles** (Ruoli assegnabili): se si è selezionato Amministratore Accesso utenti in **Definizione ruolo** per questa autorizzazione, è possibile aggiungere qui uno o più ruoli assegnabili. L'utente indicato nel campo **ID oggetto Azure AD** potrà assegnare questi **ruoli assegnabili** alle [identità gestite](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Si noti che nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente. Se non è stato selezionato Amministratore Accesso utenti per la definizione del ruolo di questo utente, questo campo non ha alcun effetto.
+  - **Assignable Roles** (Ruoli assegnabili): questa impostazione è obbligatoria solo se per questa autorizzazione si è selezionato Amministratore Accesso utenti in **Definizione ruolo**. In tal caso, è necessario aggiungere qui uno o più ruoli assegnabili. L'utente indicato nel campo **ID oggetto Azure AD** potrà assegnare questi **ruoli assegnabili** alle [identità gestite](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Si noti che nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente. Se non si selezionano uno o più ruoli, l'invio non supererà la certificazione. Se non è stato selezionato Amministratore Accesso utenti per la definizione del ruolo di questo utente, questo campo non ha alcun effetto.
 
 > [!TIP]
 > Nella maggior parte dei casi, è consigliabile assegnare le autorizzazioni a un gruppo di utenti o a un'entità servizio di Azure AD, invece che a una serie di singoli account utente. In questo modo è possibile aggiungere o rimuovere l'accesso per i singoli utenti senza dover aggiornare e ripubblicare il piano quando cambiano i requisiti di accesso.

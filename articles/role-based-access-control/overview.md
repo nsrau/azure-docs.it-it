@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4a5352e96e522a8bd32c428957b3bbfd62c5fa9b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e7113508ff7fe5d3471b193bb8dadb7cdab5a7ca
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275930"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995295"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?
 
@@ -98,7 +98,7 @@ Lo schema seguente mostra un esempio di assegnazione di ruolo. In questo esempio
 
 ![Assegnazione di ruolo per controllare l'accesso](./media/overview/rbac-overview.png)
 
-È possibile creare assegnazioni di ruolo nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, tramite gli SDK Azure o le API REST. È possibile avere fino a 2000 assegnazioni di ruolo in ogni sottoscrizione. Per creare e rimuovere assegnazioni di ruoli, l'utente deve disporre dell'autorizzazione `Microsoft.Authorization/roleAssignments/*`. Questa autorizzazione viene concessa tramite il ruolo [Proprietario](built-in-roles.md#owner) o [Amministratore accessi utente](built-in-roles.md#user-access-administrator).
+È possibile creare assegnazioni di ruolo nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, tramite gli SDK Azure o le API REST. È possibile includere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione e **500** assegnazioni di ruolo in ogni gruppo di gestione. Per creare e rimuovere assegnazioni di ruoli, l'utente deve disporre dell'autorizzazione `Microsoft.Authorization/roleAssignments/*`. Questa autorizzazione viene concessa tramite il ruolo [Proprietario](built-in-roles.md#owner) o [Amministratore accessi utente](built-in-roles.md#user-access-administrator).
 
 ## <a name="multiple-role-assignments"></a>Più assegnazioni di ruolo
 

@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione sulla classificazione di immagini: Distribuire i modelli'
-titleSuffix: Azure Machine Learning service
-description: Questa esercitazione mostra come usare il servizio Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la seconda di una serie in due parti.
+titleSuffix: Azure Machine Learning
+description: Questa esercitazione mostra come usare Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la seconda di una serie in due parti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 57d34bb170c0ff86f3d3c42a25184d8af71c0270
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6e5ab17a04c994f09bccc0f51f11749ee8590b1d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036211"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003064"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
 
@@ -23,7 +23,7 @@ Questa esercitazione è la **seconda di una serie in due parti**. Nell'[esercita
 
 Si è ora pronti per distribuire il modello come servizio Web in [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/). Un servizio Web è un'immagine, in questo caso un'immagine Docker. Incapsula la logica di assegnazione dei punteggi e il modello stesso. 
 
-In questa parte dell'esercitazione si usa il servizio Azure Machine Learning per le attività seguenti:
+In questa parte dell'esercitazione si usa Azure Machine Learning per le attività seguenti:
 
 > [!div class="checklist"]
 > * Configurare l'ambiente di test.
@@ -378,7 +378,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ Informazioni su tutte le [opzioni di distribuzione per il servizio Azure Machine Learning](how-to-deploy-and-where.md).
++ Informazioni su tutte le [opzioni di distribuzione di Azure Machine Learning](how-to-deploy-and-where.md).
 + Informazioni su come [creare i client per il servizio Web](how-to-consume-web-service.md).
 +  [Eseguire stime su grandi quantità di dati](how-to-run-batch-predictions.md) in modo asincrono.
 + Monitorare i modelli di Azure Machine Learning con [Application Insights](how-to-enable-app-insights.md).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 762ab2800193aa084b771b7d000b383a7004097e
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882854"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984925"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -38,7 +38,7 @@ Centro sicurezza di Azure consente di risolvere le tre problematiche di sicurezz
 
 Per garantire la protezione da questi problemi, Centro sicurezza offre gli strumenti necessari per:
 
--   **Migliorare il comportamento di sicurezza**: Centro sicurezza consente di valutare l'ambiente e di comprendere lo stato delle risorse, sono sicuro o no?
+-   **Migliorare il comportamento di sicurezza**: Centro sicurezza valuta l'ambiente e consente di comprendere lo stato delle risorse e se queste sono sicure.
 
 -   **Proteggiti dalle minacce**: Centro sicurezza consente di valutare i carichi di lavoro e genera raccomandazioni per la prevenzione delle minacce e avvisi di rilevamento delle minacce.
 

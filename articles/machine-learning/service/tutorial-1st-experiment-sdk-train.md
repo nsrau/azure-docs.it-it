@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Eseguire il training del primo modello di Machine Learning'
-titleSuffix: Azure Machine Learning service
-description: In questa esercitazione si apprenderanno gli schemi progettuali di base del servizio Azure Machine Learning e si eseguirà il training di un semplice modello scikit-learn basato sul set di dati diabetes.
+titleSuffix: Azure Machine Learning
+description: In questa esercitazione si apprenderanno gli schemi progettuali di base in Azure Machine Learning e si eseguirà il training di un semplice modello scikit-learn basato sul set di dati diabetes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: 989775916454b6710aef6c2c5be6792920622dab
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241302"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004035"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
 
-Questa esercitazione è la **seconda di una serie in due parti**. Nell'esercitazione precedente [si è creata un'area di lavoro e si è scelto un ambiente di sviluppo](tutorial-1st-experiment-sdk-setup.md). In questa esercitazione si apprenderanno gli schemi progettuali di base del servizio Azure Machine Learning e si eseguirà il training di un semplice modello scikit-learn basato sul set di dati diabetes. Al termine dell'esercitazione, si avrà la conoscenza pratica dell'SDK necessaria per passare allo sviluppo di esperimenti e flussi di lavoro più complessi.
+Questa esercitazione è la **seconda di una serie in due parti**. Nell'esercitazione precedente [si è creata un'area di lavoro e si è scelto un ambiente di sviluppo](tutorial-1st-experiment-sdk-setup.md). In questa esercitazione si apprenderanno gli schemi progettuali di base in Azure Machine Learning e si eseguirà il training di un semplice modello scikit-learn basato sul set di dati diabetes. Al termine dell'esercitazione, si avrà la conoscenza pratica dell'SDK necessaria per passare allo sviluppo di esperimenti e flussi di lavoro più complessi.
 
 In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 
@@ -197,7 +197,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si intende eseguire altre esercitazioni sul servizio Azure Machine Learning, non completare questa sezione.
+Se si intende eseguire altre esercitazioni su Azure Machine Learning, non completare questa sezione.
 
 ### <a name="stop-the-notebook-vm"></a>Arrestare la macchina virtuale per notebook
 

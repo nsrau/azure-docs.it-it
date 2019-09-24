@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/25/2019
+ms.date: 08/20/2019
 ms.author: juliako
-ms.openlocfilehash: af95deab88dd5051579c1e95bdf23e7335a393b0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 09c93e2d851bea22e9d54dde35398f36335eb896
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209393"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967582"
 ---
 # <a name="cli-example-reset-the-account-credentials"></a>Esempio di interfaccia della riga di comando: Reimpostare le credenziali dell'account
 
@@ -33,8 +33,17 @@ Lo script dell'interfaccia della riga di comando di Azure in questo articolo mos
 
 ## <a name="example-script"></a>Script di esempio
 
-[!code-azurecli-interactive[main](../../../cli_scripts/media-services/reset-account-credentials/Reset-Account-Credentials.sh "Reset credentials")]
+```
+# Update the following variables for your own settings:
+resourceGroup=amsResourceGroup
+amsAccountName=amsmediaaccountname
+
+az ams account sp reset-credentials \
+  --account-name $amsAccountName \
+  --resource-group $resourceGroup 
+ ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica di Servizi multimediali](media-services-overview.md)
+* [az ams](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Reimpostare le credenziali](https://docs.microsoft.com/cli/azure/ams/account/sp?view=azure-cli-latest#az-ams-account-sp-reset-credentials)

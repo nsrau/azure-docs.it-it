@@ -1,7 +1,7 @@
 ---
 title: "Esercitazione: Distribuire un modello di Machine Learning con l'interfaccia visiva grafica"
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come creare una soluzione di analisi predittiva nell'interfaccia visiva grafica del servizio Azure Machine Learning. Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione. Questa esercitazione è la seconda parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come creare una soluzione di analisi predittiva nell'interfaccia visiva grafica di Azure Machine Learning. Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione. Questa esercitazione è la seconda parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 64062aeab9a807d2aee7f4bca05d4019a3d9b736
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 22d5c41e8b815fd99450962cb63d11e9560c787f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858644"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997018"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Esercitazione: Distribuire un modello di Machine Learning con l'interfaccia visiva grafica
 
@@ -105,7 +105,7 @@ Passare alla scheda **API Doc** (Documentazione dell'API) per altre informazioni
 
 ## <a name="manage-models-and-deployments"></a>Gestire modelli e distribuzioni
 
-I modelli e le distribuzioni di servizi Web creati nell'interfaccia visiva grafica possono anche essere gestiti nell'area di lavoro del servizio Azure Machine Learning.
+I modelli e le distribuzioni di servizi Web creati nell'interfaccia visiva grafica possono anche essere gestiti nell'area di lavoro di Azure Machine Learning.
 
 1. Aprire l'area di lavoro nel [portale di Azure](https://portal.azure.com/).  
 

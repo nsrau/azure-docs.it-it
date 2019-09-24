@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4f823b62237e8018f092d7a94fb479f7fbdd38da
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565759"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967050"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -75,6 +75,6 @@ Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Visio
 
 Per un'introduzione a Visione artificiale, seguire una guida introduttiva:
 
-- [Guida introduttiva: Analizzare un'immagine](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Guida introduttiva: Estrarre testo scritto a mano](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Guida introduttiva: Generare un'anteprima](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Guida introduttiva: SDK .NET per Visione artificiale](quickstarts-sdk/csharp-sdk.md)
+- [Guida introduttiva: SDK Python per Visione artificiale](quickstarts-sdk/python-sdk.md)
+- [Guida introduttiva: SDK Java per Visione artificiale](quickstarts-sdk/java-sdk.md)

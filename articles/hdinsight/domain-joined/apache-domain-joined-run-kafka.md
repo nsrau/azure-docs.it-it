@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6d92ebc743bae97ecfa1591add27f470792dcafc
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885947"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037163"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)
 
@@ -36,7 +36,7 @@ Un [cluster HDInsight Kafka con Enterprise Security Package](./apache-domain-joi
 
 2. Accedere usando le credenziali di amministratore di Azure Active Directory (AD). Le credenziali di amministratore di Azure AD non sono le stesse del cluster HDInsight o del nodo SSH di Linux HDInsight.
 
-   ![Interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   ![Interfaccia utente di amministrazione di Apache Ranger di HDInsight](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
 
 ## <a name="create-domain-users"></a>Creare utenti del dominio
 
@@ -183,7 +183,7 @@ In base ai criteri di Ranger configurati, **sales_user** può creare o utilizzar
 
 9. Visualizzare gli eventi di accesso di controllo dall'interfaccia utente di Ranger.
 
-   ![Controllo dei criteri di Ranger dell'interfaccia utente](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   ![Eventi di accesso di controllo dei criteri dell'interfaccia utente di Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

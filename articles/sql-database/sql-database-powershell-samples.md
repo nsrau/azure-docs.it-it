@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: c32803fec6107e39a0b8329adaee072e3e291575
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 998497d3e790ba501ac5cdeb4974bf7ee9ea6a54
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567056"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059266"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Esempi di Azure PowerShell per database SQL di Azure
 
@@ -27,7 +27,7 @@ Il database SQL di Azure consente di configurare i database, le istanze e i pool
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario AZ PowerShell 1.4.0 o successiva. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
-## <a name="single-database-and-elastic-pools"></a>Database singoli e pool elastici
+## <a name="single-database-and-elastic-poolstabsingle-database"></a>[Database singolo e pool elastici](#tab/single-database)
 
 La tabella seguente include collegamenti a esempi di script di Azure PowerShell per database SQL di Azure.
 
@@ -58,7 +58,7 @@ La tabella seguente include collegamenti a esempi di script di Azure PowerShell 
 
 Vedere altre informazioni sull'[API Azure PowerShell per i database singoli](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
 
-## <a name="managed-instance"></a>Istanza gestita
+## <a name="managed-instancetabmanaged-instance"></a>[Istanza gestita](#tab/managed-instance)
 
 La tabella seguente include collegamenti a esempi di script di Azure PowerShell per database SQL di Azure - Istanza gestita.
 
@@ -73,6 +73,8 @@ La tabella seguente include collegamenti a esempi di script di Azure PowerShell 
 |||
 
 Vedere altre informazioni sull'[API Azure PowerShell - Istanza gestita](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).
+
+---
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

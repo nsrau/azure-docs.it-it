@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: fd8abf81589f3338f9e45c6c1d23681269ccc654
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 16a487dc007526f685edb52726f5797303a30c11
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164845"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966982"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Guida introduttiva: Libreria client di Visione artificiale per Java
 
@@ -106,7 +106,7 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 |NOME|DESCRIZIONE|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Questa classe è necessaria per tutte le funzionalità di Visione artificiale. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per produrre istanze di altre classi.|
-|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Questa classe deriva dall'oggetto client e gestisce direttamente tutte le operazioni per le immagini, come l'analisi, il rilevamento del testo e la generazione di anteprime.
+|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Questa classe deriva dall'oggetto client e gestisce direttamente tutte le operazioni per le immagini, come l'analisi, il rilevamento del testo e la generazione di anteprime.|
 |[VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| Questa enumerazione definisce i diversi tipi di analisi delle immagini che è possibile eseguire in un'operazione di analisi standard. Specificare un set di valori di VisualFeatureTypes a seconda delle esigenze. |
 
 ## <a name="code-examples"></a>Esempi di codice
@@ -172,17 +172,17 @@ Il codice seguente ottiene la categoria rilevata dell'immagine. Per altre inform
 
 ### <a name="get-image-tags"></a>Ottenere i tag delle immagini
 
-Il codice seguente ottiene il set di tag rilevati nell'immagine. Per altre informazioni, vedere [Tag di contenuto](../concept-tagging-images.md)
+Il codice seguente ottiene il set di tag rilevati nell'immagine. Per altre informazioni, vedere [Tag di contenuto](../concept-tagging-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
-### <a name="get-faces"></a>Ottenere i visi
+### <a name="detect-faces"></a>Rilevare visi
 
 Il codice seguente restituisce i visi rilevati nell'immagine con le rispettive coordinate del rettangolo e determinati attributi del viso. Per altre informazioni, vedere [Rilevamento viso](../concept-detecting-faces.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
-### <a name="get-adult-or-racy-content"></a>Ottenere contenuto per adulti o spinto
+### <a name="detect-adult-or-racy-content"></a>Rilevare contenuto per adulti o spinto
 
 Il codice seguente stampa la presenza rilevata di contenuto per adulti o spinto nell'immagine. Per altre informazioni, vedere [Contenuto per adulti o spinto](../concept-detecting-adult-content.md).
 
@@ -205,6 +205,12 @@ Il codice seguente analizza i dati sulle celebrità rilevate nell'immagine.
 Il codice seguente analizza i dati sui luoghi di interesse rilevati nell'immagine.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
+
+### <a name="get-the-image-type"></a>Ottenere il tipo di immagine
+
+Il codice seguente stampa informazioni sul tipo di immagine, sia che si tratti di ClipArt o di un disegno lineare.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 

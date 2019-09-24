@@ -6,16 +6,16 @@ ms.service: hpc-cache
 ms.topic: overview
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: d772f66d14e0c0ab5ac73603e8faeb7e31e9891f
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 77eca3ef58733a616705fdaac1d2880b5a990e8a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843787"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036877"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Che cos'è Cache HPC di Azure?
 
-Cache HPC di Azure accelera l'accesso ai dati per le attività di calcolo ad alte prestazioni (HPC, High Performance Computing). Memorizzando i file nella cache in Azure, rende disponibile la scalabilità del cloud computing anche per i flussi di lavoro in cui i dati vengono archiviati in collegamenti WAN, ad esempio nell'ambiente NAS (Network-Attached Storage) del data center locale.
+Cache HPC di Azure accelera l'accesso ai dati per le attività di calcolo ad alte prestazioni (HPC, High Performance Computing). Memorizzando i file nella cache in Azure, rende disponibile la scalabilità del cloud computing anche per i flussi di lavoro in cui i dati vengono archiviati tramite collegamenti WAN, ad esempio nell'ambiente NAS (Network-Attached Storage) del data center locale.
 
 Cache HPC di Azure è facile da avviare e monitorare dal portale di Azure. Lo spazio di archiviazione NFS esistente o i nuovi contenitori BLOB possono diventare parte del relativo spazio dei nomi aggregato e questa integrazione semplifica l'accesso client anche se si cambia la destinazione di archiviazione back-end.
 

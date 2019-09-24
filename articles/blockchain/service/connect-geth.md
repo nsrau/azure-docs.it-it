@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 0716a9326a54ae31d4f355fe5f4c88488339b390
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a26899e291c4f44d3c9d91032b2ee191ba03133a
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029979"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931781"
 ---
-# <a name="quickstart-use-geth-to-connect-to-a-transaction-node"></a>Avvio rapido: Usare Geth per connettersi a un nodo della transazione
+# <a name="quickstart-use-geth-to-connect-to-a-transaction-node"></a>Guida introduttiva: Usare Geth per connettersi a un nodo della transazione
 
 Geth è un client Go Ethereum che è possibile usare per connettersi a un'istanza di Geth in un nodo della transazione del servizio Azure Blockchain.
 
@@ -26,7 +26,7 @@ Geth è un client Go Ethereum che è possibile usare per connettersi a un'istanz
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Installare [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
-* [Creare un membro di Azure Blockchain](create-member.md)
+* Completare [Avvio rapido: Creare un membro della blockchain con il portale di Azure](create-member.md) o [Avvio rapido: Creare un membro della blockchain del servizio Azure Blockchain usando l'interfaccia della riga di comando di Azure](create-member-cli.md)
 
 ## <a name="get-the-geth-connection-string"></a>Ottenere la stringa di connessione di Geth
 
@@ -67,7 +67,7 @@ Geth è un client Go Ethereum che è possibile usare per connettersi a un'istanz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stato usato il client Geth per connettersi a un'istanza di Geth in un nodo della transazione del servizio Azure Blockchain. Provare l'esercitazione successiva per distribuire e inviare una transazione che usa Truffle.
+In questa guida di avvio rapido è stato usato il client Geth per connettersi a un'istanza di Geth in un nodo della transazione del servizio Azure Blockchain. Provare l'esercitazione successiva per usare Azure Blockchain Development Kit per Ethereum e Truffle per creare, compilare, distribuire ed eseguire una funzione di contratto intelligente tramite una transazione.
 
 > [!div class="nextstepaction"]
-> [Inviare una transazione](send-transaction.md)
+> [Usare Visual Studio Code per creare, compilare e distribuire contratti intelligenti](send-transaction.md)

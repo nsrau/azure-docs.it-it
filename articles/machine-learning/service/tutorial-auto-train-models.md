@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione sul modello di regressione: Funzionalità automatiche di Machine Learning'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come generare un modello di Machine Learning tramite le funzionalità automatizzate di apprendimento automatico. Azure Machine Learning può eseguire la pre-elaborazione dei dati e la selezione automatica di algoritmi e iperparametri. Il modello finale viene quindi distribuito con il servizio Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come generare un modello di Machine Learning tramite le funzionalità automatizzate di apprendimento automatico. Azure Machine Learning può eseguire la pre-elaborazione dei dati e la selezione automatica di algoritmi e iperparametri. Il modello finale viene quindi distribuito con Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/21/2019
-ms.openlocfilehash: 990755b247190f689a90d5cdf3d60d6eff9f4ae7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036256"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003985"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per stimare le tariffe dei taxi
 
-In questa esercitazione si userà l'apprendimento automatico automatizzato nel servizio Azure Machine Learning per creare un modello di regressione per prevedere i prezzi delle corse in taxi di New York City. Questo processo accetta impostazioni di configurazione e dati di training ed esegue automaticamente iterazioni di combinazioni di metodi di normalizzazione/standardizzazione delle caratteristiche, impostazioni di iperparametri e modelli diversi per ottenere il modello ottimale.
+In questa esercitazione si userà il machine learning automatizzato in Azure Machine Learning per creare un modello di regressione per prevedere i prezzi delle corse in taxi di New York City. Questo processo accetta impostazioni di configurazione e dati di training ed esegue automaticamente iterazioni di combinazioni di metodi di normalizzazione/standardizzazione delle caratteristiche, impostazioni di iperparametri e modelli diversi per ottenere il modello ottimale.
 
 ![Diagramma di flusso](./media/tutorial-auto-train-models/flow2.png)
 
@@ -30,11 +30,11 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 > * Eseguire il training di un modello di regressione di Machine Learning automatizzato
 > * Calcolare l'accuratezza del modello
 
-Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento](https://aka.ms/AMLFree) del servizio Azure Machine Learning.
+Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento](https://aka.ms/AMLFree) di Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completare l'[esercitazione di installazione](tutorial-1st-experiment-sdk-setup.md) se non si ha già un'area di lavoro del servizio Azure Machine Learning o una macchina virtuale per notebook.
+* Completare l'[esercitazione relativa all'installazione](tutorial-1st-experiment-sdk-setup.md) se non si ha già un'area di lavoro di Azure Machine Learning o una macchina virtuale per notebook.
 * Al termine dell'esercitazione, aprire il notebook **tutorials/regression-automated-ml.ipynb** usando lo stesso server notebook.
 
 Questa esercitazione è disponibile anche in [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se si vuole eseguirla nel proprio [ambiente locale](how-to-configure-environment.md#local). Eseguire `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` per ottenere i pacchetti necessari.
@@ -1057,7 +1057,7 @@ Il processo di sviluppo del modello di Machine Learning tradizionale richiede ri
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si intende eseguire altre esercitazioni sul servizio Azure Machine Learning, non completare questa sezione.
+Se si intende eseguire altre esercitazioni su Azure Machine Learning, non completare questa sezione.
 
 ### <a name="stop-the-notebook-vm"></a>Arrestare la macchina virtuale per notebook
 
@@ -1088,4 +1088,4 @@ In questa esercitazione sulla modalità automatizzata di apprendimento automatic
 > * Eseguire il training usando un modello di regressione automatizzato in locale con parametri personalizzati.
 > * Esplorare ed esaminare i risultati del training.
 
-[Distribuire il modello](tutorial-deploy-models-with-aml.md) con il servizio Azure Machine Learning.
+[Distribuire il modello](tutorial-deploy-models-with-aml.md) con Azure Machine Learning.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242728"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984897"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Esercitazione: Filtrare il traffico di rete con un gruppo di sicurezza di rete usando il portale di Azure
 
@@ -51,7 +51,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
     | Spazio degli indirizzi           | 10.0.0.0/16                                        |
     | Sottoscrizione            | Selezionare la propria sottoscrizione.                          |
     | Gruppo di risorse          | Selezionare **Crea nuovo** e immettere *myResourceGroup*. |
-    | Località                | Selezionare **Stati Uniti orientali**.                                |
+    | Location                | Selezionare **Stati Uniti orientali**.                                |
     | Subnet - Nome            | mySubnet                                           |
     | Subnet - Intervallo di indirizzi  | 10.0.0.0/24                                        |
 
@@ -66,18 +66,18 @@ Un gruppo di sicurezza delle applicazioni consente di raggruppare i server con f
     | Impostazione        | Valore                                                         |
     | ---            | ---                                                           |
     | NOME           | myAsgWebServers                                               |
-    | Sottoscrizione   | Selezionare la propria sottoscrizione.                                     |
-    | Gruppo di risorse | Selezionare **Usa esistente** e quindi **myResourceGroup**. |
-    | Località       | Stati Uniti orientali                                                       |
+    | Subscription   | Selezionare la propria sottoscrizione.                                     |
+    | Resource group | Selezionare **Usa esistente** e quindi **myResourceGroup**. |
+    | Location       | Stati Uniti orientali                                                       |
 
 4. Completare di nuovo il passaggio 3, specificando i valori seguenti:
 
     | Impostazione        | Valore                                                         |
     | ---            | ---                                                           |
     | NOME           | myAsgMgmtServers                                              |
-    | Sottoscrizione   | Selezionare la propria sottoscrizione.                                     |
-    | Gruppo di risorse | Selezionare **Usa esistente** e quindi **myResourceGroup**. |
-    | Località       | Stati Uniti orientali                                                       |
+    | Subscription   | Selezionare la propria sottoscrizione.                                     |
+    | Resource group | Selezionare **Usa esistente** e quindi **myResourceGroup**. |
+    | Location       | Stati Uniti orientali                                                       |
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
@@ -88,9 +88,9 @@ Un gruppo di sicurezza delle applicazioni consente di raggruppare i server con f
     |Impostazione|Valore|
     |---|---|
     |NOME|myNsg|
-    |Sottoscrizione| Selezionare la propria sottoscrizione.|
+    |Subscription| Selezionare la propria sottoscrizione.|
     |Gruppo di risorse | Selezionare **Usa esistente** e quindi *myResourceGroup*.|
-    |Località|Stati Uniti orientali|
+    |Location|Stati Uniti orientali|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associare il gruppo di sicurezza di rete alla subnet
 
@@ -140,27 +140,29 @@ Creare due VM nella rete virtuale.
 
 1. Selezionare **+ Crea una risorsa** visualizzato nell'angolo in alto a sinistra del portale di Azure.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**.
-3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
+3. Immettere o selezionare le informazioni seguenti e accettare le impostazioni predefinite delle opzioni rimanenti:
 
     |Impostazione|Valore|
     |---|---|
+    |Subscription| Selezionare la propria sottoscrizione.|
+    |Resource group| Selezionare **Usa esistente** e selezionare **myResourceGroup**.|
     |NOME|myVmWeb|
+    |Location| Selezionare **Stati Uniti orientali**.|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Sottoscrizione| Selezionare la propria sottoscrizione.|
-    |Gruppo di risorse| Selezionare **Usa esistente** e selezionare **myResourceGroup**.|
-    |Località| Selezionare **Stati Uniti orientali**.|
+
+   
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
-5. In **Impostazioni** selezionare i valori seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **OK**:
+5. In **Rete** selezionare i valori seguenti e accettare le impostazioni predefinite delle opzioni rimanenti:
 
     |Impostazione|Valore|
     |---|---|
-    |Rete virtuale |Selezionare **myVirtualNetwork**|
-    |Gruppo di sicurezza di rete | Selezionare **Advanced** (Avanzate).|
-    |Gruppo di sicurezza di rete (firewall)| Selezionare **(nuovo) myVmWeb-nsg** e quindi in **Scegli un gruppo di sicurezza di rete** selezionare **Nessuno**. |
+    |Rete virtuale |Selezionare **myVirtualNetwork**.|
+    |Gruppo di sicurezza di rete della scheda di interfaccia di rete |Selezionare **Advanced** (Avanzate).|
+    |Porte in ingresso pubbliche|Selezionare **Nessuno**. |
 
-6. In **Crea** in **Riepilogo** selezionare **Crea** per avviare la distribuzione della VM.
+6. Selezionare **Rivedi e crea** nell'angolo inferiore sinistro, quindi selezionare **Crea** per avviare la distribuzione della VM.
 
 ### <a name="create-the-second-vm"></a>Creare la seconda VM
 

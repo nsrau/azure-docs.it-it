@@ -1,6 +1,6 @@
 ---
 title: Creare il primo esperimento automatizzato di apprendimento automatico
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training e la distribuzione di un modello di classificazione con Machine Learning automatizzato nella pagina di destinazione dell'area di lavoro di Azure Machine Learning (anteprima).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 0dd4447736469644875dff914c6284b087be87d0
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 2422a4525c94f3997dd0a9a0859135e9acf59ffa
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910212"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092014"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Esercitazione: Creare il primo modello di classificazione con apprendimento automatico
 
@@ -26,7 +26,7 @@ Con l'apprendimento automatico automatizzato, è possibile automatizzare le atti
 In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 > [!div class="checklist"]
-> * Creare un'area di lavoro del servizio Azure Machine Learning.
+> * Creare un'area di lavoro di Azure Machine Learning.
 > * Eseguire un esperimento di Machine Learning automatizzato.
 > * Visualizzare i dettagli sull'esperimento.
 > * Distribuire il modello.
@@ -67,7 +67,7 @@ Verrà visualizzata la schermata **Introduzione**, in quanto si tratta del primo
 
 1. Immettere **my-1st-automl-experiment** come nome dell'esperimento.
 
-1. Selezionare **Create a new compute** (Crea nuovo contesto di calcolo). 
+1. Selezionare **Create a new compute** (Crea nuovo contesto di calcolo). Un calcolo è un ambiente di risorse locale o basato sul cloud usato per eseguire lo script di training o ospitare la distribuzione del servizio. Per questo esperimento viene usato un calcolo basato sul cloud. 
 
     1. Configurare il nuovo contesto di calcolo per questo esperimento.
         
@@ -99,7 +99,8 @@ Verrà visualizzata la schermata **Introduzione**, in quanto si tratta del primo
         Formato file| Delimitato
         Delimitatore| Virgola
         Codifica| UTF-8
-        Intestazioni di colonna| Tutti i file hanno le stesse intestazioni            Skip rows (Ignora righe) | Nessuna
+        Intestazioni di colonna| Tutti i file hanno le stesse intestazioni
+        Ignora righe | Nessuna
 
         >[!NOTE]
         > Se viene aggiornata una delle impostazioni di questo modulo, l'anteprima verrà aggiornata di conseguenza.
@@ -146,9 +147,9 @@ Mentre l'esperimento continua, la schermata aggiorna il **grafico** e l'**elenco
 
 ## <a name="deploy-the-model"></a>Distribuire il modello
 
-Usando Machine Learning automatizzato nella pagina di destinazione dell'area di lavoro, è possibile distribuire il modello migliore come servizio Web per eseguire stime sui nuovi dati e identificare le potenziali aree di opportunità. Per questo esperimento, attraverso la distribuzione l'istituto finanziario ha ora una soluzione iterativa e scalabile per l'identificazione dei potenziali clienti con deposito a termine fisso.
+Usando il machine learning automatizzato nella pagina di destinazione dell'area di lavoro è possibile distribuire il modello migliore come servizio Web con pochi passaggi. La distribuzione è l'integrazione del modello per consentire la stima su nuovi dati e identificare le potenziali aree di opportunità. Per questo esperimento, attraverso la distribuzione a un servizio Web l'istituto finanziario ha ora una soluzione Web iterativa e scalabile per l'identificazione dei potenziali clienti con deposito a termine fisso. 
 
-Nel contesto di questo esperimento **VotingEnsemble** viene considerato il modello migliore, in base alla metrica **AUC_weighted**.  Viene distribuito questo modello, ma tenere presente che il completamento della distribuzione richiede circa 20 minuti.
+Nel contesto di questo esperimento **VotingEnsemble** viene considerato il modello migliore, in base alla metrica **AUC_weighted**.  Viene distribuito questo modello, ma tenere presente che il completamento della distribuzione richiede circa 20 minuti. Il processo di distribuzione comporta diversi passaggi, tra cui la registrazione del modello, la generazione delle risorse e la relativa configurazione per il servizio Web.
 
 1. Nella pagina **Dettagli di esecuzione** scegliere il pulsante **Deploy Best Model** (Distribuisci modello migliore) nell'angolo in alto a destra.
 
@@ -161,7 +162,7 @@ Nel contesto di questo esperimento **VotingEnsemble** viene considerato il model
     Scoring script (Script di assegnazione punteggi)| Genera automaticamente
     Environment script (Script ambiente)| Genera automaticamente
     
-1. Selezionare **Distribuisci**.
+1. Selezionare **Distribuisci**.  
 
     Al termine della distribuzione, viene visualizzato un messaggio di completamento della distribuzione.
     

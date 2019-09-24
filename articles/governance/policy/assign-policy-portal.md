@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 805f9178cb77241b8332fb78687a8409206e5c05
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 6db0879152dfcfd37719c8d22f836da6db7ed79d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231585"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000902"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi
 
@@ -64,7 +64,7 @@ In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la 
 
 1. Fare clic su **Assegna**.
 
-A questo punto si è pronti per identificare le risorse non conformi per comprendere lo stato di conformità dell'ambiente.
+A questo punto si è pronti per identificare le risorse non conformi e comprendere così lo stato di conformità dell'ambiente.
 
 ## <a name="identify-non-compliant-resources"></a>Identificare le risorse non conformi
 
@@ -74,7 +74,7 @@ Selezionare **Assegnazioni** a sinistra nella pagina. Individuare l'assegnazione
 
 Le eventuali risorse esistenti non conformi a questa nuova assegnazione verranno visualizzate nella scheda **Non-compliant resources** (Risorse non conformi).
 
-Quando viene valutata una condizione per le risorse esistenti e tale condizione risulta soddisfatta, le risorse vengono contrassegnate come non conformi ai criteri. La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante. Anche se nel portale di Azure non viene visualizzata la logica di valutazione, sono visualizzati i risultati relativi allo stato di conformità. Lo stato di conformità può risultare conforme o non conforme.
+Quando viene valutata una condizione per le risorse esistenti e tale condizione risulta soddisfatta, le risorse vengono contrassegnate come non conformi ai criteri. La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante. Anche se nel portale di Azure non viene visualizzata la logica di valutazione, vengono mostrati i risultati relativi allo stato di conformità. Lo stato di conformità può risultare conforme o non conforme.
 
 | **Stato della risorsa** | **Effetto** | **Valutazione dei criteri** | **Stato di conformità** |
 | --- | --- | --- | --- |

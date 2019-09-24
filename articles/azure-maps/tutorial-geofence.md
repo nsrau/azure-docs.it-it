@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b4e9b72be5d03e0b3441983ca991a16688f5f4cd
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916453"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934193"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurare un recinto virtuale con Mappe di Azure
 
@@ -56,7 +56,7 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
     
     Il parametro GEOJSON nel percorso URL rappresenta il formato dei dati caricati.
 
-3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore subscription-key con la chiave di sottoscrizione di Mappe di Azure.
+3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore subscription-key con la chiave di sottoscrizione primaria di Mappe di Azure.
    
     ![Parametri chiave-valore di Postman](./media/tutorial-geofence/postman-key-vals.png)
 

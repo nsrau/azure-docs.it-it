@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Stimare il prezzo delle automobili con l'interfaccia visiva grafica"
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli tramite un'interfaccia visiva grafica con trascinamento della selezione. Questa esercitazione è la prima parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
 author: peterclu
 ms.author: peterlu
@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 08/16/2019
-ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 11c65c217ef6c150c47f387f7f80070488a8df89
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891688"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996769"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Esercitazione: Stimare il prezzo delle automobili con l'interfaccia visiva grafica
 
-In questa esercitazione in due parti si apprenderà come usare l'interfaccia visiva grafica del servizio Azure Machine Learning per sviluppare e distribuire una soluzione di analisi predittiva che stima il prezzo di qualsiasi automobile. 
+In questa esercitazione in due parti si apprenderà come usare l'interfaccia visiva grafica di Azure Machine Learning per sviluppare e distribuire una soluzione di analisi predittiva che stima il prezzo di qualsiasi automobile. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
@@ -41,11 +41,11 @@ Per trovarla, nella pagina **Experiments** (Esperimenti) selezionare **Add New**
 
 ## <a name="create-a-new-experiment"></a>Creare un nuovo esperimento
 
-Per creare un esperimento di interfaccia visiva, è necessaria prima di tutto un'area di lavoro del servizio Azure Machine Learning. In questa sezione viene descritto come creare entrambe queste risorse.
+Per creare un esperimento di interfaccia visiva grafica è necessaria prima di tutto un'area di lavoro del servizio Azure Machine Learning. In questa sezione viene descritto come creare entrambe queste risorse.
 
 ### <a name="create-a-new-workspace"></a>Creazione di una nuova area di lavoro
 
-Se è già disponibile un'area di lavoro del servizio Azure Machine Learning, passare alla sezione successiva.
+Se è già disponibile un'area di lavoro di Azure Machine Learning, passare alla sezione successiva.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 

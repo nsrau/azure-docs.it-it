@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bcdac2635c9d40bcd0f7605fad7479d5b8cdddba
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: c18e48d76381bf40e6177feb389a0197aace081d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239222"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000859"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi con Azure PowerShell
 
@@ -59,7 +59,7 @@ I comandi precedenti utilizzano le informazioni seguenti:
 - **Definition**: definizione di criteri in base alla quale si crea l'assegnazione. In questo caso si tratta dell'ID della definizione di criteri *Controllare le macchine virtuali che non usano i dischi gestiti*.
 - **Scope**: ambito che determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri. e può variare da una sottoscrizione a gruppi di risorse. Assicurarsi di sostituire &lt;scope&gt; con il nome del gruppo di risorse.
 
-A questo punto si è pronti per identificare le risorse non conformi per comprendere lo stato di conformità dell'ambiente.
+A questo punto si è pronti per identificare le risorse non conformi e comprendere così lo stato di conformità dell'ambiente.
 
 ## <a name="identify-non-compliant-resources"></a>Identificare le risorse non conformi
 

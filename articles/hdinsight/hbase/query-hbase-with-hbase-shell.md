@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: d937e090895a5b02026c755b1efb7dd1e0b35000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 033227f085cd23c5fa26313cb4a2816070676560
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054292"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076436"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Guida introduttiva: Eseguire query Apache HBase in Azure HDInsight con la shell di HBase
 
@@ -32,11 +32,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per la maggior parte delle persone, i dati vengono visualizzati in formato tabulare:
 
-![Tabella con dati HBase di HDInsight](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
+![Dati tabulari Apache HBase in HDInsight](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
 
 In HBase, che rappresenta un'implementazione di [Cloud BigTable](https://cloud.google.com/bigtable/), gli stessi dati sono simili a:
 
-![Dati BigTable HBase di HDInsight](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
+![Dati BigTable Apache HBase in HDInsight](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
 
 È possibile usare SSH per connettersi ai cluster HBase e quindi usare la shell di Apache HBase per creare tabelle HBase, inserire dati ed eseguire query sui dati.
 
