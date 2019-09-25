@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a25c5fed4fd88866f46a9ca254213cae5db893a4
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: cd4839e2c8ad6605a29f3c8b824375185384f78c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063578"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258158"
 ---
 # <a name="social-accounts-claims-transformations"></a>Trasformazioni delle attestazioni degli account social
 
@@ -42,7 +42,7 @@ Crea una rappresentazione JSON della proprietà alternativeSecurityId dell'utent
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | key | string | Il tipo di attestazione che specifica lo UID univoco usato dal provider di identità di social networking. |
+| InputClaim | chiave | string | Il tipo di attestazione che specifica lo UID univoco usato dal provider di identità di social networking. |
 | InputClaim | identityProvider | string | Il tipo di attestazione che specifica il nome del provider di identità dell'account di social networking, ad esempio facebook.com. |
 | OutputClaim | alternativeSecurityId | string | Il tipo di attestazione generato dopo che ClaimsTransformation è stato richiamato. Contiene informazioni sull'identità di un utente con account social. Il valore **autorità di certificazione** è il valore dell'attestazione `identityProvider`. Il valore **issuerUserId** è il valore dell'attestazione `key` nel formato base64. |
 
@@ -51,7 +51,7 @@ Usare questa trasformazione delle attestazioni per generare un tipo di attestazi
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="socialIdpUserId" TransformationClaimType="key" />
+    <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
     <InputClaim ClaimTypeReferenceId="identityProvider" TransformationClaimType="identityProvider" />
   </InputClaims>
   <OutputClaims>
@@ -74,7 +74,7 @@ Aggiunge un `AlternativeSecurityId` a un'attestazione `alternativeSecurityIdColl
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | string | Il ClaimType da aggiungere all'attestazione di output. |
+| InputClaim | elemento | string | Il ClaimType da aggiungere all'attestazione di output. |
 | InputClaim | raccolta | alternativeSecurityIdCollection | I tipi di attestazione che vengono usati dalla trasformazione delle attestazioni, se disponibili nei criteri. Se specificato, la trasformazione delle attestazioni aggiunge il `item` alla fine della raccolta. |
 | OutputClaim | raccolta | alternativeSecurityIdCollection | I tipi di attestazione generati dopo che ClaimsTransformation è stato richiamato. La nuova raccolta che contiene sia gli elementi dell'input `collection` che `item`. |
 

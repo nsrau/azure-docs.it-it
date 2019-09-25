@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0fe174f309656011a1d05762927e254ff210b1e7
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68370684"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262002"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Proprietà standard nei log di monitoraggio di Azure
 I dati nei log di monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro log Analytics o in un'applicazione Application Insights](../log-query/logs-structure.md), ognuno con un particolare tipo di dati che dispone di un set univoco di proprietà. Molti tipi di dati hanno proprietà standard comuni a più tipi. Questo articolo descrive queste proprietà e contiene esempi di come usarle nelle query.

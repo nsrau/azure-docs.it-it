@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 71b7e4bd9406e7fb300ebccd86908820b7628c29
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 4ebb31a839a645bcb1312405ee0222f39dbbcd1e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71000771"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261276"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
 
@@ -41,7 +41,7 @@ Altre informazioni su generazione e trasferimento di una chiave HSM protetta tra
 
 ## <a name="more-information-about-ncipher-hsms-and-microsoft-services"></a>Altre informazioni su nCipher HSM e i servizi Microsoft
 
-nCipher Security è un fornitore globale leader di soluzioni di crittografia dei dati e di sicurezza informatica per i settori finanziario, tecnologico, manifatturiero, governativo e tecnologico. Con un record di 40 anni per la protezione delle informazioni aziendali e governative, le soluzioni di crittografia per la sicurezza nCipher vengono usate da quattro delle cinque maggiori società di energia e aerospaziale. Le loro soluzioni vengono usate anche da 22 paesi della NATO e si proteggono oltre il 80 per cento delle transazioni di pagamento in tutto il mondo.
+nCipher Security, una società di Entrust Datacard, è leader nel mercato HSM per utilizzo generico, che consente alle organizzazioni leader di settore di fornire attendibilità, integrità e controllo alle informazioni e alle applicazioni aziendali critiche. le soluzioni crittografiche di nCipher proteggono le tecnologie emergenti: cloud, Internet delle cose, blockchain, pagamenti digitali e consentono di soddisfare i nuovi obblighi di conformità, usando la stessa tecnologia collaudata che le organizzazioni globali dipendono da oggi per proteggersi dalle minacce ai propri dati sensibili, comunicazioni di rete e infrastruttura aziendale. nCipher offre un livello di attendibilità per le applicazioni aziendali critiche, garantendo l'integrità dei dati e mettendo i clienti a controllo completo, oggi, domani, sempre.
 
 Microsoft ha collaborato con nCipher Security per migliorare lo stato dell'arte di HSM. per consentire all'utente di sfruttare i vantaggi tipici dei servizi ospitati senza perdere il controllo sulle proprie chiavi. In particolare, tali miglioramenti consentono a Microsoft di gestire i moduli di protezione hardware in modo che questa operazione non debba essere eseguita dall'utente. In quanto servizio cloud, l'insieme di credenziali delle chiavi di Azure è in grado di supportare la scalabilità verticale con breve preavviso per soddisfare i picchi d'uso dell'organizzazione. Contemporaneamente, la chiave è protetta all'interno dei moduli di protezione hardware di Microsoft e l'utente mantiene il controllo sul ciclo di vita della chiave perché genera la chiave e la trasferisce ai moduli di protezione hardware di Microsoft.
 
@@ -287,6 +287,10 @@ Questo programma crea un file di **ambiente di sicurezza** nel percorso %NFAST_K
 
 > [!NOTE]
 > Se il modulo di protezione hardware non supporta il gruppo di crittografia DLf3072s256mRijndael più recente, è possibile sostituire --cipher-suite= DLf3072s256mRijndael con --cipher-suite=DLf1024s160mRijndael
+> 
+> Il mondo di sicurezza creato con New-World. exe fornito con la versione 12,50 del software nCipher non è compatibile con questa procedura BYOK. Sono disponibili due opzioni:
+> 1) Downgrade della versione del software nCipher a 12.40.2 per creare un nuovo ambiente di sicurezza.
+> 2) Contattare il supporto nCipher e richiedere di specificare un hotfix per la versione del software 12,50, che consente di usare la versione 12.40.2 di New-World. exe compatibile con questa procedura BYOK.
 
 Eseguire quindi le operazioni seguenti:
 

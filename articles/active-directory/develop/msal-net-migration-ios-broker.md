@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4426c070d2fd2e26e0d4368a94996bc32e95129d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fdfb2d7d33111f1adf998cd75446576d2010a365
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103964"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257785"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Eseguire la migrazione di applicazioni iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET
 
@@ -36,7 +36,7 @@ Questo articolo presuppone che sia già presente un'app Novell iOS integrata con
 
 ### <a name="what-are-brokers"></a>Che cosa sono i broker?
 
-I broker sono applicazioni fornite da Microsoft in Android e iOS. (Vedere l'app [Microsoft Authenticator](https://www.microsoft.com/account/authenticator) in iOS e Android e l'app portale aziendale Intune in Android). 
+I broker sono applicazioni fornite da Microsoft in Android e iOS. (Vedere l'app [Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) in iOS e Android e l'app portale aziendale Intune in Android). 
 
 Consentono di:
 
@@ -155,7 +155,7 @@ ADAL.NET e MSAL.NET usano gli URL per richiamare il broker e restituire la rispo
 <tr><td>
 Lo schema URL è univoco per l'app.
 </td><td>
-Alla classe 
+Il valore di 
 
 `CFBundleURLSchemes`il nome deve includere 
 

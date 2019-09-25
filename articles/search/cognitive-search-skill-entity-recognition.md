@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: eb196b9ff72201358982764f227ab7935489f05d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: ad2fef96491c2d1a15ad9ff5f57d2911dfecaa36
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183413"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265796"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competenza cognitiva Riconoscimento delle entità
 
@@ -48,7 +47,7 @@ Si tratta di entità note che non sono classificate come parte delle "categorie"
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome di input      | DESCRIZIONE                   |
+| Nome di input      | Descrizione                   |
 |---------------|-------------------------------|
 | languageCode  | facoltativo. Il valore predefinito è `"en"`.  |
 | text          | Testo da analizzare.          |
@@ -68,7 +67,7 @@ Si tratta di entità note che non sono classificate come parte delle "categorie"
 | urls | Una matrice di stringhe in cui ogni stringa rappresenta un URL |
 | emails | Una matrice di stringhe in cui ogni stringa rappresenta un indirizzo di posta elettronica |
 | namedEntities | Una matrice di tipi complessi, che contiene i campi seguenti: <ul><li>category</li> <li>valore (il nome effettivo dell'entità)</li><li>offset (percorso in cui è stato trovato nel testo)</li><li>confidence (non usato per il momento. Verrà impostato sul valore -1)</li></ul> |
-| entità | Una matrice di tipi complessi, che contiene informazioni dettagliate sulle entità estratte dal testo, con i campi seguenti <ul><li> name (nome entità effettivo. Rappresenta una forma "normalizzata")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (collegamento alla pagina di Wikipedia dell'entità)</li><li>bingId</li><li>type (categoria dell'entità riconosciuta)</li><li>subType (disponibile solo per determinate categorie, in modo da offrire una visualizzazione più granulare del tipo di entità)</li><li> matches (raccolta complessa contenente)<ul><li>testo (testo non elaborato per l'entità)</li><li>offset (posizione in cui è stata trovata)</li><li>length (lunghezza del testo dell'entità non elaborato)</li></ul></li></ul> |
+| entities | Una matrice di tipi complessi, che contiene informazioni dettagliate sulle entità estratte dal testo, con i campi seguenti <ul><li> name (nome entità effettivo. Rappresenta una forma "normalizzata")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (collegamento alla pagina di Wikipedia dell'entità)</li><li>bingId</li><li>type (categoria dell'entità riconosciuta)</li><li>subType (disponibile solo per determinate categorie, in modo da offrire una visualizzazione più granulare del tipo di entità)</li><li> matches (raccolta complessa contenente)<ul><li>testo (testo non elaborato per l'entità)</li><li>offset (posizione in cui è stata trovata)</li><li>length (lunghezza del testo dell'entità non elaborato)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definizione di esempio
 
@@ -116,7 +115,7 @@ Si tratta di entità note che non sono classificate come parte delle "categorie"
 }
 ```
 
-##  <a name="sample-output"></a>Esempio di output
+##  <a name="sample-output"></a>Output di esempio
 
 ```json
 {

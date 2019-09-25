@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: d2b3cdac72d47afb804763c521aae0b1d5936567
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: da1ca218f7a3d33e6ceb08b3f8d0f632b8b752b7
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186359"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265338"
 ---
 # <a name="ocr-cognitive-skill"></a>Competenza cognitiva OCR
 
@@ -53,13 +52,13 @@ In precedenza era presente un parametro denominato "textExtractionAlgorithm" per
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome di input      | DESCRIZIONE                                          |
+| Nome di input      | Descrizione                                          |
 |---------------|------------------------------------------------------|
 | image         | Tipo complesso. Attualmente funziona solo con il campo "/document/normalized_images", prodotto dall'indicizzatore di BLOB di Azure quando ```imageAction``` è impostato su un valore diverso da ```none```. Per altre informazioni, vedere [esempio](#sample-output).|
 
 
 ## <a name="skill-outputs"></a>Output competenze
-| Nome output     | DESCRIZIONE                   |
+| Nome output     | Descrizione                   |
 |---------------|-------------------------------|
 | text          | Testo normale estratto dall'immagine.   |
 | layoutText    | Tipo complesso che descrive il testo estratto e la posizione in cui è stato trovato il testo.|

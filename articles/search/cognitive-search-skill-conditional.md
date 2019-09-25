@@ -5,17 +5,16 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: 29e50a3d978338eaa46566574e6a20685a14bda4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: ea6113b96e2acf70a877e170651be3daa578e518
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186385"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265803"
 ---
 #   <a name="conditional-skill"></a>Competenza condizionale
 
@@ -89,7 +88,7 @@ Gli input fanno distinzione tra maiuscole e minuscole.
 
 | Input   | Descrizione |
 |-------------|-------------|
-| condition   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta la condizione da valutare. Questa condizione deve restituire un valore booleano (*true* o *false*).   <br/>  Esempi: <br/> "= true" <br/> "= $ (/Document/Language) = =' fr '" <br/> "= $ (/Document/pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
+| condizione   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta la condizione da valutare. Questa condizione deve restituire un valore booleano (*true* o *false*).   <br/>  Esempi: <br/> "= true" <br/> "= $ (/Document/Language) = =' fr '" <br/> "= $ (/Document/pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
 | whenTrue    | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata come *true*. Le stringhe delle costanti devono essere restituite tra virgolette singole (' and '). <br/>Valori di esempio: <br/> "=" contratto ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/> |
 | whenFalse   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata come *false*. <br/>Valori di esempio: <br/> "=" contratto ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/>
 
@@ -136,7 +135,7 @@ L'output seguente crea un'annotazione ("/document/languageWithDefault") impostat
 
 ### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Definizione di competenze di esempio 3: Unire i valori di due campi in uno
 
-In questo esempio alcune frasi hanno una proprietà *frenchSentiment* . Quando la proprietà *frenchSentiment* è null, si vuole usare il valore *englishSentiment* . L'output viene assegnato a un membro denominato sentimentalità ("/Document/sentiment/*/sentiment").
+In questo esempio alcune frasi hanno una proprietà *frenchSentiment* . Quando la proprietà *frenchSentiment* è null, si vuole usare il valore *englishSentiment* . L'output viene assegnato a un membro denominato *sentimentalità* ("/Document/sentiment/*/sentiment").
 
 ```json
 {

@@ -5,16 +5,15 @@ manager: eladz
 author: vkurpad
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: vikurpad
-ms.openlocfilehash: df2c469ef825863f958c8c263253c7d1c6f6c732
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f75e6dece376076d4aa5e33497aff7e4f9f56857
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004410"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265687"
 ---
 # <a name="working-with-skillsets"></a>Uso di skillsets
 Questo articolo è per gli sviluppatori che necessitano di una conoscenza più approfondita del funzionamento della pipeline di arricchimento e presuppone una conoscenza concettuale del processo di ricerca cognitivo. Se non si ha familiarità con la ricerca cognitiva, iniziare con:
@@ -43,7 +42,7 @@ Quando un documento si trova nella pipeline di arricchimento, viene rappresentat
 
 |Modalità Source\Parsing dati|Predefinito|JSON, righe JSON & CSV|
 |---|---|---|
-|Archiviazione BLOB|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|Archivio BLOB|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/D|
 

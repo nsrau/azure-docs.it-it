@@ -8,14 +8,13 @@ ms.service: search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: cmacdo
-ms.subservice: cognitive-search
-ms.openlocfilehash: 407fd246313e582a3d28a6cbb474edefecd7f0af
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.author: chalton
+ms.openlocfilehash: ddfb35cbfcfbc262f3eff0de67f5cedfc31ea27e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183320"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265701"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Competenze cognitive per la traduzione del testo
 
@@ -48,7 +47,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome di input     | DESCRIZIONE |
+| Nome di input     | Descrizione |
 |--------------------|-------------|
 | text | Testo da tradurre.|
 | toLanguageCode    | Stringa che indica la lingua in cui deve essere convertito il testo. Se questo input non è specificato, verrà usato defaultToLanguageCode per tradurre il testo. <br/>Vedere l'[elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
@@ -117,7 +116,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ```
 
 
-##  <a name="sample-output"></a>Esempio di output
+##  <a name="sample-output"></a>Output di esempio
 
 ```json
 {

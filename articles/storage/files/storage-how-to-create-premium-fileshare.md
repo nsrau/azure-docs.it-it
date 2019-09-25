@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 223efefde4fc09684504925abd0d8d5ee5e4b5ea
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 795f18365c4b4846d18eddf3212059040bf9e319
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699585"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260223"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Come creare una condivisione file di Azure Premium
 Le condivisioni file Premium sono offerte da supporti di archiviazione SSD (Solid-State Disk) e sono utili per i carichi di lavoro con utilizzo intensivo di i/o, inclusi i database di hosting e HPC (High Performance Computing). Le condivisioni file Premium sono ospitate in un tipo di account di archiviazione per scopi specifici, denominato account filestorage. Le condivisioni file Premium sono progettate per applicazioni a prestazioni elevate e di livello aziendale, garantendo una bassa latenza, IOPS elevate e condivisioni a velocità effettiva elevata.
@@ -46,7 +46,7 @@ Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. 
 1. Immettere quindi un nome per l'account di archiviazione. Il nome scelto deve essere univoco in Azure. Deve avere inoltre una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
 1. Selezionare la località per l'account di archiviazione o usare la località predefinita.
 1. Per **prestazioni** selezionare **Premium**.
-1. Selezionare **tipo di account** escegliere filestorage.
+1. Selezionare **tipo di account** e scegliere **filestorage**.
 1. Lasciare la **replica** impostata sul valore predefinito di **archiviazione con ridondanza locale (con ridondanza locale)** .
 
     ![Come creare un account di archiviazione per una condivisione file Premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
@@ -59,7 +59,7 @@ Una volta creata la risorsa dell'account di archiviazione, passare a essa.
 ### <a name="create-a-premium-file-share"></a>Creare una condivisione file premium
 
 1. Nel menu a sinistra per l'account di archiviazione scorrere fino alla sezione **servizio file** , quindi selezionare **file**.
-1. Selezionare **+ condivisione file** per creare una condivisione file Premium.
+1. Selezionare **condivisione file** per creare una condivisione file Premium.
 1. Immettere un nome e una quota desiderata per la condivisione file, quindi selezionare **Crea**.
 
 > [!NOTE]

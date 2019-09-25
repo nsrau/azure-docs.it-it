@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: barclayn
-ms.openlocfilehash: 1f662c34f557d382b3d6181bac18a6402b233412
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: fc1657be4dbff1acee186e3a85d9d1e772055f73
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061923"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262752"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 Questo articolo descrive le procedure consigliate per la sicurezza delle macchine virtuali e dei sistemi operativi.
@@ -146,7 +146,7 @@ L'uso improprio delle risorse può essere un problema quando i processi della VM
 
 Si consiglia di usare [Monitoraggio di Azure](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) per ottenere visibilità sull'integrità della risorsa. Monitoraggio di Azure offre:
 
-- [File di log di diagnostica delle risorse](../../azure-monitor/platform/diagnostic-logs-overview.md): monitora le risorse della VM e identifica i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità.
+- [File di log di diagnostica delle risorse](../../azure-monitor/platform/resource-logs-overview.md): monitora le risorse della VM e identifica i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità.
 - [Estensione Diagnostica di Azure](/azure/azure-monitor/platform/diagnostics-extension-overview): offre funzionalità di monitoraggio e diagnostica nelle VM Windows. È possibile abilitare queste funzionalità includendo l'estensione come parte del [modello di Azure Resource Manager](/azure/virtual-machines/windows/extensions-diagnostics-template).
 
 Le organizzazioni che non monitorano le prestazioni delle VM non possono capire se determinate modifiche nei modelli di prestazioni sono normali o anomale. Una VM che consuma più risorse del normale potrebbe indicare un attacco proveniente da una risorsa esterna o un l'esecuzione di un processo compromesso.

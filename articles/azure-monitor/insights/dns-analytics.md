@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fac349657340486674e4a899b21821b45cc0703
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 46045664e9ddeebc45c2dae7c1f0a9f6a0d6b004
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982579"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265158"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
 
@@ -42,9 +42,9 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 | **Origine connessa** | **Supporto** | **Descrizione** |
 | --- | --- | --- |
-| [Agenti di Windows](../platform/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
+| [Agenti di Windows](../platform/agent-windows.md) | Yes | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
 | [Agenti Linux](../learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
-| [Gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
+| [Gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) | Yes | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
 | [Account di archiviazione di Azure](../platform/collect-azure-metrics-logs.md) | No | La soluzione non usa le risorse di archiviazione di Azure. |
 
 ### <a name="data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati
@@ -179,8 +179,14 @@ Nella pagina Ricerca log è possibile creare una query. È possibile filtrare i 
 1. Nella **casella della query di ricerca** digitare `DnsInventory` per visualizzare tutti i dati relativi all'inventario DNS per i server DNS gestiti dalla soluzione. Nei risultati vengono elencati i dati di log relativi ai server DNS, alle zone DNS e ai record di risorse.
 
     ![Ricerca log: inventario DNS](./media/dns-analytics/log-search-dnsinventory.png)
+    
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 
-## <a name="feedback"></a>Commenti e suggerimenti
+Passaggi per la risoluzione dei problemi di Commopn:
+
+1. Dati delle ricerche DNS mancanti: per risolvere il problema, provare a reimpostare la configurazione o a caricare la pagina di configurazione una sola volta nel portale. Per la reimpostazione, è sufficiente modificare un'impostazione in un altro valore, quindi riportarla nel valore originale e salvare la configurazione.
+
+## <a name="feedback"></a>Commenti
 
 Per fornire commenti e suggerimenti, visitare la [pagina log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) per pubblicare idee per il funzionamento di analisi DNS funzionalità. 
 

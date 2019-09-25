@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 8180fc4db10019a3183af40cf21d9d92b0102201
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567898"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262142"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usare il log di diagnostica delle prestazioni del database SQL di Azure generato da Intelligent Insights
 
-Questo articolo illustra come usare il log di diagnostica delle prestazioni del database SQL di Azure generato da [Intelligent Insights](sql-database-intelligent-insights.md). Ne illustra anche il formato e i dati in esso contenuti per chi ha esigenze di sviluppo personalizzato. È possibile inviare questo log di diagnostica a [log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md), [Hub eventi di Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), archiviazione di [Azure](sql-database-metrics-diag-logging.md#stream-into-storage)o una soluzione di terze parti per le funzionalità di avviso e creazione di report di DevOps personalizzate.
+Questo articolo illustra come usare il log di diagnostica delle prestazioni del database SQL di Azure generato da [Intelligent Insights](sql-database-intelligent-insights.md). Ne illustra anche il formato e i dati in esso contenuti per chi ha esigenze di sviluppo personalizzato. È possibile inviare questo log di diagnostica a [log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md), [Hub eventi di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md), archiviazione di [Azure](sql-database-metrics-diag-logging.md#stream-into-storage)o una soluzione di terze parti per le funzionalità di avviso e creazione di report di DevOps personalizzate.
 
 ## <a name="log-header"></a>Intestazione del log
 

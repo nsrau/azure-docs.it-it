@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 09/24/2019
 ms.author: b-juche
-ms.openlocfilehash: f97bb4842d9e24d879dd47757fda75b16bca48cf
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 66d0d65065f323f53095782e165f179125aa35ac
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494812"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264971"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -58,7 +58,9 @@ Tutti i volumi Azure NetApp Files vengono crittografati con lo standard FIPS 140
 
 ### <a name="how-are-encryption-keys-managed"></a>Modalità di gestione delle chiavi di crittografia 
 
-La gestione delle chiavi per Azure NetApp Files viene gestita dal servizio.  Attualmente, le chiavi gestite dall'utente (Bring your own key) non sono supportate.
+La gestione delle chiavi per Azure NetApp Files viene gestita dal servizio. Viene generata una chiave di crittografia dei dati XTS-AES-256 univoca per ogni volume. Una gerarchia della chiave di crittografia viene utilizzata per crittografare e proteggere tutte le chiavi del volume. Queste chiavi di crittografia non vengono mai visualizzate o segnalate in un formato non crittografato. Le chiavi di crittografia vengono eliminate immediatamente quando viene eliminato un volume.
+
+Attualmente, le chiavi gestite dall'utente (Bring your own key) non sono supportate.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>È possibile configurare le regole dei criteri di esportazione NFS per controllare l'accesso alla destinazione di montaggio del servizio Azure NetApp Files?
 

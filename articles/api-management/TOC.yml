@@ -49,6 +49,10 @@
           href: api-management-howto-policies.md
         - name: Indice delle informazioni di riferimento per i criteri
           href: api-management-policies.md
+    - name: Security
+      items:
+        - name: Criteri di sicurezza integrati
+          href: api-management-security-controls.md
     - name: Sottoscrizioni
       href: api-management-subscriptions.md
     - name: Gestire con l'automazione
@@ -57,8 +61,6 @@
       href: api-management-error-handling-policies.md
     - name: Limitazioni relative all'importazione di API
       href: api-management-api-import-restrictions.md
-    - name: Criteri di sicurezza integrati
-      href: api-management-security-controls.md
 - name: Guide alle procedure
   items:
     - name: Definire API

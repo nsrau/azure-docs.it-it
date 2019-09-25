@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: b6347d75563cc02d9f5850e59e87fc33b87121ba
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 60098aeb0382ddcbc880a734bdd8a0516fd460c6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946771"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257191"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-ffiec-financial-services"></a>Progetto di sicurezza e conformità di Azure: Applicazione Web IaaS per servizi finanziari FFIEC
 
@@ -37,7 +37,7 @@ Un bastion host di gestione fornisce una connessione sicura agli amministratori 
 
 ![Diagramma dell'architettura di riferimento dell'applicazione Web IaaS per FFIEC](images/ffiec-iaaswa-architecture.png "Diagramma dell'architettura di riferimento dell'applicazione Web IaaS per FFIEC")
 
-Questa soluzione usa i servizi di Azure seguenti. Per dettagli dell'architettura di distribuzione, vedere la sezione relativa all'[architettura di distribuzione](#deployment-architecture).
+Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
 
 - SET DI DISPONIBILITÀ
     - (1) Controller di dominio Active Directory
@@ -49,7 +49,7 @@ Questa soluzione usa i servizi di Azure seguenti. Per dettagli dell'architettura
         - Modalità firewall: prevenzione
         - Set di regole: OWASP 3.0
         - Porta listener: 443
-- Insieme di credenziali delle chiavi di Azure
+- Azure Key Vault
 - Azure Load Balancer
 - Monitoraggio di Azure (log)
 - Azure Resource Manager
@@ -66,7 +66,7 @@ Questa soluzione usa i servizi di Azure seguenti. Per dettagli dell'architettura
     - (5) Reti /24
     - (5) Gruppi di sicurezza di rete
 - Cloud di controllo
-- Insieme di credenziali dei servizi di ripristino
+- Insieme di credenziali di Servizi di ripristino
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 
@@ -174,7 +174,7 @@ Il Centro sicurezza di Azure offre avvisi di sicurezza e imprevisti classificati
 
 I servizi di Azure registrano in modo completo le attività di sistema e degli utenti e l'integrità del sistema:
 - **Log attività**: i [log attività](../../azure-monitor/platform/activity-logs-overview.md) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
-- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) includono tutti i log generati da ogni risorsa. ovvero i log eventi del sistema Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
+- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) includono tutti i log generati da ogni risorsa. ovvero i log eventi del sistema Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
 
 **Log di Monitoraggio di Azure**: Questi log vengono consolidati nei [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) per l'elaborazione, l'archiviazione e la creazione di report del dashboard. Dopo la raccolta, i dati vengono organizzati in tabelle separate per tipo nelle aree di lavoro di Log Analytics, in modo che sia possibile analizzare tutti i dati insieme, indipendentemente dalla rispettiva origine. Il Centro sicurezza di Azure si integra inoltre con i log di monitoraggio di Azure, consentendo ai clienti di usare query kusto per accedere ai dati degli eventi di sicurezza e combinarli con i dati di altri servizi.
 

@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: c69c757be482a7e95f31a9f31cac8d324c1e0216
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: ffaa2afbfa12770168cb5a92b7022addc039f0fb
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103299"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265770"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Competenza Estrazione frasi chiave della ricerca cognitiva
 
@@ -46,7 +45,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Input     | DESCRIZIONE |
+| Input     | Descrizione |
 |--------------------|-------------|
 | text | Testo da analizzare.|
 | languageCode  |  Stringa che indica la lingua dei record. Se questo parametro viene omesso, il codice lingua predefinito verrà usato per analizzare i record. <br/>Vedere l'[elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
@@ -92,7 +91,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ```
 
 
-##  <a name="sample-output"></a>Esempio di output
+##  <a name="sample-output"></a>Output di esempio
 
 ```json
 {

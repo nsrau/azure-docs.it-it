@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: fcde448c664ad85b78d275304dd01a1eedaca006
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a6e46970b6c0fc91c464207049d2dedaaee1afdd
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183312"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265677"
 ---
 #   <a name="text-split-cognitive-skill"></a>Competenza cognitiva Divisione del testo
 
@@ -40,14 +39,14 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome parametro       | DESCRIZIONE      |
+| Nome parametro       | Descrizione      |
 |----------------------|------------------|
 | text  | Testo da suddividere in sottostringhe. |
 | languageCode  | (Facoltativo) Codice lingua per il documento.  |
 
 ## <a name="skill-outputs"></a>Output competenze 
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | textItems | Una matrice di sottostringhe che sono state estratte. |
 
@@ -102,7 +101,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 }
 ```
 
-##  <a name="sample-output"></a>Esempio di output
+##  <a name="sample-output"></a>Output di esempio
 
 ```json
 {

@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: f91d0b17cfc984ccf56ad4a25ef2ece651dcbed5
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: b152d5a48d49e78818602e7f66574937bebce2ac
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183335"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265755"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Competenza cognitiva di Riconoscimento di entità denominate
 
@@ -40,7 +39,7 @@ La dimensione massima di un record deve essere di 50.000 caratteri misurata [`St
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | categories    | Matrice di categorie che devono essere estratte.  Possibili tipologie di categorie: `"Person"`, `"Location"`, `"Organization"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
 |defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
@@ -100,7 +99,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 }
 ```
 
-##  <a name="sample-output"></a>Esempio di output
+##  <a name="sample-output"></a>Output di esempio
 
 ```json
 {

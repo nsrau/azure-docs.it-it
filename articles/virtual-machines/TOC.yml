@@ -7,15 +7,7 @@
 - name: Documentazione delle estensioni di VM
   href: extensions/overview.md
 - name: Carichi di lavoro
-  items:
-    - name: Oracle
-      href: workloads/oracle/oracle-considerations.md
-    - name: SAP
-      href: workloads/sap/get-started.md
-    - name: HPC (High Performance Computing)
-      href: workloads/hpc/overview.md
-    - name: Re-hosting del mainframe
-      href: workloads/mainframe-rehosting/overview.md
+  href: ./workloads/workloads.md
 - name: Distribuzioni classiche
   items:
     - name: Macchine virtuali Linux con distribuzione classica

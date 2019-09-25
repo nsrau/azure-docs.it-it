@@ -4,18 +4,18 @@ description: Elenco di servizi che supportano le identità gestite per le risors
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 06/19/2019
+ms.date: 09/24/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37eba245933bc94e9fb631abd3b4ff495f8c6d67
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4f4a5ae01376358ca78cd804cc853489ca007217
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087608"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264238"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -172,7 +172,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 - [Assegnare l'accesso tramite l'interfaccia della riga di comando Azure](howto-assign-access-CLI.md)
 - [Assegnare l'accesso tramite Azure Resource Manager modello](../../role-based-access-control/role-assignments-template.md)
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://management.azure.com/`| Disponibile |
 | Azure Government | `https://management.usgovcloudapi.net/` | Disponibile |
@@ -181,7 +181,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://vault.azure.net`| Disponibile |
 | Azure Government | `https://vault.usgovcloudapi.net` | Disponibile |
@@ -190,7 +190,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 
 ### <a name="azure-data-lake"></a>Azure Data Lake 
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://datalake.azure.net/` | Disponibile |
 | Azure Government |  | Non disponibile |
@@ -199,7 +199,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 
 ### <a name="azure-sql"></a>Azure SQL 
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://database.windows.net/` | Disponibile |
 | Azure Government | `https://database.usgovcloudapi.net/` | Disponibile |
@@ -208,7 +208,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 
 ### <a name="azure-event-hubs"></a>Hub eventi di Azure
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://eventhubs.azure.net` | Disponibile |
 | Azure Government |  | Non disponibile |
@@ -217,25 +217,42 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 
 ### <a name="azure-service-bus"></a>Bus di servizio di Azure
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://servicebus.azure.net`  | Disponibile |
 | Azure Government |  | Disponibile |
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 
+
+
+
+
+
+
+
+
 ### <a name="azure-storage-blobs-and-queues"></a>BLOB e code di archiviazione di Azure
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponibile |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponibile |
-| Azure Germania | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponibile |
-| 21Vianet per Azure Cina | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponibile |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | Disponibile |
+| Azure Germania | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | Disponibile |
+| 21Vianet per Azure Cina | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | Disponibile |
+
+
+
+
+
+
+
+
+
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://*.asazure.windows.net` | Disponibile |
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | Disponibile |

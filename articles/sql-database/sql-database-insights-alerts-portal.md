@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: 9468dbd71ee8da88cbabc3ca9f76c77d47adc221
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3103b556098d0b9ccbfca7348ab70c183a69753d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567923"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262237"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Creare avvisi per il database SQL di Azure e il data warehouse usando il portale di Azure
 
@@ -74,16 +74,16 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 
 ## <a name="sql-database-alert-values"></a>Valori degli avvisi per il database SQL
 
-| Tipo di risorsa | Nome della metrica | Nome descrittivo | Tipo di aggregazione | Intervallo di tempo minimo per l'avviso|
+| Tipo di risorsa | Nome metrica | Nome descrittivo | Tipo di aggregazione | Intervallo di tempo minimo per l'avviso|
 | --- | --- | --- | --- | --- |
 | Database SQL | cpu_percent | Percentuale CPU | Average | 5 minuti |
-| Database SQL | physical_data_read_percent | Percentuale di I/O di dati | Average | 5 minuti |
+| Database SQL | physical_data_read_percent | Percentuale I/O dati | Average | 5 minuti |
 | Database SQL | log_write_percent | Percentuale I/O log | Average | 5 minuti |
 | Database SQL | dtu_consumption_percent | Percentuale DTU | Average | 5 minuti |
 | Database SQL | storage | Dimensioni totali database | Massima | 30 minuti |
 | Database SQL | connection_successful | Connessioni riuscite | Totale | 10 minuti |
 | Database SQL | connection_failed | Connessioni non riuscite | Totale | 10 minuti |
-| Database SQL | blocked_by_firewall | Blocco da parte del firewall | Totale | 10 minuti |
+| Database SQL | blocked_by_firewall | Bloccato dal firewall | Totale | 10 minuti |
 | Database SQL | deadlock | Deadlock | Totale | 10 minuti |
 | Database SQL | storage_percent | Percentuale di dimensioni del database | Massima | 30 minuti |
 | Database SQL | xtp_storage_percent | Percentuale archiviazione OLTP interna alla memoria (anteprima) | Average | 5 minuti |
@@ -93,7 +93,7 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 | Database SQL | dtu_used | Uso DTU | Average | 5 minuti |
 ||||||
 | Pool elastico | cpu_percent | Percentuale CPU | Average | 10 minuti |
-| Pool elastico | physical_data_read_percent | Percentuale di I/O di dati | Average | 10 minuti |
+| Pool elastico | physical_data_read_percent | Percentuale I/O dati | Average | 10 minuti |
 | Pool elastico | log_write_percent | Percentuale I/O log | Average | 10 minuti |
 | Pool elastico | dtu_consumption_percent | Percentuale DTU | Average | 10 minuti |
 | Pool elastico | storage_percent | Percentuale archiviazione | Average | 10 minuti |
@@ -101,13 +101,13 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 | Pool elastico | eDTU_limit | Limite eDTU | Average | 10 minuti |
 | Pool elastico | storage_limit | Limite archiviazione | Average | 10 minuti |
 | Pool elastico | eDTU_used | Uso eDTU | Average | 10 minuti |
-| Pool elastico | storage_used | Spazio di archiviazione utilizzato | Average | 10 minuti |
+| Pool elastico | storage_used | Uso archiviazione | Average | 10 minuti |
 ||||||               
 | SQL Data Warehouse | cpu_percent | Percentuale CPU | Average | 10 minuti |
-| SQL Data Warehouse | physical_data_read_percent | Percentuale di I/O di dati | Average | 10 minuti |
+| SQL Data Warehouse | physical_data_read_percent | Percentuale I/O dati | Average | 10 minuti |
 | SQL Data Warehouse | connection_successful | Connessioni riuscite | Totale | 10 minuti |
 | SQL Data Warehouse | connection_failed | Connessioni non riuscite | Totale | 10 minuti |
-| SQL Data Warehouse | blocked_by_firewall | Blocco da parte del firewall | Totale | 10 minuti |
+| SQL Data Warehouse | blocked_by_firewall | Bloccato dal firewall | Totale | 10 minuti |
 | SQL Data Warehouse | service_level_objective | Livello di servizio del database | Totale | 10 minuti |
 | SQL Data Warehouse | dwu_limit | Limite DWU | Massima | 10 minuti |
 | SQL Data Warehouse | dwu_consumption_percent | Percentuale DWU | Average | 10 minuti |
@@ -118,5 +118,5 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 ## <a name="next-steps"></a>Passaggi successivi
 * [Leggere una panoramica del monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md) che include anche i tipi di informazioni che è possibile raccogliere e monitorare.
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/platform/alerts-webhooks.md).
-* Leggere una [panoramica dei log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md) e sulla raccolta di metriche dettagliate e ad alta frequenza sul servizio.
+* Leggere una [panoramica dei log di diagnostica](../azure-monitor/platform/resource-logs-overview.md) e sulla raccolta di metriche dettagliate e ad alta frequenza sul servizio.
 * Leggere una [panoramica della raccolta di metriche](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.

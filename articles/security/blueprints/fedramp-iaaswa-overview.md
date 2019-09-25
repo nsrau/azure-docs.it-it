@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e1d481c6019feebf3d62f0e23480f5572363869c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: bcce4dcac35b783efefe81abc2090506502e9931
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946850"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257286"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Progetto di sicurezza e conformità di Azure: Applicazione Web IaaS per FedRAMP
 
@@ -44,7 +44,7 @@ Questa soluzione distribuisce un'architettura di riferimento per un'applicazione
 
 ![Diagramma dell'architettura di riferimento dell'applicazione Web IaaS per FedRAMP](images/fedramp-iaaswa-architecture.png?raw=true "Diagramma dell'architettura di riferimento dell'applicazione Web IaaS per FedRAMP")
 
-Questa soluzione usa i servizi di Azure seguenti. Per dettagli dell'architettura di distribuzione, vedere la sezione relativa all'[architettura di distribuzione](#deployment-architecture).
+Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
 
 - Macchine virtuali di Azure
     - (1) Bastion host (Windows Server 2016 Datacenter)
@@ -69,7 +69,7 @@ Questa soluzione usa i servizi di Azure seguenti. Per dettagli dell'architettura
     - (7) Account di archiviazione con ridondanza geografica
 - Cloud di controllo di Azure
 - Insieme di credenziali dei servizi di ripristino
-- Insieme di credenziali delle chiavi di Azure
+- Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
 - Monitoraggio di Azure (log)
@@ -150,7 +150,7 @@ Le tecnologie seguenti offrono funzionalità di gestione delle identità nell'am
 Log di monitoraggio di Azure offre una registrazione completa delle attività del sistema e degli utenti, nonché dell'integrità del sistema. La soluzione [log di monitoraggio di Azure](../azure-security-disk-encryption-overview.md) raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
 
 - **Log attività:**  i [log attività](../../azure-monitor/platform/activity-logs-overview.md) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
-- **Log di diagnostica:**  I [log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) sono tutti i log generati da ogni risorsa. Questi log includono log eventi del sistema Windows, log di archiviazione di Azure, log di controllo di Azure Key Vault e log degli accessi e del firewall del gateway applicazione.
+- **Log di diagnostica:**  I [log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) sono tutti i log generati da ogni risorsa. Questi log includono log eventi del sistema Windows, log di archiviazione di Azure, log di controllo di Azure Key Vault e log degli accessi e del firewall del gateway applicazione.
 - **Archiviazione di log**:  Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione. Questi log si connettono ai log di monitoraggio di Azure per l'elaborazione, l'archiviazione e il reporting del dashboard.
 
 Questa architettura include anche l'installazione delle soluzioni di monitoraggio seguenti. Si noti che è responsabilità del cliente configurare le soluzioni per allinearle ai controlli di sicurezza FedRAMP:
@@ -180,11 +180,11 @@ Il [Progetto di conformità e sicurezza di Azure - Matrice di implementazione de
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Per istruzioni dettagliate sulla distribuzione, vedere [qui](https://aka.ms/fedrampblueprintrepo).
+Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/fedrampblueprintrepo).
 > [!NOTE]
 > Questa soluzione viene distribuita in Azure per enti pubblici.
 
-#### <a name="quickstart"></a>Avvio rapido
+#### <a name="quickstart"></a>Guida introduttiva
 1. Clonare o scaricare [questo](https://aka.ms/fedrampblueprintrepo) repository GitHub nella workstation locale.
 
 2. Eseguire lo script di PowerShell di predistribuzione: azure-blueprint/predeploy/Orchestration_InitialSetup.ps1.

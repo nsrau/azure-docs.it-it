@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: dd1481c74cdf519dcb4588e0b7cf09b7b6ab5f1d
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: d0f5f9a1d488b6be8ca91fdd057880e351ae0b3f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950114"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261034"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Come configurare il monitoraggio in Gemelli digitali di Azure
 
@@ -57,7 +57,7 @@ Per la registrazione avanzata delle attività:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Abilitare i log di diagnostica dei clienti
 
-Per integrare la registrazione delle attività, è possibile configurare le [impostazioni di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md) di Azure per ogni istanza di Azure. Mentre i log attività si riferiscono agli eventi a livello di sottoscrizione, la registrazione diagnostica fornisce informazioni approfondite sulla cronologia operativa delle risorse.
+Per integrare la registrazione delle attività, è possibile configurare le [impostazioni di diagnostica](../azure-monitor/platform/resource-logs-overview.md) di Azure per ogni istanza di Azure. Mentre i log attività si riferiscono agli eventi a livello di sottoscrizione, la registrazione diagnostica fornisce informazioni approfondite sulla cronologia operativa delle risorse.
 
 Esempi di registrazione diagnostica includono:
 
@@ -129,6 +129,6 @@ Gemelli digitali di Azure supporta anche la registrazione e il controllo di sicu
 
 - Altre informazioni sui [log attività](../azure-monitor/platform/activity-logs-overview.md) di Azure
 
-- Approfondimento sulle impostazioni di diagnostica di Azure con la lettura di una [panoramica dei log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md)
+- Approfondimento sulle impostazioni di diagnostica di Azure con la lettura di una [panoramica dei log di diagnostica](../azure-monitor/platform/resource-logs-overview.md)
 
 - Scopri di più sui [log di monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md).

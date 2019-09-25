@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: c0163b5280de942491f2174aa371fa7cc83d5984
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946528"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262777"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Progetto di sicurezza e conformità di Azure: Hosting di applicazioni Web PaaS per i carichi di lavoro UK OFFICIAL
 
@@ -35,7 +35,7 @@ Questo progetto è incentrato sul provisioning di un'interfaccia basata sul Web 
 - Un utente richiede un servizio tramite un'applicazione basata su Web e un utente di back-office convalida ed eroga il servizio; oppure
 - Un utente cerca e visualizza informazioni di dominio pubblico in merito a un servizio della pubblica amministrazione.
 
-Usando modelli di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) e script dell'interfaccia della riga di comando di Azure, il progetto distribuisce un ambiente conforme ai [principi per la sicurezza cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) di UK National Cyber Security Centre (NCSC) 14 e ai [controlli di sicurezza critici](https://www.cisecurity.org/critical-controls.cfm) del Center for Internet Security (CIS). NCSC consiglia l'adozione dei principi per la sicurezza cloud da parte dei clienti per valutare le proprietà di sicurezza del servizio e per contribuire alla comprensione della suddivisione delle responsabilità tra cliente e fornitore. Microsoft ha reso disponibili informazioni relative a ogni principio per una migliore comprensione della suddivisione delle responsabilità. Questa architettura e i modelli corrispondenti di Azure Resource Manager sono supportati dal white paper Microsoft, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) (14 controlli di sicurezza del cloud per il cloud del Regno Unito con Microsoft Azure). Questa architettura è stata verificata dal centro NCSC e rispetta i principi per la sicurezza del cloud UK NCSC 14, consentendo quindi alle organizzazioni del settore pubblico di ottenere rapidamente l'idoneità ai requisiti di conformità tramite servizi basati sul cloud a livello globale e nel Regno Unito sul cloud Microsoft Azure. Questo modello distribuisce l'infrastruttura per il carico di lavoro. Il codice dell'applicazione e il software per il livello aziendale di supporto e per il livello dati devono essere installati e configurati dai clienti. Per istruzioni dettagliate sulla distribuzione, vedere [qui](https://aka.ms/ukofficial-paaswa-repo/).
+Usando modelli di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) e script dell'interfaccia della riga di comando di Azure, il progetto distribuisce un ambiente conforme ai [principi per la sicurezza cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) di UK National Cyber Security Centre (NCSC) 14 e ai [controlli di sicurezza critici](https://www.cisecurity.org/critical-controls.cfm) del Center for Internet Security (CIS). NCSC consiglia l'adozione dei principi per la sicurezza cloud da parte dei clienti per valutare le proprietà di sicurezza del servizio e per contribuire alla comprensione della suddivisione delle responsabilità tra cliente e fornitore. Microsoft ha reso disponibili informazioni relative a ogni principio per una migliore comprensione della suddivisione delle responsabilità. Questa architettura e i modelli corrispondenti di Azure Resource Manager sono supportati dal white paper Microsoft, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) (14 controlli di sicurezza del cloud per il cloud del Regno Unito con Microsoft Azure). Questa architettura è stata verificata dal centro NCSC e rispetta i principi per la sicurezza del cloud UK NCSC 14, consentendo quindi alle organizzazioni del settore pubblico di ottenere rapidamente l'idoneità ai requisiti di conformità tramite servizi basati sul cloud a livello globale e nel Regno Unito sul cloud Microsoft Azure. Questo modello distribuisce l'infrastruttura per il carico di lavoro. Il codice dell'applicazione e il software per il livello aziendale di supporto e per il livello dati devono essere installati e configurati dai clienti. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/ukofficial-paaswa-repo/).
 
 Questo progetto è un'architettura di base. I clienti possono usare questo progetto come base per i carichi di lavoro basati sul Web con classificazione OFFICIAL ed espandere i modelli e le risorse in base ai propri requisiti. Questo progetto si basa sui principi del [progetto per applicazioni Web IaaS su tre livelli UK OFFICIAL](https://aka.ms/ukofficial-iaaswa) per offrire ai nostri clienti sia l'opzione [infrastruttura distribuita come servizio (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/) che l'opzione PaaS come scelte di implementazione per l'hosting di carichi di lavoro basati sul Web.
 
@@ -54,7 +54,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 - Azure Active Directory
 - Servizio app
 - App Web
-- App per le API
+- App per le api
 - DNS di Azure
 - Key Vault
 - Monitoraggio di Azure (log)
@@ -113,7 +113,7 @@ Questo modello distribuisce le funzionalità seguenti del servizio app:
 - Più [slot di distribuzione](https://docs.microsoft.com/azure/app-service/deploy-staging-slots) del servizio app: Dev, Preview, QA, UAT e naturalmente Production (slot predefinito).
 - [Identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity) per connettersi ad [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (questa funzionalità potrebbe essere usata anche per fornire l'accesso al [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) 
 - Integrazione con [Azure Application Insights](../../azure-monitor/app/azure-web-apps.md) per monitorare le prestazioni
-- [Log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) 
+- [Log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) 
 - [Avvisi](../../azure-monitor/app/alerts.md) delle metriche 
 - [App per le API di Azure](https://azure.microsoft.com/services/app-service/api/) 
 
@@ -156,7 +156,7 @@ Informazioni dettagliate sulla protezione di Archiviazione di Azure sono disponi
 
 ### <a name="secrets-management"></a>Gestione dei segreti
 
-#### <a name="azure-key-vault"></a>Insieme di credenziali delle chiavi di Azure
+#### <a name="azure-key-vault"></a>Azure Key Vault
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) viene usato per proteggere le chiavi e i segreti delle applicazioni per garantire che non siano accessibili da terze parti. Key Vault non è progettato per essere usato come archivio per le password utente. Consente di creare più contenitori sicuri denominati insiemi di credenziali. Questi insiemi di credenziali sono supportati da moduli di protezione hardware. Gli insiemi di credenziali consentono di ridurre le probabilità di perdita accidentale di informazioni di sicurezza centralizzando l'archiviazione dei segreti delle applicazioni. Gli insiemi di credenziali delle chiavi controllano e registrano anche l'accesso a tutti gli elementi archiviati al loro interno. Azure Key Vault può gestire la richiesta e rinnovo dei certificati TLS (Transport Layer Security), offrendo le funzionalità necessarie per una soluzione affidabile di gestione del ciclo di vita dei certificati.
 
@@ -224,7 +224,7 @@ I modelli di automazione sono stati testati dal team UK Customer Success Unit Az
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Per istruzioni dettagliate sulla distribuzione, vedere [qui](https://aka.ms/ukofficial-paaswa-repo).
+Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/ukofficial-paaswa-repo).
 
 Per la distribuzione sono stati forniti tre approcci: un approccio semplice rapido con l'[interfaccia della riga di comando di Azure 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) adatto per l'implementazione rapida di un ambiente di test; un approccio con parametri con l'[interfaccia della riga di comando di Azure 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) che consente una maggiore configurazione per gli ambienti del carico di lavoro; e una distribuzione basata sul portale di Azure in cui l'operatore può specificare i parametri di distribuzione tramite il portale di Azure. 
 

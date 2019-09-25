@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4a30e496c96fcc90417e58b0f921717985b89693
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899933"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262789"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Progetto per la sicurezza e la conformità di Azure: Automazione di applicazioni Web IaaS su tre livelli per UK OFFICIAL
 
@@ -104,7 +104,7 @@ SET DI DISPONIBILITÀ
 - (1) Set di VM di livello aziendale - 2 VM
 - (1) Set di VM di livello dati - 2 VM
 
-Load Balancer
+Bilanciamento del carico
 - (1) Servizio di bilanciamento del carico di livello Web
 - (1) Servizio di bilanciamento del carico di livello aziendale
 - (1) Servizio di bilanciamento del carico di livello dati
@@ -172,13 +172,13 @@ Queste reti virtuali vengono gestite comunque come risorse separate, ma vengono 
 
 **Log attività**: configurare i [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) per fornire informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione.
 
-**Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) sono tutti i log generati da una risorsa. Questi log possono includere log eventi del sistema di Windows, BLOB, tabelle e log delle code.
+**Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) sono tutti i log generati da una risorsa. Questi log possono includere log eventi del sistema di Windows, BLOB, tabelle e log delle code.
 
 **Log del firewall**: il gateway applicazione fornisce log completi relativi a diagnostica e accesso. I log firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
 
 **Archiviazione di log**: L'archiviazione dei dati di log può essere configurata per la scrittura in un account di archiviazione di Azure centralizzato per l'archiviazione e un periodo di conservazione definito. I log possono essere elaborati usando i log di monitoraggio di Azure o i sistemi SIEM di terze parti.
 
-### <a name="identity"></a>Identità
+### <a name="identity"></a>identità
 
 **Active Directory Domain Services**: questa architettura offre una distribuzione di Active Directory Domain Services in Azure. Per consigli specifici sull'implementazione di Active Directory in Azure, vedere gli articoli seguenti:
 

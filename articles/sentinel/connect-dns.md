@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: dd5442ff8c8d296dfa221a9ea7ed8d5833fd89c1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c5e58f496176ec0f1b8317c8b862a8ef2ffa434d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240722"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262722"
 ---
-# <a name="connect-your-domain-name-server---preview"></a>Connettere il Domain Name Server-Preview
+# <a name="connect-your-domain-name-server"></a>Connetti la Domain Name Server
 
-
+> [!IMPORTANT]
+> Il connettore dati DNS in Sentinel di Azure è attualmente disponibile in anteprima pubblica.
+> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile connettere qualsiasi DNS (Domain Name Server) in esecuzione in Windows ad Azure Sentinel. Questa operazione viene eseguita installando un agente nel computer DNS. Usando i log DNS, è possibile ottenere informazioni dettagliate sulla sicurezza, sulle prestazioni e sulle operazioni nell'infrastruttura DNS dell'organizzazione tramite la raccolta, l'analisi e la correlazione di log analitici e di controllo e altri dati correlati dai server DNS.
 
@@ -53,7 +55,7 @@ La soluzione raccoglie i dati relativi all'inventario e agli eventi DNS dai serv
 
 ## <a name="connect-your-dns-appliance"></a>Connettere il dispositivo DNS
 
-1. Nel portale di Azure Sentinel selezionare **connettori dati** e scegliere il riquadro **DNS** .
+1. Nel portale di Azure Sentinel selezionare **connettori dati** e scegliere il riquadro **DNS (anteprima)** .
 1. Se i computer DNS sono in Azure:
     1. Fare clic su **Installa agente nella macchina virtuale Windows di Azure**.
     1. Nell'elenco **macchine virtuali** selezionare il computer DNS di cui si vuole eseguire lo streaming in Sentinel di Azure. Assicurarsi che si tratta di una macchina virtuale Windows.

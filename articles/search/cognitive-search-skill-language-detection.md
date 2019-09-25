@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 8375d41e3ece3bdd97b218925a8b1b6d45fc327d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: fe21477865b5bbad65f5e4639e8df253f12dc1b6
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186374"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265412"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Competenza cognitiva di rilevamento lingua
 
@@ -105,7 +104,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ```
 
 
-##  <a name="sample-output"></a>Esempio di output
+##  <a name="sample-output"></a>Output di esempio
 
 ```json
 {

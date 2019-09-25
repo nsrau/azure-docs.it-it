@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 27e927425faec045c4f304ae6de155f2337307d9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 67bddea31a4bb375657b0df5e21fab1ab3d732f5
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104664"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265563"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
 
@@ -68,7 +68,7 @@ Un servizio di collegamento privato specifica le proprietà seguenti:
  
 - È possibile accedere a un singolo servizio di collegamento privato da più endpoint privati appartenenti a reti virtuali, sottoscrizioni e/o Active Directory tenant diversi. La connessione viene stabilita tramite un flusso di lavoro di connessione. 
  
-- È possibile creare più servizi di collegamento privato nella stessa Load Balancer Standard usando diverse configurazioni IP front-end. Sono previsti limiti al numero di servizi di collegamento privato che è possibile creare per ogni Load Balancer Standard e per sottoscrizione. Per informazioni dettagliate, vedere [limiti di Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
+- È possibile creare più servizi di collegamento privato nella stessa Load Balancer Standard usando diverse configurazioni IP front-end. Sono previsti limiti al numero di servizi di collegamento privato che è possibile creare per ogni Load Balancer Standard e per sottoscrizione. Per informazioni dettagliate, vedere [limiti di Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
  
 - Il servizio di collegamento privato può avere più di una configurazione IP NAT collegata. La scelta di più configurazioni IP NAT può aiutare i provider di servizi a eseguire la scalabilità. Attualmente, i provider di servizi possono assegnare fino a otto indirizzi IP NAT per ogni servizio di collegamento privato. Con ogni indirizzo IP NAT è possibile assegnare più porte per le connessioni TCP e quindi aumentare il numero di porte. Dopo aver aggiunto più indirizzi IP NAT a un servizio di collegamento privato, non è possibile eliminare gli indirizzi IP NAT. Questa operazione viene eseguita per garantire che le connessioni attive non siano interessate durante l'eliminazione degli indirizzi IP NAT.
 

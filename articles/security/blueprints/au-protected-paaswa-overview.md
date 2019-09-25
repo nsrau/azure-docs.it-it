@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: d1857d0cb1b45be5b6ce4e1dd34e8398786f54fb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6d1b84894439010e5297ce010b2ece6dea8f3e56
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946913"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257613"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Progetto per la sicurezza e la conformità di Azure - Applicazione Web PaaS per Australia PROTECTED
 
@@ -65,7 +65,7 @@ Questa soluzione usa i servizi di Azure seguenti. Altri dettagli sono disponibil
     - (4) Reti /24
     - Gruppi di sicurezza di rete
 - Gruppi di sicurezza di rete
-- Insieme di credenziali dei servizi di ripristino
+- Insieme di credenziali di Servizi di ripristino
 - App Web di Azure
 
 Questo progetto contiene servizi di Azure che non sono stati certificati per l'uso a livello di dati classificati come Protected dall'Australian Cyber Security Centre (ACSC). Microsoft consiglia ai clienti di rivedere i report di sicurezza e controllo pubblicati relativi a questi servizi di Azure e usare il rispettivo framework di gestione dei rischi per determinare se un servizio di Azure è adatto per l'accreditamento interno e l'uso a livello di dati classificati come Protected.
@@ -187,7 +187,7 @@ Il Centro sicurezza di Azure offre avvisi di sicurezza e imprevisti classificati
 
 I servizi di Azure registrano in modo completo le attività di sistema e degli utenti e l'integrità del sistema:
 - **Log attività**: i [log attività](../../azure-monitor/platform/activity-logs-overview.md) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
-- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) includono tutti i log generati da ogni risorsa. ovvero i log eventi del sistema Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
+- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) includono tutti i log generati da ogni risorsa. ovvero i log eventi del sistema Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
 
 **Log di Monitoraggio di Azure**: Questi log vengono consolidati nei [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) per l'elaborazione, l'archiviazione e la creazione di report del dashboard. Dopo la raccolta, i dati vengono organizzati in tabelle separate per ogni tipo di dati, in modo che sia possibile analizzare tutti i dati insieme, indipendentemente dalla rispettiva origine. Il Centro sicurezza di Azure si integra inoltre con i log di monitoraggio di Azure, consentendo ai clienti di usare query kusto per accedere ai dati degli eventi di sicurezza e combinarli con i dati di altri servizi.
 

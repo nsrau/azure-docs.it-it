@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
-ms.openlocfilehash: 3519b3f2c13349c3764e95bcc6898eeb73a79a81
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 937573155c79447d554c60ccc2cba449b4c1028d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946614"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259520"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-uk-nhs"></a>Progetto di sicurezza e conformità di Azure: data warehouse per il SSN UK
 
@@ -49,7 +49,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
     - Controllo e nodi del cluster SQL
 - Azure Active Directory
 - Azure Data Catalog
-- Insieme di credenziali delle chiavi di Azure
+- Azure Key Vault
 - Monitoraggio di Azure
 - Centro sicurezza di Azure
 - Azure Load Balancer
@@ -64,7 +64,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
     - (1) Rete /16
     - (4) Reti /24
     - (4) Gruppi di sicurezza di rete
-- Insieme di credenziali dei servizi di ripristino
+- Insieme di credenziali di Servizi di ripristino
 - SQL Data Warehouse
 - SQL Server Reporting Services
 
@@ -169,7 +169,7 @@ Inoltre, questa architettura di riferimento usa la [valutazione della vulnerabil
 
 I servizi di Azure registrano in modo completo le attività di sistema e degli utenti e l'integrità del sistema:
 - **Log attività**: i [log attività](../../azure-monitor/platform/activity-logs-overview.md) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
-- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) includono tutti i log generati da ogni risorsa. ovvero i log eventi del sistema Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
+- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) includono tutti i log generati da ogni risorsa. ovvero i log eventi del sistema Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
 
 **Log di Monitoraggio di Azure**: Questi log vengono consolidati nei [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) per l'elaborazione, l'archiviazione e la creazione di report del dashboard. Dopo la raccolta, i dati vengono organizzati in tabelle separate per ogni tipo di dati, in modo che sia possibile analizzare tutti i dati insieme, indipendentemente dalla rispettiva origine. Il Centro sicurezza di Azure si integra inoltre con i log di monitoraggio di Azure, consentendo ai clienti di usare query kusto per accedere ai dati degli eventi di sicurezza e combinarli con i dati di altri servizi.
 

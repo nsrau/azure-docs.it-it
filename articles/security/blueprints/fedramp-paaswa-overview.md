@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: b74373201db26405653584fc4000993b9d6fdf43
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: e8458d505575a5bf39bbd0a9970c5044b9cbd0f0
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946822"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257331"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Progetto di sicurezza e conformità di Azure: Applicazione Web PaaS per FedRAMP
 
@@ -30,10 +30,10 @@ Questa soluzione fornisce un'architettura di riferimento per un'applicazione Web
 
 ![Diagramma dell'architettura di riferimento dell'applicazione Web PaaS per FedRAMP](images/fedramp-paaswa-architecture.png?raw=true "Diagramma dell'architettura di riferimento dell'applicazione Web PaaS per FedRAMP")
 
-Questa soluzione usa i servizi di Azure seguenti. Per dettagli dell'architettura di distribuzione, vedere la sezione relativa all'[architettura di distribuzione](#deployment-architecture).
+Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
 
 - Azure Active Directory
-- Insieme di credenziali delle chiavi di Azure
+- Azure Key Vault
 - Database SQL di Azure
 - Gateway applicazione
     - (1) Web application firewall
@@ -144,7 +144,7 @@ Le tecnologie seguenti offrono funzionalità di gestione delle identità nell'am
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
 Monitoraggio di Azure offre una soluzione di registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. Raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
 - **Log attività**: i [log attività](../../azure-monitor/platform/activity-logs-overview.md) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
-- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) includono tutti i log generati da ogni risorsa. ovvero i log eventi del sistema Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione.
+- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) includono tutti i log generati da ogni risorsa. ovvero i log eventi del sistema Windows, i log di Archiviazione di Azure, i log di controllo di Key Vault e i log degli accessi e del firewall del gateway applicazione.
 - **Archiviazione di log**: Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione. Questi log si connettono ai log di monitoraggio di Azure per l'elaborazione, l'archiviazione e il reporting del dashboard.
 
 Questa architettura include anche le soluzioni di monitoraggio seguenti:

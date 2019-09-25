@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 6278b16221072b9b5bca371007296806454ba197
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: fcc5c4008c0fdef3b77e436761d8958fe31458d8
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212434"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257363"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>Archiviare dati critici per l'azienda in archiviazione BLOB di Azure immutabilmente 
 
@@ -42,7 +42,7 @@ L'archiviazione non modificabile supporta gli elementi seguenti:
 
 - **Configurazione a livello di contenitore**: gli utenti possono configurare criteri di conservazione basati sul tempo e tag di blocco a fini giudiziari a livello di contenitore. Grazie alle semplici impostazioni a livello di contenitore, gli utenti possono creare e bloccare i criteri di conservazione basati sul tempo, estendere gli intervalli di conservazione, impostare e deselezionare le esenzioni legali e altro ancora. Questi criteri si applicano a tutti i BLOB nel contenitore, nuovi ed esistenti.
 
-- **Supporto per la registrazione di controllo**: Ogni contenitore include un log di controllo dei criteri. Mostra fino a sette comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati e contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per la durata del criterio, in conformità con le linee guida per le normative SEC 17a-4 (f). Il [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) Mostra un log più completo di tutte le attività del piano di controllo; Quando si abilitano i [log di diagnostica di Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) , le operazioni del piano dati vengono mantenute. È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
+- **Supporto per la registrazione di controllo**: Ogni contenitore include un log di controllo dei criteri. Mostra fino a sette comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati e contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per la durata del criterio, in conformità con le linee guida per le normative SEC 17a-4 (f). Il [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) Mostra un log più completo di tutte le attività del piano di controllo; Quando si abilitano i [log di diagnostica di Azure](../../azure-monitor/platform/resource-logs-overview.md) , le operazioni del piano dati vengono mantenute. È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
 
 ## <a name="how-it-works"></a>Come funziona
 

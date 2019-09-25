@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4cabf2e7a1f0f1ff058f900ed823cc4df0ce80a6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c01931268642aebbf87c54080c292b105af15665
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999194"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262768"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica
@@ -93,7 +93,7 @@ Application Insights crea grafici e tabelle che illustrano, ad esempio, in quali
 Se sono presenti arresti anomali del sistema, errori o problemi di prestazioni, è possibile cercare i dati di telemetria in dettaglio per diagnosticare la causa. Il servizio invia anche messaggi di posta elettronica in caso di variazioni nella disponibilità e nelle prestazioni dell'app. Application Insights diventa quindi uno strumento utile per la sicurezza perché contribuisce alla disponibilità nell'ambito della triade di sicurezza: riservatezza, integrità e disponibilità.
 
 ### <a name="azure-monitor"></a>Monitoraggio di Azure
-[Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre funzionalità di visualizzazione, query, routing, avviso, ridimensionamento automatico e automazione dei dati sia dall'infrastruttura di Azure ([log attività](../../azure-monitor/platform/activity-logs-overview.md)) che da ogni singola risorsa di Azure ([log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md)). È possibile usare Monitoraggio di Azure per ricevere avvisi sugli eventi relativi alla sicurezza generati nei log di Azure.
+[Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre funzionalità di visualizzazione, query, routing, avviso, ridimensionamento automatico e automazione dei dati sia dall'infrastruttura di Azure ([log attività](../../azure-monitor/platform/activity-logs-overview.md)) che da ogni singola risorsa di Azure ([log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md)). È possibile usare Monitoraggio di Azure per ricevere avvisi sugli eventi relativi alla sicurezza generati nei log di Azure.
 
 ### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 [Log di monitoraggio di Azure](https://azure.microsoft.com/documentation/services/log-analytics/) : offre una soluzione di gestione IT per l'infrastruttura locale e basata sul cloud di terze parti, ad esempio AWS, oltre alle risorse di Azure. I dati di monitoraggio di Azure possono essere indirizzati direttamente ai log di monitoraggio di Azure, in modo da poter visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.
@@ -377,7 +377,7 @@ Per gestire le identità e l'accesso, Microsoft usa più procedure e tecnologie 
 
 - Il [proxy di applicazione di Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) fornisce l'accesso remoto sicuro e SSO per le applicazioni Web ospitate in locale.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 - [Introduzione alla sicurezza in Microsoft Azure](https://docs.microsoft.com/azure/security)
 
 Servizi e funzionalità di Azure che è possibile usare per proteggere i servizi e i dati in Azure

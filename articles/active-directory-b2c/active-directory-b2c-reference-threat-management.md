@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 281bd73671352e1e525e11a7bfde1882d3ef8864
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065429"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256913"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gestire le minacce alle risorse e ai dati in Azure Active Directory B2C
 
@@ -37,10 +37,10 @@ I primi 10 periodi di blocco durano un minuto. I 10 periodi di blocco successivi
 
 Per gestire le impostazioni di protezione delle password, inclusa la soglia di blocco:
 
-1. Passare al [portale di Azure](https://portal.azure.com).
-1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto a destra del portale, quindi selezionare il tenant Azure ad B2C.
-1. Selezionare **Azure Active Directory** nel menu a sinistra (oppure selezionare tutti i **Servizi** nella sezione in alto a sinistra del portale, quindi cercare e selezionare *Azure Active Directory*).
-1. In **sicurezza**selezionare **metodi di autenticazione**, quindi selezionare **protezione con password**.
+1. Accedere al [portale di Azure](https://portal.azure.com)
+1. Usare il filtro **directory + sottoscrizione** nel menu in alto per selezionare la directory che contiene il tenant del Azure ad B2C.
+1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
+1. In **sicurezza**selezionare **metodi di autenticazione (anteprima)** , quindi selezionare **protezione con password**.
 1. Immettere le impostazioni di protezione password desiderate e quindi selezionare **Salva**.
 
     ![Pagina portale di Azure la protezione delle password in impostazioni Azure AD](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)

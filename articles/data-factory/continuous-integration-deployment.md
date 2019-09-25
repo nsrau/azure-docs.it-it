@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: e522cba88eaf9cb63ef7ef2f20e3b72691261073
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002413"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265973"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integrazione e recapito continui (CI/CD) in Azure Data Factory
 
@@ -669,7 +669,7 @@ Se Git non è configurato, i modelli collegati sono accessibili tramite il gesto
 
 ## <a name="hot-fix-production-branch"></a>Ramo di produzione con correzione rapida
 
-Se si distribuisce una factory in produzione e si comprende un bug che deve essere corretto immediatamente, ma non è possibile distribuire il ramo di collaborazione corrente, potrebbe essere necessario distribuire una correzione a caldo.
+Se si distribuisce una factory in produzione e si comprende un bug che deve essere corretto immediatamente, ma non è possibile distribuire il ramo di collaborazione corrente, potrebbe essere necessario distribuire una correzione a caldo. Questo approccio è noto come progettazione rapida o QFE. 
 
 1.  In Azure DevOps passare alla versione che è stata distribuita in produzione e individuare l'ultimo commit distribuito.
 
@@ -705,8 +705,11 @@ Se si usa l'integrazione di Git con data factory e si dispone di una pipeline CI
 
 ## <a name="unsupported-features"></a>Funzionalità non supportate
 
--   Non è possibile pubblicare singole risorse. Le entità di data factory dipendono l'una dall'altra e il rilevamento delle dipendenze di modifica può essere difficile e causare un comportamento imprevisto. Ad esempio, i trigger dipendono da pipeline, le pipeline dipendono da set di impostazioni e altre pipeline, una così via. Se è stato possibile pubblicare solo un subset dell'intero set di modifiche, potrebbero verificarsi alcuni errori imprevisti.
+- Per impostazione predefinita, ADF _non consente i_ commit con cherry-picking o la pubblicazione selettiva delle risorse. Le pubblicazioni includeranno **tutte** le modifiche apportate all'Data Factory
 
--   Non è possibile pubblicare da rami privati.
+    - Le entità di data factory dipendono l'una dall'altra, ad esempio, i trigger dipendono da pipeline, le pipeline dipendono da set di dati e altre pipeline e così via. La pubblicazione selettiva di un subset di risorse _può_ causare comportamenti imprevisti ed errori
+    - In rare occasioni in cui è richiesta la pubblicazione selettiva, è possibile prendere in considerazione una correzione a caldo. Per altre informazioni, vedere [Hot-Fix Production Branch](#hot-fix-production-branch)
 
--   Non è possibile ospitare i progetti in Bitbucket.
+-   Non è possibile pubblicare da rami privati
+
+-   Attualmente non è possibile ospitare progetti in bitbucket

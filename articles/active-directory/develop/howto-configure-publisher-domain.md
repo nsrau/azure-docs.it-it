@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291de1fa9bbb43ff9393a3163d1cd21dd7cd1b01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835149"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257926"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Procedura: Configurare il dominio di pubblicazione di un'applicazione (anteprima)
 
-Il dominio di pubblicazione di un'applicazione viene visualizzato agli utenti nella [richiesta di consenso dell'applicazione](application-consent-experience.md) per consentire agli utenti di stabilire dove vengono inviate le informazioni. Le applicazioni multi-tenant registrate dopo il 21 maggio 2019 che non hanno un dominio di pubblicazione vengono visualizzate comenon verificate. Le applicazioni multi-tenant sono applicazioni che supportano account esterni a una singola directory organizzativa; ad esempio, supporta tutti gli account Azure AD o supporta tutti gli account Azure AD e gli account Microsoft personali.
+Il dominio di pubblicazione di un'applicazione viene visualizzato agli utenti nella [richiesta di consenso dell'applicazione](application-consent-experience.md) per consentire agli utenti di stabilire dove vengono inviate le informazioni. Le applicazioni multi-tenant registrate dopo il 21 maggio 2019 che non hanno un dominio di pubblicazione vengono visualizzate come non **verificate**. Le applicazioni multi-tenant sono applicazioni che supportano account esterni a una singola directory organizzativa; ad esempio, supporta tutti gli account Azure AD o supporta tutti gli account Azure AD e gli account Microsoft personali.
 
 ## <a name="new-applications"></a>Nuove applicazioni
 
@@ -42,11 +42,11 @@ Nella tabella seguente viene riepilogato il comportamento predefinito del valore
 | *. onmicrosoft.com | *. onmicrosoft.com |
 | -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (primario) | domain2.com |
 
-Se non è impostato un dominio di pubblicazione di un'applicazione multi-tenant o se è impostato su un dominio che termina con. onmicrosoft.com, la richiesta di consenso dell'app verrà visualizzata non verificata al posto del dominio del server di pubblicazione.
+Se non è impostato un dominio di pubblicazione di un'applicazione multi-tenant o se è impostato su un dominio che termina con. onmicrosoft.com, la richiesta di consenso dell'app verrà visualizzata non **verificata** al posto del dominio del server di pubblicazione.
 
 ## <a name="grandfathered-applications"></a>Applicazioni con nonno
 
-Se l'app è stata registrata prima del 21 maggio 2019, la richiesta di consenso dell'applicazione non verrà visualizzata se non è stato impostato un dominio del server di pubblicazione. È consigliabile impostare il valore di dominio del server di pubblicazione in modo che gli utenti possano visualizzare queste informazioni nella richiesta di consenso dell'app.
+Se l'app è stata registrata prima del 21 maggio 2019, la richiesta di consenso dell'applicazione non verrà **visualizzata se non** è stato impostato un dominio del server di pubblicazione. È consigliabile impostare il valore di dominio del server di pubblicazione in modo che gli utenti possano visualizzare queste informazioni nella richiesta di consenso dell'app.
 
 ## <a name="configure-publisher-domain-using-the-azure-portal"></a>Configurare il dominio di pubblicazione utilizzando il portale di Azure
 
@@ -96,6 +96,12 @@ Se l'app non è registrata in un tenant, verrà visualizzata solo l'opzione per 
 ### <a name="to-select-a-verified-domain"></a>Per selezionare un dominio verificato
 
 - Se il tenant ha verificato domini, selezionare uno dei domini dall'elenco **a discesa selezionare un dominio verificato** .
+
+>[!Note]
+> L'intestazione ' Content-Type ' prevista restituita è `application/json`. È possibile che venga ricevuto un errore come indicato di seguito se si usa qualsiasi altra operazione, ad esempio`application/json; charset=utf-8` 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
 
 ## <a name="implications-on-the-app-consent-prompt"></a>Implicazioni sulla richiesta di consenso dell'app
 

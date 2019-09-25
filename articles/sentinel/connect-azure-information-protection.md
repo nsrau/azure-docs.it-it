@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: cabailey
-ms.openlocfilehash: 7584a884d41451c5a248b84a40eb45815bfb6bdf
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: a2760b53dbb9776501cb5e58c681045743471166
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240736"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261827"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Connettere i dati da Azure Information Protection
+
+> [!IMPORTANT]
+> Il connettore di dati Azure Information Protection in Sentinel di Azure è attualmente disponibile in anteprima pubblica.
+> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile trasmettere le informazioni di registrazione da [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) in Sentinel di Azure configurando il connettore dati Azure Information Protection. Azure Information Protection consente di controllare e proteggere i dati sensibili, che siano archiviati nel cloud o in locale.
 
@@ -54,10 +58,6 @@ Tuttavia, se le informazioni di registrazione da Azure Information Protection pa
 - Azure Information Protection è stato aggiunto al portale di Azure. Per informazioni su questo passaggio, vedere [aggiungere Azure Information Protection al portale di Azure](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
 ## <a name="connect-to-azure-information-protection"></a>Connetti a Azure Information Protection
-
-> [!IMPORTANT]
-> Il connettore di dati Azure Information Protection in Sentinel di Azure è attualmente disponibile in anteprima pubblica.
-> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Utilizzare le istruzioni seguenti se non è stata configurata un'area di lavoro di Log Analytics per Azure Information Protection oppure è necessario modificare l'area di lavoro in cui sono archiviate le informazioni di registrazione del Azure Information Protection.
 

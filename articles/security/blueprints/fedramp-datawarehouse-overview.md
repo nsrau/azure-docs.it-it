@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 79ed2b6e5d7bb600a79e12d19268035491f3fe08
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7fe5b45d7719b34fff8c09d08f510dc465f50104
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946854"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257399"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Progetto di sicurezza e conformità di Azure: data warehouse per l'automazione FedRAMP
 
@@ -65,9 +65,9 @@ Azure SQL Load Balancer
 
 Azure Active Directory
 
-Insieme di credenziali dei servizi di ripristino
+Insieme di credenziali di Servizi di ripristino
 
-Insieme di credenziali delle chiavi di Azure
+Azure Key Vault
 
 Log di Monitoraggio di Azure
 
@@ -129,7 +129,7 @@ L'architettura protegge i dati inattivi tramite la crittografia, il controllo de
 ### <a name="logging-and-audit"></a>Registrazione e controllo
 [Log di monitoraggio di Azure](../azure-security-disk-encryption-overview.md) offre una registrazione completa delle attività del sistema e degli utenti, nonché dell'integrità del sistema. La soluzione [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
 - **Log attività**: i [log attività](../../azure-monitor/platform/activity-logs-overview.md) offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione.
-- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) includono tutti i log generati da ogni risorsa. Questi log includono i registri di sistema degli eventi di Windows e i log di Archiviazione BLOB di Azure, delle tabelle e delle code.
+- **Log di diagnostica**: i [log di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) includono tutti i log generati da ogni risorsa. Questi log includono i registri di sistema degli eventi di Windows e i log di Archiviazione BLOB di Azure, delle tabelle e delle code.
 - **Log del firewall**: Il gateway applicazione fornisce log completi relativi a diagnostica e accesso. I log del firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
 - **Archiviazione di log**: tutti i log di diagnostica scrivono a un account di archiviazione di Azure crittografato e centralizzato per l'archiviazione con un periodo di conservazione definito di 2 giorni. Questi log si connettono ai log di monitoraggio di Azure per l'elaborazione, l'archiviazione e il reporting del dashboard.
 
