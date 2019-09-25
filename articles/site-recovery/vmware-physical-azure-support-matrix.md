@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: cb46acf3f54b5955ba8542adf73b7ca896f20c28
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910448"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266402"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -57,7 +57,7 @@ Ruoli di Windows Server | Non abilitare Active Directory Domain Services; Intern
 Criteri di gruppo| - Impedisci accesso al prompt dei comandi <br/> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br/> - Logica di attendibilità per file allegati <br/> - Attiva l'esecuzione di script <br/> - [Ulteriori informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Assicurarsi di:<br/><br/> - Non avere un sito Web predefinito preesistente <br/> - Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - Non avere un sito Web o un'app preesistente in ascolto sulla porta 443<br/>
 Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware)
-Tipo di indirizzo IP | statico
+Tipo di indirizzo IP | Static
 Porte | 443 usato per l'orchestrazione del canale di controllo<br/>9443 per il trasporto dati
 
 ## <a name="replicated-machines"></a>Computer replicati
@@ -157,14 +157,14 @@ Più schede di interfaccia rete guest/server | Sì.
 **Componente** | **Supportato**
 --- | ---
 Azure ExpressRoute | Yes
-ILB | Sì
-ELB | Sì
+ILB | Yes
+ELB | Yes
 Gestione traffico di Azure | Yes
 Più NIC | Yes
-Indirizzo IP riservato | Sì
-IPv4 | Sì
-Conservazione indirizzo IP di origine | Sì
-Endpoint servizio di rete virtuale di Azure<br/> | Sì
+Indirizzo IP riservato | Yes
+IPv4 | Yes
+Conservazione indirizzo IP di origine | Yes
+Endpoint servizio di rete virtuale di Azure<br/> | Yes
 Rete accelerata | No
 
 ## <a name="storage"></a>Archiviazione
@@ -173,7 +173,7 @@ Rete accelerata | No
 Disco dinamico | Il disco del sistema operativo deve essere un disco di base. <br/><br/>I dischi dati possono essere dinamici
 Configurazione dei dischi Docker | No
 NFS host | Sì per VMware<br/><br/> No per server fisici
-Host SAN (iSCSI/FC) | Sì
+Host SAN (iSCSI/FC) | Yes
 Host vSAN | Sì per VMware<br/><br/> N/D per server fisici
 Percorsi multipli (MPIO) | Sì, testato con DSM Microsoft, EMC PowerPath 5.7 SP4, DSM EMC PowerPath per CLARiiON
 Volumi virtuali host | Sì per VMware<br/><br/> N/D per server fisici
@@ -187,12 +187,13 @@ RDM guest/server | Yes<br/><br/> N/D per server fisici
 Disco guest/server > 1 TB | Sì, il disco deve avere dimensioni maggiori di 1024 MB<br/><br/>Fino a 8.192 GB durante la replica a Managed Disks (9,26 versioni successive)<br></br> Fino a 4.095 GB durante la replica in account di archiviazione
 Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | No
 Disco Guest/server con dimensioni del settore fisico 4K logiche e 512 byte | No
-Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Sì
+Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Yes
 Guest/server - Spazi di archiviazione | No
 Disco di aggiunta/rimozione a caldo guest/server | No
 Guest/server - esclusione disco | Yes
 Percorsi multipli (MPIO) guest/server | No
 Partizioni GPT Guest/server | Sono supportate cinque partizioni dall' [aggiornamento cumulativo 37](https://support.microsoft.com/help/4508614/) (versione 9,25 del servizio Mobility). In precedenza ne erano supportate quattro.
+ReFS | Resilient file System è supportato con il servizio Mobility versione 9,23 o successiva
 Avvio EFI/UEFI Guest/server | -Supportato quando si esegue il servizio Mobility versione 9,13 o successiva.<br/> -Supportato quando si esegue la migrazione di macchine virtuali VMware o server fisici che eseguono Windows Server 2012 o versioni successive in Azure.<br/> -È possibile replicare solo le macchine virtuali per la migrazione. Il failback in locale non è supportato.<br/> -È supportato solo NTFS <br/> -Il tipo di avvio UEFI sicuro non è supportato. <br/> -Le dimensioni del settore disco devono essere di 512 byte per ogni settore fisico.
 
 ## <a name="replication-channels"></a>Canali di replica
@@ -213,7 +214,7 @@ Archiviazione con ridondanza geografica e accesso in lettura | Yes
 Archiviazione ad accesso sporadico | No
 Archiviazione ad accesso frequente| No
 BLOB in blocchi | No
-Crittografia inattiva (SSE)| Sì
+Crittografia inattiva (SSE)| Yes
 Archiviazione Premium | Yes
 Servizio di importazione/esportazione | No
 Firewall di archiviazione di Azure per reti virtuali | Sì.<br/> Configurato nell'account di archiviazione di destinazione/archiviazione della cache (usato per archiviare i dati di replica).
@@ -225,7 +226,7 @@ Account di archiviazione per utilizzo generico V2 (livelli ad accesso frequente 
 --- | ---
 Set di disponibilità | Yes
 Zone di disponibilità | No
-HUB | Sì
+HUB | Yes
 Dischi gestiti | Yes
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
@@ -244,7 +245,7 @@ Schede di rete | Sono supportate più schede. |
 VHD condiviso | Non supportati. | Il controllo ha esito negativo se non supportato.
 Disco FC | Non supportati. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportati. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker. |
-Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
+Nome VM | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
 
 ## <a name="resource-group-limits"></a>Limiti del gruppo di risorse
 
@@ -289,11 +290,11 @@ Spostare le macchine virtuali di archiviazione, di rete e di Azure tra le sottos
 
 ## <a name="obtain-latest-components"></a>Ottenere i componenti più recenti
 
-**Nome** | **Descrizione** | **Dettagli**
+**Name** | **Descrizione** | **Dettagli**
 --- | --- | ---
 Server di configurazione | Installata in locale.<br/> Coordina le comunicazioni tra i server VMware locali o i computer fisici e Azure. | - Informazioni [sul server di](vmware-physical-azure-config-process-server-overview.md) configurazione.<br/> - Informazioni [sull'](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) aggiornamento alla versione più recente.<br/> - Informazioni sulla configurazione del server [di](vmware-azure-deploy-configuration-server.md) configurazione. 
 Server di elaborazione | Installato per impostazione predefinita nel server di configurazione.<br/> Riceve i dati di replica, li ottimizza con la memorizzazione nella cache, la compressione e la crittografia e li invia ad Azure.<br/> Man mano che la distribuzione cresce, è possibile aggiungere altri server di elaborazione per gestire volumi più elevati di traffico di replica. | - Informazioni [sul server di](vmware-physical-azure-config-process-server-overview.md) elaborazione.<br/> - Informazioni [sull'](vmware-azure-manage-process-server.md#upgrade-a-process-server) aggiornamento alla versione più recente.<br/> - Informazioni [sulla configurazione dei server di](vmware-physical-large-deployment.md#set-up-a-process-server) elaborazione con scalabilità orizzontale.
-Servizio Mobility | Installato nella macchina virtuale VMware o nei server fisici che si desidera replicare.<br/> Coordina la replica tra server VMware locali/server fisici e Azure.| - Informazioni [sul](vmware-physical-mobility-service-overview.md) servizio Mobility.<br/> - Informazioni [sull'](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) aggiornamento alla versione più recente.<br/> 
+Servizio di mobilità | Installato nella macchina virtuale VMware o nei server fisici che si desidera replicare.<br/> Coordina la replica tra server VMware locali/server fisici e Azure.| - Informazioni [sul](vmware-physical-mobility-service-overview.md) servizio Mobility.<br/> - Informazioni [sull'](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) aggiornamento alla versione più recente.<br/> 
 
 
 

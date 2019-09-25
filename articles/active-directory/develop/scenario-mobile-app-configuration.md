@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ebf524d932322fa08729f229a451afe656900d5
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: e7b731c9936ab85b19428687330044a46c563c49
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061413"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268359"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>App per dispositivi mobili che chiama API Web-configurazione del codice
 
@@ -30,17 +30,17 @@ Dopo aver creato l'applicazione, si apprenderà come configurare il codice usand
 
 Le librerie Microsoft che supportano le app per dispositivi mobili sono:
 
-  Libreria MSAL | DESCRIZIONE
+  Libreria MSAL | Descrizione
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Per lo sviluppo di applicazioni portabili. Le piattaforme supportate da MSAL.NET per compilare un'applicazione per dispositivi mobili sono UWP, Novell. iOS e Novell. Android.
-  ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Per sviluppare applicazioni iOS native con Objective C o SWIFT
+  ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Per sviluppare applicazioni iOS native con Objective-C o SWIFT
   ![MSAL.Android](media/sample-v2-code/logo_android.png) <br/> MSAL.Android | Per sviluppare applicazioni Android native in Java per Android
 
-## <a name="configuring-the-application"></a>Configurazione dell'applicazione
-
-Le applicazioni per dispositivi `PublicClientApplication` mobili usano la classe. Ecco come crearne un'istanza:
+## <a name="instantiating-the-application"></a>Creazione di un'istanza dell'applicazione
 
 ### <a name="android"></a>Android
+
+Le applicazioni per dispositivi `PublicClientApplication` mobili usano la classe. Ecco come crearne un'istanza:
 
 ```Java
 PublicClientApplication sampleApp = new PublicClientApplication(
@@ -50,21 +50,28 @@ PublicClientApplication sampleApp = new PublicClientApplication(
 
 ### <a name="ios"></a>iOS
 
-```swift
-// Initialize the app.
-guard let authorityURL = URL(string: kAuthority) else {
-    self.loggingText.text = "Unable to create authority URL"
-    return
-}
-let authority = try MSALAADAuthority(url: authorityURL)
-let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
-self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
-}
+Per le applicazioni per dispositivi mobili in iOS è `MSALPublicClientApplication` necessario creare un'istanza della classe.
+
+Objective-C:
+
+```objc
+NSError *msalError = nil;
+     
+MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
+MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
+
+Swift
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
+if let application = try? MSALPublicClientApplication(configuration: config){ /* Use application */}
+```
+
+Sono disponibili [Proprietà MSALPublicClientApplicationConfig aggiuntive](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplicationConfig.html#/Configuration%20options) che possono eseguire l'override dell'autorità predefinita, specificare un URI di reindirizzamento o modificare il comportamento di memorizzazione nella cache del token MSAL. 
 
 ### <a name="xamarin-or-uwp"></a>Novell o UWP
 
-Il paragrafo seguente illustra come configurare il codice dell'applicazione per le app Novell. iOS, Novell. Android e UWP. Il primo passaggio consiste nell'creare un'istanza dell'applicazione. Un passaggio facoltativo consiste nel configurare il broker.
+Il paragrafo seguente illustra come creare un'istanza dell'applicazione per le app Novell. iOS, Novell. Android e UWP.
 
 #### <a name="instantiating-the-application"></a>Creazione di un'istanza dell'applicazione
 
@@ -102,7 +109,7 @@ var pca = PublicClientApplicationBuilder
 - Per l'elenco di tutti i modificatori disponibili `PublicClientApplicationBuilder`in, vedere la documentazione di riferimento [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
 - Per la descrizione di tutte le opzioni esposte in `PublicClientApplicationOptions` vedere [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), nella documentazione di riferimento
 
-#### <a name="xamarin-ios-specific-considerations"></a>Considerazioni specifiche su Novell iOS
+## <a name="xamarin-ios-specific-considerations"></a>Considerazioni specifiche su Novell iOS
 
 In Novell iOS sono disponibili diverse considerazioni che è necessario tenere in considerazione quando si usa MSAL.NET:
 
@@ -113,7 +120,15 @@ In Novell iOS sono disponibili diverse considerazioni che è necessario tenere i
 
 Informazioni dettagliate sono disponibili in [considerazioni su Novell iOS](msal-net-xamarin-ios-considerations.md)
 
-#### <a name="other-xamarin-android-specific-considerations"></a>Altre considerazioni specifiche su Novell Android
+## <a name="msal-for-ios-and-macos-specific-considerations"></a>Considerazioni specifiche su MSAL per iOS e macOS
+
+Considerazioni analoghe si applicano quando si usa MSAL per iOS e macOS:
+
+1. [Implementare il `openURL` callback](#brokered-authentication-for-msal-for-ios-and-macos)
+2. [Abilitare i gruppi di accesso a keychain](howto-v2-keychain-objc.md)
+3. [Personalizzare browser e visualizzazioni WebView](customize-webviews.md)
+
+## <a name="xamarin-android-specific-considerations"></a>Considerazioni specifiche su Novell Android
 
 Ecco le specifiche di Novell per Android:
 
@@ -132,17 +147,21 @@ In UWP è possibile usare le reti aziendali. Per altre informazioni sull'uso del
 
 ## <a name="configuring-the-application-to-use-the-broker"></a>Configurazione dell'applicazione per l'utilizzo del broker
 
-### <a name="why-use-brokers-on-xamarinios-and-xamarinandroid-applications"></a>Perché usare i broker nelle applicazioni Novell. iOS e Novell. Android?
+### <a name="why-use-brokers-in-ios-and-android-applications"></a>Perché usare i broker nelle applicazioni iOS e Android?
 
 In Android e iOS i broker abilitano:
 
-- Single Sign-on (SSO). Gli utenti non dovranno accedere a ogni applicazione.
+- Single Sign-on (SSO) quando il dispositivo è registrato con AAD. Gli utenti non dovranno accedere a ogni applicazione.
 - Identificazione del dispositivo. Abilita Azure AD criteri di accesso condizionale correlati ai dispositivi, accedendo al certificato del dispositivo creato sul dispositivo quando è stato aggiunto all'area di lavoro.
 - Verifica dell'identificazione dell'applicazione. Quando un'applicazione chiama il broker, passa l'URL di reindirizzamento e il broker lo verifica.
 
 ### <a name="enable-the-brokers-on-xamarin"></a>Abilitare i broker in Novell
 
-Per abilitare una di queste funzionalità, usare il `WithBroker()` parametro quando si chiama `PublicClientApplicationBuilder.CreateApplication` il metodo. `.WithBroker()`per impostazione predefinita, è impostato su true. Attenersi alla procedura seguente per [iOS](#brokered-authentication-for-xamarinios).
+Per abilitare una di queste funzionalità, usare il `WithBroker()` parametro quando si chiama `PublicClientApplicationBuilder.CreateApplication` il metodo. `.WithBroker()`per impostazione predefinita, è impostato su true. Attenersi alla procedura seguente per [Novell. iOS](#brokered-authentication-for-xamarinios).
+
+### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Abilitare Service Broker per MSAL per iOS e macOS
+
+L'autenticazione negoziata è abilitata per impostazione predefinita per gli scenari di AAD in MSAL per iOS e macOS. Attenersi alla procedura seguente per configurare l'applicazione per il supporto dell'autenticazione negoziata per [MSAL per iOS e MacOS](#brokered-authentication-for-msal-for-ios-and-macos). Si noti che alcuni passaggi sono diversi tra [MSAL per Novell. iOS](#brokered-authentication-for-xamarinios) e [MSAL per iOS e MacOS](#brokered-authentication-for-msal-for-ios-and-macos).
 
 ### <a name="brokered-authentication-for-xamarinios"></a>Autenticazione negoziata per Novell. iOS
 
@@ -252,6 +271,80 @@ MSAL USA `–canOpenURL:` per verificare se il broker è installato nel disposit
     <array>
       <string>msauthv2</string>
     </array>
+```
+
+### <a name="brokered-authentication-for-msal-for-ios-and-macos"></a>Autenticazione negoziata per MSAL per iOS e macOS
+
+L'autenticazione negoziata è abilitata per impostazione predefinita per gli scenari di AAD.
+
+#### <a name="step-1-update-appdelegate-to-handle-the-callback"></a>Passaggio 1: Aggiornare AppDelegate per gestire il callback
+
+Quando MSAL per iOS e MacOS chiama il broker, il broker effettuerà a sua volta la chiamata all'applicazione tramite il `openURL` metodo. Poiché MSAL attenderà la risposta dal broker, l'applicazione deve collaborare per chiamare MSAL. A tale scopo, aggiornare il `AppDelegate.m` file per eseguire l'override del metodo riportato di seguito.
+
+Objective-C:
+
+```objc
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    return [MSALPublicClientApplication handleMSALResponse:url 
+                                         sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+}
+```
+
+Swift
+
+```swift
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
+            return false
+        }
+        
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
+    }
+```
+
+Si noti che se è stato adottato UISceneDelegate in iOS 13 +, il callback di MSAL deve essere inserito `scene:openURLContexts:` in in UISceneDelegate (vedere la [documentazione di Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)). MSAL `handleMSALResponse:sourceApplication:` deve essere chiamato una sola volta per ogni URL.
+
+#### <a name="step-2-register-a-url-scheme"></a>Passaggio 2: Registrare uno schema URL
+
+MSAL per iOS e macOS usa gli URL per richiamare il broker e quindi restituire la risposta di Service Broker all'app. Per completare la round trip, è necessario registrare uno schema URL per l'app nel `Info.plist` file.
+
+Anteporre al prefisso lo schema `msauth`URL personalizzato. Aggiungere quindi l' **identificatore del bundle** alla fine.
+
+`msauth.(BundleId)`
+
+**Per esempio:** 
+`msauth.com.yourcompany.xforms`
+
+> [!NOTE]
+> Questo schema URL diventerà parte del RedirectUri usato per identificare in modo univoco l'app quando riceve la risposta dal broker. Verificare che il RedirectUri nel formato `msauth.(BundleId)://auth` sia registrato per l'applicazione nel portale di [Azure](https://portal.azure.com).
+
+```XML
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>msauth.[BUNDLE_ID]</string>
+        </array>
+    </dict>
+</array>
+```
+
+#### <a name="step-3-lsapplicationqueriesschemes"></a>Passaggio 3: LSApplicationQueriesSchemes
+
+**Aggiungere`LSApplicationQueriesSchemes`** per consentire l'esecuzione di una chiamata a Microsoft Authenticator se installato.
+Si noti che lo schema "msauthv3" è necessario quando si compila l'app con Xcode 11 e versioni successive. 
+
+```XML 
+<key>LSApplicationQueriesSchemes</key>
+<array>
+  <string>msauthv2</string>
+  <string>msauthv3</string>
+</array>
 ```
 
 ### <a name="brokered-authentication-for-xamarinandroid"></a>Autenticazione negoziata per Novell. Android

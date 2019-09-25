@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fcbef434d3b88c20cdaaeab92a973e5fbe41680d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101501"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266433"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Usare il partizionamento per ottimizzare l'elaborazione con analisi di flusso di Azure
 
@@ -56,7 +56,7 @@ Sperimentare e osservare l'utilizzo delle risorse del processo per determinare i
 
 Quando il processo utilizza il database SQL per l'output, utilizzare il partizionamento esplicito in modo che corrisponda al numero di partizioni ottimale per ottimizzare la velocità effettiva. Poiché SQL funziona al meglio con otto writer, il partizionamento del flusso a otto prima dello scaricamento o in un altro upstream può trarre vantaggio dalle prestazioni dei processi. 
 
-Quando sono presenti più di 8 partizioni di input, ereditare l'input dello schema di partizione potrebbe non essere una scelta appropriata. Si consiglia di usare [into](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) nella query per specificare in modo esplicito il numero di writer di output. 
+Quando sono presenti più di 8 partizioni di input, ereditare l'input dello schema di partizione potrebbe non essere una scelta appropriata. Si consiglia di usare [into](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) nella query per specificare in modo esplicito il numero di writer di output. 
 
 Nell'esempio seguente viene letta dall'input, indipendentemente dal fatto che sia partizionata in modo naturale e il flusso viene ripartizionato di dieci volte in base alla dimensione DeviceID e vengono scaricati i dati nell'output. 
 

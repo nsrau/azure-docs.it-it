@@ -17,12 +17,12 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b996b2387e324c7e318536c2a13bdc9de39a7a5e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860872"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268397"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>App desktop che chiama le API Web-registrazione app
 
@@ -51,6 +51,7 @@ Gli URI di Reindirizzamento da usare nell'applicazione desktop dipenderanno dal 
   > [!IMPORTANT]
   > Attualmente MSAL.NET usa un altro URI di reindirizzamento per impostazione predefinita nelle applicazioni desktop in`urn:ietf:wg:oauth:2.0:oob`esecuzione in Windows (). In futuro sarà necessario modificare questa impostazione predefinita e pertanto si consiglia di usare`https://login.microsoftonline.com/common/oauth2/nativeclient`
 
+- Se si sta creando un'app Objective-C o SWIFT nativa per macOS, è opportuno registrare il redirectUri in base all'identificatore del bundle dell'applicazione nel formato seguente: **msauth. < il. app. bundle. id >://auth** (sostituisci < il. app. bundle. ID > con l'identificatore del bundle dell'applicazione)
 - Se l'app usa solo l'autenticazione integrata di Windows o il nome utente/password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questi flussi eseguono un round trip all'endpoint Microsoft Identity Platform 2.0 e l'applicazione non verrà richiamata su un URI specifico.
 - Per distinguere il flusso del codice del dispositivo, l'autenticazione integrata di Windows e il nome utente/password da un flusso di applicazione client riservato che non dispone di URI di reindirizzamento (il flusso di credenziali client utilizzato nelle applicazioni daemon), è necessario esprimere il l'applicazione è un'applicazione client pubblica. Per ottenere questa configurazione, passare alla sezione **autenticazione** per l'applicazione. Quindi, nella sottosezione **Impostazioni avanzate** , nel paragrafo del **tipo di client predefinito** , scegliere **Sì** per l'applicazione question **treat come client pubblico**.
 

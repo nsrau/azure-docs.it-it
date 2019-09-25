@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2c2e737360d6b1eeb8df28a95b8c36d4cca80ee4
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097561"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268632"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protezione password di Azure AD locale - Domande frequenti
 
@@ -100,6 +100,8 @@ No. Poiché il server proxy è senza stato, non ha importanza quale server proxy
 **D: è possibile distribuire il servizio proxy di Password di protezione di Azure AD side-by-side con altri servizi come Azure AD Connect?**
 
 Sì. Il servizio proxy di Password di protezione di Azure AD e Azure AD Connect non devono essere mai direttamente in conflitto l'uno con l'altro.
+
+Sfortunatamente, è stata rilevata un'incompatibilità tra la versione del servizio Microsoft Azure AD Connect Agent Updater installata dal software proxy di Azure AD Password Protection e la versione del servizio installata da [Azure Active Software proxy applicazione directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) . Questa incompatibilità può comportare la mancata riuscita del servizio Agent Updater per contattare Azure per gli aggiornamenti software. Non è consigliabile installare Azure AD proxy di protezione con password e Azure Active Directory Application Proxy nello stesso computer.
 
 **D: In quale ordine devono essere installati e registrati gli agenti e i proxy del controller di dominio?**
 

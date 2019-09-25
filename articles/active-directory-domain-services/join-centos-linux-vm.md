@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 965714fc4b02430653d3670ddec69fcd77cc7920
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 2b10866adb1615b31446388fa0e9d0dabffd13da
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075632"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268685"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Aggiungere una macchina virtuale CentOS Linux a un dominio gestito Azure AD Domain Services
 
@@ -69,7 +69,7 @@ Nel file *host* aggiornare l'indirizzo *localhost* . Nell'esempio seguente:
 Aggiornare questi nomi con valori personalizzati:
 
 ```console
-127.0.0.1 centos centos.contoso.com
+127.0.0.1 centos.contoso.com centos
 ```
 
 Al termine, salvare e chiudere il file *host* usando il `:wq` comando dell'editor.

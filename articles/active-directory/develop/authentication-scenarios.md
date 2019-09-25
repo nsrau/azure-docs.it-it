@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 09/23/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 76c5214fc26d299c6abb72ed6cd448728903e78f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622696"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272534"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
@@ -59,6 +59,25 @@ Nello scenario di esempio precedente è possibile classificare le app in base ai
 
 * App che devono accedere in modo sicuro alle risorse
 * App che rivestono il ruolo della risorsa stessa
+
+### <a name="how-each-flow-emits-tokens-and-codes"></a>Modo in cui ogni flusso emette token e codici
+
+A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati dalla piattaforma di identità Microsoft.  Questi flussi possono produrre un'ampia gamma di token (token ID, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico prosegue con una panoramica:
+
+|Flusso | Richiede | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Flusso del codice di autorizzazione](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flusso implicito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Flusso OIDC ibrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Riscatto token di aggiornamento](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | token di aggiornamento | x | x | x| |
+|[Flusso on-behalf-of](v2-oauth2-on-behalf-of-flow.md) | token di accesso| x| x| x| |
+|[Flusso del codice del dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
+|[Credenziali del client](v2-oauth2-client-creds-grant-flow.md) | | | x (solo app)| | |
+
+**Note**:
+
+I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL, `response_mode` dove `query` è `fragment`o.  Alcuni browser hanno un limite per le dimensioni dell'URL che possono essere inseriti nella barra del browser e hanno esito negativo quando è troppo lungo.  Pertanto, questi token non dispongono `groups` di attestazioni o. `wids` 
+
 
 Ora che è disponibile una panoramica dei concetti di base, continuare a leggere per comprendere il modello dell'app e l'API di identità, le modalità di funzionamento del provisioning in Microsoft Identity Platform e i collegamenti a informazioni dettagliate sugli scenari comuni supportati da Microsoft Identity Platform.
 
@@ -119,14 +138,14 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | Issued At | Registra l'ora in cui il token è stato emesso. Spesso usata per l'aggiornamento del token. |
 | Rilasciato da | Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
 | Cognome | Fornisce il cognome dell'utente come è impostato in Azure AD. |
-| Name | Fornisce un valore leggibile che identifica l'oggetto del token. |
+| Attività | Fornisce un valore leggibile che identifica l'oggetto del token. |
 | ID oggetto | Contiene un identificatore univoco e non modificabile dell'oggetto in Azure AD. |
 | Ruoli | Contiene i nomi descrittivi dei ruoli applicazione di Azure AD concessi all'utente. |
-| Ambito | Indica le autorizzazioni concesse all'applicazione client. |
+| `Scope` | Indica le autorizzazioni concesse all'applicazione client. |
 | Subject | Indica l'entità su cui il token rilascia informazioni. |
 | ID tenant | Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
 | Durata del token | Definisce l'intervallo di tempo entro il quale un token è valido. |
-| Nome entità utente | Contiene il nome dell'entità utente dell'oggetto. |
+| Nome dell'entità utente | Contiene il nome dell'entità utente dell'oggetto. |
 | Versione | Contiene il numero di versione del token. |
 
 ## <a name="next-steps"></a>Passaggi successivi

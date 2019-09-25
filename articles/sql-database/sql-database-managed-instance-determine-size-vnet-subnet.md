@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 4b627b13fb79cd5105a95d9161d9239f28f2e062
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567501"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273551"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinare le dimensioni di una subnet della rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -29,7 +29,7 @@ Quando si crea un'istanza gestita, Azure alloca un determinato numero di macchin
 Come da progettazione, un'istanza gestita necessita di un minimo di 16 indirizzi IP in una subnet e può usare fino a 256 indirizzi IP. Di conseguenza, è possibile usare una subnet mask tra/28 e/24 quando si definiscono gli intervalli IP della subnet. Un network mask bit di/28 (14 host per rete) è una dimensione ideale per un singolo utilizzo generico o per una distribuzione critica per l'azienda. Un bit di maschera di/27 (30 host per rete) è ideale per le distribuzioni di più Istanza gestita all'interno della stessa VNet. Le impostazioni del bit mask di/26 (host 62) e/24 (254 host) consentono una maggiore scalabilità orizzontale del VNet per supportare istanze gestite aggiuntive.
 
 > [!IMPORTANT]
-> Una dimensione della subnet con 16 indirizzi IP è il minimo con un potenziale limitato per le altre Istanza gestita scale out. È consigliabile scegliere una subnet con un prefisso /27 o inferiore.
+> Una dimensione della subnet con 16 indirizzi IP è il minimo con un potenziale limitato in cui un'operazione di scalabilità come la modifica delle dimensioni vCore non è supportata. Si consiglia vivamente di scegliere una subnet con prefisso/27 o il prefisso più lungo.
 
 ## <a name="determine-subnet-size"></a>Determinare le dimensioni della subnet
 

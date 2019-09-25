@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7394a9e1b1fa90741bc26fc0e9b6b7e6284d75e0
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104686"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266380"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -24,7 +24,7 @@ Endpoint privato di Azure è un'interfaccia di rete che si connette privatamente
 
 |Proprietà  |DESCRIZIONE |
 |---------|---------|
-|NOME    |    Nome univoco all'interno del gruppo di risorse.      |
+|Attività    |    Nome univoco all'interno del gruppo di risorse.      |
 |Subnet    |  Subnet per la distribuzione e l'allocazione di indirizzi IP privati da una rete virtuale. Per i requisiti della subnet, vedere la sezione limitazioni di questo articolo.         |
 |Risorsa collegamento privato    |   La risorsa di collegamento privato per la connessione usando l'ID risorsa o l'alias, dall'elenco dei tipi disponibili. Verrà generato un identificatore di rete univoco per tutto il traffico inviato a questa risorsa.       |
 |Sottorisorsa di destinazione   |      Sottorisorsa da connettere. Ogni tipo di risorsa di collegamento privato ha opzioni diverse da selezionare in base alla preferenza.    |
@@ -43,7 +43,7 @@ Ecco alcuni dettagli chiave sugli endpoint privati:
  
 - È possibile creare più endpoint privati usando la stessa risorsa di collegamento privato. Per una singola rete che usa una configurazione del server DNS comune, la procedura consigliata consiste nell'usare un singolo endpoint privato per una determinata risorsa di collegamento privato per evitare voci duplicate o conflitti nella risoluzione DNS. 
  
-- È possibile creare più endpoint privati nella stessa subnet o in subnet diverse all'interno della stessa rete virtuale. Sono previsti limiti per il numero di endpoint privati che è possibile creare in una sottoscrizione. Per informazioni dettagliate, vedere [limiti di Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
+- È possibile creare più endpoint privati nella stessa subnet o in subnet diverse all'interno della stessa rete virtuale. Sono previsti limiti per il numero di endpoint privati che è possibile creare in una sottoscrizione. Per informazioni dettagliate, vedere [limiti di Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
 
 
  
@@ -128,8 +128,8 @@ La tabella seguente include un elenco di limitazioni note quando si usano gli en
 |  Il portale non supporta la creazione di endpoint privati tramite alias  |   Il portale consente solo la creazione di endpoint privati usando l'URI di risorsa      | Usare l'URI di risorsa per la richiesta di connessioni a endpoint privati        |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Creare un endpoint privato per il server di database SQL tramite il portale](create-private-endpoint-portal.md)
-- [Creare un endpoint privato per il server di database SQL con PowerShell](create-private-endpoint-powershell.md)
-- [Creare un endpoint privato per il server di database SQL usando l'interfaccia della riga di comando](create-private-endpoint-cli.md)
-- [Creare un endpoint privato per l'account di archiviazione tramite il portale](create-private-endpoint-storage-portal.md)
-- [Creare un servizio di collegamento privato con Azure PowerShell](create-private-link-service-powershell.md)
+- [Creare un endpoint privato per il server di database SQL con il portale ](create-private-endpoint-portal.md)
+- [Creare un endpoint privato per il server di database SQL con PowerShell ](create-private-endpoint-powershell.md)
+- [Creare un endpoint privato per il server di database SQL con l'interfaccia della riga di comando ](create-private-endpoint-cli.md)
+- [Creare un endpoint privato per l'account di archiviazione con il portale ](create-private-endpoint-storage-portal.md)
+- [Creare un servizio Collegamento privato con Azure PowerShell](create-private-link-service-powershell.md)

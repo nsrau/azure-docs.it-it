@@ -1,6 +1,6 @@
 ---
-title: 'App desktop che chiama le API web (passare alla produzione): piattaforma delle identità Microsoft'
-description: Informazioni su come creare un'app Desktop di chiamate di web API (passare alla produzione)
+title: App desktop che chiama le API Web (sposta in produzione)-piattaforma di identità Microsoft
+description: Informazioni su come creare un'app desktop che chiama le API Web (passa alla produzione)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,36 +17,38 @@ ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2343a416bd810792e7267b94395f953aa4f880a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a353b4577f8cfa9ba279ad2793e1a7ab8b27e55
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111193"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268329"
 ---
-# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>App desktop che chiama web API: passare alla produzione
+# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>App desktop che chiama le API Web-passa all'ambiente di produzione
 
-Questo articolo fornisce informazioni dettagliate per migliorare ulteriormente l'applicazione e spostarlo nell'ambiente di produzione.
+Questo articolo fornisce informazioni dettagliate per migliorare ulteriormente l'applicazione e spostarla nell'ambiente di produzione.
 
 ## <a name="handling-errors-in-desktop-applications"></a>Gestione degli errori nelle applicazioni desktop
 
-In flussi diversi, si è appreso come gestire gli errori per i flussi invisibile all'utente (come illustrato nei frammenti di codice). Si è visto inoltre che vi sono casi in cui l'interazione è necessaria (consenso incrementale e l'accesso condizionale).
+Nei diversi flussi si è appreso come gestire gli errori per i flussi Silent (come illustrato nei frammenti di codice). Si è inoltre notato che esistono casi in cui è necessaria l'interazione (consenso incrementale e accesso condizionale).
 
-## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>Come ottenere il consenso dell'utente anticipo per più risorse
+## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>Come ottenere il consenso dell'utente in anticipo per diverse risorse
 
 > [!NOTE]
-> Ottenere il consenso per diverse risorse funziona per la piattaforma delle identità Microsoft, ma non per Azure Active Directory (Azure AD) B2C. Azure AD B2C supporta solo il di consenso dell'amministratore, non il consenso dell'utente.
+> Ottenere il consenso per diverse risorse funziona per la piattaforma di identità Microsoft, ma non per Azure Active Directory (Azure AD) B2C. Azure AD B2C supporta solo il consenso dell'amministratore, non il consenso dell'utente.
 
-L'endpoint di Microsoft identity platform (v2.0) non consente di ottenere un token per diverse risorse in una sola volta. Pertanto, il `scopes` parametro può contenere solo gli ambiti per una singola risorsa. È possibile assicurarsi che l'utente acconsente preventivamente a numerose risorse usando il `extraScopesToConsent` parametro.
+L'endpoint della piattaforma Microsoft Identity (v 2.0) non consente di ottenere un token per più risorse contemporaneamente. Pertanto, il `scopes` parametro può contenere solo ambiti per una singola risorsa. È possibile verificare che l'utente preacconsente a diverse risorse tramite il `extraScopesToConsent` parametro.
 
-Ad esempio, se si hanno due risorse, che hanno due ambiti ogni:
+Ad esempio, se si dispone di due risorse, che hanno due ambiti ciascuno:
 
-- `https://mytenant.onmicrosoft.com/customerapi` -con 2 ambiti `customer.read` e `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi` -con 2 ambiti `vendor.read` e `vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi`-con due ambiti `customer.read` e`customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi`-con due ambiti `vendor.read` e`vendor.write`
 
-È consigliabile usare la `.WithAdditionalPromptToConsent` modificatore contenente il `extraScopesToConsent` parametro.
+Usare il `.WithAdditionalPromptToConsent` modificatore con il `extraScopesToConsent` parametro.
 
 Ad esempio:
+
+### <a name="in-msalnet"></a>In MSAL.NET
 
 ```CSharp
 string[] scopesForCustomerApi = new string[]
@@ -67,17 +69,47 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-Questa chiamata recupera un token di accesso per la prima API web.
+### <a name="in-msal-for-ios-and-macos"></a>In MSAL per iOS e macOS
 
-Quando è necessario chiamare l'API web secondo, è possibile chiamare:
+Objective-C:
+
+```objc
+NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
+                                @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
+    
+NSArray *scopesForVendorApi = @[@"https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
+                              @"https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
+    
+MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
+interactiveParams.extraScopesToConsent = scopesForVendorApi;
+[application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
+```
+
+Swift
+
+```swift
+let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
+                            "https://mytenant.onmicrosoft.com/customerapi/customer.write"]
+        
+let scopesForVendorApi = ["https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
+                          "https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
+        
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
+interactiveParameters.extraScopesToConsent = scopesForVendorApi
+application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
+```
+
+Questa chiamata otterrà un token di accesso per la prima API Web.
+
+Quando è necessario chiamare la seconda API Web, è possibile chiamare `AcquireTokenSilent` l'API:
 
 ```CSharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>Account personale Microsoft richiede reconsenting ogni volta che viene eseguita l'app
+### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>L'account personale Microsoft richiede la riautorizzazione ogni volta che viene eseguita l'app
 
-Per gli utenti di account personali Microsoft, reprompting il consenso per ogni chiamata di native client (app desktop o per dispositivi mobili) per l'autorizzazione è il comportamento previsto. Identità del client nativo è intrinsecamente non sicura (contrariamente applicazione client riservata cui scambiare una chiave privata con la piattaforma Microsoft Identity per dimostrare la propria identità). La piattaforma delle identità Microsoft ha scelto di attenuare questo qui per i servizi consumer richiedendo all'utente il consenso, ogni volta che l'applicazione è autorizzata.
+Per gli utenti di account personali Microsoft, la richiesta di consenso per ogni chiamata di Native Client (desktop/mobile app) per autorizzare è il comportamento previsto. L'identità di Native Client è intrinsecamente non sicura (contrariamente alle applicazioni client riservate che scambiano un segreto con la piattaforma di identità Microsoft per dimostrare la propria identità). La piattaforma di identità Microsoft ha scelto di mitigare questa insicurezza per i servizi consumer richiedendo il consenso dell'utente, ogni volta che l'applicazione è autorizzata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

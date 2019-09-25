@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a2749ca35e6137d42a09b79da9315c8f7b242c31
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1ebf4feb0687d9580bba29cd8213030e542a06da
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000808"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268838"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -29,26 +29,6 @@ Per altre informazioni generali sull'insieme di credenziali delle chiavi di Azur
 ## <a name="public-previews"></a>Anteprime pubbliche
 
 Periodicamente, viene rilasciata un'anteprima pubblica di una nuova funzionalità di Key Vault. Provare le nuove funzionalità e comunicare il feedback all'indirizzo e-mail azurekeyvault@microsoft.com, dedicato ai commenti e ai suggerimenti.
-
-### <a name="storage-account-keys---july-10-2017"></a>Chiavi degli account di archiviazione - 10 luglio 2017
-
->[!NOTE]
->Per questo aggiornamento di Azure Key Vault è disponibile in anteprima solo la funzionalità **Chiavi degli account di archiviazione**.
-
-Questa versione di anteprima include la nuova funzionalità di chiavi degli account di archiviazione, disponibile tramite queste interfacce: [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) e [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
-
-Per ulteriori informazioni sulla nuova funzionalità chiavi degli account di archiviazione, vedere [Panoramica delle chiavi degli account di Azure Key Vault](key-vault-ovw-storage-keys.md).
-
-## <a name="videos"></a>Video
-
-Questo video mostra come creare il proprio insieme di credenziali delle chiavi e come usarlo dall'applicazione di esempio 'Hello Key Vault'.
-
-- [Guida introduttiva per gli sviluppatori di Key Vault](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
-
-Risorse citate nel video precedente:
-
-- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Codice di esempio dell'insieme di credenziali delle chiavi di Azure](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>Creazione e gestione di insiemi di credenziali delle chiavi
 
@@ -148,7 +128,7 @@ Questi articoli illustrano altri scenari e servizi che usano o si integrano con 
 - [Panoramica delle chiavi dell'account di archiviazione di Key Vault](key-vault-ovw-storage-keys.md) descrive le chiavi dell'account di archiviazione di Azure dell'integrazione di Key Vault.
 - [Scenari di sicurezza di Key Vault](key-vault-ovw-security-worlds.md) descrive le relazioni tra le aree e le zone di sicurezza.
 
-## <a name="social"></a>Social network
+## <a name="social"></a>Sociale
 
 - [Blog sull'insieme di credenziali delle chiavi](https://aka.ms/kvblog)
 - [Forum sull'insieme di credenziali delle chiavi](https://aka.ms/kvforum)

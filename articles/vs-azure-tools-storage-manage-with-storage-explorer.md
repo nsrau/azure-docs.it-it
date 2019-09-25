@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 2b923a381be9d6cdb1a83f582a541c9e17e117a4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 43e76b9331eb8dbe95265810b9191a10d4caee08
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086637"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272016"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introduzione a Storage Explorer
 
@@ -79,7 +79,7 @@ Storage Explorer offre numerosi modi per connettersi agli account di archiviazio
 ### <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 > [!NOTE]
-> Per accedere completamente alle risorse dopo l'accesso, Storage Explorer richiede le autorizzazioni sia per la gestione (Azure Resource Manager) che per il livello dati. Ciò significa che sono necessarie autorizzazioni di Azure Active Directory (Azure AD), che consentono di accedere all'account di archiviazione, ai contenitori nell'account e ai dati nei contenitori. Se si dispone di autorizzazioni solo a livello di dati, è consigliabile [aggiungere una risorsa tramite Azure ad](#add-a-resource-via-azure-ad). Per ulteriori informazioni sulle autorizzazioni specifiche Storage Explorer richieste, vedere la [Guida alla risoluzione dei problemi](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#role-based-access-control-permission-issues).
+> Per accedere completamente alle risorse dopo l'accesso, Storage Explorer richiede le autorizzazioni sia per la gestione (Azure Resource Manager) che per il livello dati. Ciò significa che sono necessarie autorizzazioni di Azure Active Directory (Azure AD), che consentono di accedere all'account di archiviazione, ai contenitori nell'account e ai dati nei contenitori. Se si dispone di autorizzazioni solo a livello di dati, è consigliabile [aggiungere una risorsa tramite Azure ad](#add-a-resource-via-azure-ad). Per ulteriori informazioni sulle autorizzazioni specifiche Storage Explorer richieste, vedere la [Guida alla risoluzione dei problemi](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues).
 
 1. In Storage Explorer selezionare **Gestisci account** per passare al pannello di gestione account.
 
