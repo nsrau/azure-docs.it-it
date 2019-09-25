@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
-ms.translationtype: HT
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740942"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264466"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Esercitazione: Preparare un'applicazione per il servizio Azure Kubernetes
 

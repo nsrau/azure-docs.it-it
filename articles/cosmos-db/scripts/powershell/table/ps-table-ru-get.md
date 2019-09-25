@@ -3,15 +3,16 @@ title: Script di Azure PowerShell - Misurare la velocità effettiva (UR/s) di Az
 description: Script di Azure PowerShell - Misurare la velocità effettiva (UR/s) di Azure Cosmos DB per l'API Tabella
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: d34a9e679ee6c1b65111817197a98555be13cf1d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 5d3fa2e2122c006825a8413a2ca2f292bda2de74
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67601954"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178707"
 ---
 # <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Misurare la velocità effettiva (UR/s) per una tabella per Azure Cosmos DB - API Tabella
 

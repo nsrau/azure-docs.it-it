@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/09/2019
-ms.openlocfilehash: c4d2e70d0f200f3a31948cfaa43def8e1b699878
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 09/22/2019
+ms.openlocfilehash: 7e5b4a3cb04215504c4fd4fd1ebfcbcbe8c3f9f8
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706892"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179115"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Esercitazione: Eseguire la migrazione offline di SQL Server a un database singolo o in pool in Database SQL di Azure con Servizio Migrazione del database
 
@@ -106,6 +106,7 @@ Dopo aver acquisito familiarità con la valutazione e aver verificato che il dat
 
 > [!NOTE]
 > Prima di creare un progetto di migrazione in Data Migration Assistant, assicurarsi di aver già eseguito il provisioning di un database SQL di Azure come indicato nei prerequisiti. Ai fini di questa esercitazione, si presuppone che il nome del database SQL di Azure sia **AdventureWorksAzure**, ma è possibile specificare il nome che si preferisce.
+
 > [!IMPORTANT]
 > Se si usa SSIS, DMA non supporta al momento la migrazione del database SSISDB di origine, ma è possibile ridistribuire i propri progetti/pacchetti SSIS nel database SSISDB di destinazione ospitato dal database SQL di Azure. Per altre informazioni sulla migrazione dei pacchetti SSIS, vedere l'articolo [Eseguire la migrazione di pacchetti SQL Server Integration Services in Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
@@ -197,7 +198,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
     ![Individuare l'istanza del Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
 3. Selezionare **+ Nuovo progetto di migrazione**.
-4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e quindi selezionare **SQL Server** nella casella di testo **Tipo del server di origine**, **Database SQL di Azure** nella casella di testo **Tipo del server di destinazione** e **Migrazione dei dati offline** per **Scegli il tipo di attività**. 
+4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e quindi selezionare **SQL Server** nella casella di testo **Tipo del server di origine**, **Database SQL di Azure** nella casella di testo **Tipo del server di destinazione** e **Migrazione dei dati offline** per **Scegli il tipo di attività**.
 
     ![Creare il progetto del Servizio Migrazione del database](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
 

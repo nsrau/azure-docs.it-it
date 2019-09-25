@@ -3,9 +3,8 @@ title: Migliorare la conformità alle normative con il Centro sicurezza di Azure
 description: 'Esercitazione: informazioni su come migliorare la conformità alle normative con il Centro sicurezza di Azure.'
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/30/2019
-ms.author: v-mohabe
-ms.openlocfilehash: e1544b0c9bf280c8d097d2fa25f7fc652450b87e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.author: memildin
+ms.openlocfilehash: 20842997c5df81835024a6f458cd863b4e4d78b0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968568"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202438"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Esercitazione: Migliorare la conformità alle normative
 ---

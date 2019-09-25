@@ -3,15 +3,16 @@ title: Script di Azure PowerShell - Operazioni list e get di Azure Cosmos DB per
 description: Script di Azure PowerShell - Operazioni list e get di Azure Cosmos DB per l'API Gremlin
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: ab13b867efc073b8dffc7d9eb33ce4596bdf4099
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 532d28e5d10177e25ff700e35c9c2387690d4609
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603931"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178947"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Elencare e ottenere database e grafi per Azure Cosmos DB - API- Gremlin
 

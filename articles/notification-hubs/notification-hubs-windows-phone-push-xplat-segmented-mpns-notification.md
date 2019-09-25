@@ -3,9 +3,9 @@ title: Eseguire il push di notifiche a dispositivi Windows Phone specifici con H
 description: Questa esercitazione descrive come usare Hub di notifica di Azure per inviare notifiche push a dispositivi Windows Phone 8 o Windows Phone 8.1 specifici (non tutti) registrati con il back-end dell'applicazione.
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 10f8c2e21f2dcf8c108576d54fe6776ecf04a0f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 88326b07a96dcc8ce7a72f8709a88c2662f48707
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861321"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213399"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche a dispositivi Windows Phone specifici con Hub di notifica di Azure
 

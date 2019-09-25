@@ -3,15 +3,16 @@ title: Script di Azure PowerShell - Aggiornare le unità richiesta al secondo di
 description: Script di Azure PowerShell - Aggiornare le unità richiesta al secondo di Azure Cosmos DB per l'API SQL (Core)
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: fae1e7946905a96fbbf00909c96dd3aa99d766d5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6b54b6021baf7a91c79309f8fa69b4df67d3887e
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603825"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178743"
 ---
 # <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Aggiornare le unità richiesta al secondo per un database o un contenitore per Azure Cosmos DB - API SQL (Core)
 

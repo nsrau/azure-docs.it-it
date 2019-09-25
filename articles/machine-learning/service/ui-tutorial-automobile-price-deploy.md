@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 22d5c41e8b815fd99450962cb63d11e9560c787f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 9378c6a14c3b755a6456ef68ecd73730cb77fc79
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997018"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128975"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Esercitazione: Distribuire un modello di Machine Learning con l'interfaccia visiva grafica
 
@@ -130,4 +130,4 @@ I modelli e le distribuzioni di servizi Web creati nell'interfaccia visiva grafi
 In questa esercitazione sono stati illustrati i principali passaggi per creare, distribuire e utilizzare un modello di Machine Learning nell'interfaccia visiva grafica. Per altre informazioni su come usare l'interfaccia visiva grafica per risolvere altri tipi di problemi, vedere gli esperimenti di esempio.
 
 > [!div class="nextstepaction"]
-> [Esempio di classificazione del rischio di credito](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+> [Esempio di classificazione del rischio di credito](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)

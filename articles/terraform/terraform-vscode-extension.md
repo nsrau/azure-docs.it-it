@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/31/2018
-ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 7dd87f38ca5dfb1c2fdd38b56b314e0cbbe3ce12
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006199"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169924"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installare e usare l'estensione Azure Terraform di Visual Studio Code
 

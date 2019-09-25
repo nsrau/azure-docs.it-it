@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 12/04/2018
-ms.openlocfilehash: 257a2d78a54e292faecda836811f0a58fabd584d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 09/20/2019
+ms.openlocfilehash: d7e6b5c5b9b36e093986aa96a6ad9b401175deb2
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854512"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173490"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Creare un cluster Kubernetes con il servizio Azure Kubernetes e Terraform
 Il [servizio Azure Kubernetes](/azure/aks/) gestisce l'ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Elimina anche l'impegno delle operazioni in corso e della manutenzione effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline.
@@ -74,7 +74,7 @@ Creare il file di configurazione Terraform che dichiara il provider di Azure.
 
 1. Incollare il codice seguente nell'editor:
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.5"
     }
@@ -105,7 +105,7 @@ Creare il file di configurazione Terraform che dichiara le risorse per il cluste
 
 1. Incollare il codice seguente nell'editor:
 
-    ```JSON
+    ```hcl
     resource "azurerm_resource_group" "k8s" {
         name     = "${var.resource_group_name}"
         location = "${var.location}"
@@ -202,7 +202,7 @@ Creare il file di configurazione Terraform che dichiara le risorse per il cluste
 
 1. Incollare il codice seguente nell'editor:
 
-    ```JSON
+    ```hcl
     variable "client_id" {}
     variable "client_secret" {}
 
@@ -266,7 +266,7 @@ Gli [output di Terraform](https://www.terraform.io/docs/configuration/outputs.ht
 
 1. Incollare il codice seguente nell'editor:
 
-    ```JSON
+    ```hcl
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
@@ -323,7 +323,7 @@ Terraform tiene traccia dello stato localmente tramite il file `terraform.tfstat
 
 1. In Cloud Shell creare un contenitore nell'account di archiviazione di Azure, sostituendo i segnaposto &lt;YouAzureStorageAccountName> e &lt;YouAzureStorageAccessKey> con i valori appropriati per l'account di archiviazione di Azure.
 
-    ```bash
+    ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 

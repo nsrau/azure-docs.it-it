@@ -8,13 +8,13 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 157be65a19a1f790b911aa9d861c5f18fc8c0813
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: e35af0fcf4a8f1f8f0446be44fe5b0bb6eeec693
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006167"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169684"
 ---
 # <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>Esercitazione: Convalidare una rete hub-spoke con Terraform in Azure
 

@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/13/2017
-ms.openlocfilehash: 284dcd99dc77d7ec0fb5cb214d49b6fcf93a6aef
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 09/20/2019
+ms.openlocfilehash: bf9539512961930a97d9dcfe86722d0103c1facc
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854493"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173470"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Creare un cluster di macchine virtuali con Terraform e HCL
 
@@ -46,7 +46,7 @@ In questa sezione vengono generati un'entità servizio di Azure e due file di co
 
 5. Copiare il codice seguente nel file di dichiarazione delle variabili:
 
-   ```tf
+   ```hcl
    variable subscription_id {}
    variable tenant_id {}
    variable client_id {}
@@ -64,7 +64,7 @@ In questa sezione vengono generati un'entità servizio di Azure e due file di co
 
 7. Copiare il codice seguente nel file di dichiarazione delle variabili. Assicurarsi di sostituire i segnaposto come segue: Per `subscription_id`, usare l'ID sottoscrizione di Azure specificato durante l'esecuzione di `az account set`. Per `tenant_id`, usare il valore `tenant` restituito da `az ad sp create-for-rbac`. Per `client_id`, usare il valore `appId` restituito da `az ad sp create-for-rbac`. Per `client_secret`, usare il valore `password` restituito da `az ad sp create-for-rbac`.
 
-   ```tf
+   ```hcl
    subscription_id = "<azure-subscription-id>"
    tenant_id = "<tenant-returned-from-creating-a-service-principal>"
    client_id = "<appId-returned-from-creating-a-service-principal>"
@@ -79,7 +79,7 @@ In questa sezione viene creato un file che contiene le definizioni delle risorse
 
 2. Copiare le definizioni delle risorse di esempio seguenti nel file `main.tf` appena creato: 
 
-   ```tf
+   ```hcl
    resource "azurerm_resource_group" "test" {
     name     = "acctestrg"
     location = "West US 2"
@@ -227,7 +227,7 @@ Il [comando terraform init](https://www.terraform.io/docs/commands/init.html) vi
 
 Per inizializzare Terraform, eseguire il comando seguente:
 
-  ```cmd
+  ```bash
   terraform init
   ```
 
@@ -245,13 +245,13 @@ Durante l'elaborazione del comando `terraform plan`, Terraform esegue un aggiorn
 
 Se non occorre salvare il piano di esecuzione, eseguire il comando seguente:
 
-  ```cmd
+  ```bash
   terraform plan
   ```
 
 Se occorre salvare il piano di esecuzione, eseguire il comando seguente (sostituendo il segnaposto &lt;path> con il percorso di output desiderato):
 
-  ```cmd
+  ```bash
   terraform plan -out=<path>
   ```
 
@@ -263,13 +263,13 @@ Il passaggio finale di questa esercitazione consiste nell'usare il [comando terr
 
 Se si vuole applicare il piano di esecuzione più recente, eseguire il comando seguente:
 
-  ```cmd
+  ```bash
   terraform apply
   ```
 
 Se si vuole applicare un piano di esecuzione salvato in precedenza, eseguire il comando seguente (sostituendo il segnaposto &lt;path> con il percorso che contiene il piano di esecuzione salvato):
 
-  ```cmd
+  ```bash
   terraform apply <path>
   ```
 

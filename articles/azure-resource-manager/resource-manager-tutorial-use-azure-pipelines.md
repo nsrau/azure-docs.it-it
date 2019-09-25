@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 85dc0476da12bea64610b6910b0682fef00f4b5a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064735"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122216"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Esercitazione: Integrazione continua dei modelli di Azure Resource Manager con Azure Pipelines
 
@@ -264,4 +264,4 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 In questa esercitazione si crea una pipeline Azure DevOps per distribuire un modello di Azure Resource Manager. Per informazioni su come distribuire le risorse di Azure in più aree e su come usare procedure di distribuzione sicure, vedere:
 
 > [!div class="nextstepaction"]
-> [Usare Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Usare procedure di distribuzione sicure](./deployment-manager-tutorial.md)

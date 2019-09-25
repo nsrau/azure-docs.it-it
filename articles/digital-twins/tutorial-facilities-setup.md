@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a107f7dba7f28b41303727ad37b7c50f2e215c4f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 1ab3f30f035f8099ab50f827e559e56b31d7f1f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622917"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219750"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Anteprima di Gemelli digitali di Azure e configurare un grafo spaziale
 
@@ -43,15 +43,11 @@ Queste esercitazioni usano e modificano gli stessi esempi usati nella [guida int
 
 - [Visual Studio Code](https://code.visualstudio.com/) per esplorare il codice di esempio. 
 
-<a id="deploy"></a>
-
 ## <a name="deploy-digital-twins"></a>Distribuire Gemelli digitali
 
 Usare i passaggi in questa sezione per creare una nuova istanza del servizio Gemelli digitali di Azure. Per ogni sottoscrizione può essere creata solo un'istanza. Se c'è già un'istanza in esecuzione, passare alla sezione successiva. 
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
-
-<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>Concedere autorizzazioni all'app
 
@@ -76,7 +72,7 @@ Se sono già stati scaricati gli esempi per la [guida introduttiva alla ricerca 
 
 Nella cartella degli esempi estratta, aprire il file **digital-twins-samples-csharp\digital-twins-samples.code-workspace** in Visual Studio Code. La cartella contiene due progetti:
 
-* È possibile usare l'esempio di provisioning **occupazione-quickstart** per configurare ed eseguire il provisioning di un [grafico di intelligenza spaziale](concepts-objectmodel-spatialgraph.md#graph). Questo grafico è l'immagine digitalizzata degli spazi fisici e delle risorse in essi contenuti. Viene usato un [modello a oggetti](concepts-objectmodel-spatialgraph.md#model) che definisce gli oggetti per un edificio intelligente. Per un elenco completo delle API REST e degli oggetti di Gemelli digitali, vedere la [documentazione delle API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) o l'URL dell'API Gestione creato per [l'istanza in uso](#deploy).
+* È possibile usare l'esempio di provisioning **occupazione-quickstart** per configurare ed eseguire il provisioning di un [grafico di intelligenza spaziale](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Questo grafico è l'immagine digitalizzata degli spazi fisici e delle risorse in essi contenuti. Viene usato un [modello a oggetti](concepts-objectmodel-spatialgraph.md#digital-twins-object-models) che definisce gli oggetti per un edificio intelligente. Per un elenco completo delle API REST e degli oggetti di Gemelli digitali, vedere la [documentazione delle API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) o l'URL dell'API Gestione creato per [l'istanza in uso](#deploy-digital-twins).
 
    Per esaminare l'esempio e capire come avviene la comunicazione con l'istanza di Gemelli digitali, è possibile iniziare dalla cartella **src\actions**. I file in questa cartella implementano i comandi che verranno usati in queste esercitazioni:
     - Il file **provisionSample.cs** mostra come effettuare il provisioning del grafico spaziale.
@@ -84,7 +80,7 @@ Nella cartella degli esempi estratta, aprire il file **digital-twins-samples-csh
     - Il file **getAvailableAndFreshSpaces.cs** ottiene i risultati di una funzione personalizzata detta funzione definita dall'utente.
     - Il file **createEndpoints.cs** crea gli endpoint per l'interazione con altri servizi.
 
-* L'esempio di simulazione **device-connectivity** simula i dati dei sensori e li invia all'hub IoT di cui è stato effettuato il provisioning per l'istanza di Gemelli digitali. L'esempio verrà usato nell'[esercitazione successiva dopo avere effettuato il provisioning del grafico spaziale](tutorial-facilities-udf.md#simulate). Gli identificatori di sensori e dispositivi usati per configurare questo esempio devono corrispondere a quelli usati per il provisioning del grafico.
+* L'esempio di simulazione **device-connectivity** simula i dati dei sensori e li invia all'hub IoT di cui è stato effettuato il provisioning per l'istanza di Gemelli digitali. L'esempio verrà usato nell'[esercitazione successiva dopo avere effettuato il provisioning del grafico spaziale](tutorial-facilities-udf.md#simulate-sensor-data). Gli identificatori di sensori e dispositivi usati per configurare questo esempio devono corrispondere a quelli usati per il provisioning del grafico.
 
 ### <a name="configure-the-provisioning-sample"></a>Configurare l'esempio di provisioning
 
@@ -101,17 +97,15 @@ Nella cartella degli esempi estratta, aprire il file **digital-twins-samples-csh
     ```
 
 1. In Visual Studio Code aprire il file [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) del progetto **occupancy-quickstart**. Aggiornare i valori seguenti:
-   * **ClientId**: immettere l'ID applicazione della registrazione dell'app Azure AD. Questo ID è stato annotato nella sezione relativa all'[impostazione delle autorizzazioni dell'app](#permissions).
-   * **Tenant**: immettere l'ID directory del [tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Anche questo ID è stato annotato nella sezione relativa all'[impostazione delle autorizzazioni dell'app](#permissions).
-   * **BaseUrl**: immettere l'URL dell'istanza di Gemelli digitali. Per ottenere questo URL, sostituire i segnaposto nell'URL con i valori per l'istanza: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. È anche possibile ottenere l'URL modificando l'URL dell'API Gestione della [sezione relativa alla distribuzione](#deploy). Sostituire **swagger/** con **api/v1.0/** .
+   * **ClientId**: immettere l'ID applicazione della registrazione dell'app Azure AD. Questo ID è stato annotato nella sezione relativa all'[impostazione delle autorizzazioni dell'app](#grant-permissions-to-your-app).
+   * **Tenant**: immettere l'ID directory del [tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Anche questo ID è stato annotato nella sezione relativa all'[impostazione delle autorizzazioni dell'app](#grant-permissions-to-your-app).
+   * **BaseUrl**: immettere l'URL dell'istanza di Gemelli digitali. Per ottenere questo URL, sostituire i segnaposto nell'URL con i valori per l'istanza: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. È anche possibile ottenere l'URL modificando l'URL dell'API Gestione della [sezione relativa alla distribuzione](#deploy-digital-twins). Sostituire **swagger/** con **api/v1.0/** .
 
 1. Per visualizzare un elenco delle funzionalità di Gemelli digitali che è possibile esplorare usando l'esempio. Eseguire il comando seguente:
 
     ```cmd/sh
     dotnet run
     ```
-
-<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>Informazioni sul processo di provisioning
 

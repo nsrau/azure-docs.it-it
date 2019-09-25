@@ -3,9 +3,8 @@ title: Esercitazione per il Centro sicurezza di Azure - Rispondere agli eventi i
 description: Esercitazione per il Centro sicurezza di Azure - Rispondere agli eventi imprevisti della sicurezza
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
@@ -14,13 +13,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: 12ea21a3f61404c2e031909adda28f8e1e768cd0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.author: memildin
+ms.openlocfilehash: 11c2543de2b5456d253e7e905065eea14810877a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992075"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200615"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Esercitazione: Rispondere agli eventi imprevisti per la sicurezza
 Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence delle minacce per segnalare attività dannose. È anche possibile integrare nel Centro sicurezza gli avvisi generati da altri servizi e prodotti per la sicurezza e creare avvisi personalizzati in base a indicatori o origini di intelligence dell'utente. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione. In questa esercitazione si apprenderà come:
