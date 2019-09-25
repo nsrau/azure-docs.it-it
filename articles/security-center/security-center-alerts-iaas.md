@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 0070ab94196dfe752e048e97dd40a8f69cf98373
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0d6f05524be41693ba280b0f0162f65b517ec281
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202601"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219628"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Rilevamento delle minacce per VM e server nel centro sicurezza di Azure
 
@@ -35,7 +35,7 @@ Il Centro sicurezza estende le piattaforme di protezione dei carichi di lavoro c
 > [!NOTE]
 > Il sensore Windows Server Defender ATP viene abilitato automaticamente nei server Windows che usano il Centro sicurezza.
 
-Quando Windows Server Defender ATP rileva una minaccia, viene attivato un avviso. L'avviso viene visualizzato nel dashboard del Centro sicurezza. Dal dashboard è possibile passare alla console di Windows Defender ATP ed eseguire un'indagine dettagliata per individuare l'ambito dell'attacco. Per ulteriori informazioni su Windows Server Defender ATP, vedere [onboarding servers to the Windows Defender ATP Service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+Quando Windows Server Defender ATP rileva una minaccia, viene attivato un avviso. L'avviso viene visualizzato nel dashboard del Centro sicurezza. Dal dashboard è possibile passare alla console di Microsoft Defender ATP ed eseguire un'indagine dettagliata per individuare l'ambito dell'attacco. Per ulteriori informazioni su Windows Server Defender ATP, vedere [onboarding servers to the Microsoft Defender ATP Service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 ### Analisi del dump di arresto anomalo<a nanme="windows-dump"></a>
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 71b7e4bd9406e7fb300ebccd86908820b7628c29
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "71000771"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
@@ -53,7 +53,7 @@ Usare le informazioni e le procedure seguenti se si genera una chiave HSM protet
 
 Nella tabella seguente sono elencati i prerequisiti relativi alla modalità BYOK per l'insieme di credenziali delle chiavi di Azure.
 
-| Requisito | Altre informazioni |
+| Requisito | Ulteriori informazioni |
 | --- | --- |
 | Sottoscrizione di Azure |Per creare un insieme di credenziali delle chiavi di Azure, è necessaria una sottoscrizione di Azure: [Iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) |
 | È inoltre necessario il livello di servizio Premium dell'insieme di credenziali delle chiavi di Azure per supportare chiavi HSM protette. |Per altre informazioni su livelli di servizio e funzionalità per l'insieme di credenziali delle chiavi di Azure, vedere il sito Web relativo ai [prezzi dell'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -74,7 +74,7 @@ Per generare e trasferire la chiave al modulo di protezione hardware dell'insiem
 
 Per questo primo passaggio è necessario eseguire le procedure seguenti nella workstation connessa a Internet.
 
-### <a name="step-11-install-azure-powershell"></a>Passaggio 1.1: Installare Azure PowerShell
+### <a name="step-11-install-azure-powershell"></a>Passaggio 1.1: Installa Azure PowerShell
 
 Dalla workstation connessa a Internet scaricare e installare il modulo di Azure PowerShell che include i cmdlet per la gestione dell'insieme di credenziali delle chiavi di Azure. Per le istruzioni di installazione, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
@@ -376,7 +376,7 @@ Questo script convalida la catena del firmatario fino alla chiave radice nShield
 
 È ora possibile creare una nuova chiave.
 
-### <a name="step-35-create-a-new-key"></a>Passaggio 3.5: Creare una nuova chiave
+### <a name="step-35-create-a-new-key"></a>Passaggio 3.5: Crea una nuova chiave
 
 Generare una chiave tramite il programma nCipher nShield **GenerateKey** .
 

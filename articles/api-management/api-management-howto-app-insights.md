@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 10e8edcd3a1e781866eaee2cbe48d1536dbc1229
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ae467e3def65d446a8c331c4f15033b4c01886ae
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073591"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219484"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Come integrare Gestione API di Azure con Azure Application Insights
 
@@ -63,7 +63,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 6. Selezionare la casella **Abilita**.
 7. Selezionare il logger associato nell'elenco a discesa **Destinazione**.
 8. Immettere **100** come **Sampling (%)** (Campionamento - %) e selezionare la casella di controllo **Always log errors** (Registra sempre gli errori).
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 > [!WARNING]
 > Sovrascrivere il valore predefinito **0** nei **primi byte del campo corpo** potrebbe ridurre in modo significativo le prestazioni delle API.
@@ -77,8 +77,9 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 | Destination                         | Logger di Azure Application Insights | Specifica il logger di Azure Application Insights da usare                                                                                                                                                                                                                                                                                           |
 | Sampling (%) (Campionamento - %)                        | decimal                           | Valori compresi tra 0 e 100 (percentuale). <br/> Specifica la percentuale di richieste che verranno registrate in Azure Application Insights. Un campionamento pari allo 0% indica che verranno registrate zero richieste, mentre un campionamento del 100% indica che verranno registrate tutte le richieste. <br/> Questa impostazione viene usata per ridurre l'impatto sulle prestazioni dovuto alla registrazione delle richieste in Azure Application Insights (vedere la sezione seguente). |
 | Always log errors (Registra sempre gli errori)                   | boolean                           | Se questa impostazione viene selezionata, tutti gli errori verranno registrati in Azure Application Insights, indipendentemente dall'impostazione di **campionamento**.                                                                                                                                                                                                                  |
-| Opzioni di base: Intestazioni              | list                              | Specifica le intestazioni che verranno registrate in Azure Application Insights per le richieste e risposte.  Impostazione predefinita: non vengono registrate intestazioni.                                                                                                                                                                                                             |
-| Opzioni di base: Primi byte del corpo  | integer                           | Specifica il numero di primi byte del corpo che verranno registrati in Azure Application Insights per le richieste e risposte.  Impostazione predefinita: il corpo non viene registrato.                                                                                                                                                                                              |
+| Opzioni di base: Intestazioni              | elenco                              | Specifica le intestazioni che verranno registrate in Azure Application Insights per le richieste e risposte.  Impostazione predefinita: non vengono registrate intestazioni.                                                                                                                                                                                                             |
+| Opzioni di base: Primi byte del corpo  | integer                           | Specifica il numero di primi byte del corpo che verranno registrati in Azure Application Insights per le richieste e risposte.  Impostazione predefinita: il corpo non viene registrato.                                                                                                                                                                                                    |
+| Opzioni avanzate: Verbosity         |                                   | Specifica il livello di dettaglio. Verranno registrate solo le tracce personalizzate con livello di gravità superiore. Valore predefinito: Informazioni.                                                                                                                                                                                                                               |
 | Opzioni avanzate: Richiesta front-end  |                                   | Specifica se e come le *richieste front-end* verranno registrate in Azure Application Insights. La *richiesta front-end* è una richiesta in arrivo al servizio Gestione API di Azure.                                                                                                                                                                        |
 | Opzioni avanzate: Risposta front-end |                                   | Specifica se e come le *risposte front-end* verranno registrate in Azure Application Insights. La *risposta front-end* è una risposta in uscita dal servizio Gestione API di Azure.                                                                                                                                                                   |
 | Opzioni avanzate: Richieste back-end   |                                   | Specifica se e come le *richieste back-end* verranno registrate in Azure Application Insights. La *richiesta back-end* è una richiesta in uscita dal servizio Gestione API di Azure.                                                                                                                                                                        |

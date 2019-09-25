@@ -6,19 +6,19 @@ author: barclayn
 manager: rkarlin
 ms.service: key-vault
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 09/23/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: e1c5382e1e55c5c73a5610c1c13f6bfcef65ebc1
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 90965618b1d2cb126d56453d46a5bebc85319c0f
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148276"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219638"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Raccomandazioni sulla sicurezza per Azure Key Vault
 
-Questo articolo contiene raccomandazioni sulla sicurezza per il servizio app Azure. L'implementazione di questi consigli consente di soddisfare gli obblighi di sicurezza come descritto nel modello di responsabilità condivisa e di migliorare la sicurezza complessiva per le soluzioni di app Web. Per ulteriori informazioni sulle attività svolte da Microsoft per soddisfare le responsabilità del provider di servizi, vedere [responsabilità condivise per cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
+Questo articolo contiene raccomandazioni sulla sicurezza per Azure Key Vault. L'implementazione di questi consigli consentirà di soddisfare gli obblighi di sicurezza come descritto nel modello di responsabilità condivisa. Per ulteriori informazioni sulle attività svolte da Microsoft per soddisfare le responsabilità del provider di servizi, vedere [responsabilità condivise per cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
 
 Alcuni consigli inclusi in questo articolo possono essere monitorati automaticamente dal centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per la protezione delle risorse in Azure. Analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Fornisce quindi suggerimenti su come risolverli.
 
@@ -27,7 +27,7 @@ Alcuni consigli inclusi in questo articolo possono essere monitorati automaticam
 
 ## <a name="recommendations"></a>Consigli
 
-| Category | Raccomandazione | Commenti | Centro sicurezza |
+| Category | Indicazione | Commenti | Centro sicurezza |
 |-|-|----|--|
 | Protezione dei dati |Abilita eliminazione temporanea | L' [eliminazione](key-vault-ovw-soft-delete.md) temporanea consente di ripristinare gli insiemi di credenziali eliminati e gli oggetti dell'insieme di credenziali |  - |
 | Protezione dei dati | Limitare l'accesso ai dati dell'insieme di credenziali  | Seguire il principio dei privilegi minimi e limitare i membri dell'organizzazione che hanno accesso ai dati dell'insieme di credenziali |  - |

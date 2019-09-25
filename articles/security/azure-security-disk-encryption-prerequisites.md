@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f7ad49fc56fc82955f79155838c69ff714aba2f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bd51e70122a5457c8dcf1bd8f2061fe25943e87f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845871"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224503"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prerequisiti di Crittografia dischi di Azure
 
@@ -28,11 +28,11 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 
 ## <a name="supported-vm-sizes"></a>Dimensioni delle macchine virtuali supportate
 
-Crittografia dischi di Azure non è disponibile nelle [VM di base serie A](/pricing/details/virtual-machines/series/). Crittografia dischi di Azure è disponibile in altre macchine virtuali che soddisfano i requisiti di memoria minimi seguenti:
+Crittografia dischi di Azure non è disponibile nelle [VM di base serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/). Crittografia dischi di Azure è disponibile in altre macchine virtuali che soddisfano i requisiti di memoria minimi seguenti:
 
 | Macchina virtuale | Requisito memoria minima |
 |--|--|
-| Macchine virtuali Windows | 2 GB |
+| Macchine virtuali di Windows | 2 GB |
 | VM Linux quando si crittografano solo i volumi di dati| 2 GB |
 | VM Linux durante la crittografia di volumi di dati e sistemi operativi e in cui la radice (/) file system utilizzo è 4 GB o meno | 8 GB |
 | Macchine virtuali Linux durante la crittografia di volumi di dati e sistemi operativi e in cui la radice (/) file system utilizzo è maggiore di 4 GB | Utilizzo file system radice * 2. Ad esempio, i 16 GB di utilizzo file system radice richiedono almeno 32GB di RAM |
@@ -40,7 +40,7 @@ Crittografia dischi di Azure non è disponibile nelle [VM di base serie A](/pric
 Una volta completato il processo di crittografia del disco del sistema operativo nelle macchine virtuali Linux, è possibile configurare la macchina virtuale in modo che venga eseguita con meno memoria. 
 
 > [!NOTE]
-> La crittografia del disco del sistema operativo Linux non è disponibile per i set di scalabilità di [macchine virtuali](../virtual-machine-scale-sets/index.yml).
+> La crittografia del disco del sistema operativo Linux non è disponibile per i [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/index.yml).
 
 Crittografia dischi di Azure è disponibile anche per le macchine virtuali con archiviazione Premium. 
 
@@ -59,13 +59,13 @@ Crittografia dischi di Azure è disponibile anche per le macchine virtuali con a
 
 ### <a name="linux"></a>Linux 
 
-Crittografia dischi di Azure è supportata in un subset di [distribuzioni Linux](../virtual-machines/linux/endorsed-distros.md)approvate per Azure, che è a sua volta un subset di tutte le distribuzioni di server Linux possibili.
+Crittografia dischi di Azure è supportata in un subset di [distribuzioni Linux approvate per Azure](../virtual-machines/linux/endorsed-distros.md), che è a sua volta un subset di tutte le distribuzioni di server Linux possibili.
 
 ![Diagramma di Venn di distribuzioni di server Linux che supportano crittografia dischi di Azure](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
 Le distribuzioni di server Linux che non sono approvate da Azure non supportano crittografia dischi di Azure e, di quelle approvate, solo le distribuzioni e le versioni seguenti supportano crittografia dischi di Azure:
 
-| Distribuzione Linux | Version | Tipo di volume supportato per la crittografia|
+| Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
 | --- | --- |--- |
 | Ubuntu | 18,04| Disco del sistema operativo e dati |
 | Ubuntu | 16.04| Disco del sistema operativo e dati |
@@ -296,7 +296,7 @@ Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare
 1. Selezionare l'insieme di credenziali delle chiavi, passare a **Criteri di accesso** e **Fare clic per visualizzare i criteri di accesso avanzati**.
 2. Selezionare la casella **Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi**.
 3. Selezionare **Abilita l'accesso alle macchine virtuali di Azure per la distribuzione** e/o **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli**, se necessario. 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
     ![Criteri di accesso avanzati per l'insieme di credenziali delle chiavi di Azure](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 

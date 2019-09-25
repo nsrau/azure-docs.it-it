@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 9da58bf3152867bc13dd1879ec57a69b8bd38cb0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 69e55b17814c5b5ada0813bd0de66cc3a9a591f4
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129338"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219500"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 Questo articolo fornisce un set di procedure consigliate operative per la protezione di dati, applicazioni e altre risorse in Azure.
@@ -79,7 +79,7 @@ I candidati validi includono:
 **Dettagli**: Le modifiche apportate al gruppo di gestione radice possono influenzare ogni risorsa in Azure. Sebbene forniscano un modo efficace per garantire la coerenza nell'azienda, gli errori o l'utilizzo non corretto possono influire negativamente sulle operazioni di produzione. Testare tutte le modifiche al gruppo di gestione radice in un Lab di test o in un progetto pilota di produzione.
 
 ## <a name="streamline-environment-creation-with-blueprints"></a>Semplifica la creazione dell'ambiente con i progetti
-[Il](/azure/governance/blueprints/overview) servizio Blueprints di Azure consente agli architetti di cloud e ai gruppi di tecnologie informatiche centrali di definire un set ripetibile di risorse di Azure che implementa e rispetta gli standard, i modelli e i requisiti di un'organizzazione. I progettisti di Azure consentono ai team di sviluppo di creare e creare rapidamente nuovi ambienti con un set di componenti predefiniti e la sicurezza di creare tali ambienti entro la conformità dell'organizzazione.
+[Il servizio Blueprints di Azure](/azure/governance/blueprints/overview) consente agli architetti di cloud e ai gruppi di tecnologie informatiche centrali di definire un set ripetibile di risorse di Azure che implementa e rispetta gli standard, i modelli e i requisiti di un'organizzazione. I progettisti di Azure consentono ai team di sviluppo di creare e creare rapidamente nuovi ambienti con un set di componenti predefiniti e la sicurezza di creare tali ambienti entro la conformità dell'organizzazione.
 
 ## <a name="monitor-storage-services-for-unexpected-changes-in-behavior"></a>Monitorare i servizi di archiviazione per rilevare cambiamenti inattesi nel comportamento
 La diagnosi e la risoluzione dei problemi in un'applicazione distribuita ospitata in un ambiente cloud possono essere più complesse di quanto lo siano in ambienti tradizionali. Le applicazioni possono essere distribuite in un'infrastruttura PaaS o IaaS, in locale, su un dispositivo mobile o in una combinazione di questi tipi di ambienti. Il traffico di rete dell'applicazione può passare su reti pubbliche e private e l'applicazione può usare più tecnologie di archiviazione.
@@ -95,7 +95,7 @@ Il livello gratuito del Centro sicurezza offre una protezione limitata solo per 
 
 Usare il Centro sicurezza per ottenere una visualizzazione centralizzata dello stato di sicurezza di tutte le risorse di Azure. Il Centro sicurezza consente di verificare subito che i controlli di sicurezza appropriati siano implementati e configurati correttamente e di identificare rapidamente le risorse che richiedono attenzione.
 
-Il Centro sicurezza si integra anche con [Windows Defender Advanced Threat Protection (ATP)](../../security-center/security-center-wdatp.md), che offre funzionalità complete di rilevamento e risposta degli endpoint. Con l'integrazione di Windows Defender ATP, è possibile individuare eventuali anomalie, È anche possibile rilevare e rispondere agli attacchi avanzati sugli endpoint server monitorati dal centro sicurezza.
+Il Centro sicurezza si integra anche con [Microsoft Defender Advanced Threat Protection (ATP)](../../security-center/security-center-wdatp.md), che offre funzionalità complete di rilevamento e risposta degli endpoint. Con l'integrazione di Microsoft Defender ATP è possibile individuare le anomalie. È anche possibile rilevare e rispondere agli attacchi avanzati sugli endpoint server monitorati dal centro sicurezza.
 
 Quasi tutte le organizzazioni aziendali dispongono di un sistema SIEM (Security Information and Event Management) che consente di identificare le minacce emergenti consolidando le informazioni di log da diversi dispositivi di raccolta dei segnali. I log vengono quindi analizzati da un sistema di analisi dei dati per identificare gli elementi "interessanti" del rumore inevitabile in tutte le soluzioni di raccolta e analisi dei log.
 
@@ -121,7 +121,7 @@ Il Punteggio sicuro, che si basa su controlli di sicurezza di rete per Internet 
 **Dettagli**: Usare [monitoraggio di Azure per raccogliere ed esportare dati](/azure/azure-monitor/overview#integrate-and-export-data). Questa procedura è fondamentale per l'abilitazione dell'analisi degli eventi imprevisti della sicurezza e la conservazione dei log online è limitata. Se si usa Sentinel di Azure, vedere [connettere le origini dati](../../sentinel/connect-data-sources.md).
 
 **Procedura consigliata**: Velocizzare i processi di analisi e caccia e ridurre i falsi positivi integrando le funzionalità di rilevamento e risposta degli endpoint nell'analisi degli attacchi.   
-**Dettagli**: [Abilitare l'integrazione di Windows Defender ATP](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) tramite i criteri di sicurezza del Centro sicurezza. È consigliabile usare Sentinel di Azure per la ricerca di minacce e la risposta agli eventi imprevisti
+**Dettagli**: [Abilitare l'integrazione di Microsoft Defender ATP](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) tramite i criteri di sicurezza del Centro sicurezza. È consigliabile usare Sentinel di Azure per la ricerca di minacce e la risposta agli eventi imprevisti
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Monitoraggio della rete basato su scenari end-to-end
 Per creare una rete end-to-end in Azure, i clienti combinano varie risorse di rete, ad esempio una rete virtuale, ExpressRoute, un gateway applicazione e servizi di bilanciamento del carico. Il monitoraggio è disponibile in ognuna delle risorse di rete.
@@ -218,7 +218,7 @@ Per altre informazioni, vedere [creare e gestire i criteri per applicare la conf
 **Dettagli**: Mapping dei documenti nella documentazione dell'organizzazione o nei criteri di Azure aggiungendo un riferimento ai criteri dell'organizzazione nella descrizione di [criteri](../../governance/policy/concepts/definition-structure.md#display-name-and-description) di Azure o nella descrizione di un' [iniziativa](../../governance/policy/concepts/definition-structure.md#initiatives) di criteri di Azure.
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitorare Azure AD report di rischio
-La maggior parte delle violazioni della sicurezza si verifica quando utenti malintenzionati ottengono l'accesso a un ambiente impadronendosi dell'identità di un utente. Trovare le identità compromesse non è un compito facile. Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record denominato [rilevamento del rischio](../../active-directory/reports-monitoring/concept-risk-events.md). I rilevamenti dei rischi vengono registrati nei report di sicurezza Azure AD. Per altre informazioni, vedere il report sulla sicurezza per [gli utenti a rischio](../../active-directory/reports-monitoring/concept-user-at-risk.md) e il [report sulla sicurezza](../../active-directory/reports-monitoring/concept-risky-sign-ins.md)degli accessi a rischio.
+La maggior parte delle violazioni della sicurezza si verifica quando utenti malintenzionati ottengono l'accesso a un ambiente impadronendosi dell'identità di un utente. Trovare le identità compromesse non è un compito facile. Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record denominato [rilevamento del rischio](../../active-directory/reports-monitoring/concept-risk-events.md). I rilevamenti dei rischi vengono registrati nei report di sicurezza Azure AD. Per altre informazioni, vedere il report sulla sicurezza per [gli utenti a rischio](../../active-directory/reports-monitoring/concept-user-at-risk.md) e il [report sulla sicurezza degli accessi a rischio](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre procedure consigliate per la sicurezza da usare nella progettazione, la distribuzione e la gestione di soluzioni cloud tramite Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](best-practices-and-patterns.md).

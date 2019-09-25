@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 93eddc0ff8f1a1af8b485fcdb891f72d874b5c0a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c1b372dbeaea31e83c8ff42a84fc39d762b2ebdb
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202956"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212259"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Anteprima: creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -245,15 +245,15 @@ Come procedura consigliata, è consigliabile aggiornare tutti i pool di nodi in 
 Un cluster AKS ha due oggetti risorsa cluster con le versioni Kubernetes associate. Il primo è una versione del piano di controllo Kubernetes. Il secondo è un pool di agenti con una versione di Kubernetes. Un piano di controllo è mappato a uno o più pool di nodi. Il comportamento di un'operazione di aggiornamento dipende dal comando dell'interfaccia della riga di comando di Azure usato.
 
 1. Per l'aggiornamento del piano di controllo è necessario usare`az aks upgrade`
-   * Questa operazione aggiornerà la versione del piano di controllo e tutti i pool di nodi nel cluster
-   * Passando `az aks upgrade` con il `--control-plane-only` flag si aggiornerà solo il piano di controllo cluster e nessuno dei pool di nodi associati * il `--control-plane-only` flag sarà disponibile nell' **estensione AKS-Preview v 0.4.16** o versione successiva
+   * Questo Aggiorna la versione del piano di controllo e tutti i pool di nodi nel cluster
+   * Passando `az aks upgrade` con il `--control-plane-only` flag viene aggiornato solo il piano di controllo cluster e nessuno dei pool di nodi associati viene modificato. Il `--control-plane-only` flag è disponibile nell' **estensione AKS-Preview v 0.4.16** o versione successiva.
 1. Per aggiornare i singoli pool di nodi è necessario usare`az aks nodepool upgrade`
-   * Verrà aggiornato solo il pool di nodi di destinazione con la versione specificata di Kubernetes
+   * Questo Aggiorna solo il pool di nodi di destinazione con la versione specificata di Kubernetes
 
 La relazione tra le versioni di Kubernetes contenute nei pool di nodi deve anche seguire un set di regole.
 
 1. Non è possibile effettuare il downgrade del piano di controllo né della versione Kubernetes del pool di nodi.
-1. Se non viene specificata una versione Kubernetes del pool di nodi, il valore predefinito usato verrà eseguito il fallback alla versione del piano di controllo.
+1. Se non viene specificata una versione Kubernetes del pool di nodi, il comportamento dipende dal client utilizzato. Per la dichiarazione nel modello ARM viene usata la versione esistente definita per il pool di nodi, se non è impostata alcuna versione del piano di controllo.
 1. È possibile aggiornare o ridimensionare un piano di controllo o un pool di nodi in un determinato momento, non è possibile inviare entrambe le operazioni simultaneamente.
 1. Una versione Kubernetes del pool di nodi deve essere la stessa versione principale del piano di controllo.
 1. Una versione Kubernetes del pool di nodi può essere al massimo due (2) versioni secondarie minori del piano di controllo, mai maggiore.
@@ -593,7 +593,7 @@ I nodi AKS non richiedono indirizzi IP pubblici per la comunicazione. Tuttavia, 
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Al termine della registrazione, distribuire un modello di Azure Resource Manager seguendo le stesse istruzioni riportate [sopra](#manage-node-pools-using-a-resource-manager-template) e aggiungendo la seguente proprietà del valore booleano "enableNodePublicIP" in agentPoolProfiles. Impostare questa opzione `true` su come per impostazione predefinita verrà impostato come `false` se non fosse specificato. Si tratta di una proprietà solo in fase di creazione e richiede una versione API minima di 2019-06-01. Questo può essere applicato ai pool di nodi di Linux e Windows.
+Al termine della registrazione, distribuire un modello di Azure Resource Manager seguendo le stesse istruzioni riportate [sopra](#manage-node-pools-using-a-resource-manager-template) e aggiungendo la seguente proprietà del valore booleano "enableNodePublicIP" in agentPoolProfiles. Impostare questa opzione `true` su come per impostazione predefinita è impostato `false` su come se non fosse specificato. Si tratta di una proprietà solo in fase di creazione e richiede una versione API minima di 2019-06-01. Questo può essere applicato ai pool di nodi di Linux e Windows.
 
 ```
 "agentPoolProfiles":[  

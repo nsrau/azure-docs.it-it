@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3140aff93c9afcf9a911fe1f381859ff93efef14
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: beb9e1344f5dd3bf4b3c3d293e38a7a28170771c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178367"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212012"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -215,7 +215,7 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 |East US        |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Francia centrale |CON RIDONDANZA LOCALE, ZRS|No    |CON ridondanza locale-Sì, ZRS-non ancora|
 |Francia meridionale   |Archiviazione con ridondanza locale     |No    |Yes|
-|Europa settentrionale   |Archiviazione con ridondanza locale     |No    |Yes|
+|Europa settentrionale   |Archiviazione con ridondanza locale     |No    |Non ancora|
 |India meridionale    |Archiviazione con ridondanza locale     |No    |Non ancora|
 |Asia sud-orientale |CON RIDONDANZA LOCALE, ZRS|No    |Yes|
 |Stati Uniti centro-occidentali|Archiviazione con ridondanza locale     |No    |Non ancora|

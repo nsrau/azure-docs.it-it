@@ -9,14 +9,14 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: aa6bee9cceffc0252dd39d85ebe9d70625e33419
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 6278b16221072b9b5bca371007296806454ba197
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036400"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212434"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
+# <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>Archiviare dati critici per l'azienda in archiviazione BLOB di Azure immutabilmente 
 
 L'archiviazione non modificabile per l'archiviazione BLOB di Azure consente agli utenti di archiviare oggetti dati cruciali per l'azienda in un WORM (scrivere una sola volta, leggere molti) stato. Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente. È possibile creare e leggere oggetti BLOB, ma non modificarli o eliminarli, per la durata dell'intervallo di conservazione. L'archiviazione non modificabile è abilitata per gli account di archiviazione BLOB e di per utilizzo generico V2 in tutte le aree di Azure.
 
@@ -44,7 +44,7 @@ L'archiviazione non modificabile supporta gli elementi seguenti:
 
 - **Supporto per la registrazione di controllo**: Ogni contenitore include un log di controllo dei criteri. Mostra fino a sette comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati e contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per la durata del criterio, in conformità con le linee guida per le normative SEC 17a-4 (f). Il [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) Mostra un log più completo di tutte le attività del piano di controllo; Quando si abilitano i [log di diagnostica di Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) , le operazioni del piano dati vengono mantenute. È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 L'archiviazione non modificabile per Archiviazione BLOB di Azure supporta due tipi di criteri non modificabili o WORM: conservazione basata sul tempo e blocchi a fini giudiziari. Quando si applica un criterio di conservazione basato sul tempo o un periodo di attesa legale a un contenitore, tutti i BLOB esistenti vengono spostati in uno stato non modificabile di un WORM in meno di 30 secondi. Anche tutti i nuovi BLOB caricati in tale contenitore verranno spostati nello stato non modificabile. Una volta che tutti i BLOB sono stati spostati nello stato non modificabile, i criteri non modificabili vengono confermati e non sono consentite tutte le operazioni di sovrascrittura o eliminazione per oggetti esistenti e nuovi nel contenitore non modificabile.
 
@@ -93,7 +93,7 @@ La tabella seguente illustra i tipi di operazioni BLOB che vengono disabilitate 
 - Per un contenitore, il numero massimo di modifiche per estendere un intervallo di conservazione per i criteri non modificabili basati sul tempo bloccato è 5.
 - Per un contenitore, vengono conservati al massimo 7 log di controllo dei criteri di conservazione basati sul tempo per un criterio bloccato.
 
-### <a name="legal-hold"></a>Tenuta legale
+### <a name="legal-hold"></a>Blocco a fini giudiziari
 - Per un account di archiviazione, il numero massimo di contenitori con un'impostazione di blocco a fini giudiziari è 1.000.
 - Per un contenitore, il numero massimo di tag di blocco a fini giudiziari è 10.
 - La lunghezza minima di un tag di tenuta legale è di 3 caratteri alfanumerici. La lunghezza massima è di 23 caratteri alfanumerici.

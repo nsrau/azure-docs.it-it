@@ -9,12 +9,12 @@ ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 78c752423d20d183c561d5bcf0bb95246b84ab49
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 9618d99495e65231de22eb719355e2ca75a17600
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076667"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218045"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Attendibilità degli URL portale di Azure nel firewall o nel server proxy
 
@@ -80,8 +80,8 @@ Gli endpoint URL per la portale di Azure di sicurezza sono specifici del cloud d
 È necessario disporre di indirizzi IP attendibili? Scaricare l'elenco di Microsoft Azure intervalli IP del Data Center per il cloud:
 
 * [Tutto il mondo](https://www.microsoft.com/download/details.aspx?id=56519)
-* [DEGLI STATI UNITI Governo](http://www.microsoft.com/download/details.aspx?id=57063)
-* [Germania](http://www.microsoft.com/download/details.aspx?id=57064)
-* [Cina](http://www.microsoft.com/download/details.aspx?id=57062)
+* [DEGLI STATI UNITI Governo](https://www.microsoft.com/download/details.aspx?id=57063)
+* [Germania](https://www.microsoft.com/download/details.aspx?id=57064)
+* [Cina](https://www.microsoft.com/download/details.aspx?id=57062)
 
 Altri servizi Microsoft usano URL e indirizzi IP aggiuntivi per la connettività. Per ottimizzare la connettività di rete per Microsoft 365 Services, vedere [configurare la rete per Office 365](/office365/enterprise/set-up-network-for-office-365).

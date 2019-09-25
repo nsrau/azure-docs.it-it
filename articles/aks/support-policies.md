@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: bf29799bc2aee12a27216ad45f7ed1e3355bab8a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 8c1736fcd4356e0778c3b36301b4490764efab76
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596135"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240891"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto per il servizio Azure Kubernetes
 
@@ -95,7 +95,7 @@ Microsoft e i clienti condividono la responsabilità dei nodi Kubernetes Worker 
   * Daemon Docker o Moby
 
 > [!NOTE]
-> In un nodo del ruolo di lavoro, se un componente del piano di controllo non è operativo, il team AKS potrebbe dover riavviare l'intero nodo del ruolo di lavoro. A causa dell'accesso limitato al carico di lavoro e ai dati attivi del cliente, il team AKS riavvia un nodo del ruolo di lavoro solo se il cliente inoltra il problema. Laddove possibile, il team AKS lavora per impedire che un riavvio necessario influisca sull'applicazione.
+> In un nodo del ruolo di lavoro, se un componente del piano di controllo non è operativo, il team AKS potrebbe dover riavviare i singoli componenti o l'intero nodo di lavoro. Queste operazioni di riavvio vengono automatizzate e forniscono la correzione automatica per i problemi comuni. Questi riavvii vengono eseguiti solo a livello di _nodo_ e non al cluster, a meno che non si tratti di una manutenzione o un'interruzione di emergenza.
 
 ### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Responsabilità del cliente per i nodi del ruolo di lavoro AKS
 
