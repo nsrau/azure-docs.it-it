@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentazione dell'anteprima di Azure Sentinel
+title: Documentazione di Azure Sentinel
 metadata:
-  title: 'Documentazione dell''anteprima di Azure Sentinel - Esercitazioni, guide introduttive | Microsoft Docs'
+  title: 'Documentazione di Azure Sentinel - Esercitazioni, guide introduttive | Microsoft Docs'
   meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
   services: sentinel
   author: cmcclister
@@ -15,7 +15,7 @@ metadata:
   ms.date: 02/28/19
   ms.author: cmcclister
 abstract:
-  description: 'L''anteprima di Azure Sentinel è un servizio di informazioni di sicurezza e gestione degli eventi nativo del cloud che fornisce analisi intelligenti della sicurezza per l''intera organizzazione su scala cloud. Offre la velocità e la scalabilità senza limiti del cloud, consentendo di concentrarsi sulle questioni più importanti. Permette di raccogliere facilmente i dati da tutte le risorse sul cloud o locali, Office 365, risorse di Azure e altri cloud. Rileva efficacemente le minacce con tecnologie integrate di Machine Learning degli esperti di analisi della sicurezza Microsoft. Automatizza le risposte alle minacce tramite playbook integrati di orchestrazione e automazione.'
+  description: 'Azure Sentinel è un servizio di informazioni di sicurezza e gestione degli eventi nativo del cloud che fornisce analisi intelligenti della sicurezza per l''intera organizzazione su scala cloud. Offre la velocità e la scalabilità senza limiti del cloud, consentendo di concentrarsi sulle questioni più importanti. Permette di raccogliere facilmente i dati da tutte le risorse sul cloud o locali, Office 365, risorse di Azure e altri cloud. Rileva efficacemente le minacce con tecnologie integrate di Machine Learning degli esperti di analisi della sicurezza Microsoft. Automatizza le risposte alle minacce tramite playbook integrati di orchestrazione e automazione.'
 sections:
   - title: Guide introduttive di 5 minuti
     items:

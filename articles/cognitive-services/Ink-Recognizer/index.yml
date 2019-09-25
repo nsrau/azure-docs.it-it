@@ -1,81 +1,67 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione di Riconoscimento input penna
+### YamlMime:Landing
+title: Documentazione dell'API Riconoscimento input penna
+summary: Informazioni su come usare l'API Riconoscimento input penna per inserire il riconoscimento input penna nelle app e nei servizi. L'API è un servizio basato sul cloud che usa Machine Learning per riconoscere forme e testo scritti a mano in qualsiasi contesto.
 metadata:
-  title: 'Documentazione di Riconoscimento input penna: avvii rapidi, esercitazioni, informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs'
-  description: Informazioni su come usare Traduzione testuale per tradurre il testo in più lingue.
+  title: API Riconoscimento input penna - Esercitazioni, guide introduttive, informazioni di riferimento sulle API
+  titleSuffix: Azure Cognitive Services
+  description: Con input penna digitale ci si riferisce alle tecnologie che abilitano le rappresentazioni digitali di input quali la scrittura manuale e i disegni. Mentre i dispositivi continuano a permettere esperienze di input penna digitale avanzate, l'intelligenza artificiale e l'apprendimento automatico consentono il riconoscimento delle forme e del testo scritto in qualsiasi contesto. L'API di Riconoscimento input penna è un servizio basato sul cloud che consente di inviare tratti input penna e di ottenere informazioni dettagliate su di essi.
   services: cognitive-services
-  author: erhopf
+  author: aahill
   manager: nitinme
+  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: ink-recognizer
   ms.topic: landing-page
-  ms.date: 05/02/2019
-  ms.author: erhopf
-abstract:
-  description: 'Con input penna digitale ci si riferisce alle tecnologie che abilitano le rappresentazioni digitali di input quali la scrittura manuale e i disegni. Mentre i dispositivi continuano a permettere esperienze di input penna digitale avanzate, l''intelligenza artificiale e l''apprendimento automatico consentono il riconoscimento delle forme e del testo scritto in qualsiasi contesto. L''API di Riconoscimento input penna è un servizio basato sul cloud che consente di inviare tratti input penna e di ottenere informazioni dettagliate su di essi.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/ink-recognizer/overview
-            html: <p>Informazioni su Riconoscimento input penna e su come integrarlo nei prodotti</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Informazioni sull'API di Riconoscimento input penna
-          - href: concepts/send-ink-data.md
-            html: <p>Informazioni sui criteri di chiamata consigliati quando si usa l'API</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Invio di dati input penna all'API di Riconoscimento input penna
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: 'Introduzione all''uso dell''API di Riconoscimento input penna:'
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/logo-csharp.svg
-            title: 'C#'
-          - image:
-              src: media/index/logo-java.svg
-            title: Java
-          - image:
-              src: media/index/logo-js.svg
-            title: JavaScript
-        rows:
-          - title: Riconoscere tratti input penna
-            values:
-              - href: quickstarts/csharp.md
-              - href: quickstarts/java.md
-              - href: quickstarts/javascript.md
-  - title: Esempi
-    items:
-      - type: paragraph
-        text: 'Usare questi programmi di esempio per informazioni su come integrare le API di Riconoscimento input penna nelle applicazioni:'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089803">C# e piattaforma UWP (Universal Windows Platform)</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# e WPF (Windows Presentation Foundation)</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089908">App Javascript per Web browser</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089906">App Java e per dispositivi mobili Android</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089805">App Swift e per dispositivi mobili iOS</a>'
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API REST
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2089907">Informazioni di riferimento sulle API REST</a></p>'
-          - title: PowerShell
-            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">Interfaccia della riga di comando di Azure</a></p>'
+  ms.date: 09/23/2019
+  ms.author: aahi
+  ms.openlocfilehash: 985cdb6492445c89462e79cc2931d28bc34abb58
+  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/24/2019
+  ms.locfileid: "71219519"
+landingContent:
+- title: Informazioni sull'API Riconoscimento input penna
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni sull'API di Riconoscimento input penna
+      url: overview.md
+- title: Riconoscere tratti input penna
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso di C#
+      url: quickstarts/csharp.md
+    - text: Uso di Java
+      url: quickstarts/java.md
+    - text: Uso di JavaScript
+      url: quickstarts/javascript.md
+  - linkListType: concept
+    links:
+    - text: Inviare dati con tratto input penna all'API
+      url: concepts/send-ink-data.md
+- title: riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://go.microsoft.com/fwlink/?linkid=2089907
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Interfaccia della riga di comando di Azure
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+- title: Esempi
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: C# e piattaforma UWP (Universal Windows Platform)
+      url: https://go.microsoft.com/fwlink/?linkid=2089803
+    - text: C# e WPF (Windows Presentation Foundation)
+      url: https://go.microsoft.com/fwlink/?linkid=2089804
+    - text: App Javascript per Web browser
+      url: https://go.microsoft.com/fwlink/?linkid=2089908
+    - text: App Java e per dispositivi mobili Android
+      url: https://go.microsoft.com/fwlink/?linkid=2089906
+    - text: App Swift e per dispositivi mobili iOS
+      url: https://go.microsoft.com/fwlink/?linkid=2089805

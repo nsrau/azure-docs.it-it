@@ -57,6 +57,8 @@
           href: security-center-alerts-integration.md
         - name: Correlazione tra avvisi intelligenti cloud (incidenti)
           href: security-center-alerts-cloud-smart.md
+        - name: Mappa degli avvisi di sicurezza e intelligence per le minacce
+          href: security-center-threat-intel.md
         - name: Convalida degli avvisi (file di test EICAR)
           href: security-center-alert-validation.md
 - name: Guide alle procedure
@@ -65,7 +67,7 @@
       href: security-center-secure-score.md
     - name: Eseguire l'aggiornamento alla sicurezza avanzata
       href: security-center-onboarding.md
-    - name: Protezione di server con Windows Defender ATP
+    - name: Protezione dei server con Microsoft Defender ATP
       href: security-center-wdatp.md
     - name: Sicurezza dei dati avanzata per SQL in macchine virtuali di Azure (anteprima pubblica)
       href: security-center-iaas-advanced-data.md
