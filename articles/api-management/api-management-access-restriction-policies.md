@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: cfb4bda597b2b7ab4658244c46253f5118723402
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3201edd3b90d6db1393286db688b24065ea8dc6b
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073811"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273537"
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
 
@@ -60,19 +60,19 @@ Usare il criterio `check-header` per applicare una richiesta che presenta un'int
 
 ### <a name="elements"></a>Elementi
 
-| Name         | Descrizione                                                                                                                                   | Obbligatoria |
+| Attività         | Descrizione                                                                                                                                   | Richiesto |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | check-header | Elemento radice.                                                                                                                                 | Yes      |
 | value        | Valore dell'intestazione HTTP consentito. Quando vengono specificati più elementi per il valore, in caso di corrispondenza di uno dei valori il controllo ha esito positivo. | No       |
 
 ### <a name="attributes"></a>Attributi
 
-| NOME                       | Descrizione                                                                                                                                                            | Obbligatorio | Predefinito |
+| Attività                       | Descrizione                                                                                                                                                            | Richiesto | Predefinito |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| failed-check-error-message | Messaggio di errore da restituire nel corpo della risposta HTTP se l'intestazione non esiste o presenta un valore non valido. I caratteri speciali eventualmente contenuti in questo messaggio devono essere adeguatamente preceduti da un carattere di escape. | Sì      | N/D     |
+| failed-check-error-message | Messaggio di errore da restituire nel corpo della risposta HTTP se l'intestazione non esiste o presenta un valore non valido. I caratteri speciali eventualmente contenuti in questo messaggio devono essere adeguatamente preceduti da un carattere di escape. | Yes      | N/D     |
 | failed-check-httpcode      | Codice di stato HTTP da restituire se l'intestazione non esiste o presenta un valore non valido.                                                                                        | Yes      | N/D     |
 | header-name                | Il nome dell'intestazione HTTP da verificare.                                                                                                                                  | Yes      | N/D     |
-| ignore-case                | Può essere impostato su True o False. Se impostato su True, il maiuscolo viene ignorato quando il valore dell'intestazione viene confrontato con il set di valori accettabili.                                    | Sì      | N/D     |
+| ignore-case                | Può essere impostato su True o False. Se impostato su True, il maiuscolo viene ignorato quando il valore dell'intestazione viene confrontato con il set di valori accettabili.                                    | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -120,15 +120,15 @@ Il criterio `rate-limit` impedisce picchi d'uso dell'API per ogni sottoscrizione
 
 ### <a name="elements"></a>Elementi
 
-| Name      | Descrizione                                                                                                                                                                                                                                                                                              | Obbligatoria |
+| Attività      | Descrizione                                                                                                                                                                                                                                                                                              | Richiesto |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| set-limit | Elemento radice.                                                                                                                                                                                                                                                                                            | Sì      |
+| rate-limit | Elemento radice.                                                                                                                                                                                                                                                                                            | Yes      |
 | api       | Aggiungere uno o più di questi elementi per imporre un limite di frequenza delle chiamate per le API all'interno del prodotto. I limiti alla frequenza delle chiamate API e al prodotto vengono applicati in modo indipendente. È possibile fare riferimento all'API tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.                    | No       |
-| operation | Aggiungere uno o più di questi elementi per imporre un limite di frequenza delle chiamate per le operazioni all'interno di un'API. I limiti alla frequenza delle chiamate alle operazioni, all'API e al prodotto vengono applicati in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato. | No       |
+| operazione | Aggiungere uno o più di questi elementi per imporre un limite di frequenza delle chiamate per le operazioni all'interno di un'API. I limiti alla frequenza delle chiamate alle operazioni, all'API e al prodotto vengono applicati in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato. | No       |
 
 ### <a name="attributes"></a>Attributi
 
-| Name           | Descrizione                                                                                           | Obbligatorio | Predefinito |
+| Attività           | Descrizione                                                                                           | Richiesto | Predefinito |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Il nome dell'API a cui si desidera applicare il limite di frequenza.                                                | Yes      | N/D     |
 | calls          | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`. | Yes      | N/D     |
@@ -185,18 +185,18 @@ Nell'esempio seguente il limite alla frequenza viene associato a una chiave dall
 
 ### <a name="elements"></a>Elementi
 
-| Name      | Descrizione   | Obbligatoria |
-| --------- | ------------- | -------- |
-| set-limit | Elemento radice. | Yes      |
+| Attività              | Descrizione   | Richiesto |
+| ----------------- | ------------- | -------- |
+| rate-limit-by-Key | Elemento radice. | Yes      |
 
 ### <a name="attributes"></a>Attributi
 
-| NOME                | Descrizione                                                                                           | Obbligatorio | Predefinito |
+| Attività                | Descrizione                                                                                           | Richiesto | Predefinito |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| chiamate               | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`. | Sì      | N/D     |
+| chiamate               | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`. | Yes      | N/D     |
 | counter-key         | La chiave deve essere usata per i criteri relativi ai limiti di frequenza.                                                             | Yes      | N/D     |
 | increment-condition | Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).        | No       | N/D     |
-| renewal-period      | Periodo, in secondi, dopo il quale la quota si reimposta.                                              | Sì      | N/D     |
+| renewal-period      | Periodo, in secondi, dopo il quale la quota si reimposta.                                              | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -232,18 +232,18 @@ Nell'esempio seguente il criterio consente solo le richieste provenienti da un s
 
 ### <a name="elements"></a>Elementi
 
-| NOME                                      | Descrizione                                         | Obbligatoria                                                       |
+| Attività                                      | Descrizione                                         | Richiesto                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
-| ip-filter                                 | Elemento radice.                                       | Sì                                                            |
-| Address                                   | Specifica un singolo indirizzo IP su cui applicare il filtro.   | È obbligatorio almeno un elemento `address` o `address-range`. |
+| ip-filter                                 | Elemento radice.                                       | Yes                                                            |
+| indirizzo                                   | Specifica un singolo indirizzo IP su cui applicare il filtro.   | È obbligatorio almeno un elemento `address` o `address-range`. |
 | address-range from="address" to="address" | Specifica un intervallo di indirizzi IP su cui applicare il filtro. | È obbligatorio almeno un elemento `address` o `address-range`. |
 
 ### <a name="attributes"></a>Attributi
 
-| NOME                                      | Descrizione                                                                                 | Obbligatorio                                           | Predefinito |
+| Attività                                      | Descrizione                                                                                 | Richiesto                                           | Predefinito |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | address-range from="address" to="address" | Intervallo di indirizzi IP per cui permettere o negare l'accesso.                                        | Obbligatorio quando viene usato l'elemento `address-range`. | N/D     |
-| ip-filter action="allow &#124; forbid"    | Specifica se le chiamate devono essere consentite o rifiutate per gli indirizzi e gli intervalli di indirizzi IP specificati. | Sì                                                | N/D     |
+| ip-filter action="allow &#124; forbid"    | Specifica se le chiamate devono essere consentite o rifiutate per gli indirizzi e gli intervalli di indirizzi IP specificati. | Yes                                                | N/D     |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -287,20 +287,20 @@ Il criterio `quota` consente di applicare una quota rinnovabile o permanente per
 
 ### <a name="elements"></a>Elementi
 
-| Name      | Descrizione                                                                                                                                                                                                                                                                                  | Obbligatoria |
+| Attività      | Descrizione                                                                                                                                                                                                                                                                                  | Richiesto |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| quota     | Elemento radice.                                                                                                                                                                                                                                                                                | Sì      |
+| quota     | Elemento radice.                                                                                                                                                                                                                                                                                | Yes      |
 | api       | Aggiungere uno o più di questi elementi per imporre una quota di chiamate per le API all'interno del prodotto. Le quote di chiamate API e del prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'API tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.                    | No       |
-| operation | Aggiungere uno o più di questi elementi per imporre una quota di chiamate alle operazioni all'interno di un'API. Le quote di chiamate per le operazioni, l'API e il prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato. | No       |
+| operazione | Aggiungere uno o più di questi elementi per imporre una quota di chiamate alle operazioni all'interno di un'API. Le quote di chiamate per le operazioni, l'API e il prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato. | No       |
 
 ### <a name="attributes"></a>Attributi
 
-| Name           | Descrizione                                                                                               | Obbligatorio                                                         | Predefinito |
+| Attività           | Descrizione                                                                                               | Richiesto                                                         | Predefinito |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | name           | Nome dell'API o dell'operazione per cui è applicabile la quota.                                             | Yes                                                              | N/D     |
 | bandwidth      | Il numero totale massimo di kilobyte consentiti durante l'intervallo di tempo specificato in `renewal-period`. | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
 | calls          | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.     | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
-| renewal-period | Periodo, in secondi, dopo il quale la quota si reimposta.                                                  | Sì                                                              | N/D     |
+| renewal-period | Periodo, in secondi, dopo il quale la quota si reimposta.                                                  | Yes                                                              | N/D     |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -349,19 +349,19 @@ Nell'esempio seguente la quota viene associata a una chiave dall'indirizzo IP de
 
 ### <a name="elements"></a>Elementi
 
-| NOME  | Descrizione   | Obbligatoria |
+| Attività  | Descrizione   | Richiesto |
 | ----- | ------------- | -------- |
 | quota | Elemento radice. | Yes      |
 
 ### <a name="attributes"></a>Attributi
 
-| Name                | Descrizione                                                                                               | Obbligatorio                                                         | Predefinito |
+| Attività                | Descrizione                                                                                               | Richiesto                                                         | Predefinito |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | larghezza di banda           | Il numero totale massimo di kilobyte consentiti durante l'intervallo di tempo specificato in `renewal-period`. | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
 | calls               | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.     | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
-| counter-key         | La chiave deve essere usata per i criteri relativi alla quota.                                                                      | Sì                                                              | N/D     |
+| counter-key         | La chiave deve essere usata per i criteri relativi alla quota.                                                                      | Yes                                                              | N/D     |
 | increment-condition | Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).             | No                                                               | N/D     |
-| renewal-period      | Periodo, in secondi, dopo il quale la quota si reimposta.                                                  | Sì                                                              | N/D     |
+| renewal-period      | Periodo, in secondi, dopo il quale la quota si reimposta.                                                  | Yes                                                              | N/D     |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -520,9 +520,9 @@ Questo esempio illustra come usare i criteri di [convalida JWT](api-management-a
 
 ### <a name="elements"></a>Elementi
 
-| Elemento             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                           | Obbligatoria |
+| Elemento             | Descrizione                                                                                                                                                                                                                                                                                                                                           | Richiesto |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-jwt        | Elemento radice.                                                                                                                                                                                                                                                                                                                                         | Sì      |
+| validate-jwt        | Elemento radice.                                                                                                                                                                                                                                                                                                                                         | Yes      |
 | audiences           | Contiene un elenco di attestazioni "audience" accettabili che possono essere presenti nel token. Se sono presenti più valori "audience", viene provato ogni valore fino al completamento di tutti i valori (caso in cui la convalida ha esito negativo) o fino a quando un valore non ha esito positivo. È necessario specificare almeno un "audience".                                                                     | No       |
 | issuer-signing-keys | Elenco di chiavi di sicurezza con codifica Base64 usato per convalidare i token firmati. Se sono presenti più chiavi di sicurezza, viene provata ogni chiave fino al completamento di tutte le chiavi (caso in cui la convalida ha esito negativo) o fino a quando una chiave non ha esito positivo. Gli elementi chiave contengono un attributo `id` facoltativo, usato per il confronto con l'attestazione `kid`.               | No       |
 | decryption-keys     | Elenco di chiavi con codifica Base64 usate per decrittografare i token. Se sono presenti più chiavi di sicurezza, viene provata ogni chiave fino al completamento di tutte le chiavi (caso in cui la convalida ha esito negativo) o fino a quando una chiave non ha esito positivo. Gli elementi chiave contengono un attributo `id` facoltativo, usato per il confronto con l'attestazione `kid`.                                                 | No       |
@@ -533,7 +533,7 @@ Questo esempio illustra come usare i criteri di [convalida JWT](api-management-a
 
 ### <a name="attributes"></a>Attributi
 
-| Name                            | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obbligatorio                                                                         | Predefinito                                                                           |
+| Attività                            | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                            | Richiesto                                                                         | Predefinito                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | clock-skew                      | TimeSpan. Usare per specificare la differenza massima di tempo previsto tra gli orologi di sistema dell'autorità emittente di token e l'istanza di Gestione API.                                                                                                                                                                                                                                                                                                               | No                                                                               | 0 secondi                                                                         |
 | failed-validation-error-message | Messaggio di errore da restituire nel corpo della risposta HTTP se il token JWT non supera la convalida. I caratteri speciali eventualmente contenuti in questo messaggio devono essere adeguatamente preceduti da un carattere di escape.                                                                                                                                                                                                                                                                                                 | No                                                                               | Il messaggio di errore predefinito dipende dal problema della convalida, ad esempio "JWT not present" ("JWT non presente"). |

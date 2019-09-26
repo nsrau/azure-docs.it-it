@@ -8,16 +8,16 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: b5528d8cd23893248170bdb15588925f3c92c02b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ab4447c8c07f8e8315c0258cc3254e5272ab7582
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934710"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272431"
 ---
-# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usare l'apprendimento attivo per migliorare la Knowledge base
+# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usare l'apprendimento attivo per migliorare la knowledge base
 
 L'apprendimento attivo consente di migliorare la qualità della knowledge base suggerendo domande alternative, basate sugli invii dell'utente, alla coppia di domanda e risposta. L'utente revisiona tali suggerimenti, aggiungendoli alle domande esistenti o rifiutandoli. 
 
@@ -79,6 +79,8 @@ L'apprendimento attivo è disattivato per impostazione predefinita. Attivarlo pe
     Una volta abilitata l' **apprendimento attivo** , la Knowledge base suggerisce nuove domande a intervalli regolari in base alle domande inviate dall'utente. È possibile disabilitare l'**apprendimento attivo** selezionando nuovamente l'impostazione.
 
 ## <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>Accetta un suggerimento di apprendimento attivo nella Knowledge base
+
+L'apprendimento attivo modifica la Knowledge base o servizio di ricerca dopo l'approvazione del suggerimento, quindi Salva e Esegui il training. Se si approva il suggerimento, verrà aggiunto come domanda alternativa.
 
 1. Per visualizzare le domande suggerite, nella pagina **modifica** Knowledge Base selezionare Visualizza **Opzioni**, quindi selezionare Mostra suggerimenti di **apprendimento attivi**. 
 
@@ -184,7 +186,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Proprietà della richiesta HTTP|Name|Type|Scopo|
+|Proprietà della richiesta HTTP|Attività|Type|Scopo|
 |--|--|--|--|
 |Parametro di route URL|ID Knowledge base|string|L'identificatore univoco globale della Knowledge Base.|
 |Sottodominio Host|Nome della risorsa QnAMaker|string|Nome host per il QnA Maker nella sottoscrizione di Azure. Questa operazione è disponibile nella pagina impostazioni dopo la pubblicazione della Knowledge base. |
@@ -196,7 +198,7 @@ Il corpo JSON ha diverse impostazioni:
 
 |Proprietà corpo JSON|Type|Scopo|
 |--|--|--|--|
-|`feedbackRecords`|array|Elenco di commenti.|
+|`feedbackRecords`|matrice|Elenco di commenti.|
 |`userId`|string|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. facoltativo.|
 |`userQuestion`|string|Testo esatto della query dell'utente. Richiesto.|
 |`qnaID`|number|ID della domanda, disponibile nella [risposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
@@ -387,7 +389,14 @@ La `SuggestedQuestions` colonna è un oggetto JSON di informazioni sui `usersugg
 ]
 ```
 
+È anche possibile usare l'API Scarica modifiche per esaminare queste modifiche, usando REST o uno degli SDK basati sul linguaggio:
+* [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
+
+
 Quando si reimporta questa app, l'apprendimento attivo continua a raccogliere informazioni e consigli per la Knowledge base. 
+
+
 
 ## <a name="best-practices"></a>Procedure consigliate
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: b3bd9b800da4f096639d02c78b718216441621a9
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 5eb05df7ed97839ef80798a752565234d180f0e2
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70803977"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268833"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copiare i dati in Esplora dati di Azure usando Azure Data Factory 
 
@@ -34,7 +34,7 @@ Questo articolo illustra come usare lo strumento Data Factory Copia dati per car
 * [Un cluster e un database di Azure Esplora dati](create-cluster-database-portal.md)
 * Origine dati.
 
-## <a name="create-a-data-factory"></a>Creare una data factory
+## <a name="create-a-data-factory"></a>Crea una data factory
 
 1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale >**Data Factory**di **analisi** > .
 
@@ -46,7 +46,7 @@ Questo articolo illustra come usare lo strumento Data Factory Copia dati per car
 
     **Impostazione**  | **Descrizione campo**
     |---|---|
-    | **Nome** | Immettere un nome univoco globale per la data factory. Se viene visualizzato l'errore *"il nome \"della data\" Factory LoadADXDemo non è disponibile"* , immettere un nome diverso per il data factory. Per le regole di denominazione degli elementi di Data Factory, vedere [Data Factory regole di denominazione](/azure/data-factory/naming-rules).|
+    | **Name** | Immettere un nome univoco globale per la data factory. Se viene visualizzato l'errore *"il nome \"della data\" Factory LoadADXDemo non è disponibile"* , immettere un nome diverso per il data factory. Per le regole di denominazione degli elementi di Data Factory, vedere [Data Factory regole di denominazione](/azure/data-factory/naming-rules).|
     | **Sottoscrizione** | selezionare la sottoscrizione di Azure in cui creare la data factory. |
     | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. Selezionare **Usa esistente**, se si dispone di un gruppo di risorse esistente. |
     | **Versione** | Selezionare **V2**. |
@@ -96,6 +96,9 @@ Esistono due modi per caricare i dati in Azure Esplora dati usando Azure Data Fa
     * Specificare il valore **Chiave di accesso segreta**.
     * Selezionare **Test connessione** per testare la connessione al servizio collegato creata.
     * Selezionare **Fine**.
+    
+    > [!NOTE]
+    > In Amazon S3 selezionare il nome utente Amazon nella barra di spostamento e quindi selezionare le **credenziali di sicurezza personali** per individuare la **chiave di accesso**. 
 
 1. Nella pagina **archivio dati di origine** verrà visualizzata la nuova connessione AmazonS31. Selezionare **Avanti**.
 

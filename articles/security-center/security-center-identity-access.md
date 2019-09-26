@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: memildin
-ms.openlocfilehash: d035dc4e8f77bb64a9e845a9dae0668365a6aacb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b069bedd3c36f27828e54a1110443ae6dfcdf3f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202270"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268856"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorare identità e accesso nel Centro sicurezza di Azure (anteprima)
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso degli utenti.
-
-> [!NOTE]
-> Il collegamento "Visualizza accesso & identità *classico* " verrà ritirato il 31 luglio 2019. Per informazioni sui servizi alternativi, fare clic [qui](security-center-features-retirement-july2019.md#menu_classicidentity) .
 
 > [!NOTE]
 > La funzionalità di monitoraggio dell'identità e dell'accesso è disponibile in anteprima e solo per il livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
@@ -67,7 +64,7 @@ In **Identità e accesso** sono presenti due schede:
 ### <a name="overview-section"></a>Sezione Panoramica
 In **Panoramica** è presente un elenco di consigli. La prima colonna elenca la raccomandazione. La seconda colonna visualizza il numero totale di sottoscrizioni interessate dal consiglio. La terza colonna indica la gravità del problema.
 
-1. Selezionare un consiglio. Viene aperta la finestra del consiglio, che visualizza:
+1. Selezionare un consiglio. Verrà visualizzata la finestra raccomandazioni con i seguenti elementi:
 
    - Descrizione del consiglio
    - Elenco delle sottoscrizioni non integre e integre
@@ -80,7 +77,7 @@ In **Panoramica** è presente un elenco di consigli. La prima colonna elenca la 
 ### <a name="subscriptions-section"></a>Sezione Sottoscrizioni
 In **Sottoscrizioni** è presente un elenco di sottoscrizioni. La prima colonna elenca le sottoscrizioni. La seconda colonna visualizza il numero totale di consigli per ogni sottoscrizione. La terza colonna indica il livello di gravità dei problemi.
 
-![Scheda Sottoscrizioni][4]
+![Scheda sottoscrizioni][4]
 
 1. Selezionare una sottoscrizione. Viene aperta una visualizzazione di riepilogo con tre schede:
 
@@ -125,13 +122,13 @@ Usare la tabella seguente come riferimento per comprendere i consigli relativi a
 > Se sono stati creati criteri di accesso condizionale che richiedono l'autenticazione a più fattori ma sono state impostate esclusioni, la valutazione dell'autenticazione a più fattori del Centro sicurezza considera i criteri non conformi, perché consente ad alcuni utenti di accedere ad Azure senza autenticazione a più fattori.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
+Per altre informazioni sui suggerimenti applicabili ad altri tipi di risorse di Azure, vedere gli articoli seguenti:
 
 - [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
 - [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)
 - [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
 
-Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
+Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Risposte alle domande frequenti sull'uso del Centro sicurezza.

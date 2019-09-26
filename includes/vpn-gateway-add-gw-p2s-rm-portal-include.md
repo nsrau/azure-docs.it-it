@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eba7dbb934bbc19ed7dc7452c15cbf22a9429bc3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 9ce9fa29a29559a1eaaff6173737159f11aa83d8
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706758"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268901"
 ---
 1. Nel lato sinistro del portale fare clic su **+ Crea una risorsa** e digitare "gateway di rete virtuale" nella casella di ricerca. Individuare **Gateway di rete virtuale** nei risultati della ricerca e fare clic sulla voce. Nella pagina **gateway di rete virtuale** fare clic su **Crea**. Verrà visualizzata la pagina **Crea gateway di rete virtuale**.
 
@@ -22,7 +22,7 @@ ms.locfileid: "68706758"
    ![Campi nella pagina Crea gateway di rete virtuale](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw2.png "Campi nella pagina Crea gateway di rete virtuale")
 2. Nella pagina **Crea gateway di rete virtuale** inserire i valori per il gateway di rete virtuale.
 
-   **Dettagli progetto**
+   **Dettagli del progetto**
 
    - **Sottoscrizione** Selezionare la sottoscrizione che si vuole usare dall'elenco a discesa.
    - **Gruppo di risorse**: Questa impostazione viene riempita automaticamente quando si seleziona la rete virtuale in questa pagina.
@@ -39,7 +39,7 @@ ms.locfileid: "68706758"
 
       **Intervallo di indirizzi subnet del gateway**: Questo campo viene visualizzato solo se la rete virtuale selezionata non dispone di una subnet del gateway. Inserire l'intervallo se non si ha già una subnet del gateway. Se possibile, eseguire l'intervallo/27 o più grande (/26,/25 e così via)
 
-    **Indirizzo IP pubblico**: questa impostazione specifica l'oggetto indirizzo IP pubblico che viene associato al gateway VPN. L'indirizzo IP pubblico viene assegnato dinamicamente a questo oggetto durante la creazione del gateway VPN. Il gateway VPN supporta attualmente solo l'allocazione degli indirizzi IP pubblici *dinamici*. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP pubblico viene modificato solo quando il gateway viene eliminato e ricreato. Non viene modificato in caso di ridimensionamento, reimpostazione o altre manutenzioni/aggiornamenti del gateway VPN.
+   **Indirizzo IP pubblico**: questa impostazione specifica l'oggetto indirizzo IP pubblico che viene associato al gateway VPN. L'indirizzo IP pubblico viene assegnato dinamicamente a questo oggetto durante la creazione del gateway VPN. L'indirizzo IP pubblico viene modificato solo quando il gateway viene eliminato e ricreato. Non viene modificato in caso di ridimensionamento, reimpostazione o altre manutenzioni/aggiornamenti del gateway VPN.
 
      - **Indirizzo IP pubblico**: Lasciare **Crea nuovo** selezionato.
      - **Nome indirizzo IP pubblico**: Nella casella di testo digitare un nome per l'istanza dell'indirizzo IP pubblico.

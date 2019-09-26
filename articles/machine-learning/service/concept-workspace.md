@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: 84aad0f1a797bb7eccf1872bd291e72ecefa7eee
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 677a52572658f80d9cde4de28dd02d6e957407d2
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035332"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269202"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -75,7 +75,7 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 
 | Attività di gestione dell'area di lavoro   | Portale              | SDK        | Interfaccia della riga di comando        |
 |---------------------------|------------------|------------|------------|
-| Creare un'area di lavoro        | **&check;**     | **&check;** | **&check;** |
+| Crea un'area di lavoro        | **&check;**     | **&check;** | **&check;** |
 | Creare e gestire risorse di calcolo    | **&check;**   | **&check;** |  **&check;**   |
 | Gestisci l'accesso all'area di lavoro    | **&check;**   | |  **&check;**    |
 | Creare una macchina virtuale per notebook | **&check;**   | |     |
@@ -87,7 +87,7 @@ Esistono diversi modi per creare un'area di lavoro.
 * Usare il [portale di Azure](how-to-manage-workspace.md) per un'interfaccia di punto e clic per esaminare ogni passaggio.
 * Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) per creare un'area di lavoro in tempo reale da script Python o notebook di Jupiter
 * Usare un [modello di Azure Resource Manager](how-to-create-workspace-template.md) o l'interfaccia della riga di comando di [Azure Machine Learning](reference-azure-machine-learning-cli.md) quando è necessario automatizzare o personalizzare la creazione con gli standard di sicurezza aziendali.
-* Se si lavora in Visual Studio Code, utilizzare l' [estensione vs code](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
+* Se si lavora in Visual Studio Code, utilizzare l' [estensione vs code](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
 ## <a name="resources"></a>Risorse associate
 

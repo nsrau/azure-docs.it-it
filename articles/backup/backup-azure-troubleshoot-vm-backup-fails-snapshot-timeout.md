@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: ab03056557c7c67c5b75d701c9995c9ad500caae
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018162"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268767"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -233,7 +233,11 @@ Questa procedura fa in modo che l'estensione venga reinstallata durante il backu
 
 ### <a name="clean_up_restore_point_collection"></a> Pulire la raccolta di punti di ripristino
 
-Dopo aver rimosso il blocco, è necessario eseguire la pulizia dei punti di ripristino. A questo scopo, seguire uno dei metodi seguenti:<br>
+Dopo aver rimosso il blocco, è necessario eseguire la pulizia dei punti di ripristino.
+
+Se si elimina il gruppo di risorse della VM o la macchina virtuale stessa, le istantanee di ripristino istantaneo dei dischi gestiti rimangono attive e scadono in base al set di conservazione. Per eliminare gli snapshot di ripristino istantaneo (se non sono più necessari) archiviati nella raccolta di punti di ripristino, pulire la raccolta di punti di ripristino in base ai passaggi indicati di seguito.
+
+A questo scopo, seguire uno dei metodi seguenti:<br>
 
 - [Pulire la raccolta di punti di ripristino eseguendo il backup ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 - [Pulire la raccolta di punti di ripristino dal portale di Azure](#clean-up-restore-point-collection-from-azure-portal)<br>

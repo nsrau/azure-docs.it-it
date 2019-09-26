@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 0d6f05524be41693ba280b0f0162f65b517ec281
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 50d4023b09eb14fcfafe752ca60b8e888acc1fef
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219628"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273891"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Rilevamento delle minacce per VM e server nel centro sicurezza di Azure
 
@@ -28,14 +28,14 @@ In questo argomento vengono illustrati i diversi tipi di metodi di rilevamento e
 
 Il Centro sicurezza di Azure si integra con i servizi di Azure per monitorare e proteggere i computer basati su Windows. Il Centro sicurezza presenta gli avvisi e i suggerimenti per la correzione di tutti questi servizi in un formato di facile utilizzo.
 
-### Windows Server Defender ATP<a nanme="windows-atp"></a>
+### Microsoft Defender ATP<a nanme="windows-atp"></a>
 
-Il Centro sicurezza estende le piattaforme di protezione dei carichi di lavoro cloud integrando con Windows Server Defender Advanced Threat Protection (ATP). In questo modo vengono fornite le funzionalità complete di rilevamento e risposta dell'endpoint.
+Il Centro sicurezza estende le piattaforme di protezione dei carichi di lavoro cloud integrando con Microsoft Defender Advanced Threat Protection (ATP). In questo modo vengono fornite le funzionalità complete di rilevamento e risposta dell'endpoint.
 
 > [!NOTE]
-> Il sensore Windows Server Defender ATP viene abilitato automaticamente nei server Windows che usano il Centro sicurezza.
+> Il sensore Microsoft Defender ATP viene abilitato automaticamente nei server Windows che usano il Centro sicurezza.
 
-Quando Windows Server Defender ATP rileva una minaccia, viene attivato un avviso. L'avviso viene visualizzato nel dashboard del Centro sicurezza. Dal dashboard è possibile passare alla console di Microsoft Defender ATP ed eseguire un'indagine dettagliata per individuare l'ambito dell'attacco. Per ulteriori informazioni su Windows Server Defender ATP, vedere [onboarding servers to the Microsoft Defender ATP Service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+Quando Microsoft Defender ATP rileva una minaccia, viene attivato un avviso. L'avviso viene visualizzato nel dashboard del Centro sicurezza. Dal dashboard è possibile passare alla console di Microsoft Defender ATP ed eseguire un'indagine dettagliata per individuare l'ambito dell'attacco. Per ulteriori informazioni su Microsoft Defender ATP, vedere [onboarding servers to the Microsoft Defender ATP Service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 ### Analisi del dump di arresto anomalo<a nanme="windows-dump"></a>
 

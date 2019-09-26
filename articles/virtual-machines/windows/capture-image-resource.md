@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 33f3b03ba76a0c3fd33e057d0f15b2ab7a0f44e4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089491"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273872"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Creare un'immagine gestita di una macchina virtuale generalizzata in Azure
 
@@ -50,7 +50,7 @@ Per generalizzare la VM Windows, seguire questa procedura:
    
 4. In **Opzioni di arresto** selezionare **Arresta il sistema**.
    
-5. Selezionare **OK**.
+5. Scegliere **OK**.
    
     ![Avvio di Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 
@@ -205,9 +205,9 @@ Per creare un'immagine gestita da uno snapshot di una VM generalizzata, seguire 
     ``` 
 
 
-## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Creare un'immagine da un disco rigido virtuale in un account di archiviazione
+## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Creare un'immagine da una macchina virtuale che usa un account di archiviazione
 
-Creare un'immagine gestita da un disco rigido virtuale del sistema operativo generalizzato in un account di archiviazione. È necessario l'URI del disco rigido virtuale nell'account di archiviazione, con il formato seguente: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. In questo esempio il disco rigido virtuale si trova in *mystorageaccount* in un contenitore denominato *vhdcontainer* e il nome file del disco rigido virtuale è *vhdfilename.vhd*.
+Per creare un'immagine gestita da una macchina virtuale che non usa Managed disks, è necessario l'URI del disco rigido virtuale del sistema operativo nell'account di archiviazione, nel formato seguente: https://*mystorageaccount*. blob.Core.Windows.NET/*vhdcontainer* /  *vhdfilename. vhd*. In questo esempio il disco rigido virtuale si trova in *mystorageaccount* in un contenitore denominato *vhdcontainer* e il nome file del disco rigido virtuale è *vhdfilename.vhd*.
 
 
 1.  Creare alcune variabili.

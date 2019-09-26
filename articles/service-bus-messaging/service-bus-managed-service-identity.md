@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: a35ad4f8d480b0f95f4dc782aa06734e33bc54f8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 90fbefb46ea51ca5bb7bf05d556fe29c88543d0b
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130302"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273683"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure
 Le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) offrono una funzionalità per l'intera piattaforma Azure che consente di creare un'identità sicura associata alla distribuzione in cui viene eseguito il codice dell'applicazione. È quindi possibile associare l'identità ai ruoli di controllo di accesso che concedono autorizzazioni personalizzate per l'accesso a risorse di Azure specifiche necessarie per l'applicazione.
@@ -55,7 +55,14 @@ Prima di assegnare un ruolo di controllo degli accessi in base al ruolo a un'ent
 
 Nell'elenco seguente vengono descritti i livelli in cui è possibile definire l'ambito di accesso alle risorse del bus di servizio, a partire dall'ambito più restrittivo:
 
-- **Coda**, **argomento**o **sottoscrizione**: L'assegnazione di ruolo si applica all'entità specifica del bus di servizio. Attualmente, il portale di Azure non supporta l'assegnazione di utenti/gruppi/identità gestite ai ruoli RBAC del bus di servizio a livello di sottoscrizione. 
+- **Coda**, **argomento**o **sottoscrizione**: L'assegnazione di ruolo si applica all'entità specifica del bus di servizio. Attualmente, il portale di Azure non supporta l'assegnazione di utenti/gruppi/identità gestite ai ruoli RBAC del bus di servizio a livello di sottoscrizione. Di seguito è riportato un esempio di uso del comando dell'interfaccia della riga di comando di Azure: [AZ-Role-Assignment-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) per assegnare un'identità a un ruolo del bus di servizio. 
+
+    ```powershell
+    az role assignment create \
+        --role $service_bus_role \
+        --assignee $assignee_id \
+        --scope /subscriptions/$subscription_id/resourceGroups/$resource_group/providers/Microsoft.ServiceBus/namespaces/$service_bus_namespace/topics/$service_bus_topic/subscriptions/$service_bus_subscription
+    ```
 - **Spazio dei nomi del bus di servizio**: L'assegnazione di ruolo si estende all'intera topologia del bus di servizio nello spazio dei nomi e al gruppo di consumer associato.
 - **Gruppo di risorse**: L'assegnazione di ruolo si applica a tutte le risorse del bus di servizio nel gruppo di risorse.
 - **Sottoscrizione** L'assegnazione di ruolo si applica a tutte le risorse del bus di servizio in tutti i gruppi di risorse nella sottoscrizione.

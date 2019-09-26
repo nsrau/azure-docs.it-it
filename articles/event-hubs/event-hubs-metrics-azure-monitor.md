@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 09/18/2019
 ms.author: shvija
-ms.openlocfilehash: 99b3b4b8d48ff04fc2ced686c01b2d4de12c6555
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 788f0647bec11184c2a85d87d0dfde2cb6c5744c
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742141"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266310"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Metriche di Hub eventi di Azure in Monitoraggio di Azure
 
-Le metriche degli hub eventi di Azure indicano lo stato delle risorse degli hub eventi nella sottoscrizione di Azure. Grazie a un set completo di dati delle metriche è possibile valutare l'integrità generale delle risorse degli hub eventi, non solo a livello di spazio dei nomi, ma anche a livello di entità. Queste statistiche possono rivelarsi importanti perché consentono di monitorare lo stato degli hub eventi. Le metriche consentono anche di risolvere i problemi senza dover contattare il supporto di Azure.
+Le metriche di hub eventi forniscono lo stato delle risorse di hub eventi nella sottoscrizione di Azure. Grazie a un set completo di dati delle metriche è possibile valutare l'integrità generale delle risorse degli hub eventi, non solo a livello di spazio dei nomi, ma anche a livello di entità. Queste statistiche possono rivelarsi importanti perché consentono di monitorare lo stato degli hub eventi. Le metriche consentono anche di risolvere i problemi senza dover contattare il supporto di Azure.
 
 Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di diversi servizi di Azure. Per altre informazioni, vedere [Panoramica sul monitoraggio in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e l'esempio che descrive come [recuperare le metriche di Monitoraggio di Azure con .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) in GitHub.
 
@@ -32,7 +32,8 @@ Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di d
 
 Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche dal [portale di Azure](https://portal.azure.com) o usare le API di Monitoraggio di Azure (REST e .NET) e soluzioni di analisi come Log Analytics e Hub eventi. Per altre informazioni, consultare [Monitoraggio dei dati raccolti da Monitoraggio di Azure](../azure-monitor/platform/data-platform.md).
 
-Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) in Monitoraggio di Azure.
+Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../azure-monitor/platform/diagnostic-settings.md) in Monitoraggio di Azure.
+
 
 ## <a name="access-metrics-in-the-portal"></a>Accedere alle metriche nel portale
 
@@ -61,54 +62,67 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 
 Conta il numero di richieste di operazioni di dati e gestione.
 
-| Nome della metrica | DESCRIZIONE |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
-| Richieste in ingresso  | Numero di richieste inviate al servizio Hub eventi di Azure in un periodo specificato. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName |
-| Richieste completate    | Numero di richieste completate inviate al servizio Hub eventi di Azure in un periodo specificato. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName |
-| Errori del server  | Numero di richieste non elaborate a causa di un errore nel servizio Hub eventi di Azure in un periodo specificato. <br/><br/>Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName |
-|Errori utente |Numero di richieste non elaborate a causa di errori utente in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|Errori di superamento della quota |Il numero di richieste supera la quota disponibile. Per altre informazioni sulle quote degli hub eventi, vedere [questo articolo](event-hubs-quotas.md).<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+| Richieste in ingresso  | Numero di richieste inviate al servizio Hub eventi di Azure in un periodo specificato. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName |
+| Richieste completate correttamente    | Numero di richieste completate inviate al servizio Hub eventi di Azure in un periodo specificato. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName |
+| Errori del server  | Numero di richieste non elaborate a causa di un errore nel servizio Hub eventi di Azure in un periodo specificato. <br/><br/>Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName |
+|Errori utente |Numero di richieste non elaborate a causa di errori utente in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Errori di superamento della quota |Il numero di richieste supera la quota disponibile. Per altre informazioni sulle quote degli hub eventi, vedere [questo articolo](event-hubs-quotas.md).<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 
 ## <a name="throughput-metrics"></a>Metriche di elaborazione
 
-| Nome della metrica | Descrizione |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
-|Richieste limitate |Numero di richieste che sono state limitate perché è stato superato il limite di utilizzo di unità elaborate.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Richieste limitate |Numero di richieste che sono state limitate perché è stato superato il limite di utilizzo di unità elaborate.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 
 ## <a name="message-metrics"></a>Metriche per i messaggi
 
-| Nome della metrica | Descrizione |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
-|Messaggi in arrivo |Numero di eventi o messaggi inviati agli hub eventi in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|Messaggi in uscita |Numero di eventi o messaggi recuperati dagli hub eventi in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Messaggi in ingresso |Numero di eventi o messaggi inviati agli hub eventi in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Messaggi in uscita |Numero di eventi o messaggi recuperati dagli hub eventi in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 |Byte in ingresso |Numero di byte inviati al servizio Hub eventi di Azure in un periodo specificato.<br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 |Byte in uscita |Numero di byte recuperati dal servizio Hub eventi di Azure in un periodo specificato.<br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 
 ## <a name="connection-metrics"></a>Metriche di connessione
 
-| Nome della metrica | DESCRIZIONE |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
-|Connessioni attive |Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|Connessioni aperte |Numero di connessioni aperte.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|Connessioni chiuse |Numero di connessioni chiuse.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|ActiveConnections |Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Connessioni aperte |Numero di connessioni aperte.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Connessioni chiuse |Numero di connessioni chiuse.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 
 ## <a name="event-hubs-capture-metrics"></a>Metriche di acquisizione di hub eventi
 
 È possibile monitorare le metriche di acquisizione degli hub eventi quando si abilita la funzionalità di acquisizione per gli hub di eventi. Le metriche seguenti descrivono ciò che è possibile monitorare con la funzionalità di acquisizione abilitata.
 
-| Nome della metrica | Descrizione |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
 |Backlog di acquisizione |Numero di byte da acquisire nella destinazione selezionata.<br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|Messaggi acquisiti |Numero di messaggi o eventi acquisiti nella destinazione selezionata in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|Messaggi acquisiti |Numero di messaggi o eventi acquisiti nella destinazione selezionata in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 |Byte acquisiti |Numero di byte acquisiti nella destinazione selezionata in un periodo specificato.<br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensioni delle metriche
 
 Hub eventi di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure. L'aggiunta di dimensioni alle metriche è facoltativa. Se non si aggiungono le dimensioni, le metriche vengono specificate a livello di spazio dei nomi. 
 
-| Nome della metrica | Descrizione |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
 |EntityName| Hub eventi supporta le entità degli hub eventi nello spazio dei nomi.|
+
+## <a name="azure-monitor-integration-with-siem-tools"></a>Integrazione di monitoraggio di Azure con gli strumenti SIEM
+Il routing dei dati di monitoraggio (log attività, log di diagnostica e così via) a un hub eventi con monitoraggio di Azure consente di integrare facilmente gli strumenti di gestione di informazioni ed eventi di sicurezza (SIEM). Per ulteriori informazioni, vedere gli articoli e i post di Blog seguenti:
+
+- [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+- [Introduzione all'integrazione log di Azure](../security/fundamentals/azure-log-integration-overview.md)
+- [Usare Monitoraggio di Azure per l'integrazione con strumenti SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+
+Nello scenario in cui uno strumento SIEM usa i dati di log da un hub eventi, se non viene visualizzato alcun messaggio in arrivo o se si visualizzano messaggi in arrivo ma nessun messaggio in uscita nel grafico delle metriche, attenersi alla procedura seguente:
+
+- Se non sono presenti **messaggi in ingresso**, significa che il servizio monitoraggio di Azure non sta muovendo i log di controllo/diagnostica nell'hub eventi. In questo scenario, aprire un ticket di supporto con il team di monitoraggio di Azure. 
+- Se sono presenti messaggi in ingresso, ma **nessun messaggio in uscita**, significa che l'applicazione Siem non sta leggendo i messaggi. Contattare il provider SIEM per determinare se la configurazione dell'hub eventi è corretta.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

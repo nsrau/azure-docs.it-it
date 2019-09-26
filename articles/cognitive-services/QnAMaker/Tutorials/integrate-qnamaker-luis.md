@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/11/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1792cf2359caef3211b4ce1ac86928eeb85d682b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6605aa268a7ee7fe75254df5dbe96e9dfbc71d79
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053153"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272423"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usare bot con QnA Maker e LUIS per distribuire la knowledge base
 Quando le dimensioni della Knowledge Base di QnA Maker aumentano, diventa difficile gestirla come una singola unità monolitica ed è necessario suddividerla in parti logiche più piccole.
@@ -27,7 +27,7 @@ Questo articolo usa Bot Framework v3 SDK. Vedere questo [articolo su Bot Framewo
 
 ## <a name="architecture"></a>Architettura
 
-![QnA Maker con l'architettura di Language Understanding Intelligent Service](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker con l'architettura Language Understanding](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 Nello scenario precedente, QnA Maker innanzitutto ottiene la finalità della domanda in ingresso da un modello LUIS e quindi la usa per instradare la domanda alla Knowledge Base corretta di QnA Maker.
 
@@ -51,7 +51,7 @@ Nello scenario precedente, QnA Maker innanzitutto ottiene la finalità della dom
 
 ## <a name="web-app-bot"></a>Bot dell'app Web
 
-1. [Crea un bot per App Web "Base"](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) che include automaticamente un'app LUIS. Selezionare 4.x SDK e il C# linguaggio di programmazione.
+1. [Creare un bot per app Web di base](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) che includa automaticamente un'app Luis. Selezionare C# linguaggio di programmazione.
 
 1. Dopo aver creato il bot per app Web, selezionarlo nel portale di Azure.
 1. Selezionare **Impostazione applicazione** nel menu di spostamento del servizio bot per app Web, quindi scorrere verso il basso fino alla sezione **Impostazioni applicazione** per accedere alle impostazioni disponibili.

@@ -2,25 +2,17 @@
 title: Configurare una connessione gateway VPN da rete virtuale a rete virtuale con il portale di Azure | Microsoft Docs
 description: Creare una connessione gateway VPN tra reti virtuali con Resource Manager e il portale di Azure.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ad83327d5b85784f523a5931f277cd00009e0ed
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128382"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266453"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurare una connessione gateway VPN da rete virtuale a rete virtuale con il portale di Azure
 
@@ -40,7 +32,6 @@ I passaggi illustrati in questo articolo si applicano al modello di distribuzion
 >
 >
 
-
 ## <a name="about-connecting-vnets"></a>Informazioni sulla connessione di reti virtuali
 
 Le sezioni seguenti illustrano i diversi modi in cui è possibile connettere le reti virtuali.
@@ -55,7 +46,7 @@ Quando si crea una connessione da rete virtuale a rete virtuale, lo spazio indir
 
 Se si usa una configurazione di rete complessa, potrebbe essere preferibile connettere le reti virtuali usando invece una [connessione da sito a sito](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Con la procedura di connessione IPsec da sito a sito, i gateway di rete locali vengono creati e configurati manualmente. Il gateway di rete locale per ogni rete virtuale considera l'altra rete virtuale come sito locale. Tale procedura consente di specificare spazi indirizzi aggiuntivi per il routing del traffico con il gateway di rete locale. In caso di modifica dello spazio indirizzi per una rete virtuale, è necessario aggiornare manualmente il gateway di rete locale corrispondente.
 
-### <a name="vnet-peering"></a>Peering reti virtuali
+### <a name="vnet-peering"></a>Peering di rete virtuale
 
 È anche possibile connettere le reti virtuali con il peering reti virtuali. Il peering di reti virtuali non usa alcun gateway VPN e presenta vincoli diversi. I [prezzi per il peering reti virtuali](https://azure.microsoft.com/pricing/details/virtual-network) vengono inoltre calcolati in modo diverso rispetto ai [prezzi per il gateway VPN da rete virtuale a rete virtuale](https://azure.microsoft.com/pricing/details/vpn-gateway). Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
 
@@ -94,7 +85,6 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
     - **Subnet del gateway**
         - **Nome**: *GatewaySubnet*, inserito automaticamente.
         - **Intervallo di indirizzi**: immettere *10.11.255.0/27*.
-    - **Server DNS**: selezionare **Personalizzato** e immettere l'indirizzo IP del proprio server DNS.
 
 - **Impostazioni del gateway di rete virtuale** 
     - **Nome**: immettere *TestVNet1GW*.
@@ -120,7 +110,6 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
    - **GatewaySubnet** 
       - **Nome**: *GatewaySubnet*, inserito automaticamente.
       - **Intervallo di indirizzi**: immettere *10.41.255.0/27*.
-   - **Server DNS**: selezionare **Personalizzato** e immettere l'indirizzo IP del proprio server DNS.
 
 - **Impostazioni del gateway di rete virtuale** 
     - **Nome**: immettere *TestVNet4GW*.
@@ -133,7 +122,7 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
        - **Chiave condivisa**: immettere *abc123*. È possibile creare personalmente la chiave condivisa. Quando si crea la connessione tra le reti virtuali, i valori devono corrispondere.
 
 ## <a name="create-and-configure-testvnet1"></a>Creare e configurare TestVNet1
-Se si ha già una rete virtuale, verificare che le impostazioni siano compatibili con la progettazione del gateway VPN. Prestare particolare attenzione alle subnet che potrebbero sovrapporsi ad altre reti. La connessione non funziona correttamente se le subnet si sovrappongono. Dopo aver configurato la rete virtuale con le impostazioni corrette, si può iniziare la procedura descritta nella sezione "Specificare un server DNS".
+Se si ha già una rete virtuale, verificare che le impostazioni siano compatibili con la progettazione del gateway VPN. Prestare particolare attenzione alle subnet che potrebbero sovrapporsi ad altre reti. La connessione non funziona correttamente se le subnet si sovrappongono.
 
 ### <a name="to-create-a-virtual-network"></a>Per creare una rete virtuale
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -143,26 +132,15 @@ Dopo aver creato la rete virtuale è possibile aggiungere altri spazi degli indi
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="create-a-gateway-subnet"></a>Creare una subnet del gateway
-Prima di creare un gateway per la rete virtuale, è necessario creare prima di tutto la subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dal gateway di rete virtuale. Se possibile, è consigliabile creare una subnet del gateway con un blocco CIDR /28 o /27 per fornire indirizzi IP sufficienti a soddisfare futuri requisiti di configurazione.
-
-Se si crea questa configurazione come esercizio, per creare la subnet del gateway vedere le [impostazioni di esempio](#example-settings).
-
-[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="to-create-a-gateway-subnet"></a>Per creare una subnet del gateway
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-## <a name="specify-a-dns-server-optional"></a>Specificare un server DNS (facoltativo)
-Per le connessioni da rete virtuale a rete virtuale non è necessario un server DNS. Specificarne uno, tuttavia, se si vuole ottenere la risoluzione dei nomi per le risorse distribuite nella rete virtuale. Questa impostazione consente di specificare il server DNS da usare per la risoluzione dei nomi nella rete virtuale. Non determina la creazione di un server DNS.
-
-[!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
-
 ## <a name="create-a-virtual-network-gateway"></a>Creare un gateway di rete virtuale
 Questo passaggio illustra come creare il gateway di rete virtuale per la rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dello SKU gateway selezionato. Se si crea questa configurazione come esercizio, vedere [Impostazioni di esempio](#example-settings).
 
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
+
 ### <a name="to-create-a-virtual-network-gateway"></a>Per creare un gateway di rete virtuale
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="create-and-configure-testvnet4"></a>Creare e configurare TestVNet4
 Dopo aver configurato TestVNet1, creare TestVNet4 ripetendo la procedura precedente e sostituendo i valori con quelli di TestVNet4. Per configurare TestVNet4 non è necessario attendere che sia completata la creazione del gateway di rete virtuale per TestVNet1. Se si usano valori personalizzati, verificare che gli spazi indirizzi non si sovrappongano alle reti virtuali a cui ci si vuole connettere.
