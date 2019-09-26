@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: cbdf05c714971db5a618ca2a8bb35fe286d6804c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c1c374977460de04d2339ba8c93019cf9152dbe3
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240683"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262708"
 ---
-# <a name="connect-data-from-threat-intelligence-providers---preview"></a>Connettere i dati dai provider di intelligence per le minacce-anteprima
+# <a name="connect-data-from-threat-intelligence-providers"></a>Connettere i dati dai provider di intelligence per le minacce
 
 > [!IMPORTANT]
-> Intelligence per le minacce in Sentinel di Azure è attualmente disponibile in anteprima pubblica.
+> Il connettore dati delle piattaforme Intelligence per le minacce in Sentinel di Azure è attualmente disponibile in anteprima pubblica.
 > Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'organizzazione, che possono migliorare la capacità degli analisti della sicurezza di rilevare e assegnare priorità alle minacce note. Diverse funzionalità di Azure Sentinel diventano disponibili o migliorate:
