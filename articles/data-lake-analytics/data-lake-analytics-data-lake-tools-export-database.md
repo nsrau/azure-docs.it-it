@@ -1,5 +1,5 @@
 ---
-title: Esportare un database U-SQL usando Strumenti Azure Data Lake per Visual Studio
+title: Esportare un database U-SQL-Strumenti Azure Data Lake per Visual Studio
 description: Informazioni su come usare Strumenti Azure Data Lake per Visual Studio per esportare un database U-SQL e importarlo automaticamente in un account locale.
 services: data-lake-analytics
 author: yanancai
@@ -9,12 +9,12 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e5a52de0342e864cb108d8d590583fe64f72e3b6
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628583"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315786"
 ---
 # <a name="export-a-u-sql-database"></a>Esportare un database U-SQL
 
@@ -26,7 +26,7 @@ Quando si sviluppano e si ottimizzano le query U-SQL negli ambienti di sviluppo 
 
 ## <a name="export-steps"></a>Procedura di esportazione
 
-### <a name="step-1-export-the-database-in-server-explorer"></a>Passaggio 1: Esportare il database in Esplora Server
+### <a name="step-1-export-the-database-in-server-explorer"></a>Passaggio 1: Esportare il database in Esplora server
 
 Tutti gli account di Data Lake Analytics per cui si dispone di autorizzazioni sono elencati in Esplora server. Per esportare il database:
 

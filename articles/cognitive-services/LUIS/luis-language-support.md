@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3b1b31da68d821ff27fa30e75ec1522b9d4875c8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307420"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316360"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -34,18 +34,18 @@ LUIS riconosce espressioni nelle lingue seguenti:
 |--|--|:--:|:--:|:--:|:--:|
 | Inglese americano |`en-US` | ✔ | ✔  |✔|✔|
 | *[Cinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Olandese |`nl-NL` |-|  -   |-|✔|
-| Francese (Francia) |`fr-FR` |-| ✔ |✔ |✔|
+| Olandese |`nl-NL` |✔|  -   |-|✔|
+| Francese (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
 | Francese (Canada) |`fr-CA` |-|   -   |-|✔|
-| Tedesco |`de-DE` |-| ✔ |✔ |✔|
+| Tedesco |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
-| Italiano |`it-IT` |-| ✔ |✔|✔|
-| *[Giapponese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Solo la frase chiave|
-| Coreano |`ko-KR` |-|   -   |-|Solo la frase chiave|
-| Portoghese (Brasile) |`pt-BR` |-| ✔ |✔ |non tutte le impostazioni cultura secondarie|
-| Spagnolo (Spagna) |`es-ES` |-| ✔ |✔|✔|
+| Italiano |`it-IT` |✔| ✔ |✔|✔|
+| *[Giapponese](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Solo la frase chiave|
+| Coreano |`ko-KR` |✔|   -   |-|Solo la frase chiave|
+| Portoghese (Brasile) |`pt-BR` |✔| ✔ |✔ |non tutte le impostazioni cultura secondarie|
+| Spagnolo (Spagna) |`es-ES` |✔| ✔ |✔|✔|
 | Spagnolo (Messico)|`es-MX` |-|  -   |✔|✔|
-| Turco | `tr-TR` |-|-|-|Solo sentiment|
+| Turco | `tr-TR` |✔|-|-|Solo sentiment|
 
 
 Le lingue supportate variano per [entità predefinite](luis-reference-prebuilt-entities.md) e [domini predefiniti](luis-reference-prebuilt-domains.md).

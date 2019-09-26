@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 0e3996c28750639b227475bf4e0196f3a0c3ab0d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e30adf8b694d744e64fb7528b75b85d4a772a723
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163211"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316764"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: Accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -86,6 +86,9 @@ az vm create \
 La creazione della macchina virtuale e delle risorse di supporto richiede alcuni minuti.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installare l'estensione della macchina virtuale per l'accesso ad Azure AD
+
+> [!NOTE]
+> Se la distribuzione di questo exention a una macchina virtuale creata in precedenza garantisce che il computer disponga di almeno 1 GB di memoria allocata, altrimenti l'estensione non verrà installata
 
 Per accedere a una macchina virtuale Linux con Azure AD credenziali, installare l'estensione della macchina virtuale Azure Active Directory Login. Le estensioni della macchina virtuale sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Usare [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) per installare l'estensione *AADLoginForLinux* nella macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*:
 

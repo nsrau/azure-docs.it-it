@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: barclayn
-ms.openlocfilehash: b506c6f6101e8c5ce71231a8178f70fa5a0914d8
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3b60a6da1e7961c7709bb0b19e91dc6f15a51a1c
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262818"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316786"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 
@@ -178,7 +178,7 @@ Per ottenere una chiave da usare per la crittografia o la decrittografia dei dat
 - Il cliente ha la piena responsabilità per la gestione del ciclo di vita delle chiavi
 - Sovraccarico aggiuntivo per l'installazione e la configurazione
 
-#### <a name="server-side-encryption-using-service-managed-keys-in-customer-controlled-hardware"></a>Crittografia lato server con chiavi gestite dal servizio su hardware controllato dal cliente
+#### <a name="server-side-encryption-using-customer-managed-keys-in-customer-controlled-hardware"></a>Crittografia lato server con chiavi gestite dal cliente nell'hardware controllato dal cliente
 
 Alcuni servizi di Azure consentono il modello di gestione delle chiavi HYOK (Host Your Own Key). Questa modalità di gestione è utile negli scenari in cui è necessario crittografare i dati inattivi e gestire le chiavi presenti in un repository proprietario al di fuori del controllo di Microsoft. In questo modello il servizio deve recuperare la chiave da un sito esterno. Ciò ha effetto sulle garanzie di prestazioni e disponibilità e la configurazione risulta più complessa. Inoltre, poiché il servizio non ha accesso alla chiave DEK durante le operazioni di crittografia e decrittografia, le garanzie di sicurezza complessiva di questo modello sono simili allo scenario in cui le chiavi sono gestite dal cliente in Azure Key Vault.  Di conseguenza, questo modello non è appropriato per la maggior parte delle organizzazioni, a meno che non siano presenti specifici requisiti di gestione delle chiavi. A causa di queste limitazioni, la maggior parte dei servizi di Azure non supporta la crittografia lato server con chiavi gestite dal server su hardware controllato dal cliente.
 
@@ -273,7 +273,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Apache Kafka in Azure HDInsight  | Yes                | Tutte le lunghezze di RSA.   | -                  |
 | Esplora dati di Azure              | Yes                | -                  | -                  |
-| Data factory di Azure               | Yes                | -                  | -                  |
+| Data factory di Azure               | Yes                | Yes                | -                  |
 | Archivio Azure Data Lake            | Yes                | Sì, RSA a 2048 bit  | -                  |
 | **Contenitori**                   |                    |                    |                    |
 | Servizio Azure Kubernetes         | Yes                | -                  | -                  |

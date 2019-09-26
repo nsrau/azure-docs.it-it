@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: yegu
-ms.openlocfilehash: 602d77f3d4e8ed10c2c964462bc2dc21240cef5c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a919ccd2a23acf6e1bd04cda8a5dd18782ff31b0
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60541387"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315974"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Come configurare il clustering Redis per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. In questo articolo viene descritto come configurare il clustering in un'istanza di Cache Redis di Azure Premium.
@@ -121,7 +121,7 @@ Per altre informazioni, vedere le pagine relative al [modello di distribuzione d
 Per un codice di esempio sull'uso del clustering e sul posizionamento delle chiavi nella stessa partizione con il client StackExchange.Redis, vedere la porzione [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) dell'esempio [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>Quali sono le dimensioni massime della cache che è possibile creare?
-Le dimensioni massime per la cache Premium sono 53 GB. È possibile creare fino a 10 partizioni, per una dimensione massima di 530 GB. Se è necessaria una dimensione maggiore, è possibile [farne richiesta](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Per altre informazioni, vedere [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) (Prezzi di Cache Redis di Azure).
+Le dimensioni massime della cache Premium sono di 120 GB. È possibile creare fino a 10 partizioni con una dimensione massima di 1,2 TB GB. Se è necessaria una dimensione maggiore, è possibile [farne richiesta](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Per altre informazioni, vedere [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) (Prezzi di Cache Redis di Azure).
 
 ### <a name="do-all-redis-clients-support-clustering"></a>Tutti i client Redis supportano il clustering?
 Non tutti i client supportano attualmente il clustering Redis. StackExchange.Redis è uno dei client che supporta questa funzionalità. Per altre informazioni su altri client, vedere la sezione dedicata alle [prove con il cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) nell'[esercitazione per il cluster Redis](https://redis.io/topics/cluster-tutorial). 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05638e17c2f41806a5c8aa3e0c3020eae82bdb60
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60830272"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315961"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Eseguire la migrazione da Servizio cache gestita a Cache Redis di Azure
 La migrazione di un'applicazione che usa Servizio cache gestita di Azure a Cache Redis di Azure può essere eseguita con modifiche minime all'applicazione, a seconda delle funzionalità di Servizio cache gestita usate dall'applicazione di memorizzazione nella cache. Le API non sono identiche, ma sono simili e gran parte del codice esistente che usa il Servizio cache gestita per accedere a una cache può essere riutilizzata con modifiche minime. Questo articolo illustra come apportare le modifiche necessarie alla configurazione e all'applicazione per eseguire la migrazione delle applicazioni che usano Servizio cache gestita a Cache Redis di Azure e mostra come alcune delle funzioni di Cache Redis di Azure possono essere usate per implementare la funzionalità di una cache di Servizio cache gestita.
@@ -62,7 +62,7 @@ Cache Redis di Microsoft Azure è disponibile nei livelli seguenti:
 
 * **Basic**: singolo nodo. Più dimensioni fino a 53 GB.
 * **Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del 99,9%.
-* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB. Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
+* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 1,2 TB. Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Le funzionalità vengono illustrate più avanti in questa guida. Per altre informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache](https://azure.microsoft.com/pricing/details/cache/).
 

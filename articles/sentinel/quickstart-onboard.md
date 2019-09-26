@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7f209ef8bb8c492245b59374c33187dbbe763aa5
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7f042cfe10bd8ca57d9a2dae511a13a82f053a67
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240487"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316818"
 ---
 # <a name="on-board-azure-sentinel"></a>Sentinella di Azure a bordo
 
@@ -37,7 +37,7 @@ Dopo aver connesso le origini dati, è possibile scegliere da una raccolta di ca
 
 - Una sottoscrizione di Azure attiva, se non è già disponibile, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Area di lavoro Log Analytics. Informazioni su come [creare un'area di lavoro log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
+- Area di lavoro Log Analytics. Informazioni su [come creare un'area di lavoro Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). Per altre informazioni sulle aree di lavoro Log Analytics, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](../azure-monitor/platform/design-logs-deployment.md).
 
 -  Per abilitare Sentinel di Azure, sono necessarie le autorizzazioni di collaboratore per la sottoscrizione in cui risiede l'area di lavoro di Azure Sentinel. 
 - Per usare Sentinel di Azure, è necessario disporre delle autorizzazioni Collaboratore o lettore per il gruppo di risorse a cui appartiene l'area di lavoro.

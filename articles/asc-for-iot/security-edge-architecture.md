@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul centro sicurezza di Azure per il modulo di sicurezza Internet per IoT Edge Preview | Microsoft Docs
+title: Informazioni sul centro sicurezza di Azure per il modulo di sicurezza Internet per IoT Edge | Microsoft Docs
 description: Informazioni sull'architettura e le funzionalità del Centro sicurezza di Azure per il modulo di sicurezza Internet per IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,18 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 6114fc768ad04ef812f6093d006ec9ad91b17af3
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 148c68234a937efde554ef00a6014cdc1a350f34
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596863"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315899"
 ---
 # <a name="azure-iot-edge-security-module"></a>Modulo di sicurezza Azure IoT Edge
-
-> [!IMPORTANT]
-> Il Centro sicurezza di Azure per il servizio IoT Edge è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/) offre potenti funzionalità per la gestione e l'esecuzione di flussi di lavoro aziendali nei dispositivi perimetrali.
 La parte principale che IoT Edge gioca negli ambienti Internet è particolarmente interessante per gli attori malintenzionati.
