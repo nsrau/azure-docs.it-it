@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ac478a7b75bbac0c5e7f59cbe565ec2bbcd643ce
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827218"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900310"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
 
@@ -30,7 +30,7 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 
 \* indica che una pianificazione specifica per l'area non è attualmente disponibile.
 
-| **Area** | **Disponibilità livello inferiore Gen2** | **Inizio aggiornamenti automatici** |
+| **Region** | **Disponibilità livello inferiore Gen2** | **Inizio aggiornamenti automatici** |
 |:--- |:--- |:--- |
 | Australia orientale |Disponibile |Completato |
 | Australia sud-orientale |Disponibile |Completato |
@@ -63,7 +63,7 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 | Emirati Arabi Uniti settentrionali |20 luglio 2019 |Completato |
 | Regno Unito meridionale |Disponibile |In corso |
 | Regno Unito occidentale |Disponibile |In corso |
-| Stati Uniti centro-occidentali |1 settembre 2019 |1 ottobre 2019|
+| Stati Uniti centro-occidentali |1 novembre 2019 |1 dicembre 2019|
 | Europa occidentale |Disponibile |Completato |
 | Stati Uniti occidentali |Disponibile |Completato |
 | Stati Uniti occidentali 2 |Disponibile |Completato |

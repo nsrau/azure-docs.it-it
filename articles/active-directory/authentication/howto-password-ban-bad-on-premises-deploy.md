@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad8f24c9d23e9412a4f6e4e5f97692bba2c0c39
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: cfa8e8c570b47eb6437ed6ca6a53f6c8188e18a2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268676"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314984"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -50,7 +50,7 @@ Dopo che la funzionalità è stata eseguita in modalità di controllo per un per
    > La distribuzione del servizio proxy è un requisito obbligatorio per la distribuzione di Azure AD la protezione delle password anche se il controller di dominio potrebbe avere connettività Internet diretta in uscita. 
    >
 * In tutti i computer in cui verrà installato il servizio proxy Azure AD Password Protection deve essere installato .NET 4,7.
-  .NET 4,7 dovrebbe essere già installato in un server Windows completamente aggiornato. In caso contrario, scaricare ed eseguire il programma di installazione disponibile nel [programma di installazione di .NET Framework 4,7 offline per Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  .NET 4,7 dovrebbe essere già installato in un server Windows completamente aggiornato. Se necessario, scaricare ed eseguire il programma di installazione disponibile nel [programma di installazione di .NET Framework 4,7 offline per Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Per tutti i computer, inclusi i controller di dominio, in cui sono installati Azure AD componenti di protezione delle password è necessario che sia installato il runtime di C universale. È possibile ottenere il runtime assicurandosi di avere tutti gli aggiornamenti da Windows Update. In alternativa, è possibile ottenerlo in un pacchetto di aggiornamento specifico del sistema operativo. Per ulteriori informazioni, vedere [aggiornamento per Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * La connettività di rete deve esistere tra almeno un controller di dominio in ogni dominio e almeno un server che ospita il servizio proxy per la protezione con password. Questa connettività deve consentire al controller di dominio di accedere alla porta di mapping degli endpoint RPC 135 e alla porta del server RPC nel servizio proxy. Per impostazione predefinita, la porta del server RPC è una porta RPC dinamica, ma può essere configurata per l' [utilizzo di una porta statica](#static).
 * Tutti i computer in cui verrà installato il servizio proxy Azure AD password protection dovranno avere accesso di rete agli endpoint seguenti:
@@ -59,9 +59,19 @@ Dopo che la funzionalità è stata eseguita in modalità di controllo per un per
     | --- | --- |
     |`https://login.microsoftonline.com`|Richieste di autenticazione|
     |`https://enterpriseregistration.windows.net`|Funzionalità di protezione password di Azure AD|
+ 
+* Prerequisiti di Microsoft Azure AD Connect Agent Updater
 
-  È necessario abilitare anche l'accesso alla rete per il set di porte e URL specificati nelle [procedure di configurazione dell'ambiente del proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment). Questi passaggi di configurazione sono necessari per consentire il funzionamento del servizio Microsoft Azure AD Connect Agent Updater (questo servizio è installato side-by-side con il servizio proxy). Non è consigliabile installare side-by-side Azure AD proxy di protezione con password e proxy di applicazione nello stesso computer, a causa di incompatibilità tra le versioni del software di Microsoft Azure AD Connect Agent Updater.
-* Tutti i computer che ospitano il servizio proxy per la protezione con password devono essere configurati in modo da concedere ai controller di dominio la possibilità di accedere al servizio proxy. Questa operazione viene controllata tramite l'assegnazione dei privilegi "accedi al computer dalla rete".
+  Il servizio Microsoft Azure AD Connect Agent Updater è installato side-by-side con il servizio proxy Azure AD password protection. È necessaria una configurazione aggiuntiva per consentire al servizio Microsoft Azure AD Connect Agent Updater di funzionare:
+
+  Se l'ambiente in uso usa un server proxy http, è necessario seguire le linee guida specificate in [usare i server proxy locali esistenti](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
+
+  L'accesso alla rete deve essere abilitato per il set di porte e URL specificati nelle [procedure di configurazione dell'ambiente del proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+
+  > [!WARNING]
+  > Azure AD proxy di protezione delle password e il proxy di applicazione installano versioni diverse del servizio Microsoft Azure AD Connect Agent Updater, motivo per cui le istruzioni fanno riferimento al contenuto del proxy di applicazione. Queste versioni diverse sono incompatibili se installate side-by-Side, quindi non è consigliabile installare Azure AD proxy di protezione e proxy di applicazione side-by-side nello stesso computer.
+
+* Tutti i computer che ospitano il servizio proxy per la protezione con password devono essere configurati in modo da concedere ai controller di dominio la possibilità di accedere al servizio proxy. Questa possibilità viene controllata tramite l'assegnazione dei privilegi "accedi al computer dalla rete".
 * Tutti i computer che ospitano il servizio proxy per la protezione con password devono essere configurati per consentire il traffico HTTP di TLS 1,2 in uscita.
 * Un account amministratore globale per registrare il servizio proxy per la protezione con password e la foresta con Azure AD.
 * Un account con privilegi di amministratore di dominio Active Directory nel dominio radice della foresta per registrare la foresta di Windows Server Active Directory con Azure AD.
@@ -211,7 +221,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
    La registrazione della foresta Active Directory è necessaria solo una volta nella durata della foresta. Successivamente, gli agenti del controller di dominio nella foresta eseguiranno automaticamente qualsiasi altra manutenzione necessaria. Dopo `Register-AzureADPasswordProtectionForest` l'esecuzione corretta di una foresta, le chiamate aggiuntive del cmdlet hanno esito positivo, ma non sono necessarie.
 
-   Per `Register-AzureADPasswordProtectionForest` avere esito positivo, almeno un controller di dominio che esegue Windows Server 2012 o versioni successive deve essere disponibile nel dominio del server proxy. Il software dell'agente controller di dominio, tuttavia, non deve essere installato nei controller di dominio prima di questo passaggio.
+   Per `Register-AzureADPasswordProtectionForest` avere esito positivo, almeno un controller di dominio che esegue Windows Server 2012 o versioni successive deve essere disponibile nel dominio del server proxy. Prima di questo passaggio non è necessario installare il software dell'agente controller di dominio nei controller di dominio.
 
 1. Configurare il servizio proxy per la comunicazione con la password tramite un proxy HTTP.
 
@@ -286,7 +296,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
    Installare il servizio agente di controller di dominio per la protezione `AzureADPasswordProtectionDCAgentSetup.msi` con password utilizzando il pacchetto.
 
-   Per l'installazione del software o per l'annullamento dell'installazione è necessario riavviare. Questo perché le dll del filtro password vengono caricate o scaricate solo da un riavvio.
+   Per l'installazione o la disinstallazione del software è necessario riavviare. Questo requisito è dovuto al fatto che le dll del filtro password vengono caricate o scaricate solo da un riavvio.
 
    È possibile installare il servizio DC Agent in un computer che non è ancora un controller di dominio. In questo caso, il servizio verrà avviato ed eseguito ma rimarrà inattivo fino a quando il computer non viene promosso a controller di dominio.
 
@@ -304,7 +314,7 @@ Quando è disponibile una versione più recente del software proxy Azure ad Pass
 
 Non è necessario disinstallare la versione corrente del software proxy. il programma di installazione eseguirà un aggiornamento sul posto. Quando si aggiorna il software proxy, non è necessario riavviare il computer. È possibile automatizzare l'aggiornamento del software utilizzando le procedure MSI standard, `AzureADPasswordProtectionProxySetup.exe /quiet`ad esempio:.
 
-L'agente proxy supporta l'aggiornamento automatico. L'aggiornamento automatico usa il servizio Microsoft Azure AD Connect Agent Updater, installato side-by-side con il servizio proxy. L'aggiornamento automatico è attivato per impostazione predefinita e può essere abilitato o disabilitato `Set-AzureADPasswordProtectionProxyConfiguration` usando il cmdlet. È possibile eseguire query sull'impostazione corrente usando il `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet. Microsoft consiglia di lasciare abilitata l'aggiornamento automatico.
+L'agente proxy supporta l'aggiornamento automatico. L'aggiornamento automatico usa il servizio Microsoft Azure AD Connect Agent Updater, installato side-by-side con il servizio proxy. L'aggiornamento automatico è attivato per impostazione predefinita e può essere abilitato o disabilitato `Set-AzureADPasswordProtectionProxyConfiguration` usando il cmdlet. È possibile eseguire query sull'impostazione corrente usando il `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet. Microsoft consiglia di abilitare sempre l'impostazione di aggiornamento automatico.
 
 Il `Get-AzureADPasswordProtectionProxy` cmdlet può essere utilizzato per eseguire una query sulla versione software di tutti gli agenti proxy attualmente installati in una foresta.
 
@@ -312,7 +322,7 @@ Il `Get-AzureADPasswordProtectionProxy` cmdlet può essere utilizzato per esegui
 
 Quando è disponibile una versione più recente del software dell'agente del controller di dominio Azure ad Password Protection, l'aggiornamento viene eseguito eseguendo la versione `AzureADPasswordProtectionDCAgentSetup.msi` più recente del pacchetto software. La versione più recente del software è disponibile nell' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
-Non è necessario disinstallare la versione corrente del software dell'agente del controller di dominio. il programma di installazione eseguirà un aggiornamento sul posto. Quando si aggiorna il software dell'agente del controller di dominio, è sempre necessario riavviare il sistema. questa situazione è causata dal comportamento principale di Windows. 
+Non è necessario disinstallare la versione corrente del software dell'agente del controller di dominio. il programma di installazione eseguirà un aggiornamento sul posto. Quando si aggiorna il software dell'agente controller di dominio, è sempre necessario riavviare il sistema. questo requisito è causato dal comportamento principale di Windows. 
 
 È possibile automatizzare l'aggiornamento del software utilizzando le procedure MSI standard, `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`ad esempio:.
 

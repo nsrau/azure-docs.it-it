@@ -9,16 +9,18 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: dcb0fe4da968408a261e387c636cc548fa757a09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: d397adfb6ed2d3aef93bd40d14eb0ad199cdb90c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036663"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309361"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
-Per accedere a origini dati in locale dalle app per la logica, creare una risorsa gateway dati locale nel portale di Azure. L'app per la logica può quindi usare i [connettori locali](../connectors/apis-list.md#on-premises-connectors). Questo articolo illustra come creare una risorsa del gateway di Azure *dopo* il [download e l'installazione del gateway in un computer locale](../logic-apps/logic-apps-gateway-install.md). Per altre informazioni sul gateway, vedere funzionamento [del gateway](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
+Per accedere a origini dati in locale dalle app per la logica, creare una risorsa gateway dati locale nel portale di Azure. L'app per la logica può quindi usare i [connettori locali](../connectors/apis-list.md#on-premises-connectors). App per la logica di Azure supporta operazioni di scrittura, tra cui inserimenti e aggiornamenti, tramite il gateway. Tuttavia, queste operazioni hanno [limiti sulle dimensioni del payload](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+
+Questo articolo illustra come creare una risorsa del gateway di Azure *dopo* il [download e l'installazione del gateway in un computer locale](../logic-apps/logic-apps-gateway-install.md). Per altre informazioni sul gateway, vedere funzionamento [del gateway](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service). 
 
 > [!TIP]
 > Per connettere le reti virtuali di Azure, considerare invece la possibilità di creare un [*ambiente del servizio di integrazione*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). 
@@ -121,7 +123,7 @@ Dopo aver creato la risorsa per il gateway e associato la sottoscrizione di Azur
 
 A questo punto, la connessione del gateway è pronta per l'uso nell'app per la logica.
 
-## <a name="edit-connection"></a>Modificare la connessione
+## <a name="edit-connection"></a>Modifica connessione
 
 Per aggiornare le impostazioni per una connessione gateway, è possibile modificare la connessione.
 

@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 1b0a7473f1cdfb6aa3533b261979da7c18605a16
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9271a659e18ab969e801fd8974b05984e11e783c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179451"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309383"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
 
@@ -175,55 +175,93 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
 
 ### <a name="customize-table-format"></a>Personalizzare il formato della tabella
 
-Per impostazione predefinita, la proprietà **Columns** è impostata in modo da creare automaticamente le colonne della tabella in base agli elementi della matrice. 
-
-Per specificare intestazioni e valori personalizzati, attenersi alla procedura seguente:
+Per impostazione predefinita, la proprietà **Columns** è impostata in modo da creare automaticamente le colonne della tabella in base agli elementi della matrice. Per specificare intestazioni e valori personalizzati, attenersi alla procedura seguente:
 
 1. Aprire l'elenco **Columns** e selezionare **Custom**.
 
 1. Nella proprietà **header** specificare invece il testo dell'intestazione personalizzata da usare.
 
-1. Nella proprietà **chiave** specificare invece il valore personalizzato da usare.
+1. Nella proprietà **valore** specificare il valore personalizzato da usare.
 
-Per fare riferimento e modificare i valori dalla matrice, è possibile usare la `@item()` funzione nella definizione JSON dell'azione **Crea tabella CSV** .
+Per restituire valori dalla matrice, è possibile usare la [ `item()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#item) con l'azione **Crea tabella CSV** . In un `For_each` ciclo, è possibile usare la [ `items()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
-1. Nella barra degli strumenti della finestra di progettazione selezionare **visualizzazione codice**. 
-
-1. Nell'editor di codice modificare la `inputs` sezione dell'azione per personalizzare l'output della tabella nel modo desiderato.
-
-In questo esempio vengono restituiti solo i valori di colonna e non le `columns` intestazioni della matrice impostando la `header` proprietà su un valore vuoto e dereferenziando ogni `value` proprietà:
-
-```json
-"Create_CSV_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "CSV",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-Ecco il risultato restituito da questo esempio:
+Si supponga, ad esempio, di volere le colonne della tabella che includono solo i valori delle proprietà e non i nomi delle proprietà di una matrice. Per restituire solo questi valori, attenersi alla procedura seguente per lavorare nella visualizzazione progettazione o nella visualizzazione codice. Ecco il risultato restituito da questo esempio:
 
 ```text
-Results from Create CSV table action:
-
 Apples,1
 Oranges,2
 ```
 
-Nella finestra di progettazione, l'azione **Crea tabella CSV** ora viene visualizzata in questo modo:
+#### <a name="work-in-designer-view"></a>Lavorare nella visualizzazione di progettazione
 
-!["Crea tabella CSV" senza intestazioni di colonna](./media/logic-apps-perform-data-operations/create-csv-table-no-column-headers.png)
+Nell'azione, lasciare vuota la colonna **intestazione** . In ogni riga della colonna **valore** , dereferenziare ogni proprietà della matrice desiderata. Ogni riga in **value** restituisce tutti i valori per la proprietà di matrice specificata e diventa una colonna della tabella.
+
+1. In **valore**, in ogni riga desiderata, fare clic all'interno della casella di modifica in modo che venga visualizzato l'elenco contenuto dinamico.
+
+1. Nell'elenco di contenuto dinamico selezionare **Espressione**.
+
+1. Nell'editor espressioni immettere questa espressione che specifica il valore della proprietà Array desiderata e selezionare **OK**.
+
+   `item()?['<array-property-name>']`
+
+   Esempio:
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![Espressione per dereferenziare la proprietà](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+
+1. Ripetere i passaggi precedenti per ogni proprietà di matrice desiderata. Al termine, l'azione sarà simile all'esempio seguente:
+
+   ![Espressioni finite](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+
+1. Per risolvere le espressioni in versioni più descrittive, passare alla visualizzazione del codice e tornare alla visualizzazione di progettazione e quindi riaprire l'azione compressa:
+
+   L'azione **Crea tabella CSV** ora appare come nell'esempio seguente:
+
+   ![Azione "Crea tabella CSV" con espressioni risolte senza intestazioni](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+
+#### <a name="work-in-code-view"></a>Lavorare nella visualizzazione codice
+
+Nella definizione JSON dell'azione, all'interno della `columns` matrice, impostare la `header` proprietà su una stringa vuota. Per ogni `value` proprietà, dereferenziare ogni proprietà della matrice desiderata.
+
+1. Nella barra degli strumenti della finestra di progettazione selezionare **visualizzazione codice**.
+
+1. Nell'editor di `columns` codice, nella matrice dell'azione, aggiungere la proprietà vuota `header` e questa `value` espressione per ogni colonna di valori di matrice desiderata:
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   Esempio:
+
+   ```json
+   "Create_CSV_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "CSV",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. Tornare alla visualizzazione di progettazione e riaprire l'azione compressa.
+
+   L'azione **Crea tabella CSV** ora appare come questo esempio e le espressioni sono state risolte in versioni più descrittive:
+
+   ![Azione "Crea tabella CSV" con espressioni risolte senza intestazioni](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 Per altre informazioni su questa azione nella definizione del flusso di lavoro sottostante, vedere l'[azione Tabella](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -288,55 +326,93 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
 
 ### <a name="customize-table-format"></a>Personalizzare il formato della tabella
 
-Per impostazione predefinita, la proprietà **Columns** è impostata in modo da creare automaticamente le colonne della tabella in base agli elementi della matrice. 
-
-Per specificare intestazioni e valori personalizzati, attenersi alla procedura seguente:
+Per impostazione predefinita, la proprietà **Columns** è impostata in modo da creare automaticamente le colonne della tabella in base agli elementi della matrice. Per specificare intestazioni e valori personalizzati, attenersi alla procedura seguente:
 
 1. Aprire l'elenco **Columns** e selezionare **Custom**.
 
 1. Nella proprietà **header** specificare invece il testo dell'intestazione personalizzata da usare.
 
-1. Nella proprietà **chiave** specificare invece il valore personalizzato da usare.
+1. Nella proprietà **valore** specificare il valore personalizzato da usare.
 
-Per fare riferimento e modificare i valori dalla matrice, è possibile usare la `@item()` funzione nella definizione JSON dell'azione **Crea tabella HTML** .
+Per restituire valori dalla matrice, è possibile usare la [ `item()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#item) con l'azione **Crea tabella HTML** . In un `For_each` ciclo, è possibile usare la [ `items()` funzione](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
-1. Nella barra degli strumenti della finestra di progettazione selezionare **visualizzazione codice**. 
-
-1. Nell'editor di codice modificare la `inputs` sezione dell'azione per personalizzare l'output della tabella nel modo desiderato.
-
-In questo esempio vengono restituiti solo i valori di colonna e non le `columns` intestazioni della matrice impostando la `header` proprietà su un valore vuoto e dereferenziando ogni `value` proprietà:
-
-```json
-"Create_HTML_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "HTML",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-Ecco il risultato restituito da questo esempio:
+Si supponga, ad esempio, di volere le colonne della tabella che includono solo i valori delle proprietà e non i nomi delle proprietà di una matrice. Per restituire solo questi valori, attenersi alla procedura seguente per lavorare nella visualizzazione progettazione o nella visualizzazione codice. Ecco il risultato restituito da questo esempio:
 
 ```text
-Results from Create HTML table action:
-
-Apples    1
-Oranges   2
+Apples,1
+Oranges,2
 ```
 
-Nella finestra di progettazione, l'azione **Crea tabella HTML** ora viene visualizzata in questo modo:
+#### <a name="work-in-designer-view"></a>Lavorare nella visualizzazione di progettazione
 
-!["Crea tabella HTML" senza intestazioni di colonna](./media/logic-apps-perform-data-operations/create-html-table-no-column-headers.png)
+Nell'azione, lasciare vuota la colonna **intestazione** . In ogni riga della colonna **valore** , dereferenziare ogni proprietà della matrice desiderata. Ogni riga in **value** restituisce tutti i valori per la proprietà specificata e diventa una colonna della tabella.
+
+1. In **valore**, in ogni riga desiderata, fare clic all'interno della casella di modifica in modo che venga visualizzato l'elenco contenuto dinamico.
+
+1. Nell'elenco di contenuto dinamico selezionare **Espressione**.
+
+1. Nell'editor espressioni immettere questa espressione che specifica il valore della proprietà Array desiderata e selezionare **OK**.
+
+   `item()?['<array-property-name>']`
+
+   Esempio:
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![Espressione per dereferenziare la proprietà](./media/logic-apps-perform-data-operations/html-table-expression.png)
+
+1. Ripetere i passaggi precedenti per ogni proprietà di matrice desiderata. Al termine, l'azione sarà simile all'esempio seguente:
+
+   ![Espressioni finite](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+
+1. Per risolvere le espressioni in versioni più descrittive, passare alla visualizzazione del codice e tornare alla visualizzazione di progettazione e quindi riaprire l'azione compressa:
+
+   L'azione **Crea tabella HTML** ora appare come nell'esempio seguente:
+
+   ![Azione "Crea tabella HTML" con espressioni risolte senza intestazioni](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+
+#### <a name="work-in-code-view"></a>Lavorare nella visualizzazione codice
+
+Nella definizione JSON dell'azione, all'interno della `columns` matrice, impostare la `header` proprietà su una stringa vuota. Per ogni `value` proprietà, dereferenziare ogni proprietà della matrice desiderata.
+
+1. Nella barra degli strumenti della finestra di progettazione selezionare **visualizzazione codice**.
+
+1. Nell'editor di `columns` codice, nella matrice dell'azione, aggiungere la proprietà vuota `header` e questa `value` espressione per ogni colonna di valori di matrice desiderata:
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   Esempio:
+
+   ```json
+   "Create_HTML_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "HTML",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. Tornare alla visualizzazione di progettazione e riaprire l'azione compressa.
+
+   L'azione **Crea tabella HTML** ora appare come questo esempio e le espressioni sono state risolte in versioni più descrittive:
+
+   ![Azione "Crea tabella HTML" con espressioni risolte senza intestazioni](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 Per altre informazioni su questa azione nella definizione del flusso di lavoro sottostante, vedere l'[azione Tabella](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -588,7 +664,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
 
    * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga **+** visualizzato il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
-1. In **scegliere un'azione**selezionare **predefinito**. Nella casella di ricerca immettere `select` come filtro. Nell'elenco azioni selezionare l'azione **Seleziona** .
+1. In **Scegliere un'azione** selezionare **Predefinita**. Nella casella di ricerca immettere `select` come filtro. Nell'elenco azioni selezionare l'azione **Seleziona** .
 
    ![Selezionare l'azione "Seleziona"](./media/logic-apps-perform-data-operations/select-select-action.png)
 

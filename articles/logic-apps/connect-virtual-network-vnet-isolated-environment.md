@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4865a2b3b02a1e7a6db19418122b66aeb79dd332
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d6cc87947ab861e8de4dbdf754164e195f0f458c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099461"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309326"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -44,18 +44,19 @@ Questo articolo descrive come portare a termine le attività seguenti:
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Se non si dispone di una rete virtuale, vedere l'articolo su come [creare una rete virtuale di Azure](../virtual-network/quick-create-portal.md).
+* Una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Se non si dispone di una rete virtuale, vedere l'articolo su come [creare una rete virtuale di Azure](../virtual-network/quick-create-portal.md). 
 
   * La rete virtuale deve avere quattro subnet *vuote* per la creazione e la distribuzione di risorse in ISE. È possibile creare queste subnet in anticipo, oppure è possibile attendere fino a quando non si crea ISE in cui è possibile creare le subnet nello stesso momento. Altre informazioni sui [requisiti](#create-subnet)per le subnet.
-  
-    > [!NOTE]
-    > Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md), che fornisce una connessione privata ai servizi cloud Microsoft, è necessario [creare una tabella di route](../virtual-network/manage-route-table.md) con la route seguente e collegare tale tabella a ogni subnet usata da ISE:
-    > 
-    > **Nome**: <*Route-Name*><br>
-    > **Prefisso indirizzo**: 0.0.0.0/0<br>
-    > **Hop successivo**: Internet
+
+  * I nomi delle subnet devono iniziare con un carattere alfabetico o un carattere di sottolineatura e non possono `<`usare i caratteri seguenti `\\`: `?`, `/` `>`, `%`, `&`,,,. 
 
   * Assicurarsi che la rete virtuale [renda disponibili queste porte](#ports) in modo che ISE funzioni correttamente e rimanga accessibile.
+
+  * Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md), che fornisce una connessione privata ai servizi cloud Microsoft, è necessario [creare una tabella di route](../virtual-network/manage-route-table.md) con la route seguente e collegare tale tabella a ogni subnet usata da ISE:
+
+    **Nome**: <*Route-Name*><br>
+    **Prefisso indirizzo**: 0.0.0.0/0<br>
+    **Hop successivo**: Internet
 
 * Se si vuole usare server DNS personalizzati per la rete virtuale di Azure, [configurare questi server seguendo questa procedura](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) prima di distribuire ISE nella rete virtuale. In caso contrario, ogni volta che si modifica il server DNS, è necessario riavviare l'ISE, una funzionalità disponibile nell'anteprima pubblica di ISE.
 
@@ -65,7 +66,7 @@ Questo articolo descrive come portare a termine le attività seguenti:
 
 Quando si usa ISE con una rete virtuale esistente, un problema di installazione comune è la presenza di una o più porte bloccate. I connettori usati per la creazione di connessioni tra ISE e il sistema di destinazione potrebbero avere anche requisiti di porta specifici. Ad esempio, se si comunica con un sistema FTP usando il connettore FTP, assicurarsi che la porta utilizzata nel sistema FTP, ad esempio la porta 21 per l'invio di comandi, sia disponibile.
 
-Se sono state create una nuova rete virtuale e le subnet senza vincoli, non è necessario configurare i [gruppi di sicurezza di rete (gruppi)](../virtual-network/security-overview.md) nella rete virtuale in modo da poter controllare il traffico tra le subnet. Per una rete virtuale esistente, è possibile impostare facoltativamente gruppi filtrando il [traffico di rete tra le subnet](../virtual-network/tutorial-filter-network-traffic.md). Se si sceglie questa route, assicurarsi che ISE apra porte specifiche, come descritto nella tabella seguente, nella rete virtuale con gruppi. Quindi, per gruppi o firewall esistenti nella rete virtuale, assicurarsi che aprano queste porte. In questo modo, ISE rimane accessibile e può funzionare correttamente in modo da non perdere l'accesso a ISE. In caso contrario, se non sono disponibili porte obbligatorie, ISE smette di funzionare.
+Se sono state create una nuova rete virtuale e le subnet senza vincoli, non è necessario configurare i [gruppi di sicurezza di rete (gruppi)](../virtual-network/security-overview.md) nella rete virtuale in modo da poter controllare il traffico tra le subnet. Per una rete virtuale esistente, è possibile impostare *facoltativamente* gruppi [filtrando il traffico di rete tra le subnet](../virtual-network/tutorial-filter-network-traffic.md). Se si sceglie questa route, assicurarsi che ISE apra porte specifiche, come descritto nella tabella seguente, nella rete virtuale con gruppi. Quindi, per gruppi o firewall esistenti nella rete virtuale, assicurarsi che aprano queste porte. In questo modo, ISE rimane accessibile e può funzionare correttamente in modo da non perdere l'accesso a ISE. In caso contrario, se non sono disponibili porte obbligatorie, ISE smette di funzionare.
 
 > [!IMPORTANT]
 > Per la comunicazione interna all'interno delle subnet, ISE richiede di aprire tutte le porte all'interno di tali subnet.
@@ -117,30 +118,34 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    ![Fornire i dettagli dell'ambiente](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Proprietà | Obbligatorio | Value | DESCRIZIONE |
+   | Proprietà | Richiesto | Value | Descrizione |
    |----------|----------|-------|-------------|
-   | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
-   | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui si desidera creare l'ambiente |
-   | **Nome dell'ambiente del servizio di integrazione** | Sì | <*Nome ambiente*> | Il nome ISE, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`) e punti`.`(). |
-   | **Location** | Sì | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
-   | **SKU** | Sì | **Premium** o **Developer (nessun contratto di contratto)** | SKU ISE da creare e usare. Per le differenze tra questi SKU, vedere [SKU di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: Questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
-   | **Capacità aggiuntiva** | Premium: <br>Sì <p><p>Developer: <br>Non applicabile | Premium: <br>da 0 a 10 <p><p>Developer: <br>Non applicabile | Il numero di unità di elaborazione aggiuntive da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [aggiungere la capacità di ISE](#add-capacity). |
+   | **Sottoscrizione** | Yes | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
+   | **Gruppo di risorse** | Yes | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui si desidera creare l'ambiente |
+   | **Nome dell'ambiente del servizio di integrazione** | Yes | <*Nome ambiente*> | Il nome ISE, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`) e punti`.`(). |
+   | **Location** | Yes | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
+   | **SKU** | Yes | **Premium** o **Developer (nessun contratto di contratto)** | SKU ISE da creare e usare. Per le differenze tra questi SKU, vedere [SKU di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: Questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
+   | **Capacità aggiuntiva** | Premium: <br>Yes <p><p>Developer: <br>Non applicabile | Premium: <br>da 0 a 10 <p><p>Developer: <br>Non applicabile | Il numero di unità di elaborazione aggiuntive da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [aggiungere la capacità di ISE](#add-capacity). |
    | **Endpoint di accesso** | Yes | **Interno** o **esterno** | Il tipo di endpoint di accesso da usare per ISE, che determina se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. Il tipo di endpoint influiscono anche sull'accesso a input e output nella cronologia delle esecuzioni dell'app per la logica. Per ulteriori informazioni, vedere [endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: Questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
    | **Rete virtuale** | Yes | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si ha una rete, [creare prima di tutto una rete virtuale di Azure](../virtual-network/quick-create-portal.md). <p>**Importante**: È possibile seguire questo collegamento *solo* quando si crea l'ISE. |
-   | **Subnet** | Sì | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione e la distribuzione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet). |
+   | **Subnet** | Yes | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione e la distribuzione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
 
    **Creare una subnet**
 
-   Per creare e distribuire le risorse nell'ambiente, ISE necessita di quattro subnet *vuote* che non sono delegate ad alcun servizio. *Non è possibile* modificare questi indirizzi subnet dopo aver creato l'ambiente. Ogni subnet deve soddisfare questi criteri:
-
-   * Ha un nome che inizia con un carattere alfabetico o un carattere di sottolineatura e non contiene i `<`caratteri `>`seguenti: `&`, `\\`, `?` `%`,,,,`/`
+   Per creare e distribuire le risorse nell'ambiente, ISE necessita di quattro subnet *vuote* che non sono delegate ad alcun servizio. *Non è possibile* modificare questi indirizzi subnet dopo aver creato l'ambiente.
+   
+   > [!IMPORTANT]
+   > 
+   > I nomi delle subnet devono iniziare con un carattere alfabetico o un carattere di sottolineatura (nessun numero) e non usa `<`questi `>`caratteri `%`:, `\\`, `?`, `/` `&`,,,.
+   
+   Inoltre, ogni subnet deve soddisfare questi requisiti:
 
    * Usa il [formato CIDR (Inter-Domain Routing) con classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e uno spazio di indirizzi della classe B.
 
-   * USA almeno un `/27` nello spazio degli indirizzi, perché ogni subnet deve avere almeno 32 indirizzi come *minimo*. Esempio:
+   * USA almeno un `/27` nello spazio degli indirizzi, perché ogni subnet *deve avere almeno* 32 indirizzi come *minimo*. Esempio:
 
      * `10.0.0.0/27`ha 32 indirizzi perché 2<sup>(32-27)</sup> è 2<sup>5</sup> o 32.
 
@@ -150,7 +155,7 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
      Per ulteriori informazioni sul calcolo degli indirizzi, vedere la pagina relativa ai [blocchi CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md), ricordarsi di [creare una tabella di route](../virtual-network/manage-route-table.md) con la route seguente e di collegare tale tabella a ogni subnet usata da ISE:
+   * Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md), è necessario [creare una tabella di route](../virtual-network/manage-route-table.md) con la route seguente e collegare la tabella a ogni subnet usata da ISE:
 
      **Nome**: <*Route-Name*><br>
      **Prefisso indirizzo**: 0.0.0.0/0<br>

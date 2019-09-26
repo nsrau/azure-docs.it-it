@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2019
+ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: cc2dc3a190e3ad06bdc048f2a5770eae2a6990ec
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4440fec98d1f561da6375bcaadba4282076cc53b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596821"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299469"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Centro sicurezza di Azure per i prerequisiti per l'it
 
-Questo articolo fornisce una spiegazione dei diversi blocchi predefiniti del Centro sicurezza di Azure (ASC) per il servizio Internet delle cose, le informazioni necessarie per iniziare e illustra i concetti di base per comprendere il servizio. 
+Questo articolo fornisce una spiegazione dei diversi blocchi predefiniti del Centro sicurezza di Azure per il servizio Internet delle cose, le informazioni necessarie per iniziare e spiega i concetti di base per comprendere il servizio. 
 
 ## <a name="minimum-requirements"></a>Requisiti minimi
 
@@ -34,13 +34,13 @@ Questo articolo fornisce una spiegazione dei diversi blocchi predefiniti del Cen
 - Centro sicurezza di Azure (scelta consigliata)
     - L'uso del Centro sicurezza di Azure è un'indicazione e non un requisito. Senza il Centro sicurezza di Azure, non sarà possibile visualizzare le altre risorse di Azure all'interno dell'hub Internet. 
  
-## <a name="working-with-asc-for-iot-service"></a>Uso di ASC per il servizio Internet
+## <a name="working-with-azure-security-center-for-iot-service"></a>Uso del Centro sicurezza di Azure per il servizio Internet delle cose
 
-Il servizio ASC per informazioni dettagliate e la creazione di report sono disponibili tramite l'hub Azure e il Centro sicurezza di Azure. Per abilitare ASC per le cose nell'hub Azure, è necessario un account con privilegi a livello di **proprietario** . Dopo aver abilitato ASC per le cose nell'hub Internet delle cose, ASC per l'it Insights viene visualizzato come funzionalità di **sicurezza** nell'hub Azure Internet **e nel centro** sicurezza di Azure. 
+Il Centro sicurezza di Azure per le informazioni dettagliate e i report sono disponibili tramite l'hub Azure e il Centro sicurezza di Azure. Per abilitare il Centro sicurezza di Azure per le cose nell'hub Azure, è necessario un account con privilegi a livello di **proprietario** . Dopo aver abilitato ASC per le cose nell'hub Internet delle cose, il Centro sicurezza di Azure per l'uso di informazioni dettagliate viene visualizzato come funzionalità di **sicurezza** nell'hub Azure Internet **e nel centro sicurezza di Azure** . 
 
 ## <a name="supported-service-regions"></a>Aree del servizio supportate 
 
-ASC for Internet è attualmente supportato per gli hub Internet nelle aree di Azure seguenti:
+Il Centro sicurezza di Azure per le cose è attualmente supportato per gli hub Internet nelle aree di Azure seguenti:
   - Stati Uniti centrali  
   - East US 
   - Stati Uniti orientali 2
@@ -64,10 +64,12 @@ ASC for Internet è attualmente supportato per gli hub Internet nelle aree di Az
   - Australia orientale
   - Asia orientale   
   - Asia sud-orientale
-  - Corea del Sud centrale
-  - Corea del Sud meridionale 
+  - Corea centrale
+  - Corea meridionale 
   - India centrale
   - India meridionale
+
+Il Centro sicurezza di Azure per Internet delle cose instrada tutto il traffico da tutte le aree europee verso la data center regionale dell'Europa occidentale e tutte le aree rimanenti verso la data center regionale degli Stati Uniti centrali.  
   
 ## <a name="wheres-my-iot-hub"></a>Dov'è il mio hub Internet?
 
@@ -80,7 +82,7 @@ Controllare la posizione dell'hub Internet per verificare la disponibilità del 
 
 ## <a name="supported-platforms-for-agents"></a>Piattaforme supportate per gli agenti 
 
-ASC for Internet Agents supporta un elenco in continua crescita di dispositivi e piattaforme. Vedere l' [elenco piattaforma supportata](how-to-deploy-agent.md) per verificare la libreria di dispositivi esistente o pianificata.  
+Il Centro sicurezza di Azure per gli agenti Internet supporta un elenco in continua crescita di dispositivi e piattaforme. Vedere l' [elenco piattaforma supportata](how-to-deploy-agent.md) per verificare la libreria di dispositivi esistente o pianificata.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Leggi la [Panoramica](overview.md) sulla sicurezza di Azure.

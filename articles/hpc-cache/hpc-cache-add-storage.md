@@ -4,14 +4,14 @@ description: Come definire le destinazioni di archiviazione in modo che la cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: a17952e193f3e03becaab044f55637372bac7b0d
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 7df0727a58f3d70289c5060175572dac1bbb4abb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181001"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300033"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -21,11 +21,11 @@ Le *destinazioni di archiviazione* sono archiviazione back-end per i file a cui 
 
 Tenere presente che le esportazioni di archiviazione devono essere accessibili dalla rete virtuale della cache. Per l'archiviazione hardware locale, potrebbe essere necessario configurare un server DNS in grado di risolvere i nomi host per l'accesso con archiviazione NFS. Per altre informazioni, vedere [accesso DNS](hpc-cache-prereqs.md#dns-access).
 
-È possibile aggiungere destinazioni di archiviazione durante la creazione della cache HPC di Azure o successivamente. La procedura è leggermente diversa a seconda che si stia aggiungendo un archivio BLOB di Azure o un'esportazione NFS. Di seguito sono riportati i dettagli per ognuno di essi.
+È possibile aggiungere destinazioni di archiviazione durante la creazione della cache o successivamente. La procedura è leggermente diversa a seconda che si stia aggiungendo un archivio BLOB di Azure o un'esportazione NFS. Di seguito sono riportati i dettagli per ognuno di essi.
 
 ## <a name="add-storage-targets-while-creating-the-cache"></a>Aggiungere destinazioni di archiviazione durante la creazione della cache
 
-Utilizzare la scheda **destinazioni di archiviazione** della creazione guidata cache per definire l'archiviazione nello stesso momento in cui si crea l'istanza della cache.
+Usare la scheda **destinazioni di archiviazione** della procedura guidata di creazione della cache HPC di Azure per definire l'archiviazione nello stesso momento in cui si crea l'istanza della cache.
 
 ![screenshot della pagina delle destinazioni di archiviazione](media/hpc-cache-storage-targets-pop.png)
 
@@ -39,11 +39,13 @@ Dalla portale di Azure aprire l'istanza di cache e fare clic su **destinazioni d
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Aggiungere una nuova destinazione di archiviazione BLOB di Azure
 
-Una nuova destinazione di archiviazione BLOB necessita di un contenitore BLOB vuoto o di un contenitore popolato con i dati nel formato del filesystem cloud di Azure HPC cache. Altre informazioni sul precaricamento di un contenitore BLOB in [spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md).
+Una nuova destinazione di archiviazione BLOB necessita di un contenitore BLOB vuoto o di un contenitore popolato con i dati nel formato file system del cloud di cache HPC di Azure. Altre informazioni sul precaricamento di un contenitore BLOB in [spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md).
 
 Per definire un contenitore BLOB di Azure, immettere queste informazioni.
 
 ![screenshot della pagina Aggiungi destinazione di archiviazione, popolato con le informazioni per una nuova destinazione di archiviazione BLOB di Azure](media/hpc-cache-add-blob.png)
+
+<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
 
 * **Nome destinazione di archiviazione** : impostare un nome che identifichi la destinazione di archiviazione nella cache HPC di Azure.
 * **Tipo di destinazione** : scegliere **BLOB**.
@@ -52,13 +54,13 @@ Per definire un contenitore BLOB di Azure, immettere queste informazioni.
   Per accedere all'account di archiviazione, è necessario autorizzare l'istanza della cache, come descritto in [aggiungere i ruoli di accesso](#add-the-access-control-roles-to-your-account).
 * **Contenitore di archiviazione** : selezionare il contenitore BLOB per la destinazione.
 
-* **Percorso dello spazio dei nomi virtuale** : impostare il FilePath per il client per questa destinazione di archiviazione. Per ulteriori informazioni sulla funzionalità spazio dei nomi virtuale, vedere [configurare lo spazio dei nomi aggregato](hpc-cache-namespace.md) .
+* **Percorso dello spazio dei nomi virtuale** : impostare il percorso del file per il client per questa destinazione di archiviazione. Per ulteriori informazioni sulla funzionalità spazio dei nomi virtuale, vedere [configurare lo spazio dei nomi aggregato](hpc-cache-namespace.md) .
 
 Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Aggiungere i ruoli di controllo di accesso all'account
 
-La cache HPC di Azure usa il [controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) per autorizzare l'applicazione della cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
+Cache HPC di Azure usa il [controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) per autorizzare l'applicazione della cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
 
 Il proprietario dell'account di archiviazione deve aggiungere in modo esplicito i ruoli collaboratore [account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) e collaboratore [dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) per l'utente "StorageCache Resource Provider".
 
@@ -98,11 +100,16 @@ Fornire queste informazioni per una destinazione di archiviazione supportata da 
 
 * **Modello di utilizzo** : scegliere uno dei profili di caching dei dati in base al flusso di lavoro, descritto di [seguito in scegliere un modello di utilizzo](#choose-a-usage-model).
 
-È possibile creare più percorsi dello spazio dei nomi per rappresentare esportazioni diverse nello stesso sistema di archiviazione NFS, ma è necessario crearle tutte da un'unica destinazione di archiviazione.
+### <a name="nfs-namespace-paths"></a>Percorsi dello spazio dei nomi NFS
 
-Per ogni esportazione, immettere i valori seguenti:
+Una destinazione di archiviazione NFS può avere più percorsi virtuali, purché ogni percorso rappresenti un'esportazione o una sottodirectory diversa nello stesso sistema di archiviazione.
 
-* **Percorso dello spazio dei nomi virtuale** : impostare il FilePath per il client per questa destinazione di archiviazione. Per ulteriori informazioni sulla funzionalità spazio dei nomi virtuale, vedere [configurare lo spazio dei nomi aggregato](hpc-cache-namespace.md) .
+Creare tutti i percorsi da una destinazione di archiviazione.
+<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+Immettere questi valori per ogni percorso dello spazio dei nomi: 
+
+* **Percorso dello spazio dei nomi virtuale** : impostare il percorso del file per il client per questa destinazione di archiviazione. Per ulteriori informazioni sulla funzionalità spazio dei nomi virtuale, vedere [configurare lo spazio dei nomi aggregato](hpc-cache-namespace.md) .
 
 <!--  The virtual path should start with a slash ``/``. -->
 

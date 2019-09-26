@@ -11,24 +11,52 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: aea1434acdbfd97bcc9096dddd497ef031a74b94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: e3ab825fbf5b5dba74b67eaa894a38c74ed0b62a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170554"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299384"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
 Il runtime di funzioni di Azure supporta [Java se 8 LTS (Zulu 8.31.0.2-JRE 8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Questa guida contiene informazioni sulle complessità della scrittura di funzioni di Azure con Java.
 
-Una funzione Java è un `public` metodo, decorato con l' `@FunctionName`annotazione. Questo metodo definisce la voce per una funzione Java e deve essere univoca in un pacchetto specifico. 
+Come accade con altri linguaggi, un app per le funzioni può avere una o più funzioni. Una funzione Java è un `public` metodo, decorato con l' `@FunctionName`annotazione. Questo metodo definisce la voce per una funzione Java e deve essere univoca in un pacchetto specifico. Una app per le funzioni scritta in Java può avere più classi con più metodi pubblici annotati `@FunctionName`con.
 
 Questo articolo presuppone che siano già state lette le [informazioni di riferimento per sviluppatori su Funzioni di Azure](functions-reference.md). È anche necessario completare la Guida introduttiva di funzioni per creare la prima funzione usando [Visual Studio Code](functions-create-first-function-vs-code.md) o [Maven](functions-create-first-java-maven.md).
 
 ## <a name="programming-model"></a>Modello di programmazione 
 
 I concetti di [trigger e binding](functions-triggers-bindings.md) sono fondamentali in Funzioni di Azure. I trigger avviano l'esecuzione del codice, mentre i binding consentono la trasmissione dei dati e la restituzione dei dati da una funzione, senza dover scrivere codice personalizzato per l'accesso ai dati.
+
+## <a name="project-scaffolding"></a>Impalcatura del progetto
+
+Il modo più semplice per eseguire l'impalcatura di un progetto di funzione di Azure `Apache Maven` basato su Java consiste nell'usare gli archetipi. È anche possibile trovare creazioni guidate di generazione di progetti in Visual Studio Code e i toolkit di Azure per Eclipse e IntelliJ.
+
+Per Maven sono attualmente disponibili due archetipi di funzioni di Azure:
+
+### <a name="java-archetype"></a>Archetipo Java
+
+Questo archetipo viene pubblicato con i seguenti groupId e artifactId [com. Microsoft. Azure: Azure-Functions-archetipo](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-archetype 
+```
+
+### <a name="kotlin-archetype-preview"></a>Archetipo Kotlin (anteprima)
+
+Questo archetipo viene pubblicato con i seguenti groupId e artifactId [com. Microsoft. Azure: Azure-Functions-Kotlin-archetipie](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
+```
+
+Il codice sorgente di questi archetipi si trova nel [repository GitHub Azure Maven archetipi](https://github.com/microsoft/azure-maven-archetypes).
 
 ## <a name="folder-structure"></a>Struttura di cartelle
 
@@ -55,6 +83,8 @@ FunctionsProject
  | | | | - lib
  | - pom.xml
 ```
+
+_* Il progetto Kotlin ha un aspetto molto simile perché è ancora Maven_
 
 È possibile usare un file [host. JSON](functions-host-json.md) condiviso per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione java) e il proprio file di configurazione delle associazioni (function.json).
 
@@ -303,7 +333,7 @@ Si richiama questa funzione su un HttpRequest. Scrive più valori nell'archiviaz
 | `HttpRequestMessage<T>`  |    Trigger HTTP     | Ottiene metodi, intestazioni o query |
 | `HttpResponseMessage` | Associazione di output HTTP | Restituisce uno stato diverso da 200   |
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>Metadati
 
 Alcuni trigger inviano [metadati dei trigger](/azure/azure-functions/functions-triggers-bindings) insieme ai dati di input. È possibile utilizzare l' `@BindingName` annotazione per associare i metadati del trigger.
 

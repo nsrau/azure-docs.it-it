@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086576"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315001"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure AD Domain Services
 
@@ -46,7 +46,7 @@ Un dominio gestito di Azure AD DS si connette a una subnet in una rete virtuale 
 * Azure AD DS deve essere distribuito nella propria subnet. Non usare una subnet esistente o una subnet del gateway.
 * Durante la distribuzione di un dominio gestito Azure AD DS viene creato un gruppo di sicurezza di rete. Questo gruppo di sicurezza di rete contiene le regole necessarie per la corretta comunicazione del servizio.
     * Non creare o usare un gruppo di sicurezza di rete esistente con regole personalizzate.
-* Azure AD DS richiede tra cinque e sette indirizzi IP. Verificare che l'intervallo di indirizzi IP della subnet possa fornire questo numero di indirizzi.
+* Per Azure AD DS sono necessari 3-5 indirizzi IP. Verificare che l'intervallo di indirizzi IP della subnet possa fornire questo numero di indirizzi.
     * La limitazione degli indirizzi IP disponibili può impedire a Azure AD Domain Services di gestire due controller di dominio.
 
 Il diagramma di esempio seguente illustra una progettazione valida in cui Azure AD DS ha una propria subnet, esiste una subnet del gateway per la connettività esterna e i carichi di lavoro dell'applicazione si trovano in una subnet connessa all'interno della rete virtuale:
@@ -105,10 +105,10 @@ Un [gruppo di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-
 
 Le seguenti regole del gruppo di sicurezza di rete sono necessarie per Azure AD DS per fornire servizi di autenticazione e di gestione. Non modificare o eliminare queste regole del gruppo di sicurezza di rete per la subnet della rete virtuale in cui è distribuito il dominio gestito di Azure AD DS.
 
-| Numero della porta | Protocol | Source                             | Destination | Azione | Obbligatoria | Scopo |
+| Numero porta | Protocol | Source                             | Destination | Azione | Richiesto | Scopo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sì      | Sincronizzazione con il tenant del Azure AD. |
-| 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Sì      | Gestione del dominio. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Sincronizzazione con il tenant del Azure AD. |
+| 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Yes      | Gestione del dominio. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Gestione del dominio. |
 | 636         | TCP      | Any                                | Any         | Allow  | No       | Abilitato solo quando si configura LDAP sicuro (LDAPs). |
 

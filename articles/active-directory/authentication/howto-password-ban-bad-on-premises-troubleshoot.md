@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 690d49a94ff4f516e24494622ca378eb0794fee9
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952812"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314922"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Risoluzione dei problemi relativi a Password di protezione di Azure AD
 
@@ -56,17 +56,23 @@ Il sintomo principale di questo problema è 30018 eventi nel registro eventi di 
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>Impossibile crittografare o decrittografare i file di criteri password
 
-Questo problema può manifestarsi con diversi sintomi, ma in genere presenta una causa radice comune.
+Azure AD la protezione con password ha una dipendenza critica dalla funzionalità di crittografia e decrittografia fornita dal servizio di distribuzione delle chiavi Microsoft. Gli errori di crittografia o decrittografia possono manifestarsi con diversi sintomi e hanno diverse cause potenziali.
 
-Azure AD la protezione con password ha una dipendenza critica dalla funzionalità di crittografia e decrittografia fornita dal servizio di distribuzione delle chiavi Microsoft, disponibile nei controller di dominio che eseguono Windows Server 2012 e versioni successive. Il servizio KDS deve essere abilitato e funzionante in tutti i controller di dominio Windows Server 2012 e versioni successive in un dominio.
+1. Verificare che il servizio KDS sia abilitato e funzionante in tutti i controller di dominio Windows Server 2012 e versioni successive in un dominio.
 
-Per impostazione predefinita, la modalità di avvio del servizio KDS è configurata come manuale (avvio del trigger). Questa configurazione significa che la prima volta che un client tenta di usare il servizio, viene avviato su richiesta. Questa modalità di avvio del servizio predefinita è accettabile per il funzionamento Azure AD la protezione delle password.
+   Per impostazione predefinita, la modalità di avvio del servizio KDS è configurata come manuale (avvio del trigger). Questa configurazione significa che la prima volta che un client tenta di usare il servizio, viene avviato su richiesta. Questa modalità di avvio del servizio predefinita è accettabile per il funzionamento Azure AD la protezione delle password.
 
-Se la modalità di avvio del servizio KDS è stata configurata come disabilitata, è necessario correggere questa configurazione prima di Azure AD la protezione delle password funzionerà correttamente.
+   Se la modalità di avvio del servizio KDS è stata configurata come disabilitata, è necessario correggere questa configurazione prima di Azure AD la protezione delle password funzionerà correttamente.
 
-Un semplice test di questo problema consiste nell'avviare manualmente il servizio KDS tramite la console MMC di gestione dei servizi o con altri strumenti di gestione (ad esempio, eseguire "net start kdssvc" da una console del prompt dei comandi). Il servizio KDS dovrebbe avviarsi correttamente e rimanere in esecuzione.
+   Un semplice test di questo problema consiste nell'avviare manualmente il servizio KDS tramite la console MMC di gestione dei servizi o con altri strumenti di gestione (ad esempio, eseguire "net start kdssvc" da una console del prompt dei comandi). Il servizio KDS dovrebbe avviarsi correttamente e rimanere in esecuzione.
 
-La causa principale più comune per l'avvio del servizio KDS è che l'oggetto controller di dominio Active Directory si trova al di fuori dell'unità organizzativa dei controller di dominio predefiniti. Questa configurazione non è supportata dal servizio KDS e non è un limite imposto da Azure AD la protezione delle password. La correzione per questa condizione consiste nello spostare l'oggetto controller di dominio in un percorso all'interno dell'unità organizzativa dei controller di dominio predefiniti.
+   La causa principale più comune per l'avvio del servizio KDS è che l'oggetto controller di dominio Active Directory si trova al di fuori dell'unità organizzativa dei controller di dominio predefiniti. Questa configurazione non è supportata dal servizio KDS e non è un limite imposto da Azure AD la protezione delle password. La correzione per questa condizione consiste nello spostare l'oggetto controller di dominio in un percorso all'interno dell'unità organizzativa dei controller di dominio predefiniti.
+
+1. Modifica del formato del buffer crittografato KDS incompatibile da Windows Server 2012 R2 a Windows Server 2016
+
+   Una correzione di sicurezza KDS è stata introdotta in Windows Server 2016 che modifica il formato dei buffer crittografati KDS; questi buffer talvolta non riescono a decrittografare in Windows Server 2012 e Windows Server 2012 R2. La direzione inversa è OK: i buffer con KDS crittografati in Windows Server 2012 e Windows Server 2012 R2 verranno sempre decrittografati in Windows Server 2016 e versioni successive. Se i controller di dominio nei domini Active Directory eseguono una combinazione di questi sistemi operativi, è possibile che vengano segnalati errori occasionali di decrittografia della protezione Azure AD password. Non è possibile prevedere accuratamente l'intervallo o i sintomi di questi errori in base alla natura della correzione della sicurezza e, dato che non è deterministica, che Azure AD agente di controller di dominio per la protezione delle password in cui il controller di dominio eseguirà la crittografia dei dati in un determinato momento.
+
+   Microsoft sta esaminando una correzione per questo problema, ma non è ancora disponibile l'ETA. Nel frattempo, non esiste alcuna soluzione per questo problema, ad eccezione di non eseguire una combinazione di questi sistemi operativi incompatibili nei domini Active Directory. In altre parole, è consigliabile eseguire solo i controller di dominio Windows Server 2012 e Windows Server 2012 R2 oppure eseguire solo i controller di dominio Windows Server 2016 e versioni successive.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Le password vulnerabili vengono accettate, ma non devono essere
 

@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a875e028a38c085d45d062984764cd840983fc3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 66e53298625e2388e102b5a4e835fe22a9c81a21
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212321"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314968"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -46,13 +46,8 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 ## <a name="14x0"></a>1.4. X. 0
 
 >[!IMPORTANT]
->I computer Windows registrati come Azure AD ibrido Uniti sono rappresentati in Azure AD come oggetti dispositivo. Questi oggetti dispositivo possono essere utilizzati per l'accesso condizionale. I computer Windows 10 vengono sincronizzati con il cloud tramite Azure AD Connect, i computer Windows di livello inferiore vengono registrati direttamente usando AD FS o seamless Single Sign-on.
->
->Solo i computer Windows 10 con un valore dell'attributo userCertificate specifico configurato da Aggiunta ad Azure AD ibrido devono essere sincronizzati con il Cloud Azure AD Connect.  Nelle versioni precedenti di Azure AD Connect questo requisito non è stato applicato rigorosamente, causando la Azure AD di oggetti dispositivo non necessari. Tali dispositivi in Azure AD sempre rimasti nello stato "in sospeso" perché questi computer non erano destinati alla registrazione con Azure AD.
->
->Con questa versione di Azure AD Connect verranno sincronizzati solo i computer Windows 10 configurati correttamente per essere Azure AD ibrido Uniti in join. Azure AD Connect non devono mai sincronizzare i [dispositivi Windows di livello inferiore](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Tutti i dispositivi in Azure AD precedentemente sincronizzati in modo non corretto verranno eliminati da Azure AD.  Questa modifica, tuttavia, non eliminerà i dispositivi Windows registrati correttamente con Azure AD per Aggiunta ad Azure AD ibrido. 
->
->Alcuni o tutti i dispositivi Windows potrebbero scomparire da Azure AD. Questo non è un problema, poiché queste identità dei dispositivi non vengono usate da Azure AD durante l'autorizzazione dell'accesso condizionale. È possibile che alcuni clienti debbano [rivedere come: Pianificare l'implementazione](../../active-directory/devices/hybrid-azuread-join-plan.md) ibrida di Azure Active Directory join per ottenere la registrazione corretta dei computer Windows e assicurarsi che tali dispositivi possano partecipare completamente all'accesso condizionale basato su dispositivo. Se Azure AD Connect sta tentando di eliminare i [dispositivi Windows di livello inferiore](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices) , il dispositivo non è quello creato da [Microsoft workplace join per i computer non Windows 10 MSI](https://www.microsoft.com/download/details.aspx?id=53554) e non può essere utilizzato da altre funzionalità di Azure ad.  Se vengono visualizzate le eliminazioni di oggetti computer/dispositivo in Azure AD superando la soglia di eliminazione dell'esportazione, è consigliabile che il cliente consenta di eseguire queste eliminazioni.
+>Con questa versione di Azure AD Connect alcuni clienti potrebbero vedere che alcuni o tutti i dispositivi Windows scompaiono da Azure AD. Questo non è un problema, poiché queste identità dei dispositivi non vengono usate da Azure AD durante l'autorizzazione dell'accesso condizionale. Per ulteriori informazioni, vedere informazioni [Azure ad Connect 1.4. XX. x disappearnce del dispositivo](reference-connect-device-disappearance.md)
+
 
 ### <a name="release-status"></a>Stato della versione
 9/10/2019: Rilasciato solo per l'aggiornamento automatico
@@ -63,7 +58,7 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 - I clienti devono essere informati che gli endpoint WMI deprecati per MIIS_Service sono stati rimossi. Tutte le operazioni WMI dovrebbero ora essere eseguite tramite i cmdlet di PS.
 - Miglioramento della sicurezza reimpostando la delega vincolata sull'oggetto AZUREADSSOACC
 - Quando si aggiunge o modifica una regola di sincronizzazione, se sono presenti attributi usati nella regola nello schema del connettore ma non aggiunti al connettore, gli attributi vengono aggiunti automaticamente al connettore. Lo stesso vale per il tipo di oggetto a cui la regola ha effetto. Se viene aggiunto un elemento al connettore, il connettore verrà contrassegnato per l'importazione completa al successivo ciclo di sincronizzazione.
-- L'uso di un amministratore aziendale o di dominio come account del connettore non è più supportato.
+- L'uso di un amministratore aziendale o di dominio come account del connettore non è più supportato nelle nuove distribuzioni di AAD Connect. Le distribuzioni correnti di AAD Connect che usano un amministratore aziendale o di dominio come account del connettore non saranno interessate da questa versione.
 - In Gestione sincronizzazione viene eseguita una sincronizzazione completa per la creazione/modifica/eliminazione di regole. Verrà visualizzata una finestra popup in qualsiasi modifica regola che informa l'utente se verrà eseguita l'importazione completa o la sincronizzazione completa.
 - Aggiunta dei passaggi di mitigazione per gli errori di password nella pagina ' connettori > Proprietà > connettività'
 - Aggiunto un avviso di deprecazione per Sync Service Manager nella pagina delle proprietà del connettore. Questo avviso informa l'utente che le modifiche devono essere apportate tramite la procedura guidata AADC.

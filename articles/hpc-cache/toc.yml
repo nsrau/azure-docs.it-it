@@ -23,12 +23,15 @@
             - name: Precaricare una nuova archiviazione BLOB
               href: hpc-cache-ingest.md
             - name: Metodi di inserimento dati alternativi
-            - name: Popolare la cache con la copia parallela
-              href: hpc-cache-ingest-parallelcp.md
-            - name: Popolare la cache con msrsync
-              href: hpc-cache-ingest-msrsync.md
-            - name: Popolare la cache tramite copia manuale dei file
-              href: hpc-cache-ingest-manual.md
+              items:
+                - name: Popolare la cache con la copia parallela
+                  href: hpc-cache-ingest-parallelcp.md
+                - name: Popolare la cache con msrsync
+                  href: hpc-cache-ingest-msrsync.md
+                - name: Popolare la cache tramite copia manuale dei file
+                  href: hpc-cache-ingest-manual.md
+    - name: Connettersi alla cache
+      href: hpc-cache-mount.md
 - name: Risorse
   items:
     - name: Aprire un ticket di supporto

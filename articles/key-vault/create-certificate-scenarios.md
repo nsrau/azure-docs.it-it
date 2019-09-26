@@ -3,18 +3,18 @@ title: Monitorare e gestire la creazione di certificati
 description: Scenari che illustrano diverse opzioni per creare e monitorare il processo di creazione di certificati con Key Vault e interagirvi.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3d86960e726ae18fba8d171ab9f85d7c991b4e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f88af7027f6c907b5b55eb9aac545d98e2fbb7a
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729226"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880843"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorare e gestire la creazione di certificati
 Si applica a: Azure
@@ -39,7 +39,7 @@ In questo articolo sono illustrati gli scenari e le operazioni seguenti:
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
+|INSERISCI|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
 Per gli esempi seguenti è necessario che sia già disponibile un oggetto denominato "mydigicert" nell'insieme di credenziali delle chiavi, con DigiCert come provider autorità di certificazione. L'autorità di certificazione è un'entità rappresentata in Azure Key Vault come risorsa CertificateIssuer. Viene usata per rendere disponibili informazioni sull'origine di un certificato di un insieme di credenziali delle chiavi: nome dell'autorità di certificazione, provider, credenziali e altri dettagli amministrativi.
 
@@ -226,7 +226,7 @@ Per risolvere un conflitto:
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
+|INSERISCI|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
 ### <a name="request"></a>Richiesta
 
@@ -263,7 +263,7 @@ Se la richiesta di creazione del certificato x509 ha esito negativo o viene annu
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
+|INSERISCI|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
 ### <a name="request"></a>Richiesta
 
@@ -362,7 +362,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
+|INSERISCI|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
 ### <a name="request"></a>Richiesta
 
@@ -402,7 +402,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
+|INSERISCI|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
 ### <a name="request"></a>Richiesta
 
@@ -413,9 +413,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|Nome dell'elemento|Obbligatoria|Type|Version|Descrizione|
+|Nome dell'elemento|Obbligatoria|Type|Versione|DESCRIZIONE|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Yes|array|\<versione di introduzione>|Catena di certificati X509 sotto forma di matrice di stringhe Base 64.|
+|x5c|Sì|array|\<versione di introduzione>|Catena di certificati X509 sotto forma di matrice di stringhe Base 64.|
 
 ### <a name="response"></a>Risposta
 

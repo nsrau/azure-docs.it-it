@@ -8,18 +8,18 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036330"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300639"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
-L'archiviazione con ridondanza della zona geografica (GZRS) (anteprima) si associa alla disponibilità elevata di archiviazione con ridondanza della [zona (ZRS)](storage-redundancy-zrs.md) con protezione da interruzioni a livello di area, come fornito dall'archiviazione con ridondanza geografica [(GRS)](storage-redundancy-grs.md). I dati in un account di archiviazione GZRS vengono replicati in tre [zone di disponibilità di Azure](../../availability-zones/az-overview.md) nell'area primaria e anche replicati in un'area geografica secondaria per la protezione da emergenze locali. Ogni area di Azure è associata a un'altra area con la stessa ubicazione geografica, che insieme formano una coppia di aree. Per ulteriori informazioni ed eccezioni, fare riferimento alla [documentazione](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+L'archiviazione con ridondanza della zona geografica (GZRS) (anteprima) si associa alla disponibilità elevata di [archiviazione con ridondanza della zona (ZRS)](storage-redundancy-zrs.md) con protezione da interruzioni a livello di area, come fornito dall' [archiviazione con ridondanza geografica (GRS)](storage-redundancy-grs.md). I dati in un account di archiviazione GZRS vengono replicati in tre [zone di disponibilità di Azure](../../availability-zones/az-overview.md) nell'area primaria e anche replicati in un'area geografica secondaria per la protezione da emergenze locali. Ogni area di Azure è associata a un'altra area con la stessa ubicazione geografica, che insieme formano una coppia di aree. Per ulteriori informazioni ed eccezioni, fare riferimento alla [documentazione](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-Con un account di archiviazione GZRS, è possibile continuare a leggere e scrivere dati se una zona di disponibilità diventa non disponibile o non è recuperabile. Inoltre, i dati sono anche durevoli in caso di un'interruzione completa dell'area o di un'emergenza in cui l'area primaria non è recuperabile. GZRS è progettato per offrire almeno il 99,99999999999999% (16 9) di durabilità degli oggetti in un determinato anno. GZRS offre anche gli stessi [obiettivi](storage-scalability-targets.md) di scalabilità di con ridondanza locale, ZRS, GRS o RA-GRS. Facoltativamente, è possibile abilitare l'accesso in lettura ai dati nell'area secondaria con archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) se le applicazioni devono essere in grado di leggere i dati in caso di emergenza nell'area primaria.
+Con un account di archiviazione GZRS, è possibile continuare a leggere e scrivere dati se una zona di disponibilità diventa non disponibile o non è recuperabile. Inoltre, i dati sono anche durevoli in caso di un'interruzione completa dell'area o di un'emergenza in cui l'area primaria non è recuperabile. GZRS è progettato per offrire almeno il 99,99999999999999% (16 9) di durabilità degli oggetti in un determinato anno. GZRS offre anche gli stessi [obiettivi di scalabilità](storage-scalability-targets.md) di con ridondanza locale, ZRS, GRS o RA-GRS. Facoltativamente, è possibile abilitare l'accesso in lettura ai dati nell'area secondaria con archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) se le applicazioni devono essere in grado di leggere i dati in caso di emergenza nell'area primaria.
 
 Microsoft consiglia di usare GZRS per le applicazioni che richiedono coerenza, durabilità, disponibilità elevata, prestazioni ottimali e resilienza per il ripristino di reaster. Per la sicurezza aggiuntiva dell'accesso in lettura all'area secondaria in caso di emergenza a livello di area, abilitare RA-GZRS per l'account di archiviazione.
 
@@ -29,7 +29,11 @@ Solo gli account di archiviazione per utilizzo generico V2 supportano GZRS e RA-
 
 GZRS e RA-GZRS sono attualmente disponibili per l'anteprima nelle aree seguenti:
 
+- Europa settentrionale
+- Europa occidentale
 - Stati Uniti orientali
+- Stati Uniti orientali 2
+- Stati Uniti centrali
 
 Microsoft continua ad abilitare GZRS e RA-GZRS in altre aree di Azure. Per informazioni sulle aree supportate, vedere regolarmente la pagina [aggiornamenti](https://azure.microsoft.com/updates/) dei servizi di Azure.
 
@@ -113,7 +117,7 @@ Durante una migrazione in tempo reale, è possibile usare l'account di archiviaz
 
 Solo gli account per utilizzo generico V2 supportano GZRS/RA-GZRS, quindi prima di inviare una richiesta di migrazione in tempo reale a GZRS/RA-GZRS, è necessario aggiornare l'account a utilizzo generico V2. Per altre informazioni, vedere [Panoramica](https://docs.microsoft.com/azure/storage/common/storage-account-overview) dell'account di archiviazione [di Azure e eseguire l'aggiornamento a un account di archiviazione per utilizzo generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 
-Al termine della migrazione, l'impostazione di replica dell'account di archiviazione verrà aggiornata all' **archiviazione con ridondanza della zona geografica (GZRS)** o all'archiviazione con ridondanza geografica e **accesso in lettura (RA-GZRS)** . Gli endpoint di servizio, le chiavi di accesso, le firme di accesso condiviso (SAS) e tutte le altre opzioni di configurazione dell'account rimangono invariati e intatti.
+Al termine della migrazione, l'impostazione di replica dell'account di archiviazione verrà aggiornata all' **archiviazione con ridondanza della zona geografica (GZRS)** o all' **archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS)** . Gli endpoint di servizio, le chiavi di accesso, le firme di accesso condiviso (SAS) e tutte le altre opzioni di configurazione dell'account rimangono invariati e intatti.
 
 Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 
@@ -131,14 +135,14 @@ Per richiedere una migrazione in tempo reale, usare la [portale di Azure](https
 
 1. Selezionare **nuova richiesta di supporto**.
 2. Completare le **nozioni** di base in base alle informazioni sull'account. Nella sezione **servizio** selezionare **gestione** account di archiviazione e specificare l'account da migrare.
-3. Selezionare **Avanti**.
+3. Selezionare  **Avanti**.
 4. Specificare i valori seguenti nella sezione **problema** :
     - **Gravità**: lasciare il valore predefinito.
     - **Tipo di problema**: Selezionare **migrazione dei dati**.
     - **Categoria**: Selezionare **migrate to (RA-) GZRS in a Region**.
     - **Titolo**: Digitare un titolo descrittivo, ad esempio, **(RA-) GZRS migrazione dell'account**.
     - **Dettagli**: Digitare ulteriori dettagli nella casella **Dettagli** , ad esempio "si desidera eseguire la migrazione a GZRS da [con ridondanza locale, \_ \_ GRS] nell'area". o "Desidero eseguire la migrazione a ra-GZRS da [con ridondanza locale, RA-GRS] nell' \_ \_ area".
-5. Selezionare **Avanti**.
+5. Selezionare  **Avanti**.
 6. Verificare che le informazioni di contatto siano corrette nel pannello **informazioni** di contatto.
 7. Selezionare **Crea**.
 

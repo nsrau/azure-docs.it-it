@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69279da93197bcaaf1bf600bc9406287253d74bb
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 08edf6e841dc7d389573d5e5b5ea7e043f750e76
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063273"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291098"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Esercitazione: Personalizzare l'interfaccia delle esperienze utente in Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Occorre creare un account di archiviazione e un contenitore di Azure e quindi inserire i file HTML e CSS di base nel contenitore.
 
-### <a name="create-a-storage-account"></a>Creare un account di archiviazione
+### <a name="create-a-storage-account"></a>Crea un account di archiviazione
 
 I file possono essere archiviati in diversi modi, ma per questa esercitazione si userà l'[archivio BLOB di Azure](../storage/blobs/storage-blobs-introduction.md).
 
@@ -63,14 +63,14 @@ I file possono essere archiviati in diversi modi, ma per questa esercitazione si
 
 1. Nel menu selezionare **CORS**.
 2. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
-3. Per **Metodi consentiti** selezionare sia `GET` che `OPTIONS`.
+3. Per i **metodi consentiti**, `GET`selezionare `OPTIONS`,`PUT`e.
 4. Per **Intestazioni consentite** immettere un asterisco (*).
 5. Per **Intestazioni esposte** immettere un asterisco (*).
 6. Per **Età massima** immettere 200.
 
     ![Pagina di configurazione di CORS nell'archivio BLOB di Azure in portale di Azure](./media/tutorial-customize-ui/enable-cors.png)
 
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
 ### <a name="create-the-customization-files"></a>Creare i file di personalizzazione
 

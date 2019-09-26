@@ -5,21 +5,22 @@ ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 5b482d00990add365a90f36bf6e8d047dc50efc0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 09/25/2019
+ms.openlocfilehash: ea7880d051303afad01ad8ba4a2d68d7331c6a89
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467826"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291137"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Uso delle date in Azure Cosmos DB
 Azure Cosmos DB offre flessibilità dello schema e un'indicizzazione avanzata tramite un modello di dati [JSON](https://www.json.org) nativo. Tutte le risorse di Azure Cosmos DB, inclusi database, contenitori, documenti e procedure archiviate, sono modellate e archiviate come documenti JSON. Come requisito per essere portatile, JSON, insieme a Azure Cosmos DB, supporta solo un piccolo set di tipi di base: String, Number, Boolean, Array, Object, e Null. Tuttavia, JSON è flessibile e consente a sviluppatori e strutture di rappresentare tipi più complessi tramite l'uso di queste primitive, componendole come oggetti o matrici. 
 
-Oltre ai tipi di base, molte applicazioni hanno bisogno del tipo [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) per rappresentare date e timestamp. Questo articolo descrive come gli sviluppatori possono archiviare, recuperare ed eseguire query di date in Azure Cosmos DB usando .NET SDK.
+Oltre ai tipi di base, molte applicazioni necessitano del tipo DateTime per rappresentare date e timestamp. Questo articolo descrive come gli sviluppatori possono archiviare, recuperare ed eseguire query di date in Azure Cosmos DB usando .NET SDK.
 
 ## <a name="storing-datetimes"></a>Archiviazione di valori DateTime
-Per impostazione predefinita, [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) serializza i valori DateTime come stringhe [ISO 8601](https://www.iso.org/iso/catalogue_detail?csnumber=40874). La maggior parte delle applicazioni può usare la rappresentazione predefinita della stringa per il valore DateTime, per i motivi seguenti:
+
+Azure Cosmos DB ha come ambito i tipi JSON che non includono un tipo DateTime. In Azure Cosmos DB le date devono quindi essere archiviate come stringhe. Attualmente, Azure Cosmos DB non supporta la localizzazione delle date. Il formato consigliato per le stringhe DateTime in Azure Cosmos DB `YYYY-MM-DDThh:mm:ss.sssZ` è che segue lo standard ISO 8601 UTC. La formattazione delle stringhe in questo formato consentirà le date di ordinamento lessicografico. La logica per gestire le date non UTC deve essere definita dal client. La maggior parte delle applicazioni può usare la rappresentazione predefinita della stringa per il valore DateTime, per i motivi seguenti:
 
 * Le stringhe possono essere confrontate e l'ordinamento relativo dei valori DateTime viene conservato quando questi vengono trasformati in stringhe. 
 * Questo approccio non richiede codici o attributi personalizzati per la conversione JSON.
@@ -80,7 +81,7 @@ Per altre informazioni sul linguaggio di query SQL di Azure Cosmos DB e sul prov
 
 In questo articolo è stato descritto come archiviare, indicizzare ed eseguire query per valori DateTime in Azure Cosmos DB.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Scaricare ed eseguire gli [Esempi di codice su GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * Altre informazioni sulle [Query SQL](how-to-sql-query.md)
 * Altre informazioni sui [criteri di indicizzazione di Azure Cosmos DB](index-policy.md)

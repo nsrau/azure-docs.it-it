@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 857d29f407c9939143fbb8263be40dadb040efdc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f9b787413dd6e2aaeafd4aa3bcee0eff746abece
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179972"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310544"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -50,3 +50,7 @@ Quando si usa Azure per l'autenticazione del certificato, il gateway VPN di Azur
 ### <a name="does-radius-authentication-work-with-both-ikev2-and-sstp-vpn"></a>L'autenticazione RADIUS funziona sia con IKEv2 che con SSTP VPN?
 
 Sì, l'autenticazione RADIUS funziona sia con IKEv2 che con SSTP VPN. 
+
+### <a name="does-radius-authentication-work-with-the-openvpn-client"></a>L'autenticazione RADIUS funziona con il client OpenVPN?
+
+L'autenticazione RADIUS non è supportata per il client OpenVPN.

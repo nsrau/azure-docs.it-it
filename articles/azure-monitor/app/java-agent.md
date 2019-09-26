@@ -12,32 +12,39 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af157204ad1e1b28639ae2d8f192b3122afa8147
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900609"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299236"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorare dipendenze e rilevare eccezioni e tempi di esecuzione del metodo nelle app Web Java
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorare le dipendenze, le eccezioni intercettate e i tempi di esecuzione del metodo nelle app Web Java
 
 
-Se l'[app Web Java è stata instrumentata con Application Insights][java], sarà possibile usare l'agente Java per ottenere informazioni più dettagliate, senza modificare il codice:
+Se l' [app Web Java è stata instrumentata con Application Insights][java], è possibile usare l'agente Java per ottenere informazioni più dettagliate, senza apportare modifiche al codice:
 
 * **Dipendenze:** dati sulle chiamate effettuate dall'applicazione ad altri componenti, tra cui:
-  * **Chiamate REST** eseguite tramite HttpClient, OkHttp e RestTemplate (Spring).
-  * **Chiamate Redis** effettuate tramite il client Jedis.
-  * **[Chiamate JDBC](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** : vengono acquisiti automaticamente i comandi MySQL, SQL Server e Oracle DB. Per MySQL, se la chiamata dura più di 10s, l'agente segnala il piano di query.
-* **Eccezioni rilevate:** informazioni sulle eccezioni gestite dal codice.
-* **Tempo di esecuzione del metodo:** informazioni sul tempo necessario per eseguire metodi specifici.
+  * Le **chiamate http in uscita** effettuate tramite Apache HttpClient, OkHttp e `java.net.HttpURLConnection` vengono acquisite.
+  * Vengono acquisite le **chiamate Redis** effettuate tramite il client JEDIS.
+  * **Query JDBC** : per MySQL e PostgreSQL, se la chiamata richiede più di 10 secondi, l'agente segnala il piano di query.
+
+* **Registrazione dell'applicazione:** Acquisire e correlare i log delle applicazioni con le richieste HTTP e altri dati di telemetria
+  * **Log4j 1,2**
+  * **Log4j2**
+  * **Logback**
+
+* **Denominazione delle operazioni migliore:** (usato per l'aggregazione di richieste nel portale)
+  * **Spring** in base a `@RequestMapping`.
+  * **JAX-RS** in base a `@Path`. 
 
 Per usare l'agente Java, installarlo nel server. Le app Web devono essere instrumentate con [Application Insights Java SDK][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Installare l'agente di Application Insights per Java
 1. [Scaricare l'agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)sul computer che esegue il server Java. Assicurarsi di scaricare la stessa versione dell'agente Java e dei pacchetti core e Web dell'SDK per Java di Application Insights.
-2. Modificare lo script di avvio del server applicazioni e aggiungere il codice JVM seguente:
+2. Modificare lo script di avvio del server applicazioni e aggiungere l'argomento JVM seguente:
    
-    `javaagent:`*percorso completo del file JAR dell'agente*
+    `-javaagent:<full path to the agent JAR file>`
    
     Ad esempio, in Tomcat su un computer Linux:
    
@@ -50,82 +57,53 @@ Creare un file detto `AI-Agent.xml` e inserirlo nella stessa cartella che includ
 Configurare il contenuto del file XML. Modificare l'esempio seguente in modo da includere o escludere le funzionalità desiderate.
 
 ```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationInsightsAgent>
-      <Instrumentation>
+         <!-- capture logging via Log4j 1.2, Log4j2, and Logback, default is true -->
+         <Logging enabled="true" />
 
-        <!-- Collect remote dependency data -->
-        <BuiltIn enabled="true">
-           <!-- Disable Redis or alter threshold call duration above which arguments are sent.
-               Defaults: enabled, 10000 ms -->
-           <Jedis enabled="true" thresholdInMS="1000"/>
+         <!-- capture outgoing HTTP calls performed through Apache HttpClient, OkHttp,
+              and java.net.HttpURLConnection, default is true -->
+         <HTTP enabled="true" />
 
-           <!-- Set SQL query duration above which query plan is reported (MySQL, PostgreSQL). Default is 10000 ms. -->
-           <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
-        </BuiltIn>
+         <!-- capture JDBC queries, default is true -->
+         <JDBC enabled="true" />
 
-        <!-- Collect data about caught exceptions
-             and method execution times -->
+         <!-- capture Redis calls, default is true -->
+         <Jedis enabled="true" />
 
-        <Class name="com.myCompany.MyClass">
-           <Method name="methodOne"
-               reportCaughtExceptions="true"
-               reportExecutionTime="true"
-               />
-           <!-- Report on the particular signature
-                void methodTwo(String, int) -->
-           <Method name="methodTwo"
-              reportExecutionTime="true"
-              signature="(Ljava/lang/String;I)V" />
-        </Class>
+         <!-- capture query plans for JDBC queries that exceed this value (MySQL, PostgreSQL),
+              default is 10000 milliseconds -->
+         <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
 
-      </Instrumentation>
-    </ApplicationInsightsAgent>
-
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
 ```
 
-È necessario abilitare le eccezioni dei report e la durata del metodo per i singoli metodi.
-
-Per impostazione predefinita, `reportExecutionTime` è true e `reportCaughtExceptions` è false.
-
-## <a name="additional-config-spring-boot"></a>Configurazioni aggiuntive (Spring Boot)
+## <a name="additional-config-spring-boot"></a>Configurazione aggiuntiva (Spring boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-Per servizi App di Azure eseguire le operazioni seguenti:
+Per app Azure Services, eseguire le operazioni seguenti:
 
 * Selezionare Impostazioni > Impostazioni applicazione
 * In Impostazioni app aggiungere una nuova coppia chiave-valore:
 
-Chiave: `JAVA_OPTS` Valore: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+Chiave: `JAVA_OPTS`Valore`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-Controllare le versioni per la versione più recente dell'agente Java [qui](https://github.com/Microsoft/ApplicationInsights-Java/releases
-). 
+Per la versione più recente dell'agente Java, vedere [qui](https://github.com/Microsoft/ApplicationInsights-Java/releases
+) le versioni. 
 
-L'agente deve essere compresso come una risorsa nel progetto in modo che verranno inseriti in d: / home/site/wwwroot/directory. È possibile verificare che l'agente sia nella directory del servizio App corretta visitando **strumenti di sviluppo** > **strumenti avanzati** > **Console di Debug**ed esaminando il contenuto della directory del sito.    
+L'agente deve essere incluso nel pacchetto come risorsa nel progetto, in modo che finisca nella directory D:/Home/site/wwwroot/. È possibile verificare che l'agente si trovi nella directory del servizio app corretta passando a **strumenti** > di sviluppo**avanzati strumenti** > **console di debug** ed esaminando il contenuto della directory del sito.    
 
-* Salvare le impostazioni e riavviare l'app. (Questi passaggi si applicano solo ai servizi di App in esecuzione su Windows)
+* Salvare le impostazioni e riavviare l'app. Questi passaggi si applicano solo ai servizi app in esecuzione in Windows.
 
 > [!NOTE]
 > AI-Agent.xml e il file agente JAR devono essere nella stessa cartella. Vengono spesso inseriti insieme nella cartella `/resources` del progetto.  
-
-### <a name="spring-rest-template"></a>Modello Rest Spring
-
-Affinché Application Insights possa instrumentare correttamente le chiamate HTTP eseguite con il modello Rest di Spring, è necessario usare il client HTTP Apache. Per impostazione predefinita il modello Rest di Spring non è configurato per usare il client HTTP Apache. Specificando [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html) nel costruttore di un modello Rest Spring, verrà utilizzato HTTP Apache.
-
-Ecco un esempio di come eseguire questa operazione con Spring Beans. Questo è un esempio molto semplice che usa le impostazioni predefinite della classe factory.
-
-```java
-@bean
-public ClientHttpRequestFactory httpRequestFactory() {
-return new HttpComponentsClientHttpRequestFactory()
-}
-@Bean(name = 'myRestTemplate')
-public RestTemplate dcrAccessRestTemplate() {
-    return new RestTemplate(httpRequestFactory())
-}
-```
 
 #### <a name="enable-w3c-distributed-tracing"></a>Abilitare l'analisi distribuita W3C
 
@@ -133,10 +111,10 @@ Aggiungere il codice seguente al file AI-Agent.xml:
 
 ```xml
 <Instrumentation>
-        <BuiltIn enabled="true">
-            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
-        </BuiltIn>
-    </Instrumentation>
+   <BuiltIn enabled="true">
+      <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+   </BuiltIn>
+</Instrumentation>
 ```
 
 > [!NOTE]
@@ -147,9 +125,9 @@ Ad esempio, quando tutti i servizi sono stati aggiornati alla versione più rece
 Assicurarsi che **entrambe le configurazioni [in ingresso](correlation.md#w3c-distributed-tracing) e in uscita (agente)** siano identiche.
 
 ## <a name="view-the-data"></a>Visualizzare i dati
-Nella risorsa Application Insights vengono visualizzate le dipendenze remote aggregate e i tempi di esecuzione dei metodi [nel riquadro Prestazioni][metrics].
+Nella risorsa Application Insights, le dipendenze Remote aggregate e i tempi di esecuzione dei metodi vengono visualizzati nel [riquadro prestazioni][metrics].
 
-Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire [Ricerca][diagnostic].
+Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire la [ricerca][diagnostic].
 
 [Diagnosi dei problemi di dipendenza - ulteriori informazioni](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 

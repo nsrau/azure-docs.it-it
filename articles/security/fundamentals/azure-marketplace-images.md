@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: b574f7c4f30c3bce8bd7d0e234cb523c965772e1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 3d6b1ed2a3800058acba9fe5df2137811afed74a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727573"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300777"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace
 
@@ -56,7 +56,7 @@ Queste raccomandazioni possono anche essere utili per le organizzazioni che non 
 | Security                                                         | Usare un'immagine base del sistema operativo protetta. Il disco rigido virtuale usato per l'origine di un'immagine basata su Windows Server deve provenire da immagini del sistema operativo Windows Server fornite tramite Microsoft Azure. |
 | Security                                                         | Installare tutti gli aggiornamenti della sicurezza più recenti.                                                                                                                                     |
 | Security                                                         | Le applicazioni non devono avere una dipendenza dai nomi utente con restrizioni, ad esempio Administrator, radice e amministratore.                                                                |
-| Security                                                         | Crittografia unità BitLocker non è supportata sul disco rigido del sistema operativo. È possibile usare BitLocker nei dischi di dati.                                                            |
+| Security                                                         | Crittografia unità BitLocker è abilitato sia per i dischi rigidi del sistema operativo che per i dischi rigidi.                                                             |
 | Security                                                         | Limitare la superficie di attacco mantenendo un footprint minimo abilitando soltanto ruoli, funzionalità, servizi e porte di rete Windows Server necessari.                         |
 | Security                                                         | Analizzare il codice sorgente e l'immagine di macchine virtuali risultante per ricercare eventuale malware.                                                                                                                     |
 | Security                                                         | Impostare l'aggiornamento automatico degli aggiornamenti di sicurezza delle immagini Windows Server.                                                                                                                |

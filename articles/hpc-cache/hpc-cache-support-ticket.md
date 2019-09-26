@@ -4,14 +4,14 @@ description: Come aprire una richiesta di supporto per la cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 29750ab19f74ef1ceab8c69792d12b9f9ca2a297
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 630af5322483782c1e26cd792bf7d7957e555d84
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180897"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299956"
 ---
 # <a name="open-a-support-ticket-for-azure-hpc-cache-preview"></a>Aprire un ticket di supporto per la cache HPC di Azure (anteprima)
 
@@ -24,6 +24,8 @@ Selezionare la sottoscrizione dall'elenco.
 Per trovare il servizio di anteprima della cache HPC di Azure, fare clic sul pulsante **tutti i servizi** e cercare HPC.
 
 ![Screenshot della scheda richiesta di supporto-nozioni di base, compilata in parte come descritto](media/hpc-cache-support-request.png)
+
+<!-- update screenshot after preview to update product name -->
 
 Compilare il resto dei campi con le informazioni e le preferenze, quindi inviare il ticket quando si è pronti.
 

@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618365"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291022"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Modificare e gestire un pacchetto di accesso esistente in Azure AD gestione dei diritti (anteprima)
 
@@ -34,7 +34,7 @@ Un pacchetto di accesso consente di eseguire una singola installazione di risors
 
 Questo articolo descrive come modificare e gestire i pacchetti di accesso esistenti.
 
-## <a name="add-resource-roles"></a>Aggiungere i ruoli delle risorse
+## <a name="add-resource-roles"></a>Aggiungi ruoli delle risorse
 
 Un ruolo di risorsa è una raccolta di autorizzazioni associate a una risorsa. Per rendere le risorse disponibili per gli utenti da richiedere è possibile aggiungere i ruoli delle risorse al pacchetto di accesso. È possibile aggiungere ruoli delle risorse per gruppi, applicazioni e siti di SharePoint.
 
@@ -85,7 +85,7 @@ Un ruolo di risorsa è una raccolta di autorizzazioni associate a una risorsa. P
 
 ### <a name="add-an-application-resource-role"></a>Aggiungere un ruolo di risorsa dell'applicazione
 
-È possibile avere Azure AD assegnare automaticamente agli utenti l'accesso a un'applicazione Azure AD aziendale, incluse le applicazioni SaaS e le applicazioni dell'organizzazione federate per Azure AD, quando a un utente viene assegnato un pacchetto di accesso. Per le applicazioni che si integrano con Azure AD tramite Single Sign-on federato, Azure AD rilascerà i token federativi per gli utenti assegnati all'applicazione.
+È possibile avere Azure AD assegnare automaticamente agli utenti l'accesso a un'applicazione Azure AD aziendale, incluse le applicazioni SaaS e le applicazioni dell'organizzazione federate per Azure AD, quando a un utente viene assegnato un pacchetto di accesso. Per le applicazioni che si integrano con Azure AD tramite Single Sign-On federato, Azure AD rilascia i token federativi per gli utenti assegnati all'applicazione.
 
 Le applicazioni possono avere più ruoli. Quando si aggiunge un'applicazione a un pacchetto di accesso, se l'applicazione ha più di un ruolo, sarà necessario specificare il ruolo appropriato per tali utenti.  Se si sviluppano applicazioni, è possibile leggere altre informazioni sul modo in cui tali ruoli vengono forniti alle applicazioni nell'articolo relativo alla [configurazione dell'attestazione del ruolo rilasciata nel token SAML](../develop/active-directory-enterprise-app-role-management.md).
 
@@ -206,7 +206,7 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 1. Nel menu a sinistra fare clic su **Access Packages** , quindi aprire il pacchetto Access.
 
-1. Nel menu a sinistra fare clicsu assegnazioni.
+1. Nel menu a sinistra fare clic su **assegnazioni**.
 
 1. Fare clic su **nuova assegnazione** per aprire Aggiungi utente per accedere al pacchetto.
 
@@ -234,7 +234,7 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 1. Nel menu a sinistra fare clic su **Access Packages** , quindi aprire il pacchetto Access.
 
-1. Fare clic su assegnazioni per visualizzare un elenco di assegnazioni attive.
+1. Fare clic su **assegnazioni** per visualizzare un elenco di assegnazioni attive.
 
 1. Fare clic su un'assegnazione specifica per visualizzare altri dettagli.
 
@@ -270,7 +270,7 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 1. Selezionare la richiesta che si desidera visualizzare.
 
-    Se la richiesta presenta errori di recapito, lo stato della richiesta verrà annullato **e lo** stato secondario sarà recapitato **parzialmente**.
+    Se la richiesta presenta errori di recapito, lo stato della richiesta verrà annullato **e lo** stato secondario sarà **recapitato parzialmente**.
 
     Se si verificano errori di recapito, nel riquadro dei dettagli della richiesta sarà presente un conteggio degli errori di recapito.
 
@@ -294,7 +294,15 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 ## <a name="copy-my-access-portal-link"></a>Copiare il collegamento al portale di accesso
 
-La maggior parte degli utenti nella directory può accedere al portale di accesso personale e visualizzare automaticamente un elenco di pacchetti di accesso che possono richiedere. Tuttavia, per gli utenti di partner commerciali esterni che non si trovano ancora nella directory, è necessario inviare loro un collegamento che possono usare per richiedere un pacchetto di accesso. Finché il pacchetto di accesso è abilitato per gli utenti esterni e si dispone di un criterio per la directory dell'utente esterno, l'utente esterno può usare il collegamento portale di accesso personale per richiedere il pacchetto di accesso.
+La maggior parte degli utenti nella directory può accedere al portale di accesso personale e visualizzare automaticamente un elenco di pacchetti di accesso che possono richiedere. Tuttavia, per gli utenti di partner commerciali esterni che non si trovano ancora nella directory, è necessario inviare loro un collegamento che possono usare per richiedere un pacchetto di accesso. 
+
+È importante copiare l'intero collegamento del portale di accesso personale quando lo si invia a un partner aziendale interno. In questo modo si garantisce che il partner ottenga l'accesso al portale della directory per effettuare la richiesta. 
+
+Il collegamento inizierà con "accesso", includerà un hint di directory e terminerà con un ID pacchetto di accesso. Verificare che il collegamento includa tutti gli elementi seguenti:
+
+ `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
+
+Finché il pacchetto di accesso è abilitato per gli utenti esterni e si dispone di un criterio per la directory dell'utente esterno, l'utente esterno può usare il collegamento portale di accesso personale per richiedere il pacchetto di accesso.
 
 **Ruolo prerequisito:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
 
@@ -326,7 +334,7 @@ Per impostazione predefinita, i pacchetti di Access sono individuabili. Ciò sig
 
     Se è impostato su **Sì**, il pacchetto di accesso non verrà elencato nel portale di accesso personale dell'utente. L'unico modo in cui un utente può visualizzare il pacchetto di accesso è il **collegamento al portale** di accesso diretto al pacchetto di accesso.
 
-## <a name="delete"></a>Eliminare
+## <a name="delete"></a>Eliminazione
 
 Un pacchetto di accesso può essere eliminato solo se non sono presenti assegnazioni utente attive.
 
@@ -336,7 +344,7 @@ Un pacchetto di accesso può essere eliminato solo se non sono presenti assegnaz
 
 1. Nel menu a sinistra fare clic su **Access Packages** , quindi aprire il pacchetto Access.
 
-1. Nel menu a sinistra fare clic su assegnazioni e rimuovere l'accesso per tutti gli utenti.
+1. Nel menu a sinistra fare clic su **assegnazioni** e rimuovere l'accesso per tutti gli utenti.
 
 1. Nel menu a sinistra fare clic su **Panoramica** e quindi su **Elimina**.
 

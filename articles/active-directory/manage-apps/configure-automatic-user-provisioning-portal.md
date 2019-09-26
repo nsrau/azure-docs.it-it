@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba51e10503a3aab7afa2e9639453448d03b91852
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170468"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315261"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 
@@ -88,7 +88,6 @@ Impostare **stato del provisioning** su **disattivato** per sospendere il serviz
 Selezionare la casella di controllo **Cancella lo stato corrente e riavvia la sincronizzazione** e selezionare **Salva** in:
 
 * Arrestare il servizio di provisioning
-* Dump dei dati memorizzati nella cache sugli account che Azure AD gestisce
 * Riavviare i servizi ed eseguire di nuovo il ciclo iniziale
 
 Questa opzione consente agli amministratori di avviare di nuovo il processo di distribuzione del provisioning.

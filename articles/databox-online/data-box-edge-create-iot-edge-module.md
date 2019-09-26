@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: daf7b01725a931b8fa76be14e06e2b32cffe5da6
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: f57a0431bbdafee2d38038d0039b47a34e5454c7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900641"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315824"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Sviluppare un C# modulo IOT Edge per spostare i file in data box Edge
 
@@ -73,7 +73,7 @@ Un Registro Azure Container è un registro Docker privato in Azure nel quale è 
    5. Impostare **Utente amministratore** su **Abilita**.
    6. Impostare lo SKU **Di base**.
 
-      ![Crea registro contenitori](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Creare un registro contenitori](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Selezionare **Create**.
 5. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**.
@@ -142,7 +142,7 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. Subito dopo il passaggio precedente, aggiungere la classe fileEvent per definire il corpo del messaggio.
+4. Subito dopo il passaggio precedente, aggiungere la classe **fileEvent** per definire il corpo del messaggio.
 
     ```
     /// <summary>
@@ -180,7 +180,7 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
     }
     ```
 
-6. Rimuovere il codice per il **Metodo Message pipe** e, al suo posto, inserire ilcodice per FileCopy.
+6. Rimuovere il codice per il **Metodo PipeMessage** e, al suo posto, inserire il codice per **FileCopy**.
 
     ```
         /// <summary>

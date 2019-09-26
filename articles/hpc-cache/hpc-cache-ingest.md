@@ -4,26 +4,26 @@ description: Come popolare l'archivio BLOB di Azure per l'uso con la cache HPC d
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 103470861383ff411cfaa670d70412086045a418
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: c18e1c9afab211a8ac076307eefc9074ae7c99d6
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180712"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300002"
 ---
-# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache-preview"></a>Spostare i dati nell'archivio BLOB di Azure per la cache HPC di Azure (anteprima)
+# <a name="move-data-to-azure-blob-storage"></a>Spostare i dati nell'archivio BLOB di Azure
 
-Se il flusso di lavoro include lo stato di trasferimento dei dati nell'archiviazione BLOB di Azure, assicurarsi di usare una strategia efficace per copiare i dati tramite la cache HPC di Azure.
+Se il flusso di lavoro include lo stato di trasferimento dei dati nell'archiviazione BLOB di Azure, assicurarsi di usare una strategia efficiente. È possibile precaricare i dati in un nuovo contenitore BLOB prima di definirli come destinazione di archiviazione oppure aggiungere il contenitore e quindi copiare i dati usando la cache HPC di Azure.
 
 Questo articolo illustra i modi migliori per spostare i dati nell'archivio BLOB per l'uso con la cache HPC di Azure.
 
 Tenere presenti i seguenti fattori:
 
-* Cache HPC di Azure usa un formato di archiviazione specializzato per organizzare i dati nell'archivio BLOB. Questo è il motivo per cui una destinazione di archiviazione BLOB deve essere un nuovo contenitore vuoto o un contenitore BLOB usato in precedenza per i dati della cache HPC di Azure. ([VFXT per Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) usa anche questo filesystem cloud).
+* Cache HPC di Azure usa un formato di archiviazione specializzato per organizzare i dati nell'archivio BLOB. Questo è il motivo per cui una destinazione di archiviazione BLOB deve essere un nuovo contenitore vuoto o un contenitore BLOB usato in precedenza per i dati della cache HPC di Azure. ([VFXT per Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) usa anche questa file System cloud).
 
-* La copia dei dati tramite la cache HPC di Azure è ottimale quando si usano più client e operazioni parallele. Un semplice comando Copy da un client sposterà lentamente i dati.
+* La copia dei dati attraverso la cache HPC di Azure in una destinazione di archiviazione back-end è più efficiente quando si usano più client e operazioni parallele. Un semplice comando Copy da un client sposterà lentamente i dati.
 
 È disponibile un'utilità basata su Python per caricare il contenuto in un contenitore di archiviazione BLOB. Per altre informazioni, leggere [precaricare i dati nell'archivio BLOB](#pre-load-data-in-blob-storage-with-clfsload) .
 
@@ -50,7 +50,7 @@ L'utilità CLFSLoad ha bisogno delle informazioni seguenti:
 * ID dell'account di archiviazione che contiene il contenitore di archiviazione BLOB
 * Nome del contenitore di archiviazione BLOB vuoto
 * Un token di firma di accesso condiviso che consente all'utilità di scrivere nel contenitore
-* Un percorso locale per l'origine dati, ovvero una directory locale che contiene i dati da copiare o un percorso locale a un sistema remoto montato con i dati.
+* Un percorso locale per l'origine dati, ovvero una directory locale che contiene i dati da copiare o un percorso locale a un sistema remoto montato con i dati
 
 <!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 

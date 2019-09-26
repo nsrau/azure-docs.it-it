@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d97326430eebcaea64770e99c26ab593b51d5847
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 55da4e3dc9c7f1c1f86a649a654ce41ef59ad839
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476759"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310108"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Progettazione di tabelle in Azure SQL Data Warehouse
 
@@ -109,6 +109,9 @@ Per un elenco delle funzionalità columnstore, vedere [Indici columnstore - Novi
 ## <a name="statistics"></a>Statistiche
 Quando crea il piano per l'esecuzione di una query, Query Optimizer usa le statistiche a livello di colonna. Per migliorare le prestazioni delle query, è importante avere statistiche sulle singole colonne, in particolare sulle colonne utilizzate nei join di query. La [creazione di statistiche](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) viene eseguita automaticamente.  Tuttavia, l'aggiornamento delle statistiche non viene effettuato automaticamente. Aggiornare le statistiche dopo l'aggiunta o la modifica di un numero significativo di righe. Aggiornare, ad esempio, le statistiche dopo un carico. Per altre informazioni, vedere [Indicazioni sulle statistiche](sql-data-warehouse-tables-statistics.md).
 
+## <a name="primary-key-and-unique-key"></a>Chiave primaria e chiave univoca
+La chiave primaria è supportata solo se vengono usati entrambi non CLUSTER e non applicati.  Il vincolo UNIQUE è supportato solo se viene usato non applicato.  Controllare [SQL data warehouse vincoli di tabella](sql-data-warehouse-table-constraints.md).
+
 ## <a name="commands-for-creating-tables"></a>Comandi per la creazione di tabelle
 È possibile creare una tabella come nuova tabella vuota. È inoltre possibile creare e popolare una tabella con i risultati di un'istruzione SELECT. Di seguito sono riportati i comandi T-SQL per la creazione di una tabella.
 
@@ -128,8 +131,7 @@ Se i dati provengono da più archivi dati, è possibile migrarli nel data wareho
 ## <a name="unsupported-table-features"></a>Funzionalità non supportate delle tabelle
 SQL Data Warehouse supporta molte delle funzionalità per tabelle offerte da altri database, ma non tutte.  Di seguito sono elencate alcune delle funzionalità per tabelle che non sono supportate in SQL Data Warehouse.
 
-- Chiave primaria, chiavi esterne, univoco, controllo [Vincoli di tabella](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
-
+- Chiave esterna, verifica [vincoli tabella](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
 - [Colonne calcolate](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
 - [Viste indicizzate](/sql/relational-databases/views/create-indexed-views)
 - [Sequenza](/sql/t-sql/statements/create-sequence-transact-sql)

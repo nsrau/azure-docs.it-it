@@ -4,14 +4,14 @@ description: Viene descritto come usare i modelli di Azure Resource Manager per 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965301"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300161"
 ---
 # <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
@@ -19,7 +19,7 @@ Con il passaggio al cloud, molti team hanno adottato metodi di sviluppo agile. Q
 
 Per soddisfare queste esigenze, è possibile automatizzare le distribuzioni e utilizzare la pratica dell'infrastruttura come codice. Nel codice è necessario definire l'infrastruttura da distribuire. Il codice dell'infrastruttura diventa parte del progetto. Proprio come il codice dell'applicazione, il codice dell'infrastruttura viene archiviato in un repository di origine e ne viene versione. Uno dei team può eseguire il codice e distribuire ambienti simili.
 
-Per implementare l'infrastruttura come codice per le soluzioni di Azure, usare Azure Resource Manager modelli. Il modello è un file JavaScript Object Notation (JSON) che definisce l'infrastruttura e la configurazione per il progetto. Il modello usa la sintassi dichiarativa, che consente di indicare lo stato che si intende distribuire senza dover scrivere la sequenza di comandi di programmazione per crearla. Nel modello si specificano le risorse da distribuire e le proprietà di tali risorse.
+Per implementare l'infrastruttura come codice per le soluzioni di Azure, usare Azure Resource Manager modelli. Il modello è un file JavaScript Object Notation (JSON) che definisce l'infrastruttura e la configurazione per il progetto. Il modello usa una sintassi dichiarativa che consente di indicare ciò che si intende distribuire senza dover scrivere la sequenza dei comandi di programmazione per crearlo. Nel modello si specificano le risorse da distribuire e le proprietà di tali risorse.
 
 ## <a name="why-choose-resource-manager-templates"></a>Perché scegliere Gestione risorse modelli?
 
@@ -47,9 +47,11 @@ Se si sta tentando di scegliere tra l'uso di modelli Gestione risorse e una dell
 
 * **Progetti di distribuzione**: È possibile sfruttare i vantaggi dei [progetti](../governance/blueprints/overview.md) forniti da Microsoft per soddisfare gli standard normativi e di conformità. Questi progetti includono modelli predefiniti per diverse architetture.
 
+* **Integrazione ci/CD**: È possibile integrare i modelli negli strumenti per l'integrazione continua e la distribuzione continua (CI/CD), che consente di automatizzare le pipeline di rilascio per gli aggiornamenti di applicazioni e infrastrutture veloci e affidabili. Con l'attività Gestione risorse modello di Azure DevOps è possibile usare Azure Pipelines per compilare e distribuire continuamente progetti di Azure Resource Manager modello. Per altre informazioni, vedere [Visual Studio Project con pipeline](./vs-resource-groups-project-devops-pipelines.md) e [integrazione continua con Azure Pipelines](./resource-manager-tutorial-use-azure-pipelines.md).
+
 * **Codice esportabile**: È possibile ottenere un modello per un gruppo di risorse esistente esportando lo stato corrente del gruppo di risorse o visualizzando il modello usato per una distribuzione specifica. Per conoscere la sintassi del modello è molto utile visualizzare il [modello esportato](export-template-portal.md).
 
-* **Strumenti di creazione**: È possibile creare modelli con [Visual Studio Code](resource-manager-tools-vs-code.md) e l'estensione dello strumento del modello. Si ottengono IntelliSense, l'evidenziazione della sintassi, la guida inline e molte altre funzioni del linguaggio.
+* **Strumenti di creazione**: È possibile creare modelli con [Visual Studio Code](resource-manager-tools-vs-code.md) e l'estensione dello strumento del modello. Si ottengono IntelliSense, l'evidenziazione della sintassi, la guida inline e molte altre funzioni del linguaggio. Oltre a Visual Studio Code, è anche possibile usare [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="template-file"></a>File modello
 
@@ -124,7 +126,4 @@ Per informazioni sui modelli annidati, vedere [Uso di modelli collegati con Azur
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulle proprietà nei file di modello, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
-* Per impostare in modo esplicito le dipendenze in modo che una risorsa venga distribuita prima di un'altra, vedere [definizione delle dipendenze nei modelli Azure Resource Manager](resource-group-define-dependencies.md).
-* È possibile aggiungere una risorsa al modello e, facoltativamente, distribuirla. Per ulteriori informazioni, vedere [distribuzione condizionale nei modelli gestione risorse](conditional-resource-deployment.md).
-* Anziché ripetere i blocchi di JSON più volte nel modello, è possibile specificare più istanze di una variabile, di una proprietà o di una risorsa. Per ulteriori informazioni, vedere la pagina relativa [all'iterazione di risorse, proprietà o variabili nei modelli Azure Resource Manager](resource-group-create-multiple.md).
 * Per informazioni sull'esportazione di modelli, [vedere Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).

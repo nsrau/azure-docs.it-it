@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414599"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299854"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando l'attestazione della chiave simmetrica
 
@@ -83,7 +83,7 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
 
    1. Scegliere il modo in cui **si vogliono gestire i dati del dispositivo** durante il nuovo provisioning quando i dispositivi richiedono il provisioning dopo la prima volta.
 
-   1. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Ad esempio:
+   1. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Esempio:
 
       ```json
       {
@@ -100,11 +100,14 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
 
    1. Selezionare **Salva**.
 
-Ora che è presente una registrazione per questo dispositivo, il runtime di IoT Edge può effettuare automaticamente il provisioning del dispositivo durante l'installazione. Assicurarsi di copiare il valore della **chiave primaria** di registrazione da usare quando si crea la chiave del dispositivo.
+Ora che è presente una registrazione per questo dispositivo, il runtime di IoT Edge può effettuare automaticamente il provisioning del dispositivo durante l'installazione. Assicurarsi di copiare il valore della **chiave primaria** di registrazione da usare quando si installa il runtime di IOT Edge o se si intende creare chiavi di dispositivo da usare con la registrazione di un gruppo.
 
 ## <a name="derive-a-device-key"></a>Derivare una chiave di dispositivo
 
-Il dispositivo usa la chiave del dispositivo derivata con l'ID di registrazione univoco per eseguire l'attestazione della chiave simmetrica con la registrazione durante il provisioning. Per generare la chiave del dispositivo, usare la chiave copiata dalla registrazione di DPS per calcolare un [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) dell'ID registrazione univoco per il dispositivo e convertire il risultato in formato Base64.
+> [!NOTE]
+> Questa sezione è obbligatoria solo se si usa una registrazione di gruppo.
+
+Ogni dispositivo usa la chiave del dispositivo derivata con l'ID di registrazione univoco per eseguire l'attestazione della chiave simmetrica con la registrazione durante il provisioning. Per generare la chiave del dispositivo, usare la chiave copiata dalla registrazione di DPS per calcolare un [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) dell'ID registrazione univoco per il dispositivo e convertire il risultato in formato Base64.
 
 Non includere la chiave primaria o secondaria della registrazione nel codice del dispositivo.
 
@@ -159,7 +162,10 @@ Quando si esegue il provisioning del dispositivo, sono necessarie le informazion
 
 * Valore dell' **ambito dell'ID** DPS
 * ID di **registrazione** del dispositivo creato
-* Chiave del dispositivo derivata del dispositivo per l'attestazione della chiave simmetrica
+* **Chiave primaria** copiata dalla registrazione DPS
+
+> [!TIP]
+> Per le registrazioni di gruppo, è necessaria la [chiave derivata](#derive-a-device-key) di ogni dispositivo invece della chiave di registrazione DPS.
 
 ### <a name="linux-device"></a>Dispositivo Linux
 

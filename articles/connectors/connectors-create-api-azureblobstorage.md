@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: d57ea1a881980203b1c8f216239b27b64f0d71cd
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8160cd2cb77a56f3d9b13f3c43929cc4ab7565b0
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051047"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309592"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Creare e gestire BLOB in Archiviazione BLOB di Azure con App per la logica di Azure
 
@@ -25,7 +25,7 @@ Questo articolo illustra come accedere ai file archiviati come BLOB nell'account
 Si supponga di avere uno strumento che viene aggiornato in un sito Web di Azure. L'evento funge da trigger per l'app per la logica. Quando l'evento si verifica, è possibile impostare l'app per la logica per aggiornare alcuni file nel contenitore di archiviazione BLOB, eseguendo un'azione nell'app per la logica.
 
 > [!NOTE]
-> App per la logica non supporta la connessione diretta agli account di archiviazione di Azure attraverso firewall. Per accedere a questi account di archiviazione, usare una delle opzioni descritte qui:
+> Le app per la logica non possono accedere direttamente agli account di archiviazione di Azure con [regole del firewall](../storage/common/storage-network-security.md) e presenti nella stessa area. Tuttavia, le app per la logica possono accedere agli account di archiviazione di Azure che si trovano in un'area diversa, perché viene usato un indirizzo IP pubblico per la comunicazione tra le aree. In alternativa, è possibile usare una delle opzioni seguenti:
 >
 > * Creare un [ambiente del servizio di integrazione](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), che può connettersi alle risorse presenti in una rete virtuale di Azure.
 >
@@ -65,7 +65,7 @@ Questo esempio illustra come avviare un flusso di lavoro di un'app per la logica
 
    Questo esempio usa questo trigger: **Quando un BLOB viene aggiunto o modificato (solo proprietà)**
 
-   ![Seleziona trigger](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
+   ![Selezionare il trigger](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
 3. Se vengono chiesti i dati della connessione, [creare la connessione all'archiviazione BLOB](#create-connection). Se la connessione è già presente, fornire le informazioni necessarie per il trigger.
 

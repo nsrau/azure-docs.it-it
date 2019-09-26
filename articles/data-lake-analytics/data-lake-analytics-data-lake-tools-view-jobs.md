@@ -1,20 +1,18 @@
 ---
-title: Usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics
+title: Usare Job browser & vista processi-Azure Data Lake Analytics
 description: Questo articolo descrive come usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616231"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309941"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics
 Il servizio Azure Data Lake Analytics archivia i processi inviati in un archivio query. Questo articolo contiene informazioni su come usare Job Browser e Job View (Visualizzazione processo) in Azure Data Lake Tools per Visual Studio per trovare informazioni sulla cronologia di processi. 
@@ -34,7 +32,7 @@ Contiene informazioni dettagliate su un processo. Per aprire un processo, è pos
 
 La finestra di dialogo Job View (Visualizzazione processo) contiene:
 
-* Riepilogo dei processi
+* Riepilogo processi
   
     Aggiornare la visualizzazione del processo per mostrare le informazioni più recenti relative ai processi in esecuzione.
   
@@ -111,7 +109,7 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
   * Vertex schedule executions (Esecuzioni pianificazione vertici): il tempo totale per cui i vertici sono stati pianificati.
   * Min/Average/Max Vertex data read (Dati vertici min/medi/max letti): la quantità minima/media/massima di dati letti di ogni vertice.
   * Duration (Durata): il tempo reale di una fase; è necessario caricare il profilo per visualizzare questo valore.
-  * Riproduzione del processo
+  * Riproduzione processo
     
       Data Lake Analytics esegue i processi e archivia le informazioni di esecuzione sui vertici dei processi, ad esempio quando i vertici sono stati avviati o arrestati, hanno avuto esito negativo, i nuovi tentativi eseguiti e così via. Tutte le informazioni vengono registrate automaticamente nell'archivio query e archiviate nel relativo profilo del processo. È possibile scaricare il profilo del processo tramite Carica profilo nella visualizzazione processo; è possibile esaminare la riproduzione del processo dopo avere scaricato il profilo del processo.
     
@@ -131,7 +129,7 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
     * Compute time (Tempo di calcolo): la mappa termica di SUM (tempo di esecuzione di ogni vertice); può essere considerato come il tempo necessario se tutte le operazioni nella fase fossero eseguite solo con 1 vertice.
     * Average execution time per node (Tempo medio di esecuzione per ogni nodo): la mappa termica di SUM (tempo di esecuzione di ogni vertice)/(numero di vertici). Se quindi si assegnassero tutti i vertici eseguiti in parallelismo, l'intera fase verrebbe completata in questo intervallo di tempo.
     * Input/Output throughput (Velocità effettiva di input/output): la mappa termica della velocità effettiva di input/output di ogni fase; consente di verificare se il processo è associato a operazioni di I/O.
-* Operazioni sui metadati
+* Operazioni metadati
   
     È possibile eseguire alcune operazioni sui metadati nello script U-SQL, ad esempio creare un database, eliminare una tabella e così via. Queste operazioni vengono visualizzate in Metadata Operation (Operazione sui metadati) dopo la compilazione. Qui è possibile trovare asserzioni, creare e cancellare entità.
   
@@ -167,7 +165,7 @@ Mostra informazioni dettagliate sul processo, inclusi gli script, le risorse e l
   
     Mostra i dettagli di esecuzione dei vertici. Il profilo del processo archivia il log di esecuzione di ogni vertice, ad esempio i dati totali letti/scritti, il runtime, lo stato e così via. Tramite questa visualizzazione è possibile ottenere altre informazioni su come è stato eseguito un processo. Per altre informazioni vedere [Usare la visualizzazione esecuzioni di vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Per registrare informazioni di diagnostica, vedere [Accesso ai log di diagnostica per Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Per usare la visualizzazione esecuzioni vertici, vedere [Usare la visualizzazione esecuzioni vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

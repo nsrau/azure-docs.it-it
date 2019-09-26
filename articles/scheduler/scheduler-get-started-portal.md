@@ -10,23 +10,23 @@ ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48e03f41fa0a39642330288fc05ef709179b4c62
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531888"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300982"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Crea e pianifica il primo processo con l’utilità di pianificazione di Azure - Portale di Azure
 
 > [!IMPORTANT]
-> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà l'Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, [provare App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile.
 
 Questa esercitazione illustra quanto è facile creare, pianificare, monitorare e gestire un processo. 
 
 Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
 
-## <a name="create-job"></a>Creare il processo
+## <a name="create-job"></a>Crea processo
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).  
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/f
 
    | Proprietà | Valore di esempio | Descrizione |
    |----------|---------------|-------------| 
-   | **Nome** | getMicrosoft | Il nome del processo | 
+   | **Name** | getMicrosoft | Il nome del processo | 
    | **Raccolta di processi** | <*nome-raccolta-processi*> | Creare una raccolta di processi o selezionare una raccolta esistente. | 
    | **Sottoscrizione** | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure | 
    |||| 
@@ -93,7 +93,7 @@ Per altre informazioni su queste aree, selezionare un’area:
 
 <a name="properties"></a>
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Proprietà
 
 Per visualizzare le proprietà di sola lettura che descrivono i metadati di gestione per il processo, selezionare **Proprietà**.
 

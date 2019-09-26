@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/27/2019
-ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/11/2019
+ms.openlocfilehash: 4aa18379962c289f5094795988a247f4c7e35df2
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925567"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910648"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Risolvere i problemi di installazione push del servizio Mobility
 
@@ -58,7 +58,7 @@ Se si vogliono modificare le credenziali dell'account utente scelto, seguire le 
 
 ## <a name="insufficient-privileges-failure-errorid-95518"></a>Errore di privilegi insufficienti (ID errore: 95518)
 
-Quando stabilire una relazione di trust di dominio tra la workstation e il dominio primario non riesce durante il tentativo di accedere al computer di origine, l'installazione dell'agente di mobilità ha esito negativo con errore ID 95518. Pertanto, assicurarsi che l'account utente usato per installare l'agente di mobilità disponga dei privilegi amministrativi per eseguire l'accesso tramite il dominio primario sul computer di origine.
+Quando lo stabilimento di relazioni di trust di dominio tra il dominio primario e la workstation non riesce durante il tentativo di accesso alla macchina di origine, l'installazione dell'agente di mobilità non riesce con ID errore 95518. Assicurarsi quindi che l'account utente usato per installare l'agente di mobilità disponga dei privilegi amministrativi per accedere tramite il dominio primario della macchina di origine.
 
 Se si vogliono modificare le credenziali dell'account utente scelto, seguire le istruzioni illustrate [qui](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
@@ -80,7 +80,7 @@ Modificare quindi le credenziali scelte seguendo le istruzioni indicate [qui](vm
 
 ### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>I server di accesso non sono disponibili nel computer di origine (ID errore: 95521)
 
-Questo errore si verifica quando i server di accesso non sono disponibili nel computer di origine. La mancata disponibilità dei server di accesso genera errori di richiesta di accesso e pertanto non è possibile installare l'agente di mobilità. Per eseguire l'accesso, assicurarsi che i server di accesso siano disponibili nel computer di origine e avviare il servizio di accesso. Per istruzioni dettagliate, vedere la Knowledge Base [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) al messaggio di errore: Esistono attualmente Nessun accesso server disponibile.
+Questo errore si verifica quando i server di accesso non sono disponibili nel computer di origine. La mancata disponibilità dei server di accesso genera errori di richiesta di accesso e pertanto non è possibile installare l'agente di mobilità. Per eseguire l'accesso, assicurarsi che i server di accesso siano disponibili nel computer di origine e avviare il servizio di accesso. Per istruzioni dettagliate, vedere il messaggio KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) Err: Attualmente non sono disponibili server di accesso.
 
 ### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Il servizio di accesso non è in esecuzione nel computer di origine (ID errore: 95522)
 
@@ -122,9 +122,9 @@ Per **Windows 2008 R2 e versioni precedenti**,
 * Per abilitare la condivisione di file con Criteri di gruppo,
   * Passare a Start ed eseguire una ricerca digitando gpmc.msc.
   * Nel riquadro di spostamento, aprire le cartelle seguenti: Criteri del computer locale, Configurazione utente, Modelli amministrativi, Componenti di Windows e Condivisione di rete.
-  * Nel riquadro dei dettagli fare doppio clic su **Impedisci di condividere file nel profilo utente**. Per disabilitare questa impostazione di Criteri di gruppo e consentire la condivisione di file, fare clic su Disabilitato. Fare clic su OK per salvare le modifiche. Per altre informazioni, vedere [Abilita o disabilita la condivisione di File con criteri di gruppo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
+  * Nel riquadro dei dettagli fare doppio clic su **Impedisci di condividere file nel profilo utente**. Per disabilitare questa impostazione di Criteri di gruppo e consentire la condivisione di file, fare clic su Disabilitato. Fare clic su OK per salvare le modifiche. Per altre informazioni, vedere [abilitare o disabilitare la condivisione di file con criteri di gruppo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
-Per la **nelle versioni successive**, seguire le istruzioni fornite nella [installa il servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici](vmware-azure-install-mobility-service.md) per abilitare la condivisione file e stampanti.
+Per le **versioni successive**, seguire le istruzioni fornite in [installare il servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici](vmware-azure-install-mobility-service.md) per abilitare la condivisione di file e stampanti.
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>Controllo della configurazione di Strumentazione gestione Windows (WMI) (ID errore: 95103)
 
@@ -183,7 +183,7 @@ Se si osserva la stringa precedente formattata in grassetto, si noterà che GRUB
 I nomi dei dispositivi devono essere sostituiti con l'UUID corrispondente.<br>
 
 
-1. Individuare l'UUID del dispositivo eseguendo il comando "blkid \<nome dispositivo >". Ad esempio:<br>
+1. Trovare l'UUID del dispositivo eseguendo il comando "blkid \<nome dispositivo >". Ad esempio:<br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,7 +191,7 @@ I nomi dei dispositivi devono essere sostituiti con l'UUID corrispondente.<br>
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. A questo punto sostituire il nome del dispositivo con le UUID nel formato, ad esempio "radice = UUID =\<UUID >". Ad esempio, se sostituire i nomi dei dispositivi con UUID per radice e riprendere parametro indicato in precedenza nei file "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" o "/ e così via/predefinita/grub: quindi le righe nei file saranno simili. <br>
+2. A questo punto, sostituire il nome del dispositivo con il relativo UUID nel formato like "\<root = UUID = UUID >". Ad esempio, se si sostituiscono i nomi di dispositivo con UUID per root e Resume parametro indicato in precedenza nei file "/boot/GRUB2/grub.cfg", "/boot/GRUB2/grub.cfg" o "/etc/default/grub: then le righe nei file sono simili a. <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. Riavviare nuovamente la protezione
 
@@ -199,10 +199,10 @@ I nomi dei dispositivi devono essere sostituiti con l'UUID corrispondente.<br>
 
 Il servizio Mobility di Site Recovery ha molti componenti, uno dei quali è denominato driver filtro. Il driver filtro viene caricato nella memoria di sistema solo in una fase di riavvio del sistema. Ciò significa che le correzioni del driver filtro possono essere realizzate solo quando viene caricato un nuovo driver filtro, il che può avvenire solo al momento del riavvio del sistema.
 
-**Nota**: questo è un avviso; la replica esistente funzionerà anche dopo l'aggiornamento del nuovo agente. È possibile scegliere di riavviare ogni volta che si desidera ottenere i vantaggi di nuovi driver di filtro, ma se si non riavvia i vecchi mantiene driver filtro sull'utilizzo. In questo caso, dopo un aggiornamento senza riavvio, oltre al driver filtro **si realizzano benefici di altri miglioramenti e correzioni nel servizio di mobilità**. Pertanto, anche se consigliato, non è obbligatorio per riavviare il sistema dopo ogni aggiornamento. Per informazioni su quando un riavvio è obbligatorio, configurare il [riavvio della macchina di origine dopo l'aggiornamento dell'agente di mobilità ](https://aka.ms/v2a_asr_reboot) sezione negli aggiornamenti del servizio Azure Site Recovery.
+**Nota**: questo è un avviso; la replica esistente funzionerà anche dopo l'aggiornamento del nuovo agente. È possibile scegliere di riavviare ogni volta che si desidera ottenere i vantaggi del nuovo driver di filtro, ma se non si riavvia il driver del filtro obsoleto continuerà a funzionare. In questo caso, dopo un aggiornamento senza riavvio, oltre al driver filtro **si realizzano benefici di altri miglioramenti e correzioni nel servizio di mobilità**. Quindi, sebbene consigliato, non è obbligatorio riavviare il computer dopo ogni aggiornamento. Per informazioni su quando un riavvio è obbligatorio, impostare la sezione [riavvio del computer di origine dopo l'aggiornamento dell'agente di mobilità](https://aka.ms/v2a_asr_reboot) negli aggiornamenti dei servizi in Azure Site Recovery.
 
 > [!TIP]
->Per le procedure consigliate nella pianificazione degli aggiornamenti durante la finestra di manutenzione, vedere la [supporto per le versioni del sistema operativo/kernel più recente](https://aka.ms/v2a_asr_upgrade_practice) negli aggiornamenti del servizio Azure Site Recovery.
+>Per le procedure consigliate per la pianificazione degli aggiornamenti durante la finestra di manutenzione, vedere [supporto per le versioni più recenti del sistema operativo/kernel](https://aka.ms/v2a_asr_upgrade_practice) negli aggiornamenti dei servizi in Azure Site Recovery.
 
 ## <a name="lvm-support-from-920-version"></a>Supporto LVM dalla versione 9.20
 
@@ -220,7 +220,7 @@ Installazione di VSS è una parte dell'installazione dell'agente di mobilità. Q
 
 ### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>Errore VSS -2147023170 [0x800706BE] - codice di uscita 511
 
-Questo problema si verifica principalmente quando un software antivirus sta bloccando le operazioni di servizi di Azure Site Recovery. Per risolvere il problema:
+Questo problema si verifica in genere quando il software antivirus blocca le operazioni dei servizi Azure Site Recovery. Per risolvere il problema:
 
 1. Escludere tutte le cartelle indicate [qui](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 2. Seguire le linee guida pubblicate dal provider del software antivirus per sbloccare la registrazione della DLL in Windows.
@@ -241,6 +241,8 @@ Questo errore si verifica quando il database del servizio Provider VSS di Azure 
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
+In caso di errore, controllare se un programma antivirus o altri servizi sono bloccati nello stato "iniziale". Questo potrebbe mantenere il blocco sui servizi di database. Si verificheranno errori nell'installazione del provider VSS. Verificare che lo stato del servizio non sia "iniziale", quindi ripetere l'operazione precedente.
+
 ### <a name="vss-exit-code-806"></a>Errore VSS codice di uscita 806
 
 Questo errore si verifica quando l'account utente usato per l'installazione non dispone delle autorizzazioni necessarie per eseguire il comando CSScript. Concedere all'account utente le autorizzazioni necessarie per eseguire lo script e ripetere l'operazione.
@@ -253,45 +255,45 @@ Provare a installare manualmente il servizio Provider VSS nel computer di origin
 
 
 
-## <a name="vss-error---0x8004e00f"></a>Errore VSS - 0x8004E00F
+## <a name="vss-error---0x8004e00f"></a>Errore VSS-0x8004E00F
 
 Questo errore si verifica in genere durante l'installazione dell'agente di mobilità a causa di problemi in DCOM e DCOM è in uno stato critico.
 
-Utilizzare la procedura seguente per determinare la causa dell'errore.
+Utilizzare la procedura seguente per determinare la cause dell'errore.
 
 **Esaminare i log di installazione**
 
-1. Aprire il log di installazione che si trova in c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
-2. La presenza dell'errore seguente indica il problema:
+1. Aprire il log di installazione disponibile in c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+2. La presenza dell'errore seguente indica questo problema:
 
-    L'annullamento della registrazione dell'applicazione esistente...  Creare l'oggetto catalogo ottenere la raccolta di applicazioni 
+    Annullamento della registrazione dell'applicazione esistente in corso...  Creare l'oggetto catalogo per ottenere la raccolta di applicazioni 
 
     ERRORE:
 
-    - Codice di errore:-2147164145 [0x8004E00F]
+    - Codice errore:-2147164145 [0x8004E00F]
     - Codice di uscita: 802
 
 Per risolvere il problema:
 
 Contattare il [team della piattaforma Microsoft Windows](https://aka.ms/Windows_Support) per ottenere assistenza per la risoluzione del problema DCOM.
 
-Quando viene risolto il problema DCOM, reinstallare il Provider VSS di Azure Site Recovery manualmente usando il comando seguente:
+Quando il problema DCOM viene risolto, reinstallare manualmente il provider VSS Azure Site Recovery usando il comando seguente:
  
-**C:\Programmi\Microsoft file (x86) \Microsoft Azure Site Recovery\agent > "c:\Programmi\Microsoft file (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
+**C:\Programmi (x86) \Microsoft Azure site Recovery\agent > "C:\Programmi (x86) \Microsoft Azure site Recovery\agent\InMageVSSProvider_Install.cmd**
   
-Se la coerenza dell'applicazione non è critica per le proprie esigenze di ripristino di emergenza, è possibile ignorare l'installazione del Provider VSS. 
+Se la coerenza dell'applicazione non è cruciale per i requisiti di ripristino di emergenza, è possibile ignorare l'installazione del provider VSS. 
 
-Per ignorare l'installazione di Provider VSS di Azure Site Recovery e installare manualmente dopo l'installazione Provider VSS di Azure Site Recovery:
+Per ignorare l'installazione del provider VSS Azure Site Recovery e installare manualmente Azure Site Recovery provider VSS dopo l'installazione:
 
-1. Installare il servizio mobility. 
+1. Installare il servizio Mobility. 
    > [!Note]
    > 
-   > L'installazione avrà esito negativo in fase di 'Dopo l'installazione configuration'. 
-2. Per ignorare l'installazione di VSS:
-   1. Aprire la directory di installazione servizio Mobility di Azure Site Recovery che si trova in:
+   > L'installazione avrà esito negativo nel passaggio "post-installazione configurazione". 
+2. Per ignorare l'installazione VSS:
+   1. Aprire la directory di installazione del servizio Mobility Azure Site Recovery disponibile all'indirizzo:
    
-      C:\Programmi\Microsoft file (x86) \Microsoft Azure Site Recovery\agent
-   2. Modificare gli script di installazione di Provider VSS di Azure Site Recovery **nMageVSSProvider_Install** e **InMageVSSProvider_Uninstall.cmd** abbia sempre esito positivo aggiungendo le righe seguenti:
+      C:\Programmi (x86) \Microsoft Azure site Recovery\agent
+   2. Modificare gli script di installazione del provider VSS di Azure Site Recovery **nMageVSSProvider_Install** e **InMageVSSProvider_Uninstall. cmd** in modo che abbiano sempre esito positivo aggiungendo le righe seguenti:
     
       ```     
       rem @echo off
@@ -299,48 +301,48 @@ Per ignorare l'installazione di Provider VSS di Azure Site Recovery e installare
       exit /B 0
       ```
 
-3. Eseguire nuovamente l'installazione dell'agente di mobilità manualmente. 
-4. Quando l'installazione ha esito positivo e vengono spostate con il passaggio successivo **configura**, rimuovere le righe aggiunte.
+3. Eseguire di nuovo l'installazione dell'agente di mobilità manualmente. 
+4. Quando l'installazione ha esito positivo e passa al passaggio successivo, **configurare**e rimuovere le righe aggiunte.
 5. Per installare il provider VSS, aprire un prompt dei comandi come amministratore ed eseguire il comando seguente:
    
-    **C:\Programmi\Microsoft file (x86) \Microsoft Azure Site Recovery\agent >.\InMageVSSProvider_Install.cmd**
+    **C:\Programmi (x86) \Microsoft Azure site Recovery\agent > .\InMageVSSProvider_Install.cmd**
 
-9. Verificare che il Provider VSS di Azure Site Recovery viene installato come un servizio in servizi di Windows e aprire la console MMC Servizi componenti per verificare che sia elencato il Provider VSS di Azure Site Recovery.
-10. Se il Provider VSS di installare persiste, rivolgersi per risolvere gli errori di autorizzazioni in CAPI2 CX.
+9. Verificare che il provider servizio Copia Shadow del volume di ASR sia installato come servizio nei servizi Windows e aprire la MMC del servizio componenti per verificare che il provider del servizio Copia Shadow del volume sia elencato.
+10. Se l'installazione del provider VSS continua a non riuscire, utilizzare CX per risolvere gli errori relativi alle autorizzazioni in CAPI2.
 
-## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>Installazione di Provider VSS non riesce a causa di un servizio cluster viene abilitato nel computer non cluster
+## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>L'installazione del provider VSS non riesce perché il servizio cluster è abilitato nel computer non cluster
 
-Questo problema causa l'installazione di Azure Site Recovery Mobility Agent esito negativo durante il passaggio di installazione di Provider VSS di ASAzure Site Recovery a causa di un problema con COM+ che impedisce l'installazione del provider VSS.
+Questo problema causa l'esito negativo dell'installazione dell'agente di Azure Site Recovery Mobility durante il passaggio di installazione del provider VSS di ASAzure site Recoveryr a causa di un problema con COM+ che impedisce l'installazione del provider VSS.
  
 ### <a name="to-identify-the-issue"></a>Per identificare il problema
 
-Nel log che si trova nel server di configurazione al C:\ProgramData\ASRSetupLogs\UploadedLogs\<data e ora > UA_InstallLogFile.log, si noterà l'eccezione seguente:
+Nel log che si trova nel server di configurazione\<alla data/ora C:\ProgramData\ASRSetupLogs\UploadedLogs > UA_InstallLogFile. log, sarà presente l'eccezione seguente:
 
-COM+ non è riuscito a comunicare con il servizio Microsoft Distributed Transaction Coordinator (eccezione da HRESULT: 0x8004E00F)
+COM+ non è riuscito a comunicare con il Distributed Transaction Coordinator Microsoft (eccezione da HRESULT: 0x8004E00F)
 
 Per risolvere il problema:
 
-1.  Verificare che questo computer è un computer non cluster e che i componenti cluster non vengano usati.
-3.  Se non vengono utilizzati i componenti, rimuovere i componenti cluster dal computer.
+1.  Verificare che il computer non sia un cluster e che i componenti del cluster non vengano utilizzati.
+3.  Se i componenti non vengono usati, rimuovere i componenti del cluster dal computer.
 
-## <a name="drivers-are-missing-on-the-source-server"></a>Driver non sono disponibili nel Server di origine
+## <a name="drivers-are-missing-on-the-source-server"></a>Driver mancanti nel server di origine
 
-Se l'installazione dell'agente di mobilità non riesce, esaminare i registri in C:\ProgramData\ASRSetupLogs per determinare se alcuni dei driver necessari non sono presenti in alcuni set di controllo.
+Se l'installazione dell'agente di mobilità non riesce, esaminare i log in C:\ProgramData\ASRSetupLogs per determinare se alcuni dei driver necessari sono mancanti in alcuni set di controlli.
  
 Per risolvere il problema:
   
-1. Usando un editor del Registro di sistema, ad esempio regedit.msc, aprire il Registro di sistema.
+1. Utilizzando un editor del registro di sistema, ad esempio Regedit. msc, aprire il registro di sistema.
 2. Aprire il nodo HKEY_LOCAL_MACHINE\SYSTEM.
-3. Individuare il controllo del nodo di sistema, i set.
+3. Nel nodo sistema individuare i set di controlli.
 4. Aprire ogni set di controlli e verificare che siano presenti i driver di Windows seguenti:
 
-   - Atapi
-   - Vmbus
-   - storflt
+   - ATAPI
+   - VMBus
+   - Storflt
    - Storvsc
    - intelide
  
-Reinstallare tutti i driver mancanti.
+Reinstallare i driver mancanti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

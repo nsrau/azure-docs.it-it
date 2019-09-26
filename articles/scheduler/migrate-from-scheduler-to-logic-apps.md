@@ -8,40 +8,40 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/20/2018
-ms.openlocfilehash: 0225a9f34e016a4b1de51c06ba982d384e41007c
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.date: 09/23/2019
+ms.openlocfilehash: 6b80cbd16ac78f7f347bef9ab8e22c4d67d31058
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302078"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301035"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Eseguire la migrazione da Utilità di pianificazione ad App per la logica di Azure
 
 > [!IMPORTANT]
-> App per la logica di Azure sostituirà Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, seguire le indicazioni di questo articolo per passare ad App per la logica di Azure.
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, passare ad app per la logica di Azure il prima possibile seguendo questo articolo.
 
 Questo articolo illustra come pianificare processi unici e ricorrenti mediante la creazione di flussi di lavoro automatizzati con App per la logica di Azure anziché con l'Utilità di pianificazione di Microsoft Azure. Quando si creano processi pianificati con App per la logica, si ottengono questi vantaggi:
 
-* Non è necessario preoccuparsi del concetto di *raccolta di processi*, perché ogni app per la logica è una risorsa di Azure separata.
+* Crea il tuo lavoro usando una finestra di progettazione visiva e i [connettori pronti per l'uso](../connectors/apis-list.md) da centinaia di servizi, ad esempio archiviazione BLOB di Azure, bus di servizio di Azure, Office 365 Outlook e SAP.
 
-* È possibile eseguire più processi unici usando una singola app per la logica.
+* Gestire ogni flusso di lavoro pianificato come una risorsa di Azure di prima classe. Non è necessario preoccuparsi del concetto di *raccolta di processi* perché ogni app per la logica è una singola risorsa di Azure.
 
-* Il servizio App per la logica di Azure supporta i fusi orari e l'ora legale.
+* Eseguire più processi monouso usando un'unica app per la logica.
 
-Per altre informazioni su Azure, vedere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) in alternativa, provare a creare la prima app per la logica in questa Guida introduttiva: [Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Impostare pianificazioni che supportano fusi orari e adeguarsi automaticamente all'ora legale (DST).
+
+Per altre informazioni, vedere [che cos'è app per la logica di Azure?](../logic-apps/logic-apps-overview.md) oppure provare a creare la prima app per la logica in questa Guida introduttiva: [Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Per attivare l'app per la logica inviando richieste HTTP, usare uno strumento come l'[app desktop Postman](https://www.getpostman.com/apps).
 
 ## <a name="schedule-one-time-jobs"></a>Pianificare processi unici
 
 È possibile eseguire più processi unici creando una singola app per la logica. 
-
-### <a name="create-your-logic-app"></a>Creare l'app per la logica
 
 1. Nel [portale di Azure](https://portal.azure.com) creare o un'app per la logica vuota in Progettazione app per la logica. 
 
@@ -59,13 +59,13 @@ Per altre informazioni su Azure, vedere [Informazioni su App per la logica di Az
 
    Se non si ha uno schema, ma si ha un payload di esempio in formato JSON, è possibile generare uno schema da tale payload.
 
-   1. Nel trigger Richiesta selezionare **Usare il payload di esempio per generare lo schema**.
+   1. Nel trigger di richiesta selezionare **Usare il payload di esempio per generare lo schema**.
 
-   1. In **Immettere o incollare un payload JSON di esempio** specificare il payload di esempio e quindi scegliere **Fine**, ad esempio:
+   1. In **immettere o incollare un payload JSON di esempio**specificare il payload di esempio e quindi fare clic su **fine**, ad esempio:
 
       ![Esempio di payload](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
-1. Nel trigger scegliere **Passaggio successivo**. 
+1. Nel trigger selezionare **passaggio successivo**. 
 
 1. Nella casella di ricerca immettere "ritarda fino a" come filtro. Nell'elenco delle azioni selezionare questa azione: **Ritardo fino a**
 
@@ -100,12 +100,12 @@ Per altre informazioni su Azure, vedere [Informazioni su App per la logica di Az
 
 Per eseguire o attivare manualmente un processo unico, inviare una chiamata all'URL dell'endpoint per il trigger di richiesta dell'app per la logica. Nella chiamata specificare l'input o il payload da inviare, che potrebbe essere stato descritto in precedenza specificando uno schema. 
 
-Ad esempio, usando l'app Postman, è possibile creare una richiesta POST con impostazioni simili a questo esempio e quindi scegliere **Send** (Invia) per effettuare la richiesta.
+Ad esempio, usando l'app post, è possibile creare una richiesta POST con le impostazioni simili a questo esempio e quindi selezionare Send ( **Invia** ) per effettuare la richiesta.
 
-| Metodo richiesta | URL | Body | Headers |
-|----------------|-----|------|---------| 
-| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>Nella casella **raw** immettere il payload da inviare nella richiesta. <p>**Nota**: Questa impostazione configura automaticamente i valori delle **intestazioni** . | **Chiave**: Content-Type <br>**Value (Valore)** : application/json
- |||| 
+| Metodo di richiesta | URL | Body | Intestazioni |
+|----------------|-----|------|---------|
+| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>Nella casella non **elaborata** immettere il payload che si vuole inviare nella richiesta. <p>**Nota**: Questa impostazione configura automaticamente i valori delle **intestazioni** . | **Chiave**: Content-Type <br>**Value (Valore)** : application/json |
+|||||
 
 ![Inviare la richiesta per attivare manualmente l'app per la logica](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
 
@@ -115,7 +115,7 @@ Dopo l'invio della chiamata, la risposta dell'app per la logica viene visualizza
 
 > [!IMPORTANT]
 >
-> Se in seguito si vuole annullare il processo, scegliere la scheda **Headers** (Intestazioni). Trovare e copiare il valore di intestazione **x-ms-workflow-run-id** nella risposta. 
+> Se si desidera annullare il processo in un secondo momento, selezionare la scheda **intestazioni** . Trovare e copiare il valore di intestazione **x-ms-workflow-run-id** nella risposta. 
 >
 > ![Risposta](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
@@ -124,8 +124,6 @@ Dopo l'invio della chiamata, la risposta dell'app per la logica viene visualizza
 In App per la logica, ogni processo unico viene eseguito come singola istanza di esecuzione dell'app per la logica. Per annullare un processo unico, è possibile usare l'operazione [Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) nell'API REST di App per la logica. Quando si invia una chiamata al trigger, specificare l'[ID di esecuzione del flusso di lavoro](#workflow-run-id).
 
 ## <a name="schedule-recurring-jobs"></a>Pianificare processi ricorrenti
-
-### <a name="create-your-logic-app"></a>Creare l'app per la logica
 
 1. Nel [portale di Azure](https://portal.azure.com) creare o un'app per la logica vuota in Progettazione app per la logica. 
 
@@ -139,9 +137,9 @@ In App per la logica, ogni processo unico viene eseguito come singola istanza di
 
    ![Pianificazione avanzata](./media/migrate-from-scheduler-to-logic-apps/recurrence-advanced-schedule.png)
 
-   Per altre informazioni sulle opzioni di pianificazione avanzate, vedere [Creare ed eseguire le attività ricorrenti e flussi di lavoro con le App per la logica di Azure](../connectors/connectors-native-recurrence.md)
+   Per altre informazioni sulle opzioni di pianificazione avanzate, vedere [creare ed eseguire attività e flussi di lavoro ricorrenti con app per la logica di Azure](../connectors/connectors-native-recurrence.md).
 
-1. Aggiungere altre azioni desiderate selezionando da [centinaia di pronte all'uso](../connectors/apis-list.md). Nel trigger scegliere **Passaggio successivo**. Trovare e selezionare le azioni desiderate.
+1. Aggiungere altre azioni desiderate selezionando da [centinaia di pronte all'uso](../connectors/apis-list.md). Nel trigger selezionare **passaggio successivo**. Trovare e selezionare le azioni desiderate.
 
    Ad esempio, è possibile includere un'azione HTTP che invia una richiesta a un URL oppure azioni che funzionano con code di archiviazione, code del bus di servizio o argomenti del bus di servizio: 
 
@@ -159,11 +157,11 @@ Ecco altri modi per personalizzare i processi.
 
 Per controllare i tentativi di ripetizione di un'azione nell'app per la logica quando si verificano errori intermittenti, è possibile impostare [criteri di ripetizione](../logic-apps/logic-apps-exception-handling.md#retry-policies) nelle impostazioni di ogni azione, ad esempio:
 
-1. Aprire il menu ( **...** ) dell'azione e selezionare **Impostazioni**.
+1. Aprire il menu puntini di sospensione ( **..** .) dell'azione e selezionare **Impostazioni**.
 
    ![Aprire le impostazioni azione](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
-1. Selezionare i criteri desiderati. Per altre informazioni, vedere [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies).
+1. Selezionare i criteri di ripetizione dei tentativi desiderati. Per altre informazioni, vedere [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies).
 
    ![Selezionare i criteri di ripetizione](./media/migrate-from-scheduler-to-logic-apps/retry-policy.png)
 
@@ -171,7 +169,7 @@ Per controllare i tentativi di ripetizione di un'azione nell'app per la logica q
 
 Nell'Utilità di pianificazione di Microsoft Azure, se l'azione predefinita non viene eseguita correttamente è possibile eseguire un'azione alternativa per risolvere la condizione di errore. In App per la logica di Azure si può eseguire la stessa attività.
 
-1. In Progettazione App per la logica, sopra l'azione da gestire, spostare il puntatore del mouse sulla freccia tra i vari passaggi e selezionare **Aggiungi un ramo parallelo**. 
+1. In progettazione app per la logica, sopra l'azione che si vuole gestire, spostare il puntatore sulla freccia tra i passaggi e selezionare **Aggiungi un ramo parallelo**. 
 
    ![Aggiungere il ramo parallelo](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
@@ -179,7 +177,7 @@ Nell'Utilità di pianificazione di Microsoft Azure, se l'azione predefinita non 
 
    ![Aggiungere un'azione parallela](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. Nell'azione alternativa aprire il menu ( **...** ) e selezionare **Configura azione Run after**.
+1. Nell'azione alternativa aprire il menu puntini di sospensione ( **..** .) e selezionare **Configura esecuzione successiva**.
 
    ![Configura azione Run after](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
@@ -187,19 +185,19 @@ Nell'Utilità di pianificazione di Microsoft Azure, se l'azione predefinita non 
 
    ![Impostare le proprietà "runAfter"](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
 
-1. Al termine, scegliere **Fine**.
+1. Al termine, fare clic su **Fine**.
 
 Per altre informazioni sulla gestione delle eccezioni, vedere [Rilevare e gestire gli errori con la proprietà RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
 
 ## <a name="faq"></a>Domande frequenti
 
-<a name="retire-date"></a> 
+<a name="retire-date"></a>
 
 **D**: Quando l'utilità di pianificazione di Azure è in fase di ritiro? <br>
-**R**: L'utilità di pianificazione di Azure verrà ritirata il 30 settembre 2019.
+**R**: L'utilità di pianificazione di Azure è stata pianificata per il ritiro completo il 31 dicembre 2019. Per i passaggi importanti da eseguire prima di questa data e una sequenza temporale dettagliata, vedere [estensione della data di ritiro per l'utilità di pianificazione al 31 dicembre 2019](https://azure.microsoft.com/en-us/updates/extending-retirement-date-of-scheduler/). Per gli aggiornamenti generali, vedere [aggiornamenti di Azure-utilità di pianificazione](https://azure.microsoft.com/updates/?product=scheduler).
 
-**D**: Cosa accade ai processi e alle raccolte processi dell'utilità di pianificazione dopo il ritiro del servizio? <br>
-**R**: Tutti i processi e le raccolte di processi dell'utilità di pianificazione verranno eliminati dal sistema.
+**D**: Cosa accade alle raccolte di processi e ai processi dopo il ritiro del servizio? <br>
+**R**: Tutti i processi e le raccolte di processi dell'utilità di pianificazione interrompono l'esecuzione e vengono eliminati dal sistema.
 
 **D**: È necessario eseguire il backup o eseguire altre attività prima di eseguire la migrazione dei processi dell'utilità di pianificazione alle app per la logica? <br>
 **R**: Come procedura consigliata, eseguire sempre il backup del proprio lavoro. Prima di eliminare o disabilitare i processi dell'Utilità di pianificazione, verificare che le app per la logica create funzionino come previsto. 
@@ -216,16 +214,16 @@ Se la sottoscrizione di Azure ha di un piano di supporto a pagamento, è possibi
 
 1. Nel menu principale del [portale di Azure](https://portal.azure.com) selezionare **Guida e supporto**.
 
-1. In **Supporto** selezionare **Nuova richiesta di supporto**. Fornire questi dettagli per la richiesta:
+1. Dal menu **supporto** selezionare **nuova richiesta di supporto**. Fornire queste informazioni per la richiesta:
 
-   | Impostazione | Value |
+   | Proprietà | Value |
    |---------|-------|
-   | **Tipo di problema** | **Tecnico** | 
-   | **Sottoscrizione** | <*sottoscrizione-di-Azure*> | 
-   | **Servizio** | In **Monitoraggio e gestione** selezionare **Utilità di pianificazione**. | 
+   | **Tipo di problema** | **Tecnico** |
+   | **Sottoscrizione** | <*sottoscrizione-di-Azure*> |
+   | **Servizio** | In **Monitoraggio e gestione** selezionare **Utilità di pianificazione**. Se non è possibile trovare l' **utilità di pianificazione**, selezionare prima **tutti i servizi** . |
    ||| 
 
-1. Selezionare l'opzione di supporto desiderata. Se si ha un piano di supporto a pagamento, scegliere **Avanti**.
+1. Selezionare l'opzione di supporto desiderata. Se si dispone di un piano di supporto a pagamento, fare clic su **Avanti**.
 
 **Community**
 

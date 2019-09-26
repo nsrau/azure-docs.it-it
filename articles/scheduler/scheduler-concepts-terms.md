@@ -10,17 +10,17 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530932"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300959"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, [provare App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile.
 
 ## <a name="entity-hierarchy"></a>Gerarchia di entità
 
@@ -39,7 +39,7 @@ A livelli elevati, l'API REST di Utilità di pianificazione di Microsoft Azure e
 
 ### <a name="job-management"></a>Gestione dei processi
 
-Supporta le operazioni per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi già esistente e che non viene creata implicitamente. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi](https://docs.microsoft.com/rest/api/scheduler/jobs). Di seguito è l'indirizzo URI per queste operazioni:
+Supporta le operazioni per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi già esistente e che non viene creata implicitamente. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi](https://docs.microsoft.com/rest/api/scheduler/jobs). Ecco l'indirizzo URI per queste operazioni:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -47,7 +47,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Gestione delle raccolte di processi
 
-Supporta le operazioni per la creazione e modifica di processi e raccolte di processi, esecuzione del mapping delle quote e impostazioni condivise. Ad esempio, le quote specificano il numero massimo di processi e l'intervallo minimo delle ricorrenze. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Di seguito è l'indirizzo URI per queste operazioni:
+Supporta le operazioni per la creazione e modifica di processi e raccolte di processi, esecuzione del mapping delle quote e impostazioni condivise. Ad esempio, le quote specificano il numero massimo di processi e l'intervallo minimo delle ricorrenze. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Ecco l'indirizzo URI per queste operazioni:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -55,7 +55,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>Gestione della cronologia dei processi
 
-Supporta l’operazione GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio, il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Include il supporto del parametro della stringa di query per filtrare in base a stato e status. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi - Lista cronologia processi](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Di seguito è l'indirizzo URI per questa operazione:
+Supporta l’operazione GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio, il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Include il supporto del parametro della stringa di query per filtrare in base a stato e status. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi - Lista cronologia processi](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Ecco l'indirizzo URI per questa operazione:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -70,18 +70,18 @@ Utilità di pianificazione di Microsoft Azure supporta più tipi di processo:
 * Processi di coda del bus di servizio per i carichi di lavoro che usano le code del bus di servizio
 * Processi degli argomenti del bus di servizio per i carichi di lavoro che usano gli argomenti del bus di servizio
 
-## <a name="job-definition"></a>Definizione del processo
+## <a name="job-definition"></a>Definizione processo
 
 A un livello elevato, un processo di Utilità di pianificazione di Microsoft Azure include i seguenti elementi di base:
 
 * L'azione eseguita quando viene si attiva il timer del processo
-* Facoltativo: Il tempo di esecuzione del processo
-* Facoltativo: Quando e quanto spesso ripetere il processo
-* Facoltativo: Un'azione di errore che viene eseguita se l'azione principale ha esito negativo
+* Facoltativo: Tempo di esecuzione del processo
+* Facoltativo: Quando e con quale frequenza ripetere il processo
+* Facoltativo: Azione di errore che viene eseguita in caso di esito negativo dell'azione primaria
 
 Il processo include anche i dati forniti dal sistema, ad esempio l'ora successiva di esecuzione pianificata del processo. La definizione di codice del processo è un oggetto in formato JavaScript Object Notation (JSON), con questi elementi:
 
-| Elemento | Obbligatorio | Descrizione | 
+| Elemento | Richiesto | Descrizione | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | No | L'ora di inizio per il processo con una differenza di fuso orario in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**azione**](#action) | Yes | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
@@ -245,7 +245,7 @@ Un processo è ricorrente se la definizione JSON del processo include l’oggett
 },
 ```
 
-| Proprietà | Obbligatorio | Value | Descrizione | 
+| Proprietà | Richiesto | Value | Descrizione | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sì, quando viene utilizzata la **ricorrenza** | "Minute", "Hour", "Day", "Week", "Month", "Year" | L'unità di tempo tra le occorrenze | 
 | **interval** | No | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
@@ -275,7 +275,7 @@ Nel caso in cui un processo di Utilità di pianificazione di Microsoft Azure abb
 },
 ```
 
-| Proprietà | Obbligatorio | Value | Descrizione | 
+| Proprietà | Richiesto | Value | Descrizione | 
 |----------|----------|-------|-------------| 
 | **retryType** | Yes | **Fixed**, **None** | Determina se sono stati specificati criteri di ripetizione (**fixed**) o no (**none**). | 
 | **retryInterval** | No | PT30S | Specifica l'intervallo e la frequenza tra i tentativi di ripetizione dei tentativi nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Il valore minimo è 15 secondi, mentre il valore massimo è 18 mesi. | 
@@ -286,7 +286,7 @@ Per altre informazioni, vedere [Disponibilità e affidabilità elevate](../sched
 
 <a name="status"></a>
 
-## <a name="state"></a>stato
+## <a name="state"></a>state
 
 Lo stato del processo può essere **Attivo**, **Disattivato**, **Completato**, oppure **Con errori**, ad esempio: 
 
@@ -297,7 +297,7 @@ Tuttavia, se un processo presenta lo stato **Completato** o **Con errori**, non 
 
 <a name="status"></a>
 
-## <a name="status"></a>status
+## <a name="status"></a>stato
 
 Dopo l'avvio di un processo, Utilità di pianificazione di Microsoft Azure restituisce informazioni sullo stato del processo tramite l'oggetto **status**, che è controllato esclusivamente d Utilità di pianificazione di Microsoft Azure. Tuttavia, è possibile trovare l’oggetto **status** all'interno dell'oggetto **processo**. Ecco le informazioni che include lo stato del processo:
 
@@ -307,7 +307,7 @@ Dopo l'avvio di un processo, Utilità di pianificazione di Microsoft Azure resti
 * Il numero di errori, se presenti
 * Il numero di errori, se presenti
 
-Ad esempio:
+Esempio:
 
 ```json
 "status": {

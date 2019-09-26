@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c7199cd8e5dbde1f6ff2f5cea56a4191211c853
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779075"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290769"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: Domande frequenti
 
@@ -41,11 +41,10 @@ No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>L'[accesso condizionale](../active-directory-conditional-access-azure-portal.md) funziona con l'autenticazione pass-through?
 
-Sì. Tutte le funzionalità di accesso condizionale, inclusa l'autenticazione a più fattori di Azure, funzionano con l'autenticazione pass-through.
+Sì. Tutte le funzionalità di accesso condizionale, tra cui Azure Multi-Factor Authentication, funzionano con l'autenticazione pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'autenticazione pass-through supporta "Alternate ID" come nome utente, al posto di "userPrincipalName"?
-
-Sì, l'autenticazione pass-through supporta `Alternate ID` come nome utente quando è configurata in Azure AD Connect. Come prerequisito, Azure AD Connect richiede per la sincronizzazione dell'attributo `UserPrincipalName` di Active Directory locale ad Azure AD. Per altre informazioni, vedere [Installazione personalizzata di Azure AD Connect](how-to-connect-install-custom.md). Non tutte le applicazioni di Office 365 supportano `Alternate ID`. Fare riferimento all'informativa sul supporto contenuta nella documentazione dell'applicazione specifica.
+Per un extent limitato, l'autenticazione pass-through supporta l'ID alternativo come nome utente quando viene configurato in Azure AD Connect. Come prerequisito, Azure AD Connect richiede per la sincronizzazione dell'attributo `UserPrincipalName` di Active Directory locale ad Azure AD. `UserPrincipalName` In questo modo, in ad locale e Azure ad diventano identici. Se si vuole usare un altro attributo per eseguire la sincronizzazione da AD locale come UPN per Azure AD, sarà necessario usare la sincronizzazione dell'hash delle password o la AD FS. Per altre informazioni, vedere [Installazione personalizzata di Azure AD Connect](how-to-connect-install-custom.md). Non tutte le applicazioni di Office 365 supportano `Alternate ID`. Fare riferimento all'informativa sul supporto contenuta nella documentazione dell'applicazione specifica.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La sincronizzazione dell'hash delle password agisce da fallback per l'autenticazione pass-through?
 

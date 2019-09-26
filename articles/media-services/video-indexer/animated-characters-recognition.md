@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: ac31a2945e59df3b57000a0ffdcbca8344e44c18
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 584d3fa787fbd44ad47d21c51ea67f301c04436d
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122305"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300330"
 ---
 # <a name="animated-character-detection-preview"></a>Rilevamento di caratteri animati (anteprima)
 
@@ -40,7 +40,7 @@ A seconda di un tipo di account di Video Indexer, sono disponibili diversi set d
 
 ### <a name="trial-vs-paid"></a>Versione di valutazione e a pagamento
 
-|Funzionalità|Versione di prova|A pagamento|
+|Funzionalità|Versione di valutazione|A pagamento|
 |---|---|---|
 |Account Visione personalizzata|Gestito dietro le quinte da Video Indexer. |L'account Visione personalizzata è connesso al Video Indexer.|
 |Numero di modelli di animazione|Uno|Fino a 100 modelli per account (limitazione Visione personalizzata).|
@@ -91,12 +91,13 @@ Se si è proprietari di un account Video Indexer a pagamento, è necessario prim
     1. Dopo aver digitato il nuovo nome, fare clic sull'icona di controllo accanto al nuovo nome. In questo modo il nuovo nome viene salvato nel modello in Video Indexer.
     1. Al termine della modifica di tutti i nomi desiderati, è necessario eseguire il training del modello.
 
-        Aprire la pagina Personalizzazione e fare clic sulla scheda **caratteri animati** . Se si dispone di un account a pagamento, è possibile fare clic sul collegamento **Gestisci modelli in visione cliente** (come illustrato di seguito). Verrà quindi inviato alla pagina del modello in Visione personalizzata. Fare clic sul pulsante **Train (Train** ) per eseguire il training del modello. 
-        
+        Aprire la pagina Personalizzazione e fare clic sulla scheda **caratteri animati** , quindi fare clic sul pulsante di **Train** per eseguire il training del modello.
+         
+        Se si dispone di un account a pagamento, è possibile fare clic sul collegamento **Gestisci modelli in visione cliente** (come illustrato di seguito). Verrà quindi inviato alla pagina del modello in **visione personalizzata**.
+ 
         ![Personalizzazione del modello di contenuto](./media/animated-characters-recognition/content-model-customization-tab.png)
 
-        Se si dispone di un account di valutazione, il collegamento **Gestisci modelli in visione cliente** non sarà presente. In questo caso, è possibile premere **Train** right nella pagina di **personalizzazione del modello di contenuto** .
-    1. Una volta eseguito il training, qualsiasi video che verrà indicizzato o reindicizzato con tale modello riconoscerà i caratteri sottoposti a training. 
+     1. Una volta eseguito il training, qualsiasi video che verrà indicizzato o reindicizzato con tale modello riconoscerà i caratteri sottoposti a training. 
     Gli account a pagamento che hanno accesso al proprio account di Visione personalizzata possono visualizzare i modelli e le immagini con tag. Altre informazioni su come [migliorare il classificatore in visione personalizzata](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 
 1. Eliminare un carattere animato.

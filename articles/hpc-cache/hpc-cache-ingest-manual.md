@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 217f976d53a7be8931be9f8d21b000549a9ed68a
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: e1ca6fa4ea1ae4a5bf5996e88d32e1e00416f067
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180999"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299980"
 ---
 # <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Inserimento di dati nella cache HPC di Azure (anteprima)-metodo di copia manuale
 
@@ -23,7 +23,7 @@ Per altre informazioni sullo spostamento dei dati nell'archiviazione BLOB per la
 
 Si può creare manualmente una copia a thread multipli in un client eseguendo simultaneamente più comandi di copia in background su un set predefinito di file o percorsi.
 
-Il comando Linux/UNIX ``cp`` include l'argomento ``-p`` per conservare i metadati mtime e di proprietà. L'aggiunta di questo argomento ai comandi riportati di seguito è facoltativa. (L'aggiunta dell'argomento aumenta il numero di chiamate al file system inviate dal client al file system di destinazione per la modifica dei metadati.)
+Il comando Linux/UNIX ``cp`` include l'argomento ``-p`` per conservare i metadati mtime e di proprietà. L'aggiunta di questo argomento ai comandi riportati di seguito è facoltativa. L'aggiunta dell'argomento aumenta il numero di chiamate file system inviate dal client al file system di destinazione per la modifica dei metadati.
 
 Questo semplice esempio copia due file in parallelo:
 
@@ -81,9 +81,9 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ## <a name="when-to-add-mount-points"></a>Quando aggiungere punti di montaggio
 
-Quando si raggiunge un numero sufficiente di thread paralleli verso un singolo punto di montaggio del file system di destinazione, vi sarà un punto in cui l'aggiunta di più thread non offre una velocità effettiva maggiore. (La velocità effettiva verrà misurata in byte al secondo o file al secondo, in base al tipo di dati.) Peggio ancora, il threading eccessivo può talvolta causare una riduzione della velocità effettiva.  
+Quando si dispone di un numero sufficiente di thread paralleli rispetto a una singola destinazione file system punto di montaggio, sarà presente un punto in cui l'aggiunta di più thread non offre una maggiore velocità effettiva. (La velocità effettiva verrà misurata in byte al secondo o file al secondo, in base al tipo di dati.) Peggio ancora, il threading eccessivo può talvolta causare una riduzione della velocità effettiva.  
 
-Quando si verifica questo problema, è possibile aggiungere punti di montaggio lato client ad altri indirizzi di montaggio della cache HPC di Azure, usando lo stesso percorso di montaggio del file system remoto:
+Quando si verifica questo problema, è possibile aggiungere punti di montaggio lato client ad altri indirizzi di montaggio della cache HPC di Azure, usando lo stesso percorso di montaggio file system remoto:
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)
@@ -136,7 +136,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>Creare manifesti di file
 
-Dopo aver compreso gli approcci descritti in precedenza (più thread di copia per ogni destinazione, più destinazioni per client, più client per file system di origine accessibile dalla rete), considerare questo consiglio: creare manifesti di file e quindi usarli con i comandi di copia tra più client.
+Dopo aver compreso gli approcci precedenti (più thread di copia per destinazione, più destinazioni per client, più client per origine accessibile alla rete file system), considerare questa raccomandazione: creare manifesti di file e quindi usarli con i comandi di copia tra più client.
 
 Questo scenario usa il comando UNIX ``find`` per creare manifesti di file o directory:
 

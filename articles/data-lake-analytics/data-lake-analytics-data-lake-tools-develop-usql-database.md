@@ -1,7 +1,6 @@
 ---
-title: Usare un progetto di database U-SQL per sviluppare un database U-SQL per Azure Data Lake
+title: Sviluppare un progetto di database U-SQL-Azure Data Lake
 description: Ulteriori informazioni sullo sviluppo di un database U-SQL usando Strumenti Azure Data Lake per Visual Studio.
-services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
@@ -10,12 +9,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a9b271b5f7d4e53dbf871d03dd43b62b9299aa53
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628848"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309920"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Usare un progetto di database U-SQL per sviluppare un database U-SQL per Azure Data Lake
 
@@ -57,7 +56,7 @@ Per un oggetto assembly, lo strumento fornisce un editor UI di uso intuitivo che
 
 L'output della compilazione di un progetto di database U-SQL è un pacchetto di distribuzione di database U-SQL, il cui nome contiene il suffisso `.usqldbpack`. Il pacchetto `.usqldbpack` è un file ZIP contenente tutte le istruzioni DDL in un singolo script U-SQL nella cartella **DDL** e tutte le DLL e i file aggiuntivi per gli assembly nella cartella **Temp**.
 
-Altre informazioni sulle [come creare un progetto di database U-SQL con MSBuild della riga di comando e un servizi di Azure DevOps attività di generazione](data-lake-analytics-cicd-overview.md).
+Altre informazioni su [come compilare un progetto di database U-SQL con la riga di comando di MSBuild e un'attività di compilazione Azure DevOps Services](data-lake-analytics-cicd-overview.md).
 
 ## <a name="deploy-a-u-sql-database"></a>Distribuire un database U-SQL
 
@@ -100,8 +99,8 @@ Il pacchetto .usqldbpack può essere distribuito in un account locale o in un ac
 
 Un progetto U-SQL può fare riferimento a un progetto di database U-SQL. Il riferimento interessa due carichi di lavoro:
 
-- *Compilazione progetto*: Configurare gli ambienti di database di riferimento prima di compilare gli script U-SQL. 
-- *Account di esecuzione rispetto a (un progetto locale) locale*: Vengono distribuiti gli ambienti di database di riferimento (un progetto locale) account prima dell'esecuzione dello script U-SQL. [Ulteriori informazioni sulle esecuzioni locali e sulla differenza tra account (computer locale) e (progetto locale)](data-lake-analytics-data-lake-tools-local-run.md).
+- *Compilazione progetto*: Configurare gli ambienti di database a cui si fa riferimento prima di compilare gli script U-SQL. 
+- *Esecuzione locale in un account (progetto locale)* : Gli ambienti di database a cui si fa riferimento vengono distribuiti in un account (progetto locale) prima dell'esecuzione di script U-SQL. [Ulteriori informazioni sulle esecuzioni locali e sulla differenza tra account (computer locale) e (progetto locale)](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>Come aggiungere un riferimento di database U-SQL
 

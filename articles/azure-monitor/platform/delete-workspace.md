@@ -1,5 +1,5 @@
 ---
-title: Eliminare un'area di lavoro Azure Log Analytics | Microsoft Docs
+title: Eliminare e ripristinare l'area di lavoro di Azure Log Analytics | Microsoft Docs
 description: Informazioni su come eliminare l'area di lavoro Log Analytics, se ne è stata creata una in una sottoscrizione personale, o come ristrutturare il modello dell'area di lavoro.
 services: log-analytics
 documentationcenter: log-analytics
@@ -13,33 +13,52 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.openlocfilehash: a6542838acba3143123dc90d96746179a2b4469b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8dcab1a7a46d518b752e48f9886b60a37d8ec4c
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236105"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299533"
 ---
-# <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Eliminare un'area di lavoro Azure Log Analytics con il portale di Azure
-Questo articolo descrive come usare il portale di Azure per eliminare un'area di lavoro Log Analytics non più necessaria. 
+# <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
+Questo articolo illustra il concetto di eliminazione temporanea dell'area di lavoro di Azure Log Analytics e come ripristinare l'area di lavoro eliminata. 
 
-## <a name="to-delete-a-workspace"></a>Per eliminare un'area di lavoro 
-Quando si elimina un'area di lavoro Log Analytics, tutti i dati relativi a tale area vengono eliminati dal servizio entro 30 giorni.  Prestare particolare attenzione quando si elimina un'area di lavoro perché potrebbero essere presenti dati e configurazioni importanti che possono influire negativamente sulle operazioni del servizio. Prendere in considerazione gli altri servizi e origini di Azure che archiviano i dati in Log Analytics, ad esempio:
+## <a name="considerations-when-deleting-a-workspace"></a>Considerazioni sull'eliminazione di un'area di lavoro
+Quando si elimina un'area di lavoro Log Analytics, viene eseguita un'operazione di eliminazione temporanea per consentire il ripristino dell'area di lavoro, inclusi i dati e gli agenti connessi entro 14 giorni, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale. Dopo il periodo di eliminazione temporanea, l'area di lavoro e i relativi dati non sono recuperabili e vengono accodati per l'eliminazione permanente entro 30 giorni.
 
-* Application Insights
-* Centro sicurezza di Azure
+Si desidera prestare attenzione quando si elimina un'area di lavoro perché potrebbero essere presenti dati e configurazioni importanti che potrebbero influire negativamente sull'operazione del servizio. Esaminare gli agenti, le soluzioni e gli altri servizi e origini di Azure che archiviano i dati in Log Analytics, ad esempio:
+* Soluzioni di gestione
 * Automazione di Azure
 * Agenti in esecuzione in macchine virtuali Windows e Linux
 * Agenti in esecuzione in computer Windows e Linux nell'ambiente
 * System Center Operations Manager
-* Soluzioni di gestione 
 
-Tutti gli agenti e i gruppi di gestione di System Center Operations Manager configurati per l'invio di informazioni all'area di lavoro continuano in uno stato orfano.  Creare un inventario degli agenti, delle soluzioni e di altri servizi di Azure integrati con l'area di lavoro prima di procedere.   
- 
-Se si è un amministratore e vi sono più utenti associati all'area di lavoro, l'associazione tra quest'ultima e gli utenti viene interrotta. Se gli utenti sono associati ad altre aree di lavoro, potranno continuare a usare Log Analytics con tali aree di lavoro. Tuttavia, se non sono associati ad altre aree di lavoro, per usare Log Analytics devono creare una nuova area di lavoro. 
+L'operazione di eliminazione temporanea Elimina la risorsa dell'area di lavoro e le autorizzazioni degli utenti associati vengono interrotte. Se gli utenti sono associati ad altre aree di lavoro, possono continuare a usare Log Analytics con le altre aree di lavoro.
 
-1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
-3. Nel riquadro delle sottoscrizioni di Log Analytics selezionare un'area di lavoro e quindi fare clic su **Elimina** nella parte superiore del riquadro centrale.<br><br> ![Delete option from Workspace properties pane](media/delete-workspace/log-analytics-delete-workspace.png) (Opzione Elimina dal riquadro delle proprietà dell'area di lavoro)<br>  
-4. Fare clic su **Sì** nella finestra di messaggio di conferma visualizzata che richiede di confermare l'eliminazione dell'area di lavoro.<br><br> ![Confermare l'eliminazione dell'area di lavoro](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+## <a name="soft-delete-behavior"></a>Comportamento della funzione di eliminazione temporanea
+L'operazione di eliminazione dell'area di lavoro consente di rimuovere l'area di lavoro Gestione risorse risorsa, ma la configurazione e i dati vengono conservati per 14 giorni, assicurando allo stesso tempo l'eliminazione dell'area di lavoro. Gli agenti e i gruppi di gestione System Center Operations Manager configurati per l'area di lavoro rimangono in uno stato orfano durante il periodo di eliminazione temporanea. Il servizio fornisce inoltre un meccanismo per il ripristino dell'area di lavoro eliminata, inclusi i dati e le risorse connesse, evitando essenzialmente l'eliminazione.
 
+> [!NOTE] 
+> Le soluzioni installate e i servizi collegati come l'account di automazione vengono rimossi definitivamente dall'area di lavoro in fase di eliminazione e non possono essere recuperati. Queste devono essere riconfigurate dopo l'operazione di ripristino per portare l'area di lavoro alla relativa funzionalità precedente. 
+
+È possibile eliminare un'area di lavoro usando [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)o in [portale di Azure](https://portal.azure.com).
+
+### <a name="delete-workspace-in-azure-portal"></a>Elimina area di lavoro in portale di Azure
+1. Per accedere, passare alla [portale di Azure](https://portal.azure.com). 
+2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
+3. Nell'elenco delle aree di lavoro Log Analytics selezionare un'area di lavoro, quindi fare clic su **Elimina** nella parte superiore del riquadro centrale.
+   ![Delete option from Workspace properties pane](media/delete-workspace/log-analytics-delete-workspace.png) (Opzione Elimina dal riquadro delle proprietà dell'area di lavoro)
+4. Fare clic su **Sì** nella finestra di messaggio di conferma visualizzata che richiede di confermare l'eliminazione dell'area di lavoro.
+   ![Confermare l'eliminazione dell'area di lavoro](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+
+## <a name="recover-workspace"></a>Ripristina area di lavoro
+Se si dispone delle autorizzazioni di collaboratore per la sottoscrizione e il gruppo di risorse in cui l'area di lavoro è stata associata prima dell'operazione di eliminazione temporanea, è possibile ripristinarla durante il periodo di eliminazione temporanea, inclusi i dati, la configurazione e gli agenti connessi. Dopo il periodo di eliminazione temporanea, l'area di lavoro non è reversibile e assegnata per l'eliminazione permanente.
+
+Per ripristinare un'area di lavoro, è possibile ricreare l'area di lavoro usando uno dei metodi di creazione supportati: PowerShell, l'interfaccia della riga di comando di Azure o dal portale di Azure finché queste proprietà vengono popolate con i dettagli dell'area di lavoro eliminati, tra cui:
+1.  ID sottoscrizione
+2.  Nome del gruppo di risorse
+3.  Nome dell'area di lavoro
+4.  Region
+
+> [!NOTE]
+> I nomi delle aree di lavoro eliminate vengono conservati per il periodo di eliminazione temporanea e non possono essere utilizzati durante la creazione di una nuova area di lavoro. I nomi delle aree di lavoro vengono *rilasciati* e disponibili per l'uso per la nuova creazione dell'area di lavoro dopo la scadenza del periodo di eliminazione temporanea.

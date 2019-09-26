@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b9058313886484e84000b2b27986280eb1ff30eb
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f4ee3f78159cb5d9b677f0d43492325754065841
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145635"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300829"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Note sulla versione di Azure SQL Data Warehouse
 
@@ -38,6 +38,7 @@ Usare la data identificata per confermare quale versione è stata applicata ad A
 |**Collegamento privato di Azure (anteprima)**|Con il [collegamento privato di Azure](https://azure.microsoft.com/blog/announcing-azure-private-link/)è possibile creare un endpoint privato nella rete virtuale (VNet) e associarlo a SQL data warehouse di Azure. Queste risorse sono quindi accessibili tramite un indirizzo IP privato nella VNet, abilitando la connettività dall'ambiente locale al peering privato di Azure ExpressRoute e/o al gateway VPN. In generale, la configurazione di rete viene semplificata senza che sia necessario aprirla a indirizzi IP pubblici. Questa operazione consente inoltre la protezione da rischi exfiltration di dati. Per ulteriori informazioni, vedere [Panoramica](/azure/private-link/private-link-overview) e [documentazione di SQL DW](/azure/sql-database/sql-database-private-endpoint-overview).|
 |**Data Discovery & classificazione (GA)**|La funzionalità [di individuazione e classificazione dei dati](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/sql-data-warehouse/toc.json) è ora disponibile a livello generale. Questa funzionalità offre funzionalità avanzate per l' **individuazione, la classificazione, l'assegnazione di etichette & la protezione** dei dati sensibili nei database.|
 |**Azure Advisor l'integrazione con un clic**|SQL Data Warehouse ora si integra direttamente con Azure Advisor raccomandazioni nel pannello panoramica, oltre a offrire un'esperienza con un clic. È ora possibile individuare le raccomandazioni nel pannello panoramica anziché passare al pannello Azure Advisor. Altre informazioni sulle raccomandazioni sono disponibili [qui](sql-data-warehouse-concept-recommendations.md).|
+|**Isolamento dello snapshot Read Committed (anteprima)**|È possibile utilizzare ALTER DATABSE per abilitare o disabilitare l'isolamento dello snapshot per un database utente.  Per evitare effetti sul carico di lavoro corrente, è consigliabile impostare questa opzione durante la finestra di manutenzione del database o attendere fino a quando non vi sono altre connessioni attive al database. Per ulteriori informazioni, vedere [Opzioni ALTER database set](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest).|
 |**EXECUTE AS (Transact-SQL)**| [Esegui come](/sql/t-sql/statements/execute-as-transact-sql?view=azure-sqldw-latest) Il supporto per T-SQL è ora disponibile in SQL Data Warehouse consentire ai clienti di impostare il contesto di esecuzione di una sessione sull'utente specificato.|
 |**Supporto aggiuntivo per T-SQL**|La superficie di attacco del linguaggio T-SQL per SQL Data Warehouse è stata estesa in modo da includere il supporto per: </br> - [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql?view=azure-sqldw-latest)</br> - [TRY_PARSE (Transact-SQL)](/sql/t-sql/functions/try-parse-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CAST (Transact-SQL)](/sql/t-sql/functions/try-cast-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CONVERT (Transact-SQL)](/sql/t-sql/functions/try-convert-transact-sql?view=azure-sqldw-latest)</br> - [sys. user_token (Transact-SQL)](/sql//relational-databases/system-catalog-views/sys-user-token-transact-sql?view=azure-sqldw-latest)|
 
@@ -94,7 +95,7 @@ Usare la data identificata per confermare quale versione è stata applicata ad A
 
 | Miglioramenti alla documentazione | Dettagli |
 | --- | --- |
-|Nessuno | |
+|nessuno | |
 | | |
 
 ## <a name="december-2018"></a>Dicembre 2018

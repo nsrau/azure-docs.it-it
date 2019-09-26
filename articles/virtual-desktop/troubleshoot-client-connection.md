@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 4f325d9fc512fd9f6776fcd799b720aaf60ce472
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c6c7a57a2093445d3922f9349242c9a902df7370
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876770"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300710"
 ---
 # <a name="remote-desktop-client-connections"></a>Connessioni client di Desktop remoto
 
 Usare questo articolo per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Commenti e suggerimenti
 
 Al momento non vengono accettati casi di supporto mentre Desktop virtuale Windows è in anteprima. Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -152,6 +152,11 @@ Seguire queste istruzioni generali per la risoluzione dei problemi relativi ai c
 **Causa:** Le macchine virtuali a cui un utente sta tentando di connettersi non sono unite a un dominio.
 
 **Difficoltà** Aggiungere al controller di dominio tutte le macchine virtuali che fanno parte di un pool host.
+
+### <a name="error-connectionfailedusersidinformationmismatch"></a>Errore: ConnectionFailedUserSIDInformationMismatch
+**Causa:** Il SID del token Azure Active Directory (AD) dell'utente non corrisponde al SID restituito dal controller di dominio durante il tentativo di abilitare l'utente per l'accesso remoto. Questo errore si verifica in genere quando si tenta di accedere a un ambiente di Azure Active Directory Domain Services (Azure AD DS) con un utente originariamente originato da un Active Directory di Windows Server.
+
+**Difficoltà** Questo scenario non è supportato in questo momento. Solo gli utenti originati da Azure Active Directory possono accedere a VM desktop virtuali Windows connesse a Azure AD DS.
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>L'utente si connette ma non viene visualizzato nulla (nessun feed)
 

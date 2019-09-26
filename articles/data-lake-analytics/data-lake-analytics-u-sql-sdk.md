@@ -1,5 +1,5 @@
 ---
-title: Esecuzione e test di processi di U-SQL locali con Azure Data Lake U-SQL SDK
+title: Eseguire processi U-SQL in locale-Azure Data Lake SDK U-SQL
 description: Informazioni su come eseguire e testare i processi di U-SQL locali con la riga di comando e le interfacce di programmazione nella workstation locale.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813527"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309693"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
 
@@ -154,7 +154,7 @@ Di seguito sono indicati gli argomenti facoltativi per **run**:
 |-OptFlags| |Elenco delimitato da virgole con i flag di ottimizzazione|
 
 
-Ad esempio:
+Di seguito è riportato un esempio:
 
     LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose
 
@@ -223,7 +223,7 @@ Ecco un esempio d'uso:
 
 Le interfacce di programmazione si trovano tutte in LocalRunHelper.exe. È possibile usarle per integrare le funzionalità dell'SDK U-SQL e il framework di test di C# per scalare il test locale dello script U-SQL. In questo articolo verrà usato il progetto di unit test C# standard per mostrare come usare queste interfacce per testare lo script U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Passaggio 1: Creare C# configurazione e progetto di unit test
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Passaggio 1: Creare C# unit test progetto e la configurazione
 
 - Creare un progetto per unit test C# tramite File > Nuovo > Progetto > Visual C# > Test > Progetto unit test.
 - Aggiungere LocalRunHelper.exe come riferimento per il progetto. LocalRunHelper.exe si trova in \build\runtime\LocalRunHelper.exe nel pacchetto NuGet.
@@ -240,7 +240,7 @@ Le interfacce di programmazione si trovano tutte in LocalRunHelper.exe. È possi
 
 - Assicurarsi di copiare tutti i file di dipendenza in NugetPackage\build\runtime\ nella directory di lavoro del progetto che generalmente si trova in ProjectFolder\bin\x64\Debug.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>Passaggio 2: Creare test case di script U-SQL
+### <a name="step-2-create-u-sql-script-test-case"></a>Passaggio 2: Crea script U-SQL test case
 
 Di seguito è riportato il codice di esempio per il test dello script U-SQL. Per i test, è necessario preparare script, file di input e file di output previsti.
 
@@ -379,7 +379,7 @@ E_CSC_SYSTEM_INTERNAL: Errore interno. Could not load file or assembly 'ScopeEng
 
 Verificare quanto segue:
 
-- Assicurarsi di avere un ambiente x64. La piattaforma di destinazione di compilazione e l'ambiente di test deve essere x64; fare riferimento a **passaggio 1: Creare C# configurazione e progetto di unit test** sopra.
+- Assicurarsi di avere un ambiente x64. La piattaforma di destinazione di compilazione e l'ambiente di testing devono essere **x64, fare riferimento al passaggio 1: Creare C# unit test progetto e la** configurazione precedenti.
 - Assicurarsi di aver copiato nella directory di lavoro tutti i file di dipendenza presenti in NugetPackage\build\runtime\.
 
 

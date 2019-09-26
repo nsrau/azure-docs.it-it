@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: 6ff23ca4c66094df18d1d18caac67192059e8f8d
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: d4f4cfc005b2d5a63512245baee5230e9a26cb37
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019407"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309216"
 ---
 # <a name="azure-media-services-legacy-components"></a>Componenti legacy di servizi multimediali di Azure
 
@@ -26,12 +26,14 @@ Nel corso del tempo sono stati apportati miglioramenti e miglioramenti costanti 
 
 ## <a name="legacy-components-and-migration-guidance"></a>Guida alla migrazione e ai componenti legacy
 
-### <a name="media-processors"></a>Processori di contenuti multimediali
-
 Microsoft sta annunciando la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (biaigi) e *Azure Media Encoder* (AME). Questi processori verranno ritirati il 30 novembre 2019.
 
 * [Eseguire la migrazione da Azure Media Encoder Windows a Media Encoder Standard](migrate-windows-azure-media-encoder.md)
 * [Eseguire la migrazione da Azure Media Encoder a Media Encoder Standard](migrate-azure-media-encoder.md)
+
+Stiamo anche annunciando la deprecazione di *Azure Media Indexer* e *Azure Media Indexer 2*. Il processore di contenuti multimediali [Azure Media Indexer](media-services-index-content.md) verrà ritirato il 1 ° ottobre del 2020. I processori di contenuti multimediali [[Azure Media Indexer 2 (anteprima)](media-services-process-content-with-indexer2.md) verranno ritirati il 1 ° gennaio 2019.  [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
+
+* [Eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
