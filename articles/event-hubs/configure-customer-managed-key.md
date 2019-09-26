@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 37ca2b655d30ffd330d5430da20d07d9548a7c84
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035901"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260864"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
@@ -31,7 +31,7 @@ L'abilitazione della funzionalità BYOK è un processo di configurazione una vol
 Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando il portale di Azure. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [] Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure] (.. /key-vault/quick-create-portal.md).
 
 > [!IMPORTANT]
-> Per usare chiavi gestite dal cliente con hub eventi di Azure, è necessario che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Sono:  **Eliminazione** temporanea e **non**ripulitura. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
+> Per usare chiavi gestite dal cliente con hub eventi di Azure, è necessario che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Sono:  **Eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="enable-customer-managed-keys"></a>Abilita chiavi gestite dal cliente
 Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla procedura seguente:
@@ -44,7 +44,7 @@ Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla
     ![Abilita chiave gestita dal cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 ## <a name="set-up-a-key-vault-with-keys"></a>Configurare un insieme di credenziali delle chiavi con chiavi
-Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la chiave gestita dal cliente allo spazio dei nomi di hub eventi di Azure. Hub eventi supporta solo Azure Key Vault. Se si Abilita l'opzione **crittografia con chiave gestita dal cliente** nella sezione precedente, è necessario importare la chiave in Azure Key Vault. Inoltre, le chiavi devono essere **eliminate temporaneamente** e **non vengono** rieliminate configurate per la chiave. Queste impostazioni possono essere configurate tramite [PowerShell](../key-vault/key-vault-soft-delete-powershell.md) o l' [interfaccia](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection)della riga di comando.
+Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la chiave gestita dal cliente allo spazio dei nomi di hub eventi di Azure. Hub eventi supporta solo Azure Key Vault. Se si Abilita l'opzione **crittografia con chiave gestita dal cliente** nella sezione precedente, è necessario importare la chiave in Azure Key Vault. Inoltre, le chiavi devono essere **eliminate temporaneamente** e **non vengono rieliminate** configurate per la chiave. Queste impostazioni possono essere configurate tramite [PowerShell](../key-vault/key-vault-soft-delete-powershell.md) o l' [interfaccia](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection)della riga di comando.
 
 1. Per creare un nuovo insieme di credenziali delle chiavi, seguire la [Guida introduttiva](../key-vault/key-vault-overview.md)Azure Key Vault. Per ulteriori informazioni sull'importazione di chiavi esistenti, vedere [informazioni su chiavi, segreti e certificati](../key-vault/about-keys-secrets-and-certificates.md).
 1. Per attivare l'eliminazione temporanea e ripulire la protezione durante la creazione di un insieme di credenziali, usare il comando [AZ per Vault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) .
@@ -84,7 +84,7 @@ Una volta revocata la chiave di crittografia, il servizio Hub eventi nello spazi
 > Se si elimina una chiave di crittografia esistente dall'insieme di credenziali delle chiavi e la si sostituisce con una nuova chiave nello spazio dei nomi di hub eventi, poiché la chiave di eliminazione è ancora valida (così come è memorizzata nella cache) per un massimo di un'ora, i dati obsoleti (crittografati con la chiave precedente) potrebbero ancora essere accessibili insieme  con i nuovi dati, che ora è accessibile solo tramite la nuova chiave. Questo comportamento è progettato nella versione di anteprima della funzionalità. 
 
 ## <a name="set-up-diagnostic-logs"></a>Configurare i log di diagnostica 
-L'impostazione di log di diagnostica per gli spazi dei nomi abilitati per BYOK fornisce le informazioni necessarie sulle operazioni quando uno spazio dei nomi è crittografato con chiavi gestite dal cliente. Questi log possono essere abilitati e successivamente trasmessi a un hub eventi o analizzati tramite log Analytics o trasmessi all'archiviazione per eseguire analisi personalizzate. Per altre informazioni sui log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+L'impostazione di log di diagnostica per gli spazi dei nomi abilitati per BYOK fornisce le informazioni necessarie sulle operazioni quando uno spazio dei nomi è crittografato con chiavi gestite dal cliente. Questi log possono essere abilitati e successivamente trasmessi a un hub eventi o analizzati tramite log Analytics o trasmessi all'archiviazione per eseguire analisi personalizzate. Per altre informazioni sui log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Abilitare i log utente
 Seguire questa procedura per abilitare i log per le chiavi gestite dal cliente.
@@ -104,17 +104,17 @@ Seguire questa procedura per abilitare i log per le chiavi gestite dal cliente.
 ## <a name="log-schema"></a>Schema del log 
 Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogni voce contiene campi stringa che usano il formato descritto nella tabella seguente. 
 
-| NOME | DESCRIZIONE |
+| Attività | Descrizione |
 | ---- | ----------- | 
 | TaskName | Descrizione dell'attività non riuscita. |
 | ActivityId | ID interno usato per il rilevamento. |
 | category | Definisce la classificazione dell'attività. Se, ad esempio, la chiave dell'insieme di credenziali delle chiavi è disabilitata, sarà una categoria di informazioni o se non è possibile decrittografare una chiave, potrebbe rientrare in errore. |
 | resourceId | ID della risorsa Azure Resource Manager |
-| keyVault | Nome completo dell'insieme di credenziali delle chiavi. |
-| key | Nome della chiave usato per crittografare lo spazio dei nomi di hub eventi. |
-| version | Versione della chiave usata. |
-| operation | Operazione eseguita sulla chiave nell'insieme di credenziali delle chiavi. Ad esempio, disabilitare/abilitare la chiave, eseguire il wrapping o annullare il wrapping |
-| code | Codice associato all'operazione. Esempio: Il codice di errore 404 indica che la chiave non è stata trovata. |
+| KeyVault | Nome completo dell'insieme di credenziali delle chiavi. |
+| chiave | Nome della chiave usato per crittografare lo spazio dei nomi di hub eventi. |
+| versione | Versione della chiave usata. |
+| operazione | Operazione eseguita sulla chiave nell'insieme di credenziali delle chiavi. Ad esempio, disabilitare/abilitare la chiave, eseguire il wrapping o annullare il wrapping |
+| codice | Codice associato all'operazione. Esempio: Il codice di errore 404 indica che la chiave non è stata trovata. |
 | message | Qualsiasi messaggio di errore associato all'operazione |
 
 Di seguito è riportato un esempio di log per una chiave gestita dal cliente:
@@ -154,7 +154,7 @@ Come procedura consigliata, abilitare sempre i log, come illustrato nella sezion
 
 Di seguito sono riportati i codici di errore comuni da cercare quando è abilitata la crittografia BYOK.
 
-| Azione | Codice di errore | Stato risultante dei dati |
+| Azione | Codice errore | Stato risultante dei dati |
 | ------ | ---------- | ----------------------- | 
 | Rimuovere l'autorizzazione wrap/unwrap da un insieme di credenziali delle chiavi | 403 |    Inaccessibile |
 | Rimuovere l'appartenenza al ruolo AAD da un'entità AAD che ha concesso l'autorizzazione wrap/unwrap | 403 |  Inaccessibile |

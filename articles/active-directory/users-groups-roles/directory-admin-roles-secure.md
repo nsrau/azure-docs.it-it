@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c5a08677759f0ed1a39f5507d936c777516b237
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7d3346c873f88654f75628863a01fda76449ce2d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608109"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259401"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -139,7 +139,7 @@ Con l'aumentare degli scenari BYOD (Bring Your Own Device) e di lavoro da casa e
 
 * Identificare gli utenti con ruoli amministrativi e i servizi che possono gestire.
 * Usare Azure AD PIM per scoprire quali utenti dell'organizzazione hanno accesso amministrativo ad Azure AD, inclusi ruoli aggiuntivi oltre a quelli elencati nella fase 1.
-* Oltre ai ruoli definiti in Azure AD, Office 365 include un set di ruoli di amministratore che è possibile assegnare agli utenti dell'organizzazione. Ogni ruolo di amministratore esegue il mapping a funzioni di business comuni e consente agli utenti dell'organizzazione di eseguire attività specifiche nell'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com). Usare l'interfaccia di amministrazione di Microsoft 365 per scoprire quali utenti dell'organizzazione hanno accesso amministrativo a Office 365, anche tramite ruoli non gestiti in Azure AD. Per altre informazioni, vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) e [Procedure consigliate per la sicurezza per Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
+* Oltre ai ruoli definiti in Azure AD, Office 365 include un set di ruoli di amministratore che è possibile assegnare agli utenti dell'organizzazione. Ogni ruolo di amministratore esegue il mapping a funzioni di business comuni e consente agli utenti dell'organizzazione di eseguire attività specifiche nell'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com). Usare l'interfaccia di amministrazione di Microsoft 365 per scoprire quali utenti dell'organizzazione hanno accesso amministrativo a Office 365, anche tramite ruoli non gestiti in Azure AD. Per altre informazioni, vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) e [Procedure consigliate per la sicurezza per Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Eseguire l'inventario in altri servizi usati nell'organizzazione, ad esempio Azure, Intune o Dynamics 365.
 * Assicurarsi che gli account amministratore (gli account usati a scopo amministrativo e non solo per le attività quotidiane degli utenti) abbiano indirizzi di posta elettronica funzionanti associati e abbiano eseguito la registrazione per Azure MFA oppure usino MFA in locale.
 * Chiedere agli utenti il motivo per cui necessitano di accesso amministrativo.
@@ -230,7 +230,7 @@ La fase 3 si basa sulle mitigazioni della fase 2 ed è pensata per essere implem
 
 Un numero sempre maggiore di utenti aziendali ottiene l'accesso con privilegi tramite i servizi cloud e questo può portare a una piattaforma sempre meno gestita. Ci sono utenti che diventano amministratori globali di Office 365 o delle sottoscrizioni di Azure e utenti che hanno accesso amministrativo alle macchine virtuali o tramite app SaaS. Le organizzazioni dovrebbero invece fare in modo che tutti i dipendenti, in particolare gli amministratori, gestiscano le transazioni aziendali quotidiane come utenti senza privilegi e usino i diritti di amministratore solo quando necessario. Poiché il numero di utenti con ruoli di amministratore potrebbe essere aumentato dall'adozione iniziale, eseguire verifiche di accesso per identificare e confermare ogni utente idoneo ad attivare i privilegi di amministratore. 
 
-Seguire questa procedura:
+Eseguire le operazioni seguenti:
 
 * Determinare quali utenti sono amministratori di Azure AD, abilitare l'accesso amministrativo JIT on demand e applicare controlli di sicurezza basata sui ruoli.
 * Convertire gli utenti che non necessitano di accesso con privilegi di amministratore a un ruolo diverso (in assenza di un ruolo idoneo, rimuoverli).

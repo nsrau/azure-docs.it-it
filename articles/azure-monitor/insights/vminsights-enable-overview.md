@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2019
+ms.date: 09/24/2019
 ms.author: magoedte
-ms.openlocfilehash: f3aca6f62ff529dc2ea8356e18a0162e7d9a85d8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 477343e188bece55f72a59debbab8c9a3f3e2905
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067058"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264988"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Panoramica di Enable Monitoraggio di Azure per le macchine virtuali (Preview)
 
@@ -95,10 +95,10 @@ Nella tabella seguente sono elencati i sistemi operativi Windows e Linux support
 |Windows 8.1 | X | X | |
 |Windows 8 | X | X | |
 |Windows 7 SP1 | X | X | |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
-|Ubuntu 18,04, 16,04 | x | X | X |
-|CentOS Linux 7, 6 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
+|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| x |
+|Ubuntu 18,04, 16,04 | x | X | x |
+|CentOS Linux 7, 6 | x | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X | x |
 |Debian 9.4, 8 | X<sup>1</sup> | | X |
 
 <sup>1</sup> La funzionalità relativa alle prestazioni di Monitoraggio di Azure per le macchine virtuali è disponibile solo da Monitoraggio di Azure. Non è disponibile direttamente dal riquadro sinistro della macchina virtuale di Azure.
@@ -182,7 +182,7 @@ La tabella seguente descrive le origini connesse supportate dalla funzionalità 
 
 | File | OS | Versione | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo

@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 0bbe0e9718a25fdff76e591bf388bf829518502e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: c077b93b887482dda5ae127bb3dbaec71b2ea11b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105620"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260090"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -250,7 +250,7 @@ Durante la distribuzione di questo modello, Microsoft è in grado di identificar
 
 Durante la distribuzione del software \<PARTNER>, Microsoft è in grado di identificare l'installazione del software del \<PARTNER> con le risorse di Azure distribuite. Microsoft è in grado di correlare le risorse di Azure usate per supportare il software. Microsoft raccoglie queste informazioni per fornire l'esperienza utente migliore con i propri prodotti e per il funzionamento delle proprie attività aziendali. Questi dati verranno raccolti e disciplinati dalle informative sulla privacy di Microsoft, che sono reperibili all’indirizzo https://www.microsoft.com/trustcenter.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Supporto tecnico
 
 Sono disponibili due canali di supporto in base ai problemi riscontrati.
 

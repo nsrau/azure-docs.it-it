@@ -5,35 +5,35 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fa1737a8627fe9561a2a84e7f0ef69aefb6deb14
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: ee3a1fef379e2950172dddc389b30e0a363127ae
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170628"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262136"
 ---
 # <a name="overview-of-azure-activity-log"></a>Panoramica del log attività di Azure
 
 Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Ciò include un intervallo di dati che vanno dai dati operativi di Azure Resource Manager agli aggiornamenti sugli eventi di integrità del servizio. Il log attività era noto in precedenza come log di _controllo_ o _log operativi_, poiché la categoria amministrativa segnala gli eventi del piano di controllo per le sottoscrizioni. 
 
-Usare il log attività per determinare l'elemento, _chi_e _quando_ per qualsiasi operazione di scrittura (Put, post, Delete) eseguita sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. 
+Usare il log attività per _determinare l'elemento_, _chi_e _quando_ per qualsiasi operazione di scrittura (Put, post, Delete) eseguita sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. 
 
 Il log attività non include operazioni di lettura (GET) o operazioni per le risorse che usano il modello classico/RDFE.
 
-## <a name="comparison-to-diagnostic-logs"></a>Confronto con i log di diagnostica
-È disponibile un singolo log attività per ogni sottoscrizione di Azure. Fornisce dati sulle operazioni su una risorsa dall'esterno (il "piano di controllo"). I [log di diagnostica](diagnostic-logs-overview.md) vengono generati da una risorsa e forniscono informazioni sul funzionamento di tale risorsa (il "piano dati"). È necessario abilitare le impostazioni di diagnostica per ogni risorsa.
+## <a name="comparison-to-resource-logs"></a>Confronto con i log delle risorse
+È disponibile un singolo log attività per ogni sottoscrizione di Azure. Fornisce dati sulle operazioni su una risorsa dall'esterno (il "piano di controllo"). I [log delle risorse](resource-logs-overview.md) vengono generati da una risorsa e forniscono informazioni sul funzionamento di tale risorsa (il "piano dati"). Per raccogliere i log delle risorse, è necessario creare un'impostazione di diagnostica per ogni risorsa.
 
-![Log attività rispetto ai log di diagnostica](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Log attività rispetto ai log delle risorse](media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 
 > [!NOTE]
 > Il log attività di Azure è destinato principalmente alle attività che si verificano in Azure Resource Manager. Non tiene traccia delle risorse che usano il modello classico/RDFE. Alcuni tipi di risorse classiche dispongono di un provider di risorse proxy in Azure Resource Manager (ad esempio, Microsoft.ClassicCompute). Se un utente interagisce con un tipo di risorsa classica tramite Azure Resource Manager con questi provider di risorse di proxy, le operazioni verranno visualizzate nel log attività. Se un utente interagisce con un tipo di risorsa classica all'esterno dei proxy di Azure Resource Manager, le azioni dell'utente verranno registrate solo nel log delle operazioni. È possibile esaminare il log delle operazioni in una sezione distinta del portale.
 
 ## <a name="activity-log-retention"></a>Conservazione log attività
-Una volta create, le voci del log attività non vengono modificate o eliminate dal sistema. Inoltre, non è possibile modificarli nell'interfaccia o a livello di codice. Gli eventi del log attività vengono archiviati per 90 giorni. Per archiviare i dati per periodi più lunghi, [raccoglierli in monitoraggio di Azure](activity-log-collect.md) o esportarli nell' [archiviazione o in hub eventi](activity-log-export.md).
+Una volta create, le voci del log attività non vengono modificate o eliminate dal sistema. Inoltre, non è possibile modificarli nell'interfaccia o a livello di codice. Gli eventi del log attività vengono archiviati per 90 giorni. Per archiviare i dati per periodi più lunghi, [raccoglierli in monitoraggio di Azure](activity-log-collect.md) o [esportarli nell'archiviazione o in hub eventi](activity-log-export.md).
 
 ## <a name="view-the-activity-log"></a>Visualizzare il log attività
 Visualizzare il log attività per tutte le risorse dal menu **monitoraggio** nel portale di Azure. Visualizzare il log attività per una determinata risorsa dall'opzione **log attività** nel menu di tale risorsa. È anche possibile recuperare i record del log attività con PowerShell, l'interfaccia della riga di comando o l'API REST.  Vedere [visualizzare e recuperare gli eventi del log attività di Azure](activity-log-view.md).
@@ -60,13 +60,13 @@ Ogni evento nel log attività dispone di una categoria specifica descritta nella
 | Integrità dei servizi | Contiene il record degli eventi imprevisti di integrità del servizio che si sono verificati in Azure. Un esempio di evento di integrità del servizio _SQL Azure negli Stati Uniti orientali sta riscontrando tempi di inattività_. <br><br>Gli eventi di integrità del servizio sono disponibili in sei tipi: _Azione richiesta_, _ripristino assistito_, _eventi imprevisti_, _manutenzione_, _informazioni_o _sicurezza_. Questi eventi vengono creati solo se si dispone di una risorsa nella sottoscrizione che potrebbe essere interessata dall'evento.
 | Integrità risorsa | Contiene il record degli eventi di integrità delle risorse che si sono verificati nelle risorse di Azure. Un esempio di evento Integrità risorse è _lo stato di integrità della macchina virtuale modificato in non disponibile_.<br><br>Gli eventi Integrità risorse possono rappresentare uno dei quattro stati di integrità seguenti: _Disponibile_, non _disponibile_, _danneggiato_e _sconosciuto_. Inoltre, gli eventi Integrità risorse possono essere categorizzati come _avviati dalla piattaforma_ o _avviati dall'utente_. |
 | Avviso | Contiene il record delle attivazioni per gli avvisi di Azure. Un esempio di evento di avviso è _la percentuale della CPU su myVM è stata superata 80 per gli ultimi 5 minuti_.|
-| Autoscale | Contiene il record degli eventi correlati all'operazione del motore di ridimensionamento automatico in base alle impostazioni di scalabilità automatica definite nella sottoscrizione. Un esempio di evento di scalabilità automatica è l'azione di scalabilità _orizzontale automatica non riuscita_. |
-| Recommendation | Contiene gli eventi di raccomandazione da Azure Advisor. |
+| Scalabilità automatica | Contiene il record degli eventi correlati all'operazione del motore di ridimensionamento automatico in base alle impostazioni di scalabilità automatica definite nella sottoscrizione. Un esempio di evento di scalabilità automatica è l'azione di scalabilità _orizzontale automatica non riuscita_. |
+| Indicazione | Contiene gli eventi di raccomandazione da Azure Advisor. |
 | Security | Contiene il record degli avvisi generati dal centro sicurezza di Azure. Un esempio di evento di sicurezza è un _file di estensione doppio sospetto eseguito_. |
 | Criteri | Contiene i record di tutte le operazioni di azione effetto eseguite da criteri di Azure. Esempi di eventi dei criteri includono _Audit_ e _Deny_. Ogni azione eseguita da Criteri viene modellata come operazione su una risorsa. |
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un profilo di log per esportare il log attività di Azure](activity-log-export.md)
 * [Trasmettere il log attività di Azure a Hub eventi](activity-logs-stream-event-hubs.md)

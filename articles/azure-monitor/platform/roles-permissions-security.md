@@ -8,60 +8,60 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243430"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260611"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispongono di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto, tecnici DevOps) o se si usa un provider di servizi gestiti, è possibile concedere l'accesso ai dati di monitoraggio solo limitandone la possibilità di creare, modificare, o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
+Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Se, ad esempio, si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto tecnico, DevOps Engineers) o se si usa un provider di servizi gestiti, è possibile concedere loro l'accesso solo ai dati di monitoraggio, limitando la possibilità di creare, modificare o Elimina risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
 
 ## <a name="built-in-monitoring-roles"></a>Ruoli di monitoraggio predefiniti
 I ruoli predefiniti del monitoraggio di Azure consentono di limitare l'accesso alle risorse in una sottoscrizione e allo stesso tempo consentire ai responsabili del monitoraggio dell'infrastruttura di ottenere e configurare i dati necessari. Monitoraggio di Azure offre due ruoli predefiniti: Un lettore di monitoraggio e un collaboratore al monitoraggio.
 
-### <a name="monitoring-reader"></a>Lettore di monitoraggio
+### <a name="monitoring-reader"></a>Ruolo con autorizzazioni di lettura dei dati di monitoraggio
 Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione ma non possono modificare alcuna risorsa o impostazione relativa alle risorse di monitoraggio. Questo ruolo è appropriato per gli utenti di un'organizzazione, ad esempio tecnici del supporto o delle operazioni, che devono essere in grado di:
 
 * Visualizzare i dashboard di monitoraggio nel portale e creare dashboard di monitoraggio privati.
 * Visualizzare le regole di avviso definite in [Avvisi di Azure](alerts-overview.md)
 * Eseguire query per le metriche usando l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931930.aspx), i [cmdlet di PowerShell](powershell-quickstart-samples.md) o l'[interfaccia della riga di comando multipiattaforma](cli-samples.md).
 * Eseguire query per il registro attività usando il portale, l'API REST di monitoraggio di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma.
-* Visualizzare le [impostazioni di diagnostica](diagnostic-logs-overview.md#diagnostic-settings) per una risorsa.
+* Visualizzare le [impostazioni di diagnostica](diagnostic-settings.md) per una risorsa.
 * Visualizzare il [profilo di registro](activity-log-export.md) per una sottoscrizione.
 * Visualizzare le impostazioni di scalabilità automatica.
 * Visualizzare impostazioni e attività di avviso.
 * Accedere ai dati di Application Insights e visualizzarli in AI Analytics.
 * Cercare i dati dell'area di lavoro Log Analytics, inclusi i dati sull'uso dell'area di lavoro.
 * Visualizzare i gruppi di gestione di Log Analytics.
-* Recuperare lo schema di ricerca nell'area di lavoro di Log Analitica.
-* Elenco Management Pack nell'area di lavoro di Log Analitica.
-* Recuperare ed eseguire le ricerche salvate nell'area di lavoro di Log Analitica.
-* Recuperare la configurazione di archiviazione dell'area di lavoro di Log Analitica.
+* Recuperare lo schema di ricerca nell'area di lavoro Log Analytics.
+* Elenca i Monitoring Pack nell'area di lavoro Log Analytics.
+* Recuperare ed eseguire ricerche salvate nell'area di lavoro Log Analytics.
+* Recuperare la configurazione di archiviazione dell'area di lavoro Log Analytics.
 
 > [!NOTE]
 > Questo ruolo non concede l'accesso in lettura ai dati del registro che sono stati trasmessi a un hub eventi o archiviati in un account di archiviazione. [vedere di seguito](#security-considerations-for-monitoring-data) .
 > 
 > 
 
-### <a name="monitoring-contributor"></a>Collaboratore al monitoraggio
+### <a name="monitoring-contributor"></a>Collaboratore per il monitoraggio
 Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione e creare o modificare le impostazioni, ma non possono modificare altre risorse. Questo ruolo è un soprainsieme del ruolo di lettore di monitoraggio ed è adatto ai membri del team di monitoraggio di un'organizzazione o ai fornitori di servizi gestiti che, oltre alle autorizzazioni di cui sopra, devono essere in grado di:
 
 * Pubblicare dashboard di monitoraggio come dashboard condivisi.
-* Impostare [le impostazioni di diagnostica](diagnostic-logs-overview.md#diagnostic-settings) per una risorsa.\*
+* Impostare [le impostazioni di diagnostica](diagnostic-settings.md) per una risorsa.\*
 * Impostare il [profilo di log](activity-log-export.md) per una sottoscrizione.\*
 * Configurare le attività e le impostazioni delle regole di avviso tramite [Avvisi di Azure](alerts-overview.md).
 * Creare componenti e test Web di Application Insights.
 * Elencare le chiavi condivise dell'area di lavoro Log Analytics.
-* Abilitare o disabilitare i monitoring Pack nell'area di lavoro di Log Analitica.
-* Creare ed eliminare e di eseguire le ricerche salvate nell'area di lavoro di Log Analitica.
-* Creare ed eliminare la configurazione di archiviazione dell'area di lavoro di Log Analitica.
+* Abilitare o disabilitare i Monitoring Pack nell'area di lavoro Log Analytics.
+* Consente di creare ed eliminare ed eseguire ricerche salvate nell'area di lavoro Log Analytics.
+* Creare ed eliminare la configurazione di archiviazione dell'area di lavoro Log Analytics.
 
-\*utente deve sia concessa separatamente anche l'autorizzazione ListKeys nella risorsa di destinazione (archiviazione account o un evento dell'hub dello spazio dei nomi) per impostare un profilo di log o l'impostazione di diagnostica.
+\*all'utente deve essere concessa anche l'autorizzazione ListKeys per la risorsa di destinazione (account di archiviazione o spazio dei nomi dell'hub eventi) per impostare un profilo di log o un'impostazione di diagnostica.
 
 > [!NOTE]
 > Questo ruolo non concede l'accesso in lettura ai dati del registro che sono stati trasmessi a un hub eventi o archiviati in un account di archiviazione. [vedere di seguito](#security-considerations-for-monitoring-data) .
@@ -71,7 +71,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Autorizzazioni per il monitoraggio e ruoli personalizzati nel Controllo degli accessi in base al ruolo
 Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è possibile [creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo](../../role-based-access-control/custom-roles.md) con autorizzazioni più granulari. Di seguito sono riportate le più comuni operazioni nel Controllo degli accessi in base al ruolo di monitoraggio di Azure con le relative descrizioni.
 
-| Operazione | DESCRIZIONE |
+| Operazione | Descrizione |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Gruppi di azioni di lettura, scrittura ed eliminazione. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Avvisi del log attività di lettura, scrittura ed eliminazione. |

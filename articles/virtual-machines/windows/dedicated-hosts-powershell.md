@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 2482fb4ab74a3c1e032a32890c3dc2c3920b5e6b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1dcea4f56d778b0e6320634286a25d478c78a5bc
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725620"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261702"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Anteprima: Distribuire macchine virtuali in host dedicati usando il Azure PowerShell
 
@@ -26,7 +26,7 @@ Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di A
 Assicurarsi di aver installato Azure PowerShell versione 2.4.2 o successiva ed è stato effettuato l'accesso a un account Azure in con `Connect-AzAccount`. Per installare la versione 2.4.2, aprire un prompt di PowerShell e digitare:
 
 ```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrelease
+Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
 ```
 
 Per abilitare la funzionalità di anteprima del modulo in PowerShell, è necessaria almeno la versione 1.6.0 del modulo PowerShellGet. Le versioni più recenti di PowerShell core sono state integrate automaticamente, ma per le versioni precedenti di PowerShell è possibile eseguire il comando seguente per eseguire l'aggiornamento alla versione più recente:
@@ -217,6 +217,6 @@ Remove-AzResourceGroup -Name $rgName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- È [disponibile un](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)modello di esempio, che usa sia le zone che i domini di errore per la resilienza massima in un'area.
+- È disponibile un [modello di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), che usa sia le zone che i domini di errore per la resilienza massima in un'area.
 
 - È anche possibile distribuire host dedicati usando il [portale di Azure](dedicated-hosts-portal.md).

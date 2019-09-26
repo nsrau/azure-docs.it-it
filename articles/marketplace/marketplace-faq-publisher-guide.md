@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 9/24/2019
 ms.author: ellacroi
-ms.openlocfilehash: 209905eaf90e006ded232be73ab2a3a428568eda
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309028"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259949"
 ---
 # <a name="marketplace-faqs"></a>Domande frequenti su Marketplace
 
@@ -35,7 +35,7 @@ Azure Marketplace si rivolge ai professionisti IT e agli sviluppatori cloud inte
 Azure Marketplace offre soluzioni tecniche e servizi di Microsoft e dei partner creati per estendere i prodotti e i servizi di Azure. Il catalogo di soluzioni include diverse categorie tra cui, in via esemplificativa:
 
 * sistemi operativi di base
-* database
+* databases
 * sicurezza
 * identity
 * networking
@@ -245,6 +245,14 @@ Gli acquisti effettuati da [Azure Marketplace](https://azuremarketplace.microsof
 
 Per qualsiasi problema tecnico relativo all'acquisto o al servizio di Marketplace, i clienti devono contattare direttamente l'editore. Le informazioni di contatto dell'editore e/o il collegamento al sito Web di supporto sono disponibili nella pagina dei dettagli della soluzione in Azure Marketplace.
 
+**In che modo vengono gestite le aggiunte alla licenza quando è aumentato a metà periodo?**
+
+Le licenze aggiunte a una sottoscrizione esistente sono ripartite in modo proporzionale per il resto della durata della sottoscrizione.
+
+**In che modo vengono gestite le rimozioni delle licenze a metà periodo?**
+
+Le licenze annullate saranno soggette ai criteri di rimborso disponibili in queste domande frequenti.  Tutte le licenze annullate vengono immediatamente rimosse dall'account e non saranno più disponibili per l'utilizzo.
+
 ## <a name="faq-for-publishers"></a>Domande frequenti per gli editori
 
 ### <a name="what-you-need-to-know-about-azure-marketplace"></a>Cosa occorre sapere su Azure Marketplace
@@ -283,7 +291,7 @@ Sì, per la pubblicazione in Azure Marketplace è necessario essere membri MPN. 
 
 **Quali sono i criteri per pubblicare una soluzione in Azure Marketplace?**
 
-Per pubblicare in Azure Marketplace, i partner devono dimostrare che l'applicazione viene eseguita in Azure o ne estende le funzionalità. Gli editori sono tenuti a offrire ai clienti una [contratto di servizio](https://azure.microsoft.com/support/legal/sla/), [informativa sulla privacy](https://privacy.microsoft.com/privacystatement)e il supporto telefonico e online. Diversi carichi di lavoro prevedono requisiti aggiuntivi. Per altre indicazioni, vedere [Azure Marketplace Participation Policies](./marketplace-participation-policy.md) (Criteri di partecipazione ad Azure Marketplace) e la [Guida alla pubblicazione](marketplace-publishers-guide.md).
+Per pubblicare in Azure Marketplace, i partner devono dimostrare che l'applicazione viene eseguita in Azure o ne estende le funzionalità. Gli editori sono tenuti a offrire ai clienti una [contratto di servizio](https://azure.microsoft.com/support/legal/sla/), informativa [sulla privacy](https://privacy.microsoft.com/privacystatement)e il supporto telefonico e online. Diversi carichi di lavoro prevedono requisiti aggiuntivi. Per altre indicazioni, vedere [Azure Marketplace Participation Policies](./marketplace-participation-policy.md) (Criteri di partecipazione ad Azure Marketplace) e la [Guida alla pubblicazione](marketplace-publishers-guide.md).
 
 **Sono previste tariffe per la pubblicazione in Azure Marketplace?**
 

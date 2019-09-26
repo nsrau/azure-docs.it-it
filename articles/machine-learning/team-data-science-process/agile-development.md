@@ -1,189 +1,222 @@
 ---
 title: Sviluppo Agile di progetti di data science - Processo di data science per i team
-description: Come gli sviluppatori possono eseguire un progetto di data science in modo sistematico, collaborativo e con controllo della versione all'interno di un team di progetto tramite il processo di data science per i team.
+description: Eseguire un progetto data science in modo sistematico, controllato dalla versione e collaborativo all'interno di un team di progetto tramite il processo di Data Science per i team.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 09/05/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: adf713fc3f875168f99b302b0a9affef88e8414f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09c5962e62077fbecc9b327320d0bb5b88416ffa
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60327798"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260676"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Sviluppo Agile di progetti di data science
 
-Questo documento descrive come gli sviluppatori possono eseguire un progetto di data science in modo sistematico, collaborativo e con controllo della versione all'interno di un team di progetto tramite il [processo di data science per i team](overview.md) (TDSP, Team Data Science Process). Il TDSP è un framework sviluppato da Microsoft che fornisce una sequenza strutturata di attività per eseguire in modo efficiente soluzioni di analisi predittiva, basate sul cloud. Per una descrizione dei ruoli del personale e delle rispettive attività associate che un team di data science gestisce allo scopo di normalizzare il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team). 
+Questo documento descrive come gli sviluppatori possono eseguire un progetto di data science in modo sistematico, collaborativo e con controllo della versione all'interno di un team di progetto tramite il [processo di data science per i team](overview.md) (TDSP, Team Data Science Process). TDSP è un framework sviluppato da Microsoft che fornisce una sequenza strutturata di attività per eseguire in modo efficiente soluzioni di analisi predittiva basate sul cloud. Per una descrizione dei ruoli e delle attività gestiti da un team data science la standardizzazione di TDSP, vedere [ruoli e attività del processo di Data Science](roles-tasks.md)per i team. 
 
 Questo articolo comprende istruzioni su come: 
 
-1. eseguire la **pianificazione dello sprint** per gli elementi di lavoro interessati da un progetto.<br> Se non si ha familiarità con la pianificazione dello sprint, è possibile trovare dettagli e informazioni generali [qui](https://en.wikipedia.org/wiki/Sprint_(software_development) "qui"). 
-2. **aggiungere elementi di lavoro** agli sprint. 
+- Eseguire la *pianificazione dello sprint* per gli elementi di lavoro che coinvolgono un progetto.
+- Aggiungere *elementi di lavoro* agli sprint.
+- Creare e usare un *modello di elemento di lavoro derivato da agile* che è allineato in modo specifico alle fasi del ciclo di vita TDSP.
+
+Le istruzioni seguenti illustrano i passaggi necessari per configurare un ambiente del team TDSP usando Azure Boards e Azure Repos in Azure DevOps. Le istruzioni usano Azure DevOps perché questo è l'implementazione di TDSP in Microsoft. Se il gruppo usa una piattaforma di hosting del codice diversa, le attività del responsabile del team in genere non cambiano, ma il modo per completare le attività è diverso. Ad esempio, il collegamento di un elemento di lavoro con un ramo git potrebbe non essere lo stesso con GitHub così com'è con Azure Repos.
+
+Nella figura seguente viene illustrato un flusso di lavoro tipico per la pianificazione, la codifica e il controllo del codice sorgente per un progetto data science:
+
+![Processo di analisi scientifica dei dati per i team](./media/agile-development/1-project-execute.png)
+
+##  <a name='Terminology-1'></a>Tipi di elemento di lavoro
+
+Nel Framework di pianificazione sprint TDSP sono disponibili quattro tipi di *elemento di lavoro* usati di frequente: *Funzionalità*, *storie utente*, *attività*e *bug*. Il backlog per tutti gli elementi di lavoro è a livello di progetto, non a livello di repository git. 
+
+Di seguito sono riportate le definizioni per i tipi di elemento di lavoro:
+
+- **Funzionalità**: Una funzionalità corrisponde a un engagement del progetto. Diverse interazioni con un client sono funzionalità diverse ed è consigliabile considerare diverse fasi di un progetto come diverse funzionalità. Se si sceglie uno schema, ad esempio  *\<clientname >\<-engagementname >* per assegnare un nome alle funzionalità, è possibile riconoscere facilmente il contesto del progetto e il coinvolgimento dei nomi stessi.
+  
+- **Storia utente**: Le storie utente sono elementi di lavoro necessari per completare una funzionalità end-to-end. Esempi di storie utente includono:
+  - Ottenere i dati 
+  - Esplorazione dei dati 
+  - Genera funzionalità
+  - Creare modelli
+  - Rendere operativi i modelli 
+  - Ripetere il training dei modelli
+  
+- **Attività**: Le attività sono elementi di lavoro assegnabili che devono essere eseguiti per completare una storia utente specifica. Ad esempio, le attività nella storia utente *ottengono i dati* :
+  - Ottenere le credenziali SQL Server
+  - Caricare i dati in SQL Data Warehouse
+  
+- **Bug**: I bug sono problemi nel codice o nei documenti esistenti che devono essere corretti per completare un'attività. Se i bug sono causati da elementi di lavoro mancanti, possono escalarsi per essere storie utente o attività. 
+
+I data scientist possono essere più comodi usando un modello agile che sostituisce funzionalità, storie utente e attività con fasi del ciclo di vita TDSP e sottofasi. Per creare un modello derivato da agile che è allineato in modo specifico con le fasi del ciclo di vita TDSP, vedere [usare un modello di lavoro TDSP agile](#set-up-agile-dsp-6).
 
 > [!NOTE]
-> Nel seguente set di istruzioni sono illustrati i passaggi necessari per configurare un ambiente TDSP usando servizi di Azure DevOps. Specificano come eseguire queste attività con i servizi di Azure DevOps dal momento che questa è la modalità di implementazione di TDSP presso Microsoft.  Se si sceglie di usare i servizi di Azure DevOps, gli elementi (3) e (4) nell'elenco precedente sono vantaggi che si ottengono naturalmente. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano. Sarà tuttavia diverso il modo in cui queste attività vengono completate. Ad esempio, l'elemento nella sezione 6, **Collegare un elemento di lavoro a un ramo Git**, potrebbe non essere semplice come è in Azure DevOps Services.
->
->
-
-La figura seguente illustra la pianificazione di sprint, la codifica e il flusso di lavoro di controllo del codice sorgente tipici relativi all'implementazione di un progetto di data science:
-
-![1](./media/agile-development/1-project-execute.png)
-
-
-##  1. <a name='Terminology-1'></a>Terminologia 
-
-Nel framework di pianificazione dello sprint TDSP sono disponibili quattro tipi frequentemente usati di **elementi di lavoro**: **Funzionalità**, **Storia utente**, **Attività** e **Bug**. Ogni progetto conserva un unico backlog per tutti gli elementi di lavoro. Non vi è alcun backlog a livello di repository Git in un progetto. Di seguito sono illustrate le relative definizioni:
-
-- **Funzionalità**: una funzionalità corrisponde a un impegno di progetto. Diversi impegni con un client vengono considerati funzionalità diverse. Analogamente, è consigliabile considerare le diverse fasi di un progetto con un client come diverse funzionalità. Se si sceglie uno schema, ad esempio ***ClientName-EngagementName*** per denominare le funzionalità, allora è possibile riconoscere facilmente il contesto del progetto/impegno dai nomi stessi.
-- **Storia**: le storie sono elementi di lavoro diversi che sono necessari per completare una funzionalità (progetto) end-to-end. Gli esempi di storie comprendono:
-    - Recupero dei dati 
-    - Esplorazione dei dati 
-    - Generazione delle funzionalità
-    - Compilazione dei modelli
-    - Attività che rende operativi i modelli 
-    - Ripetizione del training dei modelli
-- **Attività**: le attività sono elementi di lavoro di codice o di documento assegnabili o altre attività che devono essere eseguite per completare una storia specifica. Ad esempio, le attività nella storia *Getting Data* (Acquisizione dei dati) potrebbero essere:
-    -  Ottenere le credenziali di SQL Server 
-    -  Caricamento dei dati in SQL Data Warehouse. 
-- **Bug**: i bug fanno in genere riferimento alle correzioni necessarie per il codice o un documento esistente che vengono eseguite durante il completamento di un'attività. Se il bug è causato rispettivamente da passaggi o attività mancanti, è possibile passarlo allo stato di storia o di attività. 
-
-> [!NOTE]
-> I concetti di funzionalità, storie, attività e bug sono presi in prestito dalla gestione del codice software e usati in data science, pur in un senso leggermente diverso da quello delle definizioni convenzionali proprie della gestione del codice software.
->
->
-
-> [!NOTE]
-> Gli esperti di dati potrebbero sentirsi più a proprio agio usando un modello Agile, che consente un allineamento specifico con le fasi del ciclo di vita TDSP. Tenendo presente ciò, è stato creato un modello di pianificazione dello sprint derivato da Agile, dove epiche, storie e così via vengono sostituite da fasi o sottofasi del ciclo di vita TDSP. Per istruzioni su come creare un modello Agile, vedere [Impostare un processo di data science Agile in Visual Studio Online](agile-development.md#set-up-agile-dsp-6).
->
->
-
-## 2. <a name='SprintPlanning-2'></a>Pianificazione dello sprint 
-
-La pianificazione dello sprint è utile per la definizione della priorità e per l'allocazione e la pianificazione delle risorse. Molti data scientist sono impegnati su più progetti, ciascuno dei quali può richiedere mesi per essere completato. I progetti spesso proseguono a ritmi diversi. In Azure DevOps Services, è possibile creare, gestire e tenere traccia facilmente degli elementi di lavoro nel progetto e condurre una pianificazione dello sprint per garantire che i progetti procedano come previsto. 
-
-Seguire [questo collegamento](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) per le istruzioni dettagliate sulla pianificazione dello sprint in Azure DevOps Services. 
-
-
-## 3. <a name='AddFeature-3'></a>Aggiungere una funzionalità  
-
-Dopo aver creato il repository del progetto in un progetto, andare alla pagina del team **Panoramica** e fare clic su **Gestisci lavoro**.
-
-![2](./media/agile-development/2-sprint-team-overview.png)
-
-Per includere una funzionalità nel backlog, fare clic su **Backlog** --> **Funzionalità** --> **Nuovo**, digitare nella funzionalità **Titolo**(in genere il nome del progetto) e quindi fare clic su **Aggiungi**.
-
-![3](./media/agile-development/3-sprint-team-add-work.png)
-
-Fare doppio clic sulla funzionalità creata. Compilare le descrizioni, assegnare i membri del team per questa funzionalità e impostare i parametri di pianificazione per questa funzionalità. 
-
-È anche possibile collegare questa funzionalità al repository del progetto. Fare clic su **Aggiungi collegamento** nella sezione **Sviluppo**. Dopo aver completato la modifica della funzionalità, fare clic su **Salva e chiudi** per uscire.
-
-
-## 4. <a name='AddStoryunderfeature-4'></a>Aggiungere una storia nella funzionalità 
-
-Nella funzionalità è possibile aggiungere delle storie per descrivere i passaggi principali necessari per completare il progetto (funzionalità). Per aggiungere una nuova storia, fare clic sulla firma **+** a sinistra della funzionalità nella visualizzazione di backlog.  
-
-![4](./media/agile-development/4-sprint-add-story.png)
-
-È possibile modificare i dettagli della storia, ad esempio la stato, la descrizione, i commenti, la pianificazione e la priorità nella finestra popup.
-
-![5](./media/agile-development/5-sprint-edit-story.png)
-
-È possibile collegare la storia a un repository esistente facendo clic su **+ Aggiungi collegamento** in **Sviluppo**. 
-
-![6](./media/agile-development/6-sprint-link-existing-branch.png)
-
-
-## 5. <a name='AddTaskunderstory-5'></a>Aggiungere un'attività a una storia 
-
-Le attività sono procedure dettagliate specifiche, necessarie per completare ogni storia. Al termine di tutte le attività di una storia, anche la storia deve essere completata. 
-
-Per aggiungere un'attività a una storia, fare clic sulla firma **+** accanto all'elemento della storia, selezionare **Attività** e quindi immettere le informazioni dettagliate di questa attività nella finestra popup.
-
-![7](./media/agile-development/7-sprint-add-task.png)
-
-Dopo aver creato le storie, le funzionalità e le attività, è possibile visualizzarle nelle viste **Backlog** o **Lavagna** per rilevarne lo stato.
-
-![8](./media/agile-development/8-sprint-backlog-view.png)
-
-![9](./media/agile-development/9-link-to-a-new-branch.png)
-
-
-## 6. <a name='set-up-agile-dsp-6'></a> Impostare un modello di lavoro TDSP Agile in Visual Studio Online
-
-Questo articolo illustra come impostare un modello di Team Data Science Process Agile che usa le fasi del ciclo di vita di data science di TDSP e tiene traccia degli elementi di lavoro con Visual Studio Online (vso). La procedura riportata di seguito illustra un esempio di configurazione del modello di processo Agile specifico per data science *AgileDataScienceProcess* e mostra come creare elementi di lavoro di data science in base al modello.
-
-### <a name="agile-data-science-process-template-setup"></a>Impostazione del modello di processo di data science Agile
-
-1. Passare alla home page del server, **Configura** -> **Processo**.
-
-    ![10](./media/agile-development/10-settings.png) 
-
-2. Passare a **Tutti i processi** -> **Processi** in **Agile** e fare clic su **Crea processo ereditato**. Specificare il nome del processo "AgileDataScienceProcess" e fare clic su **Crea processo**.
-
-    ![11](./media/agile-development/11-agileds.png)
-
-3. Nella scheda **AgileDataScienceProcess** -> **Tipi di elemento di lavoro** disabilitare i tipi di elemento di lavoro **Epica**, **Funzionalità**, **Storia utente** e **Attività** tramite **Configura -> Disabilita**.
-
-    ![12](./media/agile-development/12-disable.png)
-
-4. Passare alla scheda **AgileDataScienceProcess** -> **Livelli di backlog**. Rinominare "Epiche" in "Progetti TDSP" facendo clic su **Configura** -> **Modifica/Rinomina**. Nella stessa finestra di dialogo fare clic su **+Nuovo tipo di elemento di lavoro** in "Progetto di data science" e impostare il valore di **Tipo di elemento di lavoro predefinito** su "Progetto TDSP". 
-
-    ![13](./media/agile-development/13-rename.png)  
-
-5. Analogamente, modificare il nome di Backlog "Funzionalità" in "Fasi TDSP" e aggiungere le informazioni seguenti per **Nuovo tipo di elemento di lavoro**:
-
-    - Informazioni commerciali
-    - Acquisizione dei dati
-    - Modellazione
-    - Distribuzione
-
-6. Rinominare "Storia utente" in "Sottofasi TDSP" con il tipo di elemento di lavoro predefinito impostato sul tipo "Sottofase TDSP" appena creato.
-
-7. Impostare "Attività" sul tipo di elemento di lavoro appena creato "Attività TDSP". 
-
-8. Dopo questi passaggi, i livelli di backlog dovrebbero essere analoghi ai seguenti:
-
-    ![14](./media/agile-development/14-template.png)  
-
- 
-### <a name="create-data-science-work-items"></a>Creare elementi di lavoro di data science
-
-Dopo avere creato il modello di processo di data science, è possibile creare e tenere traccia degli elementi di lavoro di data science corrispondenti al ciclo di vita TDSP.
-
-1. Quando si crea un nuovo progetto, selezionare "Agile\AgileDataScienceProcess" come il **Processo di elemento di lavoro**:
-
-    ![15](./media/agile-development/15-newproject.png)
-
-2. Passare al progetto appena creato e fare clic su **Lavoro** -> **Backlog**.
-
-3. Rendere visibile "Progetti TDSP" facendo clic su **Consente di configurare le impostazioni del team** e selezionare "Progetti TDSP", quindi salvare.
-
-    ![16](./media/agile-development/16-enabledsprojects.png)
-
-4. È ora possibile avviare la creazione di elementi di lavoro specifici per data science.
-
-    ![17](./media/agile-development/17-dsworkitems.png)
-
-5. Ecco un esempio di come dovrebbero apparire gli elementi di lavoro del progetto di data science:
-
-    ![18](./media/agile-development/18-workitems.png)
+> TDSP prende in prestito i concetti di funzionalità, storie utente, attività e bug da gestione codice software (SCM). I concetti di TDSP potrebbero differire leggermente dalle definizioni SCM convenzionali.
+
+## <a name='SprintPlanning-2'></a>Pianifica Sprint
+
+Molti data scientist sono coinvolti in più progetti, che possono richiedere mesi per il completamento e continuare a ritmi diversi. La pianificazione dello sprint è utile per la definizione della priorità e per l'allocazione e la pianificazione delle risorse. In Azure Boards, è possibile creare, gestire e tenere traccia facilmente degli elementi di lavoro per i progetti e condurre la pianificazione dello sprint per garantire che i progetti vengano spostati in avanti come previsto.
+
+Per altre informazioni sulla pianificazione dello sprint, vedere gli [Sprint Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)#Sprint). 
+
+Per altre informazioni sulla pianificazione dello sprint in Azure Boards, vedere [assegnare elementi backlog a uno sprint](/azure/devops/boards/sprints/assign-work-sprint). 
+
+## <a name='AddFeature-3'></a>Aggiungere una funzionalità al backlog 
+
+Dopo aver creato il repository del codice del progetto e del progetto, è possibile aggiungere una funzionalità al backlog per rappresentare il lavoro per il progetto.
+
+1. Dalla pagina del progetto, selezionare **lavagne** > dei**backlog** nel pannello di navigazione sinistro. 
+   
+1. Nella scheda **backlog** , se il tipo di elemento di lavoro nella barra superiore è **storie**, elenco a discesa e selezionare **funzionalità**. Quindi selezionare **nuovo elemento di lavoro.**
+   
+   ![Seleziona nuovo elemento di lavoro](./media/agile-development/2-sprint-team-overview.png)
+   
+1. Immettere un titolo per la funzionalità, in genere il nome del progetto, quindi selezionare **Aggiungi alla parte superiore**. 
+   
+   ![Immettere un titolo e selezionare Aggiungi all'inizio](./media/agile-development/3-sprint-team-add-work.png)
+   
+1. Dall'elenco **backlog** selezionare e aprire la nuova funzionalità. Inserire la descrizione, assegnare un membro del team e impostare i parametri di pianificazione. 
+   
+   È anche possibile collegare la funzionalità al repository del codice Azure Repos del progetto selezionando **Aggiungi collegamento** nella sezione **sviluppo** . 
+   
+   Al termine della modifica della funzionalità, selezionare **salva & Chiudi**.
+   
+   ![Modificare la funzionalità e selezionare Salva & Chiudi](./media/agile-development/3a-add-link-repo.png)
+
+## <a name='AddStoryunderfeature-4'></a>Aggiungere una storia utente alla funzionalità 
+
+Con la funzionalità è possibile aggiungere storie utente per descrivere i passaggi principali necessari per completare il progetto. 
+
+Per aggiungere una nuova storia utente a una funzionalità:
+
+1. Nella scheda **backlog** selezionare **+** a sinistra della funzionalità. 
+   
+   ![Aggiungere una nuova storia utente nella funzionalità](./media/agile-development/4-sprint-add-story.png)
+   
+1. Assegnare alla storia utente un titolo e modificare i dettagli, ad esempio assegnazione, stato, descrizione, commenti, pianificazione e priorità. 
+   
+   È anche possibile collegare la storia utente a un ramo del repository del codice Azure Repos del progetto selezionando **Aggiungi collegamento** nella sezione **sviluppo** . Selezionare il repository e il ramo a cui si vuole collegare l'elemento di lavoro, quindi fare clic su **OK**.
+   
+   ![Aggiungi collegamento](./media/agile-development/5-sprint-edit-story.png)
+   
+1. Al termine della modifica della storia utente, selezionare **salva & Chiudi**. 
+
+## <a name='AddTaskunderstory-5'></a>Aggiungere un'attività a una storia utente 
+
+Le attività sono passaggi dettagliati specifici necessari per completare ogni storia utente. Una volta completate tutte le attività di una storia utente, la storia utente deve essere completata. 
+
+Per aggiungere un'attività a una storia utente, selezionare la **+** accanto all'elemento della storia utente e selezionare **attività**. Immettere il titolo e altre informazioni nell'attività.
+
+![Aggiungere un'attività a una storia utente](./media/agile-development/7-sprint-add-task.png)
+
+Dopo aver creato le funzionalità, le storie utente e le attività, è possibile visualizzarle nelle visualizzazioni **backlog** o **lavagne** per tenere traccia del relativo stato.
+
+![Visualizzazione backlog](./media/agile-development/8-sprint-backlog-view.png)
+
+![Visualizzazione lavagne](./media/agile-development/8a-sprint-board-view.png)
+
+## <a name='set-up-agile-dsp-6'></a>Usare un modello di lavoro Agile TDSP
+
+I data scientist possono essere più comodi usando un modello agile che sostituisce funzionalità, storie utente e attività con fasi del ciclo di vita TDSP e sottofasi. In Azure Boards, è possibile creare un modello derivato da agile che usa fasi del ciclo di vita TDSP per creare e tenere traccia degli elementi di lavoro. I passaggi seguenti illustrano la configurazione di un modello di processo Agile specifico per data science e la creazione di data science elementi di lavoro in base al modello.
+
+### <a name="set-up-an-agile-data-science-process-template"></a>Configurare un modello di processo di Data Science agile
+
+1. Dalla pagina principale dell'organizzazione di Azure DevOps selezionare **Impostazioni organizzazione** dal dispositivo di spostamento a sinistra. 
+   
+1. Nel **Pannello**di navigazione a sinistra **Impostazioni organizzazione** selezionare **elabora**. 
+   
+1. Nel riquadro **tutti i processi** selezionare il **...** accanto a **agile**, quindi selezionare **Crea processo ereditato**.
+   
+   ![Creazione di un processo ereditato da agile](./media/agile-development/10-settings.png) 
+   
+1. Nella finestra di dialogo **Crea processo ereditato da agile** immettere il nome *AgileDataScienceProcess*e selezionare **Crea processo**.
+   
+   ![Crea processo AgileDataScienceProcess](./media/agile-development/11-agileds.png)
+   
+1. In **tutti i processi**selezionare il nuovo **AgileDataScienceProcess**. 
+   
+1. Nella scheda **tipi di elemento di lavoro** disabilitare **Epic**, **feature**, **storia utente**e **attività** selezionando il **...** accanto a ogni elemento e selezionando **Disabilita**. 
+   
+   ![Disabilitare i tipi di elemento di lavoro](./media/agile-development/12-disable.png)
+   
+1. In **tutti i processi**selezionare la scheda **livelli di backlog** . In **portfolio backlog**selezionare il **...** accanto a **Epic (disabilitato)** e quindi selezionare **modifica/Rinomina**. 
+   
+1. Nella finestra di dialogo **modifica livello backlog** :
+   1. In **nome**sostituire **Epic** con i *progetti TDSP*. 
+   1. In **tipi di elemento di lavoro in questo livello di backlog**selezionare **nuovo tipo di elemento di lavoro**, immettere *progetto TDSP*e selezionare **Aggiungi**. 
+   1. In **tipo di elemento di lavoro predefinito**, elenco a discesa e selezionare **progetto TDSP**. 
+   1. Selezionare **Salva**.
+   
+   ![Imposta livello di backlog portfolio](./media/agile-development/13-rename.png)  
+   
+1. Seguire gli stessi passaggi per rinominare le **funzionalità** in *fasi TDSP*e aggiungere i nuovi tipi di elemento di lavoro seguenti:
+   
+   - *Informazioni commerciali*
+   - *Acquisizione dei dati*
+   - *Modellazione*
+   - *Distribuzione*
+   
+1. In **backlog requisito**rinominare le **storie** in sottofasi *TDSP*, aggiungere il nuovo tipo di elemento di lavoro *TDSP sottofase*e impostare il tipo di elemento di lavoro predefinito su **sottofase TDSP**.
+   
+1. In **backlog iterazione**aggiungere un nuovo tipo di elemento di lavoro *attività TDSP*e impostarlo come tipo di elemento di lavoro predefinito. 
+   
+Dopo aver completato i passaggi, i livelli di backlog dovrebbero avere un aspetto simile al seguente:
+   
+ ![Livelli di backlog del modello TDSP](./media/agile-development/14-template.png)  
+
+### <a name="create-agile-data-science-process-work-items"></a>Creare elementi di lavoro del processo di Data Science agile
+
+È possibile usare il modello di processo data science per creare progetti TDSP e tenere traccia degli elementi di lavoro corrispondenti alle fasi del ciclo di vita TDSP.
+
+1. Dalla pagina principale dell'organizzazione di Azure DevOps selezionare **nuovo progetto**. 
+   
+1. Nella finestra di dialogo **Crea nuovo progetto** assegnare un nome al progetto e quindi selezionare **Avanzate**. 
+   
+1. In **processo elemento di lavoro**, elenco a discesa e selezionare **AgileDataScienceProcess**, quindi selezionare **Crea**.
+   
+   ![Creare un progetto di TDSP](./media/agile-development/15-newproject.png)
+   
+1. Nel progetto appena creato selezionare **lavagne** > di**backlog** nel pannello di spostamento a sinistra.
+   
+1. Per rendere visibili i progetti TDSP, selezionare l'icona **Configura impostazioni team** . Nella schermata **Impostazioni** selezionare la casella di controllo **progetti TDSP** , quindi selezionare **Salva e Chiudi**.
+   
+   ![Casella di controllo Seleziona progetti TDSP](./media/agile-development/16-enabledsprojects1.png)
+   
+1. Per creare un progetto TDSP specifico per data science, selezionare **progetti TDSP** nella barra superiore, quindi selezionare **nuovo elemento di lavoro**. 
+   
+1. Nella finestra popup assegnare un nome all'elemento di lavoro del progetto TDSP e selezionare **Aggiungi alla parte superiore**.
+   
+   ![Crea elemento di lavoro del progetto data science](./media/agile-development/17-dsworkitems0.png)
+   
+1. Per aggiungere un elemento di lavoro nel progetto TDSP, selezionare il **+** accanto al progetto, quindi selezionare il tipo di elemento di lavoro da creare. 
+   
+   ![Seleziona data science tipo di elemento di lavoro](./media/agile-development/17-dsworkitems1.png)
+   
+1. Inserire i dettagli nel nuovo elemento di lavoro e selezionare **salva & Chiudi**.
+   
+1. Continuare a selezionare i **+** simboli accanto agli elementi di lavoro per aggiungere nuove fasi, sottofasi e attività del TDSP. 
+   
+Di seguito è riportato un esempio di come gli elementi di lavoro del progetto di data science devono essere visualizzati nella visualizzazione **backlog** :
+
+![18](./media/agile-development/18-workitems1.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creazione collaborativa di codice con Git](collaborative-coding-with-git.md) descrive come collaborare allo sviluppo di codice per i progetti di data science usando Git come framework di sviluppo di codice condiviso e come collegare queste attività di codifica al lavoro pianificato con il processo Agile.
+La [codifica collaborativa con git](collaborative-coding-with-git.md) descrive come eseguire lo sviluppo di codice collaborativo per i progetti Data Science usando git come Framework di sviluppo di codice condiviso e come collegare queste attività di codifica al lavoro pianificato con il processo Agile.
 
-Ecco altri collegamenti a risorse sui processi Agile.
+[Procedure dettagliate di esempio](walkthroughs.md) elenca le procedure dettagliate di scenari specifici, con collegamenti e descrizioni delle anteprime. Negli scenari collegati viene illustrato come combinare strumenti e servizi cloud e locali in flussi di lavoro o pipeline per creare applicazioni intelligenti.
+  
+Risorse aggiuntive sui processi Agile:
 
-- Agile process (Processo Agile) [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
-- Agile process work item types and workflow (Flusso di lavoro e tipi di elementi di lavoro del processo Agile) [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+- [Processo Agile](/azure/devops/boards/work-items/guidance/agile-process)
+  
+- [Tipi di elemento di lavoro e flusso di lavoro del processo Agile](/azure/devops/boards/work-items/guidance/agile-process-workflow)
 
-
-Sono anche disponibili esercitazioni dettagliate che illustrano tutti i passaggi del processo per **scenari specifici**. Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'articolo [Procedure dettagliate di esempio](walkthroughs.md). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 

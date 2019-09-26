@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541488"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266875"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -183,8 +183,26 @@ No, il supporto di backup di Azure non è ancora disponibile.
 **È possibile aggiungere un disco Ultra a una macchina virtuale in esecuzione in un set di disponibilità?**
 No, questa operazione non è ancora supportata.
 
-**È possibile abilitare Azure Site Recovery (ASR) per le macchine virtuali con dischi ultra?**
-No, ASR non è ancora supportato per i dischi Ultra.
+**È possibile abilitare Azure Site Recovery per le macchine virtuali con dischi ultra?**
+No, Azure Site Recovery non è ancora supportata per i dischi Ultra.
+
+## <a name="uploading-to-a-managed-disk"></a>Caricamento in un disco gestito
+
+**È possibile caricare i dati in un disco gestito esistente?**
+
+No, il caricamento può essere usato solo durante la creazione di un nuovo disco vuoto con lo stato **ReadyToUpload** .
+
+**Ricerca per categorie caricare in un disco gestito?**
+
+Creare un disco gestito con la proprietà [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) di [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) impostata su "upload", quindi è possibile caricarvi dati.
+
+**È possibile allegare un disco a una macchina virtuale mentre è in stato di caricamento?**
+
+No.
+
+**È possibile creare uno snapshot di un disco modificato in uno stato di caricamento?**
+
+No.
 
 ## <a name="standard-ssd-disks"></a>Dischi SSD Standard
 
@@ -268,7 +286,7 @@ No. È disponibile Azure Site Recovery la protezione da Azure ad Azure per le ma
 
 **È possibile eseguire la migrazione di macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Sì
+Yes
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e crittografia del servizio di archiviazione
 
@@ -305,7 +323,7 @@ Sì. Tutte le immagini e gli snapshot gestiti creati dopo il 9 giugno 2017 vengo
 
 **È possibile convertire macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Sì
+Yes
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 

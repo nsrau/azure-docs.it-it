@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6443cb727573645792a4e6c929b80c3406d72025
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714144"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261813"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Log di diagnostica del bus di servizio
 
 È possibile visualizzare due tipi di log per il bus di servizio di Azure:
 * **[Log attività](../azure-monitor/platform/activity-logs-overview.md)** . Questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati.
-* **[Log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md)** . È possibile configurare i log di diagnostica per informazioni più complete su tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
+* **[Log di diagnostica](../azure-monitor/platform/resource-logs-overview.md)** . È possibile configurare i log di diagnostica per informazioni più complete su tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
 
 ## <a name="turn-on-diagnostic-logs"></a>Attivare i log di diagnostica
 
@@ -46,13 +46,13 @@ I log di diagnostica sono disabilitati per impostazione predefinita. Per abilita
 
     ![modifica dello stato dei log di diagnostica](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  Impostare la destinazione di archiviazione che si desidera. ad esempio, un account di archiviazione, un hub eventi o monitoraggio di Azure Registra.
+5.  Impostare la destinazione dell'archivio desiderata; ad esempio, un account di archiviazione, un hub eventi o i log di monitoraggio di Azure.
 
 6.  Salvare le nuove impostazioni di diagnostica.
 
 Le nuove impostazioni diventano effettive in circa 10 minuti. Trascorso questo tempo, i log vengono visualizzati nella destinazione di archiviazione configurata, all'interno del pannello **Log di diagnostica**.
 
-Per altre informazioni sulla configurazione della diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Per altre informazioni sulla configurazione della diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="diagnostic-logs-schema"></a>Schema dei log di diagnostica
 
@@ -64,12 +64,12 @@ I log nella categoria **OperationalLogs** acquisiscono i dati relativi al funzio
 
 Le stringhe JSON dei log operativi includono gli elementi elencati nella seguente tabella:
 
-Name | Descrizione
+Attività | Descrizione
 ------- | -------
 ActivityId | ID interno, usato a scopo di rilevamento
 EventName | Nome operazione           
 resourceId | ID della risorsa Azure Resource Manager
-SubscriptionId | ID sottoscrizione
+ID della sottoscrizione | ID sottoscrizione
 EventTimeString | Durata dell'operazione
 EventProperties | Proprietà dell'operazione
 Stato | Stato dell'operazione

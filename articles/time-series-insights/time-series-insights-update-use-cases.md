@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 726fc2d2f53e904fdf7f50be5aef7b274dcc51ac
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: f4eb1b69a1464cacaf666e49f4aff7422d63611d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736148"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264526"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casi d'uso di Anteprima di Azure Time Series Insights
 
@@ -24,7 +24,7 @@ Questo articolo riepiloga diversi casi d'uso comuni per la Azure Time Series Ins
 In particolare, questo articolo risponde alle domande seguenti:
 
 * Quali sono i casi d'uso comuni per Time Series Insights?
-* Quali sono i vantaggi dell'uso di Time Series Insights per l' [esplorazione dei dati e il rilevamento](#data-exploration-and-visual-anomaly-detection)delle anomalie visive?
+* Quali sono i vantaggi dell'uso di Time Series Insights per l' [esplorazione dei dati e il rilevamento delle anomalie visive](#data-exploration-and-visual-anomaly-detection)?
 * Quali sono i vantaggi dell'utilizzo di Time Series Insights per [l'analisi operativa e l'efficienza dei processi](#operational-analysis-and-driving-process-efficiency)?
 * Quali sono i vantaggi dell'uso di Time Series Insights per l' [analisi avanzata](#advanced-analytics)?
 
@@ -40,11 +40,15 @@ Esplorare e analizzare immediatamente miliardi di eventi per rilevare anomalie e
 
 [![Esplora dati](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
 
-La maggior parte dei clienti concorda sul fatto che il tempo di analisi è tra gli asset più efficaci di Time Series Insights. Time Series Insights non richiede di preparare i dati in anticipo. Essendo molto veloce, connette gli utenti a miliardi di eventi nell'hub IoT di Azure o in Hub eventi di Azure in pochi minuti. Dopo aver stabilito la connessione, è possibile visualizzare e analizzare immediatamente miliardi di eventi per rilevare anomalie e individuare tendenze nascoste nei dati.
+La maggior parte dei clienti accetta che la quantità minima di tempo necessaria per ottenere informazioni è una delle funzionalità principali di Time Series Insights:
 
-Time Series Insights è intuitivo e semplice da usare. È possibile interagire con i dati senza scrivere nemmeno una riga di codice. Non è necessario apprendere nuovi linguaggi. Time Series Insights offre query granulari basate su testo per utenti avanzati esperti di SQL. Offre anche funzionalità di esplorazione tramite selezione e clic per gli utenti non esperti.
+* Time Series Insights non richiede di preparare i dati in anticipo. 
+* Essendo molto veloce, connette gli utenti a miliardi di eventi nell'hub IoT di Azure o in Hub eventi di Azure in pochi minuti. 
+* Dopo aver stabilito la connessione, è possibile visualizzare e analizzare immediatamente miliardi di eventi per rilevare anomalie e individuare tendenze nascoste nei dati.
 
-I clienti sfruttano la velocità per diagnosticare rapidamente i problemi relativi agli asset. Possono eseguire DevOps per trovare la causa radice di un bug in una soluzione IoT. Possono anche identificare le aree da esaminare per le iniziative di data science.  
+Time Series Insights è intuitivo e semplice da usare. È possibile interagire con i dati senza scrivere nemmeno una riga di codice. Anche se Time Series Insights fornisce un linguaggio di query granulare basato su testo per utenti avanzati che hanno familiarità con SQL, non sono necessarie altre informazioni. Offre anche funzionalità di esplorazione tramite selezione e clic per gli utenti non esperti.
+
+I clienti possono sfruttare la velocità per diagnosticare rapidamente i problemi relativi agli asset. Possono eseguire l'analisi del DevOps per ottenere la causa radice di un bug in una soluzione Internet delle cose. Consentono inoltre di identificare le aree da contrassegnare per un'analisi più approfondita come parte delle iniziative data science.  
 
 Esistono tre modi principali per interagire con i dati archiviati in Time Series Insights:
 

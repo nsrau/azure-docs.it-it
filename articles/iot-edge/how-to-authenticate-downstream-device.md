@@ -4,17 +4,17 @@ description: Come autenticare i dispositivi downstream o i dispositivi foglia ne
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7a032056a684107de3dd00fe4861f34c013a80db
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d73c0f4dbfcc2c67a222f91693ebe8ed9ea83d98
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003615"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266137"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticare un dispositivo downstream con l'hub IoT di Azure
 
@@ -32,7 +32,7 @@ I passaggi descritti in questo articolo illustrano il provisioning manuale dei d
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare i passaggi descritti in [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md).
+Completare i passaggi descritti in [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md). Se si usa l'autenticazione X. 509 per il dispositivo downstream, è necessario usare lo stesso script di generazione del certificato configurato nell'articolo gateway trasparente. 
 
 Questo articolo si riferisce al *nome host del gateway* in diversi punti. Il nome host del gateway viene dichiarato nel parametro **hostname** del file config. YAML sul dispositivo gateway IOT Edge. Viene usato per creare i certificati in questo articolo ed è indicato nella stringa di connessione dei dispositivi downstream. Il nome host del gateway deve essere risolvibile in un indirizzo IP, usando DNS o una voce del file host.
 
@@ -83,7 +83,7 @@ Insieme, una stringa di connessione completa ha un aspetto simile al seguente:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-Se è stata stabilita una relazione padre/figlio per questo dispositivo downstream, è possibile semplificare la stringa di connessione chiamando il gateway direttamente come host della connessione. Ad esempio: 
+Se è stata stabilita una relazione padre/figlio per questo dispositivo downstream, è possibile semplificare la stringa di connessione chiamando il gateway direttamente come host della connessione. Esempio: 
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

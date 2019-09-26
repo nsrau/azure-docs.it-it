@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 11c9b2ea3ea054415f25f864651df28288aa0025
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180120"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266841"
 ---
 È possibile sfruttare molte opportunità per il monitoraggio delle macchine virtuali tramite la raccolta, la visualizzazione e l'analisi dei dati di diagnostica e di log. Per eseguire semplici attività di [monitoraggio](../articles/azure-monitor/overview.md) della macchina virtuale, è possibile usare la schermata Panoramica per la macchina virtuale nel portale di Azure. È possibile usare [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali e raccogliere metriche aggiuntive. È anche possibile usare opzioni di monitoraggio più avanzate, come [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -54,12 +54,12 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 
 È anche possibile accedere a dati del log attività usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor) o le [API REST di monitoraggio](https://docs.microsoft.com/rest/api/monitor/).
 
-I [log di diagnostica di Azure](../articles/azure-monitor/platform/diagnostic-logs-overview.md) sono log generati dalla macchina virtuale che forniscono dati completi e frequenti sul suo funzionamento. I log di diagnostica sono diversi dal log attività, perché forniscono analisi approfondite sulle operazioni eseguite nella macchina virtuale.
+I [log delle risorse di Azure](../articles/azure-monitor/platform/resource-logs-overview.md) sono log generati dalla macchina virtuale che forniscono dati completi e frequenti sul suo funzionamento. I log delle risorse sono diversi dal log attività, fornendo informazioni sulle operazioni eseguite all'interno della macchina virtuale.
 
 Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 
 - [Salvarli in un account di archiviazione](../articles/azure-monitor/platform/archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite le impostazioni di diagnostica delle risorse.
-- [Trasmettere i log a Hub eventi](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) per l'inserimento tramite un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
+- [Trasmettere i log a Hub eventi](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) per l'inserimento tramite un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
 - Analizzarli con [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Monitoraggio avanzato

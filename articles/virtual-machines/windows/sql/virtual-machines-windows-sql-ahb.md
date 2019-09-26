@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5d740224adb15dc2d772689d77ab1c510532c901
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203993"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262861"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Modificare il modello di licenza per una macchina virtuale SQL Server in Azure
 Questo articolo descrive come modificare il modello di licenza per un SQL Server macchina virtuale (VM) in Azure usando il nuovo provider di risorse VM SQL, **Microsoft. SqlVirtualMachine**.
@@ -125,7 +125,7 @@ Se è stato effettuato il provisioning di una macchina virtuale SQL Server dalle
 
 L'utente è idoneo per l'installazione automatica di SQL Server in una macchina virtuale di Azure tramite Vantaggio Azure Hybrid. È necessario [registrare queste VM con il provider di risorse VM SQL](virtual-machines-windows-sql-register-with-resource-provider.md) impostando la licenza di SQL Server come vantaggio Azure Hybrid per indicare l'utilizzo vantaggio Azure Hybrid in base alle condizioni del prodotto Microsoft.
 
-È possibile modificare il tipo di licenza di una macchina virtuale SQL Server come con pagamento in base al consumo o Vantaggio Azure Hybrid solo se la VM SQL Server è registrata con il provider di risorse della macchina virtuale SQL. Tutte le macchine virtuali SQL Server devono essere registrate con il provider di risorse per la conformità delle licenze.
+È possibile modificare il tipo di licenza di una macchina virtuale SQL Server come con pagamento in base al consumo o Vantaggio Azure Hybrid solo se la VM SQL Server è registrata con il provider di risorse della macchina virtuale SQL.
 
 ## <a name="remarks"></a>Note
 

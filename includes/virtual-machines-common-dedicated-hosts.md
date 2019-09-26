@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976653"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266858"
 ---
 ## <a name="benefits"></a>Vantaggi 
 
@@ -69,7 +69,7 @@ L'infrastruttura che supporta le macchine virtuali può essere occasionalmente a
 Il **controllo di manutenzione** offre ai clienti un'opzione che consente di ignorare gli aggiornamenti regolari della piattaforma pianificati sui rispettivi host dedicati, quindi di applicarli al momento desiderato entro una finestra in sequenza di 35 giorni.
 
 > [!NOTE]
->  Il controllo della manutenzione si trova attualmente in una fase di anteprima limitata e richiede un processo di onboarding. Per questa anteprima, inviare un [sondaggio](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u)di candidatura.
+>  Il controllo della manutenzione si trova attualmente in una fase di anteprima limitata e richiede un processo di onboarding. Per questa anteprima, inviare un [sondaggio di candidatura](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
 
 ## <a name="capacity-considerations"></a>Considerazioni sulla capacità
 
@@ -109,10 +109,10 @@ Durante l'anteprima, si supporterà il SKU\types host seguente:  DSv3_Type1 e ES
 
 Azure monitora e gestisce lo stato di integrità degli host. Quando si esegue una query sull'host, verranno restituiti gli Stati seguenti:
 
-| Stato di integrità   | DESCRIZIONE       |
+| Stato di integrità   | Descrizione       |
 |----------|----------------|
 | Host disponibile     | Nessun problema noto con l'host.   |
 | Host sottoposto a indagine  | Si sono verificati problemi con l'host che si sta cercando. Si tratta di uno stato di transizione necessario per consentire ad Azure di provare e identificare l'ambito e la causa radice del problema identificato. Le macchine virtuali in esecuzione nell'host potrebbero essere interessate. |
-| Deallocazione in sospeso host   | Azure non può ripristinare lo stato integro dell'host e richiedere la ridistribuzione delle macchine virtuali da questo host. Se `autoHealingOnFailure` è abilitato, le macchine virtuali vengono risanate in hardware integro. In caso contrario, è possibile che la macchina virtuale sia in esecuzione in un host che sta per avere esito negativo.|
+| Deallocazione in sospeso host   | Azure non può ripristinare lo stato integro dell'host e richiedere la ridistribuzione delle macchine virtuali da questo host. Se `autoReplaceOnFailure` è abilitato, le macchine virtuali vengono *risanate* in hardware integro. In caso contrario, è possibile che la macchina virtuale sia in esecuzione in un host che sta per avere esito negativo.|
 | Host deallocato  | Tutte le macchine virtuali sono state rimosse dall'host. Non vengono più addebitati costi per questo host perché l'hardware è stato escluso dalla rotazione.   |
 

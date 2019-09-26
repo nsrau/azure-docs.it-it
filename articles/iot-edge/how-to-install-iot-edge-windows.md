@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e5b99bba3c3b21ea9662845928c523c329695bf8
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6118c4ddf1386ff4cc816148938e1f5ddeaecc9e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877246"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266091"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installare il runtime di Azure IoT Edge in Windows
 
@@ -41,6 +41,14 @@ Usare questa sezione per verificare se il dispositivo Windows in uso può suppor
 ### <a name="supported-windows-versions"></a>Versioni supportate di Windows
 
 Per gli scenari di sviluppo e test, è possibile installare Azure IoT Edge con i contenitori di Windows in qualsiasi versione di Windows 10 o Windows Server 2019 (Build 17763) che supporta la funzionalità dei contenitori. Per informazioni sui sistemi operativi attualmente supportati per gli scenari di produzione, vedere [Azure IOT Edge sistemi supportati](support.md#operating-systems). 
+
+I dispositivi Core di Internet delle cose devono includere la funzionalità facoltativa Core-contenitori di Windows per supportare la IoT Edge Runtime. Usare il comando seguente in una [sessione remota di PowerShell](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) per verificare che i contenitori di Windows siano supportati nel dispositivo: 
+
+```powershell
+Get-Service vmcompute
+```
+
+Se il servizio è presente, si otterrà una risposta corretta con lo stato del servizio elencato come **in esecuzione**. Se il servizio vmcompute non viene trovato, il dispositivo non soddisfa i requisiti per IoT Edge. Contattare il provider hardware per richiedere supporto per questa funzionalità. 
 
 ### <a name="prepare-for-a-container-engine"></a>Preparare il dispositivo per un motore del contenitore 
 
@@ -282,7 +290,7 @@ Il comando deploy-IoTEdge Scarica e distribuisce il daemon di sicurezza IoT Edge
 | **Proxy** | URL proxy | Includere questo parametro se il dispositivo deve passare attraverso un server proxy per accedere a Internet. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Percorso directory | Se questo parametro è incluso, il programma di installazione controllerà la directory elencata per i file MSI IoT Edge CAB e VC runtime necessari per l'installazione. Tutti i file non trovati nella directory vengono scaricati. Se entrambi i file si trovano nella directory, è possibile installare IoT Edge senza una connessione Internet. È anche possibile usare questo parametro per usare una versione specifica. |
 | **InvokeWebRequestParameters** | Tabella hash dei parametri e dei valori | Durante l'installazione vengono effettuate più richieste Web. Usare questo campo per impostare i parametri per queste richieste Web. Questo parametro è utile per configurare le credenziali per i server proxy. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md). |
-| **RestartIfNeeded** | none | Questo flag consente allo script di distribuzione di riavviare il computer senza chiedere conferma, se necessario. |
+| **RestartIfNeeded** | nessuno | Questo flag consente allo script di distribuzione di riavviare il computer senza chiedere conferma, se necessario. |
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
@@ -310,14 +318,14 @@ Il comando Initialize-IoTEdge configura IoT Edge con la stringa di connessione d
 | **Proxy** | URL proxy | Includere questo parametro se il dispositivo deve passare attraverso un server proxy per accedere a Internet. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Tabella hash dei parametri e dei valori | Durante l'installazione vengono effettuate più richieste Web. Usare questo campo per impostare i parametri per queste richieste Web. Questo parametro è utile per configurare le credenziali per i server proxy. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Percorso directory | Se questo parametro è incluso, il programma di installazione controllerà la directory elencata per i file MSI IoT Edge CAB e VC runtime necessari per l'installazione. Tutti i file non trovati nella directory vengono scaricati. Se entrambi i file si trovano nella directory, è possibile installare IoT Edge senza una connessione Internet. È anche possibile usare questo parametro per usare una versione specifica. |
-| **RestartIfNeeded** | none | Questo flag consente allo script di distribuzione di riavviare il computer senza chiedere conferma, se necessario. |
+| **RestartIfNeeded** | nessuno | Questo flag consente allo script di distribuzione di riavviare il computer senza chiedere conferma, se necessario. |
 
 ### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
 | Parametro | Valori accettati | Commenti |
 | --------- | --------------- | -------- |
-| **Forzare** | none | Questo flag forza la disinstallazione nel caso in cui il tentativo precedente di disinstallazione non abbia avuto esito positivo. 
-| **RestartIfNeeded** | none | Questo flag consente allo script di disinstallazione di riavviare il computer senza chiedere conferma, se necessario. |
+| **Forzare** | nessuno | Questo flag forza la disinstallazione nel caso in cui il tentativo precedente di disinstallazione non abbia avuto esito positivo. 
+| **RestartIfNeeded** | nessuno | Questo flag consente allo script di disinstallazione di riavviare il computer senza chiedere conferma, se necessario. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 16c65a98ca420a4b15281ee033ea7773197b5b2a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1774fcf0af287bba03c2c5c79e14883e3594ef0c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098479"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260149"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -43,7 +43,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 3. Selezionare **Identità gestita**.
 
-4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Save**.
+4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**.
 
 ![Identità gestita nel servizio app](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -304,12 +304,15 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 **MSI_ENDPOINT** è un URL locale da cui l'app può richiedere token. Per ottenere un token per una risorsa, eseguire una richiesta HTTP GET a questo endpoint, includendo i parametri seguenti:
 
-> |Nome parametro|In|Descrizione|
+> |Nome parametro|In ingresso|Descrizione|
 > |-----|-----|-----|
 > |resource|Query|URI della risorsa AAD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.|
 > |api-version|Query|Versione dell'API del token da usare. Al momento, l'unica versione supportata è: "2017-09-01".|
 > |secret|Intestazione|Valore della variabile di ambiente MSI_SECRET. Questa intestazione viene usata per mitigare gli attacchi SSRF (Server Side Request Forgery).|
-> |clientid|Query|(Facoltativo) L'ID dell'identità assegnata dall'utente da usare. Se omesso, viene usata l'identità assegnata dal sistema.|
+> |clientid|Query|(Facoltativo a meno che non sia assegnato dall'utente) ID dell'identità assegnata dall'utente da utilizzare. Se omesso, viene usata l'identità assegnata dal sistema.|
+
+> [!IMPORTANT]
+> Se si sta tentando di ottenere i token per le identità assegnate dall'utente, è necessario includere la `clientid` proprietà. In caso contrario, il servizio token tenterà di ottenere un token per un'identità assegnata dal sistema, che può essere o meno esistere.
 
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:
 

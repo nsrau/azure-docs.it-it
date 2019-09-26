@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: ea95b91d57255db8f638e600d57a98db314cd80f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e534754e46e6f2ad9b99b67d24d9f7da63a51a4f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113530"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258372"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metriche in Monitoraggio di Azure
 
@@ -37,9 +37,9 @@ La tabella seguente elenca i diversi modi in cui è possibile usare i dati delle
 | Visualizza | Aggiungere un grafico da Esplora metriche a un [dashboard di Azure](../learn/tutorial-app-dashboards.md).<br>Creare una [cartella di lavoro](../app/usage-workbooks.md) per combinare più set di dati in un report interattivo. Esportare i risultati di una query in [Grafana](grafana-plugin.md) per sfruttare il dashboard e combinarli con altre origini dati. |
 | Avviso | Configurare una [regola di avviso](alerts-metric.md) per la metrica che invia una notifica o esegue un' [azione automatica](action-groups.md) quando il valore della metrica supera una soglia. |
 | Automatizza |  Usare la [scalabilità](autoscale-overview.md) automatica per aumentare o diminuire le risorse in base a un valore della metrica che supera una soglia. |
-| Esportazione | [Instrada le metriche ai log](diagnostic-logs-stream-log-store.md) per analizzare i dati nelle metriche di monitoraggio di Azure insieme ai dati nei log di monitoraggio di Azure e archiviare i valori delle metriche per più di 93 giorni.<br>Trasmettere le metriche a un [Hub eventi](stream-monitoring-data-event-hubs.md) per indirizzarle a sistemi esterni. |
+| Esporta | [Instrada le metriche ai log](resource-logs-collect-storage.md) per analizzare i dati nelle metriche di monitoraggio di Azure insieme ai dati nei log di monitoraggio di Azure e archiviare i valori delle metriche per più di 93 giorni.<br>Trasmettere le metriche a un [Hub eventi](stream-monitoring-data-event-hubs.md) per indirizzarle a sistemi esterni. |
 | Recupera | Accedere ai valori delle metriche da una riga di comando usando i [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Accedere ai valori delle metriche dall'applicazione personalizzata usando l' [API REST](rest-api-walkthrough.md).<br>Accedere ai valori delle metriche dalla riga di comando usando l' [interfaccia](/cli/azure/monitor/metrics)della riga di comando. |
-| Archivia | [Archiviare](..//learn/tutorial-archive-data.md) la cronologia relativa alle prestazioni o all'integrità della risorsa a scopi di conformità, verifica o creazione di report offline. |
+| Archivio | [Archiviare](..//learn/tutorial-archive-data.md) la cronologia relativa alle prestazioni o all'integrità della risorsa a scopi di conformità, verifica o creazione di report offline. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Come sono strutturati i dati delle metriche di monitoraggio di Azure?
 I dati raccolti dalle metriche di monitoraggio di Azure vengono archiviati in un database di serie temporali ottimizzato per l'analisi dei dati con timestamp. Ogni set di valori di metrica è una serie temporale con le proprietà seguenti:
@@ -56,7 +56,7 @@ Una delle difficoltà per i dati delle metriche è che spesso contiene informazi
 
 L'esempio seguente mostra due set di dati per un'ipotetica metrica denominata _Velocità effettiva di rete_. Il primo set di dati non ha dimensioni. Il secondo mostra i valori con due dimensioni, _Indirizzo IP_ e _Direzione_:
 
-### <a name="network-throughput"></a>Velocità effettiva della rete
+### <a name="network-throughput"></a>Velocità effettiva rete
 
 | Timestamp     | Valore della metrica |
 | ------------- |:-------------|
@@ -110,7 +110,7 @@ Per la maggior parte delle risorse in Azure, le metriche vengono archiviate per 
 
 
 > [!NOTE]
-> È possibile [inviare le metriche della piattaforma per le risorse di monitoraggio di Azure a un'area di lavoro log Analytics per la](diagnostic-logs-stream-log-store.md) tendenza a lungo termine.
+> È possibile [inviare le metriche della piattaforma per le risorse di monitoraggio di Azure a un'area di lavoro log Analytics per la](resource-logs-collect-storage.md) tendenza a lungo termine.
 
 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d8a9963edd689a32ae0642ac6fa4a622c248bc5b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e43bc4b8eb1db91493f279f5c46681483e4b18c4
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232371"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261401"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registrazione diagnostica in Azure Cosmos DB 
 
@@ -287,7 +287,7 @@ I valori di data e ora sono nel formato UTC.
 
 Poiché si può usare lo stesso account di archiviazione per raccogliere i log per più risorse, è possibile usare l'ID della risorsa completo nel nome del BLOB per accedere ai BLOB specifici necessari e scaricarli. Prima di procedere, verrà illustrato come scaricare tutti i BLOB.
 
-Creare prima di tutto una cartella per scaricare i BLOB. Ad esempio:
+Creare prima di tutto una cartella per scaricare i BLOB. Esempio:
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -309,7 +309,7 @@ $blobs | Get-AzStorageBlobContent `
 
 Quando si esegue questo secondo comando, il delimitatore **/** nei nomi dei BLOB crea una struttura di cartelle completa nella cartella di destinazione. Questa struttura verrà usata per scaricare e archiviare i BLOB come file.
 
-Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio:
+Per scaricare BLOB in modo selettivo, usare caratteri jolly. Esempio:
 
 * Se sono disponibili più database e si vogliono scaricare i log per un solo database denominato **CONTOSOCOSMOSDB3**, usare il comando:
 
@@ -459,7 +459,7 @@ I dati di diagnostica archiviati in archiviazione di Azure e nei log di monitora
 
 La tabella seguente descrive il contenuto di ogni voce di log.
 
-| Proprietà o campo di Archiviazione di Azure | Proprietà dei log di monitoraggio di Azure | DESCRIZIONE |
+| Proprietà o campo di Archiviazione di Azure | Proprietà dei log di monitoraggio di Azure | Descrizione |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | Data e ora (UTC) in cui si è verificata l'operazione. |
 | **resourceId** | **Risorsa** | Account Azure Cosmos DB per cui vengono abilitati i log.|
@@ -481,7 +481,7 @@ La tabella seguente descrive il contenuto di ogni voce di log.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per comprendere come abilitare la registrazione, nonché le metriche e le categorie di log che sono supportate dai vari servizi di Azure, leggere gli articoli [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Per comprendere come abilitare la registrazione, nonché le metriche e le categorie di log che sono supportate dai vari servizi di Azure, leggere gli articoli [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/resource-logs-overview.md).
 - Per informazioni sugli hub eventi, leggere gli articoli seguenti:
    - [Che cos'è l'hub di eventi di Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

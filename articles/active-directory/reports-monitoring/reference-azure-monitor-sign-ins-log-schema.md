@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cc07ac2644ac9f97146e980a1961b9b84e7c561
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c3a05a531fd03cbd77bf3460ec45300692764565
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127056"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259145"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretare lo schema dei log di accesso Azure AD in monitoraggio di Azure
 
@@ -143,10 +143,10 @@ Questo articolo illustra lo schema del log di accesso di Azure Active Directory 
 
 ## <a name="field-descriptions"></a>Descrizioni dei campi
 
-| Nome campo | DESCRIZIONE |
+| Nome campo | Descrizione |
 |------------|-------------|
 | Time | Data e ora in formato UTC. |
-| ResourceId | Questo valore non è mappato, è quindi possibile ignorare questo campo.  |
+| resourceId | Questo valore non è mappato, è quindi possibile ignorare questo campo.  |
 | OperationName | Per gli accessi, questo valore è sempre *Attività di accesso*. |
 | OperationVersion | Versione dell'API REST richiesta dal client. |
 | Category | Per gli accessi, questo valore è sempre *Accesso*. | 
@@ -163,11 +163,11 @@ Questo articolo illustra lo schema del log di accesso di Azure Active Directory 
 | CallerIpAddress | Indirizzo IP del client che ha eseguito la richiesta. | 
 | CorrelationId | GUID facoltativo passato dal client. Questo valore consente di correlare le operazioni lato client con le operazioni lato server ed è utile durante l'analisi dei log che si estendono tra i servizi. |
 | identità | Identità del token presentato al momento dell'esecuzione della richiesta. Può essere un account utente, un account di sistema o un'entità servizio. |
-| Level | Fornisce il tipo di messaggio. Per il controllo, è sempre *Informativo*. |
+| Livello | Fornisce il tipo di messaggio. Per il controllo, è sempre *Informativo*. |
 | Location | Fornisce il percorso dell'attività di accesso. |
-| Properties | Elenca tutte le proprietà associate agli accessi. Per altre informazioni, vedere le [informazioni di riferimento per l'API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Questo schema usa gli stessi nomi di attributi usati nella risorsa di accesso, per migliorare la leggibilità.
+| Proprietà | Elenca tutte le proprietà associate agli accessi. Per altre informazioni, vedere le [informazioni di riferimento per l'API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Questo schema usa gli stessi nomi di attributi usati nella risorsa di accesso, per migliorare la leggibilità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Interpretare lo schema dei log di controllo in Monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
-* [Altre informazioni sui log di diagnostica di Azure](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Altre informazioni sui log di diagnostica di Azure](../../azure-monitor/platform/resource-logs-overview.md)

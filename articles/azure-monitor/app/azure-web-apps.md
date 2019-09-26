@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4f296aae6c147b0d5209276dbd008a1207837cfd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f45762d5b37a006ede9aeff76e3d756c8144f5ba
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875210"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258583"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
-L'abilitazione del monitoraggio sulle applicazioni Web basate su .NET e .NET Core in esecuzione in [app Azure Services](https://docs.microsoft.com/azure/app-service/) è ora più semplice che mai. Mentre in precedenza era necessario installare manualmente un'estensione del sito, la versione più recente dell'agente è ora incorporata nell'immagine del servizio app per impostazione predefinita. Questo articolo illustra l'abilitazione del monitoraggio Application Insights, oltre a fornire indicazioni preliminari per l'automazione del processo per le distribuzioni su larga scala.
+L'abilitazione del monitoraggio nelle applicazioni Web ASP.NET e ASP.NET Core basate su [app Azure Services](https://docs.microsoft.com/azure/app-service/) è ora più semplice che mai. Mentre in precedenza era necessario installare manualmente un'estensione del sito, la versione più recente dell'agente è ora incorporata nell'immagine del servizio app per impostazione predefinita. Questo articolo illustra l'abilitazione del monitoraggio Application Insights, oltre a fornire indicazioni preliminari per l'automazione del processo per le distribuzioni su larga scala.
 
 > [!NOTE]
 > L'aggiunta manuale di un'estensione del sito di Application Insights tramite le**estensioni** **degli strumenti** > di sviluppo è deprecata. Questo metodo di installazione dell'estensione dipende da aggiornamenti manuali per ogni nuova versione. La versione stabile più recente dell'estensione è ora [preinstallata](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) come parte dell'immagine del servizio app. I file si trovano in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e vengono aggiornati automaticamente con ogni versione stabile. Se si seguono le istruzioni basate sull'agente per abilitare il monitoraggio di seguito, verrà automaticamente rimossa l'estensione deprecata.
@@ -304,7 +304,7 @@ L'aggiornamento dalla versione 2.8.9 avviene automaticamente, senza alcuna azion
 
 Per verificare quale versione dell'estensione in esecuzione visitare`http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-![Screenshot del percorso URLhttp://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
+![Screenshot del percorso URL http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
 
 ### <a name="upgrade-from-versions-100---265"></a>Aggiornamento dalla versione 1.0.0-2.6.5
 
@@ -325,6 +325,9 @@ Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per i
 
 > [!NOTE]
 > Le applicazioni Java e node. js sono supportate solo nei servizi app Azure tramite strumentazione manuale basata su SDK, quindi i passaggi seguenti non si applicano a questi scenari.
+
+> [!NOTE]
+> ASP.NET Core 3,0 le applicazioni non sono supportate. Seguire la [Strumentazione manuale](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) tramite codice per le app ASP.NET Core 3,0.
 
 1. Verificare che l'applicazione venga monitorata `ApplicationInsightsAgent`tramite.
     * Verificare che `ApplicationInsightsAgent_EXTENSION_VERSION` l'impostazione dell'app sia impostata su un valore pari a "~ 2".

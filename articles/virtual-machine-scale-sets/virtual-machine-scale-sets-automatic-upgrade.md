@@ -3,7 +3,7 @@ title: Aggiornamenti automatici dell'immagine del sistema operativo con i set di
 description: Informazioni su come aggiornare automaticamente l'immagine del sistema operativo nelle istanze di macchine virtuali in un set di scalabilità
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: mayanknayar
+author: shandilvarun
 manager: drewm
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2019
-ms.author: manayar
-ms.openlocfilehash: a9829f380200e616d242f5406b72593014f0efc2
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.author: vashan
+ms.openlocfilehash: 9825ef1426a1c93f94b502c396fbaab1f86a924e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656556"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71263496"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure
 
@@ -56,7 +56,7 @@ Attualmente sono supportate solo alcune immagini della piattaforma del sistema o
 
 Sono attualmente supportati gli SKU seguenti e ne vengono aggiunti altri periodicamente:
 
-| Pubblicato da               | Offerta sistema operativo      |  Sku               |
+| Autore               | Offerta sistema operativo      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Canonico               | UbuntuServer  | 16.04-LTS          |
 | Canonico               | UbuntuServer  | 18.04-LTS          |
@@ -112,14 +112,14 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Usare il cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. L'esempio seguente configura gli aggiornamenti automatici per il set di scalabilità denominato set di scalabilità nel gruppo di risorse denominato *myResourceGroup*:
+Usare il cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. L'esempio seguente configura gli aggiornamenti automatici per il set di scalabilità denominato set di scalabilità *nel gruppo* di risorse denominato *myResourceGroup*:
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare [az vmss update](/cli/azure/vmss#az-vmss-update) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente configura gli aggiornamenti automatici per il set di scalabilità denominato set di scalabilità nel gruppo di risorse denominato *myResourceGroup*:
+Usare [az vmss update](/cli/azure/vmss#az-vmss-update) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente configura gli aggiornamenti automatici per il set di scalabilità denominato set di scalabilità *nel gruppo* di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -216,14 +216,14 @@ La chiamata GET restituisce proprietà simili all'output dell'esempio seguente:
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Usare il cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Nell'esempio seguente viene illustrato in dettaglio come esaminare lo stato di aggiornamento del sistema operativo per un set di scalabilità denominato set di scalabilità nel gruppo di risorse denominato *myResourceGroup*:
+Usare il cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Nell'esempio seguente viene *illustrato in dettaglio* come esaminare lo stato di aggiornamento del sistema operativo per un set di scalabilità denominato set di scalabilità nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. Nell'esempio seguente viene illustrato in dettaglio come esaminare lo stato di aggiornamento del sistema operativo per un set di scalabilità denominato set di scalabilità nel gruppo di risorse denominato *myResourceGroup*:
+Usare [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. Nell'esempio seguente viene *illustrato in dettaglio* come esaminare lo stato di aggiornamento del sistema operativo per un set di scalabilità denominato set di scalabilità nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
@@ -257,21 +257,21 @@ Per i casi specifici in cui non si vuole attendere che l'agente di orchestrazion
 > Il trigger manuale degli aggiornamenti delle immagini del sistema operativo non fornisce funzionalità di rollback automatico. Se un'istanza non ripristina l'integrità dopo un'operazione di aggiornamento, non è possibile ripristinare il disco del sistema operativo precedente.
 
 ### <a name="rest-api"></a>API REST
-Usare la chiamata all'API di [avvio del sistema operativo](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) per avviare un aggiornamento in sequenza per spostare tutte le istanze del set di scalabilità di macchine virtuali nella versione più recente del sistema operativo dell'immagine della piattaforma. Le istanze in cui è già in esecuzione la versione più recente del sistema operativo non sono interessate. L'esempio seguente illustra come è possibile avviare un aggiornamento del sistema operativo in sequenza in un set di scalabilità denominato set di scalabilità nel gruppo di risorse denominato *myResourceGroup*:
+Usare la chiamata all'API di [avvio del sistema operativo](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) per avviare un aggiornamento in sequenza per spostare tutte le istanze del set di scalabilità di macchine virtuali nella versione più recente del sistema operativo dell'immagine della piattaforma. Le istanze in cui è già in esecuzione la versione più recente del sistema operativo non sono interessate. L'esempio seguente illustra come è possibile avviare un aggiornamento del sistema operativo in sequenza in un set di scalabilità denominato set di scalabilità *nel gruppo* di risorse denominato *myResourceGroup*:
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Usare il cmdlet [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) per verificare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. L'esempio seguente illustra come è possibile avviare un aggiornamento del sistema operativo in sequenza in un set di scalabilità denominato set di scalabilità nel gruppo di risorse denominato *myResourceGroup*:
+Usare il cmdlet [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) per verificare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. L'esempio seguente illustra come è possibile avviare un aggiornamento del sistema operativo in sequenza in un set di scalabilità denominato set di scalabilità *nel gruppo* di risorse denominato *myResourceGroup*:
 
 ```azurepowershell-interactive
 Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare il comando [AZ vmss rolling-upgrade Start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente illustra come è possibile avviare un aggiornamento del sistema operativo in sequenza in un set di scalabilità denominato set di scalabilità nel gruppo di risorse denominato *myResourceGroup*:
+Usare il comando [AZ vmss rolling-upgrade Start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente illustra come è possibile avviare un aggiornamento del sistema operativo in sequenza in un set di scalabilità denominato set di scalabilità *nel gruppo* di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"

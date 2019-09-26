@@ -5,27 +5,26 @@ manager: nitinme
 author: LuisCabrer
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
-ms.openlocfilehash: dcdef8df25bdf6a7a60b1221d1463e6be5486875
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 113286f829b628d4740fbba34e7279741a934aef
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639440"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265936"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Allegare la risorsa Servizi cognitivi a un set di competenze - Ricerca di Azure 
 
-Gli algoritmi di intelligenza artificiale guidano le [pipeline](cognitive-search-concept-intro.md) di indicizzazione cognitive usate per l'arricchimento dei documenti in ricerca di Azure. Questi algoritmi sono basati sulle risorse dei servizi cognitivi di Azure, tra cui [visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/) per l'analisi delle immagini e il riconoscimento ottico dei caratteri (OCR) e [analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per il riconoscimento delle entità, l'estrazione di frasi chiave e altri arricchimenti . Come usato da ricerca di Azure per scopi di arricchimento dei documenti, gli algoritmi vengono incapsulati all'interno di un' *abilità*, inseriti in un *skillt*e a cui fa riferimento un *indicizzatore* durante l'indicizzazione.
+Gli algoritmi di intelligenza artificiale guidano le [pipeline di indicizzazione cognitive](cognitive-search-concept-intro.md) usate per l'arricchimento dei documenti in ricerca di Azure. Questi algoritmi sono basati sulle risorse dei servizi cognitivi di Azure, tra cui [visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/) per l'analisi delle immagini e il riconoscimento ottico dei caratteri (OCR) e [analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per il riconoscimento delle entità, l'estrazione di frasi chiave e altri arricchimenti . Come usato da ricerca di Azure per scopi di arricchimento dei documenti, gli algoritmi vengono incapsulati all'interno di un' *abilità*, inseriti in un *skillt*e a cui fa riferimento un *indicizzatore* durante l'indicizzazione.
 
 Puoi arricchire gratuitamente un numero limitato di documenti. In alternativa, è possibile allungare una risorsa di servizi cognitivi fatturabili a un livello di *competenze* per carichi di lavoro più grandi e più frequenti. In questo articolo si apprenderà come alleghi una risorsa di servizi cognitivi fatturabile per arricchire i documenti durante l'[indicizzazione](search-what-is-an-index.md) di ricerca di Azure.
 
 > [!NOTE]
 > Gli eventi fatturabili includono chiamate a API Servizi cognitivi ed estrazione di immagini come parte della fase di cracking del documento in ricerca di Azure. Non è previsto alcun addebito per l'estrazione del testo dai documenti o per le competenze che non chiamano servizi cognitivi.
 >
-> L'esecuzione di competenze fatturabili è il [prezzo con pagamento in base](https://azure.microsoft.com/pricing/details/cognitive-services/)al consumo di servizi cognitivi. Per i prezzi di estrazione delle immagini, vedere la [pagina dei prezzi di ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'esecuzione di competenze fatturabili è il [prezzo con pagamento in base al consumo di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per i prezzi di estrazione delle immagini, vedere la [pagina dei prezzi di ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="same-region-requirement"></a>Requisito della stessa area
 
@@ -68,7 +67,7 @@ Vengono addebitate solo le competenze che chiamano il API Servizi cognitivi. Non
 
 1. Nell'elenco **location (percorso** ) selezionare l'area in cui si trova il servizio ricerca di Azure. Assicurarsi di usare questa area per motivi di prestazioni. L'uso di questa area Annulla anche gli addebiti per la larghezza di banda in uscita tra aree.
 
-1. Nell'elenco piano tariffario selezionare **S0** per ottenere la raccolta All-in-One delle funzionalità di servizi cognitivi, incluse le funzionalità della visione e del linguaggio che riportano le competenze predefinite usate da ricerca di Azure.
+1. Nell'elenco piano **tariffario** selezionare **S0** per ottenere la raccolta All-in-One delle funzionalità di servizi cognitivi, incluse le funzionalità della visione e del linguaggio che riportano le competenze predefinite usate da ricerca di Azure.
 
    Per il livello S0, è possibile trovare le tariffe per carichi di lavoro specifici nella [pagina dei prezzi di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/).
   

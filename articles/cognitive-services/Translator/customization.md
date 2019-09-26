@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: e6771a0d72592f1952853642ceea196b02774ada
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595303"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257616"
 ---
 # <a name="customize-your-text-translations"></a>Personalizzare le traduzioni di testo
 
@@ -29,7 +29,7 @@ Con Custom Translator è possibile creare sistemi di traduzione neurali che comp
 
 ### <a name="how-does-it-work"></a>Come funziona?
 
-Usare i documenti tradotti in precedenza (opuscoli, pagine Web, documentazione e così via) per creare un sistema di traduzione che riflette la terminologia specifica del dominio e lo stile meglio di un sistema di traduzione generico. Gli utenti possono caricare documenti TMX, XLIFF, TXT, DOCX e XLSX.  
+USA i documenti tradotti in precedenza (volantini, pagine Web, documentazione e così via) per creare un sistema di traduzione che rispecchi la terminologia e lo stile specifici del dominio, meglio di un sistema di conversione standard. Gli utenti possono caricare documenti TMX, XLIFF, TXT, DOCX e XLSX.  
 
 Il sistema accetta anche i dati paralleli a livello di documento, ma non ancora allineati a livello di frase. Se gli utenti hanno accesso alle versioni dello stesso contenuto in più lingue, ma in documenti separati, Custom Translator sarà in grado di associare automaticamente frasi tra documenti.  Il sistema può anche usare dati monolingue in una o entrambe le lingue per integrare i dati di training paralleli per migliorare le traduzioni.
 
@@ -51,10 +51,10 @@ Altre informazioni sui vari livelli di personalizzazione in base ai dati disponi
 |:-----|:----:|:----:|
 |Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Disponibilità generale |
 | Versione API per testo  | Solo V2   | Solo V3 |
-| Personalizzazione SMT | Sì   | No |
+| Personalizzazione SMT | Yes   | No |
 | Personalizzazione NMT | No    | Yes |
-| Personalizzazione dei nuovi servizi voce unificati | No    | Sì |
-| [Nessuna traccia](https://www.aka.ms/notrace) | Sì  | Yes |
+| Personalizzazione dei nuovi servizi voce unificati | No    | Yes |
+| [Nessuna traccia](https://www.aka.ms/notrace) | Yes  | Yes |
 
 ## <a name="collaborative-translations-framework"></a>Framework di Collaborative Translations
 

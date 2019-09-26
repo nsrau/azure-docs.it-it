@@ -1,25 +1,25 @@
 ---
 title: Log del server per Database di Azure per MySQL
-description: Viene descritto il log query lente disponibili nel Database di Azure per MySQL e i parametri disponibili per l'abilitazione di diversi livelli di registrazione.
+description: Descrive i log di query lente disponibili nel database di Azure per MySQL e i parametri disponibili per l'abilitazione di diversi livelli di registrazione.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d801ada8fd8a8b35c71601d3ca274f26afb24f6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062412"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262286"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log query lente nel Database di Azure per MySQL
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente nel database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
 
 Per altre informazioni sul log delle query lente MySQL, vedere la [sezione relativa ai log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) del manuale di riferimento per MySQL.
 
-## <a name="access-slow-query-logs"></a>Accedere ai log query lente
-È possibile elencare e scaricare i Database di Azure per i log di query lente MySQL usando il portale di Azure e la CLI di Azure.
+## <a name="access-slow-query-logs"></a>Accedere ai log di query lente
+È possibile elencare e scaricare i log di query lente di database di Azure per MySQL usando il portale di Azure e l'interfaccia della riga di comando di Azure.
 
 Nel portale di Azure selezionare il server del Database di Azure per MySQL. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**.
 
@@ -30,7 +30,7 @@ I log sono disponibili per un massimo di sette giorni dalla data di creazione. S
 
 I log vengono ruotati ogni 24 ore o 7 GB, a seconda del valore raggiunto per primo.
 
-## <a name="configure-slow-query-logging"></a>Configurare la registrazione di query lente 
+## <a name="configure-slow-query-logging"></a>Configurare la registrazione lenta delle query 
 Per impostazione predefinita il log delle query lente è disabilitato. Per abilitarlo, impostare slow_query_log su ON.
 
 Altri parametri che è possibile modificare includono:
@@ -43,10 +43,10 @@ Altri parametri che è possibile modificare includono:
 Per una descrizione completa dei parametri per il log di query lente, vedere la [documentazione sul log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) per MySQL.
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
-Database di Azure per MySQL è integrato con i log di diagnostica di Monitoraggio di Azure. Dopo aver abilitato i log query lente nel proprio server MySQL, è possibile scegliere in modo che vengano inviati a log di monitoraggio di Azure, hub eventi o archiviazione di Azure. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md).
+Database di Azure per MySQL è integrato con i log di diagnostica di Monitoraggio di Azure. Dopo aver abilitato i log di query lente nel server MySQL, è possibile scegliere di crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/platform/resource-logs-overview.md).
 
 > [!IMPORTANT]
-> Questa funzionalità di diagnostica per i log del server è disponibile solo in utilizzo generico e ottimizzate per la memoria [sui piani tariffari](concepts-pricing-tiers.md).
+> Questa funzionalità di diagnostica per i log del server è disponibile solo nei [piani tariffari](concepts-pricing-tiers.md)per utilizzo generico e con ottimizzazione per la memoria.
 
 La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 
@@ -54,7 +54,7 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 |---|---|
 | `TenantId` | ID del tenant. |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
+| `TimeGenerated`UTC | Timestamp in cui il log è stato registrato in formato UTC. |
 | `Type` | Tipo di log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID per la sottoscrizione a cui appartiene il server. |
 | `ResourceGroup` | Nome del gruppo di risorse a cui appartiene il server. |
@@ -65,18 +65,18 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome del server |
-| `start_time_t` [UTC] | Ora di inizio della query |
+| `start_time_t`UTC | Ora di inizio della query |
 | `query_time_s` | Tempo totale di esecuzione della query |
 | `lock_time_s` | Tempo totale in cui la query è rimasta bloccata |
-| `user_host_s` | Username |
+| `user_host_s` | Nome utente |
 | `rows_sent_s` | Numero di righe inviate |
 | `rows_examined_s` | Numero di righe esaminate |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| `insert_id_s` | Inserire ID |
+| `insert_id_s` | Inserisci ID |
 | `sql_text_s` | Query completa |
 | `server_id_s` | ID del server |
-| `thread_id_s` | ID del thread |
+| `thread_id_s` | ID thread |
 | `\_ResourceId` | URI della risorsa |
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 - [Come configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md).

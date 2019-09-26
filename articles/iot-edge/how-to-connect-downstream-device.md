@@ -4,17 +4,17 @@ description: Come configurare i dispositivi downstream o foglia per connettersi 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999412"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266112"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
@@ -33,6 +33,10 @@ Questo articolo presenta i problemi comuni relativi alle connessioni ai disposit
 * Alcuni esempi di Azure IoT in diversi linguaggi per semplificare le attività iniziali. 
 
 In questo articolo i termini *gateway* e *gateway IoT Edge* si riferiscono a un dispositivo IoT Edge configurato come gateway trasparente. 
+
+## <a name="prerequisites"></a>Prerequisiti 
+
+Disporre del file di certificato **Azure-IOT-Test-only. root. ca. cert. pem** generato in [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md) disponibile sul dispositivo downstream. Il dispositivo downstream usa questo certificato per convalidare l'identità del dispositivo gateway. 
 
 ## <a name="prepare-a-downstream-device"></a>Preparare un dispositivo downstream
 
@@ -89,6 +93,14 @@ Verrà visualizzato un messaggio che indica che è in corso l'aggiornamento in /
 ### <a name="windows"></a>Windows
 
 I passaggi seguenti offrono un esempio di come installare un certificato della CA in un host Windows. Questo esempio presuppone che si usi il certificato **Azure-IOT-Test-only. root. ca. cert. pem** dagli articoli sui prerequisiti e che il certificato sia stato copiato in un percorso nel dispositivo downstream.
+
+È possibile installare i certificati usando il [certificato di importazione](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) di PowerShell come amministratore:
+
+```powershell
+import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
+```
+
+È inoltre possibile installare i certificati utilizzando l'utilità **certlm** : 
 
 1. Dal menu Start cercare e selezionare **Gestisci i certificati computer**. Verrà avviata un'utilità denominata **certlm**.
 2. Passare a **Certificati - Computer locale** > **Autorità di certificazione radice attendibili**.

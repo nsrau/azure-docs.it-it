@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 9b4e7ce714d0a1f65e0a35b9c493e99200c668c6
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 925fed320359edc04ad6c91fe7a7d9bde5370254
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034856"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258477"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Esportare il log attività di Azure nell'archiviazione o in hub eventi di Azure
 Il [log attività di Azure](activity-logs-overview.md) fornisce informazioni sugli eventi a livello di sottoscrizione che si sono verificati nella sottoscrizione di Azure. Oltre a visualizzare il log attività nel portale di Azure o copiarlo in un'area di lavoro Log Analytics in cui può essere analizzato con altri dati raccolti da monitoraggio di Azure, è possibile creare un profilo di log per archiviare il log attività in un account di archiviazione di Azure o inviarlo a un  Hub eventi.
@@ -60,13 +60,9 @@ Il profilo di log definisce gli elementi seguenti.
 Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, i criteri di conservazione non hanno alcun effetto. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione.
 
 
-
-> [!WARNING]
-> Il formato dei dati di log nell'account di archiviazione è stato modificato in righe JSON dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](diagnostic-logs-append-blobs.md)
-
-
 > [!IMPORTANT]
 > Se il provider di risorse Microsoft. Insights non è registrato, è possibile che venga visualizzato un errore durante la creazione di un profilo di log. Per registrare questo provider [, vedere provider e tipi di risorse di Azure](../../azure-resource-manager/resource-manager-supported-services.md) .
+
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Creare un profilo di log usando il portale di Azure
 
@@ -111,13 +107,13 @@ Se esiste già un profilo di log, prima di tutto è necessario rimuovere il prof
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Proprietà | Obbligatorio | DESCRIZIONE |
+    | Proprietà | Richiesto | Descrizione |
     | --- | --- | --- |
-    | Name |Sì |Nome del profilo di log. |
+    | Name |Yes |Nome del profilo di log. |
     | StorageAccountId |No |ID risorsa dell'account di archiviazione in cui deve essere salvato il log attività. |
     | serviceBusRuleId |No |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa nel formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Location |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
-    | RetentionInDays |Sì |Numero di giorni per cui gli eventi devono essere conservati nell'account di archiviazione, tra 1 e 365. Se il valore è zero, i log vengono conservati all'infinito. |
+    | Location |Yes |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
+    | RetentionInDays |Yes |Numero di giorni per cui gli eventi devono essere conservati nell'account di archiviazione, tra 1 e 365. Se il valore è zero, i log vengono conservati all'infinito. |
     | Category |No |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono _Write_, _Delete_e _Action_. |
 
 ### <a name="example-script"></a>Script di esempio
@@ -154,12 +150,12 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Proprietà | Obbligatorio | Descrizione |
+    | Proprietà | Richiesto | Descrizione |
     | --- | --- | --- |
     | name |Yes |Nome del profilo di log. |
     | storage-account-id |Yes |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
     | locations |Yes |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
-    | days |Yes |Numero di giorni per cui devono essere conservati gli eventi, tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro abilitato deve essere impostato su true. |
+    | giorni |Yes |Numero di giorni per cui devono essere conservati gli eventi, tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro abilitato deve essere impostato su true. |
     |enabled | Yes |True o False.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
     | categories |Yes |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
@@ -167,6 +163,9 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
 
 ## <a name="activity-log-schema"></a>Schema del log attività
 Indipendentemente dal fatto che venga inviato ad archiviazione di Azure o a hub eventi, i dati del log attività verranno scritti in JSON con il formato seguente.
+
+
+> Il formato dei dati del log attività scritti in un account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Per informazioni dettagliate su questa modifica del formato, vedere [preparare la modifica del formato ai log di diagnostica di monitoraggio di Azure archiviati in un account di archiviazione](diagnostic-logs-append-blobs.md) .
 
 ``` JSON
 {
@@ -225,7 +224,7 @@ Indipendentemente dal fatto che venga inviato ad archiviazione di Azure o a hub 
 ```
 Gli elementi in questo JSON sono descritti nella tabella seguente.
 
-| Nome dell'elemento | DESCRIZIONE |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | time |Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento. |
 | resourceId |ID risorsa della risorsa interessata. |
@@ -238,9 +237,9 @@ Gli elementi in questo JSON sono descritti nella tabella seguente.
 | correlationId |In genere un GUID in formato stringa. Gli eventi che condividono un elemento correlationId appartengono alla stessa azione. |
 | identity |BLOB JSON che descrive l'autorizzazione e le attestazioni. |
 | authorization |BLOB delle proprietà RBAC dell'evento. In genere include le proprietà "action", "role" e "scope". |
-| level |Livello dell'evento. Uno dei valori seguenti: _Critico_, _errore_, _avviso_,informativo e _dettagliato_ |
+| livello |Livello dell'evento. Uno dei valori seguenti: _Critico_, _errore_, _avviso_, _informativo_e _dettagliato_ |
 | location |Area in cui si trova la località (o global). |
-| properties |Set di coppie `<Key, Value>` ad esempio Dictionary, che descrivono i dettagli dell'evento. |
+| proprietà |Set di coppie `<Key, Value>` ad esempio Dictionary, che descrivono i dettagli dell'evento. |
 
 > [!NOTE]
 > Le proprietà e l'utilizzo di queste proprietà possono variare a seconda della risorsa.

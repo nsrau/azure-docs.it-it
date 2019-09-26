@@ -5,17 +5,16 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84109cf04588a5de6fb3fd946a89b5dfee4baa1b
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: c1fd5c4e5a3ac054a85bdcc11d95bc3c338ee3c2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259160"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265859"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Come elaborare ed estrarre informazioni da immagini in scenari di ricerca cognitiva
 
@@ -64,7 +63,7 @@ Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *no
 
 | Membro immagine       | Descrizione                             |
 |--------------------|-----------------------------------------|
-| data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
+| dati               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
 | width              | Larghezza dell'immagine normalizzata in pixel. |
 | height             | Altezza dell'immagine normalizzata in pixel. |
 | originalWidth      | Larghezza originale dell'immagine prima della normalizzazione. |
