@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 2b7ad95dc652f2099af75308f05ddd0684e088aa
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104738"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130280"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Creare un endpoint privato con il portale di Azure
 
@@ -199,6 +199,7 @@ Dopo aver creato *myVm*, connettersi alla macchina virtuale da Internet come ill
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Accedere al server di database SQL privatamente dalla VM
 
 1. Nel desktop remoto di  *myVM* aprire PowerShell.
+
 2. Immettere  `nslookup myserver.database.windows.net`. 
 
     Verrà visualizzato un messaggio simile al seguente:

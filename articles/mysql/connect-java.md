@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/08/2019
-ms.openlocfilehash: b1771d7940a12d0cc818c223c28dcad87acd8a0c
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 9df95a754d4bd423ddd7f57c634b86bd33e906ca
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624734"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155523"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Guida introduttiva: Usare Java per connettersi ed eseguire query sui dati in Database di Azure per MySQL
 
@@ -37,7 +37,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 2. Dal menu a sinistra nel portale di Azure scegliere **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
 3. Selezionare il nome del server.
 4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
- ![Nome del server del database di Azure per MySQL](./media/connect-java/1_server-overview-name-login.png)
+ ![Nome del server del database di Azure per MySQL](./media/connect-java/azure-database-mysql-server-name.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Connettersi, creare tabelle e inserire dati
 Usare il codice seguente per connettersi e caricare i dati usando la funzione con un'istruzione SQL **INSERT**. Il metodo [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) viene usato per connettersi a MySQL. I metodi [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) ed execute() vengono usati per rilasciare e creare la tabella. L'oggetto prepareStatement viene usato per compilare i comandi di inserimento, con setString() e setInt() per associare i valori dei parametri. Il metodo executeUpdate() esegue il comando per ogni set di parametri per cui inserire i valori. 

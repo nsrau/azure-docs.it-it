@@ -5,7 +5,7 @@ keywords: fatturazione, scaricare la fatture, fattura di Azure, uso di Azure
 services: billing
 documentationcenter: ''
 author: genlin
-manager: adpick
+manager: dcscontentpm
 editor: ''
 tags: billing
 ms.service: billing
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 45f4a45828501afea52f0ad522c3f3f6777f7ccd
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c65696a37e33cd6ced93639677659e110a1db6d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057719"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121790"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure
 
@@ -76,7 +76,7 @@ Potrebbero esserci diversi motivi per cui non è visualizzata alcuna fattura:
 
 - La fattura non è stata ancora generata. Attendere la fine del periodo di fatturazione.
 
-- Non si è autorizzati a visualizzare le fatture. Se si ha un Contratto del cliente a Microsoft, è necessario avere il ruolo di proprietario, collaboratore, lettore o gestione fatture del profilo di fatturazione. Per le altre sottoscrizioni, è possibile che non vengano visualizzate le fatture precedenti se non si è l'amministratore dell'account. Per altre informazioni sull'accesso alle informazioni di fatturazione, vedere [Manage access to Azure billing using roles](billing-manage-access.md) (Gestire l'accesso alla fatturazione di Azure usando i ruoli).
+- Non si è autorizzati a visualizzare le fatture. Se si ha un Contratto del cliente Microsoft, è necessario avere il ruolo di proprietario, collaboratore, lettore o gestione fatture del profilo di fatturazione. Per le altre sottoscrizioni, è possibile che non vengano visualizzate le fatture precedenti se non si è l'amministratore dell'account. Per altre informazioni sull'accesso alle informazioni di fatturazione, vedere [Manage access to Azure billing using roles](billing-manage-access.md) (Gestire l'accesso alla fatturazione di Azure usando i ruoli).
 
 - Se si dispone di una versione di valutazione gratuita o di un credito mensile per la sottoscrizione che non è stato superato, non si riceverà alcuna fattura a meno che non sia stato sottoscritto un Contratto del cliente Microsoft.
 
@@ -137,7 +137,7 @@ Per rifiutare esplicitamente di ricevere la fattura tramite posta elettronica, s
 
 ### <a name="download-usage-for-ea-customers"></a>Scaricare informazioni sull'utilizzo per i clienti EA
 
-Per visualizzare e scaricare i dati di utilizzo per i clienti EA, è necessario essere un amministratore dell'organizzazione, un proprietario dell'account o un amministratore del reparto con i criteri per la visualizzazione degli addebiti abilitati.
+Per visualizzare e scaricare i dati di utilizzo per i clienti con contratto EA, è necessario essere un amministratore dell'organizzazione, un proprietario dell'account o un amministratore del reparto con i criteri per la visualizzazione degli addebiti abilitati.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare *Gestione dei costi e fatturazione*.
@@ -186,8 +186,8 @@ Per altre informazioni sulla fattura e sugli addebiti, vedere:
 
 Se si ha un Contratto del cliente Microsoft, vedere:
 
-- [Informazioni sugli addebiti nella fattura per il profilo di fatturazione](billing-mca-understand-your-bill.md)
+- [Informazioni sugli addebiti nella fattura del profilo di fatturazione](billing-mca-understand-your-bill.md)
 - [Informazioni sui termini nella fattura per il profilo di fatturazione](billing-mca-understand-your-invoice.md)
-- [Informazioni sul file relativo a utilizzo e addebiti di Azure per il profilo di fatturazione](billing-mca-understand-your-usage.md)
+- [Informazioni sul file dei dati di utilizzo e addebiti di Azure per il profilo di fatturazione](billing-mca-understand-your-usage.md)
 - [Visualizzare e scaricare i documenti fiscali per il profilo di fatturazione](billing-mca-download-tax-document.md)
 - [Visualizzare i prezzi di Azure dell'organizzazione](billing-ea-pricing.md)

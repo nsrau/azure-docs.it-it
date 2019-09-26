@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/01/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 3fd7990043543b92eb3daf8ec699ec58db3387ec
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 0f070cb9a6e300dad0ec9e0b393b09b7f22d2942
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717578"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212587"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Analisi operativa predefinita in Azure Cosmos DB con Apache Spark (anteprima) 
 
@@ -136,12 +136,6 @@ L'immagine seguente illustra l'utilizzo del supporto Spark di Azure Cosmos DB pe
 L'immagine seguente illustra l'utilizzo del supporto Spark di Azure Cosmos DB nell'analisi dei giochi:
 
 ![Supporto Spark di Azure Cosmos DB nell'analisi dei giochi](./media/spark-api-introduction/gaming-analytics.png)
-
-## <a name="built-in-jupyter-notebooks-support"></a>Supporto incorporato dei notebook di Jupyter
-
-Azure Cosmos DB supporta i notebook di Jupyter predefiniti per tutte le API, ad esempio Cassandra, MongoDB, SQL, Gremlin e Tabella. Tali notebook vengono eseguiti all'interno degli account Azure Cosmos e migliorano l'esperienza di sviluppo. Il supporto incorporato dei notebook per tutte le API Azure Cosmos DB e i modelli di dati consente di eseguire le query in modo interattivo. È anche possibile eseguire modelli di Machine Learning e analizzare i dati archiviati nei database Azure Cosmos. Sfruttando l'esperienza di notebook di Jupyter, è possibile analizzare i dati archiviati, creare ed eseguire il training per i modelli di Machine Learning, nonché eseguire l'inferenza sui dati nel portale di Azure come mostrato nella figura seguente:
-
-![Supporto dei notebook di Jupyter in Azure Cosmos DB](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

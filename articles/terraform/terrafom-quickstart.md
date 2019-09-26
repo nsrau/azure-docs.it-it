@@ -5,14 +5,14 @@ services: terraform
 author: neilpeterson
 ms.service: azure
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 09/20/2019
 ms.author: nepeters
-ms.openlocfilehash: 57ab3fbc584932cb7d08bda76530bbe95ce61a6f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c53f3a31b46f00d3207cd8f47dcfbfa131c03666
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699077"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173511"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Creare una configurazione Terraform per Azure
 
@@ -24,7 +24,7 @@ In questa sezione si creerà la configurazione per un'istanza di Azure Cosmos DB
 
 Selezionare **Prova adesso** per aprire Azure Cloud Shell. Una volta aperto, immettere `code .` per aprire l'editor di codice di Cloud Shell.
 
-```azurecli-interactive
+```bash
 code .
 ```
 
@@ -34,7 +34,7 @@ Questa configurazione modella un gruppo di risorse di Azure, un numero intero ca
 
 Al termine, salvare il file come `main.tf`. Questa operazione può essere eseguita usando i puntini di sospensione nella parte superiore destra dell'editor di codice.
 
-```azurecli-interactive
+```hcl
 resource "azurerm_resource_group" "vote-resource-group" {
   name     = "vote-resource-group"
   location = "westus"
@@ -67,7 +67,7 @@ resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
 
 Il comando [terraform init](https://www.terraform.io/docs/commands/init.html) inizializza la directory di lavoro. Eseguire `terraform init` nel terminale Cloud Shell per preparare la distribuzione della nuova configurazione.
 
-```azurecli-interactive
+```bash
 terraform init
 ```
 
@@ -75,13 +75,13 @@ Il comando [terraform plan](https://www.terraform.io/docs/commands/plan.html) pu
 
 Eseguire `terraform plan` per testare la nuova configurazione di Terraform.
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 Applicare la configurazione usando [terraform apply](https://www.terraform.io/docs/commands/apply.html) e specificando il nome del file del piano. Questo comando distribuisce le risorse nella sottoscrizione di Azure.
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -98,7 +98,7 @@ Vengono impostate due variabili di ambiente, `COSMOS_DB_ENDPOINT` e `COSMOS_DB_M
 
 La configurazione include anche un blocco di output, che restituisce il nome di dominio completo (FQDN) dell'istanza del contenitore.
 
-```azurecli-interactive
+```hcl
 resource "azurerm_container_group" "vote-aci" {
   name                = "vote-aci"
   location            = "${azurerm_resource_group.vote-resource-group.location}"
@@ -134,13 +134,13 @@ output "dns" {
 
 Eseguire `terraform plan` per creare il piano aggiornato e visualizzare le modifiche da apportare. Si noterà che una risorsa di Azure Container Instances è stata aggiunta alla configurazione.
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 Eseguire infine `terraform apply` per applicare la configurazione.
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -156,7 +156,7 @@ Passare al nome di dominio completo dell'istanza del contenitore. Se la configur
 
 Al termine, le risorse di Azure e il gruppo di risorse possono essere rimossi con il comando [terraform destroy](https://www.terraform.io/docs/commands/destroy.html).
 
-```azurecli-interactive
+```bash
 terraform destroy -auto-approve
 ```
 

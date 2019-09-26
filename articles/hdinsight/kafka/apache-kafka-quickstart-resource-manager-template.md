@@ -1,19 +1,19 @@
 ---
 title: Configurare Apache Kafka in HDInsight usando Azure Resource Manager - Avvio rapido
 description: Questa guida di avvio rapido illustra come creare un cluster Apache Kafka in Azure HDInsight tramite un modello di Azure Resource Manager. Illustra inoltre gli argomenti, i sottoscrittori e i consumer di Kafka.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: e3c8111cee688625ef2002d16f66644bec6fd6ec
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: deae58c30e37aa4df1dd8ca9b1b64cc79e9509ae
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960179"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123167"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Guida introduttiva: Creare cluster Apache Kafka in Azure HDInsight con un modello di Resource Manager
 
@@ -35,7 +35,7 @@ Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache H
 
 1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. Per creare il cluster Kafka, usare i valori seguenti:
 

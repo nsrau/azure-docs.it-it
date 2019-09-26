@@ -5,16 +5,15 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: ff32be5410876d1ba61b3bce2fd5f57868745e50
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 11c58a891a730c57aae3500911741623dde5d51b
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881100"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265891"
 ---
 # <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Guida introduttiva: Creare una pipeline di arricchimento con intelligenza artificiale usando competenze cognitive in Ricerca di Azure
 
