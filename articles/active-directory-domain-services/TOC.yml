@@ -95,22 +95,22 @@
       items:
         - name: Errori comuni
           href: troubleshoot.md
-        - name: Avvisi comuni
-          items:
-            - name: Avvisi comuni
-              href: troubleshoot-alerts.md
-            - name: Correggere una configurazione di rete non corretta
-              href: alert-nsg.md
-            - name: Ripristinare entità servizio mancanti
-              href: alert-service-principal.md
-            - name: Avvisi di LDAP sicuro
-              href: alert-ldaps.md
         - name: Errori relativi a tenant non corrispondenti
           href: mismatched-tenant-error.md
         - name: Domini sospesi
           href: suspension.md
         - name: LDAP sicuro
           href: tshoot-ldaps.md
+        - name: Problemi noti
+          items:
+            - name: Avvisi comuni
+              href: troubleshoot-alerts.md
+            - name: Avvisi di rete
+              href: alert-nsg.md
+            - name: Avvisi dell'entità servizio
+              href: alert-service-principal.md
+            - name: Avvisi di LDAP sicuro
+              href: alert-ldaps.md
 - name: Risorse
   items:
     - name: Domande frequenti

@@ -47,7 +47,7 @@
           href: security-center-incident.md
         - name: Rilevamento delle minacce per macchine virtuali e server
           href: security-center-alerts-iaas.md
-        - name: Rilevamento delle minacce per il calcolo nativo cloud
+        - name: Rilevamento delle minacce per le app e i contenitori cloud
           href: security-center-alerts-compute.md
         - name: Rilevamento delle minacce per i servizi dati
           href: security-center-alerts-data-services.md
@@ -71,7 +71,7 @@
       href: security-center-wdatp.md
     - name: Sicurezza dei dati avanzata per SQL in macchine virtuali di Azure (anteprima pubblica)
       href: security-center-iaas-advanced-data.md
-    - name: Proteggere il servizio app
+    - name: Usare il servizio app per proteggere le applicazioni
       href: security-center-app-services.md
     - name: Utilizzo dei criteri di sicurezza
       href: tutorial-security-policy.md
@@ -91,7 +91,7 @@
       href: security-center-policy-definitions.md
     - name: Notifiche tramite posta elettronica
       href: security-center-provide-security-contact-details.md
-    - name: Piano tariffario
+    - name: Prezzi
       href: security-center-pricing.md
     - name: Visibilità a livello di tenant
       href: security-center-management-groups.md
@@ -147,8 +147,6 @@
   items:
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
-    - name: Aggiornamenti del servizio
-      href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Ritiro di funzionalità e API (luglio 2019)
       href: security-center-features-retirement-july2019.md
     - name: Valutazione e consigli per la protezione degli endpoint
@@ -159,25 +157,25 @@
       href: /learn/browse/?term=securityS
     - name: Gestire i dati utente
       href: security-center-privacy.md
-    - name: Gestire l'IoT
+    - name: Documentazione del Centro sicurezza di Azure per IoT
       href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: Domande frequenti
       href: security-center-faq.md
-    - name: Sicurezza di Azure
+    - name: Documentazione sulla sicurezza di Azure
       href: /azure/security/
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Aggiornamenti di Azure
+      href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: Guida di orientamento per l'idoneità
       href: security-center-readiness-roadmap.md
     - name: 'Blog su sicurezza, privacy e conformità per Azure'
       href: 'https://blogs.msdn.com/b/azuresecurity/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: Centro sicurezza di Azure in Stack Overflow
+      href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: Video
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/security-center/'
     - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Risolvere problemi
+    - name: Guida per la risoluzione dei problemi
       href: security-center-troubleshooting-guide.md

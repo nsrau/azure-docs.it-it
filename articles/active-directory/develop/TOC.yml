@@ -9,7 +9,7 @@
       href: v2-overview.md
     - name: Guide introduttive
       items:
-        - name: Configurare un ambiente di sviluppo
+        - name: Configurare un tenant
           href: quickstart-create-new-tenant.md
         - name: Configurare un'applicazione
           items:
@@ -49,7 +49,7 @@
           items:
             - name: Android
               href: quickstart-v2-android.md
-            - name: iOS
+            - name: iOS e macOS
               href: quickstart-v2-ios.md
             - name: Piattaforma UWP (Universal Windows Platform)
               href: quickstart-v2-uwp.md
@@ -75,7 +75,7 @@
           items:
             - name: Android
               href: tutorial-v2-android.md
-            - name: iOS
+            - name: iOS e macOS
               href: tutorial-v2-ios.md
             - name: Piattaforma UWP (Universal Windows Platform)
               href: tutorial-v2-windows-uwp.md
@@ -223,12 +223,14 @@
           items:
             - name: Panoramica
               href: msal-overview.md
-            - name: Migrazione
+            - name: Migrazione da ADAL
               items:
                 - name: Eseguire la migrazione a MSAL.NET
                   href: msal-net-migration.md
                 - name: Eseguire la migrazione a MSAL.js
                   href: msal-compare-msal-js-and-adal-js.md
+                - name: Eseguire la migrazione a MSAL per iOS e macOS
+                  href: migrate-objc-adal-msal.md
                 - name: Eseguire la migrazione di app Xamarin tramite broker da ADAL.NET a MSAL.NET
                   href: msal-net-migration-ios-broker.md
             - name: Flussi di autenticazione supportati
@@ -239,8 +241,6 @@
                   href: msal-acquire-cache-tokens.md
                 - name: Ambiti per le app v1.0
                   href: msal-v1-app-scopes.md
-                - name: Serializzazione della cache dei token (.NET)
-                  href: msal-net-token-cache-serialization.md
             - name: Applicazioni client
               items:
                 - name: Applicazioni client
@@ -257,18 +257,28 @@
               href: msal-handling-exceptions.md
             - name: Registrazione
               href: msal-logging.md
-            - name: Single Sign-On (JS)
-              href: msal-js-sso.md
-            - name: Comportamento della richiesta (JS)
-              href: msal-js-prompt-behavior.md
-            - name: Supporto di ADFS (.NET)
-              href: msal-net-adfs-support.md
+            - name: Single sign-on
+              items:
+                - name: Single Sign-On con MSAL.js
+                  href: msal-js-sso.md
+                - name: Single Sign-On con MSAL per iOS e macOS
+                  items:
+                    - name: SSO tra app MSAL
+                      href: single-sign-on-macos-ios.md
+                    - name: SSO tra app ADAL e MSAL
+                      href: sso-between-adal-msal-apps-macos-ios.md
+            - name: Integrazione con AD FS
+              items:
+                - name: Supporto di AD FS in MSAL.NET
+                  href: msal-net-adfs-support.md
             - name: Integrazione con Azure AD B2C
               items:
                 - name: JavaScript
                   href: msal-b2c-overview.md
                 - name: .NET
                   href: msal-net-aad-b2c-considerations.md
+                - name: iOS e macOS
+                  href: 'config-authority.md#b2c'
             - name: Considerazioni e problemi noti
               items:
                 - name: MSAL.NET
@@ -283,6 +293,10 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: Problemi noti- Safari
                       href: msal-js-known-issues-safari-browser.md
+                - name: MSAL per iOS e MacOS
+                  items:
+                    - name: Problemi di SSL
+                      href: ssl-issues.md
         - name: Protocollo di autenticazione
           items:
             - name: Tipi di applicazione e OAuth 2.0
@@ -378,6 +392,8 @@
               items:
                 - name: Acquisire un token dalla cache
                   href: msal-net-acquire-token-silently.md
+                - name: Serializzazione della cache dei token
+                  href: msal-net-token-cache-serialization.md
                 - name: Cancellare la cache dei token
                   href: msal-net-clear-token-cache.md
                 - name: Creare un'istanza di un client pubblico con opzioni
@@ -394,6 +410,20 @@
                   href: msal-js-avoid-page-reloads.md
                 - name: Passare lo stato personalizzato nelle richieste di autenticazione
                   href: msal-js-pass-custom-state-authentication-request.md
+                - name: Comportamento della richiesta
+                  href: msal-js-prompt-behavior.md
+            - name: MSAL per iOS e MacOS
+              items:
+                - name: Differenze tra Microsoft Authentication Library per iOS e macOS
+                  href: msal-differences-ios-macos.md
+                - name: Configurare il keychain
+                  href: howto-v2-keychain-objc.md
+                - name: Personalizzare browser e visualizzazioni Web
+                  href: customize-webviews.md
+                - name: Richiedere attestazioni personalizzate
+                  href: request-custom-claims.md
+                - name: Configurazione dell'URI di reindirizzamento
+                  href: redirect-uris-ios.md
         - name: Utilizzo di Visual Studio
           items:
             - name: Usare il servizio connesso Active Directory
@@ -428,7 +458,7 @@
       href: v1-overview.md
     - name: Guide introduttive
       items:
-        - name: Configurare un ambiente di sviluppo
+        - name: Configurare un tenant
           href: quickstart-create-new-tenant.md
         - name: Configurare un'applicazione
           items:
@@ -468,7 +498,7 @@
           items:
             - name: Android
               href: quickstart-v1-android.md
-            - name: iOS
+            - name: iOS e macOS
               href: quickstart-v1-ios.md
             - name: .NET per Windows Desktop
               href: quickstart-v1-dotnet.md

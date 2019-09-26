@@ -18,7 +18,7 @@
       items:
         - name: Aggiungere destinazioni di archiviazione
           href: hpc-cache-add-storage.md
-        - name: Spostare i dati nell'archiviazione cache
+        - name: Spostare i dati nelle destinazioni di archiviazione (se necessario)
           items:
             - name: Precaricare una nuova archiviazione BLOB
               href: hpc-cache-ingest.md

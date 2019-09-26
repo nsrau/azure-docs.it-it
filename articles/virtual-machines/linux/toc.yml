@@ -472,6 +472,8 @@
         - name: Eseguire la distribuzione di dischi con un modello
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
+        - name: Caricare un disco rigido virtuale in un disco - Interfaccia della riga di comando
+          href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Ridimensionare un disco
           href: expand-disks.md
         - name: Snapshot di un disco

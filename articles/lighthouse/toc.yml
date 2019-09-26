@@ -19,7 +19,7 @@
       displayName: scenarios
       href: ./concepts/cross-tenant-management-experience.md
     - name: Offerte di servizi gestiti in Azure Marketplace
-      displayName: 'managed services offer, azure marketplace'
+      displayName: 'azure marketplace, marketplace, managed service, private, plan'
       href: ./concepts/managed-services-offers.md
     - name: Procedure di sicurezza consigliate
       displayName: 'mfa, authentication, secure, group'
@@ -27,6 +27,9 @@
     - name: Considerazioni sul programma Cloud Solution Provider
       displayName: 'csp, aobo, partner'
       href: ./concepts/cloud-solution-provider.md
+    - name: Azure Lighthouse in scenari aziendali
+      displayName: 'corporation, IT, consolidate'
+      href: ./concepts/enterprise.md
 - name: Guide alle procedure
   items:
     - name: Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure

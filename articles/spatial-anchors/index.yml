@@ -16,6 +16,17 @@ metadata:
 abstract:
   description: Ancoraggi nello spazio è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo.
 sections:
+  - title: Concetti
+    items:
+      - type: paragraph
+        text: 'Concetti chiave che consentono di iniziare a usare gli ancoraggi nello spazio di Azure:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/spatial-anchors/concepts/authentication">Autenticazione.</a>
+          - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Relazioni tra ancoraggi e orientamento.</a>
+          - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Linee guida sull'esperienza.</a>
+          - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Registrazione e diagnostica.</a>
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph
@@ -24,35 +35,35 @@ sections:
         style: icon48
         items:
           - image:
-              src: /media/logos/logo_android.svg
-              alt: null
-            text: Android
-            href: quickstarts/get-started-android.md
-          - image:
               src: /media/logos/logo_Windows.svg
               alt: null
-            text: HoloLens
-            href: quickstarts/get-started-hololens.md
-          - image:
-              src: /media/logos/logo_ios.svg
-              alt: null
-            text: iOS
-            href: quickstarts/get-started-ios.md
+            text: Unity in HoloLens
+            href: quickstarts/get-started-unity-hololens.md
           - image:
               src: /media/logos/logo_android.svg
               alt: null
             text: Unity in Android
             href: quickstarts/get-started-unity-android.md
           - image:
-              src: /media/logos/logo_Windows.svg
-              alt: null
-            text: Unity in HoloLens
-            href: quickstarts/get-started-unity-hololens.md
-          - image:
               src: /media/logos/logo_ios.svg
               alt: null
             text: Unity in iOS
             href: quickstarts/get-started-unity-ios.md
+          - image:
+              src: /media/logos/logo_Windows.svg
+              alt: null
+            text: HoloLens
+            href: quickstarts/get-started-hololens.md
+          - image:
+              src: /media/logos/logo_android.svg
+              alt: null
+            text: Android
+            href: quickstarts/get-started-android.md
+          - image:
+              src: /media/logos/logo_ios.svg
+              alt: null
+            text: iOS
+            href: quickstarts/get-started-ios.md
           - image:
               src: /media/logos/logo_xamarin.svg
               alt: null
@@ -66,9 +77,11 @@ sections:
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
-        text: 'Informazioni su come installare, gestire, sviluppare e distribuire app con Ancoraggi nello spazio di Azure.'
+        text: 'Informazioni su come configurare, gestire, sviluppare e distribuire app con Ancoraggi nello spazio di Azure:'
       - type: list
         style: unordered
         items:
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Condivisione in Unity.</a>
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Condivisione in Unity con Azure Cosmos DB.</a>
+          - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-unity-hololens-app">Avvio di una nuova app HoloLens in Unity.</a>
+          - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-android-app">Avvio di una nuova app Android.</a>
