@@ -1,17 +1,17 @@
 ---
-title: Aggiungere destinatari a una condivisione dati esistente nell'anteprima della condivisione dati di Azure
+title: Aggiungere destinatari nell'anteprima della condivisione dati di Azure
 description: Aggiungere destinatari a una condivisione dati esistente
-author: madams0013
+author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: jasonh
-ms.openlocfilehash: 7df0e92bd6dba988e7a8241f7076410c3cafca37
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: e496f67616f7ebcf4c086c8d01680b95f9cafcf8
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258708"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320309"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share-preview"></a>Come aggiungere un destinatario a una condivisione dati esistente nell'anteprima della condivisione dati di Azure
 

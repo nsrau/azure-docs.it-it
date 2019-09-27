@@ -1,18 +1,18 @@
 ---
 title: Crea una nuova offerta di Dynamics 365 business Central nel Marketplace commerciale
 description: Come creare una nuova offerta di Dynamics 365 business Central per l'inserzione o la vendita in Azure Marketplace, AppSource o tramite il programma Cloud Solution Provider (CSP) usando il portale di Marketplace commerciale nel centro per i partner Microsoft.
-author: JnHs
+author: ChJenk
 manager: evansma
-ms.author: jenhayes
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/26/2019
+ms.openlocfilehash: 8c57fd2a2c9c5c059480f3d6ad48454724e5cc61
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033269"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327631"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Crea una nuova offerta di Dynamics 365 business Central
 
@@ -22,7 +22,7 @@ Per iniziare a creare le offerte di Dynamics 365 business Central, prima di tutt
 
 ![Dashboard del Marketplace commerciale nel centro per i partner](./media/new-offer-overview.png)
 
-## <a name="create-a-new-offer"></a>Creare una nuova offerta
+## <a name="create-a-new-offer"></a>Crea una nuova offerta
 
 Selezionare il pulsante **+ nuova offerta** , quindi selezionare la voce di menu **Dynamics 365 business Central** . Verrà visualizzata la finestra di dialogo **nuova offerta** .
 
@@ -88,7 +88,7 @@ Per altre informazioni, vedere [Cenni preliminari sulla gestione dei lead](./com
 
 Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
-## <a name="properties"></a>Properties
+## <a name="properties"></a>Proprietà
 
 La pagina delle **Proprietà** consente di definire le categorie e i settori usati per raggruppare l'offerta nel Marketplace, la versione dell'app e i contratti legali che supportano l'offerta. Selezionare **Salva** dopo aver completato questa pagina.
 
@@ -127,7 +127,7 @@ Sarà necessario definire i dettagli del Marketplace (nome dell'offerta, descriz
 > [!NOTE]
 > Il contenuto dell'offerta (ad esempio la descrizione, i documenti, le schermate, le condizioni per l'utilizzo e così via) non deve essere in inglese, purché la descrizione dell'offerta inizi con la frase "questa applicazione è disponibile solo in [lingua non inglese]". È anche accettabile fornire un URL di *collegamento utile* per offrire contenuto in una lingua diversa da quella usata nell'offerta di visualizzazione del contenuto.
 
-### <a name="name"></a>NOME
+### <a name="name"></a>Attività
 
 Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di offerte. Questo campo viene prepopolato con il testo immesso per l' **alias offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e possono essere inclusi marchi o simboli di copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
 
@@ -194,11 +194,11 @@ L'immagine Hero è facoltativa. Se ne viene fornito uno, deve misurare 815 x 290
 
 #### <a name="screenshots"></a>Screenshot
 
-Aggiungere schermate che mostrano il funzionamento dell'offerta. È necessario almeno una schermata ed è possibile aggiungerne fino a cinque. Tutte le schermate devono avere 1280 x 720 pixel.
+Aggiungere schermate che mostrano il funzionamento dell'offerta. Sono necessarie almeno tre schermate ed è possibile aggiungerne fino a cinque. Tutte le schermate devono avere 1280 x 720 pixel.
 
 #### <a name="videos"></a>Video
 
-Facoltativamente, è possibile aggiungere fino a quattro video che illustrano l'offerta. Questi video devono essere ospitati in YouTube e/o Vimeo. Per ciascuna di esse, immettere il nome del video, il relativo URL e un'immagine di anteprima del video (1280 x 720 pixel)
+Facoltativamente, è possibile aggiungere fino a cinque video che illustrano l'offerta. Questi video devono essere ospitati in YouTube e/o Vimeo. Per ciascuna di esse, immettere il nome del video, il relativo URL e un'immagine di anteprima del video (1280 x 720 pixel)
 
 #### <a name="additional-marketplace-listing-resources"></a>Risorse aggiuntive per l'elenco del Marketplace
 
@@ -252,7 +252,7 @@ Obbligatorio se l'offerta deve essere installata insieme a un'altra estensione c
 
 #### <a name="dependency-package-file"></a>File del pacchetto di dipendenze
 
-Obbligatorio se l'offerta deve essere installata insieme a un'altra estensione che è già stata pubblicata nel Marketplace. In tal caso, caricare `.app` qui `.zip` il file o.
+Obbligatorio se l'offerta deve essere installata insieme a un'altra estensione che è già stata pubblicata nel Marketplace. In tal caso, caricare qui il file `.app` o `.zip`.
 
 ### <a name="url-to-app-installation"></a>URL per l'installazione dell'app
 
@@ -279,9 +279,9 @@ Un modello di distribuzione che contiene tutte le risorse di Azure che costituis
 
 - **Instances**: Selezionare il tipo (Hot o Cold) e il numero di istanze disponibili, che verranno moltiplicate per il numero di aree in cui è disponibile l'offerta.
 
-A **caldo**: Questo tipo di istanza viene distribuito e in attesa di accesso per area selezionata. I clienti possono accedere immediatamente alle istanze a *caldo* di una test drive, anziché dover attendere una distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. Si consiglia di disporre di almeno un'istanza di accesso frequente, in quanto la maggior parte dei clienti non desidera attendere le distribuzioni complete, causando un calo nell'utilizzo del cliente se non è disponibile un'istanza a *caldo* .
+A **caldo**: Questo tipo di istanza viene distribuito e in attesa di accesso per area selezionata. I clienti possono accedere immediatamente alle istanze a *caldo* di una test drive, anziché dover attendere una distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. Si consiglia di disporre di almeno *un'istanza di* accesso frequente, in quanto la maggior parte dei clienti non desidera attendere le distribuzioni complete, causando un calo nell'utilizzo del cliente se non è disponibile un'istanza a *caldo* .
 
-A **freddo**: Questo tipo di istanza rappresenta il numero totale di istanze che possono essere distribuite per ogni area. Per le istanze a freddo è necessario che l'intero test drive Gestione risorse modello venga distribuito quando un cliente richiede l'test drive, in modo che le istanze a *freddo* risultino molto più lente del caricamento rispetto alle istanze a *caldo* . Il compromesso è dovuto al fatto che è necessario pagare solo per la durata del test drive, *non* è sempre in esecuzione nella sottoscrizione di Azure come con un'istanza attiva.
+A **freddo**: Questo tipo di istanza rappresenta il numero totale di istanze che possono essere distribuite per ogni area. Per le istanze a freddo è necessario che l'intero test drive Gestione risorse modello venga distribuito quando un cliente richiede l'test drive, in modo che le istanze a *freddo* risultino molto più lente del caricamento rispetto alle istanze a *caldo* . Il compromesso è dovuto al fatto che è necessario pagare solo per la durata del test drive, *non* è sempre in esecuzione nella sottoscrizione di Azure come con *un'istanza* attiva.
 
 - **Modello di Azure Resource Manager Test Drive**: Caricare il file zip contenente il modello di Azure Resource Manager.  Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo introduttivo [creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
@@ -295,9 +295,9 @@ Microsoft può rimuovere la complessità della configurazione di un test drive o
 
 - **Durata test drive** (obbligatorio): Immettere il periodo di tempo per cui il test drive resterà attivo definendo il numero di ore. Dopo questo numero di ore, la sessione terminerà e non utilizzerà più una delle licenze. È consigliabile un valore di 2-24 ore a seconda della complessità dell'offerta. Questa durata può scommettere solo per un numero intero di ore (ad esempio, "2" ore, "1,5" non è valido).  L'utente può richiedere una nuova sessione se esaurisce il tempo e desidera accedere nuovamente al test drive.
 
-- **URL istanza** (obbligatorio): URL in cui il cliente inizierà la test drive. In genere l'URL dell'istanza di Dynamics 365 che esegue l'app con i dati di esempio installati https://testdrive.crm.dynamics.com) , ad esempio.
+- **URL istanza** (obbligatorio): URL in cui il cliente inizierà la test drive. In genere l'URL dell'istanza di Dynamics 365 che esegue l'app con i dati di esempio installati, ad esempio https://testdrive.crm.dynamics.com).
 
-- **URL dell'API Web dell'istanza** (obbligatorio): Recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando alle **Impostazioni** \&gt; **Personalizzazione** di \&gt; **Risorse per sviluppatori** \&gt; **API Web dell'istanza (URL radice del servizio)** , copiare l'URL trovato qui, ad https://testdrive.crm.dynamics.com/api/data/v9.0) esempio.
+- **URL dell'API Web dell'istanza** (obbligatorio): Recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando alle **impostazioni** \&GT; **Personalizzazione** \&GT; **Risorse per sviluppatori** \&GT; **API Web dell'istanza (URL radice del servizio)** , copiare l'URL disponibile qui, ad esempio https://testdrive.crm.dynamics.com/api/data/v9.0).
 
 - **Nome ruolo** (obbligatorio): Fornire il nome del ruolo di sicurezza definito nell'test drive Dynamics 365 personalizzato, che verrà assegnato all'utente durante la loro test drive, ad esempio test-drive-Role.
 
@@ -366,7 +366,7 @@ Se l'offerta richiede l'edizione Premium di Microsoft Dynamics 365 business Cent
 
 ### <a name="key-usage-scenario"></a>Scenario di utilizzo chiave
 
-È necessario pload un `.pdf` file che elenca gli scenari di utilizzo chiave dell'offerta elencati in un documento (formato PDF). Tutti gli scenari elencati di seguito possono essere verificati dal team di convalida prima di approvare l'offerta per il Marketplace.
+È necessario pload un file `.pdf` in cui sono elencati gli scenari di utilizzo chiave dell'offerta elencati in un documento (formato PDF). Tutti gli scenari elencati di seguito possono essere verificati dal team di convalida prima di approvare l'offerta per il Marketplace.
 
 ### <a name="app-tests-automation"></a>Automazione di test app
 

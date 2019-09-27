@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 29add1cff184e234cd5dcc5050b94cdd50593731
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: adb1b840fd733353e449224c9ac752e94329bde6
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315903"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326738"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Introduzione al Centro sicurezza di Azure per IoT
 
@@ -30,7 +30,7 @@ Unifica la gestione della sicurezza e Abilita l'analisi e il rilevamento delle m
 
 È possibile scegliere tra la soluzione senza agente senza problemi o sfruttare la sicurezza completa basata su agenti, il Centro sicurezza di Azure per le cose offre funzionalità di prevenzione e analisi delle minacce per ogni dispositivo, IoT Edge e Hub.
 
-Poiché miliardi di nuovi dispositivi sono connessi a Internet e integrati nelle nostre vite quotidiane e nelle nostre aziende; i team delle operazioni di sicurezza devono assicurarsi che le strategie di sicurezza si evolvano abbastanza rapidamente per coprire le nuove superfici di attacco. Analogamente a qualsiasi altro sistema, la protezione della soluzione Internet delle cose richiede la protezione in ogni fase dell'implementazione. 
+Man mano che miliardi di nuovi dispositivi sono connessi a Internet e integrati nella nostra vita quotidiana e nelle nostre aziende, i team delle operazioni di sicurezza devono garantire che le strategie di sicurezza si evolvano abbastanza rapidamente per coprire ogni nuova superficie di attacco. Analogamente a qualsiasi altro sistema, per proteggere completamente la soluzione Internet delle cose, richiede la protezione in ogni fase dell'implementazione. 
 
 Il Centro sicurezza di Azure per gli Internet semplifica la protezione del carico di lavoro ibrido grazie alla visibilità e al controllo unificati, alla prevenzione delle minacce adattiva e al rilevamento intelligente delle minacce e alla risposta tra i carichi di lavoro in esecuzione in Microsoft Edge, in locale, in Azure e in altri Cloud. 
 

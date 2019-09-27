@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 9664beca514abcbad4eca7c8f9dc1b494018802e
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: deb13b833707849bcbce8bcae7b05aeb5e0bce3b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535196"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338867"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurare e configurare l'integrazione dei report di utilizzo e costi di AWS
 
@@ -42,7 +42,7 @@ Usare la pagina **report sui costi di utilizzo di &** della console di gestione 
     2. Immettere un nome di bucket e l'area in cui si vuole creare un nuovo bucket, quindi scegliere **Avanti**.
 10. Selezionare **conferma che questo criterio è corretto**, quindi fare clic su **Salva**.
 11. Opzionale Per prefisso percorso report immettere il prefisso del percorso del report che si desidera anteporre al nome del report.
-Se non si specifica un prefisso, il prefisso predefinito è il nome specificato per il report. Il `/report-name/date-range/` formato dell'intervallo di date è.
+Se non si specifica un prefisso, il prefisso predefinito è il nome specificato per il report. L'intervallo di date ha il formato `/report-name/date-range/`.
 12. Per **unità di tempo**scegliere **orario**.
 13. Per il **controllo delle versioni dei report**, scegliere se si desidera che in ogni versione del report venga sovrascritta la versione precedente o se si desiderano nuovi report aggiuntivi.
 14. Per **abilitare l'integrazione dei dati per**, non è necessaria alcuna selezione.
@@ -73,21 +73,21 @@ Utilizzare la procedura guidata Crea nuovo ruolo:
     > [!NOTE]
     > Non modificare la selezione per **Richiedi**autenticazione a più fattori. Deve rimanere cancellata.
 8. Selezionare **Avanti: Permissions** (Avanti: Autorizzazioni).
-9. Selezionare **Crea criterio**. Si apre una nuova scheda del browser. Qui è possibile creare un criterio.
+9. Selezionare **Create policy** (Crea criterio). Si apre una nuova scheda del browser. Qui è possibile creare un criterio.
 10. Selezionare **Scegli un servizio**.
 
 Configurare l'autorizzazione per il report costi e utilizzo:
 
 1. Immettere il **report sui costi e sull'utilizzo**.
-2. Selezionare **livello** > di accesso**lettura** > **DescribeReportDefinitions**. Questo passaggio consente a gestione costi di leggere i report CUR definiti e determinare se corrispondono al prerequisito per la definizione del report.
+2. Selezionare **livello di accesso** > **leggere** > **DescribeReportDefinitions**. Questo passaggio consente a gestione costi di leggere i report CUR definiti e determinare se corrispondono al prerequisito per la definizione del report.
 3. Selezionare **Aggiungi autorizzazioni aggiuntive**.
 
 Configurare l'autorizzazione per il bucket S3 e gli oggetti:
 
 1. Selezionare **Scegli un servizio**.
 2. Immettere **S3**.
-3. Selezionare > elencolivello > di accesso**ListBucket**. Questa azione ottiene l'elenco di oggetti nel bucket S3.
-4. Selezionare **il livello** > di accesso**Read** > **GetObject**. Questa azione consente il download dei file di fatturazione.
+3. Selezionare **livello di accesso** > **elenco** > **ListBucket**. Questa azione ottiene l'elenco di oggetti nel bucket S3.
+4. Selezionare **livello di accesso** > **leggere** > **GetObject**. Questa azione consente il download dei file di fatturazione.
 5. Selezionare **risorse**.
 6. Selezionare **bucket: aggiungere ARN**.
 7. In **nome bucket**immettere il bucket usato per archiviare i file cur.
@@ -100,13 +100,13 @@ Configurare l'autorizzazione per Esplora costi:
 
 1. Selezionare **Scegli un servizio**.
 2. Immettere il **servizio cost Explorer**.
-3. Selezionare **tutte le azioni del servizio Esplora costo (\*CE:)** . Questa azione convalida la correttezza della raccolta.
+3. Selezionare **tutte le azioni del servizio Esplora costo (CE: \*)** . Questa azione convalida la correttezza della raccolta.
 4. Selezionare **Aggiungi autorizzazioni aggiuntive**.
 
 Aggiungere l'autorizzazione per le organizzazioni AWS:
 
 1. Immettere le **organizzazioni**.
-2. Selezionare > elencolivello > di accesso**ListAccounts**. Questa azione ottiene i nomi degli account.
+2. Selezionare **livello di accesso** > **elenco** > **ListAccounts**. Questa azione ottiene i nomi degli account.
 3. In **Verifica criterio**immettere un nome per il nuovo criterio. Verificare di aver immesso le informazioni corrette e quindi selezionare **Crea criterio**.
 4. Tornare alla scheda precedente e aggiornare la pagina Web del browser. Nella barra di ricerca cercare il nuovo criterio.
 5. Selezionare **Avanti: Review** (Avanti: Rivedi).
@@ -151,12 +151,12 @@ Il codice JSON dei criteri dovrebbe essere simile all'esempio seguente. Sostitui
 Usare le informazioni seguenti per creare un connettore AWS e iniziare a monitorare i costi di AWS:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passare a **Gestione costi +**  > **Gestione costi**fatturazione.
+2. Passare a **Gestione costi e fatturazione** > **Gestione costi**.
 3. In **Impostazioni**selezionare **connettori cloud (anteprima)** .  
-    ![Esempio che illustra l'impostazione dei connettori cloud (anteprima](./media/aws-integration-setup-configure/cloud-connectors-preview01.png))).
+    ![Example che mostra l'impostazione dei connettori cloud (anteprima) ](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
 4. Selezionare **+ Aggiungi** nella parte superiore della pagina per creare un connettore.
 5. Nella pagina **Crea un connettore AWS** , in **nome visualizzato**, immettere un nome per il connettore.  
-    ![Esempio della pagina per la creazione di un connettore AWS](./media/aws-integration-setup-configure/create-aws-connector01.png)
+    @no__t 0Example della pagina per la creazione di un connettore AWS @ no__t-1
 6. Facoltativamente, selezionare il gruppo di gestione predefinito. Tutti gli account collegati individuati vengono archiviati. È possibile configurarlo in un secondo momento.
 7. Nella sezione **fatturazione** selezionare **addebita automaticamente l'1% in fase di disponibilità generale** se si desidera garantire un'operazione continua alla scadenza dell'anteprima. Se si seleziona l'opzione automatica, è necessario selezionare una sottoscrizione per la fatturazione.
 8. Per **Role ARN**, immettere il valore usato durante la configurazione del ruolo in AWS.
@@ -172,7 +172,7 @@ L'assegnazione delle autorizzazioni del connettore agli utenti dopo l'individuaz
 
 ## <a name="take-additional-steps"></a>Eseguire passaggi aggiuntivi
 
-- [Configurare i gruppi di gestione](../governance/management-groups/index.md#initial-setup-of-management-groups), se non è già stato fatto.
+- [Configurare i gruppi di gestione](../governance/management-groups/overview.md#initial-setup-of-management-groups), se non è già stato fatto.
 - Verificare che i nuovi ambiti vengano aggiunti alla selezione ambito. Selezionare **Aggiorna** per visualizzare i dati più recenti.
 - Nella pagina **connettori cloud** selezionare il connettore e selezionare **Vai a account di fatturazione** per assegnare l'account collegato ai gruppi di gestione.
 
@@ -189,7 +189,7 @@ Quando si seleziona un connettore nella pagina **connettori cloud** , è possibi
 
 ## <a name="set-up-azure-management-groups"></a>Configurare i gruppi di gestione di Azure
 
-Inserire le sottoscrizioni di Azure e gli account collegati AWS nello stesso gruppo di gestione per creare un'unica posizione in cui è possibile visualizzare le informazioni sul provider tra cloud. Se l'ambiente Azure non è già stato configurato con i gruppi di gestione, vedere [configurazione iniziale dei gruppi di gestione](../governance/management-groups/index.md#initial-setup-of-management-groups).
+Inserire le sottoscrizioni di Azure e gli account collegati AWS nello stesso gruppo di gestione per creare un'unica posizione in cui è possibile visualizzare le informazioni sul provider tra cloud. Se l'ambiente Azure non è già stato configurato con i gruppi di gestione, vedere [configurazione iniziale dei gruppi di gestione](../governance/management-groups/overview.md#initial-setup-of-management-groups).
 
 Se si desidera separare i costi, è possibile creare un gruppo di gestione che contenga solo account collegati AWS.
 

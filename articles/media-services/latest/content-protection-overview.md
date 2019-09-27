@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1d95d14398bc6b5acdec89428ebe22a672551a8a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561465"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338792"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Proteggere i contenuti usando la crittografia dinamica di servizi multimediali
 
@@ -35,7 +35,7 @@ La figura seguente illustra il flusso di lavoro per la protezione del contenuto 
 
 ![Flusso di lavoro per la protezione del contenuto di servizi multimediali](./media/content-protection/content-protection.svg)
   
-&#42;*La crittografia dinamica supporta la chiave non crittografata AES-128, CBCS e Cenc. Per informazioni dettagliate, vedere la [matrice di supporto](#streaming-protocols-and-encryption-types).*
+&#42;la crittografia *Dynamic supporta la chiave non crittografata AES-128, CBCS e CENC. Per informazioni dettagliate, vedere la [matrice di supporto](#streaming-protocols-and-encryption-types).*
 
 Questo articolo illustra i concetti e la terminologia che consentono di comprendere la protezione del contenuto con servizi multimediali.
 
@@ -68,17 +68,17 @@ L'esempio illustra come:
      ```
 2. Creare un [localizzatore di streaming](streaming-locators-concept.md) configurato per lo streaming dell'asset crittografato. 
   
-   Il localizzatore di streaming deve essere associato a un [criterio di streaming](streaming-policy-concept.md). Nell'esempio viene impostato `StreamingLocator.StreamingPolicyName` il criterio "Predefined_MultiDrmCencStreaming". 
+   Il localizzatore di streaming deve essere associato a un [criterio di streaming](streaming-policy-concept.md). Nell'esempio è stato impostato `StreamingLocator.StreamingPolicyName` sul criterio "Predefined_MultiDrmCencStreaming". 
       
    Verranno applicate le crittografie PlayReady e Widevine e la chiave verrà recapitata al client di riproduzione in base alle licenze DRM configurate. Se si vuole anche crittografare il flusso con CBCS (FairPlay), usare il criterio "Predefined_MultiDrmStreaming".
 
    Il localizzatore di streaming è associato anche ai criteri della chiave simmetrica definiti.
 3. Creare un token di test.
 
-   Il `GetTokenAsync` metodo Mostra come creare un token di test.
+   Il metodo `GetTokenAsync` Mostra come creare un token di test.
 4. Compilare l'URL di streaming.
 
-   Il `GetDASHStreamingUrlAsync` metodo Mostra come compilare l'URL di streaming. In questo caso, l'URL trasmette il contenuto del TRATTIno.
+   Il metodo `GetDASHStreamingUrlAsync` Mostra come compilare l'URL di streaming. In questo caso, l'URL trasmette il contenuto del TRATTIno.
 
 ### <a name="player-with-an-aes-or-drm-client"></a>Lettore con un client AES o DRM 
 
@@ -172,7 +172,7 @@ Quando si vuole rilasciare la licenza a chiunque senza autorizzazione, è possib
 
 Con i criteri della chiave simmetrica con restrizioni dei token, la chiave simmetrica viene inviata solo a un client che presenta un token JWT valido o un token SWT (Simple Web Token) nella richiesta di licenza/chiave. Questo token deve essere emesso da un servizio token di servizio. 
 
-È possibile utilizzare Azure AD come STS o distribuire un servizio token di servizio personalizzato. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione di licenze/chiavi di servizi multimediali restituisce la licenza o la chiave richiesta al client se sono presenti entrambe le condizioni seguenti:
+È possibile utilizzare Azure AD come STS o distribuire un [servizio token di servizio personalizzato](#using-a-custom-sts). Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione di licenze/chiavi di servizi multimediali restituisce la licenza o la chiave richiesta al client se sono presenti entrambe le condizioni seguenti:
 
 * Il token è valido. 
 * Le attestazioni nel token corrispondono a quelle configurate per la licenza o la chiave.
@@ -232,19 +232,19 @@ Usare i modelli seguenti se si vuole specificare un servizio di distribuzione di
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: Uguale al modello precedente, solo per Widevine. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: Uguale al modello precedente, solo per FairPlay.  
 
-Ad esempio:
+Esempio:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-`ContentKeyId`ha un valore della chiave richiesta. È possibile usare `AlternativeMediaId` se si vuole eseguire il mapping della richiesta a un'entità da parte dell'utente. Ad esempio, `AlternativeMediaId` può essere usato per semplificare la ricerca delle autorizzazioni.
+`ContentKeyId` ha un valore della chiave richiesta. È possibile utilizzare `AlternativeMediaId` se si desidera eseguire il mapping della richiesta a un'entità da parte dell'utente. Ad esempio, è possibile usare `AlternativeMediaId` per cercare le autorizzazioni.
 
  Per esempi REST che usano URL di acquisizione di licenze/chiavi personalizzati, vedere [criteri di streaming-crea](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Se viene ricevuto l' `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` errore, assicurarsi di specificare i criteri di flusso appropriati.
+Se si ottiene l'errore `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`, assicurarsi di specificare i criteri di flusso appropriati.
 
 Se vengono visualizzati errori che terminano `_NOT_SPECIFIED_IN_URL`con, assicurarsi di specificare il formato di crittografia nell'URL. Un esempio è `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Vedere [protocolli di streaming e tipi di crittografia](#streaming-protocols-and-encryption-types).
 
@@ -259,4 +259,4 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 * [Progettare un sistema di protezione dei contenuti con DRM multiplo con controllo di accesso](design-multi-drm-system-with-access-control.md)
 * [Crittografia lato archiviazione](storage-account-concept.md#storage-side-encryption)
 * [Domande frequenti](frequently-asked-questions.md)
-
+* [Gestore del token Web JSON](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

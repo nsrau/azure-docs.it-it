@@ -1,20 +1,20 @@
 ---
 title: Connettersi a desktop virtuale Windows da macOS-Azure
-description: Come connettersi al desktop virtuale di Windows da macOS.
+description: Come connettersi al desktop virtuale di Windows tramite il client macOS.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: bf6bfb52bd763eabd88f23701c3d1f240cdf4844
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: fa61d69ae7aa650b6011696fd45d05ba20d2ac8b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310191"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338713"
 ---
-# <a name="connect-from-macos"></a>Connetti da macOS
+# <a name="connect-with-the-macos-client"></a>Connettersi con il client macOS
 
 > Si applica a: macOS 10,12 o versione successiva
 
@@ -44,6 +44,6 @@ Dopo aver eseguito l'accesso, verrà visualizzato un elenco di risorse disponibi
 
 Una volta effettuata la sottoscrizione a un feed, il contenuto del feed verrà aggiornato automaticamente regolarmente. Le risorse possono essere aggiunte, modificate o rimosse in base alle modifiche apportate dall'amministratore.
 
-## <a name="client-documentation"></a>Documentazione client
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul client macOS, vedere la documentazione [introduttiva per il client MacOS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) .

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2019
 ms.author: sagupt
-ms.openlocfilehash: a67034752b4c43533a5735b857186ee83934717a
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d641008a7caf4a006344d886aec945a6e8da2568
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935638"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326624"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Crea avvisi Azure Advisor per le nuove raccomandazioni 
 
@@ -25,7 +25,7 @@ Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle riso
 È anche possibile determinare i tipi di raccomandazioni usando queste proprietà:
 
 * Category
-* Livello di effetto
+* Livello di impatto
 * Tipo di raccomandazione
 
 È anche possibile configurare l'azione che verrà eseguita quando un avviso viene attivato da:  
@@ -33,7 +33,7 @@ Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle riso
 * Selezione di un gruppo di azioni esistente
 * Creazione di un nuovo gruppo di azioni
 
-Per ulteriori informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azioni] (.. /azure-monitor/platform/action-groups.md.
+Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
 
 > [!NOTE] 
 > Gli avvisi di Advisor sono attualmente disponibili solo per i consigli relativi a disponibilità elevata, prestazioni e costi. Le raccomandazioni sulla sicurezza non sono supportate. 

@@ -1,19 +1,19 @@
 ---
-title: Informazioni sulle procedure consigliate per la sicurezza di Gemelli digitali di Azure | Microsoft Docs
-description: Procedure consigliate per la sicurezza di Gemelli digitali di Azure.
+title: 'Informazioni sulle procedure consigliate per la sicurezza: dispositivi gemelli digitali di Azure | Microsoft Docs'
+description: Informazioni sulle procedure di sicurezza consigliate per i dispositivi gemelli digitali di Azure e il Internet delle cose.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 09/17/2019
 ms.author: v-adgera
-ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 181176e00595daa307504d4dea7494aefa7f1942
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656515"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336696"
 ---
 # <a name="security-best-practices"></a>Procedure di sicurezza consigliate
 
@@ -46,7 +46,7 @@ Ecco alcune tra le principali procedure consigliate per proteggere in modo sicur
 > [!div class="checklist"]
 > * Crittografare i dati salvati, archiviati o salvati in modo permanente.
 > * Richiedere la modifica o l'aggiornamento periodico di password o chiavi.
-> * Limitare attentamente le autorizzazioni e l'accesso in base al ruolo. Vedere la sezione [Procedure consigliate per il controllo degli accessi in base al ruolo](#rbac) seguente.
+> * Limitare attentamente le autorizzazioni e l'accesso in base al ruolo. Vedere la sezione [Procedure consigliate per il controllo degli accessi in base al ruolo](#role-based-access-control-best-practices) seguente.
 > * Si consideri una topologia di rete divisa in modo che i dispositivi in ogni rete siano isolati dagli altri.
 > * Usare la crittografia avanzata. Richiedere password lunghe, usare protocolli sicuri e l'autenticazione a due fattori.
 
@@ -66,8 +66,6 @@ Gemelli digitali di Azure usa Azure Active Directory per l'autenticazione degli 
 > * Verificare la durata della validità di un token e se un token rimane valido.
 > * Impostare periodi di tempo appropriati per la validità dei token.
 > * Aggiornare i token scaduti.
-
-<div id="rbac"></div>
 
 ## <a name="role-based-access-control-best-practices"></a>Procedure consigliate per il controllo degli accessi in base al ruolo
 

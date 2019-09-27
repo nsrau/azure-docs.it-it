@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a335bcbb45b1aac48a3aaea282ffeffe1696f4c
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: b7c851c2d865a7b553be2cd0f619ad09985115a3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900076"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336867"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Piani di distribuzione di Azure Active Directory
 Per istruzioni end-to-end sulla distribuzione delle funzionalità di Azure Active Directory (Azure AD), Azure AD piani di distribuzione illustrano il valore aziendale, le considerazioni sulla pianificazione e le procedure operative necessarie per distribuire correttamente le funzionalità di Azure AD comuni.
@@ -49,6 +49,14 @@ I ruoli possono includere quanto segue
 - **I**nformed del piano e del risultato del progetto
 
 
+## <a name="best-practices-for-a-pilot"></a>Procedure consigliate per un progetto pilota
+Un progetto pilota consente di eseguire test con un piccolo gruppo prima di attivare una funzionalità per tutti gli utenti. Assicurarsi che nell'ambito del test ogni caso di utilizzo all'interno dell'organizzazione venga testato accuratamente. È consigliabile fare riferimento a un gruppo specifico di utenti pilota prima di distribuirlo nell'intera organizzazione.
+
+Nella prima ondata, è possibile indirizzare IT, usabilità e altri utenti appropriati che possono testare e fornire commenti e suggerimenti. Questo feedback dovrebbe essere usato per sviluppare ulteriormente le comunicazioni e le istruzioni inviate agli utenti e per fornire informazioni dettagliate sui tipi di problemi che possono essere visualizzati dal personale di supporto. 
+
+L'ampliamento dell'implementazione a gruppi più grandi di utenti deve essere eseguito aumentando l'ambito dei gruppi di destinazione. Questa operazione può essere eseguita tramite [l'appartenenza dinamica ai gruppi](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)o aggiungendo manualmente utenti ai gruppi di destinazione.
+
+
 ## <a name="deploy-authentication"></a>Distribuisci autenticazione
 
 | Capacità | Descrizione|
@@ -67,7 +75,7 @@ I ruoli possono includere quanto segue
 
 ## <a name="deploy-hybrid-scenarios"></a>Distribuire scenari ibridi
 
-| Capacità | DESCRIZIONE|
+| Capacità | Descrizione|
 | -| -|
 | [AD FS per la sincronizzazione dell'hash delle password](https://aka.ms/deploymentplans/adfs2phs)| Con la sincronizzazione dell'hash delle password, gli hash delle password utente vengono sincronizzati da Active Directory locali a Azure AD, consentendo Azure AD autenticare gli utenti senza alcuna interazione con la Active Directory locale |
 | [AD FS per l'autenticazione pass-through](https://aka.ms/deploymentplans/adfs2pta)| Azure AD autenticazione pass-through consente agli utenti di accedere alle applicazioni locali e basate sul cloud usando le stesse password. Questa funzionalità offre agli utenti un'esperienza migliore, ovvero una password in meno da ricordare, e riduce i costi del supporto tecnico perché è meno probabile che gli utenti dimentichino come eseguire l'accesso. Quando gli utenti eseguono l'accesso tramite Azure AD, la funzionalità ne convalida direttamente le password rispetto ad Active Directory locale. |
@@ -76,7 +84,7 @@ I ruoli possono includere quanto segue
 
 ## <a name="deploy-user-provisioning"></a>Distribuire il provisioning utenti
 
-| Capacità | DESCRIZIONE|
+| Capacità | Descrizione|
 | -| -|
 | [Provisioning utenti](https://aka.ms/UserProvisioningDPDownload)| Azure AD semplifica l'automazione di creazione, manutenzione e rimozione delle identità utente in applicazioni cloud (SaaS) come Dropbox, SalesForce, ServiceNow e così via. |
 | [Provisioning utenti in ingresso basato sulla giornata lavorativa](https://aka.ms/WorkdayDeploymentPlan)| Il provisioning utenti in ingresso basato sulla giornata lavorativa in Active Directory crea le basi per la governance delle identità continuativa e migliora la qualità dei processi aziendali che si basano sui dati delle identità autorevoli. Grazie a questa funzionalità, è possibile gestire facilmente il ciclo di vita delle identità dei dipendenti e dei lavoratori condizionali configurando le regole che mappano i processi di Joiner-Mover-Leaver (come il nuovo noleggio, terminazione, il trasferimento) alle azioni di provisioning IT (ad esempio, creazione, abilitazione, Disabilitare |

@@ -7,17 +7,17 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 569bc021d978714472bf40bcf39f7134fec95970
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b3f809a21dab86ac50fcf7c194c886b05977e15e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130338"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327112"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creare un endpoint privato usando Azure PowerShell
-Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato. 
+Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. 
 
-In questa Guida introduttiva si apprenderà come creare una VM in una rete virtuale di Azure, un server di database SQL con un endpoint privato di Azure usando Azure PowerShell. Quindi, è possibile accedere in modo sicuro al server del database SQL dalla macchina virtuale.
+Questa guida di avvio rapido illustrerà come creare una VM in una rete virtuale di Azure e un server di database SQL con un endpoint privato di Azure usando Azure PowerShell. Si potrà quindi accedere in modo sicuro al server di database SQL dalla VM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -189,13 +189,13 @@ mstsc /v:<publicIpAddress>
   > [!NOTE]
   > Potrebbe essere necessario selezionare altre opzioni > usare un account diverso per specificare le credenziali immesse durante la creazione della macchina virtuale. 
   
-3. Fare clic su **OK**. 
+3. Selezionare **OK**. 
 4. Si potrebbe ricevere un avviso del certificato. In tal caso, selezionare **Sì** o **continua**. 
 
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Accedere al server di database SQL privatamente dalla macchina virtuale
 
 1. Nel Desktop remoto di myVM aprire PowerShell.
-2. Immettere `nslookup myserver.database.windows.net`. 
+2. Immettere  `nslookup myserver.database.windows.net`. 
 
     Verrà visualizzato un messaggio simile al seguente:
     ```azurepowershell

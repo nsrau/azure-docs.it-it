@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 3b76dc546b46718378d9b22ad80e17849eaf532d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338744"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database dell'istanza gestita di database SQL di Azure
 
@@ -41,7 +41,7 @@ La configurazione di un'istanza gestita per fungere da server di pubblicazione e
 - Che l'istanza gestita del server di pubblicazione si trovi nella stessa rete virtuale del server di distribuzione e nel Sottoscrittore oppure che sia stato stabilito il [peering vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) tra le reti virtuali di tutte e tre le entità. 
 - Per la connettività viene usata l'autenticazione SQL tra i partecipanti alla replica.
 - Una condivisione di account di archiviazione di Azure per la directory di lavoro della replica.
-- La porta 445 (TCP in uscita) è aperta nelle regole di sicurezza di NSG per le istanze gestite per accedere alla condivisione file di Azure. 
+- La porta 445 (TCP in uscita) è aperta nelle regole di sicurezza di NSG per le istanze gestite per accedere alla condivisione file di Azure.  Se si verifica l'errore "non è stato possibile connettersi al nome dell'account di archiviazione di Azure \<storage > con errore del sistema operativo 53", sarà necessario aggiungere una regola in uscita al NSG della subnet SQL Istanza gestita appropriata.
 
 
  > [!NOTE]
@@ -63,7 +63,7 @@ In un'istanza gestita del database SQL di Azure non sono supportate le funzional
  
 ## <a name="1---create-a-resource-group"></a>1-creare un gruppo di risorse
 
-Usare il [portale di Azure](https://portal.azure.com) per creare un gruppo di risorse con il `SQLMI-Repl`nome.  
+Usare il [portale di Azure](https://portal.azure.com) per creare un gruppo di risorse con il nome `SQLMI-Repl`.  
 
 ## <a name="2---create-managed-instances"></a>2-creare istanze gestite
 
@@ -78,15 +78,15 @@ Sarà anche necessario [configurare una macchina virtuale di Azure per la connes
 
 [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro e quindi creare una [condivisione file](../storage/files/storage-how-to-create-file-share.md) nell'account di archiviazione. 
 
-Copiare il percorso della condivisione file nel formato:`\\storage-account-name.file.core.windows.net\file-share-name`
+Copiare il percorso della condivisione file nel formato: `\\storage-account-name.file.core.windows.net\file-share-name`
 
-Copiare le chiavi di accesso alle archiviazione nel formato:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Copiare le chiavi di accesso alle archiviazione nel formato: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
  Per altre informazioni, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys). 
 
 ## <a name="4---create-a-publisher-database"></a>4-creare un database del server di pubblicazione
 
-Connettersi all' `sql-mi-pub` istanza gestita usando SQL Server Management Studio ed eseguire il codice Transact-SQL (T-SQL) seguente per creare il database del server di pubblicazione:
+Connettersi all'istanza gestita di `sql-mi-pub` usando SQL Server Management Studio ed eseguire il codice Transact-SQL (T-SQL) seguente per creare il database del server di pubblicazione:
 
 ```sql
 USE [master]
@@ -120,7 +120,7 @@ GO
 
 ## <a name="5---create-a-subscriber-database"></a>5-creare un database Sottoscrittore
 
-Connettersi all' `sql-mi-sub` istanza gestita usando SQL Server Management Studio ed eseguire il codice T-SQL seguente per creare il database del Sottoscrittore vuoto:
+Connettersi all'istanza gestita di `sql-mi-sub` usando SQL Server Management Studio ed eseguire il codice T-SQL seguente per creare il database del Sottoscrittore vuoto:
 
 ```sql
 USE [master]
@@ -141,7 +141,7 @@ GO
 
 ## <a name="6---configure-distribution"></a>6-configurare la distribuzione
 
-Connettersi all' `sql-mi-pub` istanza gestita usando SQL Server Management Studio ed eseguire il codice T-SQL seguente per configurare il database di distribuzione. 
+Connettersi all'istanza gestita di `sql-mi-pub` usando SQL Server Management Studio ed eseguire il codice T-SQL seguente per configurare il database di distribuzione. 
 
 ```sql
 USE [master]
@@ -154,7 +154,7 @@ GO
 
 ## <a name="7---configure-publisher-to-use-distributor"></a>7-configurare Publisher per l'utilizzo del server di distribuzione 
 
-Nell'istanza `sql-mi-pub`gestita del server di pubblicazione modificare l'esecuzione della query in modalità [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) ed eseguire il codice seguente per registrare il nuovo server di distribuzione nel server di pubblicazione. 
+Nell'istanza gestita del server di pubblicazione `sql-mi-pub`, modificare l'esecuzione della query in modalità [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) ed eseguire il codice seguente per registrare il nuovo server di distribuzione nel server di pubblicazione. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -322,7 +322,7 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-È possibile eseguire la pulizia delle risorse di Azure eliminando [le risorse dell'istanza gestita dal gruppo di risorse](../azure-resource-manager/manage-resources-portal.md#delete-resources) e quindi eliminando il gruppo `SQLMI-Repl`di risorse. 
+Per eseguire la pulizia delle risorse di Azure, è possibile [eliminare le risorse dell'istanza gestita dal gruppo di risorse](../azure-resource-manager/manage-resources-portal.md#delete-resources) e quindi eliminare il gruppo di risorse `SQLMI-Repl`. 
 
    
 ## <a name="see-also"></a>Vedere anche

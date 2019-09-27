@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 06/16/2019
+ms.topic: conceptual
+ms.date: 09/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cd31215f578062548c67f8d14e724dc49f73b21c
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d6519ad5a130eee25ab17135e26d7207047dcf7a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775015"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327265"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Supporto per le lingue naturali per i servizi cognitivi di Azure
 
@@ -38,7 +38,7 @@ Queste lingue principali sono supportate nei servizi cognitivi di Azure:
 * Spagnolo
 
 > [!NOTE]
-> ¹ LUIS e Video Indexer: conversione della voce in testo scritto non supportata.
+> ¹ LUIS, Video Indexer, Analisi del testo e Speech-to-text non sono supportati.
 
 ## <a name="additional-language-availability-by-service"></a>Disponibilità di lingue aggiuntive in base al servizio
 
@@ -46,7 +46,7 @@ Queste tabelle sottolineano la disponibilità della lingua in base alla categori
 
 ### <a name="vision"></a>Visione
 
-| | Arabo | Bulgaro | Catalano | Croato | Ceco | Danese | Olandese | Estone | Finlandese | Greco | Hindi | Ungherese | Islandese | Indonesiano | Lettone | Lituano | Malese | Norvegese | Polacco | Rumeno | Russo | Serbo | Slovacco | Sloveno | Svedese | Tamil | Thai | Turco | Ucraino | Vietnamita |
+| | Arabo (Arabia Saudita) | Bulgaro | Catalano | Croato | Ceco | Danese | Olandese | Estone | Finlandese | Greco | Hindi | Ungherese | Islandese | Indonesiano | Lettone | Lituano | Malese | Norvegese | Polacco | Romeno | Russo | Serbo | Slovacco | Sloveno | Svedese | Tamil | Thai | Turco | Ucraino | Vietnamita |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | [Visione artificiale: OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq) | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: |
 | [Video Indexer: conversione della voce in testo scritto](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview) | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
@@ -54,7 +54,7 @@ Queste tabelle sottolineano la disponibilità della lingua in base alla categori
 
 ### <a name="speech"></a>Riconoscimento vocale
 
-| | Arabo | Bulgaro | Catalano | Croato | Ceco | Danese | Olandese | Estone | Finlandese | Greco | Hindi | Ungherese | Islandese | Indonesiano | Lettone | Lituano | Malese | Norvegese | Polacco | Rumeno | Russo | Serbo | Slovacco | Sloveno | Svedese | Tamil | Thai | Turco | Ucraino | Vietnamita |
+| | Arabo (Arabia Saudita) | Bulgaro | Catalano | Croato | Ceco | Danese | Olandese | Estone | Finlandese | Greco | Hindi | Ungherese | Islandese | Indonesiano | Lettone | Lituano | Malese | Norvegese | Polacco | Romeno | Russo | Serbo | Slovacco | Sloveno | Svedese | Tamil | Thai | Turco | Ucraino | Vietnamita |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | [Riconoscimento vocale personalizzato](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/customspeech-how-to-topics/cognitive-services-custom-speech-change-locale) | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: |
 | [Servizio di riconoscimento vocale: conversione della voce in testo scritto](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-to-text) | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
@@ -63,7 +63,7 @@ Queste tabelle sottolineano la disponibilità della lingua in base alla categori
 
 ### <a name="language"></a>Linguaggio
 
-| | Arabo | Bulgaro | Catalano | Croato | Ceco | Danese | Olandese | Estone | Finlandese | Greco | Hindi | Ungherese | Islandese | Indonesiano | Lettone | Lituano | Malese | Norvegese | Polacco | Rumeno | Russo | Serbo | Slovacco | Sloveno | Svedese | Tamil | Thai | Turco | Ucraino | Vietnamita |
+| | Arabo (Arabia Saudita) | Bulgaro | Catalano | Croato | Ceco | Danese | Olandese | Estone | Finlandese | Greco | Hindi | Ungherese | Islandese | Indonesiano | Lettone | Lituano | Malese | Norvegese | Polacco | Romeno | Russo | Serbo | Slovacco | Sloveno | Svedese | Tamil | Thai | Turco | Ucraino | Vietnamita |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | [Controllo ortografico Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: |
 | [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages) | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: |
@@ -73,7 +73,7 @@ Queste tabelle sottolineano la disponibilità della lingua in base alla categori
 
 ### <a name="search"></a>Cerca
 
-| | Arabo | Bulgaro | Catalano | Croato | Ceco | Danese | Olandese | Estone | Finlandese | Greco | Hindi | Ungherese | Islandese | Indonesiano | Lettone | Lituano | Malese | Norvegese | Polacco | Rumeno | Russo | Serbo | Slovacco | Sloveno | Svedese | Tamil | Thai | Turco | Ucraino | Vietnamita |
+| | Arabo (Arabia Saudita) | Bulgaro | Catalano | Croato | Ceco | Danese | Olandese | Estone | Finlandese | Greco | Hindi | Ungherese | Islandese | Indonesiano | Lettone | Lituano | Malese | Norvegese | Polacco | Romeno | Russo | Serbo | Slovacco | Sloveno | Svedese | Tamil | Thai | Turco | Ucraino | Vietnamita |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | [Ricerca Web Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/supported-countries-markets) | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: |
 | [Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets) | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: |
@@ -84,7 +84,7 @@ Queste tabelle sottolineano la disponibilità della lingua in base alla categori
 
 ### <a name="decision"></a>Decisione
 
-| | Arabo | Bulgaro | Catalano | Croato | Ceco | Danese | Olandese | Estone | Finlandese | Greco | Hindi | Ungherese | Islandese | Indonesiano | Lettone | Lituano | Malese | Norvegese | Polacco | Rumeno | Russo | Serbo | Slovacco | Sloveno | Svedese | Tamil | Thai | Turco | Ucraino | Vietnamita |
+| | Arabo (Arabia Saudita) | Bulgaro | Catalano | Croato | Ceco | Danese | Olandese | Estone | Finlandese | Greco | Hindi | Ungherese | Islandese | Indonesiano | Lettone | Lituano | Malese | Norvegese | Polacco | Romeno | Russo | Serbo | Slovacco | Sloveno | Svedese | Tamil | Thai | Turco | Ucraino | Vietnamita |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | [Content Moderator: filtri di testo](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 

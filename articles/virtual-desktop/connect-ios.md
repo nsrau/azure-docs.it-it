@@ -1,20 +1,20 @@
 ---
 title: Connettersi a desktop virtuale Windows da iOS-Azure
-description: Come connettersi al desktop virtuale di Windows da iOS.
+description: Come connettersi al desktop virtuale di Windows tramite il client iOS.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: 3e77a77dfa2de003722419f861e957d4cb011b71
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 764ed4fefd1a3aba1f0b7812fa2965505aa34161
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310321"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338696"
 ---
-# <a name="connect-from-ios"></a>Connetti da iOS
+# <a name="connect-with-the-ios-client"></a>Connettersi con il client iOS
 
 > Si applica a: iOS 8,0 o versione successiva. Compatibile con iPhone, iPad e iPod touch.
 
@@ -52,6 +52,6 @@ Al termine di questa operazione, il Centro connessioni visualizzerà le risorse 
 
 Una volta effettuata la sottoscrizione a un feed, il contenuto del feed verrà aggiornato automaticamente regolarmente. Le risorse possono essere aggiunte, modificate o rimosse in base alle modifiche apportate dall'amministratore.
 
-## <a name="client-documentation"></a>Documentazione client
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su come usare il client iOS Beta, vedere la documentazione [introduttiva per il client iOS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) .

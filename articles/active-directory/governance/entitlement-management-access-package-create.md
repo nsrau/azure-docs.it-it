@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f033cf57c5a285e94372728677c91e021065fa9
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 1283549ce78535757b7ba42eaf7054538f0c9784
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678208"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326349"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti (anteprima)
 
@@ -79,7 +79,7 @@ Nella scheda **nozioni di base** assegnare un nome al pacchetto di accesso e spe
 
 Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto di accesso.  Gli utenti che richiedono e ricevono il pacchetto di accesso riceveranno tutti i ruoli delle risorse nel pacchetto di accesso.
 
-1. Fare clic sul tipo di risorsa che si desidera aggiungere (**gruppi**, **applicazioni**o **siti di SharePoint**).
+1. Fare clic sul tipo di risorsa che si desidera aggiungere (**gruppi e team**, **applicazioni**o **siti di SharePoint**).
 
 1. Nel riquadro Seleziona visualizzato selezionare una o più risorse dall'elenco.
 

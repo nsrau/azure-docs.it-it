@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c357cba8ce2fbe2ad902d5c215f8adbfc99a9f0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 63176c325fd42c46e988ab3798f46089a43e70bf
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813021"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326778"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -97,7 +97,8 @@ Questa sezione contiene gli aspetti di pianificazione seguenti:
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-* Una sottoscrizione di Azure AD Premium P1 o di livello superiore valida con accesso di amministratore globale
+* Una licenza di sottoscrizione valida Azure AD Premium P1 o superiore per ogni utente che verrà originata dalla giornata lavorativa e sottoposta a provisioning in Active Directory o Azure Active Directory locale.
+* Azure AD l'accesso amministratore globale per la configurazione dell'agente di provisioning
 * Un tenant per l'implementazione di Workday a scopo di test e integrazione
 * Autorizzazioni di amministratore in Workday per creare un utente di integrazione dei sistemi e apportare modifiche ai dati dei dipendenti di prova a scopo di test
 * Per il provisioning utenti in Active Directory, è necessario un server con Windows Server 2012 o versione successiva con il runtime .NET 4.7.1 o versione successiva per ospitare l'[agente di provisioning locale](https://go.microsoft.com/fwlink/?linkid=847801)
@@ -311,9 +312,9 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
    | ---------- | ---------- |
    | Get e put | Worker Data: Public Worker Reports (Dati ruolo di lavoro: report ruoli di lavoro pubblici) |
    | Get e put | Person Data: Work Contact Information (Dati ruolo personali: Informazioni contatto di lavoro) |
-   | Recupera | Worker Data: All Positions (Dati ruolo di lavoro: tutte le posizioni) |
-   | Recupera | Worker Data: Current Staffing Information (Dati ruolo di lavoro: informazioni correnti sul personale) |
-   | Recupera | Worker Data: Business Title on Worker Profile (Dati ruolo di lavoro: qualifica riportata sul profilo) |
+   | Get | Worker Data: All Positions (Dati ruolo di lavoro: tutte le posizioni) |
+   | Get | Worker Data: Current Staffing Information (Dati ruolo di lavoro: informazioni correnti sul personale) |
+   | Get | Worker Data: Business Title on Worker Profile (Dati ruolo di lavoro: qualifica riportata sul profilo) |
    | Get e put | Account giorni lavorativi |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Configurazione delle autorizzazioni dei criteri di sicurezza dei processi aziendali
@@ -439,7 +440,7 @@ Dopo aver distribuito .NET 4.7.1 o versioni successive, sarà possibile scaricar
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
-   * **Nome utente dell'amministratore**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. Dovrebbe avere un aspetto simile al seguente: **username\@tenant_name**
+   * **Nome utente dell'amministratore**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. Dovrebbe avere un aspetto simile al seguente: **username @ no__t-1tenant_name**
 
    * **Password dell'amministratore:** immettere la password dell'account del sistema di integrazione Workday
 
@@ -539,7 +540,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Sì** | Scritto solo al momento della creazione |
 | **PreferredNameData**    |  cn    |   |   Scritto solo al momento della creazione |
-| **SelectUniqueValue (join ("\@", join (".", \[FirstName\], \[LastName\]), "contoso.com"), join ("\@", join (".", Mid (\[FirstName\], 1, 1 \[), LastName\]), "contoso.com"), join ("\@", join (".", Mid \[(\[FirstName\], 1,2), LastName\]), "contoso.com"))**   | userPrincipalName     |     | Scritto solo al momento della creazione 
+| **SelectUniqueValue (join ("\@", join (".", \[FirstName @ no__t-3, \[LastName @ no__t-5), "contoso.com"), join ("\@", join (".", Mid (\[FirstName @ no__t-8,1, 1), \[LastName @ no__t-10), "contoso.com"), join ("@no__ t-11 ", join (". ", Mid (2FirstName @ no__t-13, 1,2), 4LastName @ no__t-15)," contoso.com "))**   | userPrincipalName     |     | Scritto solo al momento della creazione 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Scritto solo al momento della creazione |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Creazione e aggiornamento |
 | **FirstName**   | givenName       |     |    Creazione e aggiornamento |
@@ -692,7 +693,7 @@ Seguire queste istruzioni per configurare il writeback degli indirizzi di posta 
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
-   * **Nome utente amministratore**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. Dovrebbe avere un aspetto simile al seguente: *username\@contoso4*
+   * **Nome utente amministratore**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. Dovrebbe avere un aspetto simile al seguente: *username @ no__t-1contoso4*
 
    * **Password dell'amministratore:** immettere la password dell'account del sistema di integrazione Workday
 
@@ -725,7 +726,7 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Save**.
+2. Fare clic su **Salva**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti nel tenant di Workday. 
 
@@ -926,7 +927,7 @@ La soluzione supporta gli attributi personalizzati di Workday e Active Directory
 
 Per aggiungere gli attributi di Workday personalizzati, selezionare l'opzione *Edit attribute list for Workday* (Modifica elenco attributi per Workday); per aggiungere attributi AD personalizzati, selezionare l'opzione *Edit attribute list for On Premises Active Directory* (Modifica elenco attributi per Active Directory locale).
 
-Vedere anche la pagina relativa alla
+Vedere anche:
 
 * [Personalizzazione dell'elenco di attributi utente di Workday](#customizing-the-list-of-workday-user-attributes)
 
@@ -1010,7 +1011,7 @@ Di seguito viene illustrato come è possibile gestire tali requisiti per la cost
            "Phoenix", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(PHX)")
     )
      ```
-    Vedere anche la pagina relativa alla
+    Vedere anche:
   * [Sintassi della funzione Switch](../manage-apps/functions-for-customizing-application-data.md#switch)
   * [Sintassi della funzione Join](../manage-apps/functions-for-customizing-application-data.md#join)
   * [Sintassi della funzione Append](../manage-apps/functions-for-customizing-application-data.md#append)
@@ -1029,7 +1030,7 @@ SelectUniqueValue(
 
 Come funziona l'espressione sopra indicata: Se l'utente John Smith tenta di generare JSmith ma JSmith esiste già, l'espressione genera JoSmith, e se presente anche questa, viene generato JohSmith. L'espressione assicura anche che il valore generato soddisfi il limite di lunghezza e le limitazioni di caratteri speciali associati a *samAccountName*.
 
-Vedere anche la pagina relativa alla
+Vedere anche:
 
 * [Sintassi della funzione Mid](../manage-apps/functions-for-customizing-application-data.md#mid)
 * [Sintassi della funzione Replace](../manage-apps/functions-for-customizing-application-data.md#replace)
@@ -1079,7 +1080,7 @@ Questa sezione contiene gli aspetti della risoluzione problemi seguenti:
 
 Quando viene rilevata una nuova assunzione in Workday (si supponga con ID dipendente *21023*), il servizio di provisioning di Azure AD tenta di creare un nuovo account utente di AD per il ruolo di lavoro e crea nel processo 4 record di log di controllo come descritto di seguito:
 
-  [![Log di controllo Creazione operazioni](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [operazioni di creazione log @no__t 1Audit](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 Quando si fa clic su uno dei record relativi a log di controllo, verrà visualizzata la pagina **Activity Details** (Dettagli attività). Ecco ciò che mostra la pagina **Activity Details** (Dettagli attività) per ogni tipo di record di log.
 
@@ -1147,7 +1148,7 @@ Quando si fa clic su uno dei record relativi a log di controllo, verrà visualiz
 
 L'attributo manager è un attributo di riferimento in AD. Il servizio di provisioning non imposta l'attributo manager durante l'operazione di creazione dell'utente. Piuttosto l'attributo manager viene impostato come parte di un'operazione di *aggiornamento* dopo la creazione di account di AD per l'utente. Estendendo l'esempio precedente, si supponga che una nuova assunzione con ID dipendente "21451" venga attivata in Workday e che il manager del nuovo assunto (*21023*) abbia già un account AD. In questo scenario, la ricerca del log di controllo per l'utente 21451 mostra 5 voci.
 
-  [![Aggiornamento gestione](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [Aggiornamento di @no__t 1Manager](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 I primi 4 record sono come quelli descritti come parte della creazione dell'utente. Il 5° record è l'esportazione associata aggiornamento dell'attributo manager. Il record del log mostra il risultato dell'operazione di aggiornamento manager dell'account AD, che viene eseguita usando l'attributo manager *objectGuid*.
 
@@ -1241,11 +1242,11 @@ A tale scopo, è necessario usare [Workday Studio](https://community.workday.com
 
 7. Impostare **Operation** (Operazione) su **Get_Workers**
 
-8.  Fare clic sul piccolo collegamento **configure** (configura) sotto i riquadri relativi a richiesta e risposta per impostare le credenziali di Workday. Selezionare **Authentication** (Autenticazione) e quindi immettere nome utente e password per l'account di sistema di integrazione di Workday. Assicurarsi di formattare il nome utente come tenant nome\@e lasciare selezionata l'opzione **WS-Security UsernameToken** .
+8.  Fare clic sul piccolo collegamento **configure** (configura) sotto i riquadri relativi a richiesta e risposta per impostare le credenziali di Workday. Selezionare **Authentication** (Autenticazione) e quindi immettere nome utente e password per l'account di sistema di integrazione di Workday. Assicurarsi di formattare il nome utente come nome @ no__t-0tenant e lasciare selezionata l'opzione **WS-Security UsernameToken** .
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
-9. Selezionare **OK**.
+9. Scegliere **OK**.
 
 10. Nel riquadro **Request** (Richiesta) incollare il codice XML sottostante e impostare **Employee_ID** sull'ID del dipendente di un utente reale nel tenant di Workday. Selezionare un utente per il quale l'attributo da estrarre sia popolato.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 45fb2daaeaf9ee788207d43d805e070320372ca0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 19a618bd576687fcb0d92f8e35613e4cdc749e70
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617165"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320450"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 
@@ -30,13 +30,13 @@ Per completare questo articolo, sono necessari i privilegi e le risorse seguenti
 
 * Una sottoscrizione di Azure attiva.
   * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un tenant Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o solo cloud.
+* Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
   * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
-* Un Azure Active Directory Domain Services dominio gestito abilitato e configurato nel tenant del Azure AD.
+* Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
   * Se necessario, completare l'esercitazione per [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una macchina virtuale di gestione di Windows Server aggiunta al dominio gestito di Azure AD DS.
   * Se necessario, completare l'esercitazione per [creare una macchina virtuale di gestione][tutorial-create-management-vm].
-* Un account utente membro del gruppo *amministratori Azure ad controller* di dominio nel tenant del Azure ad.
+* Un account utente membro del gruppo di *amministratori dei controller di dominio di Azure AD* nel tenant di Azure AD.
 
 ## <a name="fine-grained-password-policies-fgpp-overview"></a>Panoramica di criteri specifici per le password (FGPP)
 
@@ -90,6 +90,9 @@ Per creare un criterio granulare per le password, usare gli strumenti di amminis
 1. Dalla schermata Start selezionare strumenti di **Amministrazione**. Viene visualizzato un elenco di strumenti di gestione disponibili che sono stati installati nell'esercitazione per [creare una macchina virtuale di gestione][tutorial-create-management-vm].
 1. Per creare e gestire le unità organizzative, selezionare **centro di amministrazione di Active Directory** dall'elenco di strumenti di amministrazione.
 1. Nel riquadro sinistro scegliere il dominio gestito di Azure AD DS, ad esempio *contoso.com*.
+1. Aprire il contenitore di **sistema** , quindi il contenitore **Impostazioni password** .
+
+    Viene visualizzato un FGPP incorporato per il dominio gestito Azure AD DS. che non è possibile modificare. In alternativa, creare un nuovo FGPP personalizzato per eseguire l'override del valore predefinito di FGPP.
 1. Nel pannello **attività** a destra selezionare **nuovo > Impostazioni password**.
 1. Nella finestra di dialogo **Crea impostazioni password** immettere un nome per il criterio, ad esempio *MyCustomFGPP*. Impostare la precedenza su in modo appropriato per sostituire il valore predefinito di FGPP ( *200*), ad esempio *1*.
 
@@ -102,7 +105,7 @@ Per creare un criterio granulare per le password, usare gli strumenti di amminis
 
     ![Selezionare gli utenti e i gruppi ai quali applicare i criteri password](./media/how-to/fgpp-applies-to.png)
 
-1. I criteri granulari per le password possono essere applicati solo ai gruppi. Nella finestra di dialogo locations ( **percorsi** ) espandere il nome di dominio, ad esempio *contoso.com*, quindi selezionare un'unità organizzativa, ad esempio **aaddc computers users**. Se si dispone di un'unità organizzativa personalizzata che contiene un gruppo di utenti che si desidera applicare, selezionare tale unità organizzativa.
+1. I criteri granulari per le password possono essere applicati solo ai gruppi. Nella finestra di dialogo **locations (percorsi** ) espandere il nome di dominio, ad esempio *contoso.com*, quindi selezionare un'unità organizzativa, ad esempio **aaddc computers users**. Se si dispone di un'unità organizzativa personalizzata che contiene un gruppo di utenti che si desidera applicare, selezionare tale unità organizzativa.
 
     ![Selezionare l'unità organizzativa a cui appartiene il gruppo](./media/how-to/fgpp-container.png)
 

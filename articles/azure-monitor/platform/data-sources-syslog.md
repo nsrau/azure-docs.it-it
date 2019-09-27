@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc3aa502dccdd4eb4e8bd1a82456656e5d389160
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240822"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327427"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Origini dati Syslog in Monitoraggio di Azure
 Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog. Quando è installato, l'agente di Log Analytics per Linux configura il daemon Syslog locale per inoltrare i messaggi all'agente. Quest'ultimo invia quindi il messaggio a Monitoraggio di Azure, dove viene creato un record corrispondente.  
@@ -30,10 +30,10 @@ Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. L
 
 ![Raccolta Syslog](media/data-sources-syslog/overview.png)
 
-Le funzionalità seguenti sono supportate con l'agente di raccolta di Syslog:
+Con l'agente di raccolta syslog sono supportate le seguenti funzionalità:
 
 * Kern
-* user
+* Utente
 * mail
 * daemon
 * auth
@@ -44,9 +44,9 @@ Le funzionalità seguenti sono supportate con l'agente di raccolta di Syslog:
 * cron
 * authpriv
 * ftp
-* local0-local7
+* local0-LOCAL7
 
-Per qualsiasi altra struttura [configura un'origine dati di log personalizzati](data-sources-custom-logs.md) in Monitoraggio di Azure.
+Per qualsiasi altra struttura, [configurare un'origine dati dei log personalizzati](data-sources-custom-logs.md) in monitoraggio di Azure.
  
 ## <a name="configuring-syslog"></a>Configurazione di Syslog
 L'agente di Log Analytics per Linux raccoglie solo gli eventi con le funzionalità e i livelli di gravità specificati nella configurazione. È possibile configurare Syslog tramite il portale di Azure o mediante la gestione dei file di configurazione negli agenti Linux.
@@ -58,7 +58,7 @@ Configurare Syslog usando il [menu Dati in Impostazioni avanzate](agent-data-sou
 
 ![Configurare Syslog](media/data-sources-syslog/configure.png)
 
-Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti. Per configurare Syslog manualmente su ogni agente Linux, deselezionare la casella *Apply below configuration to my Linux machines*(Applica la configurazione seguente ai computer Linux in uso).
+Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti. Se si vuole configurare syslog manualmente in ogni agente Linux, deselezionare la casella *applica la configurazione seguente alle macchine virtuali*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurare Syslog sull'agente Linux
 Durante l'[installazione dell'agente di Log Analytics in un client Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), viene installato un file di configurazione syslog predefinito che definisce la funzionalità e il livello di gravità dei messaggi raccolti. È possibile modificare questo file per cambiare la configurazione. Il file di configurazione è diverso a seconda del daemon Syslog installato nel client.
@@ -201,7 +201,7 @@ Dopo aver completato le modifiche, riavviare Syslog e il servizio agente di Log 
 ## <a name="syslog-record-properties"></a>Proprietà dei record Syslog
 I record Syslog sono di tipo **Syslog** e hanno le proprietà descritte nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | Computer |Computer da cui è stato raccolto l'evento. |
 | Facility |Parte del sistema che ha generato il messaggio. |
@@ -217,7 +217,7 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 
 | Query | Descrizione |
 |:--- |:--- |
-| syslog |Tutti i record Syslog. |
+| Syslog |Tutti i record Syslog. |
 | Syslog &#124; where SeverityLevel == "error" |Tutti i record Syslog con livello di gravità errore. |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |Numero di record Syslog per computer. |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Numero di record Syslog per funzionalità. |

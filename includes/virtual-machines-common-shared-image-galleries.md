@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 529a8b6136a5d9c69b044df2614644bdbd4fd4f4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d86976ad191ffffa343ad7a94b8171759ad102c3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012164"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338346"
 ---
 Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini gestite. Le raccolte di immagini condivise forniscono:
 
@@ -31,7 +31,7 @@ Se si dispone di un numero elevato di immagini gestite che è necessario gestire
 
 La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
-| Risorsa | Descrizione|
+| Resource | Descrizione|
 |----------|------------|
 | **Immagine gestita** | Un'immagine di base che può essere usata da sola o usata per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da macchine virtuali generalizzate. Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
@@ -50,7 +50,7 @@ Le definizioni di immagine sono un raggruppamento logico per le versioni di un'i
 
 Esistono tre parametri per ogni definizione di immagine usati in combinazione- **autore**, **offerta** e **SKU**. Questi vengono usati per trovare una definizione di immagine specifica. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
 
-|Definizione delle immagini|Pubblicato da|Offerta|Sku|
+|Definizione delle immagini|Autore|Offerta|SKU|
 |---|---|---|---|
 |myImage1|Contoso|Finanza|Back-end|
 |myImage2|Contoso|Finanza|Front-end|
@@ -78,15 +78,15 @@ Le aree di origine sono elencate nella tabella seguente. Tutte le aree pubbliche
 
 | Aree di origine |
 |---------------------|-----------------|------------------|-----------------|
-| Australia centrale   | Stati Uniti centrali EUAP | Corea del Sud centrale    | Stati Uniti centro-occidentali |
-| Australia centrale 2 | Asia orientale       | Corea del Sud meridionale      | Europa occidentale     |
+| Australia centrale   | Stati Uniti centrali EUAP | Corea centrale    | Stati Uniti centro-occidentali |
+| Australia centrale 2 | Asia orientale       | Corea meridionale      | Europa occidentale     |
 | Australia orientale      | East US         | Stati Uniti centro-settentrionali | India occidentale      |
 | Australia sud-orientale | Stati Uniti orientali 2       | Europa settentrionale     | Stati Uniti occidentali         |
 | Brasile meridionale        | Stati Uniti orientali 2 EUAP  | Stati Uniti centro-meridionali | Stati Uniti occidentali 2       |
-| Canada centrale      | Francia centrale  | India meridionale      |                 |
-| Canada orientale         | Francia meridionale    | Asia sud-orientale   |                 |
-| India centrale       | Giappone orientale      | Regno Unito meridionale         |                 |
-| Stati Uniti centrali          | Giappone occidentale      | Regno Unito occidentale          |                 |
+| Canada centrale      | Francia centrale  | India meridionale      | Cina orientale      |
+| Canada orientale         | Francia meridionale    | Asia sud-orientale   | Cina orientale 2    |
+| India centrale       | Giappone orientale      | Regno Unito meridionale         | Cina settentrionale     |
+| Stati Uniti centrali          | Giappone occidentale      | Regno Unito occidentale          | Cina settentrionale 2   |
 
 
 
@@ -106,8 +106,8 @@ Raccolta di immagini condivise consente di specificare il numero di repliche del
 
 Con la raccolta di immagini condivise, è ora possibile distribuire fino a una macchina virtuale di 1.000 istanze in un set di scalabilità di macchine virtuali (fino a 600 con le immagini gestite). Le repliche di immagini offrono prestazioni, affidabilità e coerenza migliori per la distribuzione.  È possibile impostare un numero di repliche diverso in ogni area di destinazione, in base alle esigenze di scalabilità per l'area. Poiché ogni replica è una copia completa dell'immagine, questo consente di ridimensionare le distribuzioni in modo lineare con ogni replica aggiuntiva. Sebbene non siano state riconoscite due immagini o aree, di seguito sono riportate le linee guida generali su come usare le repliche in un'area:
 
-- Ogni 20 macchine virtuali create simultaneamente, si consiglia di conservarne una. Se, ad esempio, si creano VM 120 contemporaneamente usando la stessa immagine in un'area, si consiglia di tenere almeno sei repliche dell'immagine. 
-- Per ogni distribuzione di set di scalabilità con un massimo di 600 istanze, è consigliabile conservarne almeno una. Se, ad esempio, si creano 5 set di scalabilità simultaneamente, ognuno con 600 istanze di VM che usano la stessa immagine in un'unica area, si consiglia di tenere almeno 5 repliche dell'immagine. 
+- Per le distribuzioni di set di scalabilità di macchine virtuali (VMSS) non virtuali, per ogni 20 VM create simultaneamente, è consigliabile usare una replica. Se, ad esempio, si creano VM 120 contemporaneamente usando la stessa immagine in un'area, si consiglia di tenere almeno sei repliche dell'immagine. 
+- Per le distribuzioni del set di scalabilità di macchine virtuali (VMSS): per ogni distribuzione del set di scalabilità con un massimo di 600 istanze, è consigliabile contenere almeno una replica. Se, ad esempio, si creano 5 set di scalabilità simultaneamente, ognuno con 600 istanze di VM che usano la stessa immagine in un'unica area, si consiglia di tenere almeno 5 repliche dell'immagine. 
 
 Si consiglia sempre di eseguire l'overprovisioning del numero di repliche a causa di fattori quali le dimensioni dell'immagine, il contenuto e il tipo di sistema operativo.
 
@@ -137,10 +137,10 @@ Le aree in cui la versione di immagini condivise viene replicata possono essere 
 
 Poiché la raccolta di immagini condivise, la definizione di immagine e la versione dell'immagine sono tutte risorse, possono essere condivise usando i controlli RBAC nativi di Azure predefiniti. Utilizzando il controllo degli accessi in base al ruolo è possibile condividere queste risorse con altri utenti, entità servizio e gruppi. È anche possibile condividere l'accesso a utenti esterni al tenant in cui sono stati creati. Una volta che un utente ha accesso alla versione dell'immagine condivisa, può distribuire una VM o un set di scalabilità di macchine virtuali.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
 
-| Condivisi con l'utente     | Raccolta immagini condivisa | Definizione delle immagini | Versione grafica |
+| Condivisi con l'utente     | Raccolta immagini condivise | Definizione delle immagini | Versione grafica |
 |----------------------|----------------------|--------------|----------------------|
-| Raccolta immagini condivisa | Sì                  | Sì          | Yes                  |
-| Definizione delle immagini     | No                   | Yes          | Sì                  |
+| Raccolta immagini condivise | Yes                  | Yes          | Yes                  |
+| Definizione delle immagini     | No                   | Yes          | Yes                  |
 
 Per un'esperienza ottimale, è consigliabile condividere a livello di raccolta. Non è consigliabile condividere le singole versioni dell'immagine. Per altre informazioni su RBAC, vedere [gestire l'accesso alle risorse di Azure con RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -156,12 +156,12 @@ Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagin
 Una volta creato, è possibile apportare alcune modifiche alle risorse della raccolta immagini. Sono limitati a:
  
 Raccolta di immagini condivise:
-- DESCRIZIONE
+- Descrizione
 
 Definizione delle immagini:
 - VCPU consigliati
 - Memoria consigliata
-- DESCRIZIONE
+- Descrizione
 - Data di scadenza
 
 Versione immagine:

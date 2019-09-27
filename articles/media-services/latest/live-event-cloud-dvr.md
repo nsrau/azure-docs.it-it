@@ -1,5 +1,5 @@
 ---
-title: Evento live di Servizi multimediali di Azure e DVR cloud | Microsoft Docs
+title: Uso di servizi multimediali di Azure, spostamento in tempo reale e Live-to-VOD (video on demand) | Microsoft Docs
 description: Questo articolo spiega cos'è un output live e come usare un DVR cloud.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: juliako
-ms.openlocfilehash: a10c76dd7fb4ef1e9a45666ff3a3ca0d937d2c94
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ffcd279830cb49b64ddbb58a888ad7d653918b1b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231218"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338848"
 ---
-# <a name="using-a-cloud-digital-video-recorder-dvr"></a>Uso di un registratore video digitale (DVR) cloud
+# <a name="using-time-shifting-and-live-to-vod-video-on-demand"></a>Uso della funzionalità di spostamento temporale e della versione Live-to-VOD (video on demand)
 
 In servizi multimediali di Azure un oggetto di [output attivo](https://docs.microsoft.com/rest/api/media/liveoutputs) è come un registratore video digitale che rileverà e registrerà il flusso Live in un asset nell'account di servizi multimediali. Il contenuto registrato viene reso permanente nel contenitore definito dalla risorsa [Asset](https://docs.microsoft.com/rest/api/media/assets) (il contenitore si trova nell'account di archiviazione di Azure collegato all'account). L'output in tempo reale consente anche di controllare alcune proprietà del flusso Live in uscita, ad esempio la quantità di flusso che viene mantenuta nella registrazione dell'archivio (ad esempio, la capacità del DVR del cloud) e se i visualizzatori possono iniziare a guardare il flusso live. L'archivio su disco è una finestra di archivio circolare che include solo la quantità di contenuto specificato nella proprietà **archiveWindowLength** dell'output Live. Il contenuto che rientra in questa finestra viene automaticamente rimosso dal contenitore di archiviazione e non è recuperabile. Il valore archiveWindowLength rappresenta una durata dell'intervallo di tempo ISO-8601 (ad esempio, PTHH: MM: SS), che specifica la capacità del DVR, e può essere impostata da un minimo di 3 minuti a un massimo di 25 ore.
 

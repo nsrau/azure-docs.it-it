@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.openlocfilehash: e83e84cc8627be468ce0074b35549d5ea7def4f5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d0c93d941047413c5056b3718f57b360357affbd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640524"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327146"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
 
@@ -56,18 +56,18 @@ Ricerca di Azure non archivia dati, oltre agli oggetti gestiti, e questo signifi
 
 La tabella seguente confronta le opzioni per l'archiviazione dei log e l'aggiunta di funzionalità di monitoraggio approfondite per le operazioni del servizio e i carichi di lavoro di query tramite Application Insights.
 
-| Risorsa | Utilizzato per |
+| Resource | Usato per |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Eventi registrati e metriche di query, in base agli schemi seguenti, correlati a eventi utente nell'app. Questa è l'unica soluzione che tiene conto delle azioni o dei segnali degli utenti, con mapping degli eventi dalla ricerca avviata dall'utente, invece di filtrare le richieste inviate dal codice dell'applicazione. Per usare questo approccio, copiare e incollare il codice di strumentazione nei file di origine per indirizzare le informazioni sulle richieste ad Application Insights. Per altre informazioni, vedere [Analisi del traffico di ricerca](search-traffic-analytics.md). |
 | [Log di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventi registrati e metriche di query in base agli schemi seguenti. Gli eventi vengono registrati in un'area di lavoro Log Analytics. È possibile eseguire query su un'area di lavoro per restituire informazioni dettagliate dal log. Per altre informazioni, vedere [Introduzione ai log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventi registrati e metriche di query in base agli schemi seguenti. Gli eventi vengono registrati in un contenitore BLOB e archiviati in file JSON. Usare un editor JSON per visualizzare il contenuto dei file.|
 | [Hub eventi](https://docs.microsoft.com/azure/event-hubs/) | Eventi registrati e metriche di query, basati sugli schemi documentati in questo articolo. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
 
-I log di monitoraggio di Azure e l'archiviazione BLOB sono disponibili come servizio condiviso gratuito, in modo che sia possibile provarli senza costi aggiuntivi per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate).
+I log di monitoraggio di Azure e l'archiviazione BLOB sono disponibili come servizio gratuito, in modo che sia possibile provarli senza costi aggiuntivi per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate).
 
 La sezione successiva illustra la procedura per l'abilitazione e l'uso dell'archiviazione BLOB di Azure per raccogliere i dati di log creati dalle operazioni di Ricerca di Azure e accedervi.
 
-## <a name="enable-logging"></a>Abilitare la registrazione
+## <a name="enable-logging"></a>Abilita registrazione
 
 La registrazione per i carichi di lavoro di indicizzazione e query è disattivata per impostazione predefinita e dipende da soluzioni aggiuntive sia per l'infrastruttura di registrazione che per l'archiviazione esterna a lungo termine. Gli unici dati salvati in modo permanente in Ricerca di Azure sono gli oggetti creati e gestiti dal servizio, quindi i log devono essere archiviati altrove.
 
@@ -96,7 +96,7 @@ La registrazione viene abilitata dopo il salvataggio del profilo. I contenitori 
 * insights-logs-operationlogs: per i log relativi al traffico ricerca
 * insights-metrics-pt1m: per le metriche
 
-**Richiede un'ora prima che i contenitori vengano visualizzati nell'archivio BLOB. È presente un BLOB, all'ora, per ogni contenitore.**
+**It richiede un'ora prima che i contenitori vengano visualizzati nell'archivio BLOB. È presente un BLOB, all'ora, per ogni contenitore.**
 
 È possibile usare [Visual Studio Code](#download-and-open-in-visual-studio-code) o un altro editor JSON per visualizzare i file. 
 
@@ -109,7 +109,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>Schema del log
 I BLOB che contengono i log del traffico del servizio di ricerca sono strutturati come descritto in questa sezione. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log. Ogni BLOB contiene record su tutte le operazioni eseguite nell'arco della stessa ora.
 
-| NOME | Type | Esempio | Note |
+| Attività | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
@@ -119,11 +119,11 @@ I BLOB che contengono i log del traffico del servizio di ricerca sono strutturat
 | resultType |string |"Esito positivo" |Valori possibili: Esito positivo o negativo |
 | resultSignature |int |200 |Codice risultato HTTP |
 | durationMS |int |50 |Durata dell'operazione in millisecondi |
-| properties |object |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
+| proprietà |object |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
 
 **Schema delle proprietà**
 
-| Name | Type | Esempio | Note |
+| Attività | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | Descrizione |string |"GET /indexes('content')/docs" |Endpoint dell'operazione |
 | Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Parametri della query |
@@ -134,16 +134,16 @@ I BLOB che contengono i log del traffico del servizio di ricerca sono strutturat
 
 Vengono acquisite metriche per le richieste di query.
 
-| NOME | Type | Esempio | Note |
+| Attività | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa in uso |
 | metricName |string |"Latenza" |Nome della metrica |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
 | media |int |64 |Valore medio degli esempi non elaborati nell'intervallo di tempo della metrica |
-| minimum |int |37 |Valore minimo degli esempi non elaborati nell'intervallo di tempo della metrica |
-| maximum |int |78 |Valore massimo degli esempi non elaborati nell'intervallo di tempo della metrica |
+| minimo |int |37 |Valore minimo degli esempi non elaborati nell'intervallo di tempo della metrica |
+| massimo |int |78 |Valore massimo degli esempi non elaborati nell'intervallo di tempo della metrica |
 | totale |int |258 |Valore totale degli esempi non elaborati nell'intervallo di tempo della metrica |
-| Conteggio |int |4 |Numero degli esempi non elaborati usati per generare la metrica |
+| numero |int |4 |Numero degli esempi non elaborati usati per generare la metrica |
 | timegrain |string |"PT1M" |Intervallo di tempo della metrica nel formato ISO 8601 |
 
 Tutte le metriche vengono segnalate in intervalli di un minuto. Ogni metrica espone i valori minimi, massimi e medi al minuto.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 772f6cdde575a9ac669c73ecca039914357ffe2f
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019539"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338889"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gestire i costi e l'utilizzo di AWS in Azure
 
@@ -83,7 +83,7 @@ Nella tabella seguente vengono descritte le dimensioni disponibili per il raggru
 | Categoria del contatore | lineItem/ProductCode | Tutti |   |
 | Sottocategoria di contatore | lineitem/UsageType | Tutti |   |
 | Operazione | lineItem/operazione | Tutti |   |
-| Risorsa | lineItem/ResourceId | Tutti |   |
+| Resource | lineItem/ResourceId | Tutti |   |
 | Tipo di risorsa | prodotto/instanceType | Tutti | Se Product/instanceType è null, viene utilizzato lineItem/UsageType. |
 | ResourceGuid | N/D | Tutti | GUID del contatore di Azure. |
 | Nome servizio | prodotto/ProductName | Tutti | Se Product/ProductName è null, viene usato lineItem/ProductCode. |
@@ -183,4 +183,4 @@ Questo errore si riferisce alla definizione del report sul costo e sull'utilizzo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se l'ambiente Azure non è già stato configurato con i gruppi di gestione, vedere [configurazione iniziale dei gruppi di gestione](../governance/management-groups/index.md#initial-setup-of-management-groups).
+- Se l'ambiente Azure non è già stato configurato con i gruppi di gestione, vedere [configurazione iniziale dei gruppi di gestione](../governance/management-groups/overview.md#initial-setup-of-management-groups).

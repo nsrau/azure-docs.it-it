@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501265"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338827"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Domande frequenti su servizi multimediali V3
 
@@ -65,6 +65,14 @@ La codifica live di Servizi multimediali v3 non supporta ancora l'inserimento di
 I clienti spesso si chiedono se devono usare la crittografia AES o un sistema DRM. La differenza principale tra i due sistemi è che con la crittografia AES la chiave simmetrica viene trasmessa al client su TLS, in modo che la chiave sia crittografata in transito, ma senza alcuna crittografia aggiuntiva ("in chiaro"). Di conseguenza, la chiave usata per decrittografare il contenuto è accessibile al lettore client e può essere visualizzata in una traccia di rete sul client in testo normale. Una crittografia con chiave non crittografata AES-128 è adatta per i casi d'uso in cui il visualizzatore è attendibile (ad esempio, la crittografia dei video aziendali distribuiti all'interno di una società per la visualizzazione da parte dei dipendenti).
 
 I sistemi DRM come PlayReady, Widevine e FairPlay forniscono tutti un livello aggiuntivo di crittografia sulla chiave usata per decrittografare il contenuto rispetto a una chiave non crittografata AES-128. La chiave simmetrica viene crittografata in una chiave protetta dal runtime di DRM in aggiunta a qualsiasi crittografia a livello di trasporto fornita da TLS. Inoltre, la decrittografia viene gestita in un ambiente sicuro a livello di sistema operativo, più difficilmente attaccabile da un utente malintenzionato. Il DRM è consigliato per i casi d'uso in cui il visualizzatore potrebbe non essere attendibile ed è necessario il massimo livello di sicurezza.
+
+### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>Come mostrare un video solo agli utenti che dispongono di un'autorizzazione specifica, senza usare Azure AD?
+
+Non è necessario usare un provider di token specifico, ad esempio Azure AD. È possibile creare un provider [JWT](https://jwt.io/) personalizzato, denominato STS, servizio token di sicurezza, usando la crittografia a chiave asimmetrica. Nel servizio token di protezione personalizzato è possibile aggiungere attestazioni in base alla logica di business.
+
+Verificare che l'autorità emittente, il gruppo di destinatari e le attestazioni corrispondano esattamente a quelli presenti in JWT e ContentKeyPolicyRestriction usati in ContentKeyPolicy.
+
+Per altre informazioni, vedere [proteggere il contenuto usando la crittografia dinamica di servizi multimediali](content-protection-overview.md).
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Come e dove si ottiene il token JWT prima di usarlo per richiedere la licenza o la chiave?
 

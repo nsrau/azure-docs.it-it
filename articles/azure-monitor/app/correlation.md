@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: bb28171ceca9861fb5cc0b7be1db9ab58ef72a1b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fe52fe51b347b232e03bad943906413b90c853c0
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124114"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338179"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -62,30 +62,41 @@ Quando la chiamata `GET /api/stock/value` viene effettuata a un servizio esterno
 
 ## <a name="correlation-headers"></a>Intestazioni di correlazione
 
-Microsoft sta lavorando a una proposta RFC per il [protocollo HTTP per la correlazione](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Questa proposta definisce due intestazioni:
-
-- `Request-Id`: contiene l'ID globalmente univoco della chiamata.
-- `Correlation-Context`: contiene la raccolta di coppie nome-valore delle proprietà della traccia distribuita.
-
-Lo standard definisce anche due schemi per la generazione di `Request-Id`: semplice e gerarchico. Con lo schema semplice, una chiave di `Id` nota viene definita per la raccolta `Correlation-Context`.
-
-Application Insights definisce l'[estensione](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) per il protocollo HTTP per la correlazione. Usa le coppie nome-valore `Request-Context` per propagare la raccolta di proprietà usate dal chiamante o dal destinatario della chiamata. Application Insights SDK usa questa intestazione per impostare i campi `dependency.target` e `request.source`.
-
-### <a name="w3c-distributed-tracing"></a>Analisi distribuita W3C
-
-Microsoft sta eseguendo la transizione al [formato di analisi distribuita W3C](https://w3c.github.io/trace-context/), che definisce quanto segue:
+È in corso la transizione a [W3C Trace-context](https://w3c.github.io/trace-context/) che definisce:
 
 - `traceparent`: contiene l'ID operazione globalmente univoco e un identificatore univoco della chiamata.
 - `tracestate`: contiene il contesto specifico del sistema di analisi.
 
-#### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET classiche
+Le versioni più recenti di Application Insights SDK supportano il protocollo del contesto di traccia, ma potrebbe essere necessario acconsentire esplicitamente (la compatibilità con il protocollo di correlazione precedente supportata da ApplicationInsights SDK) verrà mantenuta.
 
+Il [protocollo http di correlazione aka Request-ID](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) si trova nel percorso di deprecazione. Questo protocollo definisce due intestazioni:
+
+- `Request-Id`: contiene l'ID globalmente univoco della chiamata.
+- `Correlation-Context`: contiene la raccolta di coppie nome-valore delle proprietà della traccia distribuita.
+
+Application Insights definisce anche l' [estensione](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) per il protocollo http di correlazione. Usa le coppie nome-valore `Request-Context` per propagare la raccolta di proprietà usate dal chiamante o dal destinatario della chiamata. Application Insights SDK usa questa intestazione per impostare i campi `dependency.target` e `request.source`.
+
+### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET classiche
+ 
+  > [!NOTE]
+  > Nessuna configurazione necessaria a partire da `Microsoft.ApplicationInsights.Web` e `Microsoft.ApplicationInsights.DependencyCollector` 
+
+Il supporto del contesto di traccia W3C viene eseguito in modo compatibile con le versioni precedenti e la correlazione dovrebbe funzionare con le applicazioni instrumentate con le versioni precedenti di SDK (senza supporto W3C). 
+
+Se per qualsiasi motivo si vuole continuare a usare il protocollo legacy `Request-Id`, è possibile *disabilitare* il contesto di traccia con la configurazione seguente
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+Se si esegue una versione precedente dell'SDK, è consigliabile aggiornarla o applicare la configurazione seguente per abilitare il contesto di traccia.
 Questa funzionalità è disponibile nei pacchetti `Microsoft.ApplicationInsights.Web` e `Microsoft.ApplicationInsights.DependencyCollector` a partire dalla versione 2.8.0-beta1.
 È disabilitata per impostazione predefinita. Per abilitarla, modificare `ApplicationInsights.config`:
 
 - In `RequestTrackingTelemetryModule` aggiungere l'elemento `EnableW3CHeadersExtraction` con il valore impostato su `true`.
 - In `DependencyTrackingTelemetryModule` aggiungere l'elemento `EnableW3CHeadersInjection` con il valore impostato su `true`.
-- Aggiungere `W3COperationCorrelationTelemetryInitializer` sotto la `TelemetryInitializers` simile a 
+- Aggiungere `W3COperationCorrelationTelemetryInitializer` sotto il `TelemetryInitializers` simile a 
 
 ```xml
 <TelemetryInitializers>
@@ -94,7 +105,21 @@ Questa funzionalità è disponibile nei pacchetti `Microsoft.ApplicationInsights
 </TelemetryInitializers> 
 ```
 
-#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET Core
+### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET Core
+
+ > [!NOTE]
+  > Non è necessaria alcuna configurazione a partire da `Microsoft.ApplicationInsights.AspNetCore` versione 2.8.0.
+ 
+Il supporto del contesto di traccia W3C viene eseguito in modo compatibile con le versioni precedenti e la correlazione dovrebbe funzionare con le applicazioni instrumentate con le versioni precedenti di SDK (senza supporto W3C). 
+
+Se per qualsiasi motivo si vuole continuare a usare il protocollo legacy `Request-Id`, è possibile *disabilitare* il contesto di traccia con la configurazione seguente
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+Se si esegue una versione precedente dell'SDK, è consigliabile aggiornarla o applicare la configurazione seguente per abilitare il contesto di traccia.
 
 Questa funzionalità si trova nella versione 2.5.0-beta1 di `Microsoft.ApplicationInsights.AspNetCore` e nella versione 2.8.0-beta1 di `Microsoft.ApplicationInsights.DependencyCollector`.
 È disabilitata per impostazione predefinita. Per abilitarla, impostare `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` su `true`:
@@ -108,7 +133,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app Java
+### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app Java
 
 - **Configurazione in ingresso**
 
@@ -145,9 +170,9 @@ public void ConfigureServices(IServiceCollection services)
 > [!IMPORTANT]
 > Assicurarsi che entrambe le configurazioni in ingresso e in uscita siano identiche.
 
-#### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Abilitare il supporto per la traccia distribuita W3C per le app Web
+### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Abilitare il supporto per la traccia distribuita W3C per le app Web
 
-Questa funzionalità è in `Microsoft.ApplicationInsights.JavaScript`. È disabilitata per impostazione predefinita. Per abilitarla, usare `distributedTracingMode` config. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi Application Insights instrumentati:
+Questa funzionalità è `Microsoft.ApplicationInsights.JavaScript`. È disabilitata per impostazione predefinita. Per abilitarla, usare la configurazione `distributedTracingMode`. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi Application Insights instrumentati:
 
 - **Installazione di NPM (ignora se si usa l'installazione del frammento)**
 
@@ -209,7 +234,7 @@ La [guida alle attività](https://github.com/dotnet/corefx/blob/master/src/Syste
 
 ASP.NET Core 2.0 supporta l'estrazione di intestazioni HTTP e l'avvio di una nuova attività.
 
-`System.Net.HttpClient`, a partire dalla versione 4.1.0, supporta l'inserimento automatico delle intestazioni HTTP di correlazione e il monitoraggio della chiamata HTTP come attività.
+`System.Net.Http.HttpClient`, a partire dalla versione 4.1.0, supporta l'inserimento automatico delle intestazioni HTTP di correlazione e il monitoraggio della chiamata HTTP come attività.
 
 È disponibile un nuovo modulo HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), per la versione classica di ASP.NET. Questo modulo implementa correlazione di dati di telemetria usando `DiagnosticSource`. Avvia un'attività in base alle intestazioni di richiesta in ingresso. Correla anche i dati di telemetria dalle diverse fasi dell'elaborazione delle richieste, anche quando ogni fase dell'elaborazione di Internet Information Services (IIS) viene eseguita in un thread gestito diverso.
 

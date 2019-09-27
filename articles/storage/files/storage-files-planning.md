@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: beb9e1344f5dd3bf4b3c3d293e38a7a28170771c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212012"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327678"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -96,6 +96,8 @@ Attualmente, non è possibile eseguire la conversione diretta tra una condivisio
 
 > [!IMPORTANT]
 > Le condivisioni file Premium sono disponibili con con ridondanza locale nella maggior parte delle aree che offrono gli account di archiviazione e con ZRS in un subset più piccolo di aree. Per scoprire se le condivisioni file Premium sono attualmente disponibili nella propria area geografica, vedere la pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) per Azure. Per informazioni sulle aree che supportano ZRS, vedere [copertura del supporto e disponibilità a livello](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability)di area.
+>
+> Per aiutarci a classificare in ordine di priorità le nuove aree e le funzionalità del livello Premium, compila questo [sondaggio](https://aka.ms/pfsfeedback).
 
 #### <a name="provisioned-shares"></a>Condivisioni con provisioning
 

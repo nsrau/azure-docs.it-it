@@ -6,18 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f1199748782c40b2527a8778417588891b84f9fc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910129"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326886"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge specifiche tecniche
 
 I componenti hardware del dispositivo Microsoft Azure Data Box Edge aderiscono alle specifiche tecniche e agli standard normativi descritti in questo articolo. Le specifiche tecniche descrivono le unità di alimentazione (PSU), la capacità di archiviazione, le enclosure e gli standard ambientali. 
+
+## <a name="compute-memory-specifications"></a>Specifiche di calcolo, memoria
+
+Il dispositivo Data Box Edge presenta le specifiche seguenti per le risorse di calcolo e di memoria:
+
+| Specifiche           | Value                  |
+|-------------------------|----------------------------|
+| CPU    | CPU 2 X 10 core                     |
+| Memoria              | 128 GB di RAM                  |
+
+
+## <a name="fpga-specifications"></a>Specifiche FPGA
+
+Un FPGA (Field Programmable Gate Array) è incluso in ogni dispositivo Data Box Edge che Abilita Machine Learning (ML) scenari. 
+
+| Specifiche           | Value                  |
+|-------------------------|----------------------------|
+| FPGA   | Intel Arria 10 <br> I modelli DNN (Deep Neural Network) disponibili sono gli stessi [di quelli supportati dalle istanze di FPGA cloud](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+
 
 ## <a name="power-supply-unit-specifications"></a>Specifiche di unità alimentatore
 
@@ -57,7 +76,7 @@ Nella tabella seguente vengono elencate le dimensioni dello chassis in millimetr
 
 |     Chassis     |     Millimetri     |     Pollici     |
 |-------------------|---------------------|----------------|
-|    Altezza         |    44,45            |    1,75 "          |
+|    Altezza:         |    44,45            |    1,75 "          |
 |    Larghezza          |    434,1           |    17,09 "          |
 |    Lunghezza          |    740,4           |    29,15 "          |
 
@@ -65,7 +84,7 @@ Nella tabella seguente sono elencate le dimensioni del pacchetto di spedizione i
 
 |     Pacchetto     |     Millimetri     |     Pollici     |
 |-------------------|---------------------|----------------|
-|    Altezza         |    311,2            |    12,25"          |
+|    Altezza:         |    311,2            |    12,25"          |
 |    Larghezza          |    642,8          |    25,31"          |
 |    Lunghezza          |   1\.051,1          |    41,38"          |
 

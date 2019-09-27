@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306326"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338068"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilare le applicazioni di produzione in Azure con Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Abilitare Application Insights Profiler per l'applicazione
@@ -30,13 +30,13 @@ Profiler funziona con le applicazioni .NET distribuite nei servizi di Azure segu
 * [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Microsoft Azure e set di scalabilità di macchine virtuali](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-* [**ANTEPRIMA** le app Web Linux di Azure ASP.NET Core](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
+* [**Anteprima** ASP.NET Core app Web Linux di Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Se Profiler è abilitato ma non vengono visualizzate analisi, controllare la [Guida alla risoluzione dei problemi](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
 ## <a name="view-profiler-data"></a>Visualizzare i dati di Profiler
 
-Perché Profiler possa caricare analisi, l'applicazione deve gestire attivamente le richieste. Se si sta eseguendo un esperimento, è possibile generare le richieste da indirizzare all'app Web usando il [test delle prestazioni di Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se è stato appena abilitato Profiler, è possibile eseguire un breve test di carico. Durante l'esecuzione del test di carico, selezionare il pulsante **Profila ora** nel riquadro [**Impostazioni di Profiler**](profiler-settings.md#profiler-settings-pane). Mentre è in esecuzione, Profiler esegue la profilatura in modo casuale circa una volta ogni ora e per una durata di due minuti. Se l'applicazione sta gestendo un flusso costante di richieste, Profiler carica analisi ogni ora.
+Perché Profiler possa caricare analisi, l'applicazione deve gestire attivamente le richieste. Se si sta eseguendo un esperimento, è possibile generare le richieste da indirizzare all'app Web usando il [test delle prestazioni di Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se è stato appena abilitato Profiler, è possibile eseguire un breve test di carico. Durante l'esecuzione del test di carico, selezionare il pulsante **Profila ora** nel riquadro [**Impostazioni di Profiler**](profiler-settings.md). Mentre è in esecuzione, Profiler esegue la profilatura in modo casuale circa una volta ogni ora e per una durata di due minuti. Se l'applicazione sta gestendo un flusso costante di richieste, Profiler carica analisi ogni ora.
 
 Se l'applicazione riceve traffico e Profiler ha avuto tempo sufficiente per caricare le analisi, queste ultime vengono visualizzate. Il processo potrebbe richiedere da 5 a 10 minuti. Per visualizzare le analisi, nel riquadro **Prestazioni** selezionare **Take Actions** (Esegui azioni) per visualizzare le analisi del profiler e quindi selezionare il pulsante **Profiler Traces** (Analisi di Profiler).
 
@@ -95,9 +95,9 @@ Metodi come **SqlCommand.Execute** indicano che il codice è in attesa del compl
 
 **BLOCKED_TIME** indica che il codice è in attesa di un'altra risorsa disponibile. Ad esempio, potrebbe essere in attesa di un oggetto di sincronizzazione, di un thread o del completamento di una richiesta.
 
-### <a name="unmanaged-async"></a>Async non gestito
+### <a name="unmanaged-async"></a>Asincrono non gestito
 
-.NET framework emette eventi ETW e passa gli ID attività tra i thread in modo che sia possibile rilevare le chiamate asincrone nei thread. Codice non gestito (codice nativo) e alcuni precedenti gli stili di codice asincrono mancano questi eventi e gli ID attività, in modo che il profiler non è possibile capire quali thread e le funzioni in esecuzione sul thread. Ciò viene etichettato 'Async non gestito' nello stack di chiamate. Se si scarica il file di ETW, è possibile usare [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) per ottenere informazioni più dettagliate su ciò che accade.
+.NET Framework genera eventi ETW e passa gli ID attività tra i thread in modo che sia possibile tenere traccia delle chiamate asincrone tra i thread. Nel codice non gestito (codice nativo) e in alcuni stili precedenti del codice asincrono mancano questi eventi e ID attività, quindi il profiler non è in grado di stabilire quale thread e quali funzioni sono in esecuzione sul thread. Questa operazione è denominata "asincrono non gestito" nello stack di chiamate. Se si Scarica il file ETW, è possibile usare [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) per ottenere informazioni più approfondite su ciò che accade.
 
 ### <a id="cpu"></a>Tempo di CPU
 

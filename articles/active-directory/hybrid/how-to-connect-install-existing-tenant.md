@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571369"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336813"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: con un tenant esistente
 La maggior parte degli argomenti che illustrano come usare Azure AD Connect presuppongono che si inizi con un nuovo tenant di Azure AD che non contiene utenti o altri oggetti. Questo argomento è utile se tuttavia si inizia con un tenant di Azure AD che contiene utenti e altri oggetti e si vuole usare Connect.
@@ -59,12 +59,13 @@ Per una nuova installazione di Connect, non esiste alcuna differenza pratica tra
 ### <a name="other-objects-than-users"></a>Oggetti diversi dagli utenti
 Per i gruppi abilitati alla posta e ai contatti è possibile eseguire la corrispondenza flessibile in base a proxyAddresses. La corrispondenza rigida non è applicabile poiché è possibile aggiornare solo sourceAnchor o immutableID (tramite PowerShell) solo per Utenti. Per i gruppi che non sono abilitati per la posta non c'è attualmente alcun supporto per la corrispondenza rigida o per la corrispondenza flessibile.
 
-### <a name="admin-role-considerations"></a>Considerazioni sul ruolo di amministratore
-Per impedire la corrispondenza con un utente cloud con qualsiasi ruolo di amministratore agli utenti non attendibili in locale, Azure AD Connect non corrisponderanno oggetti utente locali con gli oggetti che hanno un ruolo di amministratore. Si tratta per impostazione predefinita. Per risolvere questo problema è possibile eseguire le operazioni seguenti:
+### <a name="admin-role-considerations"></a>Considerazioni sui ruoli di amministratore
+Per impedire che gli utenti locali non attendibili corrispondano a un utente cloud con un ruolo di amministratore, Azure AD Connect non corrisponderà a oggetti utente locali con oggetti che dispongono di un ruolo di amministratore. Per impostazione predefinita. Per aggirare questo comportamento, è possibile eseguire le operazioni seguenti:
 
-1.  Rimuovere i ruoli della directory dall'oggetto utente solo cloud
-2.  Attivare una sincronizzazione
-3.  Facoltativamente, aggiungere i ruoli della directory all'oggetto utente nel cloud una volta che si è verificata la corrispondenza.
+1.  Rimuovere i ruoli della directory dall'oggetto utente solo cloud.
+2.  Se si è verificato un tentativo di sincronizzazione utente non riuscito, eliminare definitivamente l'oggetto in quarantena nel cloud.
+3.  Attivare una sincronizzazione.
+4.  Facoltativamente, aggiungere di nuovo i ruoli della directory all'oggetto utente nel cloud dopo che è stata eseguita la corrispondenza.
 
 
 

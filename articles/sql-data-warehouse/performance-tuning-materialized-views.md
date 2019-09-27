@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172779"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338903"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Ottimizzazione delle prestazioni con viste materializzate 
 Le viste materializzate in Azure SQL Data Warehouse forniscono un metodo di manutenzione basso per le query analitiche complesse per ottenere prestazioni rapide senza alcuna modifica di query. Questo articolo illustra le linee guida generali sull'uso delle viste materializzate.
@@ -49,7 +49,7 @@ Una vista materializzata progettata correttamente può offrire i vantaggi seguen
 
 - Query Optimizer in Azure SQL Data Warehouse può utilizzare automaticamente viste materializzate distribuite per migliorare i piani di esecuzione delle query.  Questo processo è trasparente per gli utenti che forniscono prestazioni di query più veloci e non richiedono query per fare riferimento diretto alle viste materializzate. 
 
-- Richiedere una manutenzione ridotta delle visualizzazioni.  Una vista materializzata archivia i dati in due posizioni, un indice columnstore cluster per i dati iniziali in fase di creazione della vista e un archivio Delta per le modifiche incrementali dei dati.  Tutte le modifiche apportate ai dati dalle tabelle di base vengono aggiunte automaticamente all'archivio Delta in modo sincrono.  Un processo in background (motore di Tuple) sposta periodicamente i dati dall'archivio Delta all'indice columnstore della visualizzazione.  Questa progettazione consente di eseguire query sulle viste materializzate per restituire gli stessi dati come query direttamente sulle tabelle di base. 
+- Richiedere una manutenzione ridotta delle visualizzazioni.  Tutte le modifiche incrementali apportate ai dati dalle tabelle di base vengono aggiunte automaticamente alle viste materializzate in modo sincrono.  Questa progettazione consente di eseguire query sulle viste materializzate per restituire gli stessi dati come query direttamente sulle tabelle di base. 
 - I dati in una vista materializzata possono essere distribuiti in modo diverso rispetto alle tabelle di base.  
 - I dati nelle viste materializzate ottengono gli stessi vantaggi di disponibilità elevata e resilienza dei dati nelle tabelle normali.  
  
@@ -90,7 +90,7 @@ Gli utenti possono eseguire EXPLAIN WITH_RECOMMENDATIONS < SQL_statement > per l
 
 **Tenere presente il compromesso tra query più veloci e i costi** 
 
-Per ogni vista materializzata, è previsto un costo di archiviazione dei dati e un costo per la gestione della visualizzazione.  Man mano che vengono apportate modifiche ai dati nelle tabelle di base, le dimensioni della vista materializzata aumentano e viene modificata anche la struttura fisica.  Per evitare il calo delle prestazioni delle query, ogni vista materializzata viene gestita separatamente dal motore di data warehouse, tra cui lo spostamento delle righe dall'archivio Delta ai segmenti di indice columnstore e il consolidamento delle modifiche dei dati.  Il carico di lavoro di manutenzione diventa superiore quando aumenta il numero di viste materializzate e le modifiche alla tabella di base.   Gli utenti devono verificare se il costo sostenuto da tutte le visualizzazioni materializzate può essere offset in base al miglioramento delle prestazioni delle query.  
+Per ogni vista materializzata, è previsto un costo di archiviazione dei dati e un costo per la gestione della visualizzazione.  Man mano che vengono apportate modifiche ai dati nelle tabelle di base, le dimensioni della vista materializzata aumentano e viene modificata anche la struttura fisica.  Per evitare il calo delle prestazioni delle query, ogni vista materializzata viene gestita separatamente dal motore di data warehouse.  Il carico di lavoro di manutenzione diventa superiore quando aumenta il numero di viste materializzate e le modifiche alla tabella di base.   Gli utenti devono verificare se il costo sostenuto da tutte le visualizzazioni materializzate può essere offset in base al miglioramento delle prestazioni delle query.  
 
 È possibile eseguire questa query per l'elenco di viste materializzate in un database: 
 
@@ -136,7 +136,7 @@ Il data warehouse Optimizer può utilizzare automaticamente viste materializzate
 
 **Monitorare le viste materializzate** 
 
-Una vista materializzata viene archiviata nel data warehouse proprio come una tabella con indice columnstore cluster (CCI).  La lettura di dati da una vista materializzata include l'analisi dell'indice e l'applicazione delle modifiche dall'archivio Delta.  Quando il numero di righe nell'archivio Delta è troppo elevato, la risoluzione di una query da una vista materializzata può richiedere più tempo rispetto alla query diretta delle tabelle di base.  Per evitare un calo delle prestazioni delle query, è consigliabile eseguire [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) per monitorare overhead_ratio (total_rows/base_view_row) della visualizzazione.  Se il overhead_ratio è troppo elevato, provare a ricompilare la vista materializzata in modo che tutte le righe nell'archivio Delta vengano spostate nell'indice columnstore.  
+Una vista materializzata viene archiviata nel data warehouse proprio come una tabella con indice columnstore cluster (CCI).  La lettura di dati da una vista materializzata include l'analisi dei segmenti di indice CCI e l'applicazione di eventuali modifiche incrementali dalle tabelle di base. Quando il numero di modifiche incrementali è troppo elevato, la risoluzione di una query da una vista materializzata può richiedere più tempo rispetto alla query diretta delle tabelle di base.  Per evitare un calo delle prestazioni delle query, è consigliabile eseguire [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) per monitorare il overhead_ratio della visualizzazione (total_rows/Max (1, base_view_row)).  Se il overhead_ratio è troppo alto, gli utenti devono ricompilare la vista materializzata. 
 
 **Visualizzazione materializzata e memorizzazione nella cache del set di risultati**
 

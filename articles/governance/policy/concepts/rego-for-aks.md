@@ -1,55 +1,55 @@
 ---
 title: Informazioni su come controllare il contenuto di una macchina virtuale
-description: Informazioni su come criteri di Azure Usa Rego e aprire l'agente criteri per gestire i cluster in Azure Kubernetes Service.
+description: Informazioni su come i criteri di Azure usano Rego e Open Policy Agent per gestire i cluster nel servizio Azure Kubernetes.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: fdb392533e28df1d50e90c842d0117385afb254b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e16c40c6a4f3539aa286c4c2d0859459ca18a91c
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453905"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338372"
 ---
-# <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Comprendere i criteri di Azure per Azure Kubernetes Service
+# <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Informazioni sui criteri di Azure per il servizio Azure Kubernetes
 
-Criteri di Azure si integrano con il [Azure Kubernetes Service](../../../aks/intro-kubernetes.md) (AKS) per applicare si applicano le regole su larga scala e le misure di sicurezza nei cluster in modo centralizzato e coerente.
-Mediante l'utilizzo di estensione [GateKeeper](https://github.com/open-policy-agent/gatekeeper), un _ammissione controller webhook_ per [aprire l'agente criteri](https://www.openpolicyagent.org/) (Op), criteri di Azure consente di gestire e creare report sulla conformità stato di risorse di Azure e i cluster servizio contenitore di AZURE da un'unica posizione.
+Criteri di Azure si integra con il [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md) (AKS) per applicare misure e misure di sicurezza su larga scala nei cluster in modo centralizzato e coerente.
+Estendendo l'uso di [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), un _webhook del controller di ammissione_ per l' [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), i criteri di Azure consentono di gestire e creare report sullo stato di conformità delle risorse di Azure e dei cluster AKS da un'unica posizione.
 
 > [!NOTE]
-> Criteri di Azure per AKS sono in anteprima limitata e supporta solo definizioni di criteri predefiniti.
+> Criteri di Azure per AKS è in anteprima limitata e supporta solo le definizioni predefinite dei criteri.
 
 ## <a name="overview"></a>Panoramica
 
-Per abilitare e usare criteri di Azure per servizio contenitore di AZURE con il cluster AKS, intraprendere le azioni seguenti:
+Per abilitare e usare criteri di Azure per AKS con il cluster AKS, intraprendere le azioni seguenti:
 
-- [Acconsenti esplicitamente alle funzionalità di anteprima](#opt-in-for-preview)
-- [Installare il componente aggiuntivo di criteri di Azure](#installation-steps)
+- [Consenso esplicito per le funzionalità di anteprima](#opt-in-for-preview)
+- [Installare il componente aggiuntivo criteri di Azure](#installation-steps)
 - [Assegnare una definizione di criteri per AKS](#built-in-policies)
-- [Attesa per la convalida](#validation-and-reporting-frequency)
+- [Attendi convalida](#validation-and-reporting-frequency)
 
-## <a name="opt-in-for-preview"></a>Acconsenti esplicitamente di anteprima
+## <a name="opt-in-for-preview"></a>Consenso esplicito per l'anteprima
 
-Prima di installare il componente aggiuntivo dei criteri di Azure o l'abilitazione delle funzionalità del servizio, è necessario abilitare la sottoscrizione di **containerservice** provider di risorse e il **policyinsights**provider di risorse, quindi essere approvato per partecipare all'anteprima. Per partecipare all'anteprima, seguire questi passaggi nel portale di Azure o con CLI di Azure:
+Prima di installare il componente aggiuntivo criteri di Azure o abilitare le funzionalità del servizio, la sottoscrizione deve abilitare il provider di risorse **Microsoft. servizio contenitore** e il provider di risorse **Microsoft. PolicyInsights** , quindi essere approvati per partecipa all'anteprima. Per partecipare all'anteprima, seguire questa procedura nell'portale di Azure o con l'interfaccia della riga di comando di Azure:
 
 - Portale di Azure:
 
-  1. Registrare il **containerservice** e **policyinsights** i provider di risorse. Per istruzioni, vedere [provider di risorse e i tipi](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+  1. Registrare i provider di risorse **Microsoft. servizio contenitore** e **Microsoft. PolicyInsights** . Per i passaggi, vedere [provider e tipi di risorse](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
   1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
      ![Cercare Criteri di Azure in Tutti i servizi](../media/rego-for-aks/search-policy.png)
 
-  1. Selezionare **Join anteprima** sul lato sinistro della pagina Criteri di Azure.
+  1. Selezionare **Anteprima join** sul lato sinistro della pagina Criteri di Azure.
 
-     ![Aggiungere i criteri per l'anteprima AKS](../media/rego-for-aks/join-aks-preview.png)
+     ![Aggiungere i criteri per l'anteprima di AKS](../media/rego-for-aks/join-aks-preview.png)
 
-  1. Selezionare la riga della sottoscrizione che si desidera aggiungere all'anteprima.
+  1. Selezionare la riga della sottoscrizione che si vuole aggiungere all'anteprima.
 
-  1. Selezionare il **acconsenti esplicitamente** nella parte superiore dell'elenco di sottoscrizioni.
+  1. Selezionare il pulsante **consenso esplicito** nella parte superiore dell'elenco di sottoscrizioni.
 
 - Interfaccia della riga di comando di Azure:
 
@@ -69,24 +69,24 @@ Prima di installare il componente aggiuntivo dei criteri di Azure o l'abilitazio
   az feature register --namespace Microsoft.PolicyInsights --name AKS-DataplaneAutoApprove
   ```
 
-## <a name="azure-policy-add-on"></a>Componente aggiuntivo di criteri di Azure
+## <a name="azure-policy-add-on"></a>Componente aggiuntivo criteri di Azure
 
-Il _componente aggiuntivo di criteri di Azure_ per Kubernetes si connette il servizio Criteri di Azure per il controller di ricovero di GateKeeper. Il componente aggiuntivo, che viene installato nel _azure-policy_ dello spazio dei nomi, esegue le funzioni seguenti:
+Il _componente aggiuntivo criteri di Azure_ per Kubernetes connette il servizio criteri di Azure al controller di ammissione Gatekeeper. Il componente aggiuntivo, installato nello spazio dei nomi di _criteri di Azure_ , comporta le funzioni seguenti:
 
-- Controlli con criteri di Azure per le assegnazioni a del cluster servizio contenitore di AZURE
-- Scarica e memorizza nella cache i dettagli dei criteri, tra cui il _rego_ definizione dei criteri, come **configmaps**
-- Esegue un controllo di conformità di analisi completa nel cluster AKS
-- Eseguire il report di controllo e i dettagli di conformità a criteri di Azure
+- Verifica con criteri di Azure per le assegnazioni al cluster AKS
+- Scarica e memorizza nella cache i dettagli dei criteri, inclusa la definizione del criterio _rego_ , come **configmaps**
+- Esegue un controllo di conformità dell'analisi completa sul cluster AKS
+- Riporta i dettagli di controllo e conformità a criteri di Azure
 
-### <a name="installing-the-add-on"></a>Installare il componente aggiuntivo
+### <a name="installing-the-add-on"></a>Installazione del componente aggiuntivo
 
 #### <a name="prerequisites"></a>Prerequisiti
 
-Prima di installare il componente aggiuntivo nel cluster AKS, deve essere installato l'estensione di anteprima. Questo passaggio viene eseguito con CLI di Azure:
+Prima di installare il componente aggiuntivo nel cluster AKS, è necessario installare l'estensione di anteprima. Questa operazione viene eseguita con l'interfaccia della riga di comando di Azure:
 
-1. È necessario la CLI di Azure versione 2.0.62 o versione successiva installato e configurato. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+1. È necessaria l'interfaccia della riga di comando di Azure versione 2.0.62 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-1. Versione deve essere il cluster AKS _1.10_ o versione successiva. Usare lo script seguente per convalidare la versione del cluster servizio contenitore di AZURE:
+1. Il cluster AKS deve avere la versione _1,10_ o successiva. Usare lo script seguente per convalidare la versione del cluster AKS:
 
    ```azurecli-interactive
    # Log in first with az login if you're not using Cloud Shell
@@ -95,7 +95,7 @@ Prima di installare il componente aggiuntivo nel cluster AKS, deve essere instal
    az aks list
    ```
 
-1. Installare versione _0.4.0_ della riga di comando di Azure di AKS, anteprima estensione `aks-preview`:
+1. Installare la versione _0.4.0_ dell'estensione di anteprima dell'interfaccia della riga di comando di Azure per AKS, `aks-preview`:
 
    ```azurecli-interactive
    # Log in first with az login if you're not using Cloud Shell
@@ -108,28 +108,28 @@ Prima di installare il componente aggiuntivo nel cluster AKS, deve essere instal
    ```
 
    > [!NOTE]
-   > Se in precedenza sono stati installati il _aks-preview_ estensione, installare eventuali aggiornamenti usando il `az extension update --name aks-preview` comando.
+   > Se in precedenza è stata installata l'estensione _AKS-Preview_ , installare gli aggiornamenti usando il comando `az extension update --name aks-preview`.
 
 #### <a name="installation-steps"></a>Procedura di installazione
 
-Dopo aver completato i prerequisiti, è possibile installare il componente aggiuntivo di criteri di Azure nel cluster AKS che si desidera gestire.
+Una volta completati i prerequisiti, installare il componente aggiuntivo criteri di Azure nel cluster AKS che si vuole gestire.
 
 - Portale di Azure
 
-  1. Avviare il servizio contenitore di AZURE nel portale di Azure facendo clic **tutti i servizi**, quindi cercare e selezionare **servizi Kubernetes**.
+  1. Avviare il servizio AKS nella portale di Azure facendo clic su **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
 
   1. Selezionare uno dei cluster AKS.
 
   1. Selezionare **criteri (anteprima)** sul lato sinistro della pagina del servizio Kubernetes.
 
-     ![Criteri dal cluster servizio contenitore di AZURE](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
+     ![Criteri del cluster AKS](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
 
-  1. Nella pagina principale, selezionare la **componente aggiuntivo di abilitare** pulsante.
+  1. Nella pagina principale selezionare il pulsante **Abilita componente aggiuntivo** .
 
-     ![Abilitare i criteri di Azure per il componente aggiuntivo servizio contenitore di AZURE](../media/rego-for-aks/enable-policy-add-on.png)
+     ![Abilitare i criteri di Azure per il componente aggiuntivo AKS](../media/rego-for-aks/enable-policy-add-on.png)
 
      > [!NOTE]
-     > Se il **componente aggiuntivo di abilitare** pulsante è disattivato, la sottoscrizione non è ancora stato aggiunto all'anteprima. Visualizzare [Opt-in per l'anteprima](#opt-in-for-preview) per i passaggi necessari.
+     > Se il pulsante **Abilita componente** aggiuntivo è disattivato, la sottoscrizione non è ancora stata aggiunta all'anteprima. Per i passaggi necessari, vedere [consenso esplicito per l'anteprima](#opt-in-for-preview) .
 
 - Interfaccia della riga di comando di Azure
 
@@ -139,48 +139,48 @@ Dopo aver completato i prerequisiti, è possibile installare il componente aggiu
   az aks enable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
   ```
 
-### <a name="validation-and-reporting-frequency"></a>Convalida e la frequenza di creazione di report
+### <a name="validation-and-reporting-frequency"></a>Frequenza di convalida e Reporting
 
-Il componente aggiuntivo può collegarsi criteri di Azure per le modifiche nelle assegnazioni dei criteri ogni 5 minuti. Durante questo ciclo di aggiornamento, il componente aggiuntivo rimuove tutti _configmaps_ nel _criteri di azure_ dello spazio dei nomi quindi ricrea il _configmaps_ per l'uso di GateKeeper.
+Il componente aggiuntivo archivia i criteri di Azure per le modifiche alle assegnazioni dei criteri ogni 5 minuti. Durante questo ciclo di aggiornamento, il componente aggiuntivo rimuove tutti i _configmaps_ nello spazio dei nomi di _criteri di Azure_ , quindi ricrea il _Configmaps_ per l'uso del gatekeeper.
 
 > [!NOTE]
-> Mentre un _amministratore del cluster_ potrebbe disporre dell'autorizzazione per il _criteri di azure_ dello spazio dei nomi, esso non consigliato o supportato per apportare modifiche allo spazio dei nomi. Le modifiche manuali apportate vengono perse durante il ciclo di aggiornamento.
+> Anche se un _amministratore del cluster_ può disporre dell'autorizzazione per lo spazio dei nomi di criteri di _Azure_ , non è consigliabile né supportato per apportare modifiche allo spazio dei nomi. Eventuali modifiche manuali apportate andranno perse durante il ciclo di aggiornamento.
 
-Ogni 5 minuti, viene chiamato il componente aggiuntivo per un'analisi completa del cluster. Dopo aver raccolto i dettagli di tutte le valutazioni in tempo reale e l'analisi completa da GateKeeper delle modifiche tentate al cluster, il componente aggiuntivo segnala i risultati al criterio di Azure per l'inclusione nei [dettagli di conformità](../how-to/get-compliance-data.md) , ad esempio eventuali criteri di Azure assegnazione. Vengono restituiti solo i risultati per le assegnazioni di criteri attivi durante il ciclo di controllo.
+Ogni 5 minuti, il componente aggiuntivo chiama per eseguire un'analisi completa del cluster. Dopo aver raccolto i dettagli dell'analisi completa e di eventuali valutazioni in tempo reale da parte del GateKeeper delle modifiche apportate al cluster, il componente aggiuntivo segnala i risultati ai criteri di Azure per l'inclusione nei [Dettagli di conformità](../how-to/get-compliance-data.md) come qualsiasi assegnazione di criteri di Azure. Durante il ciclo di controllo vengono restituiti solo i risultati per le assegnazioni di criteri attive.
 
-## <a name="policy-language"></a>Linguaggio dei criteri
+## <a name="policy-language"></a>Lingua dei criteri
 
-La struttura di lingua di criteri di Azure per la gestione di AKS segue che dei criteri esistenti. L'effetto _EnforceRegoPolicy_ viene usato per gestire i cluster AKS e accetta _dettagli_ proprietà specifiche per l'uso con OPA e GateKeeper. Per informazioni dettagliate ed esempi, vedere la [EnforceRegoPolicy](effects.md#enforceregopolicy) effetto.
+La struttura del linguaggio di criteri di Azure per la gestione di AKS segue quella dei criteri esistenti. L'effetto _EnforceRegoPolicy_ viene usato per gestire i cluster AKS e accetta le proprietà dei _Dettagli_ specifiche per l'uso di OPA e Gatekeeper. Per informazioni dettagliate ed esempi, vedere l'effetto [EnforceRegoPolicy](effects.md#enforceregopolicy) .
 
-Durante la _details.policy_ proprietà nella definizione dei criteri, criteri di Azure passa l'URI di un criterio rego al componente aggiuntivo. Rego è il linguaggio che supportano OPA e GateKeeper per convalidare o modificare una richiesta per il cluster Kubernetes. Grazie al supporto di uno standard esistente per la gestione di Kubernetes, criteri di Azure rende possibile riutilizzare le regole esistenti e associarle a criteri di Azure per una conformità di cloud unificata esperienza di report. Per altre informazioni, vedere [What ' s Rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego).
+Come parte della proprietà _Details. Policy_ nella definizione dei criteri, i criteri di Azure passano l'URI di un criterio rego al componente aggiuntivo. Rego è il linguaggio supportato da OPA e GateKeeper per convalidare o mutare una richiesta al cluster Kubernetes. Grazie al supporto di uno standard esistente per la gestione Kubernetes, i criteri di Azure consentono di riutilizzare le regole esistenti e di associarle ai criteri di Azure per un'esperienza di creazione di report di conformità cloud unificata. Per ulteriori informazioni, vedere [che cos'è rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego).
 
 ## <a name="built-in-policies"></a>Criteri predefiniti
 
-Per trovare i criteri predefiniti per la gestione di servizio contenitore di AZURE usando il portale di Azure, seguire questa procedura:
+Per trovare i criteri predefiniti per la gestione di AKS usando il portale di Azure, seguire questa procedura:
 
-1. Avviare il servizio Criteri di Azure nel portale di Azure. Selezionare **tutti i servizi** nel riquadro a sinistra e quindi cercare e selezionare **criterio**.
+1. Avviare il servizio criteri di Azure nella portale di Azure. Selezionare **tutti i servizi** nel riquadro a sinistra e quindi cercare e selezionare **criteri**.
 
-1. Nel riquadro sinistro della pagina Criteri di Azure, selezionare **definizioni**.
+1. Nel riquadro sinistro della pagina Criteri di Azure selezionare **definizioni**.
 
-1. Nella casella di riepilogo discesa categoria, usare **Seleziona tutto** per cancellare il filtro e quindi selezionare **servizio Kubernetes**.
+1. Dall'elenco a discesa categoria, usare **Select All (Seleziona tutto** ) per cancellare il filtro e quindi selezionare **servizio Kubernetes**.
 
-1. Selezionare la definizione dei criteri, quindi selezionare il **assegnare** pulsante.
+1. Selezionare la definizione dei criteri, quindi selezionare il pulsante **assegna** .
 
 > [!NOTE]
-> Quando si assegnano i criteri di Azure per la definizione del servizio contenitore di AZURE, il **ambito** deve includere la risorsa del cluster servizio contenitore di AZURE.
+> Quando si assegnano i criteri di Azure per la definizione AKS, l' **ambito** deve includere la risorsa cluster AKS.
 
-In alternativa, usare il [assegnare un criterio - portale](../assign-policy-portal.md) avvio rapido per trovare e assegnare un criterio del servizio contenitore di AZURE. Ricerca di una definizione di criteri di Kubernetes invece di esempio 'controllo le macchine virtuali'.
+In alternativa, usare la Guida introduttiva [assegnare un criterio al portale](../assign-policy-portal.md) per trovare e assegnare un criterio AKS. Cercare una definizione dei criteri Kubernetes invece dell'esempio ' macchine virtuali di controllo '.
 
 ## <a name="logging"></a>Registrazione
 
-### <a name="azure-policy-add-on-logs"></a>Log di componenti aggiuntivi dei criteri di Azure
+### <a name="azure-policy-add-on-logs"></a>Log del componente aggiuntivo di criteri di Azure
 
-Come Kubernetes controller/contenitore, il componente aggiuntivo di criteri di Azure mantiene i registri nel cluster AKS. I log vengono esposte nel **Insights** pagina del cluster servizio contenitore di AZURE. Per altre informazioni, vedere [prestazioni con monitoraggio di Azure per contenitori del cluster AKS comprendere](../../../azure-monitor/insights/container-insights-analyze.md).
+Come controller/contenitore Kubernetes, il componente aggiuntivo criteri di Azure mantiene i log nel cluster AKS. I log vengono esposti nella pagina **Insights** del cluster AKS. Per altre informazioni, vedere [comprendere le prestazioni del cluster AKS con monitoraggio di Azure per i contenitori](../../../azure-monitor/insights/container-insights-analyze.md).
 
-### <a name="gatekeeper-logs"></a>Log di gateKeeper
+### <a name="gatekeeper-logs"></a>Log GateKeeper
 
-Per abilitare i log di GateKeeper per le nuove richieste di risorse, seguire i passaggi descritti in [abilitare ed esaminare i log di nodo principale nel servizio contenitore di AZURE Kubernetes](../../../aks/view-master-logs.md).
-Ecco un esempio di query per visualizzare gli eventi negati in nuove richieste di risorse:
+Per abilitare i log di GateKeeper per le nuove richieste di risorse, seguire i passaggi in [abilitare ed esaminare i log del nodo master di Kubernetes in AKS](../../../aks/view-master-logs.md).
+Ecco una query di esempio per visualizzare gli eventi negati sulle nuove richieste di risorse:
 
 ```kusto
 | where Category == "kube-audit"
@@ -188,25 +188,25 @@ Ecco un esempio di query per visualizzare gli eventi negati in nuove richieste d
 | limit 100
 ```
 
-Per visualizzare i log dai contenitori GateKeeper, seguire i passaggi descritti in [abilitare ed esaminare i log di nodo principale nel servizio contenitore di AZURE Kubernetes](../../../aks/view-master-logs.md) e controllare le _kube-apiserver_ opzione il **impostazionididiagnostica** riquadro.
+Per visualizzare i log dei contenitori GateKeeper, seguire i passaggi descritti in [abilitare ed esaminare i log del nodo master di Kubernetes in AKS](../../../aks/view-master-logs.md) e selezionare l'opzione _Kube-apiserver_ nel riquadro **impostazioni di diagnostica** .
 
 ## <a name="remove-the-add-on"></a>Rimuovere il componente aggiuntivo
 
-Per rimuovere il componente aggiuntivo di criteri di Azure dal cluster servizio contenitore di AZURE, usare il portale di Azure o Azure CLI:
+Per rimuovere il componente aggiuntivo criteri di Azure dal cluster AKS, usare l'interfaccia della riga di comando portale di Azure o Azure:
 
 - Portale di Azure
 
-  1. Avviare il servizio contenitore di AZURE nel portale di Azure facendo clic **tutti i servizi**, quindi cercare e selezionare **servizi Kubernetes**.
+  1. Avviare il servizio AKS nella portale di Azure facendo clic su **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
 
-  1. Selezionare il cluster servizio contenitore di AZURE in cui si desidera disabilitare il componente aggiuntivo di criteri di Azure.
+  1. Selezionare il cluster AKS in cui si vuole disabilitare il componente aggiuntivo criteri di Azure.
 
   1. Selezionare **criteri (anteprima)** sul lato sinistro della pagina del servizio Kubernetes.
 
-     ![Criteri dal cluster servizio contenitore di AZURE](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
+     ![Criteri del cluster AKS](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
 
-  1. Nella pagina principale, selezionare la **disabilitare il componente aggiuntivo** pulsante.
+  1. Nella pagina principale selezionare il pulsante **Disabilita componente aggiuntivo** .
 
-     ![Disabilitare i criteri di Azure per il componente aggiuntivo servizio contenitore di AZURE](../media/rego-for-aks/disable-policy-add-on.png)
+     ![Disabilitare i criteri di Azure per il componente aggiuntivo AKS](../media/rego-for-aks/disable-policy-add-on.png)
 
 - Interfaccia della riga di comando di Azure
 
@@ -218,10 +218,10 @@ Per rimuovere il componente aggiuntivo di criteri di Azure dal cluster servizio 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
+- Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
 - Vedere [Struttura delle definizioni di criteri di Azure](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
-- Comprendere come [a livello di codice, creare criteri](../how-to/programmatically-create.md).
+- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
-- Informazioni su come [monitora e aggiorna le risorse non conformi](../how-to/remediate-resources.md).
-- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/index.md).
+- Informazioni su come monitorare e [aggiornare le risorse non](../how-to/remediate-resources.md)conformi.
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

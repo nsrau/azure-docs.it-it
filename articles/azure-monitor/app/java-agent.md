@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: af157204ad1e1b28639ae2d8f192b3122afa8147
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299236"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338098"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorare le dipendenze, le eccezioni intercettate e i tempi di esecuzione del metodo nelle app Web Java
 
@@ -122,7 +122,7 @@ Aggiungere il codice seguente al file AI-Agent.xml:
 
 Ad esempio, quando tutti i servizi sono stati aggiornati alla versione più recente degli SDK che supportano il protocollo W3C. Si raccomanda di passare alla versione più recente degli SDK con supporto W3C il prima possibile.
 
-Assicurarsi che **entrambe le configurazioni [in ingresso](correlation.md#w3c-distributed-tracing) e in uscita (agente)** siano identiche.
+Assicurarsi che **entrambe le configurazioni [in ingresso](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) e in uscita (agente)** siano identiche.
 
 ## <a name="view-the-data"></a>Visualizzare i dati
 Nella risorsa Application Insights, le dipendenze Remote aggregate e i tempi di esecuzione dei metodi vengono visualizzati nel [riquadro prestazioni][metrics].

@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul centro sicurezza di Azure per l'aggregazione di eventi delle soluzioni Internet | Microsoft Docs
-description: Informazioni sull'aggregazione degli eventi nel centro sicurezza di Azure per il servizio Internet delle cose.
+title: Informazioni sul centro sicurezza di Azure per l'aggregazione di eventi Internet | Microsoft Docs
+description: Informazioni sul centro sicurezza di Azure per l'aggregazione di eventi.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933893"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327308"
 ---
-# <a name="security-agent-event-aggregation"></a>Aggregazione di eventi dell'agente di sicurezza
+# <a name="azure-security-center-for-iot-event-aggregation"></a>Centro sicurezza di Azure per l'aggregazione di eventi Internet
 
-Il Centro sicurezza di Azure per gli agenti di sicurezza Internet raccoglie i dati e gli eventi di sistema dal dispositivo locale e invia questi dati al cloud di Azure per l'elaborazione e l'analisi. L'agente di sicurezza raccoglie molti tipi di eventi del dispositivo, tra cui nuovo processo e nuovi eventi di connessione. I nuovi eventi di connessione e di nuovo processo possono essere eseguiti in modo legittimo in un dispositivo in un secondo momento e, se importante, per una sicurezza affidabile e completa, la quantità di messaggi che impone agli agenti di sicurezza di inviare l'invio può raggiungere o superare rapidamente l'hub. quote e limiti di costo. Tuttavia, questi eventi contengono informazioni di sicurezza estremamente utili, cruciali per la protezione del dispositivo.
+Il Centro sicurezza di Azure per gli agenti di sicurezza di Azure raccoglie i dati e gli eventi di sistema dal dispositivo locale e li invia al cloud di Azure per l'elaborazione e l'analisi. L'agente di sicurezza raccoglie molti tipi di eventi del dispositivo, tra cui nuovo processo e nuovi eventi di connessione. Sia i nuovi eventi di connessione che quelli nuovi possono verificarsi in modo legittimo in un dispositivo entro un secondo e, sebbene sia importante per una sicurezza affidabile e completa, il numero di messaggi che gli agenti di sicurezza sono costretti a inviare può raggiungere rapidamente o superare l'hub Internet delle cose quote e limiti di costo. Tuttavia, questi eventi contengono informazioni di sicurezza estremamente utili, cruciali per la protezione del dispositivo.
 
 Per ridurre la quota e i costi aggiuntivi mantenendo protetti i dispositivi, il Centro sicurezza di Azure per gli agenti Internet aggrega questi tipi di eventi.
 
@@ -44,8 +44,8 @@ Per ridurre il footprint di memoria dell'agente, ogni volta che l'agente raccogl
 
 Gli eventi sono considerati identici solo quando vengono soddisfatte le condizioni seguenti: 
 
-* Eventi ProcessCreate-quando **CommandLine**, **Executable**, **username** e **userid** sono identici
-* Eventi ConnectionCreate-quando la **riga**di comando, l' **ID utente**, la **direzione**, l' **indirizzo locale**, l' **indirizzo remoto** **e la** **porta di destinazione** sono identici
+* Eventi ProcessCreate-quando **CommandLine**, **Executable**, * * username e **userid** sono identici
+* Eventi ConnectionCreate-quando **CommandLine**, **userid**, **Direction**, **Local Address**, **Remote Address**, * * Protocol e **Destination Port** sono identici
 * Eventi ProcessTerminate-quando **lo stato** dell' **eseguibile** e dell'uscita è identico
 
 ### <a name="working-with-aggregated-events"></a>Utilizzo degli eventi aggregati

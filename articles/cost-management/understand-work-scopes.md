@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 66bad9c9c647fe87fdcf6b99a8d17f319b1ef9fc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 41d83d4a6c5aad4c3b575513c6b3e2e25a425829
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479989"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338644"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -27,7 +27,7 @@ Un _ambito_ è un nodo nella gerarchia di risorse di Azure in cui Azure ad utent
 - Dati di fatturazione, ad esempio pagamenti e fatture
 - Servizi cloud, ad esempio costi e governance dei criteri
 
-Gli ambiti sono la posizione in cui si gestiscono i dati di fatturazione, i ruoli specifici dei pagamenti, la visualizzazione delle fatture e la gestione generale degli account. I ruoli fatturazione e account vengono gestiti separatamente da quelli usati per la gestione delle risorse, [che usano il](../role-based-access-control/overview.md)controllo degli accessi in base al ruolo Per distinguere chiaramente lo scopo degli ambiti distinti, incluse le differenze relative al controllo di accesso, questi sono denominati rispettivamente ambiti di _fatturazione_ e _ambiti RBAC_.
+Gli ambiti sono la posizione in cui si gestiscono i dati di fatturazione, i ruoli specifici dei pagamenti, la visualizzazione delle fatture e la gestione generale degli account. I ruoli fatturazione e account vengono gestiti separatamente da quelli usati per la gestione delle risorse, [che usano il](../role-based-access-control/overview.md)controllo degli accessi in base al ruolo Per distinguere chiaramente lo scopo degli ambiti distinti, incluse le differenze relative al controllo di accesso, questi sono denominati rispettivamente _ambiti di fatturazione_ e _ambiti RBAC_.
 
 ## <a name="how-cost-management-uses-scopes"></a>Modalità di utilizzo degli ambiti in gestione costi
 
@@ -37,7 +37,7 @@ Gestione costi funziona in tutti gli ambiti sopra le risorse per consentire alle
 
 Azure supporta tre ambiti per la gestione delle risorse. Ogni ambito supporta la gestione dell'accesso e della governance, tra cui la gestione dei costi.
 
-- [**Gruppi di gestione**](../governance/management-groups/index.md) : contenitori gerarchici, fino a otto livelli, per organizzare le sottoscrizioni di Azure.
+- [**Gruppi di gestione**](../governance/management-groups/overview.md) : contenitori gerarchici, fino a otto livelli, per organizzare le sottoscrizioni di Azure.
 
     Tipo di risorsa: [Microsoft. Management/managementGroups](/rest/api/resources/managementgroups)
 
@@ -65,7 +65,7 @@ Gestione costi supporta i ruoli predefiniti seguenti per ognuno degli ambiti seg
 
 Collaboratore gestione costi è il ruolo con privilegi minimi consigliato. Consente agli utenti di accedere per creare e gestire i budget e le esportazioni in modo da monitorare e segnalare in modo più efficace i costi. I collaboratori di gestione costi potrebbero anche richiedere ruoli aggiuntivi per supportare scenari di gestione dei costi end-to-end. Esaminare gli scenari seguenti:
 
-- **Agire quando vengono superati i budget: i** collaboratori di gestione costi devono anche accedere per creare e/o gestire i gruppi di azioni per rispondere automaticamente alle eccedenze. Considerare la possibilità di concedere il collaboratore al [monitoraggio](../role-based-access-control/built-in-roles.md#monitoring-contributor) a un gruppo di risorse che contiene il gruppo di azioni da usare quando vengono superate le soglie del budget. L'automazione di azioni specifiche richiede ruoli aggiuntivi per i servizi specifici usati, ad esempio automazione e funzioni di Azure.
+- **Agire quando vengono superati i budget: i** collaboratori di gestione costi devono anche accedere per creare e/o gestire i gruppi di azioni per rispondere automaticamente alle eccedenze. Considerare la possibilità di concedere il [collaboratore al monitoraggio](../role-based-access-control/built-in-roles.md#monitoring-contributor) a un gruppo di risorse che contiene il gruppo di azioni da usare quando vengono superate le soglie del budget. L'automazione di azioni specifiche richiede ruoli aggiuntivi per i servizi specifici usati, ad esempio automazione e funzioni di Azure.
 - **Pianificare l'esportazione dei dati sui costi: i** collaboratori di gestione costi devono anche accedere per gestire gli account di archiviazione per pianificare un'esportazione per la copia dei dati in un account di archiviazione. Prendere in considerazione la concessione di un [collaboratore account di archiviazione](../role-based-access-control/built-in-roles.md#storage-account-contributor) a un gruppo di risorse che contiene l'account di archiviazione in cui vengono esportati i dati
 - **Visualizzazione delle raccomandazioni di risparmio** sui costi: i lettori di gestione costi e i collaboratori di gestione costi hanno accesso per *visualizzare* le raccomandazioni sui costi per impostazione predefinita. Tuttavia, l'accesso per agire sulle raccomandazioni sui costi richiede l'accesso alle singole risorse. Si consiglia di concedere un [ruolo specifico del servizio](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) se si desidera agire su una raccomandazione basata sui costi.
 
@@ -75,14 +75,14 @@ Gli account di fatturazione Enterprise Agreement (EA), denominati anche registra
 
 - [**Account di fatturazione**](../billing/billing-view-all-accounts.md) : rappresenta una registrazione EA. Le fatture vengono generate in questo ambito. Gli acquisti che non sono basati sull'utilizzo, ad esempio il Marketplace e le prenotazioni, sono disponibili solo in questo ambito. Non sono rappresentati nei reparti o negli account di registrazione.
 
-    Tipo di risorsa:`Microsoft.Billing/billingAccounts (accountType = Enrollment)`
+    Tipo di risorsa: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Reparto** : raggruppamento facoltativo di account di registrazione.
 
-    Tipo di risorsa:`Billing/billingAccounts/departments`
+    Tipo di risorsa: `Billing/billingAccounts/departments`
 
 - **Account di registrazione** : rappresenta un singolo proprietario dell'account. Non supporta la concessione dell'accesso a più persone.
 
-    Tipo di risorsa:`Microsoft.Billing/billingAccounts/enrollmentAccounts`
+    Tipo di risorsa: `Microsoft.Billing/billingAccounts/enrollmentAccounts`
 
 Sebbene gli ambiti di governance siano associati a una singola directory, gli ambiti di fatturazione con contratto Enterprise non lo sono. Un account di fatturazione EA può avere sottoscrizioni in un numero qualsiasi di directory Azure AD.
 
@@ -90,8 +90,8 @@ Gli ambiti di fatturazione EA supportano i ruoli seguenti:
 
 - **Enterprise Admin** : può gestire le impostazioni e l'accesso agli account di fatturazione, può visualizzare tutti i costi e può gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, l'ambito di fatturazione EA è lo stesso [ruolo di Collaboratore gestione costi di Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
 - **Utente di sola lettura aziendale** : può visualizzare le impostazioni dell'account di fatturazione, i dati sui costi e la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, l'ambito di fatturazione EA corrisponde al ruolo di [lettura gestione costi di Azure](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Amministratore del reparto** : può gestire le impostazioni del reparto, ad esempio il centro di costo, e può accedere, visualizzare tutti i costi e gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni.  Per **visualizzare i costi** , è necessario abilitare l'impostazione per l'account di fatturazione per gli amministratori del reparto e per gli utenti di sola lettura. Se gli addebiti per le **viste** sono disabilitati, gli utenti del reparto non possono visualizzare i costi a qualsiasi livello, anche se sono proprietari di un account o di una sottoscrizione.
-- **Utente** di sola lettura del reparto: può visualizzare le impostazioni del reparto, i dati relativi ai costi e la configurazione dei costi. Ad esempio, i budget e le esportazioni. Se gli addebiti per le **viste** sono disabilitati, gli utenti del reparto non possono visualizzare i costi a qualsiasi livello, anche se sono proprietari di un account o di una sottoscrizione.
+- **Amministratore del reparto** : può gestire le impostazioni del reparto, ad esempio il centro di costo, e può accedere, visualizzare tutti i costi e gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni.  Per **visualizzare i costi** , è necessario abilitare l'impostazione per l'account di fatturazione per gli amministratori del reparto e per gli utenti di sola lettura. Se gli **addebiti** per le viste sono disabilitati, gli utenti del reparto non possono visualizzare i costi a qualsiasi livello, anche se sono proprietari di un account o di una sottoscrizione.
+- **Utente** di sola lettura del reparto: può visualizzare le impostazioni del reparto, i dati relativi ai costi e la configurazione dei costi. Ad esempio, i budget e le esportazioni. Se gli **addebiti** per le viste sono disabilitati, gli utenti del reparto non possono visualizzare i costi a qualsiasi livello, anche se sono proprietari di un account o di una sottoscrizione.
 - **Proprietario dell'account** : può gestire le impostazioni dell'account di registrazione, ad esempio il centro di costo, visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni, per l'account di registrazione. Per visualizzare i costi, è necessario abilitare l'impostazione dell'account di fatturazione per le **visualizzazioni Ao** per i proprietari degli account e gli utenti RBAC.
 
 Gli utenti dell'account di fatturazione EA non hanno accesso diretto alle fatture. Le fatture sono disponibili da un sistema di contratti multilicenza esterno.
@@ -118,15 +118,15 @@ Gli account di fatturazione del contratto cliente Microsoft hanno gli ambiti seg
 
 - **Account di fatturazione** : rappresenta un contratto del cliente per più prodotti e servizi Microsoft. Gli account di fatturazione del contratto clienti non sono funzionalmente identici alle registrazioni EA. Le registrazioni EA sono strettamente allineate ai profili di fatturazione.
 
-    Tipo di risorsa:`Microsoft.Billing/billingAccounts (accountType = Organization)`
+    Tipo di risorsa: `Microsoft.Billing/billingAccounts (accountType = Organization)`
 
 - **Profilo di fatturazione** : definisce le sottoscrizioni incluse in una fattura. I profili di fatturazione sono l'equivalente funzionale di una registrazione EA, poiché si tratta dell'ambito in cui vengono generate le fatture. Analogamente, gli acquisti che non sono basati sull'utilizzo (ad esempio Marketplace e prenotazioni) sono disponibili solo in questo ambito. Non sono incluse nelle sezioni della fattura.
 
-    Tipo di risorsa:`Microsoft.Billing/billingAccounts/billingProfiles`
+    Tipo di risorsa: `Microsoft.Billing/billingAccounts/billingProfiles`
 
 - **Sezione fattura** : rappresenta un gruppo di sottoscrizioni in una fattura o un profilo di fatturazione. Le sezioni della fattura sono simili ai reparti: più persone possono accedere a una sezione di fattura.
 
-    Tipo di risorsa:`Microsoft.Billing/billingAccounts/invoiceSections`
+    Tipo di risorsa: `Microsoft.Billing/billingAccounts/invoiceSections`
 
 Diversamente dagli ambiti di fatturazione EA, gli account di fatturazione del contratto cliente _sono_ associati a una singola directory e non possono avere sottoscrizioni tra più directory Azure ad.
 
@@ -135,7 +135,7 @@ Gli ambiti di fatturazione del contratto del cliente supportano i ruoli seguenti
 - **Proprietario** : può gestire le impostazioni di fatturazione e l'accesso, visualizzare tutti i costi e gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al [ruolo di collaboratore di gestione costi di Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
 - **Collaboratore** : può gestire le impostazioni di fatturazione ad eccezione dell'accesso, visualizzare tutti i costi e gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al [ruolo di collaboratore di gestione costi di Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
 - **Reader** : può visualizzare le impostazioni di fatturazione, i dati relativi ai costi e la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al [ruolo di lettura gestione costi di Azure](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Responsabile** delle fatture: può visualizzare e pagare le fatture e può visualizzare i dati sui costi e la configurazione. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al [ruolo di lettura gestione costi di Azure](../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Responsabile delle fatture** : può visualizzare e pagare le fatture e può visualizzare i dati sui costi e la configurazione. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al [ruolo di lettura gestione costi di Azure](../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Creatore della sottoscrizione di Azure** : può creare sottoscrizioni di Azure, visualizzare i costi e gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al ruolo di proprietario dell'account di registrazione EA.
 
 Le sottoscrizioni di Azure sono annidate in sezioni di fattura, ad esempio come sono in account di registrazione EA. Gli utenti di fatturazione hanno accesso ai dati sui costi per le sottoscrizioni e i gruppi di risorse che si trovano nei rispettivi ambiti. Tuttavia, non hanno accesso per visualizzare o gestire le risorse nella portale di Azure. Gli utenti di fatturazione possono visualizzare i costi passando a **Gestione costi e fatturazione** nell'elenco portale di Azure dei servizi. Filtrare quindi i costi per le sottoscrizioni e i gruppi di risorse specifici per i quali è necessario creare un report.
@@ -148,11 +148,11 @@ Al termine dell'integrazione di AWS, vedere [Setup and Configure AWS Integration
 
 - **Account di fatturazione esterno** : rappresenta un contratto del cliente con un fornitore di terze parti. Questa operazione è simile all'account di fatturazione EA.
 
-    Tipo di risorsa:`Microsoft.CostManagement/externalBillingAccounts`
+    Tipo di risorsa: `Microsoft.CostManagement/externalBillingAccounts`
     
 - **Sottoscrizione esterna** : rappresenta un account operativo del cliente con un fornitore di terze parti. Questa operazione è simile a una sottoscrizione di Azure.
 
-    Tipo di risorsa:`Microsoft.CostManagement/externalSubscriptions`
+    Tipo di risorsa: `Microsoft.CostManagement/externalSubscriptions`
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>Ambiti del provider di soluzioni cloud (CSP)
 
@@ -160,7 +160,7 @@ I partner Cloud Solution Provider (CSP) non sono attualmente supportati nella ge
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Passare da un ambito all'altra in gestione costi
 
-Tutte le viste di gestione dei costi nel portale di Azure includono una pillola di selezione dell' **ambito** nella parte superiore sinistra della visualizzazione. Usarlo per modificare rapidamente l'ambito. Fare clic sulla pillola **ambito** per aprire la selezione ambito. Mostra gli account di fatturazione, il gruppo di gestione radice e tutte le sottoscrizioni non annidate nel gruppo di gestione radice. Per selezionare un ambito, fare clic sullo sfondo per evidenziarlo, quindi fare clic su **Seleziona** nella parte inferiore. Per eseguire il drill-in degli ambiti annidati, ad esempio i gruppi di risorse in una sottoscrizione, fare clic sul collegamento nome ambito. Per selezionare l'ambito padre a qualsiasi livello annidato, fare clic su **&lt;seleziona questo ambito&gt;** nella parte superiore della selezione ambito.
+Tutte le viste di gestione dei costi nel portale di Azure includono una pillola di selezione dell' **ambito** nella parte superiore sinistra della visualizzazione. Usarlo per modificare rapidamente l'ambito. Fare clic sulla pillola **ambito** per aprire la selezione ambito. Mostra gli account di fatturazione, il gruppo di gestione radice e tutte le sottoscrizioni non annidate nel gruppo di gestione radice. Per selezionare un ambito, fare clic sullo sfondo per evidenziarlo, quindi fare clic su **Seleziona** nella parte inferiore. Per eseguire il drill-in degli ambiti annidati, ad esempio i gruppi di risorse in una sottoscrizione, fare clic sul collegamento nome ambito. Per selezionare l'ambito padre a qualsiasi livello annidato, fare clic su **Seleziona questo &lt;scope @ no__t-2** nella parte superiore della selezione ambito.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identificare l'ID risorsa per un ambito
 
@@ -171,7 +171,7 @@ Quando si lavora con le API di gestione costi, la conoscenza dell'ambito è fond
 1. Aprire il portale di Azure, quindi passare a **Gestione costi e fatturazione** nell'elenco dei servizi.
 2. Scegliere **Proprietà** dal menu account di fatturazione.
 3. Copiare l'ID dell'account di fatturazione.
-4. L'ambito è:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
+4. L'ambito è: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
 
 ### <a name="billing-profiles"></a>Profili di fatturazione
 
@@ -180,7 +180,7 @@ Quando si lavora con le API di gestione costi, la conoscenza dell'ambito è fond
 3. Fare clic sul nome del profilo di fatturazione desiderato.
 4. Scegliere **Proprietà** dal menu Profilo di fatturazione.
 5. Copiare gli ID del profilo di fatturazione e dell'account di fatturazione.
-6. L'ambito è:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
+6. L'ambito è: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
 
 ### <a name="invoice-sections"></a>Sezioni della fattura
 
@@ -189,7 +189,7 @@ Quando si lavora con le API di gestione costi, la conoscenza dell'ambito è fond
 3. Fare clic sul nome della sezione della fattura desiderata.
 4. Scegliere **Proprietà** dal menu della sezione fattura.
 5. Copiare gli ID della sezione fattura e account di fatturazione.
-6. L'ambito è:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
+6. L'ambito è: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
 
 ### <a name="ea-departments"></a>Dipartimenti EA
 
@@ -198,7 +198,7 @@ Quando si lavora con le API di gestione costi, la conoscenza dell'ambito è fond
 3. Fare clic sul nome del reparto desiderato.
 4. Scegliere **Proprietà** dal menu reparto.
 5. Copiare l'account di fatturazione e gli ID reparto.
-6. L'ambito è:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
+6. L'ambito è: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
 
 ### <a name="ea-enrollment-account"></a>Account di registrazione EA
 
@@ -207,20 +207,20 @@ Quando si lavora con le API di gestione costi, la conoscenza dell'ambito è fond
 3. Fare clic sul nome dell'account di registrazione desiderato.
 4. Selezionare **Proprietà** nel menu account di registrazione.
 5. Copiare l'account di fatturazione e gli ID dell'account di registrazione.
-6. L'ambito è:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
+6. L'ambito è: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
 
 ### <a name="management-group"></a>Gruppo di gestione
 
 1. Aprire il portale di Azure e passare a **gruppi di gestione** nell'elenco dei servizi.
 2. Passare al gruppo di gestione desiderato.
 3. Copiare l'ID del gruppo di gestione dalla tabella.
-4. L'ambito è:`"/providers/Microsoft.Management/managementGroups/{id}"`
+4. L'ambito è: `"/providers/Microsoft.Management/managementGroups/{id}"`
 
 ### <a name="subscription"></a>Sottoscrizione
 
 1. Aprire il portale di Azure e passare alle **sottoscrizioni** nell'elenco dei servizi.
 2. Copiare l'ID sottoscrizione dalla tabella.
-3. L'ambito è:`"/subscriptions/{id}"`
+3. L'ambito è: `"/subscriptions/{id}"`
 
 ### <a name="resource-groups"></a>Gruppi di risorse
 
@@ -228,7 +228,7 @@ Quando si lavora con le API di gestione costi, la conoscenza dell'ambito è fond
 2. Fare clic sul nome del gruppo di risorse desiderato.
 3. Selezionare **Proprietà** nel menu gruppo di risorse.
 4. Copiare il valore del campo ID risorsa.
-5. L'ambito è:`"/subscriptions/{id}/resourceGroups/{name}"`
+5. L'ambito è: `"/subscriptions/{id}/resourceGroups/{name}"`
 
 Gestione costi è attualmente supportato in Azure [Global](https://management.azure.com) e in [Azure per enti pubblici](https://management.usgovcloudapi.net). Per altre informazioni su Azure per enti pubblici, vedere [endpoint dell'API globale e per enti pubblici di Azure](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
 

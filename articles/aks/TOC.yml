@@ -151,6 +151,8 @@
           href: azure-files-volume.md
         - name: Server NFS - Configurazione statica
           href: azure-nfs-volume.md
+        - name: Azure NetApp Files
+          href: azure-netapp-files.md
     - name: Configurare le impostazioni di rete
       items:
         - name: Creare o usare una rete virtuale esistente
