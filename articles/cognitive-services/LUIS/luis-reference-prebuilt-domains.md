@@ -426,5 +426,5 @@ Entità LUIS | Tipo di entità | DESCRIZIONE | Esempi
 ------------|-------------|-------------|---------
 SearchEngine | List | L'utente del motore di ricerca vuole usare. | Bing <br> Google
 SearchText | semplice, modello. Qualsiasi | L'utente di testo desidera eseguire la ricerca. <br> _Contrassegna "Friends in Facebook" come SearchText se il sito Web dopo "in" non è un motore di ricerca. L'URL deve anche essere contrassegnata come SearchText._ | Film <br> Apprendimento avanzato <br> Tom Cruise
-Collegamento | url | Collegamento al sito Web. | www.twitter.com
+Collegamento | url | Collegamento al sito Web. | [www.twitter.com](www.twitter.com)
 
