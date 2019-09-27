@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 09/16/2019
-  ms.openlocfilehash: f762586bf04ceab8cd0c81880a86df7d43507038
-  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+  ms.openlocfilehash: 9071de52e97a041c9769f6c93fa36f39aff4e4fe
+  ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71087544"
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71316428"
 highlightedContent:
   items:
   - title: Informazioni su Servizi cognitivi
@@ -145,17 +145,20 @@ conceptualContent:
       itemType: overview
       text: Contenitori di Servizi cognitivi
     - url: ./containers/container-reuse-recipe.md
-      itemType: overview
+      itemType: learn
       text: Creare contenitori per il riutilizzo
     - url: ./containers/azure-container-instance-recipe.md
       itemType: how-to-guide
       text: Distribuire ed eseguire un contenitore in Istanze di Azure Container
     - url: ./containers/azure-kubernetes-recipe.md
-      itemType: how-to-guide
+      itemType: deploy
       text: Distribuire nel servizio Azure Kubernetes
     - url: ./containers/docker-compose-recipe.md
-      itemType: how-to-guide
+      itemType: get-started
       text: Usare Docker Compose per distribuire più contenitori
+    - url: ./containers/container-faq.md
+      itemType: reference
+      text: Domande frequenti sui contenitori di Servizi cognitivi
 additionalContent:
   sections:
   - items:
@@ -171,7 +174,7 @@ additionalContent:
         url: https://docs.microsoft.com/rest/api/cognitiveservices/
     - title: SDK
       links:
-      - text: .Net
+      - text: .NET
         url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
       - text: Go
         url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices

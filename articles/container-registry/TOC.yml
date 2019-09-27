@@ -57,7 +57,7 @@
   items:
     - name: Operazioni sui registri
       items:
-        - name: Eseguire il push e il pull di un'immagine
+        - name: Effettuare il push e il pull di un'immagine
           href: container-registry-get-started-docker-cli.md
         - name: Eseguire il push e il pull di un artefatto OCI
           href: container-registry-oci-artifacts.md
@@ -71,6 +71,8 @@
           items:
             - name: Eliminare i dati di immagini - Interfaccia della riga di comando
               href: container-registry-delete.md
+            - name: Criteri di conservazione per manifesti senza tag (anteprima)
+              href: container-registry-retention-policy.md
             - name: Ripulire automaticamente tag e manifesti (anteprima)
               href: container-registry-auto-purge.md
         - name: Aggiornare un registro classico

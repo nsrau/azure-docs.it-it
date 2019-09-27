@@ -691,6 +691,8 @@
       items:
         - name: Abilitare i notebook
           href: enable-notebooks.md
+        - name: Usare comandi di notebook predefiniti
+          href: use-notebook-features-and-commands.md
     - name: Programmazione lato server
       items:
         - name: 'Scrivere stored procedure, trigger e funzioni definite dall''utente'

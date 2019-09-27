@@ -21,7 +21,7 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Abilitare il Centro sicurezza di Azure per IoT nell'hub IoT
+    - name: Eseguire l'onboarding del Centro sicurezza di Azure per IoT nell'hub IoT
       href: quickstart-onboard-iot-hub.md
     - name: Configurare la soluzione
       href: quickstart-configure-your-solution.md
@@ -73,6 +73,8 @@
       href: how-to-security-data-access.md
     - name: Analizzare un dispositivo
       href: how-to-investigate-device.md
+    - name: Personalizzare la soluzione
+      href: how-to-customize-solution.md
 - name: Risorse
   items:
     - name: Domande frequenti

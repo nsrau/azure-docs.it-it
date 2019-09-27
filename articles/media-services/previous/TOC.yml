@@ -58,6 +58,8 @@
         - name: Eseguire la migrazione da Windows Azure Media Encoder
           href: migrate-windows-azure-media-encoder.md
           displayName: WAME
+        - name: Eseguire la migrazione da Indexer v1 e v2
+          href: migrate-indexer-v1-v2.md
     - name: Gestisci
       items:
         - name: Account
