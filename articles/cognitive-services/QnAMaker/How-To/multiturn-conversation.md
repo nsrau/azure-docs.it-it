@@ -11,20 +11,20 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: diberry
-ms.openlocfilehash: 585dc03503a61ff6666d3da3374586287e24283f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 318df27ebb822f49c1f8881d0bf68ac7167dea36
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966690"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351291"
 ---
-# <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più svolte di una conversazione
+# <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
 Usare le richieste di completamento e il contesto per gestire più turni, noti come _Multi-turn_, per il bot da una domanda all'altra.
 
 Per informazioni sul funzionamento della funzionalità multifunzione, vedere il video dimostrativo seguente:
 
-[![Conversazione a più turni in QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
+[![Multi-trasforma la conversazione in QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
 ## <a name="what-is-a-multi-turn-conversation"></a>Che cos'è una conversazione a più turni?
 
@@ -43,7 +43,7 @@ Nell'immagine precedente, un utente ha avviato una conversazione immettendo **il
 Quando l'utente seleziona un'opzione (#3), viene visualizzato l'elenco successivo di opzioni di perfezionamento (#4). Questa sequenza continua (#5) fino a quando l'utente non determina la risposta finale corretta (#6).
 
 > [!NOTE]
-> Nell'immagine precedente è stata selezionata la casella di controllo **Abilita** multiturni per assicurarsi che vengano visualizzati i prompt. 
+> Nell'immagine precedente è stata selezionata la casella di controllo **Abilita multiturni** per assicurarsi che vengano visualizzati i prompt. 
 
 ### <a name="use-multi-turn-in-a-bot"></a>Usare la funzionalità multiturne in un bot
 
@@ -57,7 +57,7 @@ Quando si crea una Knowledge base, nella sezione **popolare la KB** viene visual
 
 Quando si seleziona questa opzione per un documento importato, la conversazione a più turni può essere implicita dalla struttura del documento. Se tale struttura esiste, QnA Maker crea la richiesta di completamento che consente di abbinare le domande e le risposte come parte del processo di importazione. 
 
-La struttura a più turni può essere dedotta solo da URL, file PDF o file DOCX. Per un esempio di struttura, visualizzare un'immagine di un [file PDF Manuale dell'utente di Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). A causa delle dimensioni di questo file PDF, la risorsa QnA Maker richiede un piano tariffario di **ricerca** di **B** (15 indici) o superiore. 
+La struttura a più turni può essere dedotta solo da URL, file PDF o file DOCX. Per un esempio di struttura, visualizzare un'immagine di un [file PDF Manuale dell'utente di Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). A causa delle dimensioni di questo file PDF, la risorsa QnA Maker richiede un piano **tariffario di ricerca** di **B** (15 indici) o superiore. 
 
 ![! [Esempio di struttura in un manuale dell'utente] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
@@ -67,7 +67,7 @@ Quando si importa il documento PDF, QnA Maker determina le richieste di completa
 1. Creare o usare un servizio di QnA Maker esistente. Nell'esempio di superficie Microsoft precedente, poiché il file PDF è troppo grande per un livello più piccolo, usare un servizio di QnA Maker con un **servizio di ricerca** di **B** (15 indici) o superiore.
 1. Immettere un nome per la Knowledge base, ad esempio **Surface Manual**.
 1. Selezionare la casella **di controllo Consenti estrazione a più turni da URL, file con estensione PDF o docx** . 
-1. Selezionare l'URL **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** manuale della superficie.
+1. Selezionare l'URL manuale della superficie, **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
 
 1. Selezionare il pulsante **Crea KB** . 
 
@@ -187,7 +187,7 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
 
 ## <a name="enable-multi-turn-during-testing-of-follow-up-prompts"></a>Abilitare la funzionalità a più turni durante il test delle richieste di completamento
 
-Quando si testa la domanda con richieste di completamento nel riquadro **test** , selezionare **Abilita**multiturni e quindi immettere la domanda. La risposta include i prompt di completamento.
+Quando si testa la domanda con richieste di completamento nel riquadro **test** , selezionare **Abilita multiturni**e quindi immettere la domanda. La risposta include i prompt di completamento.
 
 ![La risposta include i prompt di completamento](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
 
@@ -274,7 +274,7 @@ Nella sezione precedente è stata richiesta una risposta ed eventuali richieste 
 }
 ```
 
-La `prompts` matrice fornisce il testo `displayText` nella proprietà e il `qnaId` valore. È possibile visualizzare queste risposte come le successive opzioni visualizzate nel flusso di conversazione e quindi inviare di nuovo `qnaId` l'oggetto selezionato a QnA Maker nella richiesta seguente. 
+La matrice `prompts` fornisce il testo nella proprietà `displayText` e il valore `qnaId`. È possibile visualizzare queste risposte come le opzioni visualizzate successive nel flusso di conversazione e quindi inviare di nuovo il `qnaId` selezionato a QnA Maker nella richiesta seguente. 
 
 <!--
 
@@ -284,7 +284,7 @@ The `promptsToDelete` array provides the ...
 
 ## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Richiesta JSON per restituire una risposta non iniziale e richieste di completamento
 
-Riempire l' `context` oggetto per includere il contesto precedente.
+Riempire l'oggetto `context` per includere il contesto precedente.
 
 Nella richiesta JSON seguente la domanda corrente è *usare Windows Hello per eseguire l'accesso* e la domanda precedente è costituita da *account e accesso*. 
 
@@ -304,7 +304,7 @@ Nella richiesta JSON seguente la domanda corrente è *usare Windows Hello per es
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Risposta JSON per restituire una risposta non iniziale e richieste di completamento
 
-La risposta JSON QnA Maker _GenerateAnswer_ include le richieste di completamento nella `context` proprietà del `answers` primo elemento dell'oggetto:
+La risposta JSON QnA Maker _GenerateAnswer_ include le richieste di completamento nella proprietà `context` del primo elemento nell'oggetto `answers`:
 
 ```JSON
 {
@@ -364,7 +364,7 @@ La risposta JSON QnA Maker _GenerateAnswer_ include le richieste di completament
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Eseguire una query sulla Knowledge base con l'ID QnA Maker
 
-Nella risposta della domanda iniziale vengono restituiti tutti i prompt di completamento e il relativo oggetto `qnaId` associato. Ora che si dispone dell'ID, è possibile passarlo nel corpo della richiesta di completamento della richiesta. Se il corpo della richiesta contiene `qnaId`e l'oggetto Context (che contiene le proprietà QnA Maker precedenti), GenerateAnswer restituirà la domanda esatta in base all'ID, anziché usare l'algoritmo di classificazione per trovare la risposta in base al testo della domanda. 
+Nella risposta della domanda iniziale vengono restituiti tutti i prompt di completamento e il `qnaId` associato. Ora che si dispone dell'ID, è possibile passarlo nel corpo della richiesta di completamento della richiesta. Se il corpo della richiesta contiene il `qnaId` e l'oggetto di contesto (che contiene le proprietà del QnA Maker precedente), GenerateAnswer restituirà la domanda esatta in base all'ID, anziché usare l'algoritmo di classificazione per trovare la risposta dal testo della domanda. 
 
 ## <a name="display-prompts-and-send-context-in-the-client-application"></a>Visualizzare i prompt e inviare il contesto nell'applicazione client 
 
@@ -382,17 +382,17 @@ FIX - Need to go to parent, then answer column, then edit answer.
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Creare una Knowledge base con prompt a più turni con l'API di creazione
 
-È possibile creare un Knowledge case con i prompt a più turni usando il [QnA Maker creare un'API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). I prompt vengono aggiunti nella `context` `prompts` matrice della proprietà. 
+È possibile creare una Knowledge base con i prompt a più turni usando il [QnA Maker creare un'API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). I prompt vengono aggiunti nella matrice `prompts` della proprietà `context`. 
 
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Aggiungere o eliminare richieste a più turni con l'API di aggiornamento
 
-È possibile aggiungere o eliminare richieste a più turni usando l' [API di aggiornamento QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  I prompt vengono aggiunti nella `context` `promptsToAdd` matrice della proprietà e `promptsToDelete` nella matrice. 
+È possibile aggiungere o eliminare richieste a più turni usando l' [API di aggiornamento QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  I prompt vengono aggiunti nella matrice `promptsToAdd` della proprietà `context` e nella matrice `promptsToDelete`. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle conversazioni contestuali da questo [esempio di finestra di dialogo](https://aka.ms/qnamakermultiturnsample) o altre informazioni sulla [progettazione di bot concettuali per conversazioni](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)a più turni.
+Altre informazioni sulle conversazioni contestuali da questo [esempio di finestra di dialogo](https://aka.ms/qnamakermultiturnsample) o altre informazioni sulla [progettazione di bot concettuali per conversazioni a più turni](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione di una Knowledge base](../Tutorials/migrate-knowledge-base.md)

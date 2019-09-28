@@ -12,23 +12,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1bc4a7634e864f0e3feb0d33cef3b967e5b6741f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 140a5cba6926e8711f0b70896ade55c11d332e0d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262218"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345304"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
-Monitoraggio di Azure ottimizza la disponibilità e le prestazioni delle applicazioni in uso offrendo una soluzione completa per raccogliere e analizzare la telemetria e intervenire di conseguenza dal cloud e dagli ambienti locali. È utile per ottenere informazioni sulle prestazioni delle applicazioni e identificare in modo proattivo i problemi delle applicazioni e delle risorse da cui dipendono.
+Monitoraggio di Azure massimizza la disponibilità e le prestazioni delle applicazioni e dei servizi fornendo una soluzione completa per la raccolta, l'analisi e la gestione dei dati di telemetria dagli ambienti cloud e locali. È utile per ottenere informazioni sulle prestazioni delle applicazioni e identificare in modo proattivo i problemi delle applicazioni e delle risorse da cui dipendono.
 
-> [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
+Solo alcuni esempi di ciò che è possibile eseguire con monitoraggio di Azure includono:
+
+- Rilevare e diagnosticare i problemi tra le applicazioni e le dipendenze con [Application Insights](app/app-insights-overview.md).
+- Correlare i problemi di infrastruttura con [monitoraggio di Azure per le macchine virtuali](insights/vminsights-overview.md) e [monitoraggio di Azure per i contenitori](insights/container-insights-overview.md).
+- Esaminare i dati di monitoraggio con [log Analytics](log-query/log-query-overview.md) per la risoluzione dei problemi e la diagnostica approfondita.
+- Supportano le operazioni su larga scala con [avvisi intelligenti](platform/alerts-smartgroups-overview.md) e [azioni automatiche](platform/alerts-action-rules.md).
+- Creare visualizzazioni con i [Dashboard](learn/tutorial-logs-dashboards.md) e le [cartelle di lavoro](app/usage-workbooks.md)di Azure.
 
 ## <a name="overview"></a>Panoramica
 Il diagramma seguente offre una panoramica di Monitoraggio di Azure. Al centro del diagramma si trovano gli archivi dati per le metriche e i log, i due tipi fondamentali di dati usati da Monitoraggio di Azure. A sinistra si trovano le [origini dei dati di monitoraggio](platform/data-sources.md) che popolano tali [archivi dati](platform/data-platform.md). A destra ci sono le diverse funzioni svolte da Monitoraggio di Azure con i dati raccolti, come analisi, avviso e streaming a sistemi esterni.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Panoramica di Monitoraggio di Azure](media/overview/overview.png)
 
