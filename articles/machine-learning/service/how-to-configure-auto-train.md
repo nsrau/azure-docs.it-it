@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6cfc18f01bb23d0b318ac1b924cf8cbb9f7a2b6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5a0f2922763f8fccb9f3eec8bab4d6eddee7e446
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259984"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350605"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 
@@ -328,7 +328,7 @@ Sono disponibili alcune opzioni che è possibile definire per terminare l'esperi
 
 Tutti i modelli prodotti con l'utilizzo automatico di ML includono i passaggi seguenti:
 + Progettazione automatica delle funzioni (se preprocess = true)
-+ Ridimensionamento/normalizzazione e algoritmo con valori di ipermetria
++ Ridimensionamento/normalizzazione e algoritmo con valori di iperparametri
 
 Lo facciamo trasparente per ottenere queste informazioni dall'output di fitted_model da Machine Learning automatico.
 
@@ -410,7 +410,7 @@ Usare queste 2 API nel primo passaggio del modello montato per comprendere megli
    |EngineeringFeatureCount|Numero di funzionalità generate tramite trasformazioni automatiche di progettazione delle funzionalità.|
    |Trasformazioni|Elenco di trasformazioni applicate alle funzionalità di input per generare funzionalità progettate.|
 
-### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>Ridimensionamento/normalizzazione e algoritmo con valori di ipermetria:
+### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Ridimensionamento/normalizzazione e algoritmo con valori di iperparametri:
 
 Per comprendere i valori di ridimensionamento, normalizzazione e algoritmo/iperparametro per una pipeline, usare fitted_model. Steps. [Altre informazioni sul ridimensionamento o la normalizzazione](concept-automated-ml.md#preprocess). Di seguito è riportato un output di esempio:
 

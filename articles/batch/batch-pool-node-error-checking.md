@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: d115b7d56609b95f2ea10b3fee2f8900102b94e4
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012479"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350057"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 
@@ -42,7 +42,7 @@ Le cause più comuni degli errori di ridimensionamento includono:
 - Risorse insufficienti quando un [pool è in una rete virtuale](https://docs.microsoft.com/azure/batch/batch-virtual-network)
   - Se si creano risorse come servizi di bilanciamento del carico, IP pubblici e gruppi di sicurezza di rete nella stessa sottoscrizione dell'account Batch, verificare che le quote della sottoscrizione siano sufficienti per queste risorse.
 - Pool di grandi dimensioni con immagini di macchina virtuale personalizzate
-  - L'allocazione di pool di grandi dimensioni che usano immagini di macchina virtuale personalizzate può richiedere più tempo, pertanto possono verificarsi timeout di ridimensionamento.  Per suggerimenti sui limiti e sulla configurazione, vedere [Usare un'immagine personalizzata per creare un pool di macchine virtuali](https://docs.microsoft.com/azure/batch/batch-custom-images).
+  - L'allocazione di pool di grandi dimensioni che usano immagini di macchina virtuale personalizzate può richiedere più tempo, pertanto possono verificarsi timeout di ridimensionamento.  Per consigli su limiti e configurazione, vedere [creare un pool con la raccolta di immagini condivise](batch-sig-images.md) .
 
 ### <a name="automatic-scaling-failures"></a>Errori di ridimensionamento automatico
 
@@ -56,7 +56,7 @@ Si può anche impostare Azure Batch in modo da ridimensionare automaticamente il
 
 L'[evento di completamento del ridimensionamento del pool](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) acquisisce le informazioni su tutte le valutazioni.
 
-### <a name="delete"></a>Eliminare
+### <a name="delete"></a>Eliminazione
 
 Quando si elimina un pool che contiene nodi, Batch elimina prima di tutto i nodi, quindi l'oggetto pool stesso. L'eliminazione dei nodi del pool può richiedere alcuni minuti.
 
@@ -84,17 +84,17 @@ Le attività di avvio devono essere rientranti, perché è possibile che l'attiv
 
 È possibile specificare uno o più pacchetti dell'applicazione per un pool. Batch Scarica i file di pacchetto specificati in ogni nodo e decomprime i file dopo l'avvio del nodo, ma prima della pianificazione delle attività. È prassi comune usare la riga di comando di un'attività di avvio insieme ai pacchetti dell'applicazione, ad esempio per copiare file n una posizione diversa o per eseguire il programma di installazione.
 
-La proprietà [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) nodo segnala un errore di download e annullamento della compressione di un pacchetto dell'applicazione. lo stato del nodo è impostatosu inutilizzabile.
+La proprietà [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) nodo segnala un errore di download e annullamento della compressione di un pacchetto dell'applicazione. lo stato del nodo è impostato su **inutilizzabile**.
 
 ### <a name="container-download-failure"></a>Errore di download del contenitore
 
-È possibile specificare uno o più riferimenti a contenitori in un pool. Batch Scarica i contenitori specificati in ogni nodo. La proprietà [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) nodo segnala un errore di download di un contenitore e imposta lo stato delnodo su inutilizzabile.
+È possibile specificare uno o più riferimenti a contenitori in un pool. Batch Scarica i contenitori specificati in ogni nodo. La proprietà [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) nodo segnala un errore di download di un contenitore e imposta lo stato del nodo su **inutilizzabile**.
 
 ### <a name="node-in-unusable-state"></a>Nodo in stato inutilizzabile
 
 Azure Batch può impostare lo [stato del nodo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) su **unusable** per diversi motivi. Quando lo stato del nodo è impostato su **unusable**, non è possibile pianificare attività sul nodo, il quale però rimane soggetto ad addebiti.
 
-I nodi in uno stato inutilizzabile, ma senza [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) significa che batch non è in grado di comunicare con la macchina virtuale. In questo caso, batch tenta sempre di ripristinare la macchina virtuale. Batch non tenterà automaticamente di ripristinare le macchine virtuali in cui non è stato possibile installare i pacchetti dell'applicazione oi contenitori anche se lo stato è inutilizzabile.
+I nodi in uno stato **inutilizzabile** , ma senza [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) significa che batch non è in grado di comunicare con la macchina virtuale. In questo caso, batch tenta sempre di ripristinare la macchina virtuale. Batch non tenterà automaticamente di ripristinare le macchine virtuali in cui non è stato possibile installare i pacchetti dell'applicazione o i contenitori anche se lo stato è **inutilizzabile**.
 
 Se Batch è in grado di determinare la causa, questa viene indicata nella proprietà [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror).
 

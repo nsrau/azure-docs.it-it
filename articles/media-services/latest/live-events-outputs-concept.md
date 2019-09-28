@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/25/2019
 ms.author: juliako
-ms.openlocfilehash: 7cb158490bd8a8520e101dbe321b8594cad059f9
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: efe0aaf7c7d5516401f8c72721121a5dff247b95
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309676"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350363"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventi live e output live
 
@@ -35,7 +35,7 @@ Gli [eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono res
 
 Un [evento live](https://docs.microsoft.com/rest/api/media/liveevents) può essere di due tipi: pass-through e codifica live. I tipi vengono impostati durante la creazione con [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType. None** : un codificatore Live locale invia un flusso a più velocità in bit. I flussi inseriti passano attraverso l'evento live senza ulteriori elaborazioni. 
+* **LiveEventEncodingType. None** : un codificatore Live locale invia un flusso a più velocità in bit. Il flusso inserito passa attraverso l'evento live senza ulteriori elaborazioni. 
 * **LiveEventEncodingType. standard** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni **Default720p** codifica un set di 6 coppie di risoluzione/velocità in bit.
 * **LiveEventEncodingType. Premium1080p** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Il set di impostazioni Default1080p specifica il set di output di coppie di risoluzione/velocità in bit. 
 
@@ -66,7 +66,9 @@ Le risoluzioni e le velocità in bit contenute nell'output del codificatore Live
 > [!NOTE]
 > Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che sia presente un solo livello a 720p (se si richiede un set di impostazioni per un codificatore Live standard) o a 1080p (se si richiede un set di impostazioni per un codificatore Live Premium1080p) e al massimo 6 livelli.
 
-## <a name="live-event-creation-options"></a>Opzioni di creazione di eventi live
+## <a name="creating-live-events"></a>Creazione di eventi Live 
+
+### <a name="options"></a>Opzioni
 
 Quando si crea un evento live, è possibile specificare le opzioni seguenti:
 
@@ -77,7 +79,14 @@ Quando si crea un evento live, è possibile specificare le opzioni seguenti:
 * Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo evento live. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').<br/>Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.<br/>Gli indirizzi IP devono essere in uno dei formati seguenti: indirizzo IpV4 con 4 numeri, intervallo di indirizzi CIDR.
 
     Se si vuole abilitare determinati IP sui firewall o si vuole vincolare gli input agli eventi live agli indirizzi IP di Azure, scaricare un file JSON da intervalli di [indirizzi IP del Data Center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Per informazioni dettagliate su questo file, fare clic sulla sezione **Dettagli** nella pagina.
-    
+        
+### <a name="naming-rules"></a>Regole di denominazione
+
+* Il nome dell'evento Live massimo è di 32 caratteri.
+* Il nome deve seguire questo modello [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+
+Vedere anche le [convenzioni di denominazione degli endpoint di streaming](streaming-endpoint-concept.md#naming-convention).
+
 ## <a name="live-event-ingest-urls"></a>URL di inserimento di eventi live
 
 Al termine della creazione dell'evento live, è possibile ottenere gli URL di inserimento che verranno passati al codificatore locale live. Questi URL vengono usati dal codificatore live per inserire un flusso live. Per altre informazioni, vedere [Codificatori di streaming live consigliati](recommended-on-premises-live-encoders.md). 

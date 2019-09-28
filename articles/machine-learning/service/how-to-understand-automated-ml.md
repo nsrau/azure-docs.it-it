@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 56d8dff7d158cedb4ab33e811cf5134cdbc475ab
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b0024bc12f29a76da02c9f7e62af7727b9af7249
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999436"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350635"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Informazioni sui risultati automatici di Machine Learning
 
@@ -28,9 +28,9 @@ Altre informazioni su:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
+* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Creare un esperimento di Machine Learning automatizzato, con l'SDK, nella portale di Azure o nella pagina di destinazione dell'area di lavoro (anteprima).
+* Creare un esperimento per l'esecuzione automatica di Machine Learning, con l'SDK, nella portale di Azure o nella pagina di destinazione dell'area di lavoro (anteprima).
 
     * Usare l'SDK per compilare un modello di [classificazione](how-to-auto-train-remote.md) o un [modello](tutorial-auto-train-models.md) di regressione
     * Usare la [portale di Azure o la pagina di destinazione dell'area di lavoro (anteprima)](how-to-create-portal-experiments.md) per creare un modello di classificazione o regressione caricando i dati appropriati.
@@ -170,7 +170,7 @@ Le metriche e i grafici seguenti sono disponibili per ogni modello di regression
 
 Le metriche seguenti vengono salvate in ogni iterazione di esecuzione per un'attività di regressione o previsione.
 
-|Metrica|DESCRIZIONE|Calcolo|Parametri aggiuntivi
+|Metrica|Descrizione|Calcolo|Parametri aggiuntivi
 --|--|--|--|
 explained_variance|explained_variance è la proporzione in base alla quale un modello matematico tiene conto della variazione di un determinato set di dati. Si tratta della riduzione percentuale della varianza dei dati originali rispetto alla varianza degli errori. Quando la media degli errori è 0, la varianza è perfettamente spiegata.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nessuna|
 r2_score|R2 è il coefficiente di determinazione o la riduzione percentuale di errori quadratici rispetto a un modello di base che restituisce la media. |[Calcolo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nessuna|

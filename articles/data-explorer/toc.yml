@@ -90,6 +90,8 @@
       items:
         - name: Power BI
           items:
+            - name: Procedure consigliate
+              href: power-bi-best-practices.md
             - name: connettore
               href: power-bi-connector.md
             - name: query importata

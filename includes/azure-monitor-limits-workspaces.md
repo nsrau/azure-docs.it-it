@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 58a741b369231a353a6b8e282a6e604a63a5727d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 017c02a10137579e6e3497775e9e4a3ac0a5d72d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71210253"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350869"
 ---
 **Volume e conservazione della raccolta dati** 
 
@@ -65,9 +65,12 @@ ms.locfileid: "71210253"
 | Aree alla capacità | Stati Uniti centro-occidentali | Attualmente non è possibile creare una nuova area di lavoro in questa area perché si trova al limite di capacità temporanea. Questo limite è pianificato per essere risolto entro la fine dell'ottobre 2019. |
 | Esportazione dati | Attualmente non disponibile | Usare funzioni di Azure o app per la logica per aggregare ed esportare dati. | 
 
-**Velocità di inserimento dati**
+**Velocità del volume di inserimento dati**
 
-Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. La soglia della frequenza di inserimento predefinita è impostata su **500 MB/min** per area di lavoro. Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro aprendo una richiesta di supporto.
+
+Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite di velocità del volume di inserimento predefinito per i dati inviati dalle risorse di Azure con [le impostazioni di diagnostica](../articles/azure-monitor/platform/diagnostic-settings.md) è di circa **6 GB/min** per area di lavoro. Si tratta di un valore approssimativo, poiché la dimensione effettiva può variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questo limite non si applica ai dati inviati dagli agenti o dall' [API dell'agente di raccolta dati](../articles/azure-monitor/platform/data-collector-api.md).
+
+Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro aprendo una richiesta di supporto.
  
 Per ricevere una notifica su tale evento nell'area di lavoro, creare una [regola di avviso di log](../articles/azure-monitor/platform/alerts-log.md) usando la query seguente con la logica di avviso base su numero di risultati maggiore di zero.
 

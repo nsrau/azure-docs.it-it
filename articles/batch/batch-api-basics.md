@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 08/29/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bd630fec16ddfb269ead5f1f62af882f52501a86
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 364861e57f37192a3ae454e27fedf732ee8d513e
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390458"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350177"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -95,7 +95,7 @@ Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'a
 
 Un nodo di calcolo è una macchina virtuale (VM) di Azure o una VM del servizio cloud dedicata all'elaborazione di una parte del carico di lavoro dell'applicazione. Le dimensioni di un nodo determinano il numero di core CPU, la capacità di memoria e le dimensioni del file system locale allocati al nodo. È possibile creare pool di nodi Windows o Linux usando i servizi cloud di Azure, le immagini del [Marketplace di macchine virtuali di Azure][vm_marketplace]o immagini personalizzate preparate. Per altre informazioni su queste opzioni, vedere la sezione [Pool](#pool) seguente.
 
-I nodi possono eseguire qualsiasi eseguibile o script supportato dall'ambiente del sistema operativo del nodo, Gli eseguibili o gli \*script includono. \*exe,. \*cmd,. bat e gli script di PowerShell per Windows e binari, Shell e script Python per Linux.
+I nodi possono eseguire qualsiasi eseguibile o script supportato dall'ambiente del sistema operativo del nodo, Gli eseguibili o gli script includono \*. exe, @no__t 1. cmd, @no__t 2. bat e gli script di PowerShell per Windows e i file binari, la shell e gli script Python per Linux.
 
 Tutti i nodi di Calcolo in Batch includono anche:
 
@@ -149,9 +149,9 @@ Quando si crea un pool, è necessario selezionare il valore appropriato di **nod
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Immagini personalizzate per pool di macchine virtuali
 
-Per usare un'immagine personalizzata, sarà necessario preparare l'immagine generalizzandola. Per informazioni sulla preparazione di immagini Linux personalizzate da VM di Azure, vedere [Come creare un'immagine di una macchina virtuale o un disco rigido virtuale](../virtual-machines/linux/capture-image.md). Per informazioni sulla preparazione di immagini Windows personalizzate da macchine virtuali di Azure, vedere [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/capture-image-resource.md). 
+Per informazioni su come creare un pool con immagini personalizzate, vedere [usare la raccolta di immagini condivise per creare un pool personalizzato](batch-sig-images.md).
 
-Per i requisiti e i passaggi dettagliati, vedere [Usare un'immagine personalizzata per creare un pool di macchine virtuali](batch-custom-images.md).
+In alternativa, è possibile creare un pool personalizzato di macchine virtuali usando una risorsa [immagine gestita](batch-custom-images.md) . Per informazioni sulla preparazione di immagini Linux personalizzate da VM di Azure, vedere [Come creare un'immagine di una macchina virtuale o un disco rigido virtuale](../virtual-machines/linux/capture-image.md). Per informazioni sulla preparazione di immagini Windows personalizzate da macchine virtuali di Azure, vedere [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/capture-image-resource.md).
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Supporto dei contenitori nei pool di macchine virtuali
 
@@ -245,7 +245,7 @@ La pianificazione di attività dei pool è indipendente. Tra pool diversi, non �
 
 ### <a name="scheduled-jobs"></a>Processi pianificati
 
-Le [pianificazioni dei processi][rest_job_schedules] consentono di creare processi ricorrenti all'interno del servizio batch. Una pianificazione del processo specifica quando eseguire i processi e include le specifiche per i processi da eseguire. È possibile specificare la durata della pianificazione, per quanto tempo e quando è effettiva la pianificazione, e con quale frequenza vengono creati i processi durante quell'intervallo di tempo.
+Le pianificazioni dei [processi][rest_job_schedules] consentono di creare processi ricorrenti all'interno del servizio batch. Una pianificazione del processo specifica quando eseguire i processi e include le specifiche per i processi da eseguire. È possibile specificare la durata della pianificazione, per quanto tempo e quando è effettiva la pianificazione, e con quale frequenza vengono creati i processi durante quell'intervallo di tempo.
 
 ## <a name="task"></a>Attività
 
@@ -379,7 +379,7 @@ La directory radice contiene la struttura di directory seguente:
 
 * elementi di **lavoro:** Questa directory contiene le directory per i processi e le relative attività nel nodo di calcolo.
 
-* **Tasks** (Attività): All'interno della directory **WorkItems** viene creata una directory per ogni attività in esecuzione nel nodo. È possibile accedervi facendo riferimento `AZ_BATCH_TASK_DIR` alla variabile di ambiente.
+* **Tasks** (Attività): All'interno della directory **WorkItems** viene creata una directory per ogni attività in esecuzione nel nodo. È possibile accedervi facendo riferimento alla variabile di ambiente `AZ_BATCH_TASK_DIR`.
 
     All'interno di ogni directory di attività, il servizio Batch crea una directory di lavoro (`wd`), il cui percorso univoco viene specificato dalla variabile di ambiente `AZ_BATCH_TASK_WORKING_DIR`. Questa directory fornisce l'accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare file in tale directory. Questa directory viene mantenuta in base al vincolo *RetentionTime* specificato per l'attività.
 
@@ -530,10 +530,10 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
     A volte è necessario rimuovere completamente il nodo dal pool.
 * **Disabilitare la pianificazione delle attività nel nodo** ([Rest][rest_offline] | [.NET][net_offline])
 
-    In questo modo il nodo in realtà passa offline e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È ad esempio possibile disabilitare la pianificazione delle attività nel nodo, quindi [accedere in remoto](#connecting-to-compute-nodes) per esaminare i log eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Al termine dell'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([Rest][rest_online] | [.NET][net_online]) o eseguire una delle altre azioni descritte in precedenza.
+    In questo modo il nodo in realtà passa offline e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È ad esempio possibile disabilitare la pianificazione delle attività nel nodo, quindi [accedere in remoto](#connecting-to-compute-nodes) per esaminare i log eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Al termine dell'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([REST][rest_online] | [.NET][net_online]) o eseguire una delle altre azioni descritte in precedenza.
 
 > [!IMPORTANT]
-> Con ogni azione illustrata in questa sezione, ovvero riavvio, ricreazione dell'immagine, rimozione, disabilitazione della pianificazione delle attività, è possibile specificare come gestire le attività attualmente in esecuzione nel nodo quando si esegue l'azione. Ad esempio, quando si disabilita la pianificazione delle attività in un nodo usando la libreria client batch .NET, è possibile specificare un valore enum [DisableComputeNodeSchedulingOption][net_offline_option] per specificare se **terminare** le attività in esecuzione, **riaccodarle** per pianificazione in altri nodi oppure consentire il completamento delle attività in esecuzione prima di eseguire l'azione (**TaskCompletion**).
+> Con ogni azione illustrata in questa sezione, ovvero riavvio, ricreazione dell'immagine, rimozione, disabilitazione della pianificazione delle attività, è possibile specificare come gestire le attività attualmente in esecuzione nel nodo quando si esegue l'azione. Ad esempio, quando si disabilita la pianificazione delle attività in un nodo usando la libreria client batch .NET, è possibile specificare un valore enum [DisableComputeNodeSchedulingOption][net_offline_option] per specificare se **terminare** le attività in esecuzione , riaccodarle per pianificazione in altri nodi oppure consentire il completamento delle attività in esecuzione prima di eseguire l'azione (**TaskCompletion**).
 >
 >
 

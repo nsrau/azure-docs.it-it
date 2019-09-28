@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: 831ba217e99d1610383320ddf5706c6acfcdf48a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: cd1dc7b55060e8262b300022f5ffd1b4da5f7922
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848894"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350354"
 ---
 # <a name="streaming-endpoints"></a>Endpoint di streaming 
 
@@ -31,9 +31,14 @@ Quando si crea un account di Servizi multimediali viene creato un endpoint di st
 
 ## <a name="naming-convention"></a>Convenzione di denominazione
 
-Per l'endpoint predefinito: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+Il formato del nome host dell'URL di streaming è: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`, dove `servicename` = il nome dell'endpoint di streaming o il nome dell'evento Live. 
 
-Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+Quando si usa l'endpoint di streaming predefinito, viene omesso `servicename`, quindi l'URL è: `{accountname}-{regionname}.streaming.azure.net`. 
+
+### <a name="limitations"></a>Limitazioni
+
+* Il nome dell'endpoint di streaming ha un valore massimo di 24 caratteri.
+* Il nome deve seguire questo modello [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## <a name="types"></a>Tipi  
 
@@ -56,18 +61,18 @@ Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contr
 Funzionalità|Standard|Premium
 ---|---|---
 Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
-RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
+CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
-Crittografia dinamica|Sì|Sì
-creazione dinamica dei pacchetti|Yes|Sì
-Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo
-Filtro IP/G20/host personalizzato <sup>1</sup>|Sì|Yes
-Download progressivo|Sì|Sì
+Crittografia dinamica|Yes|Yes
+creazione dinamica dei pacchetti|Yes|Yes
+Piano|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo
+Filtro IP/G20/host personalizzato <sup>1</sup>|Yes|Yes
+Download progressivo|Yes|Yes
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.
 
 <sup>1</sup> usato direttamente sull'endpoint di streaming quando la rete CDN non è abilitata nell'endpoint.<br/>
 
-## <a name="properties"></a>Properties 
+## <a name="properties"></a>Proprietà 
 
 Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell'endpoint di streaming. Per esempi di come creare un nuovo endpoint di streaming e per le descrizioni di tutte le proprietà, vedere [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create) (Endpoint di streaming). 
 
@@ -128,7 +133,7 @@ Nella maggior parte dei casi, la rete per la distribuzione di contenuti è abili
 
 ### <a name="considerations"></a>Considerazioni
 
-* L'endpoint di streaming `hostname` e l'URL di streaming rimangono invariati indipendentemente dal fatto che venga abilitata o meno la rete CDN.
+* L'endpoint di streaming `hostname` e l'URL di streaming rimangono invariati, indipendentemente dal fatto che la rete CDN sia abilitata.
 * Se è necessario testare il contenuto con o senza la rete CDN, è possibile creare un altro endpoint di streaming non abilitato per la rete CDN.
 
 ### <a name="detailed-explanation-of-how-caching-works"></a>Spiegazione dettagliata del funzionamento della memorizzazione nella cache

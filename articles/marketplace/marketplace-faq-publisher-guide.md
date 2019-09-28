@@ -1,26 +1,26 @@
 ---
-title: Domande frequenti su Azure Marketplace
-description: Risposte alle domande frequenti su Microsoft Azure Marketplace
+title: Domande frequenti su Microsoft Commercial Marketplace
+description: Risposte alle domande comuni su Azure Marketplace e Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 9/26/2019
 ms.author: ellacroi
-ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: abc3b3a6be5f8c61c07fb29a6f168c8738733099
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259949"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350393"
 ---
-# <a name="marketplace-faqs"></a>Domande frequenti su Marketplace
+# <a name="microsoft-commercial-marketplace-faqs"></a>Domande frequenti sul Marketplace commerciale Microsoft
 
-Risposte alle domande frequenti su Microsoft Azure Marketplace.
+Risposte alle domande comuni su Azure Marketplace e Microsoft AppSource.
 
 ## <a name="faq-for-customers"></a>Domande frequenti per i clienti
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Cosa occorre sapere su Azure Marketplace
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Cosa è necessario sapere su Azure Marketplace e Microsoft AppSource
 
 **Che cos'è Azure Marketplace?**
 
@@ -253,9 +253,26 @@ Le licenze aggiunte a una sottoscrizione esistente sono ripartite in modo propor
 
 Le licenze annullate saranno soggette ai criteri di rimborso disponibili in queste domande frequenti.  Tutte le licenze annullate vengono immediatamente rimosse dall'account e non saranno più disponibili per l'utilizzo.
 
+**I rimborsi sono supportati per le offerte basate sull'utilizzo?**
+
+Eventuali addebiti in base al consumo, sia che si tratti di VM orarie o contatori personalizzati, non sono rimborsabili tramite annullamento. Al termine dell'utilizzo, gli addebiti vengono elaborati dalla piattaforma commerciale di Microsoft e tutte le controversie di qualità dei servizi in cui viene richiesto un rimborso verranno gestite all'esterno dei sistemi Microsoft tra l'editore e il cliente. Le offerte che supportano una tariffa fissa e la fatturazione a consumo seguono i criteri di rimborso standard per i costi forfettari.
+
+**È possibile modificare i piani a metà periodo?**
+
+No, non è possibile eseguire la transizione tra cadenza mensile e annuale.
+
+**Un cliente può acquistare due piani della stessa offerta?**
+
+Sì, è possibile che un cliente disponga di due piani della stessa offerta contemporaneamente.
+
+**I criteri di rimborso e di modifica dei piani sono diversi da storefront?**
+
+No, i criteri di business sono coerenti in Azure Marketplace e Microsoft AppSource. Se rivenduto da un partner nella soluzione cloud fornisce il programma, il partner può applicare un criterio diverso per i clienti.
+
+
 ## <a name="faq-for-publishers"></a>Domande frequenti per gli editori
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Cosa occorre sapere su Azure Marketplace
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Cosa è necessario sapere su Azure Marketplace e Microsoft AppSource
 
 **Che cos'è Azure Marketplace?**
 

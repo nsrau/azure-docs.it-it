@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: c681b58b01979b95e35ae57cefde38c56a787543
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: fa4e45416e83d933cd21fe482bcead14bfbcae22
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68360244"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349931"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contatori delle prestazioni di sistema in Application Insights
 
@@ -30,16 +30,16 @@ Il riquadro Metrica mostra un set predefinito di contatori delle prestazioni.
 ![Contatori delle prestazioni segnalati in Application Insights](./media/performance-counters/performance-counters.png)
 
 I contatori predefiniti correnti configurati per la raccolta per le applicazioni Web ASP.NET/ASP.NET Core sono:
-- % Tempo\\processore processo
-- % Tempo\\processore processo normalizzato
-- Byte\\disponibili memoria
+- % Processo @ no__t-ora 0Processor
+- % Processo @ no__t-0Processor tempo normalizzato
+- Memoria @ no__t-0Available byte
 - Richieste ASP.NET/sec
 - Eccezioni CLR .NET generate/sec
 - ASP.NET tempo di esecuzione ApplicationsRequest
-- Byte\\privati processo
-- Byte\\dati di i/o processo/sec
-- Richieste di\\applicazioni ASP.NET nella coda dell'applicazione
-- Processore (_ Total\\)% tempo processore
+- Processo @ no__t-0Private byte
+- Processo @ no__t-byte dati 0IO/sec
+- ASP.NET Applications @ no__t-0Requests nella coda dell'applicazione
+- Processore (_ Total) \\% tempo processore
 
 ## <a name="add-counters"></a>Aggiungere contatori
 
@@ -66,7 +66,7 @@ Se il contatore delle prestazioni desiderato non è incluso nell'elenco delle me
     ```
 
 > [!NOTE]
-> ASP.NET Core le applicazioni non hanno `ApplicationInsights.config`, di conseguenza il metodo precedente non è valido per le applicazioni ASP.NET Core.
+> ASP.NET Core le applicazioni non hanno `ApplicationInsights.config` e quindi il metodo precedente non è valido per ASP.NET Core applicazioni.
 
 È possibile acquisire contatori standard e quelli implementati manualmente. `\Objects\Processes` è un esempio di contatore standard, disponibile in tutti i sistemi Windows. `\Sales(photo)\# Items Sold` è un esempio di contatore personalizzato che può essere implementato in un servizio Web.
 
@@ -98,7 +98,7 @@ In alternativa, è possibile eseguire la stessa operazione con le metriche perso
 
 ### <a name="collecting-performance-counters-in-code-for-aspnet-core-web-applications"></a>Raccolta dei contatori delle prestazioni nel codice per ASP.NET Core applicazioni Web
 
-Modificare `ConfigureServices` il`Startup.cs` metodo nella classe come indicato di seguito.
+Modificare il metodo `ConfigureServices` nella classe `Startup.cs` come indicato di seguito.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
@@ -148,11 +148,12 @@ Le applicazioni ASP.NET e ASP.NET Core distribuite in app Web di Azure vengono e
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Contatori delle prestazioni nelle applicazioni ASP.NET Core
 
-* [ASP.NET Core SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versione 2.4.1 e successive raccoglie i contatori delle prestazioni se l'applicazione è in esecuzione nell'app Web di Azure (Windows)
+Il supporto per i contatori delle prestazioni in ASP.NET Core è limitato:
 
-* La versione dell'SDK 2.7.0-beta3 e versioni successive raccoglie i contatori delle prestazioni se l'applicazione è in esecuzione in `NETSTANDARD2.0` Windows e ha come destinazione o versione successiva.
-* Per le applicazioni destinate alla .NET Framework, i contatori delle prestazioni sono supportati in tutte le versioni di SDK.
-* Questo articolo verrà aggiornato quando verrà aggiunto il supporto del contatore delle prestazioni in non Windows.
+* Le versioni di [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.4.1 e successive raccolgono i contatori delle prestazioni se l'applicazione è in esecuzione in app Web di Azure (Windows).
+* Le versioni di SDK 2.7.1 e successive raccolgono contatori delle prestazioni se l'applicazione è in `NETSTANDARD2.0` esecuzione in Windows e destinazioni o versioni successive.
+* Per le applicazioni destinate all'.NET Framework, tutte le versioni dell'SDK supportano i contatori delle prestazioni.
+* Le versioni dell'SDK 2.8.0 e versioni successive supportano il contatore CPU/memoria in Linux. Nessun altro contatore è supportato in Linux. Il metodo consigliato per ottenere i contatori di sistema in Linux (e in altri ambienti non Windows) consiste nell'usare [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Avvisi
 Come per altre metriche, è possibile [impostare un avviso](../../azure-monitor/app/alerts.md) per ricevere una notifica se un contatore delle prestazioni supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.

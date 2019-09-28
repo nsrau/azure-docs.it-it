@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 7716c477cea2200e6fee901f7b5f63cd4b833bd7
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 31260be6c65f5948eba6b9c6228b5ead695278d1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232678"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350713"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Pianificare ed eseguire attività, processi e flussi di lavoro automatizzati ricorrenti con le app per la logica di Azure
 
@@ -119,7 +119,7 @@ Quindi, indipendentemente dalla distanza in passato, si specifica l'ora di inizi
 
 Di seguito sono riportate diverse ricorrenze di esempio che è possibile configurare per i trigger che supportano le opzioni:
 
-| Trigger | Ricorrenza | Interval | Frequenza | Ora di inizio | In questi giorni | A queste ore | A questi minuti | Nota |
+| Trigger | Ricorrenza | Intervallo | Frequenza | Ora di inizio | In questi giorni | A queste ore | A questi minuti | Nota |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni 15 minuti (senza data e ora di inizio) | 15 | Minuto | {none} | {non disponibile} | {none} | {none} | Questa pianificazione inizia immediatamente, quindi calcola le ricorrenze future in base all'ultima esecuzione. |
 | Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni 15 minuti (con data e ora di inizio) | 15 | Minuto | *DataInizio*T*OraInizio*Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, quindi calcola le ricorrenze future in base all'ultima esecuzione. |
@@ -127,17 +127,16 @@ Di seguito sono riportate diverse ricorrenze di esempio che è possibile configu
 | Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni ora ogni giorno (senza data e ora di inizio) | 1 | Ora | {none} | {non disponibile} | {none} | {none} | Questa pianificazione inizia immediatamente, quindi calcola le ricorrenze future in base all'ultima esecuzione. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. |
 | Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni ora ogni giorno (con data e ora di inizio) | 1 | Ora | *DataInizio*T*OraInizio*Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, quindi calcola le ricorrenze future in base all'ultima esecuzione. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. |
 | Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni 15 minuti dopo l'ora, ogni ora (con data e ora di inizio) | 1 | Ora | *DataInizio*T00:15:00Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate. Le ricorrenze future vengono eseguite al contrassegno dei minuti "15", calcolato a partire dall'ora di inizio, quindi alle 00:15 AM, 1:15 AM, 2:15 AM e così via. |
-| Ricorrenza | Eseguire ogni 15 minuti dopo l'ora, ogni ora (senza data e ora di inizio) | 1 | Giorno | {none} | {non disponibile} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Questa pianificazione viene eseguita alle 00:15, 1:15, 2:15 e così via. Questa pianificazione è equivalente a una frequenza di "Ora" e un'ora di inizio con "15" minuti. |
-| Ricorrenza | Viene eseguito ogni 15 minuti ai contrassegni dei minuti specificati (nessuna data e ora di inizio). | 1 | Giorno | {none} | {non disponibile} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | La pianificazione non inizia fino al raggiungimento dell'indicatore di 15 minuti successivo. |
-| Ricorrenza | Eseguire alle 8:00 ogni giorno (senza data e ora di inizio) | 1 | Giorno | {none} | {non disponibile} | 8 | {none} | Questa pianificazione viene eseguita alle 8:00 di ogni giorno, in base alla pianificazione specificata. |
-| Ricorrenza | Eseguire alle 8:00 ogni giorno (con data e ora di inizio) | 1 | Giorno | *DataInizio*T08:00:00Z | {non disponibile} | {none} | {none} | Questa pianificazione viene eseguita alle 8:00 di ogni giorno, in base all'ora di inizio specificata. | 
-| Ricorrenza | Eseguire alle 8:30 ogni giorno (senza data e ora di inizio) | 1 | Giorno | {none} | {non disponibile} | 8 | 30 | Questa pianificazione viene eseguita alle 8:30 di ogni giorno, in base alla pianificazione specificata. |
-| Ricorrenza | Eseguire alle 8:30 ogni giorno (con data e ora di inizio) | 1 | Giorno | *DataInizio*T08:30:00Z | {non disponibile} | {none} | {none} | Questa pianificazione inizia alla data di inizio specificata alle 8:30. |
-| Ricorrenza | Eseguire alle 8:30 e alle 16:30 ogni giorno | 1 | Giorno | {none} | {non disponibile} | 8, 16 | 30 | |
-| Ricorrenza | Eseguire alle 8:30, alle 8:45 e alle 16:30 e alle 16:45 ogni giorno | 1 | Giorno | {none} | {non disponibile} | 8, 16 | 30, 45 | |
+| Ricorrenza | Eseguire ogni 15 minuti dopo l'ora, ogni ora (senza data e ora di inizio) | 1 | Day | {none} | {non disponibile} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Questa pianificazione viene eseguita alle 00:15, 1:15, 2:15 e così via. Questa pianificazione è equivalente a una frequenza di "Ora" e un'ora di inizio con "15" minuti. |
+| Ricorrenza | Viene eseguito ogni 15 minuti ai contrassegni dei minuti specificati (nessuna data e ora di inizio). | 1 | Day | {none} | {non disponibile} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | La pianificazione non inizia fino al raggiungimento dell'indicatore di 15 minuti successivo. |
+| Ricorrenza | Eseguire ogni giorno alle 8.00 *oltre* ai minuti di contrassegno quando si salva l'app per la logica | 1 | Day | {none} | {non disponibile} | 8 | {none} | Senza una data e un'ora di inizio, questa pianificazione viene eseguita in base al momento in cui si salva l'app per la logica (operazione PUT). |
+| Ricorrenza | Esecuzione giornaliera alle ore 8:00 (con data e ora di inizio) | 1 | Day | *DataInizio*T08:00:00Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate. Le occorrenze future vengono eseguite ogni giorno alle 8:00 AM. | 
+| Ricorrenza | Esecuzione giornaliera alle 8:30 AM (nessuna data e ora di inizio) | 1 | Day | {none} | {non disponibile} | 8 | 30 | Questa pianificazione viene eseguita ogni giorno alle 8:30. |
+| Ricorrenza | Esecuzione giornaliera alle 8:30 AM e 4:30 PM | 1 | Day | {none} | {non disponibile} | 8, 16 | 30 | |
+| Ricorrenza | Esecuzione giornaliera alle 8:30 AM, 8:45 AM, 4:30 PM e 4:45 PM | 1 | Day | {none} | {non disponibile} | 8, 16 | 30, 45 | |
 | Ricorrenza | Eseguire ogni sabato alle 17:00 (senza data e ora di inizio) | 1 | Settimana | {none} | "Sabato" | 17 | 00 | Questa pianificazione viene eseguita ogni sabato alle 17:00. |
 | Ricorrenza | Eseguire ogni sabato alle 17:00 (con data e ora di inizio) | 1 | Settimana | *DataInizio*T17:00:00Z | "Sabato" | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, in questo caso il 9 settembre 2017 alle 17:00. Le ricorrenze future verranno eseguite ogni sabato alle 17:00. |
-| Ricorrenza | Eseguire ogni martedì e giovedì alle 17:00 | 1 | Settimana | {none} | "Martedì", "Giovedì" | 17 | {none} | Questa pianificazione verrà eseguita ogni martedì e giovedì alle 17:00. |
+| Ricorrenza | Eseguire ogni martedì, giovedì alle 17.00, *oltre* ai minuti di contrassegno quando si salva l'app per la logica| 1 | Settimana | {none} | "Martedì", "Giovedì" | 17 | {none} | |
 | Ricorrenza | Eseguire ogni ora durante le ore lavorative | 1 | Settimana | {none} | Selezionare tutti i giorni, ad eccezione di sabato e domenica. | Selezionare le ore del giorno desiderate. | Selezionare i minuti dell'ora desiderati. | Ad esempio, se le ore lavorative sono comprese tra le 8:00 e le 17:00, selezionare "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" come ore del giorno. <p>Se le ore lavorative sono comprese tra le 8:30 e le 17:30, selezionare le ore precedenti del giorno e aggiungere "30" come minuti dell'ora. |
 | Ricorrenza | Eseguire una volta al giorno nei fine settimana | 1 | Settimana | {none} | "Sabato", "Domenica" | Selezionare le ore del giorno desiderate. | Selezionare i minuti dell'ora desiderati. | Questa pianificazione verrà eseguita ogni sabato e domenica alla pianificazione specificata. |
 | Ricorrenza | Eseguire ogni 15 minuti ogni 2 settimane solo il lunedì | 2 | Settimana | {none} | "Lunedì" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Questa pianificazione verrà eseguita un lunedì a settimane alterne, in corrispondenza dell'indicatore dei 15 minuti. |

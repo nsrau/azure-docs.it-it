@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034822"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350557"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con la pagina di destinazione dell'area di lavoro di Azure Machine Learning (anteprima)
 
@@ -26,18 +26,17 @@ ms.locfileid: "71034822"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
+* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Un'area di lavoro di Azure Machine Learning. Vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="get-started"></a>Attività iniziali
 
-
 1. Accedere alla [pagina di destinazione dell'area di lavoro](https://ml.azure.com/workspaceportal/). 
 
 1. Selezionare la sottoscrizione e l'area di lavoro. 
 
-1. Passare al riquadro sinistro. Selezionare **automatizzato ml** nella sezione **creazione e modifica** .
+1. Passare al riquadro sinistro. Selezionare **automatizzato ml** nella sezione **autore** .
 
 [![Riquadro di spostamento portale di Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
@@ -59,7 +58,7 @@ In caso contrario, verrà visualizzato il dashboard di **Machine Learning automa
     ---|---
     Nome dell'ambiente di calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
     Dimensioni delle macchine virtuali| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.
-    Impostazioni aggiuntive| *Min node* (Nodi minimi): Immettere il numero minimo di nodi per il calcolo. Il numero minimo di nodi per il calcolo di AML è 0. Per abilitare la profilatura dei dati, è necessario disporre di uno o più nodi. <br> *Max node* (Nodi max): Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
+    Nodi min/max (in impostazioni avanzate)| Per profilare i dati, è necessario specificare uno o più nodi. Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
     
     Selezionare **Create**. La creazione di un nuovo calcolo può richiedere alcuni minuti.
 
@@ -109,7 +108,7 @@ In caso contrario, verrà visualizzato il dashboard di **Machine Learning automa
     Impostazioni avanzate|Descrizione
     ------|------
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche del modello](how-to-configure-auto-train.md#explore-model-metrics).
-    Criteri uscita| Quando uno di questi criteri viene soddisfatto, il processo di training termina prima del completamento completo. <br> *Training job time (minutes)* (Durata processo di training - minuti): Per quanto tempo consentire l'esecuzione del processo di training.  <br> *Max number of iterations* (Numero max di iterazioni): Numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più del numero specificato di iterazioni. <br> *Soglia Punteggio metrica*:  Punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo al processo di training del necessario.
+    Criteri uscita| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Training job time (minutes)* (Durata processo di training - minuti): Per quanto tempo consentire l'esecuzione del processo di training.  <br> *Max number of iterations* (Numero max di iterazioni): Numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più del numero specificato di iterazioni. <br> *Soglia Punteggio metrica*:  Punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo al processo di training del necessario.
     Pre-elaborazione| Selezionare questa impostazione per abilitare o disabilitare la pre-elaborazione eseguita da Automatic Machine Learning. La pre-elaborazione include la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche. [Altre informazioni sulla pre-elaborazione](#preprocess).
     Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida](how-to-configure-auto-train.md)incrociata.
     Concorrenza| Selezionare i limiti multicore da usare quando si usa il calcolo multicore.
@@ -132,13 +131,13 @@ Distribuzione del tipo| Conteggio dei valori in linea di tipi all'interno di una
 Type|Tipo dedotto della colonna. I valori possibili sono: stringhe, valori booleani, date e decimali.
 Min| Valore minimo della colonna. Vengono visualizzate voci vuote per le funzionalità il cui tipo non ha un ordinamento intrinseco, ad esempio i valori booleani.
 Max| Valore massimo della colonna. 
-Conteggio| Numero totale di voci mancanti e non mancanti nella colonna.
+Count| Numero totale di voci mancanti e non mancanti nella colonna.
 Totale non mancanti| Numero di voci nella colonna mancanti. Le stringhe e gli errori vuoti vengono considerati come valori, quindi non contribuiscono al "conteggio mancante".
 Quantili| Valori approssimati in ogni quantile per fornire un senso della distribuzione dei dati.
 Media| Media aritmetica o media della colonna.
 Deviazione standard| Misura della quantità di dispersione o variazione dei dati di questa colonna.
-Variance| Misura della diffusione dei dati di questa colonna dal relativo valore medio. 
-Asimmetria| Misura del modo in cui i dati della colonna sono diversi da una distribuzione normale.
+Varianza| Misura della diffusione dei dati di questa colonna dal relativo valore medio. 
+Indice di asimmetria| Misura del modo in cui i dati della colonna sono diversi da una distribuzione normale.
 Curtosi| Misura della quantità di dati di questa colonna rispetto a una distribuzione normale.
 
 <a name="preprocess"></a>

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
+ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933795"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348512"
 ---
 # <a name="pricing-and-associated-costs"></a>Prezzi e costi associati
 
@@ -34,20 +34,17 @@ Il modello di determinazione dei prezzi del Centro sicurezza di Azure per gli In
 
 - Costo per funzionalità di sicurezza avanzate per i messaggi in base ai messaggi di sicurezza provenienti da dispositivi IoT Edge o foglia.
 
-  >[!Note]
-  > I messaggi di sicurezza comportano anche il consumo di quote nell'hub Internet.
 
 Per altre informazioni, vedere [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Costi associati
 
-Il Centro sicurezza di Azure per le cose ha due tipi di costi associati, che non fanno parte dei prezzi diretti:
+Il Centro sicurezza di Azure per gli Internet è associato a costi che non fanno parte dei prezzi diretti:
 
-- Consumo quota hub tutto
 
 - Costi di archiviazione Log Analytics
 
-È possibile ridurre i costi associati escludendo alcune funzionalità, modificando le impostazioni.
+È possibile ridurre i costi associati escludendo alcune funzionalità della soluzione. Rifiutare esplicitamente la modifica delle impostazioni.
 
 Per modificare le impostazioni:
 
@@ -61,8 +58,6 @@ Nella tabella seguente viene fornito un riepilogo dei costi associati e delle im
 
 |     | Utilizzo | Commento |
 | --- | --- | --- |
-| **Consumo quota hub tutto** |  |
-| [Esportare](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) il processo del dispositivo (esportazione gemella) | Una volta al giorno | Disabilitare la _raccolta di metadati gemelli_ |
 | **Archiviazione Log Analytics** |  |
 | Suggerimenti e avvisi del dispositivo| Avvisi e avvisi di sicurezza generati dal servizio | Non facoltativo |
 | Dati di sicurezza non elaborati| Dati di sicurezza non elaborati dai dispositivi Internet, raccolti dagli agenti di sicurezza | Disabilitare l' _archiviazione degli eventi di sicurezza dei dispositivi non elaborati_ |

@@ -11,16 +11,16 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 8b38b359821d3d4926085fee8e412fbe06155739
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035712"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350622"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
-Il Machine Learning automatizzato, noto anche come autoML, è il processo di automazione delle attività iterative che richiedono molto tempo per lo sviluppo di modelli di machine learning. Consente a data scientist, analisti e sviluppatori di creare modelli ML con scalabilità, efficienza e produttività elevate, garantendo al tempo stesso la qualità del modello. Il Machine Learning automatico si basa su un'innovazione della [divisione Microsoft Research](https://arxiv.org/abs/1705.05355).
+Il Machine Learning automatizzato, detto anche ML automatizzato, è il processo che consente di automatizzare le attività iterative che richiedono molto tempo per lo sviluppo di modelli di machine learning. Consente a data scientist, analisti e sviluppatori di creare modelli ML con scalabilità, efficienza e produttività elevate, garantendo al tempo stesso la qualità del modello. Il Machine Learning automatico si basa su un'innovazione della [divisione Microsoft Research](https://arxiv.org/abs/1705.05355).
 
 Lo sviluppo tradizionale di modelli di Machine Learning prevede un uso intensivo delle risorse, che richiede una conoscenza significativa del dominio e tempi per produrre e confrontare dozzine di modelli. Applicare il Machine Learning automatico quando si desidera Azure Machine Learning per eseguire il training e l'ottimizzazione di un modello utilizzando la metrica di destinazione specificata. Il servizio esegue quindi l'iterazione degli algoritmi ML abbinati alle selezioni di funzionalità, in cui ogni iterazione produce un modello con un punteggio di training. Maggiore è il punteggio, maggiore è il modello considerato "adatta" ai dati.
 
@@ -74,7 +74,7 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono pre-elabor
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensionati o normalizzati automaticamente per consentire agli algoritmi di ottenere risultati ottimali.  Durante il training del modello, viene applicata una delle tecniche di ridimensionamento o di normalizzazione seguenti a ogni modello.
 
-|Normalizzazione scalabile&nbsp;&&nbsp;| DESCRIZIONE |
+|Normalizzazione scalabile&nbsp;&&nbsp;| Descrizione |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardizzare le funzionalità rimuovendo la media e il ridimensionamento in varianza unità  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Trasforma le funzionalità ridimensionando ogni funzionalità in base al valore minimo e massimo della colonna  |
@@ -115,6 +115,36 @@ Machine Learning automatizzato supporta i modelli di Ensemble, che sono abilitat
 L' [algoritmo di selezione dell'ensemble di Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) con inizializzazione dell'insieme ordinato viene usato per decidere quali modelli usare nell'insieme. A un livello elevato, questo algoritmo Inizializza l'insieme con un massimo di 5 modelli con i punteggi individuali migliori e verifica che questi modelli siano entro il 5% di soglia del punteggio migliore per evitare un insieme iniziale scadente. Per ogni iterazione di ensemble viene quindi aggiunto un nuovo modello all'insieme esistente e il punteggio risultante viene calcolato. Se un nuovo modello ha migliorato il Punteggio di ensemble esistente, l'insieme viene aggiornato in modo da includere il nuovo modello.
 
 Vedere le [procedure](how-to-configure-auto-train.md#ensemble) per modificare le impostazioni di ensemble predefinite in Machine Learning automatico.
+
+## <a name="imbalance"></a>Dati sbilanciati
+
+I dati sbilanciati sono comunemente presenti nei dati per gli scenari di classificazione di machine learning e si riferiscono a dati che contengono un rapporto sproporzionato delle osservazioni in ogni classe. Questo squilibrio può comportare un effetto positivo, erroneamente, dell'accuratezza di un modello, perché i dati di input hanno una distorsione verso una classe, il che comporta il training del modello per simulare tale distorsione. 
+
+Come parte del suo obiettivo di semplificare il flusso di lavoro di Machine Learning, l'apprendimento automatico è integrato in funzionalità che consentono di gestire dati sbilanciati, ad esempio 
+
+- Una **colonna di ponderazione**: la ml automatizzata supporta una colonna ponderata come input, causando la ponderazione delle righe nei dati, che possono rendere una classe più o meno "importante". Vedere questo [esempio di notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/sample-weight/auto-ml-sample-weight.ipynb) 
+
+- Gli algoritmi usati da Machine Learning automatiche possono gestire in modo corretto squilibrio fino a 20:1, ovvero la classe più comune può avere più di 20 volte più righe nei dati rispetto alla classe meno comune.
+
+### <a name="identify-models-with-imbalanced-data"></a>Identificare i modelli con dati sbilanciati
+
+Poiché gli algoritmi di classificazione vengono in genere valutati in base all'accuratezza, il controllo del Punteggio di accuratezza di un modello è un modo efficace per identificare se è stato influenzato da dati sbilanciati. Ha avuto un'accuratezza molto elevata o un'accuratezza molto bassa per determinate classi?
+
+Inoltre, le esecuzioni automatiche di ML generano automaticamente i grafici seguenti, che consentono di comprendere la correttezza delle classificazioni del modello e di identificare i modelli potenzialmente interessati da dati sbilanciati.
+
+Grafico| Descrizione
+---|---
+[Matrice di confusione](how-to-understand-automated-ml.md#confusion-matrix)| Valuta le etichette classificate correttamente rispetto alle etichette effettive dei dati. 
+[Precisione-richiamo](how-to-understand-automated-ml.md#precision-recall-chart)| Valuta il rapporto tra le etichette corrette e il rapporto tra le istanze di etichette trovate dei dati 
+[Curve ROC](how-to-understand-automated-ml.md#roc)| Valuta il rapporto tra le etichette corrette e il rapporto tra le etichette false.
+
+### <a name="handle-imbalanced-data"></a>Gestire i dati sbilanciati 
+
+Le tecniche seguenti sono opzioni aggiuntive per la gestione di dati sbilanciati al di fuori del Machine Learning automatico. 
+
+- Ripetizione del campionamento anche allo squilibrio della classe, eseguendo il campionamento delle classi più piccole o sottocampionando le classi più grandi. Questi metodi richiedono competenze per elaborare e analizzare.
+
+- Usare una metrica delle prestazioni più adatta ai dati sbilanciati. Il Punteggio F1, ad esempio, è una media ponderata di precisione e richiamo. La precisione misura l'esattezza di un classificatore: la precisione bassa indica un numero elevato di falsi positivi--, mentre richiama misura la completezza di un classificatore. il richiamo minimo indica un numero elevato di falsi negativi. 
 
 ## <a name="use-with-onnx-in-c-apps"></a>Usare con ONNX nelle C# app
 

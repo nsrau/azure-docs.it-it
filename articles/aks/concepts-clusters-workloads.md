@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: e606b4fee2c46f66f13c45586bcc25577bd90a1f
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 6120eee5bbd2f385fa8e76da093f7fadccb4904e
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147196"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348981"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -76,14 +76,30 @@ Se è necessario usare un sistema operativo host diverso, un runtime del conteni
 
 ### <a name="resource-reservations"></a>Prenotazioni di risorse
 
-Non è necessario gestire i componenti principali di Kubernetes in ogni nodo, come il *kubelet*, il *kube-proxy* e il *kube-dns*, ma effettivamente usano parte delle risorse di calcolo disponibili. Per mantenere la funzionalità e le prestazioni del nodo, le seguenti risorse di calcolo sono prenotate in ogni nodo:
+Le risorse del nodo vengono usate da AKS per rendere la funzione del nodo come parte del cluster. Questo può creare una discrepency tra le risorse totali del nodo e le risorse allocabili quando viene usato in AKS. Questo aspetto è importante da notare quando si impostano le richieste e i limiti per i pod distribuiti.
 
-- **CPU** - 60 ms
-- **Memoria** - 20% fino a 4 GiB
+Per trovare le risorse allocabili di un nodo, eseguire:
+```kubectl
+kubectl describe node [NODE_NAME] | grep Allocatable -B 4 -A 3
+
+```
+
+Per mantenere le prestazioni e le funzionalità del nodo, le risorse di calcolo seguenti sono riservate in ogni nodo. Man mano che un nodo cresce più in risorse, la prenotazione delle risorse cresce a causa di una maggiore quantità di Pod distribuiti dall'utente che necessitano di gestione.
+
+>[!NOTE]
+> L'uso di componenti aggiuntivi come OMS utilizzerà risorse del nodo aggiuntive.
+
+- Tipo di nodo dipendente dalla **CPU**
+
+| Core CPU nell'host | 1 | 2 | 4 | 8 | 16 | 32|64|
+|---|---|---|---|---|---|---|---|
+|Kubelet (millicore)|60|100|140|180|260|420|740|
+
+- **Memoria** -20% della memoria disponibile, fino a 4 GiB max
 
 Queste prenotazioni implicano che la quantità disponibile di CPU e memoria per le applicazioni può risultare inferiore a quanto contenuto dal nodo stesso. Se sono presenti vincoli delle risorse a causa del numero di applicazioni in esecuzione, le prenotazioni assicurano che CPU e memoria rimangano disponibili per i componenti principali di Kubernetes. Non è possibile modificare le prenotazioni di risorse.
 
-Ad esempio:
+Esempio:
 
 - Un nodo di dimensione **DS2 Standard v2** contiene 2 vCPU e 7 GiB di memoria
     - 20% di 7 GiB di memoria = 1,4 GiB

@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: b96b80a735c0caee8a3aabaf19b04fd0e153ba6b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0908ca232ee38e2b0d461aa9f597558adc4461ef
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034327"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350524"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizzare le esecuzioni e le metriche degli esperimenti con TensorBoard e Azure Machine Learning
 
@@ -81,7 +81,7 @@ tf_code = requests.get("https://raw.githubusercontent.com/tensorflow/tensorflow/
 with open(os.path.join(exp_dir, "mnist_with_summaries.py"), "w") as file:
     file.write(tf_code.text)
 ```
-Nel file di codice MNIST, mnist_with_summaries. py, si noti che sono presenti righe che `tf.summary.scalar()`chiamano `tf.summary.histogram()`, `tf.summary.FileWriter()` e così via. Questi metodi raggruppano, registrano e contrassegnano le metriche chiave degli esperimenti nella cronologia di esecuzione. `tf.summary.FileWriter()` È particolarmente importante perché serializza i dati dalle metriche dell'esperimento registrato, che consente a TensorBoard di generare le visualizzazioni.
+Nel file di codice MNIST, mnist_with_summaries. py, si noti che sono presenti righe che chiamano `tf.summary.scalar()`, `tf.summary.histogram()`, `tf.summary.FileWriter()` e così via. Questi metodi raggruppano, registrano e contrassegnano le metriche chiave degli esperimenti nella cronologia di esecuzione. `tf.summary.FileWriter()` È particolarmente importante perché serializza i dati dalle metriche dell'esperimento registrato, che consente a TensorBoard di generare le visualizzazioni.
 
  ### <a name="configure-experiment"></a>Configurare l'esperimento
 
@@ -264,7 +264,8 @@ root_run.complete()
 >[!Note]
  È anche possibile esportare una particolare esecuzione in TensorBoard specificando il nome dell'esecuzione`export_to_tensorboard(run_name, logdir)`
 
-Avviare e arrestare TensorBoard una volta esportata la cronologia di esecuzione per l'esperimento, è possibile avviare TensorBoard con il metodo [Start ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#start-start-browser-false-) . 
+### <a name="start-and-stop-tensorboard"></a>Avviare e arrestare TensorBoard
+Una volta esportata la cronologia di esecuzione di questo esperimento, è possibile avviare TensorBoard con il metodo [Start ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#start-start-browser-false-) . 
 
 ```Python
 from azureml.tensorboard import Tensorboard

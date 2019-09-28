@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 249380b5bd9d95e969a9c7a812102b694b9d1e3b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e273d913d07d8d7b77289695a4a28a478a64123a
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726535"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350294"
 ---
 # <a name="azure-storage-security-overview"></a>Panoramica della sicurezza di Archiviazione di Azure
 
@@ -88,7 +88,7 @@ Crittografia dischi per le macchine virtuali funziona con sistemi operativi sia 
 
 Altre informazioni
 
-* [Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Panoramica di crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewall e reti virtuali
 
@@ -120,7 +120,7 @@ Altre informazioni:
 
 * [Panoramica di Advanced Threat Protection di Archiviazione di Azure](/azure/storage/common/storage-advanced-threat-protection)
 
-## <a name="azure-key-vault"></a>Insieme di credenziali delle chiavi di Azure
+## <a name="azure-key-vault"></a>Azure Key Vault
 
 Crittografia dischi di Azure usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) per semplificare il controllo e la gestione dei segreti e delle chiavi di crittografia dei dischi nella sottoscrizione dell'insieme di credenziali delle chiavi. Questa soluzione assicura anche che tutti i dati nei dischi delle macchine virtuali vengano crittografati quando inattivi in Archiviazione di Azure. È opportuno usare l'insieme di credenziali delle chiavi per controllare le chiavi e l'utilizzo di criteri.
 

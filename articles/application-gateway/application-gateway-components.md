@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: d6d7b4cda4bd3b3246b9bc5573246546d8020b38
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597371"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348937"
 ---
 # <a name="application-gateway-components"></a>Componenti del gateway applicazione
 
@@ -28,17 +28,17 @@ Un indirizzo IP front-end è l'indirizzo IP associato a un gateway applicazione.
 
 Lo SKU applicazione Azure gateway V2 può essere configurato in modo da supportare sia l'indirizzo IP interno statico sia l'indirizzo IP pubblico statico oppure solo un indirizzo IP pubblico statico. Non può essere configurato per supportare solo indirizzi IP interni statici.
 
-Lo SKU V1 può essere configurato in modo da supportare indirizzi IP interni statici e indirizzi IP pubblici dinamici, solo indirizzi IP interni statici o solo indirizzi IP pubblici dinamici o solo indirizzi IP privati dinamici o indirizzi IP pubblici dinamici e indirizzi IP privati dinamici. L'indirizzo IP dinamico del gateway applicazione non cambia in un gateway in esecuzione. Può cambiare solo quando si arresta o si avvia il gateway. Non cambia in caso di errori di sistema, aggiornamenti, aggiornamenti di Azure host e così via. 
+Lo SKU V1 può essere configurato in modo da supportare indirizzi IP interni statici o dinamici e indirizzi IP pubblici dinamici. L'indirizzo IP dinamico del gateway applicazione non cambia in un gateway in esecuzione. Può cambiare solo quando si arresta o si avvia il gateway. Non cambia in caso di errori di sistema, aggiornamenti, aggiornamenti di Azure host e così via. 
 
 Il nome DNS associato a un gateway applicazione non cambia nel ciclo di vita del gateway. Di conseguenza, è necessario usare un alias CNAME e puntare all'indirizzo DNS del gateway applicazione.
 
 ## <a name="listeners"></a>Listener
 
-Un listener è un'entità logica che controlla le richieste di connessione in ingresso. Un listener accetta una richiesta se il protocollo, la porta, l'host e l'indirizzo IP associati alla richiesta corrispondono agli stessi elementi associati alla configurazione del listener.
+Un listener è un'entità logica che controlla le richieste di connessione in ingresso. Un listener accetta una richiesta se il protocollo, la porta, il nome host e l'indirizzo IP associati alla richiesta corrispondono agli stessi elementi associati alla configurazione del listener.
 
 Prima di usare un gateway applicazione, è necessario aggiungere almeno un listener. Possono essere presenti più listener collegati a un gateway applicazione e possono essere usati per lo stesso protocollo.
 
-Quando un listener rileva le richieste in ingresso dai client, il gateway applicazione instrada tali richieste ai membri nel pool back-end. Il gateway applicazione usa le regole di routing richieste definite per il listener che ha ricevuto la richiesta in ingresso.
+Quando un listener rileva le richieste in ingresso dai client, il gateway applicazione instrada tali richieste ai membri nel pool back-end configurato nella regola.
 
 I listener supportano i protocolli e le porte seguenti.
 
@@ -49,12 +49,13 @@ Una porta è la posizione in cui un listener è in ascolto per la richiesta del 
 ### <a name="protocols"></a>Protocolli
 
 Il gateway applicazione supporta quattro protocolli: HTTP, HTTPS, HTTP/2 e WebSocket:
+>[!NOTE]
+>Il supporto del protocollo HTTP/2 è disponibile per i client che si connettono solo a listener del gateway applicazione. La comunicazione con i pool di server back-end è sempre su HTTP/1.1. Per impostazione predefinita, il supporto di HTTP/2 è disabilitato. È possibile scegliere di abilitarla.
 
 - Specificare tra i protocolli HTTP e HTTPS nella configurazione del listener.
 - Il supporto per i [protocolli WebSockets e http/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) viene fornito in modalità nativa e il [supporto di WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) è abilitato per impostazione predefinita. Non esistono impostazioni configurabili dall'utente per abilitare o disabilitare in modo selettivo il supporto di WebSocket. Usare WebSocket con listener HTTP e HTTPS.
-- Il supporto del protocollo HTTP/2 è disponibile per i client che si connettono solo a listener del gateway applicazione. La comunicazione con i pool di server back-end avviene tramite HTTP/1.1. Per impostazione predefinita, il supporto di HTTP/2 è disabilitato. È possibile scegliere di abilitarla.
 
-Usare un listener HTTPS per la terminazione SSL. Un listener HTTPS trasferisce il lavoro di crittografia e decrittografia al gateway applicazione, in modo che i server Web non vengano sovraccaricati dal sovraccarico. Le app sono quindi libere di concentrarsi sulla logica di business.
+Usare un listener HTTPS per la terminazione SSL. Un listener HTTPS trasferisce il lavoro di crittografia e decrittografia al gateway applicazione, in modo che i server Web non vengano sovraccaricati dal sovraccarico.
 
 ### <a name="custom-error-pages"></a>Pagine di errore personalizzate
 
@@ -80,7 +81,7 @@ Il gateway applicazione elabora i listener nell'ordine indicato. Se il listener 
 
 Una regola di routing delle richieste è un componente chiave di un gateway applicazione perché determina come instradare il traffico sul listener. La regola associa il listener, il pool di server back-end e le impostazioni HTTP back-end.
 
-Quando un listener accetta una richiesta, la regola di routing delle richieste Invia la richiesta al back-end o la reindirizza altrove. Se la richiesta viene trasmessa al back-end, la regola di routing delle richieste definisce il pool di server back-end a cui eseguire l'inoltro. Inoltre, la regola di routing delle richieste determina anche se le intestazioni nella richiesta devono essere riscritte. Un listener può essere associato a una sola regola.
+Quando un listener accetta una richiesta, la regola di routing delle richieste Invia la richiesta al back-end o la reindirizza altrove. Se la richiesta viene trasmessa al back-end, la regola di routing delle richieste definisce il pool di server back-end a cui eseguire l'inoltro. La regola di routing delle richieste determina anche se le intestazioni nella richiesta devono essere riscritte. Un listener può essere associato a una sola regola.
 
 Esistono due tipi di regole di routing delle richieste:
 
@@ -96,7 +97,7 @@ La regola di routing delle richieste consente anche di reindirizzare il traffico
 
 È possibile scegliere la destinazione di reindirizzamento come altro listener (che consente di abilitare il Reindirizzamento da HTTP a HTTPS automatico) o da un sito esterno. È anche possibile scegliere di fare in modo che il reindirizzamento sia temporaneo o permanente oppure di aggiungere il percorso URI e la stringa di query all'URL reindirizzato.
 
-Per altre informazioni, vedere reindirizzare il [traffico sul gateway applicazione](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Per altre informazioni, vedere [reindirizzare il traffico sul gateway applicazione](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
 ### <a name="rewrite-http-headers"></a>Riscrivere le intestazioni HTTP
 
@@ -114,7 +115,7 @@ La porta e il protocollo usati nelle impostazioni HTTP determinano se il traffic
 
 Questo componente viene usato anche per:
 
-- Determinare se una sessione utente deve essere mantenuta nello stesso server utilizzando l'affinità di [sessione basata su cookie](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity).
+- Determinare se una sessione utente deve essere mantenuta nello stesso server utilizzando l' [affinità di sessione basata su cookie](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity).
 
 - Rimuovere normalmente i membri del pool back-end usando lo [svuotamento della connessione](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining).
 
@@ -125,7 +126,7 @@ Questo componente viene usato anche per:
 Un pool back-end instrada la richiesta ai server back-end che forniscono la richiesta. I pool back-end possono contenere:
 
 - Schede di interfaccia di rete
-- set di scalabilità di macchine virtuali
+- Set di scalabilità di macchine virtuali
 - Indirizzi IP pubblici
 - Indirizzi IP interni
 - FQDN
@@ -133,7 +134,7 @@ Un pool back-end instrada la richiesta ai server back-end che forniscono la rich
 
 I membri del pool back-end del gateway applicazione non sono associati a un set di disponibilità. Un gateway applicazione può comunicare con istanze all'esterno della rete virtuale in cui si trova. Di conseguenza, i membri dei pool back-end possono essere tra i cluster, tra i Data Center o all'esterno di Azure, purché sia disponibile la connettività IP.
 
-Se si usano indirizzi IP interni come membri del pool back-end, è necessario usare il peering di [rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) o un [gateway VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Il peering di rete virtuale è supportato e vantaggioso per il bilanciamento del carico del traffico in altre reti virtuali.
+Se si usano indirizzi IP interni come membri del pool back-end, è necessario usare il [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) o un [gateway VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Il peering di rete virtuale è supportato e vantaggioso per il bilanciamento del carico del traffico in altre reti virtuali.
 
 Un gateway applicazione può anche comunicare con i server locali quando sono connessi da Azure ExpressRoute o tunnel VPN se il traffico è consentito.
 

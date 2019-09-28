@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1e7d64aabba19f04fb98bd208389dc0b2077bfe4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8b089a1b32ee70479072522372c060713108957c
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094706"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350104"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -52,7 +52,7 @@ I limiti delle dimensioni del pool vengono impostati dal servizio batch. A diffe
 | **Nodi di calcolo nel [pool in cui è abilitata la comunicazione tra i nodi](batch-mpi.md)**  ||
 | Modalità di allocazione pool del servizio Batch | 100 |
 | Modalità di allocazione pool di sottoscrizione batch | 80 |
-| **Nodi di calcolo nel [pool creato con immagine di macchina virtuale personalizzata](batch-custom-images.md)** <sup>1</sup> ||
+| **Nodi di calcolo nel [pool creato con una risorsa immagine gestita](batch-custom-images.md)** <sup>1</sup> ||
 | Nodi dedicati | 2000 |
 | Nodi a priorità bassa | 1000 |
 
