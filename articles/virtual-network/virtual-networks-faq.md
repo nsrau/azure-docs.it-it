@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 836a9fd0b441ff9669c224dc41537e3c177d7dde
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a6ba401d9d10e900fef5e2d296e74a07f84162cd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389698"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670746"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -184,7 +184,7 @@ Sì. Tutte le macchine virtuali e le istanze del ruolo dei servizi cloud distrib
 ## <a name="azure-services-that-connect-to-vnets"></a>Servizi di Azure che si connettono a reti virtuali
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>È possibile usare le app Web del servizio app di Azure con una rete virtuale?
-Sì. È possibile distribuire app Web all'interno di una VNet usando un ambiente del servizio app (ambiente del servizio app), connettere il back-end delle app al reti virtuali con l'integrazione VNet e bloccare il traffico in ingresso all'app con gli endpoint di servizio. Per altre informazioni, vedere i seguenti articoli:
+Sì. È possibile distribuire app Web all'interno di una VNet usando un ambiente del servizio app (ambiente del servizio app), connettere il back-end delle app al reti virtuali con l'integrazione VNet e bloccare il traffico in ingresso all'app con gli endpoint di servizio. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Funzionalità di rete del servizio app](../app-service/networking-features.md)
 * [Creare app Web in un ambiente del servizio app](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -200,9 +200,9 @@ Sì. È necessario connettere un set di scalabilità di macchine virtuali a un V
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>È disponibile un elenco completo dei servizi di Azure da cui è possibile distribuire le risorse in una rete virtuale?
 Sì. Per informazioni dettagliate, vedere [Integrazione della rete virtuale per i servizi di Azure](virtual-network-for-azure-services.md).
 
-### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>A quali risorse PaaS di Azure è possibile limitare l'accesso da una rete virtuale?
+### <a name="how-can-i-restrict-access-to-azure-paas-resources-from-a-vnet"></a>Come è possibile limitare l'accesso alle risorse di Azure PaaS da una VNet?
 
-Per le risorse distribuite tramite alcuni servizi PaaS di Azure (come Archiviazione di Azure e il database SQL di Azure), è possibile limitare l'accesso alla rete solo alle risorse in una rete virtuale tramite l'uso di endpoint servizio di rete virtuale. Per informazioni dettagliate, vedere [Panoramica degli endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md).
+Le risorse distribuite tramite alcuni servizi PaaS di Azure, ad esempio archiviazione di Azure e il database SQL di Azure, possono limitare l'accesso di rete a VNet tramite l'uso di endpoint del servizio di rete virtuale o di un collegamento privato di Azure. Per informazioni dettagliate, vedere [Panoramica degli endpoint del servizio rete virtuale](virtual-network-service-endpoints-overview.md), [Panoramica del collegamento privato di Azure](../private-link/private-link-overview.md)
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>È possibile spostare i servizi all’interno e all’esterno delle reti virtuali?
 No. Non è possibile spostare i servizi all'interno e all'esterno delle reti virtuali. Per spostare una risorsa in un'altra rete virtuale, è necessario eliminarla e ridistribuirla.

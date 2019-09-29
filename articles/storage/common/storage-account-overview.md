@@ -4,16 +4,16 @@ description: Informazioni sulle opzioni per la creazione e l'uso di un account d
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 49e15964ba370cc6dc18491507b906764f1f882c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 67022c6bd9e237ce24d8e63285f7ebabadca87c6
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640100"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671323"
 ---
 # <a name="azure-storage-account-overview"></a>Panoramica dell'account di archiviazione di Azure
 
@@ -60,7 +60,7 @@ Mentre gli account per utilizzo generico v2 rappresentano la scelta consigliata 
 
 * Si usa una versione dell'[API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) precedente alla 2014-02-14 o una libreria client con una versione precedente alla 4.x e non è possibile aggiornare l'applicazione.
 
-### <a name="block-blob-storage-accounts"></a>Account di archiviazione BLOB in blocchi
+### <a name="block-blob-storage-accounts"></a>Bloccare gli account di archiviazione BLOB
 
 Un account di archiviazione BLOB in blocchi è un account di archiviazione specializzato per l'archiviazione di dati di oggetti non strutturati come BLOB in blocchi. Questo tipo di account di archiviazione supporta i BLOB in blocchi e i BLOB di Accodamento, ma non i BLOB di pagine, le tabelle o le code.
 
@@ -115,7 +115,7 @@ Per altre informazioni sulla replica dell'archiviazione, vedere [Replica di Arch
 
 Tutti i dati nell'account di archiviazione vengono crittografati sul lato del servizio. Per altre informazioni sulla crittografia, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md).
 
-## <a name="storage-account-endpoints"></a>Endpoint dell'account di archiviazione
+## <a name="storage-account-endpoints"></a>Endpoint account di archiviazione
 
 Un account di archiviazione offre uno spazio dei nomi univoco in Azure per i dati. Tutti gli oggetti archiviati in Archiviazione di Azure hanno un indirizzo che include il nome univoco dell'account. La combinazione del nome dell'account e dell'endpoint di servizio di Archiviazione di Azure costituisce gli endpoint per l'account di archiviazione.
 

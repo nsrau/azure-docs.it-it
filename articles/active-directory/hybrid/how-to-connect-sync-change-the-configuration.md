@@ -16,20 +16,20 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5844d440da768ae2647ea7f15c4c913f83078ce1
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244339"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672960"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
 Questo articolo illustra in dettaglio come apportare modifiche alla configurazione predefinita nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Include i passaggi per alcuni scenari comuni. Con queste informazioni si potranno apportare semplici modifiche alla propria configurazione in base alle regole di business.
 
 > [!WARNING]
-> Se si apportano modifiche alle regole di sincronizzazione predefinite, tali modifiche saranno sovrascritte al successivo aggiornamento di Azure AD Connect, con la possibilità di ottenere risultati di sincronizzazione inattesi e indesiderati.
+> Se si apportano modifiche alle regole di sincronizzazione predefinite predefinite, queste modifiche verranno sovrascritte alla successiva aggiornamento Azure AD Connect, causando risultati di sincronizzazione imprevisti e probabilmente indesiderati.
 >
-> Le regole di sincronizzazione predefinite hanno un'identificazione personale associata. Se si apporta una modifica a queste regole, l'identificazione personale non sarà più corrispondente. È possibile che si verifichino problemi quando in futuro si proverà ad applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
+> Le regole di sincronizzazione predefinite predefinite hanno un'identificazione personale. Se si apporta una modifica a queste regole, l'identificazione personale non sarà più corrispondente. È possibile che si verifichino problemi quando in futuro si proverà ad applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
 
 ## <a name="synchronization-rules-editor"></a>Editor regole di sincronizzazione
 L'editor delle regole di sincronizzazione viene usato per visualizzare e modificare la configurazione predefinita. È disponibile nel menu **Start** nel gruppo **Azure AD Connect**.  
@@ -268,7 +268,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 
     | Attributo | Value | Dettagli |
     | --- | --- | --- |
-    | Name | *Specificare un nome* | Ad esempio, *In from AD - User UserType* |
+    | Attività | *Specificare un nome* | Ad esempio, *In from AD - User UserType* |
     | Descrizione | *Inserire una descrizione* |  |
     | Connected System | *Scegliere il connettore di AD locale* |  |
     | Connected System Object Type | **Utente** |  |
@@ -286,13 +286,13 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 
 6. Passare alla scheda **Trasformazione** e implementare la regola di trasformazione desiderata. Ad esempio, se si è designato un attributo di AD locale non in uso, ad esempio extensionAttribute1, come attributo di origine di UserType, è possibile implementare un flusso di attributi diretto:
 
-    | Tipo di flusso | Attributo di destinazione | `Source` | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Diretto | UserType | extensionAttribute1 | Non selezionato | Aggiornamento |
 
     In un altro esempio si vuole ricavare il valore dell'attributo UserType da altre proprietà. Ad esempio, si vogliono sincronizzare tutti gli utenti come Guest se il relativo attributo userPrincipalName di AD locale termina con la parte di dominio <em>@partners.fabrikam123.org</em>. È possibile implementare un'espressione simile alla seguente:
 
-    | Tipo di flusso | Attributo di destinazione | `Source` | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Membro","Guest"),Error("UserPrincipalName non è presente per determinare UserType")) | Non selezionato | Aggiornamento |
 
@@ -310,7 +310,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
     | Attributo | Value | Dettagli |
     | ----- | ------ | --- |
-    | NOME | *Specificare un nome* | Ad esempio, *Out to AAD – User UserType* |
+    | Attività | *Specificare un nome* | Ad esempio, *Out to AAD – User UserType* |
     | Descrizione | *Inserire una descrizione* ||
     | Connected System | *Selezionare il connettore di AAD* ||
     | Connected System Object Type | **Utente** ||
@@ -329,7 +329,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
 6. Andare alla scheda **Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | `Source` | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Diretto | UserType | UserType | Non selezionato | Aggiornamento |
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59450fc93052a1e169d13fab5b80cbc57c169e0f
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909775"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673430"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -64,7 +64,7 @@ user.department -eq "Sales"
 
 Per una singola espressione le parentesi sono facoltative. La lunghezza totale del corpo della regola di appartenenza non può superare i 2048 caratteri.
 
-# <a name="constructing-the-body-of-a-membership-rule"></a>Creazione del corpo di una regola di appartenenza
+## <a name="constructing-the-body-of-a-membership-rule"></a>Creazione del corpo di una regola di appartenenza
 
 Una regola di appartenenza che popola automaticamente un gruppo con utenti o dispositivi è un'espressione binaria che restituisce un risultato true o false. Le tre parti di una regola semplice sono:
 
@@ -79,7 +79,7 @@ L'ordine delle parti in un'espressione è importante per evitare gli errori di s
 Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
 
 - Boolean
-- String
+- Stringa
 - Raccolta di tipi string
 
 Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
@@ -114,7 +114,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | postalCode |Qualsiasi valore di stringa o *null* |(user.postalCode -eq "valore") |
 | preferredLanguage |Codice ISO 639-1 |(user.preferredLanguage -eq "en-US") |
 | sipProxyAddress |Qualsiasi valore di stringa o *null* |(user.sipProxyAddress -eq "valore") |
-| stato |Qualsiasi valore di stringa o *null* |(user.state -eq "valore") |
+| state |Qualsiasi valore di stringa o *null* |(user.state -eq "valore") |
 | streetAddress |Qualsiasi valore di stringa o *null* |(user.streetAddress -eq "valore") |
 | surname |Qualsiasi valore di stringa o *null* |(user.surname -eq "valore") |
 | telephoneNumber |Qualsiasi valore di stringa o *null* |(user.telephoneNumber -eq "valore") |
@@ -138,14 +138,14 @@ Nella tabella seguente sono elencati tutti gli operatori supportati e la relativ
 | Operator | Sintassi |
 | --- | --- |
 | Non uguale a |-ne |
-| Equals |-eq |
+| Uguale a |-eq |
 | Non inizia con |-notStartsWith |
 | Inizia con |-startsWith |
 | Non contiene |-notContains |
 | Contiene |-contains |
 | Non corrispondente |-notMatch |
 | Corrispondente |-match |
-| In | -in |
+| In ingresso | -in |
 | Non incluso | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Uso degli operatori -in e -notIn

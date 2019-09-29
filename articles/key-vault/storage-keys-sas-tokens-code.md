@@ -7,18 +7,18 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: a20f5b16b90b9bac7e6bc3ff808cf443b252fb44
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 75561c643c2b8881e4b390be885b77f2fff4971d
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204549"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673460"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>Recuperare i token della firma di accesso condiviso nel codice
 
 È possibile gestire l'account di archiviazione con i [token di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) nell'insieme di credenziali delle chiavi. Questo articolo fornisce esempi di C# codice che recupera un token SAS ed esegue operazioni con esso.  Per informazioni su come creare e archiviare i token SAS, vedere [gestire le chiavi degli account di archiviazione con Key Vault e l'interfaccia della](key-vault-ovw-storage-keys.md) riga di comando di Azure o [gestire le chiavi dell'account di archiviazione con Key Vault e Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
 
-# <a name="code-samples"></a>Esempi di codice
+## <a name="code-samples"></a>Esempi di codice
 
 In questo esempio, il codice recupera un token SAS dall'insieme di credenziali delle chiavi, lo usa per creare un nuovo account di archiviazione e crea un nuovo client del servizio BLOB.  
 

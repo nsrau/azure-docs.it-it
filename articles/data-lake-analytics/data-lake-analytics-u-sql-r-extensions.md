@@ -1,6 +1,6 @@
 ---
 title: Estendere gli script U-SQL con R in Azure Data Lake Analytics
-description: Informazioni su come eseguire il codice R negli script U-SQL usando Azure Data Lake Analytics
+description: Informazioni su come eseguire codice R negli script U-SQL usando Azure Data Lake Analytics. Incorporare il codice R inline o riferimento dai file.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,20 +9,20 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c5dd3f493e85afc925b639c142a293eed1e8cbd7
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813751"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672688"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Estendere gli script U-SQL con il codice R in Azure Data Lake Analytics
 
 L'esempio seguente illustra i passaggi di base per la distribuzione del codice R:
 * Usare l'istruzione `REFERENCE ASSEMBLY` per abilitare le estensioni R per lo script U-SQL.
-* Usare il `REDUCE` operazione per i dati di input su una chiave di partizione.
+* Usare l'operazione `REDUCE` per partizionare i dati di input in una chiave.
 * Le estensioni R per U-SQL includono un riduttore predefinito (`Extension.R.Reducer`) che esegue il codice R in ogni vertice assegnato al riduttore. 
-* Utilizzo di dedicato denominato frame di dati denominati `inputFromUSQL` e `outputToUSQL` rispettivamente per passare dati tra U-SQL e R. Input e output DataFrame sono fissi i nomi degli identificatori (vale a dire, gli utenti non è possibile modificare i nomi predefiniti di input e frame di dati di output identificatori).
+* Uso di frame di dati denominati dedicati denominati `inputFromUSQL` e `outputToUSQL` rispettivamente per passare i dati tra U-SQL e R. i nomi degli identificatori di frame di dati di input e output sono fissi, ovvero gli utenti non possono modificare questi nomi predefiniti di identificatori di frame di dati di input e output.
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>Incorporare il codice R nello script U-SQL
 
@@ -206,7 +206,7 @@ Innanzitutto, creare un modulo personalizzato R fare lo zip e quindi caricare il
 
     OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-use-window-functions.md)

@@ -4,17 +4,17 @@ description: Informazioni su come creare una firma di accesso condiviso di deleg
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 98ab93bbec8da17dde93c9c343703838b0279994
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 59de768e75a88d7cfa5b68fa306d0e83f1aa0ba3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900437"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671334"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con .NET (anteprima)
 
@@ -57,7 +57,7 @@ az ad sp create-for-rbac \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-Il `az ad sp create-for-rbac` comando restituisce un elenco di proprietà dell'entità servizio in formato JSON. Copiare questi valori in modo che sia possibile usarli per creare le variabili di ambiente necessarie nel passaggio successivo.
+Il comando `az ad sp create-for-rbac` restituisce un elenco di proprietà dell'entità servizio in formato JSON. Copiare questi valori in modo che sia possibile usarli per creare le variabili di ambiente necessarie nel passaggio successivo.
 
 ```json
 {
@@ -87,7 +87,7 @@ La libreria client di identità di Azure legge i valori da tre variabili di ambi
 
 ## <a name="add-using-directives"></a>Aggiungere le direttive using
 
-Aggiungere le direttive seguenti `using` al codice per usare le versioni di anteprima delle librerie client identità di Azure e archiviazione di Azure.
+Aggiungere le seguenti direttive `using` al codice per usare le versioni di anteprima delle librerie di identità di Azure e client di archiviazione di Azure.
 
 ```csharp
 using System;
@@ -102,7 +102,7 @@ using Azure.Storage.Blobs.Models;
 
 ## <a name="authenticate-the-service-principal"></a>Autenticare l'entità servizio
 
-Per autenticare l'entità servizio, creare un'istanza della classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . Il `DefaultAzureCredential` Costruttore legge le variabili di ambiente create in precedenza.
+Per autenticare l'entità servizio, creare un'istanza della classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . Il costruttore `DefaultAzureCredential` legge le variabili di ambiente create in precedenza.
 
 Il frammento di codice seguente mostra come ottenere le credenziali autenticate e usarle per creare un client del servizio per l'archiviazione BLOB
 

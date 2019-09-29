@@ -5,18 +5,18 @@ services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e72f8c3ed0658765827c4a9b0669c08fefd9044f
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 338ba468fb1442488da78f09fc72a22186cd0a51
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016324"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673227"
 ---
-# <a name="create-a-storage-account"></a>Creare un account di archiviazione
+# <a name="create-a-storage-account"></a>Crea un account di archiviazione
 
 Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. L'account di archiviazione fornisce uno spazio dei nomi univoco per i dati di archiviazione di Azure accessibili da qualsiasi parte del mondo tramite HTTP o HTTPS. I dati nell'account di archiviazione di Azure sono durevoli e a disponibilità elevata, protetti e altamente scalabili.
 
@@ -93,7 +93,7 @@ N/D
 
 ---
 
-## <a name="create-a-storage-account"></a>Creare un account di archiviazione
+## <a name="create-a-storage-account"></a>Crea un account di archiviazione
 
 È ora possibile creare l'account di archiviazione.
 
@@ -138,8 +138,8 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |Opzione di replica  |Parametro SkuName  |
 |---------|---------|
 |Archiviazione con ridondanza locale (LRS)     |Archiviazione con ridondanza locale Standard         |
-|Archiviazione con ridondanza della zona     |Standard_ZRS         |
-|Archiviazione con ridondanza geografica     |Standard_GRS         |
+|Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
+|Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 |Archiviazione con ridondanza della zona geografica (GZRS) (anteprima)    |Standard_GZRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) (anteprima)    |Standard_RAGZRS         |
@@ -178,8 +178,8 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |Opzione di replica  |Parametro sku  |
 |---------|---------|
 |Archiviazione con ridondanza locale (LRS)     |Archiviazione con ridondanza locale Standard         |
-|Archiviazione con ridondanza della zona     |Standard_ZRS         |
-|Archiviazione con ridondanza geografica     |Standard_GRS         |
+|Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
+|Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 |Archiviazione con ridondanza della zona geografica (GZRS) (anteprima)    |Standard_GZRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) (anteprima)    |Standard_RAGZRS         |

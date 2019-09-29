@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 6120eee5bbd2f385fa8e76da093f7fadccb4904e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3792eed170d3e3e1cdd267c0c88d2d2d6c520733
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348981"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672804"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -76,39 +76,34 @@ Se è necessario usare un sistema operativo host diverso, un runtime del conteni
 
 ### <a name="resource-reservations"></a>Prenotazioni di risorse
 
-Le risorse del nodo vengono usate da AKS per rendere la funzione del nodo come parte del cluster. Questo può creare una discrepency tra le risorse totali del nodo e le risorse allocabili quando viene usato in AKS. Questo aspetto è importante da notare quando si impostano le richieste e i limiti per i pod distribuiti.
+Le risorse del nodo vengono usate da AKS per rendere la funzione del nodo come parte del cluster. Questo può creare una discrepency tra le risorse totali del nodo e le risorse allocabili quando viene usato in AKS. Questo aspetto è importante da notare quando si impostano le richieste e i limiti per i pod distribuiti dall'utente.
 
 Per trovare le risorse allocabili di un nodo, eseguire:
 ```kubectl
-kubectl describe node [NODE_NAME] | grep Allocatable -B 4 -A 3
+kubectl describe node [NODE_NAME]
 
 ```
 
-Per mantenere le prestazioni e le funzionalità del nodo, le risorse di calcolo seguenti sono riservate in ogni nodo. Man mano che un nodo cresce più in risorse, la prenotazione delle risorse cresce a causa di una maggiore quantità di Pod distribuiti dall'utente che necessitano di gestione.
+Per mantenere le prestazioni e le funzionalità del nodo, le risorse vengono riservate in ogni nodo da AKS. Man mano che un nodo cresce più in risorse, la prenotazione delle risorse cresce a causa di una maggiore quantità di Pod distribuiti dall'utente che necessitano di gestione.
 
 >[!NOTE]
 > L'uso di componenti aggiuntivi come OMS utilizzerà risorse del nodo aggiuntive.
 
-- Tipo di nodo dipendente dalla **CPU**
+- **CPU: la** CPU riservata dipende dal tipo di nodo e dalla configurazione del cluster che possono causare una CPU meno allocabile a causa dell'esecuzione di funzionalità aggiuntive
 
 | Core CPU nell'host | 1 | 2 | 4 | 8 | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
-|Kubelet (millicore)|60|100|140|180|260|420|740|
+|Kube-riservato (millicore)|60|100|140|180|260|420|740|
 
-- **Memoria** -20% della memoria disponibile, fino a 4 GiB max
+- **Memoria** : la prenotazione della memoria è successiva a una frequenza progressiva
+  - 25% dei primi 4 GB di memoria
+  - 20% dei 4 GB di memoria successivi (fino a 8 GB)
+  - 10% dei prossimi 8 GB di memoria (fino a 16 GB)
+  - 6% dei 112 GB di memoria successivi (fino a 128 GB)
+  - 2% di memoria superiore a 128 GB
 
 Queste prenotazioni implicano che la quantità disponibile di CPU e memoria per le applicazioni può risultare inferiore a quanto contenuto dal nodo stesso. Se sono presenti vincoli delle risorse a causa del numero di applicazioni in esecuzione, le prenotazioni assicurano che CPU e memoria rimangano disponibili per i componenti principali di Kubernetes. Non è possibile modificare le prenotazioni di risorse.
 
-Esempio:
-
-- Un nodo di dimensione **DS2 Standard v2** contiene 2 vCPU e 7 GiB di memoria
-    - 20% di 7 GiB di memoria = 1,4 GiB
-    - È disponibile un totale di *(7 - 1,4) = 5,6 GiB* di memoria per il nodo
-    
-- Un nodo di dimensione **E4s Standard v3** contiene 4 vCPU e 32 GiB di memoria
-    - 20% di 32 GiB di memoria = 6,4 GiB, ma servizio Azure Kubernetes riserva solo un massimo di 4 GiB
-    - È disponibile un totale di *(32 - 4) = 28 GiB* di memoria per il nodo
-    
 Il sistema operativo del nodo sottostante richiede anche una certa quantità di risorse di CPU e memoria per completare le proprie funzioni principali.
 
 Per le procedure consigliate associate, vedere procedure consigliate [per le funzionalità dell'utilità di pianificazione di base in AKS][operator-best-practices-scheduler].

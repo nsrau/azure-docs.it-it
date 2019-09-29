@@ -4,17 +4,17 @@ description: I dati nell'account di archiviazione di Microsoft Azure vengono rep
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6a598ad3f68c613a745fd56f3b368e309afeb8b6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8025228275afeb3f23268db759eb7659b9887132
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122966"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670792"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -32,7 +32,7 @@ Quando si crea un account di archiviazione, è possibile selezionare una delle o
 
 La tabella seguente presenta una rapida panoramica dell'ambito di durabilità e disponibilità che ogni strategia di replica è in grado di offrire per un determinato tipo di evento (o un evento di impatto simile).
 
-| Scenario                                                                                                 | Archiviazione con ridondanza locale                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (anteprima)                              |
+| Scenario                                                                                                 | Archiviazione con ridondanza locale                             | Archiviazione con ridondanza della zona                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (anteprima)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Mancata disponibilità di un nodo in un data center                                                                 | Yes                             | Yes                              | Yes                                  | Yes                                  |
 | Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                              | Yes                              | Yes                                  | Yes                                  |

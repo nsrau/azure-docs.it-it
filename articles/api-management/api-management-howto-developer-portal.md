@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: da75ca43a2576e3214d4b67f9eb61c7bad3bd5cc
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c015b1afbc61e1501e656aaa480ee2a4e19ba094
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073526"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672797"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Accesso e personalizzazione del nuovo portale per sviluppatori in gestione API di Azure
 
@@ -39,7 +39,7 @@ Questo articolo illustra come accedere al nuovo portale per sviluppatori di gest
 
 È possibile creare il portale per sviluppatori in due modi:
 
-- **Versione gestita** : modifica e personalizzazione del portale, integrato nell'istanza di gestione API, accessibile tramite l'URL `<your-api-management-instance-name>.developer.azure-api.net`.
+- **Versione gestita** : la modifica e la personalizzazione del portale, che è incorporata nell'istanza di gestione API, è accessibile tramite l'URL `<your-api-management-instance-name>.developer.azure-api.net`.
 - **Versione self-hosted** : tramite la distribuzione e l'hosting automatico del portale all'esterno di un'istanza di gestione API. Questo approccio consente di modificare la codebase del portale ed estendere la funzionalità di base fornita. Per informazioni dettagliate e istruzioni, vedere il [repository GitHub con il codice sorgente del portale][1].
 
 ## <a name="managed-access"></a>Accedere alla versione gestita del portale
@@ -79,7 +79,7 @@ Le eccezioni sono le *applicazioni* e i *problemi* del vecchio portale, che non 
 
 ### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>Ho trovato bug e/o desidero richiedere una funzionalità.
 
-L'installazione è riuscita. È possibile fornire commenti e suggerimenti, inviare una richiesta di funzionalità o archiviare un report sui bug tramite [la sezione problemi del repository GitHub](https://github.com/Azure/api-management-developer-portal/issues). Anche in questo caso, si apprezzeranno i commenti e i suggerimenti sui problemi contrassegnati con `community` l'etichetta.
+L'installazione è riuscita. È possibile fornire commenti e suggerimenti, inviare una richiesta di funzionalità o archiviare un report sui bug tramite [la sezione problemi del repository GitHub](https://github.com/Azure/api-management-developer-portal/issues). Anche in questo caso, si apprezzeranno i commenti e i suggerimenti sui problemi contrassegnati con l'etichetta `community`.
 
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>Si desidera spostare il contenuto del nuovo portale tra gli ambienti. Come è possibile eseguire questa operazione ed è necessario procedere con la versione self-hosted?
 
@@ -87,13 +87,21 @@ Questa operazione può essere eseguita in entrambe le versioni del portale, gest
 
 Stiamo ancora lavorando per allineare questo processo al Resource Kit DevOps di gestione API.
 
+### <a name="what-do-i-need-to-configure-for-the-new-portal-to-work-in-my-api-management-service-in-vnet"></a>Cosa è necessario configurare affinché il nuovo portale funzioni nel servizio gestione API in VNET?
+
+Mentre il nuovo portale per sviluppatori è in anteprima, è necessario consentire la connettività ai servizi di archiviazione di Azure nell'area Stati Uniti occidentali per fare in modo che il portale gestito funzioni in un servizio gestione API in VNET. Ulteriori informazioni sono disponibili nella [documentazione relativa all'archiviazione](../storage/common/storage-network-security.md#available-virtual-network-regions).
+
+Il programma di installazione precedente non sarà più necessario dopo che il nuovo portale diventa disponibile a livello generale.
+
+La versione self-hosted del portale può richiedere una configurazione aggiuntiva di connettività, a seconda della configurazione.
+
 ### <a name="how-can-i-select-a-layout-when-creating-a-new-page"></a>Come è possibile selezionare un *layout* quando si crea una nuova *pagina*?
 
-Un *layout* viene applicato a una pagina abbinando il relativo modello URL all'URL della *pagina* . Ad esempio, *il layout* con un modello di `/wiki/*` URL di verrà applicato a ogni *pagina* con `/wiki/` il segmento `/wiki/getting-started`: `/wiki/styles`, e così via.
+Un *layout* viene applicato a una pagina abbinando il relativo modello URL all'URL della *pagina* . Ad esempio, il *layout* con un modello di URL `/wiki/*` verrà applicato a ogni *pagina* con il segmento `/wiki/`: `/wiki/getting-started`, `/wiki/styles` e così via.
 
 ### <a name="why-doesnt-the-interactive-developer-console-work"></a>Perché la console per sviluppatori interattiva non funziona?
 
-È probabile che sia correlato a CORS. La console interattiva esegue una richiesta API sul lato client dal browser. È possibile risolvere il problema CORS aggiungendo [un criterio CORS](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) sulle API. È possibile specificare tutti i parametri manualmente, ad esempio Origin come https://contoso.com) o usare un valore jolly. `*`
+È probabile che sia correlato a CORS. La console interattiva esegue una richiesta API sul lato client dal browser. È possibile risolvere il problema CORS aggiungendo [un criterio CORS](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) sulle API. È possibile specificare manualmente tutti i parametri (ad esempio, Origin come https://contoso.com) o usare un valore con caratteri jolly `*`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

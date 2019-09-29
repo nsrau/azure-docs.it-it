@@ -3,17 +3,17 @@ title: Creazione di applicazioni di archiviazione di Azure a disponibilità elev
 description: L'archiviazione con ridondanza della zona geografica (GZRS) si sposa con la disponibilità elevata di archiviazione con ridondanza della zona (ZRS) con protezione da interruzioni a livello di area, come fornito dall'archiviazione con ridondanza geografica (GRS). I dati in un account di archiviazione GZRS vengono replicati tra le zone di disponibilità di Azure nell'area primaria e anche replicati in un'area geografica secondaria per la protezione da emergenze locali.
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 737bad504519a2ec7eee9764593245e0fee28cc3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300639"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673062"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
@@ -55,7 +55,7 @@ Quando si crea un account di archiviazione, si specifica la modalità di replica
 
 Quando si Abilita RA-GZRS per l'account di archiviazione, i dati possono essere letti dall'endpoint secondario e dall'endpoint primario per l'account di archiviazione. L'endpoint secondario aggiunge il suffisso *-secondario* al nome dell'account. Se ad esempio l'endpoint primario per il servizio BLOB è `myaccount.blob.core.windows.net`, l'endpoint secondario sarà. `myaccount-secondary.blob.core.windows.net` Le chiavi di accesso per l'account di archiviazione sono identiche per gli endpoint primario e secondario.
 
-Per sfruttare i vantaggi di RA-GZRS in caso di interruzione a livello di area, è necessario progettare l'applicazione in anticipo per gestire questo scenario. L'applicazione deve leggere e scrivere nell'endpoint primario, ma passare all'uso dell'endpoint secondario nel caso in cui l'area primaria diventi non disponibile. Per indicazioni sulla progettazione per la disponibilità elevata con RA-GZRS, vedere Progettazione di applicazioni a disponibilità elevata con [ra-GZRS o RA-GRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-designing-ha-apps-with-ragrs).
+Per sfruttare i vantaggi di RA-GZRS in caso di interruzione a livello di area, è necessario progettare l'applicazione in anticipo per gestire questo scenario. L'applicazione deve leggere e scrivere nell'endpoint primario, ma passare all'uso dell'endpoint secondario nel caso in cui l'area primaria diventi non disponibile. Per indicazioni sulla progettazione per la disponibilità elevata con RA-GZRS, vedere Progettazione di applicazioni a disponibilità elevata con [ra-GZRS o RA-GRS](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
 Poiché i dati vengono replicati in modo asincrono nell'area secondaria, l'area secondaria è spesso dietro l'area primaria. Per determinare quali operazioni di scrittura sono state replicate nell'area secondaria, l'applicazione verifica l'ora dell'ultima sincronizzazione dell'account di archiviazione. Tutte le operazioni di scrittura scritte nell'area primaria precedenti all'ora dell'ultima sincronizzazione sono state replicate correttamente nell'area secondaria, vale a dire che sono disponibili per la lettura dal database secondario. Tutte le operazioni di scrittura scritte nell'area primaria dopo l'ora dell'ultima sincronizzazione potrebbero essere state replicate nell'area secondaria, vale a dire che potrebbero non essere disponibili per le operazioni di lettura.
 
@@ -141,7 +141,7 @@ Per richiedere una migrazione in tempo reale, usare la [portale di Azure](https
     - **Tipo di problema**: Selezionare **migrazione dei dati**.
     - **Categoria**: Selezionare **migrate to (RA-) GZRS in a Region**.
     - **Titolo**: Digitare un titolo descrittivo, ad esempio, **(RA-) GZRS migrazione dell'account**.
-    - **Dettagli**: Digitare ulteriori dettagli nella casella **Dettagli** , ad esempio "si desidera eseguire la migrazione a GZRS da [con ridondanza locale, \_ \_ GRS] nell'area". o "Desidero eseguire la migrazione a ra-GZRS da [con ridondanza locale, RA-GRS] nell' \_ \_ area".
+    - **Dettagli**: Digitare ulteriori dettagli nei **dettagli** box, ad esempio "si desidera eseguire la migrazione a GZRS da [con ridondanza locale, GRS] nell'area \_ @ no__t-3". o "Desidero eseguire la migrazione a RA-GZRS da [con ridondanza locale, RA-GRS] nell'area \_ @ no__t-1".
 5. Selezionare  **Avanti**.
 6. Verificare che le informazioni di contatto siano corrette nel pannello **informazioni** di contatto.
 7. Selezionare **Crea**.

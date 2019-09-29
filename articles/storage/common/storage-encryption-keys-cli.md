@@ -4,17 +4,17 @@ description: Informazioni su come usare l'interfaccia della riga di comando di A
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ba6cc03a93b664e05a667116cbf845e777416c6b
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 036322e73470ad4aa25de03e95c506e9f04496d8
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155421"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670991"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>Configurare chiavi gestite dal cliente per crittografia di archiviazione di Azure dall'interfaccia della riga di comando di Azure
 
@@ -77,7 +77,7 @@ az keyvault set-policy \
     --key-permissions get recover unwrapKey wrapKey
 ```
 
-## <a name="create-a-new-key"></a>Creare una nuova chiave
+## <a name="create-a-new-key"></a>Crea una nuova chiave
 
 Successivamente, creare una chiave nell'insieme di credenziali delle chiavi. Per creare una chiave, chiamare [AZ Key Vault Key create](/cli/azure/keyvault/key#az-keyvault-key-create). Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 

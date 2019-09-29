@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 34e1d9fe937118a2eafcdd85c153653eb28752d4
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 824a562cb5f0562a235d903fbd4e575bc9c22572
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219253"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672742"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Abilitare i notebook per gli account Azure Cosmos DB
 
@@ -67,3 +67,4 @@ Per eseguire il notebook:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Scopri i vantaggi di [Azure Cosmos DB notebook Jupyter](cosmosdb-jupyter-notebooks.md)
+- Informazioni su [come usare le funzionalità e i comandi del notebook](use-notebook-features-and-commands.md)

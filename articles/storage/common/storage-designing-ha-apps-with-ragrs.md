@@ -4,17 +4,17 @@ description: Come usare l'archiviazione RA-GZRS o RA-GRS di Azure per progettare
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036611"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673123"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Progettazione di applicazioni a disponibilità elevata tramite l'archiviazione con ridondanza geografica e accesso in lettura
 
@@ -203,7 +203,7 @@ Nella tabella seguente viene illustrato un esempio di ciò che può verificarsi 
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transazione A: <br> Inserimento dell'entità <br> employee nell'area primaria |                                   |                    | Transazione A inserita nell'area primaria,<br> non ancora replicata. |
 | T1       |                                                            | Transazione A <br> replicata<br> nell'area secondaria | T1 | Transazione A replicata nell'area secondaria. <br>Ora ultima sincronizzazione aggiornata.    |
-| T2       | Transazione B:<br>Aggiorna<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
+| T2       | Transazione B:<br>Aggiornamento<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
 | T3       | Transazione C:<br> Aggiornamento <br>amministratore<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
 | *T4*     |                                                       | Transazione C <br>replicata<br> nell'area secondaria | T1         | Transazione C replicata nell'area secondaria.<br>LastSyncTime non aggiornato perché <br>la transazione B non è stata ancora replicata.|
 | *T5*     | Lettura delle entità <br>dall'area secondaria                           |                                  | T1                 | Si ottiene un valore non aggiornato per l'entità <br> employee perché la transazione B <br> non è stata ancora replicata. Si ottiene il nuovo valore per<br> l'entità administrator role perché C è stata<br> replicata. Ora ultima sincronizzazione non ancora<br> aggiornata perché la transazione B<br> non è stata replicata. È possibile stabilire che<br>l'entità administrator role è incoerente <br>perché la data/ora dell'entità è successiva <br>all'ora dell'ultima sincronizzazione. |
@@ -235,7 +235,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando l'interfaccia della riga di comando di Azure, controllare la proprietà **geoReplicationStats. LastSyncTime** dell'account di archiviazione. Usare il `--expand` parametro per restituire i valori per le proprietà annidate in **geoReplicationStats**. Ricordarsi di sostituire i valori segnaposto con i propri valori:
+Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando l'interfaccia della riga di comando di Azure, controllare la proprietà **geoReplicationStats. LastSyncTime** dell'account di archiviazione. Usare il parametro `--expand` per restituire i valori per le proprietà nidificate in **geoReplicationStats**. Ricordarsi di sostituire i valori segnaposto con i propri valori:
 
 ```azurecli
 $lastSyncTime=$(az storage account show \
@@ -266,8 +266,8 @@ static function OnBeforeResponse(oSession: Session) {
 
 Se le soglie per il passaggio dell'applicazione alla modalità di sola lettura sono state impostate come configurabili, sarà più semplice verificare il comportamento con volumi di transazioni non di produzione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su come leggere dall'area secondaria, incluso un altro esempio di come è stata impostata la proprietà dell'ora dell'ultima sincronizzazione, vedere Opzioni di ridondanza di [archiviazione di Azure e archiviazione con ridondanza geografica e accesso in lettura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Per altre informazioni su come leggere dall'area secondaria, incluso un altro esempio di come è stata impostata la proprietà dell'ora dell'ultima sincronizzazione, vedere [Opzioni di ridondanza di archiviazione di Azure e archiviazione con ridondanza geografica e accesso in lettura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 * Per un esempio completo che illustra come eseguire il passaggio tra gli endpoint primari e secondari, vedere [esempi di Azure-uso del modello di interruttore con archiviazione RA-GRS](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).

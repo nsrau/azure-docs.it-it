@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 09/26/2019
 ms.author: juliako
-ms.openlocfilehash: a7d178972a8c8b413e3c6336c403348f1eb78abb
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 4953160a30e45b9be1ff249b6cd1f74e01bb14f3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232606"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672665"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -27,6 +27,26 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="september-2019"></a>2019 settembre
+ 
+Sono stati annunciati più progressi in IBC 2019:
+ 
+* Riconoscimento di caratteri animati (anteprima pubblica)
+
+    Possibilità di rilevare il gruppo ad Recognize characters nel contenuto animato tramite l'integrazione con la visione personalizzata. Per ulteriori informazioni, vedere [rilevamento dei caratteri animati](animated-characters-recognition.md).
+* Identificazione a più lingue (anteprima pubblica)
+
+    Rilevare i segmenti in più lingue nella traccia audio e creare una trascrizione multilingue basata su di essi. Supporto iniziale: Inglese, spagnolo, tedesco e francese. Per altre informazioni, vedere [identificare e trascrivere automaticamente contenuti multilingue](multi-language-identification-transcription.md).
+* Estrazione di entità denominate per utenti e località
+
+    Estrae le marche, le località e gli utenti da testo vocale e visivo tramite la PNL (Natural Language Processing).
+* Classificazione del tipo di ripresa editoriale
+
+    Assegnazione di tag a scatti con tipi editoriali come Close up, medium, two shot, indoor, outdoor e così via. Per ulteriori informazioni, vedere il [rilevamento del tipo di ripresa editoriale](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* Miglioramento dell'inferenza degli argomenti-ora copertura del livello 2
+    
+    Il modello di inferenza degli argomenti supporta ora una granularità più approfondita della tassonomia IPTC. Leggi i dettagli completi su [servizi multimediali di Azure nuova innovazione basata sull'intelligenza artificiale](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## <a name="august-2019"></a>Agosto 2019
  

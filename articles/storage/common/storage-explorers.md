@@ -1,194 +1,29 @@
 ---
-title: Strumenti per l'uso di archiviazione di Azure
-description: Elenco di strumenti che consentono di visualizzare e interagire con i dati di archiviazione di Azure.
+title: Strumenti client Microsoft per l'uso di archiviazione di Azure
+description: Elenco di strumenti client forniti da Microsoft che consentono di visualizzare e interagire con i dati di archiviazione di Azure.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 08/26/2019
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 11838a50d70d1b9a0216505e9ef0958d3b18bdac
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b02a08b7e8d8b867df820868b72a0ce14b6afa40
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035256"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670939"
 ---
-# <a name="azure-storage-client-tools"></a>Strumento client di Archiviazione di Azure
-Gli utenti dell'Archiviazione di Azure possono visualizzare o interagire con i propri dati utilizzando lo strumento client di Archiviazione di Azure. Nelle tabelle seguenti sono elencati numerosi strumenti che consentono di eseguire questa operazione. Con una "X" in ogni blocco viene indicata la possibilità di enumerare e/o accedere all'astrazione dei dati. Viene inoltre specificato se lo strumento è gratuito o meno. "Prova" indica che esiste una versione di valutazione gratuita, ma il prodotto completo non è gratuito. "S/N" indica che è disponibile una versione gratuita, mentre è possibile acquistare una versione diversa.
+# <a name="microsoft-client-tools-for-working-with-azure-storage"></a>Strumenti client Microsoft per l'uso di archiviazione di Azure
 
-Si tratta unicamente di un riepilogo degli strumenti client di Archiviazione di Azure disponibili. Le funzionalità degli strumenti possono continuare a migliorare e aumentare. Per eventuali correzioni o aggiornamenti, è possibile lasciare un commento. Per suggerire l'aggiunta di altri strumenti simili, lasciare un commento.
+Microsoft offre diversi strumenti di interfaccia utente grafica (GUI) per l'uso dei dati nell'account di archiviazione di Azure. Tutti gli strumenti descritti nella tabella seguente sono gratuiti.
 
-**Strumento client di Archiviazione di Microsoft Azure**
+| Strumento client di archiviazione di Azure                 | Piattaforme supportate | BLOB in blocchi | BLOB di pagine | Aggiungi BLOB | Tabelle | Code | File |
+|-------------------------------------------|---------------------|------------|-----------|-------------|--------|--------|-------|
+| [Portale di Azure](https://portal.azure.com)                    | Web                 | Yes          | Yes         | Yes           | Yes      | Yes      | Yes     |
+| [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)          | Windows, OSX        | Yes          | Yes         | Yes           | Yes      | Yes      | Yes     |
+| [Microsoft Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | Windows             | Yes          | Yes         | Yes           | Yes      | Sì      | No      |
 
-<table>
-  <tr>
-    <th rowspan="2">Strumento client di Archiviazione di Azure</th>
-    <th rowspan="2">BLOB in blocchi</th>
-    <th rowspan="2">BLOB di pagine</th>
-    <th rowspan="2">Aggiungi BLOB</th>
-    <th rowspan="2">Tabelle</th>
-    <th rowspan="2">Code</th>
-    <th rowspan="2">File</th>
-    <th rowspan="2">Free</th>
-    <th colspan="4">Piattaforma</th>
-  </tr>
-  <tr>
-    <td>Web</td>
-    <td>Windows</td>
-    <td>OSX</td>
-    <td>Linux</td>
-  </tr>
-  <tr>
-    <td><a href="https://azure.microsoft.com/features/azure-portal/">Portale di Microsoft Azure</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>x</td>
-    <td>Y</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://storageexplorer.com/">Microsoft Azure Storage Explorer</a></td>
-    <td>x</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>Y</td>
-    <td></td>
-    <td>x</td>
-    <td>X</td>
-    <td>X</td>
-  </tr>
-  <tr>
-    <td><a href="https://www.visualstudio.com/features/azure-tools-vs.aspx">Esplora Server di Microsoft Visual Studio</a></td>
-    <td>x</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>Y</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-**Strumenti client di Archiviazione di Azure di terze parti**
-
-La funzionalità o la qualità dichiarate per i seguenti strumenti di terze parti non è stata verificata e la pubblicazione non implica un'approvazione da parte di Microsoft.
-
-<table>
-  <tr>
-    <th rowspan="2">Strumento client di Archiviazione di Azure</th>
-    <th rowspan="2">BLOB in blocchi</th>
-    <th rowspan="2">BLOB di pagine</th>
-    <th rowspan="2">Aggiungi BLOB</th>
-    <th rowspan="2">Tabelle</th>
-    <th rowspan="2">Code</th>
-    <th rowspan="2">File</th>
-    <th rowspan="2">Free</th>
-    <th colspan="4">Piattaforma</th>
-  </tr>
-  <tr>
-    <td>Web</td>
-    <td>Windows</td>
-    <td>OSX</td>
-    <td>Linux</td>
-  </tr>
-  <tr>
-    <td><a href="https://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
-    <td>x</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>Versione di prova</td>
-    <td></td>
-    <td>x</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Web Storage Explorer</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td>x</td>
-    <td>Y</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>X</td>
-    <td>S/N</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.gapotchenko.com/cloudcombine">Cloud Combine</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>Versione di prova</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>Y</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Versione di prova</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+Sono disponibili anche alcuni strumenti di terze parti per l'uso dei dati di archiviazione di Azure.

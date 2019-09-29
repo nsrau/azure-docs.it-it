@@ -4,16 +4,16 @@ description: Un elenco di controllo delle procedure consolidate per l'utilizzo d
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 48a5484e2b2b663d0046fc628c02e656c5bd7a25
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e700cf04123bf02c1014aa418189221fbbb0b812
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985157"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670920"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo delle prestazioni e della scalabilità Archiviazione di Microsoft Azure
 
@@ -30,7 +30,7 @@ Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure
 * Tabelle
 * Queues  
 
-| Fine | Area | Category | Domanda |
+| Completato | Area | Category | Domanda |
 | --- | --- | --- | --- |
 | &nbsp; | Tutti i servizi |Obiettivi di scalabilità |[L'applicazione è progettata per evitare di raggiungere gli obiettivi di scalabilità?](#subheading1) |
 | &nbsp; | Tutti i servizi |Obiettivi di scalabilità |[La convenzione di denominazione è stata progettata per consentire un miglior bilanciamento del carico?](#subheading47) |
@@ -172,7 +172,7 @@ Entrambe le tecnologie possono aiutare a evitare carichi o colli di bottiglia no
 
 #### <a name="useful-resources"></a>Risorse utili
 
-Per altre informazioni sulla firma di accesso [condiviso, vedere concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](storage-sas-overview.md).  
+Per altre informazioni sulla firma di accesso condiviso, vedere [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso](storage-sas-overview.md).  
 
 Per altre informazioni sulla condivisione risorse tra le origini, vedere [Supporto della condivisione delle risorse tra le origini (CORS) per i servizi di archiviazione Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 

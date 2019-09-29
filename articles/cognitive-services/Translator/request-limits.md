@@ -10,55 +10,55 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f9620cc5f135dd7b10da5528e5dec0f5baa70350
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226242"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671957"
 ---
 # <a name="request-limits-for-translator-text"></a>Limiti delle richieste per Traduzione testuale
 
 Questo articolo elenca i limiti delle richieste per l'API Traduzione testuale. I servizi includono la traduzione, la traslitterazione, il rilevamento della lunghezza delle frasi, il rilevamento della lingua e le traduzioni alternative.
 
-## <a name="character-and-array-limits-per-request"></a>Limiti di carattere e la matrice per ogni richiesta
+## <a name="character-and-array-limits-per-request"></a>Limiti di caratteri e matrici per ogni richiesta
 
-Ogni richiesta di traslazione è limitato a 5.000 caratteri. Sono previsti addebiti in base ai caratteri e non al numero di richieste. È consigliabile inviare le richieste più breve.
+Ogni richiesta di conversione è limitata a 5.000 caratteri. Sono previsti addebiti in base ai caratteri e non al numero di richieste. È consigliabile inviare richieste più brevi.
 
-La seguente tabella elenchi matrice elemento e il carattere i limiti per ogni operazione dell'API traduzione testuale.
+Nella tabella seguente sono elencati i limiti degli elementi e dei caratteri della matrice per ogni operazione del API Traduzione testuale.
 
-| Operazione | Dimensione massima dell'elemento di matrice |   Numero massimo di elementi della matrice |  Dimensioni massime di richiesta (caratteri) |
+| Operazione | Dimensione massima dell'elemento della matrice |   Numero massimo di elementi di matrice |  Dimensioni massime richiesta (caratteri) |
 |:----|:----|:----|:----|
-| Translate | 5\.000 | 100   | 5\.000 |
+| Trasla | 5\.000 | 100   | 5\.000 |
 | Transliterate | 5\.000 | 10    | 5\.000 |
-| Detect | 10,000 | 100 |   50,000 |
-| BreakSentence | 10,000    | 100 | 5,0000 |
+| Rileva | 10,000 | 100 |   50,000 |
+| BreakSentence | 10,000    | 100 | 50,000 |
 | Ricerca nel dizionario| 100 |  10  | 1\.000 |
-| Esempi di dizionari | 100 per il testo e 100 per la conversione (200 totale)| 10|   2\.000 |
+| Esempi di dizionari | 100 per il testo e 100 per la traduzione (200 totali)| 10|   2\.000 |
 
 ## <a name="character-limits-per-hour"></a>Limiti di caratteri all'ora
 
 Il limite di caratteri all'ora si basa sul livello della sottoscrizione di Traduzione testuale. 
 
-La quota oraria deve essere utilizzata in modo uniforme in tutta l'ora. Ad esempio, raggiunto il limite di livello F0 di 2 milioni di caratteri per ogni ora, caratteri devono essere utilizzati non più velocemente rispetto all'incirca 33,300 caratteri per ogni finestra temporale scorrevole al minuto (2 milioni di caratteri divisi per 60 minuti).
+La quota oraria deve essere utilizzata in modo uniforme durante l'ora. Ad esempio, al limite del livello F0 di 2 milioni caratteri all'ora, i caratteri devono essere utilizzati non più velocemente di circa 33.300 caratteri al minuto finestra temporale scorrevole (2 milioni caratteri divisi per 60 minuti).
 
-Se si raggiungono o superano questi limiti o troppo grande di una parte della quota di trasmissione in un breve periodo di tempo, probabilmente si riceverà un timeout della risposta di quota. Non sono previsti limiti sulle richieste simultanee.
+Se si raggiungono o superano questi limiti o si inviano dimensioni eccessive di una parte della quota in un breve periodo di tempo, è probabile che si riceva una risposta fuori quota. Non sono previsti limiti per le richieste simultanee.
 
 | Livello | Limite di caratteri |
 |------|-----------------|
 | F0 | 2 milioni di caratteri all'ora |
 | S1 | 40 milioni di caratteri all'ora |
-| S2 / C2 | 40 milioni di caratteri all'ora |
-| S3 / C3 | 120 milioni di caratteri all'ora |
-| S4 / C4 | 200 milioni di caratteri all'ora |
+| S2/C2 | 40 milioni di caratteri all'ora |
+| S3/C3 | 120 milioni di caratteri all'ora |
+| S4/C4 | 200 milioni di caratteri all'ora |
 
-Limiti della [multiservizio sottoscrizioni](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) corrispondono a livello S1.
+I limiti per le [sottoscrizioni multiservizio](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) corrispondono al livello S1.
 
-Questi limiti sono limitati ai modelli di conversione standard di Microsoft. I modelli di conversione personalizzata che utilizzano Microsoft Translator personalizzati sono limitati ai 1.800 caratteri al secondo.
+Questi limiti sono limitati ai modelli di traduzione standard di Microsoft. I modelli di traduzione personalizzati che usano il convertitore personalizzato sono limitati a 1.800 caratteri al secondo.
 
-## <a name="latency"></a>Latenza
+## <a name="latency"></a>Latency
 
-L'API traduzione testuale ha una latenza massima di 15 secondi usando i modelli standard. Conversione mediante modelli personalizzati con una latenza massima di 25 secondi. Entro questo tempo si riceverà un risultato o una risposta di timeout. Le risposte vengono in genere restituite in un tempo compreso tra 150 e 300 millisecondi. Tempi di risposta variano in base alla dimensione della coppia di richiesta e della lingua. Se non si riceve una traduzione o una [risposta di errore](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) entro tale intervallo di tempo, è consigliabile verificare la connessione di rete e riprovare.
+Il API Traduzione testuale ha una latenza massima di 15 secondi utilizzando i modelli standard. La conversione con modelli personalizzati ha una latenza massima di 25 secondi. Entro questo tempo si riceverà un risultato o una risposta di timeout. Le risposte vengono in genere restituite in un tempo compreso tra 150 e 300 millisecondi. I tempi di risposta variano in base alle dimensioni della coppia di richieste e lingue. Se non si riceve una traduzione o una [risposta di errore](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) entro questo intervallo di tempo, è consigliabile verificare la connessione di rete e riprovare.
 
 ## <a name="sentence-length-limits"></a>Limiti di lunghezza delle frasi
 

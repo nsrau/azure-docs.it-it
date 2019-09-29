@@ -4,16 +4,16 @@ description: Informazioni su come elencare i contenitori BLOB nell'account di ar
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e0197d59cdadd5e9462daf879d915ac2520bc149
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 06454798deb4a5bc5064e28535a837f73c083e1c
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985652"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671292"
 ---
 # <a name="list-blob-containers-with-net"></a>Elencare i contenitori BLOB con .NET
 
@@ -44,7 +44,7 @@ Per filtrare l'elenco dei contenitori, specificare una stringa per il `prefix` p
 
 Per restituire i metadati del contenitore con i risultati, specificare il valore **dei metadati** per l'enumerazione [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) . Archiviazione di Azure include metadati con ogni contenitore restituito, pertanto non è necessario chiamare anche uno dei metodi **FetchAttributes** per recuperare i metadati del contenitore.
 
-## <a name="example-list-containers"></a>Esempio: Elencare i contenitori
+## <a name="example-list-containers"></a>Esempio: Elenca contenitori
 
 Nell'esempio seguente vengono elencati in modo asincrono i contenitori in un account di archiviazione che iniziano con un prefisso specificato. Nell'esempio vengono elencati i contenitori con incrementi di 5 risultati alla volta e viene utilizzato il token di continuazione per ottenere il segmento di risultati successivo. Nell'esempio vengono restituiti anche i metadati del contenitore con i risultati.
 

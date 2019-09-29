@@ -4,17 +4,17 @@ description: Informazioni su come creare una firma di accesso condiviso di deleg
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 6ea4dbf07c8ef99c43dbe7add1ae9270056f708c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 077fe69d80ec433d8e37f18e04120102fc8ca390
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164315"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673329"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o BLOB con l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -57,7 +57,7 @@ Quando si crea una firma di accesso condiviso dell'utente con l'interfaccia dell
 
 Poiché l'intervallo massimo di validità della chiave di delega utente è di 7 giorni dalla data di inizio, è necessario specificare un'ora di scadenza per la firma di accesso condiviso entro 7 giorni dall'ora di inizio. La firma di accesso condiviso non è valida dopo la scadenza della chiave di delega dell'utente. Pertanto, una firma di accesso condiviso con una scadenza superiore a 7 giorni sarà ancora valida solo per 7 giorni.
 
-Quando si crea una firma di accesso condiviso `--auth-mode login` di `--as-user parameters` delega utente, sono necessari gli e. Specificare l'account di `--auth-mode` *accesso* per il parametro in modo che le richieste effettuate all'archiviazione di Azure siano autorizzate con le credenziali Azure ad. Specificare il `--as-user` parametro per indicare che la firma di accesso condiviso restituita deve essere una firma di accesso condiviso dell'utente.
+Quando si crea una firma di accesso condiviso di delega utente, sono necessari i `--auth-mode login` e `--as-user parameters`. Specificare l' *account di accesso* per il parametro `--auth-mode` in modo che le richieste effettuate all'archiviazione di Azure siano autorizzate con le credenziali Azure ad. Specificare il parametro `--as-user` per indicare che la firma di accesso condiviso restituita deve essere una firma di accesso condiviso dell'utente.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Creare una firma di accesso condiviso di delega utente per un contenitore
 
@@ -89,7 +89,7 @@ Per creare una firma di accesso condiviso di delega utente per un BLOB con l'int
 
 Le autorizzazioni supportate per la firma di accesso condiviso di una delega utente in un BLOB includono Aggiungi, crea, Elimina, lettura e scrittura. È possibile specificare le autorizzazioni singolarmente o combinate. Per altre informazioni su queste autorizzazioni, vedere [creare una](/rest/api/storageservices/create-user-delegation-sas)firma di accesso condiviso di delega utente.
 
-La sintassi seguente restituisce una firma di accesso condiviso di delega utente per un BLOB. Nell'esempio viene specificato `--full-uri` il parametro, che restituisce l'URI del BLOB con il token di firma di accesso condiviso accodato. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
+La sintassi seguente restituisce una firma di accesso condiviso di delega utente per un BLOB. Nell'esempio viene specificato il parametro `--full-uri`, che restituisce l'URI del BLOB con il token di firma di accesso condiviso accodato. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
 ```azurecli-interactive
 az storage blob generate-sas \

@@ -4,17 +4,17 @@ description: Informazioni su come creare una firma di accesso condiviso usando l
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 8a455fdb8ef81b0e06d1f77f7a9cdd5bec351b2b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 0164c97adf720a618179908298223c54bf48824e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164275"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673331"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con PowerShell (anteprima)
 
@@ -102,7 +102,7 @@ Quando si crea una firma di accesso condiviso di delega utente con Azure PowerSh
 
 Poiché l'intervallo massimo di validità della chiave di delega utente è di 7 giorni dalla data di inizio, è necessario specificare un'ora di scadenza per la firma di accesso condiviso entro 7 giorni dall'ora di inizio. La firma di accesso condiviso non è valida dopo la scadenza della chiave di delega dell'utente. Pertanto, una firma di accesso condiviso con una scadenza superiore a 7 giorni sarà ancora valida solo per 7 giorni.
 
-Per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con Azure PowerShell, creare prima di tutto un nuovo `-UseConnectedAccount` oggetto di contesto di archiviazione di Azure, specificando il parametro. Il `-UseConnectedAccount` parametro specifica che il comando crea l'oggetto context nell'account Azure ad con cui è stato effettuato l'accesso.
+Per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con Azure PowerShell, creare prima di tutto un nuovo oggetto di contesto di archiviazione di Azure, specificando il parametro `-UseConnectedAccount`. Il parametro `-UseConnectedAccount` specifica che il comando crea l'oggetto di contesto nell'account Azure AD con cui è stato effettuato l'accesso.
 
 Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
 
@@ -134,7 +134,7 @@ Il token SAS della delega utente restituito sarà simile al seguente:
 
 Per restituire un token di firma di accesso condiviso della delega utente per un BLOB, chiamare il comando [New-AzStorageBlobSASToken](/powershell/module/az.storage/new-azstorageblobsastoken) , passando l'oggetto di contesto di archiviazione di Azure creato in precedenza.
 
-La sintassi seguente restituisce una firma di accesso condiviso di delega utente per un BLOB. Nell'esempio viene specificato `-FullUri` il parametro, che restituisce l'URI del BLOB con il token di firma di accesso condiviso accodato. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
+La sintassi seguente restituisce una firma di accesso condiviso di delega utente per un BLOB. Nell'esempio viene specificato il parametro `-FullUri`, che restituisce l'URI del BLOB con il token di firma di accesso condiviso accodato. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
 ```powershell
 New-AzStorageBlobSASToken -Context $ctx `

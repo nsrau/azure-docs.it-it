@@ -4,15 +4,15 @@ description: Informazioni su come gestire le impostazioni dell'account di archiv
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: 66bdc4bd1e17347419a6eccd7c9532db17b33001
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 60104496006e790887dd9c4b3e4c3196e0ef6444
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303485"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671363"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gestire le impostazioni dell'account di archiviazione nel portale di Azure
 
@@ -20,11 +20,11 @@ Nel [portale di Azure](https://portal.azure.com) sono disponibili svariate impos
 
 ## <a name="access-control"></a>Controllo di accesso
 
-Archiviazione di Azure supporta l'autorizzazione con Azure Active Directory per l'archiviazione Blob e archiviazione di coda tramite il controllo di accesso basato sui ruoli (RBAC). Per altre informazioni sull'autorizzazione con Azure AD, vedere [autorizza l'accesso ad Azure di BLOB e code usando Azure Active Directory](storage-auth-aad.md).
+Archiviazione di Azure supporta l'autorizzazione con Azure Active Directory per l'archiviazione BLOB e l'archiviazione di accodamento tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni sull'autorizzazione con Azure AD, vedere [autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory](storage-auth-aad.md).
 
-Le impostazioni di **Controllo di accesso** nel portale di Azure consentono di assegnare in modo semplice i ruoli Controllo degli accessi in base al ruolo a utenti, gruppi, entità servizio e identità gestite. Per altre informazioni sull'assegnazione dei ruoli RBAC, vedere [Gestisci i diritti di accesso ai dati blob e di Accodamento con RBAC](storage-auth-aad-rbac.md).
+Le impostazioni di **Controllo di accesso** nel portale di Azure consentono di assegnare in modo semplice i ruoli Controllo degli accessi in base al ruolo a utenti, gruppi, entità servizio e identità gestite. Per ulteriori informazioni sull'assegnazione di ruoli RBAC, vedere [gestire i diritti di accesso ai dati BLOB e di Accodamento con RBAC](storage-auth-aad-rbac.md).
 
-## <a name="tags"></a>`Tags`
+## <a name="tags"></a>Tag
 
 Archiviazione di Azure supporta i tag di Azure Resource Manager per l'organizzazione delle risorse di Azure con una tassonomia personalizzata. È possibile applicare i tag agli account di archiviazione per poterli raggruppare in modo logico nella sottoscrizione.
 
@@ -40,7 +40,7 @@ Quando si crea un account di archiviazione, Azure genera due chiavi di accesso d
 
 [!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
-### <a name="view-account-keys-and-connection-string"></a>Visualizzare le chiavi dell'account e stringa di connessione
+### <a name="view-account-keys-and-connection-string"></a>Visualizzare le chiavi dell'account e la stringa di connessione
 
 [!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 

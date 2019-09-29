@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: dech
-ms.openlocfilehash: 1eda8271a3b8aa2c9e247252bd755279d23b6e10
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 4a9bd554e0858024d656dbf35d6fb00995e6f4bd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310347"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672494"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db"></a>Usare i comandi e le funzionalità predefiniti del notebook in Azure Cosmos DB
 
@@ -25,7 +25,10 @@ In una nuova cella di codice inserire ed eseguire il codice seguente, sostituend
 import sys
 !{sys.executable} -m pip install PackageToBeInstalled –user
 ```
-Questo pacchetto sarà disponibile per l'uso da qualsiasi notebook nell'account Azure Cosmos. 
+Questo pacchetto sarà disponibile per l'uso da qualsiasi notebook nell'area di lavoro dell'account Azure Cosmos. 
+
+> [!TIP]
+> Se il notebook richiede un pacchetto personalizzato, è consigliabile aggiungere una cella nel notebook per installare il pacchetto, poiché i pacchetti vengono rimossi se si [Reimposta l'area di lavoro](#reset-notebooks-workspace).  
 
 ## <a name="run-a-sql-query"></a>Eseguire una query SQL
 
@@ -150,6 +153,11 @@ primary_key = os.environ["COSMOS_KEY"]
 ```
 > [!IMPORTANT]
 > Le ``COSMOS_ENDPOINT`` variabili ``COSMOS_KEY`` di ambiente e sono valide solo per l'API SQL. Per altre API, trovare l'endpoint e la chiave nel pannello **stringhe di connessione** o **chiavi** nell'account Cosmos.  
+
+## <a name="reset-notebooks-workspace"></a>Reimposta area di lavoro notebook
+Per reimpostare l'area di lavoro notebook sulle impostazioni predefinite, selezionare **Reimposta area di lavoro** sulla barra dei comandi. I pacchetti installati personalizzati vengono rimossi e il server Jupyter verrà riavviato. I notebook, i file e le risorse Cosmos non saranno interessati.  
+
+![Reimposta area di lavoro notebook](media/use-notebook-features-and-commands/reset-workspace.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

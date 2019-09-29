@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
-ms.openlocfilehash: 64cac3d200a2cfc3b826dc75bfacc6457a01f294
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e2e829fba9846c2429e362903f5ce49b9344e1bd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727566"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672621"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Procedure consigliate e modelli per la sicurezza di Azure
 
@@ -28,7 +28,7 @@ L'articolo seguente contiene informazioni sulle procedure consigliate per la sic
 
 Le procedure consigliate costituiscono una risorsa per i professionisti IT. Potrebbe trattarsi di designer, architetti, sviluppatori e tester che creano e distribuiscono soluzioni sicure per Azure.
 
-* [Procedure consigliate per la sicurezza dei limiti di Azure](network-best-practices.md)
+* [Procedure consigliate per la sicurezza dei limiti di Azure](https://docs.microsoft.com/en-us/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Procedure consigliate per la sicurezza del database di Azure](database-best-practices.md)
 * [Procedure consigliate per la sicurezza dei dati e la crittografia in Azure](data-encryption-best-practices.md)
 * [Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure](identity-management-best-practices.md)

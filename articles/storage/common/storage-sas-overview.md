@@ -4,17 +4,17 @@ description: Informazioni sull'uso delle firme di accesso condiviso (SAS) per de
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4cf4f87e42508c60cd9195cb8d1e4127134f64aa
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0410da26a2ea5811c5a107ce233f2442b60fd9ca
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034966"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670838"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)
 
@@ -34,7 +34,7 @@ Archiviazione di Azure supporta tre tipi di firme di accesso condiviso:
 Una firma di accesso condiviso può assumere una delle due forme seguenti:
 
 - **Firma di accesso condiviso ad hoc:** Quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, l'ora di scadenza e le autorizzazioni per la firma di accesso condiviso vengono tutte specificate nell'URI della firma di accesso condiviso (o implicita se l'ora di inizio viene omessa). Qualsiasi tipo di firma di accesso condiviso può essere una firma di accesso condiviso ad hoc.
-- **Firma di accesso condiviso del servizio con criteri di accesso archiviati:** Un criterio di accesso archiviato è definito in un contenitore di risorse, che può essere un contenitore BLOB, una tabella, una coda o una condivisione file. I criteri di accesso archiviati possono essere usati per gestire i vincoli per una o più firme di accesso condiviso del servizio. Quando si associa una firma di accesso condiviso del servizio a un criterio di accesso archiviato,&mdash;la firma di accesso condiviso eredita i vincoli l'ora&mdash;di inizio, l'ora di scadenza e le autorizzazioni definite per i criteri di accesso archiviati.
+- **Firma di accesso condiviso del servizio con criteri di accesso archiviati:** Un criterio di accesso archiviato è definito in un contenitore di risorse, che può essere un contenitore BLOB, una tabella, una coda o una condivisione file. I criteri di accesso archiviati possono essere usati per gestire i vincoli per una o più firme di accesso condiviso del servizio. Quando si associa una firma di accesso condiviso del servizio a un criterio di accesso archiviato, la firma di accesso condiviso eredita i vincoli @ no__t-0The per l'ora di inizio, l'ora di scadenza e le autorizzazioni @ no__t-1defined per i criteri di accesso archiviati.
 
 > [!NOTE]
 > Una firma di accesso condiviso dell'utente o una firma di accesso condiviso dell'account deve essere una SAS ad hoc. I criteri di accesso archiviati non sono supportati per la firma di accesso condiviso utente o la firma di accesso condiviso dell'account.

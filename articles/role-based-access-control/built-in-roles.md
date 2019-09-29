@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71289601"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672637"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -186,8 +186,8 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Authorization/*/Delete | Eliminazione di ruoli, assegnazioni di criteri, definizioni dei criteri e definizioni dei set di criteri |
 > | Microsoft.Authorization/*/Write | Creazione di ruoli, assegnazioni di ruolo, assegnazioni dei criteri, definizioni dei criteri e definizioni dei set di criteri |
 > | Microsoft.Authorization/elevateAccess/Action | Concede al chiamante l'accesso di tipo Amministratore Accesso utenti a livello dell'ambito del tenant |
-> | Microsoft.Blueprint/blueprintAssignments/write | Crea o aggiorna gli artefatti del progetto |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Elimina gli artefatti del progetto |
+> | Microsoft.Blueprint/blueprintAssignments/write | Crea o aggiorna le assegnazioni del progetto |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Elimina tutte le assegnazioni di progetto |
 > | **DataActions** |  |
 > | *nessuna* |  |
 > | **NotDataActions** |  |

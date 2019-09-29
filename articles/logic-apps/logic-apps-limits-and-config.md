@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 9d89bc2318049f068b2bab8c0345605458678b41
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 463cd350eb3c878a7d080cdfa7c8e0fabffd1a93
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350689"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672677"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -264,21 +264,27 @@ Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza 
 
 ## <a name="firewall-configuration-ip-addresses"></a>Configurazione del firewall: Indirizzi IP
 
-Tutte le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP. Per supportare le chiamate effettuate direttamente dalle app per la logica con [http](../connectors/connectors-native-http.md), [http + spavalderia](../connectors/connectors-native-http-swagger.md)e altre richieste HTTP, configurare i firewall con *tutti* gli indirizzi IP in [ingresso](#inbound) *e* in [uscita](#outbound) usati dalle app per la logica servizio, basato sulle aree in cui si trovano le app per la logica. Questi indirizzi vengono visualizzati sotto le intestazioni **In ingresso** e **In uscita** in questa sezione e vengono ordinati in base all'area.
+Gli indirizzi IP usati da app per la logica di Azure per le chiamate in ingresso e in uscita dipendono dall'area in cui è presente l'app per la logica. *Tutte* le app per la logica che si trovano nella stessa area utilizzano gli stessi intervalli di indirizzi IP.
 
-Per supportare le chiamate effettuate dai [connettori gestiti da Microsoft](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano *tutti* gli indirizzi IP [in uscita](#outbound) usati da questi connettori, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto l'intestazione **In uscita** in questa sezione e vengono ordinati in base all'area. Per le app per la logica eseguite in un ambiente Integration Services (ISE), assicurarsi di [aprire queste porte](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+> [!NOTE]
+> Alcune chiamate di Microsoft Flow, ad esempio richieste **http** e **http + openapi** , passano direttamente attraverso il servizio app per la logica di Azure e provengono dagli indirizzi IP elencati qui. Per ulteriori informazioni sugli indirizzi IP utilizzati da Microsoft Flow, vedere [limiti e configurazione in Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
-Per i connettori personalizzati, [Azure per enti pubblici](../azure-government/documentation-government-overview.md)e [Azure Cina 21ViaNet](https://docs.microsoft.com/azure/china/), gli indirizzi IP fissi o riservati non sono disponibili.
+* Per supportare le chiamate effettuate direttamente dalle app per la logica con [http](../connectors/connectors-native-http.md), [http + spavalderia](../connectors/connectors-native-http-swagger.md)e altre richieste HTTP, configurare il firewall con *tutti* gli indirizzi IP in [ingresso](#inbound) *e* [in uscita usati](#outbound) dalle app per la logica servizio, basato sulle aree in cui si trovano le app per la logica. Questi indirizzi vengono visualizzati sotto le intestazioni **In ingresso** e **In uscita** in questa sezione e vengono ordinati in base all'area.
+
+* Per supportare le chiamate effettuate dai [connettori gestiti da Microsoft](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano *tutti* gli indirizzi IP [in uscita](#outbound) usati da questi connettori, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto l'intestazione **In uscita** in questa sezione e vengono ordinati in base all'area. 
+
+* Per le app per la logica eseguite in un ambiente Integration Services (ISE), assicurarsi di [aprire queste porte](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+
+* Le app per la logica non possono accedere direttamente agli account di archiviazione di Azure con [regole del firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security) e presenti nella stessa area. Tuttavia, le app per la logica possono accedere agli account di archiviazione di Azure che si trovano in un'area diversa, perché viene usato un indirizzo IP pubblico per la comunicazione tra le aree. In alternativa, è possibile usare una delle opzioni seguenti:
+
+  * Creare un [ambiente del servizio di integrazione](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), che può connettersi alle risorse presenti in una rete virtuale di Azure.
+
+  * Se si usa già Gestione API, è possibile usare questo servizio in questo scenario. Per altre informazioni, vedere [Architettura di integrazione aziendale semplice](https://aka.ms/aisarch).
+
+* Per i connettori personalizzati, [Azure per enti pubblici](../azure-government/documentation-government-overview.md)e [Azure Cina 21ViaNet](https://docs.microsoft.com/azure/china/), gli indirizzi IP fissi o riservati non sono disponibili.
 
 > [!IMPORTANT]
->
-> Se si dispone di configurazioni esistenti, aggiornarle **il prima possibile entro il 1° settembre 2018** in modo che includano e mettano in corrispondenza gli indirizzi IP in questo elenco per le aree in cui sono presenti le app per la logica.
-
-App per la logica non supporta la connessione diretta agli account di archiviazione di Azure attraverso firewall. Per accedere a questi account di archiviazione, usare una delle opzioni descritte qui:
-
-* Creare un [ambiente del servizio di integrazione](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), che può connettersi alle risorse presenti in una rete virtuale di Azure.
-
-* Se si usa già Gestione API, è possibile usare questo servizio in questo scenario. Per altre informazioni, vedere [Architettura di integrazione aziendale semplice](https://aka.ms/aisarch).
+> Se si hanno configurazioni del firewall configurate prima del 1 ° settembre 2018, verificare che corrispondano agli indirizzi IP correnti negli elenchi per le aree in cui si trovano le app per la logica.
 
 <a name="inbound"></a>
 

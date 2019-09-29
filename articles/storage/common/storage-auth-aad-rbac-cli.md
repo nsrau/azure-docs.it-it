@@ -4,17 +4,17 @@ description: Usare l'interfaccia della riga di comando di Azure per assegnare l'
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2e29dfde651addb58b767d04bd34e8e5441d54c8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986750"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673198"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC usando l'interfaccia della riga di comando
 
@@ -58,7 +58,7 @@ Per assegnare un ruolo RBAC a un'entità di sicurezza, usare il comando [AZ Role
 
 ### <a name="container-scope"></a>Ambito del contenitore
 
-Per assegnare un ruolo con ambito a un contenitore, specificare una stringa contenente l'ambito del contenitore per il `--scope` parametro. L'ambito di un contenitore è nel formato seguente:
+Per assegnare un ruolo con ambito a un contenitore, specificare una stringa contenente l'ambito del contenitore per il parametro `--scope`. L'ambito di un contenitore è nel formato seguente:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>
@@ -75,7 +75,7 @@ az role assignment create \
 
 ### <a name="queue-scope"></a>Ambito della coda
 
-Per assegnare un ruolo con ambito a una coda, specificare una stringa contenente l'ambito della coda per il `--scope` parametro. L'ambito di una coda è nel formato seguente:
+Per assegnare un ruolo con ambito a una coda, specificare una stringa contenente l'ambito della coda per il parametro `--scope`. L'ambito di una coda è nel formato seguente:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>
@@ -92,7 +92,7 @@ az role assignment create \
 
 ### <a name="storage-account-scope"></a>Ambito dell'account di archiviazione
 
-Per assegnare un ruolo nell'ambito dell'account di archiviazione, specificare l'ambito della risorsa dell'account di archiviazione per `--scope` il parametro. L'ambito di un account di archiviazione è nel formato seguente:
+Per assegnare un ruolo nell'ambito dell'account di archiviazione, specificare l'ambito della risorsa dell'account di archiviazione per il parametro `--scope`. L'ambito di un account di archiviazione è nel formato seguente:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -109,7 +109,7 @@ az role assignment create \
 
 ### <a name="resource-group-scope"></a>Ambito del gruppo di risorse
 
-Per assegnare un ruolo con ambito al gruppo di risorse, specificare il nome o l'ID del gruppo di `--resource-group` risorse per il parametro. L'esempio seguente assegna il ruolo di **lettore dati della coda di archiviazione** a un utente a livello del gruppo di risorse. Assicurarsi di sostituire i valori di esempio e i segnaposto tra parentesi con valori personalizzati:
+Per assegnare un ruolo con ambito al gruppo di risorse, specificare il nome o l'ID del gruppo di risorse per il parametro `--resource-group`. L'esempio seguente assegna il ruolo di **lettore dati della coda di archiviazione** a un utente a livello del gruppo di risorse. Assicurarsi di sostituire i valori di esempio e i segnaposto tra parentesi con valori personalizzati:
 
 ```azurecli-interactive
 az role assignment create \
@@ -120,7 +120,7 @@ az role assignment create \
 
 ### <a name="subscription-scope"></a>Ambito della sottoscrizione
 
-Per assegnare un ruolo con ambito alla sottoscrizione, specificare l'ambito per la sottoscrizione per il `--scope` parametro. L'ambito di una sottoscrizione è nel formato seguente:
+Per assegnare un ruolo con ambito alla sottoscrizione, specificare l'ambito per la sottoscrizione per il parametro `--scope`. L'ambito di una sottoscrizione è nel formato seguente:
 
 ```
 /subscriptions/<subscription>

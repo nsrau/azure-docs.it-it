@@ -4,17 +4,17 @@ description: L'archiviazione con ridondanza della zona offre un modo semplice pe
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7639eb2807654aab38a4e849c2e58d77f15bc31
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a343601ec126549926cfd4035d901862c0a585a8
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036257"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673103"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS) per la creazione di applicazioni di archiviazione di Azure a disponibilità elevata
 
@@ -72,7 +72,7 @@ Per la migrazione a ZRS sono disponibili due opzioni principali:
 > [!IMPORTANT]
 > La migrazione in tempo reale non è attualmente supportata per le condivisioni file Premium. Attualmente sono supportati solo i dati copiati o spostati manualmente.
 
-Se è necessario completare la migrazione entro una determinata data, provare a eseguire una migrazione manuale. Una migrazione manuale offre maggiore flessibilità rispetto a una migrazione in tempo reale. Con una migrazione manuale, è possibile controllare le tempistiche.
+Per completare la migrazione entro una determinata data, provare a eseguire una migrazione manuale. Una migrazione manuale offre maggiore flessibilità rispetto a una migrazione in tempo reale. Con una migrazione manuale, è possibile controllare le tempistiche.
 
 Per eseguire una migrazione manuale, sono disponibili alcune opzioni:
 - Usare strumenti esistenti, ad esempio AzCopy, una delle librerie client di Archiviazione di Azure o strumenti affidabili di terze parti.
@@ -81,7 +81,7 @@ Per eseguire una migrazione manuale, sono disponibili alcune opzioni:
 
 Una migrazione manuale può comportare tempi di inattività dell'applicazione. Se l'applicazione richiede disponibilità elevata, Microsoft offre anche un'opzione di migrazione in tempo reale. Una migrazione in tempo reale è una migrazione sul posto senza tempi di inattività. 
 
-Quando si esegue una migrazione in tempo reale, è possibile usare l'account di archiviazione durante la migrazione dei dati tra gli indicatori di archiviazione di origine e di destinazione. Durante il processo di migrazione, si ha lo stesso livello di SLA di durabilità e disponibilità che si esegue normalmente.
+Quando si esegue una migrazione in tempo reale, è possibile usare l'account di archiviazione durante la migrazione dei dati tra gli indicatori di archiviazione di origine e di destinazione. Durante il processo di migrazione si hanno a disposizione gli stessi livelli di durabilità e disponibilità normalmente previsti dal contratto di servizio.
 
 Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 
@@ -114,11 +114,11 @@ Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza nec
 
 **È necessario pianificare i tempi di inattività durante la migrazione?**
 
-Non si verifica alcun tempo di inattività causato dalla migrazione. Durante una migrazione in tempo reale, è possibile continuare a usare l'account di archiviazione mentre viene eseguita la migrazione dei dati tra timbri di archiviazione di origine e di destinazione. Durante il processo di migrazione, si ha lo stesso livello di SLA di durabilità e disponibilità che si esegue normalmente.
+Non si verifica alcun tempo di inattività causato dalla migrazione. Durante una migrazione in tempo reale, è possibile continuare a usare l'account di archiviazione mentre viene eseguita la migrazione dei dati tra timbri di archiviazione di origine e di destinazione. Durante il processo di migrazione si hanno a disposizione gli stessi livelli di durabilità e disponibilità normalmente previsti dal contratto di servizio.
 
 **Si è verificata una perdita di dati associata alla migrazione?**
 
-La migrazione non è associata ad alcuna perdita di dati. Durante il processo di migrazione, si ha lo stesso livello di SLA di durabilità e disponibilità che si esegue normalmente.
+La migrazione non è associata ad alcuna perdita di dati. Durante il processo di migrazione si hanno a disposizione gli stessi livelli di durabilità e disponibilità normalmente previsti dal contratto di servizio.
 
 **Sono necessari aggiornamenti per le applicazioni al termine della migrazione?**
 

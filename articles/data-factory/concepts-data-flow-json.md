@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: cde42dda47d54c03c50895bc625f99c9350b53e3
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: ad21ddffdb22f7abf999bfa12f4a8ed86f42cfa2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210689"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673438"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mapping della gestione JSON del flusso di dati
 
@@ -22,11 +22,11 @@ ms.locfileid: "70210689"
 L'aggiunta di una colonna complessa al flusso di dati è più semplice tramite l'editor espressioni colonna derivata. Dopo aver aggiunto una nuova colonna e aperto l'editor, sono disponibili due opzioni: immettere manualmente la struttura JSON o usare l'interfaccia utente per aggiungere le sottocolonne in modo interattivo.
 
 #### <a name="interactive-ui-json-design"></a>Progettazione JSON interattiva dell'interfaccia utente
-Dal riquadro lato schema di output è possibile aggiungere nuove sottocolonne usando il `+` menu: ![Aggiungi sottocolonna](media/data-flow/addsubcolumn.png "Aggiungi sottocolonna")
+Dal riquadro lato schema di output è possibile aggiungere nuove sottocolonne usando il menu `+`: ![Aggiungi sottocolonna](media/data-flow/addsubcolumn.png "Aggiungi") sottocolonna
 
 Da questa posizione è possibile aggiungere nuove colonne e sottocolonne nello stesso modo. Per ogni campo non complesso, è possibile aggiungere un'espressione nell'editor di espressioni a destra.
 
-![Colonna complessa](media/data-flow/complexcolumn.png "Colonna complessa")
+![](media/data-flow/complexcolumn.png "Colonna") complessa colonna complessa
 
 #### <a name="manual-json-design"></a>Progettazione JSON manuale
 Per aggiungere manualmente una struttura JSON, aggiungere una nuova colonna e immettere l'espressione nell'editor. L'espressione segue il formato generale seguente:
@@ -144,7 +144,7 @@ File3.json
 { "json": "record 3" }
 ```
 
-# <a name="higher-order-functions"></a>Funzioni di ordine superiore
+## <a name="higher-order-functions"></a>Funzioni di ordine superiore
 ## <a name="filter"></a>filtro
 Filtra gli elementi dalla matrice che non soddisfano il predicato specificato. Il filtro prevede un riferimento a un elemento nella funzione predicato come #item.
 
@@ -163,7 +163,7 @@ map([1, 2, 3, 4], #item + 2) => [3, 4, 5, 6]
 map(['a', 'b', 'c', 'd'], #item + '_processed') => ['a_processed', 'b_processed', 'c_processed', 'd_processed']
 ```
 
-## <a name="reduce"></a>ridurre
+## <a name="reduce"></a>Ridurre
 Accumula gli elementi in una matrice. Per reduce si prevede un riferimento a un accumulatore e un elemento nella prima funzione di espressione come #acc e #item e si prevede che il valore risultante sia #result da utilizzare nella seconda funzione di espressione.
 
 ### <a name="examples"></a>Esempi
