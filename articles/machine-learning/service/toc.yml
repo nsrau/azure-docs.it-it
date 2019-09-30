@@ -49,6 +49,10 @@
         - name: Classificazione (dati bancari)
           displayName: 'automl, automated, auto ml, portal, ui'
           href: tutorial-first-experiment-automated-ml.md
+    - name: Interfaccia della riga di comando di Machine Learning
+      items:
+        - name: Eseguire il training di un modello e distribuirlo
+          href: tutorial-train-deploy-model-cli.md
 - name: Esempi
   items:
     - name: Notebooks
@@ -63,6 +67,9 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
+    - name: Training dei modelli
+      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
+      href: concept-train-machine-learning-model.md
     - name: Interfaccia visiva grafica
       displayName: studio
       href: ui-concept-visual-interface.md
@@ -138,7 +145,7 @@
     - name: Eseguire il training dei modelli
       items:
         - name: Configurare ambienti di training
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
         - name: Usare le stime per eseguire il training
           items:

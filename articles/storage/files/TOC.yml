@@ -167,44 +167,76 @@
           href: storage-sync-files-troubleshoot.md
 - name: riferimento
   items:
-    - name: PowerShell
-      href: /powershell/module/azure.storage
+    - name: Azure PowerShell
+      href: /powershell/module/az.storage
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/storage
     - name: .NET
       items:
-        - name: 'BLOB, code, tabelle e file'
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
-        - name: Spostamento dati
+        - name: 'BLOB, code e file'
+          href: /dotnet/api/overview/azure/storage/client
+        - name: Spostamento dei dati
           href: /dotnet/api/microsoft.azure.storage.datamovement
-        - name: Gestione risorse
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
+        - name: Provider delle risorse di archiviazione
+          href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
-        - name: 'BLOB, code, tabelle e file'
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client'
+        - name: 'BLOB, code e file (versione 12.x - anteprima)'
+          href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+        - name: Provider delle risorse di archiviazione
+          href: /java/api/overview/azure/storage/management
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
-    - name: Ruby
-      href: 'https://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'https://azure.github.io/azure-storage-php/'
+      href: /javascript/api/overview/azure/storage
     - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
-    - name: C++
-      href: 'https://azure.github.io/azure-storage-cpp'
-    - name: iOS
-      href: 'https://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'https://azure.github.io/azure-storage-android'
+      href: /python/api/overview/azure/storage
     - name: REST
       items:
         - name: 'BLOB, code, tabelle e file'
           href: /rest/api/storageservices
-        - name: Provider di risorse
+        - name: Provider delle risorse di archiviazione
           href: /rest/api/storagerp
         - name: Importazione/Esportazione
           href: /rest/api/storageimportexport
+    - name: C++
+      href: 'https://azure.github.io/azure-storage-cpp'
+    - name: Ruby
+      href: 'https://azure.github.io/azure-storage-ruby'
+    - name: PHP
+      href: 'https://azure.github.io/azure-storage-php/'
+    - name: iOS
+      href: 'https://azure.github.io/azure-storage-ios/'
+    - name: Android
+      href: 'https://azure.github.io/azure-storage-android'
+    - name: AzCopy v10
+      items:
+        - name: azcopy
+          href: ../common/storage-ref-azcopy.md
+        - name: azcopy copy
+          href: ../common/storage-ref-azcopy-copy.md
+        - name: azcopy doc
+          href: ../common/storage-ref-azcopy-doc.md
+        - name: azcopy env
+          href: ../common/storage-ref-azcopy-env.md
+        - name: azcopy jobs
+          href: ../common/storage-ref-azcopy-jobs.md
+        - name: azcopy jobs list
+          href: ../common/storage-ref-azcopy-jobs-list.md
+        - name: azcopy jobs resume
+          href: ../common/storage-ref-azcopy-jobs-resume.md
+        - name: azcopy jobs show
+          href: ../common/storage-ref-azcopy-jobs-show.md
+        - name: azcopy list
+          href: ../common/storage-ref-azcopy-list.md
+        - name: azcopy login
+          href: ../common/storage-ref-azcopy-login.md
+        - name: azcopy logout
+          href: ../common/storage-ref-azcopy-logout.md
+        - name: azcopy make
+          href: ../common/storage-ref-azcopy-make.md
+        - name: azcopy remove
+          href: ../common/storage-ref-azcopy-remove.md
+        - name: azcopy sync
+          href: ../common/storage-ref-azcopy-sync.md
     - name: Modello di Resource Manager
       displayName: arm
       href: /azure/templates/microsoft.storage/allversions
@@ -212,55 +244,75 @@
       href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=file'
 - name: Risorse
   items:
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=storage'
+    - name: Aggiornamenti di Azure
+      href: 'https://azure.microsoft.com/updates/?category=storage'
     - name: Note sulla versione di Sincronizzazione file di Azure
       href: storage-files-release-notes.md
-    - name: Strumenti client di Archiviazione di Azure
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Forum
+    - name: Esplora archivi Azure
+      items:
+        - name: Scaricare Storage Explorer
+          href: 'https://azure.microsoft.com/features/storage-explorer/'
+        - name: Introduzione a Storage Explorer
+          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Note sulla versione di Storage Explorer
+          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Risolvere i problemi di Storage Explorer
+          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Accessibilità di Storage Explorer
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Forum di Archiviazione di Azure
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
-    - name: Calcolatore prezzi
+    - name: Archiviazione di Azure in Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Prezzi di Archiviazione di Azure
+      href: 'https://azure.microsoft.com/pricing/details/storage/'
+    - name: Calcolatore prezzi di Azure
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Video
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
-    - name: Esplora archivi Azure
+    - name: Pacchetti NuGet (.NET)
       items:
-        - name: Storage Explorer
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Note sulla versione di Storage Explorer
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Risolvere i problemi di Storage Explorer
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Accessibilità di Storage Explorer
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Pacchetti NuGet
-      items:
-        - name: Libreria client comune di Archiviazione di Azure
+        - name: Microsoft.Azure.Storage.Common (versione 11.x)
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
-        - name: Libreria client di archiviazione File di Azure
+        - name: Azure.Storage.Common (versione 12.x - anteprima)
+          href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
+        - name: Microsoft.Azure.Storage.File (versione 11.x)
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.File/'
-        - name: Libreria di spostamento dei dati di Archiviazione di Azure
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Azure.Storage.File (versione 12.x - anteprima)
+          href: 'https://www.nuget.org/packages/Azure.Storage.Files/'
         - name: Gestione configurazione di Azure
           href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
+        - name: Libreria di spostamento dei dati di Archiviazione di Azure
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
     - name: Codice sorgente
       items:
         - name: .NET
           items:
-            - name: 'BLOB, code e file'
-              href: 'https://github.com/Azure/azure-storage-net'
-            - name: Spostamento dei dati
-              href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Provider delle risorse di archiviazione
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
+            - name: Libreria client di Archiviazione di Azure
+              items:
+                - name: Versione 12.x (anteprima)
+                  href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
+                - name: Versione 11. x e versioni precedenti
+                  href: 'https://github.com/Azure/azure-storage-net'
+            - name: Libreria di spostamento dati
+              href: 'https://github.com/Azure/azure-storage-net-data-movement'
+            - name: Libreria del provider di risorse di archiviazione
+              href: /dotnet/api/overview/azure/storage/management
         - name: Java
-          href: 'https://github.com/Azure/azure-storage-java'
-        - name: C++
-          href: 'https://github.com/Azure/azure-storage-cpp'
+          items:
+            - name: Libreria del client di Archiviazione di Azure versione 12.x (anteprima)
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
+            - name: Libreria del client di Archiviazione di Azure versione 8.x e versioni precedenti
+              href: 'https://github.com/Azure/azure-storage-java'
+        - name: Node.js
+          items:
+            - name: Libreria del client di Archiviazione di Azure versione 12.x (anteprima)
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
+            - name: Libreria del client di Archiviazione di Azure versione 10.x
+              href: 'https://github.com/Azure/azure-storage-node'
         - name: Python
-          href: 'https://github.com/Azure/azure-storage-python'
+          items:
+            - name: Libreria del client di Archiviazione di Azure versione 12.x (anteprima)
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
+            - name: Libreria del client di Archiviazione di Azure versione 2.1
+              href: 'https://github.com/Azure/azure-storage-python'

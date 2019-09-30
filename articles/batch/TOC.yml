@@ -80,6 +80,8 @@
         - name: Configurare l'accesso ai nodi di calcolo
           href: pool-endpoint-configuration.md
         - name: Creare un pool con Raccolta immagini condivise
+          href: batch-sig-images.md
+        - name: Creare un pool con una risorsa immagine gestita
           href: batch-custom-images.md
         - name: Creare un pool in una rete virtuale
           href: batch-virtual-network.md

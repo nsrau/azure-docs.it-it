@@ -44,9 +44,9 @@
           href: go-tutorial-object-detection.md
 - name: Esercitazioni
   items:
-    - name: App IoT Visual Alerts
+    - name: Segnalare gli stati visivi sul dispositivo IoT
       href: iot-visual-alerts-tutorial.md
-    - name: Rilevatore di logo per dispositivi mobili
+    - name: Riconoscere i logo nel dispositivo mobile
       href: logo-detector-mobile.md
 - name: Guide alle procedure
   items:

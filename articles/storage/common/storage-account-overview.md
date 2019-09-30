@@ -60,7 +60,7 @@ Mentre gli account per utilizzo generico v2 rappresentano la scelta consigliata 
 
 * Si usa una versione dell'[API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) precedente alla 2014-02-14 o una libreria client con una versione precedente alla 4.x e non è possibile aggiornare l'applicazione.
 
-### <a name="block-blob-storage-accounts"></a>Bloccare gli account di archiviazione BLOB
+### <a name="block-blob-storage-accounts"></a>Account di archiviazione BLOB in blocchi
 
 Un account di archiviazione BLOB in blocchi è un account di archiviazione specializzato per l'archiviazione di dati di oggetti non strutturati come BLOB in blocchi. Questo tipo di account di archiviazione supporta i BLOB in blocchi e i BLOB di Accodamento, ma non i BLOB di pagine, le tabelle o le code.
 
